@@ -65,13 +65,5 @@ class VolleyballCourtPainter extends CourtPainterBase {
     drawDashedLine(canvas, dashPaint, o(0, 9 - 3), o(9, 9 - 3));
     drawDashedLine(canvas, dashPaint, o(0, 9 + 3), o(9, 9 + 3));
 
-    // Service zones (right back area hint)
-    final zonePaint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.2)
-      ..style = PaintingStyle.fill;
-    // Right back zone top half
-    canvas.drawRect(Rect.fromLTWH(o(6, 0).dx, o(6, 0).dy, 3 * scX, 9 * scY), zonePaint);
-    // Right back zone bottom half
-    canvas.drawRect(Rect.fromLTWH(o(6, 9).dx, o(6, 9).dy, 3 * scX, 9 * scY), zonePaint);
   }
 }

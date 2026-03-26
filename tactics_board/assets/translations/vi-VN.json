@@ -50,5 +50,12 @@
   "formation_replace_message": "Tất cả cầu thủ hiện tại sẽ bị thay thế.",
   "formation_7v7": "7 đấu 7",
   "formation_11v11": "11 đấu 11",
-  "formation_apply": "Áp dụng"
+  "formation_apply": "Áp dụng",
+  "edit_player": "Chỉnh sửa cầu thủ",
+  "player_name": "Tên",
+  "player_color": "Màu sắc",
+  "save": "Lưu",
+  "save_board": "Lưu hình ảnh",
+  "save_success": "Đã lưu hình ảnh",
+  "save_error": "Lưu thất bại"
 }

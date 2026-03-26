@@ -11,6 +11,9 @@ class _BoardSnapshot {
   _BoardSnapshot({required this.players, required this.strokes});
 }
 
+/// Global key used to capture the board canvas as an image for sharing.
+final GlobalKey boardRepaintKey = GlobalKey();
+
 class TacticsState extends ChangeNotifier {
   SportType _sportType;
   List<PlayerIcon> _players = [];
@@ -39,6 +42,9 @@ class TacticsState extends ChangeNotifier {
   bool _isAnimating = false;
   Map<String, Offset> _animatedPositions = {};
   int _targetStep = 0; // 0 = all steps
+  int _animFromStep = 0;
+  int _animToStep = 0;
+  int _atStep = 0; // which step players are currently at
 
   TacticsState({SportType sportType = SportType.basketball})
       : _sportType = sportType;
@@ -63,6 +69,9 @@ class TacticsState extends ChangeNotifier {
   int get maxMoveSteps =>
       _players.fold(0, (m, p) => p.moves.length > m ? p.moves.length : m);
   int get targetStep => _targetStep;
+  int get animFromStep => _animFromStep;
+  int get animToStep => _animToStep;
+  int get atStep => _atStep;
 
   void setTargetStep(int step) {
     _targetStep = step;
@@ -72,14 +81,33 @@ class TacticsState extends ChangeNotifier {
   // Animation
   void startAnimation() {
     if (_isAnimating) return;
+    _animFromStep = 0;
+    _animToStep = 0;
+    _atStep = 0;
     _isAnimating = true;
-    _animatedPositions = {}; // reset to start before replaying
+    _animatedPositions = {};
+    notifyListeners();
+  }
+
+  void stepForward() {
+    if (_isAnimating) return;
+    if (_atStep >= maxMoveSteps) return;
+    _animFromStep = _atStep;
+    _animToStep = _atStep + 1;
+    _isAnimating = true;
+    notifyListeners();
+  }
+
+  // Called as each animation step completes (to reveal lines incrementally)
+  void advanceAtStep(int step) {
+    _atStep = step;
     notifyListeners();
   }
 
   // Called when animation finishes naturally — keep final positions
   void finishAnimation() {
     _isAnimating = false;
+    _atStep = _animToStep > 0 ? _animToStep : maxMoveSteps;
     notifyListeners();
   }
 
@@ -92,6 +120,7 @@ class TacticsState extends ChangeNotifier {
   // Clears the animated overlay (e.g. after user edits)
   void clearAnimatedPositions() {
     _animatedPositions = {};
+    _atStep = 0;
     notifyListeners();
   }
 
@@ -105,6 +134,9 @@ class TacticsState extends ChangeNotifier {
     _isAnimating = false;
     _animatedPositions = {};
     _targetStep = 0;
+    _atStep = 0;
+    _animFromStep = 0;
+    _animToStep = 0;
     _sportType = type;
     _players.clear();
     _strokes.clear();
@@ -170,10 +202,23 @@ class TacticsState extends ChangeNotifier {
 
   void movePlayerEnd(String id, Offset newPosition) {
     _saveSnapshot();
-    _animatedPositions = {}; // clear overlay when manually moving
+    _animatedPositions = {};
+    _atStep = 0; // clear overlay when manually moving
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _players[idx] = _players[idx].copyWith(position: newPosition);
+    notifyListeners();
+  }
+
+  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false}) {
+    final idx = _players.indexWhere((p) => p.id == id);
+    if (idx < 0) return;
+    _saveSnapshot();
+    _players[idx] = _players[idx].copyWith(
+      label: label,
+      customColor: customColor,
+      clearCustomColor: clearCustomColor,
+    );
     notifyListeners();
   }
 
@@ -313,6 +358,7 @@ class TacticsState extends ChangeNotifier {
     _selectedPlayerId = null;
     _isAnimating = false;
     _animatedPositions = {};
+    _atStep = 0;
     notifyListeners();
   }
 

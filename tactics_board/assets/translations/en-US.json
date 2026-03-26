@@ -50,5 +50,12 @@
   "formation_replace_message": "This will replace all current players on the board.",
   "formation_7v7": "7v7",
   "formation_11v11": "11v11",
-  "formation_apply": "Apply"
+  "formation_apply": "Apply",
+  "edit_player": "Edit Player",
+  "player_name": "Name",
+  "player_color": "Color",
+  "save": "Save",
+  "save_board": "Save Image",
+  "save_success": "Image saved",
+  "save_error": "Failed to save image"
 }

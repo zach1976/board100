@@ -50,5 +50,12 @@
   "formation_replace_message": "현재 보드의 모든 선수가 교체됩니다.",
   "formation_7v7": "7대7",
   "formation_11v11": "11대11",
-  "formation_apply": "적용"
+  "formation_apply": "적용",
+  "edit_player": "선수 편집",
+  "player_name": "이름",
+  "player_color": "색상",
+  "save": "저장",
+  "save_board": "이미지 저장",
+  "save_success": "이미지가 저장되었습니다",
+  "save_error": "저장 실패"
 }

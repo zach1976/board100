@@ -12,6 +12,8 @@ class LanguagePicker {
     (locale: Locale('es', 'ES'), name: 'Español',        flag: '🇪🇸'),
     (locale: Locale('vi', 'VN'), name: 'Tiếng Việt',    flag: '🇻🇳'),
     (locale: Locale('th', 'TH'), name: 'ภาษาไทย',        flag: '🇹🇭'),
+    (locale: Locale('id', 'ID'), name: 'Bahasa Indonesia', flag: '🇮🇩'),
+    (locale: Locale('ms', 'MY'), name: 'Bahasa Melayu',    flag: '🇲🇾'),
   ];
 
   static void show(BuildContext context) {
@@ -38,30 +40,38 @@ class LanguagePicker {
                 ),
               ),
             ),
-            ..._languages.map((lang) {
-              final selected = current == lang.locale;
-              return ListTile(
-                leading: Text(lang.flag, style: const TextStyle(fontSize: 26)),
-                title: Text(
-                  lang.name,
-                  style: TextStyle(
-                    color: selected ? Colors.blue : Colors.white,
-                    fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                    fontSize: 16,
-                  ),
+            Flexible(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ..._languages.map((lang) {
+                      final selected = current == lang.locale;
+                      return ListTile(
+                        leading: Text(lang.flag, style: const TextStyle(fontSize: 26)),
+                        title: Text(
+                          lang.name,
+                          style: TextStyle(
+                            color: selected ? Colors.blue : Colors.white,
+                            fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                            fontSize: 16,
+                          ),
+                        ),
+                        trailing: selected
+                            ? const Icon(Icons.check, color: Colors.blue, size: 20)
+                            : null,
+                        selectedTileColor: Colors.blue.withValues(alpha: 0.08),
+                        selected: selected,
+                        onTap: () {
+                          context.setLocale(lang.locale);
+                          Navigator.pop(ctx);
+                        },
+                      );
+                    }),
+                    const SizedBox(height: 8),
+                  ],
                 ),
-                trailing: selected
-                    ? const Icon(Icons.check, color: Colors.blue, size: 20)
-                    : null,
-                selectedTileColor: Colors.blue.withValues(alpha: 0.08),
-                selected: selected,
-                onTap: () {
-                  context.setLocale(lang.locale);
-                  Navigator.pop(ctx);
-                },
-              );
-            }),
-            const SizedBox(height: 8),
+              ),
+            ),
           ],
         ),
       ),

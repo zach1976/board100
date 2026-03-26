@@ -42,7 +42,7 @@ extension SportTypeExtension on SportType {
   /// True for sports whose court is naturally landscape (horizontal).
   /// These are shown as-is in the selection card preview.
   /// Portrait courts are rotated 90° in the preview to fill the card.
-  bool get isLandscapeCourt => this == SportType.basketball;
+  bool get isLandscapeCourt => false;
 
   List<SportFormation> get formations {
     switch (this) {

@@ -50,5 +50,12 @@
   "formation_replace_message": "Cela remplacera tous les joueurs actuels sur le tableau.",
   "formation_7v7": "7 contre 7",
   "formation_11v11": "11 contre 11",
-  "formation_apply": "Appliquer"
+  "formation_apply": "Appliquer",
+  "edit_player": "Modifier le joueur",
+  "player_name": "Nom",
+  "player_color": "Couleur",
+  "save": "Enregistrer",
+  "save_board": "Enregistrer l'image",
+  "save_success": "Image enregistrée",
+  "save_error": "Échec de l'enregistrement"
 }

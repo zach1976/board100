@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +66,9 @@ class TacticsCanvas extends StatelessWidget {
                       }
                     }
                   : null,
-              child: Stack(
+              child: RepaintBoundary(
+                key: boardRepaintKey,
+                child: Stack(
                 children: [
                   // Court background
                   CustomPaint(
@@ -83,6 +84,7 @@ class TacticsCanvas extends StatelessWidget {
                     painter: PlayerMovesPainter(
                       players: players,
                       targetStep: state.targetStep,
+                      completedSteps: state.isAnimating ? state.atStep : null,
                     ),
                     size: Size(constraints.maxWidth, constraints.maxHeight),
                   ),
@@ -94,7 +96,27 @@ class TacticsCanvas extends StatelessWidget {
                     ),
                     size: Size(constraints.maxWidth, constraints.maxHeight),
                   ),
-                  // Player icons
+                  // Waypoint dots (hidden during animation, limited to targetStep)
+                  if (!state.isDrawingMode && !state.isAnimating)
+                    ...players.expand((player) {
+                      final visibleMoves = state.targetStep > 0
+                          ? player.moves.take(state.targetStep).toList()
+                          : player.moves;
+                      return visibleMoves.asMap().entries.map((entry) {
+                        final isLast = entry.key == visibleMoves.length - 1;
+                        return _WaypointDot(
+                          key: ValueKey('wp_${player.id}_${entry.key}'),
+                          player: player,
+                          index: entry.key,
+                          position: entry.value,
+                          isLast: isLast,
+                          onLongPress: isLast
+                              ? () => _showEditDialog(context, state, player)
+                              : null,
+                        );
+                      });
+                    }),
+                  // Player icons (rendered above waypoints)
                   ...players.map((player) {
                     final animPos = state.animatedPositions[player.id];
                     return _PlayerOnBoard(
@@ -107,30 +129,19 @@ class TacticsCanvas extends StatelessWidget {
                         state.selectedPlayerId == player.id ? null : player.id,
                       ),
                       onLongPress: () =>
-                          _showDeleteDialog(context, state, player),
+                          _showEditDialog(context, state, player),
                     );
                   }),
-                  // Waypoint dots (hidden during animation, limited to targetStep)
-                  if (!state.isDrawingMode && !state.isAnimating)
-                    ...players.expand((player) {
-                      final visibleMoves = state.targetStep > 0
-                          ? player.moves.take(state.targetStep).toList()
-                          : player.moves;
-                      return visibleMoves.asMap().entries.map((entry) =>
-                          _WaypointDot(
-                            key: ValueKey('wp_${player.id}_${entry.key}'),
-                            player: player,
-                            index: entry.key,
-                            position: entry.value,
-                          ));
-                    }),
                   // Animation driver (zero-size, drives per-frame updates)
                   _AnimationDriver(
                     isAnimating: state.isAnimating,
                     players: players,
                     targetStep: state.targetStep,
+                    fromStep: state.animFromStep,
+                    toStep: state.animToStep,
                   ),
                 ],
+                ),
               ),
             );
           },
@@ -139,31 +150,11 @@ class TacticsCanvas extends StatelessWidget {
     );
   }
 
-  void _showDeleteDialog(
+  void _showEditDialog(
       BuildContext context, TacticsState state, PlayerIcon player) {
     showDialog(
       context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1E1E2E),
-        title: Text(
-          'remove_player_title'.tr(args: [player.label]),
-          style: const TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: Text('cancel'.tr()),
-          ),
-          TextButton(
-            onPressed: () {
-              state.removePlayer(player.id);
-              Navigator.pop(ctx);
-            },
-            child:
-                Text('remove'.tr(), style: const TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
+      builder: (ctx) => _PlayerEditDialog(state: state, player: player),
     );
   }
 }
@@ -175,11 +166,15 @@ class _AnimationDriver extends StatefulWidget {
   final bool isAnimating;
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all
+  final int fromStep;
+  final int toStep; // 0 = play all from fromStep
 
   const _AnimationDriver({
     required this.isAnimating,
     required this.players,
     required this.targetStep,
+    this.fromStep = 0,
+    this.toStep = 0,
   });
 
   @override
@@ -211,11 +206,15 @@ class _AnimationDriverState extends State<_AnimationDriver>
     if (widget.isAnimating && !old.isAnimating) {
       final maxSteps = widget.players.fold(
           0, (m, p) => p.moves.length > m ? p.moves.length : m);
-      _totalSteps = (widget.targetStep > 0 && widget.targetStep <= maxSteps)
-          ? widget.targetStep
-          : maxSteps;
-      _step = 0;
-      if (_totalSteps > 0) {
+      _step = widget.fromStep;
+      if (widget.toStep > 0) {
+        _totalSteps = widget.toStep;
+      } else {
+        _totalSteps = (widget.targetStep > 0 && widget.targetStep <= maxSteps)
+            ? widget.targetStep
+            : maxSteps;
+      }
+      if (_totalSteps > _step) {
         _ctrl.forward(from: 0);
       } else {
         WidgetsBinding.instance.addPostFrameCallback(
@@ -245,6 +244,8 @@ class _AnimationDriverState extends State<_AnimationDriver>
   void _onStatus(AnimationStatus status) {
     if (status != AnimationStatus.completed) return;
     _step++;
+    // Reveal line for completed segment
+    context.read<TacticsState>().advanceAtStep(_step);
     if (_step >= _totalSteps) {
       // Natural finish — keep final positions, just stop animating
       WidgetsBinding.instance.addPostFrameCallback(
@@ -336,18 +337,22 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Waypoint dot (draggable, long-press to delete)
+// Waypoint dot (draggable, long-press to delete; last waypoint shows player shape)
 // ─────────────────────────────────────────────────────────────────────────────
 class _WaypointDot extends StatefulWidget {
   final PlayerIcon player;
   final int index;
   final Offset position;
+  final bool isLast;
+  final VoidCallback? onLongPress;
 
   const _WaypointDot({
     super.key,
     required this.player,
     required this.index,
     required this.position,
+    this.isLast = false,
+    this.onLongPress,
   });
 
   @override
@@ -357,30 +362,76 @@ class _WaypointDot extends StatefulWidget {
 class _WaypointDotState extends State<_WaypointDot> {
   static const double _dotSize = 24.0;
 
+  void _onPanUpdate(DragUpdateDetails d) {
+    context.read<TacticsState>().movePlayerWaypoint(
+          widget.player.id,
+          widget.index,
+          widget.position + d.delta,
+        );
+  }
+
+  void _onPanEnd(DragEndDetails _) {
+    context.read<TacticsState>().movePlayerWaypointEnd(widget.player.id);
+  }
+
+  void _onDefaultLongPress() {
+    context.read<TacticsState>().removePlayerWaypoint(
+          widget.player.id,
+          widget.index,
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (widget.isLast) {
+      return Positioned(
+        left: widget.position.dx - kPlayerIconSize / 2,
+        top: widget.position.dy - kPlayerIconSize / 2,
+        child: GestureDetector(
+          onPanUpdate: _onPanUpdate,
+          onPanEnd: _onPanEnd,
+          onLongPress: widget.onLongPress,
+          child: SizedBox(
+            width: kPlayerIconSize,
+            height: kPlayerIconSize,
+            child: Stack(
+              children: [
+                CustomPaint(
+                  painter: TopDownPlayerPainter(
+                    color: widget.player.color,
+                    borderColor: widget.player.moveColor,
+                    borderWidth: 2.5,
+                  ),
+                  size: Size.infinite,
+                ),
+                if (widget.player.label.isNotEmpty)
+                  Align(
+                    alignment: const Alignment(0, 0.35),
+                    child: Text(
+                      widget.player.label,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                        height: 1,
+                        shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     return Positioned(
       left: widget.position.dx - _dotSize / 2,
       top: widget.position.dy - _dotSize / 2,
       child: GestureDetector(
-        onPanUpdate: (d) {
-          context.read<TacticsState>().movePlayerWaypoint(
-                widget.player.id,
-                widget.index,
-                widget.position + d.delta,
-              );
-        },
-        onPanEnd: (_) {
-          context
-              .read<TacticsState>()
-              .movePlayerWaypointEnd(widget.player.id);
-        },
-        onLongPress: () {
-          context.read<TacticsState>().removePlayerWaypoint(
-                widget.player.id,
-                widget.index,
-              );
-        },
+        onPanUpdate: _onPanUpdate,
+        onPanEnd: _onPanEnd,
+        onLongPress: _onDefaultLongPress,
         child: Container(
           width: _dotSize,
           height: _dotSize,
@@ -398,6 +449,139 @@ class _WaypointDotState extends State<_WaypointDot> {
           ),
         ),
       ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Player edit dialog — color swatches + name field + delete
+// ─────────────────────────────────────────────────────────────────────────────
+class _PlayerEditDialog extends StatefulWidget {
+  final TacticsState state;
+  final PlayerIcon player;
+
+  const _PlayerEditDialog({required this.state, required this.player});
+
+  @override
+  State<_PlayerEditDialog> createState() => _PlayerEditDialogState();
+}
+
+class _PlayerEditDialogState extends State<_PlayerEditDialog> {
+  late final TextEditingController _labelCtrl;
+  Color? _selectedColor; // null = use team default
+
+  static const _swatches = <Color?>[
+    null,
+    Color(0xFF1565C0),
+    Color(0xFFC62828),
+    Color(0xFF2E7D32),
+    Color(0xFFE65100),
+    Color(0xFF6A1B9A),
+    Color(0xFF00838F),
+    Color(0xFFAD1457),
+    Color(0xFFF9A825),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _labelCtrl = TextEditingController(text: widget.player.label);
+    _selectedColor = widget.player.customColor;
+  }
+
+  @override
+  void dispose() {
+    _labelCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: const Color(0xFF1E1E2E),
+      title: Text('edit_player'.tr(),
+          style: const TextStyle(color: Colors.white)),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: _labelCtrl,
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'player_name'.tr(),
+              labelStyle: const TextStyle(color: Colors.white60),
+              enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white30)),
+              focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white70)),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text('player_color'.tr(),
+              style:
+                  const TextStyle(color: Colors.white60, fontSize: 12)),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: _swatches.map((color) {
+              final isSelected = color == _selectedColor;
+              final displayColor = color ??
+                  PlayerIcon.teamColor(widget.player.team);
+              return GestureDetector(
+                onTap: () => setState(() => _selectedColor = color),
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: displayColor,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: isSelected
+                          ? Colors.yellow
+                          : Colors.white38,
+                      width: isSelected ? 2.5 : 1,
+                    ),
+                  ),
+                  child: isSelected
+                      ? const Icon(Icons.check,
+                          size: 16, color: Colors.white)
+                      : null,
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            widget.state.removePlayer(widget.player.id);
+            Navigator.pop(context);
+          },
+          child: Text('remove'.tr(),
+              style: const TextStyle(color: Colors.red)),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('cancel'.tr()),
+        ),
+        TextButton(
+          onPressed: () {
+            widget.state.updatePlayer(
+              widget.player.id,
+              label: _labelCtrl.text,
+              customColor: _selectedColor,
+              clearCustomColor: _selectedColor == null,
+            );
+            Navigator.pop(context);
+          },
+          child: Text('save'.tr(),
+              style:
+                  const TextStyle(color: Colors.lightBlueAccent)),
+        ),
+      ],
     );
   }
 }

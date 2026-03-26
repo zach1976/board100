@@ -4,9 +4,14 @@ import '../models/player_icon.dart';
 
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
-  final int targetStep; // 0 = all
+  final int targetStep; // 0 = all; used when not animating
+  final int? completedSteps; // non-null during animation: show only this many segments
 
-  const PlayerMovesPainter({required this.players, this.targetStep = 0});
+  const PlayerMovesPainter({
+    required this.players,
+    this.targetStep = 0,
+    this.completedSteps,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -21,9 +26,15 @@ class PlayerMovesPainter extends CustomPainter {
 
   void _paintMoves(Canvas canvas, PlayerIcon player) {
     final color = player.moveColor;
-    final allMoves = targetStep > 0
-        ? player.moves.take(targetStep).toList()
-        : player.moves;
+    final List<Offset> allMoves;
+    if (completedSteps != null) {
+      allMoves = player.moves.take(completedSteps!).toList();
+    } else {
+      allMoves = targetStep > 0
+          ? player.moves.take(targetStep).toList()
+          : player.moves;
+    }
+    if (allMoves.isEmpty) return;
     final points = [player.position, ...allMoves];
 
     for (int i = 0; i < points.length - 1; i++) {
@@ -128,5 +139,8 @@ class PlayerMovesPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant PlayerMovesPainter oldDelegate) => true;
+  bool shouldRepaint(covariant PlayerMovesPainter oldDelegate) =>
+      oldDelegate.completedSteps != completedSteps ||
+      oldDelegate.targetStep != targetStep ||
+      oldDelegate.players != players;
 }

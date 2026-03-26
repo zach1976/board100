@@ -50,5 +50,12 @@
   "formation_replace_message": "ผู้เล่นทั้งหมดในกระดานจะถูกแทนที่",
   "formation_7v7": "7 ต่อ 7",
   "formation_11v11": "11 ต่อ 11",
-  "formation_apply": "นำไปใช้"
+  "formation_apply": "นำไปใช้",
+  "edit_player": "แก้ไขผู้เล่น",
+  "player_name": "ชื่อ",
+  "player_color": "สี",
+  "save": "บันทึก",
+  "save_board": "บันทึกภาพ",
+  "save_success": "บันทึกภาพแล้ว",
+  "save_error": "บันทึกล้มเหลว"
 }

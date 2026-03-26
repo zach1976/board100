@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -49,51 +54,59 @@ class _ModeToggleRow extends StatelessWidget {
     final maxSteps = state.maxMoveSteps;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            Text('${'mode_label'.tr()}:', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500)),
-            const SizedBox(width: 12),
-            _ModeButton(
-              label: 'mode_move'.tr(),
-              icon: Icons.open_with,
-              selected: !state.isDrawingMode,
-              onTap: state.isAnimating ? null : () => state.setDrawingMode(false),
-            ),
-            const SizedBox(width: 8),
-            _ModeButton(
-              label: 'mode_draw'.tr(),
-              icon: Icons.edit,
-              selected: state.isDrawingMode,
-              onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
-            ),
-            // Step chips — only appear when moves exist
-            if (!state.isDrawingMode && maxSteps > 0) ...[
-              const SizedBox(width: 12),
-              const SizedBox(
-                height: 20,
-                child: VerticalDivider(color: Colors.white24, width: 1),
+      child: Row(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Text('${'mode_label'.tr()}:', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500)),
+                  const SizedBox(width: 12),
+                  _ModeButton(
+                    label: 'mode_move'.tr(),
+                    icon: Icons.open_with,
+                    selected: !state.isDrawingMode,
+                    onTap: state.isAnimating ? null : () => state.setDrawingMode(false),
+                  ),
+                  const SizedBox(width: 8),
+                  _ModeButton(
+                    label: 'mode_draw'.tr(),
+                    icon: Icons.edit,
+                    selected: state.isDrawingMode,
+                    onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
+                  ),
+                  // Step chips — only appear when moves exist
+                  if (!state.isDrawingMode && maxSteps > 0) ...[
+                    const SizedBox(width: 12),
+                    const SizedBox(
+                      height: 20,
+                      child: VerticalDivider(color: Colors.white24, width: 1),
+                    ),
+                    const SizedBox(width: 8),
+                    _StepChip(
+                      label: 'All',
+                      selected: state.targetStep == 0,
+                      onTap: () => state.setTargetStep(0),
+                    ),
+                    ...List.generate(maxSteps, (i) => Padding(
+                      padding: const EdgeInsets.only(left: 6),
+                      child: _StepChip(
+                        label: '${i + 1}',
+                        selected: state.targetStep == i + 1,
+                        onTap: () => state.setTargetStep(i + 1),
+                      ),
+                    )),
+                  ],
+                ],
               ),
-              const SizedBox(width: 8),
-              _StepChip(
-                label: 'All',
-                selected: state.targetStep == 0,
-                onTap: () => state.setTargetStep(0),
-              ),
-              ...List.generate(maxSteps, (i) => Padding(
-                padding: const EdgeInsets.only(left: 6),
-                child: _StepChip(
-                  label: '${i + 1}',
-                  selected: state.targetStep == i + 1,
-                  onTap: () => state.setTargetStep(i + 1),
-                ),
-              )),
-            ],
-            const SizedBox(width: 12),
-            _PlayButton(state: state),
-          ],
-        ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          _PlayButton(state: state),
+          const SizedBox(width: 6),
+          _StepButton(state: state),
+        ],
       ),
     );
   }
@@ -560,10 +573,40 @@ class _ActionRow extends StatelessWidget {
               onTap: () => _confirmClear(context, state),
               color: Colors.red,
             ),
+            const SizedBox(width: 16),
+            _ActionBtn(
+              icon: Icons.ios_share,
+              label: 'save_board'.tr(),
+              enabled: true,
+              onTap: () => _shareBoard(context),
+              color: Colors.tealAccent,
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _shareBoard(BuildContext context) async {
+    final boundary =
+        boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+    if (boundary == null) return;
+    try {
+      final image = await boundary.toImage(pixelRatio: 3.0);
+      final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (bytes == null) return;
+      final dir = await getTemporaryDirectory();
+      final file = File(
+          '${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
+      await file.writeAsBytes(bytes.buffer.asUint8List());
+      await Share.shareXFiles([XFile(file.path)]);
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('save_error'.tr())),
+        );
+      }
+    }
   }
 
   void _confirmClear(BuildContext context, TacticsState state) {
@@ -614,7 +657,7 @@ class _ActionBtn extends StatelessWidget {
     return GestureDetector(
       onTap: enabled ? onTap : null,
       child: Opacity(
-        opacity: enabled ? 1.0 : 0.3,
+        opacity: enabled ? 1.0 : 0.45,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
@@ -686,7 +729,7 @@ class _PlayButton extends StatelessWidget {
                 : Colors.green.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: isPlaying ? Colors.red : Colors.green,
+              color: isPlaying ? Colors.red : Colors.lightGreenAccent,
               width: 1.5,
             ),
           ),
@@ -694,17 +737,54 @@ class _PlayButton extends StatelessWidget {
             children: [
               Icon(
                 isPlaying ? Icons.stop : Icons.play_arrow,
-                color: isPlaying ? Colors.red : Colors.green,
+                color: isPlaying ? Colors.red : Colors.lightGreenAccent,
                 size: 18,
               ),
               const SizedBox(width: 4),
               Text(
                 isPlaying ? 'Stop' : 'Play',
                 style: TextStyle(
-                  color: isPlaying ? Colors.red : Colors.green,
+                  color: isPlaying ? Colors.red : Colors.lightGreenAccent,
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Step forward button
+// ─────────────────────────────────────────────────────────────────────────────
+class _StepButton extends StatelessWidget {
+  final TacticsState state;
+  const _StepButton({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final canStep = state.hasMoves && !state.isAnimating && state.atStep < state.maxMoveSteps;
+    return GestureDetector(
+      onTap: canStep ? state.stepForward : null,
+      child: Opacity(
+        opacity: canStep ? 1.0 : 0.35,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: Colors.blue.withValues(alpha: 0.2),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.blue, width: 1.5),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.skip_next, color: Colors.blue, size: 18),
+              const SizedBox(width: 4),
+              Text(
+                '${state.atStep}/${state.maxMoveSteps}',
+                style: const TextStyle(color: Colors.blue, fontSize: 13, fontWeight: FontWeight.w600),
               ),
             ],
           ),

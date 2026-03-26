@@ -50,5 +50,12 @@
   "formation_replace_message": "这将替换当前战术板上的所有球员。",
   "formation_7v7": "7对7",
   "formation_11v11": "11对11",
-  "formation_apply": "应用"
+  "formation_apply": "应用",
+  "edit_player": "编辑球员",
+  "player_name": "名称",
+  "player_color": "颜色",
+  "save": "保存",
+  "save_board": "保存图片",
+  "save_success": "图片已保存",
+  "save_error": "保存失败"
 }

@@ -16,8 +16,8 @@ class BasketballCourtPainter extends CourtPainterBase {
     final w = size.width;
     final h = size.height;
 
-    // NBA court 28m x 15m (landscape)
-    const courtRatio = 28.0 / 15.0;
+    // NBA court 15m x 28m (portrait)
+    const courtRatio = 15.0 / 28.0;
     double cw, ch;
     if (w / h > courtRatio) {
       ch = h * 0.88;
@@ -29,76 +29,84 @@ class BasketballCourtPainter extends CourtPainterBase {
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
 
-    final scX = cw / 28.0;
-    final scY = ch / 15.0;
-    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+    // Uniform scale: sc = cw/15 = ch/28
+    final sc = cw / 15.0;
+    Offset o(double x, double y) => Offset(left + x * sc, top + y * sc);
 
     // Outer boundary
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
 
-    // Center line
-    canvas.drawLine(o(14, 0), o(14, 15), p);
+    // Center line (horizontal at y=14)
+    canvas.drawLine(o(0, 14), o(15, 14), p);
 
     // Center circle r=1.8m
-    canvas.drawCircle(o(14, 7.5), 1.8 * scX, p);
+    canvas.drawCircle(o(7.5, 14), 1.8 * sc, p);
 
-    // Three-point arcs (simplified, NBA: 7.24m from basket)
-    // Left basket at x=1.575, right basket at x=26.425, both at y=7.5
-    _drawBasket(canvas, p, o, scX, scY, 1.575, 7.5, isLeft: true);
-    _drawBasket(canvas, p, o, scX, scY, 28 - 1.575, 7.5, isLeft: false);
+    // Top basket (opens downward), bottom basket (opens upward)
+    _drawBasket(canvas, p, o, sc, 7.5, 1.575, isTop: true);
+    _drawBasket(canvas, p, o, sc, 7.5, 28 - 1.575, isTop: false);
   }
 
   void _drawBasket(Canvas canvas, Paint p, Offset Function(double, double) o,
-      double scX, double scY, double bx, double by,
-      {required bool isLeft}) {
-    // Key (paint) box: 4.9m wide x 5.8m deep
-    final keyW = 4.9;
-    final keyD = 5.8;
-    if (isLeft) {
+      double sc, double bx, double by,
+      {required bool isTop}) {
+    const keyW = 4.9; // key width (horizontal)
+    const keyD = 5.8; // key depth (vertical)
+
+    if (isTop) {
+      // Key box
       canvas.drawRect(
         Rect.fromLTWH(
-          o(bx, by - keyW / 2).dx,
-          o(bx, by - keyW / 2).dy,
-          keyD * scX,
-          keyW * scY,
+          o(bx - keyW / 2, by).dx,
+          o(bx - keyW / 2, by).dy,
+          keyW * sc,
+          keyD * sc,
         ),
         p,
       );
-      // Free-throw circle
-      canvas.drawCircle(o(bx + keyD, by), 1.8 * scX, p);
-      // Three-point arc
-      // Straight parts (corner 3)
-      canvas.drawLine(o(bx, by - 6.6), o(bx + 6.32, by - 6.6), p);
-      canvas.drawLine(o(bx, by + 6.6), o(bx + 6.32, by + 6.6), p);
-      // Arc
-      final arcRect = Rect.fromCircle(
-        center: o(bx, by),
-        radius: 7.24 * scX,
+      // Free throw circle
+      canvas.drawCircle(o(bx, by + keyD), 1.8 * sc, p);
+      // Corner 3 lines (vertical)
+      canvas.drawLine(o(bx - 6.6, by), o(bx - 6.6, by + 6.32), p);
+      canvas.drawLine(o(bx + 6.6, by), o(bx + 6.6, by + 6.32), p);
+      // Three-point arc (opens downward, centered around π/2)
+      final arcRect = Rect.fromCircle(center: o(bx, by), radius: 7.24 * sc);
+      canvas.drawArc(arcRect, 0.40, 2.34, false, p);
+      // Basket rim
+      canvas.drawCircle(
+        o(bx, by + 1.575),
+        0.23 * sc,
+        Paint()
+          ..color = Colors.orange
+          ..style = PaintingStyle.fill,
       );
-      canvas.drawArc(arcRect, -1.17, 2.34, false, p);
-      // Basket
-      canvas.drawCircle(o(bx + 1.575, by), 0.23 * scX,
-          Paint()..color = Colors.orange..style = PaintingStyle.fill);
     } else {
+      // Key box
       canvas.drawRect(
         Rect.fromLTWH(
-          o(bx - keyD, by - keyW / 2).dx,
-          o(bx - keyD, by - keyW / 2).dy,
-          keyD * scX,
-          keyW * scY,
+          o(bx - keyW / 2, by - keyD).dx,
+          o(bx - keyW / 2, by - keyD).dy,
+          keyW * sc,
+          keyD * sc,
         ),
         p,
       );
-      canvas.drawCircle(o(bx - keyD, by), 1.8 * scX, p);
-      canvas.drawLine(o(bx, by - 6.6), o(bx - 6.32, by - 6.6), p);
-      canvas.drawLine(o(bx, by + 6.6), o(bx - 6.32, by + 6.6), p);
-      final arcRect = Rect.fromCircle(
-        center: o(bx, by),
-        radius: 7.24 * scX,
+      // Free throw circle
+      canvas.drawCircle(o(bx, by - keyD), 1.8 * sc, p);
+      // Corner 3 lines (vertical)
+      canvas.drawLine(o(bx - 6.6, by), o(bx - 6.6, by - 6.32), p);
+      canvas.drawLine(o(bx + 6.6, by), o(bx + 6.6, by - 6.32), p);
+      // Three-point arc (opens upward, centered around -π/2)
+      final arcRect = Rect.fromCircle(center: o(bx, by), radius: 7.24 * sc);
+      canvas.drawArc(arcRect, -2.74, 2.34, false, p);
+      // Basket rim
+      canvas.drawCircle(
+        o(bx, by - 1.575),
+        0.23 * sc,
+        Paint()
+          ..color = Colors.orange
+          ..style = PaintingStyle.fill,
       );
-      canvas.drawArc(arcRect, -1.97, 2.34, false, p);
-      canvas.drawCircle(o(bx - 1.575, by), 0.23 * scX,
-          Paint()..color = Colors.orange..style = PaintingStyle.fill);
     }
   }
 }

@@ -50,5 +50,12 @@
   "formation_replace_message": "這將替換當前戰術板上的所有球員。",
   "formation_7v7": "7對7",
   "formation_11v11": "11對11",
-  "formation_apply": "套用"
+  "formation_apply": "套用",
+  "edit_player": "編輯球員",
+  "player_name": "名稱",
+  "player_color": "顏色",
+  "save": "儲存",
+  "save_board": "儲存圖片",
+  "save_success": "圖片已儲存",
+  "save_error": "儲存失敗"
 }

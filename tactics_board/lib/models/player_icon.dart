@@ -25,6 +25,7 @@ class PlayerIcon {
   double scale;
   List<Offset> moves; // ordered waypoints after player position
   final Color moveColor; // distinct color for this player's move arrows
+  final Color? customColor; // overrides team color when set
 
   PlayerIcon({
     required this.id,
@@ -36,6 +37,7 @@ class PlayerIcon {
     this.scale = 1.0,
     List<Offset>? moves,
     Color? moveColor,
+    this.customColor,
   })  : moves = moves ?? [],
         moveColor = moveColor ?? _moveColors[0];
 
@@ -54,6 +56,8 @@ class PlayerIcon {
     double? scale,
     List<Offset>? moves,
     Color? moveColor,
+    Color? customColor,
+    bool clearCustomColor = false,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -65,6 +69,7 @@ class PlayerIcon {
       scale: scale ?? this.scale,
       moves: moves ?? List.of(this.moves),
       moveColor: moveColor ?? this.moveColor,
+      customColor: clearCustomColor ? null : (customColor ?? this.customColor),
     );
   }
 
@@ -79,5 +84,5 @@ class PlayerIcon {
     }
   }
 
-  Color get color => teamColor(team);
+  Color get color => customColor ?? teamColor(team);
 }
