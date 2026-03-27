@@ -21,7 +21,7 @@ board100/
 
 ```bash
 cd tactics_board
-flutter run -d DC18AEE8-4BB3-42D1-BF28-55F85628415A  # iPhone 16 Pro Max simulator
+flutter run -d 6BA0E025-6BD3-49D9-8849-50489216CF24  # iPhone 17 Pro Max simulator
 ```
 
 ## Running Tests

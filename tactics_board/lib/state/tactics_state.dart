@@ -50,6 +50,7 @@ class TacticsState extends ChangeNotifier {
       : _sportType = sportType;
 
   // Getters
+  Size get canvasSize => _canvasSize;
   SportType get sportType => _sportType;
   List<PlayerIcon> get players => List.unmodifiable(_players);
   List<DrawingStroke> get strokes => List.unmodifiable(_strokes);
@@ -268,7 +269,17 @@ class TacticsState extends ChangeNotifier {
   }
 
   void setCanvasSize(Size size) {
+    if (_canvasSize == size) return;
+    if (_canvasSize.width > 0 && _canvasSize.height > 0 && _players.isNotEmpty) {
+      final sx = size.width / _canvasSize.width;
+      final sy = size.height / _canvasSize.height;
+      for (final p in _players) {
+        p.position = Offset(p.position.dx * sx, p.position.dy * sy);
+        p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
+      }
+    }
     _canvasSize = size;
+    notifyListeners();
   }
 
   void applyFormation(SportFormation formation) {
@@ -299,15 +310,6 @@ class TacticsState extends ChangeNotifier {
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       awayNum++;
-    }
-    if (formation.addBall) {
-      _players.add(PlayerIcon(
-        id: '${DateTime.now().microsecondsSinceEpoch}_ball',
-        label: '',
-        team: PlayerTeam.neutral,
-        sportType: _sportType,
-        position: Offset(w * 0.5, h * 0.5),
-      ));
     }
     notifyListeners();
   }

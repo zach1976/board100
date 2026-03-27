@@ -27,15 +27,11 @@ class TacticsToolbar extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Mode toggle row (includes Play/Stop button)
-                _ModeToggleRow(state: state),
-                const Divider(color: Colors.white24, height: 1),
-                // Tool options (context-sensitive)
-                if (state.isDrawingMode) _DrawingOptions(state: state),
-                if (!state.isDrawingMode) _PlayerOptions(state: state),
-                const Divider(color: Colors.white24, height: 1),
-                // Action row
-                _ActionRow(state: state),
+                _MainRow(state: state),
+                if (state.isDrawingMode) ...[
+                  const Divider(color: Colors.white24, height: 1),
+                  _DrawingOptionsRow(state: state),
+                ],
               ],
             ),
           ),
@@ -45,105 +41,189 @@ class TacticsToolbar extends StatelessWidget {
   }
 }
 
-class _ModeToggleRow extends StatelessWidget {
+// ─────────────────────────────────────────────────────────────────────────────
+// Main Row — always visible, single row
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _MainRow extends StatelessWidget {
   final TacticsState state;
-  const _ModeToggleRow({required this.state});
+  const _MainRow({required this.state});
 
   @override
   Widget build(BuildContext context) {
-    final maxSteps = state.maxMoveSteps;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    final hasMoves = state.hasMoves;
+    final hasContent = state.players.isNotEmpty || state.strokes.isNotEmpty;
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: Row(
         children: [
-          Expanded(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Text('${'mode_label'.tr()}:', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500)),
-                  const SizedBox(width: 12),
-                  _ModeButton(
-                    label: 'mode_move'.tr(),
-                    icon: Icons.open_with,
-                    selected: !state.isDrawingMode,
-                    onTap: state.isAnimating ? null : () => state.setDrawingMode(false),
-                  ),
-                  const SizedBox(width: 8),
-                  _ModeButton(
-                    label: 'mode_draw'.tr(),
-                    icon: Icons.edit,
-                    selected: state.isDrawingMode,
-                    onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
-                  ),
-                  // Step chips — only appear when moves exist
-                  if (!state.isDrawingMode && maxSteps > 0) ...[
-                    const SizedBox(width: 12),
-                    const SizedBox(
-                      height: 20,
-                      child: VerticalDivider(color: Colors.white24, width: 1),
-                    ),
-                    const SizedBox(width: 8),
-                    _StepChip(
-                      label: 'All',
-                      selected: state.targetStep == 0,
-                      onTap: () => state.setTargetStep(0),
-                    ),
-                    ...List.generate(maxSteps, (i) => Padding(
-                      padding: const EdgeInsets.only(left: 6),
-                      child: _StepChip(
-                        label: '${i + 1}',
-                        selected: state.targetStep == i + 1,
-                        onTap: () => state.setTargetStep(i + 1),
-                      ),
-                    )),
-                  ],
-                ],
-              ),
+          // Mode segment
+          _ModeSegment(state: state),
+
+          // Add player button — move mode only
+          if (!state.isDrawingMode) ...[
+            const SizedBox(width: 10),
+            _AddPlayerBtn(state: state),
+          ],
+
+          const SizedBox(width: 12),
+
+          // Play + Step — only when moves exist in move mode
+          if (!state.isDrawingMode && hasMoves) ...[
+            _PlayButton(state: state),
+            const SizedBox(width: 6),
+            _StepButton(state: state),
+            const SizedBox(width: 8),
+            const SizedBox(height: 20, child: VerticalDivider(color: Colors.white24, width: 1)),
+            const SizedBox(width: 8),
+          ],
+
+          // Delete selected player
+          if (state.selectedPlayerId != null) ...[
+            _IconBtn(
+              icon: Icons.delete,
+              color: Colors.redAccent,
+              onTap: () => state.removePlayer(state.selectedPlayerId!),
             ),
+            const SizedBox(width: 8),
+          ],
+
+          // Action icons — only shown when applicable
+          if (state.canUndo) ...[
+            _IconBtn(icon: Icons.undo, onTap: state.undo),
+            const SizedBox(width: 8),
+          ],
+          if (state.canRedo) ...[
+            _IconBtn(icon: Icons.redo, onTap: state.redo),
+            const SizedBox(width: 8),
+          ],
+          if (state.strokes.isNotEmpty) ...[
+            _IconBtn(icon: Icons.brush_outlined, onTap: state.clearStrokes),
+            const SizedBox(width: 8),
+          ],
+          if (hasContent) ...[
+            _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
+            const SizedBox(width: 8),
+          ],
+
+          // Share — always visible
+          _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
+        ],
+      ),
+    );
+  }
+
+
+  Future<void> _shareBoard(BuildContext context) async {
+    final boundary =
+        boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+    if (boundary == null) return;
+    try {
+      final image = await boundary.toImage(pixelRatio: 3.0);
+      final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (bytes == null) return;
+      final dir = await getTemporaryDirectory();
+      final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
+      await file.writeAsBytes(bytes.buffer.asUint8List());
+      await Share.shareXFiles([XFile(file.path)]);
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('save_error'.tr())),
+        );
+      }
+    }
+  }
+
+  void _confirmClear(BuildContext context, TacticsState state) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1E1E2E),
+        title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
+        content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text('cancel'.tr()),
           ),
-          const SizedBox(width: 8),
-          _PlayButton(state: state),
-          const SizedBox(width: 6),
-          _StepButton(state: state),
+          TextButton(
+            onPressed: () {
+              state.clearAll();
+              Navigator.pop(ctx);
+            },
+            child: Text('clear'.tr(), style: const TextStyle(color: Colors.red)),
+          ),
         ],
       ),
     );
   }
 }
 
-class _ModeButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool selected;
-  final VoidCallback? onTap;
+// ─────────────────────────────────────────────────────────────────────────────
+// Mode Segment — compact pill with 移动 / 画线
+// ─────────────────────────────────────────────────────────────────────────────
 
-  const _ModeButton({
-    required this.label,
-    required this.icon,
-    required this.selected,
-    required this.onTap,
-  });
+class _ModeSegment extends StatelessWidget {
+  final TacticsState state;
+  const _ModeSegment({required this.state});
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: onTap == null ? 0.4 : 1.0,
-      child: GestureDetector(
-        onTap: onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-          decoration: BoxDecoration(
-            color: selected ? Colors.blue : Colors.white10,
-            borderRadius: BorderRadius.circular(20),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white10,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _SegTab(
+            icon: Icons.open_with,
+            label: 'mode_move'.tr(),
+            selected: !state.isDrawingMode,
+            onTap: state.isAnimating ? null : () => state.setDrawingMode(false),
           ),
+          _SegTab(
+            icon: Icons.edit,
+            label: 'mode_draw'.tr(),
+            selected: state.isDrawingMode,
+            onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SegTab extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool selected;
+  final VoidCallback? onTap;
+
+  const _SegTab({required this.icon, required this.label, required this.selected, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: selected ? Colors.blue : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Opacity(
+          opacity: onTap == null ? 0.4 : 1.0,
           child: Row(
             children: [
-              Icon(icon, color: Colors.white, size: 16),
+              Icon(icon, color: Colors.white, size: 15),
               const SizedBox(width: 4),
-              Text(label,
-                  style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500)),
+              Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
             ],
           ),
         ),
@@ -153,36 +233,307 @@ class _ModeButton extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Drawing Options
+// Add Player Button — opens bottom sheet
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _DrawingOptions extends StatelessWidget {
+class _AddPlayerBtn extends StatelessWidget {
   final TacticsState state;
-  const _DrawingOptions({required this.state});
+  const _AddPlayerBtn({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showSheet(context),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.white10,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white24),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.add, color: Colors.white, size: 15),
+            const SizedBox(width: 4),
+            Text('add_player_label'.tr(),
+                style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF1E1E2E),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => _AddPlayerSheet(state: state, sheetCtx: ctx),
+    );
+  }
+}
+
+class _AddPlayerSheet extends StatelessWidget {
+  final TacticsState state;
+  final BuildContext sheetCtx;
+  const _AddPlayerSheet({required this.state, required this.sheetCtx});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
+            child: Text(
+              'add_player_label'.tr(),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+            ),
+          ),
+          const Divider(color: Colors.white12),
+          // Formation
+          _SheetTile(
+            icon: Icons.groups,
+            iconColor: const Color(0xFFCE93D8),
+            bgColor: Colors.purple.withValues(alpha: 0.15),
+            label: 'formation_btn'.tr(),
+            subtitle: 'formation_title'.tr(),
+            onTap: () {
+              Navigator.pop(sheetCtx);
+              _showFormationPicker(context);
+            },
+          ),
+          // Home team
+          _SheetTile(
+            iconWidget: _PlayerDot(team: PlayerTeam.home, sportType: state.sportType, number: _nextNum(PlayerTeam.home)),
+            label: 'team_home'.tr(),
+            onTap: () {
+              final c = state.canvasSize;
+              state.addPlayer(PlayerIcon(
+                id: DateTime.now().microsecondsSinceEpoch.toString(),
+                label: '${_nextNum(PlayerTeam.home)}',
+                team: PlayerTeam.home,
+                position: Offset(c.width * 0.5, c.height * 0.5),
+              ));
+              Navigator.pop(sheetCtx);
+            },
+          ),
+          // Away team
+          _SheetTile(
+            iconWidget: _PlayerDot(team: PlayerTeam.away, sportType: state.sportType, number: _nextNum(PlayerTeam.away)),
+            label: 'team_away'.tr(),
+            onTap: () {
+              final c = state.canvasSize;
+              state.addPlayer(PlayerIcon(
+                id: DateTime.now().microsecondsSinceEpoch.toString(),
+                label: '${_nextNum(PlayerTeam.away)}',
+                team: PlayerTeam.away,
+                position: Offset(c.width * 0.5, c.height * 0.5),
+              ));
+              Navigator.pop(sheetCtx);
+            },
+          ),
+          // Ball
+          _SheetTile(
+            iconWidget: ClipOval(
+              child: SizedBox(
+                width: 32,
+                height: 32,
+                child: CustomPaint(painter: BallPainter.forSport(state.sportType)),
+              ),
+            ),
+            label: 'team_ball'.tr(),
+            onTap: () {
+              final c = state.canvasSize;
+              state.addPlayer(PlayerIcon(
+                id: DateTime.now().microsecondsSinceEpoch.toString(),
+                label: '',
+                team: PlayerTeam.neutral,
+                sportType: state.sportType,
+                position: Offset(c.width * 0.5, c.height * 0.5),
+              ));
+              Navigator.pop(sheetCtx);
+            },
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    );
+  }
+
+  int _nextNum(PlayerTeam team) => state.players.where((p) => p.team == team).length + 1;
+
+  void _showFormationPicker(BuildContext context) {
+    final formations = state.sportType.formations;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF1E1E2E),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+              child: Text('formation_title'.tr(),
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
+            ),
+            ...formations.map((f) => _FormationTile(
+                  formation: f,
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    _applyFormation(context, f);
+                  },
+                )),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _applyFormation(BuildContext context, SportFormation formation) {
+    if (state.players.isNotEmpty) {
+      showDialog(
+        context: context,
+        builder: (dCtx) => AlertDialog(
+          backgroundColor: const Color(0xFF1E1E2E),
+          title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
+          content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dCtx),
+              child: Text('cancel'.tr()),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(dCtx);
+                state.applyFormation(formation);
+              },
+              child: Text('formation_apply'.tr(), style: const TextStyle(color: Colors.purple)),
+            ),
+          ],
+        ),
+      );
+    } else {
+      state.applyFormation(formation);
+    }
+  }
+}
+
+class _SheetTile extends StatelessWidget {
+  final Widget? iconWidget;
+  final IconData? icon;
+  final Color? iconColor;
+  final Color? bgColor;
+  final String label;
+  final String? subtitle;
+  final VoidCallback onTap;
+
+  const _SheetTile({
+    this.iconWidget,
+    this.icon,
+    this.iconColor,
+    this.bgColor,
+    required this.label,
+    this.subtitle,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final leading = iconWidget ??
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: bgColor ?? Colors.white10,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(icon, color: iconColor ?? Colors.white, size: 22),
+        );
+
+    return ListTile(
+      leading: SizedBox(width: 40, height: 40, child: leading),
+      title: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15)),
+      subtitle: subtitle != null
+          ? Text(subtitle!, style: const TextStyle(color: Colors.white54, fontSize: 12))
+          : null,
+      trailing: const Icon(Icons.chevron_right, color: Colors.white24, size: 20),
+      onTap: onTap,
+    );
+  }
+}
+
+// Small circular player preview for the sheet
+class _PlayerDot extends StatelessWidget {
+  final PlayerTeam team;
+  final SportType sportType;
+  final int number;
+  const _PlayerDot({required this.team, required this.sportType, required this.number});
+
+  @override
+  Widget build(BuildContext context) {
+    final color = PlayerIcon.teamColor(team);
+    return SizedBox(
+      width: 36,
+      height: 36,
+      child: Stack(
+        children: [
+          CustomPaint(
+            painter: TopDownPlayerPainter(color: color, borderColor: Colors.white, borderWidth: 1.5),
+            size: const Size(36, 36),
+          ),
+          Align(
+            alignment: const Alignment(0, 0.3),
+            child: Text(
+              '$number',
+              style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold, height: 1),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Drawing Options Row — single compact row (draw mode only)
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _DrawingOptionsRow extends StatelessWidget {
+  final TacticsState state;
+  const _DrawingOptionsRow({required this.state});
 
   static const _colors = [
-    Color(0xFFFFD600), // yellow
+    Color(0xFFFFD600),
     Colors.white,
-    Color(0xFFE53935), // red
-    Color(0xFF43A047), // green
-    Color(0xFF1E88E5), // blue
-    Color(0xFFFF6F00), // orange
+    Color(0xFFE53935),
+    Color(0xFF43A047),
+    Color(0xFF1E88E5),
+    Color(0xFFFF6F00),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Line style + arrow
-          SingleChildScrollView(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Row 1: line style + arrow
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+          child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                Text('${"line_label".tr()}:', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-                const SizedBox(width: 8),
                 _ToggleChip(
                   label: 'line_solid'.tr(),
                   selected: state.strokeStyle == StrokeStyle.solid,
@@ -194,9 +545,9 @@ class _DrawingOptions extends StatelessWidget {
                   selected: state.strokeStyle == StrokeStyle.dashed,
                   onTap: () => state.setStrokeStyle(StrokeStyle.dashed),
                 ),
-                const SizedBox(width: 16),
-                Text('${"arrow_label".tr()}:', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-                const SizedBox(width: 8),
+                const SizedBox(width: 14),
+                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
+                const SizedBox(width: 14),
                 _ToggleChip(
                   label: 'arrow_none'.tr(),
                   selected: state.arrowStyle == ArrowStyle.none,
@@ -217,19 +568,19 @@ class _DrawingOptions extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 8),
-          // Color + width
-          Row(
+        ),
+        // Row 2: color dots + width slider
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+          child: Row(
             children: [
-              Text('${"color_label".tr()}:', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-              const SizedBox(width: 8),
               ..._colors.map((c) => _ColorDot(
                     color: c,
                     selected: state.strokeColor == c,
                     onTap: () => state.setStrokeColor(c),
                   )),
-              const SizedBox(width: 16),
-              Text('${"width_label".tr()}:', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+              const SizedBox(width: 8),
+              const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
               Expanded(
                 child: Slider(
                   value: state.strokeWidth,
@@ -243,17 +594,20 @@ class _DrawingOptions extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Shared small widgets
+// ─────────────────────────────────────────────────────────────────────────────
 
 class _ColorDot extends StatelessWidget {
   final Color color;
   final bool selected;
   final VoidCallback onTap;
-
   const _ColorDot({required this.color, required this.selected, required this.onTap});
 
   @override
@@ -277,134 +631,47 @@ class _ColorDot extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Player Options
-// ─────────────────────────────────────────────────────────────────────────────
-
-class _PlayerOptions extends StatelessWidget {
-  final TacticsState state;
-  const _PlayerOptions({required this.state});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            Text('${"add_player_label".tr()}:', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-            const SizedBox(width: 10),
-            _FormationButton(state: state),
-            const SizedBox(width: 8),
-            _AddPlayerButton(team: PlayerTeam.home, labelKey: 'team_home', state: state),
-            const SizedBox(width: 8),
-            _AddPlayerButton(team: PlayerTeam.away, labelKey: 'team_away', state: state),
-            const SizedBox(width: 8),
-            _AddPlayerButton(team: PlayerTeam.neutral, labelKey: 'team_ball', state: state, isCircle: true),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _FormationButton extends StatelessWidget {
-  final TacticsState state;
-  const _FormationButton({required this.state});
+class _ToggleChip extends StatelessWidget {
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  const _ToggleChip({required this.label, required this.selected, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _showFormationPicker(context),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.purple.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.purple.withValues(alpha: 0.7), width: 1.5),
+          color: selected ? Colors.blue : Colors.white10,
+          borderRadius: BorderRadius.circular(12),
         ),
-        child: Row(
-          children: [
-            const Icon(Icons.groups, color: Color(0xFFCE93D8), size: 17),
-            const SizedBox(width: 6),
-            Text('formation_btn'.tr(),
-                style: const TextStyle(color: Color(0xFFCE93D8), fontSize: 13, fontWeight: FontWeight.w600)),
-          ],
-        ),
+        child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
       ),
     );
-  }
-
-  void _showFormationPicker(BuildContext context) {
-    final formations = state.sportType.formations;
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF1E1E2E),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-              child: Text(
-                'formation_title'.tr(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
-              ),
-            ),
-            ...formations.map((f) => _FormationTile(
-                  formation: f,
-                  onTap: () {
-                    Navigator.pop(ctx);
-                    _applyFormation(context, f);
-                  },
-                )),
-            const SizedBox(height: 8),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _applyFormation(BuildContext context, SportFormation formation) {
-    if (state.players.isNotEmpty) {
-      showDialog(
-        context: context,
-        builder: (dCtx) => AlertDialog(
-          backgroundColor: const Color(0xFF1E1E2E),
-          title: Text('formation_replace_title'.tr(),
-              style: const TextStyle(color: Colors.white)),
-          content: Text('formation_replace_message'.tr(),
-              style: const TextStyle(color: Colors.white70)),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(dCtx),
-              child: Text('cancel'.tr()),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(dCtx);
-                state.applyFormation(formation);
-              },
-              child: Text('formation_apply'.tr(),
-                  style: const TextStyle(color: Colors.purple)),
-            ),
-          ],
-        ),
-      );
-    } else {
-      state.applyFormation(formation);
-    }
   }
 }
+
+class _IconBtn extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+  final Color? color;
+  const _IconBtn({required this.icon, required this.onTap, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Icon(icon, color: color ?? Colors.white70, size: 21),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Formation Tile
+// ─────────────────────────────────────────────────────────────────────────────
 
 class _FormationTile extends StatelessWidget {
   final SportFormation formation;
@@ -425,18 +692,11 @@ class _FormationTile extends StatelessWidget {
         child: Center(
           child: Text(
             '${formation.homeCount}v${formation.awayCount}',
-            style: const TextStyle(
-              color: Colors.purple,
-              fontWeight: FontWeight.bold,
-              fontSize: 13,
-            ),
+            style: const TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 13),
           ),
         ),
       ),
-      title: Text(
-        formation.nameKey.tr(),
-        style: const TextStyle(color: Colors.white, fontSize: 15),
-      ),
+      title: Text(formation.nameKey.tr(), style: const TextStyle(color: Colors.white, fontSize: 15)),
       subtitle: Text(
         '${'formation_home'.tr()} ${formation.homeCount}  ·  ${'formation_away'.tr()} ${formation.awayCount}',
         style: const TextStyle(color: Colors.white54, fontSize: 12),
@@ -446,300 +706,34 @@ class _FormationTile extends StatelessWidget {
   }
 }
 
-class _AddPlayerButton extends StatelessWidget {
-  final PlayerTeam team;
-  final String labelKey;
-  final TacticsState state;
-  final bool isCircle;
-
-  const _AddPlayerButton({
-    required this.team,
-    required this.labelKey,
-    required this.state,
-    this.isCircle = false,
-  });
-
-  int _nextNumber() {
-    final same = state.players.where((p) => p.team == team).length;
-    return same + 1;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final color = PlayerIcon.teamColor(team);
-    return GestureDetector(
-      onTap: () {
-        state.addPlayer(PlayerIcon(
-          id: DateTime.now().microsecondsSinceEpoch.toString(),
-          label: isCircle ? '' : '${_nextNumber()}',
-          team: team,
-          sportType: isCircle ? state.sportType : null,
-          position: const Offset(200, 300),
-        ));
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: color, width: 1.5),
-        ),
-        child: Row(
-          children: [
-            SizedBox(
-              width: 22,
-              height: 22,
-              child: isCircle
-                  ? ClipOval(
-                      child: CustomPaint(
-                        painter: BallPainter.forSport(state.sportType),
-                      ),
-                    )
-                  : Stack(
-                      children: [
-                        CustomPaint(
-                          painter: TopDownPlayerPainter(
-                            color: color,
-                            borderColor: Colors.white,
-                            borderWidth: 1,
-                          ),
-                          size: const Size(22, 22),
-                        ),
-                        Align(
-                          alignment: const Alignment(0, 0.35),
-                          child: Text(
-                            '${_nextNumber()}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 8,
-                              fontWeight: FontWeight.bold,
-                              height: 1,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-            ),
-            const SizedBox(width: 6),
-            Text(labelKey.tr(), style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
-// Action Row
+// Play / Stop button
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _ActionRow extends StatelessWidget {
-  final TacticsState state;
-  const _ActionRow({required this.state});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            _ActionBtn(
-              icon: Icons.undo,
-              label: 'undo'.tr(),
-              enabled: state.canUndo,
-              onTap: state.undo,
-            ),
-            const SizedBox(width: 8),
-            _ActionBtn(
-              icon: Icons.redo,
-              label: 'redo'.tr(),
-              enabled: state.canRedo,
-              onTap: state.redo,
-            ),
-            const SizedBox(width: 16),
-            _ActionBtn(
-              icon: Icons.brush_outlined,
-              label: 'clear_lines'.tr(),
-              enabled: state.strokes.isNotEmpty,
-              onTap: state.clearStrokes,
-            ),
-            const SizedBox(width: 8),
-            _ActionBtn(
-              icon: Icons.delete_sweep,
-              label: 'clear_all'.tr(),
-              enabled: state.players.isNotEmpty || state.strokes.isNotEmpty,
-              onTap: () => _confirmClear(context, state),
-              color: Colors.red,
-            ),
-            const SizedBox(width: 16),
-            _ActionBtn(
-              icon: Icons.ios_share,
-              label: 'save_board'.tr(),
-              enabled: true,
-              onTap: () => _shareBoard(context),
-              color: Colors.tealAccent,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Future<void> _shareBoard(BuildContext context) async {
-    final boundary =
-        boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
-    if (boundary == null) return;
-    try {
-      final image = await boundary.toImage(pixelRatio: 3.0);
-      final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-      if (bytes == null) return;
-      final dir = await getTemporaryDirectory();
-      final file = File(
-          '${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
-      await file.writeAsBytes(bytes.buffer.asUint8List());
-      await Share.shareXFiles([XFile(file.path)]);
-    } catch (_) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('save_error'.tr())),
-        );
-      }
-    }
-  }
-
-  void _confirmClear(BuildContext context, TacticsState state) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1E1E2E),
-        title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text(
-          'clear_board_message'.tr(),
-          style: const TextStyle(color: Colors.white70),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx),
-              child: Text('cancel'.tr())),
-          TextButton(
-            onPressed: () {
-              state.clearAll();
-              Navigator.pop(ctx);
-            },
-            child: Text('clear'.tr(), style: const TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ActionBtn extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool enabled;
-  final VoidCallback onTap;
-  final Color? color;
-
-  const _ActionBtn({
-    required this.icon,
-    required this.label,
-    required this.enabled,
-    required this.onTap,
-    this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final c = color ?? Colors.white;
-    return GestureDetector(
-      onTap: enabled ? onTap : null,
-      child: Opacity(
-        opacity: enabled ? 1.0 : 0.45,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          decoration: BoxDecoration(
-            color: c.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: c.withValues(alpha: 0.6)),
-          ),
-          child: Row(
-            children: [
-              Icon(icon, color: c, size: 17),
-              const SizedBox(width: 5),
-              Text(label, style: TextStyle(color: c, fontSize: 13, fontWeight: FontWeight.w500)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ToggleChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _ToggleChip({required this.label, required this.selected, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-        decoration: BoxDecoration(
-          color: selected ? Colors.blue : Colors.white10,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
-      ),
-    );
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Play / Stop animation button
-// ─────────────────────────────────────────────────────────────────────────────
 class _PlayButton extends StatelessWidget {
   final TacticsState state;
   const _PlayButton({required this.state});
 
   @override
   Widget build(BuildContext context) {
-    final canPlay = state.hasMoves && !state.isAnimating;
     final isPlaying = state.isAnimating;
+    final canPlay = state.hasMoves && !isPlaying;
 
     return GestureDetector(
-      onTap: isPlaying
-          ? state.stopAnimation
-          : canPlay
-              ? state.startAnimation
-              : null,
+      onTap: isPlaying ? state.stopAnimation : canPlay ? state.startAnimation : null,
       child: Opacity(
         opacity: (!isPlaying && !canPlay) ? 0.35 : 1.0,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: isPlaying
-                ? Colors.red.withValues(alpha: 0.2)
-                : Colors.green.withValues(alpha: 0.2),
+            color: isPlaying ? Colors.red.withValues(alpha: 0.2) : Colors.green.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: isPlaying ? Colors.red : Colors.lightGreenAccent,
-              width: 1.5,
-            ),
+            border: Border.all(color: isPlaying ? Colors.red : Colors.lightGreenAccent, width: 1.5),
           ),
           child: Row(
             children: [
-              Icon(
-                isPlaying ? Icons.stop : Icons.play_arrow,
-                color: isPlaying ? Colors.red : Colors.lightGreenAccent,
-                size: 18,
-              ),
+              Icon(isPlaying ? Icons.stop : Icons.play_arrow,
+                  color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 18),
               const SizedBox(width: 4),
               Text(
                 isPlaying ? 'Stop' : 'Play',
@@ -760,6 +754,7 @@ class _PlayButton extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Step forward button
 // ─────────────────────────────────────────────────────────────────────────────
+
 class _StepButton extends StatelessWidget {
   final TacticsState state;
   const _StepButton({required this.state});
@@ -787,44 +782,6 @@ class _StepButton extends StatelessWidget {
                 style: const TextStyle(color: Colors.blue, fontSize: 13, fontWeight: FontWeight.w600),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _StepChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _StepChip({
-    required this.label,
-    required this.selected,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        decoration: BoxDecoration(
-          color: selected ? Colors.amber : Colors.white10,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: selected ? Colors.amber : Colors.white24,
-            width: 1,
-          ),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: selected ? Colors.black : Colors.white,
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
           ),
         ),
       ),
