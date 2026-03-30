@@ -24,6 +24,7 @@ class TacticsToolbar extends StatelessWidget {
         return Container(
           color: const Color(0xFF1E1E2E),
           child: SafeArea(
+            minimum: const EdgeInsets.only(bottom: 4),
             child: _MainRow(state: state),
           ),
         );
@@ -45,62 +46,42 @@ class _MainRow extends StatelessWidget {
     final hasMoves = state.hasMoves;
     final hasContent = state.players.isNotEmpty || state.strokes.isNotEmpty;
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      child: Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          // Mode segment
-          _ModeSegment(state: state),
-
-          // Add player button — move mode only
-          if (!state.isDrawingMode) ...[
-            const SizedBox(width: 10),
-            _AddPlayerBtn(state: state),
-          ],
-
-          const SizedBox(width: 12),
-
-          // Play + Step — only when moves exist in move mode
-          if (!state.isDrawingMode && hasMoves) ...[
-            _PlayButton(state: state),
-            const SizedBox(width: 6),
-            _StepButton(state: state),
-            const SizedBox(width: 8),
-            const SizedBox(height: 20, child: VerticalDivider(color: Colors.white24, width: 1)),
-            const SizedBox(width: 8),
-          ],
-
-          // Delete selected player
-          if (state.selectedPlayerId != null) ...[
-            _IconBtn(
-              icon: Icons.delete,
-              color: Colors.redAccent,
-              onTap: () => state.removePlayer(state.selectedPlayerId!),
-            ),
-            const SizedBox(width: 8),
-          ],
-
-          // Action icons — only shown when applicable
-          if (state.canUndo) ...[
-            _IconBtn(icon: Icons.undo, onTap: state.undo),
-            const SizedBox(width: 8),
-          ],
-          if (state.canRedo) ...[
-            _IconBtn(icon: Icons.redo, onTap: state.redo),
-            const SizedBox(width: 8),
-          ],
-          if (state.strokes.isNotEmpty) ...[
-            _IconBtn(icon: Icons.brush_outlined, onTap: state.clearStrokes),
-            const SizedBox(width: 8),
-          ],
-          if (hasContent) ...[
-            _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
-            const SizedBox(width: 8),
-          ],
-
-          // Share — always visible
-          _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
+          // Single row: Mode + Add + Actions
+          Row(
+            children: [
+              _ModeSegment(state: state),
+              const SizedBox(width: 10),
+              _AddPlayerBtn(state: state),
+              const SizedBox(width: 10),
+              if (state.selectedPlayerId != null) ...[
+                _IconBtn(icon: Icons.delete, color: Colors.redAccent, onTap: () => state.removePlayer(state.selectedPlayerId!)),
+                const SizedBox(width: 10),
+              ],
+              if (state.canUndo) ...[
+                _IconBtn(icon: Icons.undo, onTap: state.undo),
+                const SizedBox(width: 10),
+              ],
+              if (state.canRedo) ...[
+                _IconBtn(icon: Icons.redo, onTap: state.redo),
+                const SizedBox(width: 10),
+              ],
+              if (state.strokes.isNotEmpty) ...[
+                _IconBtn(icon: Icons.brush_outlined, onTap: state.clearStrokes),
+                const SizedBox(width: 10),
+              ],
+              const Spacer(),
+              if (hasContent) ...[
+                _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
+                const SizedBox(width: 10),
+              ],
+              _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
+            ],
+          ),
         ],
       ),
     );
@@ -108,18 +89,26 @@ class _MainRow extends StatelessWidget {
 
 
   Future<void> _shareBoard(BuildContext context) async {
+    // Reset zoom so capture gets full unzoomed canvas
+    state.resetZoom();
+    await Future.delayed(const Duration(milliseconds: 100));
+
     final boundary =
         boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
-    if (boundary == null) return;
+    if (boundary == null) {
+      debugPrint('Share: RepaintBoundary not found');
+      return;
+    }
     try {
-      final image = await boundary.toImage(pixelRatio: 3.0);
+      final image = await boundary.toImage(pixelRatio: 2.0);
       final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
       if (bytes == null) return;
       final dir = await getTemporaryDirectory();
       final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
       await file.writeAsBytes(bytes.buffer.asUint8List());
       await Share.shareXFiles([XFile(file.path)]);
-    } catch (_) {
+    } catch (e) {
+      debugPrint('Share error: $e');
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('save_error'.tr())),
@@ -357,13 +346,36 @@ class _PlayerAddRow extends StatelessWidget {
   void _add(PlayerGender gender, {Offset offset = Offset.zero}) {
     final c = state.canvasSize;
     final n = _nextNum;
+    final baseY = team == PlayerTeam.home ? c.height * 0.75 : c.height * 0.25;
+    var pos = Offset(c.width * 0.5 + offset.dx, baseY + offset.dy);
+    pos = _avoidOverlap(pos, c);
     state.addPlayer(PlayerIcon(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
       label: '$n',
       team: team,
       gender: gender,
-      position: Offset(c.width * 0.5 + offset.dx, c.height * 0.5 + offset.dy),
+      position: pos,
     ));
+  }
+
+  Offset _avoidOverlap(Offset pos, Size canvasSize) {
+    const minDist = 48.0;
+    var result = pos;
+    for (int attempt = 0; attempt < 20; attempt++) {
+      final overlap = state.players.any((p) => (p.position - result).distance < minDist);
+      if (!overlap) return result;
+      // Nudge right, then down, spiral out
+      result = Offset(
+        result.dx + 32 * ((attempt % 4 < 2) ? 1 : -1),
+        result.dy + (attempt ~/ 2) * 20.0 * ((attempt % 2 == 0) ? 1 : -1),
+      );
+      // Clamp within canvas
+      result = Offset(
+        result.dx.clamp(24.0, canvasSize.width - 24.0),
+        result.dy.clamp(24.0, canvasSize.height - 24.0),
+      );
+    }
+    return result;
   }
 
   void _addPair(PlayerGender g1, PlayerGender g2) {
@@ -922,38 +934,122 @@ class _PlayButton extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Step forward button
+// Step controls — back, indicator, forward
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _StepButton extends StatelessWidget {
+class _ResetButton extends StatelessWidget {
   final TacticsState state;
-  const _StepButton({required this.state});
+  const _ResetButton({required this.state});
 
   @override
   Widget build(BuildContext context) {
-    final canStep = state.hasMoves && !state.isAnimating && state.atStep < state.maxMoveSteps;
+    final canReset = !state.isAnimating && state.atStep > 0;
+    return GestureDetector(
+      onTap: canReset ? state.clearAnimatedPositions : null,
+      child: Opacity(
+        opacity: canReset ? 1.0 : 0.3,
+        child: Container(
+          padding: const EdgeInsets.all(5),
+          decoration: BoxDecoration(
+            color: Colors.orange.withValues(alpha: 0.15),
+            shape: BoxShape.circle,
+          ),
+          child: const Icon(Icons.replay, color: Colors.orange, size: 18),
+        ),
+      ),
+    );
+  }
+}
+
+class _StepBackButton extends StatelessWidget {
+  final TacticsState state;
+  const _StepBackButton({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final canStep = !state.isAnimating && state.atStep > 0;
+    return GestureDetector(
+      onTap: canStep ? state.stepBackward : null,
+      child: Opacity(
+        opacity: canStep ? 1.0 : 0.3,
+        child: Container(
+          padding: const EdgeInsets.all(5),
+          decoration: BoxDecoration(
+            color: Colors.blue.withValues(alpha: 0.15),
+            shape: BoxShape.circle,
+          ),
+          child: const Icon(Icons.skip_previous, color: Colors.blue, size: 18),
+        ),
+      ),
+    );
+  }
+}
+
+class _StepIndicator extends StatelessWidget {
+  final TacticsState state;
+  const _StepIndicator({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      '${state.atStep}/${state.maxMoveSteps}',
+      style: const TextStyle(color: Colors.blue, fontSize: 13, fontWeight: FontWeight.w600),
+    );
+  }
+}
+
+class _StepForwardButton extends StatelessWidget {
+  final TacticsState state;
+  const _StepForwardButton({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final canStep = !state.isAnimating && state.atStep < state.maxMoveSteps;
     return GestureDetector(
       onTap: canStep ? state.stepForward : null,
       child: Opacity(
-        opacity: canStep ? 1.0 : 0.35,
+        opacity: canStep ? 1.0 : 0.3,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.blue, width: 1.5),
+            color: Colors.blue.withValues(alpha: 0.15),
+            shape: BoxShape.circle,
           ),
-          child: Row(
-            children: [
-              const Icon(Icons.skip_next, color: Colors.blue, size: 18),
-              const SizedBox(width: 4),
-              Text(
-                '${state.atStep}/${state.maxMoveSteps}',
-                style: const TextStyle(color: Colors.blue, fontSize: 13, fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
+          child: const Icon(Icons.skip_next, color: Colors.blue, size: 18),
         ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Play controls bar — floating overlay on canvas
+// ─────────────────────────────────────────────────────────────────────────────
+class PlayControlsBar extends StatelessWidget {
+  final TacticsState state;
+  const PlayControlsBar({super.key, required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      decoration: BoxDecoration(
+        color: const Color(0xDD1E1E2E),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _ResetButton(state: state),
+          const SizedBox(width: 8),
+          _StepBackButton(state: state),
+          const SizedBox(width: 10),
+          _StepIndicator(state: state),
+          const SizedBox(width: 10),
+          _StepForwardButton(state: state),
+          const SizedBox(width: 12),
+          _PlayButton(state: state),
+        ],
       ),
     );
   }

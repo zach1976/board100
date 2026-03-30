@@ -13,7 +13,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return Scaffold(
-          backgroundColor: Colors.black,
+          backgroundColor: const Color(0xFF1E1E2E),
           body: SafeArea(
             top: false,
             bottom: false,
@@ -23,23 +23,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                   child: Stack(
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(8, 12, 8, 4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.5),
-                              blurRadius: 20,
-                              spreadRadius: 5,
-                            ),
-                          ],
-                        ),
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(),
                         child: const TacticsCanvas(),
                       ),
                       Positioned(
-                        top: 16,
-                        left: 16,
+                        top: MediaQuery.of(context).padding.top + 8,
+                        left: 12,
                         child: GestureDetector(
                           onTap: () => Navigator.of(context).pushReplacement(
                             MaterialPageRoute(builder: (_) => const SportSelectionPage()),
@@ -65,6 +56,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                             color: const Color(0xDD1E1E2E),
                             child: DrawingOptionsBar(state: state),
                           ),
+                        ),
+                      // Play controls overlay — only when moves exist
+                      if (!state.isDrawingMode && state.hasMoves)
+                        Positioned(
+                          bottom: -18,
+                          left: 0,
+                          right: 0,
+                          child: Center(child: PlayControlsBar(state: state)),
                         ),
                       Positioned(
                         bottom: 12,

@@ -16,6 +16,7 @@ class TopDownPlayerPainter extends CustomPainter {
   final double borderWidth;
   final bool isSelected;
   final PlayerGender gender;
+  final bool isGhost;
 
   const TopDownPlayerPainter({
     required this.color,
@@ -23,6 +24,7 @@ class TopDownPlayerPainter extends CustomPainter {
     required this.borderWidth,
     this.isSelected = false,
     this.gender = PlayerGender.unspecified,
+    this.isGhost = false,
   });
 
   @override
@@ -37,6 +39,11 @@ class TopDownPlayerPainter extends CustomPainter {
       width: w * 0.55,
       height: h * 0.45,
     );
+
+    if (isGhost) {
+      _paintGhost(canvas, w, h, headCenter, headRadius, bodyRect);
+      return;
+    }
 
     // Selection glow
     if (isSelected) {
@@ -84,13 +91,68 @@ class TopDownPlayerPainter extends CustomPainter {
     canvas.drawCircle(headCenter, headRadius, borderPaint);
   }
 
+  /// Ghost mode — dashed outline, no fill, reduced opacity
+  void _paintGhost(Canvas canvas, double w, double h, Offset headCenter, double headRadius, Rect bodyRect) {
+    final dashPaint = Paint()
+      ..color = color.withValues(alpha: 0.45)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+
+    if (gender == PlayerGender.female) {
+      final skirtTop = headCenter.dy + headRadius * 0.6;
+      final skirtBottom = h * 0.92;
+      final skirtPath = Path()
+        ..moveTo(w * 0.5 - w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
+        ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
+        ..close();
+      _drawDashedPath(canvas, skirtPath, dashPaint);
+    } else {
+      _drawDashedOval(canvas, bodyRect, dashPaint);
+    }
+    _drawDashedCircle(canvas, headCenter, headRadius, dashPaint);
+  }
+
+  void _drawDashedCircle(Canvas canvas, Offset center, double radius, Paint paint) {
+    const dashLen = 4.0;
+    const gapLen = 3.0;
+    final circumference = 2 * pi * radius;
+    final steps = (circumference / (dashLen + gapLen)).floor();
+    for (int i = 0; i < steps; i++) {
+      final startAngle = (i * (dashLen + gapLen)) / radius;
+      final sweepAngle = dashLen / radius;
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false, paint);
+    }
+  }
+
+  void _drawDashedOval(Canvas canvas, Rect rect, Paint paint) {
+    final path = Path()..addOval(rect);
+    _drawDashedPath(canvas, path, paint);
+  }
+
+  void _drawDashedPath(Canvas canvas, Path path, Paint paint) {
+    const dashLen = 4.0;
+    const gapLen = 3.0;
+    for (final metric in path.computeMetrics()) {
+      double distance = 0;
+      while (distance < metric.length) {
+        final end = (distance + dashLen).clamp(0.0, metric.length);
+        final segment = metric.extractPath(distance, end);
+        canvas.drawPath(segment, paint);
+        distance += dashLen + gapLen;
+      }
+    }
+  }
+
   @override
   bool shouldRepaint(TopDownPlayerPainter old) =>
       old.color != color ||
       old.borderColor != borderColor ||
       old.borderWidth != borderWidth ||
       old.isSelected != isSelected ||
-      old.gender != gender;
+      old.gender != gender ||
+      old.isGhost != isGhost;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

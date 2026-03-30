@@ -55,8 +55,8 @@ extension SportTypeExtension on SportType {
           ),
           SportFormation(
             nameKey: 'formation_doubles',
-            homePositions: [Offset(0.35, 0.68), Offset(0.65, 0.82)],
-            awayPositions: [Offset(0.65, 0.32), Offset(0.35, 0.18)],
+            homePositions: [Offset(0.35, 0.82), Offset(0.65, 0.70)],
+            awayPositions: [Offset(0.65, 0.18), Offset(0.35, 0.30)],
           ),
         ];
 

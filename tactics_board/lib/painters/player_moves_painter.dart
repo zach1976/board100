@@ -21,7 +21,7 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  static const _strokeWidth = 3.5;
+  static const _strokeWidth = 2.5;
   static const _arrowSize = 14.0;
 
   void _paintMoves(Canvas canvas, PlayerIcon player) {
@@ -37,11 +37,21 @@ class PlayerMovesPainter extends CustomPainter {
     if (allMoves.isEmpty) return;
     final points = [player.position, ...allMoves];
 
+    const inset = 24.0; // shorten both ends to avoid overlap with icons
     for (int i = 0; i < points.length - 1; i++) {
       final from = points[i];
       final to = points[i + 1];
-      _drawDashedLine(canvas, color, from, to);
-      _drawArrowHead(canvas, color, from, to);
+      final dir = to - from;
+      final dist = dir.distance;
+      if (dist < inset * 2.5) {
+        _drawArrowHead(canvas, color, from, to);
+        continue;
+      }
+      final unit = dir / dist;
+      final shortenedFrom = from + unit * inset;
+      final shortenedTo = to - unit * inset;
+      _drawDashedLine(canvas, color, shortenedFrom, shortenedTo);
+      _drawArrowHead(canvas, color, shortenedFrom, shortenedTo);
     }
 
     // Draw start marker at player's origin
@@ -128,12 +138,12 @@ class PlayerMovesPainter extends CustomPainter {
     return Path()
       ..moveTo(tip.dx, tip.dy)
       ..lineTo(
-        tip.dx - size * cos(angle - pi / 6),
-        tip.dy - size * sin(angle - pi / 6),
+        tip.dx - size * cos(angle - pi / 4.5),
+        tip.dy - size * sin(angle - pi / 4.5),
       )
       ..lineTo(
-        tip.dx - size * cos(angle + pi / 6),
-        tip.dy - size * sin(angle + pi / 6),
+        tip.dx - size * cos(angle + pi / 4.5),
+        tip.dy - size * sin(angle + pi / 4.5),
       )
       ..close();
   }

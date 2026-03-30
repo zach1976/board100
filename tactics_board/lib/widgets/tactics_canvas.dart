@@ -90,11 +90,11 @@ class TacticsCanvas extends StatelessWidget {
                       height: constraints.maxHeight,
                     ),
                   ),
-                  // Player move arrows (below players, limited to targetStep)
+                  // Player move arrows (below players, limited to atStep)
                   CustomPaint(
                     painter: PlayerMovesPainter(
                       players: players,
-                      targetStep: state.targetStep,
+                      targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
                       completedSteps: state.isAnimating ? state.atStep : null,
                     ),
                     size: Size(constraints.maxWidth, constraints.maxHeight),
@@ -107,11 +107,12 @@ class TacticsCanvas extends StatelessWidget {
                     ),
                     size: Size(constraints.maxWidth, constraints.maxHeight),
                   ),
-                  // Waypoint dots (hidden during animation, limited to targetStep)
+                  // Waypoint dots (hidden during animation, limited to atStep/targetStep)
                   if (!state.isDrawingMode && !state.isAnimating)
                     ...players.expand((player) {
-                      final visibleMoves = state.targetStep > 0
-                          ? player.moves.take(state.targetStep).toList()
+                      final limit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
+                      final visibleMoves = limit > 0
+                          ? player.moves.take(limit).toList()
                           : player.moves;
                       return visibleMoves.asMap().entries.map((entry) {
                         final isLast = entry.key == visibleMoves.length - 1;
@@ -126,6 +127,29 @@ class TacticsCanvas extends StatelessWidget {
                               : null,
                         );
                       });
+                    }),
+                  // Ghost icons at initial positions for players with moves
+                  if (!state.isDrawingMode)
+                    ...players.where((p) => p.moves.isNotEmpty).map((player) {
+                      final size = kPlayerIconSize * player.scale;
+                      return Positioned(
+                        key: ValueKey('ghost_${player.id}'),
+                        left: player.position.dx - size / 2,
+                        top: player.position.dy - size / 2,
+                        child: SizedBox(
+                          width: size,
+                          height: size,
+                          child: CustomPaint(
+                            painter: TopDownPlayerPainter(
+                              color: player.color,
+                              borderColor: Colors.white,
+                              borderWidth: 1.5,
+                              gender: player.gender,
+                              isGhost: true,
+                            ),
+                          ),
+                        ),
+                      );
                     }),
                   // Player icons (rendered above waypoints)
                   ...players.map((player) {
@@ -200,6 +224,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
   late final CurvedAnimation _curved;
   int _step = 0;
   int _totalSteps = 0;
+  bool _isBackward = false;
 
   @override
   void initState() {
@@ -220,35 +245,54 @@ class _AnimationDriverState extends State<_AnimationDriver>
       final maxSteps = widget.players.fold(
           0, (m, p) => p.moves.length > m ? p.moves.length : m);
       _step = widget.fromStep;
-      if (widget.toStep > 0) {
+      _isBackward = widget.toStep < widget.fromStep;
+      if (_isBackward) {
         _totalSteps = widget.toStep;
+        _ctrl.forward(from: 0);
+      } else if (widget.toStep > 0) {
+        _totalSteps = widget.toStep;
+        if (_totalSteps > _step) {
+          _ctrl.forward(from: 0);
+        } else {
+          WidgetsBinding.instance.addPostFrameCallback(
+              (_) => context.read<TacticsState>().finishAnimation());
+        }
       } else {
         _totalSteps = (widget.targetStep > 0 && widget.targetStep <= maxSteps)
             ? widget.targetStep
             : maxSteps;
-      }
-      if (_totalSteps > _step) {
-        _ctrl.forward(from: 0);
-      } else {
-        WidgetsBinding.instance.addPostFrameCallback(
-            (_) => context.read<TacticsState>().finishAnimation());
+        if (_totalSteps > _step) {
+          _ctrl.forward(from: 0);
+        } else {
+          WidgetsBinding.instance.addPostFrameCallback(
+              (_) => context.read<TacticsState>().finishAnimation());
+        }
       }
     } else if (!widget.isAnimating && old.isAnimating) {
       _ctrl.stop();
       _step = 0;
+      _isBackward = false;
     }
   }
 
   void _onTick() {
     if (!widget.isAnimating) return;
+    final t = _curved.value;
     final positions = <String, Offset>{};
     for (final player in widget.players) {
       final all = [player.position, ...player.moves];
-      if (_step >= all.length - 1) {
-        positions[player.id] = all.last;
+      if (_isBackward) {
+        // Animate from _step back to _step - 1
+        final from = _step.clamp(0, all.length - 1);
+        final to = (_step - 1).clamp(0, all.length - 1);
+        positions[player.id] = Offset.lerp(all[from], all[to], t)!;
       } else {
-        positions[player.id] =
-            Offset.lerp(all[_step], all[_step + 1], _curved.value)!;
+        if (_step >= all.length - 1) {
+          positions[player.id] = all.last;
+        } else {
+          positions[player.id] =
+              Offset.lerp(all[_step], all[_step + 1], t)!;
+        }
       }
     }
     context.read<TacticsState>().updateAnimatedPositions(positions);
@@ -256,15 +300,24 @@ class _AnimationDriverState extends State<_AnimationDriver>
 
   void _onStatus(AnimationStatus status) {
     if (status != AnimationStatus.completed) return;
-    _step++;
-    // Reveal line for completed segment
-    context.read<TacticsState>().advanceAtStep(_step);
-    if (_step >= _totalSteps) {
-      // Natural finish — keep final positions, just stop animating
-      WidgetsBinding.instance.addPostFrameCallback(
-          (_) => context.read<TacticsState>().finishAnimation());
+    if (_isBackward) {
+      _step--;
+      context.read<TacticsState>().advanceAtStep(_step);
+      if (_step <= _totalSteps) {
+        WidgetsBinding.instance.addPostFrameCallback(
+            (_) => context.read<TacticsState>().finishAnimation());
+      } else {
+        _ctrl.forward(from: 0);
+      }
     } else {
-      _ctrl.forward(from: 0);
+      _step++;
+      context.read<TacticsState>().advanceAtStep(_step);
+      if (_step >= _totalSteps) {
+        WidgetsBinding.instance.addPostFrameCallback(
+            (_) => context.read<TacticsState>().finishAnimation());
+      } else {
+        _ctrl.forward(from: 0);
+      }
     }
   }
 

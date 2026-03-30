@@ -8,8 +8,57 @@ import 'package:image/image.dart' as img;
 
 void main() {
   _gen('assets/icon/app_icon.png', 1024);
-  _gen('assets/icon/splash_logo.png', 1024);
+  _genSplash('assets/icon/splash_logo.png', 480);
   print('Done: assets/icon/app_icon.png  assets/icon/splash_logo.png');
+}
+
+/// Splash logo — just the court icon on transparent background, no navy border
+void _genSplash(String path, int size) {
+  final s = size.toDouble();
+  final canvas = img.Image(width: size, height: size);
+
+  // Transparent background
+  img.fill(canvas, color: img.ColorRgba8(0, 0, 0, 0));
+
+  // Rounded court area fills the whole image
+  final cx1 = (s * 0.06).round();
+  final cy1 = (s * 0.02).round();
+  final cx2 = (s * 0.94).round();
+  final cy2 = (s * 0.98).round();
+
+  img.fillRect(canvas, x1: cx1, y1: cy1, x2: cx2, y2: cy2, color: _court);
+  _rect(canvas, cx1, cy1, cx2, cy2, _white, max(2, (s * 0.006).round()));
+
+  // Net
+  final netY = ((cy1 + cy2) / 2).round();
+  _hline(canvas, cx1, cx2, netY, _net, (s * 0.012).round());
+  final postW = (s * 0.014).round();
+  final postH = (s * 0.042).round();
+  img.fillRect(canvas, x1: cx1 - postW ~/ 2, y1: netY - postH ~/ 2, x2: cx1 + postW ~/ 2, y2: netY + postH ~/ 2, color: _net);
+  img.fillRect(canvas, x1: cx2 - postW ~/ 2, y1: netY - postH ~/ 2, x2: cx2 + postW ~/ 2, y2: netY + postH ~/ 2, color: _net);
+
+  // Service lines
+  final thirdH = ((cy2 - cy1) / 3).round();
+  final lineThk = max(2, (s * 0.004).round());
+  final inset = (s * 0.06).round();
+  _hline(canvas, cx1 + inset, cx2 - inset, cy1 + thirdH, _white, lineThk);
+  _hline(canvas, cx1 + inset, cx2 - inset, cy2 - thirdH, _white, lineThk);
+  final midX = ((cx1 + cx2) / 2).round();
+  _vline(canvas, midX, cy1 + thirdH, cy2 - thirdH, _white, lineThk);
+
+  // 4 players — top-down circles
+  final r = (s * 0.06).round();
+  final bx1 = cx1 + (s * 0.22).round(), by1 = cy1 + (s * 0.18).round();
+  final bx2 = cx2 - (s * 0.22).round(), by2 = cy1 + (s * 0.18).round();
+  final rx1 = cx1 + (s * 0.22).round(), ry1 = cy2 - (s * 0.18).round();
+  final rx2 = cx2 - (s * 0.22).round(), ry2 = cy2 - (s * 0.18).round();
+
+  _dot(canvas, bx1, by1, r, _blue);
+  _dot(canvas, bx2, by2, r, _blue);
+  _dot(canvas, rx1, ry1, r, _red);
+  _dot(canvas, rx2, ry2, r, _red);
+
+  File(path).writeAsBytesSync(img.encodePng(canvas));
 }
 
 // ─── palette ─────────────────────────────────────────────────────────────────

@@ -110,6 +110,15 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void stepBackward() {
+    if (_isAnimating) return;
+    if (_atStep <= 0) return;
+    _animFromStep = _atStep;
+    _animToStep = _atStep - 1;
+    _isAnimating = true;
+    notifyListeners();
+  }
+
   // Called as each animation step completes (to reveal lines incrementally)
   void advanceAtStep(int step) {
     _atStep = step;
@@ -119,7 +128,7 @@ class TacticsState extends ChangeNotifier {
   // Called when animation finishes naturally — keep final positions
   void finishAnimation() {
     _isAnimating = false;
-    _atStep = _animToStep > 0 ? _animToStep : maxMoveSteps;
+    _atStep = _animToStep >= 0 ? _animToStep : maxMoveSteps;
     notifyListeners();
   }
 
