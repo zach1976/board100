@@ -3,6 +3,8 @@ import 'sport_type.dart';
 
 enum PlayerTeam { home, away, neutral }
 
+enum PlayerGender { male, female, unspecified }
+
 // Distinct colors for move arrows/waypoints per player
 const _moveColors = [
   Color(0xFF40C4FF), // light blue
@@ -26,6 +28,7 @@ class PlayerIcon {
   List<Offset> moves; // ordered waypoints after player position
   final Color moveColor; // distinct color for this player's move arrows
   final Color? customColor; // overrides team color when set
+  final PlayerGender gender;
 
   PlayerIcon({
     required this.id,
@@ -38,6 +41,7 @@ class PlayerIcon {
     List<Offset>? moves,
     Color? moveColor,
     this.customColor,
+    this.gender = PlayerGender.unspecified,
   })  : moves = moves ?? [],
         moveColor = moveColor ?? _moveColors[0];
 
@@ -58,6 +62,7 @@ class PlayerIcon {
     Color? moveColor,
     Color? customColor,
     bool clearCustomColor = false,
+    PlayerGender? gender,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -70,6 +75,7 @@ class PlayerIcon {
       moves: moves ?? List.of(this.moves),
       moveColor: moveColor ?? this.moveColor,
       customColor: clearCustomColor ? null : (customColor ?? this.customColor),
+      gender: gender ?? this.gender,
     );
   }
 

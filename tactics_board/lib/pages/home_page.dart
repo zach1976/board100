@@ -55,10 +55,45 @@ class TacticsBoardHomePage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Drawing options overlay — bottom of canvas, no impact on canvas height
+                      if (state.isDrawingMode)
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            color: const Color(0xDD1E1E2E),
+                            child: DrawingOptionsBar(state: state),
+                          ),
+                        ),
+                      Positioned(
+                        bottom: 12,
+                        right: 12,
+                        child: GestureDetector(
+                          onTap: state.toggleToolbar,
+                          child: Container(
+                            width: 32,
+                            height: 32,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withValues(alpha: 0.45),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              state.toolbarVisible ? Icons.fullscreen : Icons.fullscreen_exit,
+                              color: Colors.white70,
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                const TacticsToolbar(),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                  child: state.toolbarVisible ? const TacticsToolbar() : const SizedBox.shrink(),
+                ),
               ],
             ),
           ),

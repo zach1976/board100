@@ -24,16 +24,7 @@ class TacticsToolbar extends StatelessWidget {
         return Container(
           color: const Color(0xFF1E1E2E),
           child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _MainRow(state: state),
-                if (state.isDrawingMode) ...[
-                  const Divider(color: Colors.white24, height: 1),
-                  _DrawingOptionsRow(state: state),
-                ],
-              ],
-            ),
+            child: _MainRow(state: state),
           ),
         );
       },
@@ -295,49 +286,16 @@ class _AddPlayerSheet extends StatelessWidget {
               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
             ),
           ),
+          // Inline formation cards
+          _QuickFormationRow(state: state, sheetCtx: sheetCtx),
           const Divider(color: Colors.white12),
-          // Formation
-          _SheetTile(
-            icon: Icons.groups,
-            iconColor: const Color(0xFFCE93D8),
-            bgColor: Colors.purple.withValues(alpha: 0.15),
-            label: 'formation_btn'.tr(),
-            subtitle: 'formation_title'.tr(),
-            onTap: () {
-              Navigator.pop(sheetCtx);
-              _showFormationPicker(context);
-            },
-          ),
-          // Home team
-          _SheetTile(
-            iconWidget: _PlayerDot(team: PlayerTeam.home, sportType: state.sportType, number: _nextNum(PlayerTeam.home)),
-            label: 'team_home'.tr(),
-            onTap: () {
-              final c = state.canvasSize;
-              state.addPlayer(PlayerIcon(
-                id: DateTime.now().microsecondsSinceEpoch.toString(),
-                label: '${_nextNum(PlayerTeam.home)}',
-                team: PlayerTeam.home,
-                position: Offset(c.width * 0.5, c.height * 0.5),
-              ));
-              Navigator.pop(sheetCtx);
-            },
-          ),
-          // Away team
-          _SheetTile(
-            iconWidget: _PlayerDot(team: PlayerTeam.away, sportType: state.sportType, number: _nextNum(PlayerTeam.away)),
-            label: 'team_away'.tr(),
-            onTap: () {
-              final c = state.canvasSize;
-              state.addPlayer(PlayerIcon(
-                id: DateTime.now().microsecondsSinceEpoch.toString(),
-                label: '${_nextNum(PlayerTeam.away)}',
-                team: PlayerTeam.away,
-                position: Offset(c.width * 0.5, c.height * 0.5),
-              ));
-              Navigator.pop(sheetCtx);
-            },
-          ),
+          // Home team — gender & doubles
+          _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF1565C0)),
+          _PlayerAddRow(state: state, team: PlayerTeam.home, sheetCtx: sheetCtx),
+          const SizedBox(height: 4),
+          // Away team — gender & doubles
+          _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFC62828)),
+          _PlayerAddRow(state: state, team: PlayerTeam.away, sheetCtx: sheetCtx),
           // Ball
           _SheetTile(
             iconWidget: ClipOval(
@@ -365,42 +323,209 @@ class _AddPlayerSheet extends StatelessWidget {
       ),
     );
   }
+}
 
-  int _nextNum(PlayerTeam team) => state.players.where((p) => p.team == team).length + 1;
+// ─────────────────────────────────────────────────────────────────────────────
+// Section header for add-player sheet
+// ─────────────────────────────────────────────────────────────────────────────
+class _SectionHeader extends StatelessWidget {
+  final String label;
+  final Color color;
+  const _SectionHeader({required this.label, required this.color});
 
-  void _showFormationPicker(BuildContext context) {
-    final formations = state.sportType.formations;
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF1E1E2E),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+      child: Text(label,
+          style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 13)),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Row of add buttons: 男, 女, 男双, 女双, 混双
+// ─────────────────────────────────────────────────────────────────────────────
+class _PlayerAddRow extends StatelessWidget {
+  final TacticsState state;
+  final PlayerTeam team;
+  final BuildContext sheetCtx;
+  const _PlayerAddRow({required this.state, required this.team, required this.sheetCtx});
+
+  int get _nextNum => state.players.where((p) => p.team == team).length + 1;
+
+  void _add(PlayerGender gender, {Offset offset = Offset.zero}) {
+    final c = state.canvasSize;
+    final n = _nextNum;
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '$n',
+      team: team,
+      gender: gender,
+      position: Offset(c.width * 0.5 + offset.dx, c.height * 0.5 + offset.dy),
+    ));
+  }
+
+  void _addPair(PlayerGender g1, PlayerGender g2) {
+    _add(g1, offset: const Offset(-28, 0));
+    _add(g2, offset: const Offset(28, 0));
+    Navigator.pop(sheetCtx);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final color = PlayerIcon.teamColor(team);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-              child: Text('formation_title'.tr(),
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
+            _PlayerCard(
+              label: '男单',
+              color: color,
+              genders: const [PlayerGender.male],
+              onTap: () { _add(PlayerGender.male); Navigator.pop(sheetCtx); },
             ),
-            ...formations.map((f) => _FormationTile(
-                  formation: f,
-                  onTap: () {
-                    Navigator.pop(ctx);
-                    _applyFormation(context, f);
-                  },
-                )),
-            const SizedBox(height: 8),
+            const SizedBox(width: 8),
+            _PlayerCard(
+              label: '女单',
+              color: color,
+              genders: const [PlayerGender.female],
+              onTap: () { _add(PlayerGender.female); Navigator.pop(sheetCtx); },
+            ),
+            const SizedBox(width: 8),
+            _PlayerCard(
+              label: '男双',
+              color: color,
+              genders: const [PlayerGender.male, PlayerGender.male],
+              onTap: () => _addPair(PlayerGender.male, PlayerGender.male),
+            ),
+            const SizedBox(width: 8),
+            _PlayerCard(
+              label: '女双',
+              color: color,
+              genders: const [PlayerGender.female, PlayerGender.female],
+              onTap: () => _addPair(PlayerGender.female, PlayerGender.female),
+            ),
+            const SizedBox(width: 8),
+            _PlayerCard(
+              label: '混双',
+              color: color,
+              genders: const [PlayerGender.male, PlayerGender.female],
+              onTap: () => _addPair(PlayerGender.male, PlayerGender.female),
+            ),
           ],
         ),
       ),
     );
   }
+}
 
-  void _applyFormation(BuildContext context, SportFormation formation) {
+class _PlayerCard extends StatelessWidget {
+  final String label;
+  final Color color;
+  final List<PlayerGender> genders;
+  final VoidCallback onTap;
+  const _PlayerCard({required this.label, required this.color, required this.genders, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final double iconSize = genders.length > 1 ? 24.0 : 38.0;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 70,
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: color.withValues(alpha: 0.5), width: 1.5),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: genders.map((g) => SizedBox(
+                width: iconSize,
+                height: iconSize,
+                child: CustomPaint(
+                  painter: TopDownPlayerPainter(
+                    color: color,
+                    borderColor: Colors.white,
+                    borderWidth: 1.5,
+                    gender: g,
+                  ),
+                ),
+              )).toList(),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              label,
+              style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Quick formation row — shown directly in add sheet
+// ─────────────────────────────────────────────────────────────────────────────
+class _QuickFormationRow extends StatelessWidget {
+  final TacticsState state;
+  final BuildContext sheetCtx;
+  const _QuickFormationRow({required this.state, required this.sheetCtx});
+
+  @override
+  Widget build(BuildContext context) {
+    final formations = state.sportType.formations;
+    final hasDoubles = formations.any((f) => f.nameKey == 'formation_doubles');
+    final homeColor = PlayerIcon.teamColor(PlayerTeam.home);
+    final awayColor = PlayerIcon.teamColor(PlayerTeam.away);
+
+    final cards = <Widget>[];
+    for (final f in formations) {
+      final homeDots = List.generate(f.homeCount, (_) => (homeColor, PlayerGender.unspecified));
+      final awayDots = List.generate(f.awayCount, (_) => (awayColor, PlayerGender.unspecified));
+      cards.add(_FormationCard(
+        label: f.nameKey.tr(),
+        homeDots: homeDots,
+        awayDots: awayDots,
+        onTap: () => _apply(context, f),
+      ));
+      cards.add(const SizedBox(width: 8));
+    }
+    if (hasDoubles) {
+      final doubles = formations.firstWhere((f) => f.nameKey == 'formation_doubles');
+      cards.add(_FormationCard(
+        label: '混双',
+        homeDots: [(homeColor, PlayerGender.male), (homeColor, PlayerGender.female)],
+        awayDots: [(awayColor, PlayerGender.male), (awayColor, PlayerGender.female)],
+        onTap: () => _apply(context, doubles,
+          homeGenders: [PlayerGender.male, PlayerGender.female],
+          awayGenders: [PlayerGender.male, PlayerGender.female]),
+      ));
+    }
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: cards),
+      ),
+    );
+  }
+
+  void _apply(BuildContext context, SportFormation formation,
+      {List<PlayerGender>? homeGenders, List<PlayerGender>? awayGenders}) {
+    void doApply() {
+      state.applyFormation(formation, homeGenders: homeGenders, awayGenders: awayGenders);
+      Navigator.pop(sheetCtx);
+    }
     if (state.players.isNotEmpty) {
       showDialog(
         context: context,
@@ -409,24 +534,69 @@ class _AddPlayerSheet extends StatelessWidget {
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
+            TextButton(onPressed: () => Navigator.pop(dCtx), child: Text('cancel'.tr())),
             TextButton(
-              onPressed: () => Navigator.pop(dCtx),
-              child: Text('cancel'.tr()),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(dCtx);
-                state.applyFormation(formation);
-              },
+              onPressed: () { Navigator.pop(dCtx); doApply(); },
               child: Text('formation_apply'.tr(), style: const TextStyle(color: Colors.purple)),
             ),
           ],
         ),
       );
     } else {
-      state.applyFormation(formation);
+      doApply();
     }
   }
+}
+
+class _FormationCard extends StatelessWidget {
+  final String label;
+  final List<(Color, PlayerGender)> homeDots;
+  final List<(Color, PlayerGender)> awayDots;
+  final VoidCallback onTap;
+  const _FormationCard({required this.label, required this.homeDots, required this.awayDots, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.07),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.white24),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ..._dots(homeDots),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Text('vs', style: TextStyle(color: Colors.white38, fontSize: 10)),
+                ),
+                ..._dots(awayDots),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _dots(List<(Color, PlayerGender)> dots) => dots.map((d) => Padding(
+    padding: const EdgeInsets.only(right: 2),
+    child: SizedBox(
+      width: 22, height: 22,
+      child: CustomPaint(
+        painter: TopDownPlayerPainter(color: d.$1, borderColor: Colors.white, borderWidth: 1.5, gender: d.$2),
+      ),
+    ),
+  )).toList();
 }
 
 class _SheetTile extends StatelessWidget {
@@ -509,9 +679,9 @@ class _PlayerDot extends StatelessWidget {
 // Drawing Options Row — single compact row (draw mode only)
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _DrawingOptionsRow extends StatelessWidget {
+class DrawingOptionsBar extends StatelessWidget {
   final TacticsState state;
-  const _DrawingOptionsRow({required this.state});
+  const DrawingOptionsBar({super.key, required this.state});
 
   static const _colors = [
     Color(0xFFFFD600),

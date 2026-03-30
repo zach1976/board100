@@ -15,12 +15,14 @@ class TopDownPlayerPainter extends CustomPainter {
   final Color borderColor;
   final double borderWidth;
   final bool isSelected;
+  final PlayerGender gender;
 
   const TopDownPlayerPainter({
     required this.color,
     required this.borderColor,
     required this.borderWidth,
     this.isSelected = false,
+    this.gender = PlayerGender.unspecified,
   });
 
   @override
@@ -59,9 +61,23 @@ class TopDownPlayerPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = borderWidth;
 
-    // Body (drawn first so head overlaps)
-    canvas.drawOval(bodyRect, fillPaint);
-    canvas.drawOval(bodyRect, borderPaint);
+    if (gender == PlayerGender.female) {
+      // Skirt body — trapezoid wider at bottom (top-down view)
+      final skirtTop = headCenter.dy + headRadius * 0.6;
+      final skirtBottom = h * 0.92;
+      final skirtPath = Path()
+        ..moveTo(w * 0.5 - w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
+        ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
+        ..close();
+      canvas.drawPath(skirtPath, fillPaint);
+      canvas.drawPath(skirtPath, borderPaint);
+    } else {
+      // Male body — oval
+      canvas.drawOval(bodyRect, fillPaint);
+      canvas.drawOval(bodyRect, borderPaint);
+    }
 
     // Head
     canvas.drawCircle(headCenter, headRadius, fillPaint);
@@ -73,7 +89,8 @@ class TopDownPlayerPainter extends CustomPainter {
       old.color != color ||
       old.borderColor != borderColor ||
       old.borderWidth != borderWidth ||
-      old.isSelected != isSelected;
+      old.isSelected != isSelected ||
+      old.gender != gender;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -137,6 +154,7 @@ class _PlayerShape extends StatelessWidget {
             borderColor: isSelected ? Colors.yellow : Colors.white,
             borderWidth: isSelected ? 3 : 2,
             isSelected: isSelected,
+            gender: player.gender,
           ),
           size: Size.infinite,
         ),

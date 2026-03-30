@@ -50,7 +50,18 @@ class TacticsCanvas extends StatelessWidget {
 
             final players = state.players.toList();
 
-            return GestureDetector(
+            return InteractiveViewer(
+              transformationController: state.transformationController,
+              panEnabled: !state.isDrawingMode && !state.isAnimating,
+              scaleEnabled: !state.isDrawingMode,
+              constrained: false,
+              boundaryMargin: EdgeInsets.all(double.infinity),
+              minScale: 0.5,
+              maxScale: 4.0,
+              child: SizedBox(
+                width: constraints.maxWidth,
+                height: constraints.maxHeight,
+                child: GestureDetector(
               onPanStart: state.isDrawingMode
                   ? (d) => state.startStroke(d.localPosition)
                   : null,
@@ -142,6 +153,8 @@ class TacticsCanvas extends StatelessWidget {
                   ),
                 ],
                 ),
+              ),
+            ),
               ),
             );
           },

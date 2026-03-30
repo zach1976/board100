@@ -46,8 +46,18 @@ class TacticsState extends ChangeNotifier {
   int _animToStep = 0;
   int _atStep = 0; // which step players are currently at
 
+  // UI state
+  bool _toolbarVisible = true;
+  final TransformationController transformationController = TransformationController();
+
   TacticsState({SportType sportType = SportType.basketball})
       : _sportType = sportType;
+
+  @override
+  void dispose() {
+    transformationController.dispose();
+    super.dispose();
+  }
 
   // Getters
   Size get canvasSize => _canvasSize;
@@ -61,6 +71,7 @@ class TacticsState extends ChangeNotifier {
   Color get strokeColor => _strokeColor;
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
+  bool get toolbarVisible => _toolbarVisible;
   bool get canUndo => _undoStack.isNotEmpty;
   bool get canRedo => _redoStack.isNotEmpty;
   bool get isAnimating => _isAnimating;
@@ -145,6 +156,15 @@ class TacticsState extends ChangeNotifier {
     _redoStack.clear();
     _selectedPlayerId = null;
     notifyListeners();
+  }
+
+  void toggleToolbar() {
+    _toolbarVisible = !_toolbarVisible;
+    notifyListeners();
+  }
+
+  void resetZoom() {
+    transformationController.value = Matrix4.identity();
   }
 
   // Drawing mode
@@ -282,7 +302,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void applyFormation(SportFormation formation) {
+  void applyFormation(SportFormation formation, {List<PlayerGender>? homeGenders, List<PlayerGender>? awayGenders}) {
     _saveSnapshot();
     _players.clear();
     _selectedPlayerId = null;
@@ -291,21 +311,25 @@ class TacticsState extends ChangeNotifier {
     int homeNum = 1;
     int awayNum = 1;
     int colorIdx = 0;
-    for (final rel in formation.homePositions) {
+    for (int i = 0; i < formation.homePositions.length; i++) {
+      final rel = formation.homePositions[i];
       _players.add(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_h$homeNum',
         label: '$homeNum',
         team: PlayerTeam.home,
+        gender: homeGenders != null && i < homeGenders.length ? homeGenders[i] : PlayerGender.unspecified,
         position: Offset(rel.dx * w, rel.dy * h),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       homeNum++;
     }
-    for (final rel in formation.awayPositions) {
+    for (int i = 0; i < formation.awayPositions.length; i++) {
+      final rel = formation.awayPositions[i];
       _players.add(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_a$awayNum',
         label: '$awayNum',
         team: PlayerTeam.away,
+        gender: awayGenders != null && i < awayGenders.length ? awayGenders[i] : PlayerGender.unspecified,
         position: Offset(rel.dx * w, rel.dy * h),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
