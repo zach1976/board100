@@ -46,6 +46,9 @@ class TacticsState extends ChangeNotifier {
   int _animToStep = 0;
   int _atStep = 0; // which step players are currently at
 
+  // Animation mode
+  bool _sequentialMode = false;
+
   // UI state
   bool _toolbarVisible = true;
   final TransformationController transformationController = TransformationController();
@@ -71,6 +74,7 @@ class TacticsState extends ChangeNotifier {
   Color get strokeColor => _strokeColor;
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
+  bool get sequentialMode => _sequentialMode;
   bool get toolbarVisible => _toolbarVisible;
   bool get canUndo => _undoStack.isNotEmpty;
   bool get canRedo => _redoStack.isNotEmpty;
@@ -164,6 +168,11 @@ class TacticsState extends ChangeNotifier {
     _undoStack.clear();
     _redoStack.clear();
     _selectedPlayerId = null;
+    notifyListeners();
+  }
+
+  void toggleSequentialMode() {
+    _sequentialMode = !_sequentialMode;
     notifyListeners();
   }
 

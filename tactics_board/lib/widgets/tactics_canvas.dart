@@ -174,6 +174,7 @@ class TacticsCanvas extends StatelessWidget {
                     targetStep: state.targetStep,
                     fromStep: state.animFromStep,
                     toStep: state.animToStep,
+                    sequentialMode: state.sequentialMode,
                   ),
                 ],
                 ),
@@ -205,6 +206,7 @@ class _AnimationDriver extends StatefulWidget {
   final int targetStep; // 0 = all
   final int fromStep;
   final int toStep; // 0 = play all from fromStep
+  final bool sequentialMode;
 
   const _AnimationDriver({
     required this.isAnimating,
@@ -212,6 +214,7 @@ class _AnimationDriver extends StatefulWidget {
     required this.targetStep,
     this.fromStep = 0,
     this.toStep = 0,
+    this.sequentialMode = false,
   });
 
   @override
@@ -225,6 +228,9 @@ class _AnimationDriverState extends State<_AnimationDriver>
   int _step = 0;
   int _totalSteps = 0;
   bool _isBackward = false;
+  // Sequential mode: which player index is currently animating
+  int _seqPlayerIdx = 0;
+  List<PlayerIcon> _movingPlayers = []; // players that have moves at current step
 
   @override
   void initState() {
@@ -245,13 +251,16 @@ class _AnimationDriverState extends State<_AnimationDriver>
       final maxSteps = widget.players.fold(
           0, (m, p) => p.moves.length > m ? p.moves.length : m);
       _step = widget.fromStep;
+      _seqPlayerIdx = 0;
       _isBackward = widget.toStep < widget.fromStep;
       if (_isBackward) {
         _totalSteps = widget.toStep;
+        _updateMovingPlayers();
         _ctrl.forward(from: 0);
       } else if (widget.toStep > 0) {
         _totalSteps = widget.toStep;
         if (_totalSteps > _step) {
+          _updateMovingPlayers();
           _ctrl.forward(from: 0);
         } else {
           WidgetsBinding.instance.addPostFrameCallback(
@@ -262,6 +271,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
             ? widget.targetStep
             : maxSteps;
         if (_totalSteps > _step) {
+          _updateMovingPlayers();
           _ctrl.forward(from: 0);
         } else {
           WidgetsBinding.instance.addPostFrameCallback(
@@ -271,27 +281,72 @@ class _AnimationDriverState extends State<_AnimationDriver>
     } else if (!widget.isAnimating && old.isAnimating) {
       _ctrl.stop();
       _step = 0;
+      _seqPlayerIdx = 0;
       _isBackward = false;
     }
+  }
+
+  void _updateMovingPlayers() {
+    if (_isBackward) {
+      _movingPlayers = widget.players.where((p) => p.moves.length >= _step).toList();
+    } else {
+      _movingPlayers = widget.players.where((p) => p.moves.length > _step).toList();
+    }
+    _seqPlayerIdx = 0;
   }
 
   void _onTick() {
     if (!widget.isAnimating) return;
     final t = _curved.value;
     final positions = <String, Offset>{};
+
     for (final player in widget.players) {
       final all = [player.position, ...player.moves];
-      if (_isBackward) {
-        // Animate from _step back to _step - 1
-        final from = _step.clamp(0, all.length - 1);
-        final to = (_step - 1).clamp(0, all.length - 1);
-        positions[player.id] = Offset.lerp(all[from], all[to], t)!;
-      } else {
-        if (_step >= all.length - 1) {
-          positions[player.id] = all.last;
+
+      if (widget.sequentialMode) {
+        // In sequential mode, only the current player animates
+        final isCurrentPlayer = _movingPlayers.isNotEmpty &&
+            _seqPlayerIdx < _movingPlayers.length &&
+            player.id == _movingPlayers[_seqPlayerIdx].id;
+
+        if (isCurrentPlayer) {
+          if (_isBackward) {
+            final from = _step.clamp(0, all.length - 1);
+            final to = (_step - 1).clamp(0, all.length - 1);
+            positions[player.id] = Offset.lerp(all[from], all[to], t)!;
+          } else {
+            if (_step >= all.length - 1) {
+              positions[player.id] = all.last;
+            } else {
+              positions[player.id] = Offset.lerp(all[_step], all[_step + 1], t)!;
+            }
+          }
         } else {
-          positions[player.id] =
-              Offset.lerp(all[_step], all[_step + 1], t)!;
+          // Keep at last known position for this step
+          final idx = _step.clamp(0, all.length - 1);
+          // If this player already animated (index < _seqPlayerIdx), show at next step
+          final alreadyMoved = _movingPlayers.isNotEmpty &&
+              _movingPlayers.indexWhere((p) => p.id == player.id) < _seqPlayerIdx &&
+              _movingPlayers.any((p) => p.id == player.id);
+          if (alreadyMoved && !_isBackward) {
+            final nextIdx = (_step + 1).clamp(0, all.length - 1);
+            positions[player.id] = all[nextIdx];
+          } else {
+            positions[player.id] = all[idx];
+          }
+        }
+      } else {
+        // Simultaneous mode (original behavior)
+        if (_isBackward) {
+          final from = _step.clamp(0, all.length - 1);
+          final to = (_step - 1).clamp(0, all.length - 1);
+          positions[player.id] = Offset.lerp(all[from], all[to], t)!;
+        } else {
+          if (_step >= all.length - 1) {
+            positions[player.id] = all.last;
+          } else {
+            positions[player.id] = Offset.lerp(all[_step], all[_step + 1], t)!;
+          }
         }
       }
     }
@@ -300,6 +355,17 @@ class _AnimationDriverState extends State<_AnimationDriver>
 
   void _onStatus(AnimationStatus status) {
     if (status != AnimationStatus.completed) return;
+
+    if (widget.sequentialMode && _movingPlayers.isNotEmpty) {
+      _seqPlayerIdx++;
+      if (_seqPlayerIdx < _movingPlayers.length) {
+        // More players to animate at this step
+        _ctrl.forward(from: 0);
+        return;
+      }
+    }
+
+    // All players done for this step (or simultaneous mode)
     if (_isBackward) {
       _step--;
       context.read<TacticsState>().advanceAtStep(_step);
@@ -307,6 +373,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
+        _updateMovingPlayers();
         _ctrl.forward(from: 0);
       }
     } else {
@@ -316,6 +383,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
+        _updateMovingPlayers();
         _ctrl.forward(from: 0);
       }
     }

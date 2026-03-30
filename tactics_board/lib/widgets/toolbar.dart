@@ -937,6 +937,31 @@ class _PlayButton extends StatelessWidget {
 // Step controls — back, indicator, forward
 // ─────────────────────────────────────────────────────────────────────────────
 
+class _SeqToggle extends StatelessWidget {
+  final TacticsState state;
+  const _SeqToggle({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final isSeq = state.sequentialMode;
+    return GestureDetector(
+      onTap: state.isAnimating ? null : state.toggleSequentialMode,
+      child: Container(
+        padding: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: isSeq ? Colors.amber.withValues(alpha: 0.25) : Colors.white10,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          isSeq ? Icons.format_list_numbered : Icons.sync,
+          color: isSeq ? Colors.amber : Colors.white54,
+          size: 18,
+        ),
+      ),
+    );
+  }
+}
+
 class _ResetButton extends StatelessWidget {
   final TacticsState state;
   const _ResetButton({required this.state});
@@ -1049,6 +1074,8 @@ class PlayControlsBar extends StatelessWidget {
           _StepForwardButton(state: state),
           const SizedBox(width: 12),
           _PlayButton(state: state),
+          const SizedBox(width: 8),
+          _SeqToggle(state: state),
         ],
       ),
     );
