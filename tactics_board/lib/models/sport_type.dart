@@ -92,106 +92,113 @@ extension SportTypeExtension on SportType {
         ];
 
       case SportType.basketball:
+        // Court: y≈0.05..0.95, center=0.50
+        // Bottom basket≈0.87, 3pt arc top≈0.67, FT line≈0.75
         return const [
-          // 5v5: 1-2-2 Horns — PG top, SG/SF at elbows, PF/C on blocks
+          // 5v5: 1-2-2 Horns — PG above 3pt, SG/SF at elbows, PF/C blocks
           SportFormation(
             nameKey: 'formation_122',
             homePositions: [
-              Offset(0.5, 0.66),   // PG - top of key
-              Offset(0.30, 0.76),  // SG - left elbow
-              Offset(0.70, 0.76),  // SF - right elbow
-              Offset(0.36, 0.85),  // PF - left block
-              Offset(0.64, 0.85),  // C  - right block
+              Offset(0.5, 0.58),   // PG - above 3pt arc
+              Offset(0.28, 0.68),  // SG - left wing at 3pt
+              Offset(0.72, 0.68),  // SF - right wing at 3pt
+              Offset(0.38, 0.78),  // PF - left block
+              Offset(0.62, 0.78),  // C  - right block
             ],
             awayPositions: [
-              Offset(0.5, 0.34),
-              Offset(0.70, 0.24),
-              Offset(0.30, 0.24),
-              Offset(0.64, 0.15),
-              Offset(0.36, 0.15),
+              Offset(0.5, 0.42),
+              Offset(0.72, 0.32),
+              Offset(0.28, 0.32),
+              Offset(0.62, 0.22),
+              Offset(0.38, 0.22),
             ],
           ),
-          // 5v5: 2-3 — two guards up, three low
+          // 5v5: 2-3 — two guards up top, three low
           SportFormation(
             nameKey: 'formation_23',
             homePositions: [
-              Offset(0.35, 0.66),  // PG - top left
-              Offset(0.65, 0.66),  // SG - top right
-              Offset(0.82, 0.76),  // SF - right wing
-              Offset(0.35, 0.84),  // PF - left post
-              Offset(0.62, 0.84),  // C  - right post
+              Offset(0.32, 0.58),  // PG - top left
+              Offset(0.68, 0.58),  // SG - top right
+              Offset(0.85, 0.70),  // SF - right wing
+              Offset(0.30, 0.78),  // PF - left post
+              Offset(0.60, 0.78),  // C  - right post
             ],
             awayPositions: [
-              Offset(0.65, 0.34),
-              Offset(0.35, 0.34),
-              Offset(0.18, 0.24),
-              Offset(0.65, 0.16),
-              Offset(0.38, 0.16),
+              Offset(0.68, 0.42),
+              Offset(0.32, 0.42),
+              Offset(0.15, 0.30),
+              Offset(0.70, 0.22),
+              Offset(0.40, 0.22),
             ],
           ),
-          // 5v5: 1-3-1 — PG top, wings + high post, center low
+          // 5v5: 1-3-1 — PG top, wings spread, high/low post
           SportFormation(
             nameKey: 'formation_131',
             homePositions: [
-              Offset(0.5, 0.65),   // PG - top
-              Offset(0.15, 0.75),  // SG - left wing
-              Offset(0.85, 0.75),  // SF - right wing
-              Offset(0.5, 0.78),   // PF - high post
-              Offset(0.5, 0.88),   // C  - low post
+              Offset(0.5, 0.56),   // PG - top
+              Offset(0.13, 0.68),  // SG - left wing
+              Offset(0.87, 0.68),  // SF - right wing
+              Offset(0.5, 0.72),   // PF - high post (FT line)
+              Offset(0.5, 0.82),   // C  - low post
             ],
             awayPositions: [
-              Offset(0.5, 0.35),
-              Offset(0.85, 0.25),
-              Offset(0.15, 0.25),
-              Offset(0.5, 0.22),
-              Offset(0.5, 0.12),
+              Offset(0.5, 0.44),
+              Offset(0.87, 0.32),
+              Offset(0.13, 0.32),
+              Offset(0.5, 0.28),
+              Offset(0.5, 0.18),
             ],
           ),
-          // 5v5: 1-4 Spread — PG top, 4 around the paint
+          // 5v5: 1-4 Spread — PG top, 4 spread around paint
           SportFormation(
             nameKey: 'formation_14',
             homePositions: [
-              Offset(0.5, 0.66),   // PG - top of key
-              Offset(0.28, 0.76),  // SG - left elbow
-              Offset(0.72, 0.76),  // SF - right elbow
-              Offset(0.28, 0.87),  // PF - left block
-              Offset(0.72, 0.87),  // C  - right block
+              Offset(0.5, 0.58),   // PG - top of key
+              Offset(0.20, 0.70),  // SG - left wing
+              Offset(0.80, 0.70),  // SF - right wing
+              Offset(0.30, 0.82),  // PF - left block
+              Offset(0.70, 0.82),  // C  - right block
             ],
             awayPositions: [
-              Offset(0.5, 0.34),
-              Offset(0.72, 0.24),
-              Offset(0.28, 0.24),
-              Offset(0.72, 0.13),
-              Offset(0.28, 0.13),
+              Offset(0.5, 0.42),
+              Offset(0.80, 0.30),
+              Offset(0.20, 0.30),
+              Offset(0.70, 0.18),
+              Offset(0.30, 0.18),
             ],
           ),
-          // 3v3: Triangle
+          // 3v3: Triangle — spread across half court
           SportFormation(
             nameKey: 'formation_3v3',
             homePositions: [
-              Offset(0.5, 0.66),   // top
-              Offset(0.22, 0.76),  // left wing
-              Offset(0.78, 0.76),  // right wing
+              Offset(0.5, 0.58),   // top (above 3pt)
+              Offset(0.18, 0.72),  // left wing
+              Offset(0.82, 0.72),  // right wing
             ],
             awayPositions: [
-              Offset(0.5, 0.34),
-              Offset(0.78, 0.24),
-              Offset(0.22, 0.24),
+              Offset(0.5, 0.42),
+              Offset(0.82, 0.28),
+              Offset(0.18, 0.28),
             ],
           ),
         ];
 
       case SportType.volleyball:
+        // Court: ~y=0.10..0.90, net at 0.50
+        // Standard 6 positions: front row (4,3,2) + back row (5,6,1)
         return const [
+          // 5-1 formation (standard rotation 1)
           SportFormation(
             nameKey: 'formation_6v6',
             homePositions: [
-              Offset(0.2, 0.60), Offset(0.5, 0.58), Offset(0.8, 0.60),
-              Offset(0.2, 0.83), Offset(0.5, 0.86), Offset(0.8, 0.83),
+              // Front row: LF(4), CF(3), RF(2)
+              Offset(0.18, 0.56), Offset(0.50, 0.55), Offset(0.82, 0.56),
+              // Back row: LB(5), CB(6), RB(1-server)
+              Offset(0.18, 0.74), Offset(0.50, 0.76), Offset(0.82, 0.74),
             ],
             awayPositions: [
-              Offset(0.8, 0.40), Offset(0.5, 0.42), Offset(0.2, 0.40),
-              Offset(0.8, 0.17), Offset(0.5, 0.14), Offset(0.2, 0.17),
+              Offset(0.82, 0.44), Offset(0.50, 0.45), Offset(0.18, 0.44),
+              Offset(0.82, 0.26), Offset(0.50, 0.24), Offset(0.18, 0.26),
             ],
           ),
         ];

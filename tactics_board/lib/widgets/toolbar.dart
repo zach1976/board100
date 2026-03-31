@@ -1471,14 +1471,14 @@ class _PlayButton extends StatelessWidget {
       child: Opacity(
         opacity: (!isPlaying && !canPlay) ? 0.35 : 1.0,
         child: Container(
-          padding: const EdgeInsets.all(6),
+          width: 38, height: 38,
           decoration: BoxDecoration(
             color: isPlaying ? Colors.red.withValues(alpha: 0.2) : Colors.green.withValues(alpha: 0.2),
             shape: BoxShape.circle,
             border: Border.all(color: isPlaying ? Colors.red : Colors.lightGreenAccent, width: 1.5),
           ),
           child: Icon(isPlaying ? Icons.stop : Icons.play_arrow,
-              color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 20),
+              color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 24),
         ),
       ),
     );
@@ -1499,7 +1499,7 @@ class _LinesToggle extends StatelessWidget {
     return GestureDetector(
       onTap: state.toggleShowMoveLines,
       child: Container(
-        padding: const EdgeInsets.all(6),
+        width: 36, height: 36,
         decoration: BoxDecoration(
           color: show ? Colors.white10 : Colors.red.withValues(alpha: 0.2),
           shape: BoxShape.circle,
@@ -1507,7 +1507,7 @@ class _LinesToggle extends StatelessWidget {
         child: Icon(
           show ? Icons.timeline : Icons.visibility_off,
           color: show ? Colors.white54 : Colors.redAccent,
-          size: 18,
+          size: 20,
         ),
       ),
     );
@@ -1523,12 +1523,12 @@ class _TimelineBtn extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showTimeline(context),
       child: Container(
-        padding: const EdgeInsets.all(6),
+        width: 36, height: 36,
         decoration: BoxDecoration(
           color: Colors.purple.withValues(alpha: 0.2),
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 18),
+        child: const Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20),
       ),
     );
   }
@@ -1557,12 +1557,12 @@ class _ResetButton extends StatelessWidget {
       child: Opacity(
         opacity: canReset ? 1.0 : 0.35,
         child: Container(
-          padding: const EdgeInsets.all(6),
+          width: 36, height: 36,
           decoration: BoxDecoration(
             color: Colors.orange.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.replay, color: Colors.orange, size: 18),
+          child: const Icon(Icons.replay, color: Colors.orange, size: 22),
         ),
       ),
     );
@@ -1581,12 +1581,12 @@ class _StepBackButton extends StatelessWidget {
       child: Opacity(
         opacity: canStep ? 1.0 : 0.35,
         child: Container(
-          padding: const EdgeInsets.all(6),
+          width: 36, height: 36,
           decoration: BoxDecoration(
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_previous, color: Colors.lightBlueAccent, size: 18),
+          child: const Icon(Icons.skip_previous, color: Colors.lightBlueAccent, size: 22),
         ),
       ),
     );
@@ -1601,7 +1601,7 @@ class _StepIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       '${state.atStep}/${state.maxMoveSteps}',
-      style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
+      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
     );
   }
 }
@@ -1618,12 +1618,12 @@ class _StepForwardButton extends StatelessWidget {
       child: Opacity(
         opacity: canStep ? 1.0 : 0.35,
         child: Container(
-          padding: const EdgeInsets.all(6),
+          width: 36, height: 36,
           decoration: BoxDecoration(
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_next, color: Colors.lightBlueAccent, size: 18),
+          child: const Icon(Icons.skip_next, color: Colors.lightBlueAccent, size: 22),
         ),
       ),
     );
@@ -1640,27 +1640,28 @@ class PlayControlsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: const Color(0xFF2A2A3E),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(color: Colors.white12),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _ResetButton(state: state),
-          const SizedBox(width: 4),
+          const SizedBox(width: 2),
           _StepBackButton(state: state),
           const SizedBox(width: 6),
           _StepIndicator(state: state),
           const SizedBox(width: 6),
           _StepForwardButton(state: state),
-          const SizedBox(width: 6),
+          const SizedBox(width: 4),
           _PlayButton(state: state),
-          const SizedBox(width: 4),
+          const SizedBox(width: 2),
           _LinesToggle(state: state),
-          const SizedBox(width: 4),
+          const SizedBox(width: 2),
           _TimelineBtn(state: state),
         ],
       ),

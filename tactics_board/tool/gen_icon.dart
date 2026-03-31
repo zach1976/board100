@@ -7,9 +7,95 @@ import 'dart:math';
 import 'package:image/image.dart' as img;
 
 void main() {
+  // Default (multi-sport) icons
   _gen('assets/icon/app_icon.png', 1024);
-  _genSplash('assets/icon/splash_logo.png', 480);
-  print('Done: assets/icon/app_icon.png  assets/icon/splash_logo.png');
+  _genSplash('assets/icon/splash_logo.png', 800);
+
+  // Sport-specific icons
+  _genSportIcon('assets/icon/badminton_icon.png', 1024, _court, '🏸');
+  _genSportIcon('assets/icon/tableTennis_icon.png', 1024, img.ColorRgb8(0x15, 0x65, 0xC0), '🏓');
+  _genSportIcon('assets/icon/tennis_icon.png', 1024, img.ColorRgb8(0x2E, 0x7D, 0x32), '🎾');
+  _genSportIcon('assets/icon/basketball_icon.png', 1024, img.ColorRgb8(0xB5, 0x65, 0x1D), '🏀');
+  _genSportIcon('assets/icon/volleyball_icon.png', 1024, img.ColorRgb8(0xE6, 0x8A, 0x00), '🏐');
+  _genSportIcon('assets/icon/pickleball_icon.png', 1024, img.ColorRgb8(0x2E, 0x7D, 0x32), '🥒');
+  _genSportIcon('assets/icon/soccer_icon.png', 1024, img.ColorRgb8(0x2D, 0x8A, 0x2D), '⚽');
+
+  // Sport-specific splash
+  _genSportSplash('assets/icon/badminton_splash.png', 800, _court);
+  _genSportSplash('assets/icon/tableTennis_splash.png', 800, img.ColorRgb8(0x15, 0x65, 0xC0));
+  _genSportSplash('assets/icon/tennis_splash.png', 800, img.ColorRgb8(0x2E, 0x7D, 0x32));
+  _genSportSplash('assets/icon/basketball_splash.png', 800, img.ColorRgb8(0xB5, 0x65, 0x1D));
+  _genSportSplash('assets/icon/volleyball_splash.png', 800, img.ColorRgb8(0xE6, 0x8A, 0x00));
+  _genSportSplash('assets/icon/pickleball_splash.png', 800, img.ColorRgb8(0x2E, 0x7D, 0x32));
+  _genSportSplash('assets/icon/soccer_splash.png', 800, img.ColorRgb8(0x2D, 0x8A, 0x2D));
+
+  print('Done: all icons and splash screens generated');
+}
+
+/// Sport-specific icon — colored background with 2 players (blue+red) and sport accent
+void _genSportIcon(String path, int size, img.Color courtColor, String emoji) {
+  final s = size.toDouble();
+  final canvas = img.Image(width: size, height: size);
+
+  // Background
+  img.fill(canvas, color: _bg);
+
+  // Court area (rounded)
+  final cx1 = (s * 0.12).round();
+  final cy1 = (s * 0.12).round();
+  final cx2 = (s * 0.88).round();
+  final cy2 = (s * 0.88).round();
+  img.fillRect(canvas, x1: cx1, y1: cy1, x2: cx2, y2: cy2, color: courtColor);
+  _rect(canvas, cx1, cy1, cx2, cy2, _white, max(2, (s * 0.005).round()));
+
+  // Net line
+  final netY = ((cy1 + cy2) / 2).round();
+  _hline(canvas, cx1, cx2, netY, _net, (s * 0.008).round());
+
+  // Two players
+  final r = (s * 0.09).round();
+  _dot(canvas, (s * 0.35).round(), (s * 0.35).round(), r, _blue);
+  _dot(canvas, (s * 0.65).round(), (s * 0.65).round(), r, _red);
+
+  // Movement arrows
+  final arrowThk = max(3, (s * 0.006).round());
+  _arrow(canvas,
+    (s * 0.35).round(), (s * 0.35 + r + s * 0.02).round(),
+    (s * 0.35).round(), (netY - s * 0.04).round(),
+    _white, arrowThk);
+  _arrow(canvas,
+    (s * 0.65).round(), (s * 0.65 - r - s * 0.02).round(),
+    (s * 0.65).round(), (netY + s * 0.04).round(),
+    _white, arrowThk);
+
+  File(path).writeAsBytesSync(img.encodePng(canvas));
+}
+
+/// Sport-specific splash — just court color with 2 players, no border
+void _genSportSplash(String path, int size, img.Color courtColor) {
+  final s = size.toDouble();
+  final canvas = img.Image(width: size, height: size);
+
+  img.fill(canvas, color: img.ColorRgba8(0, 0, 0, 0));
+
+  final cx1 = (s * 0.06).round();
+  final cy1 = (s * 0.02).round();
+  final cx2 = (s * 0.94).round();
+  final cy2 = (s * 0.98).round();
+
+  img.fillRect(canvas, x1: cx1, y1: cy1, x2: cx2, y2: cy2, color: courtColor);
+  _rect(canvas, cx1, cy1, cx2, cy2, _white, max(2, (s * 0.005).round()));
+
+  final netY = ((cy1 + cy2) / 2).round();
+  _hline(canvas, cx1, cx2, netY, _net, (s * 0.010).round());
+
+  final r = (s * 0.06).round();
+  _dot(canvas, (s * 0.35).round(), (s * 0.30).round(), r, _blue);
+  _dot(canvas, (s * 0.65).round(), (s * 0.30).round(), r, _blue);
+  _dot(canvas, (s * 0.35).round(), (s * 0.70).round(), r, _red);
+  _dot(canvas, (s * 0.65).round(), (s * 0.70).round(), r, _red);
+
+  File(path).writeAsBytesSync(img.encodePng(canvas));
 }
 
 /// Splash logo — just the court icon on transparent background, no navy border
