@@ -45,24 +45,28 @@ class SportSelectionPage extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    'app_title'.tr(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: -0.5,
+                  Flexible(
+                    child: Text(
+                      'app_title'.tr(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: -0.5,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 8),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 2),
                     child: Text(
                       'choose_sport'.tr(),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.65),
-                        fontSize: 14,
+                        fontSize: 13,
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const Spacer(),

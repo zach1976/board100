@@ -14,103 +14,14 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TacticsState>(
-      builder: (context, state, _) {
-        return Scaffold(
-          backgroundColor: const Color(0xFF1E1E2E),
-          body: SafeArea(
-            top: false,
-            bottom: false,
-            child: Column(
-              children: [
-                Expanded(
-                  child: Stack(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        clipBehavior: Clip.hardEdge,
-                        decoration: const BoxDecoration(),
-                        child: const TacticsCanvas(),
-                      ),
-                      // Back button (multi-sport only)
-                      if (!isSingleSportApp)
-                        Positioned(
-                          top: MediaQuery.of(context).padding.top + 8,
-                          left: 12,
-                          child: GestureDetector(
-                            onTap: () => Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (_) => const SportSelectionPage()),
-                            ),
-                            child: Container(
-                              width: 32,
-                              height: 32,
-                              decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.45),
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 16),
-                            ),
-                          ),
-                        ),
-                      // Menu button (top right)
-                      Positioned(
-                        top: MediaQuery.of(context).padding.top + 8,
-                        right: 12,
-                        child: _MenuButton(),
-                      ),
-                      // Drawing options overlay — bottom of canvas, no impact on canvas height
-                      if (state.isDrawingMode)
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            color: const Color(0xDD1E1E2E),
-                            child: DrawingOptionsBar(state: state),
-                          ),
-                        ),
-                      Positioned(
-                        bottom: 12,
-                        right: 12,
-                        child: GestureDetector(
-                          onTap: state.toggleToolbar,
-                          child: Container(
-                            width: 32,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: Colors.black.withValues(alpha: 0.45),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              state.toolbarVisible ? Icons.fullscreen : Icons.fullscreen_exit,
-                              color: Colors.white70,
-                              size: 18,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                // Play controls — always reserve space to prevent canvas jump
-                if (state.toolbarVisible && !state.isDrawingMode)
-                  SizedBox(
-                    height: 48,
-                    child: state.hasMoves
-                        ? Center(child: PlayControlsBar(state: state))
-                        : null,
-                  ),
-                AnimatedSize(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  child: state.toolbarVisible ? const TacticsToolbar() : const SizedBox.shrink(),
-                ),
-                SizedBox(height: MediaQuery.of(context).padding.bottom > 0 ? 16 : 4),
-              ],
-            ),
-          ),
-        );
-      },
+    return Scaffold(
+      backgroundColor: const Color(0xFF1E1E2E),
+      body: Column(
+        children: [
+          Expanded(child: Container(color: Colors.green, child: const Center(child: Text('CANVAS', style: TextStyle(color: Colors.white, fontSize: 30))))),
+          const TacticsToolbar(),
+        ],
+      ),
     );
   }
 }

@@ -364,6 +364,19 @@ class TacticsState extends ChangeNotifier {
 
   void setCanvasSize(Size size) {
     if (_canvasSize == size) return;
+    _rescalePlayers(size);
+    _canvasSize = size;
+    notifyListeners();
+  }
+
+  /// Update canvas size without notifying listeners (avoids rebuild loops)
+  void setCanvasSizeSilent(Size size) {
+    if (_canvasSize == size) return;
+    _rescalePlayers(size);
+    _canvasSize = size;
+  }
+
+  void _rescalePlayers(Size size) {
     if (_canvasSize.width > 0 && _canvasSize.height > 0 && _players.isNotEmpty) {
       final sx = size.width / _canvasSize.width;
       final sy = size.height / _canvasSize.height;
@@ -372,8 +385,6 @@ class TacticsState extends ChangeNotifier {
         p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
       }
     }
-    _canvasSize = size;
-    notifyListeners();
   }
 
   void applyFormation(SportFormation formation, {List<PlayerGender>? homeGenders, List<PlayerGender>? awayGenders}) {

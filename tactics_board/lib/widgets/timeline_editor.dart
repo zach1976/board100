@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../state/tactics_state.dart';
@@ -52,7 +53,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 children: [
                   const Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20),
                   const SizedBox(width: 8),
-                  const Text('Timeline', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text('timeline'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
                   const Spacer(),
                   if (_selected != null)
                     GestureDetector(
@@ -69,7 +70,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(12)),
-                      child: const Text('Reset', style: TextStyle(color: Colors.white54, fontSize: 12)),
+                      child: Text('timeline_reset'.tr(), style: const TextStyle(color: Colors.white54, fontSize: 12)),
                     ),
                   ),
                 ],

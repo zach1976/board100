@@ -15,8 +15,41 @@ import '../painters/soccer_court_painter.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 
-class TacticsCanvas extends StatelessWidget {
+class TacticsCanvas extends StatefulWidget {
   const TacticsCanvas({super.key});
+
+  @override
+  State<TacticsCanvas> createState() => _TacticsCanvasState();
+}
+
+class _TacticsCanvasState extends State<TacticsCanvas> {
+  TacticsState? _stateOrNull;
+  TacticsState get _state => _stateOrNull!;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _stateOrNull = context.read<TacticsState>();
+      _state.addListener(_rebuild);
+      _rebuild();
+    });
+  }
+
+  @override
+  void dispose() {
+    _state.removeListener(_rebuild);
+    super.dispose();
+  }
+
+  void _rebuild() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
 
   CustomPainter _courtPainter(SportType sport) {
     switch (sport) {
@@ -39,29 +72,18 @@ class TacticsCanvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TacticsState>(
-      builder: (context, state, _) {
-        return LayoutBuilder(
-          builder: (context, constraints) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              state.setCanvasSize(
-                  Size(constraints.maxWidth, constraints.maxHeight));
-            });
+    if (_stateOrNull == null) return const SizedBox.expand();
+    final state = _state;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+            final newSize = Size(constraints.maxWidth, constraints.maxHeight);
+            if (state.canvasSize != newSize) {
+              state.setCanvasSizeSilent(newSize);
+            }
 
             final players = state.players.toList();
 
-            return InteractiveViewer(
-              transformationController: state.transformationController,
-              panEnabled: !state.isDrawingMode && !state.isAnimating,
-              scaleEnabled: !state.isDrawingMode,
-              constrained: false,
-              boundaryMargin: EdgeInsets.all(double.infinity),
-              minScale: 0.5,
-              maxScale: 4.0,
-              child: SizedBox(
-                width: constraints.maxWidth,
-                height: constraints.maxHeight,
-                child: GestureDetector(
+            return GestureDetector(
               onPanStart: state.isDrawingMode
                   ? (d) => state.startStroke(d.localPosition)
                   : null,
@@ -180,11 +202,7 @@ class TacticsCanvas extends StatelessWidget {
                 ],
                 ),
               ),
-            ),
-              ),
             );
-          },
-        );
       },
     );
   }

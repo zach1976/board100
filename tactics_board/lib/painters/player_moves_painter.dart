@@ -21,7 +21,7 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  static const _strokeWidth = 2.5;
+  static const _strokeWidth = 1.8;
   static const _arrowSize = 10.0;
 
   void _paintMoves(Canvas canvas, PlayerIcon player) {

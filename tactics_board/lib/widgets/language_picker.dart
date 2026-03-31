@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 class LanguagePicker {
   static const _languages = [
-    (locale: Locale('zh', 'CN'), name: '简体中文',       flag: '🇨🇳'),
-    (locale: Locale('zh', 'TW'), name: '繁體中文',       flag: '🇹🇼'),
-    (locale: Locale('en', 'US'), name: 'English',        flag: '🇺🇸'),
-    (locale: Locale('ja', 'JP'), name: '日本語',          flag: '🇯🇵'),
-    (locale: Locale('ko', 'KR'), name: '한국어',          flag: '🇰🇷'),
-    (locale: Locale('fr', 'FR'), name: 'Français',       flag: '🇫🇷'),
-    (locale: Locale('es', 'ES'), name: 'Español',        flag: '🇪🇸'),
-    (locale: Locale('vi', 'VN'), name: 'Tiếng Việt',    flag: '🇻🇳'),
-    (locale: Locale('th', 'TH'), name: 'ภาษาไทย',        flag: '🇹🇭'),
-    (locale: Locale('id', 'ID'), name: 'Bahasa Indonesia', flag: '🇮🇩'),
-    (locale: Locale('ms', 'MY'), name: 'Bahasa Melayu',    flag: '🇲🇾'),
+    (locale: Locale('en', 'US'), name: 'English'),
+    (locale: Locale('zh', 'CN'), name: '简体中文'),
+    (locale: Locale('zh', 'TW'), name: '繁體中文'),
+    (locale: Locale('ja', 'JP'), name: '日本語'),
+    (locale: Locale('ko', 'KR'), name: '한국어'),
+    (locale: Locale('fr', 'FR'), name: 'Français'),
+    (locale: Locale('es', 'ES'), name: 'Español'),
+    (locale: Locale('vi', 'VN'), name: 'Tiếng Việt'),
+    (locale: Locale('th', 'TH'), name: 'ภาษาไทย'),
+    (locale: Locale('id', 'ID'), name: 'Bahasa Indonesia'),
+    (locale: Locale('ms', 'MY'), name: 'Bahasa Melayu'),
   ];
 
   static void show(BuildContext context) {
@@ -47,7 +47,6 @@ class LanguagePicker {
                     ..._languages.map((lang) {
                       final selected = current == lang.locale;
                       return ListTile(
-                        leading: Text(lang.flag, style: const TextStyle(fontSize: 26)),
                         title: Text(
                           lang.name,
                           style: TextStyle(
@@ -62,8 +61,9 @@ class LanguagePicker {
                         selectedTileColor: Colors.blue.withValues(alpha: 0.08),
                         selected: selected,
                         onTap: () {
-                          context.setLocale(lang.locale);
                           Navigator.pop(ctx);
+                          // Use the outer context (with EasyLocalization) to set locale
+                          Future.microtask(() => context.setLocale(lang.locale));
                         },
                       );
                     }),

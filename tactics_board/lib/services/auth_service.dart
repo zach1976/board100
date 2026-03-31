@@ -9,8 +9,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 const _apiServer = 'tacticsboard.100for1.com';
 const _apiBase = 'http://$_apiServer/api/v1';
-// TODO: Replace with your Google OAuth client ID
-const _googleClientId = '';
+const _googleClientId = '711017030012-lf4ostf39c4dn5b336h5pl17bosm8ek7.apps.googleusercontent.com';
 
 class AuthResult {
   final bool success;
@@ -71,7 +70,7 @@ class AuthService {
       }
     } catch (e) {
       debugPrint('Google login error: $e');
-      return AuthResult(error: e.toString());
+      return AuthResult(error: _friendlyError(e));
     }
   }
 
@@ -119,8 +118,25 @@ class AuthService {
       }
     } catch (e) {
       debugPrint('Apple login error: $e');
-      return AuthResult(error: e.toString());
+      return AuthResult(error: _friendlyError(e));
     }
+  }
+
+  String _friendlyError(Object e) {
+    final msg = e.toString();
+    if (msg.contains('canceled') || msg.contains('cancelled')) {
+      return 'Sign in cancelled';
+    }
+    if (msg.contains('error 1000') || msg.contains('AuthorizationError')) {
+      return 'Apple Sign In is not available on this device';
+    }
+    if (msg.contains('network') || msg.contains('SocketException')) {
+      return 'Network error. Please check your connection';
+    }
+    if (msg.contains('PlatformException')) {
+      return 'Sign in not available on this device';
+    }
+    return 'Sign in failed. Please try again';
   }
 
   void logout() {

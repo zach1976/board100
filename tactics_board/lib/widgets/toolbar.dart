@@ -128,10 +128,13 @@ class _MainRow extends StatelessWidget {
       try {
         await Share.shareXFiles([XFile(file.path)]);
       } catch (_) {
-        // share_plus may fail on simulator — show saved path instead
+        // share_plus fails on simulator — show short success message
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('${'save_success'.tr()}: ${file.path}')),
+            SnackBar(
+              content: Text('save_success'.tr()),
+              backgroundColor: Colors.green,
+            ),
           );
         }
       }
@@ -230,7 +233,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                     controller: _nameCtrl,
                     style: const TextStyle(color: Colors.white, fontSize: 14),
                     decoration: InputDecoration(
-                      hintText: 'Tactics name...',
+                      hintText: 'tactics_name'.tr(),
                       hintStyle: const TextStyle(color: Colors.white30),
                       filled: true,
                       fillColor: Colors.white.withValues(alpha: 0.08),
@@ -276,7 +279,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             const Divider(color: Colors.white12),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
-              child: Text('Load', style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13)),
+              child: Text('load'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 200),
@@ -300,7 +303,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                             decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-                            child: const Text('Load', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                            child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -386,7 +389,7 @@ class _SegTab extends StatelessWidget {
             children: [
               Icon(icon, color: Colors.white, size: 15),
               const SizedBox(width: 4),
-              Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+              Text(label, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
             ],
           ),
         ),
@@ -420,7 +423,7 @@ class _AddPlayerBtn extends StatelessWidget {
             const Icon(Icons.add, color: Colors.white, size: 15),
             const SizedBox(width: 4),
             Text('add_player_label'.tr(),
-                style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+                style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
           ],
         ),
       ),
