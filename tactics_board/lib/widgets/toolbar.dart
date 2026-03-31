@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -51,36 +52,17 @@ class _MainRow extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Single row: Mode + Add + Actions
+          // Row: Mode + Add + Clear + Save + Share
           Row(
             children: [
               _ModeSegment(state: state),
-              const SizedBox(width: 10),
+              const SizedBox(width: 6),
               _AddPlayerBtn(state: state),
-              const SizedBox(width: 10),
-              if (state.selectedPlayerId != null) ...[
-                _IconBtn(icon: Icons.delete, color: Colors.redAccent, onTap: () => state.removePlayer(state.selectedPlayerId!)),
-                const SizedBox(width: 10),
-              ],
-              if (state.canUndo) ...[
-                _IconBtn(icon: Icons.undo, onTap: state.undo),
-                const SizedBox(width: 10),
-              ],
-              if (state.canRedo) ...[
-                _IconBtn(icon: Icons.redo, onTap: state.redo),
-                const SizedBox(width: 10),
-              ],
-              if (state.strokes.isNotEmpty) ...[
-                _IconBtn(icon: Icons.brush_outlined, onTap: state.clearStrokes),
-                const SizedBox(width: 10),
-              ],
-              const Spacer(),
-              if (hasContent) ...[
+              const SizedBox(width: 6),
+              if (hasContent)
                 _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
-                const SizedBox(width: 10),
-              ],
+              const Spacer(),
               _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: Colors.lightBlueAccent),
-              const SizedBox(width: 10),
               _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
             ],
           ),
@@ -127,21 +109,20 @@ class _MainRow extends StatelessWidget {
       }
       final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
       await file.writeAsBytes(bytes.buffer.asUint8List());
+      // Use native MethodChannel for reliable sharing on iOS
       try {
-        final result = await Share.shareXFiles(
-          [XFile(file.path)],
-          subject: 'Tactics Board',
-        );
-        debugPrint('Share result: ${result.status}');
+        const channel = MethodChannel('com.zach.tacticsboard/share');
+        await channel.invokeMethod('shareFile', {'path': file.path});
       } catch (e) {
-        debugPrint('Share failed: $e, file saved at: ${file.path}');
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('save_success'.tr()),
-              backgroundColor: Colors.green,
-            ),
-          );
+        debugPrint('Native share failed: $e, trying share_plus');
+        try {
+          await Share.shareXFiles([XFile(file.path)], subject: 'Tactics Board');
+        } catch (_) {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('save_success'.tr()), backgroundColor: Colors.green),
+            );
+          }
         }
       }
     } catch (e) {
@@ -1469,6 +1450,24 @@ class _FormationTile extends StatelessWidget {
 // Play / Stop button
 // ─────────────────────────────────────────────────────────────────────────────
 
+class _SmallIconBtn extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+  const _SmallIconBtn({required this.icon, required this.color, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 3),
+        child: Icon(icon, color: color, size: 20),
+      ),
+    );
+  }
+}
+
 class _PlayButton extends StatelessWidget {
   final TacticsState state;
   const _PlayButton({required this.state});
@@ -1652,7 +1651,7 @@ class PlayControlsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: const Color(0xFF2A2A3E),
         borderRadius: BorderRadius.circular(24),
@@ -1662,18 +1661,30 @@ class PlayControlsBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          if (state.selectedPlayerId != null) ...[
+            _SmallIconBtn(icon: Icons.delete, color: Colors.redAccent, onTap: () => state.removePlayer(state.selectedPlayerId!)),
+            const SizedBox(width: 6),
+          ],
+          if (state.canUndo) ...[
+            _SmallIconBtn(icon: Icons.undo, color: Colors.white54, onTap: state.undo),
+            const SizedBox(width: 6),
+          ],
+          if (state.canRedo) ...[
+            _SmallIconBtn(icon: Icons.redo, color: Colors.white54, onTap: state.redo),
+            const SizedBox(width: 6),
+          ],
           _ResetButton(state: state),
-          const SizedBox(width: 2),
+          const SizedBox(width: 6),
           _StepBackButton(state: state),
-          const SizedBox(width: 6),
+          const SizedBox(width: 8),
           _StepIndicator(state: state),
-          const SizedBox(width: 6),
+          const SizedBox(width: 8),
           _StepForwardButton(state: state),
-          const SizedBox(width: 4),
+          const SizedBox(width: 6),
           _PlayButton(state: state),
-          const SizedBox(width: 2),
+          const SizedBox(width: 6),
           _LinesToggle(state: state),
-          const SizedBox(width: 2),
+          const SizedBox(width: 6),
           _TimelineBtn(state: state),
         ],
       ),

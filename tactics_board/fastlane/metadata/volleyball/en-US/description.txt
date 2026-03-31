@@ -1,0 +1,24 @@
+Rotations, simplified.
+
+Volleyball Board helps coaches plan formations, serve-receive patterns, and attacking plays on an accurate 6v6 court.
+
+VISUALIZE YOUR GAME PLAN
+
+- Realistic court with attack lines and net
+- Place 6 home + 6 away players with drag-and-drop
+- Draw attack angles, blocking assignments, and serve targets
+- Animate transitions step by step
+- Save and share as images
+
+INSTANT SETUP
+
+- 6v6 formation pre-loaded
+- Home & away team colors
+- Customize player names and numbers
+- Male & female player icons
+
+COURTSIDE READY
+
+- Works offline · Dark theme · 50-step undo/redo · 11 languages
+
+From club to varsity — show your team the play, not just the whistle.

@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'auth_service.dart';
 
-const _apiBase = 'http://tacticsboard.100for1.com/api/v1';
+const _apiBase = 'https://tacticsboard.100for1.com/api/v1';
 
 class SyncService {
   static final SyncService _instance = SyncService._();

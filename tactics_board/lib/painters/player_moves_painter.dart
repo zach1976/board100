@@ -24,15 +24,37 @@ class PlayerMovesPainter extends CustomPainter {
   static const _strokeWidth = 1.8;
   static const _arrowSize = 10.0;
 
+  List<int> _getSortedPhases() {
+    final phases = <int>{};
+    for (final p in players) {
+      p.syncPhases();
+      phases.addAll(p.movePhases);
+    }
+    return phases.toList()..sort();
+  }
+
   void _paintMoves(Canvas canvas, PlayerIcon player) {
     final color = player.moveColor;
+    player.syncPhases();
+
+    // Determine how many of this player's moves to show based on completed phases
+    final int phaseLimit = completedSteps ?? targetStep;
     final List<Offset> allMoves;
-    if (completedSteps != null) {
-      allMoves = player.moves.take(completedSteps!).toList();
+    if (phaseLimit > 0) {
+      // Only show moves whose phase index is < phaseLimit
+      // Get sorted distinct phases across ALL moves in the painting context
+      final sortedPhases = _getSortedPhases();
+      int visibleCount = 0;
+      for (int i = 0; i < player.moves.length; i++) {
+        final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+        final phaseOrderIdx = sortedPhases.indexOf(ph);
+        if (phaseOrderIdx >= 0 && phaseOrderIdx < phaseLimit) {
+          visibleCount = i + 1; // include this move
+        }
+      }
+      allMoves = player.moves.take(visibleCount).toList();
     } else {
-      allMoves = targetStep > 0
-          ? player.moves.take(targetStep).toList()
-          : player.moves;
+      allMoves = player.moves;
     }
     if (allMoves.isEmpty) return;
     final points = [player.position, ...allMoves];

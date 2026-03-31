@@ -135,10 +135,21 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // Waypoint dots (hidden during animation, limited to atStep/targetStep)
                   if (!state.isDrawingMode && !state.isAnimating && state.showMoveLines)
                     ...players.expand((player) {
-                      final limit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
-                      final visibleMoves = limit > 0
-                          ? player.moves.take(limit).toList()
-                          : player.moves;
+                      final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
+                      List<Offset> visibleMoves;
+                      if (phaseLimit > 0) {
+                        player.syncPhases();
+                        final sortedPhases = _allSortedPhases(players);
+                        int count = 0;
+                        for (int i = 0; i < player.moves.length; i++) {
+                          final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+                          final idx = sortedPhases.indexOf(ph);
+                          if (idx >= 0 && idx < phaseLimit) count = i + 1;
+                        }
+                        visibleMoves = player.moves.take(count).toList();
+                      } else {
+                        visibleMoves = player.moves;
+                      }
                       return visibleMoves.asMap().entries.map((entry) {
                         final isLast = entry.key == visibleMoves.length - 1;
                         return _WaypointDot(
@@ -207,6 +218,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             );
       },
     );
+  }
+
+  static List<int> _allSortedPhases(List<PlayerIcon> players) {
+    final phases = <int>{};
+    for (final p in players) {
+      p.syncPhases();
+      phases.addAll(p.movePhases);
+    }
+    return phases.toList()..sort();
   }
 
   void _showEditDialog(
@@ -322,18 +342,36 @@ class _AnimationDriverState extends State<_AnimationDriver>
     _sortedPhases = _phaseGroups.keys.toList()..sort();
   }
 
-  /// For a player at a given phase, find which move index they should be at
+  /// For a player at a given phaseIdx (index into _sortedPhases),
+  /// find the position index in [position, ...moves] they should be at.
+  /// This is the position AFTER all moves whose phase comes before phaseIdx.
   int _playerPosAtPhase(PlayerIcon player, int phaseIdx) {
-    int lastCompleted = -1; // -1 means at initial position
+    int lastCompleted = -1; // -1 means at initial position (index 0 in 'all')
     for (int i = 0; i < player.moves.length; i++) {
       final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-      // Check if this move's phase has been completed
       final phaseOrderIdx = _sortedPhases.indexOf(ph);
+      // A move is "completed" if its phase order index is strictly before current phaseIdx
       if (phaseOrderIdx >= 0 && phaseOrderIdx < phaseIdx) {
-        lastCompleted = i;
+        if (i > lastCompleted) lastCompleted = i;
       }
     }
-    return lastCompleted + 1; // index into [position, ...moves]
+    // lastCompleted = -1 means no moves done → position index 0 (initial)
+    // lastCompleted = 0 means move[0] done → position index 1 (at moves[0])
+    return lastCompleted + 1;
+  }
+
+  /// For a player AFTER phaseIdx completes (including current phase),
+  /// find the position index.
+  int _playerPosAfterPhase(PlayerIcon player, int phaseIdx) {
+    int lastCompleted = -1;
+    for (int i = 0; i < player.moves.length; i++) {
+      final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+      final phaseOrderIdx = _sortedPhases.indexOf(ph);
+      if (phaseOrderIdx >= 0 && phaseOrderIdx <= phaseIdx) {
+        if (i > lastCompleted) lastCompleted = i;
+      }
+    }
+    return lastCompleted + 1;
   }
 
   void _onTick() {
@@ -350,13 +388,14 @@ class _AnimationDriverState extends State<_AnimationDriver>
     final activeGroup = _phaseGroups[currentPhase] ?? [];
 
     for (final player in widget.players) {
+      if (player.moves.isEmpty) continue; // no moves at all, skip
       final all = [player.position, ...player.moves];
-      final baseIdx = _playerPosAtPhase(player, _phaseIdx);
 
       // Check if this player has a move in the current phase
       final activeEntry = activeGroup.where((e) => e.player.id == player.id).toList();
 
       if (activeEntry.isNotEmpty) {
+        // This player IS moving in this phase
         final moveIdx = activeEntry.first.moveIdx;
         final fromIdx = moveIdx.clamp(0, all.length - 1);
         final toIdx = (moveIdx + 1).clamp(0, all.length - 1);
@@ -366,8 +405,17 @@ class _AnimationDriverState extends State<_AnimationDriver>
           positions[player.id] = Offset.lerp(all[fromIdx], all[toIdx], t)!;
         }
       } else {
-        // Not moving in this phase — stay at current position
-        positions[player.id] = all[baseIdx.clamp(0, all.length - 1)];
+        // This player is NOT moving in this phase
+        // Only set position if they have completed at least one move before this phase
+        final restIdx = _isBackward
+            ? _playerPosAfterPhase(player, _phaseIdx)
+            : _playerPosAtPhase(player, _phaseIdx);
+        if (restIdx > 0) {
+          // Player has moved before — hold at their resting position
+          positions[player.id] = all[restIdx.clamp(0, all.length - 1)];
+        }
+        // else: restIdx==0 means player hasn't moved yet, don't set animated position
+        // so the player renders at their original player.position naturally
       }
     }
     context.read<TacticsState>().updateAnimatedPositions(positions);

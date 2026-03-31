@@ -93,5 +93,9 @@
   "login_not_available": "Sign in not available on this device",
   "login_network_error": "Network error, check connection",
   "login_server_error": "Server error, try again later",
-  "login_failed": "Sign in failed, try again"
+  "login_failed": "Sign in failed, try again",
+  "delete_account": "Delete Account",
+  "delete_account_confirm": "Are you sure? All data will be permanently deleted.",
+  "delete_account_success": "Account deleted",
+  "delete_account_failed": "Delete failed"
 }

@@ -1,0 +1,27 @@
+Plan the point before you play it.
+
+Tennis Board gives coaches and players a clean court canvas to map out serve patterns, approach shots, and doubles positioning.
+
+VISUALIZE EVERY POINT
+
+- Accurate tennis court with singles and doubles lines
+- Singles & doubles formations
+- Draw serve placement, rally patterns, and net approaches
+- Animate movement step by step
+- Save and share diagrams
+
+DOUBLES STRATEGY
+
+- Net player positioning
+- One-up-one-back vs both-at-net formations
+- Home & away colors
+- Custom player names
+
+COURT-READY
+
+- Offline mode
+- Dark theme
+- 50-step undo/redo
+- 11 languages
+
+From practice to match day — show the game plan, don't just describe it.

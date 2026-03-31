@@ -72,8 +72,8 @@ class TacticsBoardHomePage extends StatelessWidget {
               ],
             ),
           ),
-          Selector<TacticsState, ({bool visible, bool drawing, bool moves})>(
-            selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves),
+          Selector<TacticsState, ({bool visible, bool drawing, bool moves, int steps, int atStep, bool animating})>(
+            selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves, steps: s.maxMoveSteps, atStep: s.atStep, animating: s.isAnimating),
             builder: (context, sel, _) => Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -202,7 +202,7 @@ class _ContactPageState extends State<_ContactPage> {
     setState(() => _sending = true);
     try {
       final response = await http.post(
-        Uri.parse('http://tacticsboard.100for1.com:8080/api/v1/send-email'),
+        Uri.parse('https://tacticsboard.100for1.com/api/v1/send-email'),
         body: {
           'email': email,
           'subject': _subjectCtrl.text.trim().isEmpty ? 'Feedback' : _subjectCtrl.text.trim(),
@@ -310,7 +310,7 @@ class _LoginPageState extends State<_LoginPage> {
     setState(() => _loading = false);
     if (result.success) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Welcome, ${result.name ?? result.email ?? 'User'}!')),
+        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
       );
       Navigator.pop(context);
     } else {
@@ -327,7 +327,7 @@ class _LoginPageState extends State<_LoginPage> {
     setState(() => _loading = false);
     if (result.success) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Welcome, ${result.name ?? result.email ?? 'User'}!')),
+        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
       );
       Navigator.pop(context);
     } else {
@@ -381,7 +381,49 @@ class _LoginPageState extends State<_LoginPage> {
             child: Text('logout'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           ),
         ),
+        const SizedBox(height: 16),
+        TextButton(
+          onPressed: () => _confirmDeleteAccount(),
+          child: Text('delete_account'.tr(), style: const TextStyle(color: Colors.red, fontSize: 14)),
+        ),
       ],
+    );
+  }
+
+  void _confirmDeleteAccount() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1E1E2E),
+        title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
+        content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(ctx);
+              setState(() => _loading = true);
+              try {
+                final response = await http.delete(
+                  Uri.parse('https://tacticsboard.100for1.com/api/v1/auth/delete-account'),
+                  headers: {'Authorization': 'Bearer ${_auth.token}', 'Accept': 'application/json'},
+                );
+                _auth.logout();
+                if (mounted) {
+                  setState(() => _loading = false);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(response.statusCode == 200 ? 'delete_account_success'.tr() : 'delete_account_failed'.tr())),
+                  );
+                }
+              } catch (_) {
+                _auth.logout();
+                if (mounted) setState(() => _loading = false);
+              }
+            },
+            child: Text('delete_account'.tr(), style: const TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
     );
   }
 

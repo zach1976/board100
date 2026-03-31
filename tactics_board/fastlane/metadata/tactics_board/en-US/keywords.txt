@@ -1,0 +1,1 @@
+tactics,board,coach,playbook,soccer,basketball,volleyball,tennis,badminton,formation,strategy,drill

@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 const _apiServer = 'tacticsboard.100for1.com';
-const _apiBase = 'http://$_apiServer/api/v1';
+const _apiBase = 'https://$_apiServer/api/v1';
 const _googleClientId = '711017030012-lf4ostf39c4dn5b336h5pl17bosm8ek7.apps.googleusercontent.com';
 
 class AuthResult {

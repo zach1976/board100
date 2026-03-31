@@ -93,5 +93,9 @@
   "login_not_available": "此设备不支持该登录方式",
   "login_network_error": "网络错误，请检查连接",
   "login_server_error": "服务器错误，请稍后重试",
-  "login_failed": "登录失败，请重试"
+  "login_failed": "登录失败，请重试",
+  "delete_account": "删除账号",
+  "delete_account_confirm": "确定要删除账号吗？所有数据将被永久删除。",
+  "delete_account_success": "账号已删除",
+  "delete_account_failed": "删除失败"
 }

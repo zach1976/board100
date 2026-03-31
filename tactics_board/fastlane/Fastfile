@@ -1,0 +1,97 @@
+default_platform(:ios)
+
+# ── API Key ──────────────────────────────────────────────────────────────────
+API_KEY = app_store_connect_api_key(
+  key_id: "4A9Y2S3D6X",
+  issuer_id: "3d46fac5-4873-4806-bf23-3f8f17eddbbe",
+  key_filepath: "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8",
+)
+
+# ── App configs ──────────────────────────────────────────────────────────────
+APPS = {
+  tactics_board: { id: "com.zach.tacticsBoard",       name: "Tactics Board" },
+  soccer:        { id: "com.zach.soccerBoard",        name: "Soccer Board" },
+  basketball:    { id: "com.zach.basketballBoard",    name: "Basketball Board" },
+  volleyball:    { id: "com.zach.volleyballBoard",    name: "Volleyball Board" },
+  badminton:     { id: "com.zach.badmintonBoard",     name: "Badminton Board" },
+  tennis:        { id: "com.zach.tennisBoard",        name: "Tennis Board" },
+  tableTennis:   { id: "com.zach.tableTennisBoard",   name: "Table Tennis Board" },
+  pickleball:    { id: "com.zach.pickleballBoard",    name: "Pickleball Board" },
+}
+
+# Common deliver options for new apps
+DELIVER_DEFAULTS = {
+  api_key: API_KEY,
+  skip_binary_upload: true,
+  force: true,
+  precheck_include_in_app_purchases: false,
+  run_precheck_before_submit: false,
+  submit_for_review: false,
+}
+
+platform :ios do
+
+  # ── Upload metadata for a single app ───────────────────────────────────────
+  desc "Upload metadata for a specific app (no binary)"
+  lane :upload_metadata do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app: fastlane upload_metadata app:soccer") unless app
+    UI.user_error!("Unknown app: #{app}") unless APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      metadata_path: "./fastlane/metadata/#{app}",
+      skip_screenshots: true,
+      primary_category: "SPORTS",
+      secondary_category: "UTILITIES",
+    )
+  end
+
+  # ── Upload metadata for ALL apps ───────────────────────────────────────────
+  desc "Upload metadata for all 8 apps (no binary)"
+  lane :upload_all_metadata do
+    APPS.each_key do |app|
+      begin
+        UI.message("━━━ Uploading: #{APPS[app][:name]} (#{APPS[app][:id]}) ━━━")
+        upload_metadata(app: app)
+        UI.success("✅ #{APPS[app][:name]} done")
+      rescue => e
+        UI.error("❌ #{APPS[app][:name]} failed: #{e.message}")
+      end
+    end
+  end
+
+  # ── Upload screenshots for a single app ────────────────────────────────────
+  desc "Upload screenshots for a specific app"
+  lane :upload_screenshots do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app: fastlane upload_screenshots app:soccer") unless app
+    UI.user_error!("Unknown app: #{app}") unless APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      screenshots_path: "./fastlane/screenshots/#{app}",
+      skip_metadata: true,
+      overwrite_screenshots: true,
+    )
+  end
+
+  # ── Upload everything (metadata + screenshots) for a single app ────────────
+  desc "Upload metadata + screenshots for a specific app (no binary)"
+  lane :upload_all do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app: fastlane upload_all app:soccer") unless app
+    UI.user_error!("Unknown app: #{app}") unless APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      metadata_path: "./fastlane/metadata/#{app}",
+      screenshots_path: "./fastlane/screenshots/#{app}",
+      overwrite_screenshots: true,
+    )
+  end
+
+end
