@@ -88,5 +88,10 @@
   "load": "Load",
   "people_count": "",
   "timeline": "Timeline",
-  "timeline_reset": "Reset"
+  "timeline_reset": "Reset",
+  "login_cancelled": "Sign in cancelled",
+  "login_not_available": "Sign in not available on this device",
+  "login_network_error": "Network error, check connection",
+  "login_server_error": "Server error, try again later",
+  "login_failed": "Sign in failed, try again"
 }

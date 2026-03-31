@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -14,6 +15,8 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Subscribe to locale changes so page rebuilds on language switch
+    context.locale;
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
     return Scaffold(
@@ -84,7 +87,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   curve: Curves.easeInOut,
                   child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
                 ),
-                SizedBox(height: bottomPad > 0 ? 16 : 4),
+                SizedBox(height: bottomPad > 0 ? 36 : 20),
               ],
             ),
           ),
@@ -112,9 +115,9 @@ class _MenuButton extends StatelessWidget {
         child: const Icon(Icons.more_horiz, color: Colors.white70, size: 18),
       ),
       itemBuilder: (ctx) => [
-        _menuItem('language', Icons.language, 'Language'),
-        _menuItem('contact', Icons.mail_outline, 'Contact Us'),
-        _menuItem('login', Icons.person_outline, 'Login'),
+        _menuItem('language', Icons.language, 'menu_language'.tr()),
+        _menuItem('contact', Icons.mail_outline, 'menu_contact'.tr()),
+        _menuItem('login', Icons.person_outline, 'menu_login'.tr()),
       ],
     );
   }
@@ -181,36 +184,49 @@ class _ContactPageState extends State<_ContactPage> {
   }
 
   Future<void> _send() async {
-    if (_emailCtrl.text.trim().isEmpty || _bodyCtrl.text.trim().isEmpty) return;
+    final email = _emailCtrl.text.trim();
+    final body = _bodyCtrl.text.trim();
+    // Validation
+    if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('your_email'.tr() + ' required')));
+      return;
+    }
+    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(email)) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('send_email_error'.tr())));
+      return;
+    }
+    if (body.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('message'.tr() + ' required')));
+      return;
+    }
     setState(() => _sending = true);
     try {
-      final uri = Uri.parse('http://safecommunity.100for1.com:8080/api/send-email');
-      final response = await http.post(uri, body: {
-        'email': _emailCtrl.text.trim(),
-        'subject': _subjectCtrl.text.trim(),
-        'message': _bodyCtrl.text.trim(),
-        'app': 'Tactics Board',
-      }, headers: {'Content-Type': 'application/x-www-form-urlencoded'});
+      final response = await http.post(
+        Uri.parse('http://tacticsboard.100for1.com:8080/api/v1/send-email'),
+        body: {
+          'email': email,
+          'subject': _subjectCtrl.text.trim().isEmpty ? 'Feedback' : _subjectCtrl.text.trim(),
+          'message': body,
+          'app': 'Tactics Board',
+        },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      ).timeout(const Duration(seconds: 10));
 
       if (!mounted) return;
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Message sent successfully!')),
+          SnackBar(content: Text('send_success'.tr()), backgroundColor: Colors.green),
         );
         Navigator.pop(context);
-      } else if (response.statusCode == 422) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Invalid email format')),
-        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Failed to send message')),
+          SnackBar(content: Text('send_failed'.tr())),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
+          SnackBar(content: Text('send_failed'.tr())),
         );
       }
     } finally {
@@ -223,7 +239,7 @@ class _ContactPageState extends State<_ContactPage> {
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D1A),
       appBar: AppBar(
-        title: const Text('Contact Us'),
+        title: Text('contact_title'.tr()),
         backgroundColor: const Color(0xFF1E1E2E),
       ),
       body: SingleChildScrollView(
@@ -231,13 +247,13 @@ class _ContactPageState extends State<_ContactPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Send us a message', style: TextStyle(color: Colors.white70, fontSize: 16)),
+            Text('contact_subtitle'.tr(), style: const TextStyle(color: Colors.white70, fontSize: 16)),
             const SizedBox(height: 20),
-            _field(_emailCtrl, 'Your Email', TextInputType.emailAddress),
+            _field(_emailCtrl, 'your_email'.tr(), TextInputType.emailAddress),
             const SizedBox(height: 12),
-            _field(_subjectCtrl, 'Subject'),
+            _field(_subjectCtrl, 'subject'.tr()),
             const SizedBox(height: 12),
-            _field(_bodyCtrl, 'Message', null, 5),
+            _field(_bodyCtrl, 'message'.tr(), null, 5),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: _sending ? null : _send,
@@ -248,7 +264,7 @@ class _ContactPageState extends State<_ContactPage> {
               ),
               child: _sending
                   ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                  : const Text('Send', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  : Text('send'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             ),
           ],
         ),
@@ -299,7 +315,7 @@ class _LoginPageState extends State<_LoginPage> {
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result.error ?? 'Login failed')),
+        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
       );
     }
   }
@@ -316,7 +332,7 @@ class _LoginPageState extends State<_LoginPage> {
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result.error ?? 'Login failed')),
+        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
       );
     }
   }
@@ -328,7 +344,7 @@ class _LoginPageState extends State<_LoginPage> {
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D1A),
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text('login_title'.tr()),
         backgroundColor: const Color(0xFF1E1E2E),
       ),
       body: Center(
@@ -362,7 +378,7 @@ class _LoginPageState extends State<_LoginPage> {
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
-            child: const Text('Logout', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            child: Text('logout'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           ),
         ),
       ],
@@ -375,7 +391,7 @@ class _LoginPageState extends State<_LoginPage> {
       children: [
         const Icon(Icons.person_outline, color: Colors.white38, size: 80),
         const SizedBox(height: 24),
-        const Text('Sign in to sync your tactics',
+        Text('login_subtitle'.tr(),
             style: TextStyle(color: Colors.white70, fontSize: 16), textAlign: TextAlign.center),
         const SizedBox(height: 40),
         if (_loading)
@@ -384,7 +400,7 @@ class _LoginPageState extends State<_LoginPage> {
           // Apple Sign In
           _signInButton(
             icon: Icons.apple,
-            label: 'Sign in with Apple',
+            label: 'login_apple'.tr(),
             color: Colors.white,
             bgColor: Colors.black,
             onTap: _loginWithApple,
@@ -393,7 +409,7 @@ class _LoginPageState extends State<_LoginPage> {
           // Google Sign In
           _signInButton(
             icon: Icons.g_mobiledata,
-            label: 'Sign in with Google',
+            label: 'login_google'.tr(),
             color: Colors.black87,
             bgColor: Colors.white,
             onTap: _loginWithGoogle,

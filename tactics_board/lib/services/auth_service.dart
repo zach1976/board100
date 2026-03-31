@@ -56,7 +56,7 @@ class AuthService {
       final response = await http.post(
         Uri.parse('$_apiBase/auth/google'),
         body: jsonEncode({'id_token': idToken}),
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       );
 
       if (response.statusCode == 200) {
@@ -103,7 +103,7 @@ class AuthService {
           'family_name': credential.familyName,
           'email': credential.email,
         }),
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       );
 
       if (response.statusCode == 200) {
@@ -122,21 +122,22 @@ class AuthService {
     }
   }
 
+  /// Returns a short error key or message
   String _friendlyError(Object e) {
     final msg = e.toString();
     if (msg.contains('canceled') || msg.contains('cancelled')) {
-      return 'Sign in cancelled';
+      return 'login_cancelled';
     }
     if (msg.contains('error 1000') || msg.contains('AuthorizationError')) {
-      return 'Apple Sign In is not available on this device';
+      return 'login_not_available';
     }
     if (msg.contains('network') || msg.contains('SocketException')) {
-      return 'Network error. Please check your connection';
+      return 'login_network_error';
     }
-    if (msg.contains('PlatformException')) {
-      return 'Sign in not available on this device';
+    if (msg.contains('Server error')) {
+      return 'login_server_error';
     }
-    return 'Sign in failed. Please try again';
+    return 'login_failed';
   }
 
   void logout() {

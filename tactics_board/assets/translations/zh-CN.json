@@ -88,5 +88,10 @@
   "load": "加载",
   "people_count": "人",
   "timeline": "时间线",
-  "timeline_reset": "重置"
+  "timeline_reset": "重置",
+  "login_cancelled": "登录已取消",
+  "login_not_available": "此设备不支持该登录方式",
+  "login_network_error": "网络错误，请检查连接",
+  "login_server_error": "服务器错误，请稍后重试",
+  "login_failed": "登录失败，请重试"
 }

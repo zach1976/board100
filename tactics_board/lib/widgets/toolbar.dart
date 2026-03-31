@@ -20,6 +20,8 @@ class TacticsToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Subscribe to locale so toolbar rebuilds on language change
+    final _ = EasyLocalization.of(context)?.currentLocale;
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return Container(
@@ -126,9 +128,13 @@ class _MainRow extends StatelessWidget {
       final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
       await file.writeAsBytes(bytes.buffer.asUint8List());
       try {
-        await Share.shareXFiles([XFile(file.path)]);
-      } catch (_) {
-        // share_plus fails on simulator — show short success message
+        final result = await Share.shareXFiles(
+          [XFile(file.path)],
+          subject: 'Tactics Board',
+        );
+        debugPrint('Share result: ${result.status}');
+      } catch (e) {
+        debugPrint('Share failed: $e, file saved at: ${file.path}');
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -1414,7 +1420,10 @@ class _IconBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Icon(icon, color: color ?? Colors.white70, size: 21),
+      child: Padding(
+        padding: const EdgeInsets.all(6),
+        child: Icon(icon, color: color ?? Colors.white70, size: 24),
+      ),
     );
   }
 }
