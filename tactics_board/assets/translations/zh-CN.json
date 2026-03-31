@@ -97,5 +97,18 @@
   "delete_account": "删除账号",
   "delete_account_confirm": "确定要删除账号吗？所有数据将被永久删除。",
   "delete_account_success": "账号已删除",
-  "delete_account_failed": "删除失败"
+  "delete_account_failed": "删除失败",
+  "male_single": "男单",
+  "female_single": "女单",
+  "male": "男",
+  "female": "女",
+  "male_doubles": "男双",
+  "female_doubles": "女双",
+  "mixed_doubles": "混双",
+  "player_count": "人数",
+  "count_suffix": "人",
+  "formation_label": "阵型",
+  "team_label": "队伍",
+  "both_teams": "主队+客队",
+  "confirm": "确定"
 }

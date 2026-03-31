@@ -611,14 +611,14 @@ class _PlayerAddRow extends StatelessWidget {
         child: Row(
           children: [
             _PlayerCard(
-              label: _hasDoubles ? '男单' : '男',
+              label: _hasDoubles ? 'male_single'.tr() : 'male'.tr(),
               color: color,
               genders: const [PlayerGender.male],
               onTap: () { _add(PlayerGender.male); Navigator.pop(sheetCtx); },
             ),
             const SizedBox(width: 8),
             _PlayerCard(
-              label: _hasDoubles ? '女单' : '女',
+              label: _hasDoubles ? 'female_single'.tr() : 'female'.tr(),
               color: color,
               genders: const [PlayerGender.female],
               onTap: () { _add(PlayerGender.female); Navigator.pop(sheetCtx); },
@@ -626,21 +626,21 @@ class _PlayerAddRow extends StatelessWidget {
             if (_hasDoubles) ...[
               const SizedBox(width: 8),
               _PlayerCard(
-                label: '男双',
+                label: 'male_doubles'.tr(),
                 color: color,
                 genders: const [PlayerGender.male, PlayerGender.male],
                 onTap: () => _addPair(PlayerGender.male, PlayerGender.male),
               ),
               const SizedBox(width: 8),
               _PlayerCard(
-                label: '女双',
+                label: 'female_doubles'.tr(),
                 color: color,
                 genders: const [PlayerGender.female, PlayerGender.female],
                 onTap: () => _addPair(PlayerGender.female, PlayerGender.female),
               ),
               const SizedBox(width: 8),
               _PlayerCard(
-                label: '混双',
+                label: 'mixed_doubles'.tr(),
                 color: color,
                 genders: const [PlayerGender.male, PlayerGender.female],
                 onTap: () => _addPair(PlayerGender.male, PlayerGender.female),
@@ -719,7 +719,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Row 1: Player count
-          const Text('人数', style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+          Text('player_count'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
           const SizedBox(height: 6),
           Row(
             children: _distinctCounts.map((count) {
@@ -744,7 +744,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                     ),
                     child: Center(
                       child: Text(
-                        '${count}人',
+                        '${'count_suffix'.tr()}',
                         style: TextStyle(
                           color: selected ? Colors.white : Colors.white70,
                           fontSize: 15,
@@ -761,7 +761,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           // Row 2: Formation (only if multiple formations for selected count)
           if (_selectedCount != null && formations.length > 1) ...[
             const SizedBox(height: 12),
-            const Text('阵型', style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('formation_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -801,11 +801,11 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           // Row 3: Team selection
           if (_selectedFormation != null || (_selectedCount != null && formations.length == 1)) ...[
             const SizedBox(height: 12),
-            const Text('队伍', style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('team_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             Row(
               children: [
-                _buildTeamChip('主队+客队', _TeamOption.both, Colors.purple),
+                _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
                 const SizedBox(width: 8),
                 _buildTeamChip('team_home'.tr(), _TeamOption.home, const Color(0xFF1565C0)),
                 const SizedBox(width: 8),
@@ -820,9 +820,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text(
-                      '确定',
-                      style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                    child: Text(
+                      'confirm'.tr(),
+                      style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -908,7 +908,7 @@ class _TeamFormationRow extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          '${count}人',
+                          '${'count_suffix'.tr()}',
                           style: TextStyle(color: color, fontSize: 14, fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -917,7 +917,7 @@ class _TeamFormationRow extends StatelessWidget {
                 )),
                 // Individual add
                 _PlayerCard(
-                  label: '男',
+                  label: 'male'.tr(),
                   color: color,
                   genders: const [PlayerGender.male],
                   onTap: () {
@@ -934,7 +934,7 @@ class _TeamFormationRow extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 _PlayerCard(
-                  label: '女',
+                  label: 'female'.tr(),
                   color: color,
                   genders: const [PlayerGender.female],
                   onTap: () {
@@ -1038,7 +1038,7 @@ class _QuickFormationRow extends StatelessWidget {
     if (hasDoubles) {
       final doubles = formations.firstWhere((f) => f.nameKey == 'formation_doubles');
       cards.add(_FormationCard(
-        label: '混双',
+        label: 'mixed_doubles'.tr(),
         homeDots: [(homeColor, PlayerGender.male), (homeColor, PlayerGender.female)],
         awayDots: [(awayColor, PlayerGender.male), (awayColor, PlayerGender.female)],
         onTap: () => _apply(context, doubles,

@@ -97,5 +97,18 @@
   "delete_account": "Delete Account",
   "delete_account_confirm": "Are you sure? All data will be permanently deleted.",
   "delete_account_success": "Account deleted",
-  "delete_account_failed": "Delete failed"
+  "delete_account_failed": "Delete failed",
+  "male_single": "男子",
+  "female_single": "女子",
+  "male": "男",
+  "female": "女",
+  "male_doubles": "男子ダブルス",
+  "female_doubles": "女子ダブルス",
+  "mixed_doubles": "ミックス",
+  "player_count": "人数",
+  "count_suffix": "人",
+  "formation_label": "フォーメーション",
+  "team_label": "チーム",
+  "both_teams": "両チーム",
+  "confirm": "適用"
 }
