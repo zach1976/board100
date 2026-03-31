@@ -156,9 +156,17 @@ class TacticsState extends ChangeNotifier {
 
   // Clears the animated overlay (e.g. after user edits)
   void clearAnimatedPositions() {
-    _animatedPositions = {};
-    _atStep = 0;
+    _resetAnimationState();
     notifyListeners();
+  }
+
+  /// Reset animation state silently (called before edit operations)
+  void _resetAnimationState() {
+    if (_isAnimating || _animatedPositions.isNotEmpty || _atStep > 0) {
+      _isAnimating = false;
+      _animatedPositions = {};
+      _atStep = 0;
+    }
   }
 
   void updateAnimatedPositions(Map<String, Offset> positions) {
@@ -246,6 +254,7 @@ class TacticsState extends ChangeNotifier {
   // Player management
   void addPlayer(PlayerIcon player) {
     _saveSnapshot();
+    _resetAnimationState();
     _players.add(player.copyWith(
       moveColor: PlayerIcon.moveColorForIndex(_players.length),
     ));
@@ -272,8 +281,7 @@ class TacticsState extends ChangeNotifier {
 
   void movePlayerEnd(String id, Offset newPosition) {
     _saveSnapshot();
-    _animatedPositions = {};
-    _atStep = 0; // clear overlay when manually moving
+    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _players[idx] = _players[idx].copyWith(position: newPosition);
@@ -281,6 +289,7 @@ class TacticsState extends ChangeNotifier {
   }
 
   void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false}) {
+    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
@@ -294,6 +303,7 @@ class TacticsState extends ChangeNotifier {
 
   void removePlayer(String id) {
     _saveSnapshot();
+    _resetAnimationState();
     _players.removeWhere((p) => p.id == id);
     if (_selectedPlayerId == id) _selectedPlayerId = null;
     notifyListeners();
@@ -301,6 +311,7 @@ class TacticsState extends ChangeNotifier {
 
   // Player move waypoints
   void addPlayerMove(String id, Offset position) {
+    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
@@ -322,9 +333,11 @@ class TacticsState extends ChangeNotifier {
 
   void movePlayerWaypointEnd(String id) {
     _saveSnapshot();
+    _resetAnimationState();
   }
 
   void removePlayerWaypoint(String id, int index) {
+    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
@@ -335,6 +348,7 @@ class TacticsState extends ChangeNotifier {
   }
 
   void setMovePhase(String playerId, int moveIndex, int phase) {
+    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == playerId);
     if (idx < 0) return;
     _saveSnapshot();
@@ -389,6 +403,7 @@ class TacticsState extends ChangeNotifier {
 
   void applyFormation(SportFormation formation, {List<PlayerGender>? homeGenders, List<PlayerGender>? awayGenders}) {
     _saveSnapshot();
+    _resetAnimationState();
     _players.clear();
     _selectedPlayerId = null;
     final w = _canvasSize.width;
@@ -426,6 +441,7 @@ class TacticsState extends ChangeNotifier {
   /// Add players for one team only from a formation (doesn't clear existing players)
   void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
     _saveSnapshot();
+    _resetAnimationState();
     final w = _canvasSize.width;
     final h = _canvasSize.height;
     final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
@@ -479,6 +495,7 @@ class TacticsState extends ChangeNotifier {
   void clearStrokes() {
     if (_strokes.isEmpty) return;
     _saveSnapshot();
+    _resetAnimationState();
     _strokes.clear();
     notifyListeners();
   }
@@ -486,6 +503,7 @@ class TacticsState extends ChangeNotifier {
   void clearAll() {
     if (_players.isEmpty && _strokes.isEmpty) return;
     _saveSnapshot();
+    _resetAnimationState();
     _players.clear();
     _strokes.clear();
     _selectedPlayerId = null;
