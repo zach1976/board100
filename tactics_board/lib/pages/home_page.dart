@@ -14,12 +14,80 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final topPad = MediaQuery.of(context).padding.top;
+    final bottomPad = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       backgroundColor: const Color(0xFF1E1E2E),
       body: Column(
         children: [
-          Expanded(child: Container(color: Colors.green, child: const Center(child: Text('CANVAS', style: TextStyle(color: Colors.white, fontSize: 30))))),
-          const TacticsToolbar(),
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                const TacticsCanvas(),
+                if (!isSingleSportApp)
+                  Positioned(
+                    top: topPad + 8, left: 12,
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => const SportSelectionPage()),
+                      ),
+                      child: Container(
+                        width: 32, height: 32,
+                        decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
+                        child: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 16),
+                      ),
+                    ),
+                  ),
+                Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
+                Selector<TacticsState, bool>(
+                  selector: (_, s) => s.isDrawingMode,
+                  builder: (context, isDrawing, _) => isDrawing
+                    ? Positioned(
+                        bottom: 0, left: 0, right: 0,
+                        child: Container(
+                          color: const Color(0xDD1E1E2E),
+                          child: DrawingOptionsBar(state: context.read<TacticsState>()),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+                ),
+                Positioned(
+                  bottom: 12, right: 12,
+                  child: Selector<TacticsState, bool>(
+                    selector: (_, s) => s.toolbarVisible,
+                    builder: (context, visible, _) => GestureDetector(
+                      onTap: context.read<TacticsState>().toggleToolbar,
+                      child: Container(
+                        width: 32, height: 32,
+                        decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
+                        child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Selector<TacticsState, ({bool visible, bool drawing, bool moves})>(
+            selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves),
+            builder: (context, sel, _) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (sel.visible && !sel.drawing)
+                  SizedBox(
+                    height: 48,
+                    child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
+                  ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                  child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
+                ),
+                SizedBox(height: bottomPad > 0 ? 16 : 4),
+              ],
+            ),
+          ),
         ],
       ),
     );

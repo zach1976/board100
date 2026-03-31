@@ -72,7 +72,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    if (_stateOrNull == null) return const SizedBox.expand();
+    if (_stateOrNull == null) {
+      return Container(color: const Color(0xFF1E1E2E));
+    }
     final state = _state;
     return LayoutBuilder(
       builder: (context, constraints) {
