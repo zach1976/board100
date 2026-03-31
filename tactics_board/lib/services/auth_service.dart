@@ -7,7 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-const _apiServer = 'safecommunity.100for1.com:8080';
+const _apiServer = 'tacticsboard.100for1.com';
+const _apiBase = 'http://$_apiServer/api/v1';
 // TODO: Replace with your Google OAuth client ID
 const _googleClientId = '';
 
@@ -54,7 +55,7 @@ class AuthService {
 
       // Send to backend
       final response = await http.post(
-        Uri.parse('http://$_apiServer/api/google-login'),
+        Uri.parse('$_apiBase/auth/google'),
         body: jsonEncode({'id_token': idToken}),
         headers: {'Content-Type': 'application/json'},
       );
@@ -94,7 +95,7 @@ class AuthService {
 
       // Send to backend
       final response = await http.post(
-        Uri.parse('http://$_apiServer/api/apple-login'),
+        Uri.parse('$_apiBase/auth/apple'),
         body: jsonEncode({
           'identity_token': identityToken,
           'nonce': rawNonce,
