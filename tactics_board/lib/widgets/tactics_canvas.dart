@@ -91,14 +91,15 @@ class TacticsCanvas extends StatelessWidget {
                     ),
                   ),
                   // Player move arrows (below players, limited to atStep)
-                  CustomPaint(
-                    painter: PlayerMovesPainter(
-                      players: players,
-                      targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
-                      completedSteps: state.isAnimating ? state.atStep : null,
+                  if (state.showMoveLines)
+                    CustomPaint(
+                      painter: PlayerMovesPainter(
+                        players: players,
+                        targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
+                        completedSteps: state.isAnimating ? state.atStep : null,
+                      ),
+                      size: Size(constraints.maxWidth, constraints.maxHeight),
                     ),
-                    size: Size(constraints.maxWidth, constraints.maxHeight),
-                  ),
                   // Drawing layer
                   CustomPaint(
                     painter: DrawingPainter(
@@ -108,7 +109,7 @@ class TacticsCanvas extends StatelessWidget {
                     size: Size(constraints.maxWidth, constraints.maxHeight),
                   ),
                   // Waypoint dots (hidden during animation, limited to atStep/targetStep)
-                  if (!state.isDrawingMode && !state.isAnimating)
+                  if (!state.isDrawingMode && !state.isAnimating && state.showMoveLines)
                     ...players.expand((player) {
                       final limit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
                       final visibleMoves = limit > 0
@@ -129,7 +130,7 @@ class TacticsCanvas extends StatelessWidget {
                       });
                     }),
                   // Ghost icons at initial positions for players with moves
-                  if (!state.isDrawingMode)
+                  if (!state.isDrawingMode && state.showMoveLines)
                     ...players.where((p) => p.moves.isNotEmpty).map((player) {
                       final size = kPlayerIconSize * player.scale;
                       return Positioned(
@@ -229,8 +230,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
   int _totalSteps = 0;
   bool _isBackward = false;
   // Sequential mode: which player index is currently animating
-  int _seqPlayerIdx = 0;
-  List<PlayerIcon> _movingPlayers = []; // players that have moves at current step
+  bool _singleStep = false; // true = only animate one phase then stop
 
   @override
   void initState() {
@@ -248,30 +248,28 @@ class _AnimationDriverState extends State<_AnimationDriver>
   void didUpdateWidget(_AnimationDriver old) {
     super.didUpdateWidget(old);
     if (widget.isAnimating && !old.isAnimating) {
-      final maxSteps = widget.players.fold(
-          0, (m, p) => p.moves.length > m ? p.moves.length : m);
-      _step = widget.fromStep;
-      _seqPlayerIdx = 0;
+      _buildPhaseGroups();
       _isBackward = widget.toStep < widget.fromStep;
+      // Single step if toStep is exactly 1 away from fromStep
+      _singleStep = (widget.toStep - widget.fromStep).abs() == 1;
+
+      if (_sortedPhases.isEmpty) {
+        WidgetsBinding.instance.addPostFrameCallback(
+            (_) => context.read<TacticsState>().finishAnimation());
+        return;
+      }
+
       if (_isBackward) {
-        _totalSteps = widget.toStep;
-        _updateMovingPlayers();
+        _phaseIdx = (widget.fromStep - 1).clamp(0, _sortedPhases.length - 1);
         _ctrl.forward(from: 0);
-      } else if (widget.toStep > 0) {
-        _totalSteps = widget.toStep;
-        if (_totalSteps > _step) {
-          _updateMovingPlayers();
-          _ctrl.forward(from: 0);
-        } else {
-          WidgetsBinding.instance.addPostFrameCallback(
-              (_) => context.read<TacticsState>().finishAnimation());
-        }
+      } else if (widget.fromStep == 0 && widget.toStep == 0) {
+        // Play all
+        _phaseIdx = 0;
+        _ctrl.forward(from: 0);
       } else {
-        _totalSteps = (widget.targetStep > 0 && widget.targetStep <= maxSteps)
-            ? widget.targetStep
-            : maxSteps;
-        if (_totalSteps > _step) {
-          _updateMovingPlayers();
+        // Step forward (single or range)
+        _phaseIdx = widget.fromStep.clamp(0, _sortedPhases.length - 1);
+        if (_phaseIdx < _sortedPhases.length) {
           _ctrl.forward(from: 0);
         } else {
           WidgetsBinding.instance.addPostFrameCallback(
@@ -280,19 +278,42 @@ class _AnimationDriverState extends State<_AnimationDriver>
       }
     } else if (!widget.isAnimating && old.isAnimating) {
       _ctrl.stop();
-      _step = 0;
-      _seqPlayerIdx = 0;
+      _phaseIdx = 0;
+      _singleStep = false;
       _isBackward = false;
     }
   }
 
-  void _updateMovingPlayers() {
-    if (_isBackward) {
-      _movingPlayers = widget.players.where((p) => p.moves.length >= _step).toList();
-    } else {
-      _movingPlayers = widget.players.where((p) => p.moves.length > _step).toList();
+  // Phase-based animation: collect all (player, moveIndex) grouped by phase
+  List<int> _sortedPhases = [];
+  Map<int, List<({PlayerIcon player, int moveIdx})>> _phaseGroups = {};
+  int _phaseIdx = 0;
+
+  void _buildPhaseGroups() {
+    _phaseGroups = {};
+    for (final player in widget.players) {
+      player.syncPhases();
+      for (int i = 0; i < player.moves.length; i++) {
+        final phase = i < player.movePhases.length ? player.movePhases[i] : i;
+        _phaseGroups.putIfAbsent(phase, () => []);
+        _phaseGroups[phase]!.add((player: player, moveIdx: i));
+      }
     }
-    _seqPlayerIdx = 0;
+    _sortedPhases = _phaseGroups.keys.toList()..sort();
+  }
+
+  /// For a player at a given phase, find which move index they should be at
+  int _playerPosAtPhase(PlayerIcon player, int phaseIdx) {
+    int lastCompleted = -1; // -1 means at initial position
+    for (int i = 0; i < player.moves.length; i++) {
+      final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+      // Check if this move's phase has been completed
+      final phaseOrderIdx = _sortedPhases.indexOf(ph);
+      if (phaseOrderIdx >= 0 && phaseOrderIdx < phaseIdx) {
+        lastCompleted = i;
+      }
+    }
+    return lastCompleted + 1; // index into [position, ...moves]
   }
 
   void _onTick() {
@@ -300,54 +321,33 @@ class _AnimationDriverState extends State<_AnimationDriver>
     final t = _curved.value;
     final positions = <String, Offset>{};
 
+    if (_sortedPhases.isEmpty) {
+      context.read<TacticsState>().updateAnimatedPositions(positions);
+      return;
+    }
+
+    final currentPhase = _phaseIdx < _sortedPhases.length ? _sortedPhases[_phaseIdx] : _sortedPhases.last;
+    final activeGroup = _phaseGroups[currentPhase] ?? [];
+
     for (final player in widget.players) {
       final all = [player.position, ...player.moves];
+      final baseIdx = _playerPosAtPhase(player, _phaseIdx);
 
-      if (widget.sequentialMode) {
-        // In sequential mode, only the current player animates
-        final isCurrentPlayer = _movingPlayers.isNotEmpty &&
-            _seqPlayerIdx < _movingPlayers.length &&
-            player.id == _movingPlayers[_seqPlayerIdx].id;
+      // Check if this player has a move in the current phase
+      final activeEntry = activeGroup.where((e) => e.player.id == player.id).toList();
 
-        if (isCurrentPlayer) {
-          if (_isBackward) {
-            final from = _step.clamp(0, all.length - 1);
-            final to = (_step - 1).clamp(0, all.length - 1);
-            positions[player.id] = Offset.lerp(all[from], all[to], t)!;
-          } else {
-            if (_step >= all.length - 1) {
-              positions[player.id] = all.last;
-            } else {
-              positions[player.id] = Offset.lerp(all[_step], all[_step + 1], t)!;
-            }
-          }
+      if (activeEntry.isNotEmpty) {
+        final moveIdx = activeEntry.first.moveIdx;
+        final fromIdx = moveIdx.clamp(0, all.length - 1);
+        final toIdx = (moveIdx + 1).clamp(0, all.length - 1);
+        if (_isBackward) {
+          positions[player.id] = Offset.lerp(all[toIdx], all[fromIdx], t)!;
         } else {
-          // Keep at last known position for this step
-          final idx = _step.clamp(0, all.length - 1);
-          // If this player already animated (index < _seqPlayerIdx), show at next step
-          final alreadyMoved = _movingPlayers.isNotEmpty &&
-              _movingPlayers.indexWhere((p) => p.id == player.id) < _seqPlayerIdx &&
-              _movingPlayers.any((p) => p.id == player.id);
-          if (alreadyMoved && !_isBackward) {
-            final nextIdx = (_step + 1).clamp(0, all.length - 1);
-            positions[player.id] = all[nextIdx];
-          } else {
-            positions[player.id] = all[idx];
-          }
+          positions[player.id] = Offset.lerp(all[fromIdx], all[toIdx], t)!;
         }
       } else {
-        // Simultaneous mode (original behavior)
-        if (_isBackward) {
-          final from = _step.clamp(0, all.length - 1);
-          final to = (_step - 1).clamp(0, all.length - 1);
-          positions[player.id] = Offset.lerp(all[from], all[to], t)!;
-        } else {
-          if (_step >= all.length - 1) {
-            positions[player.id] = all.last;
-          } else {
-            positions[player.id] = Offset.lerp(all[_step], all[_step + 1], t)!;
-          }
-        }
+        // Not moving in this phase — stay at current position
+        positions[player.id] = all[baseIdx.clamp(0, all.length - 1)];
       }
     }
     context.read<TacticsState>().updateAnimatedPositions(positions);
@@ -356,34 +356,22 @@ class _AnimationDriverState extends State<_AnimationDriver>
   void _onStatus(AnimationStatus status) {
     if (status != AnimationStatus.completed) return;
 
-    if (widget.sequentialMode && _movingPlayers.isNotEmpty) {
-      _seqPlayerIdx++;
-      if (_seqPlayerIdx < _movingPlayers.length) {
-        // More players to animate at this step
-        _ctrl.forward(from: 0);
-        return;
-      }
-    }
-
-    // All players done for this step (or simultaneous mode)
     if (_isBackward) {
-      _step--;
-      context.read<TacticsState>().advanceAtStep(_step);
-      if (_step <= _totalSteps) {
+      _phaseIdx--;
+      context.read<TacticsState>().advanceAtStep(_phaseIdx + 1);
+      if (_singleStep || _phaseIdx < 0) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
-        _updateMovingPlayers();
         _ctrl.forward(from: 0);
       }
     } else {
-      _step++;
-      context.read<TacticsState>().advanceAtStep(_step);
-      if (_step >= _totalSteps) {
+      _phaseIdx++;
+      context.read<TacticsState>().advanceAtStep(_phaseIdx);
+      if (_singleStep || _phaseIdx >= _sortedPhases.length) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
-        _updateMovingPlayers();
         _ctrl.forward(from: 0);
       }
     }
@@ -535,6 +523,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                     color: widget.player.color,
                     borderColor: widget.player.moveColor,
                     borderWidth: 2.5,
+                    gender: widget.player.gender,
                   ),
                   size: Size.infinite,
                 ),

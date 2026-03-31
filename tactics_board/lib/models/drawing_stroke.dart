@@ -20,6 +20,24 @@ class DrawingStroke {
     this.arrow = ArrowStyle.end,
   });
 
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'points': points.map((p) => [p.dx, p.dy]).toList(),
+    'color': color.value,
+    'width': width,
+    'style': style.index,
+    'arrow': arrow.index,
+  };
+
+  factory DrawingStroke.fromJson(Map<String, dynamic> json) => DrawingStroke(
+    id: json['id'] as String,
+    points: (json['points'] as List).map((p) => Offset((p[0] as num).toDouble(), (p[1] as num).toDouble())).toList(),
+    color: Color(json['color'] as int),
+    width: (json['width'] as num).toDouble(),
+    style: StrokeStyle.values[json['style'] as int],
+    arrow: ArrowStyle.values[json['arrow'] as int],
+  );
+
   DrawingStroke copyWith({
     String? id,
     List<Offset>? points,

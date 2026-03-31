@@ -190,7 +190,9 @@ class PlayerIconWidget extends StatelessWidget {
       child: SizedBox(
         width: size,
         height: size,
-        child: player.isBall
+        child: player.isMarker
+            ? _MarkerWidget(player: player, isSelected: isSelected)
+            : player.isBall
             ? _BallWidget(player: player, isSelected: isSelected)
             : _PlayerShape(player: player, isSelected: isSelected),
       ),
@@ -237,6 +239,114 @@ class _PlayerShape extends StatelessWidget {
       ],
     );
   }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Marker shapes — circle, square, triangle, diamond
+// ─────────────────────────────────────────────────────────────────────────────
+class _MarkerWidget extends StatelessWidget {
+  final PlayerIcon player;
+  final bool isSelected;
+  const _MarkerWidget({required this.player, required this.isSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        CustomPaint(
+          painter: MarkerPainter(
+            shape: player.markerShape,
+            color: player.color,
+            isSelected: isSelected,
+          ),
+          size: Size.infinite,
+        ),
+        if (player.label.isNotEmpty)
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              player.label,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 12 * player.scale,
+                height: 1,
+                shadows: const [Shadow(color: Colors.black87, blurRadius: 2)],
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class MarkerPainter extends CustomPainter {
+  final MarkerShape shape;
+  final Color color;
+  final bool isSelected;
+
+  const MarkerPainter({required this.shape, required this.color, this.isSelected = false});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    final cx = w / 2;
+    final cy = h / 2;
+    final r = w * 0.38;
+
+    if (isSelected) {
+      final glow = Paint()
+        ..color = Colors.yellow.withValues(alpha: 0.6)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
+      canvas.drawCircle(Offset(cx, cy), r + 5, glow);
+    }
+
+    // Shadow
+    final shadow = Paint()
+      ..color = Colors.black.withValues(alpha: 0.4)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
+    canvas.drawCircle(Offset(cx + 2, cy + 2), r, shadow);
+
+    final fill = Paint()..color = color;
+    final border = Paint()
+      ..color = isSelected ? Colors.yellow : Colors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = isSelected ? 2.5 : 2;
+
+    switch (shape) {
+      case MarkerShape.circle:
+        canvas.drawCircle(Offset(cx, cy), r, fill);
+        canvas.drawCircle(Offset(cx, cy), r, border);
+      case MarkerShape.square:
+        final rect = Rect.fromCenter(center: Offset(cx, cy), width: r * 1.7, height: r * 1.7);
+        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), fill);
+        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), border);
+      case MarkerShape.triangle:
+        final path = Path()
+          ..moveTo(cx, cy - r)
+          ..lineTo(cx + r * 0.95, cy + r * 0.7)
+          ..lineTo(cx - r * 0.95, cy + r * 0.7)
+          ..close();
+        canvas.drawPath(path, fill);
+        canvas.drawPath(path, border);
+      case MarkerShape.diamond:
+        final path = Path()
+          ..moveTo(cx, cy - r)
+          ..lineTo(cx + r * 0.85, cy)
+          ..lineTo(cx, cy + r)
+          ..lineTo(cx - r * 0.85, cy)
+          ..close();
+        canvas.drawPath(path, fill);
+        canvas.drawPath(path, border);
+      case MarkerShape.none:
+        break;
+    }
+  }
+
+  @override
+  bool shouldRepaint(MarkerPainter old) =>
+      old.shape != shape || old.color != color || old.isSelected != isSelected;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -307,32 +417,50 @@ class _BallWidgetState extends State<_BallWidget>
         ? Transform.rotate(angle: _angle, child: ball)
         : ball;
 
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.45),
-            blurRadius: 6,
-            offset: const Offset(2, 2),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.45),
+                blurRadius: 6,
+                offset: const Offset(2, 2),
+              ),
+              if (widget.isSelected)
+                BoxShadow(
+                  color: Colors.yellow.withValues(alpha: 0.7),
+                  blurRadius: 12,
+                  spreadRadius: 3,
+                ),
+            ],
           ),
-          if (widget.isSelected)
-            BoxShadow(
-              color: Colors.yellow.withValues(alpha: 0.7),
-              blurRadius: 12,
-              spreadRadius: 3,
+          child: _isShuttlecock
+              ? GestureDetector(
+                  onHorizontalDragUpdate: (d) => flick(d.delta.dx),
+                  onHorizontalDragEnd: (d) {
+                    _velocity += d.velocity.pixelsPerSecond.dx * 0.003;
+                  },
+                  child: inner,
+                )
+              : inner,
+        ),
+        if (widget.player.label.isNotEmpty)
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              widget.player.label,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 11 * widget.player.scale,
+                height: 1,
+                shadows: const [Shadow(color: Colors.black87, blurRadius: 3)],
+              ),
             ),
-        ],
-      ),
-      child: _isShuttlecock
-          ? GestureDetector(
-              onHorizontalDragUpdate: (d) => flick(d.delta.dx),
-              onHorizontalDragEnd: (d) {
-                _velocity += d.velocity.pixelsPerSecond.dx * 0.003;
-              },
-              child: inner,
-            )
-          : inner,
+          ),
+      ],
     );
   }
 }

@@ -1,4 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -48,6 +51,7 @@ class TacticsState extends ChangeNotifier {
 
   // Animation mode
   bool _sequentialMode = false;
+  bool _showMoveLines = true;
 
   // UI state
   bool _toolbarVisible = true;
@@ -75,6 +79,7 @@ class TacticsState extends ChangeNotifier {
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
   bool get sequentialMode => _sequentialMode;
+  bool get showMoveLines => _showMoveLines;
   bool get toolbarVisible => _toolbarVisible;
   bool get canUndo => _undoStack.isNotEmpty;
   bool get canRedo => _redoStack.isNotEmpty;
@@ -82,8 +87,15 @@ class TacticsState extends ChangeNotifier {
   Map<String, Offset> get animatedPositions =>
       Map.unmodifiable(_animatedPositions);
   bool get hasMoves => _players.any((p) => p.moves.isNotEmpty);
-  int get maxMoveSteps =>
-      _players.fold(0, (m, p) => p.moves.length > m ? p.moves.length : m);
+  int get maxMoveSteps {
+    // Count distinct phases across all players
+    final phases = <int>{};
+    for (final p in _players) {
+      p.syncPhases();
+      phases.addAll(p.movePhases);
+    }
+    return phases.length;
+  }
   int get targetStep => _targetStep;
   int get animFromStep => _animFromStep;
   int get animToStep => _animToStep;
@@ -168,6 +180,25 @@ class TacticsState extends ChangeNotifier {
     _undoStack.clear();
     _redoStack.clear();
     _selectedPlayerId = null;
+    notifyListeners();
+  }
+
+  /// Default spawn Y position for a team, avoids court/table area
+  double spawnY(PlayerTeam team) {
+    switch (_sportType) {
+      case SportType.tableTennis:
+        return team == PlayerTeam.home ? _canvasSize.height * 0.90
+             : team == PlayerTeam.away ? _canvasSize.height * 0.10
+             : _canvasSize.height * 0.90;
+      default:
+        return team == PlayerTeam.home ? _canvasSize.height * 0.75
+             : team == PlayerTeam.away ? _canvasSize.height * 0.25
+             : _canvasSize.height * 0.50;
+    }
+  }
+
+  void toggleShowMoveLines() {
+    _showMoveLines = !_showMoveLines;
     notifyListeners();
   }
 
@@ -275,6 +306,7 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     final updated = List.of(_players[idx].moves)..add(position);
     _players[idx] = _players[idx].copyWith(moves: updated);
+    _players[idx].syncPhases();
     notifyListeners();
   }
 
@@ -298,7 +330,31 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     final updated = List.of(_players[idx].moves)..removeAt(index);
     _players[idx] = _players[idx].copyWith(moves: updated);
+    _players[idx].syncPhases();
     notifyListeners();
+  }
+
+  void setMovePhase(String playerId, int moveIndex, int phase) {
+    final idx = _players.indexWhere((p) => p.id == playerId);
+    if (idx < 0) return;
+    _saveSnapshot();
+    final phases = List.of(_players[idx].movePhases);
+    if (moveIndex >= phases.length) return;
+    phases[moveIndex] = phase.clamp(0, 99);
+    _players[idx] = _players[idx].copyWith(movePhases: phases);
+    notifyListeners();
+  }
+
+  /// Total number of distinct phases across all players
+  int get maxPhase {
+    int max = 0;
+    for (final p in _players) {
+      p.syncPhases();
+      for (final ph in p.movePhases) {
+        if (ph > max) max = ph;
+      }
+    }
+    return max;
   }
 
   void selectPlayer(String? id) {
@@ -352,6 +408,28 @@ class TacticsState extends ChangeNotifier {
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       awayNum++;
+    }
+    notifyListeners();
+  }
+
+  /// Add players for one team only from a formation (doesn't clear existing players)
+  void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
+    _saveSnapshot();
+    final w = _canvasSize.width;
+    final h = _canvasSize.height;
+    final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
+    final existingCount = _players.where((p) => p.team == team).length;
+    int num = existingCount + 1;
+    int colorIdx = _players.length;
+    for (final rel in positions) {
+      _players.add(PlayerIcon(
+        id: '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}$num',
+        label: '$num',
+        team: team,
+        position: Offset(rel.dx * w, rel.dy * h),
+        moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
+      ));
+      num++;
     }
     notifyListeners();
   }
@@ -437,5 +515,79 @@ class TacticsState extends ChangeNotifier {
   void _restoreSnapshot(_BoardSnapshot snap) {
     _players = snap.players;
     _strokes = snap.strokes;
+  }
+
+  // ── Save / Load tactics ──────────────────────────────────────────────────
+
+  Map<String, dynamic> toJson() => {
+    'sportType': _sportType.index,
+    'players': _players.map((p) => p.toJson()).toList(),
+    'strokes': _strokes.map((s) => s.toJson()).toList(),
+    'canvasWidth': _canvasSize.width,
+    'canvasHeight': _canvasSize.height,
+  };
+
+  void loadFromJson(Map<String, dynamic> json) {
+    _sportType = SportType.values[json['sportType'] as int];
+    _players = (json['players'] as List).map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>)).toList();
+    _strokes = (json['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
+    // Rescale positions if canvas size differs
+    final savedW = (json['canvasWidth'] as num?)?.toDouble() ?? _canvasSize.width;
+    final savedH = (json['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
+    if (savedW > 0 && savedH > 0 && (savedW != _canvasSize.width || savedH != _canvasSize.height)) {
+      final sx = _canvasSize.width / savedW;
+      final sy = _canvasSize.height / savedH;
+      for (final p in _players) {
+        p.position = Offset(p.position.dx * sx, p.position.dy * sy);
+        p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
+      }
+    }
+    _selectedPlayerId = null;
+    _isAnimating = false;
+    _animatedPositions = {};
+    _atStep = 0;
+    _undoStack.clear();
+    _redoStack.clear();
+    notifyListeners();
+  }
+
+  static Future<Directory> get _tacticsDir async {
+    Directory baseDir;
+    try {
+      baseDir = await getApplicationDocumentsDirectory();
+    } catch (_) {
+      // Fallback for simulator compatibility issues
+      baseDir = Directory.systemTemp;
+    }
+    final dir = Directory('${baseDir.path}/tactics');
+    if (!await dir.exists()) await dir.create(recursive: true);
+    return dir;
+  }
+
+  Future<String> saveTactics(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    await file.writeAsString(jsonEncode(toJson()));
+    return file.path;
+  }
+
+  Future<void> loadTactics(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    if (!await file.exists()) return;
+    final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+    loadFromJson(json);
+  }
+
+  Future<List<String>> listSavedTactics() async {
+    final dir = await _tacticsDir;
+    final files = await dir.list().where((f) => f.path.endsWith('.json')).toList();
+    return files.map((f) => f.path.split('/').last.replaceAll('.json', '')).toList()..sort();
+  }
+
+  Future<void> deleteTactics(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    if (await file.exists()) await file.delete();
   }
 }

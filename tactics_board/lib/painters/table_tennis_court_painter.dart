@@ -21,10 +21,10 @@ class TableTennisCourtPainter extends CourtPainterBase {
     const tableRatio = 2.74 / 1.525;
     double tw, th;
     if (h / w > tableRatio) {
-      tw = w * 0.80;
+      tw = w * 0.65;
       th = tw * tableRatio;
     } else {
-      th = h * 0.80;
+      th = h * 0.55;
       tw = th / tableRatio;
     }
     final left = (w - tw) / 2;

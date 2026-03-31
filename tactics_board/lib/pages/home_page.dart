@@ -57,14 +57,6 @@ class TacticsBoardHomePage extends StatelessWidget {
                             child: DrawingOptionsBar(state: state),
                           ),
                         ),
-                      // Play controls overlay — only when moves exist
-                      if (!state.isDrawingMode && state.hasMoves)
-                        Positioned(
-                          bottom: -18,
-                          left: 0,
-                          right: 0,
-                          child: Center(child: PlayControlsBar(state: state)),
-                        ),
                       Positioned(
                         bottom: 12,
                         right: 12,
@@ -88,11 +80,20 @@ class TacticsBoardHomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Play controls — always reserve space to prevent canvas jump
+                if (state.toolbarVisible && !state.isDrawingMode)
+                  SizedBox(
+                    height: 40,
+                    child: state.hasMoves
+                        ? Center(child: PlayControlsBar(state: state))
+                        : null,
+                  ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInOut,
                   child: state.toolbarVisible ? const TacticsToolbar() : const SizedBox.shrink(),
                 ),
+                SizedBox(height: MediaQuery.of(context).padding.bottom > 0 ? 16 : 4),
               ],
             ),
           ),
