@@ -97,5 +97,18 @@
   "delete_account": "Delete Account",
   "delete_account_confirm": "Are you sure? All data will be permanently deleted.",
   "delete_account_success": "Account deleted",
-  "delete_account_failed": "Delete failed"
+  "delete_account_failed": "Delete failed",
+  "male_single": "Male",
+  "female_single": "Female",
+  "male": "M",
+  "female": "F",
+  "male_doubles": "M+M",
+  "female_doubles": "F+F",
+  "mixed_doubles": "Mixed",
+  "player_count": "Players",
+  "count_suffix": "",
+  "formation_label": "Formation",
+  "team_label": "Team",
+  "both_teams": "Both Teams",
+  "confirm": "Apply"
 }

@@ -97,5 +97,18 @@
   "delete_account": "Delete Account",
   "delete_account_confirm": "Are you sure? All data will be permanently deleted.",
   "delete_account_success": "Account deleted",
-  "delete_account_failed": "Delete failed"
+  "delete_account_failed": "Delete failed",
+  "male_single": "男單",
+  "female_single": "女單",
+  "male": "男",
+  "female": "女",
+  "male_doubles": "男雙",
+  "female_doubles": "女雙",
+  "mixed_doubles": "混雙",
+  "player_count": "人數",
+  "count_suffix": "人",
+  "formation_label": "陣型",
+  "team_label": "隊伍",
+  "both_teams": "主隊+客隊",
+  "confirm": "確定"
 }
