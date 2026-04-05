@@ -71,7 +71,7 @@ class TacticsBoardApp extends StatelessWidget {
             seedColor: Colors.blue,
             brightness: Brightness.dark,
           ),
-          scaffoldBackgroundColor: const Color(0xFF0D0D1A),
+          scaffoldBackgroundColor: const Color(0xFF121826),
           appBarTheme: const AppBarTheme(
             systemOverlayStyle: SystemUiOverlayStyle.light,
           ),

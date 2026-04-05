@@ -5,7 +5,7 @@ enum PlayerTeam { home, away, neutral }
 
 enum PlayerGender { male, female, unspecified }
 
-enum MarkerShape { none, circle, square, triangle, diamond }
+enum MarkerShape { none, circle, square, triangle, diamond, cone, text, zone, referee, coach, ladder, hurdle, arrowMark }
 
 // Distinct colors for move arrows/waypoints per player
 const _moveColors = [
