@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/sport_type.dart';
 import '../models/player_icon.dart';
+import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
 import '../painters/player_moves_painter.dart';
 import '../painters/badminton_court_painter.dart';
@@ -73,7 +74,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
-      return Container(color: const Color(0xFF1E1E2E));
+      return Container(color: const Color(0xFF1A2035));
     }
     final state = _state;
     return LayoutBuilder(
@@ -85,19 +86,56 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final players = state.players.toList();
 
+            final _draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
+
             return GestureDetector(
               onPanStart: state.isDrawingMode
-                  ? (d) => state.startStroke(d.localPosition)
+                  ? (d) {
+                      if (_draggingStroke) {
+                        // Check if starting on the selected stroke — if so, drag it
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        if (hitId == state.selectedStrokeId) return; // will drag in onPanUpdate
+                        // Otherwise deselect and start new stroke
+                        state.selectStroke(null);
+                      }
+                      state.startStroke(d.localPosition);
+                    }
                   : null,
               onPanUpdate: state.isDrawingMode
-                  ? (d) => state.addPoint(d.localPosition)
-                  : null,
-              onPanEnd: state.isDrawingMode ? (_) => state.endStroke() : null,
-              onTapUp: (!state.isDrawingMode && !state.isAnimating)
                   ? (d) {
-                      if (state.selectedPlayerId != null) {
-                        state.addPlayerMove(
-                            state.selectedPlayerId!, d.localPosition);
+                      if (_draggingStroke) {
+                        state.moveStroke(state.selectedStrokeId!, d.delta);
+                      } else {
+                        state.addPoint(d.localPosition);
+                      }
+                    }
+                  : null,
+              onPanEnd: state.isDrawingMode
+                  ? (_) {
+                      if (_draggingStroke) {
+                        state.moveStrokeEnd(state.selectedStrokeId!);
+                      } else {
+                        state.endStroke();
+                      }
+                    }
+                  : null,
+              onTapUp: (!state.isAnimating)
+                  ? (d) {
+                      if (state.isDrawingMode) {
+                        // In draw mode: tap to select stroke
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        state.selectStroke(hitId);
+                      } else if (state.selectedPlayerId != null) {
+                        // In move mode with selected player: add waypoint
+                        state.addPlayerMove(state.selectedPlayerId!, d.localPosition);
+                      } else {
+                        // In move mode, no player selected: try to select stroke
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        if (hitId != null) {
+                          state.selectStroke(hitId);
+                        } else {
+                          state.selectStroke(null);
+                        }
                       }
                     }
                   : null,
@@ -124,16 +162,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       ),
                       size: Size(constraints.maxWidth, constraints.maxHeight),
                     ),
-                  // Drawing layer
+                  // Drawing layer (filter by phase during step playback)
                   CustomPaint(
                     painter: DrawingPainter(
-                      strokes: state.strokes,
+                      strokes: _visibleStrokes(state, players),
                       currentStroke: state.currentStroke,
+                      selectedStrokeId: state.selectedStrokeId,
                     ),
                     size: Size(constraints.maxWidth, constraints.maxHeight),
                   ),
                   // Waypoint dots (hidden during animation, limited to atStep/targetStep)
-                  if (!state.isDrawingMode && !state.isAnimating && state.showMoveLines)
+                  if (!state.isAnimating && state.showMoveLines)
                     ...players.expand((player) {
                       final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
                       List<Offset> visibleMoves;
@@ -165,7 +204,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       });
                     }),
                   // Ghost icons at initial positions for players with moves
-                  if (!state.isDrawingMode && state.showMoveLines)
+                  if (state.showMoveLines)
                     ...players.where((p) => p.moves.isNotEmpty).map((player) {
                       final size = kPlayerIconSize * player.scale;
                       return Positioned(
@@ -227,6 +266,33 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       phases.addAll(p.movePhases);
     }
     return phases.toList()..sort();
+  }
+
+  /// Return strokes visible at the current playback step.
+  /// Strokes with isFullSpan are always visible.
+  /// During step playback, show strokes whose phase range overlaps current step.
+  static List<DrawingStroke> _visibleStrokes(TacticsState state, List<PlayerIcon> players) {
+    final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
+    if (phaseLimit == 0) return state.strokes; // show all
+    final sortedPhases = _allSortedPhases(players);
+    // Include stroke phases
+    for (final s in state.strokes) {
+      if (!s.isFullSpan) {
+        for (int i = s.startPhase; i <= s.endPhase; i++) {
+          if (!sortedPhases.contains(i)) sortedPhases.add(i);
+        }
+      }
+    }
+    sortedPhases.sort();
+    return state.strokes.where((s) {
+      if (s.isFullSpan) return true;
+      // Check if any phase in stroke range is within the visible limit
+      for (int ph = s.startPhase; ph <= s.endPhase; ph++) {
+        final idx = sortedPhases.indexOf(ph);
+        if (idx >= 0 && idx < phaseLimit) return true;
+      }
+      return false;
+    }).toList();
   }
 
   void _showEditDialog(
@@ -495,32 +561,26 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       child: PlayerIconWidget(
         player: player,
         isSelected: widget.isSelected,
-        onTap: widget.isDrawingMode ? null : widget.onTap,
-        onLongPress: widget.isDrawingMode ? null : widget.onLongPress,
-        onScaleStart: widget.isDrawingMode
-            ? null
-            : (d) {
-                _baseScale = player.scale;
-              },
-        onScaleUpdate: widget.isDrawingMode
-            ? null
-            : (d) {
-                final state = context.read<TacticsState>();
-                state.movePlayer(
-                    player.id, player.position + d.focalPointDelta);
-                if (d.pointerCount >= 2) {
-                  state.resizePlayer(player.id, _baseScale * d.scale);
-                }
-              },
-        onScaleEnd: widget.isDrawingMode
-            ? null
-            : (d) {
-                final state = context.read<TacticsState>();
-                state.movePlayerEnd(player.id, player.position);
-                if (d.pointerCount >= 2) {
-                  state.resizePlayerEnd(player.id);
-                }
-              },
+        onTap: widget.onTap,
+        onLongPress: widget.onLongPress,
+        onScaleStart: (d) {
+            _baseScale = player.scale;
+          },
+        onScaleUpdate: (d) {
+            final state = context.read<TacticsState>();
+            state.movePlayer(
+                player.id, player.position + d.focalPointDelta);
+            if (d.pointerCount >= 2) {
+              state.resizePlayer(player.id, _baseScale * d.scale);
+            }
+          },
+        onScaleEnd: (d) {
+            final state = context.read<TacticsState>();
+            state.movePlayerEnd(player.id, player.position);
+            if (d.pointerCount >= 2) {
+              state.resizePlayerEnd(player.id);
+            }
+          },
       ),
     );
   }
@@ -550,7 +610,7 @@ class _WaypointDot extends StatefulWidget {
 }
 
 class _WaypointDotState extends State<_WaypointDot> {
-  static const double _dotSize = 24.0;
+  static const double _dotSize = 28.0;
 
   void _onPanUpdate(DragUpdateDetails d) {
     context.read<TacticsState>().movePlayerWaypoint(
@@ -616,27 +676,41 @@ class _WaypointDotState extends State<_WaypointDot> {
       );
     }
 
+    // Larger hit area for easier dragging
+    const hitSize = 40.0;
     return Positioned(
-      left: widget.position.dx - _dotSize / 2,
-      top: widget.position.dy - _dotSize / 2,
+      left: widget.position.dx - hitSize / 2,
+      top: widget.position.dy - hitSize / 2,
       child: GestureDetector(
         onPanUpdate: _onPanUpdate,
         onPanEnd: _onPanEnd,
         onLongPress: _onDefaultLongPress,
-        child: Container(
-          width: _dotSize,
-          height: _dotSize,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: widget.player.moveColor,
-            border: Border.all(color: Colors.white, width: 2),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.4),
-                blurRadius: 4,
-                offset: const Offset(1, 1),
+        child: SizedBox(
+          width: hitSize,
+          height: hitSize,
+          child: Center(
+            child: Container(
+              width: _dotSize,
+              height: _dotSize,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: widget.player.moveColor,
+                border: Border.all(color: Colors.white, width: 2),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.4),
+                    blurRadius: 4,
+                    offset: const Offset(1, 1),
+                  ),
+                ],
               ),
-            ],
+              child: Center(
+                child: Text(
+                  '${widget.index + 1}',
+                  style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1),
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -660,6 +734,7 @@ class _PlayerEditDialog extends StatefulWidget {
 class _PlayerEditDialogState extends State<_PlayerEditDialog> {
   late final TextEditingController _labelCtrl;
   Color? _selectedColor; // null = use team default
+  late double _scale;
 
   static const _swatches = <Color?>[
     null,
@@ -678,6 +753,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
     super.initState();
     _labelCtrl = TextEditingController(text: widget.player.label);
     _selectedColor = widget.player.customColor;
+    _scale = widget.player.scale;
   }
 
   @override
@@ -689,7 +765,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: const Color(0xFF1E1E2E),
+      backgroundColor: const Color(0xFF1A2035),
       title: Text('edit_player'.tr(),
           style: const TextStyle(color: Colors.white)),
       content: Column(
@@ -743,6 +819,26 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
               );
             }).toList(),
           ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              const Icon(Icons.photo_size_select_small, color: Colors.white60, size: 16),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Slider(
+                  value: _scale,
+                  min: 0.5,
+                  max: 3.0,
+                  divisions: 10,
+                  activeColor: Colors.lightBlueAccent,
+                  inactiveColor: Colors.white24,
+                  onChanged: (v) => setState(() => _scale = v),
+                ),
+              ),
+              Text('${(_scale * 100).round()}%',
+                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
+            ],
+          ),
         ],
       ),
       actions: [
@@ -765,6 +861,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
               label: _labelCtrl.text,
               customColor: _selectedColor,
               clearCustomColor: _selectedColor == null,
+              scale: _scale,
             );
             Navigator.pop(context);
           },

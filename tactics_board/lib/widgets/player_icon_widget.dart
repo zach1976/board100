@@ -187,14 +187,38 @@ class PlayerIconWidget extends StatelessWidget {
       onScaleStart: onScaleStart,
       onScaleUpdate: onScaleUpdate,
       onScaleEnd: onScaleEnd,
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: player.isMarker
-            ? _MarkerWidget(player: player, isSelected: isSelected)
-            : player.isBall
-            ? _BallWidget(player: player, isSelected: isSelected)
-            : _PlayerShape(player: player, isSelected: isSelected),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: size,
+            height: size,
+            child: player.isMarker
+                ? _MarkerWidget(player: player, isSelected: isSelected)
+                : player.isBall
+                ? _BallWidget(player: player, isSelected: isSelected)
+                : _PlayerShape(player: player, isSelected: isSelected),
+          ),
+          if (player.label.length > 2)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+              decoration: BoxDecoration(
+                color: player.color.withValues(alpha: 0.85),
+                borderRadius: BorderRadius.circular(4),
+                boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 2)],
+              ),
+              child: Text(
+                player.label,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10 * player.scale,
+                  height: 1.2,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -222,7 +246,7 @@ class _PlayerShape extends StatelessWidget {
           ),
           size: Size.infinite,
         ),
-        if (player.label.isNotEmpty)
+        if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
             alignment: const Alignment(0, 0.35),
             child: Text(
@@ -261,7 +285,7 @@ class _MarkerWidget extends StatelessWidget {
           ),
           size: Size.infinite,
         ),
-        if (player.label.isNotEmpty)
+        if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -339,6 +363,76 @@ class MarkerPainter extends CustomPainter {
           ..close();
         canvas.drawPath(path, fill);
         canvas.drawPath(path, border);
+      case MarkerShape.cone:
+        // Traffic cone shape
+        final path = Path()
+          ..moveTo(cx, cy - r * 0.9)
+          ..lineTo(cx + r * 0.7, cy + r * 0.7)
+          ..lineTo(cx - r * 0.7, cy + r * 0.7)
+          ..close();
+        canvas.drawPath(path, fill);
+        canvas.drawPath(path, border);
+        // Stripe
+        final stripe = Paint()..color = Colors.white.withValues(alpha: 0.5)..strokeWidth = 2..style = PaintingStyle.stroke;
+        canvas.drawLine(Offset(cx - r * 0.35, cy + r * 0.1), Offset(cx + r * 0.35, cy + r * 0.1), stripe);
+      case MarkerShape.text:
+        // "T" text marker
+        canvas.drawCircle(Offset(cx, cy), r, fill);
+        canvas.drawCircle(Offset(cx, cy), r, border);
+        final tp = TextPainter(
+          text: TextSpan(text: 'T', style: TextStyle(color: Colors.white, fontSize: r * 1.2, fontWeight: FontWeight.bold)),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
+      case MarkerShape.zone:
+        // Dashed rectangle zone
+        final rect = Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 1.6);
+        final zoneFill = Paint()..color = color.withValues(alpha: 0.3);
+        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneFill);
+        final zoneBorder = Paint()..color = color..style = PaintingStyle.stroke..strokeWidth = 2;
+        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneBorder);
+      case MarkerShape.referee:
+        // Referee whistle icon — circle with "R"
+        canvas.drawCircle(Offset(cx, cy), r, Paint()..color = Colors.black87);
+        canvas.drawCircle(Offset(cx, cy), r, border);
+        final tp = TextPainter(
+          text: TextSpan(text: 'R', style: TextStyle(color: Colors.yellow, fontSize: r * 1.1, fontWeight: FontWeight.bold)),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
+      case MarkerShape.coach:
+        // Coach — circle with "C"
+        canvas.drawCircle(Offset(cx, cy), r, Paint()..color = const Color(0xFF37474F));
+        canvas.drawCircle(Offset(cx, cy), r, border);
+        final tp = TextPainter(
+          text: TextSpan(text: 'C', style: TextStyle(color: Colors.white, fontSize: r * 1.1, fontWeight: FontWeight.bold)),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
+      case MarkerShape.ladder:
+        // Agility ladder — horizontal bars
+        final rect = Rect.fromCenter(center: Offset(cx, cy), width: r * 1.2, height: r * 2);
+        canvas.drawRect(rect, Paint()..color = color.withValues(alpha: 0.2));
+        canvas.drawRect(rect, border);
+        for (int i = 1; i < 4; i++) {
+          final y = rect.top + rect.height * i / 4;
+          canvas.drawLine(Offset(rect.left, y), Offset(rect.right, y), border);
+        }
+      case MarkerShape.hurdle:
+        // Hurdle — T shape
+        final base = Paint()..color = color..strokeWidth = 3..style = PaintingStyle.stroke..strokeCap = StrokeCap.round;
+        canvas.drawLine(Offset(cx - r * 0.7, cy + r * 0.5), Offset(cx + r * 0.7, cy + r * 0.5), base); // bar
+        canvas.drawLine(Offset(cx - r * 0.5, cy + r * 0.5), Offset(cx - r * 0.5, cy - r * 0.4), base); // left leg
+        canvas.drawLine(Offset(cx + r * 0.5, cy + r * 0.5), Offset(cx + r * 0.5, cy - r * 0.4), base); // right leg
+        canvas.drawLine(Offset(cx - r * 0.7, cy - r * 0.4), Offset(cx + r * 0.7, cy - r * 0.4), Paint()..color = color..strokeWidth = 4..strokeCap = StrokeCap.round); // top bar
+      case MarkerShape.arrowMark:
+        // Arrow direction marker
+        canvas.drawCircle(Offset(cx, cy), r, fill);
+        canvas.drawCircle(Offset(cx, cy), r, border);
+        final arrowPaint = Paint()..color = Colors.white..strokeWidth = 2.5..style = PaintingStyle.stroke..strokeCap = StrokeCap.round;
+        canvas.drawLine(Offset(cx - r * 0.4, cy), Offset(cx + r * 0.4, cy), arrowPaint);
+        canvas.drawLine(Offset(cx + r * 0.1, cy - r * 0.35), Offset(cx + r * 0.4, cy), arrowPaint);
+        canvas.drawLine(Offset(cx + r * 0.1, cy + r * 0.35), Offset(cx + r * 0.4, cy), arrowPaint);
       case MarkerShape.none:
         break;
     }

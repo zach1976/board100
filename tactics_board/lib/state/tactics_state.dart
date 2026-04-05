@@ -38,6 +38,9 @@ class TacticsState extends ChangeNotifier {
   // Selected player
   String? _selectedPlayerId;
 
+  // Selected stroke
+  String? _selectedStrokeId;
+
   // Canvas size — updated by TacticsCanvas via LayoutBuilder
   Size _canvasSize = const Size(400, 700);
 
@@ -78,6 +81,8 @@ class TacticsState extends ChangeNotifier {
   Color get strokeColor => _strokeColor;
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
+  String? get selectedStrokeId => _selectedStrokeId;
+  DrawingStroke? get selectedStroke => _selectedStrokeId == null ? null : _strokes.cast<DrawingStroke?>().firstWhere((s) => s?.id == _selectedStrokeId, orElse: () => null);
   bool get sequentialMode => _sequentialMode;
   bool get showMoveLines => _showMoveLines;
   bool get toolbarVisible => _toolbarVisible;
@@ -86,13 +91,18 @@ class TacticsState extends ChangeNotifier {
   bool get isAnimating => _isAnimating;
   Map<String, Offset> get animatedPositions =>
       Map.unmodifiable(_animatedPositions);
-  bool get hasMoves => _players.any((p) => p.moves.isNotEmpty);
+  bool get hasMoves => _players.any((p) => p.moves.isNotEmpty) || _strokes.isNotEmpty;
   int get maxMoveSteps {
-    // Count distinct phases across all players
+    // Count distinct phases across all players and strokes
     final phases = <int>{};
     for (final p in _players) {
       p.syncPhases();
       phases.addAll(p.movePhases);
+    }
+    for (final s in _strokes) {
+      if (!s.isFullSpan) {
+        for (int i = s.startPhase; i <= s.endPhase; i++) phases.add(i);
+      }
     }
     return phases.length;
   }
@@ -258,6 +268,9 @@ class TacticsState extends ChangeNotifier {
     _players.add(player.copyWith(
       moveColor: PlayerIcon.moveColorForIndex(_players.length),
     ));
+    // Auto-switch to move mode and select the new player
+    _isDrawingMode = false;
+    _selectedPlayerId = _players.last.id;
     notifyListeners();
   }
 
@@ -288,7 +301,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false}) {
+  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale}) {
     _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
@@ -297,6 +310,7 @@ class TacticsState extends ChangeNotifier {
       label: label,
       customColor: customColor,
       clearCustomColor: clearCustomColor,
+      scale: scale,
     );
     notifyListeners();
   }
@@ -315,7 +329,8 @@ class TacticsState extends ChangeNotifier {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
-    final updated = List.of(_players[idx].moves)..add(position);
+    final clamped = _clampToSide(_players[idx], position);
+    final updated = List.of(_players[idx].moves)..add(clamped);
     _players[idx] = _players[idx].copyWith(moves: updated);
     _players[idx].syncPhases();
     notifyListeners();
@@ -326,9 +341,23 @@ class TacticsState extends ChangeNotifier {
     if (idx < 0) return;
     final updated = List.of(_players[idx].moves);
     if (index >= updated.length) return;
-    updated[index] = position;
+    updated[index] = _clampToSide(_players[idx], position);
     _players[idx] = _players[idx].copyWith(moves: updated);
     notifyListeners();
+  }
+
+  /// For net sports, clamp move position so players stay on their side of the net.
+  Offset _clampToSide(PlayerIcon player, Offset position) {
+    if (!_sportType.hasNet) return position;
+    final netPixelY = _sportType.netY * _canvasSize.height;
+    const margin = 16.0; // keep a small gap from the net
+    if (player.team == PlayerTeam.home) {
+      // Home team is on the bottom half
+      return Offset(position.dx, position.dy.clamp(netPixelY + margin, _canvasSize.height));
+    } else {
+      // Away team is on the top half
+      return Offset(position.dx, position.dy.clamp(0.0, netPixelY - margin));
+    }
   }
 
   void movePlayerWaypointEnd(String id) {
@@ -341,9 +370,11 @@ class TacticsState extends ChangeNotifier {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
-    final updated = List.of(_players[idx].moves)..removeAt(index);
-    _players[idx] = _players[idx].copyWith(moves: updated);
-    _players[idx].syncPhases();
+    final updatedMoves = List.of(_players[idx].moves)..removeAt(index);
+    final updatedPhases = List.of(_players[idx].movePhases);
+    if (index < updatedPhases.length) updatedPhases.removeAt(index);
+    _players[idx] = _players[idx].copyWith(moves: updatedMoves, movePhases: updatedPhases);
+    // Don't call syncPhases — preserve original phase numbers
     notifyListeners();
   }
 
@@ -359,7 +390,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Total number of distinct phases across all players
+  /// Total number of distinct phases across all players and strokes
   int get maxPhase {
     int max = 0;
     for (final p in _players) {
@@ -368,11 +399,15 @@ class TacticsState extends ChangeNotifier {
         if (ph > max) max = ph;
       }
     }
+    for (final s in _strokes) {
+      if (s.endPhase > max) max = s.endPhase;
+    }
     return max;
   }
 
   void selectPlayer(String? id) {
     _selectedPlayerId = id;
+    if (id != null) _selectedStrokeId = null;
     notifyListeners();
   }
 
@@ -435,6 +470,7 @@ class TacticsState extends ChangeNotifier {
       ));
       awayNum++;
     }
+    _isDrawingMode = false;
     notifyListeners();
   }
 
@@ -486,9 +522,82 @@ class TacticsState extends ChangeNotifier {
     if (_currentStroke == null) return;
     if (_currentStroke!.points.length > 1) {
       _saveSnapshot();
-      _strokes.add(_currentStroke!);
+      _strokes.add(_currentStroke!); // phase defaults to -1 (always visible)
     }
     _currentStroke = null;
+    notifyListeners();
+  }
+
+  void selectStroke(String? id) {
+    _selectedStrokeId = id;
+    if (id != null) _selectedPlayerId = null;
+    notifyListeners();
+  }
+
+  void deleteStroke(String id) {
+    _saveSnapshot();
+    _strokes.removeWhere((s) => s.id == id);
+    if (_selectedStrokeId == id) _selectedStrokeId = null;
+    notifyListeners();
+  }
+
+  void moveStroke(String id, Offset delta) {
+    final idx = _strokes.indexWhere((s) => s.id == id);
+    if (idx < 0) return;
+    _strokes[idx] = _strokes[idx].copyWith(
+      points: _strokes[idx].points.map((p) => p + delta).toList(),
+    );
+    notifyListeners();
+  }
+
+  void moveStrokeEnd(String id) {
+    _saveSnapshot();
+  }
+
+  void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow}) {
+    final idx = _strokes.indexWhere((s) => s.id == id);
+    if (idx < 0) return;
+    _saveSnapshot();
+    _strokes[idx] = _strokes[idx].copyWith(
+      color: color,
+      width: width,
+      style: style,
+      arrow: arrow,
+    );
+    notifyListeners();
+  }
+
+  /// Find the stroke closest to a tap point (within threshold)
+  String? hitTestStroke(Offset point, {double threshold = 20.0}) {
+    for (int i = _strokes.length - 1; i >= 0; i--) {
+      final stroke = _strokes[i];
+      for (int j = 0; j < stroke.points.length - 1; j++) {
+        final dist = _distToSegment(point, stroke.points[j], stroke.points[j + 1]);
+        if (dist < threshold) return stroke.id;
+      }
+    }
+    return null;
+  }
+
+  static double _distToSegment(Offset p, Offset a, Offset b) {
+    final ab = b - a;
+    final lenSq = ab.dx * ab.dx + ab.dy * ab.dy;
+    if (lenSq == 0) return (p - a).distance;
+    final t = ((p.dx - a.dx) * ab.dx + (p.dy - a.dy) * ab.dy) / lenSq;
+    final clamped = t.clamp(0.0, 1.0);
+    final proj = Offset(a.dx + clamped * ab.dx, a.dy + clamped * ab.dy);
+    return (p - proj).distance;
+  }
+
+  void setStrokePhaseRange(String strokeId, int startPhase, int endPhase, {bool save = true}) {
+    _resetAnimationState();
+    final idx = _strokes.indexWhere((s) => s.id == strokeId);
+    if (idx < 0) return;
+    if (save) _saveSnapshot();
+    _strokes[idx] = _strokes[idx].copyWith(
+      startPhase: startPhase.clamp(-1, 99),
+      endPhase: endPhase.clamp(-1, 99),
+    );
     notifyListeners();
   }
 

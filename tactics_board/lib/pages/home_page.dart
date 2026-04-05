@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import '../main.dart';
+import '../models/player_icon.dart';
+import '../models/sport_type.dart';
 import '../services/auth_service.dart';
 import '../state/tactics_state.dart';
 import '../widgets/tactics_canvas.dart';
@@ -20,7 +23,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2E),
+      backgroundColor: const Color(0xFF1A2035),
       body: Column(
         children: [
           Expanded(
@@ -43,17 +46,32 @@ class TacticsBoardHomePage extends StatelessWidget {
                     ),
                   ),
                 Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
-                Selector<TacticsState, bool>(
-                  selector: (_, s) => s.isDrawingMode,
-                  builder: (context, isDrawing, _) => isDrawing
-                    ? Positioned(
+                Consumer<TacticsState>(
+                  builder: (context, state, _) {
+                    if (state.isDrawingMode || state.selectedStrokeId != null) {
+                      return Positioned(
                         bottom: 0, left: 0, right: 0,
                         child: Container(
-                          color: const Color(0xDD1E1E2E),
-                          child: DrawingOptionsBar(state: context.read<TacticsState>()),
+                          color: const Color(0xDD1A2035),
+                          child: DrawingOptionsBar(state: state),
                         ),
-                      )
-                    : const SizedBox.shrink(),
+                      );
+                    }
+                    if (state.selectedPlayerId != null) {
+                      final player = state.players.cast<PlayerIcon?>().firstWhere(
+                        (p) => p?.id == state.selectedPlayerId, orElse: () => null);
+                      if (player != null) {
+                        return Positioned(
+                          bottom: 0, left: 0, right: 0,
+                          child: Container(
+                            color: const Color(0xDD1A2035),
+                            child: _PlayerEditBar(state: state, player: player),
+                          ),
+                        );
+                      }
+                    }
+                    return const SizedBox.shrink();
+                  },
                 ),
                 Positioned(
                   bottom: 12, right: 12,
@@ -77,7 +95,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             builder: (context, sel, _) => Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (sel.visible && !sel.drawing)
+                if (sel.visible)
                   SizedBox(
                     height: 48,
                     child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
@@ -102,7 +120,7 @@ class _MenuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
       onSelected: (value) => _onSelected(context, value),
-      color: const Color(0xFF2A2A3E),
+      color: const Color(0xFF222840),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       offset: const Offset(0, 40),
       child: Container(
@@ -114,11 +132,16 @@ class _MenuButton extends StatelessWidget {
         ),
         child: const Icon(Icons.more_horiz, color: Colors.white70, size: 18),
       ),
-      itemBuilder: (ctx) => [
-        _menuItem('language', Icons.language, 'menu_language'.tr()),
-        _menuItem('contact', Icons.mail_outline, 'menu_contact'.tr()),
-        _menuItem('login', Icons.person_outline, 'menu_login'.tr()),
-      ],
+      itemBuilder: (ctx) {
+        final sport = ctx.read<TacticsState>().sportType;
+        return [
+          if (sport.scorerAppleId.isNotEmpty)
+            _menuItem('scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
+          _menuItem('language', Icons.language, 'menu_language'.tr()),
+          _menuItem('contact', Icons.mail_outline, 'menu_contact'.tr()),
+          _menuItem('login', Icons.person_outline, 'menu_login'.tr()),
+        ];
+      },
     );
   }
 
@@ -138,6 +161,8 @@ class _MenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, String value) {
     switch (value) {
+      case 'scorer':
+        _showScorer(context);
       case 'language':
         LanguagePicker.show(context);
       case 'contact':
@@ -145,6 +170,23 @@ class _MenuButton extends StatelessWidget {
       case 'login':
         _showLogin(context);
     }
+  }
+
+  void _showScorer(BuildContext context) {
+    final state = context.read<TacticsState>();
+    final sport = state.sportType;
+    final appName = sport.scorerAppName;
+    final appleId = sport.scorerAppleId;
+    if (appleId.isEmpty) return; // not yet on App Store
+    final url = Uri.parse('https://apps.apple.com/app/id$appleId');
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF1A2035),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => _ScorerPromoSheet(sport: sport, appName: appName, url: url),
+    );
   }
 
   void _showContact(BuildContext context) {
@@ -237,10 +279,10 @@ class _ContactPageState extends State<_ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0D1A),
+      backgroundColor: const Color(0xFF121826),
       appBar: AppBar(
         title: Text('contact_title'.tr()),
-        backgroundColor: const Color(0xFF1E1E2E),
+        backgroundColor: const Color(0xFF1A2035),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -342,10 +384,10 @@ class _LoginPageState extends State<_LoginPage> {
     final loggedIn = _auth.isLoggedIn;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0D1A),
+      backgroundColor: const Color(0xFF121826),
       appBar: AppBar(
         title: Text('login_title'.tr()),
-        backgroundColor: const Color(0xFF1E1E2E),
+        backgroundColor: const Color(0xFF1A2035),
       ),
       body: Center(
         child: Padding(
@@ -394,7 +436,7 @@ class _LoginPageState extends State<_LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1E1E2E),
+        backgroundColor: const Color(0xFF1A2035),
         title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -486,6 +528,237 @@ class _LoginPageState extends State<_LoginPage> {
             Text(label, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: color)),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ScoreSyncer promotion bottom sheet
+// ─────────────────────────────────────────────────────────────────────────────
+class _ScorerPromoSheet extends StatelessWidget {
+  final SportType sport;
+  final String appName;
+  final Uri url;
+  const _ScorerPromoSheet({required this.sport, required this.appName, required this.url});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // App icon area
+            Container(
+              width: 80, height: 80,
+              decoration: BoxDecoration(
+                color: Colors.blue.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(sport.emoji, style: const TextStyle(fontSize: 40)),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              appName,
+              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'scorer_description'.tr(),
+              style: const TextStyle(color: Colors.white60, fontSize: 14),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            // Feature highlights
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _featureChip(Icons.scoreboard, 'scorer_feature_score'.tr()),
+                const SizedBox(width: 8),
+                _featureChip(Icons.timer, 'scorer_feature_timer'.tr()),
+                const SizedBox(width: 8),
+                _featureChip(Icons.history, 'scorer_feature_history'.tr()),
+              ],
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () => _openAppStore(context),
+                icon: const Icon(Icons.download, size: 20),
+                label: Text('scorer_download'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _featureChip(IconData icon, String label) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: Colors.white54, size: 14),
+          const SizedBox(width: 4),
+          Text(label, style: const TextStyle(color: Colors.white54, fontSize: 12)),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _openAppStore(BuildContext context) async {
+    try {
+      const channel = MethodChannel('com.zach.tacticsboard/share');
+      await channel.invokeMethod('openUrl', {'url': url.toString()});
+    } catch (_) {
+      // Fallback: copy URL to clipboard
+      await Clipboard.setData(ClipboardData(text: url.toString()));
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('scorer_link_copied'.tr()), backgroundColor: Colors.green),
+        );
+      }
+    }
+    if (context.mounted) Navigator.pop(context);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Player/Marker edit bar — shown when a player element is selected
+// ─────────────────────────────────────────────────────────────────────────────
+class _PlayerEditBar extends StatefulWidget {
+  final TacticsState state;
+  final PlayerIcon player;
+  const _PlayerEditBar({required this.state, required this.player});
+
+  @override
+  State<_PlayerEditBar> createState() => _PlayerEditBarState();
+}
+
+class _PlayerEditBarState extends State<_PlayerEditBar> {
+  static const _colors = <Color>[
+    Color(0xFF1565C0),
+    Color(0xFFC62828),
+    Color(0xFF2E7D32),
+    Color(0xFFE65100),
+    Color(0xFF6A1B9A),
+    Color(0xFF00838F),
+    Color(0xFFAD1457),
+    Color(0xFFF9A825),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final p = widget.player;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Row 1: label + actions
+          Row(
+            children: [
+              // Player indicator
+              Container(
+                width: 24, height: 24,
+                decoration: BoxDecoration(
+                  color: p.color,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.yellow, width: 2),
+                ),
+                child: p.label.length <= 2 && p.label.isNotEmpty
+                    ? Center(child: Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1)))
+                    : null,
+              ),
+              if (p.label.length > 2) ...[
+                const SizedBox(width: 6),
+                Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+              ],
+              const Spacer(),
+              // Delete
+              _editAction(Icons.delete, Colors.redAccent, () {
+                widget.state.removePlayer(p.id);
+              }),
+              const SizedBox(width: 8),
+              // Deselect
+              GestureDetector(
+                onTap: () => widget.state.selectPlayer(null),
+                child: const Icon(Icons.close, color: Colors.white54, size: 20),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          // Row 2: color swatches
+          Row(
+            children: [
+              ..._colors.map((c) => GestureDetector(
+                onTap: () {
+                  widget.state.updatePlayer(p.id, customColor: c);
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 6),
+                  width: 24, height: 24,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: c,
+                    border: Border.all(
+                      color: p.customColor == c ? Colors.yellow : Colors.white24,
+                      width: p.customColor == c ? 2.5 : 1,
+                    ),
+                  ),
+                ),
+              )),
+              const Spacer(),
+              // Size slider compact
+              const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
+              SizedBox(
+                width: 100,
+                child: Slider(
+                  value: p.scale,
+                  min: 0.5,
+                  max: 3.0,
+                  divisions: 10,
+                  activeColor: Colors.lightBlueAccent,
+                  inactiveColor: Colors.white24,
+                  onChanged: (v) {
+                    widget.state.updatePlayer(p.id, scale: v);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _editAction(IconData icon, Color color, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Icon(icon, color: color, size: 18),
       ),
     );
   }

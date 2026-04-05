@@ -26,7 +26,7 @@ class TacticsToolbar extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return Container(
-          color: const Color(0xFF1E1E2E),
+          color: const Color(0xFF1A2035),
           child: _MainRow(state: state),
         );
       },
@@ -74,7 +74,7 @@ class _MainRow extends StatelessWidget {
   void _showSaveLoad(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1E1E2E),
+      backgroundColor: const Color(0xFF1A2035),
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       builder: (ctx) => _SaveLoadSheet(state: state),
     );
@@ -139,7 +139,7 @@ class _MainRow extends StatelessWidget {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1E1E2E),
+        backgroundColor: const Color(0xFF1A2035),
         title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -409,7 +409,7 @@ class _AddPlayerBtn extends StatelessWidget {
           children: [
             const Icon(Icons.add, color: Colors.white, size: 15),
             const SizedBox(width: 4),
-            Text('add_player_label'.tr(),
+            Text('add_label'.tr(),
                 style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
           ],
         ),
@@ -420,7 +420,7 @@ class _AddPlayerBtn extends StatelessWidget {
   void _showSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1E1E2E),
+      backgroundColor: const Color(0xFF1A2035),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -429,81 +429,83 @@ class _AddPlayerBtn extends StatelessWidget {
   }
 }
 
-class _AddPlayerSheet extends StatelessWidget {
+class _AddPlayerSheet extends StatefulWidget {
   final TacticsState state;
   final BuildContext sheetCtx;
   const _AddPlayerSheet({required this.state, required this.sheetCtx});
 
   @override
+  State<_AddPlayerSheet> createState() => _AddPlayerSheetState();
+}
+
+class _AddPlayerSheetState extends State<_AddPlayerSheet> {
+  bool _showMore = false;
+  final _scrollController = ScrollController();
+  final _moreKey = GlobalKey();
+  TacticsState get state => widget.state;
+  BuildContext get sheetCtx => widget.sheetCtx;
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _addMarker(MarkerShape shape, Color color, {String label = ''}) {
+    final c = state.canvasSize;
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: label,
+      team: PlayerTeam.neutral,
+      markerShape: shape,
+      customColor: color,
+      position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+    ));
+    Navigator.pop(sheetCtx);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final isTeamSport = !state.sportType.hasDoubles;
     return SafeArea(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-            child: Text(
-              'add_player_label'.tr(),
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
+              child: Text(
+                'add_label'.tr(),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+              ),
             ),
-          ),
-          if (isTeamSport) ...[
-            _TeamSportSetup(state: state, sheetCtx: sheetCtx),
-          ] else ...[
-            // Racquet sports: formation + individual add
-            _QuickFormationRow(state: state, sheetCtx: sheetCtx),
+            if (isTeamSport) ...[
+              _TeamSportSetup(state: state, sheetCtx: sheetCtx),
+            ] else ...[
+              _QuickFormationRow(state: state, sheetCtx: sheetCtx),
+              const Divider(color: Colors.white12),
+              _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF1565C0)),
+              _PlayerAddRow(state: state, team: PlayerTeam.home, sheetCtx: sheetCtx),
+              const SizedBox(height: 4),
+              _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFC62828)),
+              _PlayerAddRow(state: state, team: PlayerTeam.away, sheetCtx: sheetCtx),
+            ],
+            // Ball + basic shapes + More button inline
             const Divider(color: Colors.white12),
-            _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF1565C0)),
-            _PlayerAddRow(state: state, team: PlayerTeam.home, sheetCtx: sheetCtx),
-            const SizedBox(height: 4),
-            _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFC62828)),
-            _PlayerAddRow(state: state, team: PlayerTeam.away, sheetCtx: sheetCtx),
-          ],
-          // Ball + Markers
-          const Divider(color: Colors.white12),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  // Ball
-                  _MarkerCard(
-                    label: 'team_ball'.tr(),
-                    child: ClipOval(
-                      child: SizedBox(
-                        width: 28, height: 28,
-                        child: CustomPaint(painter: BallPainter.forSport(state.sportType)),
-                      ),
-                    ),
-                    onTap: () {
-                      final c = state.canvasSize;
-                      state.addPlayer(PlayerIcon(
-                        id: DateTime.now().microsecondsSinceEpoch.toString(),
-                        label: '',
-                        team: PlayerTeam.neutral,
-                        sportType: state.sportType,
-                        position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
-                      ));
-                      Navigator.pop(sheetCtx);
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  ...[
-                    (MarkerShape.circle, '○', Colors.amber),
-                    (MarkerShape.square, '□', Colors.teal),
-                    (MarkerShape.triangle, '△', Colors.orange),
-                    (MarkerShape.diamond, '◇', Colors.purple),
-                  ].map((e) => Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: _MarkerCard(
-                      label: e.$2,
-                      child: SizedBox(
-                        width: 28, height: 28,
-                        child: CustomPaint(
-                          painter: MarkerPainter(shape: e.$1, color: e.$3),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _MarkerCard(
+                      label: 'team_ball'.tr(),
+                      child: ClipOval(
+                        child: SizedBox(
+                          width: 28, height: 28,
+                          child: CustomPaint(painter: BallPainter.forSport(state.sportType)),
                         ),
                       ),
                       onTap: () {
@@ -512,19 +514,91 @@ class _AddPlayerSheet extends StatelessWidget {
                           id: DateTime.now().microsecondsSinceEpoch.toString(),
                           label: '',
                           team: PlayerTeam.neutral,
-                          markerShape: e.$1,
-                          customColor: e.$3,
+                          sportType: state.sportType,
                           position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
                         ));
                         Navigator.pop(sheetCtx);
                       },
                     ),
-                  )),
-                ],
+                    const SizedBox(width: 8),
+                    ...[
+                      (MarkerShape.circle, '○', Colors.amber),
+                      (MarkerShape.square, '□', Colors.teal),
+                      (MarkerShape.triangle, '△', Colors.orange),
+                      (MarkerShape.diamond, '◇', Colors.purple),
+                    ].map((e) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: _MarkerCard(
+                        label: e.$2,
+                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: e.$1, color: e.$3))),
+                        onTap: () => _addMarker(e.$1, e.$3),
+                      ),
+                    )),
+                    // "More" button inline
+                    GestureDetector(
+                      onTap: () {
+                        setState(() => _showMore = !_showMore);
+                        if (_showMore) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            _scrollController.animateTo(
+                              _scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 250),
+                              curve: Curves.easeOut,
+                            );
+                          });
+                        }
+                      },
+                      child: Container(
+                        width: 52, height: 52,
+                        decoration: BoxDecoration(
+                          color: _showMore ? Colors.white.withValues(alpha: 0.12) : Colors.white.withValues(alpha: 0.05),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.white24),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(_showMore ? Icons.expand_less : Icons.more_horiz, color: Colors.white54, size: 18),
+                            Text(_showMore ? 'less'.tr() : 'more'.tr(),
+                                style: const TextStyle(color: Colors.white54, fontSize: 9)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+            // Expanded more items
+            if (_showMore)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _MarkerCard(label: 'marker_cone'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.cone, color: Colors.orange))), onTap: () => _addMarker(MarkerShape.cone, Colors.orange)),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_text'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.text, color: Colors.blueGrey))), onTap: () => _addMarker(MarkerShape.text, Colors.blueGrey, label: 'T')),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_zone'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.zone, color: Colors.yellow))), onTap: () => _addMarker(MarkerShape.zone, Colors.yellow)),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_referee'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.referee, color: Colors.black))), onTap: () => _addMarker(MarkerShape.referee, Colors.black)),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_coach'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.coach, color: const Color(0xFF37474F)))), onTap: () => _addMarker(MarkerShape.coach, const Color(0xFF37474F))),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_ladder'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.ladder, color: Colors.lime))), onTap: () => _addMarker(MarkerShape.ladder, Colors.lime)),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_hurdle'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.hurdle, color: Colors.red))), onTap: () => _addMarker(MarkerShape.hurdle, Colors.red)),
+                      const SizedBox(width: 8),
+                      _MarkerCard(label: 'marker_arrow'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.arrowMark, color: Colors.green))), onTap: () => _addMarker(MarkerShape.arrowMark, Colors.green)),
+                    ],
+                  ),
+                ),
+              ),
+            const SizedBox(height: 8),
+          ],
+        ),
       ),
     );
   }
@@ -557,7 +631,14 @@ class _PlayerAddRow extends StatelessWidget {
   final BuildContext sheetCtx;
   const _PlayerAddRow({required this.state, required this.team, required this.sheetCtx});
 
-  int get _nextNum => state.players.where((p) => p.team == team).length + 1;
+  int get _nextNum {
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    return max + 1;
+  }
   bool get _hasDoubles => state.sportType.hasDoubles;
 
   void _add(PlayerGender gender, {Offset offset = Offset.zero}) {
@@ -1066,7 +1147,7 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          backgroundColor: const Color(0xFF1E1E2E),
+          backgroundColor: const Color(0xFF1A2035),
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -1261,9 +1342,43 @@ class DrawingOptionsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sel = state.selectedStroke;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        // Selected stroke actions
+        if (sel != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 6, 12, 2),
+            child: Row(
+              children: [
+                Icon(Icons.gesture, color: sel.color, size: 16),
+                const SizedBox(width: 6),
+                Text('Line ${state.strokes.indexOf(sel) + 1}', style: TextStyle(color: sel.color, fontSize: 12, fontWeight: FontWeight.bold)),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () { state.deleteStroke(sel.id); },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(color: Colors.red.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.delete, color: Colors.redAccent, size: 14),
+                        const SizedBox(width: 4),
+                        Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                GestureDetector(
+                  onTap: () => state.selectStroke(null),
+                  child: const Icon(Icons.close, color: Colors.white54, size: 18),
+                ),
+              ],
+            ),
+          ),
         // Row 1: line style + arrow
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
@@ -1547,7 +1662,7 @@ class _TimelineBtn extends StatelessWidget {
   void _showTimeline(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1E1E2E),
+      backgroundColor: const Color(0xFF1A2035),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -1653,7 +1768,7 @@ class PlayControlsBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFF2A2A3E),
+        color: const Color(0xFF222840),
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: Colors.white12),
       ),

@@ -42,6 +42,51 @@ extension SportTypeExtension on SportType {
   /// True for sports whose court is naturally landscape (horizontal).
   bool get isLandscapeCourt => false;
 
+  /// True for sports with a net dividing the court.
+  bool get hasNet {
+    switch (this) {
+      case SportType.badminton:
+      case SportType.tableTennis:
+      case SportType.tennis:
+      case SportType.volleyball:
+      case SportType.pickleball:
+        return true;
+      case SportType.basketball:
+      case SportType.soccer:
+        return false;
+    }
+  }
+
+  /// Apple numeric ID of the corresponding ScoreSyncer scoring app.
+  /// Empty string means the app is not yet on the App Store.
+  String get scorerAppleId {
+    switch (this) {
+      case SportType.badminton:    return '6747377276';
+      case SportType.tableTennis:  return '6747377184';
+      case SportType.tennis:       return '6748001336';
+      case SportType.basketball:   return '6761400751';
+      case SportType.volleyball:   return '6761400656';
+      case SportType.pickleball:   return '6744628482';
+      case SportType.soccer:       return ''; // not yet on App Store
+    }
+  }
+
+  /// Display name of the corresponding ScoreSyncer scoring app.
+  String get scorerAppName {
+    switch (this) {
+      case SportType.badminton:    return 'BadmintonPoints';
+      case SportType.tableTennis:  return 'PingpongPoints';
+      case SportType.tennis:       return 'TennisKeeper';
+      case SportType.basketball:   return 'BasketballPoints';
+      case SportType.volleyball:   return 'VolleyballPoints';
+      case SportType.pickleball:   return 'PicklePoints';
+      case SportType.soccer:       return 'SoccerPoints';
+    }
+  }
+
+  /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
+  double get netY => 0.5;
+
   /// True for racquet/net sports that have singles/doubles variants
   bool get hasDoubles => formations.any((f) => f.nameKey == 'formation_doubles');
 

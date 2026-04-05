@@ -27,6 +27,15 @@ import UIKit
         } else {
           result(FlutterError(code: "INVALID_ARGS", message: "Missing path", details: nil))
         }
+      } else if call.method == "openUrl" {
+        if let args = call.arguments as? [String: Any], let urlString = args["url"] as? String,
+           let url = URL(string: urlString) {
+          UIApplication.shared.open(url, options: [:]) { success in
+            result(success)
+          }
+        } else {
+          result(FlutterError(code: "INVALID_ARGS", message: "Missing url", details: nil))
+        }
       } else {
         result(FlutterMethodNotImplemented)
       }
