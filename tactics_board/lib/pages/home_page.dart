@@ -18,98 +18,152 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Subscribe to locale changes so page rebuilds on language switch
     context.locale;
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+
     return Scaffold(
       backgroundColor: const Color(0xFF1A2035),
-      body: Column(
+      body: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
+    );
+  }
+
+  Widget _buildPortrait(BuildContext context, double topPad, double bottomPad) {
+    return Column(
+      children: [
+        Expanded(child: _canvasStack(context, topPad)),
+        _bottomBar(context, bottomPad),
+      ],
+    );
+  }
+
+  Widget _buildLandscape(BuildContext context, double topPad, double bottomPad) {
+    return Row(
+      children: [
+        Expanded(child: _canvasStack(context, topPad)),
+        Selector<TacticsState, bool>(
+          selector: (_, s) => s.toolbarVisible,
+          builder: (context, visible, _) => visible
+            ? Container(
+                width: 200,
+                color: const Color(0xFF1A2035),
+                child: SafeArea(
+                  left: false,
+                  child: _landscapeSidePanel(context),
+                ),
+              )
+            : const SizedBox.shrink(),
+        ),
+      ],
+    );
+  }
+
+  Widget _canvasStack(BuildContext context, double topPad) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        const TacticsCanvas(),
+        if (!isSingleSportApp)
+          Positioned(
+            top: topPad + 8, left: 12,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const SportSelectionPage()),
+              ),
+              child: Container(
+                width: 32, height: 32,
+                decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
+                child: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 16),
+              ),
+            ),
+          ),
+        Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
+        Consumer<TacticsState>(
+          builder: (context, state, _) {
+            if (state.isDrawingMode || state.selectedStrokeId != null) {
+              return Positioned(
+                bottom: 0, left: 0, right: 0,
+                child: Container(
+                  color: const Color(0xDD1A2035),
+                  child: DrawingOptionsBar(state: state),
+                ),
+              );
+            }
+            if (state.selectedPlayerId != null) {
+              final player = state.players.cast<PlayerIcon?>().firstWhere(
+                (p) => p?.id == state.selectedPlayerId, orElse: () => null);
+              if (player != null) {
+                return Positioned(
+                  bottom: 0, left: 0, right: 0,
+                  child: Container(
+                    color: const Color(0xDD1A2035),
+                    child: _PlayerEditBar(state: state, player: player),
+                  ),
+                );
+              }
+            }
+            return const SizedBox.shrink();
+          },
+        ),
+        Positioned(
+          bottom: 12, right: 12,
+          child: Selector<TacticsState, bool>(
+            selector: (_, s) => s.toolbarVisible,
+            builder: (context, visible, _) => GestureDetector(
+              onTap: context.read<TacticsState>().toggleToolbar,
+              child: Container(
+                width: 32, height: 32,
+                decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
+                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _bottomBar(BuildContext context, double bottomPad) {
+    return Selector<TacticsState, ({bool visible, bool drawing, bool moves, int steps, int atStep, bool animating})>(
+      selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves, steps: s.maxMoveSteps, atStep: s.atStep, animating: s.isAnimating),
+      builder: (context, sel, _) => Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                const TacticsCanvas(),
-                if (!isSingleSportApp)
-                  Positioned(
-                    top: topPad + 8, left: 12,
-                    child: GestureDetector(
-                      onTap: () => Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const SportSelectionPage()),
-                      ),
-                      child: Container(
-                        width: 32, height: 32,
-                        decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
-                        child: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 16),
-                      ),
-                    ),
-                  ),
-                Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
-                Consumer<TacticsState>(
-                  builder: (context, state, _) {
-                    if (state.isDrawingMode || state.selectedStrokeId != null) {
-                      return Positioned(
-                        bottom: 0, left: 0, right: 0,
-                        child: Container(
-                          color: const Color(0xDD1A2035),
-                          child: DrawingOptionsBar(state: state),
-                        ),
-                      );
-                    }
-                    if (state.selectedPlayerId != null) {
-                      final player = state.players.cast<PlayerIcon?>().firstWhere(
-                        (p) => p?.id == state.selectedPlayerId, orElse: () => null);
-                      if (player != null) {
-                        return Positioned(
-                          bottom: 0, left: 0, right: 0,
-                          child: Container(
-                            color: const Color(0xDD1A2035),
-                            child: _PlayerEditBar(state: state, player: player),
-                          ),
-                        );
-                      }
-                    }
-                    return const SizedBox.shrink();
-                  },
-                ),
-                Positioned(
-                  bottom: 12, right: 12,
-                  child: Selector<TacticsState, bool>(
-                    selector: (_, s) => s.toolbarVisible,
-                    builder: (context, visible, _) => GestureDetector(
-                      onTap: context.read<TacticsState>().toggleToolbar,
-                      child: Container(
-                        width: 32, height: 32,
-                        decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
-                        child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+          if (sel.visible)
+            SizedBox(
+              height: 48,
+              child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
             ),
+          AnimatedSize(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
           ),
-          Selector<TacticsState, ({bool visible, bool drawing, bool moves, int steps, int atStep, bool animating})>(
-            selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves, steps: s.maxMoveSteps, atStep: s.atStep, animating: s.isAnimating),
-            builder: (context, sel, _) => Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (sel.visible)
-                  SizedBox(
-                    height: 48,
-                    child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
-                  ),
-                AnimatedSize(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
-                ),
-                SizedBox(height: bottomPad > 0 ? 36 : 20),
-              ],
-            ),
-          ),
+          SizedBox(height: bottomPad > 0 ? 36 : 20),
         ],
+      ),
+    );
+  }
+
+  Widget _landscapeSidePanel(BuildContext context) {
+    return Consumer<TacticsState>(
+      builder: (context, state, _) => SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 8),
+            // Mode + Add + actions
+            const TacticsToolbar(),
+            const Divider(color: Colors.white12, height: 1),
+            // Play controls
+            if (state.hasMoves)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: PlayControlsBar(state: state),
+              ),
+          ],
+        ),
       ),
     );
   }

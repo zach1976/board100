@@ -71,20 +71,43 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
   }
 
+  /// Convert screen position to canvas position in landscape mode
+  Offset _screenToCanvas(Offset screenPos, Size screenSize) {
+    // In landscape, canvas is rotated -90deg. Screen (x,y) -> canvas (y, screenSize.width - x)
+    return Offset(screenPos.dy, screenSize.width - screenPos.dx);
+  }
+
+  Offset _screenDeltaToCanvasDelta(Offset delta) {
+    return Offset(delta.dy, -delta.dx);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
       return Container(color: const Color(0xFF1A2035));
     }
     final state = _state;
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+
     return LayoutBuilder(
       builder: (context, constraints) {
-            final newSize = Size(constraints.maxWidth, constraints.maxHeight);
+            // In landscape, swap dimensions for the logical canvas
+            final screenW = constraints.maxWidth;
+            final screenH = constraints.maxHeight;
+            final canvasW = isLandscape ? screenH : screenW;
+            final canvasH = isLandscape ? screenW : screenH;
+            final newSize = Size(canvasW, canvasH);
             if (state.canvasSize != newSize) {
               state.setCanvasSizeSilent(newSize);
             }
 
             final players = state.players.toList();
+
+            // Helper to transform gesture positions
+            Offset pos(Offset screenPos) => isLandscape
+                ? _screenToCanvas(screenPos, Size(screenW, screenH))
+                : screenPos;
+            Offset delta(Offset d) => isLandscape ? _screenDeltaToCanvasDelta(d) : d;
 
             final _draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
 
@@ -92,21 +115,19 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               onPanStart: state.isDrawingMode
                   ? (d) {
                       if (_draggingStroke) {
-                        // Check if starting on the selected stroke — if so, drag it
-                        final hitId = state.hitTestStroke(d.localPosition);
-                        if (hitId == state.selectedStrokeId) return; // will drag in onPanUpdate
-                        // Otherwise deselect and start new stroke
+                        final hitId = state.hitTestStroke(pos(d.localPosition));
+                        if (hitId == state.selectedStrokeId) return;
                         state.selectStroke(null);
                       }
-                      state.startStroke(d.localPosition);
+                      state.startStroke(pos(d.localPosition));
                     }
                   : null,
               onPanUpdate: state.isDrawingMode
                   ? (d) {
                       if (_draggingStroke) {
-                        state.moveStroke(state.selectedStrokeId!, d.delta);
+                        state.moveStroke(state.selectedStrokeId!, delta(d.delta));
                       } else {
-                        state.addPoint(d.localPosition);
+                        state.addPoint(pos(d.localPosition));
                       }
                     }
                   : null,
@@ -121,16 +142,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               onTapUp: (!state.isAnimating)
                   ? (d) {
+                      final p = pos(d.localPosition);
                       if (state.isDrawingMode) {
-                        // In draw mode: tap to select stroke
-                        final hitId = state.hitTestStroke(d.localPosition);
+                        final hitId = state.hitTestStroke(p);
                         state.selectStroke(hitId);
                       } else if (state.selectedPlayerId != null) {
-                        // In move mode with selected player: add waypoint
-                        state.addPlayerMove(state.selectedPlayerId!, d.localPosition);
+                        state.addPlayerMove(state.selectedPlayerId!, p);
                       } else {
-                        // In move mode, no player selected: try to select stroke
-                        final hitId = state.hitTestStroke(d.localPosition);
+                        final hitId = state.hitTestStroke(p);
                         if (hitId != null) {
                           state.selectStroke(hitId);
                         } else {
@@ -141,15 +160,36 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               child: RepaintBoundary(
                 key: boardRepaintKey,
-                child: Stack(
+                child: isLandscape
+                  ? SizedBox(
+                      width: screenW,
+                      height: screenH,
+                      child: Transform.rotate(
+                        angle: 3.14159265 / 2, // 90 degrees
+                        child: SizedBox(
+                          width: canvasH,  // swapped
+                          height: canvasW, // swapped
+                          child: _buildCanvasContent(state, players, canvasW, canvasH),
+                        ),
+                      ),
+                    )
+                  : _buildCanvasContent(state, players, canvasW, canvasH),
+              ),
+            );
+      },
+    );
+  }
+
+  Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
+    return Stack(
                 children: [
                   // Court background
                   CustomPaint(
                     painter: _courtPainter(state.sportType),
-                    size: Size(constraints.maxWidth, constraints.maxHeight),
+                    size: Size(canvasW, canvasH),
                     child: SizedBox(
-                      width: constraints.maxWidth,
-                      height: constraints.maxHeight,
+                      width: canvasW,
+                      height: canvasH,
                     ),
                   ),
                   // Player move arrows (below players, limited to atStep)
@@ -160,7 +200,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
                         completedSteps: state.isAnimating ? state.atStep : null,
                       ),
-                      size: Size(constraints.maxWidth, constraints.maxHeight),
+                      size: Size(canvasW, canvasH),
                     ),
                   // Drawing layer (filter by phase during step playback)
                   CustomPaint(
@@ -169,7 +209,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       currentStroke: state.currentStroke,
                       selectedStrokeId: state.selectedStrokeId,
                     ),
-                    size: Size(constraints.maxWidth, constraints.maxHeight),
+                    size: Size(canvasW, canvasH),
                   ),
                   // Waypoint dots (hidden during animation, limited to atStep/targetStep)
                   if (!state.isAnimating && state.showMoveLines)
@@ -252,10 +292,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     sequentialMode: state.sequentialMode,
                   ),
                 ],
-                ),
-              ),
-            );
-      },
     );
   }
 
@@ -568,8 +604,9 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
           },
         onScaleUpdate: (d) {
             final state = context.read<TacticsState>();
-            state.movePlayer(
-                player.id, player.position + d.focalPointDelta);
+            final isLand = MediaQuery.of(context).orientation == Orientation.landscape;
+            final delta = isLand ? Offset(d.focalPointDelta.dy, -d.focalPointDelta.dx) : d.focalPointDelta;
+            state.movePlayer(player.id, player.position + delta);
             if (d.pointerCount >= 2) {
               state.resizePlayer(player.id, _baseScale * d.scale);
             }
@@ -613,10 +650,12 @@ class _WaypointDotState extends State<_WaypointDot> {
   static const double _dotSize = 28.0;
 
   void _onPanUpdate(DragUpdateDetails d) {
+    final isLand = MediaQuery.of(context).orientation == Orientation.landscape;
+    final delta = isLand ? Offset(d.delta.dy, -d.delta.dx) : d.delta;
     context.read<TacticsState>().movePlayerWaypoint(
           widget.player.id,
           widget.index,
-          widget.position + d.delta,
+          widget.position + delta,
         );
   }
 

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:external_display/external_display.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -60,8 +61,45 @@ class TacticsState extends ChangeNotifier {
   bool _toolbarVisible = true;
   final TransformationController transformationController = TransformationController();
 
+  // External display
+  final ExternalDisplay _externalDisplay = ExternalDisplay();
+  bool _externalConnected = false;
+  bool get externalDisplayConnected => _externalConnected;
+
   TacticsState({SportType sportType = SportType.basketball})
-      : _sportType = sportType;
+      : _sportType = sportType {
+    _initExternalDisplay();
+  }
+
+  void _initExternalDisplay() {
+    _externalDisplay.addStatusListener((connected) {
+      _externalConnected = connected;
+      if (connected) _syncToExternal();
+      notifyListeners();
+    });
+    _externalDisplay.connect();
+  }
+
+  /// Broadcast current state to external display
+  void _syncToExternal() {
+    if (!_externalConnected) return;
+    try {
+      final data = jsonEncode({
+        'sport': _sportType.name,
+        'players': _players.map((p) => p.toJson()).toList(),
+        'strokes': _strokes.map((s) => s.toJson()).toList(),
+        'atStep': _atStep,
+        'showMoveLines': _showMoveLines,
+      });
+      _externalDisplay.sendParameters(action: 'updateState', value: data);
+    } catch (_) {}
+  }
+
+  @override
+  void notifyListeners() {
+    super.notifyListeners();
+    _syncToExternal();
+  }
 
   @override
   void dispose() {
