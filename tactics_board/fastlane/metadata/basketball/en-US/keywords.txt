@@ -1,1 +1,1 @@
-basketball,tactics,board,coach,play,formation,horns,offense,defense,strategy,drill,court,clipboard
+horns,offense,defense,strategy,drill,court,clipboard,animation,screen,pick,roll,lineup,whiteboard

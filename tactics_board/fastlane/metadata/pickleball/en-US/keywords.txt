@@ -1,1 +1,1 @@
-pickleball,tactics,board,coach,kitchen,dink,strategy,doubles,singles,formation,court,play,training
+coach,dink,doubles,singles,formation,court,training,clipboard,animation,drill,stacking,paddle

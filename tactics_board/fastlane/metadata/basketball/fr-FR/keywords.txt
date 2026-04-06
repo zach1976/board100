@@ -1,0 +1,1 @@
+entraîneur,formation,stratégie,exercice,animation,écran,attaque,défense,terrain,tableau,NBA,3v3

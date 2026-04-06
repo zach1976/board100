@@ -1,1 +1,1 @@
-NEW: Animated rotations — map out your 6v6 serve-receive and watch players shift into position.
+NEW: Timeline editor — plan serve-receive rotations phase by phase. Animate transitions with step-by-step playback.

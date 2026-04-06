@@ -1,1 +1,1 @@
-NEW: Draw rally patterns and animate court coverage — plan your doubles strategy before the first serve.
+NEW: Timeline editor — plan doubles rotations phase by phase. Animate court coverage with step-by-step playback.

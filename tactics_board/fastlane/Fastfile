@@ -45,6 +45,8 @@ platform :ios do
       skip_screenshots: true,
       primary_category: "SPORTS",
       secondary_category: "UTILITIES",
+      edit_live: true,
+      ignore_language_directory_validation: true,
     )
   end
 
@@ -62,6 +64,38 @@ platform :ios do
     end
   end
 
+  # ── Upload ASO (keywords, promo text, description) without touching app info ─
+  desc "Upload version-level metadata only (keywords, promo, description)"
+  lane :upload_aso do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app: fastlane upload_aso app:soccer") unless app
+    UI.user_error!("Unknown app: #{app}") unless APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      metadata_path: "/tmp/aso_upload/#{app}",
+      skip_screenshots: true,
+      edit_live: true,
+      use_live_version: true,
+      ignore_language_directory_validation: true,
+    )
+  end
+
+  # ── Upload ASO for ALL apps ────────────────────────────────────────────────
+  desc "Upload version-level metadata for all 8 apps"
+  lane :upload_all_aso do
+    APPS.each_key do |app|
+      begin
+        UI.message("━━━ ASO: #{APPS[app][:name]} ━━━")
+        upload_aso(app: app)
+        UI.success("✅ #{APPS[app][:name]} done")
+      rescue => e
+        UI.error("❌ #{APPS[app][:name]} failed: #{e.message}")
+      end
+    end
+  end
+
   # ── Upload screenshots for a single app ────────────────────────────────────
   desc "Upload screenshots for a specific app"
   lane :upload_screenshots do |options|
@@ -72,9 +106,12 @@ platform :ios do
     deliver(
       **DELIVER_DEFAULTS,
       app_identifier: APPS[app][:id],
+      metadata_path: "./fastlane/metadata/#{app}",
       screenshots_path: "./fastlane/screenshots/#{app}",
       skip_metadata: true,
       overwrite_screenshots: true,
+      edit_live: true,
+      ignore_language_directory_validation: true,
     )
   end
 
@@ -91,6 +128,44 @@ platform :ios do
       metadata_path: "./fastlane/metadata/#{app}",
       screenshots_path: "./fastlane/screenshots/#{app}",
       overwrite_screenshots: true,
+    )
+  end
+
+  # ── Submit for review ────────────────────────────────────────────────────
+  desc "Submit a specific app for review"
+  lane :submit_review do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app") unless app && APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      metadata_path: "./fastlane/metadata/#{app}",
+      screenshots_path: "./fastlane/screenshots/#{app}",
+      skip_screenshots: true,
+      submit_for_review: true,
+      submission_information: {
+        add_id_info_uses_idfa: false,
+        export_compliance_uses_encryption: false,
+        export_compliance_encryption_updated: false,
+      },
+    )
+  end
+
+  # ── Set price to FREE ─────────────────────────────────────────────────────
+  desc "Set price to free for a specific app"
+  lane :set_price_free do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app") unless app && APPS[app]
+    deliver(
+      api_key: API_KEY,
+      app_identifier: APPS[app][:id],
+      metadata_path: "./fastlane/metadata/#{app}",
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: true,
+      price_tier: 0,
+      force: true,
     )
   end
 

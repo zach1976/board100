@@ -1,1 +1,1 @@
-tennis,tactics,board,coach,doubles,singles,strategy,serve,return,formation,court,play,drill,volley
+coach,serve,return,formation,court,drill,volley,strategy,animation,clipboard,rally,baseline,play

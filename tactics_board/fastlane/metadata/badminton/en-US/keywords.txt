@@ -1,1 +1,1 @@
-badminton,tactics,board,coach,doubles,singles,strategy,shuttle,formation,court,play,drill,training
+coach,shuttle,formation,court,drill,training,rally,smash,rotation,clipboard,animation,drop,play

@@ -1,1 +1,1 @@
-NEW: Animated play sequences — draw a play, tap Play, and watch your players move step by step. Perfect for pre-game team talks.
+NEW: Timeline editor — control exactly when each player moves. Animate multi-phase plays with step-by-step playback.

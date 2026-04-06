@@ -1,1 +1,1 @@
-table tennis,ping pong,tactics,board,coach,serve,spin,strategy,doubles,singles,drill,play,training
+ping pong,coach,spin,doubles,singles,drill,training,clipboard,animation,formation,play,rotation
