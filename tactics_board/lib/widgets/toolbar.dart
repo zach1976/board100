@@ -825,7 +825,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                     ),
                     child: Center(
                       child: Text(
-                        '${'count_suffix'.tr()}',
+                        '${count}v$count',
                         style: TextStyle(
                           color: selected ? Colors.white : Colors.white70,
                           fontSize: 15,

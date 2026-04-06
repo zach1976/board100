@@ -1,1 +1,1 @@
-Read the spin. Plan the rally. Draw serve sequences and animate point patterns step by step.
+NEW: Timeline editor — plan serve sequences step by step. Animate doubles rotations with phase-by-phase playback.

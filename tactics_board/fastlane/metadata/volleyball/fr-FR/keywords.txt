@@ -1,0 +1,1 @@
+entraîneur,formation,passeur,service,attaque,bloc,réception,exercice,animation,6v6,tableau
