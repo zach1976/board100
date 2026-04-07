@@ -129,5 +129,6 @@
   "marker_ladder": "Échelle",
   "marker_hurdle": "Haie",
   "marker_arrow": "Flèche",
-  "remove_move_confirm": "Supprimer cette étape ?"
+  "remove_move_confirm": "Supprimer cette étape ?",
+  "share": "Share"
 }

@@ -129,5 +129,6 @@
   "marker_ladder": "Thang",
   "marker_hurdle": "Rào",
   "marker_arrow": "Mũi tên",
-  "remove_move_confirm": "Xóa bước di chuyển này?"
+  "remove_move_confirm": "Xóa bước di chuyển này?",
+  "share": "Share"
 }

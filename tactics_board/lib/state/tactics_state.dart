@@ -158,7 +158,7 @@ class TacticsState extends ChangeNotifier {
   void startAnimation() {
     if (_isAnimating) return;
     _animFromStep = 0;
-    _animToStep = 0;
+    _animToStep = maxMoveSteps;
     _atStep = 0;
     _isAnimating = true;
     _animatedPositions = {};

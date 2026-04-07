@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TacticController;
 use App\Http\Middleware\JwtAuthMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     // Public
     Route::get('/health', [TacticController::class, 'health']);
+    Route::post('/send-email', [ContactController::class, 'sendEmail']);
 
     // Auth (public — returns JWT)
     Route::post('/auth/apple', [AuthController::class, 'apple']);

@@ -129,5 +129,6 @@
   "marker_ladder": "Ladder",
   "marker_hurdle": "Hurdle",
   "marker_arrow": "Arrow",
-  "remove_move_confirm": "Delete this move step?"
+  "remove_move_confirm": "Delete this move step?",
+  "share": "Share"
 }

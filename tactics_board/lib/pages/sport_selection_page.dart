@@ -45,7 +45,8 @@ class SportSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isTablet = size.shortestSide > 600;
-    final crossCount = isTablet ? 3 : 2;
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    final crossCount = isLandscape ? 4 : isTablet ? 3 : 2;
     final topPad = MediaQuery.of(context).padding.top;
 
     return Scaffold(
@@ -56,45 +57,43 @@ class SportSelectionPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.fromLTRB(
-                isTablet ? 32 : 24,
-                topPad + (isTablet ? 28 : 20),
-                20,
+                isLandscape ? 16 : isTablet ? 32 : 24,
+                topPad + (isLandscape ? 8 : isTablet ? 28 : 20),
+                16,
                 0,
               ),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'app_title'.tr(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: -0.5,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          'choose_sport'.tr(),
-                          style: TextStyle(
-                            color: Colors.white.withValues(alpha: 0.5),
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
+                  Text(
+                    'app_title'.tr(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: isLandscape ? 20 : 28,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: -0.5,
                     ),
                   ),
+                  if (!isLandscape) ...[
+                    const Spacer(),
+                  ] else ...[
+                    const SizedBox(width: 12),
+                    Text(
+                      'choose_sport'.tr(),
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.5),
+                        fontSize: 12,
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
                   Container(
-                    width: 40, height: 40,
+                    width: 36, height: 36,
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.08),
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.language, color: Colors.white60, size: 20),
+                      icon: const Icon(Icons.language, color: Colors.white60, size: 18),
                       onPressed: () => LanguagePicker.show(context),
                       padding: EdgeInsets.zero,
                     ),
@@ -103,17 +102,24 @@ class SportSelectionPage extends StatelessWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          if (!isLandscape)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 2, 20, 0),
+                child: Text('choose_sport'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 13)),
+              ),
+            ),
+          SliverToBoxAdapter(child: SizedBox(height: isLandscape ? 8 : 16)),
 
           // ── Sport Grid ──
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: isTablet ? 24 : 16),
+            padding: EdgeInsets.symmetric(horizontal: isLandscape ? 12 : isTablet ? 24 : 16),
             sliver: SliverGrid(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: crossCount,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: 1.15,
+                crossAxisSpacing: isLandscape ? 8 : 10,
+                mainAxisSpacing: isLandscape ? 8 : 10,
+                childAspectRatio: isLandscape ? 1.3 : 1.15,
               ),
               delegate: SliverChildBuilderDelegate(
                 (ctx, i) => _SportCard(

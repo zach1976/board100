@@ -129,5 +129,6 @@
   "marker_ladder": "Tangga",
   "marker_hurdle": "Gawang",
   "marker_arrow": "Panah",
-  "remove_move_confirm": "Hapus langkah ini?"
+  "remove_move_confirm": "Hapus langkah ini?",
+  "share": "Share"
 }

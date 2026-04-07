@@ -129,5 +129,6 @@
   "marker_ladder": "Escalera",
   "marker_hurdle": "Valla",
   "marker_arrow": "Flecha",
-  "remove_move_confirm": "¿Eliminar este paso?"
+  "remove_move_confirm": "¿Eliminar este paso?",
+  "share": "Share"
 }

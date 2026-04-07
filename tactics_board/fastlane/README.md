@@ -31,6 +31,22 @@ Upload metadata for a specific app (no binary)
 
 Upload metadata for all 8 apps (no binary)
 
+### ios upload_aso
+
+```sh
+[bundle exec] fastlane ios upload_aso
+```
+
+Upload version-level metadata only (keywords, promo, description)
+
+### ios upload_all_aso
+
+```sh
+[bundle exec] fastlane ios upload_all_aso
+```
+
+Upload version-level metadata for all 8 apps
+
 ### ios upload_screenshots
 
 ```sh
@@ -46,6 +62,22 @@ Upload screenshots for a specific app
 ```
 
 Upload metadata + screenshots for a specific app (no binary)
+
+### ios submit_review
+
+```sh
+[bundle exec] fastlane ios submit_review
+```
+
+Submit a specific app for review
+
+### ios set_price_free
+
+```sh
+[bundle exec] fastlane ios set_price_free
+```
+
+Set price to free for a specific app
 
 ----
 

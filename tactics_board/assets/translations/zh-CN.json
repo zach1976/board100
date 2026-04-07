@@ -129,5 +129,6 @@
   "marker_ladder": "绳梯",
   "marker_hurdle": "跨栏",
   "marker_arrow": "箭头",
-  "remove_move_confirm": "删除这一步移动？"
+  "remove_move_confirm": "删除这一步移动？",
+  "share": "Share"
 }
