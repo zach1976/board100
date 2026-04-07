@@ -129,5 +129,6 @@
   "marker_ladder": "ラダー",
   "marker_hurdle": "ハードル",
   "marker_arrow": "矢印",
-  "remove_move_confirm": "この移動ステップを削除しますか？"
+  "remove_move_confirm": "この移動ステップを削除しますか？",
+  "share": "Share"
 }

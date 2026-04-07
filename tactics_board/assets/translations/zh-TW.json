@@ -129,5 +129,6 @@
   "marker_ladder": "繩梯",
   "marker_hurdle": "跨欄",
   "marker_arrow": "箭頭",
-  "remove_move_confirm": "刪除這一步移動？"
+  "remove_move_confirm": "刪除這一步移動？",
+  "share": "Share"
 }

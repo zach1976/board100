@@ -71,31 +71,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
   }
 
-  /// Convert screen position to canvas position in landscape mode
-  Offset _screenToCanvas(Offset screenPos, Size screenSize) {
-    // In landscape, canvas is rotated -90deg. Screen (x,y) -> canvas (y, screenSize.width - x)
-    return Offset(screenPos.dy, screenSize.width - screenPos.dx);
-  }
-
-  Offset _screenDeltaToCanvasDelta(Offset delta) {
-    return Offset(delta.dy, -delta.dx);
-  }
-
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
       return Container(color: const Color(0xFF1A2035));
     }
     final state = _state;
-    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     return LayoutBuilder(
       builder: (context, constraints) {
-            // In landscape, swap dimensions for the logical canvas
-            final screenW = constraints.maxWidth;
-            final screenH = constraints.maxHeight;
-            final canvasW = isLandscape ? screenH : screenW;
-            final canvasH = isLandscape ? screenW : screenH;
+            final canvasW = constraints.maxWidth;
+            final canvasH = constraints.maxHeight;
             final newSize = Size(canvasW, canvasH);
             if (state.canvasSize != newSize) {
               state.setCanvasSizeSilent(newSize);
@@ -103,37 +89,31 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final players = state.players.toList();
 
-            // Helper to transform gesture positions
-            Offset pos(Offset screenPos) => isLandscape
-                ? _screenToCanvas(screenPos, Size(screenW, screenH))
-                : screenPos;
-            Offset delta(Offset d) => isLandscape ? _screenDeltaToCanvasDelta(d) : d;
-
-            final _draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
+            final draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
 
             return GestureDetector(
               onPanStart: state.isDrawingMode
                   ? (d) {
-                      if (_draggingStroke) {
-                        final hitId = state.hitTestStroke(pos(d.localPosition));
+                      if (draggingStroke) {
+                        final hitId = state.hitTestStroke(d.localPosition);
                         if (hitId == state.selectedStrokeId) return;
                         state.selectStroke(null);
                       }
-                      state.startStroke(pos(d.localPosition));
+                      state.startStroke(d.localPosition);
                     }
                   : null,
               onPanUpdate: state.isDrawingMode
                   ? (d) {
-                      if (_draggingStroke) {
-                        state.moveStroke(state.selectedStrokeId!, delta(d.delta));
+                      if (draggingStroke) {
+                        state.moveStroke(state.selectedStrokeId!, d.delta);
                       } else {
-                        state.addPoint(pos(d.localPosition));
+                        state.addPoint(d.localPosition);
                       }
                     }
                   : null,
               onPanEnd: state.isDrawingMode
                   ? (_) {
-                      if (_draggingStroke) {
+                      if (draggingStroke) {
                         state.moveStrokeEnd(state.selectedStrokeId!);
                       } else {
                         state.endStroke();
@@ -142,38 +122,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               onTapUp: (!state.isAnimating)
                   ? (d) {
-                      final p = pos(d.localPosition);
                       if (state.isDrawingMode) {
-                        final hitId = state.hitTestStroke(p);
+                        final hitId = state.hitTestStroke(d.localPosition);
                         state.selectStroke(hitId);
                       } else if (state.selectedPlayerId != null) {
-                        state.addPlayerMove(state.selectedPlayerId!, p);
+                        state.addPlayerMove(state.selectedPlayerId!, d.localPosition);
                       } else {
-                        final hitId = state.hitTestStroke(p);
-                        if (hitId != null) {
-                          state.selectStroke(hitId);
-                        } else {
-                          state.selectStroke(null);
-                        }
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        state.selectStroke(hitId);
                       }
                     }
                   : null,
               child: RepaintBoundary(
                 key: boardRepaintKey,
-                child: isLandscape
-                  ? SizedBox(
-                      width: screenW,
-                      height: screenH,
-                      child: Transform.rotate(
-                        angle: 3.14159265 / 2, // 90 degrees
-                        child: SizedBox(
-                          width: canvasH,  // swapped
-                          height: canvasW, // swapped
-                          child: _buildCanvasContent(state, players, canvasW, canvasH),
-                        ),
-                      ),
-                    )
-                  : _buildCanvasContent(state, players, canvasW, canvasH),
+                child: _buildCanvasContent(state, players, canvasW, canvasH),
               ),
             );
       },
@@ -404,10 +366,6 @@ class _AnimationDriverState extends State<_AnimationDriver>
       if (_isBackward) {
         _phaseIdx = (widget.fromStep - 1).clamp(0, _sortedPhases.length - 1);
         _ctrl.forward(from: 0);
-      } else if (widget.fromStep == 0 && widget.toStep == 0) {
-        // Play all
-        _phaseIdx = 0;
-        _ctrl.forward(from: 0);
       } else {
         // Step forward (single or range)
         _phaseIdx = widget.fromStep.clamp(0, _sortedPhases.length - 1);
@@ -604,9 +562,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
           },
         onScaleUpdate: (d) {
             final state = context.read<TacticsState>();
-            final isLand = MediaQuery.of(context).orientation == Orientation.landscape;
-            final delta = isLand ? Offset(d.focalPointDelta.dy, -d.focalPointDelta.dx) : d.focalPointDelta;
-            state.movePlayer(player.id, player.position + delta);
+            state.movePlayer(player.id, player.position + d.focalPointDelta);
             if (d.pointerCount >= 2) {
               state.resizePlayer(player.id, _baseScale * d.scale);
             }
@@ -650,12 +606,10 @@ class _WaypointDotState extends State<_WaypointDot> {
   static const double _dotSize = 28.0;
 
   void _onPanUpdate(DragUpdateDetails d) {
-    final isLand = MediaQuery.of(context).orientation == Orientation.landscape;
-    final delta = isLand ? Offset(d.delta.dy, -d.delta.dx) : d.delta;
     context.read<TacticsState>().movePlayerWaypoint(
           widget.player.id,
           widget.index,
-          widget.position + delta,
+          widget.position + d.delta,
         );
   }
 

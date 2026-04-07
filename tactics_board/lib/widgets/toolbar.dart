@@ -16,6 +16,77 @@ import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
 
+/// Public function to show save/load bottom sheet
+void showSaveLoadSheet(BuildContext context, TacticsState state) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: const Color(0xFF1A2035),
+    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    builder: (ctx) => _SaveLoadSheet(state: state),
+  );
+}
+
+/// Public function to share the board
+Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
+  state.resetZoom();
+  await Future.delayed(const Duration(milliseconds: 200));
+  final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+  if (boundary == null) {
+    if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('save_error'.tr())));
+    return;
+  }
+  try {
+    final image = await boundary.toImage(pixelRatio: 1.5);
+    final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+    if (bytes == null) return;
+    Directory dir;
+    try { dir = await getTemporaryDirectory(); } catch (_) { dir = Directory.systemTemp; }
+    final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
+    await file.writeAsBytes(bytes.buffer.asUint8List());
+    if (context.mounted) {
+      try {
+        const channel = MethodChannel('com.zach.tacticsboard/share');
+        await channel.invokeMethod('shareFile', {'path': file.path});
+      } catch (_) {
+        await Share.shareXFiles([XFile(file.path)]);
+      }
+    }
+  } catch (e) {
+    if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('save_error'.tr())));
+  }
+}
+
+/// Public function to confirm clear all
+void confirmClearAll(BuildContext context, TacticsState state) {
+  showDialog(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      backgroundColor: const Color(0xFF1A2035),
+      title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
+      content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+        TextButton(onPressed: () { Navigator.pop(ctx); state.clearAll(); }, child: Text('clear'.tr(), style: const TextStyle(color: Colors.red))),
+      ],
+    ),
+  );
+}
+
+/// Public function to show the add element bottom sheet
+void showAddElementSheet(BuildContext context, TacticsState state) {
+  final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: const Color(0xFF1A2035),
+    isScrollControlled: isLandscape,
+    constraints: isLandscape ? BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9) : null,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (ctx) => _AddPlayerSheet(state: state, sheetCtx: ctx),
+  );
+}
+
 class TacticsToolbar extends StatelessWidget {
   const TacticsToolbar({super.key});
 
@@ -72,12 +143,7 @@ class _MainRow extends StatelessWidget {
   }
 
   void _showSaveLoad(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF1A2035),
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-      builder: (ctx) => _SaveLoadSheet(state: state),
-    );
+    showSaveLoadSheet(context, state);
   }
 
 
@@ -233,7 +299,12 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                 GestureDetector(
                   onTap: () async {
                     final name = _nameCtrl.text.trim();
-                    if (name.isEmpty) return;
+                    if (name.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('tactics_name'.tr())),
+                      );
+                      return;
+                    }
                     try {
                       await widget.state.saveTactics(name);
                       _nameCtrl.clear();
@@ -418,6 +489,10 @@ class _AddPlayerBtn extends StatelessWidget {
   }
 
   void _showSheet(BuildContext context) {
+    showAddSheet(context, state);
+  }
+
+  static void showAddSheet(BuildContext context, TacticsState state) {
     showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xFF1A2035),

@@ -129,5 +129,6 @@
   "marker_ladder": "บันได",
   "marker_hurdle": "รั้ว",
   "marker_arrow": "ลูกศร",
-  "remove_move_confirm": "ลบขั้นตอนการเคลื่อนที่นี้?"
+  "remove_move_confirm": "ลบขั้นตอนการเคลื่อนที่นี้?",
+  "share": "Share"
 }

@@ -11,6 +11,7 @@ import '../state/tactics_state.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/language_picker.dart';
+import '../widgets/timeline_editor.dart';
 import 'sport_selection_page.dart';
 
 class TacticsBoardHomePage extends StatelessWidget {
@@ -45,11 +46,10 @@ class TacticsBoardHomePage extends StatelessWidget {
         Selector<TacticsState, bool>(
           selector: (_, s) => s.toolbarVisible,
           builder: (context, visible, _) => visible
-            ? Container(
-                width: 200,
-                color: const Color(0xFF1A2035),
-                child: SafeArea(
-                  left: false,
+            ? SizedBox(
+                width: 190,
+                child: Material(
+                  color: const Color(0xFF1A2035),
                   child: _landscapeSidePanel(context),
                 ),
               )
@@ -60,10 +60,13 @@ class TacticsBoardHomePage extends StatelessWidget {
   }
 
   Widget _canvasStack(BuildContext context, double topPad) {
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     return Stack(
       fit: StackFit.expand,
       children: [
-        const TacticsCanvas(),
+        isLandscape
+            ? const RotatedBox(quarterTurns: 1, child: TacticsCanvas())
+            : const TacticsCanvas(),
         if (!isSingleSportApp)
           Positioned(
             top: topPad + 8, left: 12,
@@ -79,33 +82,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
           ),
         Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
-        Consumer<TacticsState>(
-          builder: (context, state, _) {
-            if (state.isDrawingMode || state.selectedStrokeId != null) {
-              return Positioned(
-                bottom: 0, left: 0, right: 0,
-                child: Container(
-                  color: const Color(0xDD1A2035),
-                  child: DrawingOptionsBar(state: state),
-                ),
-              );
-            }
-            if (state.selectedPlayerId != null) {
-              final player = state.players.cast<PlayerIcon?>().firstWhere(
-                (p) => p?.id == state.selectedPlayerId, orElse: () => null);
-              if (player != null) {
-                return Positioned(
-                  bottom: 0, left: 0, right: 0,
-                  child: Container(
-                    color: const Color(0xDD1A2035),
-                    child: _PlayerEditBar(state: state, player: player),
-                  ),
-                );
-              }
-            }
-            return const SizedBox.shrink();
-          },
-        ),
+        _CollapsibleEditPanel(),
         Positioned(
           bottom: 12, right: 12,
           child: Selector<TacticsState, bool>(
@@ -148,20 +125,125 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   Widget _landscapeSidePanel(BuildContext context) {
     return Consumer<TacticsState>(
-      builder: (context, state, _) => SingleChildScrollView(
+      builder: (context, state, _) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 8),
-            // Mode + Add + actions
-            const TacticsToolbar(),
-            const Divider(color: Colors.white12, height: 1),
+            // Mode buttons
+            Row(
+              children: [
+                Expanded(child: _lBtn('mode_move', !state.isDrawingMode, () => state.setDrawingMode(false))),
+                const SizedBox(width: 6),
+                Expanded(child: _lBtn('mode_draw', state.isDrawingMode, () => state.setDrawingMode(true))),
+              ],
+            ),
+            const SizedBox(height: 10),
+            // Action buttons
+            _lWideBtn(Icons.add, 'add_label', () => showAddElementSheet(context, state)),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                Expanded(child: _lBtn('save', false, () => showSaveLoadSheet(context, state))),
+                const SizedBox(width: 6),
+                Expanded(child: _lBtn('share', false, () => shareBoardImage(context, state))),
+              ],
+            ),
+            if (state.players.isNotEmpty || state.strokes.isNotEmpty) ...[
+              const SizedBox(height: 6),
+              _lWideBtn(Icons.delete_sweep, 'clear', () => confirmClearAll(context, state), color: Colors.redAccent),
+            ],
+            const Spacer(),
             // Play controls
-            if (state.hasMoves)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: PlayControlsBar(state: state),
+            if (state.hasMoves) ...[
+              const Divider(color: Colors.white12),
+              const SizedBox(height: 4),
+              // Step + controls in compact layout
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _lCircleBtn(Icons.skip_previous, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Text('${state.atStep}/${state.maxMoveSteps}', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                  ),
+                  _lCircleBtn(Icons.skip_next, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
+                ],
               ),
+              const SizedBox(height: 6),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _lCircleBtn(Icons.replay, Colors.orange, state.atStep > 0 ? state.clearAnimatedPositions : null),
+                  const SizedBox(width: 6),
+                  _lCircleBtn(state.isAnimating ? Icons.stop : Icons.play_arrow, Colors.green, !state.isAnimating ? state.startAnimation : state.stopAnimation),
+                  const SizedBox(width: 6),
+                  _lCircleBtn(Icons.show_chart, state.showMoveLines ? Colors.white54 : Colors.redAccent, state.toggleShowMoveLines),
+                  const SizedBox(width: 6),
+                  _lCircleBtn(Icons.view_timeline, Colors.purpleAccent, () {
+                    showModalBottomSheet(
+                      context: context,
+                      backgroundColor: const Color(0xFF1A2035),
+                      isScrollControlled: true,
+                      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                      builder: (_) => TimelineEditor(state: state),
+                    );
+                  }),
+                ],
+              ),
+            ],
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+  Widget _lBtn(String key, bool active, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: active ? Colors.blue : Colors.white10,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(child: Text(key.tr(), style: TextStyle(color: active ? Colors.white : Colors.white54, fontSize: 12, fontWeight: FontWeight.w600))),
+      ),
+    );
+  }
+
+  Widget _lCircleBtn(IconData icon, Color color, VoidCallback? onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Opacity(
+        opacity: onTap != null ? 1.0 : 0.35,
+        child: Container(
+          width: 32, height: 32,
+          decoration: BoxDecoration(color: color.withValues(alpha: 0.2), shape: BoxShape.circle),
+          child: Icon(icon, color: color, size: 17),
+        ),
+      ),
+    );
+  }
+
+  Widget _lWideBtn(IconData icon, String key, VoidCallback onTap, {Color? color}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: color ?? Colors.white70, size: 18),
+            const SizedBox(width: 6),
+            Text(key.tr(), style: TextStyle(color: color ?? Colors.white70, fontSize: 13)),
           ],
         ),
       ),
@@ -814,6 +896,82 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
         ),
         child: Icon(icon, color: color, size: 18),
       ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Collapsible edit panel — drawing options / player edit with collapse toggle
+// ─────────────────────────────────────────────────────────────────────────────
+class _CollapsibleEditPanel extends StatefulWidget {
+  @override
+  State<_CollapsibleEditPanel> createState() => _CollapsibleEditPanelState();
+}
+
+class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
+  bool _collapsed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<TacticsState>(
+      builder: (context, state, _) {
+        if (state.isAnimating) return const SizedBox.shrink();
+
+        Widget? panel;
+        if (state.isDrawingMode || state.selectedStrokeId != null) {
+          panel = DrawingOptionsBar(state: state);
+        } else if (state.selectedPlayerId != null) {
+          final player = state.players.cast<PlayerIcon?>().firstWhere(
+            (p) => p?.id == state.selectedPlayerId, orElse: () => null);
+          if (player != null) {
+            panel = _PlayerEditBar(state: state, player: player);
+          }
+        }
+
+        if (panel == null) {
+          _collapsed = false;
+          return const SizedBox.shrink();
+        }
+
+        return Positioned(
+          bottom: 0, left: 0, right: 0,
+          child: Container(
+            color: const Color(0xDD1A2035),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Collapse/expand toggle bar
+                GestureDetector(
+                  onTap: () => setState(() => _collapsed = !_collapsed),
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.06),
+                      border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          _collapsed ? Icons.expand_less : Icons.expand_more,
+                          color: Colors.white54, size: 22,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          _collapsed ? 'Show Options' : 'Hide',
+                          style: const TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                if (!_collapsed) panel,
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
