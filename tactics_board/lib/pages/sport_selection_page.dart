@@ -50,7 +50,7 @@ class SportSelectionPage extends StatelessWidget {
     final topPad = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF161B2E),
+      backgroundColor: const Color(0xFF1A3A4A),
       body: CustomScrollView(
         slivers: [
           // ── Header ──
@@ -179,8 +179,8 @@ class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMi
               end: Alignment.bottomRight,
               colors: [
                 widget.accent.withValues(alpha: 0.22),
-                const Color(0xFF1C2236),
-                const Color(0xFF181D30),
+                const Color(0xFF1E4250),
+                const Color(0xFF1A3A4A),
               ],
               stops: const [0.0, 0.6, 1.0],
             ),

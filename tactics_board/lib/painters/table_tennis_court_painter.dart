@@ -11,7 +11,7 @@ class TableTennisCourtPainter extends CourtPainterBase {
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height),
-        Paint()..color = const Color(0xFF263238)..style = PaintingStyle.fill);
+        Paint()..color = const Color(0xFF1A4A5A)..style = PaintingStyle.fill);
 
     final p = linePaint;
     final w = size.width;

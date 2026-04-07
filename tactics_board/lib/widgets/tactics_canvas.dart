@@ -74,7 +74,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
-      return Container(color: const Color(0xFF1A2035));
+      return Container(color: const Color(0xFF213E48));
     }
     final state = _state;
 
@@ -758,7 +758,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       title: Text('edit_player'.tr(),
           style: const TextStyle(color: Colors.white)),
       content: Column(
@@ -823,7 +823,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
                   min: 0.5,
                   max: 3.0,
                   divisions: 10,
-                  activeColor: Colors.lightBlueAccent,
+                  activeColor: const Color(0xFF00E5CC),
                   inactiveColor: Colors.white24,
                   onChanged: (v) => setState(() => _scale = v),
                 ),
@@ -860,7 +860,7 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
           },
           child: Text('save'.tr(),
               style:
-                  const TextStyle(color: Colors.lightBlueAccent)),
+                  const TextStyle(color: const Color(0xFF00E5CC))),
         ),
       ],
     );

@@ -93,7 +93,7 @@ class _ExternalDisplayAppState extends State<ExternalDisplayApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: Scaffold(
-        backgroundColor: const Color(0xFF121826),
+        backgroundColor: const Color(0xFF1A3A4A),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return Stack(

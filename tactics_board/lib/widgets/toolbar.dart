@@ -20,7 +20,7 @@ import 'timeline_editor.dart';
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: const Color(0xFF1A2035),
+    backgroundColor: const Color(0xFF213E48),
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     builder: (ctx) => _SaveLoadSheet(state: state),
   );
@@ -61,7 +61,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
   showDialog(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
       content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
       actions: [
@@ -77,7 +77,7 @@ void showAddElementSheet(BuildContext context, TacticsState state) {
   final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
   showModalBottomSheet(
     context: context,
-    backgroundColor: const Color(0xFF1A2035),
+    backgroundColor: const Color(0xFF213E48),
     isScrollControlled: isLandscape,
     constraints: isLandscape ? BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9) : null,
     shape: const RoundedRectangleBorder(
@@ -97,7 +97,7 @@ class TacticsToolbar extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return Container(
-          color: const Color(0xFF1A2035),
+          color: const Color(0xFF213E48),
           child: _MainRow(state: state),
         );
       },
@@ -133,7 +133,7 @@ class _MainRow extends StatelessWidget {
               if (hasContent)
                 _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
               const Spacer(),
-              _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: Colors.lightBlueAccent),
+              _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: const Color(0xFF00E5CC)),
               _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
             ],
           ),
@@ -205,7 +205,7 @@ class _MainRow extends StatelessWidget {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1A2035),
+        backgroundColor: const Color(0xFF213E48),
         title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -270,7 +270,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
             child: Row(
               children: [
-                const Icon(Icons.save_outlined, color: Colors.lightBlueAccent, size: 20),
+                const Icon(Icons.save_outlined, color: const Color(0xFF00E5CC), size: 20),
                 const SizedBox(width: 8),
                 Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
@@ -495,7 +495,7 @@ class _AddPlayerBtn extends StatelessWidget {
   static void showAddSheet(BuildContext context, TacticsState state) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -1222,7 +1222,7 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          backgroundColor: const Color(0xFF1A2035),
+          backgroundColor: const Color(0xFF213E48),
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -1737,7 +1737,7 @@ class _TimelineBtn extends StatelessWidget {
   void _showTimeline(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -1787,7 +1787,7 @@ class _StepBackButton extends StatelessWidget {
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_previous, color: Colors.lightBlueAccent, size: 22),
+          child: const Icon(Icons.skip_previous, color: const Color(0xFF00E5CC), size: 22),
         ),
       ),
     );
@@ -1824,7 +1824,7 @@ class _StepForwardButton extends StatelessWidget {
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_next, color: Colors.lightBlueAccent, size: 22),
+          child: const Icon(Icons.skip_next, color: const Color(0xFF00E5CC), size: 22),
         ),
       ),
     );
@@ -1843,7 +1843,7 @@ class PlayControlsBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFF222840),
+        color: const Color(0xFF2A4D58),
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: Colors.white12),
       ),
