@@ -25,7 +25,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       body: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
     );
   }
@@ -49,7 +49,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             ? SizedBox(
                 width: 190,
                 child: Material(
-                  color: const Color(0xFF1A2035),
+                  color: const Color(0xFF213E48),
                   child: _landscapeSidePanel(context),
                 ),
               )
@@ -182,7 +182,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   _lCircleBtn(Icons.view_timeline, Colors.purpleAccent, () {
                     showModalBottomSheet(
                       context: context,
-                      backgroundColor: const Color(0xFF1A2035),
+                      backgroundColor: const Color(0xFF213E48),
                       isScrollControlled: true,
                       constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -256,7 +256,7 @@ class _MenuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
       onSelected: (value) => _onSelected(context, value),
-      color: const Color(0xFF222840),
+      color: const Color(0xFF2A4D58),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       offset: const Offset(0, 40),
       child: Container(
@@ -317,7 +317,7 @@ class _MenuButton extends StatelessWidget {
     final url = Uri.parse('https://apps.apple.com/app/id$appleId');
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF213E48),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -415,10 +415,10 @@ class _ContactPageState extends State<_ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121826),
+      backgroundColor: const Color(0xFF1A3A4A),
       appBar: AppBar(
         title: Text('contact_title'.tr()),
-        backgroundColor: const Color(0xFF1A2035),
+        backgroundColor: const Color(0xFF213E48),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -520,10 +520,10 @@ class _LoginPageState extends State<_LoginPage> {
     final loggedIn = _auth.isLoggedIn;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF121826),
+      backgroundColor: const Color(0xFF1A3A4A),
       appBar: AppBar(
         title: Text('login_title'.tr()),
-        backgroundColor: const Color(0xFF1A2035),
+        backgroundColor: const Color(0xFF213E48),
       ),
       body: Center(
         child: Padding(
@@ -572,7 +572,7 @@ class _LoginPageState extends State<_LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1A2035),
+        backgroundColor: const Color(0xFF213E48),
         title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -871,7 +871,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   min: 0.5,
                   max: 3.0,
                   divisions: 10,
-                  activeColor: Colors.lightBlueAccent,
+                  activeColor: const Color(0xFF00E5CC),
                   inactiveColor: Colors.white24,
                   onChanged: (v) {
                     widget.state.updatePlayer(p.id, scale: v);

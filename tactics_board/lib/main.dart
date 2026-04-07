@@ -68,16 +68,16 @@ class TacticsBoardApp extends StatelessWidget {
         locale: context.locale,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.blue,
+            seedColor: const Color(0xFF00BFA5), // teal/emerald
             brightness: Brightness.dark,
           ),
-          scaffoldBackgroundColor: const Color(0xFF121826),
+          scaffoldBackgroundColor: const Color(0xFF1A3A4A),
           appBarTheme: const AppBarTheme(
             systemOverlayStyle: SystemUiOverlayStyle.light,
           ),
           sliderTheme: const SliderThemeData(
-            thumbColor: Colors.blue,
-            activeTrackColor: Colors.blue,
+            thumbColor: Color(0xFF00BFA5),
+            activeTrackColor: Color(0xFF00BFA5),
             inactiveTrackColor: Colors.white24,
           ),
         ),
