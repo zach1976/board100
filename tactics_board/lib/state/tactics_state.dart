@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:external_display/external_display.dart';
+import 'package:flutter/services.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -62,7 +62,7 @@ class TacticsState extends ChangeNotifier {
   final TransformationController transformationController = TransformationController();
 
   // External display
-  final ExternalDisplay _externalDisplay = ExternalDisplay();
+  static const _extChannel = MethodChannel('com.zach.tacticsboard/externalDisplay');
   bool _externalConnected = false;
   bool get externalDisplayConnected => _externalConnected;
 
@@ -72,12 +72,14 @@ class TacticsState extends ChangeNotifier {
   }
 
   void _initExternalDisplay() {
-    _externalDisplay.addStatusListener((connected) {
-      _externalConnected = connected;
-      if (connected) _syncToExternal();
-      notifyListeners();
+    _extChannel.setMethodCallHandler((call) async {
+      if (call.method == 'externalDisplayStatus') {
+        final args = call.arguments as Map?;
+        _externalConnected = args?['connected'] == true;
+        if (_externalConnected) _syncToExternal();
+        notifyListeners();
+      }
     });
-    _externalDisplay.connect();
   }
 
   /// Broadcast current state to external display
@@ -91,7 +93,7 @@ class TacticsState extends ChangeNotifier {
         'atStep': _atStep,
         'showMoveLines': _showMoveLines,
       });
-      _externalDisplay.sendParameters(action: 'updateState', value: data);
+      _extChannel.invokeMethod('sendData', data);
     } catch (_) {}
   }
 
