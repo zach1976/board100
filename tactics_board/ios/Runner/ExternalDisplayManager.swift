@@ -193,20 +193,35 @@ class MirrorViewController: UIViewController {
         // Determine if landscape (toolbar on right side)
         let isLandscape = srcW > srcH
 
+        // Crop out UI controls, keep only court area
+        var cropRect: CGRect
         if isLandscape {
-            // Landscape: crop out right sidebar (190pt)
             let sidebarWidth: CGFloat = 190 * scale
-            let cropW = CGFloat(cgFull.width) - sidebarWidth
-            let cropRect = CGRect(x: 0, y: 0, width: cropW, height: CGFloat(cgFull.height))
-            guard let cropped = cgFull.cropping(to: cropRect) else { return }
-            imageView.image = UIImage(cgImage: cropped, scale: 1.0, orientation: .up)
+            cropRect = CGRect(x: 0, y: 0, width: CGFloat(cgFull.width) - sidebarWidth, height: CGFloat(cgFull.height))
         } else {
-            // Portrait: crop out bottom toolbar (~140pt), rotate for landscape display
             let toolbarHeight: CGFloat = 140 * scale
-            let cropRect = CGRect(x: 0, y: 0, width: CGFloat(cgFull.width), height: CGFloat(cgFull.height) - toolbarHeight)
-            guard let cropped = cgFull.cropping(to: cropRect) else { return }
-            imageView.image = UIImage(cgImage: cropped, scale: 1.0, orientation: .left)
+            cropRect = CGRect(x: 0, y: 0, width: CGFloat(cgFull.width), height: CGFloat(cgFull.height) - toolbarHeight)
         }
+        guard let cropped = cgFull.cropping(to: cropRect) else { return }
+
+        // Draw to exact external display pixel size
+        let extSize = view.bounds.size
+        let outW = max(extSize.width, 960)
+        let outH = max(extSize.height, 540)
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: outW, height: outH), true, 1.0)
+        defer { UIGraphicsEndImageContext() }
+
+        if isLandscape {
+            UIImage(cgImage: cropped).draw(in: CGRect(x: 0, y: 0, width: outW, height: outH))
+        } else {
+            // Rotate portrait to landscape
+            let ctx = UIGraphicsGetCurrentContext()!
+            ctx.translateBy(x: outW, y: 0)
+            ctx.rotate(by: .pi / 2)
+            UIImage(cgImage: cropped).draw(in: CGRect(x: 0, y: 0, width: outH, height: outW))
+        }
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
     }
 
     override func viewDidLayoutSubviews() {
