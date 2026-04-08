@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:external_display/external_display.dart';
+import 'package:flutter/services.dart';
 import 'models/sport_type.dart';
 import 'models/player_icon.dart';
 import 'models/drawing_stroke.dart';
@@ -35,22 +35,22 @@ class _ExternalDisplayAppState extends State<ExternalDisplayApp> {
   int _atStep = 0;
   bool _showMoveLines = true;
 
+  static const _channel = MethodChannel('com.zach.tacticsboard/external');
+
   @override
   void initState() {
     super.initState();
-    ExternalDisplay.transferParameters.addListener(_onData);
+    _channel.setMethodCallHandler((call) async {
+      if (call.method == 'updateState') {
+        _onData(call.arguments as String?);
+      }
+    });
   }
 
-  void _onData() {
-    final params = ExternalDisplay.transferParameters.value;
-    if (params == null) return;
-
-    final action = params.action;
-    final value = params.value;
-
-    if (action == 'updateState' && value != null) {
-      try {
-        final data = jsonDecode(value) as Map<String, dynamic>;
+  void _onData(String? value) {
+    if (value == null) return;
+    try {
+      final data = jsonDecode(value) as Map<String, dynamic>;
         setState(() {
           _sport = SportType.values.firstWhere(
             (s) => s.name == data['sport'],
@@ -66,12 +66,10 @@ class _ExternalDisplayAppState extends State<ExternalDisplayApp> {
           _showMoveLines = (data['showMoveLines'] as bool?) ?? true;
         });
       } catch (_) {}
-    }
   }
 
   @override
   void dispose() {
-    ExternalDisplay.transferParameters.removeListener(_onData);
     super.dispose();
   }
 

@@ -15,6 +15,9 @@ import UIKit
     if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "SharePlugin") {
       setupShareChannel(with: registrar)
     }
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "ExternalDisplayPlugin") {
+      setupExternalDisplayChannel(with: registrar)
+    }
   }
 
   private func setupShareChannel(with registrar: FlutterPluginRegistrar) {
@@ -40,6 +43,24 @@ import UIKit
         result(FlutterMethodNotImplemented)
       }
     }
+  }
+
+  private func setupExternalDisplayChannel(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(name: "com.zach.tacticsboard/externalDisplay", binaryMessenger: registrar.messenger())
+    channel.setMethodCallHandler { (call, result) in
+      switch call.method {
+      case "sendData":
+        if let json = call.arguments as? String {
+          ExternalDisplayManager.shared.sendData(json)
+        }
+        result(nil)
+      case "isConnected":
+        result(ExternalDisplayManager.shared.isConnected)
+      default:
+        result(FlutterMethodNotImplemented)
+      }
+    }
+    ExternalDisplayManager.shared.setup(channel: channel)
   }
 
   private func shareFile(path: String) {
