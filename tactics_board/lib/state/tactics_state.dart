@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
 import '../models/player_icon.dart';
@@ -78,6 +80,16 @@ class TacticsState extends ChangeNotifier {
         _externalConnected = args?['connected'] == true;
         if (_externalConnected) _syncToExternal();
         notifyListeners();
+      } else if (call.method == 'captureCanvas') {
+        try {
+          final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+          if (boundary == null) return null;
+          final image = await boundary.toImage(pixelRatio: 2.0);
+          final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+          return byteData?.buffer.asUint8List();
+        } catch (_) {
+          return null;
+        }
       }
     });
   }

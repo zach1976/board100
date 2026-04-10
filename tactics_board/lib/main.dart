@@ -59,6 +59,7 @@ class TacticsBoardApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final fs = fixedSport;
     return ChangeNotifierProvider(
+      lazy: false,
       create: (_) => TacticsState(sportType: fs ?? SportType.basketball),
       child: MaterialApp(
         title: 'Tactics Board',
