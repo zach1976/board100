@@ -6,7 +6,7 @@ class ExternalDisplayManager: NSObject {
 
     private var externalWindow: UIWindow?
     private var externalEngine: FlutterEngine?
-    private weak var mainChannel: FlutterMethodChannel?
+    private var mainChannel: FlutterMethodChannel?
     private var externalDataChannel: FlutterMethodChannel?
 
     private override init() { super.init() }
@@ -24,12 +24,13 @@ class ExternalDisplayManager: NSObject {
         )
 
         if #available(iOS 16.0, *) {
-            for scene in UIApplication.shared.connectedScenes {
-                if let ws = scene as? UIWindowScene,
-                   ws.session.role == .windowExternalDisplayNonInteractive ||
-                   ws.screen != UIScreen.main {
-                    setupExternalWindowScene(ws)
-                    break
+            let scenes = UIApplication.shared.connectedScenes
+            for scene in scenes {
+                if let ws = scene as? UIWindowScene {
+                    if ws.session.role == .windowExternalDisplayNonInteractive || ws.screen != UIScreen.main {
+                        setupExternalWindowScene(ws)
+                        break
+                    }
                 }
             }
             NotificationCenter.default.addObserver(
@@ -58,6 +59,7 @@ class ExternalDisplayManager: NSObject {
     @objc private func sceneDidActivate(_ notification: Notification) {
         guard let ws = notification.object as? UIWindowScene else { return }
         if ws.session.role == .windowExternalDisplayNonInteractive || ws.screen != UIScreen.main {
+            teardown()  // Recreate window to pick up any resolution change
             setupExternalWindowScene(ws)
             mainChannel?.invokeMethod("externalDisplayStatus", arguments: ["connected": true])
         }
@@ -73,58 +75,26 @@ class ExternalDisplayManager: NSObject {
 
         let mirrorVC = MirrorViewController()
         mirrorVC.sourceWindow = mainWindow
+        mirrorVC.captureChannel = mainChannel
+        let screenBounds = windowScene.screen.bounds
         let window = UIWindow(windowScene: windowScene)
+        window.frame = screenBounds
         window.rootViewController = mirrorVC
         window.isHidden = false
         self.externalWindow = window
-        NSLog("[ExtDisplay] setupExternalWindowScene: mirror \(windowScene.screen.bounds.size)")
+        NSLog("[ExtDisplay] setupExternalWindowScene: \(screenBounds.size)")
     }
 
     private func setupExternalScreen(_ screen: UIScreen) {
         guard externalWindow == nil else { return }
-        if let best = screen.availableModes.max(by: { $0.size.width * $0.size.height < $1.size.width * $1.size.height }) {
-            screen.currentMode = best
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-            guard let result = self?.createFlutterEngine() else { return }
-            let (engine, vc) = result
-            let window = UIWindow(frame: screen.bounds)
-            window.screen = screen
-            window.rootViewController = vc
-            window.isHidden = false
-            self?.externalWindow = window
-            self?.externalEngine = engine
-            self?.setupDataChannel(engine: engine)
-            NSLog("[ExtDisplay] setupExternalScreen OK: \(screen.bounds.size)")
-        }
-    }
-
-    private func createFlutterEngine() -> (FlutterEngine, FlutterViewController)? {
-        let engine = FlutterEngine(name: "external_display")
-        // Try custom entrypoint (works in release), falls back to main (debug mirror)
-        engine.run(withEntrypoint: "externalDisplayMain")
-        GeneratedPluginRegistrant.register(with: engine)
-        let vc = FlutterViewController(engine: engine, nibName: nil, bundle: nil)
-        return (engine, vc)
-    }
-
-    /// Fallback: mirror main screen to external display using snapshotting
-    private func setupMirrorFallback(_ screen: UIScreen) {
-        // Get main window's layer and mirror it
-        guard let mainWindow = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .flatMap({ $0.windows })
-            .first(where: { $0.isKeyWindow }) else { return }
-
         let mirrorVC = MirrorViewController()
-        mirrorVC.sourceWindow = mainWindow
-
+        mirrorVC.captureChannel = mainChannel
         let window = UIWindow(frame: screen.bounds)
         window.screen = screen
         window.rootViewController = mirrorVC
         window.isHidden = false
         self.externalWindow = window
-        NSLog("[ExtDisplay] Mirror fallback setup")
+        NSLog("[ExtDisplay] setupExternalScreen: \(screen.bounds.size)")
     }
 
     private func setupDataChannel(engine: FlutterEngine) {
@@ -146,26 +116,24 @@ class ExternalDisplayManager: NSObject {
     var isConnected: Bool { externalWindow != nil }
 }
 
-// MARK: - Mirror ViewController (fallback for debug mode)
+// MARK: - Mirror ViewController
 class MirrorViewController: UIViewController {
     weak var sourceWindow: UIWindow?
     weak var externalWindow: UIWindow?
+    var captureChannel: FlutterMethodChannel?
     private var displayLink: CADisplayLink?
     private var imageView: UIImageView!
+    private var isCapturing = false
+    private var capturingFrames = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView = UIImageView(frame: view.bounds)
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         view.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
 
         displayLink = CADisplayLink(target: self, selector: #selector(updateMirror))
         if #available(iOS 15.0, *) {
@@ -177,56 +145,40 @@ class MirrorViewController: UIViewController {
     }
 
     @objc private func updateMirror() {
-        guard let source = sourceWindow else { return }
-
-        let srcW = source.bounds.width
-        let srcH = source.bounds.height
-        let scale = source.screen.scale
-
-        // Capture full screen
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: srcW, height: srcH))
-        let captured = renderer.image { ctx in
-            source.layer.render(in: ctx.cgContext)
+        if isCapturing {
+            capturingFrames += 1
+            if capturingFrames > 60 { // ~3s at 20fps — Flutter wasn't ready, retry
+                isCapturing = false
+                capturingFrames = 0
+            }
+            return
         }
-        guard let cgFull = captured.cgImage else { return }
+        capturingFrames = 0
+        guard let channel = captureChannel else { return }
+        isCapturing = true
+        channel.invokeMethod("captureCanvas", arguments: nil) { [weak self] result in
+            guard let self = self else { return }
+            self.isCapturing = false
+            guard let bytes = result as? FlutterStandardTypedData,
+                  let image = UIImage(data: bytes.data) else { return }
 
-        // Determine if landscape (toolbar on right side)
-        let isLandscape = srcW > srcH
-
-        // Crop out UI controls, keep only court area
-        var cropRect: CGRect
-        if isLandscape {
-            let sidebarWidth: CGFloat = 190 * scale
-            cropRect = CGRect(x: 0, y: 0, width: CGFloat(cgFull.width) - sidebarWidth, height: CGFloat(cgFull.height))
-        } else {
-            let toolbarHeight: CGFloat = 140 * scale
-            cropRect = CGRect(x: 0, y: 0, width: CGFloat(cgFull.width), height: CGFloat(cgFull.height) - toolbarHeight)
+            // If image is portrait, rotate 90° CW so it fills landscape external display
+            let imageIsPortrait = image.size.height > image.size.width
+            if imageIsPortrait {
+                let src = image.size
+                let dstSize = CGSize(width: src.height, height: src.width)
+                let fmt = UIGraphicsImageRendererFormat()
+                fmt.scale = 1.0
+                let rotated = UIGraphicsImageRenderer(size: dstSize, format: fmt).image { ctx in
+                    ctx.cgContext.translateBy(x: dstSize.width, y: 0)
+                    ctx.cgContext.rotate(by: .pi / 2)
+                    image.draw(in: CGRect(origin: .zero, size: src))
+                }
+                self.imageView.image = rotated
+            } else {
+                self.imageView.image = image
+            }
         }
-        guard let cropped = cgFull.cropping(to: cropRect) else { return }
-
-        // Draw to exact external display pixel size
-        let extSize = view.bounds.size
-        let outW = max(extSize.width, 960)
-        let outH = max(extSize.height, 540)
-
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: outW, height: outH), true, 1.0)
-        defer { UIGraphicsEndImageContext() }
-
-        if isLandscape {
-            UIImage(cgImage: cropped).draw(in: CGRect(x: 0, y: 0, width: outW, height: outH))
-        } else {
-            // Rotate portrait to landscape
-            let ctx = UIGraphicsGetCurrentContext()!
-            ctx.translateBy(x: outW, y: 0)
-            ctx.rotate(by: .pi / 2)
-            UIImage(cgImage: cropped).draw(in: CGRect(x: 0, y: 0, width: outH, height: outW))
-        }
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        imageView.frame = view.bounds
     }
 
     override func viewWillDisappear(_ animated: Bool) {
