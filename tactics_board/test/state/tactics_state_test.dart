@@ -10,6 +10,10 @@ PlayerIcon _player(String id, {PlayerTeam team = PlayerTeam.home}) =>
     PlayerIcon(id: id, label: id, team: team, position: const Offset(100, 200));
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   group('TacticsState initial state', () {
     test('defaults to basketball', () => expect(TacticsState().sportType, SportType.basketball));
 
