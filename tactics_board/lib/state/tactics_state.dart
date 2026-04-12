@@ -66,6 +66,7 @@ class TacticsState extends ChangeNotifier {
   // External display
   static const _extChannel = MethodChannel('com.zach.tacticsboard/externalDisplay');
   bool _externalConnected = false;
+  bool _externalDirty = false;
   bool get externalDisplayConnected => _externalConnected;
 
   TacticsState({SportType sportType = SportType.basketball})
@@ -78,9 +79,11 @@ class TacticsState extends ChangeNotifier {
       if (call.method == 'externalDisplayStatus') {
         final args = call.arguments as Map?;
         _externalConnected = args?['connected'] == true;
-        if (_externalConnected) _syncToExternal();
+        _externalDirty = true;
         notifyListeners();
       } else if (call.method == 'captureCanvas') {
+        if (!_externalDirty) return null;
+        _externalDirty = false;
         try {
           final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
           if (boundary == null) return null;
@@ -94,25 +97,10 @@ class TacticsState extends ChangeNotifier {
     });
   }
 
-  /// Broadcast current state to external display
-  void _syncToExternal() {
-    if (!_externalConnected) return;
-    try {
-      final data = jsonEncode({
-        'sport': _sportType.name,
-        'players': _players.map((p) => p.toJson()).toList(),
-        'strokes': _strokes.map((s) => s.toJson()).toList(),
-        'atStep': _atStep,
-        'showMoveLines': _showMoveLines,
-      });
-      _extChannel.invokeMethod('sendData', data);
-    } catch (_) {}
-  }
-
   @override
   void notifyListeners() {
     super.notifyListeners();
-    _syncToExternal();
+    _externalDirty = true;
   }
 
   @override

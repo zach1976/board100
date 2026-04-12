@@ -49,11 +49,6 @@ import UIKit
     let channel = FlutterMethodChannel(name: "com.zach.tacticsboard/externalDisplay", binaryMessenger: registrar.messenger())
     channel.setMethodCallHandler { (call, result) in
       switch call.method {
-      case "sendData":
-        if let json = call.arguments as? String {
-          ExternalDisplayManager.shared.sendData(json)
-        }
-        result(nil)
       case "isConnected":
         result(ExternalDisplayManager.shared.isConnected)
       default:

@@ -5,9 +5,7 @@ class ExternalDisplayManager: NSObject {
     static let shared = ExternalDisplayManager()
 
     private var externalWindow: UIWindow?
-    private var externalEngine: FlutterEngine?
     private var mainChannel: FlutterMethodChannel?
-    private var externalDataChannel: FlutterMethodChannel?
 
     private override init() { super.init() }
 
@@ -97,20 +95,9 @@ class ExternalDisplayManager: NSObject {
         NSLog("[ExtDisplay] setupExternalScreen: \(screen.bounds.size)")
     }
 
-    private func setupDataChannel(engine: FlutterEngine) {
-        let channel = FlutterMethodChannel(name: "com.zach.tacticsboard/external", binaryMessenger: engine.binaryMessenger)
-        self.externalDataChannel = channel
-    }
-
-    func sendData(_ jsonString: String) {
-        externalDataChannel?.invokeMethod("updateState", arguments: jsonString)
-    }
-
     private func teardown() {
         externalWindow?.isHidden = true
         externalWindow = nil
-        externalEngine = nil
-        externalDataChannel = nil
     }
 
     var isConnected: Bool { externalWindow != nil }
@@ -159,6 +146,7 @@ class MirrorViewController: UIViewController {
         channel.invokeMethod("captureCanvas", arguments: nil) { [weak self] result in
             guard let self = self else { return }
             self.isCapturing = false
+            // nil result means nothing changed — keep showing last frame
             guard let bytes = result as? FlutterStandardTypedData,
                   let image = UIImage(data: bytes.data) else { return }
 
