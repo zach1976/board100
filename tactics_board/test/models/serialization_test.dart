@@ -7,6 +7,10 @@ import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   group('PlayerIcon serialization', () {
     test('round-trip preserves all fields', () {
       final original = PlayerIcon(

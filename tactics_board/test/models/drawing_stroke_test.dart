@@ -5,7 +5,7 @@ import 'package:tactics_board/models/drawing_stroke.dart';
 void main() {
   group('DrawingStroke defaults', () {
     test('default values', () {
-      const s = DrawingStroke(id: '1', points: []);
+      final s = DrawingStroke(id: '1', points: []);
       expect(s.color, const Color(0xFFFFD600));
       expect(s.width, 3.0);
       expect(s.style, StrokeStyle.solid);
@@ -15,7 +15,7 @@ void main() {
 
   group('DrawingStroke.copyWith', () {
     test('replaces only specified fields', () {
-      const s = DrawingStroke(
+      final s = DrawingStroke(
         id: 'a', points: [Offset(1, 2)],
         color: Color(0xFF123456), width: 5.0,
         style: StrokeStyle.dashed, arrow: ArrowStyle.none,
@@ -30,14 +30,14 @@ void main() {
     });
 
     test('points list is a copy', () {
-      const s = DrawingStroke(id: 'a', points: [Offset(1, 2)]);
+      final s = DrawingStroke(id: 'a', points: [Offset(1, 2)]);
       final copy = s.copyWith();
       (copy.points as List).add(const Offset(3, 4));
       expect(s.points.length, 1);
     });
 
     test('can replace all fields', () {
-      const s = DrawingStroke(id: 'a', points: []);
+      final s = DrawingStroke(id: 'a', points: []);
       final copy = s.copyWith(
         id: 'b',
         points: [const Offset(5, 6)],

@@ -8,6 +8,10 @@ PlayerIcon _player(String id, {PlayerTeam team = PlayerTeam.home}) =>
     PlayerIcon(id: id, label: id, team: team, position: const Offset(100, 200));
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   group('maxMoveSteps with phases', () {
     test('returns 0 when no moves', () {
       final s = TacticsState();
