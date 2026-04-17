@@ -5,6 +5,7 @@ import '../models/sport_type.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
+import '../painters/ball_painter.dart';
 import '../painters/player_moves_painter.dart';
 import '../painters/badminton_court_painter.dart';
 import '../painters/basketball_court_painter.dart';
@@ -640,15 +641,19 @@ class _WaypointDotState extends State<_WaypointDot> {
             child: Stack(
               children: [
                 CustomPaint(
-                  painter: TopDownPlayerPainter(
-                    color: widget.player.color,
-                    borderColor: widget.player.moveColor,
-                    borderWidth: 2.5,
-                    gender: widget.player.gender,
-                  ),
+                  painter: widget.player.isMarker
+                      ? MarkerPainter(shape: widget.player.markerShape, color: widget.player.color)
+                      : widget.player.isBall
+                      ? BallPainter.forSport(widget.player.sportType!)
+                      : TopDownPlayerPainter(
+                          color: widget.player.color,
+                          borderColor: widget.player.moveColor,
+                          borderWidth: 2.5,
+                          gender: widget.player.gender,
+                        ),
                   size: Size.infinite,
                 ),
-                if (widget.player.label.isNotEmpty)
+                if (widget.player.label.isNotEmpty && !widget.player.isMarker && !widget.player.isBall)
                   Align(
                     alignment: const Alignment(0, 0.35),
                     child: Text(

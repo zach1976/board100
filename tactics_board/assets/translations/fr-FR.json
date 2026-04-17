@@ -129,6 +129,8 @@
   "marker_ladder": "Échelle",
   "marker_hurdle": "Haie",
   "marker_arrow": "Flèche",
+  "neutral_male": "Homme",
+  "neutral_female": "Femme",
   "remove_move_confirm": "Supprimer cette étape ?",
   "share": "Share"
 }

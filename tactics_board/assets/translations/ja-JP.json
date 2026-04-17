@@ -129,6 +129,8 @@
   "marker_ladder": "ラダー",
   "marker_hurdle": "ハードル",
   "marker_arrow": "矢印",
+  "neutral_male": "男",
+  "neutral_female": "女",
   "remove_move_confirm": "この移動ステップを削除しますか？",
   "share": "Share"
 }

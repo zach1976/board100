@@ -129,6 +129,8 @@
   "marker_ladder": "Thang",
   "marker_hurdle": "Rào",
   "marker_arrow": "Mũi tên",
+  "neutral_male": "Nam",
+  "neutral_female": "Nữ",
   "remove_move_confirm": "Xóa bước di chuyển này?",
   "share": "Share"
 }

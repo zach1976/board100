@@ -129,6 +129,8 @@
   "marker_ladder": "사다리",
   "marker_hurdle": "허들",
   "marker_arrow": "화살표",
+  "neutral_male": "남",
+  "neutral_female": "여",
   "remove_move_confirm": "이 이동 단계를 삭제하시겠습니까?",
   "share": "Share"
 }

@@ -129,6 +129,8 @@
   "marker_ladder": "Ladder",
   "marker_hurdle": "Hurdle",
   "marker_arrow": "Arrow",
+  "neutral_male": "Man",
+  "neutral_female": "Woman",
   "remove_move_confirm": "Delete this move step?",
   "share": "Share"
 }

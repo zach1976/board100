@@ -129,6 +129,8 @@
   "marker_ladder": "Tangga",
   "marker_hurdle": "Gawang",
   "marker_arrow": "Panah",
+  "neutral_male": "Pria",
+  "neutral_female": "Wanita",
   "remove_move_confirm": "Hapus langkah ini?",
   "share": "Share"
 }
