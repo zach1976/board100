@@ -94,53 +94,151 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   }
 
   Widget _buildExternalContent() {
-    const lw = 960.0;
-    const lh = 540.0;
+    const pw = 540.0;
+    const ph = 960.0;
     final sw = _state.canvasSize.width;
     final sh = _state.canvasSize.height;
-    if (sw <= 0 || sh <= 0) return const SizedBox(width: lw, height: lh);
+    if (sw <= 0 || sh <= 0) return const SizedBox(width: 960, height: 540);
+    Offset sc(Offset p) => Offset(p.dx / sw * pw, p.dy / sh * ph);
     final players = _state.players.toList();
-    final tPlayers = _landscapePlayers(players, sw, sh, lw, lh);
-    final tStrokes = _landscapeStrokes(
-        _visibleStrokes(_state, players), sw, sh, lw, lh);
-    return Stack(
-      children: [
-        CustomPaint(
-          painter: _courtPainter(_state.sportType),
-          size: const Size(lw, lh),
-          child: const SizedBox(width: lw, height: lh),
-        ),
-        if (_state.showMoveLines)
-          CustomPaint(
-            painter: PlayerMovesPainter(
-              players: tPlayers,
-              targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
-              completedSteps: _state.isAnimating ? _state.atStep : null,
+    final sPlayers = players.map((p) => p.copyWith(
+      position: sc(p.position),
+      moves: p.moves.map(sc).toList(),
+    )).toList();
+    final sStrokes = _visibleStrokes(_state, players).map((s) => s.copyWith(
+      points: s.points.map(sc).toList(),
+    )).toList();
+    // RotatedBox(quarterTurns: 3) = 90° CCW: portrait bottom → landscape left (home side)
+    return RotatedBox(
+      quarterTurns: 3,
+      child: SizedBox(
+        width: pw,
+        height: ph,
+        child: Stack(
+          children: [
+            CustomPaint(
+              painter: _courtPainter(_state.sportType),
+              size: const Size(pw, ph),
+              child: const SizedBox(width: pw, height: ph),
             ),
-            size: const Size(lw, lh),
-          ),
-        CustomPaint(
-          painter: DrawingPainter(
-            strokes: tStrokes,
-            currentStroke: null,
-            selectedStrokeId: null,
-          ),
-          size: const Size(lw, lh),
+            if (_state.showMoveLines)
+              CustomPaint(
+                painter: PlayerMovesPainter(
+                  players: sPlayers,
+                  targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
+                  completedSteps: _state.isAnimating ? _state.atStep : null,
+                ),
+                size: const Size(pw, ph),
+              ),
+            CustomPaint(
+              painter: DrawingPainter(
+                strokes: sStrokes,
+                currentStroke: null,
+                selectedStrokeId: null,
+              ),
+              size: const Size(pw, ph),
+            ),
+            // Ghost icons at starting positions
+            if (_state.showMoveLines)
+              ...sPlayers.where((p) => p.moves.isNotEmpty).map((player) {
+                final size = kPlayerIconSize * player.scale;
+                return Positioned(
+                  left: player.position.dx - size / 2,
+                  top: player.position.dy - size / 2,
+                  child: SizedBox(
+                    width: size,
+                    height: size,
+                    child: CustomPaint(
+                      painter: TopDownPlayerPainter(
+                        color: player.color,
+                        borderColor: Colors.white,
+                        borderWidth: 1.5,
+                        gender: player.gender,
+                        isGhost: true,
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            // Waypoint dots
+            if (!_state.isAnimating && _state.showMoveLines)
+              ...sPlayers.expand((player) {
+                return player.moves.asMap().entries.map((entry) {
+                  final isLast = entry.key == player.moves.length - 1;
+                  final pos = entry.value;
+                  if (isLast) {
+                    return Positioned(
+                      left: pos.dx - kPlayerIconSize / 2,
+                      top: pos.dy - kPlayerIconSize / 2,
+                      child: IgnorePointer(
+                        child: RotatedBox(
+                          quarterTurns: 1,
+                          child: SizedBox(
+                            width: kPlayerIconSize,
+                            height: kPlayerIconSize,
+                            child: CustomPaint(
+                              painter: player.isMarker
+                                  ? MarkerPainter(shape: player.markerShape, color: player.color)
+                                  : player.isBall
+                                  ? BallPainter.forSport(player.sportType!)
+                                  : TopDownPlayerPainter(
+                                      color: player.color,
+                                      borderColor: player.moveColor,
+                                      borderWidth: 2.5,
+                                      gender: player.gender,
+                                    ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  const dotSize = 28.0;
+                  return Positioned(
+                    left: pos.dx - dotSize / 2,
+                    top: pos.dy - dotSize / 2,
+                    child: IgnorePointer(
+                      child: RotatedBox(
+                        quarterTurns: 1,
+                        child: Container(
+                          width: dotSize,
+                          height: dotSize,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: player.moveColor,
+                            border: Border.all(color: Colors.white, width: 2),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '${entry.key + 1}',
+                              style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                });
+              }),
+            ...sPlayers.map((player) {
+              Offset pos = player.position;
+              final animSrc = _state.animatedPositions[player.id];
+              if (animSrc != null) pos = sc(animSrc);
+              final size = kPlayerIconSize * player.scale;
+              return Positioned(
+                left: pos.dx - size / 2,
+                top: pos.dy - size / 2,
+                child: IgnorePointer(
+                  child: RotatedBox(
+                    quarterTurns: 1, // counter-rotate: canvas is 90° CCW, so icons need 90° CW
+                    child: PlayerIconWidget(player: player),
+                  ),
+                ),
+              );
+            }),
+          ],
         ),
-        ...tPlayers.map((player) {
-          Offset pos = player.position;
-          final animSrc = _state.animatedPositions[player.id];
-          if (animSrc != null) {
-            pos = _txl(animSrc, sw, sh, lw, lh);
-          }
-          final size = kPlayerIconSize * player.scale;
-          return Positioned(
-            left: pos.dx - size / 2,
-            top: pos.dy - size / 2,
-            child: IgnorePointer(child: PlayerIconWidget(player: player)),
-          );
-        }),
-      ],
+      ),
     );
   }
 
