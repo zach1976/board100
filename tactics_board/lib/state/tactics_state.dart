@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -88,13 +89,24 @@ class TacticsState extends ChangeNotifier {
           final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
           if (boundary == null) return null;
           final image = await boundary.toImage(pixelRatio: 2.0);
-          final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+          final rotated = await _rotateImage90CCW(image);
+          final byteData = await rotated.toByteData(format: ui.ImageByteFormat.png);
           return byteData?.buffer.asUint8List();
         } catch (_) {
           return null;
         }
       }
     });
+  }
+
+  Future<ui.Image> _rotateImage90CCW(ui.Image image) async {
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder);
+    canvas.translate(0, image.width.toDouble());
+    canvas.rotate(-math.pi / 2);
+    canvas.drawImage(image, Offset.zero, Paint());
+    final picture = recorder.endRecording();
+    return picture.toImage(image.height, image.width);
   }
 
   @override
