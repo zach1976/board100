@@ -194,6 +194,7 @@ class TacticsState extends ChangeNotifier {
   // Called when animation finishes naturally — keep final positions
   void finishAnimation() {
     _isAnimating = false;
+    _showMoveLines = true;
     _atStep = _animToStep >= 0 ? _animToStep : maxMoveSteps;
     notifyListeners();
   }
@@ -201,6 +202,7 @@ class TacticsState extends ChangeNotifier {
   // Called by Stop button — also keep current positions
   void stopAnimation() {
     _isAnimating = false;
+    _showMoveLines = true;
     notifyListeners();
   }
 
