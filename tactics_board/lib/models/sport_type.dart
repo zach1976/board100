@@ -84,6 +84,19 @@ extension SportTypeExtension on SportType {
     }
   }
 
+  /// Court background color, used for external display padding.
+  Color get courtColor {
+    switch (this) {
+      case SportType.badminton:   return const Color(0xFF1B5E20);
+      case SportType.tableTennis: return const Color(0xFF1565C0);
+      case SportType.tennis:      return const Color(0xFF1565C0);
+      case SportType.basketball:  return const Color(0xFFB5651D);
+      case SportType.volleyball:  return const Color(0xFFF57F17);
+      case SportType.pickleball:  return const Color(0xFF2E7D32);
+      case SportType.soccer:      return const Color(0xFF2D8A2D);
+    }
+  }
+
   /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
   double get netY => 0.5;
 
