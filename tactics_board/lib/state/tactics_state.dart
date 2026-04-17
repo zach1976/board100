@@ -90,13 +90,31 @@ class TacticsState extends ChangeNotifier {
           final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
           if (boundary == null) return null;
           final image = await boundary.toImage(pixelRatio: 2.0);
-          final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+          // Pad portrait image width to 9:16 ratio so iOS CW rotation yields 16:9 (no black bars)
+          final padded = await _padTo9x16(image, _sportType.courtColor);
+          final byteData = await padded.toByteData(format: ui.ImageByteFormat.png);
           return byteData?.buffer.asUint8List();
         } catch (_) {
           return null;
         }
       }
     });
+  }
+
+  /// Pad portrait image width to 9:16 ratio so iOS CW rotation yields 16:9, no black bars.
+  Future<ui.Image> _padTo9x16(ui.Image image, Color bgColor) async {
+    final targetW = (image.height * 9 / 16).round();
+    if (targetW <= image.width) return image; // already wide enough
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder);
+    final paint = Paint()
+      ..color = bgColor
+      ..style = PaintingStyle.fill;
+    canvas.drawRect(Rect.fromLTWH(0, 0, targetW.toDouble(), image.height.toDouble()), paint);
+    final offsetX = (targetW - image.width) / 2;
+    canvas.drawImage(image, Offset(offsetX, 0), Paint());
+    final picture = recorder.endRecording();
+    return picture.toImage(targetW, image.height);
   }
 
   @override
