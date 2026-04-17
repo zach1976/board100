@@ -652,6 +652,38 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
+                      _MarkerCard(
+                        label: 'neutral_male'.tr(),
+                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: TopDownPlayerPainter(color: const Color(0xFF616161), borderColor: Colors.white, borderWidth: 2, gender: PlayerGender.male))),
+                        onTap: () {
+                          final c = state.canvasSize;
+                          state.addPlayer(PlayerIcon(
+                            id: DateTime.now().microsecondsSinceEpoch.toString(),
+                            label: '',
+                            team: PlayerTeam.neutral,
+                            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+                            gender: PlayerGender.male,
+                          ));
+                          Navigator.pop(sheetCtx);
+                        },
+                      ),
+                      const SizedBox(width: 8),
+                      _MarkerCard(
+                        label: 'neutral_female'.tr(),
+                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: TopDownPlayerPainter(color: const Color(0xFF616161), borderColor: Colors.white, borderWidth: 2, gender: PlayerGender.female))),
+                        onTap: () {
+                          final c = state.canvasSize;
+                          state.addPlayer(PlayerIcon(
+                            id: DateTime.now().microsecondsSinceEpoch.toString(),
+                            label: '',
+                            team: PlayerTeam.neutral,
+                            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+                            gender: PlayerGender.female,
+                          ));
+                          Navigator.pop(sheetCtx);
+                        },
+                      ),
+                      const SizedBox(width: 8),
                       _MarkerCard(label: 'marker_cone'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.cone, color: Colors.orange))), onTap: () => _addMarker(MarkerShape.cone, Colors.orange)),
                       const SizedBox(width: 8),
                       _MarkerCard(label: 'marker_text'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.text, color: Colors.blueGrey))), onTap: () => _addMarker(MarkerShape.text, Colors.blueGrey, label: 'T')),

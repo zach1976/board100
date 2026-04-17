@@ -129,6 +129,8 @@
   "marker_ladder": "Tangga",
   "marker_hurdle": "Lompatan",
   "marker_arrow": "Anak panah",
+  "neutral_male": "Lelaki",
+  "neutral_female": "Perempuan",
   "remove_move_confirm": "Padam langkah ini?",
   "share": "Share"
 }

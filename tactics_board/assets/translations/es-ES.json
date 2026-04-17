@@ -129,6 +129,8 @@
   "marker_ladder": "Escalera",
   "marker_hurdle": "Valla",
   "marker_arrow": "Flecha",
+  "neutral_male": "Hombre",
+  "neutral_female": "Mujer",
   "remove_move_confirm": "¿Eliminar este paso?",
   "share": "Share"
 }

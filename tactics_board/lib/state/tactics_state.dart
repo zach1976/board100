@@ -389,6 +389,7 @@ class TacticsState extends ChangeNotifier {
   /// For net sports, clamp move position so players stay on their side of the net.
   Offset _clampToSide(PlayerIcon player, Offset position) {
     if (!_sportType.hasNet) return position;
+    if (player.team == PlayerTeam.neutral) return position;
     final netPixelY = _sportType.netY * _canvasSize.height;
     const margin = 16.0; // keep a small gap from the net
     if (player.team == PlayerTeam.home) {
