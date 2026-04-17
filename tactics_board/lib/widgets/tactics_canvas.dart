@@ -72,6 +72,78 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
   }
 
+  /// Transform portrait canvas offset to landscape canvas offset.
+  /// Home team (portrait bottom) → landscape left.
+  static Offset _txl(Offset p, double sw, double sh, double lw, double lh) {
+    return Offset((sh - p.dy) / sh * lw, p.dx / sw * lh);
+  }
+
+  static List<PlayerIcon> _landscapePlayers(
+      List<PlayerIcon> players, double sw, double sh, double lw, double lh) {
+    return players.map((p) => p.copyWith(
+          position: _txl(p.position, sw, sh, lw, lh),
+          moves: p.moves.map((m) => _txl(m, sw, sh, lw, lh)).toList(),
+        )).toList();
+  }
+
+  static List<DrawingStroke> _landscapeStrokes(
+      List<DrawingStroke> strokes, double sw, double sh, double lw, double lh) {
+    return strokes.map((s) => s.copyWith(
+          points: s.points.map((p) => _txl(p, sw, sh, lw, lh)).toList(),
+        )).toList();
+  }
+
+  Widget _buildExternalContent() {
+    const lw = 960.0;
+    const lh = 540.0;
+    final sw = _state.canvasSize.width;
+    final sh = _state.canvasSize.height;
+    if (sw <= 0 || sh <= 0) return const SizedBox(width: lw, height: lh);
+    final players = _state.players.toList();
+    final tPlayers = _landscapePlayers(players, sw, sh, lw, lh);
+    final tStrokes = _landscapeStrokes(
+        _visibleStrokes(_state, players), sw, sh, lw, lh);
+    return Stack(
+      children: [
+        CustomPaint(
+          painter: _courtPainter(_state.sportType),
+          size: const Size(lw, lh),
+          child: const SizedBox(width: lw, height: lh),
+        ),
+        if (_state.showMoveLines)
+          CustomPaint(
+            painter: PlayerMovesPainter(
+              players: tPlayers,
+              targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
+              completedSteps: _state.isAnimating ? _state.atStep : null,
+            ),
+            size: const Size(lw, lh),
+          ),
+        CustomPaint(
+          painter: DrawingPainter(
+            strokes: tStrokes,
+            currentStroke: null,
+            selectedStrokeId: null,
+          ),
+          size: const Size(lw, lh),
+        ),
+        ...tPlayers.map((player) {
+          Offset pos = player.position;
+          final animSrc = _state.animatedPositions[player.id];
+          if (animSrc != null) {
+            pos = _txl(animSrc, sw, sh, lw, lh);
+          }
+          final size = kPlayerIconSize * player.scale;
+          return Positioned(
+            left: pos.dx - size / 2,
+            top: pos.dy - size / 2,
+            child: IgnorePointer(child: PlayerIconWidget(player: player)),
+          );
+        }),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
@@ -79,7 +151,23 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
     final state = _state;
 
-    return LayoutBuilder(
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        // Offscreen landscape canvas for external display
+        Positioned(
+          left: -20000,
+          top: 0,
+          child: RepaintBoundary(
+            key: externalRepaintKey,
+            child: SizedBox(
+              width: 960,
+              height: 540,
+              child: _buildExternalContent(),
+            ),
+          ),
+        ),
+        LayoutBuilder(
       builder: (context, constraints) {
             final canvasW = constraints.maxWidth;
             final canvasH = constraints.maxHeight;
@@ -140,6 +228,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               ),
             );
       },
+    ),
+      ],
     );
   }
 

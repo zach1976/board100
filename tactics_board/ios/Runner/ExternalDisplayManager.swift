@@ -149,23 +149,7 @@ class MirrorViewController: UIViewController {
             // nil result means nothing changed — keep showing last frame
             guard let bytes = result as? FlutterStandardTypedData,
                   let image = UIImage(data: bytes.data) else { return }
-
-            // If image is portrait, rotate 90° CW so it fills landscape external display
-            let imageIsPortrait = image.size.height > image.size.width
-            if imageIsPortrait {
-                let src = image.size
-                let dstSize = CGSize(width: src.height, height: src.width)
-                let fmt = UIGraphicsImageRendererFormat()
-                fmt.scale = 1.0
-                let rotated = UIGraphicsImageRenderer(size: dstSize, format: fmt).image { ctx in
-                    ctx.cgContext.translateBy(x: dstSize.width, y: 0)
-                    ctx.cgContext.rotate(by: .pi / 2)
-                    image.draw(in: CGRect(origin: .zero, size: src))
-                }
-                self.imageView.image = rotated
-            } else {
-                self.imageView.image = image
-            }
+            self.imageView.image = image
         }
     }
 
