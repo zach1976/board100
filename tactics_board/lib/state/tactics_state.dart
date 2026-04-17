@@ -20,6 +20,9 @@ class _BoardSnapshot {
 /// Global key used to capture the board canvas as an image for sharing.
 final GlobalKey boardRepaintKey = GlobalKey();
 
+/// Global key for the offscreen landscape canvas used by external display.
+final GlobalKey externalRepaintKey = GlobalKey();
+
 class TacticsState extends ChangeNotifier {
   SportType _sportType;
   List<PlayerIcon> _players = [];
@@ -84,37 +87,18 @@ class TacticsState extends ChangeNotifier {
       } else if (call.method == 'captureCanvas') {
         if (!_externalDirty) return null;
         try {
-          // Wait for the current frame to finish rendering before capturing
           await WidgetsBinding.instance.endOfFrame;
           _externalDirty = false;
-          final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+          final boundary = externalRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
           if (boundary == null) return null;
           final image = await boundary.toImage(pixelRatio: 2.0);
-          // Pad portrait image width to 9:16 ratio so iOS CW rotation yields 16:9 (no black bars)
-          final padded = await _padTo9x16(image, _sportType.courtColor);
-          final byteData = await padded.toByteData(format: ui.ImageByteFormat.png);
+          final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
           return byteData?.buffer.asUint8List();
         } catch (_) {
           return null;
         }
       }
     });
-  }
-
-  /// Pad portrait image width to 9:16 ratio so iOS CW rotation yields 16:9, no black bars.
-  Future<ui.Image> _padTo9x16(ui.Image image, Color bgColor) async {
-    final targetW = (image.height * 9 / 16).round();
-    if (targetW <= image.width) return image; // already wide enough
-    final recorder = ui.PictureRecorder();
-    final canvas = Canvas(recorder);
-    final paint = Paint()
-      ..color = bgColor
-      ..style = PaintingStyle.fill;
-    canvas.drawRect(Rect.fromLTWH(0, 0, targetW.toDouble(), image.height.toDouble()), paint);
-    final offsetX = (targetW - image.width) / 2;
-    canvas.drawImage(image, Offset(offsetX, 0), Paint());
-    final picture = recorder.endRecording();
-    return picture.toImage(targetW, image.height);
   }
 
   @override
