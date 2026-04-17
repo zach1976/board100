@@ -84,8 +84,10 @@ class TacticsState extends ChangeNotifier {
         notifyListeners();
       } else if (call.method == 'captureCanvas') {
         if (!_externalDirty) return null;
-        _externalDirty = false;
         try {
+          // Wait for the current frame to finish rendering before capturing
+          await WidgetsBinding.instance.endOfFrame;
+          _externalDirty = false;
           final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
           if (boundary == null) return null;
           final image = await boundary.toImage(pixelRatio: 2.0);
