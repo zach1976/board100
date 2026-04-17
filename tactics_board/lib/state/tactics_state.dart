@@ -368,6 +368,7 @@ class TacticsState extends ChangeNotifier {
   // Player move waypoints
   void addPlayerMove(String id, Offset position) {
     _resetAnimationState();
+    _showMoveLines = true;
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
