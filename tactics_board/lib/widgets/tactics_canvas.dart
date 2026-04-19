@@ -121,15 +121,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               size: const Size(pw, ph),
               child: const SizedBox(width: pw, height: ph),
             ),
-            if (_state.showMoveLines)
-              CustomPaint(
-                painter: PlayerMovesPainter(
-                  players: sPlayers,
-                  targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
-                  completedSteps: _state.isAnimating ? _state.atStep : null,
-                ),
-                size: const Size(pw, ph),
-              ),
             CustomPaint(
               painter: DrawingPainter(
                 strokes: sStrokes,
@@ -236,6 +227,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 ),
               );
             }),
+            if (_state.showMoveLines)
+              CustomPaint(
+                painter: PlayerMovesPainter(
+                  players: sPlayers,
+                  targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
+                  completedSteps: _state.isAnimating ? _state.atStep : null,
+                ),
+                size: const Size(pw, ph),
+              ),
           ],
         ),
       ),
@@ -343,16 +343,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       height: canvasH,
                     ),
                   ),
-                  // Player move arrows (below players, limited to atStep)
-                  if (state.showMoveLines)
-                    CustomPaint(
-                      painter: PlayerMovesPainter(
-                        players: players,
-                        targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
-                        completedSteps: state.isAnimating ? state.atStep : null,
-                      ),
-                      size: Size(canvasW, canvasH),
-                    ),
                   // Drawing layer (filter by phase during step playback)
                   CustomPaint(
                     painter: DrawingPainter(
@@ -417,7 +407,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         ),
                       );
                     }),
-                  // Player icons (rendered above waypoints)
+                  // Player icons
                   ...players.map((player) {
                     final animPos = state.animatedPositions[player.id];
                     return _PlayerOnBoard(
@@ -433,6 +423,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           _showEditDialog(context, state, player),
                     );
                   }),
+                  // Player move arrows — on top so arrowheads are never covered
+                  if (state.showMoveLines)
+                    IgnorePointer(
+                      child: CustomPaint(
+                        painter: PlayerMovesPainter(
+                          players: players,
+                          targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
+                          completedSteps: state.isAnimating ? state.atStep : null,
+                        ),
+                        size: Size(canvasW, canvasH),
+                      ),
+                    ),
                   // Animation driver (zero-size, drives per-frame updates)
                   _AnimationDriver(
                     isAnimating: state.isAnimating,
