@@ -377,15 +377,21 @@ class _ContactPageState extends State<_ContactPage> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('message'.tr() + ' required')));
       return;
     }
+    final sport = context.read<TacticsState>().sportType;
+    final appName = isSingleSportApp ? _flavorAppName(sport) : 'Tactics Board';
+
     setState(() => _sending = true);
     try {
       final response = await http.post(
         Uri.parse('https://tacticsboard.100for1.com/api/v1/send-email'),
         body: {
+          'from': 'support@ScoreSyncer.com',
+          'to': 'zachsong@gmail.com',
           'email': email,
+          'sport': sport.name,
+          'app': appName,
           'subject': _subjectCtrl.text.trim().isEmpty ? 'Feedback' : _subjectCtrl.text.trim(),
           'message': body,
-          'app': 'Tactics Board',
         },
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       ).timeout(const Duration(seconds: 10));
@@ -448,6 +454,18 @@ class _ContactPageState extends State<_ContactPage> {
         ),
       ),
     );
+  }
+
+  String _flavorAppName(SportType s) {
+    switch (s) {
+      case SportType.badminton:    return 'Badminton Board';
+      case SportType.tableTennis:  return 'Table Tennis Board';
+      case SportType.tennis:       return 'Tennis Board';
+      case SportType.basketball:   return 'Basketball Board';
+      case SportType.volleyball:   return 'Volleyball Board';
+      case SportType.pickleball:   return 'Pickleball Board';
+      case SportType.soccer:       return 'Soccer Board';
+    }
   }
 
   Widget _field(TextEditingController ctrl, String label, [TextInputType? type, int maxLines = 1]) {

@@ -16,30 +16,32 @@ class ContactController extends Controller
             'subject' => 'nullable|string|max:255',
             'message' => 'required|string',
             'app' => 'nullable|string',
+            'sport' => 'nullable|string|max:64',
         ]);
 
         $email = $request->input('email');
         $subject = $request->input('subject', 'Feedback');
         $body = $request->input('message');
         $app = $request->input('app', 'Tactics Board');
+        $sport = $request->input('sport', '');
 
         try {
-            // Log the contact message (can be replaced with actual mail sending)
             Log::info("Contact from $app", [
                 'email' => $email,
+                'sport' => $sport,
                 'subject' => $subject,
                 'message' => $body,
             ]);
 
-            // Try to send email if mail is configured
+            $emailBody = "User Email: $email\nSport: $sport\nApp: $app\n\nMessage:\n$body";
+
             try {
-                Mail::raw("From: $email\nApp: $app\n\n$body", function ($msg) use ($email, $subject) {
-                    $msg->to('support@zachsong.com')
-                        ->subject("[Tactics Board] $subject")
+                Mail::raw($emailBody, function ($msg) use ($email, $subject, $app) {
+                    $msg->to('zachsong@gmail.com')
+                        ->subject("[$app] $subject")
                         ->replyTo($email);
                 });
             } catch (\Exception $mailError) {
-                // Mail not configured - just log it
                 Log::warning('Mail not configured: ' . $mailError->getMessage());
             }
 

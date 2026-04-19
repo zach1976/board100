@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
+import '../widgets/player_icon_widget.dart';
 
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
@@ -21,8 +22,9 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  static const _strokeWidth = 1.8;
-  static const _arrowSize = 10.0;
+  static const _strokeWidth = 2.8;
+  static const _arrowSize = 13.0;
+  static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
   List<int> _getSortedPhases() {
     final phases = <int>{};
@@ -58,28 +60,22 @@ class PlayerMovesPainter extends CustomPainter {
     }
     if (allMoves.isEmpty) return;
     final points = [player.position, ...allMoves];
+    // bbox half + shadow/border margin — keep arrow clear of the icon's drop shadow
+    final iconRadius = kPlayerIconSize / 2 * player.scale + 3;
 
-    const startInset = 20.0; // shorten start to clear player icon
-    const endInset = 14.0; // shorten end to expose arrow
     for (int i = 0; i < points.length - 1; i++) {
       final from = points[i];
       final to = points[i + 1];
-      final dir = to - from;
-      final dist = dir.distance;
-      if (dist < startInset + endInset + 5) {
-        // Too short — just draw arrow
-        _drawArrowHead(canvas, color, from, to);
-        continue;
-      }
-      final unit = dir / dist;
-      final shortenedFrom = from + unit * startInset;
-      final shortenedTo = to - unit * endInset;
-      _drawDashedLine(canvas, color, shortenedFrom, shortenedTo);
-      _drawArrowHead(canvas, color, shortenedFrom, shortenedTo);
+      // Offset both ends: start from source edge, end at destination edge
+      final startRadius = i == 0 ? iconRadius : _waypointRadius;
+      final isLastSegment = i == points.length - 2;
+      final endRadius = isLastSegment ? iconRadius : _waypointRadius;
+      final adjustedFrom = _offsetToward(from, to, startRadius);
+      final adjustedTo = _offsetToward(to, from, endRadius);
+      _drawDashedLine(canvas, color, adjustedFrom, adjustedTo);
+      _drawArrowHead(canvas, color, adjustedFrom, adjustedTo);
     }
 
-    // Draw start marker at player's origin
-    _drawStartMarker(canvas, color, player.position);
   }
 
   void _drawStartMarker(Canvas canvas, Color color, Offset center) {
@@ -101,6 +97,14 @@ class PlayerMovesPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1.5,
     );
+  }
+
+  static Offset _offsetToward(Offset from, Offset to, double radius) {
+    final dx = to.dx - from.dx;
+    final dy = to.dy - from.dy;
+    final dist = sqrt(dx * dx + dy * dy);
+    if (dist <= radius) return from;
+    return Offset(from.dx + dx / dist * radius, from.dy + dy / dist * radius);
   }
 
   void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to) {
