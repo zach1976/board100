@@ -1,1 +1,1 @@
-ping pong,coach,spin,doubles,singles,drill,training,clipboard,animation,formation,play,rotation
+ping pong,coach,spin,doubles,singles,drill,training,animation,formation,playbook,display,pdf,rotation

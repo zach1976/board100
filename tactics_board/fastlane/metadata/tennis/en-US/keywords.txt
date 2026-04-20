@@ -1,1 +1,1 @@
-coach,serve,return,formation,court,drill,volley,strategy,animation,clipboard,rally,baseline,play
+coach,serve,return,formation,court,drill,volley,strategy,animation,rally,baseline,playbook,display,pdf

@@ -1,1 +1,1 @@
-coach,shuttle,formation,court,drill,training,rally,smash,rotation,clipboard,animation,drop,play
+coach,shuttle,formation,court,drill,training,rally,smash,animation,drop,playbook,display,pdf

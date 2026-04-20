@@ -56,9 +56,9 @@ for app_key, bundle_id in APPS.items():
         continue
     app_id = r["data"][0]["id"]
 
-    # Find editable version (PREPARE_FOR_SUBMISSION first, then try READY_FOR_SALE)
+    # Find editable version (PREPARE_FOR_SUBMISSION first, then WAITING_FOR_REVIEW, then READY_FOR_SALE)
     version_id = None
-    for state in ["PREPARE_FOR_SUBMISSION", "READY_FOR_SALE"]:
+    for state in ["PREPARE_FOR_SUBMISSION", "WAITING_FOR_REVIEW", "READY_FOR_SALE"]:
         r = api("get", f"https://api.appstoreconnect.apple.com/v1/apps/{app_id}/appStoreVersions?filter[appStoreState]={state}")
         if r.get("data"):
             version_id = r["data"][0]["id"]
@@ -75,6 +75,18 @@ for app_key, bundle_id in APPS.items():
     existing_locs = {loc["attributes"]["locale"]: loc["id"] for loc in r.get("data", [])}
     print(f"  Existing locales: {list(existing_locs.keys())}")
 
+    # Get editable appInfo (for subtitle) — appInfo is app-level, not version-level
+    r_info = api("get", f"https://api.appstoreconnect.apple.com/v1/apps/{app_id}/appInfos")
+    app_info_id = None
+    for info in r_info.get("data", []):
+        if info["attributes"].get("state") in ("PREPARE_FOR_SUBMISSION", "READY_FOR_DISTRIBUTION"):
+            app_info_id = info["id"]
+            break
+    existing_info_locs = {}
+    if app_info_id:
+        r_il = api("get", f"https://api.appstoreconnect.apple.com/v1/appInfos/{app_info_id}/appInfoLocalizations?limit=28")
+        existing_info_locs = {loc["attributes"]["locale"]: loc["id"] for loc in r_il.get("data", [])}
+
     # Update each locale
     locales_dir = os.path.join(META_BASE, app_key)
     updated = 0
@@ -85,6 +97,18 @@ for app_key, bundle_id in APPS.items():
 
         keywords = read_file(app_key, locale, "keywords.txt")
         promo = read_file(app_key, locale, "promotional_text.txt")
+        subtitle = read_file(app_key, locale, "subtitle.txt")
+
+        # Subtitle goes to appInfoLocalizations (app-level), separate call
+        if subtitle and locale in existing_info_locs:
+            info_loc_id = existing_info_locs[locale]
+            api("patch", f"https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/{info_loc_id}", {
+                "data": {
+                    "type": "appInfoLocalizations",
+                    "id": info_loc_id,
+                    "attributes": {"subtitle": subtitle},
+                }
+            })
 
         if not keywords and not promo:
             continue

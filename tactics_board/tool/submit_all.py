@@ -91,10 +91,10 @@ for bundle_id, name in APPS:
 
     r_ver = api("GET", f"/v1/apps/{app_id}/appStoreVersions?filter[appStoreState]=PREPARE_FOR_SUBMISSION")
     if not r_ver["data"]:
-        # Create a new 1.1.3 version
+        # Create a new 1.1.4 version
         r_new = api("POST", "/v1/appStoreVersions", {
             "data": {"type": "appStoreVersions",
-                     "attributes": {"platform": "IOS", "versionString": "1.1.3"},
+                     "attributes": {"platform": "IOS", "versionString": "1.1.4"},
                      "relationships": {"app": {"data": {"type": "apps", "id": app_id}}}}
         })
         if r_new.get("_error"):
@@ -102,10 +102,10 @@ for bundle_id, name in APPS:
             print(f"  ❌ create version: {errs[0].get('detail','?') if errs else '?'}")
             continue
         version_id = r_new["data"]["id"]
-        # Find the uploaded 1.1.3 build
-        r_builds = api("GET", f"/v1/builds?filter[app]={app_id}&filter[preReleaseVersion.version]=1.1.3&sort=-uploadedDate&limit=1")
+        # Find the uploaded 1.1.4 build
+        r_builds = api("GET", f"/v1/builds?filter[app]={app_id}&filter[preReleaseVersion.version]=1.1.4&sort=-uploadedDate&limit=1")
         if not r_builds.get("data"):
-            print(f"  ❌ no 1.1.3 build found in App Store Connect yet, try again later")
+            print(f"  ❌ no 1.1.4 build found in App Store Connect yet, try again later")
             continue
         build_id = r_builds["data"][0]["id"]
         api("PATCH", f"/v1/appStoreVersions/{version_id}/relationships/build", {
