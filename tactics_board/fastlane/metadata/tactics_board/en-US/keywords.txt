@@ -1,1 +1,1 @@
-soccer,basketball,volleyball,tennis,badminton,formation,strategy,clipboard,animation,lineup,drill
+soccer,basketball,volleyball,tennis,badminton,airplay,display,pdf,formation,animation,drill

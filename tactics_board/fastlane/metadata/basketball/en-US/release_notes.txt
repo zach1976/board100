@@ -1,5 +1,2 @@
-- Animated play sequences
-- Timeline editor for multi-phase plays
-- Save & load unlimited tactics
-- Share as high-resolution images
-- 11 languages supported
+- NEW: Export plays as PDF — share playbooks with your team
+- Stability improvements

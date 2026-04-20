@@ -1,0 +1,20 @@
+# Profile Enhancement Merge Template for Clash Verge
+
+profile:
+  store-selected: true
+
+prepend-rules:
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+  - DOMAIN-SUFFIX,mzstatic.com,DIRECT
+  - DOMAIN-SUFFIX,aaplimg.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+
+dns:
+  fake-ip-filter:
+    - +.apple.com
+    - +.itunes.apple.com
+    - +.icloud.com
+    - contentdelivery.itunes.apple.com
+    - contentdelivery01.itunes.apple.com
+    - contentdelivery02.itunes.apple.com

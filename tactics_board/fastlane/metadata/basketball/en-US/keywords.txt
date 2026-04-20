@@ -1,1 +1,1 @@
-horns,offense,defense,strategy,drill,court,clipboard,animation,screen,pick,roll,lineup,whiteboard
+coach,horns,offense,defense,strategy,drill,court,animation,pick,roll,lineup,playbook,display,pdf

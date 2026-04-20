@@ -1,1 +1,1 @@
-coach,dink,doubles,singles,formation,court,training,clipboard,animation,drill,stacking,paddle
+coach,dink,doubles,singles,formation,training,animation,drill,stacking,paddle,playbook,display,pdf

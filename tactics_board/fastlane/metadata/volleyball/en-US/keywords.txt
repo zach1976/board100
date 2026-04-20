@@ -1,1 +1,1 @@
-coach,formation,6v6,setter,serve,attack,strategy,court,drill,clipboard,animation,lineup,block
+coach,formation,6v6,setter,serve,attack,strategy,court,drill,animation,block,playbook,display,pdf

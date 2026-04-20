@@ -1,5 +1,2 @@
-- Animated play sequences: watch your tactics come to life
-- Timeline editor for multi-phase plays
-- Save & load unlimited tactics
-- Share tactics as high-resolution images
-- 11 languages supported
+- NEW: Export tactics as PDF — share drills and playbooks with your team
+- Stability improvements

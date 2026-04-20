@@ -12,6 +12,7 @@ import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../services/pdf_export_service.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
@@ -134,6 +135,7 @@ class _MainRow extends StatelessWidget {
                 _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
               const Spacer(),
               _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: const Color(0xFF00E5CC)),
+              _IconBtn(icon: Icons.picture_as_pdf_outlined, onTap: () => _exportPdf(context), color: Colors.amberAccent),
               _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
             ],
           ),
@@ -193,6 +195,28 @@ class _MainRow extends StatelessWidget {
       }
     } catch (e) {
       debugPrint('Share error: $e');
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('save_error'.tr())),
+        );
+      }
+    }
+  }
+
+  Future<void> _exportPdf(BuildContext context) async {
+    state.resetZoom();
+    await Future.delayed(const Duration(milliseconds: 200));
+    try {
+      final ok = await PdfExportService.exportCurrentFrame(
+        title: state.sportType.displayName,
+      );
+      if (!ok && context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('save_error'.tr())),
+        );
+      }
+    } catch (e) {
+      debugPrint('PDF export error: $e');
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('save_error'.tr())),
