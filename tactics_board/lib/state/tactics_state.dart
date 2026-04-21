@@ -374,7 +374,7 @@ class TacticsState extends ChangeNotifier {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
-    final clamped = _clampToSide(_players[idx], position);
+    final clamped = _clampToCanvas(_clampToSide(_players[idx], position));
     final updated = List.of(_players[idx].moves)..add(clamped);
     _players[idx] = _players[idx].copyWith(moves: updated);
     _players[idx].syncPhases();
@@ -386,14 +386,26 @@ class TacticsState extends ChangeNotifier {
     if (idx < 0) return;
     final updated = List.of(_players[idx].moves);
     if (index >= updated.length) return;
-    updated[index] = _clampToSide(_players[idx], position);
+    updated[index] = _clampToCanvas(_clampToSide(_players[idx], position));
     _players[idx] = _players[idx].copyWith(moves: updated);
     notifyListeners();
+  }
+
+  /// Keep a point inside the canvas so it always remains reachable/editable.
+  Offset _clampToCanvas(Offset position) {
+    if (_canvasSize.width <= 0 || _canvasSize.height <= 0) return position;
+    const margin = 8.0;
+    return Offset(
+      position.dx.clamp(margin, _canvasSize.width - margin),
+      position.dy.clamp(margin, _canvasSize.height - margin),
+    );
   }
 
   /// For net sports, clamp move position so players stay on their side of the net.
   Offset _clampToSide(PlayerIcon player, Offset position) {
     if (!_sportType.hasNet) return position;
+    // Table tennis players move freely around the table — no side restriction.
+    if (_sportType == SportType.tableTennis) return position;
     if (player.team == PlayerTeam.neutral) return position;
     final netPixelY = _sportType.netY * _canvasSize.height;
     const margin = 16.0; // keep a small gap from the net
@@ -735,7 +747,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  static Future<Directory> get _tacticsDir async {
+  Future<Directory> get _tacticsDir async {
     Directory baseDir;
     try {
       baseDir = await getApplicationDocumentsDirectory();
@@ -743,15 +755,29 @@ class TacticsState extends ChangeNotifier {
       // Fallback for simulator compatibility issues
       baseDir = Directory.systemTemp;
     }
-    final dir = Directory('${baseDir.path}/tactics');
+    final dir = Directory('${baseDir.path}/tactics/${_sportType.name}');
     if (!await dir.exists()) await dir.create(recursive: true);
     return dir;
   }
+
+  String? currentTacticName;
+
+  String? _editingFromPlan;
+  String? get editingFromPlan => _editingFromPlan;
+  set editingFromPlan(String? v) {
+    if (_editingFromPlan == v) return;
+    _editingFromPlan = v;
+    notifyListeners();
+  }
+
+  String? runningPlanName;
+  int runningItemIndex = 0;
 
   Future<String> saveTactics(String name) async {
     final dir = await _tacticsDir;
     final file = File('${dir.path}/$name.json');
     await file.writeAsString(jsonEncode(toJson()));
+    currentTacticName = name;
     return file.path;
   }
 
@@ -761,6 +787,7 @@ class TacticsState extends ChangeNotifier {
     if (!await file.exists()) return;
     final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
     loadFromJson(json);
+    currentTacticName = name;
   }
 
   Future<List<String>> listSavedTactics() async {
@@ -773,5 +800,16 @@ class TacticsState extends ChangeNotifier {
     final dir = await _tacticsDir;
     final file = File('${dir.path}/$name.json');
     if (await file.exists()) await file.delete();
+    if (currentTacticName == name) currentTacticName = null;
+  }
+
+  Future<void> renameTactics(String oldName, String newName) async {
+    final dir = await _tacticsDir;
+    final oldFile = File('${dir.path}/$oldName.json');
+    final newFile = File('${dir.path}/$newName.json');
+    if (!await oldFile.exists()) return;
+    if (await newFile.exists()) throw Exception('name_exists');
+    await oldFile.rename(newFile.path);
+    if (currentTacticName == oldName) currentTacticName = newName;
   }
 }

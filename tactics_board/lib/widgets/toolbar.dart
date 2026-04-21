@@ -27,8 +27,56 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
   );
 }
 
-/// Public function to share the board
+/// Public function to share the board — prompts for PNG or PDF format
 Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
+  final format = await _pickShareFormat(context);
+  if (format == null || !context.mounted) return;
+  if (format == 'pdf') {
+    await _sharePdf(context, state);
+  } else {
+    await _sharePng(context, state);
+  }
+}
+
+Future<String?> _pickShareFormat(BuildContext context) {
+  return showModalBottomSheet<String>(
+    context: context,
+    backgroundColor: const Color(0xFF213E48),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (ctx) => SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            leading: const Icon(Icons.image_outlined, color: Color(0xFF00E5CC)),
+            title: const Text('PNG', style: TextStyle(color: Colors.white)),
+            onTap: () => Navigator.pop(ctx, 'png'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.picture_as_pdf_outlined, color: Colors.amberAccent),
+            title: const Text('PDF', style: TextStyle(color: Colors.white)),
+            onTap: () => Navigator.pop(ctx, 'pdf'),
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    ),
+  );
+}
+
+String _friendlyFileStem(TacticsState state) {
+  final name = state.currentTacticName?.trim();
+  final base = (name != null && name.isNotEmpty) ? name : state.sportType.displayName;
+  final sanitized = base.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_').trim();
+  final now = DateTime.now();
+  String two(int n) => n.toString().padLeft(2, '0');
+  final stamp = '${now.year}-${two(now.month)}-${two(now.day)}_${two(now.hour)}${two(now.minute)}';
+  return '${sanitized.isEmpty ? 'Tactics' : sanitized}_$stamp';
+}
+
+Future<void> _sharePng(BuildContext context, TacticsState state) async {
   state.resetZoom();
   await Future.delayed(const Duration(milliseconds: 200));
   final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
@@ -42,7 +90,7 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
     if (bytes == null) return;
     Directory dir;
     try { dir = await getTemporaryDirectory(); } catch (_) { dir = Directory.systemTemp; }
-    final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
+    final file = File('${dir.path}/${_friendlyFileStem(state)}.png');
     await file.writeAsBytes(bytes.buffer.asUint8List());
     if (context.mounted) {
       try {
@@ -54,6 +102,31 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
     }
   } catch (e) {
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('save_error'.tr())));
+  }
+}
+
+Future<void> _sharePdf(BuildContext context, TacticsState state) async {
+  state.resetZoom();
+  await Future.delayed(const Duration(milliseconds: 200));
+  try {
+    final ok = await PdfExportService.exportCurrentFrame(
+      title: state.currentTacticName?.trim().isNotEmpty == true
+          ? state.currentTacticName!.trim()
+          : state.sportType.displayName,
+      filename: '${_friendlyFileStem(state)}.pdf',
+    );
+    if (!ok && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('save_error'.tr())),
+      );
+    }
+  } catch (e) {
+    debugPrint('PDF export error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('save_error'.tr())),
+      );
+    }
   }
 }
 
@@ -135,8 +208,7 @@ class _MainRow extends StatelessWidget {
                 _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
               const Spacer(),
               _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: const Color(0xFF00E5CC)),
-              _IconBtn(icon: Icons.picture_as_pdf_outlined, onTap: () => _exportPdf(context), color: Colors.amberAccent),
-              _IconBtn(icon: Icons.ios_share, onTap: () => _shareBoard(context), color: Colors.tealAccent),
+              _IconBtn(icon: Icons.ios_share, onTap: () => shareBoardImage(context, state), color: Colors.tealAccent),
             ],
           ),
         ],
@@ -148,82 +220,6 @@ class _MainRow extends StatelessWidget {
     showSaveLoadSheet(context, state);
   }
 
-
-  Future<void> _shareBoard(BuildContext context) async {
-    // Reset zoom so capture gets full unzoomed canvas
-    state.resetZoom();
-    await Future.delayed(const Duration(milliseconds: 200));
-
-    final boundary =
-        boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
-    if (boundary == null) {
-      debugPrint('Share: RepaintBoundary not found');
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('save_error'.tr())),
-        );
-      }
-      return;
-    }
-    try {
-      final image = await boundary.toImage(pixelRatio: 1.5);
-      final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-      if (bytes == null) return;
-      Directory dir;
-      try {
-        dir = await getTemporaryDirectory();
-      } catch (_) {
-        dir = Directory.systemTemp;
-      }
-      final file = File('${dir.path}/tactics_${DateTime.now().millisecondsSinceEpoch}.png');
-      await file.writeAsBytes(bytes.buffer.asUint8List());
-      // Use native MethodChannel for reliable sharing on iOS
-      try {
-        const channel = MethodChannel('com.zach.tacticsboard/share');
-        await channel.invokeMethod('shareFile', {'path': file.path});
-      } catch (e) {
-        debugPrint('Native share failed: $e, trying share_plus');
-        try {
-          await Share.shareXFiles([XFile(file.path)], subject: 'Tactics Board');
-        } catch (_) {
-          if (context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('save_success'.tr()), backgroundColor: Colors.green),
-            );
-          }
-        }
-      }
-    } catch (e) {
-      debugPrint('Share error: $e');
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('save_error'.tr())),
-        );
-      }
-    }
-  }
-
-  Future<void> _exportPdf(BuildContext context) async {
-    state.resetZoom();
-    await Future.delayed(const Duration(milliseconds: 200));
-    try {
-      final ok = await PdfExportService.exportCurrentFrame(
-        title: state.sportType.displayName,
-      );
-      if (!ok && context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('save_error'.tr())),
-        );
-      }
-    } catch (e) {
-      debugPrint('PDF export error: $e');
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('save_error'.tr())),
-        );
-      }
-    }
-  }
 
   void _confirmClear(BuildContext context, TacticsState state) {
     showDialog(
@@ -262,7 +258,7 @@ class _SaveLoadSheet extends StatefulWidget {
 }
 
 class _SaveLoadSheetState extends State<_SaveLoadSheet> {
-  final _nameCtrl = TextEditingController();
+  late final _nameCtrl = TextEditingController(text: widget.state.currentTacticName ?? '');
   List<String> _saved = [];
 
   @override
@@ -274,6 +270,70 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
   Future<void> _loadList() async {
     final list = await widget.state.listSavedTactics();
     if (mounted) setState(() => _saved = list);
+  }
+
+  Future<void> _renameTactic(String oldName) async {
+    final ctrl = TextEditingController(text: oldName);
+    final newName = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF213E48),
+        title: const Text('Rename', style: TextStyle(color: Colors.white)),
+        content: TextField(
+          controller: ctrl,
+          autofocus: true,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: 'tactics_name'.tr(),
+            hintStyle: const TextStyle(color: Colors.white38),
+          ),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00E5CC))),
+          ),
+        ],
+      ),
+    );
+    if (newName == null || newName.isEmpty || newName == oldName) return;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await widget.state.renameTactics(oldName, newName);
+      await _loadList();
+      messenger.showSnackBar(SnackBar(content: Text('$oldName → $newName')));
+    } catch (_) {
+      messenger.showSnackBar(
+        SnackBar(content: Text('practice_name_exists'.tr())),
+      );
+    }
+  }
+
+  Future<void> _overwriteTactic(String name) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF213E48),
+        title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
+        content: Text(name, style: const TextStyle(color: Colors.white70)),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00E5CC))),
+          ),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+    await widget.state.saveTactics(name);
+    navigator.pop();
+    messenger.showSnackBar(
+      SnackBar(content: Text('${'save_success'.tr()}: $name')),
+    );
   }
 
   @override
@@ -323,28 +383,25 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                 GestureDetector(
                   onTap: () async {
                     final name = _nameCtrl.text.trim();
+                    final messenger = ScaffoldMessenger.of(context);
+                    final navigator = Navigator.of(context);
                     if (name.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
+                      messenger.showSnackBar(
                         SnackBar(content: Text('tactics_name'.tr())),
                       );
                       return;
                     }
                     try {
                       await widget.state.saveTactics(name);
-                      _nameCtrl.clear();
-                      await _loadList();
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('${'save_success'.tr()}: $name')),
-                        );
-                      }
+                      navigator.pop();
+                      messenger.showSnackBar(
+                        SnackBar(content: Text('${'save_success'.tr()}: $name')),
+                      );
                     } catch (e) {
                       debugPrint('Save error: $e');
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Save failed: $e')),
-                        );
-                      }
+                      messenger.showSnackBar(
+                        SnackBar(content: Text('Save failed: $e')),
+                      );
                     }
                   },
                   child: Container(
@@ -377,24 +434,41 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                          icon: const Icon(Icons.drive_file_rename_outline, color: Colors.white54, size: 20),
+                          onPressed: () => _renameTactic(name),
+                          tooltip: 'Rename',
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                          icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00E5CC), size: 20),
+                          onPressed: () => _overwriteTactic(name),
+                          tooltip: 'Update',
+                        ),
+                        const SizedBox(width: 2),
                         GestureDetector(
                           onTap: () async {
                             await widget.state.loadTactics(name);
                             if (context.mounted) Navigator.pop(context);
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
                             child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        GestureDetector(
-                          onTap: () async {
+                        const SizedBox(width: 4),
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+                          onPressed: () async {
                             await widget.state.deleteTactics(name);
                             await _loadList();
                           },
-                          child: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
                         ),
                       ],
                     ),
@@ -1699,7 +1773,7 @@ class _FormationTile extends StatelessWidget {
 class _SmallIconBtn extends StatelessWidget {
   final IconData icon;
   final Color color;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   const _SmallIconBtn({required this.icon, required this.color, required this.onTap});
 
   @override
@@ -1911,14 +1985,18 @@ class PlayControlsBar extends StatelessWidget {
             _SmallIconBtn(icon: Icons.delete, color: Colors.redAccent, onTap: () => state.removePlayer(state.selectedPlayerId!)),
             const SizedBox(width: 6),
           ],
-          if (state.canUndo) ...[
-            _SmallIconBtn(icon: Icons.undo, color: Colors.white54, onTap: state.undo),
-            const SizedBox(width: 6),
-          ],
-          if (state.canRedo) ...[
-            _SmallIconBtn(icon: Icons.redo, color: Colors.white54, onTap: state.redo),
-            const SizedBox(width: 6),
-          ],
+          _SmallIconBtn(
+            icon: Icons.undo,
+            color: state.canUndo ? Colors.white : Colors.white24,
+            onTap: state.canUndo ? state.undo : null,
+          ),
+          const SizedBox(width: 6),
+          _SmallIconBtn(
+            icon: Icons.redo,
+            color: state.canRedo ? Colors.white : Colors.white24,
+            onTap: state.canRedo ? state.redo : null,
+          ),
+          const SizedBox(width: 6),
           _ResetButton(state: state),
           const SizedBox(width: 6),
           _StepBackButton(state: state),
