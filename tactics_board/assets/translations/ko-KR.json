@@ -132,5 +132,20 @@
   "neutral_male": "남",
   "neutral_female": "여",
   "remove_move_confirm": "이 이동 단계를 삭제하시겠습니까?",
-  "share": "Share"
+  "share": "Share",
+  "practice_plan": "연습 계획",
+  "practice_new": "새 계획",
+  "practice_edit": "계획 편집",
+  "practice_name": "계획 이름",
+  "practice_notes": "메모",
+  "practice_items": "드릴",
+  "practice_add_tactic": "전술 추가",
+  "practice_pick_tactic": "전술 선택",
+  "practice_minutes": "분",
+  "practice_empty": "아직 연습 계획이 없습니다",
+  "practice_no_items": "드릴이 없습니다 — 전술을 추가하세요",
+  "practice_no_tactics": "먼저 전술을 저장하세요",
+  "practice_delete_title": "이 계획을 삭제하시겠습니까?",
+  "practice_name_exists": "같은 이름의 계획이 이미 있습니다",
+  "practice_item_note": "메모 (선택)"
 }

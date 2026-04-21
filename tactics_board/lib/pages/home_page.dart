@@ -12,6 +12,10 @@ import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/timeline_editor.dart';
+import '../models/practice.dart';
+import '../services/practice_service.dart';
+import 'practice_plan_page.dart';
+import 'practice_run_page.dart';
 import 'sport_selection_page.dart';
 
 class TacticsBoardHomePage extends StatelessWidget {
@@ -70,15 +74,60 @@ class TacticsBoardHomePage extends StatelessWidget {
         if (!isSingleSportApp)
           Positioned(
             top: topPad + 8, left: 12,
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => const SportSelectionPage()),
-              ),
-              child: Container(
-                width: 32, height: 32,
-                decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
-                child: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 16),
-              ),
+            child: Selector<TacticsState, (String?, String?)>(
+              selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
+              builder: (context, tuple, _) {
+                final planName = tuple.$1;
+                final runName = tuple.$2;
+                final inPlanMode = planName != null || runName != null;
+                return GestureDetector(
+                  onTap: () async {
+                    final state = context.read<TacticsState>();
+                    if (runName != null) {
+                      final startIdx = state.runningItemIndex;
+                      state.runningPlanName = null;
+                      state.editingFromPlan = null;
+                      final p = await PracticeService.load(state.sportType, runName) ?? Practice(name: runName);
+                      if (!context.mounted) return;
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => PracticeRunPage(
+                          state: state,
+                          practice: p,
+                          initialIndex: startIdx,
+                        ),
+                      ));
+                      return;
+                    }
+                    if (planName != null) {
+                      state.editingFromPlan = null;
+                      final p = await PracticeService.load(state.sportType, planName) ?? Practice(name: planName);
+                      if (!context.mounted) return;
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => PracticeEditPage(state: state, practice: p),
+                      ));
+                      return;
+                    }
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const SportSelectionPage()),
+                    );
+                  },
+                  child: Container(
+                    width: 32, height: 32,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.45),
+                      shape: BoxShape.circle,
+                      border: inPlanMode
+                          ? Border.all(color: const Color(0xFF00E5CC), width: 1.5)
+                          : null,
+                    ),
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      color: inPlanMode ? const Color(0xFF00E5CC) : Colors.white70,
+                      size: 16,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
@@ -271,6 +320,7 @@ class _MenuButton extends StatelessWidget {
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
         return [
+          _menuItem('practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
             _menuItem('scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
           _menuItem('language', Icons.language, 'menu_language'.tr()),
@@ -297,6 +347,8 @@ class _MenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, String value) {
     switch (value) {
+      case 'practice':
+        _showPracticePlan(context);
       case 'scorer':
         _showScorer(context);
       case 'language':
@@ -306,6 +358,13 @@ class _MenuButton extends StatelessWidget {
       case 'login':
         _showLogin(context);
     }
+  }
+
+  void _showPracticePlan(BuildContext context) {
+    final state = context.read<TacticsState>();
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => PracticePlanPage(state: state),
+    ));
   }
 
   void _showScorer(BuildContext context) {
@@ -936,6 +995,7 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         if (state.isAnimating) return const SizedBox.shrink();
 
         Widget? panel;
+        bool pinTop = false;
         if (state.isDrawingMode || state.selectedStrokeId != null) {
           panel = DrawingOptionsBar(state: state);
         } else if (state.selectedPlayerId != null) {
@@ -943,6 +1003,10 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
             (p) => p?.id == state.selectedPlayerId, orElse: () => null);
           if (player != null) {
             panel = _PlayerEditBar(state: state, player: player);
+            final h = state.canvasSize.height;
+            if (h > 0 && player.position.dy > h * 0.5) {
+              pinTop = true;
+            }
           }
         }
 
@@ -951,8 +1015,11 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
           return const SizedBox.shrink();
         }
 
+        final topPad = MediaQuery.of(context).padding.top;
         return Positioned(
-          bottom: 0, left: 0, right: 0,
+          top: pinTop ? topPad + 52 : null,
+          bottom: pinTop ? null : 0,
+          left: 0, right: 0,
           child: Container(
             color: const Color(0xDD1A2035),
             child: Column(
@@ -972,7 +1039,9 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          _collapsed ? Icons.expand_less : Icons.expand_more,
+                          pinTop
+                              ? (_collapsed ? Icons.expand_more : Icons.expand_less)
+                              : (_collapsed ? Icons.expand_less : Icons.expand_more),
                           color: Colors.white54, size: 22,
                         ),
                         const SizedBox(width: 6),
@@ -993,3 +1062,4 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
     );
   }
 }
+

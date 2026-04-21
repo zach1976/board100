@@ -132,5 +132,20 @@
   "neutral_male": "男",
   "neutral_female": "女",
   "remove_move_confirm": "この移動ステップを削除しますか？",
-  "share": "Share"
+  "share": "Share",
+  "practice_plan": "練習プラン",
+  "practice_new": "新規プラン",
+  "practice_edit": "プラン編集",
+  "practice_name": "プラン名",
+  "practice_notes": "メモ",
+  "practice_items": "ドリル",
+  "practice_add_tactic": "戦術を追加",
+  "practice_pick_tactic": "戦術を選ぶ",
+  "practice_minutes": "分",
+  "practice_empty": "練習プランはまだありません",
+  "practice_no_items": "ドリルがありません。戦術を追加して始めましょう",
+  "practice_no_tactics": "まず戦術を保存してください",
+  "practice_delete_title": "このプランを削除しますか？",
+  "practice_name_exists": "同名のプランがすでにあります",
+  "practice_item_note": "メモ（任意）"
 }

@@ -815,6 +815,10 @@ class _WaypointDotState extends State<_WaypointDot> {
         );
   }
 
+  void _onTap() {
+    context.read<TacticsState>().selectPlayer(widget.player.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (widget.isLast) {
@@ -822,6 +826,7 @@ class _WaypointDotState extends State<_WaypointDot> {
         left: widget.position.dx - kPlayerIconSize / 2,
         top: widget.position.dy - kPlayerIconSize / 2,
         child: GestureDetector(
+          onTap: _onTap,
           onPanUpdate: _onPanUpdate,
           onPanEnd: _onPanEnd,
           onLongPress: widget.onLongPress,
@@ -870,6 +875,7 @@ class _WaypointDotState extends State<_WaypointDot> {
       left: widget.position.dx - hitSize / 2,
       top: widget.position.dy - hitSize / 2,
       child: GestureDetector(
+        onTap: _onTap,
         onPanUpdate: _onPanUpdate,
         onPanEnd: _onPanEnd,
         onLongPress: _onDefaultLongPress,

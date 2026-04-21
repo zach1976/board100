@@ -18,7 +18,7 @@ class PdfExportService {
 
   /// Capture the current board and share it as a single-page PDF.
   /// Caller should reset zoom and wait for a frame before invoking.
-  static Future<bool> exportCurrentFrame({String title = 'Tactics Board'}) async {
+  static Future<bool> exportCurrentFrame({String title = 'Tactics Board', String? filename}) async {
     final png = await _captureBoard();
     if (png == null) return false;
     final doc = pw.Document();
@@ -48,7 +48,7 @@ class PdfExportService {
     final bytes = await doc.save();
     await Printing.sharePdf(
       bytes: bytes,
-      filename: 'tactics_${DateTime.now().millisecondsSinceEpoch}.pdf',
+      filename: filename ?? 'tactics_${DateTime.now().millisecondsSinceEpoch}.pdf',
     );
     return true;
   }
