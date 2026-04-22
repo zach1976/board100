@@ -7,6 +7,7 @@ import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/sport_type.dart';
 import '../services/auth_service.dart';
+import '../services/cloud_sync_service.dart';
 import '../state/tactics_state.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
@@ -567,6 +568,8 @@ class _LoginPageState extends State<_LoginPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
       );
+      // Fire-and-forget sync: merge cloud data in on first render
+      CloudSyncService.syncNow();
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -584,12 +587,23 @@ class _LoginPageState extends State<_LoginPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
       );
+      CloudSyncService.syncNow();
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text((result.error ?? 'login_failed').tr())),
       );
     }
+  }
+
+  Future<void> _manualSync() async {
+    setState(() => _loading = true);
+    await CloudSyncService.syncNow();
+    if (!mounted) return;
+    setState(() => _loading = false);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('sync_done'.tr()), backgroundColor: Colors.green),
+    );
   }
 
   @override
@@ -621,6 +635,26 @@ class _LoginPageState extends State<_LoginPage> {
         if (_auth.userEmail != null)
           Text(_auth.userEmail!, style: const TextStyle(color: Colors.white54, fontSize: 14)),
         const SizedBox(height: 32),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton.icon(
+            onPressed: _loading ? null : _manualSync,
+            icon: _loading
+                ? const SizedBox(
+                    width: 18, height: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                  )
+                : const Icon(Icons.cloud_sync, color: Colors.white),
+            label: Text('sync_now'.tr(),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF2A65A5),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ),
+        const SizedBox(height: 14),
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(

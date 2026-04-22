@@ -107,6 +107,25 @@ class TacticController extends Controller
     }
 
     /**
+     * DELETE /api/v1/tactics — delete by name + sport_type (query params)
+     */
+    public function destroyByName(Request $request): JsonResponse
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'sport_type' => 'required|string',
+        ]);
+
+        $userId = $request->attributes->get('auth_user_id');
+        $deleted = Tactic::where('user_id', $userId)
+            ->where('name', $request->input('name'))
+            ->where('sport_type', $request->input('sport_type'))
+            ->delete();
+
+        return response()->json(['status' => 'ok', 'deleted' => $deleted]);
+    }
+
+    /**
      * POST /api/v1/tactics/sync — push all tactics (batch upsert)
      */
     public function sync(Request $request): JsonResponse

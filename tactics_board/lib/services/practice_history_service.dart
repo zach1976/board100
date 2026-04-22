@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import '../models/practice_session.dart';
 import '../models/sport_type.dart';
+import 'auth_service.dart';
+import 'sync_service.dart';
 
 class PracticeHistoryService {
   static const int _maxEntries = 200;
@@ -43,11 +45,26 @@ class PracticeHistoryService {
     final file = await _file(sport);
     await file.writeAsString(
         jsonEncode(all.map((s) => s.toJson()).toList()));
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.pushSession({
+        'sport_type': sport.name,
+        'plan_name': session.planName,
+        'started_at': session.startedAt.toIso8601String(),
+        'completed_at': session.completedAt.toIso8601String(),
+        'items_completed': session.itemsCompleted,
+        'planned_items': session.plannedItems,
+        'total_seconds_spent': session.totalSecondsSpent,
+        'completed': session.completed,
+      });
+    }
   }
 
   static Future<void> clear(SportType sport) async {
     final file = await _file(sport);
     if (await file.exists()) await file.delete();
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.clearSessions(sportType: sport.name);
+    }
   }
 
   /// Remove history entries referencing a deleted plan.
