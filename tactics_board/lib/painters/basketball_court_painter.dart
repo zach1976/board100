@@ -6,7 +6,7 @@ class BasketballCourtPainter extends CourtPainterBase {
   const BasketballCourtPainter()
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFFB5651D),
+          courtColor: const Color(0xFFD9A867),
         );
 
   @override
