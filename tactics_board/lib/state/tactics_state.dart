@@ -43,6 +43,9 @@ class TacticsState extends ChangeNotifier {
 
   // Selected player
   String? _selectedPlayerId;
+  // Specifically tapped waypoint index inside selected player's move chain.
+  // null means the player body itself is the primary target (not a waypoint).
+  int? _selectedWaypointIndex;
 
   // Selected stroke
   String? _selectedStrokeId;
@@ -125,6 +128,7 @@ class TacticsState extends ChangeNotifier {
   Color get strokeColor => _strokeColor;
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
+  int? get selectedWaypointIndex => _selectedWaypointIndex;
   String? get selectedStrokeId => _selectedStrokeId;
   DrawingStroke? get selectedStroke => _selectedStrokeId == null ? null : _strokes.cast<DrawingStroke?>().firstWhere((s) => s?.id == _selectedStrokeId, orElse: () => null);
   bool get sequentialMode => _sequentialMode;
@@ -242,6 +246,7 @@ class TacticsState extends ChangeNotifier {
     _undoStack.clear();
     _redoStack.clear();
     _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
     notifyListeners();
   }
 
@@ -282,6 +287,7 @@ class TacticsState extends ChangeNotifier {
   void setDrawingMode(bool enabled) {
     _isDrawingMode = enabled;
     _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
     notifyListeners();
   }
 
@@ -363,7 +369,10 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     _players.removeWhere((p) => p.id == id);
-    if (_selectedPlayerId == id) _selectedPlayerId = null;
+    if (_selectedPlayerId == id) {
+      _selectedPlayerId = null;
+      _selectedWaypointIndex = null;
+    }
     notifyListeners();
   }
 
@@ -465,7 +474,17 @@ class TacticsState extends ChangeNotifier {
 
   void selectPlayer(String? id) {
     _selectedPlayerId = id;
+    _selectedWaypointIndex = null;
     if (id != null) _selectedStrokeId = null;
+    notifyListeners();
+  }
+
+  /// Primary-select a specific waypoint within a player's move chain.
+  /// Pass index=null to clear waypoint-level selection (player body is primary).
+  void selectPlayerWaypoint(String id, int? index) {
+    _selectedPlayerId = id;
+    _selectedWaypointIndex = index;
+    _selectedStrokeId = null;
     notifyListeners();
   }
 
@@ -499,6 +518,7 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     _players.clear();
     _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
     final w = _canvasSize.width;
     final h = _canvasSize.height;
     int homeNum = 1;
@@ -588,7 +608,10 @@ class TacticsState extends ChangeNotifier {
 
   void selectStroke(String? id) {
     _selectedStrokeId = id;
-    if (id != null) _selectedPlayerId = null;
+    if (id != null) {
+      _selectedPlayerId = null;
+      _selectedWaypointIndex = null;
+    }
     notifyListeners();
   }
 
@@ -674,6 +697,7 @@ class TacticsState extends ChangeNotifier {
     _players.clear();
     _strokes.clear();
     _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
     _isAnimating = false;
     _animatedPositions = {};
     _atStep = 0;
@@ -739,6 +763,7 @@ class TacticsState extends ChangeNotifier {
       }
     }
     _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
     _isAnimating = false;
     _animatedPositions = {};
     _atStep = 0;

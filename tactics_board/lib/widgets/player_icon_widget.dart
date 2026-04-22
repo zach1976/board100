@@ -91,12 +91,23 @@ class TopDownPlayerPainter extends CustomPainter {
     canvas.drawCircle(headCenter, headRadius, borderPaint);
   }
 
-  /// Ghost mode — dashed outline, no fill, reduced opacity
+  /// Ghost mode — same solid fill as the normal icon, but with a dashed
+  /// border instead of a solid one, so "not current" positions stay clearly
+  /// visible while still reading as ghost/past/future state.
   void _paintGhost(Canvas canvas, double w, double h, Offset headCenter, double headRadius, Rect bodyRect) {
+    // Drop shadow — same as solid path so the ghost sits on the board.
+    final shadowPaint = Paint()
+      ..color = Colors.black.withValues(alpha: 0.4)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
+    const shadowOffset = Offset(2, 2);
+    canvas.drawOval(bodyRect.shift(shadowOffset), shadowPaint);
+    canvas.drawCircle(headCenter + shadowOffset, headRadius, shadowPaint);
+
+    final fillPaint = Paint()..color = color;
     final dashPaint = Paint()
-      ..color = color.withValues(alpha: 0.45)
+      ..color = borderColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.5;
+      ..strokeWidth = (borderWidth * 0.6).clamp(1.0, 2.0);
 
     if (gender == PlayerGender.female) {
       final skirtTop = headCenter.dy + headRadius * 0.6;
@@ -107,16 +118,19 @@ class TopDownPlayerPainter extends CustomPainter {
         ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
         ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
         ..close();
+      canvas.drawPath(skirtPath, fillPaint);
       _drawDashedPath(canvas, skirtPath, dashPaint);
     } else {
+      canvas.drawOval(bodyRect, fillPaint);
       _drawDashedOval(canvas, bodyRect, dashPaint);
     }
+    canvas.drawCircle(headCenter, headRadius, fillPaint);
     _drawDashedCircle(canvas, headCenter, headRadius, dashPaint);
   }
 
   void _drawDashedCircle(Canvas canvas, Offset center, double radius, Paint paint) {
-    const dashLen = 4.0;
-    const gapLen = 3.0;
+    const dashLen = 6.0;
+    const gapLen = 4.0;
     final circumference = 2 * pi * radius;
     final steps = (circumference / (dashLen + gapLen)).floor();
     for (int i = 0; i < steps; i++) {
@@ -132,8 +146,8 @@ class TopDownPlayerPainter extends CustomPainter {
   }
 
   void _drawDashedPath(Canvas canvas, Path path, Paint paint) {
-    const dashLen = 4.0;
-    const gapLen = 3.0;
+    const dashLen = 6.0;
+    const gapLen = 4.0;
     for (final metric in path.computeMetrics()) {
       double distance = 0;
       while (distance < metric.length) {
