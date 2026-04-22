@@ -156,5 +156,18 @@
   "practice_open_board": "Open on board",
   "tactic_new_blank": "Blank tactic",
   "tactic_copy_from": "Copy from existing tactic",
-  "practice_remove_item_title": "Remove from plan?"
+  "practice_remove_item_title": "Remove from plan?",
+  "practice_share": "Share plan",
+  "practice_import": "Import plan",
+  "practice_import_paste": "Paste plan JSON",
+  "practice_import_invalid": "Invalid plan data",
+  "practice_import_success": "Imported: {}",
+  "practice_import_sport_mismatch": "Plan belongs to a different sport",
+  "paste": "Paste",
+  "practice_history": "History",
+  "practice_history_empty": "No practice sessions yet",
+  "practice_history_sessions": "Sessions",
+  "practice_history_completed": "Completed",
+  "practice_history_total_min": "Total min",
+  "practice_history_clear_title": "Clear history?"
 }

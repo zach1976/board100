@@ -3,6 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/practice.dart';
+import '../models/practice_session.dart';
+import '../services/practice_history_service.dart';
 import '../state/tactics_state.dart';
 
 const _kBg = Color(0xFF0E1C22);
@@ -30,22 +32,56 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   bool _running = false;
   Timer? _timer;
 
+  late final DateTime _startedAt;
+  int _itemsCompleted = 0;
+  int _totalSecondsSpent = 0;
+  bool _sessionRecorded = false;
+
   @override
   void initState() {
     super.initState();
     _idx = widget.initialIndex.clamp(0, widget.practice.items.length - 1);
     widget.state.runningPlanName = null;
+    _startedAt = DateTime.now();
     _resetItem();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    _recordSession(completed: false);
     super.dispose();
+  }
+
+  Future<void> _recordSession({required bool completed}) async {
+    if (_sessionRecorded) return;
+    if (_itemsCompleted == 0 && _totalSecondsSpent < 10) return;
+    _sessionRecorded = true;
+    final session = PracticeSession(
+      planName: widget.practice.name,
+      startedAt: _startedAt,
+      completedAt: DateTime.now(),
+      itemsCompleted: _itemsCompleted,
+      plannedItems: widget.practice.items.length,
+      totalSecondsSpent: _totalSecondsSpent,
+      completed: completed,
+    );
+    try {
+      await PracticeHistoryService.add(widget.state.sportType, session);
+    } catch (_) {}
   }
 
   PracticeItem? get _current =>
       _idx < widget.practice.items.length ? widget.practice.items[_idx] : null;
+
+  Future<void> _playFinishCue() async {
+    HapticFeedback.heavyImpact();
+    for (var i = 0; i < 3; i++) {
+      SystemSound.play(SystemSoundType.click);
+      await Future.delayed(const Duration(milliseconds: 160));
+      HapticFeedback.mediumImpact();
+    }
+  }
 
   void _resetItem() {
     final it = _current;
@@ -65,9 +101,11 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
       setState(() => _running = true);
       _timer = Timer.periodic(const Duration(seconds: 1), (_) {
         if (!mounted) return;
+        _totalSecondsSpent += 1;
         if (_secLeft <= 1) {
           _timer?.cancel();
-          HapticFeedback.heavyImpact();
+          _playFinishCue();
+          _itemsCompleted += 1;
           setState(() {
             _secLeft = 0;
             _running = false;
@@ -124,6 +162,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   }
 
   Future<void> _showCompleteDialog() async {
+    await _recordSession(completed: true);
+    if (!mounted) return;
     await showDialog(
       context: context,
       builder: (ctx) => AlertDialog(

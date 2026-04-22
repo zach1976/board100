@@ -1046,7 +1046,7 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                         ),
                         const SizedBox(width: 6),
                         Text(
-                          _collapsed ? 'Show Options' : 'Hide',
+                          (_collapsed ? 'more' : 'less').tr(),
                           style: const TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w500),
                         ),
                       ],
