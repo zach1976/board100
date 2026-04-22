@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import '../models/practice.dart';
 import '../models/sport_type.dart';
+import 'auth_service.dart';
+import 'sync_service.dart';
 
 class PracticeService {
   static const String bundleKind = 'tactics_board.practice_bundle';
@@ -37,6 +39,10 @@ class PracticeService {
     p.updatedAt = DateTime.now();
     final file = File('${dir.path}/${p.name}.json');
     await file.writeAsString(jsonEncode(p.toJson()));
+    if (AuthService.instance.isLoggedIn) {
+      // Fire-and-forget cloud push
+      SyncService.instance.pushPractice(p.name, sport.name, p.toJson());
+    }
   }
 
   static Future<Practice?> load(SportType sport, String name) async {
@@ -61,6 +67,9 @@ class PracticeService {
     final dir = await _dir(sport);
     final file = File('${dir.path}/$name.json');
     if (await file.exists()) await file.delete();
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.deletePracticeByName(name, sport.name);
+    }
   }
 
   static Future<void> rename(SportType sport, String oldName, String newName) async {
@@ -69,6 +78,10 @@ class PracticeService {
     final oldFile = File('${dir.path}/$oldName.json');
     if (!await oldFile.exists()) return;
     await oldFile.rename('${dir.path}/$newName.json');
+    if (AuthService.instance.isLoggedIn) {
+      // Cloud: delete old name; next save() will push the new one
+      SyncService.instance.deletePracticeByName(oldName, sport.name);
+    }
   }
 
   /// Remove all plan items referencing the given tactic name across plans

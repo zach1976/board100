@@ -169,5 +169,7 @@
   "practice_history_sessions": "次数",
   "practice_history_completed": "完成",
   "practice_history_total_min": "总分钟",
-  "practice_history_clear_title": "清除历史记录？"
+  "practice_history_clear_title": "清除历史记录？",
+  "sync_now": "立即同步",
+  "sync_done": "同步完成"
 }

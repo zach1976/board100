@@ -169,5 +169,7 @@
   "practice_history_sessions": "Sessions",
   "practice_history_completed": "Completed",
   "practice_history_total_min": "Total min",
-  "practice_history_clear_title": "Clear history?"
+  "practice_history_clear_title": "Clear history?",
+  "sync_now": "Sync Now",
+  "sync_done": "Sync complete"
 }

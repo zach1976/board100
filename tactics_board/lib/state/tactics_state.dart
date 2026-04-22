@@ -9,7 +9,9 @@ import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
+import '../services/auth_service.dart';
 import '../services/practice_service.dart';
+import '../services/sync_service.dart';
 
 class _BoardSnapshot {
   final List<PlayerIcon> players;
@@ -802,8 +804,12 @@ class TacticsState extends ChangeNotifier {
   Future<String> saveTactics(String name) async {
     final dir = await _tacticsDir;
     final file = File('${dir.path}/$name.json');
-    await file.writeAsString(jsonEncode(toJson()));
+    final payload = toJson();
+    await file.writeAsString(jsonEncode(payload));
     currentTacticName = name;
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.pushTactic(name, _sportType.name, payload);
+    }
     return file.path;
   }
 
@@ -828,6 +834,9 @@ class TacticsState extends ChangeNotifier {
     if (await file.exists()) await file.delete();
     if (currentTacticName == name) currentTacticName = null;
     await PracticeService.purgeTacticReferences(_sportType, name);
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.deleteTacticByName(name, _sportType.name);
+    }
   }
 
   Future<void> renameTactics(String oldName, String newName) async {
@@ -839,5 +848,13 @@ class TacticsState extends ChangeNotifier {
     await oldFile.rename(newFile.path);
     if (currentTacticName == oldName) currentTacticName = newName;
     await PracticeService.renameTacticReferences(_sportType, oldName, newName);
+    if (AuthService.instance.isLoggedIn) {
+      // Cloud: remove old; next save will push the new name
+      SyncService.instance.deleteTacticByName(oldName, _sportType.name);
+      try {
+        final payload = jsonDecode(await newFile.readAsString()) as Map<String, dynamic>;
+        SyncService.instance.pushTactic(newName, _sportType.name, payload);
+      } catch (_) {}
+    }
   }
 }
