@@ -129,8 +129,8 @@ class TopDownPlayerPainter extends CustomPainter {
   }
 
   void _drawDashedCircle(Canvas canvas, Offset center, double radius, Paint paint) {
-    const dashLen = 6.0;
-    const gapLen = 4.0;
+    const dashLen = 2.5;
+    const gapLen = 3.0;
     final circumference = 2 * pi * radius;
     final steps = (circumference / (dashLen + gapLen)).floor();
     for (int i = 0; i < steps; i++) {
@@ -146,8 +146,8 @@ class TopDownPlayerPainter extends CustomPainter {
   }
 
   void _drawDashedPath(Canvas canvas, Path path, Paint paint) {
-    const dashLen = 6.0;
-    const gapLen = 4.0;
+    const dashLen = 2.5;
+    const gapLen = 3.0;
     for (final metric in path.computeMetrics()) {
       double distance = 0;
       while (distance < metric.length) {
