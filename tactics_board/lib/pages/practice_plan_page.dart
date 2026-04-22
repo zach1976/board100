@@ -1,8 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 import '../models/practice.dart';
 import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
+import 'practice_history_page.dart';
 import 'practice_run_page.dart';
 
 const _kBg = Color(0xFF0E1C22);
@@ -148,6 +154,100 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     }
   }
 
+  Future<void> _openHistory() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => PracticeHistoryPage(sport: widget.state.sportType),
+    ));
+  }
+
+  Future<void> _share(String name) async {
+    final bundle =
+        await PracticeService.exportBundle(widget.state.sportType, name);
+    if (bundle == null || !mounted) return;
+    final encoded = const JsonEncoder.withIndent('  ').convert(bundle);
+    Directory dir;
+    try {
+      dir = await getTemporaryDirectory();
+    } catch (_) {
+      dir = Directory.systemTemp;
+    }
+    final safe = name.replaceAll(RegExp(r'[^A-Za-z0-9_\- ]'), '_');
+    final file = File('${dir.path}/$safe.practice.json');
+    await file.writeAsString(encoded);
+    await Share.shareXFiles(
+      [XFile(file.path, mimeType: 'application/json')],
+      subject: name,
+    );
+  }
+
+  Future<void> _importFromPaste() async {
+    final ctrl = TextEditingController();
+    final text = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: _kCard,
+        title: Text('practice_import'.tr(),
+            style: const TextStyle(color: Colors.white)),
+        content: TextField(
+          controller: ctrl,
+          autofocus: true,
+          minLines: 6,
+          maxLines: 12,
+          style: const TextStyle(color: Colors.white, fontSize: 12),
+          decoration: InputDecoration(
+            hintText: 'practice_import_paste'.tr(),
+            hintStyle: const TextStyle(color: Colors.white38),
+            filled: true,
+            fillColor: Colors.black26,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide.none,
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              final data = await Clipboard.getData('text/plain');
+              if (data?.text != null) ctrl.text = data!.text!;
+            },
+            child: Text('paste'.tr(), style: const TextStyle(color: _kAccent)),
+          ),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
+            child: Text('confirm'.tr(),
+                style: const TextStyle(color: _kAccent)),
+          ),
+        ],
+      ),
+    );
+    if (text == null || text.isEmpty || !mounted) return;
+    try {
+      final json = jsonDecode(text) as Map<String, dynamic>;
+      final name =
+          await PracticeService.importBundle(widget.state.sportType, json);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('practice_import_success'.tr(args: [name]))),
+      );
+      _reload();
+    } on FormatException catch (e) {
+      if (!mounted) return;
+      final msg = e.message.startsWith('sport mismatch')
+          ? 'practice_import_sport_mismatch'.tr()
+          : 'practice_import_invalid'.tr();
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(msg)));
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('practice_import_invalid'.tr())),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,6 +257,16 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
         title: Text('practice_plan'.tr(), style: const TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.history, color: _kAccent),
+            onPressed: _openHistory,
+            tooltip: 'practice_history'.tr(),
+          ),
+          IconButton(
+            icon: const Icon(Icons.file_download_outlined, color: _kAccent),
+            onPressed: _importFromPaste,
+            tooltip: 'practice_import'.tr(),
+          ),
           IconButton(
             icon: const Icon(Icons.add, color: _kAccent),
             onPressed: _createNew,
@@ -185,9 +295,21 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                           leading: const Icon(Icons.event_note, color: _kAccent),
                           title: Text(name, style: const TextStyle(color: Colors.white)),
                           subtitle: Text(subtitle, style: const TextStyle(color: Colors.white54)),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
-                            onPressed: () => _confirmDelete(name),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.ios_share,
+                                    color: Colors.white54),
+                                tooltip: 'practice_share'.tr(),
+                                onPressed: () => _share(name),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.delete_outline,
+                                    color: Colors.redAccent),
+                                onPressed: () => _confirmDelete(name),
+                              ),
+                            ],
                           ),
                           onTap: () => _open(name),
                         );

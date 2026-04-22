@@ -9,6 +9,7 @@ import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
+import '../services/practice_service.dart';
 
 class _BoardSnapshot {
   final List<PlayerIcon> players;
@@ -826,6 +827,7 @@ class TacticsState extends ChangeNotifier {
     final file = File('${dir.path}/$name.json');
     if (await file.exists()) await file.delete();
     if (currentTacticName == name) currentTacticName = null;
+    await PracticeService.purgeTacticReferences(_sportType, name);
   }
 
   Future<void> renameTactics(String oldName, String newName) async {
@@ -836,5 +838,6 @@ class TacticsState extends ChangeNotifier {
     if (await newFile.exists()) throw Exception('name_exists');
     await oldFile.rename(newFile.path);
     if (currentTacticName == oldName) currentTacticName = newName;
+    await PracticeService.renameTacticReferences(_sportType, oldName, newName);
   }
 }

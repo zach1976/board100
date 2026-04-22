@@ -156,5 +156,18 @@
   "practice_open_board": "在战术板打开",
   "tactic_new_blank": "新建全新战术",
   "tactic_copy_from": "复制自已有战术",
-  "practice_remove_item_title": "从计划中移除？"
+  "practice_remove_item_title": "从计划中移除？",
+  "practice_share": "分享计划",
+  "practice_import": "导入计划",
+  "practice_import_paste": "粘贴计划 JSON",
+  "practice_import_invalid": "无效的计划数据",
+  "practice_import_success": "已导入：{}",
+  "practice_import_sport_mismatch": "该计划属于其他运动",
+  "paste": "粘贴",
+  "practice_history": "历史记录",
+  "practice_history_empty": "还没有训练记录",
+  "practice_history_sessions": "次数",
+  "practice_history_completed": "完成",
+  "practice_history_total_min": "总分钟",
+  "practice_history_clear_title": "清除历史记录？"
 }

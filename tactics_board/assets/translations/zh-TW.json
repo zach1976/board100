@@ -156,5 +156,18 @@
   "practice_open_board": "在戰術板開啟",
   "tactic_new_blank": "新建全新戰術",
   "tactic_copy_from": "複製自已有戰術",
-  "practice_remove_item_title": "從計畫中移除？"
+  "practice_remove_item_title": "從計畫中移除？",
+  "practice_share": "分享計畫",
+  "practice_import": "匯入計畫",
+  "practice_import_paste": "貼上計畫 JSON",
+  "practice_import_invalid": "計畫資料無效",
+  "practice_import_success": "已匯入：{}",
+  "practice_import_sport_mismatch": "該計畫屬於其他運動",
+  "paste": "貼上",
+  "practice_history": "歷史記錄",
+  "practice_history_empty": "還沒有訓練紀錄",
+  "practice_history_sessions": "次數",
+  "practice_history_completed": "完成",
+  "practice_history_total_min": "總分鐘",
+  "practice_history_clear_title": "清除歷史記錄？"
 }
