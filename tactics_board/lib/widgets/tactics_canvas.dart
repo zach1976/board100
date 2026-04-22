@@ -370,14 +370,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       } else {
                         visibleMoves = player.moves;
                       }
+                      final atStartTime =
+                          state.atStep == 0 && state.targetStep == 0;
                       return visibleMoves.asMap().entries.map((entry) {
                         final isLast = entry.key == visibleMoves.length - 1;
+                        final chainSelected = state.selectedPlayerId == player.id;
                         return _WaypointDot(
                           key: ValueKey('wp_${player.id}_${entry.key}'),
                           player: player,
                           index: entry.key,
                           position: entry.value,
                           isLast: isLast,
+                          isSelected: chainSelected,
+                          isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
+                          isAtCurrentStep: isLast ? !atStartTime : true,
                           onLongPress: isLast
                               ? () => _showEditDialog(context, state, player)
                               : null,
@@ -395,14 +401,39 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         child: SizedBox(
                           width: size,
                           height: size,
-                          child: CustomPaint(
-                            painter: TopDownPlayerPainter(
-                              color: player.color,
-                              borderColor: Colors.white,
-                              borderWidth: 1.5,
-                              gender: player.gender,
-                              isGhost: true,
-                            ),
+                          child: Stack(
+                            children: [
+                              CustomPaint(
+                                painter: TopDownPlayerPainter(
+                                  color: player.color,
+                                  borderColor: Colors.white,
+                                  borderWidth: 2,
+                                  gender: player.gender,
+                                  isGhost: true,
+                                ),
+                                size: Size.infinite,
+                              ),
+                              if (player.label.isNotEmpty &&
+                                  player.label.length <= 2)
+                                Align(
+                                  alignment: const Alignment(0, 0.35),
+                                  child: Text(
+                                    player.label,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13 * player.scale,
+                                      height: 1,
+                                      shadows: const [
+                                        Shadow(
+                                          color: Colors.black54,
+                                          blurRadius: 2,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
                       );
@@ -410,14 +441,19 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // Player icons
                   ...players.map((player) {
                     final animPos = state.animatedPositions[player.id];
+                    final selected = state.selectedPlayerId == player.id;
+                    final atStartTime =
+                        state.atStep == 0 && state.targetStep == 0;
                     return _PlayerOnBoard(
                       key: ValueKey(player.id),
                       player: player,
                       renderPosition: animPos,
-                      isSelected: state.selectedPlayerId == player.id,
+                      isSelected: selected,
+                      isPrimary: selected && state.selectedWaypointIndex == null,
+                      isAtCurrentStep: atStartTime,
                       isDrawingMode: state.isDrawingMode || state.isAnimating,
                       onTap: () => state.selectPlayer(
-                        state.selectedPlayerId == player.id ? null : player.id,
+                        selected ? null : player.id,
                       ),
                       onLongPress: () =>
                           _showEditDialog(context, state, player),
@@ -714,6 +750,8 @@ class _PlayerOnBoard extends StatefulWidget {
   final PlayerIcon player;
   final Offset? renderPosition; // animated override
   final bool isSelected;
+  final bool isPrimary;
+  final bool isAtCurrentStep; // start position is the current timeline step
   final bool isDrawingMode;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -723,6 +761,8 @@ class _PlayerOnBoard extends StatefulWidget {
     required this.player,
     this.renderPosition,
     required this.isSelected,
+    this.isPrimary = false,
+    this.isAtCurrentStep = true,
     required this.isDrawingMode,
     this.onTap,
     this.onLongPress,
@@ -740,32 +780,67 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     final player = widget.player;
     final pos = widget.renderPosition ?? player.position;
     final size = kPlayerIconSize * player.scale;
+    // Start-of-chain icons (player has moves, not animating) render as a
+    // faded ghost when the timeline is past step 0 — because the player's
+    // "current" position is somewhere along the chain, not at the start.
+    // At step 0 the start IS current, so show it solid. Primary tap always
+    // reveals the full icon.
+    final isStartWithMoves =
+        widget.renderPosition == null && player.moves.isNotEmpty;
+    final showGhostForStart = isStartWithMoves &&
+        !widget.isPrimary &&
+        !widget.isAtCurrentStep;
+    final iconWidget = PlayerIconWidget(
+      player: player,
+      isSelected: widget.isSelected,
+      onTap: widget.onTap,
+      onLongPress: widget.onLongPress,
+      onScaleStart: (d) {
+          _baseScale = player.scale;
+        },
+      onScaleUpdate: (d) {
+          final state = context.read<TacticsState>();
+          state.movePlayer(player.id, player.position + d.focalPointDelta);
+          if (d.pointerCount >= 2) {
+            state.resizePlayer(player.id, _baseScale * d.scale);
+          }
+        },
+      onScaleEnd: (d) {
+          final state = context.read<TacticsState>();
+          state.movePlayerEnd(player.id, player.position);
+          if (d.pointerCount >= 2) {
+            state.resizePlayerEnd(player.id);
+          }
+        },
+    );
+    // Hide the full icon entirely when start is not at the current step —
+    // the dashed ghost (TopDownPlayerPainter isGhost:true) drawn at the same
+    // position in the layer below will show through, giving a dashed outline.
+    final visibleIcon = showGhostForStart
+        ? Opacity(opacity: 0.0, child: iconWidget)
+        : iconWidget;
+    // Primary cyan glow only when the full icon is shown — a glow around an
+    // invisible ghost reads as a stray blob. Chain selection on the start
+    // position is implied by the glowing waypoints/end of the chain.
+    final BoxShadow? glow = widget.isPrimary
+        ? BoxShadow(
+            color: const Color(0xFF00E5CC).withValues(alpha: 0.85),
+            blurRadius: 16,
+            spreadRadius: 3,
+          )
+        : null;
     return Positioned(
       left: pos.dx - size / 2,
       top: pos.dy - size / 2,
-      child: PlayerIconWidget(
-        player: player,
-        isSelected: widget.isSelected,
-        onTap: widget.onTap,
-        onLongPress: widget.onLongPress,
-        onScaleStart: (d) {
-            _baseScale = player.scale;
-          },
-        onScaleUpdate: (d) {
-            final state = context.read<TacticsState>();
-            state.movePlayer(player.id, player.position + d.focalPointDelta);
-            if (d.pointerCount >= 2) {
-              state.resizePlayer(player.id, _baseScale * d.scale);
-            }
-          },
-        onScaleEnd: (d) {
-            final state = context.read<TacticsState>();
-            state.movePlayerEnd(player.id, player.position);
-            if (d.pointerCount >= 2) {
-              state.resizePlayerEnd(player.id);
-            }
-          },
-      ),
+      child: glow != null
+          ? DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [glow],
+              ),
+              child: visibleIcon,
+            )
+          : visibleIcon,
     );
   }
 }
@@ -778,6 +853,9 @@ class _WaypointDot extends StatefulWidget {
   final int index;
   final Offset position;
   final bool isLast;
+  final bool isSelected;
+  final bool isPrimary;
+  final bool isAtCurrentStep;
   final VoidCallback? onLongPress;
 
   const _WaypointDot({
@@ -786,6 +864,9 @@ class _WaypointDot extends StatefulWidget {
     required this.index,
     required this.position,
     this.isLast = false,
+    this.isSelected = false,
+    this.isPrimary = false,
+    this.isAtCurrentStep = true,
     this.onLongPress,
   });
 
@@ -816,12 +897,64 @@ class _WaypointDotState extends State<_WaypointDot> {
   }
 
   void _onTap() {
-    context.read<TacticsState>().selectPlayer(widget.player.id);
+    context
+        .read<TacticsState>()
+        .selectPlayerWaypoint(widget.player.id, widget.index);
   }
 
   @override
   Widget build(BuildContext context) {
     if (widget.isLast) {
+      // End icon is "current" when the timeline has advanced past step 0.
+      // When still at step 0 the end is a future destination — render the
+      // normal player shape as a dashed ghost outline (same style as the
+      // start ghost) so start/end use consistent "not current" styling.
+      final fadeEnd = !widget.isAtCurrentStep && !widget.isPrimary;
+      final Widget endIcon = SizedBox(
+        width: kPlayerIconSize,
+        height: kPlayerIconSize,
+        child: Stack(
+          children: [
+            CustomPaint(
+              painter: widget.player.isMarker
+                  ? MarkerPainter(
+                      shape: widget.player.markerShape,
+                      color: widget.player.color,
+                      isSelected: widget.isSelected,
+                    )
+                  : widget.player.isBall
+                  ? BallPainter.forSport(widget.player.sportType!)
+                  : TopDownPlayerPainter(
+                      color: widget.player.color,
+                      borderColor: widget.isPrimary
+                          ? const Color(0xFF00E5CC)
+                          : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
+                      borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
+                      isSelected: widget.isSelected && !fadeEnd,
+                      isGhost: fadeEnd,
+                      gender: widget.player.gender,
+                    ),
+              size: Size.infinite,
+            ),
+            if (widget.player.label.isNotEmpty &&
+                !widget.player.isMarker &&
+                !widget.player.isBall)
+              Align(
+                alignment: const Alignment(0, 0.35),
+                child: Text(
+                  widget.player.label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                    height: 1,
+                    shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      );
       return Positioned(
         left: widget.position.dx - kPlayerIconSize / 2,
         top: widget.position.dy - kPlayerIconSize / 2,
@@ -830,41 +963,7 @@ class _WaypointDotState extends State<_WaypointDot> {
           onPanUpdate: _onPanUpdate,
           onPanEnd: _onPanEnd,
           onLongPress: widget.onLongPress,
-          child: SizedBox(
-            width: kPlayerIconSize,
-            height: kPlayerIconSize,
-            child: Stack(
-              children: [
-                CustomPaint(
-                  painter: widget.player.isMarker
-                      ? MarkerPainter(shape: widget.player.markerShape, color: widget.player.color)
-                      : widget.player.isBall
-                      ? BallPainter.forSport(widget.player.sportType!)
-                      : TopDownPlayerPainter(
-                          color: widget.player.color,
-                          borderColor: widget.player.moveColor,
-                          borderWidth: 2.5,
-                          gender: widget.player.gender,
-                        ),
-                  size: Size.infinite,
-                ),
-                if (widget.player.label.isNotEmpty && !widget.player.isMarker && !widget.player.isBall)
-                  Align(
-                    alignment: const Alignment(0, 0.35),
-                    child: Text(
-                      widget.player.label,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                        height: 1,
-                        shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
+          child: endIcon,
         ),
       );
     }
@@ -889,8 +988,25 @@ class _WaypointDotState extends State<_WaypointDot> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: widget.player.moveColor,
-                border: Border.all(color: Colors.white, width: 2),
+                border: Border.all(
+                  color: widget.isPrimary
+                      ? const Color(0xFF00E5CC)
+                      : (widget.isSelected ? Colors.yellow : Colors.white),
+                  width: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2),
+                ),
                 boxShadow: [
+                  if (widget.isPrimary)
+                    BoxShadow(
+                      color: const Color(0xFF00E5CC).withValues(alpha: 0.85),
+                      blurRadius: 14,
+                      spreadRadius: 2,
+                    )
+                  else if (widget.isSelected)
+                    BoxShadow(
+                      color: Colors.yellow.withValues(alpha: 0.7),
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                    ),
                   BoxShadow(
                     color: Colors.black.withValues(alpha: 0.4),
                     blurRadius: 4,
