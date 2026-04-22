@@ -5,7 +5,7 @@ class VolleyballCourtPainter extends CourtPainterBase {
   const VolleyballCourtPainter()
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFFF57F17),
+          courtColor: const Color(0xFF2A5FA0),
         );
 
   @override

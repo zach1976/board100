@@ -5,7 +5,7 @@ class PickleballCourtPainter extends CourtPainterBase {
   const PickleballCourtPainter()
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2E7D32),
+          courtColor: const Color(0xFF2A6DA8),
         );
 
   @override

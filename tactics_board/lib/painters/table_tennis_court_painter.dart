@@ -5,13 +5,13 @@ class TableTennisCourtPainter extends CourtPainterBase {
   const TableTennisCourtPainter()
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF1565C0),
+          courtColor: const Color(0xFF1E4874),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height),
-        Paint()..color = const Color(0xFF1A4A5A)..style = PaintingStyle.fill);
+        Paint()..color = const Color(0xFF0E3452)..style = PaintingStyle.fill);
 
     final p = linePaint;
     final w = size.width;
@@ -33,7 +33,7 @@ class TableTennisCourtPainter extends CourtPainterBase {
     // Table surface
     canvas.drawRect(
       Rect.fromLTWH(left, top, tw, th),
-      Paint()..color = const Color(0xFF1565C0)..style = PaintingStyle.fill,
+      Paint()..color = const Color(0xFF1E4874)..style = PaintingStyle.fill,
     );
 
     final scX = tw / 1.525;

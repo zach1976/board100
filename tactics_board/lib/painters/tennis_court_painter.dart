@@ -5,7 +5,7 @@ class TennisCourtPainter extends CourtPainterBase {
   const TennisCourtPainter()
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF1565C0),
+          courtColor: const Color(0xFF2A65A5),
         );
 
   @override
