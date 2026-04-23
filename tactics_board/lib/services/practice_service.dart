@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import '../models/practice.dart';
 import '../models/sport_type.dart';
 import 'auth_service.dart';
+import 'cloud_sync_service.dart';
 import 'sync_service.dart';
 
 class PracticeService {
@@ -39,6 +40,7 @@ class PracticeService {
     p.updatedAt = DateTime.now();
     final file = File('${dir.path}/${p.name}.json');
     await file.writeAsString(jsonEncode(p.toJson()));
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       // Fire-and-forget cloud push
       SyncService.instance.pushPractice(p.name, sport.name, p.toJson());
@@ -67,6 +69,7 @@ class PracticeService {
     final dir = await _dir(sport);
     final file = File('${dir.path}/$name.json');
     if (await file.exists()) await file.delete();
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.deletePracticeByName(name, sport.name);
     }
@@ -78,6 +81,7 @@ class PracticeService {
     final oldFile = File('${dir.path}/$oldName.json');
     if (!await oldFile.exists()) return;
     await oldFile.rename('${dir.path}/$newName.json');
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       // Cloud: delete old name; next save() will push the new one
       SyncService.instance.deletePracticeByName(oldName, sport.name);

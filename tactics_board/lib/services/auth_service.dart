@@ -43,13 +43,13 @@ class AuthService {
       );
       final account = await googleSignIn.signIn();
       if (account == null) {
-        return AuthResult(error: 'Google sign-in cancelled');
+        return AuthResult(error: 'login_cancelled');
       }
 
       final authentication = await account.authentication;
       final idToken = authentication.idToken;
       if (idToken == null) {
-        return AuthResult(error: 'Failed to get Google ID token');
+        return AuthResult(error: 'login_failed');
       }
 
       // Send to backend
@@ -62,11 +62,11 @@ class AuthService {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         _token = data['token'] as String?;
-        _userName = data['user']?['name'] as String? ?? account.displayName;
+        _userName = data['user']?['display_name'] as String? ?? account.displayName;
         _userEmail = data['user']?['email'] as String? ?? account.email;
         return AuthResult(success: true, token: _token, name: _userName, email: _userEmail);
       } else {
-        return AuthResult(error: 'Server error: ${response.statusCode}');
+        return AuthResult(error: 'login_server_error');
       }
     } catch (e) {
       debugPrint('Google login error: $e');
@@ -89,8 +89,13 @@ class AuthService {
 
       final identityToken = credential.identityToken;
       if (identityToken == null) {
-        return AuthResult(error: 'Failed to get Apple identity token');
+        return AuthResult(error: 'login_failed');
       }
+
+      // Build display_name on first login (Apple only returns names the first time).
+      final displayName =
+          '${credential.givenName ?? ''} ${credential.familyName ?? ''}'
+              .trim();
 
       // Send to backend
       final response = await http.post(
@@ -102,6 +107,7 @@ class AuthService {
           'given_name': credential.givenName,
           'family_name': credential.familyName,
           'email': credential.email,
+          if (displayName.isNotEmpty) 'display_name': displayName,
         }),
         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       );
@@ -109,12 +115,12 @@ class AuthService {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         _token = data['token'] as String?;
-        _userName = data['user']?['name'] as String? ??
+        _userName = data['user']?['display_name'] as String? ??
             '${credential.givenName ?? ''} ${credential.familyName ?? ''}'.trim();
         _userEmail = data['user']?['email'] as String? ?? credential.email;
         return AuthResult(success: true, token: _token, name: _userName, email: _userEmail);
       } else {
-        return AuthResult(error: 'Server error: ${response.statusCode}');
+        return AuthResult(error: 'login_server_error');
       }
     } catch (e) {
       debugPrint('Apple login error: $e');

@@ -85,6 +85,13 @@ class TacticsBoardHomePage extends StatelessWidget {
                   onTap: () async {
                     final state = context.read<TacticsState>();
                     if (runName != null) {
+                      // Auto-save tactic edits made during a run, matching the
+                      // plan-edit branch below.
+                      if (state.currentTacticName != null) {
+                        try {
+                          await state.saveTactics(state.currentTacticName!);
+                        } catch (_) {}
+                      }
                       final startIdx = state.runningItemIndex;
                       state.runningPlanName = null;
                       state.editingFromPlan = null;
@@ -100,6 +107,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                       return;
                     }
                     if (planName != null) {
+                      // Auto-save tactic edits made while in plan-edit mode, so
+                      // the disk file (and cloud sync) pick up new players/moves
+                      // without requiring a manual Save tap.
+                      if (state.currentTacticName != null) {
+                        try {
+                          await state.saveTactics(state.currentTacticName!);
+                        } catch (_) {}
+                      }
                       state.editingFromPlan = null;
                       final p = await PracticeService.load(state.sportType, planName) ?? Practice(name: planName);
                       if (!context.mounted) return;
@@ -559,41 +574,25 @@ class _LoginPageState extends State<_LoginPage> {
   final _auth = AuthService.instance;
   bool _loading = false;
 
-  Future<void> _loginWithApple() async {
-    setState(() => _loading = true);
-    final result = await _auth.loginWithApple();
-    if (!mounted) return;
-    setState(() => _loading = false);
-    if (result.success) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
-      );
-      // Fire-and-forget sync: merge cloud data in on first render
-      CloudSyncService.syncNow();
-      Navigator.pop(context);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
-      );
+  @override
+  void initState() {
+    super.initState();
+    CloudSyncService.statusTick.addListener(_onStatusChange);
+    if (_auth.isLoggedIn) {
+      // Background probe so the status row reflects server state without
+      // forcing a full sync.
+      CloudSyncService.probeRemote();
     }
   }
 
-  Future<void> _loginWithGoogle() async {
-    setState(() => _loading = true);
-    final result = await _auth.loginWithGoogle();
-    if (!mounted) return;
-    setState(() => _loading = false);
-    if (result.success) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
-      );
-      CloudSyncService.syncNow();
-      Navigator.pop(context);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
-      );
-    }
+  @override
+  void dispose() {
+    CloudSyncService.statusTick.removeListener(_onStatusChange);
+    super.dispose();
+  }
+
+  void _onStatusChange() {
+    if (mounted) setState(() {});
   }
 
   Future<void> _manualSync() async {
@@ -604,6 +603,48 @@ class _LoginPageState extends State<_LoginPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('sync_done'.tr()), backgroundColor: Colors.green),
     );
+  }
+
+  Future<void> _loginWithApple() async {
+    setState(() => _loading = true);
+    final result = await _auth.loginWithApple();
+    if (!mounted) return;
+    if (result.success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
+      );
+      // Keep spinner on while we pull cloud data so the user doesn't see a
+      // half-populated screen if they navigate away immediately.
+      await CloudSyncService.syncNow();
+      if (!mounted) return;
+      setState(() => _loading = false);
+      Navigator.pop(context);
+    } else {
+      setState(() => _loading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
+      );
+    }
+  }
+
+  Future<void> _loginWithGoogle() async {
+    setState(() => _loading = true);
+    final result = await _auth.loginWithGoogle();
+    if (!mounted) return;
+    if (result.success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
+      );
+      await CloudSyncService.syncNow();
+      if (!mounted) return;
+      setState(() => _loading = false);
+      Navigator.pop(context);
+    } else {
+      setState(() => _loading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text((result.error ?? 'login_failed').tr())),
+      );
+    }
   }
 
   @override
@@ -634,23 +675,27 @@ class _LoginPageState extends State<_LoginPage> {
         Text(_auth.userName ?? 'User', style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
         if (_auth.userEmail != null)
           Text(_auth.userEmail!, style: const TextStyle(color: Colors.white54, fontSize: 14)),
-        const SizedBox(height: 32),
+        const SizedBox(height: 28),
+        _buildSyncStatus(),
+        const SizedBox(height: 12),
         SizedBox(
           width: double.infinity,
           child: ElevatedButton.icon(
-            onPressed: _loading ? null : _manualSync,
-            icon: _loading
-                ? const SizedBox(
-                    width: 18, height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                  )
-                : const Icon(Icons.cloud_sync, color: Colors.white),
+            onPressed: (_loading || CloudSyncService.isSyncing)
+                ? null
+                : _manualSync,
+            icon: const Icon(Icons.cloud_sync),
             label: Text('sync_now'.tr(),
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+                style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.bold)),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF2A65A5),
+              foregroundColor: Colors.white,
+              disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
+              disabledForegroundColor: Colors.white38,
               padding: const EdgeInsets.symmetric(vertical: 14),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),
@@ -660,6 +705,7 @@ class _LoginPageState extends State<_LoginPage> {
           child: ElevatedButton(
             onPressed: () {
               _auth.logout();
+              CloudSyncService.reset();
               setState(() {});
             },
             style: ElevatedButton.styleFrom(
@@ -670,13 +716,111 @@ class _LoginPageState extends State<_LoginPage> {
             child: Text('logout'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 40),
         TextButton(
-          onPressed: () => _confirmDeleteAccount(),
-          child: Text('delete_account'.tr(), style: const TextStyle(color: Colors.red, fontSize: 14)),
+          onPressed: _confirmDeleteAccount,
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white38,
+            padding: EdgeInsets.zero,
+            minimumSize: const Size(0, 28),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          child: Text(
+            'delete_account'.tr(),
+            style: const TextStyle(
+              color: Colors.white38,
+              fontSize: 12,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.white24,
+            ),
+          ),
         ),
       ],
     );
+  }
+
+  Widget _buildSyncStatus() {
+    final syncing = CloudSyncService.isSyncing;
+    final local = CloudSyncService.hasLocalPendingChanges;
+    final remote = CloudSyncService.hasRemoteUpdates;
+    final last = CloudSyncService.lastSyncAt;
+
+    IconData icon;
+    Color color;
+    String primary;
+    if (syncing) {
+      icon = Icons.sync;
+      color = const Color(0xFF7FC8FF);
+      primary = 'sync_status_syncing'.tr();
+    } else if (local && remote) {
+      icon = Icons.sync_problem;
+      color = const Color(0xFFFFB74D);
+      primary = 'sync_status_both_dirty'.tr();
+    } else if (local) {
+      icon = Icons.cloud_upload;
+      color = const Color(0xFFFFB74D);
+      primary = 'sync_status_local_dirty'.tr();
+    } else if (remote) {
+      icon = Icons.cloud_download;
+      color = const Color(0xFFFFB74D);
+      primary = 'sync_status_remote_dirty'.tr();
+    } else if (last == null) {
+      icon = Icons.cloud_off;
+      color = Colors.white54;
+      primary = 'sync_status_never'.tr();
+    } else {
+      icon = Icons.cloud_done;
+      color = const Color(0xFF80D88A);
+      primary = 'sync_status_synced'.tr();
+    }
+
+    final secondary = last != null
+        ? 'sync_last'.tr(args: [_formatRelativeTime(last)])
+        : null;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: color, size: 22),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(primary,
+                    style: TextStyle(
+                        color: color, fontSize: 14, fontWeight: FontWeight.w600)),
+                if (secondary != null) ...[
+                  const SizedBox(height: 2),
+                  Text(secondary,
+                      style: const TextStyle(
+                          color: Colors.white54, fontSize: 12)),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatRelativeTime(DateTime t) {
+    final diff = DateTime.now().difference(t);
+    if (diff.inMinutes < 1) return 'time_just_now'.tr();
+    if (diff.inHours < 1) {
+      return 'time_minutes_ago'.tr(args: [diff.inMinutes.toString()]);
+    }
+    if (diff.inDays < 1) {
+      return 'time_hours_ago'.tr(args: [diff.inHours.toString()]);
+    }
+    return 'time_days_ago'.tr(args: [diff.inDays.toString()]);
   }
 
   void _confirmDeleteAccount() {
