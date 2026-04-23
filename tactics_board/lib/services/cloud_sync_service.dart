@@ -115,9 +115,8 @@ class CloudSyncService {
     }
   }
 
-  /// Pull remote → local. Three parallel global fetches (tactics, practices,
-  /// history), then file I/O grouped by sport. Previously did 21 sequential
-  /// round-trips; now does 3 parallel.
+  /// Pull remote → local. Three parallel global fetches, then file I/O
+  /// grouped by sport. Tombstones (deleted_at set) delete local files.
   static Future<void> pullAll() async {
     if (!AuthService.instance.isLoggedIn) return;
     if (_syncing) return;
@@ -134,9 +133,12 @@ class CloudSyncService {
       final sessionsBySport = _groupBySport(results[2]);
 
       for (final sport in SportType.values) {
-        await _writeTacticsForSport(sport, tacticsBySport[sport.name] ?? const []);
-        await _writePracticesForSport(sport, practicesBySport[sport.name] ?? const []);
-        await _writeHistoryForSport(sport, sessionsBySport[sport.name] ?? const []);
+        await _applyTacticsForSport(
+            sport, tacticsBySport[sport.name] ?? const []);
+        await _applyPracticesForSport(
+            sport, practicesBySport[sport.name] ?? const []);
+        await _writeHistoryForSport(
+            sport, sessionsBySport[sport.name] ?? const []);
       }
       _lastSyncAt = DateTime.now();
       _remoteHasNewer = false;
@@ -148,9 +150,10 @@ class CloudSyncService {
     }
   }
 
-  /// Push local → remote. Gathers every sport's local files into three
-  /// batched payloads, then pushes them in parallel. Previously up to 21
-  /// sequential round-trips; now 3 parallel.
+  /// Push local → remote. Batches each sport's files into three payloads,
+  /// stamps each with the file mtime as `client_updated_at` so the server's
+  /// last-writer-wins gate has something to compare against. Server-returned
+  /// conflicts are applied locally (server version wins).
   static Future<void> pushAll() async {
     if (!AuthService.instance.isLoggedIn) return;
     final base = await _base();
@@ -175,8 +178,13 @@ class CloudSyncService {
             final players = (data['players'] as List?) ?? const [];
             final strokes = (data['strokes'] as List?) ?? const [];
             if (players.isEmpty && strokes.isEmpty) continue;
-            allTactics
-                .add({'name': name, 'sport_type': sport.name, 'data': data});
+            final mtime = (await f.stat()).modified.toUtc().toIso8601String();
+            allTactics.add({
+              'name': name,
+              'sport_type': sport.name,
+              'data': data,
+              'client_updated_at': mtime,
+            });
           } catch (_) {}
         }
       }
@@ -188,8 +196,13 @@ class CloudSyncService {
             final name = f.path.split('/').last.replaceAll('.json', '');
             final data =
                 jsonDecode(await f.readAsString()) as Map<String, dynamic>;
-            allPractices
-                .add({'name': name, 'sport_type': sport.name, 'data': data});
+            final mtime = (await f.stat()).modified.toUtc().toIso8601String();
+            allPractices.add({
+              'name': name,
+              'sport_type': sport.name,
+              'data': data,
+              'client_updated_at': mtime,
+            });
           } catch (_) {}
         }
       }
@@ -208,17 +221,37 @@ class CloudSyncService {
       }
     }
 
-    final pushes = <Future>[];
-    if (allTactics.isNotEmpty) {
-      pushes.add(SyncService.instance.pushAll(allTactics));
+    final tacticsPush = allTactics.isNotEmpty
+        ? SyncService.instance.pushAll(allTactics)
+        : Future.value(const BatchPushResult(0, []));
+    final practicesPush = allPractices.isNotEmpty
+        ? SyncService.instance.pushAllPractices(allPractices)
+        : Future.value(const BatchPushResult(0, []));
+    final sessionsPush = allSessions.isNotEmpty
+        ? SyncService.instance.pushAllSessions(allSessions)
+        : Future.value(0);
+
+    final tacticsResult = await tacticsPush;
+    final practicesResult = await practicesPush;
+    await sessionsPush;
+
+    // Apply server's "I'm newer" conflicts back to disk so the two sides
+    // converge to the server version. Group by sport so _applyForSport can
+    // do its existing directory setup.
+    if (tacticsResult.conflicts.isNotEmpty) {
+      final bySport = _groupBySport(tacticsResult.conflicts);
+      for (final entry in bySport.entries) {
+        final sport = _parseSport(entry.key);
+        if (sport != null) await _applyTacticsForSport(sport, entry.value);
+      }
     }
-    if (allPractices.isNotEmpty) {
-      pushes.add(SyncService.instance.pushAllPractices(allPractices));
+    if (practicesResult.conflicts.isNotEmpty) {
+      final bySport = _groupBySport(practicesResult.conflicts);
+      for (final entry in bySport.entries) {
+        final sport = _parseSport(entry.key);
+        if (sport != null) await _applyPracticesForSport(sport, entry.value);
+      }
     }
-    if (allSessions.isNotEmpty) {
-      pushes.add(SyncService.instance.pushAllSessions(allSessions));
-    }
-    if (pushes.isNotEmpty) await Future.wait(pushes);
 
     _lastSyncAt = DateTime.now();
     _bump();
@@ -235,6 +268,13 @@ class CloudSyncService {
     return m;
   }
 
+  static SportType? _parseSport(String name) {
+    for (final s in SportType.values) {
+      if (s.name == name) return s;
+    }
+    return null;
+  }
+
   /// Full sync: push local-only rows first, then pull remote to fill gaps.
   static Future<void> syncNow() async {
     await pushAll();
@@ -243,28 +283,34 @@ class CloudSyncService {
 
   // ─── internal ────────────────────────────────────────────────────────
 
-  static Future<void> _writeTacticsForSport(
+  /// Write server tactic rows to disk; tombstones (`deleted_at` non-null)
+  /// delete the local file instead.
+  static Future<void> _applyTacticsForSport(
       SportType sport, List<Map<String, dynamic>> remote) async {
     if (remote.isEmpty) return;
     final base = await _base();
     final dir = Directory('${base.path}/tactics/${sport.name}');
     if (!await dir.exists()) await dir.create(recursive: true);
 
-    // syncNow() always pushes first, so by the time we pull, server state
-    // already reflects any local-newer changes. Unconditionally write server
-    // data back to disk — earlier mtime-based skip logic caused empty local
-    // placeholders (e.g., created by the plan "add tactic" flow before real
-    // content was synced in) to block updates from the server forever.
     for (final r in remote) {
       final name = r['name'] as String?;
-      final data = _decodeDataField(r['data']);
-      if (name == null || name.isEmpty || data == null) continue;
+      if (name == null || name.isEmpty) continue;
       final file = File('${dir.path}/$name.json');
+      if (r['deleted_at'] != null) {
+        if (await file.exists()) {
+          try {
+            await file.delete();
+          } catch (_) {}
+        }
+        continue;
+      }
+      final data = _decodeDataField(r['data']);
+      if (data == null) continue;
       await file.writeAsString(jsonEncode(data));
     }
   }
 
-  static Future<void> _writePracticesForSport(
+  static Future<void> _applyPracticesForSport(
       SportType sport, List<Map<String, dynamic>> remote) async {
     if (remote.isEmpty) return;
     final base = await _base();
@@ -273,9 +319,18 @@ class CloudSyncService {
 
     for (final r in remote) {
       final name = r['name'] as String?;
-      final data = _decodeDataField(r['data']);
-      if (name == null || name.isEmpty || data == null) continue;
+      if (name == null || name.isEmpty) continue;
       final file = File('${dir.path}/$name.json');
+      if (r['deleted_at'] != null) {
+        if (await file.exists()) {
+          try {
+            await file.delete();
+          } catch (_) {}
+        }
+        continue;
+      }
+      final data = _decodeDataField(r['data']);
+      if (data == null) continue;
       await file.writeAsString(jsonEncode(data));
     }
   }

@@ -5,6 +5,15 @@ import 'auth_service.dart';
 
 const _apiBase = 'https://tacticsboard.100for1.com/api/v1';
 
+/// Result of a batch push. `conflicts` contains server rows whose
+/// `client_updated_at` was newer than what we pushed — the caller should
+/// overwrite local state with these (or delete locally for tombstones).
+class BatchPushResult {
+  final int accepted;
+  final List<Map<String, dynamic>> conflicts;
+  const BatchPushResult(this.accepted, this.conflicts);
+}
+
 class SyncService {
   static final SyncService _instance = SyncService._();
   static SyncService get instance => _instance;
@@ -16,14 +25,26 @@ class SyncService {
       'Authorization': 'Bearer ${AuthService.instance.token}',
   };
 
-  /// Push a single tactic to the server
-  Future<bool> pushTactic(String name, String sportType, Map<String, dynamic> data) async {
+  /// Push a single tactic. `clientUpdatedAt` is the logical modified time of
+  /// the local row (e.g. file mtime) — server uses it for last-writer-wins.
+  Future<bool> pushTactic(
+    String name,
+    String sportType,
+    Map<String, dynamic> data, {
+    DateTime? clientUpdatedAt,
+  }) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
       final response = await http.post(
         Uri.parse('$_apiBase/tactics'),
         headers: _headers,
-        body: jsonEncode({'name': name, 'sport_type': sportType, 'data': data}),
+        body: jsonEncode({
+          'name': name,
+          'sport_type': sportType,
+          'data': data,
+          if (clientUpdatedAt != null)
+            'client_updated_at': clientUpdatedAt.toUtc().toIso8601String(),
+        }),
       );
       return response.statusCode == 200 || response.statusCode == 201;
     } catch (e) {
@@ -32,9 +53,9 @@ class SyncService {
     }
   }
 
-  /// Push all local tactics to server
-  Future<int> pushAll(List<Map<String, dynamic>> tactics) async {
-    if (!AuthService.instance.isLoggedIn) return 0;
+  /// Batch push tactics. Each item may include `client_updated_at`.
+  Future<BatchPushResult> pushAll(List<Map<String, dynamic>> tactics) async {
+    if (!AuthService.instance.isLoggedIn) return const BatchPushResult(0, []);
     try {
       final response = await http.post(
         Uri.parse('$_apiBase/tactics/sync'),
@@ -42,17 +63,21 @@ class SyncService {
         body: jsonEncode({'tactics': tactics}),
       );
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data['synced'] as int? ?? 0;
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        final accepted =
+            (data['accepted'] as int?) ?? (data['synced'] as int?) ?? 0;
+        final conflicts = (data['conflicts'] as List?)
+                ?.cast<Map<String, dynamic>>() ??
+            const [];
+        return BatchPushResult(accepted, conflicts);
       }
-      return 0;
+      return const BatchPushResult(0, []);
     } catch (e) {
       debugPrint('Sync pushAll error: $e');
-      return 0;
+      return const BatchPushResult(0, []);
     }
   }
 
-  /// Pull all tactics from server
   Future<List<Map<String, dynamic>>> pullAll({String? since}) async {
     if (!AuthService.instance.isLoggedIn) return [];
     try {
@@ -69,7 +94,6 @@ class SyncService {
     }
   }
 
-  /// List tactics (metadata only)
   Future<List<Map<String, dynamic>>> listTactics({String? sportType}) async {
     if (!AuthService.instance.isLoggedIn) return [];
     try {
@@ -86,7 +110,6 @@ class SyncService {
     }
   }
 
-  /// Get a single tactic with full data
   Future<Map<String, dynamic>?> getTactic(int id) async {
     if (!AuthService.instance.isLoggedIn) return null;
     try {
@@ -102,7 +125,6 @@ class SyncService {
     }
   }
 
-  /// Delete a tactic from server
   Future<bool> deleteTactic(int id) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
@@ -114,14 +136,19 @@ class SyncService {
     }
   }
 
-  /// Delete a tactic from server by name + sport_type
-  Future<bool> deleteTacticByName(String name, String sportType) async {
+  Future<bool> deleteTacticByName(
+    String name,
+    String sportType, {
+    DateTime? clientUpdatedAt,
+  }) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
-      final uri = Uri.parse('$_apiBase/tactics').replace(queryParameters: {
-        'name': name,
-        'sport_type': sportType,
-      });
+      final qp = <String, String>{'name': name, 'sport_type': sportType};
+      if (clientUpdatedAt != null) {
+        qp['client_updated_at'] = clientUpdatedAt.toUtc().toIso8601String();
+      }
+      final uri =
+          Uri.parse('$_apiBase/tactics').replace(queryParameters: qp);
       final response = await http.delete(uri, headers: _headers);
       return response.statusCode == 200;
     } catch (e) {
@@ -132,16 +159,24 @@ class SyncService {
 
   // ─── Practice plans ──────────────────────────────────────────────────
 
-  /// Push a single practice plan (upsert by name + sport_type)
   Future<bool> pushPractice(
-      String name, String sportType, Map<String, dynamic> data) async {
+    String name,
+    String sportType,
+    Map<String, dynamic> data, {
+    DateTime? clientUpdatedAt,
+  }) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
       final response = await http.post(
         Uri.parse('$_apiBase/practices'),
         headers: _headers,
-        body: jsonEncode(
-            {'name': name, 'sport_type': sportType, 'data': data}),
+        body: jsonEncode({
+          'name': name,
+          'sport_type': sportType,
+          'data': data,
+          if (clientUpdatedAt != null)
+            'client_updated_at': clientUpdatedAt.toUtc().toIso8601String(),
+        }),
       );
       return response.statusCode == 200 || response.statusCode == 201;
     } catch (e) {
@@ -150,9 +185,9 @@ class SyncService {
     }
   }
 
-  /// Batch push practice plans
-  Future<int> pushAllPractices(List<Map<String, dynamic>> practices) async {
-    if (!AuthService.instance.isLoggedIn) return 0;
+  Future<BatchPushResult> pushAllPractices(
+      List<Map<String, dynamic>> practices) async {
+    if (!AuthService.instance.isLoggedIn) return const BatchPushResult(0, []);
     try {
       final response = await http.post(
         Uri.parse('$_apiBase/practices/sync'),
@@ -160,17 +195,21 @@ class SyncService {
         body: jsonEncode({'practices': practices}),
       );
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data['synced'] as int? ?? 0;
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        final accepted =
+            (data['accepted'] as int?) ?? (data['synced'] as int?) ?? 0;
+        final conflicts = (data['conflicts'] as List?)
+                ?.cast<Map<String, dynamic>>() ??
+            const [];
+        return BatchPushResult(accepted, conflicts);
       }
-      return 0;
+      return const BatchPushResult(0, []);
     } catch (e) {
       debugPrint('Sync pushAllPractices error: $e');
-      return 0;
+      return const BatchPushResult(0, []);
     }
   }
 
-  /// List practice plans (metadata only — name, updated_at)
   Future<List<Map<String, dynamic>>> listPractices({String? sportType}) async {
     if (!AuthService.instance.isLoggedIn) return [];
     try {
@@ -188,7 +227,6 @@ class SyncService {
     }
   }
 
-  /// Pull all practice plans (with full data) for a sport
   Future<List<Map<String, dynamic>>> pullAllPractices({
     String? sportType,
     String? since,
@@ -212,14 +250,19 @@ class SyncService {
     }
   }
 
-  /// Delete a practice plan on server by name + sport_type
-  Future<bool> deletePracticeByName(String name, String sportType) async {
+  Future<bool> deletePracticeByName(
+    String name,
+    String sportType, {
+    DateTime? clientUpdatedAt,
+  }) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
-      final uri = Uri.parse('$_apiBase/practices').replace(queryParameters: {
-        'name': name,
-        'sport_type': sportType,
-      });
+      final qp = <String, String>{'name': name, 'sport_type': sportType};
+      if (clientUpdatedAt != null) {
+        qp['client_updated_at'] = clientUpdatedAt.toUtc().toIso8601String();
+      }
+      final uri =
+          Uri.parse('$_apiBase/practices').replace(queryParameters: qp);
       final response = await http.delete(uri, headers: _headers);
       return response.statusCode == 200;
     } catch (e) {
@@ -230,7 +273,6 @@ class SyncService {
 
   // ─── Practice history ────────────────────────────────────────────────
 
-  /// Push a single history session (dedupes on plan_name + started_at)
   Future<bool> pushSession(Map<String, dynamic> session) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
@@ -246,7 +288,6 @@ class SyncService {
     }
   }
 
-  /// Batch push history sessions
   Future<int> pushAllSessions(List<Map<String, dynamic>> sessions) async {
     if (!AuthService.instance.isLoggedIn) return 0;
     try {
@@ -266,7 +307,6 @@ class SyncService {
     }
   }
 
-  /// List history sessions for a sport
   Future<List<Map<String, dynamic>>> listSessions({String? sportType}) async {
     if (!AuthService.instance.isLoggedIn) return [];
     try {
@@ -286,7 +326,6 @@ class SyncService {
     }
   }
 
-  /// Clear history on server (optionally per sport)
   Future<bool> clearSessions({String? sportType}) async {
     if (!AuthService.instance.isLoggedIn) return false;
     try {
