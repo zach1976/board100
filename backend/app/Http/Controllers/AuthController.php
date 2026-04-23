@@ -40,7 +40,10 @@ class AuthController extends Controller
                 if (!$user->apple_user_id) {
                     $user->update(['apple_user_id' => $appleUserId]);
                 }
-                if ($displayName && !$user->display_name) {
+                // Also overwrite the 'Apple User' placeholder if we now have a real name
+                // (Apple only returns the name once per Apple ID, so the first login
+                // that successfully forwards it wins).
+                if ($displayName && (!$user->display_name || $user->display_name === 'Apple User')) {
                     $user->update(['display_name' => $displayName]);
                 }
             } else {

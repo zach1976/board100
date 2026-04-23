@@ -10,6 +10,7 @@ import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
 import '../services/auth_service.dart';
+import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
 import '../services/sync_service.dart';
 
@@ -807,6 +808,7 @@ class TacticsState extends ChangeNotifier {
     final payload = toJson();
     await file.writeAsString(jsonEncode(payload));
     currentTacticName = name;
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.pushTactic(name, _sportType.name, payload);
     }
@@ -834,6 +836,7 @@ class TacticsState extends ChangeNotifier {
     if (await file.exists()) await file.delete();
     if (currentTacticName == name) currentTacticName = null;
     await PracticeService.purgeTacticReferences(_sportType, name);
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.deleteTacticByName(name, _sportType.name);
     }
@@ -848,6 +851,7 @@ class TacticsState extends ChangeNotifier {
     await oldFile.rename(newFile.path);
     if (currentTacticName == oldName) currentTacticName = newName;
     await PracticeService.renameTacticReferences(_sportType, oldName, newName);
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       // Cloud: remove old; next save will push the new name
       SyncService.instance.deleteTacticByName(oldName, _sportType.name);

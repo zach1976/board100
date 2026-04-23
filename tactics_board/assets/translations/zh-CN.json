@@ -171,5 +171,16 @@
   "practice_history_total_min": "总分钟",
   "practice_history_clear_title": "清除历史记录？",
   "sync_now": "立即同步",
-  "sync_done": "同步完成"
+  "sync_done": "同步完成",
+  "sync_status_synced": "已同步",
+  "sync_status_local_dirty": "本地有未同步的改动",
+  "sync_status_remote_dirty": "云端有新内容",
+  "sync_status_both_dirty": "有内容需要同步",
+  "sync_status_syncing": "同步中…",
+  "sync_status_never": "尚未同步",
+  "sync_last": "上次同步：{}",
+  "time_just_now": "刚刚",
+  "time_minutes_ago": "{} 分钟前",
+  "time_hours_ago": "{} 小时前",
+  "time_days_ago": "{} 天前"
 }

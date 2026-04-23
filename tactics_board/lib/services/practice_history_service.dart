@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import '../models/practice_session.dart';
 import '../models/sport_type.dart';
 import 'auth_service.dart';
+import 'cloud_sync_service.dart';
 import 'sync_service.dart';
 
 class PracticeHistoryService {
@@ -45,6 +46,7 @@ class PracticeHistoryService {
     final file = await _file(sport);
     await file.writeAsString(
         jsonEncode(all.map((s) => s.toJson()).toList()));
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.pushSession({
         'sport_type': sport.name,
@@ -62,6 +64,7 @@ class PracticeHistoryService {
   static Future<void> clear(SportType sport) async {
     final file = await _file(sport);
     if (await file.exists()) await file.delete();
+    CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.clearSessions(sportType: sport.name);
     }

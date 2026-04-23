@@ -171,5 +171,16 @@
   "practice_history_total_min": "Total min",
   "practice_history_clear_title": "Clear history?",
   "sync_now": "Sync Now",
-  "sync_done": "Sync complete"
+  "sync_done": "Sync complete",
+  "sync_status_synced": "All synced",
+  "sync_status_local_dirty": "Local changes pending",
+  "sync_status_remote_dirty": "Cloud has updates",
+  "sync_status_both_dirty": "Changes to sync",
+  "sync_status_syncing": "Syncing…",
+  "sync_status_never": "Not yet synced",
+  "sync_last": "Last synced {}",
+  "time_just_now": "just now",
+  "time_minutes_ago": "{} min ago",
+  "time_hours_ago": "{} h ago",
+  "time_days_ago": "{} d ago"
 }

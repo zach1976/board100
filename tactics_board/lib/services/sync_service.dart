@@ -170,6 +170,24 @@ class SyncService {
     }
   }
 
+  /// List practice plans (metadata only — name, updated_at)
+  Future<List<Map<String, dynamic>>> listPractices({String? sportType}) async {
+    if (!AuthService.instance.isLoggedIn) return [];
+    try {
+      final uri = Uri.parse(
+          '$_apiBase/practices${sportType != null ? '?sport_type=$sportType' : ''}');
+      final response = await http.get(uri, headers: _headers);
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return (data['practices'] as List).cast<Map<String, dynamic>>();
+      }
+      return [];
+    } catch (e) {
+      debugPrint('Sync listPractices error: $e');
+      return [];
+    }
+  }
+
   /// Pull all practice plans (with full data) for a sport
   Future<List<Map<String, dynamic>>> pullAllPractices({
     String? sportType,
