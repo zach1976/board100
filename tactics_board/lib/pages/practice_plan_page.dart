@@ -384,19 +384,20 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     super.dispose();
   }
 
-  Future<void> _saveIfDirty() async {
-    if (!_dirty) return;
+  /// Returns true on success, false if a rename collision blocked the save.
+  Future<bool> _saveIfDirty() async {
+    if (!_dirty) return true;
     final sport = widget.state.sportType;
     final newName = _nameCtrl.text.trim();
-    if (newName.isEmpty) return;
+    if (newName.isEmpty) return true;
     if (newName != _p.name) {
       final existing = await PracticeService.load(sport, newName);
       if (existing != null) {
-        if (!mounted) return;
+        if (!mounted) return false;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('practice_name_exists'.tr())),
         );
-        return;
+        return false;
       }
       await PracticeService.rename(sport, _p.name, newName);
       _p.name = newName;
@@ -404,6 +405,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     _p.notes = _notesCtrl.text;
     await PracticeService.save(sport, _p);
     _dirty = false;
+    return true;
   }
 
   Future<void> _saveCurrentAsNew() async {
@@ -584,8 +586,14 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: true,
-      onPopInvokedWithResult: (_, __) => _saveIfDirty(),
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        final ok = await _saveIfDirty();
+        if (!mounted) return;
+        if (!ok) return; // Name collision — stay on page so user can fix it
+        Navigator.of(context).pop();
+      },
       child: Scaffold(
         backgroundColor: _kBg,
         appBar: AppBar(
