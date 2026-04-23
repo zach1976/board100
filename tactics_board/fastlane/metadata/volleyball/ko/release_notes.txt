@@ -1,0 +1,2 @@
+- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
+- New sync status indicator on the login screen
