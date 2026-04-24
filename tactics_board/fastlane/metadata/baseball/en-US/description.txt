@@ -1,0 +1,22 @@
+See the diamond. Set the shift.
+
+Baseball Board is the coach's clipboard for defensive shifts, pickoff plays, and base coaching signals — baseball and softball, youth through varsity.
+
+DEFENSIVE SCHEMES
+
+- Accurate baseball diamond with infield and outfield zones
+- Drag the 9 defenders into position
+- Plan shifts vs. lefty/righty hitters
+- Animate double plays, relay throws, cutoffs
+
+BASE RUNNING & PICKOFFS
+
+- Diagram hit-and-runs, steals, squeeze plays
+- Pickoff moves from the mound
+- Home & away team colors
+
+COACH-FRIENDLY DESIGN
+
+- Offline · Dark theme · 50-step undo/redo · 11 languages
+
+From little league to travel ball — show your team where to stand.

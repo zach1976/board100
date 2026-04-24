@@ -1,2 +1,4 @@
-- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
-- New sync status indicator on the login screen
+- 8 olahraga baru: hoki lapangan, rugby, bisbol, bola tangan, polo air, sepak takraw, tenis pantai, footvolley
+- Penyempurnaan iPad: ikon pemain dan popup diskalakan dengan benar di layar 13 inci
+- Layar eksternal: kanvas lanskap dirender native dengan ikon pemain tegak
+- Perbaikan: garis pergerakan tidak otomatis muncul setelah animasi

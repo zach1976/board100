@@ -1,0 +1,23 @@
+Set the defense. Run the attack.
+
+Handball Board is the digital tactics tool for coaches planning 6-0, 5-1, and 3-2-1 defenses plus attacking positional play — indoor handball and beach.
+
+DEFENSIVE SCHEMES
+
+- Accurate 40×20 handball court with 6m and 9m arcs
+- Drag defenders into 6-0, 5-1, 3-2-1, or man-to-man
+- Plan double screens, switches, and trap zones
+- Animate shifts step by step
+
+ATTACKING PLAY
+
+- Pivot moves and crossing runs
+- Wing attacks and back-court combinations
+- Home & away team colors
+- Customize player names
+
+COACH-FRIENDLY DESIGN
+
+- Offline · Dark theme · 50-step undo/redo · 11 languages
+
+From club training to EHF — make every defensive shift crystal clear.

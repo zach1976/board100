@@ -1,2 +1,4 @@
-- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
-- New sync status indicator on the login screen
+- Thêm 8 môn thể thao: khúc côn cầu, rugby, bóng chày, bóng ném, bóng nước, cầu mây, quần vợt bãi biển, bóng chuyền chân
+- Tối ưu iPad: biểu tượng cầu thủ và popup hiển thị đúng trên màn hình 13 inch
+- Màn hình ngoài: khung ngang render gốc với biểu tượng cầu thủ đứng thẳng
+- Sửa lỗi: đường di chuyển không tự hiện sau khi chạy animation
