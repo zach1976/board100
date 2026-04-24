@@ -21,6 +21,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.waterPolo:    return const WaterPoloBallPainter();
       case SportType.sepakTakraw:  return const SepakTakrawBallPainter();
       case SportType.beachTennis:  return const BeachTennisBallPainter();
+      case SportType.footvolley:   return const FootvolleyBallPainter();
     }
   }
 
@@ -605,6 +606,65 @@ class BaseballBallPainter extends BallPainter {
     canvas.drawCircle(Offset(cx, cy), r,
         Paint()
           ..color = const Color(0xFF555555)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Footvolley Ball — beach soccer ball (white/colored panels, brighter than std)
+// ─────────────────────────────────────────────────────────────────────────────
+class FootvolleyBallPainter extends BallPainter {
+  const FootvolleyBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // Clip to circle
+    canvas.save();
+    canvas.clipPath(Path()..addOval(Rect.fromCircle(center: Offset(cx, cy), radius: r)));
+
+    // White base
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+
+    // Yellow-green tropical panels (footvolley balls are typically
+    // brightly colored for visibility on sand)
+    final yellow = Paint()
+      ..color = const Color(0xFFFFD600)
+      ..style = PaintingStyle.fill;
+    final green = Paint()
+      ..color = const Color(0xFF2E7D32)
+      ..style = PaintingStyle.fill;
+
+    // Center yellow band
+    canvas.drawRect(
+      Rect.fromLTWH(cx - r, cy - r * 0.35, r * 2, r * 0.70),
+      yellow,
+    );
+    // Green accent stripes
+    canvas.drawRect(
+      Rect.fromLTWH(cx - r, cy - r * 0.12, r * 2, r * 0.07),
+      green,
+    );
+    canvas.drawRect(
+      Rect.fromLTWH(cx - r, cy + r * 0.05, r * 2, r * 0.07),
+      green,
+    );
+
+    canvas.restore();
+
+    // Shine
+    canvas.drawCircle(Offset(cx - r * 0.3, cy - r * 0.35), r * 0.16,
+        Paint()..color = Colors.white.withValues(alpha: 0.5));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF333333)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
   }

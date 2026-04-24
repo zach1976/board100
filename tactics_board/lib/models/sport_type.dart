@@ -17,6 +17,7 @@ enum SportType {
   waterPolo,
   sepakTakraw,
   beachTennis,
+  footvolley,
 }
 
 extension SportTypeExtension on SportType {
@@ -36,6 +37,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:    return 'sport_water_polo';
       case SportType.sepakTakraw:  return 'sport_sepak_takraw';
       case SportType.beachTennis:  return 'sport_beach_tennis';
+      case SportType.footvolley:   return 'sport_footvolley';
     }
   }
 
@@ -57,6 +59,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:    return '🤽';
       case SportType.sepakTakraw:  return '🧶';
       case SportType.beachTennis:  return '🏖️';
+      case SportType.footvolley:   return '👣';
     }
   }
 
@@ -73,6 +76,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:
       case SportType.sepakTakraw:
       case SportType.beachTennis:
+      case SportType.footvolley:
         return true;
       case SportType.basketball:
       case SportType.soccer:
@@ -103,6 +107,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:    return ''; // not yet on App Store
       case SportType.sepakTakraw:  return ''; // not yet on App Store
       case SportType.beachTennis:  return ''; // not yet on App Store
+      case SportType.footvolley:   return ''; // not yet on App Store
     }
   }
 
@@ -123,6 +128,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:    return 'WaterPoloPoints';
       case SportType.sepakTakraw:  return 'SepakTakrawPoints';
       case SportType.beachTennis:  return 'BeachTennisPoints';
+      case SportType.footvolley:   return 'FootvolleyPoints';
     }
   }
 
@@ -143,6 +149,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:   return const Color(0xFF0277BD); // pool water blue
       case SportType.sepakTakraw: return const Color(0xFF1565C0); // indoor blue
       case SportType.beachTennis: return const Color(0xFFEAC478); // beach sand
+      case SportType.footvolley:  return const Color(0xFFE5B880); // beach sand
     }
   }
 
@@ -179,6 +186,7 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:   aspect = 20 / 30;     scaleW = 0.88; scaleH = 0.88; break;
       case SportType.sepakTakraw: aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
       case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.footvolley:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -871,6 +879,35 @@ extension SportTypeExtension on SportType {
             nameKey: 'formation_singles',
             homePositions: [Offset(0.50, 0.78)],
             awayPositions: [Offset(0.50, 0.22)],
+          ),
+        ];
+
+      case SportType.footvolley:
+        // Beach court 9m × 18m portrait. Net at y=0.5.
+        return const [
+          // Doubles — 2v2 standard footvolley
+          SportFormation(
+            nameKey: 'formation_doubles',
+            homePositions: [
+              Offset(0.30, 0.72),
+              Offset(0.70, 0.72),
+            ],
+            awayPositions: [
+              Offset(0.70, 0.28),
+              Offset(0.30, 0.28),
+            ],
+          ),
+          // 4v4 training variant
+          SportFormation(
+            nameKey: 'formation_4v4',
+            homePositions: [
+              Offset(0.25, 0.60), Offset(0.75, 0.60),
+              Offset(0.25, 0.82), Offset(0.75, 0.82),
+            ],
+            awayPositions: [
+              Offset(0.75, 0.40), Offset(0.25, 0.40),
+              Offset(0.75, 0.18), Offset(0.25, 0.18),
+            ],
           ),
         ];
     }
