@@ -518,6 +518,7 @@ class _BallWidgetState extends State<_BallWidget>
     final ball = ClipOval(
       child: CustomPaint(
         painter: BallPainter.forSport(widget.player.sportType!),
+        size: Size.infinite,
       ),
     );
 

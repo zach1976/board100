@@ -103,6 +103,38 @@ extension SportTypeExtension on SportType {
   /// True for racquet/net sports that have singles/doubles variants
   bool get hasDoubles => formations.any((f) => f.nameKey == 'formation_doubles');
 
+  /// Returns the playable field/court rect inside the canvas, matching the
+  /// geometry each sport's court painter draws. Formation coordinates (0..1)
+  /// are resolved against this rect so players stay inside the field lines
+  /// regardless of canvas aspect ratio (important on iPad portrait).
+  Rect fieldRect(Size canvasSize) {
+    final w = canvasSize.width;
+    final h = canvasSize.height;
+    // aspect = field width / field height (portrait, < 1)
+    late final double aspect;
+    // scaleW applies when fitting by width; scaleH when fitting by height.
+    late final double scaleW;
+    late final double scaleH;
+    switch (this) {
+      case SportType.soccer:      aspect = 68 / 105;    scaleW = 0.90; scaleH = 0.90; break;
+      case SportType.basketball:  aspect = 15 / 28;     scaleW = 0.90; scaleH = 0.90; break;
+      case SportType.badminton:   aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
+      case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.88; scaleH = 0.88; break;
+      case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
+    }
+    double cw, ch;
+    if (w / h > aspect) {
+      ch = h * scaleH;
+      cw = ch * aspect;
+    } else {
+      cw = w * scaleW;
+      ch = cw / aspect;
+    }
+    return Rect.fromLTWH((w - cw) / 2, (h - ch) / 2, cw, ch);
+  }
+
   List<SportFormation> get formations {
     switch (this) {
       case SportType.badminton:
@@ -286,13 +318,13 @@ extension SportTypeExtension on SportType {
               Offset(0.5, 0.80),  // GK
               Offset(0.14, 0.71), Offset(0.38, 0.70), Offset(0.62, 0.70), Offset(0.86, 0.71), // DEF
               Offset(0.14, 0.58), Offset(0.38, 0.57), Offset(0.62, 0.57), Offset(0.86, 0.58), // MID
-              Offset(0.38, 0.50), Offset(0.62, 0.50), // FWD
+              Offset(0.38, 0.52), Offset(0.62, 0.52), // FWD (home side of halfway)
             ],
             awayPositions: [
               Offset(0.5, 0.20),
               Offset(0.86, 0.29), Offset(0.62, 0.30), Offset(0.38, 0.30), Offset(0.14, 0.29),
               Offset(0.86, 0.42), Offset(0.62, 0.43), Offset(0.38, 0.43), Offset(0.14, 0.42),
-              Offset(0.62, 0.50), Offset(0.38, 0.50),
+              Offset(0.62, 0.48), Offset(0.38, 0.48), // FWD (away side of halfway)
             ],
           ),
           // 11v11: 4-3-3
@@ -302,13 +334,13 @@ extension SportTypeExtension on SportType {
               Offset(0.5, 0.80),  // GK
               Offset(0.14, 0.71), Offset(0.38, 0.70), Offset(0.62, 0.70), Offset(0.86, 0.71), // DEF
               Offset(0.28, 0.59), Offset(0.5, 0.58), Offset(0.72, 0.59), // MID
-              Offset(0.15, 0.50), Offset(0.5, 0.49), Offset(0.85, 0.50), // FWD
+              Offset(0.15, 0.52), Offset(0.5, 0.51), Offset(0.85, 0.52), // FWD (home side of halfway)
             ],
             awayPositions: [
               Offset(0.5, 0.20),
               Offset(0.86, 0.29), Offset(0.62, 0.30), Offset(0.38, 0.30), Offset(0.14, 0.29),
               Offset(0.72, 0.41), Offset(0.5, 0.42), Offset(0.28, 0.41),
-              Offset(0.85, 0.50), Offset(0.5, 0.51), Offset(0.15, 0.50),
+              Offset(0.85, 0.48), Offset(0.5, 0.49), Offset(0.15, 0.48), // FWD (away side of halfway)
             ],
           ),
           // 11v11: 3-5-2
@@ -318,13 +350,13 @@ extension SportTypeExtension on SportType {
               Offset(0.5, 0.80),  // GK
               Offset(0.22, 0.71), Offset(0.5, 0.70), Offset(0.78, 0.71), // DEF
               Offset(0.10, 0.59), Offset(0.32, 0.58), Offset(0.5, 0.57), Offset(0.68, 0.58), Offset(0.90, 0.59), // MID
-              Offset(0.38, 0.50), Offset(0.62, 0.50), // FWD
+              Offset(0.38, 0.52), Offset(0.62, 0.52), // FWD (home side of halfway)
             ],
             awayPositions: [
               Offset(0.5, 0.20),
               Offset(0.78, 0.29), Offset(0.5, 0.30), Offset(0.22, 0.29),
               Offset(0.90, 0.41), Offset(0.68, 0.42), Offset(0.5, 0.43), Offset(0.32, 0.42), Offset(0.10, 0.41),
-              Offset(0.62, 0.50), Offset(0.38, 0.50),
+              Offset(0.62, 0.48), Offset(0.38, 0.48), // FWD (away side of halfway)
             ],
           ),
           // 11v11: 4-2-3-1
@@ -366,13 +398,13 @@ extension SportTypeExtension on SportType {
               Offset(0.5, 0.80),
               Offset(0.25, 0.71), Offset(0.75, 0.71),
               Offset(0.15, 0.59), Offset(0.5, 0.58), Offset(0.85, 0.59),
-              Offset(0.5, 0.50),
+              Offset(0.5, 0.52), // FWD (home side of halfway)
             ],
             awayPositions: [
               Offset(0.5, 0.20),
               Offset(0.25, 0.29), Offset(0.75, 0.29),
               Offset(0.15, 0.41), Offset(0.5, 0.42), Offset(0.85, 0.41),
-              Offset(0.5, 0.50),
+              Offset(0.5, 0.48), // FWD (away side of halfway)
             ],
           ),
         ];
