@@ -18,6 +18,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.rugby:        return const RugbyBallPainter();
       case SportType.baseball:     return const BaseballBallPainter();
       case SportType.handball:     return const HandballBallPainter();
+      case SportType.waterPolo:    return const WaterPoloBallPainter();
     }
   }
 
@@ -602,6 +603,55 @@ class BaseballBallPainter extends BallPainter {
     canvas.drawCircle(Offset(cx, cy), r,
         Paint()
           ..color = const Color(0xFF555555)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Water Polo Ball — bright yellow with grippy textured surface
+// ─────────────────────────────────────────────────────────────────────────────
+class WaterPoloBallPainter extends BallPainter {
+  const WaterPoloBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // Bright yellow base (official water polo yellow)
+    final basePaint = Paint()
+      ..shader = RadialGradient(
+        center: const Alignment(-0.25, -0.3),
+        radius: 1.0,
+        colors: [const Color(0xFFFFEE58), const Color(0xFFFBC02D)],
+      ).createShader(Rect.fromCircle(center: Offset(cx, cy), radius: r));
+    canvas.drawCircle(Offset(cx, cy), r, basePaint);
+
+    // Latitude curves (gives rounded 3D look, typical of water polo ball)
+    final curve = Paint()
+      ..color = const Color(0xFFC88E00).withValues(alpha: 0.55)
+      ..strokeWidth = 1.1
+      ..style = PaintingStyle.stroke;
+    for (int i = -1; i <= 1; i++) {
+      final yOff = i * r * 0.45;
+      canvas.drawArc(
+        Rect.fromCenter(center: Offset(cx, cy + yOff), width: r * 2, height: r * 0.7),
+        0, pi, false, curve,
+      );
+    }
+    // Central vertical seam
+    canvas.drawLine(Offset(cx, cy - r), Offset(cx, cy + r), curve);
+
+    // Shine
+    canvas.drawCircle(Offset(cx - r * 0.3, cy - r * 0.32), r * 0.16,
+        Paint()..color = Colors.white.withValues(alpha: 0.55));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFFB38600)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
   }
