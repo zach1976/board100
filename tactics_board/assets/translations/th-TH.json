@@ -142,5 +142,8 @@
   "sport_baseball": "เบสบอล",
   "formation_defense": "รับลูก",
   "formation_bases_loaded": "เต็มเบส",
-  "formation_shift": "ปรับแนวรับ"
+  "formation_shift": "ปรับแนวรับ",
+  "sport_handball": "แฮนด์บอล",
+  "formation_attack_60": "บุก vs 6-0",
+  "formation_4v4": "4 คน"
 }

@@ -142,5 +142,8 @@
   "sport_baseball": "Besbol",
   "formation_defense": "Pertahanan",
   "formation_bases_loaded": "Pangkalan Penuh",
-  "formation_shift": "Anjakan"
+  "formation_shift": "Anjakan",
+  "sport_handball": "Bola Baling",
+  "formation_attack_60": "Serangan vs 6-0",
+  "formation_4v4": "4 lawan 4"
 }

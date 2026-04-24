@@ -13,6 +13,7 @@ enum SportType {
   fieldHockey,
   rugby,
   baseball,
+  handball,
 }
 
 extension SportTypeExtension on SportType {
@@ -28,6 +29,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey:  return 'sport_field_hockey';
       case SportType.rugby:        return 'sport_rugby';
       case SportType.baseball:     return 'sport_baseball';
+      case SportType.handball:     return 'sport_handball';
     }
   }
 
@@ -45,6 +47,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey:  return '🏑';
       case SportType.rugby:        return '🏉';
       case SportType.baseball:     return '⚾';
+      case SportType.handball:     return '🤾';
     }
   }
 
@@ -65,6 +68,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey:
       case SportType.rugby:
       case SportType.baseball:
+      case SportType.handball:
         return false;
     }
   }
@@ -83,6 +87,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey:  return ''; // not yet on App Store
       case SportType.rugby:        return ''; // not yet on App Store
       case SportType.baseball:     return ''; // not yet on App Store
+      case SportType.handball:     return ''; // not yet on App Store
     }
   }
 
@@ -99,6 +104,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey:  return 'FieldHockeyPoints';
       case SportType.rugby:        return 'RugbyPoints';
       case SportType.baseball:     return 'BaseballPoints';
+      case SportType.handball:     return 'HandballPoints';
     }
   }
 
@@ -115,6 +121,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
       case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
       case SportType.baseball:    return const Color(0xFF2E7D32); // outfield grass
+      case SportType.handball:    return const Color(0xFF1565C0); // indoor blue resin
     }
   }
 
@@ -147,6 +154,7 @@ extension SportTypeExtension on SportType {
       case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
       case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
+      case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -643,6 +651,72 @@ extension SportTypeExtension on SportType {
               Offset(0.45, 0.94), // LHB batter (left side of plate)
             ],
             addBall: false,
+          ),
+        ];
+
+      case SportType.handball:
+        // Court 20m × 40m portrait. Goals at y=0/1; 6m line ≈ 6/40=0.15;
+        // 9m line ≈ 0.225. Halfway = 0.5.
+        return const [
+          // 7v7 — standard 6+1 attack vs 6-0 defense
+          SportFormation(
+            nameKey: 'formation_7v7',
+            homePositions: [
+              Offset(0.50, 0.96),  // GK
+              Offset(0.08, 0.70),  // LW
+              Offset(0.28, 0.66),  // LB
+              Offset(0.50, 0.64),  // CB
+              Offset(0.72, 0.66),  // RB
+              Offset(0.92, 0.70),  // RW
+              Offset(0.50, 0.56),  // CR pivot
+            ],
+            awayPositions: [
+              Offset(0.50, 0.04),
+              Offset(0.08, 0.30),
+              Offset(0.28, 0.34),
+              Offset(0.50, 0.36),
+              Offset(0.72, 0.34),
+              Offset(0.92, 0.30),
+              Offset(0.50, 0.44),
+            ],
+          ),
+          // 7v7 — attack at opponent's 9m vs 6-0 defense
+          SportFormation(
+            nameKey: 'formation_attack_60',
+            homePositions: [
+              Offset(0.50, 0.96),
+              Offset(0.07, 0.32),  // LW high
+              Offset(0.28, 0.27),  // LB
+              Offset(0.50, 0.26),  // CB
+              Offset(0.72, 0.27),  // RB
+              Offset(0.93, 0.32),  // RW high
+              Offset(0.50, 0.18),  // CR on 6m
+            ],
+            awayPositions: [
+              Offset(0.50, 0.04),
+              Offset(0.12, 0.13),  // 6 defenders on own 6m
+              Offset(0.27, 0.16),
+              Offset(0.42, 0.17),
+              Offset(0.58, 0.17),
+              Offset(0.73, 0.16),
+              Offset(0.88, 0.13),
+            ],
+          ),
+          // 4v4 (beach handball / training)
+          SportFormation(
+            nameKey: 'formation_4v4',
+            homePositions: [
+              Offset(0.50, 0.96),  // GK
+              Offset(0.20, 0.62),
+              Offset(0.50, 0.58),
+              Offset(0.80, 0.62),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.04),
+              Offset(0.80, 0.38),
+              Offset(0.50, 0.42),
+              Offset(0.20, 0.38),
+            ],
           ),
         ];
     }

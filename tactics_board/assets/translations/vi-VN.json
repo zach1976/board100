@@ -142,5 +142,8 @@
   "sport_baseball": "Bóng chày",
   "formation_defense": "Phòng thủ",
   "formation_bases_loaded": "Đầy chốt",
-  "formation_shift": "Dịch chuyển"
+  "formation_shift": "Dịch chuyển",
+  "sport_handball": "Bóng ném",
+  "formation_attack_60": "Tấn công vs 6-0",
+  "formation_4v4": "4 đấu 4"
 }

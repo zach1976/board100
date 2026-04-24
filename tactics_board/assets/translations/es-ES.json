@@ -142,5 +142,8 @@
   "sport_baseball": "Béisbol",
   "formation_defense": "Defensa",
   "formation_bases_loaded": "Bases llenas",
-  "formation_shift": "Cambio defensivo"
+  "formation_shift": "Cambio defensivo",
+  "sport_handball": "Balonmano",
+  "formation_attack_60": "Ataque vs 6-0",
+  "formation_4v4": "4 contra 4"
 }

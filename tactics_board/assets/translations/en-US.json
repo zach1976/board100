@@ -192,5 +192,8 @@
   "sport_baseball": "Baseball",
   "formation_defense": "Defense",
   "formation_bases_loaded": "Bases Loaded",
-  "formation_shift": "Shift"
+  "formation_shift": "Shift",
+  "sport_handball": "Handball",
+  "formation_attack_60": "Attack vs 6-0",
+  "formation_4v4": "4 vs 4"
 }
