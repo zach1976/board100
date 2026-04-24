@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'toolbar.dart' show scaledSheet;
 
 class LanguagePicker {
   static const _languages = [
@@ -24,7 +25,7 @@ class LanguagePicker {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (ctx) => SafeArea(
+      builder: (ctx) => scaledSheet(ctx, SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +75,7 @@ class LanguagePicker {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }

@@ -128,7 +128,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    width: 32, height: 32,
+                    width: 32 * uiScale(context), height: 32 * uiScale(context),
                     decoration: BoxDecoration(
                       color: Colors.black.withValues(alpha: 0.45),
                       shape: BoxShape.circle,
@@ -139,7 +139,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_back_ios_new,
                       color: inPlanMode ? const Color(0xFF00E5CC) : Colors.white70,
-                      size: 16,
+                      size: 16 * uiScale(context),
                     ),
                   ),
                 );
@@ -155,9 +155,9 @@ class TacticsBoardHomePage extends StatelessWidget {
             builder: (context, visible, _) => GestureDetector(
               onTap: context.read<TacticsState>().toggleToolbar,
               child: Container(
-                width: 32, height: 32,
+                width: 32 * uiScale(context), height: 32 * uiScale(context),
                 decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
-                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18),
+                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18 * uiScale(context)),
               ),
             ),
           ),
@@ -174,7 +174,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         children: [
           if (sel.visible)
             SizedBox(
-              height: 48,
+              height: 48 * uiScale(context),
               child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
             ),
           AnimatedSize(
@@ -251,7 +251,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                       isScrollControlled: true,
                       constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-                      builder: (_) => TimelineEditor(state: state),
+                      builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
                     );
                   }),
                 ],
@@ -319,43 +319,45 @@ class TacticsBoardHomePage extends StatelessWidget {
 class _MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return PopupMenuButton<String>(
       onSelected: (value) => _onSelected(context, value),
       color: const Color(0xFF2A4D58),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       offset: const Offset(0, 40),
       child: Container(
-        width: 32,
-        height: 32,
+        width: 32 * s,
+        height: 32 * s,
         decoration: BoxDecoration(
           color: Colors.black.withValues(alpha: 0.45),
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.more_horiz, color: Colors.white70, size: 18),
+        child: Icon(Icons.more_horiz, color: Colors.white70, size: 18 * s),
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
         return [
-          _menuItem('practice', Icons.event_note_outlined, 'practice_plan'.tr()),
+          _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
-            _menuItem('scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
-          _menuItem('language', Icons.language, 'menu_language'.tr()),
-          _menuItem('contact', Icons.mail_outline, 'menu_contact'.tr()),
-          _menuItem('login', Icons.person_outline, 'menu_login'.tr()),
+            _menuItem(context, 'scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
+          _menuItem(context, 'language', Icons.language, 'menu_language'.tr()),
+          _menuItem(context, 'contact', Icons.mail_outline, 'menu_contact'.tr()),
+          _menuItem(context, 'login', Icons.person_outline, 'menu_login'.tr()),
         ];
       },
     );
   }
 
-  PopupMenuItem<String> _menuItem(String value, IconData icon, String label) {
+  PopupMenuItem<String> _menuItem(BuildContext context, String value, IconData icon, String label) {
+    final s = uiScale(context);
     return PopupMenuItem(
       value: value,
-      height: 44,
+      height: 44 * s,
       child: Row(
         children: [
-          Icon(icon, color: Colors.white70, size: 20),
-          const SizedBox(width: 12),
-          Text(label, style: const TextStyle(color: Colors.white, fontSize: 14)),
+          Icon(icon, color: Colors.white70, size: 20 * s),
+          SizedBox(width: 12 * s),
+          Text(label, style: TextStyle(color: Colors.white, fontSize: 14 * s)),
         ],
       ),
     );
@@ -396,7 +398,7 @@ class _MenuButton extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (_) => _ScorerPromoSheet(sport: sport, appName: appName, url: url),
+      builder: (ctx) => scaledSheet(ctx, _ScorerPromoSheet(sport: sport, appName: appName, url: url)),
     );
   }
 
@@ -1206,30 +1208,33 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                 // Collapse/expand toggle bar
                 GestureDetector(
                   onTap: () => setState(() => _collapsed = !_collapsed),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.06),
-                      border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          pinTop
-                              ? (_collapsed ? Icons.expand_more : Icons.expand_less)
-                              : (_collapsed ? Icons.expand_less : Icons.expand_more),
-                          color: Colors.white54, size: 22,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          (_collapsed ? 'more' : 'less').tr(),
-                          style: const TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: Builder(builder: (ctx) {
+                    final s = uiScale(ctx);
+                    return Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 16 * s),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.06),
+                        border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            pinTop
+                                ? (_collapsed ? Icons.expand_more : Icons.expand_less)
+                                : (_collapsed ? Icons.expand_less : Icons.expand_more),
+                            color: Colors.white54, size: 22 * s,
+                          ),
+                          SizedBox(width: 6 * s),
+                          Text(
+                            (_collapsed ? 'more' : 'less').tr(),
+                            style: TextStyle(color: Colors.white54, fontSize: 12 * s, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
                 ),
                 if (!_collapsed) panel,
               ],

@@ -264,7 +264,7 @@ class TacticsState extends ChangeNotifier {
       default:
         return team == PlayerTeam.home ? _canvasSize.height * 0.75
              : team == PlayerTeam.away ? _canvasSize.height * 0.25
-             : _canvasSize.height * 0.50;
+             : _canvasSize.height * 0.60;
     }
   }
 
@@ -523,31 +523,32 @@ class TacticsState extends ChangeNotifier {
     _players.clear();
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
-    final w = _canvasSize.width;
-    final h = _canvasSize.height;
+    // Map formation coords against the painted field rect so players stay
+    // inside the sidelines on any canvas aspect (iPad portrait in particular).
+    final field = _sportType.fieldRect(_canvasSize);
+    Offset toPos(Offset rel) =>
+        Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
     int homeNum = 1;
     int awayNum = 1;
     int colorIdx = 0;
     for (int i = 0; i < formation.homePositions.length; i++) {
-      final rel = formation.homePositions[i];
       _players.add(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_h$homeNum',
         label: '$homeNum',
         team: PlayerTeam.home,
         gender: homeGenders != null && i < homeGenders.length ? homeGenders[i] : PlayerGender.unspecified,
-        position: Offset(rel.dx * w, rel.dy * h),
+        position: toPos(formation.homePositions[i]),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       homeNum++;
     }
     for (int i = 0; i < formation.awayPositions.length; i++) {
-      final rel = formation.awayPositions[i];
       _players.add(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_a$awayNum',
         label: '$awayNum',
         team: PlayerTeam.away,
         gender: awayGenders != null && i < awayGenders.length ? awayGenders[i] : PlayerGender.unspecified,
-        position: Offset(rel.dx * w, rel.dy * h),
+        position: toPos(formation.awayPositions[i]),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       awayNum++;
@@ -560,8 +561,9 @@ class TacticsState extends ChangeNotifier {
   void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
     _saveSnapshot();
     _resetAnimationState();
-    final w = _canvasSize.width;
-    final h = _canvasSize.height;
+    final field = _sportType.fieldRect(_canvasSize);
+    Offset toPos(Offset rel) =>
+        Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
     final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
     final existingCount = _players.where((p) => p.team == team).length;
     int num = existingCount + 1;
@@ -571,7 +573,7 @@ class TacticsState extends ChangeNotifier {
         id: '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}$num',
         label: '$num',
         team: team,
-        position: Offset(rel.dx * w, rel.dy * h),
+        position: toPos(rel),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
       num++;

@@ -17,13 +17,28 @@ import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
 
+/// Tablet (shortestSide >= 600) gets 1.4× sizing for icons/buttons/fonts.
+double uiScale(BuildContext context) =>
+    MediaQuery.sizeOf(context).shortestSide >= 600 ? 1.4 : 1.0;
+
+/// Wraps a bottom-sheet / dialog child so all Text inside scales on tablets.
+/// Hardcoded icon/container sizes still need to be multiplied by uiScale(ctx).
+Widget scaledSheet(BuildContext ctx, Widget child) {
+  final s = uiScale(ctx);
+  if (s == 1.0) return child;
+  return MediaQuery(
+    data: MediaQuery.of(ctx).copyWith(textScaler: TextScaler.linear(s)),
+    child: child,
+  );
+}
+
 /// Public function to show save/load bottom sheet
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
     backgroundColor: const Color(0xFF213E48),
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder: (ctx) => _SaveLoadSheet(state: state),
+    builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)),
   );
 }
 
@@ -45,7 +60,7 @@ Future<String?> _pickShareFormat(BuildContext context) {
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
-    builder: (ctx) => SafeArea(
+    builder: (ctx) => scaledSheet(ctx, SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -62,7 +77,7 @@ Future<String?> _pickShareFormat(BuildContext context) {
           const SizedBox(height: 8),
         ],
       ),
-    ),
+    )),
   );
 }
 
@@ -157,7 +172,7 @@ void showAddElementSheet(BuildContext context, TacticsState state) {
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
-    builder: (ctx) => _AddPlayerSheet(state: state, sheetCtx: ctx),
+    builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
   );
 }
 
@@ -530,11 +545,12 @@ class _SegTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
           color: selected ? Colors.blue : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
@@ -543,9 +559,9 @@ class _SegTab extends StatelessWidget {
           opacity: onTap == null ? 0.4 : 1.0,
           child: Row(
             children: [
-              Icon(icon, color: Colors.white, size: 15),
-              const SizedBox(width: 4),
-              Text(label, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
+              Icon(icon, color: Colors.white, size: 15 * s),
+              SizedBox(width: 4 * s),
+              Text(label, style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
             ],
           ),
         ),
@@ -564,10 +580,11 @@ class _AddPlayerBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: () => _showSheet(context),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
           color: Colors.white10,
           borderRadius: BorderRadius.circular(20),
@@ -576,10 +593,10 @@ class _AddPlayerBtn extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.add, color: Colors.white, size: 15),
-            const SizedBox(width: 4),
+            Icon(Icons.add, color: Colors.white, size: 15 * s),
+            SizedBox(width: 4 * s),
             Text('add_label'.tr(),
-                style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
+                style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
           ],
         ),
       ),
@@ -597,7 +614,7 @@ class _AddPlayerBtn extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (ctx) => _AddPlayerSheet(state: state, sheetCtx: ctx),
+      builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
     );
   }
 }
@@ -721,22 +738,25 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           });
                         }
                       },
-                      child: Container(
-                        width: 52, height: 52,
-                        decoration: BoxDecoration(
-                          color: _showMore ? Colors.white.withValues(alpha: 0.12) : Colors.white.withValues(alpha: 0.05),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.white24),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(_showMore ? Icons.expand_less : Icons.more_horiz, color: Colors.white54, size: 18),
-                            Text(_showMore ? 'less'.tr() : 'more'.tr(),
-                                style: const TextStyle(color: Colors.white54, fontSize: 9)),
-                          ],
-                        ),
-                      ),
+                      child: Builder(builder: (ctx) {
+                        final s = uiScale(ctx);
+                        return Container(
+                          width: 52 * s, height: 52 * s,
+                          decoration: BoxDecoration(
+                            color: _showMore ? Colors.white.withValues(alpha: 0.12) : Colors.white.withValues(alpha: 0.05),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.white24),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(_showMore ? Icons.expand_less : Icons.more_horiz, color: Colors.white54, size: 18 * s),
+                              Text(_showMore ? 'less'.tr() : 'more'.tr(),
+                                  style: const TextStyle(color: Colors.white54, fontSize: 9)),
+                            ],
+                          ),
+                        );
+                      }),
                     ),
                   ],
                 ),
@@ -999,6 +1019,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
       _selectedFormation = formations.first;
     }
 
+    final s = uiScale(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
       child: Column(
@@ -1018,7 +1039,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                     _selectedFormation = null; // reset
                   }),
                   child: Container(
-                    width: 56,
+                    width: 56 * s,
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
                       color: selected ? Colors.blue : Colors.white.withValues(alpha: 0.08),
@@ -1185,7 +1206,7 @@ class _TeamFormationRow extends StatelessWidget {
                       Navigator.pop(sheetCtx);
                     },
                     child: Container(
-                      width: 56,
+                      width: 56 * uiScale(context),
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
                         color: color.withValues(alpha: 0.12),
@@ -1429,11 +1450,12 @@ class _MarkerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60,
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+        width: 60 * s,
+        padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 4 * s),
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.07),
           borderRadius: BorderRadius.circular(10),
@@ -1443,7 +1465,7 @@ class _MarkerCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             child,
-            const SizedBox(height: 4),
+            SizedBox(height: 4 * s),
             Text(label, style: const TextStyle(color: Colors.white60, fontSize: 11), overflow: TextOverflow.ellipsis),
           ],
         ),
@@ -1473,24 +1495,25 @@ class _SheetTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     final leading = iconWidget ??
         Container(
-          width: 40,
-          height: 40,
+          width: 40 * s,
+          height: 40 * s,
           decoration: BoxDecoration(
             color: bgColor ?? Colors.white10,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Icon(icon, color: iconColor ?? Colors.white, size: 22),
+          child: Icon(icon, color: iconColor ?? Colors.white, size: 22 * s),
         );
 
     return ListTile(
-      leading: SizedBox(width: 40, height: 40, child: leading),
+      leading: SizedBox(width: 40 * s, height: 40 * s, child: leading),
       title: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15)),
       subtitle: subtitle != null
           ? Text(subtitle!, style: const TextStyle(color: Colors.white54, fontSize: 12))
           : null,
-      trailing: const Icon(Icons.chevron_right, color: Colors.white24, size: 20),
+      trailing: Icon(Icons.chevron_right, color: Colors.white24, size: 20 * s),
       onTap: onTap,
     );
   }
@@ -1548,38 +1571,39 @@ class DrawingOptionsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sel = state.selectedStroke;
+    final s = uiScale(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         // Selected stroke actions
         if (sel != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 6, 12, 2),
+            padding: EdgeInsets.fromLTRB(12 * s, 6 * s, 12 * s, 2 * s),
             child: Row(
               children: [
-                Icon(Icons.gesture, color: sel.color, size: 16),
-                const SizedBox(width: 6),
-                Text('Line ${state.strokes.indexOf(sel) + 1}', style: TextStyle(color: sel.color, fontSize: 12, fontWeight: FontWeight.bold)),
+                Icon(Icons.gesture, color: sel.color, size: 16 * s),
+                SizedBox(width: 6 * s),
+                Text('Line ${state.strokes.indexOf(sel) + 1}', style: TextStyle(color: sel.color, fontSize: 12 * s, fontWeight: FontWeight.bold)),
                 const Spacer(),
                 GestureDetector(
                   onTap: () { state.deleteStroke(sel.id); },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding: EdgeInsets.symmetric(horizontal: 10 * s, vertical: 4 * s),
                     decoration: BoxDecoration(color: Colors.red.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(8)),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.delete, color: Colors.redAccent, size: 14),
-                        const SizedBox(width: 4),
-                        Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent, fontSize: 12)),
+                        Icon(Icons.delete, color: Colors.redAccent, size: 14 * s),
+                        SizedBox(width: 4 * s),
+                        Text('remove'.tr(), style: TextStyle(color: Colors.redAccent, fontSize: 12 * s)),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8 * s),
                 GestureDetector(
                   onTap: () => state.selectStroke(null),
-                  child: const Icon(Icons.close, color: Colors.white54, size: 18),
+                  child: Icon(Icons.close, color: Colors.white54, size: 18 * s),
                 ),
               ],
             ),
@@ -1669,12 +1693,13 @@ class _ColorDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(right: 6),
-        width: 24,
-        height: 24,
+        margin: EdgeInsets.only(right: 6 * s),
+        width: 24 * s,
+        height: 24 * s,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: color,
@@ -1696,16 +1721,17 @@ class _ToggleChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: EdgeInsets.symmetric(horizontal: 10 * s, vertical: 4 * s),
         decoration: BoxDecoration(
           color: selected ? Colors.blue : Colors.white10,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+        child: Text(label, style: TextStyle(color: Colors.white, fontSize: 13 * s, fontWeight: FontWeight.w500)),
       ),
     );
   }
@@ -1719,11 +1745,12 @@ class _IconBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(6),
-        child: Icon(icon, color: color ?? Colors.white70, size: 24),
+        padding: EdgeInsets.all(6 * s),
+        child: Icon(icon, color: color ?? Colors.white70, size: 24 * s),
       ),
     );
   }
@@ -1778,11 +1805,12 @@ class _SmallIconBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3),
-        child: Icon(icon, color: color, size: 20),
+        padding: EdgeInsets.symmetric(horizontal: 3 * s),
+        child: Icon(icon, color: color, size: 20 * s),
       ),
     );
   }
@@ -1797,19 +1825,20 @@ class _PlayButton extends StatelessWidget {
     final isPlaying = state.isAnimating;
     final canPlay = state.hasMoves && !isPlaying;
 
+    final s = uiScale(context);
     return GestureDetector(
       onTap: isPlaying ? state.stopAnimation : canPlay ? state.startAnimation : null,
       child: Opacity(
         opacity: (!isPlaying && !canPlay) ? 0.35 : 1.0,
         child: Container(
-          width: 38, height: 38,
+          width: 38 * s, height: 38 * s,
           decoration: BoxDecoration(
             color: isPlaying ? Colors.red.withValues(alpha: 0.2) : Colors.green.withValues(alpha: 0.2),
             shape: BoxShape.circle,
             border: Border.all(color: isPlaying ? Colors.red : Colors.lightGreenAccent, width: 1.5),
           ),
           child: Icon(isPlaying ? Icons.stop : Icons.play_arrow,
-              color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 24),
+              color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 24 * s),
         ),
       ),
     );
@@ -1826,11 +1855,12 @@ class _LinesToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     final show = state.showMoveLines;
     return GestureDetector(
       onTap: state.toggleShowMoveLines,
       child: Container(
-        width: 36, height: 36,
+        width: 36 * s, height: 36 * s,
         decoration: BoxDecoration(
           color: show ? Colors.white10 : Colors.red.withValues(alpha: 0.2),
           shape: BoxShape.circle,
@@ -1838,7 +1868,7 @@ class _LinesToggle extends StatelessWidget {
         child: Icon(
           show ? Icons.timeline : Icons.visibility_off,
           color: show ? Colors.white54 : Colors.redAccent,
-          size: 20,
+          size: 20 * s,
         ),
       ),
     );
@@ -1851,15 +1881,16 @@ class _TimelineBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return GestureDetector(
       onTap: () => _showTimeline(context),
       child: Container(
-        width: 36, height: 36,
+        width: 36 * s, height: 36 * s,
         decoration: BoxDecoration(
           color: Colors.purple.withValues(alpha: 0.2),
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20),
+        child: Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20 * s),
       ),
     );
   }
@@ -1871,7 +1902,7 @@ class _TimelineBtn extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (_) => TimelineEditor(state: state),
+      builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
     );
   }
 }
@@ -1882,18 +1913,19 @@ class _ResetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     final canReset = !state.isAnimating && state.atStep > 0;
     return GestureDetector(
       onTap: canReset ? state.clearAnimatedPositions : null,
       child: Opacity(
         opacity: canReset ? 1.0 : 0.35,
         child: Container(
-          width: 36, height: 36,
+          width: 36 * s, height: 36 * s,
           decoration: BoxDecoration(
             color: Colors.orange.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.replay, color: Colors.orange, size: 22),
+          child: Icon(Icons.replay, color: Colors.orange, size: 22 * s),
         ),
       ),
     );
@@ -1906,18 +1938,19 @@ class _StepBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     final canStep = !state.isAnimating && state.atStep > 0;
     return GestureDetector(
       onTap: canStep ? state.stepBackward : null,
       child: Opacity(
         opacity: canStep ? 1.0 : 0.35,
         child: Container(
-          width: 36, height: 36,
+          width: 36 * s, height: 36 * s,
           decoration: BoxDecoration(
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_previous, color: const Color(0xFF00E5CC), size: 22),
+          child: Icon(Icons.skip_previous, color: const Color(0xFF00E5CC), size: 22 * s),
         ),
       ),
     );
@@ -1930,9 +1963,10 @@ class _StepIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     return Text(
       '${state.atStep}/${state.maxMoveSteps}',
-      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+      style: TextStyle(color: Colors.white, fontSize: 16 * s, fontWeight: FontWeight.bold),
     );
   }
 }
@@ -1943,18 +1977,19 @@ class _StepForwardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = uiScale(context);
     final canStep = !state.isAnimating && state.atStep < state.maxMoveSteps;
     return GestureDetector(
       onTap: canStep ? state.stepForward : null,
       child: Opacity(
         opacity: canStep ? 1.0 : 0.35,
         child: Container(
-          width: 36, height: 36,
+          width: 36 * s, height: 36 * s,
           decoration: BoxDecoration(
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.skip_next, color: const Color(0xFF00E5CC), size: 22),
+          child: Icon(Icons.skip_next, color: const Color(0xFF00E5CC), size: 22 * s),
         ),
       ),
     );
