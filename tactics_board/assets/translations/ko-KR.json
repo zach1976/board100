@@ -150,5 +150,8 @@
   "practice_no_tactics": "먼저 전술을 저장하세요",
   "practice_delete_title": "이 계획을 삭제하시겠습니까?",
   "practice_name_exists": "같은 이름의 계획이 이미 있습니다",
-  "practice_item_note": "메모 (선택)"
+  "practice_item_note": "메모 (선택)",
+  "sport_rugby": "럭비",
+  "formation_15v15": "15인제",
+  "formation_13v13": "13인제"
 }

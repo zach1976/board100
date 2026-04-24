@@ -150,5 +150,8 @@
   "practice_no_tactics": "まず戦術を保存してください",
   "practice_delete_title": "このプランを削除しますか？",
   "practice_name_exists": "同名のプランがすでにあります",
-  "practice_item_note": "メモ（任意）"
+  "practice_item_note": "メモ（任意）",
+  "sport_rugby": "ラグビー",
+  "formation_15v15": "15人制",
+  "formation_13v13": "13人制"
 }

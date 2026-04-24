@@ -15,6 +15,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.pickleball:   return const PickleballPainter();
       case SportType.soccer:       return const SoccerBallPainter();
       case SportType.fieldHockey:  return const FieldHockeyBallPainter();
+      case SportType.rugby:        return const RugbyBallPainter();
     }
   }
 
@@ -484,5 +485,66 @@ class FieldHockeyBallPainter extends BallPainter {
           ..color = const Color(0xFF666666)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Rugby Ball — brown oval (prolate spheroid) with central seam and laces
+// ─────────────────────────────────────────────────────────────────────────────
+class RugbyBallPainter extends BallPainter {
+  const RugbyBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final rx = size.width * 0.48;
+    final ry = size.height * 0.30;
+
+    // Oval body (tilted ~30°)
+    canvas.save();
+    canvas.translate(cx, cy);
+    canvas.rotate(-pi / 6);
+
+    final body = Rect.fromCenter(center: Offset.zero, width: rx * 2, height: ry * 2);
+    canvas.drawOval(
+      body,
+      Paint()..color = const Color(0xFF6D4C2F)..style = PaintingStyle.fill,
+    );
+
+    // Highlight
+    final hi = Rect.fromCenter(
+      center: Offset(-rx * 0.18, -ry * 0.35),
+      width: rx * 0.9,
+      height: ry * 0.5,
+    );
+    canvas.drawOval(
+      hi,
+      Paint()..color = Colors.white.withValues(alpha: 0.18),
+    );
+
+    // Central seam (long axis)
+    final seam = Paint()
+      ..color = Colors.white.withValues(alpha: 0.85)
+      ..strokeWidth = 1.2
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(Offset(-rx * 0.85, 0), Offset(rx * 0.85, 0), seam);
+
+    // Lace stitches (4 short crossbars in middle)
+    for (int i = -1; i <= 2; i++) {
+      final x = i * rx * 0.18 - rx * 0.1;
+      canvas.drawLine(Offset(x, -ry * 0.18), Offset(x, ry * 0.18), seam);
+    }
+
+    // Outer outline
+    canvas.drawOval(
+      body,
+      Paint()
+        ..color = const Color(0xFF3E2A1A)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.0,
+    );
+
+    canvas.restore();
   }
 }
