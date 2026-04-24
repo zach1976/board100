@@ -138,5 +138,9 @@
   "share": "Share",
   "sport_rugby": "Rugbi",
   "formation_15v15": "15 lawan 15",
-  "formation_13v13": "13 lawan 13"
+  "formation_13v13": "13 lawan 13",
+  "sport_baseball": "Bisbol",
+  "formation_defense": "Bertahan",
+  "formation_bases_loaded": "Base Penuh",
+  "formation_shift": "Pergeseran"
 }

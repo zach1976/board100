@@ -138,5 +138,9 @@
   "share": "Share",
   "sport_rugby": "Ragbi",
   "formation_15v15": "15 lawan 15",
-  "formation_13v13": "13 lawan 13"
+  "formation_13v13": "13 lawan 13",
+  "sport_baseball": "Besbol",
+  "formation_defense": "Pertahanan",
+  "formation_bases_loaded": "Pangkalan Penuh",
+  "formation_shift": "Anjakan"
 }

@@ -138,5 +138,9 @@
   "share": "Share",
   "sport_rugby": "รักบี้",
   "formation_15v15": "15 คน",
-  "formation_13v13": "13 คน"
+  "formation_13v13": "13 คน",
+  "sport_baseball": "เบสบอล",
+  "formation_defense": "รับลูก",
+  "formation_bases_loaded": "เต็มเบส",
+  "formation_shift": "ปรับแนวรับ"
 }

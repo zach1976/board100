@@ -12,6 +12,7 @@ enum SportType {
   soccer,
   fieldHockey,
   rugby,
+  baseball,
 }
 
 extension SportTypeExtension on SportType {
@@ -26,6 +27,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:       return 'sport_soccer';
       case SportType.fieldHockey:  return 'sport_field_hockey';
       case SportType.rugby:        return 'sport_rugby';
+      case SportType.baseball:     return 'sport_baseball';
     }
   }
 
@@ -42,6 +44,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:       return '⚽';
       case SportType.fieldHockey:  return '🏑';
       case SportType.rugby:        return '🏉';
+      case SportType.baseball:     return '⚾';
     }
   }
 
@@ -61,6 +64,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:
       case SportType.fieldHockey:
       case SportType.rugby:
+      case SportType.baseball:
         return false;
     }
   }
@@ -78,6 +82,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:       return ''; // not yet on App Store
       case SportType.fieldHockey:  return ''; // not yet on App Store
       case SportType.rugby:        return ''; // not yet on App Store
+      case SportType.baseball:     return ''; // not yet on App Store
     }
   }
 
@@ -93,6 +98,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:       return 'SoccerPoints';
       case SportType.fieldHockey:  return 'FieldHockeyPoints';
       case SportType.rugby:        return 'RugbyPoints';
+      case SportType.baseball:     return 'BaseballPoints';
     }
   }
 
@@ -108,6 +114,7 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:      return const Color(0xFF2D8A2D);
       case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
       case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
+      case SportType.baseball:    return const Color(0xFF2E7D32); // outfield grass
     }
   }
 
@@ -139,6 +146,7 @@ extension SportTypeExtension on SportType {
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
       case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
+      case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -575,6 +583,66 @@ extension SportTypeExtension on SportType {
               Offset(0.68, 0.20),
               Offset(0.90, 0.15), Offset(0.10, 0.15),
             ],
+          ),
+        ];
+
+      case SportType.baseball:
+        // Square field, home plate at bottom-center (0.5, 0.92).
+        // Diamond rotated 45°: 1B right, 2B top, 3B left.
+        // Defensive 9 = home; batter (& runners) = away.
+        return const [
+          // Standard defense (9 fielders + batter at plate)
+          SportFormation(
+            nameKey: 'formation_defense',
+            homePositions: [
+              Offset(0.50, 0.78), // P  - mound
+              Offset(0.50, 0.96), // C  - behind plate
+              Offset(0.68, 0.74), // 1B
+              Offset(0.58, 0.62), // 2B
+              Offset(0.42, 0.62), // SS
+              Offset(0.32, 0.74), // 3B
+              Offset(0.20, 0.30), // LF
+              Offset(0.50, 0.18), // CF
+              Offset(0.80, 0.30), // RF
+            ],
+            awayPositions: [
+              Offset(0.55, 0.94), // batter (RHB)
+            ],
+            addBall: false,
+          ),
+          // Bases loaded (defense + batter + 3 runners)
+          SportFormation(
+            nameKey: 'formation_bases_loaded',
+            homePositions: [
+              Offset(0.50, 0.78), Offset(0.50, 0.96),
+              Offset(0.68, 0.74), Offset(0.58, 0.62),
+              Offset(0.42, 0.62), Offset(0.32, 0.74),
+              Offset(0.20, 0.30), Offset(0.50, 0.18), Offset(0.80, 0.30),
+            ],
+            awayPositions: [
+              Offset(0.55, 0.94), // batter
+              Offset(0.66, 0.76), // R1 on 1B
+              Offset(0.50, 0.60), // R2 on 2B
+              Offset(0.34, 0.76), // R3 on 3B
+            ],
+            addBall: false,
+          ),
+          // Infield shift (vs pull-hitter, e.g. LHB)
+          SportFormation(
+            nameKey: 'formation_shift',
+            homePositions: [
+              Offset(0.50, 0.78), // P
+              Offset(0.50, 0.96), // C
+              Offset(0.78, 0.70), // 1B  (deep right)
+              Offset(0.66, 0.58), // 2B  (shallow right field)
+              Offset(0.55, 0.62), // SS  (between bases, right side)
+              Offset(0.45, 0.62), // 3B  (where SS would be)
+              Offset(0.18, 0.30), Offset(0.50, 0.20), Offset(0.82, 0.32), // OF shift right
+            ],
+            awayPositions: [
+              Offset(0.45, 0.94), // LHB batter (left side of plate)
+            ],
+            addBall: false,
           ),
         ];
     }

@@ -188,5 +188,9 @@
   "time_days_ago": "{} 天前",
   "sport_rugby": "橄榄球",
   "formation_15v15": "15人制",
-  "formation_13v13": "13人制"
+  "formation_13v13": "13人制",
+  "sport_baseball": "棒球",
+  "formation_defense": "防守",
+  "formation_bases_loaded": "满垒",
+  "formation_shift": "防守偏移"
 }

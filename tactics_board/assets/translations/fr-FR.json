@@ -138,5 +138,9 @@
   "share": "Share",
   "sport_rugby": "Rugby",
   "formation_15v15": "15 contre 15",
-  "formation_13v13": "13 contre 13"
+  "formation_13v13": "13 contre 13",
+  "sport_baseball": "Baseball",
+  "formation_defense": "Défense",
+  "formation_bases_loaded": "Bases pleines",
+  "formation_shift": "Décalage"
 }

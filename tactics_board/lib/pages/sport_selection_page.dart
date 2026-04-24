@@ -11,6 +11,7 @@ import '../painters/pickleball_court_painter.dart';
 import '../painters/soccer_court_painter.dart';
 import '../painters/field_hockey_court_painter.dart';
 import '../painters/rugby_court_painter.dart';
+import '../painters/baseball_court_painter.dart';
 import '../state/tactics_state.dart';
 import '../widgets/language_picker.dart';
 import 'home_page.dart';
@@ -29,6 +30,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.soccer:       return const SoccerCourtPainter();
       case SportType.fieldHockey:  return const FieldHockeyCourtPainter();
       case SportType.rugby:        return const RugbyCourtPainter();
+      case SportType.baseball:     return const BaseballCourtPainter();
     }
   }
 
@@ -44,6 +46,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.soccer:       return const Color(0xFF66BB6A); // light green
       case SportType.fieldHockey:  return const Color(0xFF42A5F5); // sky blue (astroturf)
       case SportType.rugby:        return const Color(0xFF8D6E63); // earthy brown (rugby ball)
+      case SportType.baseball:     return const Color(0xFFD32F2F); // red (baseball stitching)
     }
   }
 

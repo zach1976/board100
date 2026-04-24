@@ -153,5 +153,9 @@
   "practice_item_note": "메모 (선택)",
   "sport_rugby": "럭비",
   "formation_15v15": "15인제",
-  "formation_13v13": "13인제"
+  "formation_13v13": "13인제",
+  "sport_baseball": "야구",
+  "formation_defense": "수비",
+  "formation_bases_loaded": "만루",
+  "formation_shift": "시프트"
 }
