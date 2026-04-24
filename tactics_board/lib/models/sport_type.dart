@@ -10,6 +10,7 @@ enum SportType {
   volleyball,
   pickleball,
   soccer,
+  fieldHockey,
 }
 
 extension SportTypeExtension on SportType {
@@ -22,6 +23,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:   return 'sport_volleyball';
       case SportType.pickleball:   return 'sport_pickleball';
       case SportType.soccer:       return 'sport_soccer';
+      case SportType.fieldHockey:  return 'sport_field_hockey';
     }
   }
 
@@ -36,6 +38,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:   return '🏐';
       case SportType.pickleball:   return '🥒';
       case SportType.soccer:       return '⚽';
+      case SportType.fieldHockey:  return '🏑';
     }
   }
 
@@ -53,6 +56,7 @@ extension SportTypeExtension on SportType {
         return true;
       case SportType.basketball:
       case SportType.soccer:
+      case SportType.fieldHockey:
         return false;
     }
   }
@@ -68,6 +72,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:   return '6761400656';
       case SportType.pickleball:   return '6744628482';
       case SportType.soccer:       return ''; // not yet on App Store
+      case SportType.fieldHockey:  return ''; // not yet on App Store
     }
   }
 
@@ -81,6 +86,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:   return 'VolleyballPoints';
       case SportType.pickleball:   return 'PicklePoints';
       case SportType.soccer:       return 'SoccerPoints';
+      case SportType.fieldHockey:  return 'FieldHockeyPoints';
     }
   }
 
@@ -94,6 +100,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:  return const Color(0xFFF57F17);
       case SportType.pickleball:  return const Color(0xFF2E7D32);
       case SportType.soccer:      return const Color(0xFF2D8A2D);
+      case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
     }
   }
 
@@ -123,6 +130,7 @@ extension SportTypeExtension on SportType {
       case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.85; scaleH = 0.85; break;
       case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
+      case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -405,6 +413,77 @@ extension SportTypeExtension on SportType {
               Offset(0.25, 0.29), Offset(0.75, 0.29),
               Offset(0.15, 0.41), Offset(0.5, 0.42), Offset(0.85, 0.41),
               Offset(0.5, 0.48), // FWD (away side of halfway)
+            ],
+          ),
+        ];
+
+      case SportType.fieldHockey:
+        // Field: 55m × 91.4m; 23m line ≈ y=0.75/0.25; shooting circle at 14.63m
+        return const [
+          // 11v11: 4-3-3 (modern attacking)
+          SportFormation(
+            nameKey: 'formation_433',
+            homePositions: [
+              Offset(0.5, 0.82),  // GK
+              Offset(0.15, 0.72), Offset(0.38, 0.71), Offset(0.62, 0.71), Offset(0.85, 0.72), // DEF
+              Offset(0.28, 0.58), Offset(0.5, 0.57), Offset(0.72, 0.58), // MID
+              Offset(0.18, 0.52), Offset(0.5, 0.51), Offset(0.82, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.18),
+              Offset(0.85, 0.28), Offset(0.62, 0.29), Offset(0.38, 0.29), Offset(0.15, 0.28),
+              Offset(0.72, 0.42), Offset(0.5, 0.43), Offset(0.28, 0.42),
+              Offset(0.82, 0.48), Offset(0.5, 0.49), Offset(0.18, 0.48),
+            ],
+          ),
+          // 11v11: 3-3-3-1 (modern balanced)
+          SportFormation(
+            nameKey: 'formation_3331',
+            homePositions: [
+              Offset(0.5, 0.82),  // GK
+              Offset(0.22, 0.72), Offset(0.5, 0.71), Offset(0.78, 0.72), // DEF
+              Offset(0.22, 0.62), Offset(0.5, 0.61), Offset(0.78, 0.62), // HALVES
+              Offset(0.22, 0.55), Offset(0.5, 0.54), Offset(0.78, 0.55), // MID
+              Offset(0.5, 0.50), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.18),
+              Offset(0.78, 0.28), Offset(0.5, 0.29), Offset(0.22, 0.28),
+              Offset(0.78, 0.38), Offset(0.5, 0.39), Offset(0.22, 0.38),
+              Offset(0.78, 0.45), Offset(0.5, 0.46), Offset(0.22, 0.45),
+              Offset(0.5, 0.50),
+            ],
+          ),
+          // 11v11: 5-3-2 (traditional defensive)
+          SportFormation(
+            nameKey: 'formation_532',
+            homePositions: [
+              Offset(0.5, 0.82),  // GK
+              Offset(0.12, 0.72), Offset(0.32, 0.71), Offset(0.5, 0.70), Offset(0.68, 0.71), Offset(0.88, 0.72), // DEF
+              Offset(0.28, 0.60), Offset(0.5, 0.59), Offset(0.72, 0.60), // MID
+              Offset(0.38, 0.52), Offset(0.62, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.18),
+              Offset(0.88, 0.28), Offset(0.68, 0.29), Offset(0.5, 0.30), Offset(0.32, 0.29), Offset(0.12, 0.28),
+              Offset(0.72, 0.40), Offset(0.5, 0.41), Offset(0.28, 0.40),
+              Offset(0.62, 0.48), Offset(0.38, 0.48),
+            ],
+          ),
+          // Hockey5s (5v5 + GK) — shorter pitch, but we keep same canvas
+          SportFormation(
+            nameKey: 'formation_5v5',
+            homePositions: [
+              Offset(0.5, 0.82),  // GK
+              Offset(0.25, 0.68), Offset(0.75, 0.68), // BACK
+              Offset(0.5, 0.58),                       // CENTER
+              Offset(0.25, 0.52), Offset(0.75, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.18),
+              Offset(0.75, 0.32), Offset(0.25, 0.32),
+              Offset(0.5, 0.42),
+              Offset(0.75, 0.48), Offset(0.25, 0.48),
             ],
           ),
         ];

@@ -14,6 +14,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.volleyball:   return const VolleyballPainter();
       case SportType.pickleball:   return const PickleballPainter();
       case SportType.soccer:       return const SoccerBallPainter();
+      case SportType.fieldHockey:  return const FieldHockeyBallPainter();
     }
   }
 
@@ -438,5 +439,50 @@ class SoccerBallPainter extends BallPainter {
     }
     path.close();
     canvas.drawPath(path, paint);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Field Hockey Ball — small white dimpled sphere
+// ─────────────────────────────────────────────────────────────────────────────
+class FieldHockeyBallPainter extends BallPainter {
+  const FieldHockeyBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // White base
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+
+    // Dimples — ring of small darker circles for texture
+    final dimplePaint = Paint()
+      ..color = const Color(0xFFBDBDBD)
+      ..style = PaintingStyle.fill;
+    const dimpleCount = 8;
+    for (int i = 0; i < dimpleCount; i++) {
+      final a = (2 * pi / dimpleCount) * i;
+      canvas.drawCircle(
+        Offset(cx + cos(a) * r * 0.55, cy + sin(a) * r * 0.55),
+        r * 0.10,
+        dimplePaint,
+      );
+    }
+    // Center dimple
+    canvas.drawCircle(Offset(cx, cy), r * 0.10, dimplePaint);
+
+    // Highlight
+    canvas.drawCircle(Offset(cx - r * 0.32, cy - r * 0.32), r * 0.16,
+        Paint()..color = Colors.white.withValues(alpha: 0.7));
+
+    // Border
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF666666)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
   }
 }
