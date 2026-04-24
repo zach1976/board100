@@ -20,6 +20,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.handball:     return const HandballBallPainter();
       case SportType.waterPolo:    return const WaterPoloBallPainter();
       case SportType.sepakTakraw:  return const SepakTakrawBallPainter();
+      case SportType.beachTennis:  return const BeachTennisBallPainter();
     }
   }
 
@@ -606,6 +607,65 @@ class BaseballBallPainter extends BallPainter {
           ..color = const Color(0xFF555555)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Beach Tennis Ball — depressurized tennis ball (softer yellow, single seam)
+// ─────────────────────────────────────────────────────────────────────────────
+class BeachTennisBallPainter extends BallPainter {
+  const BeachTennisBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // Muted yellow (depressurized ball is slightly paler than tennis)
+    final basePaint = Paint()
+      ..shader = RadialGradient(
+        center: const Alignment(-0.2, -0.3),
+        radius: 1.0,
+        colors: [const Color(0xFFE8E84A), const Color(0xFFC8C800)],
+      ).createShader(Rect.fromCircle(center: Offset(cx, cy), radius: r));
+    canvas.drawCircle(Offset(cx, cy), r, basePaint);
+
+    // White curved seam (single S-curve like tennis)
+    final seamPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 1.8
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+
+    final path1 = Path();
+    path1.moveTo(cx - r * 0.6, cy - r * 0.1);
+    path1.cubicTo(
+      cx - r * 0.2, cy - r * 0.9,
+      cx + r * 0.2, cy - r * 0.9,
+      cx + r * 0.6, cy - r * 0.1,
+    );
+    canvas.drawPath(path1, seamPaint);
+
+    final path2 = Path();
+    path2.moveTo(cx - r * 0.6, cy + r * 0.1);
+    path2.cubicTo(
+      cx - r * 0.2, cy + r * 0.9,
+      cx + r * 0.2, cy + r * 0.9,
+      cx + r * 0.6, cy + r * 0.1,
+    );
+    canvas.drawPath(path2, seamPaint);
+
+    // Shine
+    canvas.drawCircle(Offset(cx - r * 0.3, cy - r * 0.35), r * 0.14,
+        Paint()..color = Colors.white.withValues(alpha: 0.45));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF888800)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.8);
   }
 }
 

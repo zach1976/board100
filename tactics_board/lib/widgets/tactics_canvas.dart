@@ -20,6 +20,7 @@ import '../painters/baseball_court_painter.dart';
 import '../painters/handball_court_painter.dart';
 import '../painters/water_polo_court_painter.dart';
 import '../painters/sepak_takraw_court_painter.dart';
+import '../painters/beach_tennis_court_painter.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 
@@ -87,6 +88,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         return const WaterPoloCourtPainter();
       case SportType.sepakTakraw:
         return const SepakTakrawCourtPainter();
+      case SportType.beachTennis:
+        return const BeachTennisCourtPainter();
     }
   }
 
