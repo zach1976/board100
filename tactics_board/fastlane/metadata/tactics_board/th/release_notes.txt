@@ -1,2 +1,4 @@
-- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
-- New sync status indicator on the login screen
+- เพิ่ม 8 กีฬา: ฮอกกี้สนาม, รักบี้, เบสบอล, แฮนด์บอล, โปโลน้ำ, ตะกร้อ, เทนนิสชายหาด, ฟุตวอลเลย์
+- ปรับ iPad: ไอคอนผู้เล่นและ popup ปรับขนาดถูกต้องบนหน้าจอ 13 นิ้ว
+- จอนอก: เรนเดอร์แคนวาสแนวนอนแบบเนทีฟพร้อมไอคอนผู้เล่นตั้งตรง
+- แก้ไข: เส้นเคลื่อนที่ไม่แสดงอัตโนมัติหลังเล่นแอนิเมชัน

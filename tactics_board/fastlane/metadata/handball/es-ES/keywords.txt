@@ -1,0 +1,1 @@
+balonmano,cancha,entrenador,táctica,formación,ataque,defensa,6-0,5-1,ejercicio,pivote

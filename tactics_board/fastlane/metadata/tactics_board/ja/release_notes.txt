@@ -1,2 +1,4 @@
-- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
-- New sync status indicator on the login screen
+- 8 スポーツ追加：フィールドホッケー、ラグビー、野球、ハンドボール、水球、セパタクロー、ビーチテニス、フットボレー
+- iPad レイアウト調整：13 インチ画面で選手アイコンとポップアップが正しくスケール
+- 外部ディスプレイ：横向きキャンバスがネイティブレンダリング、選手アイコンが正しい向き
+- アニメーション再生後に移動ラインが自動表示されない問題を修正

@@ -1,0 +1,3 @@
+- Tối ưu iPad: biểu tượng cầu thủ và popup hiển thị đúng trên màn hình 13 inch
+- Màn hình ngoài: khung ngang render gốc với biểu tượng cầu thủ đứng thẳng
+- Sửa lỗi: đường di chuyển không tự hiện sau khi chạy animation

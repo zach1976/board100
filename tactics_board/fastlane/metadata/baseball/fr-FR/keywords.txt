@@ -1,0 +1,1 @@
+baseball,diamant,entraîneur,tactique,défense,intérieur,extérieur,jeu,stratégie,lanceur,softball

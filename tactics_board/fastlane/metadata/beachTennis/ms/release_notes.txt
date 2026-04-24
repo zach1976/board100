@@ -1,0 +1,3 @@
+- Penambahbaikan iPad: ikon pemain dan popup diskalakan dengan betul pada skrin 13 inci
+- Paparan luaran: kanvas lanskap dirender secara asli dengan ikon pemain tegak
+- Pembetulan: garis pergerakan tidak dipaparkan secara automatik selepas animasi

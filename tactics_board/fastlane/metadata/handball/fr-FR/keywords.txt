@@ -1,0 +1,1 @@
+handball,terrain,entraîneur,tactique,formation,attaque,défense,6-0,5-1,exercice,pivot

@@ -1,0 +1,1 @@
+béisbol,diamante,entrenador,táctica,defensa,cuadro,jardín,jugada,estrategia,lanzador,softbol

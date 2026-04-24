@@ -1,0 +1,23 @@
+Call it. Draw it. Play it.
+
+Rugby Board is the digital clipboard for coaches planning scrums, lineouts, and back-line moves — rugby union and league, 7s and 15s.
+
+BUILT FOR THE BREAKDOWN
+
+- Full rugby pitch with 22m, 10m, and halfway lines
+- Drag forwards and backs into position
+- Draw crash lines, switches, and defensive drift
+- Animate plays step by step
+
+SET PIECES COVERED
+
+- Scrum setup with 8 forwards
+- Lineout calls and lifting pods
+- Attack phases and defensive line speed
+- Home & away team colors
+
+COACH-FRIENDLY DESIGN
+
+- Offline · Dark theme · 50-step undo/redo · 11 languages
+
+From club 7s to Test rugby — make every phase crystal clear.

@@ -1,0 +1,3 @@
+- Ajuste iPad: iconos y pop-ups se escalan correctamente en pantallas de 13 pulgadas
+- Pantalla externa: lienzo horizontal se renderiza de forma nativa con iconos verticales
+- Corregido: las líneas de movimiento no se mostraban automáticamente tras la animación

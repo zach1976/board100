@@ -1,2 +1,3 @@
-- Fixed cloud sync: tactic and practice plan data now stays safe across multiple devices
-- New sync status indicator on the login screen
+- Ajustement iPad : icônes et popups correctement dimensionnés sur écrans 13 pouces
+- Affichage externe : rendu natif paysage avec icônes de joueurs à l'endroit
+- Correction : lignes de déplacement ne s'affichaient pas après animation
