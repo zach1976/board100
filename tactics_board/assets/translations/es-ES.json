@@ -145,5 +145,7 @@
   "formation_shift": "Cambio defensivo",
   "sport_handball": "Balonmano",
   "formation_attack_60": "Ataque vs 6-0",
-  "formation_4v4": "4 contra 4"
+  "formation_4v4": "4 contra 4",
+  "sport_water_polo": "Waterpolo",
+  "formation_6v5": "6 contra 5"
 }

@@ -195,5 +195,7 @@
   "formation_shift": "防守偏移",
   "sport_handball": "手球",
   "formation_attack_60": "6-0防守阵",
-  "formation_4v4": "4人制"
+  "formation_4v4": "4人制",
+  "sport_water_polo": "水球",
+  "formation_6v5": "6打5"
 }

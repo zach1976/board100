@@ -14,6 +14,7 @@ enum SportType {
   rugby,
   baseball,
   handball,
+  waterPolo,
 }
 
 extension SportTypeExtension on SportType {
@@ -30,6 +31,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:        return 'sport_rugby';
       case SportType.baseball:     return 'sport_baseball';
       case SportType.handball:     return 'sport_handball';
+      case SportType.waterPolo:    return 'sport_water_polo';
     }
   }
 
@@ -48,6 +50,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:        return '🏉';
       case SportType.baseball:     return '⚾';
       case SportType.handball:     return '🤾';
+      case SportType.waterPolo:    return '🤽';
     }
   }
 
@@ -69,6 +72,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:
       case SportType.baseball:
       case SportType.handball:
+      case SportType.waterPolo:
         return false;
     }
   }
@@ -88,6 +92,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:        return ''; // not yet on App Store
       case SportType.baseball:     return ''; // not yet on App Store
       case SportType.handball:     return ''; // not yet on App Store
+      case SportType.waterPolo:    return ''; // not yet on App Store
     }
   }
 
@@ -105,6 +110,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:        return 'RugbyPoints';
       case SportType.baseball:     return 'BaseballPoints';
       case SportType.handball:     return 'HandballPoints';
+      case SportType.waterPolo:    return 'WaterPoloPoints';
     }
   }
 
@@ -122,6 +128,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
       case SportType.baseball:    return const Color(0xFF2E7D32); // outfield grass
       case SportType.handball:    return const Color(0xFF1565C0); // indoor blue resin
+      case SportType.waterPolo:   return const Color(0xFF0277BD); // pool water blue
     }
   }
 
@@ -155,6 +162,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
       case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
       case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
+      case SportType.waterPolo:   aspect = 20 / 30;     scaleW = 0.88; scaleH = 0.88; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -716,6 +724,63 @@ extension SportTypeExtension on SportType {
               Offset(0.80, 0.38),
               Offset(0.50, 0.42),
               Offset(0.20, 0.38),
+            ],
+          ),
+        ];
+
+      case SportType.waterPolo:
+        // Pool 20m × 30m portrait. Goal y=0/1, 2m=0.067, 5m=0.167, 6m=0.20.
+        return const [
+          // 7v7 — umbrella attack vs M-zone defense
+          SportFormation(
+            nameKey: 'formation_7v7',
+            homePositions: [
+              Offset(0.50, 0.97), // GK
+              Offset(0.50, 0.10), // hole set (CF) at opp 2m
+              Offset(0.10, 0.20), // LW
+              Offset(0.90, 0.20), // RW
+              Offset(0.30, 0.18), // L flat/driver
+              Offset(0.70, 0.18), // R flat/driver
+              Offset(0.50, 0.30), // point
+            ],
+            awayPositions: [
+              Offset(0.50, 0.03), // GK
+              Offset(0.50, 0.13), // center back (hole D)
+              Offset(0.18, 0.18),
+              Offset(0.82, 0.18),
+              Offset(0.32, 0.22),
+              Offset(0.68, 0.22),
+              Offset(0.50, 0.28),
+            ],
+          ),
+          // Power play 6v5 (man-up attack)
+          SportFormation(
+            nameKey: 'formation_6v5',
+            homePositions: [
+              Offset(0.50, 0.97),
+              Offset(0.20, 0.10), Offset(0.50, 0.08), Offset(0.80, 0.10),
+              Offset(0.30, 0.20), Offset(0.70, 0.20),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.03),
+              Offset(0.30, 0.16), Offset(0.50, 0.14), Offset(0.70, 0.16),
+              Offset(0.50, 0.24),
+            ],
+          ),
+          // 5+1 (training / shorter sides)
+          SportFormation(
+            nameKey: 'formation_5v5',
+            homePositions: [
+              Offset(0.50, 0.97), // GK
+              Offset(0.50, 0.12), // hole
+              Offset(0.20, 0.22), Offset(0.80, 0.22),
+              Offset(0.50, 0.32),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.03),
+              Offset(0.50, 0.16),
+              Offset(0.25, 0.20), Offset(0.75, 0.20),
+              Offset(0.50, 0.28),
             ],
           ),
         ];

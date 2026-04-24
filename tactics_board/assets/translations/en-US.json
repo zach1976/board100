@@ -195,5 +195,7 @@
   "formation_shift": "Shift",
   "sport_handball": "Handball",
   "formation_attack_60": "Attack vs 6-0",
-  "formation_4v4": "4 vs 4"
+  "formation_4v4": "4 vs 4",
+  "sport_water_polo": "Water Polo",
+  "formation_6v5": "6 vs 5"
 }
