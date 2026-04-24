@@ -16,6 +16,7 @@ import '../painters/handball_court_painter.dart';
 import '../painters/water_polo_court_painter.dart';
 import '../painters/sepak_takraw_court_painter.dart';
 import '../painters/beach_tennis_court_painter.dart';
+import '../painters/footvolley_court_painter.dart';
 import '../state/tactics_state.dart';
 import '../widgets/language_picker.dart';
 import 'home_page.dart';
@@ -39,6 +40,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.waterPolo:    return const WaterPoloCourtPainter();
       case SportType.sepakTakraw:  return const SepakTakrawCourtPainter();
       case SportType.beachTennis:  return const BeachTennisCourtPainter();
+      case SportType.footvolley:   return const FootvolleyCourtPainter();
     }
   }
 
@@ -59,6 +61,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.waterPolo:    return const Color(0xFF0288D1); // pool blue
       case SportType.sepakTakraw:  return const Color(0xFFD4A017); // rattan gold
       case SportType.beachTennis:  return const Color(0xFFE6B058); // sand tan
+      case SportType.footvolley:   return const Color(0xFFFBC02D); // tropical yellow
     }
   }
 
