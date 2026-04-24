@@ -15,6 +15,7 @@ enum SportType {
   baseball,
   handball,
   waterPolo,
+  sepakTakraw,
 }
 
 extension SportTypeExtension on SportType {
@@ -32,6 +33,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:     return 'sport_baseball';
       case SportType.handball:     return 'sport_handball';
       case SportType.waterPolo:    return 'sport_water_polo';
+      case SportType.sepakTakraw:  return 'sport_sepak_takraw';
     }
   }
 
@@ -51,6 +53,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:     return '⚾';
       case SportType.handball:     return '🤾';
       case SportType.waterPolo:    return '🤽';
+      case SportType.sepakTakraw:  return '🧶';
     }
   }
 
@@ -65,6 +68,7 @@ extension SportTypeExtension on SportType {
       case SportType.tennis:
       case SportType.volleyball:
       case SportType.pickleball:
+      case SportType.sepakTakraw:
         return true;
       case SportType.basketball:
       case SportType.soccer:
@@ -93,6 +97,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:     return ''; // not yet on App Store
       case SportType.handball:     return ''; // not yet on App Store
       case SportType.waterPolo:    return ''; // not yet on App Store
+      case SportType.sepakTakraw:  return ''; // not yet on App Store
     }
   }
 
@@ -111,6 +116,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:     return 'BaseballPoints';
       case SportType.handball:     return 'HandballPoints';
       case SportType.waterPolo:    return 'WaterPoloPoints';
+      case SportType.sepakTakraw:  return 'SepakTakrawPoints';
     }
   }
 
@@ -129,6 +135,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:    return const Color(0xFF2E7D32); // outfield grass
       case SportType.handball:    return const Color(0xFF1565C0); // indoor blue resin
       case SportType.waterPolo:   return const Color(0xFF0277BD); // pool water blue
+      case SportType.sepakTakraw: return const Color(0xFF1565C0); // indoor blue
     }
   }
 
@@ -163,6 +170,7 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
       case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
       case SportType.waterPolo:   aspect = 20 / 30;     scaleW = 0.88; scaleH = 0.88; break;
+      case SportType.sepakTakraw: aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -781,6 +789,56 @@ extension SportTypeExtension on SportType {
               Offset(0.50, 0.16),
               Offset(0.25, 0.20), Offset(0.75, 0.20),
               Offset(0.50, 0.28),
+            ],
+          ),
+        ];
+
+      case SportType.sepakTakraw:
+        // Court 6.1m × 13.4m portrait (same as badminton doubles).
+        // Net at y=0.5. Service circle center at 2.45m from back line
+        //  → home y = 1 - 2.45/13.4 ≈ 0.817; away y ≈ 0.183.
+        // Quarter arcs (0.9m radius) sit at the sides of the net.
+        return const [
+          // Regu — 3v3 standard sepak takraw. Tekong (server) in service
+          // circle; Apit Kiri (left) and Apit Kanan (right) near the net
+          // quarter-arcs ready to spike.
+          SportFormation(
+            nameKey: 'formation_regu',
+            homePositions: [
+              Offset(0.50, 0.82), // Tekong (server)
+              Offset(0.20, 0.60), // Apit Kiri (inside left)
+              Offset(0.80, 0.60), // Apit Kanan (inside right)
+            ],
+            awayPositions: [
+              Offset(0.50, 0.18),
+              Offset(0.80, 0.40),
+              Offset(0.20, 0.40),
+            ],
+          ),
+          // Doubles — 2v2 variant
+          SportFormation(
+            nameKey: 'formation_doubles',
+            homePositions: [
+              Offset(0.50, 0.82), // server
+              Offset(0.50, 0.62), // striker near net
+            ],
+            awayPositions: [
+              Offset(0.50, 0.18),
+              Offset(0.50, 0.38),
+            ],
+          ),
+          // Quadrant — 4v4 training variant
+          SportFormation(
+            nameKey: 'formation_4v4',
+            homePositions: [
+              Offset(0.50, 0.82),
+              Offset(0.20, 0.70), Offset(0.80, 0.70),
+              Offset(0.50, 0.60),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.18),
+              Offset(0.80, 0.30), Offset(0.20, 0.30),
+              Offset(0.50, 0.40),
             ],
           ),
         ];

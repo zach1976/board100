@@ -162,5 +162,7 @@
   "formation_attack_60": "6-0守備対攻撃",
   "formation_4v4": "4対4",
   "sport_water_polo": "水球",
-  "formation_6v5": "6対5"
+  "formation_6v5": "6対5",
+  "sport_sepak_takraw": "セパタクロー",
+  "formation_regu": "レグ (3v3)"
 }

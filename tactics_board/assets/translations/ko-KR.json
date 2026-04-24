@@ -162,5 +162,7 @@
   "formation_attack_60": "6-0 수비 공격",
   "formation_4v4": "4대4",
   "sport_water_polo": "수구",
-  "formation_6v5": "6대5"
+  "formation_6v5": "6대5",
+  "sport_sepak_takraw": "세팍타크로",
+  "formation_regu": "레구 (3v3)"
 }
