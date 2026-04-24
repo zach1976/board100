@@ -135,5 +135,8 @@
   "neutral_male": "Pria",
   "neutral_female": "Wanita",
   "remove_move_confirm": "Hapus langkah ini?",
-  "share": "Share"
+  "share": "Share",
+  "sport_rugby": "Rugbi",
+  "formation_15v15": "15 lawan 15",
+  "formation_13v13": "13 lawan 13"
 }

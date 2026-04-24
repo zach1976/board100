@@ -135,5 +135,8 @@
   "neutral_male": "ชาย",
   "neutral_female": "หญิง",
   "remove_move_confirm": "ลบขั้นตอนการเคลื่อนที่นี้?",
-  "share": "Share"
+  "share": "Share",
+  "sport_rugby": "รักบี้",
+  "formation_15v15": "15 คน",
+  "formation_13v13": "13 คน"
 }

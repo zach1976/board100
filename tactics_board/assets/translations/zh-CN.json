@@ -185,5 +185,8 @@
   "time_just_now": "刚刚",
   "time_minutes_ago": "{} 分钟前",
   "time_hours_ago": "{} 小时前",
-  "time_days_ago": "{} 天前"
+  "time_days_ago": "{} 天前",
+  "sport_rugby": "橄榄球",
+  "formation_15v15": "15人制",
+  "formation_13v13": "13人制"
 }

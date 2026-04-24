@@ -135,5 +135,8 @@
   "neutral_male": "Hombre",
   "neutral_female": "Mujer",
   "remove_move_confirm": "¿Eliminar este paso?",
-  "share": "Share"
+  "share": "Share",
+  "sport_rugby": "Rugby",
+  "formation_15v15": "15 contra 15",
+  "formation_13v13": "13 contra 13"
 }

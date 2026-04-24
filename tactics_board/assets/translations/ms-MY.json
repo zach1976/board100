@@ -135,5 +135,8 @@
   "neutral_male": "Lelaki",
   "neutral_female": "Perempuan",
   "remove_move_confirm": "Padam langkah ini?",
-  "share": "Share"
+  "share": "Share",
+  "sport_rugby": "Ragbi",
+  "formation_15v15": "15 lawan 15",
+  "formation_13v13": "13 lawan 13"
 }

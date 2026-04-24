@@ -11,6 +11,7 @@ enum SportType {
   pickleball,
   soccer,
   fieldHockey,
+  rugby,
 }
 
 extension SportTypeExtension on SportType {
@@ -24,6 +25,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:   return 'sport_pickleball';
       case SportType.soccer:       return 'sport_soccer';
       case SportType.fieldHockey:  return 'sport_field_hockey';
+      case SportType.rugby:        return 'sport_rugby';
     }
   }
 
@@ -39,6 +41,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:   return '🥒';
       case SportType.soccer:       return '⚽';
       case SportType.fieldHockey:  return '🏑';
+      case SportType.rugby:        return '🏉';
     }
   }
 
@@ -57,6 +60,7 @@ extension SportTypeExtension on SportType {
       case SportType.basketball:
       case SportType.soccer:
       case SportType.fieldHockey:
+      case SportType.rugby:
         return false;
     }
   }
@@ -73,6 +77,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:   return '6744628482';
       case SportType.soccer:       return ''; // not yet on App Store
       case SportType.fieldHockey:  return ''; // not yet on App Store
+      case SportType.rugby:        return ''; // not yet on App Store
     }
   }
 
@@ -87,6 +92,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:   return 'PicklePoints';
       case SportType.soccer:       return 'SoccerPoints';
       case SportType.fieldHockey:  return 'FieldHockeyPoints';
+      case SportType.rugby:        return 'RugbyPoints';
     }
   }
 
@@ -101,6 +107,7 @@ extension SportTypeExtension on SportType {
       case SportType.pickleball:  return const Color(0xFF2E7D32);
       case SportType.soccer:      return const Color(0xFF2D8A2D);
       case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
+      case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
     }
   }
 
@@ -131,6 +138,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
       case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
+      case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
     }
     double cw, ch;
     if (w / h > aspect) {
@@ -484,6 +492,88 @@ extension SportTypeExtension on SportType {
               Offset(0.75, 0.32), Offset(0.25, 0.32),
               Offset(0.5, 0.42),
               Offset(0.75, 0.48), Offset(0.25, 0.48),
+            ],
+          ),
+        ];
+
+      case SportType.rugby:
+        // Field 70m × 144m (incl. in-goals). Try lines ≈ y=0.153/0.847,
+        // halfway = 0.5. Players placed inside the playing area.
+        return const [
+          // 15v15 Rugby Union — phase-play attacking shape
+          SportFormation(
+            nameKey: 'formation_15v15',
+            homePositions: [
+              // Forwards (8) — pod near halfway
+              Offset(0.42, 0.65), Offset(0.50, 0.65), Offset(0.58, 0.65), // front row
+              Offset(0.46, 0.69), Offset(0.54, 0.69),                     // locks
+              Offset(0.40, 0.72), Offset(0.50, 0.73), Offset(0.60, 0.72), // back row
+              // Backs (7)
+              Offset(0.50, 0.77), // 9 scrum-half
+              Offset(0.36, 0.79), // 10 fly-half
+              Offset(0.27, 0.80), // 12 inside center
+              Offset(0.18, 0.80), // 13 outside center
+              Offset(0.07, 0.78), // 11 left wing
+              Offset(0.93, 0.78), // 14 right wing
+              Offset(0.50, 0.90), // 15 full-back
+            ],
+            awayPositions: [
+              Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
+              Offset(0.54, 0.31), Offset(0.46, 0.31),
+              Offset(0.60, 0.28), Offset(0.50, 0.27), Offset(0.40, 0.28),
+              Offset(0.50, 0.23),
+              Offset(0.64, 0.21),
+              Offset(0.73, 0.20),
+              Offset(0.82, 0.20),
+              Offset(0.93, 0.22),
+              Offset(0.07, 0.22),
+              Offset(0.50, 0.10),
+            ],
+          ),
+          // 13v13 Rugby League
+          SportFormation(
+            nameKey: 'formation_13v13',
+            homePositions: [
+              // Forwards (6)
+              Offset(0.40, 0.66), Offset(0.50, 0.66), Offset(0.60, 0.66),
+              Offset(0.42, 0.71), Offset(0.58, 0.71),
+              Offset(0.50, 0.74),
+              // Backs (7)
+              Offset(0.50, 0.79), // halfback
+              Offset(0.42, 0.82), // five-eighth
+              Offset(0.30, 0.84), // center L
+              Offset(0.70, 0.84), // center R
+              Offset(0.10, 0.85), // wing L
+              Offset(0.90, 0.85), // wing R
+              Offset(0.50, 0.92), // fullback
+            ],
+            awayPositions: [
+              Offset(0.60, 0.34), Offset(0.50, 0.34), Offset(0.40, 0.34),
+              Offset(0.58, 0.29), Offset(0.42, 0.29),
+              Offset(0.50, 0.26),
+              Offset(0.50, 0.21),
+              Offset(0.58, 0.18),
+              Offset(0.70, 0.16),
+              Offset(0.30, 0.16),
+              Offset(0.90, 0.15),
+              Offset(0.10, 0.15),
+              Offset(0.50, 0.08),
+            ],
+          ),
+          // 7s — Rugby Sevens
+          SportFormation(
+            nameKey: 'formation_7v7',
+            homePositions: [
+              Offset(0.42, 0.65), Offset(0.50, 0.65), Offset(0.58, 0.65), // forwards
+              Offset(0.50, 0.74),                                         // scrum-half
+              Offset(0.32, 0.80),                                         // fly-half
+              Offset(0.10, 0.85), Offset(0.90, 0.85),                     // wings
+            ],
+            awayPositions: [
+              Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
+              Offset(0.50, 0.26),
+              Offset(0.68, 0.20),
+              Offset(0.90, 0.15), Offset(0.10, 0.15),
             ],
           ),
         ];
