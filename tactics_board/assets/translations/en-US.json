@@ -188,5 +188,9 @@
   "time_days_ago": "{} d ago",
   "sport_rugby": "Rugby",
   "formation_15v15": "15 vs 15",
-  "formation_13v13": "13 vs 13"
+  "formation_13v13": "13 vs 13",
+  "sport_baseball": "Baseball",
+  "formation_defense": "Defense",
+  "formation_bases_loaded": "Bases Loaded",
+  "formation_shift": "Shift"
 }

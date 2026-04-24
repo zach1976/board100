@@ -16,6 +16,7 @@ import '../painters/pickleball_court_painter.dart';
 import '../painters/soccer_court_painter.dart';
 import '../painters/field_hockey_court_painter.dart';
 import '../painters/rugby_court_painter.dart';
+import '../painters/baseball_court_painter.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 
@@ -75,6 +76,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         return const FieldHockeyCourtPainter();
       case SportType.rugby:
         return const RugbyCourtPainter();
+      case SportType.baseball:
+        return const BaseballCourtPainter();
     }
   }
 

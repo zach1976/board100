@@ -153,5 +153,9 @@
   "practice_item_note": "メモ（任意）",
   "sport_rugby": "ラグビー",
   "formation_15v15": "15人制",
-  "formation_13v13": "13人制"
+  "formation_13v13": "13人制",
+  "sport_baseball": "野球",
+  "formation_defense": "守備",
+  "formation_bases_loaded": "満塁",
+  "formation_shift": "シフト守備"
 }

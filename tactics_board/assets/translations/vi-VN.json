@@ -138,5 +138,9 @@
   "share": "Share",
   "sport_rugby": "Bóng bầu dục",
   "formation_15v15": "15 đấu 15",
-  "formation_13v13": "13 đấu 13"
+  "formation_13v13": "13 đấu 13",
+  "sport_baseball": "Bóng chày",
+  "formation_defense": "Phòng thủ",
+  "formation_bases_loaded": "Đầy chốt",
+  "formation_shift": "Dịch chuyển"
 }

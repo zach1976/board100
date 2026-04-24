@@ -16,6 +16,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.soccer:       return const SoccerBallPainter();
       case SportType.fieldHockey:  return const FieldHockeyBallPainter();
       case SportType.rugby:        return const RugbyBallPainter();
+      case SportType.baseball:     return const BaseballBallPainter();
     }
   }
 
@@ -546,5 +547,61 @@ class RugbyBallPainter extends BallPainter {
     );
 
     canvas.restore();
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Baseball — white sphere with two red curved stitch lines
+// ─────────────────────────────────────────────────────────────────────────────
+class BaseballBallPainter extends BallPainter {
+  const BaseballBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // White base
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+
+    // Red curved stitch seams (two arcs forming the classic baseball pattern)
+    final seam = Paint()
+      ..color = const Color(0xFFD32F2F)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = r * 0.10;
+
+    final left = Rect.fromCircle(center: Offset(cx - r * 0.95, cy), radius: r * 0.95);
+    canvas.drawArc(left, -pi / 3, 2 * pi / 3, false, seam);
+
+    final right = Rect.fromCircle(center: Offset(cx + r * 0.95, cy), radius: r * 0.95);
+    canvas.drawArc(right, pi - pi / 3, 2 * pi / 3, false, seam);
+
+    // Tiny stitch marks (alternating short tick marks crossing the seams)
+    final tick = Paint()
+      ..color = const Color(0xFFB71C1C)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = r * 0.06;
+    for (int i = -3; i <= 3; i++) {
+      final t = i / 6.0;
+      // Left seam
+      final ya = cy + t * r * 0.85;
+      final xa = cx - sqrt(max(0.0, r * r * 0.04 - (t * r * 0.85 - 0).clamp(-r, r) * 0));
+      canvas.drawLine(Offset(xa - r * 0.10, ya), Offset(xa - r * 0.02, ya - r * 0.05), tick);
+      // Right seam
+      canvas.drawLine(Offset(-xa + 2 * cx + r * 0.10, ya), Offset(-xa + 2 * cx + r * 0.02, ya - r * 0.05), tick);
+    }
+
+    // Highlight
+    canvas.drawCircle(Offset(cx - r * 0.3, cy - r * 0.3), r * 0.18,
+        Paint()..color = Colors.white.withValues(alpha: 0.6));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF555555)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
   }
 }
