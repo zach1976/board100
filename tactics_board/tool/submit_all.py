@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Submit all 8 Tactics Board apps for App Store review."""
+"""Submit all 16 Tactics Board apps for App Store review."""
 import jwt, time, json, os, urllib.request, urllib.error, base64
 import requests as _requests
 
@@ -18,6 +18,14 @@ APP_KEY = {
     "com.zach.tennisBoard": "tennis",
     "com.zach.tableTennisBoard": "tableTennis",
     "com.zach.pickleballBoard": "pickleball",
+    "com.zach.fieldHockeyBoard": "fieldHockey",
+    "com.zach.rugbyBoard": "rugby",
+    "com.zach.baseballBoard": "baseball",
+    "com.zach.handballBoard": "handball",
+    "com.zach.waterPoloBoard": "waterPolo",
+    "com.zach.sepakTakrawBoard": "sepakTakraw",
+    "com.zach.beachTennisBoard": "beachTennis",
+    "com.zach.footvolleyBoard": "footvolley",
 }
 
 with open(KEY_FILE) as f:
@@ -81,6 +89,14 @@ APPS = [
     ("com.zach.tennisBoard", "Tennis Board"),
     ("com.zach.tableTennisBoard", "Table Tennis Board"),
     ("com.zach.pickleballBoard", "Pickleball Board"),
+    ("com.zach.fieldHockeyBoard", "Field Hockey Board"),
+    ("com.zach.rugbyBoard", "Rugby Board"),
+    ("com.zach.baseballBoard", "Baseball Board"),
+    ("com.zach.handballBoard", "Handball Board"),
+    ("com.zach.waterPoloBoard", "Water Polo Board"),
+    ("com.zach.sepakTakrawBoard", "Sepak Takraw Board"),
+    ("com.zach.beachTennisBoard", "Beach Tennis Board"),
+    ("com.zach.footvolleyBoard", "Footvolley Board"),
 ]
 
 for bundle_id, name in APPS:
