@@ -1,5 +1,5 @@
 #!/bin/bash
-# Upload all 8 IPAs to App Store Connect via iTMSTransporter
+# Upload all 16 IPAs to App Store Connect via iTMSTransporter
 # Usage: ./tool/upload_all_ipa.sh
 set -u
 cd "$(dirname "$0")/.."
@@ -17,6 +17,14 @@ IPAS=(
   tennisBoard.ipa
   tableTennisBoard.ipa
   pickleballBoard.ipa
+  fieldHockeyBoard.ipa
+  rugbyBoard.ipa
+  baseballBoard.ipa
+  handballBoard.ipa
+  waterPoloBoard.ipa
+  sepakTakrawBoard.ipa
+  beachTennisBoard.ipa
+  footvolleyBoard.ipa
 )
 
 for ipa in "${IPAS[@]}"; do

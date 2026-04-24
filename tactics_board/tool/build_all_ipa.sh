@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build IPA for all 8 apps (multi-sport + 7 single-sport)
+# Build IPA for all 16 apps (multi-sport + 15 single-sport)
 # Usage: ./tool/build_all_ipa.sh
 set -e
 cd "$(dirname "$0")/.."
@@ -98,7 +98,7 @@ build_ipa() {
 }
 
 # ══════════════════════════════════════════════════════════════════════════════
-# Build all 8 apps
+# Build all 16 apps
 # ══════════════════════════════════════════════════════════════════════════════
 
 # Multi-sport (no SPORT define)
@@ -112,6 +112,14 @@ build_ipa "badminton"   "com.zach.badmintonBoard"   "Badminton Board"    "羽毛
 build_ipa "tennis"      "com.zach.tennisBoard"      "Tennis Board"       "网球战术板"     "テニスボード"           "--dart-define=SPORT=tennis"
 build_ipa "tableTennis" "com.zach.tableTennisBoard" "Table Tennis Board" "乒乓球战术板"   "卓球ボード"             "--dart-define=SPORT=tableTennis"
 build_ipa "pickleball"  "com.zach.pickleballBoard"  "Pickleball Board"   "匹克球战术板"   "ピックルボールボード"   "--dart-define=SPORT=pickleball"
+build_ipa "fieldHockey" "com.zach.fieldHockeyBoard" "Field Hockey Board" "曲棍球战术板"   "フィールドホッケーボード" "--dart-define=SPORT=fieldHockey"
+build_ipa "rugby"       "com.zach.rugbyBoard"       "Rugby Board"        "橄榄球战术板"   "ラグビーボード"         "--dart-define=SPORT=rugby"
+build_ipa "baseball"    "com.zach.baseballBoard"    "Baseball Board"     "棒球战术板"     "野球ボード"             "--dart-define=SPORT=baseball"
+build_ipa "handball"    "com.zach.handballBoard"    "Handball Board"     "手球战术板"     "ハンドボールボード"     "--dart-define=SPORT=handball"
+build_ipa "waterPolo"   "com.zach.waterPoloBoard"   "Water Polo Board"   "水球战术板"     "水球ボード"             "--dart-define=SPORT=waterPolo"
+build_ipa "sepakTakraw" "com.zach.sepakTakrawBoard" "Sepak Takraw Board" "藤球战术板"     "セパタクローボード"     "--dart-define=SPORT=sepakTakraw"
+build_ipa "beachTennis" "com.zach.beachTennisBoard" "Beach Tennis Board" "沙滩网球战术板" "ビーチテニスボード"     "--dart-define=SPORT=beachTennis"
+build_ipa "footvolley"  "com.zach.footvolleyBoard"  "Footvolley Board"   "足排球战术板"   "フットボレーボード"     "--dart-define=SPORT=footvolley"
 
 echo ""
 echo "══════════════════════════════════════"
