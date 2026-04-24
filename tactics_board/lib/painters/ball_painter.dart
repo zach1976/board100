@@ -17,6 +17,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.fieldHockey:  return const FieldHockeyBallPainter();
       case SportType.rugby:        return const RugbyBallPainter();
       case SportType.baseball:     return const BaseballBallPainter();
+      case SportType.handball:     return const HandballBallPainter();
     }
   }
 
@@ -601,6 +602,49 @@ class BaseballBallPainter extends BallPainter {
     canvas.drawCircle(Offset(cx, cy), r,
         Paint()
           ..color = const Color(0xFF555555)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Handball — small leather ball with classic 6-panel pattern
+// ─────────────────────────────────────────────────────────────────────────────
+class HandballBallPainter extends BallPainter {
+  const HandballBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // Tan/yellow base
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()..color = const Color(0xFFE8B864)..style = PaintingStyle.fill);
+
+    // Panel seams — 3 lines crossing at center (60° apart)
+    final seam = Paint()
+      ..color = const Color(0xFF8D5524)
+      ..strokeWidth = 1.4
+      ..style = PaintingStyle.stroke;
+    for (int i = 0; i < 3; i++) {
+      final a = pi * i / 3;
+      canvas.drawLine(
+        Offset(cx + cos(a) * r * 0.95, cy + sin(a) * r * 0.95),
+        Offset(cx - cos(a) * r * 0.95, cy - sin(a) * r * 0.95),
+        seam,
+      );
+    }
+
+    // Highlight
+    canvas.drawCircle(Offset(cx - r * 0.32, cy - r * 0.32), r * 0.18,
+        Paint()..color = Colors.white.withValues(alpha: 0.4));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF6B3E1A)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
   }

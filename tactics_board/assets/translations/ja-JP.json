@@ -157,5 +157,8 @@
   "sport_baseball": "野球",
   "formation_defense": "守備",
   "formation_bases_loaded": "満塁",
-  "formation_shift": "シフト守備"
+  "formation_shift": "シフト守備",
+  "sport_handball": "ハンドボール",
+  "formation_attack_60": "6-0守備対攻撃",
+  "formation_4v4": "4対4"
 }

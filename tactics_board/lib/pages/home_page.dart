@@ -545,6 +545,7 @@ class _ContactPageState extends State<_ContactPage> {
       case SportType.fieldHockey:  return 'Field Hockey Board';
       case SportType.rugby:        return 'Rugby Board';
       case SportType.baseball:     return 'Baseball Board';
+      case SportType.handball:     return 'Handball Board';
     }
   }
 

@@ -157,5 +157,8 @@
   "sport_baseball": "야구",
   "formation_defense": "수비",
   "formation_bases_loaded": "만루",
-  "formation_shift": "시프트"
+  "formation_shift": "시프트",
+  "sport_handball": "핸드볼",
+  "formation_attack_60": "6-0 수비 공격",
+  "formation_4v4": "4대4"
 }
