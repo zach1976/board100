@@ -14,6 +14,7 @@ import '../painters/rugby_court_painter.dart';
 import '../painters/baseball_court_painter.dart';
 import '../painters/handball_court_painter.dart';
 import '../painters/water_polo_court_painter.dart';
+import '../painters/sepak_takraw_court_painter.dart';
 import '../state/tactics_state.dart';
 import '../widgets/language_picker.dart';
 import 'home_page.dart';
@@ -35,6 +36,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.baseball:     return const BaseballCourtPainter();
       case SportType.handball:     return const HandballCourtPainter();
       case SportType.waterPolo:    return const WaterPoloCourtPainter();
+      case SportType.sepakTakraw:  return const SepakTakrawCourtPainter();
     }
   }
 
@@ -53,6 +55,7 @@ class SportSelectionPage extends StatelessWidget {
       case SportType.baseball:     return const Color(0xFFD32F2F); // red (baseball stitching)
       case SportType.handball:     return const Color(0xFF1976D2); // blue (indoor)
       case SportType.waterPolo:    return const Color(0xFF0288D1); // pool blue
+      case SportType.sepakTakraw:  return const Color(0xFFD4A017); // rattan gold
     }
   }
 

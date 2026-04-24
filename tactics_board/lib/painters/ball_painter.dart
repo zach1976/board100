@@ -19,6 +19,7 @@ abstract class BallPainter extends CustomPainter {
       case SportType.baseball:     return const BaseballBallPainter();
       case SportType.handball:     return const HandballBallPainter();
       case SportType.waterPolo:    return const WaterPoloBallPainter();
+      case SportType.sepakTakraw:  return const SepakTakrawBallPainter();
     }
   }
 
@@ -603,6 +604,68 @@ class BaseballBallPainter extends BallPainter {
     canvas.drawCircle(Offset(cx, cy), r,
         Paint()
           ..color = const Color(0xFF555555)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sepak Takraw Ball — woven rattan sphere (tan with criss-cross weave pattern)
+// ─────────────────────────────────────────────────────────────────────────────
+class SepakTakrawBallPainter extends BallPainter {
+  const SepakTakrawBallPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+    final r = size.width / 2 - 1;
+
+    // Rattan tan base
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..shader = RadialGradient(
+            center: const Alignment(-0.3, -0.3),
+            radius: 1.0,
+            colors: [const Color(0xFFE8B572), const Color(0xFFB67C3A)],
+          ).createShader(Rect.fromCircle(center: Offset(cx, cy), radius: r)));
+
+    // Clip to sphere for the weave pattern
+    canvas.save();
+    canvas.clipPath(Path()..addOval(Rect.fromCircle(center: Offset(cx, cy), radius: r)));
+
+    final strip = Paint()
+      ..color = const Color(0xFF6E4019).withValues(alpha: 0.75)
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    // Criss-cross woven strips — diagonals in both directions
+    final step = r * 0.28;
+    for (double d = -r * 2.2; d < r * 2.2; d += step) {
+      // Up-right diagonals
+      canvas.drawLine(
+        Offset(cx + d - r, cy - r),
+        Offset(cx + d + r, cy + r),
+        strip,
+      );
+      // Up-left diagonals
+      canvas.drawLine(
+        Offset(cx + d - r, cy + r),
+        Offset(cx + d + r, cy - r),
+        strip,
+      );
+    }
+
+    canvas.restore();
+
+    // Highlight
+    canvas.drawCircle(Offset(cx - r * 0.32, cy - r * 0.32), r * 0.16,
+        Paint()..color = Colors.white.withValues(alpha: 0.35));
+
+    // Outline
+    canvas.drawCircle(Offset(cx, cy), r,
+        Paint()
+          ..color = const Color(0xFF5C3010)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.0);
   }
