@@ -20,9 +20,17 @@ case "$SPORT" in
   volleyball)   BUNDLE_ID="com.zach.volleyballBoard";   DISPLAY_NAME="Volleyball Board";   ZH_NAME="排球战术板";    JA_NAME="バレーボード" ;;
   pickleball)   BUNDLE_ID="com.zach.pickleballBoard";   DISPLAY_NAME="Pickleball Board";   ZH_NAME="匹克球战术板";  JA_NAME="ピックルボールボード" ;;
   soccer)       BUNDLE_ID="com.zach.soccerBoard";       DISPLAY_NAME="Soccer Board";       ZH_NAME="足球战术板";    JA_NAME="サッカーボード" ;;
+  fieldHockey)  BUNDLE_ID="com.zach.fieldHockeyBoard";  DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板";  JA_NAME="フィールドホッケーボード" ;;
+  rugby)        BUNDLE_ID="com.zach.rugbyBoard";        DISPLAY_NAME="Rugby Board";        ZH_NAME="橄榄球战术板";  JA_NAME="ラグビーボード" ;;
+  baseball)     BUNDLE_ID="com.zach.baseballBoard";     DISPLAY_NAME="Baseball Board";     ZH_NAME="棒球战术板";    JA_NAME="野球ボード" ;;
+  handball)     BUNDLE_ID="com.zach.handballBoard";     DISPLAY_NAME="Handball Board";     ZH_NAME="手球战术板";    JA_NAME="ハンドボールボード" ;;
+  waterPolo)    BUNDLE_ID="com.zach.waterPoloBoard";    DISPLAY_NAME="Water Polo Board";   ZH_NAME="水球战术板";    JA_NAME="水球ボード" ;;
+  sepakTakraw)  BUNDLE_ID="com.zach.sepakTakrawBoard";  DISPLAY_NAME="Sepak Takraw Board"; ZH_NAME="藤球战术板";    JA_NAME="セパタクローボード" ;;
+  beachTennis)  BUNDLE_ID="com.zach.beachTennisBoard";  DISPLAY_NAME="Beach Tennis Board"; ZH_NAME="沙滩网球战术板"; JA_NAME="ビーチテニスボード" ;;
+  footvolley)   BUNDLE_ID="com.zach.footvolleyBoard";   DISPLAY_NAME="Footvolley Board";   ZH_NAME="足排球战术板";  JA_NAME="フットボレーボード" ;;
   *)
     echo "Unknown sport: $SPORT"
-    echo "Available: badminton tableTennis tennis basketball volleyball pickleball soccer"
+    echo "Available: badminton tableTennis tennis basketball volleyball pickleball soccer fieldHockey rugby baseball handball waterPolo sepakTakraw beachTennis footvolley"
     exit 1 ;;
 esac
 
