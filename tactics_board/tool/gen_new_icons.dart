@@ -85,6 +85,8 @@ void _genFieldHockeyIcon(String path, int size) {
   for (final p in [[0.30, 0.80], [0.50, 0.82], [0.70, 0.80], [0.40, 0.68], [0.60, 0.68]]) {
     _dot(c, (s * p[0]).round(), (s * p[1]).round(), r, _blue);
   }
+  // hockey ball: small white sphere at midline (offset right of center)
+  _drawHockeyBall(c, (s * 0.62).round(), (s * 0.50).round(), (s * 0.055).round());
   File(path).writeAsBytesSync(img.encodePng(c));
 }
 
@@ -122,6 +124,8 @@ void _genRugbyIcon(String path, int size) {
   for (final p in [[0.25, 0.64], [0.50, 0.64], [0.75, 0.64], [0.30, 0.55], [0.50, 0.55], [0.70, 0.55], [0.50, 0.75]]) {
     _dot(c, (s * p[0]).round(), (s * p[1]).round(), r, _blue);
   }
+  // rugby ball: prominent brown ellipse at center
+  _drawRugbyBall(c, (s * 0.50).round(), (s * 0.50).round(), (s * 0.10).round(), (s * 0.055).round());
   File(path).writeAsBytesSync(img.encodePng(c));
 }
 
@@ -167,6 +171,8 @@ void _genBaseballIcon(String path, int size) {
   }
   // pitcher's mound (small dot)
   img.fillCircle(c, x: dx, y: dy, radius: (s * 0.018).round(), color: _white);
+  // baseball: white with red stitches at upper-left of canvas
+  _drawBaseball(c, (s * 0.30).round(), (s * 0.28).round(), (s * 0.10).round());
   File(path).writeAsBytesSync(img.encodePng(c));
 }
 
@@ -200,6 +206,8 @@ void _genHandballIcon(String path, int size) {
   for (final p in [[0.50, 0.82], [0.30, 0.72], [0.70, 0.72], [0.20, 0.60], [0.50, 0.60], [0.80, 0.60], [0.50, 0.68]]) {
     _dot(c, (s * p[0]).round(), (s * p[1]).round(), r, _blue);
   }
+  // handball ball: yellow+white striped sphere at center (between teams)
+  _drawHandballBall(c, (s * 0.50).round(), (s * 0.50).round(), (s * 0.07).round());
   File(path).writeAsBytesSync(img.encodePng(c));
 }
 
@@ -226,8 +234,8 @@ void _genWaterPoloIcon(String path, int size) {
   final gw = (s * 0.10).round();
   _rect(c, cx - gw ~/ 2, m - (s * 0.014).round(), cx + gw ~/ 2, m, _white, max(2, (s * 0.004).round()));
   _rect(c, cx - gw ~/ 2, size - m, cx + gw ~/ 2, size - m + (s * 0.014).round(), _white, max(2, (s * 0.004).round()));
-  // ball at center
-  img.fillCircle(c, x: cx, y: (s * 0.50).round(), radius: (s * 0.04).round(), color: img.ColorRgb8(0xFF, 0xD6, 0x00));
+  // water polo ball: yellow + red panels at center
+  _drawWaterPoloBall(c, cx, (s * 0.50).round(), (s * 0.07).round());
   // players 7v7
   final r = (s * 0.038).round();
   for (final p in [[0.30, 0.28], [0.50, 0.25], [0.70, 0.28], [0.30, 0.40], [0.50, 0.40], [0.70, 0.40], [0.50, 0.16]]) {
@@ -252,8 +260,8 @@ void _genSepakTakrawIcon(String path, int size) {
     img.drawCircle(c, x: (s * 0.50).round(), y: (s * 0.30).round(), radius: (s * 0.08).round() - i, color: _white);
     img.drawCircle(c, x: (s * 0.50).round(), y: (s * 0.70).round(), radius: (s * 0.08).round() - i, color: _white);
   }
-  // rattan ball at center
-  img.fillCircle(c, x: (s * 0.50).round(), y: netY, radius: (s * 0.05).round(), color: img.ColorRgb8(0xCD, 0x85, 0x3F));
+  // rattan ball at center (woven pattern)
+  _drawRattanBall(c, (s * 0.50).round(), netY, (s * 0.08).round());
   // 3v3
   final r = (s * 0.06).round();
   _dot(c, (s * 0.30).round(), (s * 0.30).round(), r, _red);
@@ -277,8 +285,8 @@ void _genBeachTennisIcon(String path, int size) {
   _hline(c, (s * 0.20).round(), (s * 0.80).round(), (s * 0.30).round(), _white, lw);
   _hline(c, (s * 0.20).round(), (s * 0.80).round(), (s * 0.70).round(), _white, lw);
   _vline(c, (s * 0.50).round(), (s * 0.30).round(), (s * 0.70).round(), _white, lw);
-  // tennis ball at center
-  img.fillCircle(c, x: (s * 0.50).round(), y: netY, radius: (s * 0.04).round(), color: img.ColorRgb8(0xC8, 0xFF, 0x00));
+  // tennis ball at center (yellow with white seam)
+  _drawTennisBall(c, (s * 0.50).round(), netY, (s * 0.07).round());
   // 2v2
   final r = (s * 0.07).round();
   _dot(c, (s * 0.35).round(), (s * 0.28).round(), r, _red);
@@ -299,10 +307,8 @@ void _genFootvolleyIcon(String path, int size) {
   final lw = max(2, (s * 0.003).round());
   _hline(c, m, size - m, (s * 0.36).round(), _white, lw);
   _hline(c, m, size - m, (s * 0.64).round(), _white, lw);
-  // soccer ball at center (white with hex pattern simplified)
-  final ballR = (s * 0.05).round();
-  img.fillCircle(c, x: (s * 0.50).round(), y: netY, radius: ballR, color: _white);
-  img.fillCircle(c, x: (s * 0.50).round(), y: netY, radius: (ballR * 0.5).round(), color: _bg);
+  // soccer ball at center (white with black pentagons)
+  _drawSoccerBall(c, (s * 0.50).round(), netY, (s * 0.08).round());
   // 2v2
   final r = (s * 0.07).round();
   _dot(c, (s * 0.35).round(), (s * 0.24).round(), r, _red);
@@ -391,4 +397,157 @@ void _dot(img.Image c, int cx, int cy, int r, img.Color color) {
   for (int i = 0; i < max(2, r ~/ 12); i++) {
     img.drawCircle(c, x: cx, y: cy, radius: r - i, color: _white);
   }
+}
+
+// --- Sport-specific balls ---
+
+void _ballShadow(img.Image c, int cx, int cy, int r) {
+  img.fillCircle(c, x: cx + r ~/ 6, y: cy + r ~/ 6, radius: r, color: _shadow);
+}
+
+void _drawHockeyBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: _white);
+  // dimple texture
+  final dim = img.ColorRgb8(0xCC, 0xCC, 0xCC);
+  for (int i = 0; i < 5; i++) {
+    final ang = i * 1.2566;
+    final dx = cx + (r * 0.45 * cos(ang)).round();
+    final dy = cy + (r * 0.45 * sin(ang)).round();
+    img.fillCircle(c, x: dx, y: dy, radius: max(2, r ~/ 8), color: dim);
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: img.ColorRgb8(0x99, 0x99, 0x99));
+}
+
+void _drawRugbyBall(img.Image c, int cx, int cy, int rx, int ry) {
+  final brown = img.ColorRgb8(0x8B, 0x4A, 0x1F);
+  final brownLine = img.ColorRgb8(0xFF, 0xE0, 0xB0);
+  // shadow
+  for (int dy = -ry; dy <= ry; dy++) {
+    final w = (rx * sqrt(1 - (dy / ry) * (dy / ry))).round();
+    img.fillRect(c, x1: cx - w + rx ~/ 6, y1: cy + dy + ry ~/ 6,
+                    x2: cx + w + rx ~/ 6, y2: cy + dy + ry ~/ 6 + 1, color: _shadow);
+  }
+  // ellipse fill
+  for (int dy = -ry; dy <= ry; dy++) {
+    final w = (rx * sqrt(1 - (dy / ry) * (dy / ry))).round();
+    img.fillRect(c, x1: cx - w, y1: cy + dy, x2: cx + w, y2: cy + dy + 1, color: brown);
+  }
+  // lacing (vertical center stripe with cross-stitches)
+  _vline(c, cx, cy - (ry * 0.55).round(), cy + (ry * 0.55).round(), brownLine, max(3, rx ~/ 14));
+  for (int i = -2; i <= 2; i++) {
+    final yy = cy + (i * ry * 0.22).round();
+    _hline(c, cx - rx ~/ 5, cx + rx ~/ 5, yy, brownLine, max(2, rx ~/ 18));
+  }
+  // outline
+  for (int dy = -ry; dy <= ry; dy++) {
+    final w = (rx * sqrt(1 - (dy / ry) * (dy / ry))).round();
+    img.drawPixel(c, cx - w, cy + dy, _white);
+    img.drawPixel(c, cx + w, cy + dy, _white);
+  }
+}
+
+void _drawBaseball(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: _white);
+  // red curved stitches (two arcs)
+  final red = img.ColorRgb8(0xC9, 0x1A, 0x1A);
+  for (int i = 0; i < max(2, r ~/ 10); i++) {
+    img.drawCircle(c, x: cx - (r * 0.7).round(), y: cy, radius: r - i, color: red);
+    img.drawCircle(c, x: cx + (r * 0.7).round(), y: cy, radius: r - i, color: red);
+  }
+  // re-cover everything outside the ball
+  for (int yy = cy - r * 2; yy <= cy + r * 2; yy++) {
+    for (int xx = cx - r * 2; xx <= cx + r * 2; xx++) {
+      if (xx < 0 || yy < 0 || xx >= c.width || yy >= c.height) continue;
+      final dx = xx - cx, dy = yy - cy;
+      if (dx * dx + dy * dy > r * r) {
+        // outside ball — already painted by background, leave alone
+      }
+    }
+  }
+  // outline
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: img.ColorRgb8(0x66, 0x66, 0x66));
+}
+
+void _drawHandballBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  final yellow = img.ColorRgb8(0xFF, 0xD6, 0x00);
+  final hbBlue = img.ColorRgb8(0x0D, 0x47, 0xA1);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: yellow);
+  // 4 blue panels arranged radially
+  for (int i = 0; i < 4; i++) {
+    final ang = i * 1.5708 + 0.7854;
+    final dx = cx + (r * 0.55 * cos(ang)).round();
+    final dy = cy + (r * 0.55 * sin(ang)).round();
+    img.fillCircle(c, x: dx, y: dy, radius: (r * 0.30).round(), color: hbBlue);
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: _white);
+}
+
+void _drawWaterPoloBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  final yellow = img.ColorRgb8(0xFF, 0xD6, 0x00);
+  final wpRed = img.ColorRgb8(0xC9, 0x1A, 0x1A);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: yellow);
+  // alternating red wedges (4 small dots)
+  for (int i = 0; i < 4; i++) {
+    final ang = i * 1.5708;
+    final dx = cx + (r * 0.55 * cos(ang)).round();
+    final dy = cy + (r * 0.55 * sin(ang)).round();
+    img.fillCircle(c, x: dx, y: dy, radius: (r * 0.28).round(), color: wpRed);
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: _white);
+}
+
+void _drawRattanBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  final rattan = img.ColorRgb8(0xCD, 0x85, 0x3F);
+  final rattanDark = img.ColorRgb8(0x8B, 0x57, 0x1F);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: rattan);
+  // woven cross-hatch — draw per-pixel, clipped to circle
+  final spacing = max(3, (r * 0.32).round());
+  final thick = max(1, r ~/ 9);
+  for (int yy = cy - r; yy <= cy + r; yy++) {
+    for (int xx = cx - r; xx <= cx + r; xx++) {
+      if (xx < 0 || yy < 0 || xx >= c.width || yy >= c.height) continue;
+      final dx = xx - cx, dy = yy - cy;
+      if (dx * dx + dy * dy > r * r) continue;
+      // diagonal stripes: (dx+dy) and (dx-dy) modulo spacing
+      final a = ((dx + dy) % spacing + spacing) % spacing;
+      final b = ((dx - dy) % spacing + spacing) % spacing;
+      if (a < thick || b < thick) {
+        c.setPixel(xx, yy, rattanDark);
+      }
+    }
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: _white);
+}
+
+void _drawTennisBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  final tennisYellow = img.ColorRgb8(0xCC, 0xE5, 0x35);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: tennisYellow);
+  // curved white seam (two arcs)
+  for (int i = 0; i < max(2, r ~/ 12); i++) {
+    img.drawCircle(c, x: cx - (r * 0.85).round(), y: cy, radius: r - i, color: _white);
+    img.drawCircle(c, x: cx + (r * 0.85).round(), y: cy, radius: r - i, color: _white);
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: img.ColorRgb8(0x66, 0x66, 0x66));
+}
+
+void _drawSoccerBall(img.Image c, int cx, int cy, int r) {
+  _ballShadow(c, cx, cy, r);
+  img.fillCircle(c, x: cx, y: cy, radius: r, color: _white);
+  final black = img.ColorRgb8(0x1A, 0x1A, 0x1A);
+  // central pentagon
+  img.fillCircle(c, x: cx, y: cy, radius: (r * 0.30).round(), color: black);
+  // 5 surrounding pentagons
+  for (int i = 0; i < 5; i++) {
+    final ang = i * 1.2566 - 1.5708;
+    final dx = cx + (r * 0.65 * cos(ang)).round();
+    final dy = cy + (r * 0.65 * sin(ang)).round();
+    img.fillCircle(c, x: dx, y: dy, radius: (r * 0.20).round(), color: black);
+  }
+  img.drawCircle(c, x: cx, y: cy, radius: r, color: img.ColorRgb8(0x66, 0x66, 0x66));
 }
