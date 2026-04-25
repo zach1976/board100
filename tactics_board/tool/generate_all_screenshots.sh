@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 DEVICE=${1:-DC18AEE8-4BB3-42D1-BF28-55F85628415A}
 SCREENSHOT_BASE="fastlane/screenshots"
-SPORTS=(badminton basketball soccer tennis tableTennis volleyball pickleball)
+SPORTS=(badminton basketball soccer tennis tableTennis volleyball pickleball fieldHockey rugby baseball handball waterPolo sepakTakraw beachTennis footvolley)
 
 echo "══════════════════════════════════════"
 echo "  Generating App Store Screenshots"
