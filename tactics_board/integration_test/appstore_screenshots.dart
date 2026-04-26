@@ -86,60 +86,14 @@ void main() {
           await _shot(binding, '$sn/$lang/s4_moves');
         });
 
-        // s5: Timeline editor — standalone widget showing phase arrangement
+        // s5: Timeline editor — court visible with timeline panel pinned at bottom
         testWidgets('${sn}_${lang}_s5', (t) async {
-          final s = TacticsState(sportType: sport);
-          s.setCanvasSize(const Size(400, 700));
-          if (sport.formations.isNotEmpty) {
-            s.applyFormation(sport.formations[0]);
-          }
-          final home = s.players.where((p) => p.team == PlayerTeam.home).toList();
-          if (home.isNotEmpty) {
-            _addMovesToState(s, sport, home);
-          }
-          await EasyLocalization.ensureInitialized();
-          await t.pumpWidget(
-            EasyLocalization(
-              supportedLocales: _supportedLocales,
-              path: 'assets/translations',
-              fallbackLocale: const Locale('en', 'US'),
-              startLocale: locale,
-              child: Builder(builder: (ctx) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  localizationsDelegates: ctx.localizationDelegates,
-                  supportedLocales: ctx.supportedLocales,
-                  locale: locale,
-                  theme: _theme(),
-                  home: Scaffold(
-                    backgroundColor: const Color(0xFF1E1E2E),
-                    body: SafeArea(
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 40),
-                          Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Text(
-                              sport.emoji,
-                              style: const TextStyle(fontSize: 48),
-                            ),
-                          ),
-                          const Spacer(),
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF1E1E2E),
-                              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                            ),
-                            child: TimelineEditor(state: s),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              }),
-            ),
-          );
+          await _launchSport(t, sport, locale);
+          final s = _state(t);
+          _setupFormationAndMoves(s, sport);
+          s.selectPlayer(null);
+          await t.pumpAndSettle();
+          await t.tap(find.byIcon(Icons.view_timeline));
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s5_timeline');
         });
