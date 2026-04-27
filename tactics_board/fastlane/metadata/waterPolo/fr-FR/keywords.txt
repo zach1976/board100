@@ -1,1 +1,1 @@
-water polo,piscine,entraîneur,tactique,formation,attaque,défense,6v5,exercice,centre
+water polo,6v5,supériorité,zone,pressing,contre,pivot,plan,coach,formation,tactique

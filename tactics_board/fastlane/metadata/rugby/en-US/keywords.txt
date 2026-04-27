@@ -1,1 +1,1 @@
-rugby,scrum,lineout,ruck,maul,coach,tactics,formation,pitch,play,drill,union,league
+rugby,union,sevens,scrum,lineout,maul,ruck,backs,forwards,playbook,coach,strategy

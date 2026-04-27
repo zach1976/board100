@@ -1,24 +1,30 @@
-Rotations, simplified.
+Set the rotation. Win the rally.
 
-Volleyball Board helps coaches plan formations, serve-receive patterns, and attacking plays on an accurate 6v6 court.
+Volleyball Board — Volleyball Board helps coaches design rotations, attack systems, and serve-receive formations — from 6v6 indoor to beach doubles.
 
-VISUALIZE YOUR GAME PLAN
+DRAW IT. PLAY IT. SHARE IT.
 
-- Realistic court with attack lines and net
-- Place 6 home + 6 away players with drag-and-drop
-- Draw attack angles, blocking assignments, and serve targets
-- Animate transitions step by step
-- Save and share as images
+- Drag players onto an accurate, full-color court
+- Draw arrows, lines, and zones — colors and styles your way
+- Tap Play to animate movements step by step
+- Save unlimited tactics, share as crisp images or PDF
 
-INSTANT SETUP
+FORMATIONS, READY TO GO
 
-- 6v6 formation pre-loaded
-- Home & away team colors
-- Customize player names and numbers
-- Male & female player icons
+5-1 · 6-2 · 4-2 · Rotation 1-6 · Serve receive · Beach doubles
+Load with one tap, customize positions.
 
-COURTSIDE READY
+BUILT FOR THE SIDELINE
 
-- Works offline · Dark theme · 50-step undo/redo · 11 languages
+- Works offline — no Wi-Fi at the field? No problem.
+- Dark theme — easy on the eyes during evening practice
+- Undo/redo up to 50 steps — experiment fearlessly
+- AirPlay to TV — turn the locker room into a war room
+- Free, no ads, no in-app purchases
 
-From club to varsity — show your team the play, not just the whistle.
+11 LANGUAGES
+English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+
+Trusted by youth coaches and clubs across 50+ leagues. Free forever, no account required.
+
+From Sunday league to the national team — if you can coach it, you can draw it.

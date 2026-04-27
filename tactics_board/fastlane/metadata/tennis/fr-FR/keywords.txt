@@ -1,1 +1,1 @@
-entraîneur,formation,service,volée,stratégie,exercice,animation,fond de court,rally,tableau
+tennis,double,simple,service,retour,volée,fond de court,égalité,terrain,coach,tactique

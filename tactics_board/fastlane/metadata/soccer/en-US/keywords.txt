@@ -1,1 +1,1 @@
-football,coach,4-4-2,4-3-3,futsal,playbook,formation,lineup,pitch,drill,display,whiteboard
+football,futsal,4-4-2,4-3-3,3-5-2,formation,coach,playbook,set piece,corner,free kick,pitch

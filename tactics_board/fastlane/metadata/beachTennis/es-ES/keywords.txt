@@ -1,1 +1,1 @@
-tenis playa,arena,dobles,entrenador,táctica,formación,volea,smash,ejercicio,saque
+tenis playa,playa,dobles,smash,globo,arena,entrenador,pala,táctica,jugada,formación

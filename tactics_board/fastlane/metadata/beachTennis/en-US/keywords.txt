@@ -1,1 +1,1 @@
-beach,tennis,sand,doubles,coach,tactics,formation,play,drill,strategy,volley,smash,court,itf
+beach tennis,beach,doubles,smash,lob,sand court,coach,paddle,strategy,playbook,formation

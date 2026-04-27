@@ -1,1 +1,1 @@
-entraîneur,formation,passeur,service,attaque,bloc,réception,exercice,animation,6v6,tableau
+volley,6v6,4-2,5-1,6-2,passeur,libéro,rotation,service,attaque,bloc,coach

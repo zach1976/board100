@@ -1,3 +1,7 @@
-- Tối ưu iPad: biểu tượng cầu thủ và popup hiển thị đúng trên màn hình 13 inch
-- Màn hình ngoài: khung ngang render gốc với biểu tượng cầu thủ đứng thẳng
-- Sửa lỗi: đường di chuyển không tự hiện sau khi chạy animation
+Có gì mới:
+• Trình Timeline: phát từng bước các pha chiến thuật nhiều giai đoạn
+• Màn ngoài: canvas ngang dựng gốc, biểu tượng đứng thẳng (AirPlay)
+• Đường di chuyển tự hiện sau khi phát xong
+• Tinh chỉnh bố cục iPad 13 inch
+
+Cảm ơn bạn đã đồng hành. Cứ gửi phản hồi và ý tưởng.

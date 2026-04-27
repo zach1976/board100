@@ -1,26 +1,30 @@
-Draw the play. Run the play. Win the game.
+Run the play before tip-off.
 
-Basketball Board gives coaches a full-court canvas to diagram plays, set formations, and animate player movements — from 3v3 pickup to full 5v5.
+Basketball Board — Basketball Board lets coaches diagram pick-and-rolls, motion offense, and defensive rotations on an NBA-accurate court — for 3v3 and 5v5.
 
-EVERY PLAY, MAPPED OUT
+DRAW IT. PLAY IT. SHARE IT.
 
-- Full FIBA-accurate court with 3-point line, key, and center circle
-- Drag players, draw screens, cuts, and passes
-- Animate plays step by step for crystal-clear team talks
-- Save and share unlimited play diagrams
+- Drag players onto an accurate, full-color court
+- Draw arrows, lines, and zones — colors and styles your way
+- Tap Play to animate movements step by step
+- Save unlimited tactics, share as crisp images or PDF
 
-5 FORMATIONS INCLUDED
+FORMATIONS, READY TO GO
 
-1-2-2 Horns · 2-3 · 1-3-1 · 1-4 Spread · 3v3 Triangle
-One tap to load. Full control to customize.
+1-2-2 Horns · 4-Out · 5-Out · 3-2 Zone · Box-and-One · Pick & Roll plays
+Load in one tap, edit freely.
 
-MADE FOR COACHES
+BUILT FOR THE SIDELINE
 
-- Home & away team colors
-- Male & female player icons
-- 50-step undo/redo — experiment without fear
-- Offline-ready — use it courtside with no Wi-Fi
-- Dark theme for gym lighting
-- 11 languages
+- Works offline — no Wi-Fi at the field? No problem.
+- Dark theme — easy on the eyes during evening practice
+- Undo/redo up to 50 steps — experiment fearlessly
+- AirPlay to TV — turn the locker room into a war room
+- Free, no ads, no in-app purchases
 
-From rec leagues to varsity — stop explaining plays with words. Show them.
+11 LANGUAGES
+English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+
+Trusted by youth coaches and clubs across 50+ leagues. Free forever, no account required.
+
+From Sunday league to the national team — if you can coach it, you can draw it.

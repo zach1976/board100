@@ -1,1 +1,1 @@
-entrenador,formación,estrategia,ejercicio,animación,bloqueo,ataque,defensa,cancha,pizarra,NBA,3v3
+básquet,3v3,5v5,bloqueo,horns,zona,hombre a hombre,ataque,pizarra,entrenador,cancha,jugada

@@ -1,1 +1,1 @@
-hockey,field,stick,coach,tactics,formation,pitch,play,drill,strategy,press,corner,training
+field hockey,hockey,penalty corner,short corner,press,formation,coach,stick,playbook,drill

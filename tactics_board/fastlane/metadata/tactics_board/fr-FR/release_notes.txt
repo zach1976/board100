@@ -1,4 +1,7 @@
-- 8 nouveaux sports ajoutés : hockey sur gazon, rugby, baseball, handball, water-polo, sepak takraw, beach tennis, footvolley
-- Ajustement iPad : icônes et popups correctement dimensionnés sur écrans 13 pouces
-- Affichage externe : rendu natif paysage avec icônes de joueurs à l'endroit
-- Correction : lignes de déplacement ne s'affichaient pas après animation
+Nouveautés :
+• Éditeur Timeline : animez les phases tactiques pas à pas
+• Affichage externe : toile paysage en rendu natif, icônes droites (AirPlay)
+• Lignes de course visibles automatiquement après lecture
+• Mise en page iPad 13 pouces affinée
+
+Merci de coacher avec nous. Continuez à nous envoyer vos retours.

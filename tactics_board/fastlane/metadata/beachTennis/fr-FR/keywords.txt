@@ -1,1 +1,1 @@
-beach tennis,sable,double,entraîneur,tactique,formation,volée,smash,exercice,service
+beach tennis,plage,double,smash,lob,sable,coach,raquette,tactique,plan,formation

@@ -1,1 +1,1 @@
-coach,dink,doubles,singles,formation,training,animation,drill,stacking,paddle,playbook,display,pdf
+pickleball,dink,kitchen,third shot,drop,doubles,stacking,erne,ATP,coach,paddle,strategy

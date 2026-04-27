@@ -1,1 +1,1 @@
-entraîneur,formation,stratégie,animation,presse-papiers,tableau blanc,alignement,exercice
+tactique,coach,plan,formation,entraînement,équipe,stratégie,sport,whiteboard,schéma

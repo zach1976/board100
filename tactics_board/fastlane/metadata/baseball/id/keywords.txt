@@ -1,1 +1,1 @@
-bisbol,diamond,pelatih,taktik,pertahanan,infield,outfield,strategi,pitcher,sofbol
+bisbol,softbol,pitching,batting,fielding,bunt,curi base,double play,sandi,pelatih,susunan,taktik

@@ -1,1 +1,1 @@
-entrenador,formación,saque,volea,estrategia,ejercicio,animación,línea de fondo,rally,pizarra
+tenis,dobles,individuales,saque,resto,volea,fondo,deuce,pista,entrenador,táctica,jugada

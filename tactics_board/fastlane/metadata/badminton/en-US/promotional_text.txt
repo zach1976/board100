@@ -1,1 +1,1 @@
-NEW: Timeline editor — plan doubles rotations phase by phase. Animate court coverage with step-by-step playback.
+NEW Timeline Editor: animate multi-phase badminton plays step by step. Free, offline, no ads. Built for coaches who think in pictures.

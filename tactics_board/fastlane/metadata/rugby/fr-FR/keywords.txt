@@ -1,1 +1,1 @@
-rugby,mêlée,touche,ruck,maul,entraîneur,tactique,formation,exercice,union
+rugby,union,à sept,mêlée,touche,maul,ruck,arrières,avants,plan,coach,tactique

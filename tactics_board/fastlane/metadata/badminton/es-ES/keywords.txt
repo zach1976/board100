@@ -1,1 +1,1 @@
-entrenador,formación,ejercicio,rally,smash,rotación,animación,volante,drop,cancha,práctica
+bádminton,dobles,individuales,smash,clear,drop,red,delante atrás,cancha,entrenador,táctica
