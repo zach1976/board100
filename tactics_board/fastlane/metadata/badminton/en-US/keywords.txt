@@ -1,1 +1,1 @@
-coach,shuttle,formation,court,drill,training,rally,smash,animation,drop,playbook,display,pdf
+badminton,doubles,singles,smash,clear,drop,net shot,front back,side by side,court,coach

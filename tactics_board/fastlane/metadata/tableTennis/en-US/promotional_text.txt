@@ -1,1 +1,1 @@
-NEW: Timeline editor — plan serve sequences step by step. Animate doubles rotations with phase-by-phase playback.
+NEW Timeline Editor: animate multi-phase table tennis plays step by step. Free, offline, no ads. Built for coaches who think in pictures.

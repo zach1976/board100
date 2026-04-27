@@ -1,1 +1,1 @@
-soccer,basketball,volleyball,tennis,badminton,airplay,display,pdf,formation,animation,drill
+tactics,coach,playbook,whiteboard,formation,drill,strategy,team,training,lineup,sport,board

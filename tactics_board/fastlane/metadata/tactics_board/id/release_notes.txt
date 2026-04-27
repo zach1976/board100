@@ -1,4 +1,7 @@
-- 8 olahraga baru: hoki lapangan, rugby, bisbol, bola tangan, polo air, sepak takraw, tenis pantai, footvolley
-- Penyempurnaan iPad: ikon pemain dan popup diskalakan dengan benar di layar 13 inci
-- Layar eksternal: kanvas lanskap dirender native dengan ikon pemain tegak
-- Perbaikan: garis pergerakan tidak otomatis muncul setelah animasi
+Yang baru:
+• Timeline Editor: animasikan taktik multi-fase langkah demi langkah
+• Layar eksternal: kanvas landscape native, ikon tegak (AirPlay)
+• Garis pergerakan tampil otomatis setelah putar
+• Penyesuaian tata letak iPad 13 inci
+
+Terima kasih sudah melatih bersama kami. Lanjutkan kirim masukan dan ide.

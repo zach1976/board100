@@ -1,1 +1,1 @@
-water,polo,pool,coach,tactics,formation,attack,defense,play,drill,strategy,center,wing,6v5
+water polo,6v5,man up,zone,press,counter,driver,hole set,coach,playbook,strategy,formation

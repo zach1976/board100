@@ -1,4 +1,7 @@
-- 8 nuevos deportes: hockey hierba, rugby, béisbol, balonmano, waterpolo, sepak takraw, tenis playa, futvóley
-- Ajuste iPad: iconos y pop-ups se escalan correctamente en pantallas de 13 pulgadas
-- Pantalla externa: lienzo horizontal se renderiza de forma nativa con iconos verticales
-- Corregido: las líneas de movimiento no se mostraban automáticamente tras la animación
+Novedades:
+• Editor Timeline: anima jugadas multi-fase paso a paso
+• Pantalla externa: lienzo apaisado nativo, iconos en vertical (AirPlay)
+• Líneas de movimiento visibles tras la reproducción
+• Ajustes de diseño en iPad 13"
+
+Gracias por entrenar con nosotros. Sigue enviándonos ideas.

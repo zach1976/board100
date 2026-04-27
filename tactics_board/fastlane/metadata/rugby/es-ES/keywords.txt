@@ -1,1 +1,1 @@
-rugby,melé,touche,ruck,maul,entrenador,táctica,formación,ejercicio,union
+rugby,union,seven,melé,touche,maul,ruck,zagueros,delanteros,pizarra,entrenador,jugada

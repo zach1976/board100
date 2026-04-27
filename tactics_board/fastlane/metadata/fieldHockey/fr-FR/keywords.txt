@@ -1,1 +1,1 @@
-hockey,gazon,entraîneur,tactique,formation,terrain,corner,pression,exercice,stratégie
+hockey sur gazon,hockey,corner,pressing,formation,coach,crosse,plan,entraînement,équipe

@@ -1,1 +1,1 @@
-waterpolo,piscina,entrenador,táctica,formación,ataque,defensa,6v5,ejercicio,boya
+waterpolo,6v5,superioridad,zona,presión,contra,boya,pizarra,entrenador,formación,jugada

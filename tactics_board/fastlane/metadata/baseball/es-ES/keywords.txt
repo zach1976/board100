@@ -1,1 +1,1 @@
-béisbol,diamante,entrenador,táctica,defensa,cuadro,jardín,jugada,estrategia,lanzador,softbol
+béisbol,sóftbol,lanzamiento,bateo,defensa,toque,robo,doble play,señas,entrenador,alineación,jugada

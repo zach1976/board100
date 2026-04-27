@@ -1,1 +1,1 @@
-hockey,hierba,entrenador,táctica,formación,campo,córner,presión,ejercicio,estrategia
+hockey hierba,hockey,córner corto,presión,formación,entrenador,palo,pizarra,jugada,equipo

@@ -1,1 +1,1 @@
-pelatih,formasi,strategi,animasi,papan tulis,latihan,sepak bola,basket,bulu tangkis,tenis,voli
+taktik,pelatih,formasi,papan,latihan,tim,strategi,olahraga,playbook,whiteboard

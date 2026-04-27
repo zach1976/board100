@@ -1,1 +1,1 @@
-NEW: Animated plays — draw a lineout move, tap Play, watch every run. Rugby coaching made visual.
+NEW Timeline Editor: animate multi-phase rugby plays step by step. Free, offline, no ads. Built for coaches who think in pictures.

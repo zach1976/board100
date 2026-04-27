@@ -1,22 +1,30 @@
-See the diamond. Set the shift.
+Plan the play before the pitch.
 
-Baseball Board is the coach's clipboard for defensive shifts, pickoff plays, and base coaching signals — baseball and softball, youth through varsity.
+Baseball Board — Baseball Board lets coaches set defensive shifts, base-running plays, and pitcher coverage — diamond and outfield, all positions.
 
-DEFENSIVE SCHEMES
+DRAW IT. PLAY IT. SHARE IT.
 
-- Accurate baseball diamond with infield and outfield zones
-- Drag the 9 defenders into position
-- Plan shifts vs. lefty/righty hitters
-- Animate double plays, relay throws, cutoffs
+- Drag players onto an accurate, full-color court
+- Draw arrows, lines, and zones — colors and styles your way
+- Tap Play to animate movements step by step
+- Save unlimited tactics, share as crisp images or PDF
 
-BASE RUNNING & PICKOFFS
+FORMATIONS, READY TO GO
 
-- Diagram hit-and-runs, steals, squeeze plays
-- Pickoff moves from the mound
-- Home & away team colors
+Defensive shifts · Base running · Bunt defense · Cut-off plays · Pitcher coverage
+Drag positions to plan.
 
-COACH-FRIENDLY DESIGN
+BUILT FOR THE SIDELINE
 
-- Offline · Dark theme · 50-step undo/redo · 11 languages
+- Works offline — no Wi-Fi at the field? No problem.
+- Dark theme — easy on the eyes during evening practice
+- Undo/redo up to 50 steps — experiment fearlessly
+- AirPlay to TV — turn the locker room into a war room
+- Free, no ads, no in-app purchases
 
-From little league to travel ball — show your team where to stand.
+11 LANGUAGES
+English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+
+Trusted by youth coaches and clubs across 50+ leagues. Free forever, no account required.
+
+From Sunday league to the national team — if you can coach it, you can draw it.

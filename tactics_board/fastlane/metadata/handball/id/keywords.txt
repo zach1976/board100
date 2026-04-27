@@ -1,1 +1,1 @@
-bola tangan,lapangan,pelatih,taktik,formasi,serangan,pertahanan,6-0,5-1,latihan
+bola tangan,6-0,5-1,3-2-1,sayap,pivot,belakang,serangan balik,papan,pelatih,formasi

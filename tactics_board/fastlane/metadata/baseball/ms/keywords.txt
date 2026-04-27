@@ -1,1 +1,1 @@
-besbol,diamond,jurulatih,taktik,pertahanan,infield,outfield,strategi,pitcher
+besbol,softbol,balingan,memukul,bertahan,bunt,curi base,double play,isyarat,jurulatih,susunan

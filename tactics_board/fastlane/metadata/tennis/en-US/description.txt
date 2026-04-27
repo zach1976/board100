@@ -1,27 +1,30 @@
-Plan the point before you play it.
+Win the point on paper first.
 
-Tennis Board gives coaches and players a clean court canvas to map out serve patterns, approach shots, and doubles positioning.
+Tennis Board — Tennis Board lets coaches plan return positions, doubles formations, and rally patterns on a regulation court — singles and doubles.
 
-VISUALIZE EVERY POINT
+DRAW IT. PLAY IT. SHARE IT.
 
-- Accurate tennis court with singles and doubles lines
-- Singles & doubles formations
-- Draw serve placement, rally patterns, and net approaches
-- Animate movement step by step
-- Save and share diagrams
+- Drag players onto an accurate, full-color court
+- Draw arrows, lines, and zones — colors and styles your way
+- Tap Play to animate movements step by step
+- Save unlimited tactics, share as crisp images or PDF
 
-DOUBLES STRATEGY
+FORMATIONS, READY TO GO
 
-- Net player positioning
-- One-up-one-back vs both-at-net formations
-- Home & away colors
-- Custom player names
+Singles baseline · Doubles I-formation · Australian formation · Net rush · Return positions
+Drag to customize.
 
-COURT-READY
+BUILT FOR THE SIDELINE
 
-- Offline mode
-- Dark theme
-- 50-step undo/redo
-- 11 languages
+- Works offline — no Wi-Fi at the field? No problem.
+- Dark theme — easy on the eyes during evening practice
+- Undo/redo up to 50 steps — experiment fearlessly
+- AirPlay to TV — turn the locker room into a war room
+- Free, no ads, no in-app purchases
 
-From practice to match day — show the game plan, don't just describe it.
+11 LANGUAGES
+English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+
+Trusted by youth coaches and clubs across 50+ leagues. Free forever, no account required.
+
+From Sunday league to the national team — if you can coach it, you can draw it.

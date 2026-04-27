@@ -1,1 +1,1 @@
-NEW: Timeline editor — choreograph set pieces phase by phase. Animate runs, passes, and pressing traps step by step.
+NEW Timeline Editor: animate multi-phase soccer plays step by step. Free, offline, no ads. Built for coaches who think in pictures.

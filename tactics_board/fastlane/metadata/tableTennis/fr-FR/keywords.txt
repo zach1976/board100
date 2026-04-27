@@ -1,1 +1,1 @@
-entraîneur,ping pong,effet,formation,exercice,animation,rally,double,simple,pratique,service
+tennis de table,ping pong,topspin,coupé,lift,smash,poussette,service,double,coach,raquette,tactique

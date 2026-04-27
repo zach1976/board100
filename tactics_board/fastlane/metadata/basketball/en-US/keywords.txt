@@ -1,1 +1,1 @@
-coach,horns,offense,defense,strategy,drill,court,animation,pick,roll,lineup,playbook,display,pdf
+hoops,3v3,5v5,pick roll,horns,zone defense,man to man,offense,playbook,coach,court,lineup

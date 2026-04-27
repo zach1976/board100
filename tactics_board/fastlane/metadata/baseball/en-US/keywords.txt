@@ -1,1 +1,1 @@
-baseball,diamond,coach,tactics,shift,infield,outfield,play,strategy,defense,lineup,softball,pitcher
+baseball,softball,pitching,batting,fielding,bunt,steal,double play,signs,coach,lineup,strategy

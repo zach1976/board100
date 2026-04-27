@@ -1,3 +1,7 @@
-- Penambahbaikan iPad: ikon pemain dan popup diskalakan dengan betul pada skrin 13 inci
-- Paparan luaran: kanvas lanskap dirender secara asli dengan ikon pemain tegak
-- Pembetulan: garis pergerakan tidak dipaparkan secara automatik selepas animasi
+Yang baharu:
+• Timeline Editor: animasikan taktik berbilang fasa langkah demi langkah
+• Paparan luar: kanvas landskap natif, ikon menegak (AirPlay)
+• Garis pergerakan dipaparkan automatik selepas main
+• Halusan susun atur iPad 13 inci
+
+Terima kasih melatih bersama kami. Teruskan hantar maklum balas dan idea.

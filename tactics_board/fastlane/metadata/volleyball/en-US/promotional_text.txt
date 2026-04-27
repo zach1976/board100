@@ -1,1 +1,1 @@
-NEW: Timeline editor — plan serve-receive rotations phase by phase. Animate transitions with step-by-step playback.
+NEW Timeline Editor: animate multi-phase volleyball plays step by step. Free, offline, no ads. Built for coaches who think in pictures.
