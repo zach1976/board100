@@ -99,6 +99,12 @@ APPS = [
     ("com.zach.footvolleyBoard", "Footvolley Board"),
 ]
 
+_filter = os.environ.get("SPORTS")
+if _filter:
+    _wanted = {s.strip() for s in _filter.split(",")}
+    APPS = [(b, n) for b, n in APPS if APP_KEY.get(b) in _wanted]
+    print(f"Filtered to: {[APP_KEY[b] for b,_ in APPS]}")
+
 for bundle_id, name in APPS:
     print(f"\n{name}...")
     r = api("GET", f"/v1/apps?filter[bundleId]={bundle_id}")
