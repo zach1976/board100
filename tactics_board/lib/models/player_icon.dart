@@ -33,6 +33,9 @@ class PlayerIcon {
   final Color? customColor; // overrides team color when set
   final PlayerGender gender;
   final MarkerShape markerShape;
+  /// When set, the icon renders the corresponding photo from the local
+  /// PhotoLibrary as its avatar instead of the solid colour disc.
+  final String? photoId;
 
   PlayerIcon({
     required this.id,
@@ -48,6 +51,7 @@ class PlayerIcon {
     this.customColor,
     this.gender = PlayerGender.unspecified,
     this.markerShape = MarkerShape.none,
+    this.photoId,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveColor = moveColor ?? _moveColors[0];
@@ -79,6 +83,7 @@ class PlayerIcon {
     'customColor': customColor?.value,
     'gender': gender.index,
     'markerShape': markerShape.index,
+    'photoId': photoId,
   };
 
   factory PlayerIcon.fromJson(Map<String, dynamic> json) => PlayerIcon(
@@ -94,6 +99,7 @@ class PlayerIcon {
     customColor: json['customColor'] != null ? Color(json['customColor'] as int) : null,
     gender: json['gender'] != null ? PlayerGender.values[json['gender'] as int] : PlayerGender.unspecified,
     markerShape: json['markerShape'] != null ? MarkerShape.values[json['markerShape'] as int] : MarkerShape.none,
+    photoId: json['photoId'] as String?,
   );
 
   bool get isBall => team == PlayerTeam.neutral && sportType != null && markerShape == MarkerShape.none;
@@ -114,6 +120,8 @@ class PlayerIcon {
     bool clearCustomColor = false,
     PlayerGender? gender,
     MarkerShape? markerShape,
+    String? photoId,
+    bool clearPhotoId = false,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -129,15 +137,16 @@ class PlayerIcon {
       customColor: clearCustomColor ? null : (customColor ?? this.customColor),
       gender: gender ?? this.gender,
       markerShape: markerShape ?? this.markerShape,
+      photoId: clearPhotoId ? null : (photoId ?? this.photoId),
     );
   }
 
   static Color teamColor(PlayerTeam team) {
     switch (team) {
       case PlayerTeam.home:
-        return const Color(0xFF1565C0);
+        return const Color(0xFF3A7DFF); // modern bright blue
       case PlayerTeam.away:
-        return const Color(0xFFC62828);
+        return const Color(0xFFFF5A5F); // softer coral red
       case PlayerTeam.neutral:
         return const Color(0xFF424242);
     }

@@ -440,12 +440,12 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               if (player.label.isNotEmpty &&
                                   player.label.length <= 2)
                                 Align(
-                                  alignment: const Alignment(0, 0.35),
+                                  alignment: Alignment.center,
                                   child: Text(
                                     player.label,
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                       fontSize: 13 * player.scale,
                                       height: 1,
                                       shadows: const [
@@ -964,12 +964,12 @@ class _WaypointDotState extends State<_WaypointDot> {
                 !widget.player.isMarker &&
                 !widget.player.isBall)
               Align(
-                alignment: const Alignment(0, 0.35),
+                alignment: Alignment.center,
                 child: Text(
                   widget.player.label,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     fontSize: 13,
                     height: 1,
                     shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
@@ -1072,8 +1072,8 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
 
   static const _swatches = <Color?>[
     null,
-    Color(0xFF1565C0),
-    Color(0xFFC62828),
+    Color(0xFF3A7DFF),
+    Color(0xFFFF5A5F),
     Color(0xFF2E7D32),
     Color(0xFFE65100),
     Color(0xFF6A1B9A),

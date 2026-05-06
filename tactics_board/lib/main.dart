@@ -22,6 +22,19 @@ SportType? get fixedSport {
 /// True when this is a single-sport flavor (no sport selection page)
 bool get isSingleSportApp => fixedSport != null;
 
+/// Decide which English variant to default a device to on first launch.
+/// Countries listed below say "Soccer"; everywhere else en-XX defaults to
+/// British English (en-GB) which uses "Football". Returns null for non-English
+/// devices so EasyLocalization handles them with its normal resolution.
+Locale? _resolveEnglishStartLocale() {
+  final device = WidgetsBinding.instance.platformDispatcher.locale;
+  if (device.languageCode != 'en') return null;
+  const soccerCountries = {'US', 'CA', 'AU', 'NZ', 'ZA', 'PH'};
+  return soccerCountries.contains(device.countryCode)
+      ? const Locale('en', 'US')
+      : const Locale('en', 'GB');
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -36,6 +49,7 @@ void main() async {
         Locale('zh', 'CN'),
         Locale('zh', 'TW'),
         Locale('en', 'US'),
+        Locale('en', 'GB'),
         Locale('ja', 'JP'),
         Locale('ko', 'KR'),
         Locale('fr', 'FR'),
@@ -46,6 +60,7 @@ void main() async {
         Locale('ms', 'MY'),
       ],
       path: 'assets/translations',
+      startLocale: _resolveEnglishStartLocale(),
       fallbackLocale: const Locale('en', 'US'),
       child: const TacticsBoardApp(),
     ),

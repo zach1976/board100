@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/sport_type.dart';
+import '../models/sport_theme.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../state/tactics_state.dart';
@@ -29,9 +31,19 @@ class TacticsBoardHomePage extends StatelessWidget {
     final bottomPad = MediaQuery.of(context).padding.bottom;
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
+    final theme = context.select<TacticsState, SportTheme>((s) => s.sportType.theme);
     return Scaffold(
-      backgroundColor: const Color(0xFF213E48),
-      body: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: theme.pageGradient,
+          ),
+        ),
+        child: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
+      ),
     );
   }
 
@@ -48,13 +60,13 @@ class TacticsBoardHomePage extends StatelessWidget {
     return Row(
       children: [
         Expanded(child: _canvasStack(context, topPad)),
-        Selector<TacticsState, bool>(
-          selector: (_, s) => s.toolbarVisible,
-          builder: (context, visible, _) => visible
+        Selector<TacticsState, ({bool visible, SportTheme theme})>(
+          selector: (_, s) => (visible: s.toolbarVisible, theme: s.sportType.theme),
+          builder: (context, sel, _) => sel.visible
             ? SizedBox(
                 width: 190,
                 child: Material(
-                  color: const Color(0xFF213E48),
+                  color: sel.theme.panelColor,
                   child: _landscapeSidePanel(context),
                 ),
               )
@@ -66,7 +78,9 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   Widget _canvasStack(BuildContext context, double topPad) {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
-    return Stack(
+    return DragTarget<PhotoDragData>(
+      onAcceptWithDetails: (details) => _onPhotoDropped(context, details),
+      builder: (ctx, candidate, rejected) => Stack(
       fit: StackFit.expand,
       children: [
         isLandscape
@@ -127,18 +141,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (_) => const SportSelectionPage()),
                     );
                   },
-                  child: Container(
-                    width: 32 * uiScale(context), height: 32 * uiScale(context),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.45),
-                      shape: BoxShape.circle,
-                      border: inPlanMode
-                          ? Border.all(color: const Color(0xFF00E5CC), width: 1.5)
-                          : null,
-                    ),
+                  child: _GlassCircle(
+                    size: 32 * uiScale(context),
+                    border: inPlanMode
+                        ? Border.all(color: const Color(0xFF00E5CC), width: 1.5)
+                        : null,
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: inPlanMode ? const Color(0xFF00E5CC) : Colors.white70,
+                      color: inPlanMode ? const Color(0xFF00E5CC) : Colors.white,
                       size: 16 * uiScale(context),
                     ),
                   ),
@@ -154,16 +164,44 @@ class TacticsBoardHomePage extends StatelessWidget {
             selector: (_, s) => s.toolbarVisible,
             builder: (context, visible, _) => GestureDetector(
               onTap: context.read<TacticsState>().toggleToolbar,
-              child: Container(
-                width: 32 * uiScale(context), height: 32 * uiScale(context),
-                decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.45), shape: BoxShape.circle),
-                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white70, size: 18 * uiScale(context)),
+              child: _GlassCircle(
+                size: 32 * uiScale(context),
+                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white, size: 18 * uiScale(context)),
               ),
             ),
           ),
         ),
       ],
+      ),
     );
+  }
+
+  /// Drop handler for photos dragged from the My Teams strip — converts the
+  /// global drop point into canvas coords and adds a player there.
+  void _onPhotoDropped(BuildContext context, DragTargetDetails<PhotoDragData> details) {
+    final state = context.read<TacticsState>();
+    final ro = boardRepaintKey.currentContext?.findRenderObject();
+    if (ro is! RenderBox || !ro.attached) return;
+    final localFromBoard = ro.globalToLocal(details.offset);
+    final size = state.canvasSize;
+    if (size.isEmpty) return;
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == details.data.team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    final clamped = Offset(
+      localFromBoard.dx.clamp(24.0, size.width - 24.0),
+      localFromBoard.dy.clamp(24.0, size.height - 24.0),
+    );
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${max + 1}',
+      team: details.data.team,
+      position: clamped,
+      photoId: details.data.photo.id,
+    ));
+    HapticFeedback.lightImpact();
   }
 
   Widget _bottomBar(BuildContext context, double bottomPad) {
@@ -316,6 +354,49 @@ class TacticsBoardHomePage extends StatelessWidget {
   }
 }
 
+/// iOS-style frosted glass circular button — translucent fill on top of a
+/// real-time backdrop blur. Used for top-corner chrome (back / menu / fullscreen).
+class _GlassCircle extends StatelessWidget {
+  final double size;
+  final Widget child;
+  final BoxBorder? border;
+  const _GlassCircle({required this.size, required this.child, this.border});
+
+  @override
+  Widget build(BuildContext context) {
+    // Shadow is drawn by the outer DecoratedBox so it's not clipped away by
+    // ClipOval; the BackdropFilter blurs the field/board content underneath.
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.30),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: ClipOval(
+        child: BackdropFilter(
+          filter: ui.ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+          child: Container(
+            width: size,
+            height: size,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.28),
+              shape: BoxShape.circle,
+              border: border,
+            ),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -325,14 +406,9 @@ class _MenuButton extends StatelessWidget {
       color: const Color(0xFF2A4D58),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       offset: const Offset(0, 40),
-      child: Container(
-        width: 32 * s,
-        height: 32 * s,
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.45),
-          shape: BoxShape.circle,
-        ),
-        child: Icon(Icons.more_horiz, color: Colors.white70, size: 18 * s),
+      child: _GlassCircle(
+        size: 32 * s,
+        child: Icon(Icons.more_horiz, color: Colors.white, size: 18 * s),
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
@@ -1047,7 +1123,10 @@ class _ScorerPromoSheet extends StatelessWidget {
 class _PlayerEditBar extends StatefulWidget {
   final TacticsState state;
   final PlayerIcon player;
-  const _PlayerEditBar({required this.state, required this.player});
+  /// When false, hides the colour palette + size slider (default).
+  /// Toggled by the outer collapsible panel's More/Less header.
+  final bool showOptions;
+  const _PlayerEditBar({required this.state, required this.player, this.showOptions = false});
 
   @override
   State<_PlayerEditBar> createState() => _PlayerEditBarState();
@@ -1055,8 +1134,8 @@ class _PlayerEditBar extends StatefulWidget {
 
 class _PlayerEditBarState extends State<_PlayerEditBar> {
   static const _colors = <Color>[
-    Color(0xFF1565C0),
-    Color(0xFFC62828),
+    Color(0xFF3A7DFF),
+    Color(0xFFFF5A5F),
     Color(0xFF2E7D32),
     Color(0xFFE65100),
     Color(0xFF6A1B9A),
@@ -1068,6 +1147,9 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   @override
   Widget build(BuildContext context) {
     final p = widget.player;
+    // When collapsed (default), the panel contributes nothing — only the
+    // outer More toggle is visible, leaving the board uncluttered.
+    if (!widget.showOptions) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
       child: Column(
@@ -1105,46 +1187,48 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          // Row 2: color swatches
-          Row(
-            children: [
-              ..._colors.map((c) => GestureDetector(
-                onTap: () {
-                  widget.state.updatePlayer(p.id, customColor: c);
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(right: 6),
-                  width: 24, height: 24,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: c,
-                    border: Border.all(
-                      color: p.customColor == c ? Colors.yellow : Colors.white24,
-                      width: p.customColor == c ? 2.5 : 1,
+          // Row 2 — colour swatches + size slider.
+          ...[
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                ..._colors.map((c) => GestureDetector(
+                  onTap: () {
+                    widget.state.updatePlayer(p.id, customColor: c);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 6),
+                    width: 24, height: 24,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: c,
+                      border: Border.all(
+                        color: p.customColor == c ? Colors.yellow : Colors.white24,
+                        width: p.customColor == c ? 2.5 : 1,
+                      ),
                     ),
                   ),
+                )),
+                const Spacer(),
+                // Size slider compact
+                const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
+                SizedBox(
+                  width: 100,
+                  child: Slider(
+                    value: p.scale,
+                    min: 0.5,
+                    max: 3.0,
+                    divisions: 10,
+                    activeColor: const Color(0xFF00E5CC),
+                    inactiveColor: Colors.white24,
+                    onChanged: (v) {
+                      widget.state.updatePlayer(p.id, scale: v);
+                    },
+                  ),
                 ),
-              )),
-              const Spacer(),
-              // Size slider compact
-              const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
-              SizedBox(
-                width: 100,
-                child: Slider(
-                  value: p.scale,
-                  min: 0.5,
-                  max: 3.0,
-                  divisions: 10,
-                  activeColor: const Color(0xFF00E5CC),
-                  inactiveColor: Colors.white24,
-                  onChanged: (v) {
-                    widget.state.updatePlayer(p.id, scale: v);
-                  },
-                ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ],
       ),
     );
@@ -1174,7 +1258,10 @@ class _CollapsibleEditPanel extends StatefulWidget {
 }
 
 class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
-  bool _collapsed = false;
+  // Default to collapsed: only the essential row (player tag + actions, or
+  // line style + arrow) is visible; the colour palette and size/width slider
+  // appear only after the user taps "More".
+  bool _collapsed = true;
 
   @override
   Widget build(BuildContext context) {
@@ -1185,12 +1272,12 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         Widget? panel;
         bool pinTop = false;
         if (state.isDrawingMode || state.selectedStrokeId != null) {
-          panel = DrawingOptionsBar(state: state);
+          panel = DrawingOptionsBar(state: state, showOptions: !_collapsed);
         } else if (state.selectedPlayerId != null) {
           final player = state.players.cast<PlayerIcon?>().firstWhere(
             (p) => p?.id == state.selectedPlayerId, orElse: () => null);
           if (player != null) {
-            panel = _PlayerEditBar(state: state, player: player);
+            panel = _PlayerEditBar(state: state, player: player, showOptions: !_collapsed);
             final h = state.canvasSize.height;
             if (h > 0 && player.position.dy > h * 0.5) {
               pinTop = true;
@@ -1199,11 +1286,32 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         }
 
         if (panel == null) {
-          _collapsed = false;
+          _collapsed = true;
           return const SizedBox.shrink();
         }
 
         final topPad = MediaQuery.of(context).padding.top;
+        final s = uiScale(context);
+
+        // Collapsed: render only a small floating button just above the
+        // bottom toolbar so the pitch stays uncluttered. Tap to expand the
+        // full options panel.
+        if (_collapsed) {
+          return Positioned(
+            bottom: 12,
+            left: 0, right: 0,
+            child: Center(
+              child: GestureDetector(
+                onTap: () => setState(() => _collapsed = false),
+                child: _GlassCircle(
+                  size: 32 * s,
+                  child: Icon(Icons.tune, color: Colors.white, size: 18 * s),
+                ),
+              ),
+            ),
+          );
+        }
+
         return Positioned(
           top: pinTop ? topPad + 52 : null,
           bottom: pinTop ? null : 0,
@@ -1213,38 +1321,33 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Collapse/expand toggle bar
+                // Collapse handle — tap to hide the options panel again.
                 GestureDetector(
-                  onTap: () => setState(() => _collapsed = !_collapsed),
-                  child: Builder(builder: (ctx) {
-                    final s = uiScale(ctx);
-                    return Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 16 * s),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.06),
-                        border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            pinTop
-                                ? (_collapsed ? Icons.expand_more : Icons.expand_less)
-                                : (_collapsed ? Icons.expand_less : Icons.expand_more),
-                            color: Colors.white54, size: 22 * s,
-                          ),
-                          SizedBox(width: 6 * s),
-                          Text(
-                            (_collapsed ? 'more' : 'less').tr(),
-                            style: TextStyle(color: Colors.white54, fontSize: 12 * s, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
+                  onTap: () => setState(() => _collapsed = true),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 16 * s),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.06),
+                      border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          pinTop ? Icons.expand_less : Icons.expand_more,
+                          color: Colors.white54, size: 22 * s,
+                        ),
+                        SizedBox(width: 6 * s),
+                        Text(
+                          'less'.tr(),
+                          style: TextStyle(color: Colors.white54, fontSize: 12 * s, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                if (!_collapsed) panel,
+                panel,
               ],
             ),
           ),
