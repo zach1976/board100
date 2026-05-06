@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../widgets/player_icon_widget.dart';
@@ -108,15 +109,21 @@ class PlayerMovesPainter extends CustomPainter {
   }
 
   void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to) {
-    // Dark outline for contrast
+    // Dark outline for contrast (uniform).
     final outlinePaint = Paint()
       ..color = Colors.black.withValues(alpha: 0.5)
       ..strokeWidth = _strokeWidth + 2.5
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
+    // Gradient tail: faded at the source, full color near the destination —
+    // gives a sense of direction/recency without changing the dashed style.
     final linePaint = Paint()
-      ..color = color
+      ..shader = ui.Gradient.linear(
+        from,
+        to,
+        [color.withValues(alpha: 0.30), color],
+      )
       ..strokeWidth = _strokeWidth
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;

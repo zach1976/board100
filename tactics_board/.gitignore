@@ -1,3 +1,8 @@
+# Local face-detection sandbox: keep the Swift script in source, but never
+# commit real-person test photos the user drops into tool/face_test/.
+tool/face_test/*.jpg
+tool/face_test/*.png
+
 # Miscellaneous
 *.class
 *.log

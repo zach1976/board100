@@ -4,7 +4,8 @@ import 'toolbar.dart' show scaledSheet;
 
 class LanguagePicker {
   static const _languages = [
-    (locale: Locale('en', 'US'), name: 'English'),
+    (locale: Locale('en', 'US'), name: 'English (US)'),
+    (locale: Locale('en', 'GB'), name: 'English (UK)'),
     (locale: Locale('zh', 'CN'), name: '简体中文'),
     (locale: Locale('zh', 'TW'), name: '繁體中文'),
     (locale: Locale('ja', 'JP'), name: '日本語'),

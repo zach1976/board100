@@ -85,15 +85,44 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 padding: EdgeInsets.fromLTRB(16, 0, 16, 4),
                 child: Text('Tap an empty slot to move', style: TextStyle(color: Colors.amber, fontSize: 11)),
               ),
-            // Phase numbers
+            // Phase numbers — current phase (atStep) highlighted as the playhead.
             Padding(
               padding: const EdgeInsets.fromLTRB(56, 4, 12, 2),
               child: Row(
-                children: List.generate(phaseCount, (i) => Expanded(
-                  child: Center(
-                    child: Text('${i + 1}', style: const TextStyle(color: Colors.white38, fontSize: 11, fontWeight: FontWeight.w600)),
-                  ),
-                )),
+                children: List.generate(phaseCount, (i) {
+                  final isCurrent = i == widget.state.atStep - 1 && widget.state.atStep > 0;
+                  return Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${i + 1}',
+                          style: TextStyle(
+                            color: isCurrent ? const Color(0xFF6EE7B7) : Colors.white38,
+                            fontSize: 11,
+                            fontWeight: isCurrent ? FontWeight.bold : FontWeight.w600,
+                          ),
+                        ),
+                        if (isCurrent)
+                          Container(
+                            margin: const EdgeInsets.only(top: 1),
+                            height: 2,
+                            width: 16,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF6EE7B7),
+                              borderRadius: BorderRadius.circular(1),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0xFF6EE7B7).withValues(alpha: 0.6),
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                }),
               ),
             ),
             // Player rows

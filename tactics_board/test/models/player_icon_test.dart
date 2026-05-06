@@ -22,8 +22,8 @@ void main() {
   });
 
   group('PlayerIcon.teamColor', () {
-    test('home is blue', () => expect(PlayerIcon.teamColor(PlayerTeam.home), const Color(0xFF1565C0)));
-    test('away is red', () => expect(PlayerIcon.teamColor(PlayerTeam.away), const Color(0xFFC62828)));
+    test('home is blue', () => expect(PlayerIcon.teamColor(PlayerTeam.home), const Color(0xFF3A7DFF)));
+    test('away is red', () => expect(PlayerIcon.teamColor(PlayerTeam.away), const Color(0xFFFF5A5F)));
     test('neutral is gray', () => expect(PlayerIcon.teamColor(PlayerTeam.neutral), const Color(0xFF424242)));
   });
 

@@ -9,11 +9,15 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
+import '../models/player_photo.dart';
 import '../models/sport_formation.dart';
+import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
 import '../services/pdf_export_service.dart';
+import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import 'photo_import_sheet.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
 
@@ -186,7 +190,7 @@ class TacticsToolbar extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return Container(
-          color: const Color(0xFF213E48),
+          color: state.sportType.theme.panelColor,
           child: _MainRow(state: state),
         );
       },
@@ -511,8 +515,15 @@ class _ModeSegment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white10,
+        color: Colors.white.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.20),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -552,7 +563,7 @@ class _SegTab extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
-          color: selected ? Colors.blue : Colors.transparent,
+          color: selected ? const Color(0xFF3A7DFF) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Opacity(
@@ -586,9 +597,15 @@ class _AddPlayerBtn extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
-          color: Colors.white10,
+          color: Colors.white.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.25),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -641,6 +658,38 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     super.dispose();
   }
 
+  /// Drop a single player onto the given team's spawn area, nudging to
+  /// avoid overlapping any existing icons. Closes the sheet.
+  void _addOneTeamPlayer(PlayerTeam team) {
+    final c = state.canvasSize;
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    var pos = Offset(c.width * 0.5, state.spawnY(team));
+    const minDist = 48.0;
+    for (int attempt = 0; attempt < 20; attempt++) {
+      final overlap = state.players.any((p) => (p.position - pos).distance < minDist);
+      if (!overlap) break;
+      pos = Offset(
+        pos.dx + 32 * ((attempt % 4 < 2) ? 1 : -1),
+        pos.dy + (attempt ~/ 2) * 20.0 * ((attempt % 2 == 0) ? 1 : -1),
+      );
+      pos = Offset(
+        pos.dx.clamp(24.0, c.width - 24.0),
+        pos.dy.clamp(24.0, c.height - 24.0),
+      );
+    }
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${max + 1}',
+      team: team,
+      position: pos,
+    ));
+    Navigator.pop(sheetCtx);
+  }
+
   void _addMarker(MarkerShape shape, Color color, {String label = ''}) {
     final c = state.canvasSize;
     state.addPlayer(PlayerIcon(
@@ -676,10 +725,10 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             ] else ...[
               _QuickFormationRow(state: state, sheetCtx: sheetCtx),
               const Divider(color: Colors.white12),
-              _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF1565C0)),
+              _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF3A7DFF)),
               _PlayerAddRow(state: state, team: PlayerTeam.home, sheetCtx: sheetCtx),
               const SizedBox(height: 4),
-              _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFC62828)),
+              _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFFF5A5F)),
               _PlayerAddRow(state: state, team: PlayerTeam.away, sheetCtx: sheetCtx),
             ],
             // Ball + basic shapes + More button inline
@@ -711,6 +760,20 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                       },
                     ),
                     const SizedBox(width: 8),
+                    if (isTeamSport) ...[
+                      _MarkerCard(
+                        label: 'team_home'.tr(),
+                        child: _QuickAddTeamGlyph(team: PlayerTeam.home),
+                        onTap: () => _addOneTeamPlayer(PlayerTeam.home),
+                      ),
+                      const SizedBox(width: 8),
+                      _MarkerCard(
+                        label: 'team_away'.tr(),
+                        child: _QuickAddTeamGlyph(team: PlayerTeam.away),
+                        onTap: () => _addOneTeamPlayer(PlayerTeam.away),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
                     ...[
                       (MarkerShape.circle, '○', Colors.amber),
                       (MarkerShape.square, '□', Colors.teal),
@@ -821,8 +884,940 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   ),
                 ),
               ),
+            const Divider(color: Colors.white12),
+            _MyPhotosSection(state: state, sheetCtx: sheetCtx),
             const SizedBox(height: 8),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// My Photos — face-avatar tiles. Tap to add a player using that face (sheet
+// stays open so the user can keep tapping for batch adds). Long-press a tile
+// to delete that photo from the library. The leading "+" tile starts the
+// pick-and-detect import flow.
+// ─────────────────────────────────────────────────────────────────────────────
+class _MyPhotosSection extends StatefulWidget {
+  final TacticsState state;
+  final BuildContext sheetCtx;
+  const _MyPhotosSection({required this.state, required this.sheetCtx});
+
+  @override
+  State<_MyPhotosSection> createState() => _MyPhotosSectionState();
+}
+
+class _MyPhotosSectionState extends State<_MyPhotosSection> {
+  PlayerTeam _team = PlayerTeam.home;
+  String? _selectedGroupId;
+  bool _editing = false;
+
+  TacticsState get state => widget.state;
+
+  /// Add every photo in the current group to the board, lined up in a row
+  /// at the chosen team's spawn area. Closes the sheet when done so the
+  /// user can see the result.
+  void _addAllInGroup(List<PlayerPhoto> photos) {
+    if (photos.isEmpty) return;
+    final c = state.canvasSize;
+    if (c.isEmpty) return;
+    // Use the visible-half spawn rule (sheet hides the bottom half) so all
+    // newly-placed players land in the visible part of the board.
+    final spawnY = _team == PlayerTeam.away ? c.height * 0.20 : c.height * 0.55;
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == _team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    final n = photos.length;
+    final left = c.width * 0.12;
+    final right = c.width * 0.88;
+    final span = right - left;
+    for (int i = 0; i < n; i++) {
+      final x = n == 1 ? c.width * 0.5 : left + span * i / (n - 1);
+      state.addPlayer(PlayerIcon(
+        id: '${DateTime.now().microsecondsSinceEpoch}_$i',
+        label: '${max + i + 1}',
+        team: _team,
+        position: Offset(x, spawnY),
+        photoId: photos[i].id,
+      ));
+    }
+    HapticFeedback.lightImpact();
+    Navigator.of(widget.sheetCtx).maybePop();
+  }
+
+  /// User finished a long-press drag whose drop wasn't claimed by a
+  /// DragTarget (the modal sheet's barrier always intercepts hits, so this
+  /// is the normal path). If the global drop point is over the board, pop
+  /// the sheet and add a player at that exact spot.
+  void _onDropOutsideTarget(PlayerPhoto photo, Offset globalPos) {
+    final ro = boardRepaintKey.currentContext?.findRenderObject();
+    if (ro is! RenderBox || !ro.attached) return;
+    final localPos = ro.globalToLocal(globalPos);
+    final size = ro.size;
+    if (localPos.dx < 0 || localPos.dy < 0) return;
+    if (localPos.dx > size.width || localPos.dy > size.height) return;
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == _team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    final clamped = Offset(
+      localPos.dx.clamp(24.0, size.width - 24.0),
+      localPos.dy.clamp(24.0, size.height - 24.0),
+    );
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${max + 1}',
+      team: _team,
+      position: clamped,
+      photoId: photo.id,
+    ));
+    HapticFeedback.lightImpact();
+    Navigator.of(widget.sheetCtx).maybePop();
+  }
+
+  Future<void> _addPlayerWithPhoto(PlayerPhoto photo, Offset tapPos) async {
+    // Duplicate confirmation: if any player already uses this photo, ask
+    // before adding another.
+    final existing = state.players.where((p) => p.photoId == photo.id).length;
+    if (existing > 0) {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          backgroundColor: const Color(0xFF14302A),
+          title: Text('photo_duplicate_title'.tr(),
+              style: const TextStyle(color: Colors.white)),
+          content: Text(
+            'photo_duplicate_msg'.tr(args: ['$existing']),
+            style: const TextStyle(color: Colors.white70),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(true),
+              child: Text('photo_add_another'.tr(),
+                  style: const TextStyle(color: Color(0xFF6EE7B7))),
+            ),
+          ],
+        ),
+      );
+      if (ok != true) return;
+    }
+
+    final c = state.canvasSize;
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == _team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    // The Add sheet covers the bottom of the screen, so the home half of
+    // the canvas (y≈0.75) is hidden. Spawn photo-avatar players into the
+    // visible upper portion regardless of team — user can drag to position
+    // afterwards.
+    final spawnY = _team == PlayerTeam.away
+        ? c.height * 0.20
+        : c.height * 0.55;
+    var pos = Offset(c.width * 0.5, spawnY);
+    const minDist = 48.0;
+    for (int attempt = 0; attempt < 20; attempt++) {
+      final overlap = state.players.any((p) => (p.position - pos).distance < minDist);
+      if (!overlap) break;
+      pos = Offset(
+        pos.dx + 32 * ((attempt % 4 < 2) ? 1 : -1),
+        pos.dy + (attempt ~/ 2) * 20.0 * ((attempt % 2 == 0) ? 1 : -1),
+      );
+      pos = Offset(
+        pos.dx.clamp(24.0, c.width - 24.0),
+        pos.dy.clamp(24.0, c.height - 24.0),
+      );
+    }
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${max + 1}',
+      team: _team,
+      position: pos,
+      photoId: photo.id,
+    ));
+    HapticFeedback.lightImpact();
+    if (mounted) _flyToBoard(tapPos, photo, pos);
+  }
+
+  /// Spawn a transient overlay that flies a circular avatar from [start]
+  /// (the user's finger position on the thumbnail) to the actual canvas
+  /// landing spot of the new player, projected through the board's RenderBox
+  /// so the avatar lands exactly where the marker appears.
+  Future<void> _flyToBoard(Offset start, PlayerPhoto photo, Offset finalCanvasPos) async {
+    final path = await PhotoLibraryService.instance.resolvePath(photo);
+    if (!mounted) return;
+    final overlay = Overlay.of(context, rootOverlay: true);
+    const tile = 52.0;
+
+    // Project the canvas-local final position into global screen coords so
+    // the animation endpoint matches the rendered marker. Fall back to a
+    // visible-half heuristic if the canvas RenderBox isn't ready.
+    Offset endGlobal;
+    final renderObj = boardRepaintKey.currentContext?.findRenderObject();
+    if (renderObj is RenderBox && renderObj.attached) {
+      endGlobal = renderObj.localToGlobal(finalCanvasPos);
+    } else {
+      final size = MediaQuery.of(context).size;
+      endGlobal = Offset(
+        size.width * 0.5,
+        _team == PlayerTeam.away ? size.height * 0.18 : size.height * 0.45,
+      );
+    }
+
+    late OverlayEntry entry;
+    entry = OverlayEntry(
+      builder: (ctx) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0.0, end: 1.0),
+        duration: const Duration(milliseconds: 900),
+        curve: Curves.easeOutCubic,
+        onEnd: () => entry.remove(),
+        builder: (_, t, __) {
+          // Fly toward the actual landing spot.
+          final cy = start.dy + (endGlobal.dy - start.dy) * t;
+          final cx = start.dx + (endGlobal.dx - start.dx) * t;
+          // Slight scale-down + fade as it lands so it visually merges into
+          // the marker that's already rendered on the board.
+          final scale = 1.0 - 0.4 * t;
+          final opacity = (1.0 - t * 0.6).clamp(0.0, 1.0);
+          return Positioned(
+            left: cx - tile / 2,
+            top: cy - tile / 2,
+            child: IgnorePointer(
+              child: Opacity(
+                opacity: opacity,
+                child: Transform.scale(
+                  scale: scale,
+                  child: Container(
+                    width: tile,
+                    height: tile,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: FileImage(File(path)),
+                        fit: BoxFit.cover,
+                      ),
+                      border: Border.all(
+                        color: PlayerIcon.teamColor(_team),
+                        width: 3,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: PlayerIcon.teamColor(_team).withValues(alpha: 0.6),
+                          blurRadius: 12,
+                          spreadRadius: 2,
+                        ),
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.4),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+    overlay.insert(entry);
+  }
+
+  Future<void> _confirmDelete(BuildContext context, PlayerPhoto photo) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF14302A),
+        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) {
+      await PhotoLibraryService.instance.delete(photo.id);
+    }
+  }
+
+  /// Returns the user-confirmed name (may be empty if they applied an empty
+  /// field — the caller is expected to fall back to a default), or `null`
+  /// if the user cancelled / dismissed the dialog.
+  Future<String?> _promptGroupName(BuildContext context, {String initial = ''}) async {
+    final controller = TextEditingController(text: initial);
+    // Wrap the value in a 1-element list so we can distinguish "apply with
+    // empty text" (`['']`) from "cancel/dismiss" (`null`).
+    final box = await showDialog<List<String>>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF14302A),
+        title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: 'photo_group_name'.tr(),
+            hintStyle: const TextStyle(color: Colors.white38),
+            enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
+            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Color(0xFF6EE7B7))),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop([controller.text]),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF6EE7B7))),
+          ),
+        ],
+      ),
+    );
+    if (box == null) return null; // cancelled
+    return box.first.trim();
+  }
+
+  Future<void> _onGroupLongPress(BuildContext context, PhotoGroup group) async {
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      backgroundColor: const Color(0xFF14302A),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.edit_outlined, color: Colors.white),
+              title: Text('photo_group_rename'.tr(), style: const TextStyle(color: Colors.white)),
+              onTap: () => Navigator.of(ctx).pop('rename'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.delete_outline, color: Colors.redAccent),
+              title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.redAccent)),
+              onTap: () => Navigator.of(ctx).pop('delete'),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+    if (!mounted || action == null) return;
+    if (action == 'rename') {
+      final name = await _promptGroupName(context, initial: group.name);
+      if (name == null) return;
+      // Empty Apply → keep current name unchanged.
+      if (name.isNotEmpty) {
+        await PhotoLibraryService.instance.renameGroup(group.id, name);
+      }
+    } else if (action == 'delete') {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          backgroundColor: const Color(0xFF14302A),
+          title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
+          content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(true),
+              child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+            ),
+          ],
+        ),
+      );
+      if (ok == true) {
+        await PhotoLibraryService.instance.deleteGroup(group.id);
+        if (mounted) setState(() => _selectedGroupId = null);
+      }
+    }
+  }
+
+  Future<void> _newGroup(BuildContext context) async {
+    // Pre-fill the dialog with a default like "球队 3" / "Team 3" so empty
+    // Apply still produces a usable name. Picks the next number that
+    // doesn't collide with an existing default-named group.
+    final existingGroups = await PhotoLibraryService.instance.listGroups();
+    final defaultBase = 'photo_group_default_prefix'.tr();
+    int n = existingGroups.length + 1;
+    String defaultName;
+    while (true) {
+      defaultName = '$defaultBase $n';
+      if (!existingGroups.any((g) => g.name == defaultName)) break;
+      n++;
+    }
+    if (!mounted) return;
+    final name = await _promptGroupName(context, initial: defaultName);
+    if (name == null) return; // user cancelled
+    // Empty Apply → use the default we pre-filled.
+    final finalName = name.isEmpty ? defaultName : name;
+    final group = await PhotoLibraryService.instance.createGroup(finalName);
+    if (mounted) setState(() => _selectedGroupId = group.id);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: PhotoLibraryService.instance,
+      builder: (context, _) {
+        return FutureBuilder<List<PhotoGroup>>(
+          future: PhotoLibraryService.instance.listGroups(),
+          builder: (context, gsnap) {
+            final groups = gsnap.data ?? const <PhotoGroup>[];
+            // Default selection: first group.
+            String? activeId = _selectedGroupId;
+            if (groups.isNotEmpty &&
+                (activeId == null || !groups.any((g) => g.id == activeId))) {
+              activeId = groups.first.id;
+            }
+            return FutureBuilder<List<PlayerPhoto>>(
+              future: PhotoLibraryService.instance.list(),
+              builder: (context, psnap) {
+                final all = psnap.data ?? const <PlayerPhoto>[];
+                final photos = activeId == null
+                    ? const <PlayerPhoto>[]
+                    : all.where((p) => p.groupId == activeId).toList();
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Header: title + match-side picker.
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
+                      child: Row(
+                        children: [
+                          Text(
+                            'photos_label'.tr(),
+                            style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w600, fontSize: 13),
+                          ),
+                          const Spacer(),
+                          _PhotoTeamChip(
+                            label: 'team_home'.tr(),
+                            color: PlayerIcon.teamColor(PlayerTeam.home),
+                            selected: _team == PlayerTeam.home,
+                            onTap: () => setState(() => _team = PlayerTeam.home),
+                          ),
+                          const SizedBox(width: 6),
+                          _PhotoTeamChip(
+                            label: 'team_away'.tr(),
+                            color: PlayerIcon.teamColor(PlayerTeam.away),
+                            selected: _team == PlayerTeam.away,
+                            onTap: () => setState(() => _team = PlayerTeam.away),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Group tabs (scrollable). Tap to select; long-press for
+                    // rename/delete. Trailing "+" creates a new group.
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            ...groups.map((g) => Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: _GroupTab(
+                                label: g.name,
+                                selected: g.id == activeId,
+                                onTap: () => setState(() => _selectedGroupId = g.id),
+                                onLongPress: () => _onGroupLongPress(context, g),
+                              ),
+                            )),
+                            _GroupTab(
+                              label: '+',
+                              selected: false,
+                              onTap: () => _newGroup(context),
+                              onLongPress: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Photo strip for the selected group.
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            _AddPhotoTile(
+                              onTap: activeId == null
+                                  ? () => _newGroup(context)
+                                  : () => PhotoImportSheet.showWithSourcePicker(
+                                        context,
+                                        groupId: activeId!,
+                                      ),
+                            ),
+                            const SizedBox(width: 8),
+                            if (photos.isNotEmpty) ...[
+                              _EditModeTile(
+                                editing: _editing,
+                                onTap: () => setState(() => _editing = !_editing),
+                              ),
+                              const SizedBox(width: 8),
+                              _AddAllTile(
+                                count: photos.length,
+                                onTap: () => _addAllInGroup(photos),
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                            ...photos.map((photo) => Padding(
+                              key: ValueKey('photo_pad_${photo.id}'),
+                              padding: const EdgeInsets.only(right: 8),
+                              child: _PhotoTile(
+                                key: ValueKey(photo.id),
+                                photo: photo,
+                                currentTeam: _team,
+                                showDeleteBadge: _editing,
+                                onTap: (tapPos) => _addPlayerWithPhoto(photo, tapPos),
+                                onDropOutsideTarget: (globalPos) =>
+                                    _onDropOutsideTarget(photo, globalPos),
+                                onDeleteRequested: () =>
+                                    _confirmDelete(context, photo),
+                              ),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+class _GroupTab extends StatelessWidget {
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  final VoidCallback onLongPress;
+  const _GroupTab({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+    required this.onLongPress,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 140),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        decoration: BoxDecoration(
+          color: selected
+              ? const Color(0xFF6EE7B7).withValues(alpha: 0.18)
+              : Colors.white.withValues(alpha: 0.06),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: selected
+                ? const Color(0xFF6EE7B7)
+                : Colors.transparent,
+            width: 1,
+          ),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: selected ? const Color(0xFF6EE7B7) : Colors.white70,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// What the strip hands to the canvas when the user drags a photo onto
+/// the board. Carries the team the player should join (current toggle).
+class PhotoDragData {
+  final PlayerPhoto photo;
+  final String? path;
+  final PlayerTeam team;
+  const PhotoDragData({required this.photo, this.path, required this.team});
+}
+
+class _PhotoTile extends StatefulWidget {
+  final PlayerPhoto photo;
+  final PlayerTeam currentTeam;
+  /// Receives the global tap position so the parent can launch a flight
+  /// animation starting from the user's finger.
+  final void Function(Offset globalPosition) onTap;
+  /// Called when the user releases a drag whose drop wasn't claimed by any
+  /// DragTarget (which is always the case while the modal Add sheet is up,
+  /// because its barrier sits on top of the board). The parent then decides
+  /// whether the drop landed on the board area and handles placement.
+  final void Function(Offset globalDropPos)? onDropOutsideTarget;
+  /// True when the section is in edit mode — the tile shows a small red X
+  /// badge and tapping it triggers [onDeleteRequested].
+  final bool showDeleteBadge;
+  final VoidCallback? onDeleteRequested;
+  const _PhotoTile({
+    super.key,
+    required this.photo,
+    required this.currentTeam,
+    required this.onTap,
+    this.onDropOutsideTarget,
+    this.showDeleteBadge = false,
+    this.onDeleteRequested,
+  });
+
+  @override
+  State<_PhotoTile> createState() => _PhotoTileState();
+}
+
+class _PhotoTileState extends State<_PhotoTile> {
+  String? _path;
+  Offset _tapDownPos = Offset.zero;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+  }
+
+  @override
+  void didUpdateWidget(_PhotoTile oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // If the State was recycled for a different photo (e.g. after a delete
+    // shifts the rest of the strip), drop the stale cached path and re-resolve.
+    if (oldWidget.photo.id != widget.photo.id) {
+      setState(() => _path = null);
+      _resolve();
+    }
+  }
+
+  Future<void> _resolve() async {
+    final p = await PhotoLibraryService.instance.resolvePath(widget.photo);
+    if (mounted) setState(() => _path = p);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = uiScale(context);
+    final dim = 52 * s;
+    final tile = Container(
+      width: dim, height: dim,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white.withValues(alpha: 0.06),
+        image: _path != null
+            ? DecorationImage(
+                image: FileImage(File(_path!)),
+                fit: BoxFit.cover,
+              )
+            : null,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.25),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+    );
+    final dragData = PhotoDragData(
+      photo: widget.photo,
+      path: _path,
+      team: widget.currentTeam,
+    );
+    final feedback = Material(
+      color: Colors.transparent,
+      child: Container(
+        width: dim * 1.15,
+        height: dim * 1.15,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white.withValues(alpha: 0.06),
+          image: _path != null
+              ? DecorationImage(
+                  image: FileImage(File(_path!)),
+                  fit: BoxFit.cover,
+                )
+              : null,
+          border: Border.all(
+            color: PlayerIcon.teamColor(widget.currentTeam),
+            width: 3,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: PlayerIcon.teamColor(widget.currentTeam)
+                  .withValues(alpha: 0.55),
+              blurRadius: 14,
+              spreadRadius: 2,
+            ),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.4),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+      ),
+    );
+    final draggable = LongPressDraggable<PhotoDragData>(
+      data: dragData,
+      feedback: feedback,
+      childWhenDragging: Opacity(opacity: 0.35, child: tile),
+      onDragEnd: (details) {
+        if (details.wasAccepted) return;
+        widget.onDropOutsideTarget?.call(details.offset);
+      },
+      child: GestureDetector(
+        onTapDown: (d) => _tapDownPos = d.globalPosition,
+        onTap: () => widget.onTap(_tapDownPos),
+        child: tile,
+      ),
+    );
+    if (!widget.showDeleteBadge) return draggable;
+    // Edit mode — overlay an X badge in the top-right that fires the
+    // delete handler when tapped, so the user has an explicit way to
+    // remove an avatar (long-press is busy with drag).
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        draggable,
+        Positioned(
+          top: -4, right: -4,
+          child: GestureDetector(
+            onTap: widget.onDeleteRequested,
+            child: Container(
+              width: 22, height: 22,
+              decoration: BoxDecoration(
+                color: Colors.redAccent,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.4),
+                    blurRadius: 4,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: const Icon(Icons.close, color: Colors.white, size: 14),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _AddPhotoTile extends StatelessWidget {
+  final VoidCallback onTap;
+  const _AddPhotoTile({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = uiScale(context);
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 52 * s, height: 52 * s,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white.withValues(alpha: 0.08),
+          border: Border.all(color: Colors.white24, style: BorderStyle.solid, width: 1.2),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.add_a_photo_outlined, color: Colors.white70, size: 18 * s),
+            SizedBox(height: 2 * s),
+            Text('photo_add_label'.tr(),
+                style: TextStyle(color: Colors.white54, fontSize: 9 * s)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Team-coloured "+1" glyph used inside a [_MarkerCard] tile so the
+/// quick-add buttons match the visual rhythm of the ball / shape row.
+class _QuickAddTeamGlyph extends StatelessWidget {
+  final PlayerTeam team;
+  const _QuickAddTeamGlyph({required this.team});
+
+  @override
+  Widget build(BuildContext context) {
+    final color = PlayerIcon.teamColor(team);
+    return SizedBox(
+      width: 28, height: 28,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: color,
+              boxShadow: [
+                BoxShadow(
+                  color: color.withValues(alpha: 0.55),
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                ),
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.35),
+                  blurRadius: 3,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+          ),
+          const Positioned.fill(
+            child: Center(
+              child: Icon(Icons.add, color: Colors.white, size: 18),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Edit-mode toggle styled like a strip tile — sits right next to "+ Add"
+/// so the edit affordance is one tap away from the add affordance.
+class _EditModeTile extends StatelessWidget {
+  final bool editing;
+  final VoidCallback onTap;
+  const _EditModeTile({required this.editing, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = uiScale(context);
+    final accent = editing ? const Color(0xFFFFD166) : Colors.white54;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 52 * s, height: 52 * s,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: editing
+              ? const Color(0xFFFFD166).withValues(alpha: 0.18)
+              : Colors.white.withValues(alpha: 0.06),
+          border: Border.all(color: accent.withValues(alpha: 0.5), width: 1),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              editing ? Icons.check_circle : Icons.edit_outlined,
+              color: accent,
+              size: 18 * s,
+            ),
+            SizedBox(height: 1 * s),
+            Text(
+              editing ? '完成' : '编辑',
+              style: TextStyle(color: accent, fontSize: 9 * s, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// "Add the whole team" tile — taps once and every photo in the current
+/// group joins the board, lined up at the team's spawn area.
+class _AddAllTile extends StatelessWidget {
+  final int count;
+  final VoidCallback onTap;
+  const _AddAllTile({required this.count, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = uiScale(context);
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 52 * s, height: 52 * s,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: const Color(0xFF6EE7B7).withValues(alpha: 0.16),
+          border: Border.all(color: const Color(0xFF6EE7B7), width: 1.2),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.group_add_outlined,
+                color: const Color(0xFF6EE7B7), size: 18 * s),
+            SizedBox(height: 1 * s),
+            Text(
+              '+$count',
+              style: TextStyle(
+                color: const Color(0xFF6EE7B7),
+                fontSize: 9 * s,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PhotoTeamChip extends StatelessWidget {
+  final String label;
+  final Color color;
+  final bool selected;
+  final VoidCallback onTap;
+  const _PhotoTeamChip({
+    required this.label,
+    required this.color,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 140),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        decoration: BoxDecoration(
+          color: selected ? color : Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: selected ? Colors.white : Colors.white60,
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
@@ -982,6 +1977,83 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   SportFormation? _selectedFormation;
   _TeamOption _teamOption = _TeamOption.both;
 
+  int _nextNum(PlayerTeam team) {
+    int max = 0;
+    for (final p in widget.state.players.where((p) => p.team == team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    return max + 1;
+  }
+
+  /// Add a single player to the given team at a sensible default position,
+  /// nudged to avoid overlapping existing icons. Closes the sheet.
+  void _addOnePlayer(PlayerTeam team) {
+    final state = widget.state;
+    final c = state.canvasSize;
+    final baseY = state.spawnY(team);
+    var pos = Offset(c.width * 0.5, baseY);
+    const minDist = 48.0;
+    for (int attempt = 0; attempt < 20; attempt++) {
+      final overlap = state.players.any((p) => (p.position - pos).distance < minDist);
+      if (!overlap) break;
+      pos = Offset(
+        pos.dx + 32 * ((attempt % 4 < 2) ? 1 : -1),
+        pos.dy + (attempt ~/ 2) * 20.0 * ((attempt % 2 == 0) ? 1 : -1),
+      );
+      pos = Offset(
+        pos.dx.clamp(24.0, c.width - 24.0),
+        pos.dy.clamp(24.0, c.height - 24.0),
+      );
+    }
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${_nextNum(team)}',
+      team: team,
+      position: pos,
+    ));
+    Navigator.pop(widget.sheetCtx);
+  }
+
+  Widget _quickAddChip(PlayerTeam team) {
+    final color = PlayerIcon.teamColor(team);
+    final label = team == PlayerTeam.home ? 'team_home'.tr() : 'team_away'.tr();
+    return GestureDetector(
+      onTap: () => _addOnePlayer(team),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.18),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.20),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 16,
+              height: 16,
+              decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+              alignment: Alignment.center,
+              child: const Icon(Icons.add, color: Colors.white, size: 12),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              '+1 $label',
+              style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   List<int> get _distinctCounts {
     final counts = <int>{};
     for (final f in widget.state.sportType.formations) {
@@ -1026,6 +2098,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Row 1: Player count
+          // (Quick +1 home/away has moved to the markers row, next to the
+          //  ball, so it's reachable without scrolling past the formation
+          //  picker.)
           Text('player_count'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
           const SizedBox(height: 6),
           Row(
@@ -1114,9 +2189,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
               children: [
                 _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
                 const SizedBox(width: 8),
-                _buildTeamChip('team_home'.tr(), _TeamOption.home, const Color(0xFF1565C0)),
+                _buildTeamChip('team_home'.tr(), _TeamOption.home, const Color(0xFF3A7DFF)),
                 const SizedBox(width: 8),
-                _buildTeamChip('team_away'.tr(), _TeamOption.away, const Color(0xFFC62828)),
+                _buildTeamChip('team_away'.tr(), _TeamOption.away, const Color(0xFFFF5A5F)),
                 const Spacer(),
                 // Apply button
                 GestureDetector(
@@ -1557,7 +2632,10 @@ class _PlayerDot extends StatelessWidget {
 
 class DrawingOptionsBar extends StatelessWidget {
   final TacticsState state;
-  const DrawingOptionsBar({super.key, required this.state});
+  /// When false, hides the colour swatches + width slider row (default).
+  /// Toggled by the outer collapsible panel's More/Less header.
+  final bool showOptions;
+  const DrawingOptionsBar({super.key, required this.state, this.showOptions = false});
 
   static const _colors = [
     Color(0xFFFFD600),
@@ -1650,32 +2728,34 @@ class DrawingOptionsBar extends StatelessWidget {
             ),
           ),
         ),
-        // Row 2: color dots + width slider
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-          child: Row(
-            children: [
-              ..._colors.map((c) => _ColorDot(
-                    color: c,
-                    selected: state.strokeColor == c,
-                    onTap: () => state.setStrokeColor(c),
-                  )),
-              const SizedBox(width: 8),
-              const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
-              Expanded(
-                child: Slider(
-                  value: state.strokeWidth,
-                  min: 1,
-                  max: 8,
-                  divisions: 7,
-                  activeColor: Colors.blue,
-                  inactiveColor: Colors.white24,
-                  onChanged: (v) => state.setStrokeWidth(v),
+        // Row 2: color dots + width slider — hidden by default; appears
+        // only when the user expands the More panel.
+        if (showOptions)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+            child: Row(
+              children: [
+                ..._colors.map((c) => _ColorDot(
+                      color: c,
+                      selected: state.strokeColor == c,
+                      onTap: () => state.setStrokeColor(c),
+                    )),
+                const SizedBox(width: 8),
+                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
+                Expanded(
+                  child: Slider(
+                    value: state.strokeWidth,
+                    min: 1,
+                    max: 8,
+                    divisions: 7,
+                    activeColor: Colors.blue,
+                    inactiveColor: Colors.white24,
+                    onChanged: (v) => state.setStrokeWidth(v),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
       ],
     );
   }
@@ -2008,9 +3088,15 @@ class PlayControlsBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFF2A4D58),
+        color: Colors.black.withValues(alpha: 0.45),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.30),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

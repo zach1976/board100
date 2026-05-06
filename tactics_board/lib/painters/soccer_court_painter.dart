@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'court_painter_base.dart';
 
 class SoccerCourtPainter extends CourtPainterBase {
+  // Softer off-white reduces glare while staying high-contrast on grass.
+  static const Color _softLine = Color(0xE6F1F4F0);
+
   const SoccerCourtPainter()
       : super(
-          lineColor: Colors.white,
+          lineColor: _softLine,
           courtColor: const Color(0xFF2D8A2D),
         );
 
@@ -39,10 +42,10 @@ class SoccerCourtPainter extends CourtPainterBase {
     Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
 
     final fillWhite = Paint()
-      ..color = Colors.white
+      ..color = _softLine
       ..style = PaintingStyle.fill;
     final strokeThick = Paint()
-      ..color = Colors.white
+      ..color = _softLine
       ..strokeWidth = 2.5
       ..style = PaintingStyle.stroke;
 
@@ -138,12 +141,17 @@ class SoccerCourtPainter extends CourtPainterBase {
           goalDepth * scY),
       strokeThick,
     );
+
+    // ── Vignette: subtle radial darkening toward edges to focus the eye on
+    //     the center of the field. Drawn last so it sits on top of the lines.
+    _drawVignette(canvas, size);
   }
 
   void _drawGrass(Canvas canvas, Size size) {
+    // Lower contrast between stripes to reduce visual noise.
     const stripeCount = 12;
     final stripeH = size.height / stripeCount;
-    const colors = [Color(0xFF2D8A2D), Color(0xFF267526)];
+    const colors = [Color(0xFF2E7B30), Color(0xFF2A7430)];
     for (int i = 0; i < stripeCount; i++) {
       canvas.drawRect(
         Rect.fromLTWH(0, i * stripeH, size.width, stripeH),
@@ -152,5 +160,19 @@ class SoccerCourtPainter extends CourtPainterBase {
           ..style = PaintingStyle.fill,
       );
     }
+  }
+
+  void _drawVignette(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    final shader = RadialGradient(
+      center: Alignment.center,
+      radius: 0.85,
+      colors: const [
+        Color(0x00000000),
+        Color(0x33000000), // ~20% black at edges
+      ],
+      stops: const [0.65, 1.0],
+    ).createShader(rect);
+    canvas.drawRect(rect, Paint()..shader = shader);
   }
 }

@@ -43,6 +43,9 @@ dependencies:
   flutter_native_splash: ^2.4.7
   pdf: ^3.11.3
   printing: ^5.13.4
+  image_picker: ^1.1.2
+  image: ^4.2.0
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
@@ -52,7 +55,6 @@ dev_dependencies:
   #   sdk: flutter
 
   flutter_lints: ^6.0.0
-  image: ^4.2.0
   flutter_launcher_icons: ^0.14.3
 
 # For information on the generic Dart part of this file, see the
