@@ -103,6 +103,11 @@ if [ -f "$SPORT_ICON" ]; then
   dart run flutter_launcher_icons 2>&1 | tail -2
 fi
 
+# ── Regenerate native splash assets with sport-specific image ────────────────
+if [ -f "$SPORT_SPLASH" ]; then
+  dart run flutter_native_splash:create 2>&1 | tail -2
+fi
+
 # ── Build ────────────────────────────────────────────────────────────────────
 DART_DEFINES="--dart-define=SPORT=$SPORT"
 
