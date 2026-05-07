@@ -80,8 +80,12 @@ build_ipa() {
     local SPORT_SPLASH="assets/icon/${SPORT}_splash.png"
     [ -f "$SPORT_ICON" ] && cp "$SPORT_ICON" "assets/icon/app_icon.png"
     [ -f "$SPORT_SPLASH" ] && cp "$SPORT_SPLASH" "assets/icon/splash_logo.png"
-    dart run flutter_launcher_icons 2>&1 | tail -1
   fi
+
+  # Always regenerate icons + native splash from the current source PNGs so the
+  # multi-sport build doesn't ship leftover per-sport assets.
+  dart run flutter_launcher_icons 2>&1 | tail -1
+  dart run flutter_native_splash:create 2>&1 | tail -1
 
   # Build IPA
   flutter build ipa --release $DART_DEFINES 2>&1 | tail -3
