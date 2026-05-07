@@ -63,6 +63,8 @@
   "formation_532": "5-3-2",
   "formation_3331": "3-3-3-1",
   "edit_player": "编辑球员",
+  "edit_marker": "编辑标记",
+  "edit_ball": "编辑球",
   "player_name": "名称",
   "player_color": "颜色",
   "save": "保存",
@@ -211,7 +213,7 @@
   "photo_review_count": "识别到 {} 张人脸",
   "photo_review_hint": "点击 × 移除不需要的人脸。",
   "photo_confirm_save": "保存 {} 张",
-  "photo_delete_confirm": "删除这张照片？",
+  "photo_delete_confirm": "删除这名球员？",
   "photo_take": "拍照",
   "photo_from_gallery": "从相册选择",
   "photo_duplicate_title": "再次添加？",
@@ -222,5 +224,10 @@
   "photo_group_rename": "重命名球队",
   "photo_group_delete": "删除球队",
   "photo_group_delete_confirm": "删除该球队及其所有队员？",
-  "photo_dedup_msg": "已自动去重 {} 名球员。"
+  "photo_dedup_msg": "已自动去重 {} 名球员。",
+  "photo_crop_title": "调整头像",
+  "photo_crop_hint": "拖动调整位置，双指缩放大小。",
+  "photo_crop_reset": "重置",
+  "photo_manage_title": "管理球员",
+  "photo_manage_hint": "点击头像调整裁剪，或使用下方图标。"
 }

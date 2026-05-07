@@ -180,7 +180,7 @@ class PlayerIconWidget extends StatelessWidget {
                   : player.isBall
                   ? _BallWidget(player: player, isSelected: isSelected)
                   : (player.photoId != null
-                      ? _PhotoPlayerShape(player: player, isSelected: isSelected)
+                      ? PhotoPlayerShape(player: player, isSelected: isSelected)
                       : _PlayerShape(player: player, isSelected: isSelected)),
             ),
           ),
@@ -255,26 +255,39 @@ class _PlayerShape extends StatelessWidget {
 // keeping the same team-coloured halo / selection ring / number badge
 // language as the layered solid marker.
 // ─────────────────────────────────────────────────────────────────────────────
-class _PhotoPlayerShape extends StatefulWidget {
+class PhotoPlayerShape extends StatefulWidget {
   final PlayerIcon player;
   final bool isSelected;
-  const _PhotoPlayerShape({required this.player, required this.isSelected});
+  const PhotoPlayerShape({required this.player, required this.isSelected});
 
   @override
-  State<_PhotoPlayerShape> createState() => _PhotoPlayerShapeState();
+  State<PhotoPlayerShape> createState() => PhotoPlayerShapeState();
 }
 
-class _PhotoPlayerShapeState extends State<_PhotoPlayerShape> {
+class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
   String? _path;
 
   @override
   void initState() {
     super.initState();
     _resolve();
+    // Re-resolve whenever the photo library changes — picks up renames
+    // after a crop adjustment (overwriteBytes rotates the filename).
+    PhotoLibraryService.instance.addListener(_onLibraryChanged);
   }
 
   @override
-  void didUpdateWidget(_PhotoPlayerShape old) {
+  void dispose() {
+    PhotoLibraryService.instance.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  void _onLibraryChanged() {
+    if (mounted) _resolve();
+  }
+
+  @override
+  void didUpdateWidget(PhotoPlayerShape old) {
     super.didUpdateWidget(old);
     if (old.player.photoId != widget.player.photoId) _resolve();
   }

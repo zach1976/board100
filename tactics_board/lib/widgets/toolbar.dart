@@ -17,6 +17,7 @@ import '../painters/ball_painter.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import 'photo_crop_editor.dart';
 import 'photo_import_sheet.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
@@ -912,9 +913,28 @@ class _MyPhotosSection extends StatefulWidget {
 class _MyPhotosSectionState extends State<_MyPhotosSection> {
   PlayerTeam _team = PlayerTeam.home;
   String? _selectedGroupId;
-  bool _editing = false;
 
   TacticsState get state => widget.state;
+
+  /// Opens a roomy management dialog for the current team's roster — each
+  /// photo is shown larger with explicit delete and crop-adjust buttons.
+  /// The caller passes the *derived* active group id (not raw
+  /// `_selectedGroupId`) so the dialog scopes correctly even before the
+  /// user has explicitly tapped a tab.
+  void _openManageDialog(
+    BuildContext context,
+    List<PlayerPhoto> initial,
+    String? activeId,
+  ) {
+    showDialog<void>(
+      context: context,
+      barrierColor: Colors.black87,
+      builder: (_) => _PhotosManageDialog(
+        photos: initial,
+        groupId: activeId,
+      ),
+    );
+  }
 
   /// Add every photo in the current group to the board, lined up in a row
   /// at the chosen team's spawn area. Closes the sheet when done so the
@@ -1373,8 +1393,8 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
                             const SizedBox(width: 8),
                             if (photos.isNotEmpty) ...[
                               _EditModeTile(
-                                editing: _editing,
-                                onTap: () => setState(() => _editing = !_editing),
+                                editing: false,
+                                onTap: () => _openManageDialog(context, photos, activeId),
                               ),
                               const SizedBox(width: 8),
                               _AddAllTile(
@@ -1390,12 +1410,9 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
                                 key: ValueKey(photo.id),
                                 photo: photo,
                                 currentTeam: _team,
-                                showDeleteBadge: _editing,
                                 onTap: (tapPos) => _addPlayerWithPhoto(photo, tapPos),
                                 onDropOutsideTarget: (globalPos) =>
                                     _onDropOutsideTarget(photo, globalPos),
-                                onDeleteRequested: () =>
-                                    _confirmDelete(context, photo),
                               ),
                             )),
                           ],
@@ -1509,9 +1526,11 @@ class _PhotoTileState extends State<_PhotoTile> {
   @override
   void didUpdateWidget(_PhotoTile oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // If the State was recycled for a different photo (e.g. after a delete
-    // shifts the rest of the strip), drop the stale cached path and re-resolve.
-    if (oldWidget.photo.id != widget.photo.id) {
+    // Re-resolve when either the photo identity changes (state recycled
+    // after a delete) or the filename changes (overwriteBytes rotates the
+    // filename to bust Flutter's FileImage cache).
+    if (oldWidget.photo.id != widget.photo.id ||
+        oldWidget.photo.filename != widget.photo.filename) {
       setState(() => _path = null);
       _resolve();
     }
@@ -1658,6 +1677,236 @@ class _AddPhotoTile extends StatelessWidget {
                 style: TextStyle(color: Colors.white54, fontSize: 9 * s)),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Roomy management dialog for a team's roster — shows every saved photo
+/// in a grid with explicit delete + crop-adjust actions next to each. The
+/// strip's "edit" tile opens this so users don't fight tiny X badges.
+class _PhotosManageDialog extends StatelessWidget {
+  final List<PlayerPhoto> photos;
+  final String? groupId;
+  const _PhotosManageDialog({required this.photos, required this.groupId});
+
+  Future<void> _confirmDelete(BuildContext context, PlayerPhoto photo) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF14302A),
+        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) {
+      await PhotoLibraryService.instance.delete(photo.id);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: const Color(0xFF1A2035),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      insetPadding: const EdgeInsets.all(20),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 480),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.edit_outlined, color: Color(0xFFFFD166)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'photo_manage_title'.tr(),
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: const Icon(Icons.close, color: Colors.white54),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'photo_manage_hint'.tr(),
+                style: const TextStyle(color: Colors.white54, fontSize: 12),
+              ),
+              const SizedBox(height: 12),
+              Flexible(
+                child: ListenableBuilder(
+                  listenable: PhotoLibraryService.instance,
+                  builder: (context, _) {
+                    return FutureBuilder<List<PlayerPhoto>>(
+                      future: PhotoLibraryService.instance.list(),
+                      builder: (context, snap) {
+                        final all = snap.data ?? photos;
+                        final list = groupId == null
+                            ? all
+                            : all.where((p) => p.groupId == groupId).toList();
+                        if (list.isEmpty) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            if (Navigator.of(context).canPop()) {
+                              Navigator.of(context).pop();
+                            }
+                          });
+                          return const SizedBox.shrink();
+                        }
+                        return GridView.builder(
+                          shrinkWrap: true,
+                          itemCount: list.length,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 0.85,
+                          ),
+                          itemBuilder: (context, i) => _ManageTile(
+                            key: ValueKey(list[i].id),
+                            photo: list[i],
+                            onDelete: () => _confirmDelete(context, list[i]),
+                            onAdjust: () => PhotoCropEditor.show(
+                              context, photoId: list[i].id,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ManageTile extends StatefulWidget {
+  final PlayerPhoto photo;
+  final VoidCallback onDelete;
+  final VoidCallback onAdjust;
+  const _ManageTile({
+    super.key,
+    required this.photo,
+    required this.onDelete,
+    required this.onAdjust,
+  });
+
+  @override
+  State<_ManageTile> createState() => _ManageTileState();
+}
+
+class _ManageTileState extends State<_ManageTile> {
+  String? _path;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+  }
+
+  @override
+  void didUpdateWidget(_ManageTile old) {
+    super.didUpdateWidget(old);
+    if (old.photo.id != widget.photo.id ||
+        old.photo.filename != widget.photo.filename) {
+      setState(() => _path = null);
+      _resolve();
+    }
+  }
+
+  Future<void> _resolve() async {
+    final p = await PhotoLibraryService.instance.resolvePath(widget.photo);
+    if (mounted) setState(() => _path = p);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: widget.onAdjust,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withValues(alpha: 0.06),
+                  image: _path != null
+                      ? DecorationImage(
+                          image: FileImage(File(_path!)),
+                          fit: BoxFit.cover,
+                        )
+                      : null,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.3),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _ManageAction(
+              icon: Icons.crop,
+              color: const Color(0xFF6EE7B7),
+              onTap: widget.onAdjust,
+            ),
+            _ManageAction(
+              icon: Icons.delete_outline,
+              color: Colors.redAccent,
+              onTap: widget.onDelete,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _ManageAction extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+  const _ManageAction({required this.icon, required this.color, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.15),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: color, size: 18),
       ),
     );
   }

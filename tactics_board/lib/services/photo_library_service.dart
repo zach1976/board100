@@ -280,6 +280,42 @@ class PhotoLibraryService extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Overwrite an existing photo's bytes (used by the crop editor). Rather
+  /// than reusing the same filename — which Flutter's FileImage cache holds
+  /// onto by path — we write to a fresh filename and rewrite the index to
+  /// point at it. Every widget that subsequently re-resolves the photo
+  /// gets a different path → fresh decode. The old file is deleted.
+  Future<bool> overwritePhotoBytes(String id, Uint8List bytes) async {
+    await _ensureInit();
+    final idx = _photos.indexWhere((p) => p.id == id);
+    if (idx < 0) return false;
+    final old = _photos[idx];
+    final dir = await _photosDir();
+    // Use a wall-clock micro-time so each rewrite gets a globally unique
+    // filename even after relaunch — `_idCounter` resets per session and
+    // could otherwise collide with an existing `__vN` suffix on disk.
+    final newFilename =
+        '${id}__v${DateTime.now().microsecondsSinceEpoch}_${++_idCounter}.png';
+    final newFile = File(p.join(dir.path, newFilename));
+    await newFile.writeAsBytes(bytes, flush: true);
+    // Best-effort delete of the previous file.
+    if (old.filename != newFilename) {
+      final oldFile = File(p.join(dir.path, old.filename));
+      if (oldFile.existsSync()) {
+        try { oldFile.deleteSync(); } catch (_) {}
+      }
+    }
+    _photos[idx] = PlayerPhoto(
+      id: old.id,
+      filename: newFilename,
+      createdAtMs: old.createdAtMs,
+      groupId: old.groupId,
+    );
+    await _persistIndex();
+    notifyListeners();
+    return true;
+  }
+
   Future<void> delete(String id) async {
     await _ensureInit();
     final idx = _photos.indexWhere((p) => p.id == id);
@@ -361,7 +397,11 @@ class PhotoLibraryService extends ChangeNotifier {
       final ft = face['top']!.toDouble();
       final fr = face['right']!.toDouble();
       final fb = face['bottom']!.toDouble();
-      final expand = ((fr - fl) + (fb - ft)) * 0.125;
+      // Expand the detected face bbox by ~35 % per side (≈70 % total
+      // growth) so the saved crop includes shoulders / hair / background.
+      // The crop editor later lets the user pan & zoom within this area,
+      // so a generous initial crop gives meaningful adjustment room.
+      final expand = ((fr - fl) + (fb - ft)) * 0.35;
       left = (fl - expand).clamp(0, decoded.width.toDouble()).toInt();
       top = (ft - expand).clamp(0, decoded.height.toDouble()).toInt();
       right = (fr + expand).clamp(0, decoded.width.toDouble()).toInt();
@@ -396,10 +436,10 @@ class PhotoLibraryService extends ChangeNotifier {
       width: size,
       height: size,
     );
-    // Target 512×512 — generous for retina avatar tiles (52pt @3x ≈ 156px)
-    // and player markers on the board. Cubic interpolation preserves face
-    // detail better than the default linear filter.
-    const target = 512;
+    // Target 1024×1024 — large enough that the user can pan / pinch-zoom
+    // inside the crop editor without hitting source-resolution limits.
+    // Cubic interpolation preserves face detail better than linear.
+    const target = 1024;
     final scaled = cropped.width > target
         ? img.copyResize(
             cropped,

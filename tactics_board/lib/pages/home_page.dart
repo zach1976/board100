@@ -14,6 +14,7 @@ import '../state/tactics_state.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/language_picker.dart';
+import '../widgets/photo_crop_editor.dart';
 import '../widgets/timeline_editor.dart';
 import '../models/practice.dart';
 import '../services/practice_service.dart';
@@ -1126,7 +1127,15 @@ class _PlayerEditBar extends StatefulWidget {
   /// When false, hides the colour palette + size slider (default).
   /// Toggled by the outer collapsible panel's More/Less header.
   final bool showOptions;
-  const _PlayerEditBar({required this.state, required this.player, this.showOptions = false});
+  /// When set, the close × and delete actions invoke this in addition to
+  /// their usual behaviour — used to pop the surrounding edit dialog.
+  final VoidCallback? onClose;
+  const _PlayerEditBar({
+    required this.state,
+    required this.player,
+    this.showOptions = false,
+    this.onClose,
+  });
 
   @override
   State<_PlayerEditBar> createState() => _PlayerEditBarState();
@@ -1175,14 +1184,26 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
               ],
               const Spacer(),
+              // Adjust photo crop — only visible when the player is using a
+              // user-uploaded face avatar.
+              if (p.photoId != null) ...[
+                _editAction(Icons.crop, const Color(0xFF6EE7B7), () {
+                  PhotoCropEditor.show(context, photoId: p.photoId!);
+                }),
+                const SizedBox(width: 8),
+              ],
               // Delete
               _editAction(Icons.delete, Colors.redAccent, () {
                 widget.state.removePlayer(p.id);
+                widget.onClose?.call();
               }),
               const SizedBox(width: 8),
-              // Deselect
+              // Close (deselect + dismiss surrounding dialog when present).
               GestureDetector(
-                onTap: () => widget.state.selectPlayer(null),
+                onTap: () {
+                  widget.state.selectPlayer(null);
+                  widget.onClose?.call();
+                },
                 child: const Icon(Icons.close, color: Colors.white54, size: 20),
               ),
             ],
@@ -1258,99 +1279,89 @@ class _CollapsibleEditPanel extends StatefulWidget {
 }
 
 class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
-  // Default to collapsed: only the essential row (player tag + actions, or
-  // line style + arrow) is visible; the colour palette and size/width slider
-  // appear only after the user taps "More".
-  bool _collapsed = true;
-
   @override
   Widget build(BuildContext context) {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         if (state.isAnimating) return const SizedBox.shrink();
 
-        Widget? panel;
-        bool pinTop = false;
-        if (state.isDrawingMode || state.selectedStrokeId != null) {
-          panel = DrawingOptionsBar(state: state, showOptions: !_collapsed);
-        } else if (state.selectedPlayerId != null) {
-          final player = state.players.cast<PlayerIcon?>().firstWhere(
-            (p) => p?.id == state.selectedPlayerId, orElse: () => null);
-          if (player != null) {
-            panel = _PlayerEditBar(state: state, player: player, showOptions: !_collapsed);
-            final h = state.canvasSize.height;
-            if (h > 0 && player.position.dy > h * 0.5) {
-              pinTop = true;
-            }
-          }
-        }
+        final hasDrawing = state.isDrawingMode || state.selectedStrokeId != null;
+        final hasPlayer = state.selectedPlayerId != null;
+        if (!hasDrawing && !hasPlayer) return const SizedBox.shrink();
 
-        if (panel == null) {
-          _collapsed = true;
-          return const SizedBox.shrink();
-        }
-
-        final topPad = MediaQuery.of(context).padding.top;
         final s = uiScale(context);
-
-        // Collapsed: render only a small floating button just above the
-        // bottom toolbar so the pitch stays uncluttered. Tap to expand the
-        // full options panel.
-        if (_collapsed) {
-          return Positioned(
-            bottom: 12,
-            left: 0, right: 0,
-            child: Center(
-              child: GestureDetector(
-                onTap: () => setState(() => _collapsed = false),
-                child: _GlassCircle(
-                  size: 32 * s,
-                  child: Icon(Icons.tune, color: Colors.white, size: 18 * s),
-                ),
+        return Positioned(
+          bottom: 12,
+          left: 0, right: 0,
+          child: Center(
+            child: GestureDetector(
+              onTap: () => _openDialog(context, state),
+              child: _GlassCircle(
+                size: 32 * s,
+                child: Icon(Icons.tune, color: Colors.white, size: 18 * s),
               ),
             ),
-          );
-        }
-
-        return Positioned(
-          top: pinTop ? topPad + 52 : null,
-          bottom: pinTop ? null : 0,
-          left: 0, right: 0,
-          child: Container(
-            color: const Color(0xDD1A2035),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Collapse handle — tap to hide the options panel again.
-                GestureDetector(
-                  onTap: () => setState(() => _collapsed = true),
-                  child: Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 16 * s),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.06),
-                      border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.1))),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          pinTop ? Icons.expand_less : Icons.expand_more,
-                          color: Colors.white54, size: 22 * s,
-                        ),
-                        SizedBox(width: 6 * s),
-                        Text(
-                          'less'.tr(),
-                          style: TextStyle(color: Colors.white54, fontSize: 12 * s, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                panel,
-              ],
-            ),
           ),
+        );
+      },
+    );
+  }
+
+  /// Open a centred modal dialog containing the full edit options for the
+  /// currently selected player or for the drawing mode. The pitch stays
+  /// uncluttered while the dialog is closed; opening it is a single tap on
+  /// the floating ⚙ button.
+  void _openDialog(BuildContext outerCtx, TacticsState state) {
+    showDialog(
+      context: outerCtx,
+      barrierColor: Colors.black54,
+      builder: (dialogCtx) {
+        // Subscribe so the colour swatches / size slider stay in sync as
+        // the user edits, and so we can auto-pop when the player or stroke
+        // gets removed underneath us.
+        return ListenableBuilder(
+          listenable: state,
+          builder: (ctx, _) {
+            Widget child;
+            if (state.isDrawingMode || state.selectedStrokeId != null) {
+              child = DrawingOptionsBar(state: state, showOptions: true);
+            } else {
+              final player = state.players.cast<PlayerIcon?>().firstWhere(
+                (p) => p?.id == state.selectedPlayerId,
+                orElse: () => null,
+              );
+              if (player == null) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  if (Navigator.of(dialogCtx).canPop()) {
+                    Navigator.of(dialogCtx).pop();
+                  }
+                });
+                return const SizedBox.shrink();
+              }
+              child = _PlayerEditBar(
+                state: state,
+                player: player,
+                showOptions: true,
+                onClose: () {
+                  if (Navigator.of(dialogCtx).canPop()) {
+                    Navigator.of(dialogCtx).pop();
+                  }
+                },
+              );
+            }
+            return Dialog(
+              backgroundColor: const Color(0xFF1A2035),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 460),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: child,
+                ),
+              ),
+            );
+          },
         );
       },
     );
