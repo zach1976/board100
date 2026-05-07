@@ -63,6 +63,8 @@
   "formation_532": "5-3-2",
   "formation_3331": "3-3-3-1",
   "edit_player": "Edit Player",
+  "edit_marker": "Edit Marker",
+  "edit_ball": "Edit Ball",
   "player_name": "Name",
   "player_color": "Color",
   "save": "Save",
@@ -211,7 +213,7 @@
   "photo_review_count": "Found {} face(s)",
   "photo_review_hint": "Tap × on any face you don't want to keep.",
   "photo_confirm_save": "Save {}",
-  "photo_delete_confirm": "Delete this photo?",
+  "photo_delete_confirm": "Delete this player?",
   "photo_take": "Take Photo",
   "photo_from_gallery": "Choose from Gallery",
   "photo_duplicate_title": "Add again?",
@@ -222,5 +224,10 @@
   "photo_group_rename": "Rename team",
   "photo_group_delete": "Delete team",
   "photo_group_delete_confirm": "Delete this team and all its members?",
-  "photo_dedup_msg": "Auto-removed {} duplicate player(s)."
+  "photo_dedup_msg": "Auto-removed {} duplicate player(s).",
+  "photo_crop_title": "Adjust Avatar",
+  "photo_crop_hint": "Drag to reposition, pinch to zoom.",
+  "photo_crop_reset": "Reset",
+  "photo_manage_title": "Manage Players",
+  "photo_manage_hint": "Tap a face to adjust framing, or use the icons below."
 }

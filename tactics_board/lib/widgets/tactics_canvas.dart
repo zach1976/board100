@@ -191,7 +191,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           child: SizedBox(
                             width: kPlayerIconSize,
                             height: kPlayerIconSize,
-                            child: CustomPaint(
+                            child: player.photoId != null && !player.isMarker && !player.isBall
+                                ? PhotoPlayerShape(player: player, isSelected: false)
+                                : CustomPaint(
                               painter: player.isMarker
                                   ? MarkerPainter(shape: player.markerShape, color: player.color)
                                   : player.isBall
@@ -934,35 +936,48 @@ class _WaypointDotState extends State<_WaypointDot> {
       // normal player shape as a dashed ghost outline (same style as the
       // start ghost) so start/end use consistent "not current" styling.
       final fadeEnd = !widget.isAtCurrentStep && !widget.isPrimary;
+      final hasPhoto = widget.player.photoId != null
+          && !widget.player.isMarker
+          && !widget.player.isBall;
       final Widget endIcon = SizedBox(
         width: kPlayerIconSize,
         height: kPlayerIconSize,
         child: Stack(
           children: [
-            CustomPaint(
-              painter: widget.player.isMarker
-                  ? MarkerPainter(
-                      shape: widget.player.markerShape,
-                      color: widget.player.color,
-                      isSelected: widget.isSelected,
-                    )
-                  : widget.player.isBall
-                  ? BallPainter.forSport(widget.player.sportType!)
-                  : TopDownPlayerPainter(
-                      color: widget.player.color,
-                      borderColor: widget.isPrimary
-                          ? const Color(0xFF00E5CC)
-                          : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
-                      borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
-                      isSelected: widget.isSelected && !fadeEnd,
-                      isGhost: fadeEnd,
-                      gender: widget.player.gender,
-                    ),
-              size: Size.infinite,
-            ),
+            if (hasPhoto)
+              Opacity(
+                opacity: fadeEnd ? 0.55 : 1.0,
+                child: PhotoPlayerShape(
+                  player: widget.player,
+                  isSelected: widget.isSelected,
+                ),
+              )
+            else
+              CustomPaint(
+                painter: widget.player.isMarker
+                    ? MarkerPainter(
+                        shape: widget.player.markerShape,
+                        color: widget.player.color,
+                        isSelected: widget.isSelected,
+                      )
+                    : widget.player.isBall
+                    ? BallPainter.forSport(widget.player.sportType!)
+                    : TopDownPlayerPainter(
+                        color: widget.player.color,
+                        borderColor: widget.isPrimary
+                            ? const Color(0xFF00E5CC)
+                            : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
+                        borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
+                        isSelected: widget.isSelected && !fadeEnd,
+                        isGhost: fadeEnd,
+                        gender: widget.player.gender,
+                      ),
+                size: Size.infinite,
+              ),
             if (widget.player.label.isNotEmpty &&
                 !widget.player.isMarker &&
-                !widget.player.isBall)
+                !widget.player.isBall &&
+                !hasPhoto)
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -1096,11 +1111,19 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
     super.dispose();
   }
 
+  /// Title key follows the element kind — markers and balls aren't
+  /// "players" and the older blanket 编辑球员 wording read incorrectly.
+  String _titleKey() {
+    if (widget.player.isBall) return 'edit_ball';
+    if (widget.player.isMarker) return 'edit_marker';
+    return 'edit_player';
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: const Color(0xFF213E48),
-      title: Text('edit_player'.tr(),
+      title: Text(_titleKey().tr(),
           style: const TextStyle(color: Colors.white)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
