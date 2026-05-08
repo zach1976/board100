@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -1236,8 +1237,10 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   }
 
   /// Long-press-drag variant of `_addAllInGroup`: lays the photos out in
-  /// the same horizontal row, but centred on the user's drop point on the
-  /// board (clamped per-player to canvas bounds).
+  /// a ring around the user's drop point on the board (clamped per-player
+  /// to canvas bounds). Ring radius scales with team size so 4 people
+  /// huddle close and 11 people get a roomier circle. First photo lands
+  /// at the top of the ring (12 o'clock) and the rest go clockwise.
   void _addAllInGroupAt(List<PlayerPhoto> photos, Offset globalDropPos) {
     if (photos.isEmpty) return;
     final ro = boardRepaintKey.currentContext?.findRenderObject();
@@ -1249,36 +1252,51 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       return;
     }
     final n = photos.length;
-    // Layout width scales with team size but is capped to ~70% of the
-    // board width so the row doesn't run off the edge.
-    final spread = (n <= 1)
+    // Pick a radius that keeps adjacent markers ~50 px apart along the
+    // arc — circumference 2πr ≈ n × 50 → r ≈ n × 8. Floor it to a
+    // visible minimum and cap so the ring stays inside the board.
+    final maxRadius =
+        (math.min(size.width, size.height) / 2 - 30).clamp(40.0, 200.0);
+    final radius = (n <= 1)
         ? 0.0
-        : (n * 56.0).clamp(0.0, size.width * 0.7);
+        : (n * 8.0).clamp(50.0, maxRadius).toDouble();
     final positions = <Offset>[
-      for (int i = 0; i < n; i++)
-        Offset(
-          (n == 1 ? localPos.dx : localPos.dx - spread / 2 + spread * i / (n - 1))
-              .clamp(24.0, size.width - 24.0),
-          localPos.dy.clamp(24.0, size.height - 24.0),
-        ),
+      for (int i = 0; i < n; i++) _ringPoint(localPos, radius, i, n, size),
     ];
     _placePhotoRow(photos, positions);
     HapticFeedback.lightImpact();
     Navigator.of(widget.sheetCtx).maybePop();
   }
 
+  Offset _ringPoint(Offset center, double radius, int i, int n, Size canvas) {
+    if (n == 1 || radius == 0.0) {
+      return Offset(
+        center.dx.clamp(24.0, canvas.width - 24.0),
+        center.dy.clamp(24.0, canvas.height - 24.0),
+      );
+    }
+    final angle = 2 * math.pi * i / n - math.pi / 2; // start at top
+    return Offset(
+      (center.dx + radius * math.cos(angle)).clamp(24.0, canvas.width - 24.0),
+      (center.dy + radius * math.sin(angle)).clamp(24.0, canvas.height - 24.0),
+    );
+  }
+
   /// Shared placement: stamps each photo as a numbered player on the
   /// current team at the supplied positions.
   void _placePhotoRow(List<PlayerPhoto> photos, List<Offset> positions) {
-    int max = 0;
-    for (final p in state.players.where((p) => p.team == _team)) {
-      final n = int.tryParse(p.label) ?? 0;
-      if (n > max) max = n;
-    }
+    // Photo-avatar players don't get jersey numbers by default — the face
+    // already identifies them. A label is added only when a *second* (or
+    // later) instance of the same photo lands on the board, so the user
+    // can tell duplicates apart. addPlayer mutates the players list
+    // synchronously, so reading the dup count inside the loop reflects
+    // earlier iterations of this batch.
     for (int i = 0; i < photos.length; i++) {
+      final dup =
+          state.players.where((p) => p.photoId == photos[i].id).length;
       state.addPlayer(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_$i',
-        label: '${max + i + 1}',
+        label: dup == 0 ? '' : '${dup + 1}',
         team: _team,
         position: positions[i],
         photoId: photos[i].id,
@@ -1303,18 +1321,13 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       if (!ok) return;
     }
     if (!mounted) return;
-    int max = 0;
-    for (final p in state.players.where((p) => p.team == _team)) {
-      final n = int.tryParse(p.label) ?? 0;
-      if (n > max) max = n;
-    }
     final clamped = Offset(
       localPos.dx.clamp(24.0, size.width - 24.0),
       localPos.dy.clamp(24.0, size.height - 24.0),
     );
     state.addPlayer(PlayerIcon(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
-      label: '${max + 1}',
+      label: existing == 0 ? '' : '${existing + 1}',
       team: _team,
       position: clamped,
       photoId: photo.id,
@@ -1355,11 +1368,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     }
 
     final c = state.canvasSize;
-    int max = 0;
-    for (final p in state.players.where((p) => p.team == _team)) {
-      final n = int.tryParse(p.label) ?? 0;
-      if (n > max) max = n;
-    }
     // The Add sheet covers the bottom of the screen, so the home half of
     // the canvas (y≈0.75) is hidden. Spawn photo-avatar players into the
     // visible upper portion regardless of team — user can drag to position
@@ -1383,7 +1391,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     }
     state.addPlayer(PlayerIcon(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
-      label: '${max + 1}',
+      label: existing == 0 ? '' : '${existing + 1}',
       team: _team,
       position: pos,
       photoId: photo.id,

@@ -1,7 +1,8 @@
 Yang baharu:
-• Timeline Editor: animasikan taktik berbilang fasa langkah demi langkah
-• Paparan luar: kanvas landskap natif, ikon menegak (AirPlay)
-• Garis pergerakan dipaparkan automatik selepas main
-• Halusan susun atur iPad 13 inci
+• Pilih berbilang: ketik atau lasso untuk pilih beberapa elemen, seret salah satu untuk gerakkan keseluruhan kumpulan
+• Seret untuk letak: tekan lama mana-mana petak (bola, pasukan, bentuk, avatar) dan lepaskan di mana sahaja pada padang
+• Baris penanda pintar: yang kerap digunakan di depan; yang jarang dilipat ke More
+• Penanda foto bentuk tersuai + pemain foto tanpa nombor jersi secara lalai
+• Apply formasi tidak lagi mengosongkan pemain sedia ada
 
 Terima kasih melatih bersama kami. Teruskan hantar maklum balas dan idea.
