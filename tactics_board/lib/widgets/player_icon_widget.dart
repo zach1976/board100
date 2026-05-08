@@ -6,6 +6,7 @@ import '../models/player_icon.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
 import '../services/photo_library_service.dart';
+import 'marker_shape_clipper.dart';
 
 const double kPlayerIconSize = 44.0;
 
@@ -175,7 +176,9 @@ class PlayerIconWidget extends StatelessWidget {
             child: SizedBox(
               width: size,
               height: size,
-              child: player.isMarker
+              child: (player.isMarker && player.photoId != null)
+                  ? ShapedPhotoMarker(player: player, isSelected: isSelected)
+                  : player.isMarker
                   ? _MarkerWidget(player: player, isSelected: isSelected)
                   : player.isBall
                   ? _BallWidget(player: player, isSelected: isSelected)
@@ -368,6 +371,137 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
       ],
     );
   }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Custom-element marker — user-uploaded photo clipped to a chosen shape
+// (square / triangle / diamond). Same visual chrome as PhotoPlayerShape
+// (drop shadow + selection glow) but the avatar is a non-circular ClipPath
+// so a single photo can stand in for any of the marker outlines.
+// ─────────────────────────────────────────────────────────────────────────────
+class ShapedPhotoMarker extends StatefulWidget {
+  final PlayerIcon player;
+  final bool isSelected;
+  const ShapedPhotoMarker({
+    super.key,
+    required this.player,
+    required this.isSelected,
+  });
+
+  @override
+  State<ShapedPhotoMarker> createState() => _ShapedPhotoMarkerState();
+}
+
+class _ShapedPhotoMarkerState extends State<ShapedPhotoMarker> {
+  String? _path;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+    PhotoLibraryService.instance.addListener(_onLibraryChanged);
+  }
+
+  @override
+  void dispose() {
+    PhotoLibraryService.instance.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  void _onLibraryChanged() {
+    if (mounted) _resolve();
+  }
+
+  @override
+  void didUpdateWidget(ShapedPhotoMarker old) {
+    super.didUpdateWidget(old);
+    if (old.player.photoId != widget.player.photoId) _resolve();
+  }
+
+  Future<void> _resolve() async {
+    final id = widget.player.photoId;
+    if (id == null) return;
+    final all = await PhotoLibraryService.instance.list();
+    final element = await PhotoLibraryService.instance.listElements();
+    final photo = [...all, ...element]
+        .cast<dynamic>()
+        .firstWhere((p) => p?.id == id, orElse: () => null);
+    if (photo == null) return;
+    final p = await PhotoLibraryService.instance.resolvePath(photo);
+    if (mounted) setState(() => _path = p);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shape = widget.player.markerShape;
+    final isSel = widget.isSelected;
+    // StackFit.expand makes every non-Positioned child fill the parent's
+    // SizedBox; without it, ClipPath + Image.file collapses to zero size
+    // and the avatar disappears on the board.
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        if (isSel)
+          IgnorePointer(
+            child: ClipPath(
+              clipper: MarkerShapeClipper(shape),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFFFD166).withValues(alpha: 0.6),
+                      blurRadius: 12,
+                      spreadRadius: 3,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ClipPath(
+          clipper: MarkerShapeClipper(shape),
+          child: _path != null
+              ? Image.file(File(_path!), fit: BoxFit.cover)
+              : ColoredBox(
+                  color: widget.player.color.withValues(alpha: 0.4),
+                ),
+        ),
+        IgnorePointer(
+          child: CustomPaint(
+            size: Size.infinite,
+            painter: _ShapedMarkerOutlinePainter(
+              shape: shape,
+              isSelected: isSel,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ShapedMarkerOutlinePainter extends CustomPainter {
+  final MarkerShape shape;
+  final bool isSelected;
+  const _ShapedMarkerOutlinePainter({
+    required this.shape,
+    required this.isSelected,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final clipper = MarkerShapeClipper(shape);
+    final path = clipper.getClip(size);
+    final ring = Paint()
+      ..color = isSelected ? const Color(0xFFFFD166) : Colors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = isSelected ? 2.6 : 1.6;
+    canvas.drawPath(path, ring);
+  }
+
+  @override
+  bool shouldRepaint(_ShapedMarkerOutlinePainter old) =>
+      old.shape != shape || old.isSelected != isSelected;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

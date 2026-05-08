@@ -12,6 +12,7 @@
   "sport_field_hockey": "Field Hockey",
   "mode_move": "Move",
   "mode_draw": "Draw",
+  "mode_select": "Select",
   "mode_label": "Mode",
   "line_label": "Line",
   "arrow_label": "Arrow",
@@ -229,5 +230,8 @@
   "photo_crop_hint": "Drag to reposition, pinch to zoom.",
   "photo_crop_reset": "Reset",
   "photo_manage_title": "Manage Players",
-  "photo_manage_hint": "Tap a face to adjust framing, or use the icons below."
+  "photo_manage_hint": "Tap a face to adjust framing, or use the icons below.",
+  "elements_label": "Custom Elements",
+  "element_crop_title": "Add Element",
+  "element_delete_confirm": "Delete this element?"
 }

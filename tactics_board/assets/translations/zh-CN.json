@@ -12,6 +12,7 @@
   "sport_field_hockey": "曲棍球",
   "mode_move": "移动",
   "mode_draw": "画线",
+  "mode_select": "选择",
   "mode_label": "模式",
   "line_label": "线型",
   "arrow_label": "箭头",
@@ -229,5 +230,8 @@
   "photo_crop_hint": "拖动调整位置，双指缩放大小。",
   "photo_crop_reset": "重置",
   "photo_manage_title": "管理球员",
-  "photo_manage_hint": "点击头像调整裁剪，或使用下方图标。"
+  "photo_manage_hint": "点击头像调整裁剪，或使用下方图标。",
+  "elements_label": "自定义素材",
+  "element_crop_title": "添加素材",
+  "element_delete_confirm": "删除该素材？"
 }

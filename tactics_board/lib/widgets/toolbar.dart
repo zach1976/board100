@@ -14,9 +14,12 @@ import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import 'element_import_flow.dart';
+import 'marker_shape_clipper.dart';
 import 'photo_crop_editor.dart';
 import 'photo_import_sheet.dart';
 import 'player_icon_widget.dart';
@@ -25,6 +28,38 @@ import 'timeline_editor.dart';
 /// Tablet (shortestSide >= 600) gets 1.4× sizing for icons/buttons/fonts.
 double uiScale(BuildContext context) =>
     MediaQuery.sizeOf(context).shortestSide >= 600 ? 1.4 : 1.0;
+
+/// Confirm dialog asking whether to add another player using a photo that
+/// is already on the board. Returns true if the user pressed "Add",
+/// false (or cancelled / dismissed) otherwise. Used by both face avatars
+/// and custom-element tiles to guard against accidental double-adds.
+Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async {
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      backgroundColor: const Color(0xFF14302A),
+      title: Text('photo_duplicate_title'.tr(),
+          style: const TextStyle(color: Colors.white)),
+      content: Text(
+        'photo_duplicate_msg'.tr(args: ['$existingCount']),
+        style: const TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(false),
+          child: Text('cancel'.tr(),
+              style: const TextStyle(color: Colors.white54)),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(true),
+          child: Text('photo_add_another'.tr(),
+              style: const TextStyle(color: Color(0xFF6EE7B7))),
+        ),
+      ],
+    ),
+  );
+  return ok == true;
+}
 
 /// Wraps a bottom-sheet / dialog child so all Text inside scales on tablets.
 /// Hardcoded icon/container sizes still need to be multiplied by uiScale(ctx).
@@ -532,14 +567,27 @@ class _ModeSegment extends StatelessWidget {
           _SegTab(
             icon: Icons.open_with,
             label: 'mode_move'.tr(),
-            selected: !state.isDrawingMode,
-            onTap: state.isAnimating ? null : () => state.setDrawingMode(false),
+            selected: !state.isDrawingMode && !state.multiSelectMode,
+            onTap: state.isAnimating
+                ? null
+                : () {
+                    state.setMultiSelectMode(false);
+                    state.setDrawingMode(false);
+                  },
           ),
           _SegTab(
             icon: Icons.edit,
             label: 'mode_draw'.tr(),
             selected: state.isDrawingMode,
             onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
+          ),
+          _SegTab(
+            icon: Icons.select_all,
+            label: 'mode_select'.tr(),
+            selected: state.multiSelectMode,
+            onTap: state.isAnimating
+                ? null
+                : () => state.setMultiSelectMode(!state.multiSelectMode),
           ),
         ],
       ),
@@ -691,6 +739,22 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     Navigator.pop(sheetCtx);
   }
 
+  /// Long-press-drag drop variant of `_addOneTeamPlayer` — places one
+  /// numbered player on [team] at the user's exact canvas-local position.
+  void _addOneTeamPlayerAt(PlayerTeam team, Offset local) {
+    int max = 0;
+    for (final p in state.players.where((p) => p.team == team)) {
+      final n = int.tryParse(p.label) ?? 0;
+      if (n > max) max = n;
+    }
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '${max + 1}',
+      team: team,
+      position: local,
+    ));
+  }
+
   void _addMarker(MarkerShape shape, Color color, {String label = ''}) {
     final c = state.canvasSize;
     state.addPlayer(PlayerIcon(
@@ -702,6 +766,213 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
     ));
     Navigator.pop(sheetCtx);
+  }
+
+  /// Build the unified list of orderable marker / neutral-player entries.
+  /// Their order in the inline row vs. the More section is decided
+  /// dynamically by `ElementUsageService.recentCount` — frequently-used
+  /// pieces bubble to the front, rarely-used ones get tucked away.
+  List<_MarkerEntry> _buildMarkerEntries() {
+    Widget shapeGlyph(MarkerShape shape, Color color) => SizedBox(
+          width: 28,
+          height: 28,
+          child: CustomPaint(painter: MarkerPainter(shape: shape, color: color)),
+        );
+    Widget genderGlyph(PlayerGender g) => SizedBox(
+          width: 28,
+          height: 28,
+          child: CustomPaint(
+            painter: TopDownPlayerPainter(
+              color: const Color(0xFF616161),
+              borderColor: Colors.white,
+              borderWidth: 2,
+              gender: g,
+            ),
+          ),
+        );
+
+    _MarkerEntry shapeEntry(
+      String key,
+      String label,
+      MarkerShape shape,
+      Color color,
+      int order, {
+      String labelText = '',
+    }) {
+      return _MarkerEntry(
+        key: key,
+        label: label,
+        glyph: shapeGlyph(shape, color),
+        defaultOrder: order,
+        onTap: () {
+          _addMarker(shape, color, label: labelText);
+          ElementUsageService.instance.recordUse(key);
+        },
+        onDropAt: (globalPos) => _placeAtDropPos(globalPos, (local) {
+          state.addPlayer(PlayerIcon(
+            id: DateTime.now().microsecondsSinceEpoch.toString(),
+            label: labelText,
+            team: PlayerTeam.neutral,
+            markerShape: shape,
+            customColor: color,
+            position: local,
+          ));
+          ElementUsageService.instance.recordUse(key);
+        }),
+      );
+    }
+
+    _MarkerEntry genderEntry(String key, String label, PlayerGender g, int order) {
+      return _MarkerEntry(
+        key: key,
+        label: label,
+        glyph: genderGlyph(g),
+        defaultOrder: order,
+        onTap: () {
+          final c = state.canvasSize;
+          state.addPlayer(PlayerIcon(
+            id: DateTime.now().microsecondsSinceEpoch.toString(),
+            label: '',
+            team: PlayerTeam.neutral,
+            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+            gender: g,
+          ));
+          ElementUsageService.instance.recordUse(key);
+          Navigator.pop(sheetCtx);
+        },
+        onDropAt: (globalPos) => _placeAtDropPos(globalPos, (local) {
+          state.addPlayer(PlayerIcon(
+            id: DateTime.now().microsecondsSinceEpoch.toString(),
+            label: '',
+            team: PlayerTeam.neutral,
+            position: local,
+            gender: g,
+          ));
+          ElementUsageService.instance.recordUse(key);
+        }),
+      );
+    }
+
+    return [
+      shapeEntry('marker_circle', '○', MarkerShape.circle, Colors.amber, 0),
+      shapeEntry('marker_square', '□', MarkerShape.square, Colors.teal, 1),
+      shapeEntry('marker_triangle', '△', MarkerShape.triangle, Colors.orange, 2),
+      shapeEntry('marker_diamond', '◇', MarkerShape.diamond, Colors.purple, 3),
+      genderEntry('neutral_male', 'neutral_male'.tr(), PlayerGender.male, 4),
+      genderEntry('neutral_female', 'neutral_female'.tr(), PlayerGender.female, 5),
+      shapeEntry('marker_cone', 'marker_cone'.tr(), MarkerShape.cone, Colors.orange, 6),
+      shapeEntry('marker_text', 'marker_text'.tr(), MarkerShape.text, Colors.blueGrey, 7, labelText: 'T'),
+      shapeEntry('marker_zone', 'marker_zone'.tr(), MarkerShape.zone, Colors.yellow, 8),
+      shapeEntry('marker_referee', 'marker_referee'.tr(), MarkerShape.referee, Colors.black, 9),
+      shapeEntry('marker_coach', 'marker_coach'.tr(), MarkerShape.coach, const Color(0xFF37474F), 10),
+      shapeEntry('marker_ladder', 'marker_ladder'.tr(), MarkerShape.ladder, Colors.lime, 11),
+      shapeEntry('marker_hurdle', 'marker_hurdle'.tr(), MarkerShape.hurdle, Colors.red, 12),
+      shapeEntry('marker_arrow', 'marker_arrow'.tr(), MarkerShape.arrowMark, Colors.green, 13),
+    ];
+  }
+
+  /// Returns the markers ordered by 3-day usage (DESC), tied items by
+  /// their default order. Caller gets one flat list; usually we slice
+  /// the first N for the inline row and the rest go into "More".
+  List<_MarkerEntry> _sortedMarkerEntries() {
+    final entries = _buildMarkerEntries();
+    entries.sort((a, b) {
+      final ca = ElementUsageService.instance.recentCount(a.key);
+      final cb = ElementUsageService.instance.recentCount(b.key);
+      if (ca != cb) return cb.compareTo(ca);
+      return a.defaultOrder.compareTo(b.defaultOrder);
+    });
+    return entries;
+  }
+
+  /// Number of marker tiles shown in the always-visible inline row. The
+  /// rest are tucked into the "More" expansion.
+  static const int _inlineMarkerCount = 4;
+
+  Widget _buildMarkerTile(_MarkerEntry e) {
+    return Padding(
+      key: ValueKey('marker_${e.key}'),
+      padding: const EdgeInsets.only(right: 8),
+      child: _DraggableMarkerCard(
+        label: e.label,
+        onTap: e.onTap,
+        onDropAt: e.onDropAt,
+        child: e.glyph,
+      ),
+    );
+  }
+
+  /// Drop a custom-element marker (user-uploaded photo, with the shape the
+  /// user chose at import time) onto the board as a neutral non-team icon.
+  /// Always preserves the chosen shape (including circle) so the renderer
+  /// dispatches to ShapedPhotoMarker, which knows how to look up element
+  /// photos. Downgrading circle → none routed it through PhotoPlayerShape
+  /// whose lookup only finds face photos.
+  Future<void> _addElementPhoto(PlayerPhoto photo) async {
+    final existing = state.players.where((p) => p.photoId == photo.id).length;
+    if (existing > 0) {
+      final ok = await _confirmAddDuplicate(context, existing);
+      if (!ok) return;
+    }
+    if (!mounted) return;
+    final c = state.canvasSize;
+    final shape = photo.markerShapeIndex == null
+        ? MarkerShape.circle
+        : MarkerShape.values[photo.markerShapeIndex!];
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: '',
+      team: PlayerTeam.neutral,
+      photoId: photo.id,
+      markerShape: shape,
+      position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+    ));
+    PhotoLibraryService.instance.recordElementUse(photo.id);
+    Navigator.of(sheetCtx).maybePop();
+  }
+
+  /// Drag-drop handler for custom elements — places the marker at the
+  /// user's exact drop point if it lands on the board, otherwise no-op.
+  Future<void> _onElementDroppedOutside(PlayerPhoto photo, Offset globalPos) async {
+    final existing = state.players.where((p) => p.photoId == photo.id).length;
+    if (existing > 0) {
+      final ok = await _confirmAddDuplicate(context, existing);
+      if (!ok) return;
+    }
+    if (!mounted) return;
+    final shape = photo.markerShapeIndex == null
+        ? MarkerShape.circle
+        : MarkerShape.values[photo.markerShapeIndex!];
+    _placeAtDropPos(globalPos, (local) {
+      state.addPlayer(PlayerIcon(
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        label: '',
+        team: PlayerTeam.neutral,
+        photoId: photo.id,
+        markerShape: shape,
+        position: local,
+      ));
+      PhotoLibraryService.instance.recordElementUse(photo.id);
+    });
+  }
+
+  /// Generic drop adapter — converts a global drop point to a canvas-local
+  /// position (clamped to bounds) and runs the placement callback if the
+  /// drop landed on the board. Closes the sheet on success.
+  void _placeAtDropPos(Offset globalPos, void Function(Offset) place) {
+    final ro = boardRepaintKey.currentContext?.findRenderObject();
+    if (ro is! RenderBox || !ro.attached) return;
+    final localPos = ro.globalToLocal(globalPos);
+    final size = ro.size;
+    if (localPos.dx < 0 || localPos.dy < 0) return;
+    if (localPos.dx > size.width || localPos.dy > size.height) return;
+    final clamped = Offset(
+      localPos.dx.clamp(24.0, size.width - 24.0),
+      localPos.dy.clamp(24.0, size.height - 24.0),
+    );
+    place(clamped);
+    HapticFeedback.lightImpact();
+    Navigator.of(sheetCtx).maybePop();
   }
 
   @override
@@ -740,7 +1011,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _MarkerCard(
+                    _DraggableMarkerCard(
                       label: 'team_ball'.tr(),
                       child: ClipOval(
                         child: SizedBox(
@@ -759,35 +1030,76 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                         ));
                         Navigator.pop(sheetCtx);
                       },
+                      onDropAt: (globalPos) => _placeAtDropPos(globalPos, (local) {
+                        state.addPlayer(PlayerIcon(
+                          id: DateTime.now().microsecondsSinceEpoch.toString(),
+                          label: '',
+                          team: PlayerTeam.neutral,
+                          sportType: state.sportType,
+                          position: local,
+                        ));
+                      }),
                     ),
                     const SizedBox(width: 8),
                     if (isTeamSport) ...[
-                      _MarkerCard(
+                      _DraggableMarkerCard(
                         label: 'team_home'.tr(),
                         child: _QuickAddTeamGlyph(team: PlayerTeam.home),
                         onTap: () => _addOneTeamPlayer(PlayerTeam.home),
+                        onDropAt: (globalPos) => _placeAtDropPos(
+                          globalPos,
+                          (local) => _addOneTeamPlayerAt(PlayerTeam.home, local),
+                        ),
                       ),
                       const SizedBox(width: 8),
-                      _MarkerCard(
+                      _DraggableMarkerCard(
                         label: 'team_away'.tr(),
                         child: _QuickAddTeamGlyph(team: PlayerTeam.away),
                         onTap: () => _addOneTeamPlayer(PlayerTeam.away),
+                        onDropAt: (globalPos) => _placeAtDropPos(
+                          globalPos,
+                          (local) => _addOneTeamPlayerAt(PlayerTeam.away, local),
+                        ),
                       ),
                       const SizedBox(width: 8),
                     ],
-                    ...[
-                      (MarkerShape.circle, '○', Colors.amber),
-                      (MarkerShape.square, '□', Colors.teal),
-                      (MarkerShape.triangle, '△', Colors.orange),
-                      (MarkerShape.diamond, '◇', Colors.purple),
-                    ].map((e) => Padding(
+                    // Dynamic markers — sorted by 3-day usage so frequently
+                    // used pieces stay visible and the rest collapse into
+                    // "More". ListenableBuilder rebuilds the row whenever
+                    // a new use is recorded so promotion happens live.
+                    ListenableBuilder(
+                      listenable: ElementUsageService.instance,
+                      builder: (context, _) {
+                        final sorted = _sortedMarkerEntries();
+                        final inline = sorted.take(_inlineMarkerCount).toList();
+                        return Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [for (final e in inline) _buildMarkerTile(e)],
+                        );
+                      },
+                    ),
+                    // Custom-element tiles (live) inline with the standard
+                    // marker shapes so users see all available pieces in
+                    // one row instead of a separate section below.
+                    _CustomElementsInline(
+                      onTap: _addElementPhoto,
+                      onDropOutsideTarget: _onElementDroppedOutside,
+                    ),
+                    Padding(
                       padding: const EdgeInsets.only(right: 8),
                       child: _MarkerCard(
-                        label: e.$2,
-                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: e.$1, color: e.$3))),
-                        onTap: () => _addMarker(e.$1, e.$3),
+                        label: '+',
+                        child: SizedBox(
+                          width: 28, height: 28,
+                          child: Icon(
+                            Icons.add_photo_alternate_outlined,
+                            color: Colors.white70,
+                            size: 22,
+                          ),
+                        ),
+                        onTap: () => ElementImportFlow.show(context),
                       ),
-                    )),
+                    ),
                     // "More" button inline
                     GestureDetector(
                       onTap: () {
@@ -826,62 +1138,25 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                 ),
               ),
             ),
-            // Expanded more items
+            // Collapsed-by-default "More" — holds the markers that didn't
+            // make the inline row. Re-sorted by usage on every open so the
+            // promotion order stays consistent inside and outside.
             if (_showMore)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      _MarkerCard(
-                        label: 'neutral_male'.tr(),
-                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: TopDownPlayerPainter(color: const Color(0xFF616161), borderColor: Colors.white, borderWidth: 2, gender: PlayerGender.male))),
-                        onTap: () {
-                          final c = state.canvasSize;
-                          state.addPlayer(PlayerIcon(
-                            id: DateTime.now().microsecondsSinceEpoch.toString(),
-                            label: '',
-                            team: PlayerTeam.neutral,
-                            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
-                            gender: PlayerGender.male,
-                          ));
-                          Navigator.pop(sheetCtx);
-                        },
-                      ),
-                      const SizedBox(width: 8),
-                      _MarkerCard(
-                        label: 'neutral_female'.tr(),
-                        child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: TopDownPlayerPainter(color: const Color(0xFF616161), borderColor: Colors.white, borderWidth: 2, gender: PlayerGender.female))),
-                        onTap: () {
-                          final c = state.canvasSize;
-                          state.addPlayer(PlayerIcon(
-                            id: DateTime.now().microsecondsSinceEpoch.toString(),
-                            label: '',
-                            team: PlayerTeam.neutral,
-                            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
-                            gender: PlayerGender.female,
-                          ));
-                          Navigator.pop(sheetCtx);
-                        },
-                      ),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_cone'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.cone, color: Colors.orange))), onTap: () => _addMarker(MarkerShape.cone, Colors.orange)),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_text'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.text, color: Colors.blueGrey))), onTap: () => _addMarker(MarkerShape.text, Colors.blueGrey, label: 'T')),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_zone'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.zone, color: Colors.yellow))), onTap: () => _addMarker(MarkerShape.zone, Colors.yellow)),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_referee'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.referee, color: Colors.black))), onTap: () => _addMarker(MarkerShape.referee, Colors.black)),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_coach'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.coach, color: const Color(0xFF37474F)))), onTap: () => _addMarker(MarkerShape.coach, const Color(0xFF37474F))),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_ladder'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.ladder, color: Colors.lime))), onTap: () => _addMarker(MarkerShape.ladder, Colors.lime)),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_hurdle'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.hurdle, color: Colors.red))), onTap: () => _addMarker(MarkerShape.hurdle, Colors.red)),
-                      const SizedBox(width: 8),
-                      _MarkerCard(label: 'marker_arrow'.tr(), child: SizedBox(width: 28, height: 28, child: CustomPaint(painter: MarkerPainter(shape: MarkerShape.arrowMark, color: Colors.green))), onTap: () => _addMarker(MarkerShape.arrowMark, Colors.green)),
-                    ],
+                  child: ListenableBuilder(
+                    listenable: ElementUsageService.instance,
+                    builder: (context, _) {
+                      final rest = _sortedMarkerEntries()
+                          .skip(_inlineMarkerCount)
+                          .toList();
+                      return Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [for (final e in rest) _buildMarkerTile(e)],
+                      );
+                    },
                   ),
                 ),
               ),
@@ -946,40 +1221,88 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     // Use the visible-half spawn rule (sheet hides the bottom half) so all
     // newly-placed players land in the visible part of the board.
     final spawnY = _team == PlayerTeam.away ? c.height * 0.20 : c.height * 0.55;
+    final n = photos.length;
+    final left = c.width * 0.12;
+    final right = c.width * 0.88;
+    final span = right - left;
+    final cx = c.width * 0.5;
+    final positions = <Offset>[
+      for (int i = 0; i < n; i++)
+        Offset(n == 1 ? cx : left + span * i / (n - 1), spawnY),
+    ];
+    _placePhotoRow(photos, positions);
+    HapticFeedback.lightImpact();
+    Navigator.of(widget.sheetCtx).maybePop();
+  }
+
+  /// Long-press-drag variant of `_addAllInGroup`: lays the photos out in
+  /// the same horizontal row, but centred on the user's drop point on the
+  /// board (clamped per-player to canvas bounds).
+  void _addAllInGroupAt(List<PlayerPhoto> photos, Offset globalDropPos) {
+    if (photos.isEmpty) return;
+    final ro = boardRepaintKey.currentContext?.findRenderObject();
+    if (ro is! RenderBox || !ro.attached) return;
+    final localPos = ro.globalToLocal(globalDropPos);
+    final size = ro.size;
+    if (localPos.dx < 0 || localPos.dy < 0 ||
+        localPos.dx > size.width || localPos.dy > size.height) {
+      return;
+    }
+    final n = photos.length;
+    // Layout width scales with team size but is capped to ~70% of the
+    // board width so the row doesn't run off the edge.
+    final spread = (n <= 1)
+        ? 0.0
+        : (n * 56.0).clamp(0.0, size.width * 0.7);
+    final positions = <Offset>[
+      for (int i = 0; i < n; i++)
+        Offset(
+          (n == 1 ? localPos.dx : localPos.dx - spread / 2 + spread * i / (n - 1))
+              .clamp(24.0, size.width - 24.0),
+          localPos.dy.clamp(24.0, size.height - 24.0),
+        ),
+    ];
+    _placePhotoRow(photos, positions);
+    HapticFeedback.lightImpact();
+    Navigator.of(widget.sheetCtx).maybePop();
+  }
+
+  /// Shared placement: stamps each photo as a numbered player on the
+  /// current team at the supplied positions.
+  void _placePhotoRow(List<PlayerPhoto> photos, List<Offset> positions) {
     int max = 0;
     for (final p in state.players.where((p) => p.team == _team)) {
       final n = int.tryParse(p.label) ?? 0;
       if (n > max) max = n;
     }
-    final n = photos.length;
-    final left = c.width * 0.12;
-    final right = c.width * 0.88;
-    final span = right - left;
-    for (int i = 0; i < n; i++) {
-      final x = n == 1 ? c.width * 0.5 : left + span * i / (n - 1);
+    for (int i = 0; i < photos.length; i++) {
       state.addPlayer(PlayerIcon(
         id: '${DateTime.now().microsecondsSinceEpoch}_$i',
         label: '${max + i + 1}',
         team: _team,
-        position: Offset(x, spawnY),
+        position: positions[i],
         photoId: photos[i].id,
       ));
     }
-    HapticFeedback.lightImpact();
-    Navigator.of(widget.sheetCtx).maybePop();
   }
 
   /// User finished a long-press drag whose drop wasn't claimed by a
   /// DragTarget (the modal sheet's barrier always intercepts hits, so this
   /// is the normal path). If the global drop point is over the board, pop
   /// the sheet and add a player at that exact spot.
-  void _onDropOutsideTarget(PlayerPhoto photo, Offset globalPos) {
+  Future<void> _onDropOutsideTarget(PlayerPhoto photo, Offset globalPos) async {
     final ro = boardRepaintKey.currentContext?.findRenderObject();
     if (ro is! RenderBox || !ro.attached) return;
     final localPos = ro.globalToLocal(globalPos);
     final size = ro.size;
     if (localPos.dx < 0 || localPos.dy < 0) return;
     if (localPos.dx > size.width || localPos.dy > size.height) return;
+    final existing = state.players.where((p) => p.photoId == photo.id).length;
+    if (existing > 0) {
+      final ok = await _confirmAddDuplicate(context, existing);
+      if (!ok) return;
+    }
+    if (!mounted) return;
     int max = 0;
     for (final p in state.players.where((p) => p.team == _team)) {
       final n = int.tryParse(p.label) ?? 0;
@@ -1400,6 +1723,8 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
                               _AddAllTile(
                                 count: photos.length,
                                 onTap: () => _addAllInGroup(photos),
+                                onDropAt: (globalPos) =>
+                                    _addAllInGroupAt(photos, globalPos),
                               ),
                               const SizedBox(width: 8),
                             ],
@@ -1482,6 +1807,14 @@ class PhotoDragData {
   final String? path;
   final PlayerTeam team;
   const PhotoDragData({required this.photo, this.path, required this.team});
+}
+
+/// Drag payload for a custom-element tile — the receiving canvas needs the
+/// photo + the user-chosen shape so it can clip the avatar correctly.
+class ElementDragData {
+  final PlayerPhoto photo;
+  final String? path;
+  const ElementDragData({required this.photo, this.path});
 }
 
 class _PhotoTile extends StatefulWidget {
@@ -1678,6 +2011,233 @@ class _AddPhotoTile extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Strip of user-defined custom-element markers (kind=element) plus a
+/// "+ 自定义" tile that picks a photo, opens the crop dialog, and saves
+/// the result as a new element. Tapping a tile drops a neutral marker
+/// using that photo onto the board.
+/// Inline custom-element tiles for the markers row — same _MarkerCard
+/// chrome as the standard ○ □ △ ◇ shapes so user-imported elements blend
+/// in. Tap = quick add at sheet centre; long-press = drag to a precise
+/// drop point on the board.
+class _CustomElementsInline extends StatelessWidget {
+  final void Function(PlayerPhoto) onTap;
+  /// Drop handler invoked when the user releases a long-press drag whose
+  /// drop wasn't claimed by a DragTarget — typically because the modal
+  /// sheet's barrier intercepts. Caller decides whether the drop landed on
+  /// the board area and handles placement.
+  final void Function(PlayerPhoto, Offset)? onDropOutsideTarget;
+  const _CustomElementsInline({required this.onTap, this.onDropOutsideTarget});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: PhotoLibraryService.instance,
+      builder: (context, _) {
+        return FutureBuilder<List<PlayerPhoto>>(
+          future: PhotoLibraryService.instance.listElements(),
+          builder: (context, snap) {
+            final elements = snap.data ?? const <PlayerPhoto>[];
+            if (elements.isEmpty) return const SizedBox.shrink();
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final e in elements)
+                  Padding(
+                    key: ValueKey('elem_pad_${e.id}'),
+                    padding: const EdgeInsets.only(right: 8),
+                    child: _DraggableElementTile(
+                      key: ValueKey(e.id),
+                      photo: e,
+                      onTap: () => onTap(e),
+                      onDropOutsideTarget: (pos) =>
+                          onDropOutsideTarget?.call(e, pos),
+                    ),
+                  ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+/// Tile + LongPressDraggable wrapper. Tap fires onTap (quick add); a
+/// long-press starts a drag whose feedback is the shape-clipped photo
+/// scaled up slightly with a glow.
+class _DraggableElementTile extends StatefulWidget {
+  final PlayerPhoto photo;
+  final VoidCallback onTap;
+  final void Function(Offset globalDropPos)? onDropOutsideTarget;
+  const _DraggableElementTile({
+    super.key,
+    required this.photo,
+    required this.onTap,
+    this.onDropOutsideTarget,
+  });
+
+  @override
+  State<_DraggableElementTile> createState() => _DraggableElementTileState();
+}
+
+class _DraggableElementTileState extends State<_DraggableElementTile> {
+  String? _path;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+    PhotoLibraryService.instance.addListener(_onLibraryChanged);
+  }
+
+  @override
+  void dispose() {
+    PhotoLibraryService.instance.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  void _onLibraryChanged() {
+    if (mounted) _resolve();
+  }
+
+  @override
+  void didUpdateWidget(_DraggableElementTile old) {
+    super.didUpdateWidget(old);
+    if (old.photo.filename != widget.photo.filename) {
+      setState(() => _path = null);
+      _resolve();
+    }
+  }
+
+  Future<void> _resolve() async {
+    final p = await PhotoLibraryService.instance.resolvePath(widget.photo);
+    if (mounted) setState(() => _path = p);
+  }
+
+  MarkerShape get _shape {
+    final idx = widget.photo.markerShapeIndex;
+    if (idx == null || idx == MarkerShape.circle.index) return MarkerShape.circle;
+    return MarkerShape.values[idx];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shape = _shape;
+    final tile = _MarkerCard(
+      label: '',
+      child: SizedBox(
+        width: 28, height: 28,
+        child: ClipPath(
+          clipper: MarkerShapeClipper(shape),
+          child: _path != null
+              ? Image.file(File(_path!), fit: BoxFit.cover)
+              : Container(color: Colors.white12),
+        ),
+      ),
+      onTap: widget.onTap,
+    );
+    final feedback = Material(
+      color: Colors.transparent,
+      child: SizedBox(
+        width: 60, height: 60,
+        child: Stack(
+          children: [
+            ClipPath(
+              clipper: MarkerShapeClipper(shape),
+              child: _path != null
+                  ? Image.file(File(_path!), fit: BoxFit.cover, width: 60, height: 60)
+                  : Container(color: Colors.white24),
+            ),
+            IgnorePointer(
+              child: ClipPath(
+                clipper: MarkerShapeClipper(shape),
+                child: const DecoratedBox(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFFFFD166),
+                        blurRadius: 12,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    return LongPressDraggable<ElementDragData>(
+      data: ElementDragData(photo: widget.photo, path: _path),
+      feedback: feedback,
+      childWhenDragging: Opacity(opacity: 0.35, child: tile),
+      onDragEnd: (details) {
+        if (details.wasAccepted) return;
+        widget.onDropOutsideTarget?.call(details.offset);
+      },
+      child: tile,
+    );
+  }
+}
+
+class _CustomElementContent extends StatefulWidget {
+  final PlayerPhoto photo;
+  const _CustomElementContent({super.key, required this.photo});
+
+  @override
+  State<_CustomElementContent> createState() => _CustomElementContentState();
+}
+
+class _CustomElementContentState extends State<_CustomElementContent> {
+  String? _path;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+    PhotoLibraryService.instance.addListener(_onLibraryChanged);
+  }
+
+  @override
+  void dispose() {
+    PhotoLibraryService.instance.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  void _onLibraryChanged() {
+    if (mounted) _resolve();
+  }
+
+  @override
+  void didUpdateWidget(_CustomElementContent old) {
+    super.didUpdateWidget(old);
+    if (old.photo.filename != widget.photo.filename) {
+      setState(() => _path = null);
+      _resolve();
+    }
+  }
+
+  Future<void> _resolve() async {
+    final p = await PhotoLibraryService.instance.resolvePath(widget.photo);
+    if (mounted) setState(() => _path = p);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shapeIdx = widget.photo.markerShapeIndex;
+    final shape = (shapeIdx == null || shapeIdx == MarkerShape.circle.index)
+        ? MarkerShape.circle
+        : MarkerShape.values[shapeIdx];
+    return ClipPath(
+      clipper: MarkerShapeClipper(shape),
+      child: _path != null
+          ? Image.file(File(_path!), fit: BoxFit.cover)
+          : Container(color: Colors.white12),
     );
   }
 }
@@ -2002,12 +2562,19 @@ class _EditModeTile extends StatelessWidget {
 class _AddAllTile extends StatelessWidget {
   final int count;
   final VoidCallback onTap;
-  const _AddAllTile({required this.count, required this.onTap});
+  /// Long-press-drag drop handler — receives the global drop position so
+  /// the parent can lay the whole roster out centred at the release point.
+  final void Function(Offset globalDropPos)? onDropAt;
+  const _AddAllTile({
+    required this.count,
+    required this.onTap,
+    this.onDropAt,
+  });
 
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
-    return GestureDetector(
+    final tile = GestureDetector(
       onTap: onTap,
       child: Container(
         width: 52 * s, height: 52 * s,
@@ -2033,6 +2600,54 @@ class _AddAllTile extends StatelessWidget {
           ],
         ),
       ),
+    );
+    if (onDropAt == null) return tile;
+    final feedback = Material(
+      color: Colors.transparent,
+      child: Container(
+        width: 60, height: 60,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: const Color(0xFF6EE7B7).withValues(alpha: 0.25),
+          border: Border.all(color: const Color(0xFF6EE7B7), width: 1.4),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+              blurRadius: 14, spreadRadius: 2,
+            ),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.4),
+              blurRadius: 8, offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.group_add,
+                color: Color(0xFF6EE7B7), size: 22),
+            const SizedBox(height: 1),
+            Text(
+              '+$count',
+              style: const TextStyle(
+                color: Color(0xFF6EE7B7),
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    return LongPressDraggable<Object>(
+      data: const Object(),
+      feedback: feedback,
+      childWhenDragging: Opacity(opacity: 0.35, child: tile),
+      onDragEnd: (details) {
+        if (details.wasAccepted) return;
+        onDropAt!(details.offset);
+      },
+      child: tile,
     );
   }
 }
@@ -2321,15 +2936,76 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   void _apply() {
     if (_selectedFormation == null) return;
     final f = _selectedFormation!;
+    // All three options append to the existing players. Previously the
+    // "both" branch called applyFormation, which clears the board and
+    // wiped any individually-added players that were already there —
+    // unwanted: a user adding a couple of pieces and then 7v7 expected
+    // both groups to end up on the board.
     switch (_teamOption) {
       case _TeamOption.both:
-        widget.state.applyFormation(f);
+        widget.state.addTeamFromFormation(f, PlayerTeam.home);
+        widget.state.addTeamFromFormation(f, PlayerTeam.away);
       case _TeamOption.home:
         widget.state.addTeamFromFormation(f, PlayerTeam.home);
       case _TeamOption.away:
         widget.state.addTeamFromFormation(f, PlayerTeam.away);
     }
     Navigator.pop(widget.sheetCtx);
+  }
+
+  /// Long-press-drag variant of `_apply` — applies the formation, then
+  /// translates every just-added player so the team's centroid lands at
+  /// the user's drop point on the board (clamped per-player to canvas
+  /// bounds). For the "both teams" option, both halves are translated by
+  /// the same offset so their relative layout is preserved.
+  void _applyAtDrop(Offset globalDropPos) {
+    if (_selectedFormation == null) return;
+    final ro = boardRepaintKey.currentContext?.findRenderObject();
+    if (ro is! RenderBox || !ro.attached) {
+      _apply();
+      return;
+    }
+    final localPos = ro.globalToLocal(globalDropPos);
+    final size = ro.size;
+    if (localPos.dx < 0 || localPos.dy < 0 ||
+        localPos.dx > size.width || localPos.dy > size.height) {
+      _apply();
+      return;
+    }
+
+    final beforeIds = widget.state.players.map((p) => p.id).toSet();
+    final f = _selectedFormation!;
+    // Same additive-only behaviour as `_apply` — never clear the board.
+    switch (_teamOption) {
+      case _TeamOption.both:
+        widget.state.addTeamFromFormation(f, PlayerTeam.home);
+        widget.state.addTeamFromFormation(f, PlayerTeam.away);
+      case _TeamOption.home:
+        widget.state.addTeamFromFormation(f, PlayerTeam.home);
+      case _TeamOption.away:
+        widget.state.addTeamFromFormation(f, PlayerTeam.away);
+    }
+    final added = widget.state.players
+        .where((p) => !beforeIds.contains(p.id))
+        .toList();
+    if (added.isNotEmpty) {
+      double cx = 0, cy = 0;
+      for (final p in added) { cx += p.position.dx; cy += p.position.dy; }
+      cx /= added.length; cy /= added.length;
+      final dx = localPos.dx - cx;
+      final dy = localPos.dy - cy;
+      for (final p in added) {
+        widget.state.movePlayer(
+          p.id,
+          Offset(
+            (p.position.dx + dx).clamp(24.0, size.width - 24.0),
+            (p.position.dy + dy).clamp(24.0, size.height - 24.0),
+          ),
+        );
+      }
+    }
+    HapticFeedback.lightImpact();
+    Navigator.of(widget.sheetCtx).maybePop();
   }
 
   @override
@@ -2442,20 +3118,16 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                 const SizedBox(width: 8),
                 _buildTeamChip('team_away'.tr(), _TeamOption.away, const Color(0xFFFF5A5F)),
                 const Spacer(),
-                // Apply button
-                GestureDetector(
+                // Apply tile — same drag UX as the +1 home / +1 away marker
+                // cards: tap to apply at the formation's default coordinates,
+                // long-press-drag to translate the team(s) so the centroid
+                // lands at the drop point.
+                _DraggableMarkerCard(
+                  label: 'confirm'.tr(),
+                  child: const Icon(Icons.groups,
+                      color: Color(0xFF4ADE80), size: 26),
                   onTap: _apply,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      'confirm'.tr(),
-                      style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                  onDropAt: _applyAtDrop,
                 ),
               ],
             ),
@@ -2764,6 +3436,83 @@ class _FormationCard extends StatelessWidget {
       ),
     ),
   )).toList();
+}
+
+/// _MarkerCard with optional long-press drag-to-board. Tap fires onTap
+/// (default-position add); long-press starts a drag whose feedback follows
+/// the finger, and on release the parent's [onDropAt] decides whether the
+/// drop landed on the board.
+/// One entry in the dynamic markers row (a shape/marker or neutral player).
+/// `_AddPlayerSheetState` builds these and sorts by recent-3-day usage so
+/// frequently-used pieces stay visible inline and the rest collapse into
+/// the "More" panel.
+class _MarkerEntry {
+  final String key;
+  final String label;
+  final Widget glyph;
+  final VoidCallback onTap;
+  final void Function(Offset globalPos) onDropAt;
+  final int defaultOrder;
+  const _MarkerEntry({
+    required this.key,
+    required this.label,
+    required this.glyph,
+    required this.onTap,
+    required this.onDropAt,
+    required this.defaultOrder,
+  });
+}
+
+class _DraggableMarkerCard extends StatelessWidget {
+  final String label;
+  final Widget child;
+  final VoidCallback onTap;
+  final void Function(Offset globalPos)? onDropAt;
+  const _DraggableMarkerCard({
+    required this.label,
+    required this.child,
+    required this.onTap,
+    this.onDropAt,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final card = _MarkerCard(label: label, child: child, onTap: onTap);
+    if (onDropAt == null) return card;
+    final feedback = Material(
+      color: Colors.transparent,
+      child: Container(
+        width: 60, height: 60,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+              blurRadius: 14,
+              spreadRadius: 2,
+            ),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.4),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: child,
+      ),
+    );
+    return LongPressDraggable<Object>(
+      data: const Object(),
+      feedback: feedback,
+      childWhenDragging: Opacity(opacity: 0.35, child: card),
+      onDragEnd: (details) {
+        if (details.wasAccepted) return;
+        onDropAt!(details.offset);
+      },
+      child: card,
+    );
+  }
 }
 
 class _MarkerCard extends StatelessWidget {
