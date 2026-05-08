@@ -59,6 +59,7 @@ restore() {
   mv "$PLIST.bak" "$PLIST"
   [ -f "assets/icon/app_icon.png.bak" ] && mv "assets/icon/app_icon.png.bak" "assets/icon/app_icon.png"
   [ -f "assets/icon/splash_logo.png.bak" ] && mv "assets/icon/splash_logo.png.bak" "assets/icon/splash_logo.png"
+  [ -f "pubspec.yaml.bak" ] && mv "pubspec.yaml.bak" "pubspec.yaml"
   for lproj in ios/Runner/*.lproj/InfoPlist.strings.bak; do
     [ -f "$lproj" ] && mv "$lproj" "${lproj%.bak}"
   done
@@ -105,7 +106,16 @@ fi
 
 # ── Regenerate native splash assets with sport-specific image ────────────────
 if [ -f "$SPORT_SPLASH" ]; then
+  # Sports that ship full-bleed stadium artwork — fill the screen instead of
+  # centering at native size. Other sports keep the centered-logo style.
+  case "$SPORT" in soccer|basketball|volleyball|tennis|badminton|pickleball|tableTennis|fieldHockey|rugby|baseball|handball|waterPolo|sepakTakraw|beachTennis) FULL_BLEED=1 ;; *) FULL_BLEED=0 ;; esac
+  if [ "$FULL_BLEED" = "1" ]; then
+    cp "pubspec.yaml" "pubspec.yaml.bak"
+    sed -i '' 's/^  ios_content_mode: center$/  ios_content_mode: scaleAspectFill/' pubspec.yaml
+    sed -i '' 's/^  android_gravity: center$/  android_gravity: fill/' pubspec.yaml
+  fi
   dart run flutter_native_splash:create 2>&1 | tail -2
+  [ -f "pubspec.yaml.bak" ] && mv "pubspec.yaml.bak" "pubspec.yaml"
 fi
 
 # ── Build ────────────────────────────────────────────────────────────────────
