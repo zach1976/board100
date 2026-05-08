@@ -1,7 +1,8 @@
 What's new:
-• Timeline Editor: animate multi-phase plays step by step
-• External display: landscape canvas with upright icons (AirPlay-ready)
-• Move lines auto-show after playback
-• iPad layout polish on 13-inch screens
+• Multi-select: tap or lasso to pick multiple pieces, drag any one to move the whole set
+• Drag-to-place: long-press any tile (ball, team, shape, avatar) and drop it anywhere on the board
+• Smart marker row sorts by recent use; rarely-used pieces tuck into More
+• Custom shape photo markers + photo avatars without forced jersey numbers
+• Adding a formation no longer clears your existing players
 
 Thanks for coaching with us. Keep the questions and ideas coming.

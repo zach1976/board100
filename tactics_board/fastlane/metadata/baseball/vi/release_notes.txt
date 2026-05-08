@@ -1,7 +1,8 @@
 Có gì mới:
-• Trình Timeline: phát từng bước các pha chiến thuật nhiều giai đoạn
-• Màn ngoài: canvas ngang dựng gốc, biểu tượng đứng thẳng (AirPlay)
-• Đường di chuyển tự hiện sau khi phát xong
-• Tinh chỉnh bố cục iPad 13 inch
+• Chọn nhiều: chạm hoặc khoanh vùng để chọn nhiều quân, kéo bất kỳ quân được chọn để di chuyển cả nhóm
+• Kéo thả: giữ lâu bất kỳ ô (bóng, đội, hình, ảnh) rồi thả xuống vị trí bất kỳ trên sân
+• Hàng marker thông minh: ưu tiên những thứ dùng gần đây, ít dùng dồn vào More
+• Marker ảnh theo hình tùy chỉnh + cầu thủ ảnh mặc định không có số áo
+• Áp dụng đội hình không còn xóa các cầu thủ đã thêm
 
 Cảm ơn bạn đã đồng hành. Cứ gửi phản hồi và ý tưởng.

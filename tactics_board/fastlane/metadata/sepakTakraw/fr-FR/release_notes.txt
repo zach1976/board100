@@ -1,7 +1,8 @@
 Nouveautés :
-• Éditeur Timeline : animez les phases tactiques pas à pas
-• Affichage externe : toile paysage en rendu natif, icônes droites (AirPlay)
-• Lignes de course visibles automatiquement après lecture
-• Mise en page iPad 13 pouces affinée
+• Sélection multiple : tapez ou tracez un cadre, faites glisser un élément pour déplacer tout le groupe
+• Glisser-déposer : appui long sur n'importe quelle pastille (ballon, équipe, forme, avatar) pour la lâcher où vous voulez
+• Rangée de marqueurs intelligente, triée par usage récent ; les plus rares passent dans Plus
+• Marqueurs photo en forme personnalisée + avatars photo sans numéro de maillot imposé
+• Appliquer une formation n'efface plus les joueurs déjà placés
 
 Merci de coacher avec nous. Continuez à nous envoyer vos retours.

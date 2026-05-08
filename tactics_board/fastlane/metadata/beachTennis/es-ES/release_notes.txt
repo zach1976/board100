@@ -1,7 +1,8 @@
 Novedades:
-• Editor Timeline: anima jugadas multi-fase paso a paso
-• Pantalla externa: lienzo apaisado nativo, iconos en vertical (AirPlay)
-• Líneas de movimiento visibles tras la reproducción
-• Ajustes de diseño en iPad 13"
+• Selección múltiple: toca o usa el lazo para elegir varias piezas y arrastra una para mover todo el grupo
+• Arrastrar y soltar: mantén pulsado cualquier mosaico (balón, equipo, forma, avatar) y suéltalo donde quieras
+• Fila inteligente: las piezas más usadas se quedan delante; las menos usadas pasan a Más
+• Marcadores foto con formas personalizadas + avatares foto sin dorsal por defecto
+• Aplicar una formación ya no borra a los jugadores que ya tenías
 
 Gracias por entrenar con nosotros. Sigue enviándonos ideas.

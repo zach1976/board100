@@ -1,7 +1,8 @@
 Yang baru:
-• Timeline Editor: animasikan taktik multi-fase langkah demi langkah
-• Layar eksternal: kanvas landscape native, ikon tegak (AirPlay)
-• Garis pergerakan tampil otomatis setelah putar
-• Penyesuaian tata letak iPad 13 inci
+• Pilih banyak: tap atau lasso untuk memilih beberapa elemen, geser salah satu untuk memindahkan seluruh grup
+• Tarik untuk taruh: tahan kotak mana saja (bola, tim, bentuk, avatar) lalu lepas ke posisi mana pun di lapangan
+• Baris penanda cerdas: yang sering dipakai di depan, yang jarang dipakai dilipat ke More
+• Penanda foto bentuk kustom + pemain foto tanpa nomor punggung secara default
+• Menerapkan formasi tidak lagi menghapus pemain yang sudah ada
 
 Terima kasih sudah melatih bersama kami. Lanjutkan kirim masukan dan ide.
