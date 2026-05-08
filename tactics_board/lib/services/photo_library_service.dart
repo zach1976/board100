@@ -114,12 +114,64 @@ class PhotoLibraryService extends ChangeNotifier {
     return p.join(dir.path, photo.filename);
   }
 
-  /// All photos, newest first.
+  /// All FACE photos, newest first. Element photos live in [listElements]
+  /// and never appear in the team / strip / dedup flows.
   Future<List<PlayerPhoto>> list() async {
     await _ensureInit();
-    final sorted = [..._photos]
+    final sorted = _photos
+        .where((p) => p.kind == PlayerPhotoKind.face)
+        .toList()
       ..sort((a, b) => b.createdAtMs.compareTo(a.createdAtMs));
     return sorted;
+  }
+
+  /// 3-day rolling window for the elements-row usage sort.
+  static const int _recentWindowMs = 3 * 24 * 60 * 60 * 1000;
+
+  /// User-defined custom marker photos (kind == element), sorted by usage:
+  /// most-used in the last 3 days first; ties broken by createdAtMs ascending
+  /// so newly-added (zero-use) elements land at the END of the row, and
+  /// older never-used ones come before them.
+  Future<List<PlayerPhoto>> listElements() async {
+    await _ensureInit();
+    final cutoff = DateTime.now().millisecondsSinceEpoch - _recentWindowMs;
+    int recent(PlayerPhoto p) =>
+        p.recentUseAtMs.where((t) => t >= cutoff).length;
+    final list = _photos
+        .where((p) => p.kind == PlayerPhotoKind.element)
+        .toList();
+    list.sort((a, b) {
+      final cmp = recent(b).compareTo(recent(a));
+      if (cmp != 0) return cmp;
+      return a.createdAtMs.compareTo(b.createdAtMs);
+    });
+    return list;
+  }
+
+  /// Records a usage of a custom-element photo: appends "now" to its
+  /// recent-use timestamps and prunes anything outside the 3-day window.
+  /// Persists + notifies so the elements row re-sorts the next time it
+  /// rebuilds.
+  Future<void> recordElementUse(String id) async {
+    await _ensureInit();
+    final idx = _photos.indexWhere((p) => p.id == id);
+    if (idx < 0) return;
+    final old = _photos[idx];
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final cutoff = now - _recentWindowMs;
+    final next = old.recentUseAtMs.where((t) => t >= cutoff).toList()
+      ..add(now);
+    _photos[idx] = PlayerPhoto(
+      id: old.id,
+      filename: old.filename,
+      createdAtMs: old.createdAtMs,
+      groupId: old.groupId,
+      kind: old.kind,
+      markerShapeIndex: old.markerShapeIndex,
+      recentUseAtMs: next,
+    );
+    await _persistIndex();
+    notifyListeners();
   }
 
   /// All groups, oldest first (so user-created order is stable).
@@ -169,6 +221,32 @@ class PhotoLibraryService extends ChangeNotifier {
     await _persistGroups();
     await _persistIndex();
     notifyListeners();
+  }
+
+  /// Save a custom-element image (no group, kind=element). The shape is
+  /// stored alongside so the rendered tile / marker can clip the photo
+  /// to the user's chosen outline.
+  Future<PlayerPhoto> saveElementBytes(
+    Uint8List bytes, {
+    int? markerShapeIndex,
+  }) async {
+    await _ensureInit();
+    final id = '${DateTime.now().microsecondsSinceEpoch}_${_idCounter++}';
+    final filename = '$id.png';
+    final dir = await _photosDir();
+    final file = File(p.join(dir.path, filename));
+    await file.writeAsBytes(bytes, flush: true);
+    final photo = PlayerPhoto(
+      id: id,
+      filename: filename,
+      createdAtMs: DateTime.now().millisecondsSinceEpoch,
+      kind: PlayerPhotoKind.element,
+      markerShapeIndex: markerShapeIndex,
+    );
+    _photos.add(photo);
+    await _persistIndex();
+    notifyListeners();
+    return photo;
   }
 
   Future<PlayerPhoto> savePngBytes(

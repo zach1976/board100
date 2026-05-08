@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -304,32 +305,45 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
 
+            final pannable = state.isDrawingMode || state.multiSelectMode;
             return GestureDetector(
-              onPanStart: state.isDrawingMode
+              onPanStart: pannable
                   ? (d) {
-                      if (draggingStroke) {
-                        final hitId = state.hitTestStroke(d.localPosition);
-                        if (hitId == state.selectedStrokeId) return;
-                        state.selectStroke(null);
-                      }
-                      state.startStroke(d.localPosition);
-                    }
-                  : null,
-              onPanUpdate: state.isDrawingMode
-                  ? (d) {
-                      if (draggingStroke) {
-                        state.moveStroke(state.selectedStrokeId!, d.delta);
-                      } else {
-                        state.addPoint(d.localPosition);
+                      if (state.isDrawingMode) {
+                        if (draggingStroke) {
+                          final hitId = state.hitTestStroke(d.localPosition);
+                          if (hitId == state.selectedStrokeId) return;
+                          state.selectStroke(null);
+                        }
+                        state.startStroke(d.localPosition);
+                      } else if (state.multiSelectMode) {
+                        state.beginMultiSelectRect(d.localPosition);
                       }
                     }
                   : null,
-              onPanEnd: state.isDrawingMode
+              onPanUpdate: pannable
+                  ? (d) {
+                      if (state.isDrawingMode) {
+                        if (draggingStroke) {
+                          state.moveStroke(state.selectedStrokeId!, d.delta);
+                        } else {
+                          state.addPoint(d.localPosition);
+                        }
+                      } else if (state.multiSelectMode) {
+                        state.updateMultiSelectRect(d.localPosition);
+                      }
+                    }
+                  : null,
+              onPanEnd: pannable
                   ? (_) {
-                      if (draggingStroke) {
-                        state.moveStrokeEnd(state.selectedStrokeId!);
-                      } else {
-                        state.endStroke();
+                      if (state.isDrawingMode) {
+                        if (draggingStroke) {
+                          state.moveStrokeEnd(state.selectedStrokeId!);
+                        } else {
+                          state.endStroke();
+                        }
+                      } else if (state.multiSelectMode) {
+                        state.endMultiSelectRect();
                       }
                     }
                   : null,
@@ -467,7 +481,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // Player icons
                   ...players.map((player) {
                     final animPos = state.animatedPositions[player.id];
-                    final selected = state.selectedPlayerId == player.id;
+                    final inMulti =
+                        state.multiSelectMode &&
+                        state.multiSelectIds.contains(player.id);
+                    final selected =
+                        state.selectedPlayerId == player.id || inMulti;
                     final atStartTime =
                         state.atStep == 0 && state.targetStep == 0;
                     return _PlayerOnBoard(
@@ -475,14 +493,23 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       player: player,
                       renderPosition: animPos,
                       isSelected: selected,
-                      isPrimary: selected && state.selectedWaypointIndex == null,
+                      isPrimary: selected &&
+                          !state.multiSelectMode &&
+                          state.selectedWaypointIndex == null,
                       isAtCurrentStep: atStartTime,
                       isDrawingMode: state.isDrawingMode || state.isAnimating,
-                      onTap: () => state.selectPlayer(
-                        selected ? null : player.id,
-                      ),
-                      onLongPress: () =>
-                          _showEditDialog(context, state, player),
+                      isMultiSelectMode: state.multiSelectMode,
+                      isInMultiSelect: inMulti,
+                      onTap: () {
+                        if (state.multiSelectMode) {
+                          state.toggleMultiSelectId(player.id);
+                        } else {
+                          state.selectPlayer(selected ? null : player.id);
+                        }
+                      },
+                      onLongPress: state.multiSelectMode
+                          ? null
+                          : () => _showEditDialog(context, state, player),
                     );
                   }),
                   // Player move arrows — on top so arrowheads are never covered
@@ -506,6 +533,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     toStep: state.animToStep,
                     sequentialMode: state.sequentialMode,
                   ),
+                  // Lasso overlay — drawn while the user is rectangle-selecting
+                  // in multi-select mode.
+                  if (state.multiSelectDragRect != null)
+                    IgnorePointer(
+                      child: CustomPaint(
+                        painter: _LassoRectPainter(state.multiSelectDragRect!),
+                        size: Size(canvasW, canvasH),
+                      ),
+                    ),
                 ],
     );
   }
@@ -779,6 +815,13 @@ class _PlayerOnBoard extends StatefulWidget {
   final bool isPrimary;
   final bool isAtCurrentStep; // start position is the current timeline step
   final bool isDrawingMode;
+  /// True when the board is in the multi-select mode (taps toggle set
+  /// membership instead of opening the edit panel). Controls the gesture
+  /// dispatch in [_PlayerOnBoardState].
+  final bool isMultiSelectMode;
+  /// True when this player is currently in the multi-select set. Drives
+  /// group drag — panning a member translates the whole set.
+  final bool isInMultiSelect;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
 
@@ -790,6 +833,8 @@ class _PlayerOnBoard extends StatefulWidget {
     this.isPrimary = false,
     this.isAtCurrentStep = true,
     required this.isDrawingMode,
+    this.isMultiSelectMode = false,
+    this.isInMultiSelect = false,
     this.onTap,
     this.onLongPress,
   });
@@ -816,28 +861,48 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     final showGhostForStart = isStartWithMoves &&
         !widget.isPrimary &&
         !widget.isAtCurrentStep;
+    // In multi-select mode a non-member player must NOT register a pan
+    // recognizer at all — otherwise it would claim drags that started on
+    // top of the player and the user couldn't lasso through it. Members
+    // keep the pan so they can drag the whole set as a unit. Outside
+    // multi-select mode, pan is always available (single-player drag).
+    final canPan = !widget.isMultiSelectMode || widget.isInMultiSelect;
     final iconWidget = PlayerIconWidget(
       player: player,
       isSelected: widget.isSelected,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
-      onScaleStart: (d) {
-          _baseScale = player.scale;
-        },
-      onScaleUpdate: (d) {
-          final state = context.read<TacticsState>();
-          state.movePlayer(player.id, player.position + d.focalPointDelta);
-          if (d.pointerCount >= 2) {
-            state.resizePlayer(player.id, _baseScale * d.scale);
-          }
-        },
-      onScaleEnd: (d) {
-          final state = context.read<TacticsState>();
-          state.movePlayerEnd(player.id, player.position);
-          if (d.pointerCount >= 2) {
-            state.resizePlayerEnd(player.id);
-          }
-        },
+      onScaleStart: canPan
+          ? (d) {
+              _baseScale = player.scale;
+            }
+          : null,
+      onScaleUpdate: canPan
+          ? (d) {
+              final state = context.read<TacticsState>();
+              if (widget.isInMultiSelect) {
+                state.moveMultiSelectBy(d.focalPointDelta);
+                return;
+              }
+              state.movePlayer(player.id, player.position + d.focalPointDelta);
+              if (d.pointerCount >= 2) {
+                state.resizePlayer(player.id, _baseScale * d.scale);
+              }
+            }
+          : null,
+      onScaleEnd: canPan
+          ? (d) {
+              final state = context.read<TacticsState>();
+              if (widget.isInMultiSelect) {
+                state.moveMultiSelectEnd();
+                return;
+              }
+              state.movePlayerEnd(player.id, player.position);
+              if (d.pointerCount >= 2) {
+                state.resizePlayerEnd(player.id);
+              }
+            }
+          : null,
     );
     // Hide the full icon entirely when start is not at the current step —
     // the dashed ghost (TopDownPlayerPainter isGhost:true) drawn at the same
@@ -1229,4 +1294,53 @@ class _PlayerEditDialogState extends State<_PlayerEditDialog> {
       ],
     );
   }
+}
+
+/// Dashed selection rectangle drawn while the user lassos in multi-select
+/// mode. Filled with a faint highlight color and outlined with dashes so
+/// it reads as transient UI, not part of the board content.
+class _LassoRectPainter extends CustomPainter {
+  final Rect rect;
+  const _LassoRectPainter(this.rect);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final fill = Paint()
+      ..style = PaintingStyle.fill
+      ..color = const Color(0xFF6EE7B7).withValues(alpha: 0.10);
+    canvas.drawRect(rect, fill);
+
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5
+      ..color = const Color(0xFF6EE7B7);
+
+    // Manual dashed outline.
+    const dashOn = 6.0;
+    const dashOff = 4.0;
+    void dashedLine(Offset a, Offset b) {
+      final dx = b.dx - a.dx, dy = b.dy - a.dy;
+      final len = math.sqrt(dx * dx + dy * dy);
+      if (len == 0) return;
+      final ux = dx / len, uy = dy / len;
+      double t = 0;
+      while (t < len) {
+        final segEnd = (t + dashOn).clamp(0, len).toDouble();
+        canvas.drawLine(
+          Offset(a.dx + ux * t, a.dy + uy * t),
+          Offset(a.dx + ux * segEnd, a.dy + uy * segEnd),
+          stroke,
+        );
+        t = segEnd + dashOff;
+      }
+    }
+
+    dashedLine(rect.topLeft, rect.topRight);
+    dashedLine(rect.topRight, rect.bottomRight);
+    dashedLine(rect.bottomRight, rect.bottomLeft);
+    dashedLine(rect.bottomLeft, rect.topLeft);
+  }
+
+  @override
+  bool shouldRepaint(_LassoRectPainter old) => old.rect != rect;
 }

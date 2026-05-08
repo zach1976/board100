@@ -51,6 +51,18 @@ class TacticsState extends ChangeNotifier {
   // null means the player body itself is the primary target (not a waypoint).
   int? _selectedWaypointIndex;
 
+  // Multi-select — when on, taps on board players toggle membership in
+  // [_multiSelectIds] instead of opening the per-player edit panel, and
+  // panning any selected player drags the whole set as a unit. Mutually
+  // exclusive with drawing mode.
+  bool _multiSelectMode = false;
+  final Set<String> _multiSelectIds = <String>{};
+  // Live rectangle drawn while the user lassos on empty canvas in
+  // multi-select mode. Stored as start/end points (rather than a Rect)
+  // so the drag direction is preserved if needed for the painter.
+  Offset? _multiSelectRectStart;
+  Offset? _multiSelectRectEnd;
+
   // Selected stroke
   String? _selectedStrokeId;
 
@@ -292,6 +304,113 @@ class TacticsState extends ChangeNotifier {
     _isDrawingMode = enabled;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
+    if (enabled) {
+      _multiSelectMode = false;
+      _multiSelectIds.clear();
+    }
+    notifyListeners();
+  }
+
+  // Multi-select mode — toggleable from the top mode segment. When on,
+  // tapping a player toggles its inclusion in [_multiSelectIds] (and the
+  // edit panel does not open), and panning any included player translates
+  // every member of the set together.
+  bool get multiSelectMode => _multiSelectMode;
+  Set<String> get multiSelectIds => Set.unmodifiable(_multiSelectIds);
+
+  void setMultiSelectMode(bool enabled) {
+    if (_multiSelectMode == enabled) return;
+    _multiSelectMode = enabled;
+    if (enabled) {
+      _isDrawingMode = false;
+      _selectedPlayerId = null;
+      _selectedWaypointIndex = null;
+    } else {
+      _multiSelectIds.clear();
+    }
+    notifyListeners();
+  }
+
+  void toggleMultiSelectId(String id) {
+    if (_multiSelectIds.contains(id)) {
+      _multiSelectIds.remove(id);
+    } else {
+      _multiSelectIds.add(id);
+    }
+    notifyListeners();
+  }
+
+  void clearMultiSelect() {
+    if (_multiSelectIds.isEmpty) return;
+    _multiSelectIds.clear();
+    notifyListeners();
+  }
+
+  /// Translate every member of the multi-select set by [delta], clamped
+  /// per-player to the canvas bounds. Caller invokes
+  /// [moveMultiSelectEnd] when the gesture finishes so the snapshot is
+  /// pushed once for the whole drag.
+  void moveMultiSelectBy(Offset delta) {
+    if (_multiSelectIds.isEmpty) return;
+    final w = _canvasSize.width;
+    final h = _canvasSize.height;
+    bool changed = false;
+    for (int i = 0; i < _players.length; i++) {
+      if (!_multiSelectIds.contains(_players[i].id)) continue;
+      final p = _players[i];
+      final next = Offset(
+        (p.position.dx + delta.dx).clamp(0.0, w),
+        (p.position.dy + delta.dy).clamp(0.0, h),
+      );
+      _players[i] = p.copyWith(position: next);
+      changed = true;
+    }
+    if (changed) notifyListeners();
+  }
+
+  void moveMultiSelectEnd() {
+    if (_multiSelectIds.isEmpty) return;
+    _saveSnapshot();
+    _resetAnimationState();
+  }
+
+  /// Live rectangle being drawn for the lasso (null while no drag is in
+  /// progress). Canvas painter reads this and renders the dashed outline.
+  Rect? get multiSelectDragRect {
+    if (_multiSelectRectStart == null || _multiSelectRectEnd == null) {
+      return null;
+    }
+    return Rect.fromPoints(_multiSelectRectStart!, _multiSelectRectEnd!);
+  }
+
+  void beginMultiSelectRect(Offset start) {
+    _multiSelectRectStart = start;
+    _multiSelectRectEnd = start;
+    notifyListeners();
+  }
+
+  void updateMultiSelectRect(Offset cur) {
+    if (_multiSelectRectStart == null) return;
+    _multiSelectRectEnd = cur;
+    notifyListeners();
+  }
+
+  /// Commit the lasso: union every player whose position falls inside
+  /// the live rectangle into the multi-select set, then clear the rect.
+  /// A degenerate (essentially zero-area) drag clears the rect without
+  /// changing the set, so the user can abort by releasing in place.
+  void endMultiSelectRect() {
+    final rect = multiSelectDragRect;
+    _multiSelectRectStart = null;
+    _multiSelectRectEnd = null;
+    if (rect == null) return;
+    if (rect.width < 4 && rect.height < 4) {
+      notifyListeners();
+      return;
+    }
+    for (final p in _players) {
+      if (rect.contains(p.position)) _multiSelectIds.add(p.id);
+    }
     notifyListeners();
   }
 
