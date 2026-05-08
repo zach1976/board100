@@ -24,6 +24,7 @@ restore() {
   [ -f "$PLIST.bak" ] && mv "$PLIST.bak" "$PLIST"
   [ -f "assets/icon/app_icon.png.bak" ] && mv "assets/icon/app_icon.png.bak" "assets/icon/app_icon.png"
   [ -f "assets/icon/splash_logo.png.bak" ] && mv "assets/icon/splash_logo.png.bak" "assets/icon/splash_logo.png"
+  [ -f "pubspec.yaml.splashbak" ] && mv "pubspec.yaml.splashbak" "pubspec.yaml"
   for lproj in ios/Runner/*.lproj/InfoPlist.strings.bak; do
     [ -f "$lproj" ] && mv "$lproj" "${lproj%.bak}"
   done
@@ -85,7 +86,17 @@ build_ipa() {
   # Always regenerate icons + native splash from the current source PNGs so the
   # multi-sport build doesn't ship leftover per-sport assets.
   dart run flutter_launcher_icons 2>&1 | tail -1
+  # Sports that ship full-bleed stadium artwork; flip the splash content mode
+  # for those builds only, then restore pubspec.yaml.
+  local FULL_BLEED=0
+  case "$SPORT" in ""|soccer|basketball|volleyball|tennis|badminton|pickleball|tableTennis|fieldHockey|rugby|baseball|handball|waterPolo|sepakTakraw|beachTennis) FULL_BLEED=1 ;; esac
+  if [ "$FULL_BLEED" = "1" ]; then
+    cp "pubspec.yaml" "pubspec.yaml.splashbak"
+    sed -i '' 's/^  ios_content_mode: center$/  ios_content_mode: scaleAspectFill/' pubspec.yaml
+    sed -i '' 's/^  android_gravity: center$/  android_gravity: fill/' pubspec.yaml
+  fi
   dart run flutter_native_splash:create 2>&1 | tail -1
+  [ -f "pubspec.yaml.splashbak" ] && mv "pubspec.yaml.splashbak" "pubspec.yaml"
 
   # Build IPA
   flutter build ipa --release $DART_DEFINES 2>&1 | tail -3
