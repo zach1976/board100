@@ -11,9 +11,7 @@ import 'marker_shape_clipper.dart';
 const double kPlayerIconSize = 44.0;
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Layered tactical player marker — outer team halo + solid disc + thin
-// highlight ring + (optional) gender notch. Replaces the older "top-down
-// person" shape but keeps the same class name so call sites stay stable.
+// Top-down person painter (shared between board and toolbar preview)
 // ─────────────────────────────────────────────────────────────────────────────
 class TopDownPlayerPainter extends CustomPainter {
   final Color color;
@@ -36,80 +34,101 @@ class TopDownPlayerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
-    final cx = w / 2;
-    final cy = h / 2;
-    // Solid disc radius. Outer halo extends a bit beyond.
-    final r = w * 0.38;
-    final haloR = r + w * 0.08;
+
+    final headCenter = Offset(w * 0.5, h * 0.28);
+    final headRadius = w * 0.2;
+    final bodyRect = Rect.fromCenter(
+      center: Offset(w * 0.5, h * 0.65),
+      width: w * 0.55,
+      height: h * 0.45,
+    );
 
     if (isGhost) {
-      _paintGhost(canvas, cx, cy, r);
+      _paintGhost(canvas, w, h, headCenter, headRadius, bodyRect);
       return;
     }
 
-    // Selection glow (yellow tactical highlight).
+    // Selection glow
     if (isSelected) {
-      final selGlow = Paint()
-        ..color = const Color(0xFFFFD166).withValues(alpha: 0.55)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10);
-      canvas.drawCircle(Offset(cx, cy), haloR + 3, selGlow);
+      final glowPaint = Paint()
+        ..color = Colors.yellow.withValues(alpha: 0.65)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
+      canvas.drawOval(bodyRect.inflate(5), glowPaint);
+      canvas.drawCircle(headCenter, headRadius + 5, glowPaint);
     }
 
-    // Team-colored outer halo — soft, distinguishes team without shouting.
-    final halo = Paint()
-      ..color = color.withValues(alpha: 0.55)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6);
-    canvas.drawCircle(Offset(cx, cy), haloR, halo);
+    // Drop shadow
+    final shadowPaint = Paint()
+      ..color = Colors.black.withValues(alpha: 0.4)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
+    const shadowOffset = Offset(2, 2);
+    canvas.drawOval(bodyRect.shift(shadowOffset), shadowPaint);
+    canvas.drawCircle(headCenter + shadowOffset, headRadius, shadowPaint);
 
-    // Drop shadow under the disc.
-    final shadow = Paint()
-      ..color = Colors.black.withValues(alpha: 0.45)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
-    canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
-
-    // Solid disc with subtle top-left highlight for depth.
-    final discRect = Rect.fromCircle(center: Offset(cx, cy), radius: r);
-    final disc = Paint()
-      ..shader = RadialGradient(
-        colors: [
-          Color.lerp(color, Colors.white, 0.18)!,
-          color,
-        ],
-        center: const Alignment(-0.4, -0.5),
-        radius: 1.0,
-      ).createShader(discRect);
-    canvas.drawCircle(Offset(cx, cy), r, disc);
-
-    // Thin highlight ring — golden when selected, white otherwise.
-    final ring = Paint()
-      ..color = (isSelected ? const Color(0xFFFFD166) : borderColor)
-          .withValues(alpha: isSelected ? 1.0 : 0.92)
+    final fillPaint = Paint()..color = color;
+    final borderPaint = Paint()
+      ..color = borderColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = isSelected ? 2.4 : (borderWidth * 0.8).clamp(1.2, 2.0);
-    canvas.drawCircle(Offset(cx, cy), r, ring);
+      ..strokeWidth = borderWidth;
 
-    // Gender mark — small white triangular notch at the bottom for female.
-    // Keeps gender data visible without breaking the uniform circle look.
     if (gender == PlayerGender.female) {
-      final notch = Path()
-        ..moveTo(cx - r * 0.26, cy + r * 0.78)
-        ..lineTo(cx, cy + r * 1.05)
-        ..lineTo(cx + r * 0.26, cy + r * 0.78)
+      // Skirt body — trapezoid wider at bottom (top-down view)
+      final skirtTop = headCenter.dy + headRadius * 0.6;
+      final skirtBottom = h * 0.92;
+      final skirtPath = Path()
+        ..moveTo(w * 0.5 - w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
+        ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
         ..close();
-      canvas.drawPath(notch, Paint()..color = Colors.white.withValues(alpha: 0.9));
+      canvas.drawPath(skirtPath, fillPaint);
+      canvas.drawPath(skirtPath, borderPaint);
+    } else {
+      // Male body — oval
+      canvas.drawOval(bodyRect, fillPaint);
+      canvas.drawOval(bodyRect, borderPaint);
     }
+
+    // Head
+    canvas.drawCircle(headCenter, headRadius, fillPaint);
+    canvas.drawCircle(headCenter, headRadius, borderPaint);
   }
 
-  void _paintGhost(Canvas canvas, double cx, double cy, double r) {
-    // Faded fill so ghosts don't compete with the live marker.
-    final ghostFill = Paint()..color = color.withValues(alpha: 0.55);
-    canvas.drawCircle(Offset(cx, cy), r, ghostFill);
+  /// Ghost mode — same solid fill as the normal icon, but with a dashed
+  /// border instead of a solid one, so "not current" positions stay clearly
+  /// visible while still reading as ghost/past/future state.
+  void _paintGhost(Canvas canvas, double w, double h, Offset headCenter, double headRadius, Rect bodyRect) {
+    // Drop shadow — same as solid path so the ghost sits on the board.
+    final shadowPaint = Paint()
+      ..color = Colors.black.withValues(alpha: 0.4)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
+    const shadowOffset = Offset(2, 2);
+    canvas.drawOval(bodyRect.shift(shadowOffset), shadowPaint);
+    canvas.drawCircle(headCenter + shadowOffset, headRadius, shadowPaint);
 
+    final fillPaint = Paint()..color = color;
     final dashPaint = Paint()
-      ..color = borderColor.withValues(alpha: 0.85)
+      ..color = borderColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = (borderWidth * 0.6).clamp(1.0, 1.6);
-    _drawDashedCircle(canvas, Offset(cx, cy), r, dashPaint);
+      ..strokeWidth = (borderWidth * 0.6).clamp(1.0, 2.0);
+
+    if (gender == PlayerGender.female) {
+      final skirtTop = headCenter.dy + headRadius * 0.6;
+      final skirtBottom = h * 0.92;
+      final skirtPath = Path()
+        ..moveTo(w * 0.5 - w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.16, skirtTop)
+        ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
+        ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
+        ..close();
+      canvas.drawPath(skirtPath, fillPaint);
+      _drawDashedPath(canvas, skirtPath, dashPaint);
+    } else {
+      canvas.drawOval(bodyRect, fillPaint);
+      _drawDashedOval(canvas, bodyRect, dashPaint);
+    }
+    canvas.drawCircle(headCenter, headRadius, fillPaint);
+    _drawDashedCircle(canvas, headCenter, headRadius, dashPaint);
   }
 
   void _drawDashedCircle(Canvas canvas, Offset center, double radius, Paint paint) {
@@ -121,6 +140,25 @@ class TopDownPlayerPainter extends CustomPainter {
       final startAngle = (i * (dashLen + gapLen)) / radius;
       final sweepAngle = dashLen / radius;
       canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false, paint);
+    }
+  }
+
+  void _drawDashedOval(Canvas canvas, Rect rect, Paint paint) {
+    final path = Path()..addOval(rect);
+    _drawDashedPath(canvas, path, paint);
+  }
+
+  void _drawDashedPath(Canvas canvas, Path path, Paint paint) {
+    const dashLen = 2.5;
+    const gapLen = 3.0;
+    for (final metric in path.computeMetrics()) {
+      double distance = 0;
+      while (distance < metric.length) {
+        final end = (distance + dashLen).clamp(0.0, metric.length);
+        final segment = metric.extractPath(distance, end);
+        canvas.drawPath(segment, paint);
+        distance += dashLen + gapLen;
+      }
     }
   }
 
@@ -236,12 +274,12 @@ class _PlayerShape extends StatelessWidget {
         ),
         if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
-            alignment: Alignment.center,
+            alignment: const Alignment(0, 0.35),
             child: Text(
               player.label,
               style: TextStyle(
                 color: Colors.white,
-                fontWeight: FontWeight.w600, // semibold per spec
+                fontWeight: FontWeight.bold,
                 fontSize: 13 * player.scale,
                 height: 1,
                 shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
