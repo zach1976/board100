@@ -57,6 +57,10 @@ class TacticsState extends ChangeNotifier {
   // exclusive with drawing mode.
   bool _multiSelectMode = false;
   final Set<String> _multiSelectIds = <String>{};
+  // Strokes (drawn lines / arrows) selected via the same mode. Tracked
+  // separately from player IDs to keep namespaces clean — both use
+  // microsecond timestamps so a single set could collide.
+  final Set<String> _multiSelectStrokeIds = <String>{};
   // Live rectangle drawn while the user lassos on empty canvas in
   // multi-select mode. Stored as start/end points (rather than a Rect)
   // so the drag direction is preserved if needed for the painter.
@@ -317,6 +321,10 @@ class TacticsState extends ChangeNotifier {
   // every member of the set together.
   bool get multiSelectMode => _multiSelectMode;
   Set<String> get multiSelectIds => Set.unmodifiable(_multiSelectIds);
+  Set<String> get multiSelectStrokeIds =>
+      Set.unmodifiable(_multiSelectStrokeIds);
+  bool get hasMultiSelection =>
+      _multiSelectIds.isNotEmpty || _multiSelectStrokeIds.isNotEmpty;
 
   void setMultiSelectMode(bool enabled) {
     if (_multiSelectMode == enabled) return;
@@ -327,6 +335,7 @@ class TacticsState extends ChangeNotifier {
       _selectedWaypointIndex = null;
     } else {
       _multiSelectIds.clear();
+      _multiSelectStrokeIds.clear();
     }
     notifyListeners();
   }
@@ -340,18 +349,29 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void toggleMultiSelectStroke(String id) {
+    if (_multiSelectStrokeIds.contains(id)) {
+      _multiSelectStrokeIds.remove(id);
+    } else {
+      _multiSelectStrokeIds.add(id);
+    }
+    notifyListeners();
+  }
+
   void clearMultiSelect() {
-    if (_multiSelectIds.isEmpty) return;
+    if (_multiSelectIds.isEmpty && _multiSelectStrokeIds.isEmpty) return;
     _multiSelectIds.clear();
+    _multiSelectStrokeIds.clear();
     notifyListeners();
   }
 
   /// Translate every member of the multi-select set by [delta], clamped
-  /// per-player to the canvas bounds. Caller invokes
-  /// [moveMultiSelectEnd] when the gesture finishes so the snapshot is
-  /// pushed once for the whole drag.
+  /// per-player to the canvas bounds. Strokes (arrows / drawings) in the
+  /// set are translated by the same delta so the whole selection moves
+  /// as one. Caller invokes [moveMultiSelectEnd] when the gesture
+  /// finishes so the snapshot is pushed once for the whole drag.
   void moveMultiSelectBy(Offset delta) {
-    if (_multiSelectIds.isEmpty) return;
+    if (_multiSelectIds.isEmpty && _multiSelectStrokeIds.isEmpty) return;
     final w = _canvasSize.width;
     final h = _canvasSize.height;
     bool changed = false;
@@ -365,11 +385,19 @@ class TacticsState extends ChangeNotifier {
       _players[i] = p.copyWith(position: next);
       changed = true;
     }
+    for (int i = 0; i < _strokes.length; i++) {
+      if (!_multiSelectStrokeIds.contains(_strokes[i].id)) continue;
+      final s = _strokes[i];
+      _strokes[i] = s.copyWith(
+        points: s.points.map((p) => p + delta).toList(),
+      );
+      changed = true;
+    }
     if (changed) notifyListeners();
   }
 
   void moveMultiSelectEnd() {
-    if (_multiSelectIds.isEmpty) return;
+    if (_multiSelectIds.isEmpty && _multiSelectStrokeIds.isEmpty) return;
     _saveSnapshot();
     _resetAnimationState();
   }
@@ -396,9 +424,11 @@ class TacticsState extends ChangeNotifier {
   }
 
   /// Commit the lasso: union every player whose position falls inside
-  /// the live rectangle into the multi-select set, then clear the rect.
-  /// A degenerate (essentially zero-area) drag clears the rect without
-  /// changing the set, so the user can abort by releasing in place.
+  /// the live rectangle, AND every drawing stroke (arrow / freehand)
+  /// that intersects it, into the multi-select sets, then clear the
+  /// rect. A degenerate (essentially zero-area) drag clears the rect
+  /// without changing the sets, so the user can abort by releasing in
+  /// place.
   void endMultiSelectRect() {
     final rect = multiSelectDragRect;
     _multiSelectRectStart = null;
@@ -410,6 +440,17 @@ class TacticsState extends ChangeNotifier {
     }
     for (final p in _players) {
       if (rect.contains(p.position)) _multiSelectIds.add(p.id);
+    }
+    // Strokes — include if any of their points falls inside the rect.
+    // "Any point in" is more forgiving than "all in" for long arrows
+    // that the user partly lassos; matches typical drawing-app behaviour.
+    for (final s in _strokes) {
+      for (final pt in s.points) {
+        if (rect.contains(pt)) {
+          _multiSelectStrokeIds.add(s.id);
+          break;
+        }
+      }
     }
     notifyListeners();
   }
