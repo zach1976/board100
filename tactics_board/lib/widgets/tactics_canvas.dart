@@ -36,6 +36,9 @@ class TacticsCanvas extends StatefulWidget {
 class _TacticsCanvasState extends State<TacticsCanvas> {
   TacticsState? _stateOrNull;
   TacticsState get _state => _stateOrNull!;
+  /// True while a multi-select pan is moving the group (started on a
+  /// selected stroke). When false, multi-select pans draw the lasso rect.
+  bool _multiSelectStrokeDragging = false;
 
   @override
   void initState() {
@@ -317,7 +320,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         }
                         state.startStroke(d.localPosition);
                       } else if (state.multiSelectMode) {
-                        state.beginMultiSelectRect(d.localPosition);
+                        // Pan started on a stroke that's already in the
+                        // multi-select set → drag the whole group instead
+                        // of starting a new lasso. Otherwise, lasso.
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        if (hitId != null &&
+                            state.multiSelectStrokeIds.contains(hitId)) {
+                          _multiSelectStrokeDragging = true;
+                        } else {
+                          _multiSelectStrokeDragging = false;
+                          state.beginMultiSelectRect(d.localPosition);
+                        }
                       }
                     }
                   : null,
@@ -330,7 +343,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.addPoint(d.localPosition);
                         }
                       } else if (state.multiSelectMode) {
-                        state.updateMultiSelectRect(d.localPosition);
+                        if (_multiSelectStrokeDragging) {
+                          state.moveMultiSelectBy(d.delta);
+                        } else {
+                          state.updateMultiSelectRect(d.localPosition);
+                        }
                       }
                     }
                   : null,
@@ -343,13 +360,26 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.endStroke();
                         }
                       } else if (state.multiSelectMode) {
-                        state.endMultiSelectRect();
+                        if (_multiSelectStrokeDragging) {
+                          state.moveMultiSelectEnd();
+                          _multiSelectStrokeDragging = false;
+                        } else {
+                          state.endMultiSelectRect();
+                        }
                       }
                     }
                   : null,
               onTapUp: (!state.isAnimating)
                   ? (d) {
-                      if (state.isDrawingMode) {
+                      if (state.multiSelectMode) {
+                        // Tap on empty canvas in select mode: if a stroke is
+                        // hit, toggle its membership in the stroke set.
+                        // Player taps go through the per-player onTap.
+                        final hitId = state.hitTestStroke(d.localPosition);
+                        if (hitId != null) {
+                          state.toggleMultiSelectStroke(hitId);
+                        }
+                      } else if (state.isDrawingMode) {
                         final hitId = state.hitTestStroke(d.localPosition);
                         state.selectStroke(hitId);
                       } else if (state.selectedPlayerId != null) {
@@ -389,6 +419,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       strokes: _visibleStrokes(state, players),
                       currentStroke: state.currentStroke,
                       selectedStrokeId: state.selectedStrokeId,
+                      multiSelectStrokeIds: state.multiSelectStrokeIds,
                     ),
                     size: Size(canvasW, canvasH),
                   ),
