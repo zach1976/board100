@@ -37,9 +37,18 @@ for ipa in "${IPAS[@]}"; do
     echo "  ❌ Missing: $path"
     continue
   fi
-  xcrun altool --upload-app -f "$path" -t ios \
-    --apiKey "$KEY_ID" \
-    --apiIssuer "$ISSUER_ID" 2>&1 | tail -5
+  # altool can hang for hours on bad ASC sessions — wrap in gtimeout, retry once.
+  for attempt in 1 2; do
+    if gtimeout 420 xcrun altool --upload-app -f "$path" -t ios \
+        --apiKey "$KEY_ID" \
+        --apiIssuer "$ISSUER_ID" 2>&1 | tail -5; then
+      break
+    fi
+    if [ "$attempt" = "1" ]; then
+      echo "  ⏳ altool failed/timed out — retrying once..."
+      sleep 5
+    fi
+  done
   echo "── done: $ipa ──"
 done
 
