@@ -1291,16 +1291,25 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     // can tell duplicates apart. addPlayer mutates the players list
     // synchronously, so reading the dup count inside the loop reflects
     // earlier iterations of this batch.
+    final addedIds = <String>[];
     for (int i = 0; i < photos.length; i++) {
       final dup =
           state.players.where((p) => p.photoId == photos[i].id).length;
+      final id = '${DateTime.now().microsecondsSinceEpoch}_$i';
       state.addPlayer(PlayerIcon(
-        id: '${DateTime.now().microsecondsSinceEpoch}_$i',
+        id: id,
         label: dup == 0 ? '' : '${dup + 1}',
         team: _team,
         position: positions[i],
         photoId: photos[i].id,
       ));
+      addedIds.add(id);
+    }
+    // Group-add: leave the whole batch multi-selected so the user can
+    // drag the cluster into place. Single-add paths (drop-one) keep the
+    // default single-select behaviour from addPlayer.
+    if (addedIds.length > 1) {
+      state.enterMultiSelectWith(addedIds);
     }
   }
 
