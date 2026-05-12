@@ -116,8 +116,8 @@ flutter_launcher_icons:
 flutter_native_splash:
   color: "#1A3A4A"
   image: assets/icon/splash_logo.png
-  ios_content_mode: center
-  android_gravity: center
+  ios_content_mode: scaleAspectFill
+  android_gravity: fill
   android_12:
     color: "#1A3A4A"
     image: assets/icon/splash_logo.png
