@@ -381,12 +381,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               onTapUp: (!state.isAnimating)
                   ? (d) {
                       if (state.multiSelectMode) {
-                        // Tap on empty canvas in select mode: if a stroke is
-                        // hit, toggle its membership in the stroke set.
-                        // Player taps go through the per-player onTap.
+                        // In select mode: hit a stroke → toggle its membership;
+                        // hit truly empty canvas → clear the whole selection.
+                        // Player taps go through the per-player onTap, so they
+                        // don't reach here.
                         final hitId = state.hitTestStroke(d.localPosition);
                         if (hitId != null) {
                           state.toggleMultiSelectStroke(hitId);
+                        } else if (state.hasMultiSelection) {
+                          state.clearMultiSelect();
                         }
                       } else if (state.isDrawingMode) {
                         final hitId = state.hitTestStroke(d.localPosition);
