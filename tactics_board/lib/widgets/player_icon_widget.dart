@@ -299,7 +299,17 @@ class _PlayerShape extends StatelessWidget {
 class PhotoPlayerShape extends StatefulWidget {
   final PlayerIcon player;
   final bool isSelected;
-  const PhotoPlayerShape({required this.player, required this.isSelected});
+  /// Render as a "ghost" — same photo, but at lower opacity and with a
+  /// dashed white outline instead of the solid selection/halo chrome. Used
+  /// to mark a player's *starting* position when motion arrows are shown,
+  /// so users still recognise which player it represents.
+  final bool isGhost;
+  const PhotoPlayerShape({
+    super.key,
+    required this.player,
+    required this.isSelected,
+    this.isGhost = false,
+  });
 
   @override
   State<PhotoPlayerShape> createState() => PhotoPlayerShapeState();
@@ -350,7 +360,8 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
   Widget build(BuildContext context) {
     final p = widget.player;
     final isSelected = widget.isSelected;
-    return Stack(
+    final ghost = widget.isGhost;
+    final body = Stack(
       children: [
         Container(
           decoration: BoxDecoration(
@@ -362,30 +373,42 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                     fit: BoxFit.cover,
                   )
                 : null,
-            border: Border.all(
-              color: isSelected ? const Color(0xFFFFD166) : Colors.white,
-              width: isSelected ? 2.4 : 1.5,
-            ),
-            boxShadow: [
-              if (isSelected)
-                BoxShadow(
-                  color: const Color(0xFFFFD166).withValues(alpha: 0.55),
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                ),
-              BoxShadow(
-                color: p.color.withValues(alpha: 0.55),
-                blurRadius: 6,
-                spreadRadius: 1,
-              ),
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.4),
-                blurRadius: 4,
-                offset: const Offset(1, 2),
-              ),
-            ],
+            border: ghost
+                ? null
+                : Border.all(
+                    color: isSelected ? const Color(0xFFFFD166) : Colors.white,
+                    width: isSelected ? 2.4 : 1.5,
+                  ),
+            boxShadow: ghost
+                ? null
+                : [
+                    if (isSelected)
+                      BoxShadow(
+                        color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    BoxShadow(
+                      color: p.color.withValues(alpha: 0.55),
+                      blurRadius: 6,
+                      spreadRadius: 1,
+                    ),
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.4),
+                      blurRadius: 4,
+                      offset: const Offset(1, 2),
+                    ),
+                  ],
           ),
         ),
+        if (ghost)
+          Positioned.fill(
+            child: IgnorePointer(
+              child: CustomPaint(
+                painter: _DashedCircleBorderPainter(color: Colors.white),
+              ),
+            ),
+          ),
         if (p.label.isNotEmpty && p.label.length <= 2)
           Align(
             alignment: const Alignment(0, 0.85),
@@ -408,7 +431,42 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
           ),
       ],
     );
+    return ghost ? Opacity(opacity: 0.55, child: body) : body;
   }
+}
+
+class _DashedCircleBorderPainter extends CustomPainter {
+  final Color color;
+  const _DashedCircleBorderPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.6;
+    final radius = (min(size.width, size.height) - paint.strokeWidth) / 2;
+    final center = Offset(size.width / 2, size.height / 2);
+    const dashLen = 4.0;
+    const gapLen = 4.0;
+    final circumference = 2 * pi * radius;
+    final steps = (circumference / (dashLen + gapLen)).floor();
+    for (int i = 0; i < steps; i++) {
+      final startAngle = (i * (dashLen + gapLen)) / radius;
+      final sweepAngle = dashLen / radius;
+      canvas.drawArc(
+        Rect.fromCircle(center: center, radius: radius),
+        startAngle,
+        sweepAngle,
+        false,
+        paint,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _DashedCircleBorderPainter old) =>
+      old.color != color;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

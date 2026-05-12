@@ -161,21 +161,30 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             if (_state.showMoveLines)
               ...sPlayers.where((p) => p.moves.isNotEmpty).map((player) {
                 final size = kPlayerIconSize * player.scale;
+                final hasPhoto = player.photoId != null &&
+                    !player.isMarker &&
+                    !player.isBall;
                 return Positioned(
                   left: player.position.dx - size / 2,
                   top: player.position.dy - size / 2,
                   child: SizedBox(
                     width: size,
                     height: size,
-                    child: CustomPaint(
-                      painter: TopDownPlayerPainter(
-                        color: player.color,
-                        borderColor: Colors.white,
-                        borderWidth: 1.5,
-                        gender: player.gender,
-                        isGhost: true,
-                      ),
-                    ),
+                    child: hasPhoto
+                        ? PhotoPlayerShape(
+                            player: player,
+                            isSelected: false,
+                            isGhost: true,
+                          )
+                        : CustomPaint(
+                            painter: TopDownPlayerPainter(
+                              color: player.color,
+                              borderColor: Colors.white,
+                              borderWidth: 1.5,
+                              gender: player.gender,
+                              isGhost: true,
+                            ),
+                          ),
                   ),
                 );
               }),
@@ -465,6 +474,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   if (state.showMoveLines)
                     ...players.where((p) => p.moves.isNotEmpty).map((player) {
                       final size = kPlayerIconSize * player.scale;
+                      final hasPhoto = player.photoId != null &&
+                          !player.isMarker &&
+                          !player.isBall;
                       return Positioned(
                         key: ValueKey('ghost_${player.id}'),
                         left: player.position.dx - size / 2,
@@ -472,40 +484,46 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         child: SizedBox(
                           width: size,
                           height: size,
-                          child: Stack(
-                            children: [
-                              CustomPaint(
-                                painter: TopDownPlayerPainter(
-                                  color: player.color,
-                                  borderColor: Colors.white,
-                                  borderWidth: 2,
-                                  gender: player.gender,
+                          child: hasPhoto
+                              ? PhotoPlayerShape(
+                                  player: player,
+                                  isSelected: false,
                                   isGhost: true,
-                                ),
-                                size: Size.infinite,
-                              ),
-                              if (player.label.isNotEmpty &&
-                                  player.label.length <= 2)
-                                Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    player.label,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 13 * player.scale,
-                                      height: 1,
-                                      shadows: const [
-                                        Shadow(
-                                          color: Colors.black54,
-                                          blurRadius: 2,
-                                        ),
-                                      ],
+                                )
+                              : Stack(
+                                  children: [
+                                    CustomPaint(
+                                      painter: TopDownPlayerPainter(
+                                        color: player.color,
+                                        borderColor: Colors.white,
+                                        borderWidth: 2,
+                                        gender: player.gender,
+                                        isGhost: true,
+                                      ),
+                                      size: Size.infinite,
                                     ),
-                                  ),
+                                    if (player.label.isNotEmpty &&
+                                        player.label.length <= 2)
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          player.label,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 13 * player.scale,
+                                            height: 1,
+                                            shadows: const [
+                                              Shadow(
+                                                color: Colors.black54,
+                                                blurRadius: 2,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                  ],
                                 ),
-                            ],
-                          ),
                         ),
                       );
                     }),
