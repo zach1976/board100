@@ -365,6 +365,20 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Bulk-set the multi-select to exactly [playerIds] and enter multi-
+  /// select mode. Used after batch-adds (formation / photo group) so the
+  /// just-added players can be dragged as a group without re-selecting.
+  void enterMultiSelectWith(Iterable<String> playerIds) {
+    _multiSelectMode = true;
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    _multiSelectIds
+      ..clear()
+      ..addAll(playerIds);
+    _multiSelectStrokeIds.clear();
+    notifyListeners();
+  }
+
   /// Translate every member of the multi-select set by [delta], clamped
   /// per-player to the canvas bounds. Strokes (arrows / drawings) in the
   /// set are translated by the same delta so the whole selection moves
