@@ -1,8 +1,8 @@
-Có gì mới:
-• Chọn nhiều: chạm hoặc khoanh vùng để chọn nhiều quân, kéo bất kỳ quân được chọn để di chuyển cả nhóm
-• Kéo thả: giữ lâu bất kỳ ô (bóng, đội, hình, ảnh) rồi thả xuống vị trí bất kỳ trên sân
-• Hàng marker thông minh: ưu tiên những thứ dùng gần đây, ít dùng dồn vào More
-• Marker ảnh theo hình tùy chỉnh + cầu thủ ảnh mặc định không có số áo
-• Áp dụng đội hình không còn xóa các cầu thủ đã thêm
+Cập nhật lần này:
+• Ghost vị trí xuất phát hiển thị ảnh đại diện của cầu thủ — nhận diện ngay
+• Chọn nhiều hỗ trợ cả đường vẽ/mũi tên, kéo cùng cầu thủ như một khối
+• Sau khi thêm đội hình hoặc một nhóm cầu thủ ảnh, các thành viên mới được chọn sẵn để bạn kéo đặt vị trí một lần
+• Trong chế độ chọn, chạm khoảng trống để bỏ chọn
+• Splash hub hiển thị toàn màn hình; danh sách môn thể thao sắp xếp theo môn phổ biến của ngôn ngữ hiện tại
 
-Cảm ơn bạn đã đồng hành. Cứ gửi phản hồi và ý tưởng.
+Cảm ơn bạn đã đồng hành. Hãy tiếp tục gửi ý tưởng và phản hồi.

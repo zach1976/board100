@@ -1,8 +1,8 @@
 Novedades:
-• Selección múltiple: toca o usa el lazo para elegir varias piezas y arrastra una para mover todo el grupo
-• Arrastrar y soltar: mantén pulsado cualquier mosaico (balón, equipo, forma, avatar) y suéltalo donde quieras
-• Fila inteligente: las piezas más usadas se quedan delante; las menos usadas pasan a Más
-• Marcadores foto con formas personalizadas + avatares foto sin dorsal por defecto
-• Aplicar una formación ya no borra a los jugadores que ya tenías
+• Los fantasmas de posición inicial muestran ahora la foto del jugador — se identifica de un vistazo
+• La selección múltiple incluye líneas y flechas: arrastra todo el conjunto a la vez
+• Tras añadir una formación o un grupo de jugadores con foto, la selección permanece — colócalos de una sola vez
+• En modo selección, toca un área vacía para limpiar la selección
+• Splash a pantalla completa; la lista de deportes se ordena por los más populares en tu idioma
 
-Gracias por entrenar con nosotros. Sigue enviándonos ideas.
+Gracias por confiar en nosotros. Sigue compartiendo ideas y sugerencias.

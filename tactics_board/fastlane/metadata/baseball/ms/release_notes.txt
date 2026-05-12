@@ -1,8 +1,8 @@
-Yang baharu:
-• Pilih berbilang: ketik atau lasso untuk pilih beberapa elemen, seret salah satu untuk gerakkan keseluruhan kumpulan
-• Seret untuk letak: tekan lama mana-mana petak (bola, pasukan, bentuk, avatar) dan lepaskan di mana sahaja pada padang
-• Baris penanda pintar: yang kerap digunakan di depan; yang jarang dilipat ke More
-• Penanda foto bentuk tersuai + pemain foto tanpa nombor jersi secara lalai
-• Apply formasi tidak lagi mengosongkan pemain sedia ada
+Kemas kini kali ini:
+• Bayang kedudukan permulaan kini menunjukkan foto pemain — kenal pasti dalam sekelip mata
+• Pilihan berbilang menyokong garisan/anak panah, seret bersama pemain sebagai satu kumpulan
+• Selepas menambah formasi atau sekumpulan pemain berfoto, mereka terpilih secara automatik untuk ditempatkan serentak
+• Dalam mod pilih, ketik kawasan kosong untuk membersihkan pilihan
+• Splash hub kini skrin penuh; senarai sukan disusun mengikut sukan paling popular dalam bahasa anda
 
-Terima kasih melatih bersama kami. Teruskan hantar maklum balas dan idea.
+Terima kasih kerana terus menggunakan. Terus hantar maklum balas dan idea anda.

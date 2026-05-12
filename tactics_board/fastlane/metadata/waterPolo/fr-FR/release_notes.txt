@@ -1,8 +1,8 @@
 Nouveautés :
-• Sélection multiple : tapez ou tracez un cadre, faites glisser un élément pour déplacer tout le groupe
-• Glisser-déposer : appui long sur n'importe quelle pastille (ballon, équipe, forme, avatar) pour la lâcher où vous voulez
-• Rangée de marqueurs intelligente, triée par usage récent ; les plus rares passent dans Plus
-• Marqueurs photo en forme personnalisée + avatars photo sans numéro de maillot imposé
-• Appliquer une formation n'efface plus les joueurs déjà placés
+• Les fantômes de position de départ affichent maintenant la photo du joueur — on identifie chacun en un coup d'œil
+• La sélection multiple inclut les lignes et flèches : déplacez tout le groupe avec les joueurs
+• Après l'ajout d'une formation ou d'un groupe de joueurs photo, la sélection est conservée — placez le bloc d'un seul geste
+• En mode sélection, touchez le vide pour tout désélectionner
+• Splash plein écran ; la liste des sports s'ordonne selon les sports les plus pratiqués dans votre langue
 
-Merci de coacher avec nous. Continuez à nous envoyer vos retours.
+Merci de votre confiance. Continuez à nous envoyer vos retours.
