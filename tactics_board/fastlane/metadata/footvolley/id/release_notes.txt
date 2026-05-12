@@ -1,8 +1,8 @@
-Yang baru:
-• Pilih banyak: tap atau lasso untuk memilih beberapa elemen, geser salah satu untuk memindahkan seluruh grup
-• Tarik untuk taruh: tahan kotak mana saja (bola, tim, bentuk, avatar) lalu lepas ke posisi mana pun di lapangan
-• Baris penanda cerdas: yang sering dipakai di depan, yang jarang dipakai dilipat ke More
-• Penanda foto bentuk kustom + pemain foto tanpa nomor punggung secara default
-• Menerapkan formasi tidak lagi menghapus pemain yang sudah ada
+Pembaruan kali ini:
+• Bayangan posisi awal kini menampilkan foto profil pemain — langsung kenali siapa
+• Pilihan ganda mencakup garis/anak panah, seret bersama pemain sebagai satu kelompok
+• Setelah menambahkan formasi atau sekelompok pemain foto, mereka langsung terpilih agar dapat ditempatkan sekaligus
+• Dalam mode pilih, ketuk area kosong untuk membersihkan pilihan
+• Splash hub kini layar penuh; daftar olahraga diurutkan menurut yang populer di bahasamu
 
-Terima kasih sudah melatih bersama kami. Lanjutkan kirim masukan dan ide.
+Terima kasih telah menggunakan. Tetap kirimkan masukan dan ide kamu.
