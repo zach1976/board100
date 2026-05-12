@@ -750,15 +750,13 @@ class TacticsState extends ChangeNotifier {
       num++;
     }
     // Auto-select the just-added team so the user can drag them as a
-    // group to position them; existing players from the other team stay
-    // out of the selection.
+    // group. Append rather than replace so the "both teams" caller,
+    // which invokes this twice, ends up with both teams selected — the
+    // caller is responsible for clearing the multi-select set first.
     _multiSelectMode = true;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
-    _multiSelectIds
-      ..clear()
-      ..addAll(addedIds);
-    _multiSelectStrokeIds.clear();
+    _multiSelectIds.addAll(addedIds);
     notifyListeners();
   }
 
