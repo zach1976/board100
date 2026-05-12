@@ -714,6 +714,14 @@ class TacticsState extends ChangeNotifier {
       awayNum++;
     }
     _isDrawingMode = false;
+    // Auto-enter multi-select with every just-added player, so the user
+    // can drag the whole formation as one to position it on the field
+    // without re-selecting.
+    _multiSelectMode = true;
+    _multiSelectIds
+      ..clear()
+      ..addAll(_players.map((p) => p.id));
+    _multiSelectStrokeIds.clear();
     notifyListeners();
   }
 
@@ -728,16 +736,29 @@ class TacticsState extends ChangeNotifier {
     final existingCount = _players.where((p) => p.team == team).length;
     int num = existingCount + 1;
     int colorIdx = _players.length;
+    final addedIds = <String>[];
     for (final rel in positions) {
+      final id = '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}$num';
       _players.add(PlayerIcon(
-        id: '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}$num',
+        id: id,
         label: '$num',
         team: team,
         position: toPos(rel),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
       ));
+      addedIds.add(id);
       num++;
     }
+    // Auto-select the just-added team so the user can drag them as a
+    // group to position them; existing players from the other team stay
+    // out of the selection.
+    _multiSelectMode = true;
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    _multiSelectIds
+      ..clear()
+      ..addAll(addedIds);
+    _multiSelectStrokeIds.clear();
     notifyListeners();
   }
 
