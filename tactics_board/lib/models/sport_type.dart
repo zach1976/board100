@@ -20,6 +20,124 @@ enum SportType {
   footvolley,
 }
 
+// Display order for the sport selection grid, picked per UI locale so
+// each market sees its most popular sports first. Distinct from
+// SportType's declaration order because the enum's integer index is
+// persisted in JSON (player_icon / tactics_state / cloud sync) — we
+// can't reshuffle the enum without breaking saved data.
+List<SportType> sportDisplayOrderFor(Locale locale) {
+  final lang = locale.languageCode;
+  final country = locale.countryCode;
+  if (lang == 'zh') return _orderZh;
+  if (lang == 'en' && (country == 'US' || country == 'CA')) return _orderEnUs;
+  if (lang == 'en') return _orderEnGb;
+  if (lang == 'ja') return _orderJa;
+  if (lang == 'ko') return _orderKo;
+  if (lang == 'fr') return _orderFr;
+  if (lang == 'es') return _orderEs;
+  if (lang == 'vi') return _orderVi;
+  if (lang == 'th') return _orderTh;
+  if (lang == 'id') return _orderId;
+  if (lang == 'ms') return _orderMs;
+  return _orderDefault;
+}
+
+const List<SportType> _orderZh = [
+  SportType.soccer, SportType.basketball, SportType.tableTennis,
+  SportType.badminton, SportType.tennis, SportType.volleyball,
+  SportType.pickleball, SportType.baseball, SportType.fieldHockey,
+  SportType.rugby, SportType.handball, SportType.waterPolo,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderEnUs = [
+  SportType.basketball, SportType.baseball, SportType.soccer,
+  SportType.tennis, SportType.volleyball, SportType.pickleball,
+  SportType.fieldHockey, SportType.rugby, SportType.badminton,
+  SportType.tableTennis, SportType.handball, SportType.waterPolo,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderEnGb = [
+  SportType.soccer, SportType.tennis, SportType.rugby,
+  SportType.fieldHockey, SportType.basketball, SportType.badminton,
+  SportType.tableTennis, SportType.volleyball, SportType.pickleball,
+  SportType.baseball, SportType.handball, SportType.waterPolo,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderJa = [
+  SportType.baseball, SportType.soccer, SportType.tennis,
+  SportType.basketball, SportType.volleyball, SportType.badminton,
+  SportType.tableTennis, SportType.rugby, SportType.handball,
+  SportType.waterPolo, SportType.pickleball, SportType.fieldHockey,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderKo = [
+  SportType.soccer, SportType.baseball, SportType.basketball,
+  SportType.volleyball, SportType.tableTennis, SportType.badminton,
+  SportType.tennis, SportType.handball, SportType.waterPolo,
+  SportType.fieldHockey, SportType.rugby, SportType.pickleball,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderFr = [
+  SportType.soccer, SportType.tennis, SportType.rugby,
+  SportType.basketball, SportType.handball, SportType.volleyball,
+  SportType.badminton, SportType.tableTennis, SportType.fieldHockey,
+  SportType.waterPolo, SportType.baseball, SportType.pickleball,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderEs = [
+  SportType.soccer, SportType.basketball, SportType.tennis,
+  SportType.baseball, SportType.volleyball, SportType.handball,
+  SportType.badminton, SportType.tableTennis, SportType.waterPolo,
+  SportType.fieldHockey, SportType.rugby, SportType.pickleball,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderVi = [
+  SportType.soccer, SportType.badminton, SportType.tableTennis,
+  SportType.tennis, SportType.volleyball, SportType.basketball,
+  SportType.sepakTakraw, SportType.pickleball, SportType.baseball,
+  SportType.handball, SportType.fieldHockey, SportType.waterPolo,
+  SportType.rugby, SportType.beachTennis, SportType.footvolley,
+];
+
+const List<SportType> _orderTh = [
+  SportType.soccer, SportType.badminton, SportType.sepakTakraw,
+  SportType.volleyball, SportType.tableTennis, SportType.basketball,
+  SportType.tennis, SportType.pickleball, SportType.baseball,
+  SportType.handball, SportType.fieldHockey, SportType.waterPolo,
+  SportType.rugby, SportType.beachTennis, SportType.footvolley,
+];
+
+const List<SportType> _orderId = [
+  SportType.badminton, SportType.soccer, SportType.sepakTakraw,
+  SportType.tableTennis, SportType.basketball, SportType.volleyball,
+  SportType.tennis, SportType.pickleball, SportType.baseball,
+  SportType.handball, SportType.fieldHockey, SportType.waterPolo,
+  SportType.rugby, SportType.beachTennis, SportType.footvolley,
+];
+
+const List<SportType> _orderMs = [
+  SportType.badminton, SportType.soccer, SportType.sepakTakraw,
+  SportType.tableTennis, SportType.basketball, SportType.tennis,
+  SportType.volleyball, SportType.pickleball, SportType.baseball,
+  SportType.handball, SportType.fieldHockey, SportType.waterPolo,
+  SportType.rugby, SportType.beachTennis, SportType.footvolley,
+];
+
+const List<SportType> _orderDefault = [
+  SportType.soccer, SportType.basketball, SportType.tennis,
+  SportType.volleyball, SportType.badminton, SportType.tableTennis,
+  SportType.baseball, SportType.pickleball, SportType.fieldHockey,
+  SportType.rugby, SportType.handball, SportType.waterPolo,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
 extension SportTypeExtension on SportType {
   String get translationKey {
     switch (this) {
