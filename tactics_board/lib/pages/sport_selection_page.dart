@@ -146,12 +146,15 @@ class SportSelectionPage extends StatelessWidget {
                 childAspectRatio: isLandscape ? 1.3 : 1.15,
               ),
               delegate: SliverChildBuilderDelegate(
-                (ctx, i) => _SportCard(
-                  sport: SportType.values[i],
-                  painter: _painterFor(SportType.values[i]),
-                  accent: _accentFor(SportType.values[i]),
-                ),
-                childCount: SportType.values.length,
+                (ctx, i) {
+                  final order = sportDisplayOrderFor(context.locale);
+                  return _SportCard(
+                    sport: order[i],
+                    painter: _painterFor(order[i]),
+                    accent: _accentFor(order[i]),
+                  );
+                },
+                childCount: sportDisplayOrderFor(context.locale).length,
               ),
             ),
           ),
