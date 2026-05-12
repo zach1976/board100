@@ -2949,6 +2949,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
     // wiped any individually-added players that were already there —
     // unwanted: a user adding a couple of pieces and then 7v7 expected
     // both groups to end up on the board.
+    // Clear any stale multi-select first so addTeamFromFormation's
+    // "select just-added" behaviour only ends up with the new players.
+    widget.state.clearMultiSelect();
     switch (_teamOption) {
       case _TeamOption.both:
         widget.state.addTeamFromFormation(f, PlayerTeam.home);
@@ -2984,6 +2987,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
     final beforeIds = widget.state.players.map((p) => p.id).toSet();
     final f = _selectedFormation!;
     // Same additive-only behaviour as `_apply` — never clear the board.
+    // Clear stale multi-select so addTeamFromFormation's auto-select
+    // ends up with only the newly-added players.
+    widget.state.clearMultiSelect();
     switch (_teamOption) {
       case _TeamOption.both:
         widget.state.addTeamFromFormation(f, PlayerTeam.home);
