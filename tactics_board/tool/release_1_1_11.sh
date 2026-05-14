@@ -71,17 +71,13 @@ else
   echo "↷ Phase 3 already confirmed (builds_processed)"
 fi
 
-# ───────── Phase 4: upload metadata + screenshots ─────────
+# ───────── Phase 4: upload metadata (screenshots deferred to v1.1.12) ─────────
 if ! did "metadata_uploaded"; then
   echo ""
-  echo "▶ Phase 4a: upload version-level metadata (description / locale strings)"
+  echo "▶ Phase 4: upload version-level metadata (description / subtitle / keywords / release_notes)"
+  echo "  (screenshots intentionally skipped — existing 1320×2868 prod set stays; new"
+  echo "  captioned screenshots ship in v1.1.12 once designer reviews all 11 locales)"
   ( cd fastlane && fastlane upload_all_metadata )
-  echo ""
-  echo "▶ Phase 4b: upload screenshots — 16 SKUs sequentially"
-  for sku in tactics_board soccer basketball volleyball badminton tennis tableTennis pickleball baseball handball rugby fieldHockey waterPolo sepakTakraw beachTennis footvolley; do
-    echo "  → $sku"
-    ( cd fastlane && fastlane upload_screenshots app:$sku ) || echo "  ⚠ $sku screenshots failed (continuing)"
-  done
   mark "metadata_uploaded"
   echo "✅ Phase 4 done"
 else
