@@ -10,6 +10,8 @@
 - No emoji. No exclamation points. No "Best/Top/Free" filler — those live in description.
 - One concrete promise per caption. Never two.
 
+**Accent markup:** wrap a span in `<a>...</a>` to render it in `#FFD600` accent yellow. The rest of the caption stays white `#FFFFFF`. Accent rendering applies **only when the caption fits on one line** at the chosen font size — multi-line captions fall back to plain white (single-color rendering across line breaks adds layout complexity for limited visual gain at thumbnail size). Use accents on the killer keyword: a number, a sport list, a competitive claim. Example: `<a>15 Sports.</a> One Coaching Brain.` puts "15 Sports." in yellow.
+
 **Universal shot purposes (drive the caption choice):**
 
 | # | Subject | Caption job |
@@ -29,7 +31,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15 Sports. One Coaching Brain. |
+| 1 | <a>15 Sports.</a> One Coaching Brain. |
 | 2 | Draw Faster Than You Talk. |
 | 3 | Press Play. The Team Gets It. |
 | 4 | Every Formation, One Tap Away. |
@@ -209,7 +211,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15项运动，一颗教练脑。 |
+| 1 | <a>15项运动</a>，一颗教练脑。 |
 | 2 | 画得比说还快。 |
 | 3 | 按下播放，全队就懂。 |
 | 4 | 所有阵型，一指可及。 |
@@ -388,7 +390,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15項運動，一顆教練腦。 |
+| 1 | <a>15項運動</a>，一顆教練腦。 |
 | 2 | 畫得比說還快。 |
 | 3 | 按下播放，全隊就懂。 |
 | 4 | 所有陣型，一指可及。 |
@@ -567,7 +569,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15 กีฬา · กระดานเดียว |
+| 1 | <a>15 กีฬา</a> · กระดานเดียว |
 | 2 | วาดเร็วกว่าอธิบาย |
 | 3 | กดเล่น · ทีมเก็ตทันที |
 | 4 | ทุกฟอร์เมชั่น แตะเดียว |
@@ -746,7 +748,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15競技。1つの作戦盤。 |
+| 1 | <a>15競技。</a>1つの作戦盤。 |
 | 2 | 話すより、描く方が速い。 |
 | 3 | Play押せば、全員伝わる。 |
 | 4 | 全フォーメーション、ワンタップ。 |
@@ -925,7 +927,7 @@
 
 | # | Caption |
 |---|---------|
-| 1 | 15종목, 보드 하나로. |
+| 1 | <a>15종목</a>, 보드 하나로. |
 | 2 | 말보다 빠르게 그린다. |
 | 3 | Play 한 번, 모두 이해. |
 | 4 | 모든 포메이션, 한 탭. |

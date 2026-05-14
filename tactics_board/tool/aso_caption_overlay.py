@@ -131,8 +131,32 @@ def parse_captions(md_path: Path) -> dict[tuple[str, str], list[str]]:
     return out
 
 
+ACCENT_RE = re.compile(r"<a>(.+?)</a>")
+
+
+def parse_segments(text: str) -> list[tuple[str, bool]]:
+    """Split `... <a>x</a> ...` into [(plain, False), (x, True), ...]."""
+    out: list[tuple[str, bool]] = []
+    pos = 0
+    for m in ACCENT_RE.finditer(text):
+        if m.start() > pos:
+            out.append((text[pos:m.start()], False))
+        out.append((m.group(1), True))
+        pos = m.end()
+    if pos < len(text):
+        out.append((text[pos:], False))
+    return out if out else [(text, False)]
+
+
+def segments_plain(segs: list[tuple[str, bool]]) -> str:
+    return "".join(s for s, _ in segs)
+
+
 def wrap_caption(draw: ImageDraw.ImageDraw, text: str, font, max_w: int) -> list[str]:
-    """Word-wrap so each line fits within max_w pixels."""
+    """Word-wrap so each line fits within max_w pixels.
+    For non-space-delimited scripts (CJK/Thai), falls back to single line."""
+    if " " not in text:
+        return [text]
     words = text.split()
     lines, cur = [], ""
     for w in words:
@@ -149,41 +173,79 @@ def wrap_caption(draw: ImageDraw.ImageDraw, text: str, font, max_w: int) -> list
     return lines
 
 
-def compose(src_png: Path, caption: str, out_png: Path, locale: str = "en-US") -> None:
-    """Compose final 1290×2796 captioned screenshot."""
+def round_corners(im: Image.Image, radius: int = 48) -> Image.Image:
+    """Apply rounded corners to an image via alpha mask."""
+    w, h = im.size
+    mask = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([(0, 0), (w - 1, h - 1)], radius=radius, fill=255)
+    out = im.copy()
+    if out.mode != "RGBA":
+        out = out.convert("RGBA")
+    out.putalpha(mask)
+    return out
+
+
+def compose(src_png: Path, caption: str, out_png: Path, locale: str = "en-US",
+            font_path: str | None = None) -> None:
+    """Compose final 1290×2796 captioned screenshot.
+
+    Caption supports `<a>...</a>` accent markup → rendered in #FFD600.
+    Accent rendering is single-line only; multi-line falls back to plain white.
+    """
     canvas = Image.new("RGBA", (CANVAS_W, CANVAS_H), BG_HEX)
 
-    # Lower band: scale source to fit (1290 × 2076), preserve aspect.
+    # Lower band: scale source to fit (1290 × 2076), preserve aspect, round the corners.
     src = Image.open(src_png).convert("RGBA")
     panel_w, panel_h = CANVAS_W, CANVAS_H - CAPTION_BAND_H
     sw, sh = src.size
     scale = min(panel_w / sw, panel_h / sh)
     new_w, new_h = int(sw * scale), int(sh * scale)
     src_scaled = src.resize((new_w, new_h), Image.LANCZOS)
+    src_scaled = round_corners(src_scaled, radius=48)
     off_x = (panel_w - new_w) // 2
     off_y = CAPTION_BAND_H + (panel_h - new_h) // 2
     canvas.paste(src_scaled, (off_x, off_y), src_scaled)
 
-    # Upper band: caption text, word-wrapped, centered.
+    # Upper band: caption text, optionally with <a> accents.
     draw = ImageDraw.Draw(canvas)
+    segs = parse_segments(caption)
+    plain = segments_plain(segs)
+
     # Try a few font sizes; shrink until ≤2 lines fit.
     font = None
     lines: list[str] = []
     for size in (92, 84, 76, 68, 60):
-        font = load_font(size, locale)
-        lines = wrap_caption(draw, caption, font, CANVAS_W - 160)
+        font = (ImageFont.truetype(font_path, size=size) if font_path
+                else load_font(size, locale))
+        lines = wrap_caption(draw, plain, font, CANVAS_W - 160)
         if len(lines) <= 2:
             break
-    # Render lines centered vertically in the band.
+
     line_h = (font.getbbox("Ay")[3] - font.getbbox("Ay")[1]) + 16
     total_h = line_h * len(lines)
     y = (CAPTION_BAND_H - total_h) // 2
-    for line in lines:
-        bbox = draw.textbbox((0, 0), line, font=font)
-        w = bbox[2] - bbox[0]
-        x = (CANVAS_W - w) // 2
-        draw.text((x, y), line, fill=TEXT_HEX, font=font)
-        y += line_h
+
+    # Accent rendering only when caption fits on one line — multi-line accent
+    # tracking adds complexity for limited visual gain at this canvas size.
+    if len(lines) == 1 and any(is_a for _, is_a in segs):
+        # Measure total width to center; then walk segments left-to-right.
+        seg_widths = []
+        for s, _ in segs:
+            b = draw.textbbox((0, 0), s, font=font)
+            seg_widths.append(b[2] - b[0])
+        total_w = sum(seg_widths)
+        x = (CANVAS_W - total_w) // 2
+        for (seg, is_accent), w in zip(segs, seg_widths):
+            color = ACCENT_HEX if is_accent else TEXT_HEX
+            draw.text((x, y), seg, fill=color, font=font)
+            x += w
+    else:
+        for line in lines:
+            bbox = draw.textbbox((0, 0), line, font=font)
+            w = bbox[2] - bbox[0]
+            x = (CANVAS_W - w) // 2
+            draw.text((x, y), line, fill=TEXT_HEX, font=font)
+            y += line_h
 
     out_png.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(out_png, format="PNG", optimize=True)
@@ -208,6 +270,8 @@ def main() -> int:
                     help="Output dir root (default aso/screenshots_captioned)")
     ap.add_argument("--in-place", action="store_true",
                     help="Overwrite screenshots_localized/<sku>/<locale>/*.png in place")
+    ap.add_argument("--font-path", default=None,
+                    help="Optional explicit font path (e.g., SF Pro Display Bold) overriding locale auto-pick")
     args = ap.parse_args()
 
     all_captions = parse_captions(CAPTIONS_MD)
@@ -243,7 +307,7 @@ def main() -> int:
                 missing += 1
                 continue
             out_path = out_root / sku / locale / f"s{idx}_captioned.png" if not args.in_place else src
-            compose(src, cap, out_path, locale)
+            compose(src, cap, out_path, locale, font_path=args.font_path)
             print(f"  ✓ {sku}/{locale}/s{idx}: {cap[:50]}{'…' if len(cap) > 50 else ''}")
             done += 1
 
