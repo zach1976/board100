@@ -178,7 +178,44 @@ Localized PNGs live in `aso/screenshots_localized/`; raw source captures in `aso
 
 ---
 
-## 8. Operational Notes
+## 8. Promotional Text Rotation SOP
+
+Promotional text is the **only listing field that doesn't trigger app review** — Apple deploys edits in minutes, not days. Treat it as the always-on A/B surface. Description, subtitle, screenshots = locked between releases; promo text = your live variable.
+
+### Quarterly calendar (northern hemisphere defaults; swap for SH/SEA markets)
+
+| Quarter | Window | Default angle | Sports that lean in hardest |
+|---------|--------|---------------|-----------------------------|
+| Q1 | Jan–Mar | Pre-season prep, "this is your year" | soccer (transfer window), basketball (mid-season), volleyball (indoor club playoffs) |
+| Q2 | Apr–Jun | Playoffs + summer ramp + headline tournaments | basketball (NBA playoffs), soccer (World Cup / Euro / Copa years), tennis (Roland Garros), baseball (MLB start) |
+| Q3 | Jul–Sep | Summer leagues + Wimbledon + Asian Games years | pickleball, beachTennis, footvolley, tennis (Wimbledon), waterPolo, fieldHockey (Pro League finals) |
+| Q4 | Oct–Dec | Domestic league mid-season + holiday gifting + "year-end coaching review" | soccer (Champions League group), rugby (autumn internationals), basketball (NBA start) |
+
+### Hook templates (170-char budget)
+
+```
+<Event hook with date / countdown>  ← 30–50 chars
+<Specific tactical promise tied to the event>  ← 60–80 chars
+Free, offline, no account.  ← trust closer, 25–30 chars
+```
+
+### When to rotate
+
+- **Hard signals (rotate this week):** event launch date, app version ship, news cycle moment (final, signing, viral play).
+- **Soft signals (rotate next refresh):** start-of-quarter, country-specific season switch (e.g., SH season is inverted from NH).
+- **No signal (don't touch):** new release notes line, minor copy preference. Stability has compounding ASO value.
+
+### Per-locale rule
+
+Translate the *event* not the *string*. Roland Garros in EN/FR; Coupe du Monde in FR-CA; 法网/世界杯 in zh-Hans; ฟุตบอลโลก in TH. If the event isn't recognized in a locale, swap to a locally-relevant one (e.g., AFC Champions League for zh / id / ms / th instead of UCL).
+
+### Rollback path
+
+Apple keeps no version history for promotional text. **Snapshot the prior copy in the commit message** before editing — that's the only audit trail. Pattern (used in commit `[future-sha]`): commit body lists `<sku>: <old> → <new>`.
+
+---
+
+## 9. Operational Notes
 
 - **Apple subtitle limit:** 30 characters (counted per-codepoint, including combining marks — Thai/Hindi watch out).
 - **Apple keyword limit:** 100 characters per locale, no spaces around commas (Apple strips them, costing chars).
@@ -188,7 +225,7 @@ Localized PNGs live in `aso/screenshots_localized/`; raw source captures in `aso
 
 ---
 
-## 9. Recent ASO commits (changelog)
+## 10. Recent ASO commits (changelog)
 
 | SHA | Field | What |
 |-----|-------|------|
