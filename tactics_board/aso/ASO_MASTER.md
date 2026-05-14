@@ -154,6 +154,8 @@ BUILT FOR THE SIDELINE
 
 Localized PNGs live in `aso/screenshots_localized/`; raw source captures in `aso/screenshots_raw/` (iPhone) and `aso/screenshots_raw_ipad/` (iPad).
 
+**Caption copy spec:** 96 EN benefit captions (16 SKUs × 6 shots) live in [`SCREENSHOT_CAPTIONS.md`](./SCREENSHOT_CAPTIONS.md). Locale variants follow §4 tone rules — translate the tactic, not the string.
+
 ---
 
 ## 7. Per-Sport Positioning (one-paragraph each)
