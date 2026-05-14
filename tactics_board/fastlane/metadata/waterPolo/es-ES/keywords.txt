@@ -1,1 +1,1 @@
-waterpolo,6v5,superioridad,zona,presión,contra,boya,pizarra,entrenador,formación,jugada
+waterpolo,6v5,superioridad,inferioridad,m-drop,driver,boya,contra,fina,mundial,olímpico,piscina

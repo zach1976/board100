@@ -1,1 +1,1 @@
-tenis playa,playa,dobles,smash,globo,arena,entrenador,pala,táctica,jugada,formación
+playa,dobles,smash,globo,arena,pala,itf,beach pro tour,stacking

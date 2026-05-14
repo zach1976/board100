@@ -1,1 +1,1 @@
-tenis,dobles,individuales,saque,resto,volea,fondo,deuce,pista,entrenador,táctica,jugada
+individual,dobles,saque,resto,volea,fondo,deuce,roland garros,wimbledon,arcilla,pista dura,raqueta

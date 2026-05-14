@@ -1,1 +1,1 @@
-fútbol,futsal,4-4-2,4-3-3,3-5-2,formación,entrenador,pizarra,córner,tiro libre,jugada,plantilla
+futsal,4-4-2,4-3-3,3-5-2,4-2-3-1,saque esquina,falta,entrenador,liga,mundial,cantera,seleccion

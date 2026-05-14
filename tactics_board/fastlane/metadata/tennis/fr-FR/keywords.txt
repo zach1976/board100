@@ -1,1 +1,1 @@
-tennis,double,simple,service,retour,volée,fond de court,égalité,terrain,coach,tactique
+simple,double,service,retour,volée,fond de court,deuce,roland garros,wimbledon,terre battue,raquette

@@ -1,1 +1,1 @@
-baseball,softball,lancer,frappe,défense,amorti,vol,double jeu,signes,coach,alignement,tactique
+softball,lancer,frappe,défense,bunt,vol de base,double jeu,signes,mlb,wbc,olympique,batte
