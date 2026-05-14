@@ -136,9 +136,9 @@ Example (en-US `tactics_board`):
 
 ### Locale optimization status
 
-- ✅ **EN / zh-Hans / zh-Hant**: 48 SKU × locale combinations rewritten per the rules above (commit `[I-sha]`).
-- ⏳ **th / ja / ko**: under-using budget (current 40–80 chars vs 100 limit) and include name-overlaps. Pending native-or-near-native review.
-- ⏳ **es-ES / fr-FR / vi / id / ms**: need locale-specific keyword research (common search-volume terms, regional sport aliases) before automated rewrite. Pending.
+- ✅ **EN / zh-Hans / zh-Hant**: 48 SKU × locale combinations rewritten per the rules above (commit `010051d`).
+- ✅ **th / ja / ko / es-ES / fr-FR**: 80 SKU × locale rewritten with locale-specific event names and tactical jargon (commit `269d985`).
+- ⏳ **vi / id / ms**: still pending native keyword research (regional sport aliases, search-volume signal). Hand-off candidate.
 
 ---
 
