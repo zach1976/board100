@@ -121,6 +121,25 @@ BUILT FOR THE SIDELINE
 
 **Forbidden:** competitor brand names, generic "free/best/top" filler, plurals duplicating singular (Apple's indexer normalizes).
 
+### Hard rule: zero-overlap with name + subtitle
+
+Apple **already indexes every word in the app name, subtitle, and in-app-purchase titles** for the same locale. Repeating those words in `keywords.txt` wastes the 100-char budget without lift. For each SKU × locale, the keyword set must be the *complement* of name + subtitle vocabulary — not its duplicate.
+
+Example (en-US `tactics_board`):
+- Name "Tactics Board - Coach Playbook" + Subtitle "15 Sports. One Tactical Board." indexes: `tactics, board, coach, playbook, 15, sports, one, tactical`
+- Keywords therefore drop those and load sport-aliases instead: `football,basketball,volleyball,tennis,badminton,clipboard,whiteboard,formation,drill,academy`
+
+### Flagship vs single-sport asymmetry
+
+- **`tactics_board` flagship**: name does NOT contain any specific sport, so its keyword field is the *only* place to inject sport names (`football,basketball,...`). High leverage.
+- **Single-sport SKUs**: name already contains the sport, so keyword field should load **tactical jargon** (4-4-2, pick roll, kitchen, set piece) + **persona/event terms** (NBA, FIBA, MLB, World Cup) + **adjacent sport aliases** (hoops for basketball, futsal for soccer).
+
+### Locale optimization status
+
+- ✅ **EN / zh-Hans / zh-Hant**: 48 SKU × locale combinations rewritten per the rules above (commit `[I-sha]`).
+- ⏳ **th / ja / ko**: under-using budget (current 40–80 chars vs 100 limit) and include name-overlaps. Pending native-or-near-native review.
+- ⏳ **es-ES / fr-FR / vi / id / ms**: need locale-specific keyword research (common search-volume terms, regional sport aliases) before automated rewrite. Pending.
+
 ---
 
 ## 6. Screenshot Framework

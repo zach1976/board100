@@ -1,1 +1,1 @@
-tactics,coach,playbook,whiteboard,formation,drill,strategy,team,training,lineup,sport,board
+football,basketball,volleyball,tennis,badminton,clipboard,whiteboard,formation,drill,academy

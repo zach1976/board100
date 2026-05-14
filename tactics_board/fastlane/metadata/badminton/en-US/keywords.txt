@@ -1,1 +1,1 @@
-badminton,doubles,singles,smash,clear,drop,net shot,front back,side by side,court,coach
+doubles,singles,mixed,smash,clear,drop shot,net,front back,side side,shuttle,bwf
