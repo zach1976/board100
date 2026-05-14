@@ -47,64 +47,87 @@ SHOT_SUFFIX = {
     6: ["s6_playback"],
 }
 
-FONT_CANDIDATES = [
-    "/System/Library/Fonts/HelveticaNeue.ttc",
-    "/System/Library/Fonts/Helvetica.ttc",
-    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-    "/System/Library/Fonts/Geneva.ttf",
+# Latin / fallback fonts (no CJK glyphs).
+FONT_CANDIDATES_LATIN = [
+    ("/System/Library/Fonts/HelveticaNeue.ttc", 7),  # index 7 = Bold on macOS
+    ("/System/Library/Fonts/Helvetica.ttc", 0),
+    ("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 0),
 ]
 
+# Per-locale font preferences (first hit wins). Each entry is (path, ttc-index).
+LOCALE_FONTS = {
+    "zh-Hans": [("/System/Library/Fonts/Hiragino Sans GB.ttc", 1),
+                ("/System/Library/Fonts/STHeiti Medium.ttc", 0)],
+    "zh-Hant": [("/System/Library/Fonts/Hiragino Sans GB.ttc", 1),
+                ("/System/Library/Fonts/STHeiti Medium.ttc", 0)],
+    "ja":      [("/System/Library/Fonts/Hiragino Sans GB.ttc", 1),
+                ("/System/Library/Fonts/AppleSDGothicNeo.ttc", 2)],
+    "ko":      [("/System/Library/Fonts/AppleSDGothicNeo.ttc", 2)],
+    "th":      [("/System/Library/Fonts/ThonburiUI.ttc", 1),
+                ("/System/Library/Fonts/Thonburi.ttc", 1)],
+}
 
-def load_font(size: int) -> ImageFont.ImageFont:
-    """Best-effort bold sans-serif lookup. Falls back to Pillow default."""
-    for p in FONT_CANDIDATES:
-        if Path(p).exists():
+
+def load_font(size: int, locale: str = "en-US") -> ImageFont.ImageFont:
+    """Locale-aware bold sans-serif lookup. Falls back to Helvetica then Pillow default."""
+    candidates = LOCALE_FONTS.get(locale, []) + FONT_CANDIDATES_LATIN
+    for path, idx in candidates:
+        if Path(path).exists():
             try:
-                # .ttc files need an index; HelveticaNeue.ttc index 7 = Bold on macOS.
-                return ImageFont.truetype(p, size=size, index=7 if p.endswith(".ttc") else 0)
+                return ImageFont.truetype(path, size=size, index=idx)
             except Exception:
                 try:
-                    return ImageFont.truetype(p, size=size)
+                    return ImageFont.truetype(path, size=size)
                 except Exception:
                     continue
     return ImageFont.load_default()
 
 
-def parse_captions(md_path: Path) -> dict[str, list[str]]:
+SKU_NAMES = {"tactics_board", "soccer", "basketball", "volleyball", "badminton",
+             "tennis", "tableTennis", "pickleball", "baseball", "handball",
+             "rugby", "fieldHockey", "waterPolo", "sepakTakraw", "beachTennis",
+             "footvolley"}
+
+
+def parse_captions(md_path: Path) -> dict[tuple[str, str], list[str]]:
     """
-    Parse SCREENSHOT_CAPTIONS.md → {sku: [c1, c2, ..., c6]}.
-    The file has '## <sku>' headers followed by a 6-row table.
+    Parse SCREENSHOT_CAPTIONS.md → {(locale, sku): [c1, ..., c6]}.
+
+    Format:
+      `# Locale: <code>`  switches the current locale namespace (default en-US).
+      `## <sku>`          starts a new SKU section.
+      6-row markdown table with `| N | caption |` rows provides the captions.
     """
     text = md_path.read_text(encoding="utf-8")
-    out: dict[str, list[str]] = {}
-    current_sku: str | None = None
+    out: dict[tuple[str, str], list[str]] = {}
+    locale = "en-US"
+    sku: str | None = None
     for line in text.splitlines():
-        h = re.match(r"^##\s+([A-Za-z_]+)\b", line)
-        if h:
-            tok = h.group(1).strip()
-            # Skip non-SKU section headers like "Localization plan" or "Universal".
-            if tok in {"tactics_board", "soccer", "basketball", "volleyball", "badminton",
-                       "tennis", "tableTennis", "pickleball", "baseball", "handball",
-                       "rugby", "fieldHockey", "waterPolo", "sepakTakraw", "beachTennis",
-                       "footvolley"}:
-                current_sku = tok
-                out[current_sku] = []
-            else:
-                current_sku = None
+        loc_h = re.match(r"^#\s+Locale:\s*([\w-]+)\s*$", line)
+        if loc_h:
+            locale = loc_h.group(1).strip()
+            sku = None
             continue
-        if current_sku is None:
+        sku_h = re.match(r"^##\s+([A-Za-z_]+)\b", line)
+        if sku_h:
+            tok = sku_h.group(1).strip()
+            if tok in SKU_NAMES:
+                sku = tok
+                out.setdefault((locale, sku), [])
+            else:
+                sku = None
+            continue
+        if sku is None:
             continue
         row = re.match(r"^\|\s*(\d+)\s*\|\s*(.+?)\s*\|\s*$", line)
         if row:
             idx = int(row.group(1))
             cap = row.group(2).strip()
-            # idx is 1-6; append in order. We rely on the table being in order.
             if 1 <= idx <= 6:
-                out[current_sku].append(cap)
-    # Sanity: every SKU should have exactly 6 captions.
-    for sku, caps in out.items():
+                out[(locale, sku)].append(cap)
+    for (loc, s), caps in out.items():
         if len(caps) != 6:
-            print(f"⚠️  {sku}: parsed {len(caps)} captions (expected 6)", file=sys.stderr)
+            print(f"⚠️  [{loc}][{s}] parsed {len(caps)} captions (expected 6)", file=sys.stderr)
     return out
 
 
@@ -126,7 +149,7 @@ def wrap_caption(draw: ImageDraw.ImageDraw, text: str, font, max_w: int) -> list
     return lines
 
 
-def compose(src_png: Path, caption: str, out_png: Path) -> None:
+def compose(src_png: Path, caption: str, out_png: Path, locale: str = "en-US") -> None:
     """Compose final 1290×2796 captioned screenshot."""
     canvas = Image.new("RGBA", (CANVAS_W, CANVAS_H), BG_HEX)
 
@@ -147,7 +170,7 @@ def compose(src_png: Path, caption: str, out_png: Path) -> None:
     font = None
     lines: list[str] = []
     for size in (92, 84, 76, 68, 60):
-        font = load_font(size)
+        font = load_font(size, locale)
         lines = wrap_caption(draw, caption, font, CANVAS_W - 160)
         if len(lines) <= 2:
             break
@@ -187,9 +210,17 @@ def main() -> int:
                     help="Overwrite screenshots_localized/<sku>/<locale>/*.png in place")
     args = ap.parse_args()
 
-    captions = parse_captions(CAPTIONS_MD)
-    if not captions:
+    all_captions = parse_captions(CAPTIONS_MD)
+    if not all_captions:
         print("❌ no captions parsed from", CAPTIONS_MD, file=sys.stderr)
+        return 1
+
+    # Subset captions to the chosen locale.
+    locale = args.locale
+    captions = {sku: caps for (loc, sku), caps in all_captions.items() if loc == locale}
+    if not captions:
+        print(f"❌ no captions for locale '{locale}' in {CAPTIONS_MD.name}", file=sys.stderr)
+        print(f"   available locales: {sorted({loc for (loc, _) in all_captions})}", file=sys.stderr)
         return 1
 
     if args.all:
@@ -204,16 +235,16 @@ def main() -> int:
     done = skipped = missing = 0
     for sku in skus:
         if sku not in captions:
-            print(f"⚠️  {sku} not in captions; skip"); skipped += 1; continue
+            print(f"⚠️  {sku} not in captions[{locale}]; skip"); skipped += 1; continue
         for idx, cap in enumerate(captions[sku], start=1):
-            src = find_source(sku, args.locale, idx)
+            src = find_source(sku, locale, idx)
             if src is None:
-                print(f"⚠️  {sku}/{args.locale}/s{idx} raw missing; skip")
+                print(f"⚠️  {sku}/{locale}/s{idx} raw missing; skip")
                 missing += 1
                 continue
-            out_path = out_root / sku / args.locale / f"s{idx}_captioned.png" if not args.in_place else src
-            compose(src, cap, out_path)
-            print(f"  ✓ {sku}/{args.locale}/s{idx}: {cap[:50]}{'…' if len(cap) > 50 else ''}")
+            out_path = out_root / sku / locale / f"s{idx}_captioned.png" if not args.in_place else src
+            compose(src, cap, out_path, locale)
+            print(f"  ✓ {sku}/{locale}/s{idx}: {cap[:50]}{'…' if len(cap) > 50 else ''}")
             done += 1
 
     print(f"\ndone: {done} composed, {missing} raw missing, {skipped} skus skipped")
