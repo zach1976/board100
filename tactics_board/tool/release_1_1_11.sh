@@ -71,6 +71,17 @@ else
   echo "↷ Phase 3 already confirmed (builds_processed)"
 fi
 
+# ───────── Phase 3.5: create v1.1.11 App Store Versions + attach builds ─────────
+if ! did "versions_created"; then
+  echo ""
+  echo "▶ Phase 3.5: create v1.1.11 App Store Versions + attach builds (idempotent)"
+  python3 tool/create_versions_1_1_11.py
+  mark "versions_created"
+  echo "✅ Phase 3.5 done"
+else
+  echo "↷ Phase 3.5 already done (versions_created)"
+fi
+
 # ───────── Phase 4: upload metadata (screenshots deferred to v1.1.12) ─────────
 if ! did "metadata_uploaded"; then
   echo ""
