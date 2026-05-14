@@ -212,3 +212,33 @@ These 96 EN captions are the seed. Per `ASO_MASTER §4`, each locale must re-con
 - **es / fr / vi / id / ms**: direct translation works if the tactical concept is universal; otherwise swap the headline tactic (e.g., Roland Garros → Copa Libertadores for es-AR).
 
 Production order suggestion: ship EN + zh-Hans + th first (highest-volume markets where this app already ranks). Add remaining locales when those three prove conversion lift in screenshot A/B.
+
+---
+
+## Pipeline tool
+
+`tactics_board/tool/aso_caption_overlay.py` reads this file and overlays each caption onto the raw localized screenshot from `aso/screenshots_localized/<sku>/<locale>/`, producing 1290×2796 captioned PNGs in `aso/screenshots_captioned/<sku>/<locale>/`.
+
+```bash
+# one SKU:
+python3 tactics_board/tool/aso_caption_overlay.py --sku soccer --locale en-US
+
+# all 16 SKUs for EN:
+python3 tactics_board/tool/aso_caption_overlay.py --all --locale en-US
+
+# overwrite the raw localized PNGs in place (use carefully):
+python3 tactics_board/tool/aso_caption_overlay.py --all --in-place
+```
+
+Current limitations of the v0 tool:
+- No device mockup frame around the screenshot (flat composite)
+- Falls back to Helvetica Neue Bold when SF Pro is unavailable (macOS rarely ships SF Pro as a readable .ttf)
+- Caption is one accent color (white); the yellow #FFD600 accent from the spec is unused
+- Single-line vs two-line auto-sizing only; no manual line-break override
+
+For the next polish pass: add device-frame PNG asset, support `<accent>...</accent>` markup in captions for `#FFD600` styling, accept `--font-path` flag for SF Pro.
+
+Status of bakes committed to repo:
+- ✅ `screenshots_captioned/<sku>/en-US/s1..s6_captioned.png` for 15 single-sport SKUs + `tactics_board/en-US/s1_captioned.png` (91 PNGs total)
+- ⏳ `tactics_board` s2–s6 missing: need an additional `appstore_screenshots.dart` test run that captures non-sport-selection states for the multi-sport flagship
+- ⏳ Other locales: re-run `--locale zh-Hans` / `--locale ja` etc. once raws exist + locale-specific captions are added to this file
