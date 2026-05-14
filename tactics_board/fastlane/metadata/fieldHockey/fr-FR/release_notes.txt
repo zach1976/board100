@@ -1,8 +1,6 @@
 Nouveautés :
-• Les fantômes de position de départ affichent maintenant la photo du joueur — on identifie chacun en un coup d'œil
-• La sélection multiple inclut les lignes et flèches : déplacez tout le groupe avec les joueurs
-• Après l'ajout d'une formation ou d'un groupe de joueurs photo, la sélection est conservée — placez le bloc d'un seul geste
-• En mode sélection, touchez le vide pour tout désélectionner
-• Splash plein écran ; la liste des sports s'ordonne selon les sports les plus pratiqués dans votre langue
+• Captures plus nettes — chaque image montre ce que le tableau hockey sur gazon fait pour vous
+• Textes plus directs dans les descriptions et sous-titres, accroches calées sur le calendrier hockey sur gazon
+• Gages de confiance en tête — gratuit à vie, hors-ligne, sans pub, sans compte
 
-Merci de votre confiance. Continuez à nous envoyer vos retours.
+Même tableau, plus facile à repérer. Continuez à coacher, continuez à nous faire des retours.

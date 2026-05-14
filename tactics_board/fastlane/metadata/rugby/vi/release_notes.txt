@@ -1,8 +1,6 @@
-Cập nhật lần này:
-• Ghost vị trí xuất phát hiển thị ảnh đại diện của cầu thủ — nhận diện ngay
-• Chọn nhiều hỗ trợ cả đường vẽ/mũi tên, kéo cùng cầu thủ như một khối
-• Sau khi thêm đội hình hoặc một nhóm cầu thủ ảnh, các thành viên mới được chọn sẵn để bạn kéo đặt vị trí một lần
-• Trong chế độ chọn, chạm khoảng trống để bỏ chọn
-• Splash hub hiển thị toàn màn hình; danh sách môn thể thao sắp xếp theo môn phổ biến của ngôn ngữ hiện tại
+Có gì mới:
+• Ảnh chụp màn hình được làm lại — 6 ảnh nói thẳng việc bảng rugby làm cho bạn
+• Mô tả và phụ đề gọn hơn, thêm hook theo mùa giải rugby
+• Tín hiệu tin cậy đưa lên đầu — miễn phí mãi, ngoại tuyến, không quảng cáo, không tài khoản
 
-Cảm ơn bạn đã đồng hành. Hãy tiếp tục gửi ý tưởng và phản hồi.
+Cùng một bảng, dễ tìm hơn trong tìm kiếm. Tiếp tục huấn luyện và gửi phản hồi nhé.
