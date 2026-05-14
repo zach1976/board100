@@ -17,6 +17,14 @@ APPS = {
   tennis:        { id: "com.zach.tennisBoard",        name: "Tennis Board" },
   tableTennis:   { id: "com.zach.tableTennisBoard",   name: "Table Tennis Board" },
   pickleball:    { id: "com.zach.pickleballBoard",    name: "Pickleball Board" },
+  baseball:      { id: "com.zach.baseballBoard",      name: "Baseball Board" },
+  handball:      { id: "com.zach.handballBoard",      name: "Handball Board" },
+  rugby:         { id: "com.zach.rugbyBoard",         name: "Rugby Board" },
+  fieldHockey:   { id: "com.zach.fieldHockeyBoard",   name: "Field Hockey Board" },
+  waterPolo:     { id: "com.zach.waterPoloBoard",     name: "Water Polo Board" },
+  sepakTakraw:   { id: "com.zach.sepakTakrawBoard",   name: "Sepak Takraw Board" },
+  beachTennis:   { id: "com.zach.beachTennisBoard",   name: "Beach Tennis Board" },
+  footvolley:    { id: "com.zach.footvolleyBoard",    name: "Footvolley Board" },
 }
 
 # Common deliver options for new apps
@@ -51,7 +59,7 @@ platform :ios do
   end
 
   # ── Upload metadata for ALL apps ───────────────────────────────────────────
-  desc "Upload metadata for all 8 apps (no binary)"
+  desc "Upload metadata for all 16 apps (no binary)"
   lane :upload_all_metadata do
     APPS.each_key do |app|
       begin
@@ -83,7 +91,7 @@ platform :ios do
   end
 
   # ── Upload ASO for ALL apps ────────────────────────────────────────────────
-  desc "Upload version-level metadata for all 8 apps"
+  desc "Upload version-level metadata for all 16 apps"
   lane :upload_all_aso do
     APPS.each_key do |app|
       begin
