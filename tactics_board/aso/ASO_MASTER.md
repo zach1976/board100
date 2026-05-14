@@ -234,6 +234,10 @@ Translate the *event* not the *string*. Roland Garros in EN/FR; Coupe du Monde i
 
 Apple keeps no version history for promotional text. **Snapshot the prior copy in the commit message** before editing — that's the only audit trail. Pattern (used in commit `[future-sha]`): commit body lists `<sku>: <old> → <new>`.
 
+### A/B test variants
+
+Variant B+ copy for promo-text experiments lives in [`AB_VARIANTS.md`](./AB_VARIANTS.md). That doc carries the statistical floor (~10% CVR lift, p<0.10, 7–14 day window), the locale prioritization (en-US first, port winning *angle* to other locales), and seeded B variants for the four highest-traffic SKUs (tactics_board, soccer, basketball, pickleball). Read it before swapping promo copy into production.
+
 ---
 
 ## 9. Operational Notes
