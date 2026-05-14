@@ -1,8 +1,6 @@
 Novedades:
-• Los fantasmas de posición inicial muestran ahora la foto del jugador — se identifica de un vistazo
-• La selección múltiple incluye líneas y flechas: arrastra todo el conjunto a la vez
-• Tras añadir una formación o un grupo de jugadores con foto, la selección permanece — colócalos de una sola vez
-• En modo selección, toca un área vacía para limpiar la selección
-• Splash a pantalla completa; la lista de deportes se ordena por los más populares en tu idioma
+• Capturas más afiladas — cada pantalla muestra qué hace la pizarra de pickleball para ti
+• Textos más directos en descripciones y subtítulos, ganchos de temporada de pickleball
+• Señales de confianza al frente — gratis para siempre, sin conexión, sin anuncios, sin cuenta
 
-Gracias por confiar en nosotros. Sigue compartiendo ideas y sugerencias.
+Misma pizarra, más fácil de encontrar. Sigue entrenando y sigue mandando ideas.

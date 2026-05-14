@@ -1,8 +1,6 @@
 What's new:
-• Start-position ghosts now show the player's photo so it's clear which player each marker represents
-• Multi-select extends to drawn lines and arrows — drag the whole set together with the players
-• Adding a formation or a group of photo players leaves the new pieces selected, so you can place the cluster in one drag
-• Tap empty canvas in select mode to clear the selection
-• Hub splash now fills the screen; sport list reorders to your language's most-used sports first
+• Sharper screenshots — every shot now leads with what the pickleball board actually does for you
+• Tighter copy across descriptions and subtitles, plus seasonal hooks tied to the pickleball calendar
+• Trust signals front-loaded — free forever, offline, no ads, no account
 
-Thanks for coaching with us. Keep the questions and ideas coming.
+Same board, easier to find at a glance. Keep coaching, and keep the feedback coming.

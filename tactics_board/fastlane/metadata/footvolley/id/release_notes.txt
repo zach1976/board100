@@ -1,8 +1,6 @@
-Pembaruan kali ini:
-• Bayangan posisi awal kini menampilkan foto profil pemain — langsung kenali siapa
-• Pilihan ganda mencakup garis/anak panah, seret bersama pemain sebagai satu kelompok
-• Setelah menambahkan formasi atau sekelompok pemain foto, mereka langsung terpilih agar dapat ditempatkan sekaligus
-• Dalam mode pilih, ketuk area kosong untuk membersihkan pilihan
-• Splash hub kini layar penuh; daftar olahraga diurutkan menurut yang populer di bahasamu
+Yang baru:
+• Tangkapan layar diperbarui — 6 gambar langsung menunjukkan apa yang papan footvolley kerjakan untukmu
+• Deskripsi dan subjudul lebih ringkas, plus hook musim footvolley
+• Sinyal kepercayaan di depan — gratis selamanya, offline, tanpa iklan, tanpa akun
 
-Terima kasih telah menggunakan. Tetap kirimkan masukan dan ide kamu.
+Papan yang sama, lebih mudah ditemukan. Terus latih dan terus kirim masukan.
