@@ -1,1 +1,1 @@
-hoops,3v3,5v5,pick roll,horns,zone defense,man to man,offense,playbook,coach,court,lineup
+hoops,nba,3v3,5v5,pick roll,horns,zone,man-to-man,offense,motion,full court,drill,lineup

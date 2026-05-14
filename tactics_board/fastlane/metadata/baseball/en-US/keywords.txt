@@ -1,1 +1,1 @@
-baseball,softball,pitching,batting,fielding,bunt,steal,double play,signs,coach,lineup,strategy
+softball,pitching,batting,fielding,bunt,steal,double play,signs,lineup,shift,mlb,npb

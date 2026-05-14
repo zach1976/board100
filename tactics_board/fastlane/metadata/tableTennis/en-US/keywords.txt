@@ -1,1 +1,1 @@
-table tennis,ping pong,topspin,backspin,loop,smash,push,serve,doubles,coach,paddle,strategy
+ping pong,topspin,backspin,loop,smash,push,serve,short long,doubles,paddle,olympic

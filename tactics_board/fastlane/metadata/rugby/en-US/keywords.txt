@@ -1,1 +1,1 @@
-rugby,union,sevens,scrum,lineout,maul,ruck,backs,forwards,playbook,coach,strategy
+union,league,sevens,scrum,lineout,maul,ruck,backs,forwards,fly half,gain line,six nations

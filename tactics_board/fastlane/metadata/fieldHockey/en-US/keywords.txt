@@ -1,1 +1,1 @@
-field hockey,hockey,penalty corner,short corner,press,formation,coach,stick,playbook,drill
+hockey,penalty corner,short corner,press,fih,pro league,turf,stick,olympic,formation,drill
