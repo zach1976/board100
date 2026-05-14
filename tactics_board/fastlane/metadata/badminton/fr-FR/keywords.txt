@@ -1,1 +1,1 @@
-badminton,double,simple,smash,dégagement,amorti,filet,avant arrière,terrain,coach,tactique
+double,simple,mixte,smash,amorti,dégagement,filet,bwf,thomas,uber,jo,raquette

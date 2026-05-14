@@ -1,1 +1,1 @@
-béisbol,sóftbol,lanzamiento,bateo,defensa,toque,robo,doble play,señas,entrenador,alineación,jugada
+softbol,pitcheo,bateo,defensa,toque,robo,doble play,señas,mlb,liga mexicana,wbc,olímpico

@@ -1,1 +1,1 @@
-táctica,entrenador,pizarra,formación,jugada,entrenamiento,equipo,deporte,esquema,plantilla
+fútbol,baloncesto,voleibol,tenis,bádminton,béisbol,rugby,hockey,entrenador,equipo,club

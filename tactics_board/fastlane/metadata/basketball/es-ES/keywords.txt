@@ -1,1 +1,1 @@
-básquet,3v3,5v5,bloqueo,horns,zona,hombre a hombre,ataque,pizarra,entrenador,cancha,jugada
+3v3,5v5,bloqueo continuación,horns,zona,hombre a hombre,ataque,defensa,acb,euroliga,nba,nbl

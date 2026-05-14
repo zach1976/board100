@@ -1,1 +1,1 @@
-tenis de mesa,ping pong,topspin,cortado,liftado,smash,empuje,saque,dobles,entrenador,pala,táctica
+ping pong,topspin,backspin,loop,smash,push,saque,ittf,wtt,liga nacional,olímpico,pala
