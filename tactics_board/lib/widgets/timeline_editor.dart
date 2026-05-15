@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
+import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
 
 /// Timeline editor — tap blocks to select, tap empty slot to move
@@ -157,19 +159,23 @@ class _TimelineEditorState extends State<TimelineEditor> {
         children: [
           SizedBox(
             width: 40,
-            child: Row(
-              children: [
-                Container(
-                  width: 14, height: 14,
-                  decoration: BoxDecoration(
-                    color: player.color, shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white24, width: 1),
+            child: player.photoId != null
+                // Players created from an uploaded photo show their avatar
+                // here instead of the colour dot + number.
+                ? _PlayerRowAvatar(player: player)
+                : Row(
+                    children: [
+                      Container(
+                        width: 14, height: 14,
+                        decoration: BoxDecoration(
+                          color: player.color, shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white24, width: 1),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(player.label, style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
+                    ],
                   ),
-                ),
-                const SizedBox(width: 4),
-                Text(player.label, style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
-              ],
-            ),
           ),
           Expanded(
             child: Row(
@@ -429,5 +435,82 @@ class _TimelineEditorState extends State<TimelineEditor> {
       widget.state.setStrokePhaseRange(s.id, -1, -1);
     }
     setState(() => _selected = null);
+  }
+}
+
+/// Left-side identity chip for a timeline row of a player created from an
+/// uploaded photo: renders the avatar itself so the row is recognisable at a
+/// glance, instead of the colour dot + number used for plain icons. Falls
+/// back to the player's solid colour while the photo path is still resolving.
+class _PlayerRowAvatar extends StatefulWidget {
+  final PlayerIcon player;
+  const _PlayerRowAvatar({required this.player});
+
+  @override
+  State<_PlayerRowAvatar> createState() => _PlayerRowAvatarState();
+}
+
+class _PlayerRowAvatarState extends State<_PlayerRowAvatar> {
+  String? _path;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+    PhotoLibraryService.instance.addListener(_onLibraryChanged);
+  }
+
+  @override
+  void dispose() {
+    PhotoLibraryService.instance.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  void _onLibraryChanged() {
+    if (mounted) _resolve();
+  }
+
+  @override
+  void didUpdateWidget(_PlayerRowAvatar old) {
+    super.didUpdateWidget(old);
+    if (old.player.photoId != widget.player.photoId) _resolve();
+  }
+
+  Future<void> _resolve() async {
+    final id = widget.player.photoId;
+    if (id == null) return;
+    // photoId may point at either a face photo or a custom-element photo.
+    final all = await PhotoLibraryService.instance.list();
+    final elements = await PhotoLibraryService.instance.listElements();
+    final photo = [...all, ...elements]
+        .cast<dynamic>()
+        .firstWhere((p) => p?.id == id, orElse: () => null);
+    if (photo == null) return;
+    final path = await PhotoLibraryService.instance.resolvePath(photo);
+    if (mounted) setState(() => _path = path);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final player = widget.player;
+    const size = 28.0;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _path == null ? player.color : null,
+          image: _path != null
+              ? DecorationImage(
+                  image: FileImage(File(_path!)),
+                  fit: BoxFit.cover,
+                )
+              : null,
+          border: Border.all(color: Colors.white24, width: 1),
+        ),
+      ),
+    );
   }
 }
