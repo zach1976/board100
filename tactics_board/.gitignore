@@ -48,3 +48,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Generated native splash artifacts. flutter_native_splash regenerates these
+# per-sport on every `tool/build_sport.sh <sport>` run, so tracking them just
+# churns the diff and risks committing one sport's splash as another's. The
+# real sources live in assets/icon/*_splash.png. After a fresh clone, run
+# `tool/build_sport.sh <sport>` (or `dart run flutter_native_splash:create`)
+# to regenerate them before building.
+ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage*.png
+android/app/src/main/res/drawable-*/splash.png
+android/app/src/main/res/drawable-*/android12splash.png
