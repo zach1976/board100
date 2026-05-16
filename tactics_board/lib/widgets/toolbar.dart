@@ -204,12 +204,13 @@ void confirmClearAll(BuildContext context, TacticsState state) {
 
 /// Public function to show the add element bottom sheet
 void showAddElementSheet(BuildContext context, TacticsState state) {
-  final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
   showModalBottomSheet(
     context: context,
     backgroundColor: const Color(0xFF213E48),
-    isScrollControlled: isLandscape,
-    constraints: isLandscape ? BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9) : null,
+    // Scroll-controlled so the sheet sizes to its content — which varies by
+    // sport — instead of being capped at ~50% and forcing an inner scroll.
+    isScrollControlled: true,
+    constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
@@ -253,16 +254,32 @@ class _MainRow extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Row: Mode + Add + Clear + Save + Share
+          // Row: Mode + Add + Clear on the left, Save + Share on the right.
+          // The left group sits in a FittedBox(scaleDown) so it shrinks to
+          // fit instead of triggering a RenderFlex overflow when the Clear
+          // button appears — a single row keeps the toolbar from reflowing
+          // onto a second line, and avoids the yellow/black overflow stripes
+          // that Apple App Preview reviewers reject.
           Row(
             children: [
-              _ModeSegment(state: state),
-              const SizedBox(width: 6),
-              _AddPlayerBtn(state: state),
-              const SizedBox(width: 6),
-              if (hasContent)
-                _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
-              const Spacer(),
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _ModeSegment(state: state),
+                      const SizedBox(width: 6),
+                      _AddPlayerBtn(state: state),
+                      if (hasContent) ...[
+                        const SizedBox(width: 6),
+                        _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
               _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: const Color(0xFF00E5CC)),
               _IconBtn(icon: Icons.ios_share, onTap: () => shareBoardImage(context, state), color: Colors.tealAccent),
             ],
@@ -678,6 +695,10 @@ class _AddPlayerBtn extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xFF213E48),
+      // Scroll-controlled so the sheet sizes to its content — which varies by
+      // sport — instead of being capped at ~50% and forcing an inner scroll.
+      isScrollControlled: true,
+      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
