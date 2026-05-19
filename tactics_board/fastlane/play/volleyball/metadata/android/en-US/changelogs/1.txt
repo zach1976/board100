@@ -1,0 +1,10 @@
+Welcome to Volleyball Board!
+
+Design rotations, attack systems and serve-receive formations — from 6v6 indoor to beach doubles — then tap Play to animate every move.
+
+- Ready-made systems: 5-1, 6-2, 4-2 and rotations
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Works fully offline — no account, no ads
+
+This is our first release. We'd love your feedback.
