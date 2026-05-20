@@ -1,6 +1,1 @@
-What's new:
-• Sharper screenshots — every shot now leads with what the soccer board actually does for you
-• Tighter copy across descriptions and subtitles, plus seasonal hooks tied to the soccer calendar
-• Trust signals front-loaded — free forever, offline, no ads, no account
-
-Same board, easier to find at a glance. Keep coaching, and keep the feedback coming.
+Performance improvements and minor refinements.

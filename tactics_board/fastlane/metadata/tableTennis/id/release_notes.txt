@@ -1,6 +1,1 @@
-Yang baru:
-• Tangkapan layar diperbarui — 6 gambar langsung menunjukkan apa yang papan tenis meja kerjakan untukmu
-• Deskripsi dan subjudul lebih ringkas, plus hook musim tenis meja
-• Sinyal kepercayaan di depan — gratis selamanya, offline, tanpa iklan, tanpa akun
-
-Papan yang sama, lebih mudah ditemukan. Terus latih dan terus kirim masukan.
+Peningkatan performa dan penyempurnaan kecil.

@@ -29,7 +29,7 @@ Upload metadata for a specific app (no binary)
 [bundle exec] fastlane ios upload_all_metadata
 ```
 
-Upload metadata for all 8 apps (no binary)
+Upload metadata for all 16 apps (no binary)
 
 ### ios upload_aso
 
@@ -45,7 +45,7 @@ Upload version-level metadata only (keywords, promo, description)
 [bundle exec] fastlane ios upload_all_aso
 ```
 
-Upload version-level metadata for all 8 apps
+Upload version-level metadata for all 16 apps
 
 ### ios upload_screenshots
 
