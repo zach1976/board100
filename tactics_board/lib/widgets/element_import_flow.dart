@@ -78,7 +78,7 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
     final viewport = (media.size.width - 64).clamp(180.0, 320.0);
 
     return Dialog(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF20424C),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       insetPadding: const EdgeInsets.all(20),
       child: Padding(
@@ -89,7 +89,7 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
             Row(
               children: [
                 const Icon(Icons.add_photo_alternate_outlined,
-                    color: Color(0xFF6EE7B7)),
+                    color: Color(0xFF00C2B2)),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -196,7 +196,7 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF6EE7B7).withValues(
+                        color: const Color(0xFF00C2B2).withValues(
                           alpha: _saving ? 0.4 : 1.0,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -248,10 +248,10 @@ class _ShapeChip extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: selected
-              ? const Color(0xFF6EE7B7).withValues(alpha: 0.18)
+              ? const Color(0xFF00C2B2).withValues(alpha: 0.18)
               : Colors.white.withValues(alpha: 0.06),
           border: Border.all(
-            color: selected ? const Color(0xFF6EE7B7) : Colors.white24,
+            color: selected ? const Color(0xFF00C2B2) : Colors.white24,
             width: 1.5,
           ),
         ),
@@ -261,7 +261,7 @@ class _ShapeChip extends StatelessWidget {
           child: ClipPath(
             clipper: MarkerShapeClipper(shape),
             child: Container(color: selected
-                ? const Color(0xFF6EE7B7)
+                ? const Color(0xFF00C2B2)
                 : Colors.white60),
           ),
         ),

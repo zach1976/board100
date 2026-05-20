@@ -19,6 +19,7 @@ import '../painters/beach_tennis_court_painter.dart';
 import '../painters/footvolley_court_painter.dart';
 import '../state/tactics_state.dart';
 import '../widgets/language_picker.dart';
+import '../widgets/sport_glyph.dart';
 import 'home_page.dart';
 
 class SportSelectionPage extends StatelessWidget {
@@ -249,7 +250,7 @@ class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMi
                 padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
                 child: Row(
                   children: [
-                    Text(widget.sport.emoji, style: const TextStyle(fontSize: 20)),
+                    SportGlyph(sport: widget.sport, size: 22),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(

@@ -89,10 +89,36 @@ class TacticsState extends ChangeNotifier {
   bool _toolbarVisible = true;
   final TransformationController transformationController = TransformationController();
 
+  // Presentation mode — locks all editing, keeps playback. For showing the
+  // board to players during a timeout without risking accidental edits.
+  bool _presentationMode = false;
+
+  // Explicit "add run" sub-mode — when on, taps on the board append move
+  // waypoints to the selected player. Off by default so a stray tap on
+  // empty canvas only deselects (never silently draws a run).
+  bool _isAddingMove = false;
+
+  // Eraser sub-mode (drawing mode only) — taps/drags delete strokes.
+  bool _eraserMode = false;
+
+  // Basketball-only half-court view (zoom preset).
+  bool _basketballHalfCourt = false;
+
+  // Free-form zoom/pan mode. While on, the board content is locked and the
+  // InteractiveViewer owns every gesture — so its scale recogniser can never
+  // fight a single-finger player drag. While off, the board carries no
+  // InteractiveViewer at all (any existing zoom is applied statically).
+  bool _zoomMode = false;
+
+  // Animation playback options.
+  double _animSpeed = 1.0; // 0.5 / 1.0 / 2.0
+  bool _loopAnimation = false;
+
   // External display
   static const _extChannel = MethodChannel('com.zach.tacticsboard/externalDisplay');
   bool _externalConnected = false;
   bool _externalDirty = false;
+  int _lastExtCaptureMs = 0;
   bool get externalDisplayConnected => _externalConnected;
 
   TacticsState({SportType sportType = SportType.basketball})
@@ -109,6 +135,11 @@ class TacticsState extends ChangeNotifier {
         notifyListeners();
       } else if (call.method == 'captureCanvas') {
         if (!_externalDirty) return null;
+        // Throttle to ~15 fps — encoding a 2× PNG on every animation tick
+        // is needlessly heavy for the external display.
+        final nowMs = DateTime.now().millisecondsSinceEpoch;
+        if (nowMs - _lastExtCaptureMs < 66) return null;
+        _lastExtCaptureMs = nowMs;
         try {
           await WidgetsBinding.instance.endOfFrame;
           _externalDirty = false;
@@ -161,18 +192,20 @@ class TacticsState extends ChangeNotifier {
       Map.unmodifiable(_animatedPositions);
   bool get hasMoves => _players.any((p) => p.moves.isNotEmpty) || _strokes.isNotEmpty;
   int get maxMoveSteps {
-    // Count distinct phases across all players and strokes
-    final phases = <int>{};
+    // Range-based count: phases 0..maxPhase inclusive, so a gap in the
+    // middle (e.g. {0,1,2,4,5,6} → max=6) still counts as 7 beats — the
+    // empty slot is a deliberate "rest" in the timeline.
+    int maxPhase = -1;
     for (final p in _players) {
       p.syncPhases();
-      phases.addAll(p.movePhases);
-    }
-    for (final s in _strokes) {
-      if (!s.isFullSpan) {
-        for (int i = s.startPhase; i <= s.endPhase; i++) phases.add(i);
+      for (final ph in p.movePhases) {
+        if (ph > maxPhase) maxPhase = ph;
       }
     }
-    return phases.length;
+    for (final s in _strokes) {
+      if (!s.isFullSpan && s.endPhase > maxPhase) maxPhase = s.endPhase;
+    }
+    return maxPhase + 1;
   }
   int get targetStep => _targetStep;
   int get animFromStep => _animFromStep;
@@ -209,6 +242,18 @@ class TacticsState extends ChangeNotifier {
     if (_atStep <= 0) return;
     _animFromStep = _atStep;
     _animToStep = _atStep - 1;
+    _isAnimating = true;
+    notifyListeners();
+  }
+
+  /// Animate straight from the current step to [target] — used by the
+  /// timeline scrubber. Plays through every intermediate phase.
+  void animateToStep(int target) {
+    if (_isAnimating) return;
+    final t = target.clamp(0, maxMoveSteps);
+    if (t == _atStep) return;
+    _animFromStep = _atStep;
+    _animToStep = t;
     _isAnimating = true;
     notifyListeners();
   }
@@ -267,6 +312,9 @@ class TacticsState extends ChangeNotifier {
     _redoStack.clear();
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
+    _isAddingMove = false;
+    _basketballHalfCourt = false;
+    _zoomMode = false;
     notifyListeners();
   }
 
@@ -299,6 +347,68 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ── Presentation / sub-modes ─────────────────────────────────────────────
+  bool get presentationMode => _presentationMode;
+  void togglePresentationMode() {
+    _presentationMode = !_presentationMode;
+    if (_presentationMode) {
+      _isDrawingMode = false;
+      _multiSelectMode = false;
+      _multiSelectIds.clear();
+      _multiSelectStrokeIds.clear();
+      _isAddingMove = false;
+      _eraserMode = false;
+      _zoomMode = false;
+      _selectedPlayerId = null;
+      _selectedWaypointIndex = null;
+      _selectedStrokeId = null;
+    }
+    notifyListeners();
+  }
+
+  bool get isAddingMove => _isAddingMove;
+  void setAddingMove(bool v) {
+    // Only meaningful with a player selected.
+    if (v && _selectedPlayerId == null) return;
+    if (_isAddingMove == v) return;
+    _isAddingMove = v;
+    notifyListeners();
+  }
+
+  bool get eraserMode => _eraserMode;
+  void setEraserMode(bool v) {
+    if (_eraserMode == v) return;
+    _eraserMode = v;
+    notifyListeners();
+  }
+
+  bool get basketballHalfCourt => _basketballHalfCourt;
+  void setBasketballHalfCourt(bool v) {
+    if (_basketballHalfCourt == v) return;
+    _basketballHalfCourt = v;
+    notifyListeners();
+  }
+
+  bool get zoomMode => _zoomMode;
+  void toggleZoomMode() {
+    _zoomMode = !_zoomMode;
+    notifyListeners();
+  }
+
+  // ── Animation playback options ───────────────────────────────────────────
+  double get animSpeed => _animSpeed;
+  void setAnimSpeed(double v) {
+    if (_animSpeed == v) return;
+    _animSpeed = v;
+    notifyListeners();
+  }
+
+  bool get loopAnimation => _loopAnimation;
+  void toggleLoop() {
+    _loopAnimation = !_loopAnimation;
+    notifyListeners();
+  }
+
   void resetZoom() {
     transformationController.value = Matrix4.identity();
   }
@@ -308,9 +418,12 @@ class TacticsState extends ChangeNotifier {
     _isDrawingMode = enabled;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
+    _isAddingMove = false;
     if (enabled) {
       _multiSelectMode = false;
       _multiSelectIds.clear();
+    } else {
+      _eraserMode = false;
     }
     notifyListeners();
   }
@@ -333,6 +446,7 @@ class TacticsState extends ChangeNotifier {
       _isDrawingMode = false;
       _selectedPlayerId = null;
       _selectedWaypointIndex = null;
+      _isAddingMove = false;
     } else {
       _multiSelectIds.clear();
       _multiSelectStrokeIds.clear();
@@ -499,6 +613,7 @@ class TacticsState extends ChangeNotifier {
     // Auto-switch to move mode and select the new player
     _isDrawingMode = false;
     _selectedPlayerId = _players.last.id;
+    HapticFeedback.selectionClick();
     notifyListeners();
   }
 
@@ -551,6 +666,7 @@ class TacticsState extends ChangeNotifier {
       _selectedPlayerId = null;
       _selectedWaypointIndex = null;
     }
+    HapticFeedback.mediumImpact();
     notifyListeners();
   }
 
@@ -564,6 +680,9 @@ class TacticsState extends ChangeNotifier {
     final clamped = _clampToCanvas(_clampToSide(_players[idx], position));
     final updated = List.of(_players[idx].moves)..add(clamped);
     _players[idx] = _players[idx].copyWith(moves: updated);
+    // Default: each player's phases run 0,1,2… independently. So multiple
+    // players each laying a single run start TOGETHER on phase 0; the
+    // timeline editor is where the user manually pulls them apart.
     _players[idx].syncPhases();
     notifyListeners();
   }
@@ -624,14 +743,61 @@ class TacticsState extends ChangeNotifier {
   }
 
   void setMovePhase(String playerId, int moveIndex, int phase) {
-    _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == playerId);
     if (idx < 0) return;
-    _saveSnapshot();
     final phases = List.of(_players[idx].movePhases);
     if (moveIndex >= phases.length) return;
-    phases[moveIndex] = phase.clamp(0, 99);
+    int newPhase = phase.clamp(0, 99).toInt();
+    // Same-player waypoints must stay in path order — moveIdx 0 → 1 → 2 in
+    // time. Clamp so a block can never jump past its neighbours on the
+    // same player's chain (otherwise "2" could land after "3", which is
+    // physically impossible).
+    if (moveIndex > 0) {
+      final lower = phases[moveIndex - 1] + 1;
+      if (newPhase < lower) newPhase = lower;
+    }
+    if (moveIndex < phases.length - 1) {
+      final upper = phases[moveIndex + 1] - 1;
+      if (newPhase > upper) newPhase = upper;
+    }
+    if (phases[moveIndex] == newPhase) return; // no-op
+    _resetAnimationState();
+    _saveSnapshot();
+    phases[moveIndex] = newPhase;
     _players[idx] = _players[idx].copyWith(movePhases: phases);
+    notifyListeners();
+  }
+
+  /// Apply many phase changes in a single snapshot. Rejects the whole bulk
+  /// if applying it would put any player's waypoints out of path order.
+  void setMovePhasesBulk(
+      List<({String playerId, int moveIndex, int phase})> changes) {
+    if (changes.isEmpty) return;
+    // Build the proposed final phases per affected player.
+    final byPlayer = <String, List<int>>{};
+    for (final c in changes) {
+      final idx = _players.indexWhere((p) => p.id == c.playerId);
+      if (idx < 0) continue;
+      byPlayer.putIfAbsent(c.playerId, () => List.of(_players[idx].movePhases));
+    }
+    for (final c in changes) {
+      final p = byPlayer[c.playerId];
+      if (p == null || c.moveIndex >= p.length) continue;
+      p[c.moveIndex] = c.phase.clamp(0, 99).toInt();
+    }
+    // Validate: same-player phases must be strictly increasing (path order).
+    for (final p in byPlayer.values) {
+      for (int i = 1; i < p.length; i++) {
+        if (p[i] <= p[i - 1]) return; // reject — would cross neighbours
+      }
+    }
+    _resetAnimationState();
+    _saveSnapshot();
+    for (final entry in byPlayer.entries) {
+      final idx = _players.indexWhere((p) => p.id == entry.key);
+      if (idx < 0) continue;
+      _players[idx] = _players[idx].copyWith(movePhases: entry.value);
+    }
     notifyListeners();
   }
 
@@ -651,9 +817,14 @@ class TacticsState extends ChangeNotifier {
   }
 
   void selectPlayer(String? id) {
+    final changed = _selectedPlayerId != id;
     _selectedPlayerId = id;
     _selectedWaypointIndex = null;
     if (id != null) _selectedStrokeId = null;
+    // Leaving a player always exits the explicit add-run sub-mode, so a
+    // later tap on empty canvas can't append a stray waypoint.
+    if (id == null) _isAddingMove = false;
+    if (id != null && changed) HapticFeedback.selectionClick();
     notifyListeners();
   }
 
@@ -909,6 +1080,7 @@ class TacticsState extends ChangeNotifier {
     _redoStack.add(_currentSnapshot());
     final snap = _undoStack.removeLast();
     _restoreSnapshot(snap);
+    HapticFeedback.selectionClick();
     notifyListeners();
   }
 
@@ -917,6 +1089,7 @@ class TacticsState extends ChangeNotifier {
     _undoStack.add(_currentSnapshot());
     final snap = _redoStack.removeLast();
     _restoreSnapshot(snap);
+    HapticFeedback.selectionClick();
     notifyListeners();
   }
 

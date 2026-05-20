@@ -425,6 +425,37 @@ class PhotoLibraryService extends ChangeNotifier {
     );
   }
 
+  /// Preview-mode-only: extract the 8 face crops from a known 4×2 grid
+  /// composite (see `assets/preview/team_photo.jpg`). Bypasses Vision /
+  /// CIDetector entirely — the iOS simulator's face-detection path is
+  /// unreliable on synthetic GAN composites and we need a deterministic
+  /// 8-face result for the preview-video recording.
+  ///
+  /// The composite layout (set by `tool/...` in the recording prep):
+  ///   2070 × 1050 canvas, 30px outer padding, 4 columns × 2 rows,
+  ///   480 × 480 face cells, 30 px gaps. Total used: 30 + 4×480 + 3×30 +
+  ///   30 = 2040 wide (15 px slack each side ≈ 2070), 30 + 2×480 + 30 +
+  ///   30 = 1020 tall (15 px slack each side ≈ 1050).
+  Future<List<Uint8List>> gridFacesForPreview(String imagePath) async {
+    final bytes = await File(imagePath).readAsBytes();
+    final decoded = img.decodeImage(bytes);
+    if (decoded == null) return [];
+    const cell = 480, gap = 30, pad = 30;
+    const cols = 4, rows = 2;
+    final crops = <Uint8List>[];
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        final x = pad + c * (cell + gap);
+        final y = pad + r * (cell + gap);
+        final piece =
+            img.copyCrop(decoded, x: x, y: y, width: cell, height: cell);
+        final resized = img.copyResize(piece, width: 256, height: 256);
+        crops.add(Uint8List.fromList(img.encodePng(resized)));
+      }
+    }
+    return crops;
+  }
+
   /// Detect every face in [imagePath] and crop each one into a square PNG.
   /// On iOS, face detection uses the native Apple Vision framework via a
   /// method channel. On other platforms (no native bridge yet) the entire

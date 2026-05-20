@@ -152,5 +152,14 @@
   "sport_sepak_takraw": "Sepak Takraw",
   "formation_regu": "Regu (3v3)",
   "sport_beach_tennis": "Tenis Pantai",
-  "sport_footvolley": "Footvolley"
+  "sport_footvolley": "Footvolley",
+  "eraser": "Pemadam",
+  "present_mode": "Mod Persembahan",
+  "present_exit": "Keluar",
+  "move_add": "Tambah Lari",
+  "move_done": "Selesai",
+  "half_court": "Separuh Gelanggang",
+  "full_court": "Gelanggang Penuh",
+  "speed": "Kelajuan",
+  "formation_serve_receive": "Terima Servis"
 }

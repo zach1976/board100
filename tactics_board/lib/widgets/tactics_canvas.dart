@@ -1,6 +1,6 @@
 import 'dart:math' as math;
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../models/sport_type.dart';
 import '../models/player_icon.dart';
@@ -39,6 +39,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   /// True while a multi-select pan is moving the group (started on a
   /// selected stroke). When false, multi-select pans draw the lasso rect.
   bool _multiSelectStrokeDragging = false;
+
+  /// Last finger position while laying a run by dragging in add-move mode.
+  Offset? _addMovePanPos;
+
+  /// Erase any stroke under [p] (drawing-mode eraser sub-mode).
+  void _eraseAt(TacticsState state, Offset p) {
+    final hit = state.hitTestStroke(p);
+    if (hit != null) {
+      state.deleteStroke(hit);
+      HapticFeedback.selectionClick();
+    }
+  }
 
   @override
   void initState() {
@@ -98,27 +110,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       case SportType.footvolley:
         return const FootvolleyCourtPainter();
     }
-  }
-
-  /// Transform portrait canvas offset to landscape canvas offset.
-  /// Home team (portrait bottom) → landscape left.
-  static Offset _txl(Offset p, double sw, double sh, double lw, double lh) {
-    return Offset((sh - p.dy) / sh * lw, p.dx / sw * lh);
-  }
-
-  static List<PlayerIcon> _landscapePlayers(
-      List<PlayerIcon> players, double sw, double sh, double lw, double lh) {
-    return players.map((p) => p.copyWith(
-          position: _txl(p.position, sw, sh, lw, lh),
-          moves: p.moves.map((m) => _txl(m, sw, sh, lw, lh)).toList(),
-        )).toList();
-  }
-
-  static List<DrawingStroke> _landscapeStrokes(
-      List<DrawingStroke> strokes, double sw, double sh, double lw, double lh) {
-    return strokes.map((s) => s.copyWith(
-          points: s.points.map((p) => _txl(p, sw, sh, lw, lh)).toList(),
-        )).toList();
   }
 
   Widget _buildExternalContent() {
@@ -284,7 +275,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
-      return Container(color: const Color(0xFF213E48));
+      return Container(color: const Color(0xFF15303A));
     }
     final state = _state;
 
@@ -315,13 +306,30 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final players = state.players.toList();
 
-            final draggingStroke = state.isDrawingMode && state.selectedStrokeId != null;
+            final eraser = state.isDrawingMode && state.eraserMode;
+            final draggingStroke = state.isDrawingMode &&
+                state.selectedStrokeId != null && !eraser;
+            final isAddMove =
+                state.isAddingMove && state.selectedPlayerId != null;
+            final locked = state.presentationMode;
+            // Zoom mode + presentation both lock the board content and hand
+            // every gesture to the InteractiveViewer. In normal editing the
+            // board carries NO InteractiveViewer, so its scale recogniser can
+            // never fight a single-finger player drag.
+            final useViewer = locked || state.zoomMode;
 
-            final pannable = state.isDrawingMode || state.multiSelectMode;
-            return GestureDetector(
+            // Canvas-level single-finger gestures: drawing, erasing,
+            // multi-select lasso, or laying a run. All off while the board
+            // is locked (presentation) or being zoomed.
+            final pannable = !useViewer &&
+                (state.isDrawingMode || state.multiSelectMode || isAddMove);
+
+            final board = GestureDetector(
               onPanStart: pannable
                   ? (d) {
-                      if (state.isDrawingMode) {
+                      if (eraser) {
+                        _eraseAt(state, d.localPosition);
+                      } else if (state.isDrawingMode) {
                         if (draggingStroke) {
                           final hitId = state.hitTestStroke(d.localPosition);
                           if (hitId == state.selectedStrokeId) return;
@@ -340,12 +348,16 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           _multiSelectStrokeDragging = false;
                           state.beginMultiSelectRect(d.localPosition);
                         }
+                      } else if (isAddMove) {
+                        _addMovePanPos = d.localPosition;
                       }
                     }
                   : null,
               onPanUpdate: pannable
                   ? (d) {
-                      if (state.isDrawingMode) {
+                      if (eraser) {
+                        _eraseAt(state, d.localPosition);
+                      } else if (state.isDrawingMode) {
                         if (draggingStroke) {
                           state.moveStroke(state.selectedStrokeId!, d.delta);
                         } else {
@@ -357,12 +369,16 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         } else {
                           state.updateMultiSelectRect(d.localPosition);
                         }
+                      } else if (isAddMove) {
+                        _addMovePanPos = d.localPosition;
                       }
                     }
                   : null,
               onPanEnd: pannable
                   ? (_) {
-                      if (state.isDrawingMode) {
+                      if (eraser) {
+                        return;
+                      } else if (state.isDrawingMode) {
                         if (draggingStroke) {
                           state.moveStrokeEnd(state.selectedStrokeId!);
                         } else {
@@ -375,10 +391,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         } else {
                           state.endMultiSelectRect();
                         }
+                      } else if (isAddMove && _addMovePanPos != null) {
+                        state.addPlayerMove(
+                            state.selectedPlayerId!, _addMovePanPos!);
+                        HapticFeedback.selectionClick();
+                        _addMovePanPos = null;
                       }
                     }
                   : null,
-              onTapUp: (!state.isAnimating)
+              onTapUp: (!state.isAnimating && !useViewer)
                   ? (d) {
                       if (state.multiSelectMode) {
                         // In select mode: hit a stroke → toggle its membership;
@@ -392,21 +413,68 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.clearMultiSelect();
                         }
                       } else if (state.isDrawingMode) {
-                        final hitId = state.hitTestStroke(d.localPosition);
-                        state.selectStroke(hitId);
-                      } else if (state.selectedPlayerId != null) {
-                        state.addPlayerMove(state.selectedPlayerId!, d.localPosition);
+                        if (eraser) {
+                          _eraseAt(state, d.localPosition);
+                        } else {
+                          final hitId = state.hitTestStroke(d.localPosition);
+                          state.selectStroke(hitId);
+                        }
+                      } else if (isAddMove) {
+                        // Explicit add-run sub-mode: a tap appends a waypoint.
+                        state.addPlayerMove(
+                            state.selectedPlayerId!, d.localPosition);
+                        HapticFeedback.selectionClick();
                       } else {
+                        // Plain move mode: tapping a stroke selects it;
+                        // tapping truly empty canvas clears any selection
+                        // (it never silently creates content).
                         final hitId = state.hitTestStroke(d.localPosition);
-                        state.selectStroke(hitId);
+                        if (hitId != null) {
+                          state.selectStroke(hitId);
+                        } else {
+                          state.selectPlayer(null);
+                          state.selectStroke(null);
+                        }
                       }
                     }
                   : null,
-              child: RepaintBoundary(
-                key: boardRepaintKey,
+              child: IgnorePointer(
+                ignoring: useViewer,
                 child: _buildCanvasContent(state, players, canvasW, canvasH),
               ),
             );
+
+            final wrapped = RepaintBoundary(
+              key: boardRepaintKey,
+              child: SizedBox(
+                width: canvasW,
+                height: canvasH,
+                child: board,
+              ),
+            );
+            // Only mount the InteractiveViewer while zooming/presenting; in
+            // normal editing apply any existing zoom statically (no gesture
+            // recogniser) so player drags are never intercepted. The static
+            // wrapper listens to the controller so a half-court / reset tap
+            // repaints the board immediately, not on the next rebuild.
+            return useViewer
+                ? InteractiveViewer(
+                    transformationController: state.transformationController,
+                    panEnabled: true,
+                    scaleEnabled: true,
+                    minScale: 1.0,
+                    maxScale: 4.0,
+                    child: wrapped,
+                  )
+                : ValueListenableBuilder<Matrix4>(
+                    valueListenable: state.transformationController,
+                    builder: (_, matrix, child) => Transform(
+                      transform: matrix,
+                      transformHitTests: true,
+                      child: child,
+                    ),
+                    child: wrapped,
+                  );
       },
     ),
       ],
@@ -435,19 +503,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     ),
                     size: Size(canvasW, canvasH),
                   ),
-                  // Waypoint dots (hidden during animation, limited to atStep/targetStep)
-                  if (!state.isAnimating && state.showMoveLines)
+                  // Waypoint dots — stay visible through animation so each
+                  // step-forward tap doesn't flash every middle dot off and
+                  // back on. The phaseLimit filter (driven by atStep) still
+                  // hides phases that haven't started yet.
+                  if (state.showMoveLines)
                     ...players.expand((player) {
                       final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
                       List<Offset> visibleMoves;
                       if (phaseLimit > 0) {
                         player.syncPhases();
-                        final sortedPhases = _allSortedPhases(players);
                         int count = 0;
                         for (int i = 0; i < player.moves.length; i++) {
                           final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-                          final idx = sortedPhases.indexOf(ph);
-                          if (idx >= 0 && idx < phaseLimit) count = i + 1;
+                          if (ph < phaseLimit) count = i + 1;
                         }
                         visibleMoves = player.moves.take(count).toList();
                       } else {
@@ -468,7 +537,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
                           isAtCurrentStep: isLast ? !atStartTime : true,
                           onLongPress: isLast
-                              ? () => _showEditDialog(context, state, player)
+                              ? () => state.selectPlayer(player.id)
                               : null,
                         );
                       });
@@ -540,6 +609,27 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         state.selectedPlayerId == player.id || inMulti;
                     final atStartTime =
                         state.atStep == 0 && state.targetStep == 0;
+                    // A player whose phases start AFTER the current step
+                    // hasn't moved yet — their start position is still their
+                    // current position, so don't hide the icon as a "past
+                    // ghost". Without this, players whose first phase is
+                    // later than atStep silently disappear from the board.
+                    bool hasStartedMoving = false;
+                    final phaseLimit = state.atStep > 0
+                        ? state.atStep
+                        : (state.targetStep > 0 ? state.targetStep : 0);
+                    if (phaseLimit > 0 && player.moves.isNotEmpty) {
+                      player.syncPhases();
+                      for (int i = 0; i < player.moves.length; i++) {
+                        final ph = i < player.movePhases.length
+                            ? player.movePhases[i]
+                            : i;
+                        if (ph < phaseLimit) {
+                          hasStartedMoving = true;
+                          break;
+                        }
+                      }
+                    }
                     return _PlayerOnBoard(
                       key: ValueKey(player.id),
                       player: player,
@@ -548,7 +638,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       isPrimary: selected &&
                           !state.multiSelectMode &&
                           state.selectedWaypointIndex == null,
-                      isAtCurrentStep: atStartTime,
+                      isAtCurrentStep: atStartTime || !hasStartedMoving,
                       isDrawingMode: state.isDrawingMode || state.isAnimating,
                       isMultiSelectMode: state.multiSelectMode,
                       isInMultiSelect: inMulti,
@@ -559,9 +649,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.selectPlayer(selected ? null : player.id);
                         }
                       },
-                      onLongPress: state.multiSelectMode
-                          ? null
-                          : () => _showEditDialog(context, state, player),
+                      // Tapping a player selects it — the floating edit bar
+                      // then appears, so a separate long-press dialog is no
+                      // longer needed (one unified edit surface).
+                      onLongPress: null,
                     );
                   }),
                   // Player move arrows — on top so arrowheads are never covered
@@ -584,6 +675,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     fromStep: state.animFromStep,
                     toStep: state.animToStep,
                     sequentialMode: state.sequentialMode,
+                    speed: state.animSpeed,
+                    loop: state.loopAnimation,
                   ),
                   // Lasso overlay — drawn while the user is rectangle-selecting
                   // in multi-select mode.
@@ -598,49 +691,23 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     );
   }
 
-  static List<int> _allSortedPhases(List<PlayerIcon> players) {
-    final phases = <int>{};
-    for (final p in players) {
-      p.syncPhases();
-      phases.addAll(p.movePhases);
-    }
-    return phases.toList()..sort();
-  }
-
   /// Return strokes visible at the current playback step.
   /// Strokes with isFullSpan are always visible.
   /// During step playback, show strokes whose phase range overlaps current step.
   static List<DrawingStroke> _visibleStrokes(TacticsState state, List<PlayerIcon> players) {
     final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
     if (phaseLimit == 0) return state.strokes; // show all
-    final sortedPhases = _allSortedPhases(players);
-    // Include stroke phases
-    for (final s in state.strokes) {
-      if (!s.isFullSpan) {
-        for (int i = s.startPhase; i <= s.endPhase; i++) {
-          if (!sortedPhases.contains(i)) sortedPhases.add(i);
-        }
-      }
-    }
-    sortedPhases.sort();
+    // phaseLimit is the number of beats elapsed (atStep). A stroke whose
+    // phase value is strictly less than phaseLimit has already begun.
     return state.strokes.where((s) {
       if (s.isFullSpan) return true;
-      // Check if any phase in stroke range is within the visible limit
       for (int ph = s.startPhase; ph <= s.endPhase; ph++) {
-        final idx = sortedPhases.indexOf(ph);
-        if (idx >= 0 && idx < phaseLimit) return true;
+        if (ph < phaseLimit) return true;
       }
       return false;
     }).toList();
   }
 
-  void _showEditDialog(
-      BuildContext context, TacticsState state, PlayerIcon player) {
-    showDialog(
-      context: context,
-      builder: (ctx) => _PlayerEditDialog(state: state, player: player),
-    );
-  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -653,6 +720,8 @@ class _AnimationDriver extends StatefulWidget {
   final int fromStep;
   final int toStep; // 0 = play all from fromStep
   final bool sequentialMode;
+  final double speed; // playback speed multiplier (0.5 / 1 / 2)
+  final bool loop; // restart from phase 0 when the run finishes
 
   const _AnimationDriver({
     required this.isAnimating,
@@ -661,6 +730,8 @@ class _AnimationDriver extends StatefulWidget {
     this.fromStep = 0,
     this.toStep = 0,
     this.sequentialMode = false,
+    this.speed = 1.0,
+    this.loop = false,
   });
 
   @override
@@ -671,8 +742,6 @@ class _AnimationDriverState extends State<_AnimationDriver>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
   late final CurvedAnimation _curved;
-  int _step = 0;
-  int _totalSteps = 0;
   bool _isBackward = false;
   // Sequential mode: which player index is currently animating
   bool _singleStep = false; // true = only animate one phase then stop
@@ -694,27 +763,38 @@ class _AnimationDriverState extends State<_AnimationDriver>
     super.didUpdateWidget(old);
     if (widget.isAnimating && !old.isAnimating) {
       _buildPhaseGroups();
+      // Per-phase duration scales inversely with the chosen playback speed.
+      _ctrl.duration = Duration(
+          milliseconds: (700 / widget.speed).clamp(120, 4000).round());
       _isBackward = widget.toStep < widget.fromStep;
       // Single step if toStep is exactly 1 away from fromStep
       _singleStep = (widget.toStep - widget.fromStep).abs() == 1;
 
-      if (_sortedPhases.isEmpty) {
+      if (_maxPhase < 0) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
         return;
       }
 
       if (_isBackward) {
-        _phaseIdx = (widget.fromStep - 1).clamp(0, _sortedPhases.length - 1);
-        _ctrl.forward(from: 0);
-      } else {
-        // Step forward (single or range)
-        _phaseIdx = widget.fromStep.clamp(0, _sortedPhases.length - 1);
-        if (_phaseIdx < _sortedPhases.length) {
-          _ctrl.forward(from: 0);
-        } else {
+        // _phaseIdx = phase value to rewind on this leg.
+        _phaseIdx = widget.fromStep - 1;
+        if (_phaseIdx < 0 || _phaseIdx < widget.toStep) {
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => context.read<TacticsState>().finishAnimation());
+        } else {
+          _ctrl.forward(from: 0);
+        }
+      } else {
+        // _phaseIdx = phase value to animate on this leg.
+        _phaseIdx = widget.fromStep;
+        final endIdx =
+            widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
+        if (_phaseIdx > _maxPhase || _phaseIdx >= endIdx) {
+          WidgetsBinding.instance.addPostFrameCallback(
+              (_) => context.read<TacticsState>().finishAnimation());
+        } else {
+          _ctrl.forward(from: 0);
         }
       }
     } else if (!widget.isAnimating && old.isAnimating) {
@@ -725,50 +805,48 @@ class _AnimationDriverState extends State<_AnimationDriver>
     }
   }
 
-  // Phase-based animation: collect all (player, moveIndex) grouped by phase
-  List<int> _sortedPhases = [];
+  // Phase-based animation: collect all (player, moveIndex) grouped by phase.
+  // _phaseIdx is the phase VALUE currently animating (not an index into
+  // distinct used phases) — so empty phases in the middle of the range
+  // still get a beat in continuous playback.
   Map<int, List<({PlayerIcon player, int moveIdx})>> _phaseGroups = {};
+  int _maxPhase = -1;
   int _phaseIdx = 0;
 
   void _buildPhaseGroups() {
     _phaseGroups = {};
+    _maxPhase = -1;
     for (final player in widget.players) {
       player.syncPhases();
       for (int i = 0; i < player.moves.length; i++) {
         final phase = i < player.movePhases.length ? player.movePhases[i] : i;
-        _phaseGroups.putIfAbsent(phase, () => []);
-        _phaseGroups[phase]!.add((player: player, moveIdx: i));
+        _phaseGroups.putIfAbsent(phase, () => []).add((player: player, moveIdx: i));
+        if (phase > _maxPhase) _maxPhase = phase;
       }
     }
-    _sortedPhases = _phaseGroups.keys.toList()..sort();
   }
 
-  /// For a player at a given phaseIdx (index into _sortedPhases),
-  /// find the position index in [position, ...moves] they should be at.
-  /// This is the position AFTER all moves whose phase comes before phaseIdx.
-  int _playerPosAtPhase(PlayerIcon player, int phaseIdx) {
-    int lastCompleted = -1; // -1 means at initial position (index 0 in 'all')
-    for (int i = 0; i < player.moves.length; i++) {
-      final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-      final phaseOrderIdx = _sortedPhases.indexOf(ph);
-      // A move is "completed" if its phase order index is strictly before current phaseIdx
-      if (phaseOrderIdx >= 0 && phaseOrderIdx < phaseIdx) {
-        if (i > lastCompleted) lastCompleted = i;
-      }
-    }
-    // lastCompleted = -1 means no moves done → position index 0 (initial)
-    // lastCompleted = 0 means move[0] done → position index 1 (at moves[0])
-    return lastCompleted + 1;
-  }
-
-  /// For a player AFTER phaseIdx completes (including current phase),
-  /// find the position index.
-  int _playerPosAfterPhase(PlayerIcon player, int phaseIdx) {
+  /// Resting position index in [position, ...moves] for a player at the
+  /// START of phase value [phaseValue] — i.e. only moves whose phase is
+  /// strictly less than phaseValue have completed.
+  int _playerPosAtPhase(PlayerIcon player, int phaseValue) {
     int lastCompleted = -1;
     for (int i = 0; i < player.moves.length; i++) {
       final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-      final phaseOrderIdx = _sortedPhases.indexOf(ph);
-      if (phaseOrderIdx >= 0 && phaseOrderIdx <= phaseIdx) {
+      if (ph < phaseValue) {
+        if (i > lastCompleted) lastCompleted = i;
+      }
+    }
+    return lastCompleted + 1;
+  }
+
+  /// Resting position index AFTER phase value [phaseValue] completes
+  /// (used while rewinding so the player snaps to its end-of-phase pose).
+  int _playerPosAfterPhase(PlayerIcon player, int phaseValue) {
+    int lastCompleted = -1;
+    for (int i = 0; i < player.moves.length; i++) {
+      final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+      if (ph <= phaseValue) {
         if (i > lastCompleted) lastCompleted = i;
       }
     }
@@ -780,13 +858,14 @@ class _AnimationDriverState extends State<_AnimationDriver>
     final t = _curved.value;
     final positions = <String, Offset>{};
 
-    if (_sortedPhases.isEmpty) {
+    if (_maxPhase < 0) {
       context.read<TacticsState>().updateAnimatedPositions(positions);
       return;
     }
 
-    final currentPhase = _phaseIdx < _sortedPhases.length ? _sortedPhases[_phaseIdx] : _sortedPhases.last;
-    final activeGroup = _phaseGroups[currentPhase] ?? [];
+    // _phaseIdx is the phase value currently animating. Empty phase = no
+    // active group → all players hold their resting positions for the beat.
+    final activeGroup = _phaseGroups[_phaseIdx] ?? const [];
 
     for (final player in widget.players) {
       if (player.moves.isEmpty) continue; // no moves at all, skip
@@ -800,10 +879,18 @@ class _AnimationDriverState extends State<_AnimationDriver>
         final moveIdx = activeEntry.first.moveIdx;
         final fromIdx = moveIdx.clamp(0, all.length - 1);
         final toIdx = (moveIdx + 1).clamp(0, all.length - 1);
+        // Sequential mode: stagger players within the phase so each runs
+        // its leg one after another instead of all moving together.
+        double mt = t;
+        if (widget.sequentialMode && activeGroup.length > 1) {
+          final j = activeGroup.indexWhere((e) => e.player.id == player.id);
+          final k = activeGroup.length;
+          mt = (t * k - j).clamp(0.0, 1.0);
+        }
         if (_isBackward) {
-          positions[player.id] = Offset.lerp(all[toIdx], all[fromIdx], t)!;
+          positions[player.id] = Offset.lerp(all[toIdx], all[fromIdx], mt)!;
         } else {
-          positions[player.id] = Offset.lerp(all[fromIdx], all[toIdx], t)!;
+          positions[player.id] = Offset.lerp(all[fromIdx], all[toIdx], mt)!;
         }
       } else {
         // This player is NOT moving in this phase
@@ -828,7 +915,9 @@ class _AnimationDriverState extends State<_AnimationDriver>
     if (_isBackward) {
       _phaseIdx--;
       context.read<TacticsState>().advanceAtStep(_phaseIdx + 1);
-      if (_singleStep || _phaseIdx < 0) {
+      // Stop once the scrubber's target step is reached (toStep), not just
+      // at phase 0 — so a multi-step rewind lands where the user dragged.
+      if (_singleStep || _phaseIdx < widget.toStep || _phaseIdx < 0) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
@@ -837,7 +926,15 @@ class _AnimationDriverState extends State<_AnimationDriver>
     } else {
       _phaseIdx++;
       context.read<TacticsState>().advanceAtStep(_phaseIdx);
-      if (_singleStep || _phaseIdx >= _sortedPhases.length) {
+      // Forward runs stop at toStep (the scrubber target / maxMoveSteps).
+      final endIdx =
+          widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
+      if (!_singleStep && _phaseIdx >= endIdx && widget.loop) {
+        // Loop: jump back to the first phase and keep playing.
+        _phaseIdx = 0;
+        context.read<TacticsState>().advanceAtStep(0);
+        _ctrl.forward(from: 0);
+      } else if (_singleStep || _phaseIdx >= endIdx) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => context.read<TacticsState>().finishAnimation());
       } else {
@@ -967,7 +1064,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // position is implied by the glowing waypoints/end of the chain.
     final BoxShadow? glow = widget.isPrimary
         ? BoxShadow(
-            color: const Color(0xFF00E5CC).withValues(alpha: 0.85),
+            color: const Color(0xFF00C2B2).withValues(alpha: 0.85),
             blurRadius: 16,
             spreadRadius: 3,
           )
@@ -1082,7 +1179,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                     : TopDownPlayerPainter(
                         color: widget.player.color,
                         borderColor: widget.isPrimary
-                            ? const Color(0xFF00E5CC)
+                            ? const Color(0xFF00C2B2)
                             : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
                         borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
                         isSelected: widget.isSelected && !fadeEnd,
@@ -1146,14 +1243,14 @@ class _WaypointDotState extends State<_WaypointDot> {
                 color: widget.player.moveColor,
                 border: Border.all(
                   color: widget.isPrimary
-                      ? const Color(0xFF00E5CC)
+                      ? const Color(0xFF00C2B2)
                       : (widget.isSelected ? Colors.yellow : Colors.white),
                   width: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2),
                 ),
                 boxShadow: [
                   if (widget.isPrimary)
                     BoxShadow(
-                      color: const Color(0xFF00E5CC).withValues(alpha: 0.85),
+                      color: const Color(0xFF00C2B2).withValues(alpha: 0.85),
                       blurRadius: 14,
                       spreadRadius: 2,
                     )
@@ -1184,170 +1281,6 @@ class _WaypointDotState extends State<_WaypointDot> {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Player edit dialog — color swatches + name field + delete
-// ─────────────────────────────────────────────────────────────────────────────
-class _PlayerEditDialog extends StatefulWidget {
-  final TacticsState state;
-  final PlayerIcon player;
-
-  const _PlayerEditDialog({required this.state, required this.player});
-
-  @override
-  State<_PlayerEditDialog> createState() => _PlayerEditDialogState();
-}
-
-class _PlayerEditDialogState extends State<_PlayerEditDialog> {
-  late final TextEditingController _labelCtrl;
-  Color? _selectedColor; // null = use team default
-  late double _scale;
-
-  static const _swatches = <Color?>[
-    null,
-    Color(0xFF3A7DFF),
-    Color(0xFFFF5A5F),
-    Color(0xFF2E7D32),
-    Color(0xFFE65100),
-    Color(0xFF6A1B9A),
-    Color(0xFF00838F),
-    Color(0xFFAD1457),
-    Color(0xFFF9A825),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _labelCtrl = TextEditingController(text: widget.player.label);
-    _selectedColor = widget.player.customColor;
-    _scale = widget.player.scale;
-  }
-
-  @override
-  void dispose() {
-    _labelCtrl.dispose();
-    super.dispose();
-  }
-
-  /// Title key follows the element kind — markers and balls aren't
-  /// "players" and the older blanket 编辑球员 wording read incorrectly.
-  String _titleKey() {
-    if (widget.player.isBall) return 'edit_ball';
-    if (widget.player.isMarker) return 'edit_marker';
-    return 'edit_player';
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: const Color(0xFF213E48),
-      title: Text(_titleKey().tr(),
-          style: const TextStyle(color: Colors.white)),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextField(
-            controller: _labelCtrl,
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              labelText: 'player_name'.tr(),
-              labelStyle: const TextStyle(color: Colors.white60),
-              enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white30)),
-              focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white70)),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text('player_color'.tr(),
-              style:
-                  const TextStyle(color: Colors.white60, fontSize: 12)),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: _swatches.map((color) {
-              final isSelected = color == _selectedColor;
-              final displayColor = color ??
-                  PlayerIcon.teamColor(widget.player.team);
-              return GestureDetector(
-                onTap: () => setState(() => _selectedColor = color),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: displayColor,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: isSelected
-                          ? Colors.yellow
-                          : Colors.white38,
-                      width: isSelected ? 2.5 : 1,
-                    ),
-                  ),
-                  child: isSelected
-                      ? const Icon(Icons.check,
-                          size: 16, color: Colors.white)
-                      : null,
-                ),
-              );
-            }).toList(),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              const Icon(Icons.photo_size_select_small, color: Colors.white60, size: 16),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Slider(
-                  value: _scale,
-                  min: 0.5,
-                  max: 3.0,
-                  divisions: 10,
-                  activeColor: const Color(0xFF00E5CC),
-                  inactiveColor: Colors.white24,
-                  onChanged: (v) => setState(() => _scale = v),
-                ),
-              ),
-              Text('${(_scale * 100).round()}%',
-                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
-            ],
-          ),
-        ],
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            widget.state.removePlayer(widget.player.id);
-            Navigator.pop(context);
-          },
-          child: Text('remove'.tr(),
-              style: const TextStyle(color: Colors.red)),
-        ),
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('cancel'.tr()),
-        ),
-        TextButton(
-          onPressed: () {
-            widget.state.updatePlayer(
-              widget.player.id,
-              label: _labelCtrl.text,
-              customColor: _selectedColor,
-              clearCustomColor: _selectedColor == null,
-              scale: _scale,
-            );
-            Navigator.pop(context);
-          },
-          child: Text('save'.tr(),
-              style:
-                  const TextStyle(color: const Color(0xFF00E5CC))),
-        ),
-      ],
-    );
-  }
-}
-
 /// Dashed selection rectangle drawn while the user lassos in multi-select
 /// mode. Filled with a faint highlight color and outlined with dashes so
 /// it reads as transient UI, not part of the board content.
@@ -1359,13 +1292,13 @@ class _LassoRectPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final fill = Paint()
       ..style = PaintingStyle.fill
-      ..color = const Color(0xFF6EE7B7).withValues(alpha: 0.10);
+      ..color = const Color(0xFF00C2B2).withValues(alpha: 0.10);
     canvas.drawRect(rect, fill);
 
     final stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
-      ..color = const Color(0xFF6EE7B7);
+      ..color = const Color(0xFF00C2B2);
 
     // Manual dashed outline.
     const dashOn = 6.0;

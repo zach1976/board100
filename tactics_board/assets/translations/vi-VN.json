@@ -152,5 +152,14 @@
   "sport_sepak_takraw": "Cầu mây",
   "formation_regu": "Regu (3đấu3)",
   "sport_beach_tennis": "Tennis bãi biển",
-  "sport_footvolley": "Bóng chuyền chân"
+  "sport_footvolley": "Bóng chuyền chân",
+  "eraser": "Tẩy",
+  "present_mode": "Trình chiếu",
+  "present_exit": "Thoát",
+  "move_add": "Thêm di chuyển",
+  "move_done": "Xong",
+  "half_court": "Nửa sân",
+  "full_court": "Toàn sân",
+  "speed": "Tốc độ",
+  "formation_serve_receive": "Đỡ giao bóng"
 }

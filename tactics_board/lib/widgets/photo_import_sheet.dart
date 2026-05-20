@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import '../services/photo_library_service.dart';
 
 enum PhotoImportSource { gallery, camera }
@@ -16,10 +19,16 @@ class PhotoImportSheet extends StatefulWidget {
   final PhotoImportSource source;
   /// Photo group the new photos will belong to.
   final String groupId;
+  /// Preview-mode bypass: when non-null, skip the native picker and run
+  /// face detection on this image path directly. Used by the preview-video
+  /// integration test so a screen recording can demo the whole flow without
+  /// touching the iOS UIImagePicker (which Flutter tests can't drive).
+  final String? previewPhotoPath;
   const PhotoImportSheet({
     super.key,
     this.source = PhotoImportSource.gallery,
     required this.groupId,
+    this.previewPhotoPath,
   });
 
   /// Show a small action sheet asking the user to pick the source, then
@@ -28,9 +37,30 @@ class PhotoImportSheet extends StatefulWidget {
     BuildContext context, {
     required String groupId,
   }) async {
+    // Preview-video mode (compile-time): if PREVIEW_PHOTO_PATH is defined,
+    // skip the source picker and the native gallery entirely. Supports
+    // `asset:assets/...` paths (loaded from bundle) or absolute file paths.
+    const previewPath = String.fromEnvironment('PREVIEW_PHOTO_PATH');
+    if (previewPath.isNotEmpty) {
+      await showModalBottomSheet(
+        context: context,
+        backgroundColor: const Color(0xFF15303A),
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        builder: (_) => PhotoImportSheet(
+          source: PhotoImportSource.gallery,
+          groupId: groupId,
+          previewPhotoPath: previewPath,
+        ),
+      );
+      return;
+    }
+
     final source = await showModalBottomSheet<PhotoImportSource>(
       context: context,
-      backgroundColor: const Color(0xFF14302A),
+      backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -67,7 +97,7 @@ class PhotoImportSheet extends StatefulWidget {
     if (!context.mounted) return;
     await showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF14302A),
+      backgroundColor: const Color(0xFF15303A),
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -95,21 +125,49 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
   }
 
   Future<void> _start() async {
-    final picker = ImagePicker();
     List<XFile> picked;
-    try {
-      if (widget.source == PhotoImportSource.camera) {
-        final shot = await picker.pickImage(
-          source: ImageSource.camera,
-          imageQuality: 100,
-        );
-        picked = shot == null ? <XFile>[] : [shot];
+    // Preview-video mode: skip the native picker, use the bundled photo path.
+    // Asset paths starting with `asset:` are loaded from rootBundle and
+    // written to the iOS sandbox tmp dir so PhotoLibraryService can read them.
+    if (widget.previewPhotoPath != null) {
+      final raw = widget.previewPhotoPath!;
+      if (raw.startsWith('asset:')) {
+        final assetPath = raw.substring('asset:'.length);
+        try {
+          final data = await rootBundle.load(assetPath);
+          final tmp = await getTemporaryDirectory();
+          final fname = assetPath.split('/').last;
+          final f = File('${tmp.path}/preview_$fname');
+          await f.writeAsBytes(data.buffer.asUint8List(), flush: true);
+          // ignore: avoid_print
+          print('[preview-mode] asset=$assetPath → ${f.path} (${data.lengthInBytes} bytes)');
+          picked = [XFile(f.path)];
+        } catch (e) {
+          // ignore: avoid_print
+          print('[preview-mode] asset load FAILED: $e');
+          picked = <XFile>[];
+        }
       } else {
-        picked = await picker.pickMultiImage(imageQuality: 100);
+        // ignore: avoid_print
+        print('[preview-mode] using file path: $raw (exists=${File(raw).existsSync()})');
+        picked = [XFile(raw)];
       }
-    } catch (e) {
-      if (mounted) Navigator.of(context).maybePop();
-      return;
+    } else {
+      final picker = ImagePicker();
+      try {
+        if (widget.source == PhotoImportSource.camera) {
+          final shot = await picker.pickImage(
+            source: ImageSource.camera,
+            imageQuality: 100,
+          );
+          picked = shot == null ? <XFile>[] : [shot];
+        } else {
+          picked = await picker.pickMultiImage(imageQuality: 100);
+        }
+      } catch (e) {
+        if (mounted) Navigator.of(context).maybePop();
+        return;
+      }
     }
     if (picked.isEmpty) {
       if (mounted) Navigator.of(context).maybePop();
@@ -127,8 +185,21 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
         _statusText =
             'photo_detecting_progress'.tr(args: ['${i + 1}', '${picked.length}']);
       });
-      final faces = await PhotoLibraryService.instance
-          .detectAndCropFaces(picked[i].path);
+      List<Uint8List> faces;
+      if (widget.previewPhotoPath != null) {
+        // Preview mode bypass: skip Vision/CIDetector entirely (simulator's
+        // face detectors are unreliable on synthetic GAN composites). The
+        // bundled test photo is a known 4×2 grid (480×480 cells with 30px
+        // gaps and 30px outer padding), so we synthesise the 8 crops by
+        // exact pixel coordinates and save them as PNGs.
+        faces = await PhotoLibraryService.instance
+            .gridFacesForPreview(picked[i].path);
+        // ignore: avoid_print
+        print('[preview-mode] gridFacesForPreview → ${faces.length} crops');
+      } else {
+        faces = await PhotoLibraryService.instance
+            .detectAndCropFaces(picked[i].path);
+      }
       for (final f in faces) {
         all.add(f);
         sources.add(i);
@@ -203,7 +274,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
       children: [
         Row(
           children: [
-            const Icon(Icons.face, color: Color(0xFF6EE7B7), size: 20),
+            const Icon(Icons.face, color: Color(0xFF00C2B2), size: 20),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -231,7 +302,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
             padding: const EdgeInsets.only(top: 4),
             child: Text(
               'photo_dedup_msg'.tr(args: ['$_droppedDuplicates']),
-              style: const TextStyle(color: Color(0xFF6EE7B7), fontSize: 12),
+              style: const TextStyle(color: Color(0xFF00C2B2), fontSize: 12),
             ),
           ),
         const SizedBox(height: 12),
@@ -329,7 +400,7 @@ class _Loading extends StatelessWidget {
         children: [
           const SizedBox(
             width: 32, height: 32,
-            child: CircularProgressIndicator(strokeWidth: 3, color: Color(0xFF6EE7B7)),
+            child: CircularProgressIndicator(strokeWidth: 3, color: Color(0xFF00C2B2)),
           ),
           if (label != null && label!.isNotEmpty) ...[
             const SizedBox(height: 16),

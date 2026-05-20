@@ -3,6 +3,11 @@
 tool/face_test/*.jpg
 tool/face_test/*.png
 
+# Generated App Store preview videos — 3GB of build artifacts from the
+# preview pipeline (record → finalize). The tools live in tool/ but the
+# outputs are device-rendered and not source.
+aso/previews/
+
 # Miscellaneous
 *.class
 *.log

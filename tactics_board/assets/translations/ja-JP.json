@@ -167,5 +167,14 @@
   "sport_sepak_takraw": "セパタクロー",
   "formation_regu": "レグ (3v3)",
   "sport_beach_tennis": "ビーチテニス",
-  "sport_footvolley": "フットボレー"
+  "sport_footvolley": "フットボレー",
+  "eraser": "消しゴム",
+  "present_mode": "プレゼン",
+  "present_exit": "プレゼン終了",
+  "move_add": "ラン追加",
+  "move_done": "完了",
+  "half_court": "ハーフコート",
+  "full_court": "フルコート",
+  "speed": "速度",
+  "formation_serve_receive": "サーブレシーブ"
 }

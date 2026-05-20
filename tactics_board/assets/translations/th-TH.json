@@ -152,5 +152,14 @@
   "sport_sepak_takraw": "ตะกร้อ",
   "formation_regu": "เรกู (3 ต่อ 3)",
   "sport_beach_tennis": "เทนนิสชายหาด",
-  "sport_footvolley": "ฟุตวอลเลย์"
+  "sport_footvolley": "ฟุตวอลเลย์",
+  "eraser": "ยางลบ",
+  "present_mode": "โหมดนำเสนอ",
+  "present_exit": "ออกจากโหมด",
+  "move_add": "เพิ่มการวิ่ง",
+  "move_done": "เสร็จ",
+  "half_court": "ครึ่งสนาม",
+  "full_court": "เต็มสนาม",
+  "speed": "ความเร็ว",
+  "formation_serve_receive": "รับลูกเสิร์ฟ"
 }

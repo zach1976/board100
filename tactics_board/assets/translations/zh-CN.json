@@ -233,5 +233,14 @@
   "photo_manage_hint": "点击头像调整裁剪，或使用下方图标。",
   "elements_label": "自定义素材",
   "element_crop_title": "添加素材",
-  "element_delete_confirm": "删除该素材？"
+  "element_delete_confirm": "删除该素材？",
+  "eraser": "橡皮擦",
+  "present_mode": "演示模式",
+  "present_exit": "退出演示",
+  "move_add": "跑位",
+  "move_done": "完成",
+  "half_court": "半场",
+  "full_court": "全场",
+  "speed": "速度",
+  "formation_serve_receive": "接发球"
 }

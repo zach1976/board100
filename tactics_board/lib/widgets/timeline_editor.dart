@@ -5,6 +5,7 @@ import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import '../ui_constants.dart';
 
 /// Timeline editor — tap blocks to select, tap empty slot to move
 class TimelineEditor extends StatefulWidget {
@@ -16,8 +17,26 @@ class TimelineEditor extends StatefulWidget {
 }
 
 class _TimelineEditorState extends State<TimelineEditor> {
-  // Selected block: either a player move or a stroke
-  ({String id, int moveIdx, bool isStroke})? _selected;
+  // Multi-select set for player-move blocks. Tap a block to toggle its
+  // membership; tap an empty slot (or drag any selected block) to shift the
+  // whole group while preserving relative phase offsets. Strokes have phase
+  // RANGES and are still edited per-row separately.
+  final Set<({String id, int moveIdx, bool isStroke})> _selected = {};
+
+  // Live scrubber value while the playhead is being dragged (null = idle).
+  double? _scrubValue;
+
+  /// Read the current phase a selected block is at, looking it up in state.
+  int _phaseOf(({String id, int moveIdx, bool isStroke}) sel) {
+    if (sel.isStroke) return 0;
+    for (final p in widget.state.players) {
+      if (p.id != sel.id) continue;
+      p.syncPhases();
+      if (sel.moveIdx < p.movePhases.length) return p.movePhases[sel.moveIdx];
+      return 0;
+    }
+    return 0;
+  }
 
   int get _phaseCount {
     int max = 0;
@@ -61,13 +80,18 @@ class _TimelineEditorState extends State<TimelineEditor> {
                   const SizedBox(width: 8),
                   Text('timeline'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
                   const Spacer(),
-                  if (_selected != null)
+                  if (_selected.isNotEmpty)
                     GestureDetector(
-                      onTap: () => setState(() => _selected = null),
+                      onTap: () => setState(() => _selected.clear()),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(12)),
-                        child: const Text('Cancel', style: TextStyle(color: Colors.white54, fontSize: 12)),
+                        child: Text(
+                          _selected.length > 1
+                              ? 'Cancel (${_selected.length})'
+                              : 'Cancel',
+                          style: const TextStyle(color: Colors.white54, fontSize: 12),
+                        ),
                       ),
                     ),
                   const SizedBox(width: 8),
@@ -82,11 +106,20 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 ],
               ),
             ),
-            if (_selected != null)
-              const Padding(
-                padding: EdgeInsets.fromLTRB(16, 0, 16, 4),
-                child: Text('Tap an empty slot to move', style: TextStyle(color: Colors.amber, fontSize: 11)),
+            if (_selected.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+                child: Text(
+                  _selected.length > 1
+                      ? 'Tap an empty slot to shift the group · drag to move'
+                      : 'Tap an empty slot to move · tap another block to add',
+                  style: const TextStyle(color: Colors.amber, fontSize: 11),
+                ),
               ),
+            // Playback controls — speed / loop / sequential.
+            _controlsRow(),
+            // Draggable playhead scrubber.
+            if (widget.state.maxMoveSteps > 0) _scrubber(),
             // Phase numbers — current phase (atStep) highlighted as the playhead.
             Padding(
               padding: const EdgeInsets.fromLTRB(56, 4, 12, 2),
@@ -100,7 +133,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         Text(
                           '${i + 1}',
                           style: TextStyle(
-                            color: isCurrent ? const Color(0xFF6EE7B7) : Colors.white38,
+                            color: isCurrent ? const Color(0xFF00C2B2) : Colors.white38,
                             fontSize: 11,
                             fontWeight: isCurrent ? FontWeight.bold : FontWeight.w600,
                           ),
@@ -111,11 +144,11 @@ class _TimelineEditorState extends State<TimelineEditor> {
                             height: 2,
                             width: 16,
                             decoration: BoxDecoration(
-                              color: const Color(0xFF6EE7B7),
+                              color: const Color(0xFF00C2B2),
                               borderRadius: BorderRadius.circular(1),
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFF6EE7B7).withValues(alpha: 0.6),
+                                  color: const Color(0xFF00C2B2).withValues(alpha: 0.6),
                                   blurRadius: 4,
                                 ),
                               ],
@@ -182,15 +215,34 @@ class _TimelineEditorState extends State<TimelineEditor> {
               children: List.generate(phaseCount, (phaseIdx) {
                 final moveIdx = player.movePhases.indexOf(phaseIdx);
                 final hasMove = moveIdx >= 0;
-                final isSelected = _selected != null && !_selected!.isStroke && _selected!.id == player.id && hasMove && _selected!.moveIdx == moveIdx;
-                final canDrop = _selected != null && !_selected!.isStroke && _selected!.id == player.id && !hasMove;
+                final block = (id: player.id, moveIdx: moveIdx, isStroke: false);
+                final isSelected = hasMove && _selected.contains(block);
+                // An empty slot is droppable in this row whenever any
+                // selected block belongs to this player — a group drop in
+                // the dragged block's row still shifts the whole group.
+                final canDrop = !hasMove && _selected.any((s) => s.id == player.id);
 
                 return Expanded(
                   child: DragTarget<({String id, int moveIdx, bool isStroke})>(
                     onWillAcceptWithDetails: (details) => !details.data.isStroke && details.data.id == player.id && !hasMove,
                     onAcceptWithDetails: (details) {
-                      widget.state.setMovePhase(details.data.id, details.data.moveIdx, phaseIdx);
-                      setState(() => _selected = null);
+                      final data = details.data;
+                      if (_selected.contains(data) && _selected.length > 1) {
+                        // Group shift — keep relative offsets.
+                        final delta = phaseIdx - _phaseOf(data);
+                        final changes = <({String playerId, int moveIndex, int phase})>[];
+                        for (final sel in _selected) {
+                          changes.add((
+                            playerId: sel.id,
+                            moveIndex: sel.moveIdx,
+                            phase: (_phaseOf(sel) + delta).clamp(0, 99).toInt(),
+                          ));
+                        }
+                        widget.state.setMovePhasesBulk(changes);
+                      } else {
+                        widget.state.setMovePhase(data.id, data.moveIdx, phaseIdx);
+                      }
+                      setState(() => _selected.clear());
                     },
                     builder: (context, candidateData, _) {
                       final isDropHover = candidateData.isNotEmpty;
@@ -202,11 +254,14 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         canDrop: canDrop,
                         label: hasMove ? '${moveIdx + 1}' : null,
                         onTap: () => _onPlayerSlotTap(player, phaseIdx, moveIdx, hasMove),
-                        onDelete: isSelected ? () {
+                        // Inline delete only when exactly one block is
+                        // selected — multi-select hides it to avoid
+                        // accidentally nuking many waypoints at once.
+                        onDelete: (isSelected && _selected.length == 1) ? () {
                           widget.state.removePlayerWaypoint(player.id, moveIdx);
-                          setState(() => _selected = null);
+                          setState(() => _selected.clear());
                         } : null,
-                        dragData: hasMove ? (id: player.id, moveIdx: moveIdx, isStroke: false) : null,
+                        dragData: hasMove ? block : null,
                       );
                     },
                   ),
@@ -376,25 +431,58 @@ class _TimelineEditorState extends State<TimelineEditor> {
       return GestureDetector(onTap: onTap, child: blockWidget);
     }
 
+    final isGroupDrag =
+        _selected.contains(dragData) && _selected.length > 1;
     return Draggable<({String id, int moveIdx, bool isStroke})>(
       data: dragData,
-      onDragStarted: () => setState(() => _selected = dragData),
+      onDragStarted: () => setState(() {
+        // Picking up a block that ISN'T already in the multi-select set
+        // collapses the selection to just that block — drag of a single
+        // unrelated block shouldn't drag the previously selected group.
+        if (!_selected.contains(dragData)) {
+          _selected
+            ..clear()
+            ..add(dragData);
+        }
+      }),
       onDragEnd: (_) {},
       feedback: Material(
         color: Colors.transparent,
-        child: Container(
-          width: 48,
-          height: 34,
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.85),
-            borderRadius: BorderRadius.circular(6),
-            boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 8, offset: const Offset(0, 2))],
-          ),
-          child: Center(
-            child: icon != null
-                ? Icon(icon, color: Colors.white, size: 14)
-                : Text(label ?? '', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold, decoration: TextDecoration.none)),
-          ),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              width: 48,
+              height: 34,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.85),
+                borderRadius: BorderRadius.circular(6),
+                boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 8, offset: const Offset(0, 2))],
+              ),
+              child: Center(
+                child: icon != null
+                    ? Icon(icon, color: Colors.white, size: 14)
+                    : Text(label ?? '', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold, decoration: TextDecoration.none)),
+              ),
+            ),
+            // "×N" badge — only when this drag is moving a group.
+            if (isGroupDrag)
+              Positioned(
+                top: -6, right: -6,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 3)],
+                  ),
+                  child: Text(
+                    '×${_selected.length}',
+                    style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold, decoration: TextDecoration.none),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
       childWhenDragging: Container(
@@ -410,19 +498,138 @@ class _TimelineEditorState extends State<TimelineEditor> {
     );
   }
 
+  // ── Playback controls row ─────────────────────────────────────────────────
+  Widget _controlsRow() {
+    final state = widget.state;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 2, 12, 4),
+      child: Row(
+        children: [
+          Text('speed'.tr(),
+              style: const TextStyle(color: Colors.white54, fontSize: 11)),
+          const SizedBox(width: 6),
+          _speedChip(0.5),
+          _speedChip(1.0),
+          _speedChip(2.0),
+          const Spacer(),
+          _tinyToggle(Icons.repeat, state.loopAnimation, state.toggleLoop),
+          const SizedBox(width: 8),
+          _tinyToggle(Icons.format_list_numbered, state.sequentialMode,
+              state.toggleSequentialMode),
+        ],
+      ),
+    );
+  }
+
+  Widget _speedChip(double v) {
+    final sel = widget.state.animSpeed == v;
+    final label = v == 0.5 ? '0.5×' : (v == 1.0 ? '1×' : '2×');
+    return GestureDetector(
+      onTap: () => widget.state.setAnimSpeed(v),
+      child: Container(
+        margin: const EdgeInsets.only(right: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+        decoration: BoxDecoration(
+          color: sel ? kAccent : Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text(label,
+            style: TextStyle(
+                color: sel ? Colors.white : Colors.white60,
+                fontSize: 11,
+                fontWeight: FontWeight.w600)),
+      ),
+    );
+  }
+
+  Widget _tinyToggle(IconData icon, bool on, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 30,
+        height: 30,
+        decoration: BoxDecoration(
+          color: on ? kAccent : Colors.white.withValues(alpha: 0.08),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(icon, size: 16, color: on ? Colors.white : Colors.white54),
+      ),
+    );
+  }
+
+  Widget _scrubber() {
+    final state = widget.state;
+    final max = state.maxMoveSteps;
+    final cur =
+        (_scrubValue ?? state.atStep.toDouble()).clamp(0.0, max.toDouble());
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 0, 12, 2),
+      child: Row(
+        children: [
+          const Icon(Icons.flag_outlined, color: Colors.white38, size: 14),
+          Expanded(
+            child: Slider(
+              value: cur,
+              min: 0,
+              max: max.toDouble(),
+              divisions: max,
+              activeColor: kAccent,
+              inactiveColor: Colors.white24,
+              label: '${cur.round()}',
+              onChanged: state.isAnimating
+                  ? null
+                  : (v) => setState(() => _scrubValue = v),
+              onChangeEnd: (v) {
+                setState(() => _scrubValue = null);
+                widget.state.animateToStep(v.round());
+              },
+            ),
+          ),
+          Text('${state.atStep}/$max',
+              style: const TextStyle(color: Colors.white54, fontSize: 11)),
+        ],
+      ),
+    );
+  }
+
   void _onPlayerSlotTap(PlayerIcon player, int phaseIdx, int moveIdx, bool hasMove) {
-    if (_selected != null && !_selected!.isStroke && _selected!.id == player.id) {
-      if (hasMove && _selected!.moveIdx == moveIdx) {
-        setState(() => _selected = null);
-      } else if (!hasMove) {
-        widget.state.setMovePhase(player.id, _selected!.moveIdx, phaseIdx);
-        setState(() => _selected = null);
-      } else {
-        setState(() => _selected = (id: player.id, moveIdx: moveIdx, isStroke: false));
-      }
-    } else if (hasMove) {
-      setState(() => _selected = (id: player.id, moveIdx: moveIdx, isStroke: false));
+    final block = (id: player.id, moveIdx: moveIdx, isStroke: false);
+    if (hasMove) {
+      // Tap an existing block → toggle its membership in the selection.
+      setState(() {
+        if (_selected.contains(block)) {
+          _selected.remove(block);
+        } else {
+          _selected.add(block);
+        }
+      });
+      return;
     }
+    // Tap an empty slot → shift the whole selected group, keeping
+    // relative offsets. Anchor = the leftmost selected block.
+    if (_selected.isEmpty) return;
+    int anchorPhase = 1 << 30;
+    for (final sel in _selected) {
+      final ph = _phaseOf(sel);
+      if (ph < anchorPhase) anchorPhase = ph;
+    }
+    final delta = phaseIdx - anchorPhase;
+    if (delta == 0) return;
+    if (_selected.length == 1) {
+      final only = _selected.first;
+      widget.state.setMovePhase(only.id, only.moveIdx, _phaseOf(only) + delta);
+    } else {
+      final changes = <({String playerId, int moveIndex, int phase})>[];
+      for (final sel in _selected) {
+        changes.add((
+          playerId: sel.id,
+          moveIndex: sel.moveIdx,
+          phase: (_phaseOf(sel) + delta).clamp(0, 99).toInt(),
+        ));
+      }
+      widget.state.setMovePhasesBulk(changes);
+    }
+    setState(() => _selected.clear());
   }
 
   void _resetToDefault() {
@@ -434,7 +641,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
     for (final s in widget.state.strokes) {
       widget.state.setStrokePhaseRange(s.id, -1, -1);
     }
-    setState(() => _selected = null);
+    setState(() => _selected.clear());
   }
 }
 

@@ -8,8 +8,8 @@ import '../services/practice_history_service.dart';
 import '../state/tactics_state.dart';
 
 const _kBg = Color(0xFF0E1C22);
-const _kCard = Color(0xFF213E48);
-const _kAccent = Color(0xFF00E5CC);
+const _kCard = Color(0xFF15303A);
+const _kAccent = Color(0xFF00C2B2);
 
 class PracticeRunPage extends StatefulWidget {
   final TacticsState state;

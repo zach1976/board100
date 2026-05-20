@@ -152,5 +152,14 @@
   "sport_sepak_takraw": "Sepak takraw",
   "formation_regu": "Regu (3c3)",
   "sport_beach_tennis": "Beach-tennis",
-  "sport_footvolley": "Footvolley"
+  "sport_footvolley": "Footvolley",
+  "eraser": "Gomme",
+  "present_mode": "Présentation",
+  "present_exit": "Quitter",
+  "move_add": "Ajouter course",
+  "move_done": "Terminé",
+  "half_court": "Demi-terrain",
+  "full_court": "Terrain complet",
+  "speed": "Vitesse",
+  "formation_serve_receive": "Réception"
 }
