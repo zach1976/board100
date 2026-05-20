@@ -75,19 +75,47 @@ def latest_build_for_version(app_id):
     return b["attributes"]["processingState"], b["id"]
 
 
+def _safe(fn, *args, retries=5, delay=30):
+    """Wrap a network call so transient DNS / connection blips don't crash
+    a multi-hour orchestrator. Returns None after [retries] failures."""
+    for attempt in range(1, retries + 1):
+        try:
+            return fn(*args)
+        except (requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout,
+                requests.exceptions.RequestException) as e:
+            print(f"  ⚠ {type(e).__name__} on {fn.__name__}({args}); retry {attempt}/{retries} in {delay}s")
+            time.sleep(delay)
+    return None
+
+
 def main():
-    app_ids = {sku: get_app_id(bid) for sku, bid in APPS}
+    # Resolve app IDs once, but tolerant to transient DNS at boot.
+    app_ids = {}
+    for sku, bid in APPS:
+        aid = _safe(get_app_id, bid)
+        if aid is None:
+            print(f"❌ could not resolve app_id for {sku} after retries — aborting")
+            return 1
+        app_ids[sku] = aid
     print(f"Polling 16 apps for {VERSION} build processing...")
     while True:
         states = {}
         all_valid = True
         for sku, _ in APPS:
-            state, _ = latest_build_for_version(app_ids[sku])
+            result = _safe(latest_build_for_version, app_ids[sku])
+            if result is None:
+                # Transient failure on this sport — mark as PROCESSING so we
+                # don't claim VALID prematurely, and keep polling.
+                states[sku] = "TRANSIENT"
+                all_valid = False
+                continue
+            state, _ = result
             states[sku] = state or "MISSING"
             if state != "VALID":
                 all_valid = False
-        # Print compact status line
-        sym = {"VALID": "✓", "PROCESSING": "·", "INVALID": "✗", "MISSING": "?"}
+        sym = {"VALID": "✓", "PROCESSING": "·", "INVALID": "✗",
+               "MISSING": "?", "TRANSIENT": "~"}
         line = " ".join(f"{sku[:4]}={sym.get(s, '?')}" for sku, s in states.items())
         print(f"[{time.strftime('%H:%M:%S')}] {line}")
         if all_valid:
