@@ -1,0 +1,91 @@
+{
+  "_comment": "App Store preview-video captions, 6 per locale, scene-ordered. Used by finalize_preview.py --locale. Keep each line short and punchy.",
+  "en-US": [
+    "Stop drawing on napkins.",
+    "Faces detected automatically.",
+    "The whole team. One tap.",
+    "Tap the path. Any player.",
+    "Edit the timeline.",
+    "Press Play. The team gets it."
+  ],
+  "es-ES": [
+    "Deja de dibujar en servilletas.",
+    "Caras detectadas automáticamente.",
+    "Todo el equipo. Un toque.",
+    "Marca la ruta. Cualquier jugador.",
+    "Edita la línea de tiempo.",
+    "Dale a Play. El equipo lo entiende."
+  ],
+  "fr-FR": [
+    "Fini les schémas sur les serviettes.",
+    "Visages détectés automatiquement.",
+    "Toute l'équipe. Une touche.",
+    "Tracez le trajet. Chaque joueur.",
+    "Modifiez la chronologie.",
+    "Lancez la lecture. L'équipe comprend."
+  ],
+  "id": [
+    "Berhenti corat-coret di tisu.",
+    "Wajah terdeteksi otomatis.",
+    "Satu tim. Sekali ketuk.",
+    "Ketuk jalurnya. Pemain mana pun.",
+    "Edit lini masa.",
+    "Tekan Play. Tim langsung paham."
+  ],
+  "ja": [
+    "ナプキンの作戦図はもう卒業。",
+    "顔を自動で検出。",
+    "チーム全員、ワンタップ。",
+    "タップで動きを描く。どの選手でも。",
+    "タイムラインを編集。",
+    "再生すれば、チームに伝わる。"
+  ],
+  "ko": [
+    "냅킨에 그리던 작전은 그만.",
+    "얼굴을 자동으로 인식.",
+    "팀 전원, 한 번의 탭.",
+    "탭으로 동선 그리기. 모든 선수.",
+    "타임라인을 편집.",
+    "재생하면, 팀이 이해한다."
+  ],
+  "ms": [
+    "Berhenti melukis di tisu.",
+    "Wajah dikesan secara automatik.",
+    "Satu pasukan. Satu ketukan.",
+    "Ketuk laluan. Mana-mana pemain.",
+    "Edit garis masa.",
+    "Tekan Main. Pasukan terus faham."
+  ],
+  "th": [
+    "เลิกวาดแผนบนกระดาษทิชชู่",
+    "ตรวจจับใบหน้าอัตโนมัติ",
+    "ทั้งทีม แตะครั้งเดียว",
+    "แตะกำหนดเส้นทาง ผู้เล่นคนไหนก็ได้",
+    "แก้ไขไทม์ไลน์",
+    "กดเล่น แล้วทั้งทีมเข้าใจ"
+  ],
+  "vi": [
+    "Đừng vẽ chiến thuật lên giấy ăn nữa.",
+    "Tự động nhận diện khuôn mặt.",
+    "Cả đội. Chỉ một chạm.",
+    "Chạm để vẽ đường chạy. Mọi cầu thủ.",
+    "Chỉnh sửa dòng thời gian.",
+    "Nhấn Play. Cả đội hiểu ngay."
+  ],
+  "zh-Hans": [
+    "别再在餐巾纸上画战术了。",
+    "自动识别人脸。",
+    "全队，一键搞定。",
+    "点击绘制跑位。任意球员。",
+    "编辑时间轴。",
+    "按下播放，全队秒懂。"
+  ],
+  "zh-Hant": [
+    "別再在餐巾紙上畫戰術了。",
+    "自動辨識人臉。",
+    "全隊，一鍵搞定。",
+    "點擊繪製跑位。任意球員。",
+    "編輯時間軸。",
+    "按下播放，全隊秒懂。"
+  ]
+}
