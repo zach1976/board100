@@ -1,12 +1,29 @@
 #!/usr/bin/env python3
-"""Poll App Store Connect until all 16 v1.1.11 builds finish processing."""
-import jwt, time, sys, warnings
+"""Poll App Store Connect until all 16 v{VERSION} builds finish processing.
+
+VERSION defaults to the value in pubspec.yaml; override via env (e.g. VERSION=1.1.13).
+"""
+import jwt, time, sys, os, warnings
 import requests
 warnings.filterwarnings("ignore")
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
+
+VERSION = os.environ.get("VERSION")
+if not VERSION:
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "..", "pubspec.yaml")) as _pf:
+            for _ln in _pf:
+                if _ln.startswith("version:"):
+                    VERSION = _ln.split(":", 1)[1].strip().split("+", 1)[0]
+                    break
+    except Exception:
+        pass
+if not VERSION:
+    print("❌ VERSION env var required (and pubspec.yaml not readable)")
+    raise SystemExit(2)
 
 APPS = [
     ("tactics_board", "com.zach.tacticsBoard"),
@@ -46,10 +63,10 @@ def get_app_id(bundle_id):
     return r.json()["data"][0]["id"]
 
 
-def latest_1_1_11_build(app_id):
-    """Return (state, build_id) of the newest 1.1.11 build, or None."""
+def latest_build_for_version(app_id):
+    """Return (state, build_id) of the newest VERSION build, or None."""
     url = (f"https://api.appstoreconnect.apple.com/v1/builds?"
-           f"filter[app]={app_id}&filter[preReleaseVersion.version]=1.1.11"
+           f"filter[app]={app_id}&filter[preReleaseVersion.version]={VERSION}"
            f"&sort=-uploadedDate&limit=1")
     r = requests.get(url, headers=H(), timeout=30, verify=False).json()
     if not r.get("data"):
@@ -60,12 +77,12 @@ def latest_1_1_11_build(app_id):
 
 def main():
     app_ids = {sku: get_app_id(bid) for sku, bid in APPS}
-    print(f"Polling 16 apps for 1.1.11 build processing...")
+    print(f"Polling 16 apps for {VERSION} build processing...")
     while True:
         states = {}
         all_valid = True
         for sku, _ in APPS:
-            state, _ = latest_1_1_11_build(app_ids[sku])
+            state, _ = latest_build_for_version(app_ids[sku])
             states[sku] = state or "MISSING"
             if state != "VALID":
                 all_valid = False

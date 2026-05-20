@@ -105,6 +105,20 @@ if _filter:
     APPS = [(b, n) for b, n in APPS if APP_KEY.get(b) in _wanted]
     print(f"Filtered to: {[APP_KEY[b] for b,_ in APPS]}")
 
+# Release version — release scripts set VERSION; falls back to pubspec.yaml
+# value if unset (read once at start).
+VERSION = os.environ.get("VERSION")
+if not VERSION:
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "..", "pubspec.yaml")) as _pf:
+            for _ln in _pf:
+                if _ln.startswith("version:"):
+                    VERSION = _ln.split(":", 1)[1].strip().split("+", 1)[0]
+                    break
+    except Exception:
+        VERSION = "1.1.11"
+print(f"Submitting v{VERSION} across {len(APPS)} apps")
+
 for bundle_id, name in APPS:
     print(f"\n{name}...")
     r = api("GET", f"/v1/apps?filter[bundleId]={bundle_id}")
@@ -113,10 +127,11 @@ for bundle_id, name in APPS:
 
     r_ver = api("GET", f"/v1/apps/{app_id}/appStoreVersions?filter[appStoreState]=PREPARE_FOR_SUBMISSION")
     if not r_ver["data"]:
-        # Create a new 1.1.11 version
+        # Create a new v{VERSION} version (normally create_versions_X.py ran
+        # in an earlier phase already — this branch is the fallback).
         r_new = api("POST", "/v1/appStoreVersions", {
             "data": {"type": "appStoreVersions",
-                     "attributes": {"platform": "IOS", "versionString": "1.1.11"},
+                     "attributes": {"platform": "IOS", "versionString": VERSION},
                      "relationships": {"app": {"data": {"type": "apps", "id": app_id}}}}
         })
         if r_new.get("_error"):
@@ -124,10 +139,10 @@ for bundle_id, name in APPS:
             print(f"  ❌ create version: {errs[0].get('detail','?') if errs else '?'}")
             continue
         version_id = r_new["data"]["id"]
-        # Find the uploaded 1.1.11 build
-        r_builds = api("GET", f"/v1/builds?filter[app]={app_id}&filter[preReleaseVersion.version]=1.1.11&sort=-uploadedDate&limit=1")
+        # Find the uploaded build for this version
+        r_builds = api("GET", f"/v1/builds?filter[app]={app_id}&filter[preReleaseVersion.version]={VERSION}&sort=-uploadedDate&limit=1")
         if not r_builds.get("data"):
-            print(f"  ❌ no 1.1.11 build found in App Store Connect yet, try again later")
+            print(f"  ❌ no {VERSION} build found in App Store Connect yet, try again later")
             continue
         build_id = r_builds["data"][0]["id"]
         api("PATCH", f"/v1/appStoreVersions/{version_id}/relationships/build", {
