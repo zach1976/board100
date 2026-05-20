@@ -1,6 +1,1 @@
-Novedades:
-• Capturas más afiladas — cada pantalla muestra qué hace la pizarra de tenis para ti
-• Textos más directos en descripciones y subtítulos, ganchos de temporada de tenis
-• Señales de confianza al frente — gratis para siempre, sin conexión, sin anuncios, sin cuenta
-
-Misma pizarra, más fácil de encontrar. Sigue entrenando y sigue mandando ideas.
+Mejoras de rendimiento y pequeños ajustes.

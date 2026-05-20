@@ -5,19 +5,182 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000216">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000193">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: app_store_connect_api_key" time="0.001832">
+      <testcase classname="fastlane.lanes" name="01: app_store_connect_api_key" time="0.00181">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: deliver" time="8.193288">
+      <testcase classname="fastlane.lanes" name="02: Switch to ios upload_metadata lane" time="5.7e-05">
         
-          <failure message="/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:74:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/gems/fastlane-2.232.2/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.1/lib/ruby/4.0.0/rubygems.rb:303:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.1/lib/ruby/4.0.0/rubygems.rb:303:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.232.2/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;Enqueue Array instead of NilClass" />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="03: deliver" time="20.73465">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: Switch to ios upload_metadata lane" time="7.5e-05">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: deliver" time="16.273868">
+        
+          <failure message="/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:49:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:204:in &apos;Fastlane::Runner#try_switch_to_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:146:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:66:in &apos;block (3 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;Fastfile:63:in &apos;Hash#each_key&apos;&#10;Fastfile:63:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;An exception has occurred for locale: id.&#10;Error: The provided entity includes an attribute with a value that has already been used on a different account. - The app name you entered is already being used. If you have trademark rights to this name and would like it released for your use, submit a claim. - /data/attributes/name" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: Switch to ios upload_metadata lane" time="0.000247">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: deliver" time="17.883142">
+        
+          <failure message="/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:49:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:204:in &apos;Fastlane::Runner#try_switch_to_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:146:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:66:in &apos;block (3 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;Fastfile:63:in &apos;Hash#each_key&apos;&#10;Fastfile:63:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;An exception has occurred for locale: es-ES.&#10;Error: The provided entity includes an attribute with a value that has already been used on a different account. - The app name you entered is already being used. If you have trademark rights to this name and would like it released for your use, submit a claim. - /data/attributes/name" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: Switch to ios upload_metadata lane" time="0.000307">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: deliver" time="22.210002">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: Switch to ios upload_metadata lane" time="0.000295">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: deliver" time="20.139286">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="12: Switch to ios upload_metadata lane" time="0.000176">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="13: deliver" time="23.5979">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: Switch to ios upload_metadata lane" time="0.000366">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="15: deliver" time="23.352891">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="16: Switch to ios upload_metadata lane" time="0.000295">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="17: deliver" time="21.178107">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="18: Switch to ios upload_metadata lane" time="0.000325">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="19: deliver" time="23.930605">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="20: Switch to ios upload_metadata lane" time="0.000235">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="21: deliver" time="21.410281">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="22: Switch to ios upload_metadata lane" time="0.000492">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="23: deliver" time="22.515386">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="24: Switch to ios upload_metadata lane" time="0.00016">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="25: deliver" time="14.083235">
+        
+          <failure message="/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:49:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:204:in &apos;Fastlane::Runner#try_switch_to_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:146:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:66:in &apos;block (3 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;Fastfile:63:in &apos;Hash#each_key&apos;&#10;Fastfile:63:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;An exception has occurred for locale: th.&#10;Error: An attribute value has invalid characters. - Description can’t contain the following character(s): 🏑. - /data/attributes/description" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="26: Switch to ios upload_metadata lane" time="0.000169">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="27: deliver" time="14.637806">
+        
+          <failure message="/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:49:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:204:in &apos;Fastlane::Runner#try_switch_to_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:146:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:66:in &apos;block (3 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;Fastfile:63:in &apos;Hash#each_key&apos;&#10;Fastfile:63:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;An exception has occurred for locale: th.&#10;Error: An attribute value has invalid characters. - Description can’t contain the following character(s): 🤽. - /data/attributes/description" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="28: Switch to ios upload_metadata lane" time="0.000499">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="29: deliver" time="22.628747">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="30: Switch to ios upload_metadata lane" time="0.0002">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="31: deliver" time="13.665697">
+        
+          <failure message="/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in &apos;Fastlane::Actions.execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:255:in &apos;block in Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:229:in &apos;Fastlane::Runner#execute_action&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:157:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:49:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:204:in &apos;Fastlane::Runner#try_switch_to_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:146:in &apos;Fastlane::Runner#trigger_action_by_name&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/fast_file.rb:159:in &apos;Fastlane::FastFile#method_missing&apos;&#10;Fastfile:66:in &apos;block (3 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;Fastfile:63:in &apos;Hash#each_key&apos;&#10;Fastfile:63:in &apos;block (2 levels) in Fastlane::FastFile#parsing_binding&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane.rb:41:in &apos;Fastlane::Lane#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:49:in &apos;block in Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Dir.chdir&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/runner.rb:45:in &apos;Fastlane::Runner#execute&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/lane_manager.rb:46:in &apos;Fastlane::LaneManager.cruise_lane&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/command_line_handler.rb:34:in &apos;Fastlane::CommandLineHandler.handle&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:110:in &apos;block (2 levels) in Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:187:in &apos;Commander::Command#call&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/command.rb:157:in &apos;Commander::Command#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/runner.rb:444:in &apos;Commander::Runner#run_active_command&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in &apos;Commander::Runner#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/commander-4.6.0/lib/commander/delegates.rb:18:in &apos;Commander::Delegates#run!&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:363:in &apos;Fastlane::CommandsGenerator#run&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/commands_generator.rb:43:in &apos;Fastlane::CommandsGenerator.start&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in &apos;Fastlane::CLIToolsDistributor.take_off&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/gems/fastlane-2.234.0/bin/fastlane:23:in &apos;&lt;top (required)&gt;&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Kernel#load&apos;&#10;/opt/homebrew/Cellar/ruby/4.0.4/lib/ruby/4.0.0/rubygems.rb:305:in &apos;Gem.activate_and_load_bin_path&apos;&#10;/opt/homebrew/Cellar/fastlane/2.234.0/libexec/bin/fastlane:25:in &apos;&lt;main&gt;&apos;&#10;&#10;An exception has occurred for locale: th.&#10;Error: An attribute value has invalid characters. - Description can’t contain the following character(s): 🏖, ️. - /data/attributes/description" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="32: Switch to ios upload_metadata lane" time="0.000297">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="33: deliver" time="21.963967">
         
       </testcase>
     
