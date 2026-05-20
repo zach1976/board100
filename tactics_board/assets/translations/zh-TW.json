@@ -202,5 +202,14 @@
   "sport_sepak_takraw": "藤球",
   "formation_regu": "Regu (3v3)",
   "sport_beach_tennis": "沙灘網球",
-  "sport_footvolley": "足排球"
+  "sport_footvolley": "足排球",
+  "eraser": "橡皮擦",
+  "present_mode": "簡報模式",
+  "present_exit": "退出簡報",
+  "move_add": "跑位",
+  "move_done": "完成",
+  "half_court": "半場",
+  "full_court": "全場",
+  "speed": "速度",
+  "formation_serve_receive": "接發球"
 }

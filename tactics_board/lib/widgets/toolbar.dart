@@ -19,6 +19,7 @@ import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import '../ui_constants.dart';
 import 'element_import_flow.dart';
 import 'marker_shape_clipper.dart';
 import 'photo_crop_editor.dart';
@@ -38,7 +39,7 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
   final ok = await showDialog<bool>(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: const Color(0xFF14302A),
+      backgroundColor: const Color(0xFF15303A),
       title: Text('photo_duplicate_title'.tr(),
           style: const TextStyle(color: Colors.white)),
       content: Text(
@@ -54,7 +55,7 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(true),
           child: Text('photo_add_another'.tr(),
-              style: const TextStyle(color: Color(0xFF6EE7B7))),
+              style: const TextStyle(color: Color(0xFF00C2B2))),
         ),
       ],
     ),
@@ -77,7 +78,7 @@ Widget scaledSheet(BuildContext ctx, Widget child) {
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: const Color(0xFF213E48),
+    backgroundColor: const Color(0xFF15303A),
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)),
   );
@@ -97,7 +98,7 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
 Future<String?> _pickShareFormat(BuildContext context) {
   return showModalBottomSheet<String>(
     context: context,
-    backgroundColor: const Color(0xFF213E48),
+    backgroundColor: const Color(0xFF15303A),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
@@ -106,7 +107,7 @@ Future<String?> _pickShareFormat(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            leading: const Icon(Icons.image_outlined, color: Color(0xFF00E5CC)),
+            leading: const Icon(Icons.image_outlined, color: Color(0xFF00C2B2)),
             title: const Text('PNG', style: TextStyle(color: Colors.white)),
             onTap: () => Navigator.pop(ctx, 'png'),
           ),
@@ -186,19 +187,40 @@ Future<void> _sharePdf(BuildContext context, TacticsState state) async {
   }
 }
 
-/// Public function to confirm clear all
+/// Public function to clear the board — offers two scopes so a coach can
+/// wipe just this play's drawings while keeping the formation, which is the
+/// single most common between-plays workflow.
 void confirmClearAll(BuildContext context, TacticsState state) {
-  showDialog(
+  final hasStrokes = state.strokes.isNotEmpty;
+  showModalBottomSheet(
     context: context,
-    builder: (ctx) => AlertDialog(
-      backgroundColor: const Color(0xFF213E48),
-      title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
-      content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
-      actions: [
-        TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
-        TextButton(onPressed: () { Navigator.pop(ctx); state.clearAll(); }, child: Text('clear'.tr(), style: const TextStyle(color: Colors.red))),
-      ],
+    backgroundColor: kSurface,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
+    builder: (ctx) => scaledSheet(ctx, SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (hasStrokes)
+            ListTile(
+              leading: const Icon(Icons.gesture, color: kAccent),
+              title: Text('clear_lines'.tr(),
+                  style: const TextStyle(color: Colors.white)),
+              onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
+            ),
+          ListTile(
+            leading: const Icon(Icons.delete_sweep, color: kDanger),
+            title: Text('clear_all'.tr(),
+                style: const TextStyle(color: Colors.white)),
+            subtitle: Text('clear_board_message'.tr(),
+                style: const TextStyle(color: Colors.white54, fontSize: 12)),
+            onTap: () { Navigator.pop(ctx); state.clearAll(); },
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    )),
   );
 }
 
@@ -206,7 +228,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
 void showAddElementSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: const Color(0xFF213E48),
+    backgroundColor: const Color(0xFF15303A),
     // Scroll-controlled so the sheet sizes to its content — which varies by
     // sport — instead of being capped at ~50% and forcing an inner scroll.
     isScrollControlled: true,
@@ -246,7 +268,6 @@ class _MainRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hasMoves = state.hasMoves;
     final hasContent = state.players.isNotEmpty || state.strokes.isNotEmpty;
 
     return Padding(
@@ -274,14 +295,27 @@ class _MainRow extends StatelessWidget {
                       _AddPlayerBtn(state: state),
                       if (hasContent) ...[
                         const SizedBox(width: 6),
-                        _IconBtn(icon: Icons.delete_sweep, onTap: () => _confirmClear(context, state), color: Colors.redAccent),
+                        _IconBtn(icon: Icons.delete_sweep, onTap: () => confirmClearAll(context, state), color: kDanger),
                       ],
                     ],
                   ),
                 ),
               ),
-              _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: const Color(0xFF00E5CC)),
-              _IconBtn(icon: Icons.ios_share, onTap: () => shareBoardImage(context, state), color: Colors.tealAccent),
+              // Undo / Redo — always reachable, even while only placing
+              // players (before any move/stroke exists). Previously these
+              // lived in the play-controls bar, which is hidden during setup.
+              _IconBtn(
+                icon: Icons.undo,
+                onTap: state.canUndo ? state.undo : () {},
+                color: state.canUndo ? Colors.white : Colors.white24,
+              ),
+              _IconBtn(
+                icon: Icons.redo,
+                onTap: state.canRedo ? state.redo : () {},
+                color: state.canRedo ? Colors.white : Colors.white24,
+              ),
+              _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: kAccent),
+              // Share moved to the ⋯ menu — keeps this row from over-packing.
             ],
           ),
         ],
@@ -291,31 +325,6 @@ class _MainRow extends StatelessWidget {
 
   void _showSaveLoad(BuildContext context) {
     showSaveLoadSheet(context, state);
-  }
-
-
-  void _confirmClear(BuildContext context, TacticsState state) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF213E48),
-        title: Text('clear_board_title'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text('clear_board_message'.tr(), style: const TextStyle(color: Colors.white70)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: Text('cancel'.tr()),
-          ),
-          TextButton(
-            onPressed: () {
-              state.clearAll();
-              Navigator.pop(ctx);
-            },
-            child: Text('clear'.tr(), style: const TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
-    );
   }
 }
 
@@ -350,7 +359,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final newName = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: const Color(0xFF15303A),
         title: const Text('Rename', style: TextStyle(color: Colors.white)),
         content: TextField(
           controller: ctrl,
@@ -365,7 +374,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00E5CC))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
           ),
         ],
       ),
@@ -387,14 +396,14 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: const Color(0xFF15303A),
         title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text(name, style: const TextStyle(color: Colors.white70)),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00E5CC))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
           ),
         ],
       ),
@@ -427,7 +436,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
             child: Row(
               children: [
-                const Icon(Icons.save_outlined, color: const Color(0xFF00E5CC), size: 20),
+                const Icon(Icons.save_outlined, color: const Color(0xFF00C2B2), size: 20),
                 const SizedBox(width: 8),
                 Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
@@ -517,7 +526,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                         IconButton(
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                          icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00E5CC), size: 20),
+                          icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00C2B2), size: 20),
                           onPressed: () => _overwriteTactic(name),
                           tooltip: 'Update',
                         ),
@@ -630,7 +639,7 @@ class _SegTab extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
-          color: selected ? const Color(0xFF3A7DFF) : Colors.transparent,
+          color: selected ? kAccent : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Opacity(
@@ -694,7 +703,7 @@ class _AddPlayerBtn extends StatelessWidget {
   static void showAddSheet(BuildContext context, TacticsState state) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF213E48),
+      backgroundColor: const Color(0xFF15303A),
       // Scroll-controlled so the sheet sizes to its content — which varies by
       // sport — instead of being capped at ~50% and forcing an inner scroll.
       isScrollControlled: true,
@@ -718,8 +727,10 @@ class _AddPlayerSheet extends StatefulWidget {
 
 class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   bool _showMore = false;
+  // My-Teams photo library is collapsed by default — it's rarely needed for
+  // a quick add and keeps the sheet short. Tap the header to expand.
+  bool _showPhotos = false;
   final _scrollController = ScrollController();
-  final _moreKey = GlobalKey();
   TacticsState get state => widget.state;
   BuildContext get sheetCtx => widget.sheetCtx;
 
@@ -1183,7 +1194,30 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                 ),
               ),
             const Divider(color: Colors.white12),
-            _MyPhotosSection(state: state, sheetCtx: sheetCtx),
+            // Collapsible "My Teams" — expanded only on demand.
+            GestureDetector(
+              onTap: () => setState(() => _showPhotos = !_showPhotos),
+              behavior: HitTestBehavior.opaque,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Row(
+                  children: [
+                    const Icon(Icons.people_outline, color: Colors.white60, size: 18),
+                    const SizedBox(width: 8),
+                    Text('photos_label'.tr(),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14)),
+                    const Spacer(),
+                    Icon(_showPhotos ? Icons.expand_less : Icons.expand_more,
+                        color: Colors.white54),
+                  ],
+                ),
+              ),
+            ),
+            if (_showPhotos)
+              _MyPhotosSection(state: state, sheetCtx: sheetCtx),
             const SizedBox(height: 8),
           ],
         ),
@@ -1374,7 +1408,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: const Color(0xFF14302A),
+          backgroundColor: const Color(0xFF15303A),
           title: Text('photo_duplicate_title'.tr(),
               style: const TextStyle(color: Colors.white)),
           content: Text(
@@ -1389,7 +1423,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('photo_add_another'.tr(),
-                  style: const TextStyle(color: Color(0xFF6EE7B7))),
+                  style: const TextStyle(color: Color(0xFF00C2B2))),
             ),
           ],
         ),
@@ -1519,7 +1553,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF14302A),
+        backgroundColor: const Color(0xFF15303A),
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -1548,7 +1582,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final box = await showDialog<List<String>>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF14302A),
+        backgroundColor: const Color(0xFF15303A),
         title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
         content: TextField(
           controller: controller,
@@ -1558,7 +1592,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             hintText: 'photo_group_name'.tr(),
             hintStyle: const TextStyle(color: Colors.white38),
             enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
-            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Color(0xFF6EE7B7))),
+            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Color(0xFF00C2B2))),
           ),
         ),
         actions: [
@@ -1568,7 +1602,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop([controller.text]),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF6EE7B7))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
           ),
         ],
       ),
@@ -1580,7 +1614,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   Future<void> _onGroupLongPress(BuildContext context, PhotoGroup group) async {
     final action = await showModalBottomSheet<String>(
       context: context,
-      backgroundColor: const Color(0xFF14302A),
+      backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       builder: (ctx) => SafeArea(
         child: Column(
@@ -1613,7 +1647,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: const Color(0xFF14302A),
+          backgroundColor: const Color(0xFF15303A),
           title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -1688,10 +1722,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
                       padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
                       child: Row(
                         children: [
-                          Text(
-                            'photos_label'.tr(),
-                            style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w600, fontSize: 13),
-                          ),
                           const Spacer(),
                           _PhotoTeamChip(
                             label: 'team_home'.tr(),
@@ -1815,12 +1845,12 @@ class _GroupTab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
           color: selected
-              ? const Color(0xFF6EE7B7).withValues(alpha: 0.18)
+              ? const Color(0xFF00C2B2).withValues(alpha: 0.18)
               : Colors.white.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: selected
-                ? const Color(0xFF6EE7B7)
+                ? const Color(0xFF00C2B2)
                 : Colors.transparent,
             width: 1,
           ),
@@ -1828,7 +1858,7 @@ class _GroupTab extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? const Color(0xFF6EE7B7) : Colors.white70,
+            color: selected ? const Color(0xFF00C2B2) : Colors.white70,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),
@@ -2292,7 +2322,7 @@ class _PhotosManageDialog extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF14302A),
+        backgroundColor: const Color(0xFF15303A),
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -2314,7 +2344,7 @@ class _PhotosManageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF20424C),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       insetPadding: const EdgeInsets.all(20),
       child: ConstrainedBox(
@@ -2473,7 +2503,7 @@ class _ManageTileState extends State<_ManageTile> {
           children: [
             _ManageAction(
               icon: Icons.crop,
-              color: const Color(0xFF6EE7B7),
+              color: const Color(0xFF00C2B2),
               onTap: widget.onAdjust,
             ),
             _ManageAction(
@@ -2618,19 +2648,19 @@ class _AddAllTile extends StatelessWidget {
         width: 52 * s, height: 52 * s,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: const Color(0xFF6EE7B7).withValues(alpha: 0.16),
-          border: Border.all(color: const Color(0xFF6EE7B7), width: 1.2),
+          color: const Color(0xFF00C2B2).withValues(alpha: 0.16),
+          border: Border.all(color: const Color(0xFF00C2B2), width: 1.2),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.group_add_outlined,
-                color: const Color(0xFF6EE7B7), size: 18 * s),
+                color: const Color(0xFF00C2B2), size: 18 * s),
             SizedBox(height: 1 * s),
             Text(
               '+$count',
               style: TextStyle(
-                color: const Color(0xFF6EE7B7),
+                color: const Color(0xFF00C2B2),
                 fontSize: 9 * s,
                 fontWeight: FontWeight.bold,
               ),
@@ -2646,8 +2676,8 @@ class _AddAllTile extends StatelessWidget {
         width: 60, height: 60,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: const Color(0xFF6EE7B7).withValues(alpha: 0.25),
-          border: Border.all(color: const Color(0xFF6EE7B7), width: 1.4),
+          color: const Color(0xFF00C2B2).withValues(alpha: 0.25),
+          border: Border.all(color: const Color(0xFF00C2B2), width: 1.4),
           boxShadow: [
             BoxShadow(
               color: const Color(0xFFFFD166).withValues(alpha: 0.55),
@@ -2663,12 +2693,12 @@ class _AddAllTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(Icons.group_add,
-                color: Color(0xFF6EE7B7), size: 22),
+                color: Color(0xFF00C2B2), size: 22),
             const SizedBox(height: 1),
             Text(
               '+$count',
               style: const TextStyle(
-                color: Color(0xFF6EE7B7),
+                color: Color(0xFF00C2B2),
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
               ),
@@ -3413,7 +3443,7 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          backgroundColor: const Color(0xFF213E48),
+          backgroundColor: const Color(0xFF15303A),
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -3766,6 +3796,15 @@ class DrawingOptionsBar extends StatelessWidget {
                   selected: state.arrowStyle == ArrowStyle.both,
                   onTap: () => state.setArrowStyle(ArrowStyle.both),
                 ),
+                const SizedBox(width: 14),
+                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
+                const SizedBox(width: 14),
+                // Eraser sub-mode — drag/tap over a stroke to delete it.
+                _ToggleChip(
+                  label: '⌫ ${'eraser'.tr()}',
+                  selected: state.eraserMode,
+                  onTap: () => state.setEraserMode(!state.eraserMode),
+                ),
               ],
             ),
           ),
@@ -3850,7 +3889,7 @@ class _ToggleChip extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: EdgeInsets.symmetric(horizontal: 10 * s, vertical: 4 * s),
         decoration: BoxDecoration(
-          color: selected ? Colors.blue : Colors.white10,
+          color: selected ? kAccent : Colors.white10,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(label, style: TextStyle(color: Colors.white, fontSize: 13 * s, fontWeight: FontWeight.w500)),
@@ -3868,10 +3907,16 @@ class _IconBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
+    // Guarantee a ≥44pt hit area even though the glyph stays 24pt — the
+    // toolbar buttons were ~36pt, small enough to mis-tap mid-game.
+    final hit = (36.0 * s).clamp(44.0, 60.0).toDouble();
     return GestureDetector(
       onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.all(6 * s),
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        width: hit,
+        height: hit,
+        alignment: Alignment.center,
         child: Icon(icon, color: color ?? Colors.white70, size: 24 * s),
       ),
     );
@@ -3918,25 +3963,6 @@ class _FormationTile extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Play / Stop button
 // ─────────────────────────────────────────────────────────────────────────────
-
-class _SmallIconBtn extends StatelessWidget {
-  final IconData icon;
-  final Color color;
-  final VoidCallback? onTap;
-  const _SmallIconBtn({required this.icon, required this.color, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = uiScale(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3 * s),
-        child: Icon(icon, color: color, size: 20 * s),
-      ),
-    );
-  }
-}
 
 class _PlayButton extends StatelessWidget {
   final TacticsState state;
@@ -4020,7 +4046,7 @@ class _TimelineBtn extends StatelessWidget {
   void _showTimeline(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF213E48),
+      backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -4072,7 +4098,7 @@ class _StepBackButton extends StatelessWidget {
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.skip_previous, color: const Color(0xFF00E5CC), size: 22 * s),
+          child: Icon(Icons.skip_previous, color: const Color(0xFF00C2B2), size: 22 * s),
         ),
       ),
     );
@@ -4111,7 +4137,7 @@ class _StepForwardButton extends StatelessWidget {
             color: Colors.blue.withValues(alpha: 0.2),
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.skip_next, color: const Color(0xFF00E5CC), size: 22 * s),
+          child: Icon(Icons.skip_next, color: const Color(0xFF00C2B2), size: 22 * s),
         ),
       ),
     );
@@ -4127,53 +4153,45 @@ class PlayControlsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.45),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.30),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (state.selectedPlayerId != null) ...[
-            _SmallIconBtn(icon: Icons.delete, color: Colors.redAccent, onTap: () => state.removePlayer(state.selectedPlayerId!)),
-            const SizedBox(width: 6),
+    // Listen directly to state — the outer Selector only rebuilds on a
+    // handful of properties, but the step indicator, play/stop icon and
+    // step-back/forward enabled state all need to track every change
+    // (otherwise editing phases in the timeline leaves "0/1" stale here
+    // while the timeline scrubber shows the real count).
+    return ListenableBuilder(
+      listenable: state,
+      builder: (context, _) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.45),
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.30),
+              blurRadius: 10,
+              offset: const Offset(0, 3),
+            ),
           ],
-          _SmallIconBtn(
-            icon: Icons.undo,
-            color: state.canUndo ? Colors.white : Colors.white24,
-            onTap: state.canUndo ? state.undo : null,
-          ),
-          const SizedBox(width: 6),
-          _SmallIconBtn(
-            icon: Icons.redo,
-            color: state.canRedo ? Colors.white : Colors.white24,
-            onTap: state.canRedo ? state.redo : null,
-          ),
-          const SizedBox(width: 6),
-          _ResetButton(state: state),
-          const SizedBox(width: 6),
-          _StepBackButton(state: state),
-          const SizedBox(width: 8),
-          _StepIndicator(state: state),
-          const SizedBox(width: 8),
-          _StepForwardButton(state: state),
-          const SizedBox(width: 6),
-          _PlayButton(state: state),
-          const SizedBox(width: 6),
-          _LinesToggle(state: state),
-          const SizedBox(width: 6),
-          _TimelineBtn(state: state),
-        ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _ResetButton(state: state),
+            const SizedBox(width: 6),
+            _StepBackButton(state: state),
+            const SizedBox(width: 8),
+            _StepIndicator(state: state),
+            const SizedBox(width: 8),
+            _StepForwardButton(state: state),
+            const SizedBox(width: 6),
+            _PlayButton(state: state),
+            const SizedBox(width: 6),
+            _LinesToggle(state: state),
+            const SizedBox(width: 6),
+            _TimelineBtn(state: state),
+          ],
+        ),
       ),
     );
   }

@@ -22,7 +22,7 @@ class LanguagePicker {
     final current = context.locale;
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF213E48),
+      backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

@@ -167,5 +167,14 @@
   "sport_sepak_takraw": "세팍타크로",
   "formation_regu": "레구 (3v3)",
   "sport_beach_tennis": "비치 테니스",
-  "sport_footvolley": "풋발리"
+  "sport_footvolley": "풋발리",
+  "eraser": "지우개",
+  "present_mode": "발표 모드",
+  "present_exit": "발표 종료",
+  "move_add": "동선 추가",
+  "move_done": "완료",
+  "half_court": "하프 코트",
+  "full_court": "풀 코트",
+  "speed": "속도",
+  "formation_serve_receive": "서브 리시브"
 }

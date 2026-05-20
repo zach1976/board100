@@ -66,8 +66,29 @@ void main() {
 
       // Move last step to phase 5
       s.setMovePhase('p1', 2, 5);
-      // Phases: [0, 1, 5] → distinct {0,1,5} = 3
-      expect(s.maxMoveSteps, 3);
+      // Phases: [0, 1, 5] — range 0..5, so 6 beats (3 with movement,
+      // 3 empty middle beats serve as deliberate rests).
+      expect(s.maxMoveSteps, 6);
+    });
+
+    test('empty middle phases count as beats (range, not distinct)', () {
+      // Mirrors a real coach-set timeline: player 5 runs phases 0..2,
+      // player 3 runs phases 4..6 with phase 3 left blank as a pause.
+      final s = TacticsState();
+      s.addPlayer(_player('p5'));
+      s.addPlayer(_player('p3'));
+      for (var i = 0; i < 3; i++) {
+        s.addPlayerMove('p5', Offset(150.0 + i * 10, 250));
+      }
+      for (var i = 0; i < 3; i++) {
+        s.addPlayerMove('p3', Offset(150.0 + i * 10, 350));
+      }
+      // p3 default phases [0,1,2] — push them out to [4,5,6].
+      s.setMovePhase('p3', 0, 4);
+      s.setMovePhase('p3', 1, 5);
+      s.setMovePhase('p3', 2, 6);
+      // Used phases: {0,1,2,4,5,6} — gap at 3. Total beats = 7.
+      expect(s.maxMoveSteps, 7);
     });
   });
 

@@ -84,7 +84,7 @@ class TacticsBoardApp extends StatelessWidget {
         locale: context.locale,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF00BFA5), // teal/emerald
+            seedColor: const Color(0xFF00C2B2), // teal/emerald
             brightness: Brightness.dark,
           ),
           scaffoldBackgroundColor: const Color(0xFF1A3A4A),
@@ -92,8 +92,8 @@ class TacticsBoardApp extends StatelessWidget {
             systemOverlayStyle: SystemUiOverlayStyle.light,
           ),
           sliderTheme: const SliderThemeData(
-            thumbColor: Color(0xFF00BFA5),
-            activeTrackColor: Color(0xFF00BFA5),
+            thumbColor: Color(0xFF00C2B2),
+            activeTrackColor: Color(0xFF00C2B2),
             inactiveTrackColor: Colors.white24,
           ),
         ),

@@ -18,7 +18,7 @@ class SportTheme {
   static const Color teamBlue = Color(0xFF3A7DFF);
   static const Color teamRed = Color(0xFFFF5A5F);
   static const Color accentSelect = Color(0xFFFFD166);
-  static const Color accentTimeline = Color(0xFF6EE7B7);
+  static const Color accentTimeline = Color(0xFF00C2B2);
 
   const SportTheme({
     required this.pageGradient,
@@ -33,7 +33,7 @@ extension SportThemeExtension on SportType {
       case SportType.soccer:
         return const SportTheme(
           pageGradient: [Color(0xFF1E3A2F), Color(0xFF0F2A20)],
-          panelColor: Color(0xFF14302A),
+          panelColor: Color(0xFF15303A),
         );
       case SportType.basketball:
         return const SportTheme(

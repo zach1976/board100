@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.1.11+1
+version: 1.1.12+1
 
 environment:
   sdk: ^3.11.0
@@ -50,7 +50,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  # integration_test temporarily disabled for release: pulls fat objective_c.framework (App Store rejects simulator slice)
+  # integration_test disabled for release: pulls fat objective_c.framework (App Store rejects simulator slice).
+  # Re-enable (uncomment the two lines below) ONLY to run integration tests
+  # locally — e.g. integration_test/ux_flows_test.dart — then re-comment before shipping.
   # integration_test:
   #   sdk: flutter
 
@@ -71,6 +73,7 @@ flutter:
   assets:
     - assets/translations/
     - assets/icon/
+    - assets/preview/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

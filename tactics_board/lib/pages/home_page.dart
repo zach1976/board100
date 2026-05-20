@@ -11,8 +11,10 @@ import '../models/sport_theme.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../state/tactics_state.dart';
+import '../ui_constants.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
+import '../widgets/sport_glyph.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/photo_crop_editor.dart';
 import '../widgets/timeline_editor.dart';
@@ -62,7 +64,7 @@ class TacticsBoardHomePage extends StatelessWidget {
       children: [
         Expanded(child: _canvasStack(context, topPad)),
         Selector<TacticsState, ({bool visible, SportTheme theme})>(
-          selector: (_, s) => (visible: s.toolbarVisible, theme: s.sportType.theme),
+          selector: (_, s) => (visible: s.toolbarVisible && !s.presentationMode, theme: s.sportType.theme),
           builder: (context, sel, _) => sel.visible
             ? SizedBox(
                 width: 190,
@@ -87,6 +89,24 @@ class TacticsBoardHomePage extends StatelessWidget {
         isLandscape
             ? const RotatedBox(quarterTurns: 1, child: TacticsCanvas())
             : const TacticsCanvas(),
+        // Presentation mode swaps all editing chrome for a clean, locked
+        // overlay; the normal board chrome is shown otherwise.
+        Consumer<TacticsState>(
+          builder: (context, state, _) {
+            if (state.presentationMode) {
+              return _PresentationOverlay(topPad: topPad);
+            }
+            // The selection edit bar spans the bottom width; the bottom
+            // corner controls fade out while it's open so the panel never
+            // overlaps the Half Court / zoom / fullscreen buttons.
+            final editPanelOpen = !state.isAnimating &&
+                !state.zoomMode &&
+                (state.isDrawingMode ||
+                    state.selectedStrokeId != null ||
+                    state.selectedPlayerId != null);
+            return Stack(
+              fit: StackFit.expand,
+              children: [
         if (!isSingleSportApp)
           Positioned(
             top: topPad + 8, left: 12,
@@ -143,13 +163,13 @@ class TacticsBoardHomePage extends StatelessWidget {
                     );
                   },
                   child: _GlassCircle(
-                    size: 32 * uiScale(context),
+                    size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
                     border: inPlanMode
-                        ? Border.all(color: const Color(0xFF00E5CC), width: 1.5)
+                        ? Border.all(color: const Color(0xFF00C2B2), width: 1.5)
                         : null,
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: inPlanMode ? const Color(0xFF00E5CC) : Colors.white,
+                      color: inPlanMode ? const Color(0xFF00C2B2) : Colors.white,
                       size: 16 * uiScale(context),
                     ),
                   ),
@@ -161,16 +181,38 @@ class TacticsBoardHomePage extends StatelessWidget {
         _CollapsibleEditPanel(),
         Positioned(
           bottom: 12, right: 12,
-          child: Selector<TacticsState, bool>(
-            selector: (_, s) => s.toolbarVisible,
-            builder: (context, visible, _) => GestureDetector(
-              onTap: context.read<TacticsState>().toggleToolbar,
-              child: _GlassCircle(
-                size: 32 * uiScale(context),
-                child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit, color: Colors.white, size: 18 * uiScale(context)),
+          child: IgnorePointer(
+            ignoring: editPanelOpen,
+            child: AnimatedOpacity(
+              opacity: editPanelOpen ? 0.0 : 1.0,
+              duration: const Duration(milliseconds: 160),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  _ZoomResetButton(),
+                  _ZoomModeButton(),
+                  _FullscreenButton(),
+                ],
               ),
             ),
           ),
+        ),
+        if (state.sportType == SportType.basketball)
+          Positioned(
+            bottom: 12, left: 12,
+            child: IgnorePointer(
+              ignoring: editPanelOpen,
+              child: AnimatedOpacity(
+                opacity: editPanelOpen ? 0.0 : 1.0,
+                duration: const Duration(milliseconds: 160),
+                child: _HalfCourtButton(state: state),
+              ),
+            ),
+          ),
+              ],
+            );
+          },
         ),
       ],
       ),
@@ -206,24 +248,29 @@ class TacticsBoardHomePage extends StatelessWidget {
   }
 
   Widget _bottomBar(BuildContext context, double bottomPad) {
-    return Selector<TacticsState, ({bool visible, bool drawing, bool moves, int steps, int atStep, bool animating})>(
-      selector: (_, s) => (visible: s.toolbarVisible, drawing: s.isDrawingMode, moves: s.hasMoves, steps: s.maxMoveSteps, atStep: s.atStep, animating: s.isAnimating),
-      builder: (context, sel, _) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (sel.visible)
-            SizedBox(
-              height: 48 * uiScale(context),
-              child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
+    return Selector<TacticsState, ({bool visible, bool moves, bool present})>(
+      selector: (_, s) => (visible: s.toolbarVisible, moves: s.hasMoves, present: s.presentationMode),
+      builder: (context, sel, _) {
+        // Presentation mode hides the whole toolbar/play bar — the locked
+        // overlay carries its own large playback controls.
+        if (sel.present) return SizedBox(height: bottomPad > 0 ? 36 : 20);
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (sel.visible)
+              SizedBox(
+                height: 48 * uiScale(context),
+                child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
+              ),
+            AnimatedSize(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+              child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
             ),
-          AnimatedSize(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
-            child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
-          ),
-          SizedBox(height: bottomPad > 0 ? 36 : 20),
-        ],
-      ),
+            SizedBox(height: bottomPad > 0 ? 36 : 20),
+          ],
+        );
+      },
     );
   }
 
@@ -239,6 +286,16 @@ class TacticsBoardHomePage extends StatelessWidget {
                 Expanded(child: _lBtn('mode_move', !state.isDrawingMode, () => state.setDrawingMode(false))),
                 const SizedBox(width: 6),
                 Expanded(child: _lBtn('mode_draw', state.isDrawingMode, () => state.setDrawingMode(true))),
+              ],
+            ),
+            const SizedBox(height: 10),
+            // Undo / Redo — always reachable
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _lCircleBtn(Icons.undo, kAccent, state.canUndo ? state.undo : null),
+                const SizedBox(width: 12),
+                _lCircleBtn(Icons.redo, kAccent, state.canRedo ? state.redo : null),
               ],
             ),
             const SizedBox(height: 10),
@@ -286,7 +343,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   _lCircleBtn(Icons.view_timeline, Colors.purpleAccent, () {
                     showModalBottomSheet(
                       context: context,
-                      backgroundColor: const Color(0xFF213E48),
+                      backgroundColor: const Color(0xFF15303A),
                       isScrollControlled: true,
                       constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -404,16 +461,18 @@ class _MenuButton extends StatelessWidget {
     final s = uiScale(context);
     return PopupMenuButton<String>(
       onSelected: (value) => _onSelected(context, value),
-      color: const Color(0xFF2A4D58),
+      color: const Color(0xFF20424C),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       offset: const Offset(0, 40),
       child: _GlassCircle(
-        size: 32 * s,
+        size: (32 * s).clamp(44.0, 60.0).toDouble(),
         child: Icon(Icons.more_horiz, color: Colors.white, size: 18 * s),
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
         return [
+          _menuItem(context, 'present', Icons.co_present_outlined, 'present_mode'.tr()),
+          _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
           _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
             _menuItem(context, 'scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
@@ -442,6 +501,10 @@ class _MenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, String value) {
     switch (value) {
+      case 'present':
+        context.read<TacticsState>().togglePresentationMode();
+      case 'share':
+        shareBoardImage(context, context.read<TacticsState>());
       case 'practice':
         _showPracticePlan(context);
       case 'scorer':
@@ -471,7 +534,7 @@ class _MenuButton extends StatelessWidget {
     final url = Uri.parse('https://apps.apple.com/app/id$appleId');
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF213E48),
+      backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -578,7 +641,7 @@ class _ContactPageState extends State<_ContactPage> {
       backgroundColor: const Color(0xFF1A3A4A),
       appBar: AppBar(
         title: Text('contact_title'.tr()),
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: const Color(0xFF15303A),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -742,7 +805,7 @@ class _LoginPageState extends State<_LoginPage> {
       backgroundColor: const Color(0xFF1A3A4A),
       appBar: AppBar(
         title: Text('login_title'.tr()),
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: const Color(0xFF15303A),
       ),
       body: Center(
         child: Padding(
@@ -914,7 +977,7 @@ class _LoginPageState extends State<_LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: const Color(0xFF15303A),
         title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -1036,7 +1099,7 @@ class _ScorerPromoSheet extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Center(
-                child: Text(sport.emoji, style: const TextStyle(fontSize: 40)),
+                child: SportGlyph(sport: sport, size: 46),
               ),
             ),
             const SizedBox(height: 16),
@@ -1124,16 +1187,12 @@ class _ScorerPromoSheet extends StatelessWidget {
 class _PlayerEditBar extends StatefulWidget {
   final TacticsState state;
   final PlayerIcon player;
-  /// When false, hides the colour palette + size slider (default).
-  /// Toggled by the outer collapsible panel's More/Less header.
-  final bool showOptions;
   /// When set, the close × and delete actions invoke this in addition to
-  /// their usual behaviour — used to pop the surrounding edit dialog.
+  /// their usual behaviour.
   final VoidCallback? onClose;
   const _PlayerEditBar({
     required this.state,
     required this.player,
-    this.showOptions = false,
     this.onClose,
   });
 
@@ -1142,6 +1201,11 @@ class _PlayerEditBar extends StatefulWidget {
 }
 
 class _PlayerEditBarState extends State<_PlayerEditBar> {
+  /// Colour palette + size slider stay collapsed by default — they are
+  /// low-frequency next to move / run / delete, so they don't crowd the
+  /// bar until the user taps the tune button to ask for them.
+  bool _expanded = false;
+
   static const _colors = <Color>[
     Color(0xFF3A7DFF),
     Color(0xFFFF5A5F),
@@ -1156,15 +1220,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   @override
   Widget build(BuildContext context) {
     final p = widget.player;
-    // When collapsed (default), the panel contributes nothing — only the
-    // outer More toggle is visible, leaving the board uncluttered.
-    if (!widget.showOptions) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Row 1: label + actions
+          // Row 1 — core actions, always visible.
           Row(
             children: [
               // Player indicator
@@ -1173,7 +1234,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 decoration: BoxDecoration(
                   color: p.color,
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.yellow, width: 2),
+                  border: Border.all(color: kAccent, width: 2),
                 ),
                 child: p.label.length <= 2 && p.label.isNotEmpty
                     ? Center(child: Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1)))
@@ -1184,21 +1245,32 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
               ],
               const Spacer(),
+              // Explicit add-run toggle — while on, taps on the board lay
+              // this player's movement path (so a stray tap never can).
+              _MoveToggle(state: widget.state),
+              const SizedBox(width: 8),
+              // Colour + size — collapsed by default; this reveals Row 2.
+              _editAction(
+                Icons.tune,
+                _expanded ? kAccent : Colors.white60,
+                () => setState(() => _expanded = !_expanded),
+              ),
+              const SizedBox(width: 8),
               // Adjust photo crop — only visible when the player is using a
               // user-uploaded face avatar.
               if (p.photoId != null) ...[
-                _editAction(Icons.crop, const Color(0xFF6EE7B7), () {
+                _editAction(Icons.crop, kAccent, () {
                   PhotoCropEditor.show(context, photoId: p.photoId!);
                 }),
                 const SizedBox(width: 8),
               ],
               // Delete
-              _editAction(Icons.delete, Colors.redAccent, () {
+              _editAction(Icons.delete, kDanger, () {
                 widget.state.removePlayer(p.id);
                 widget.onClose?.call();
               }),
               const SizedBox(width: 8),
-              // Close (deselect + dismiss surrounding dialog when present).
+              // Close (deselect).
               GestureDetector(
                 onTap: () {
                   widget.state.selectPlayer(null);
@@ -1208,8 +1280,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               ),
             ],
           ),
-          // Row 2 — colour swatches + size slider.
-          ...[
+          // Row 2 — colour swatches + size slider, revealed on demand.
+          if (_expanded) ...[
             const SizedBox(height: 8),
             Row(
               children: [
@@ -1224,7 +1296,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                       shape: BoxShape.circle,
                       color: c,
                       border: Border.all(
-                        color: p.customColor == c ? Colors.yellow : Colors.white24,
+                        color: p.customColor == c ? kAccent : Colors.white24,
                         width: p.customColor == c ? 2.5 : 1,
                       ),
                     ),
@@ -1240,7 +1312,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     min: 0.5,
                     max: 3.0,
                     divisions: 10,
-                    activeColor: const Color(0xFF00E5CC),
+                    activeColor: kAccent,
                     inactiveColor: Colors.white24,
                     onChanged: (v) {
                       widget.state.updatePlayer(p.id, scale: v);
@@ -1283,22 +1355,41 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
   Widget build(BuildContext context) {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
-        if (state.isAnimating) return const SizedBox.shrink();
+        if (state.isAnimating || state.presentationMode || state.zoomMode) {
+          return const SizedBox.shrink();
+        }
 
         final hasDrawing = state.isDrawingMode || state.selectedStrokeId != null;
         final hasPlayer = state.selectedPlayerId != null;
         if (!hasDrawing && !hasPlayer) return const SizedBox.shrink();
 
-        final s = uiScale(context);
+        // The edit surface is shown inline, anchored just above the toolbar —
+        // no extra ⚙ tap, no modal dialog. One unified, always-visible bar.
+        Widget child;
+        if (hasDrawing) {
+          child = DrawingOptionsBar(state: state, showOptions: true);
+        } else {
+          final player = state.players.cast<PlayerIcon?>().firstWhere(
+            (p) => p?.id == state.selectedPlayerId,
+            orElse: () => null,
+          );
+          if (player == null) return const SizedBox.shrink();
+          child = _PlayerEditBar(
+            state: state,
+            player: player,
+            onClose: () => state.selectPlayer(null),
+          );
+        }
         return Positioned(
-          bottom: 12,
-          left: 0, right: 0,
+          left: 8, right: 8, bottom: 10,
           child: Center(
-            child: GestureDetector(
-              onTap: () => _openDialog(context, state),
-              child: _GlassCircle(
-                size: 32 * s,
-                child: Icon(Icons.tune, color: Colors.white, size: 18 * s),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 540),
+              child: Material(
+                color: kSurfaceHi,
+                elevation: 8,
+                borderRadius: BorderRadius.circular(16),
+                child: child,
               ),
             ),
           ),
@@ -1306,65 +1397,341 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       },
     );
   }
+}
 
-  /// Open a centred modal dialog containing the full edit options for the
-  /// currently selected player or for the drawing mode. The pitch stays
-  /// uncluttered while the dialog is closed; opening it is a single tap on
-  /// the floating ⚙ button.
-  void _openDialog(BuildContext outerCtx, TacticsState state) {
-    showDialog(
-      context: outerCtx,
-      barrierColor: Colors.black54,
-      builder: (dialogCtx) {
-        // Subscribe so the colour swatches / size slider stay in sync as
-        // the user edits, and so we can auto-pop when the player or stroke
-        // gets removed underneath us.
-        return ListenableBuilder(
-          listenable: state,
-          builder: (ctx, _) {
-            Widget child;
-            if (state.isDrawingMode || state.selectedStrokeId != null) {
-              child = DrawingOptionsBar(state: state, showOptions: true);
-            } else {
-              final player = state.players.cast<PlayerIcon?>().firstWhere(
-                (p) => p?.id == state.selectedPlayerId,
-                orElse: () => null,
-              );
-              if (player == null) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  if (Navigator.of(dialogCtx).canPop()) {
-                    Navigator.of(dialogCtx).pop();
-                  }
-                });
-                return const SizedBox.shrink();
-              }
-              child = _PlayerEditBar(
-                state: state,
-                player: player,
-                showOptions: true,
-                onClose: () {
-                  if (Navigator.of(dialogCtx).canPop()) {
-                    Navigator.of(dialogCtx).pop();
-                  }
-                },
-              );
-            }
-            return Dialog(
-              backgroundColor: const Color(0xFF1A2035),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 460),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: child,
-                ),
-              ),
-            );
-          },
-        );
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Add-run toggle — explicit sub-mode entry shown in the player edit bar.
+// While on, board taps lay this player's run; while off a tap only deselects.
+// ─────────────────────────────────────────────────────────────────────────────
+class _MoveToggle extends StatelessWidget {
+  final TacticsState state;
+  const _MoveToggle({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final on = state.isAddingMove;
+    return GestureDetector(
+      onTap: () {
+        state.setAddingMove(!on);
+        HapticFeedback.selectionClick();
       },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 140),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          color: on ? kAccent : kAccentFill,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: kAccent, width: 1),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(on ? Icons.check : Icons.directions_run,
+                size: 14, color: on ? Colors.white : kAccent),
+            const SizedBox(width: 4),
+            Text(on ? 'move_done'.tr() : 'move_add'.tr(),
+                style: TextStyle(
+                    color: on ? Colors.white : kAccent,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600)),
+          ],
+        ),
+      ),
     );
   }
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Bottom-right chrome — fullscreen toggle + reset-zoom (only while zoomed).
+// ─────────────────────────────────────────────────────────────────────────────
+class _FullscreenButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, bool>(
+      selector: (_, s) => s.toolbarVisible,
+      builder: (context, visible, _) => GestureDetector(
+        onTap: context.read<TacticsState>().toggleToolbar,
+        child: _GlassCircle(
+          size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+          child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit,
+              color: Colors.white, size: 18 * uiScale(context)),
+        ),
+      ),
+    );
+  }
+}
+
+/// Appears only while the board is zoomed/panned — one tap restores the
+/// 1:1 fit (and clears the basketball half-court preset).
+class _ZoomResetButton extends StatefulWidget {
+  @override
+  State<_ZoomResetButton> createState() => _ZoomResetButtonState();
+}
+
+class _ZoomResetButtonState extends State<_ZoomResetButton> {
+  TransformationController? _ctrl;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final c = context.read<TacticsState>().transformationController;
+    if (c != _ctrl) {
+      _ctrl?.removeListener(_onChange);
+      _ctrl = c;
+      c.addListener(_onChange);
+    }
+  }
+
+  @override
+  void dispose() {
+    _ctrl?.removeListener(_onChange);
+    super.dispose();
+  }
+
+  void _onChange() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = context.read<TacticsState>();
+    final zoomed = state.transformationController.value != Matrix4.identity();
+    if (!zoomed) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: GestureDetector(
+        onTap: () {
+          state.resetZoom();
+          state.setBasketballHalfCourt(false);
+        },
+        child: _GlassCircle(
+          size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+          child: Icon(Icons.zoom_out_map,
+              color: Colors.white, size: 17 * uiScale(context)),
+        ),
+      ),
+    );
+  }
+}
+
+/// Basketball-only — toggles a zoom preset focused on the home half of the
+/// court, where most set-play coaching happens.
+class _HalfCourtButton extends StatelessWidget {
+  final TacticsState state;
+  const _HalfCourtButton({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final on = state.basketballHalfCourt;
+    return GestureDetector(
+      onTap: () {
+        final next = !on;
+        state.setBasketballHalfCourt(next);
+        if (next) {
+          final sz = state.canvasSize;
+          if (sz.width <= 0 || sz.height <= 0) return;
+          const frac = 0.58; // show the home 58% of the court
+          final s = 1 / frac;
+          state.transformationController.value = Matrix4.identity()
+            ..translate(-sz.width * (s - 1) / 2, -s * (1 - frac) * sz.height)
+            ..scale(s);
+        } else {
+          state.resetZoom();
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.42),
+          borderRadius: BorderRadius.circular(16),
+          border: on ? Border.all(color: kAccent, width: 1.2) : null,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.straighten,
+                size: 14, color: on ? kAccent : Colors.white),
+            const SizedBox(width: 5),
+            Text(on ? 'full_court'.tr() : 'half_court'.tr(),
+                style: TextStyle(
+                    color: on ? kAccent : Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Presentation overlay — a locked, clean board for showing players a play.
+// All editing is disabled; only playback + an exit affordance remain.
+// ─────────────────────────────────────────────────────────────────────────────
+class _PresentationOverlay extends StatelessWidget {
+  final double topPad;
+  const _PresentationOverlay({required this.topPad});
+
+  @override
+  Widget build(BuildContext context) {
+    final state = context.read<TacticsState>();
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        // Exit pill — top center.
+        Positioned(
+          top: topPad + 10, left: 0, right: 0,
+          child: Center(
+            child: GestureDetector(
+              onTap: state.togglePresentationMode,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.55),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: kAccent.withValues(alpha: 0.6)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.close, color: kAccent, size: 18),
+                    const SizedBox(width: 6),
+                    Text('present_exit'.tr(),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        // Large playback controls — bottom center, only when there are moves.
+        if (state.hasMoves)
+          Positioned(
+            bottom: 28, left: 0, right: 0,
+            child: Center(child: _BigPlayControls(state: state)),
+          ),
+      ],
+    );
+  }
+}
+
+/// Oversized, glance-and-tap playback controls used in presentation mode.
+class _BigPlayControls extends StatelessWidget {
+  final TacticsState state;
+  const _BigPlayControls({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final animating = state.isAnimating;
+    final atStart = state.atStep <= 0;
+    final atEnd = state.atStep >= state.maxMoveSteps;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.55),
+        borderRadius: BorderRadius.circular(36),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.35),
+            blurRadius: 14,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _bigBtn(Icons.skip_previous,
+              (!animating && !atStart) ? state.stepBackward : null),
+          const SizedBox(width: 10),
+          _bigBtn(
+            animating ? Icons.stop : Icons.play_arrow,
+            animating ? state.stopAnimation : state.startAnimation,
+            primary: true,
+          ),
+          const SizedBox(width: 12),
+          Text('${state.atStep}/${state.maxMoveSteps}',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
+          const SizedBox(width: 12),
+          _bigBtn(Icons.skip_next,
+              (!animating && !atEnd) ? state.stepForward : null),
+          const SizedBox(width: 10),
+          // Toggle the move-arrow overlay while presenting — show the end
+          // position first, then reveal how each player got there.
+          GestureDetector(
+            onTap: () {
+              state.toggleShowMoveLines();
+              HapticFeedback.selectionClick();
+            },
+            child: Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: state.showMoveLines
+                    ? Colors.white.withValues(alpha: 0.14)
+                    : kDanger.withValues(alpha: 0.25),
+              ),
+              child: Icon(
+                state.showMoveLines ? Icons.timeline : Icons.visibility_off,
+                color: state.showMoveLines ? Colors.white : kDanger,
+                size: 26,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _bigBtn(IconData icon, VoidCallback? onTap, {bool primary = false}) {
+    final size = primary ? 58.0 : 48.0;
+    return GestureDetector(
+      onTap: onTap,
+      child: Opacity(
+        opacity: onTap == null ? 0.35 : 1.0,
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: primary ? kAccent : Colors.white.withValues(alpha: 0.14),
+          ),
+          child: Icon(icon, color: Colors.white, size: primary ? 34 : 28),
+        ),
+      ),
+    );
+  }
+}
+
+/// Toggles free-form zoom/pan mode. While on, the board content is locked
+/// and pinch/drag operate the InteractiveViewer — so zooming can never be
+/// confused with dragging a player. Tap off to edit at the new zoom level.
+class _ZoomModeButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, bool>(
+      selector: (_, s) => s.zoomMode,
+      builder: (context, on, _) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: GestureDetector(
+          onTap: context.read<TacticsState>().toggleZoomMode,
+          child: _GlassCircle(
+            size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+            border: on ? Border.all(color: kAccent, width: 1.5) : null,
+            child: Icon(Icons.pinch,
+                color: on ? kAccent : Colors.white,
+                size: 17 * uiScale(context)),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -227,9 +227,9 @@ class PlayerIconWidget extends StatelessWidget {
           ),
           if (player.label.length > 2)
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
               decoration: BoxDecoration(
-                color: player.color.withValues(alpha: 0.85),
+                color: player.color.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(4),
                 boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 2)],
               ),
@@ -237,8 +237,8 @@ class PlayerIconWidget extends StatelessWidget {
                 player.label,
                 style: TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 10 * player.scale,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 12 * player.scale,
                   height: 1.2,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -277,12 +277,18 @@ class _PlayerShape extends StatelessWidget {
             alignment: const Alignment(0, 0.35),
             child: Text(
               player.label,
+              // Heavier weight + a dark outline (layered shadows) keeps the
+              // jersey number crisp from the bench and when projected.
               style: TextStyle(
                 color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 13 * player.scale,
+                fontWeight: FontWeight.w800,
+                fontSize: 15 * player.scale,
                 height: 1,
-                shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
+                shadows: const [
+                  Shadow(color: Colors.black, offset: Offset(0.8, 0.8), blurRadius: 1.5),
+                  Shadow(color: Colors.black, offset: Offset(-0.8, -0.8), blurRadius: 1.5),
+                  Shadow(color: Colors.black87, blurRadius: 3),
+                ],
               ),
             ),
           ),

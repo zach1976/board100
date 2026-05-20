@@ -255,6 +255,39 @@ import ImageIO
       faceBoxes.append(inferred)
     }
 
+    // CIDetector fallback: Vision's neural-engine path is software-only in
+    // the iOS Simulator and frequently misses faces (especially on synthetic
+    // / composite images used for preview-video recording). When Vision
+    // returns nothing, fall back to the legacy CIDetector which runs on CPU
+    // and works reliably in the simulator.
+    NSLog("[face-detect] Vision returned \(faceBoxes.count) faces")
+    if faceBoxes.isEmpty {
+      NSLog("[face-detect] trying CIDetector fallback on \(path)")
+      if let ci = CIImage(contentsOf: URL(fileURLWithPath: path)) {
+        let det = CIDetector(
+          ofType: CIDetectorTypeFace,
+          context: nil,
+          options: [
+            CIDetectorAccuracy: CIDetectorAccuracyLow,
+            CIDetectorMinFeatureSize: 0.04,
+          ])
+        let features = (det?.features(in: ci) as? [CIFaceFeature]) ?? []
+        NSLog("[face-detect] CIDetector found \(features.count) features")
+        for f in features {
+          // CIDetector returns coords in image's natural orientation,
+          // origin at bottom-left, in absolute pixels. Normalize.
+          let bb = CGRect(
+            x: f.bounds.origin.x / imageWidth,
+            y: f.bounds.origin.y / imageHeight,
+            width: f.bounds.width / imageWidth,
+            height: f.bounds.height / imageHeight)
+          if isFaceShaped(bb.width / bb.height) {
+            faceBoxes.append(bb)
+          }
+        }
+      }
+    }
+
     let faces: [[String: Any]] = faceBoxes.map { bbox in
       // Vision returns normalized coords in the image's natural orientation
       // with origin at bottom-left. Convert to top-left pixel coords.

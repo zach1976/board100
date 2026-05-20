@@ -456,10 +456,9 @@ extension SportTypeExtension on SportType {
         ];
 
       case SportType.volleyball:
-        // Court: ~y=0.10..0.90, net at 0.50
-        // Standard 6 positions: front row (4,3,2) + back row (5,6,1)
+        // Court: ~y=0.10..0.90, net at 0.50. Six zones per side.
         return const [
-          // 5-1 formation (standard rotation 1)
+          // Base rotation — front row (4,3,2) + back row (5,6,1)
           SportFormation(
             nameKey: 'formation_6v6',
             homePositions: [
@@ -471,6 +470,48 @@ extension SportTypeExtension on SportType {
             awayPositions: [
               Offset(0.82, 0.44), Offset(0.50, 0.45), Offset(0.18, 0.44),
               Offset(0.82, 0.26), Offset(0.50, 0.24), Offset(0.18, 0.26),
+            ],
+          ),
+          // Serve receive — 3-passer W: setter releasing to the net, two
+          // hitters at the net, three passers in a shallow receiving arc.
+          SportFormation(
+            nameKey: 'formation_serve_receive',
+            homePositions: [
+              Offset(0.70, 0.55), // setter releasing to net
+              Offset(0.18, 0.58), // outside hitter at net
+              Offset(0.44, 0.56), // middle blocker at net
+              Offset(0.24, 0.74), // passer left
+              Offset(0.54, 0.83), // passer centre (deep)
+              Offset(0.84, 0.74), // passer right
+            ],
+            awayPositions: [
+              Offset(0.30, 0.45),
+              Offset(0.82, 0.42),
+              Offset(0.56, 0.44),
+              Offset(0.76, 0.26),
+              Offset(0.46, 0.17),
+              Offset(0.16, 0.26),
+            ],
+          ),
+          // Perimeter defense — three blockers up, three diggers spread
+          // deep to cover the floor.
+          SportFormation(
+            nameKey: 'formation_defense',
+            homePositions: [
+              Offset(0.18, 0.57), // wing blocker
+              Offset(0.40, 0.56), // middle blocker
+              Offset(0.62, 0.56), // wing blocker
+              Offset(0.22, 0.79), // digger left
+              Offset(0.55, 0.85), // digger deep
+              Offset(0.84, 0.78), // digger right
+            ],
+            awayPositions: [
+              Offset(0.82, 0.43),
+              Offset(0.60, 0.44),
+              Offset(0.38, 0.44),
+              Offset(0.78, 0.21),
+              Offset(0.45, 0.15),
+              Offset(0.16, 0.22),
             ],
           ),
         ];

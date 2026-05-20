@@ -34,7 +34,7 @@ class DrawingPainter extends CustomPainter {
         canvas.drawPath(path, glowPaint);
       } else if (multiSelectStrokeIds.contains(stroke.id)) {
         final glowPaint = Paint()
-          ..color = const Color(0xFF6EE7B7).withValues(alpha: 0.55)
+          ..color = const Color(0xFF00C2B2).withValues(alpha: 0.55)
           ..strokeWidth = stroke.width + 8
           ..strokeCap = StrokeCap.round
           ..strokeJoin = StrokeJoin.round

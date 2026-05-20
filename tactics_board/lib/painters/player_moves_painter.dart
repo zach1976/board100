@@ -27,32 +27,22 @@ class PlayerMovesPainter extends CustomPainter {
   static const _arrowSize = 13.0;
   static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
-  List<int> _getSortedPhases() {
-    final phases = <int>{};
-    for (final p in players) {
-      p.syncPhases();
-      phases.addAll(p.movePhases);
-    }
-    return phases.toList()..sort();
-  }
-
   void _paintMoves(Canvas canvas, PlayerIcon player) {
     final color = player.moveColor;
     player.syncPhases();
 
-    // Determine how many of this player's moves to show based on completed phases
+    // phaseLimit is the number of beats elapsed (atStep). Show only the
+    // segments whose phase value is strictly less than phaseLimit so that
+    // empty beats in the middle of the timeline don't reveal later arrows
+    // ahead of their actual phase.
     final int phaseLimit = completedSteps ?? targetStep;
     final List<Offset> allMoves;
     if (phaseLimit > 0) {
-      // Only show moves whose phase index is < phaseLimit
-      // Get sorted distinct phases across ALL moves in the painting context
-      final sortedPhases = _getSortedPhases();
       int visibleCount = 0;
       for (int i = 0; i < player.moves.length; i++) {
         final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-        final phaseOrderIdx = sortedPhases.indexOf(ph);
-        if (phaseOrderIdx >= 0 && phaseOrderIdx < phaseLimit) {
-          visibleCount = i + 1; // include this move
+        if (ph < phaseLimit) {
+          visibleCount = i + 1;
         }
       }
       allMoves = player.moves.take(visibleCount).toList();

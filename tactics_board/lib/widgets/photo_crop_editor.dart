@@ -80,7 +80,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
     final viewport = (media.size.width - 64).clamp(180.0, 320.0);
 
     return Dialog(
-      backgroundColor: const Color(0xFF1A2035),
+      backgroundColor: const Color(0xFF20424C),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       insetPadding: const EdgeInsets.all(20),
       child: Padding(
@@ -90,7 +90,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
           children: [
             Row(
               children: [
-                const Icon(Icons.crop, color: Color(0xFF6EE7B7)),
+                const Icon(Icons.crop, color: Color(0xFF00C2B2)),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -125,7 +125,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                   child: _path == null
                       ? const Center(
                           child: CircularProgressIndicator(
-                            color: Color(0xFF6EE7B7),
+                            color: Color(0xFF00C2B2),
                             strokeWidth: 3,
                           ),
                         )
@@ -191,7 +191,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF6EE7B7).withValues(
+                        color: const Color(0xFF00C2B2).withValues(
                           alpha: (_saving || _path == null) ? 0.4 : 1.0,
                         ),
                         borderRadius: BorderRadius.circular(10),

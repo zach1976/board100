@@ -233,5 +233,14 @@
   "photo_manage_hint": "Tap a face to adjust framing, or use the icons below.",
   "elements_label": "Custom Elements",
   "element_crop_title": "Add Element",
-  "element_delete_confirm": "Delete this element?"
+  "element_delete_confirm": "Delete this element?",
+  "eraser": "Eraser",
+  "present_mode": "Presentation",
+  "present_exit": "Exit Presentation",
+  "move_add": "Add Run",
+  "move_done": "Done",
+  "half_court": "Half Court",
+  "full_court": "Full Court",
+  "speed": "Speed",
+  "formation_serve_receive": "Serve Receive"
 }

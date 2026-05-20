@@ -11,7 +11,7 @@ class BasketballCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+    _drawWood(canvas, size);
 
     final p = linePaint;
     final w = size.width;
@@ -48,6 +48,34 @@ class BasketballCourtPainter extends CourtPainterBase {
     // Both halves
     _drawHalf(canvas, p, o, sc, isTop: true);
     _drawHalf(canvas, p, o, sc, isTop: false);
+  }
+
+  /// Maple-floor texture — replaces the flat single-tone fill: faint vertical
+  /// plank seams plus a centre-lit vignette so the court reads as a real
+  /// hardwood surface with depth, not a plastic slab.
+  void _drawWood(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h), courtPaint);
+
+    // Plank seams — thin, low-contrast vertical lines.
+    const plankCount = 24;
+    final plankW = w / plankCount;
+    final seam = Paint()
+      ..color = const Color(0x12000000)
+      ..strokeWidth = 1.0;
+    for (int i = 1; i < plankCount; i++) {
+      canvas.drawLine(Offset(i * plankW, 0), Offset(i * plankW, h), seam);
+    }
+
+    // Centre-lit vignette — brighter middle, deeper edges, for depth.
+    final shader = const RadialGradient(
+      center: Alignment.center,
+      radius: 0.95,
+      colors: [Color(0x1FFFFFFF), Color(0x00000000), Color(0x2B000000)],
+      stops: [0.0, 0.5, 1.0],
+    ).createShader(Offset.zero & size);
+    canvas.drawRect(Offset.zero & size, Paint()..shader = shader);
   }
 
   void _drawHalf(Canvas canvas, Paint p, Offset Function(double, double) o,

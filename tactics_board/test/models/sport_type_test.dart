@@ -56,7 +56,7 @@ void main() {
     test('tableTennis has 2 formations', () => expect(SportType.tableTennis.formations.length, 2));
     test('tennis has 2 formations', () => expect(SportType.tennis.formations.length, 2));
     test('basketball has 2 formations', () => expect(SportType.basketball.formations.length, 2));
-    test('volleyball has 1 formation', () => expect(SportType.volleyball.formations.length, 1));
+    test('volleyball has 3 formations', () => expect(SportType.volleyball.formations.length, 3));
     test('pickleball has 2 formations', () => expect(SportType.pickleball.formations.length, 2));
     test('soccer has 3 formations', () => expect(SportType.soccer.formations.length, 3));
 
