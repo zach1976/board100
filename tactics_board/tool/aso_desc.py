@@ -152,7 +152,8 @@ SPORTS = {
 }
 
 # ════════════════════════════════════════════════════════════════════
-# Per-locale framing (section headers, social proof, CTA)
+# Per-locale framing (section headers, CTA). Social-proof line removed
+# 2026-05-27 after Google Play flagged "50+ leagues" as a ranking claim.
 # ════════════════════════════════════════════════════════════════════
 LOCALE = {
     "en-US": {
@@ -162,7 +163,6 @@ LOCALE = {
         "b_plan":"- Drag players onto an accurate, full-color court\n- Draw arrows, lines, and zones — colors and styles your way\n- Tap Play to animate movements step by step\n- Save unlimited tactics, share as crisp images or PDF",
         "b_built":"- Works offline — no Wi-Fi at the field? No problem.\n- Dark theme — easy on the eyes during evening practice\n- Undo/redo up to 50 steps — experiment fearlessly\n- AirPlay to TV — turn the locker room into a war room\n- Free, no ads, no in-app purchases",
         "lang_line":"11 LANGUAGES\nEnglish · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"Trusted by youth coaches and clubs across 50+ leagues. Free forever, no account required.",
         "cta":"From Sunday league to the national team — if you can coach it, you can draw it.",
     },
     "zh-Hans": {
@@ -172,7 +172,6 @@ LOCALE = {
         "b_plan":"· 拖放球员到精准还原的全彩球场\n· 实线、虚线、箭头，颜色粗细随心调\n· 点击「播放」，球员按路线自动移动\n· 保存无限战术，导出高清图片或 PDF",
         "b_built":"· 离线可用 — 球场没 Wi-Fi？没关系\n· 暗色主题 — 晚间训练不刺眼\n· 50 步撤销/重做 — 大胆尝试，随时回退\n· AirPlay 投屏 — 更衣室秒变作战室\n· 完全免费，无广告，无内购",
         "lang_line":"支持 11 种语言\n中文 · English · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"50+ 联赛青训教练在用。永久免费，无需注册。",
         "cta":"从周末野球到国家队 — 你能教的，就能画出来。",
     },
     "zh-Hant": {
@@ -182,7 +181,6 @@ LOCALE = {
         "b_plan":"· 拖放球員到精準還原的全彩球場\n· 實線、虛線、箭頭，顏色粗細隨心調\n· 點擊「播放」，球員按路線自動移動\n· 保存無限戰術，匯出高清圖片或 PDF",
         "b_built":"· 離線可用 — 球場沒 Wi-Fi？沒關係\n· 暗色主題 — 晚間訓練不刺眼\n· 50 步撤銷/重做 — 大膽嘗試，隨時回退\n· AirPlay 投屏 — 更衣室秒變作戰室\n· 完全免費，無廣告，無內購",
         "lang_line":"支援 11 種語言\n中文 · English · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"50+ 聯賽青訓教練在用。永久免費，無需註冊。",
         "cta":"從週末野球到國家隊 — 你能教的，就能畫出來。",
     },
     "ja": {
@@ -192,7 +190,6 @@ LOCALE = {
         "b_plan":"・選手を正確な縮尺のコートにドラッグ\n・矢印・線・ゾーンを自由な色と太さで\n・「再生」で選手が一歩ずつ自動で動く\n・戦術を無制限保存、高画質画像とPDFで共有",
         "b_built":"・オフライン対応 — 現場にWi-Fiが無くても大丈夫\n・ダークテーマ — 夜練習でも目に優しい\n・50ステップのアンドゥ/リドゥ — 思い切り試して戻せる\n・AirPlay対応 — ロッカールームが作戦室に\n・完全無料、広告なし、課金なし",
         "lang_line":"11言語対応\n日本語 · English · 简体中文 · 繁體中文 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"全国50リーグ以上のユースコーチとクラブが愛用中。無料、登録不要。",
         "cta":"草サッカーから代表チームまで — コーチできるなら、描ける。",
     },
     "ko": {
@@ -202,7 +199,6 @@ LOCALE = {
         "b_plan":"· 정확한 비율의 풀컬러 코트에 선수 드래그\n· 화살표·선·영역, 색상과 굵기 자유 조절\n· '재생' 탭으로 선수들이 단계별 자동 이동\n· 전술 무제한 저장, 고화질 이미지·PDF로 공유",
         "b_built":"· 오프라인 작동 — 경기장에 Wi-Fi 없어도 OK\n· 다크 테마 — 저녁 훈련에도 눈이 편하다\n· 50단계 실행 취소/다시 실행 — 마음껏 시도\n· AirPlay 지원 — 라커룸이 작전실로\n· 완전 무료, 광고 없음, 인앱결제 없음",
         "lang_line":"11개 언어 지원\n한국어 · English · 简体中文 · 繁體中文 · 日本語 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"50개 이상 리그의 유소년 감독·클럽이 사용 중. 무료·계정 불필요.",
         "cta":"동네 리그부터 국가대표까지 — 가르칠 수 있다면, 그릴 수 있다.",
     },
     "fr-FR": {
@@ -212,7 +208,6 @@ LOCALE = {
         "b_plan":"- Glissez les joueurs sur un terrain en couleurs précis\n- Flèches, lignes, zones — couleurs et styles à votre goût\n- Touchez Play et les joueurs bougent étape par étape\n- Sauvegardez sans limite, exportez en image HD ou PDF",
         "b_built":"- Fonctionne hors-ligne — pas de Wi-Fi sur le terrain ? Pas de souci.\n- Thème sombre — repose les yeux le soir\n- Annuler/refaire jusqu'à 50 étapes — testez sans peur\n- AirPlay vers TV — le vestiaire devient salle de stratégie\n- Gratuit, sans pub, sans achat intégré",
         "lang_line":"11 LANGUES\nFrançais · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"Plébiscité par les coachs de jeunes et clubs de plus de 50 ligues. Gratuit, sans compte.",
         "cta":"Du foot du dimanche à l'équipe nationale — si vous l'enseignez, vous le dessinez.",
     },
     "es-ES": {
@@ -222,7 +217,6 @@ LOCALE = {
         "b_plan":"- Arrastra jugadores a un terreno en color a escala\n- Flechas, líneas, zonas — colores y estilos a tu gusto\n- Toca Play y los jugadores se mueven paso a paso\n- Guarda jugadas sin límite, exporta en imagen HD o PDF",
         "b_built":"- Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.\n- Tema oscuro — descansa la vista en entrenamiento nocturno\n- Deshacer/rehacer hasta 50 pasos — experimenta sin miedo\n- AirPlay a TV — el vestuario se vuelve sala de guerra\n- Gratis, sin anuncios, sin compras integradas",
         "lang_line":"11 IDIOMAS\nEspañol · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"Usado por entrenadores juveniles y clubes en más de 50 ligas. Gratis, sin cuenta.",
         "cta":"De la liga del domingo a la selección — si lo entrenas, lo dibujas.",
     },
     "vi": {
@@ -232,7 +226,6 @@ LOCALE = {
         "b_plan":"- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu\n- Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý\n- Chạm Play, cầu thủ tự di chuyển từng bước\n- Lưu không giới hạn, xuất ảnh HD hoặc PDF",
         "b_built":"- Hoạt động offline — sân không Wi-Fi? Không sao.\n- Giao diện tối — dịu mắt khi tập tối\n- Hoàn tác/làm lại 50 bước — thử thoải mái\n- AirPlay lên TV — phòng thay đồ thành phòng tác chiến\n- Miễn phí, không quảng cáo, không mua trong app",
         "lang_line":"11 NGÔN NGỮ\nTiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu",
-        "social":"Được HLV trẻ và CLB tại hơn 50 giải đấu tin dùng. Miễn phí mãi mãi, không cần đăng ký.",
         "cta":"Từ giải làng đến đội tuyển — dạy được là vẽ được.",
     },
     "th": {
@@ -242,7 +235,6 @@ LOCALE = {
         "b_plan":"· ลากนักกีฬาบนสนามมาตรฐานสีจริง\n· ลูกศร เส้น โซน ปรับสีและขนาดได้ตามใจ\n· แตะ Play นักกีฬาเคลื่อนทีละจังหวะ\n· บันทึกไม่จำกัด ส่งออกเป็นภาพ HD หรือ PDF",
         "b_built":"· ใช้งานออฟไลน์ — สนามไม่มี Wi-Fi? ไม่มีปัญหา\n· ธีมมืด — ฝึกตอนเย็นไม่แสบตา\n· เลิกทำ/ทำซ้ำ 50 ขั้น — ลองได้สบายใจ\n· AirPlay ออกทีวี — ห้องแต่งตัวกลายเป็นห้องสงคราม\n· ฟรี ไม่มีโฆษณา ไม่มีค่าใช้จ่ายในแอป",
         "lang_line":"รองรับ 11 ภาษา\nไทย · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · Bahasa Indonesia · Bahasa Melayu",
-        "social":"โค้ชเยาวชนและสโมสรกว่า 50 ลีกใช้งาน ฟรีตลอด ไม่ต้องสมัคร",
         "cta":"ตั้งแต่ลีกข้างบ้านถึงทีมชาติ — สอนได้ ก็วาดได้",
     },
     "id": {
@@ -252,7 +244,6 @@ LOCALE = {
         "b_plan":"- Seret pemain ke lapangan akurat berwarna\n- Panah, garis, zona — warna dan gaya bebas atur\n- Ketuk Play, pemain bergerak per langkah\n- Simpan taktik tanpa batas, ekspor ke gambar HD atau PDF",
         "b_built":"- Bekerja offline — tidak ada Wi-Fi di lapangan? Tidak masalah.\n- Tema gelap — nyaman untuk latihan malam\n- Undo/redo hingga 50 langkah — coba sepuasnya\n- AirPlay ke TV — ruang ganti jadi ruang strategi\n- Gratis, tanpa iklan, tanpa pembelian dalam aplikasi",
         "lang_line":"11 BAHASA\nBahasa Indonesia · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Melayu",
-        "social":"Dipakai pelatih muda dan klub di 50+ liga. Gratis selamanya, tanpa akun.",
         "cta":"Dari liga RT sampai timnas — kalau bisa kau latih, bisa kau gambar.",
     },
     "ms": {
@@ -262,7 +253,6 @@ LOCALE = {
         "b_plan":"- Seret pemain ke padang berwarna mengikut skala\n- Anak panah, garisan, zon — warna dan gaya bebas\n- Ketik Play, pemain bergerak langkah demi langkah\n- Simpan taktik tanpa had, eksport ke gambar HD atau PDF",
         "b_built":"- Berfungsi luar talian — padang tiada Wi-Fi? Tiada masalah.\n- Tema gelap — selesa untuk latihan malam\n- Buat asal/buat semula 50 langkah — cuba dengan yakin\n- AirPlay ke TV — bilik persalinan jadi bilik strategi\n- Percuma, tiada iklan, tiada pembelian dalam aplikasi",
         "lang_line":"11 BAHASA\nBahasa Melayu · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia",
-        "social":"Digunakan jurulatih dan kelab di 50+ liga. Percuma selama-lamanya, tanpa akaun.",
         "cta":"Dari liga kampung ke pasukan kebangsaan — jika boleh dilatih, boleh dilukis.",
     },
 }
@@ -284,7 +274,7 @@ def render(sport, loc):
              L["h_formation"], "", formations, "",
              L["h_built"], "", L["b_built"], "",
              L["lang_line"], "",
-             L["social"], "", L["cta"]]
+             L["cta"]]
     return "\n".join(parts)
 
 written = 0

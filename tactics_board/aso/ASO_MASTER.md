@@ -79,10 +79,10 @@ BUILT FOR THE SIDELINE
 11 LANGUAGES
 <language list with current locale first>
 
-<social proof line: "Trusted by youth coaches and clubs across 50+ leagues...">
-
 <closing manifesto line: "if you can coach it, you can draw it.">
 ```
+
+> Note: a "social proof" line (e.g. "Trusted by … across 50+ leagues") used to sit between the language list and the closing manifesto. Removed 2026-05-27 after Google Play rejected it under the metadata policy (ranking/popularity claim). Do not reintroduce.
 
 **Subtitle pattern (≤30 chars across all locales):** verb-led tactical hook, no "<sport> plans, animated, free" template (banned since `c4b5710`). Two short clauses separated by "." or "·" beats one long clause.
 
