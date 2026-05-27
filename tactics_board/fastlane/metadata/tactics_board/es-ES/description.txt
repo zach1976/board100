@@ -1,6 +1,6 @@
 Tu pizarra, convertida en el segundo cerebro del entrenador.
 
-Pizarra Táctica — 15 deportes en una app. Un lienzo profesional para entrenadores, jugadores y analistas.
+Pizarra Táctica — 7 deportes en una app. Un lienzo profesional para entrenadores, jugadores y analistas.
 
 DIBUJA. JUEGA. COMPARTE.
 
@@ -12,7 +12,6 @@ DIBUJA. JUEGA. COMPARTE.
 FORMACIONES, LISTAS
 
 Fútbol (5v5 / 7v7 / 11v11) · Baloncesto (3v3 / 5v5) · Voleibol (6v6) · Tenis · Bádminton · Tenis de mesa · Pickleball
-Béisbol · Balonmano · Rugby · Hockey Hierba · Waterpolo · Sepak Takraw · Tenis Playa · Futvóley
 Formaciones individuales y dobles incluidas.
 
 HECHO PARA EL BANQUILLO
@@ -25,7 +24,5 @@ HECHO PARA EL BANQUILLO
 
 11 IDIOMAS
 Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
-
-Usado por entrenadores juveniles y clubes en más de 50 ligas. Gratis, sin cuenta.
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
