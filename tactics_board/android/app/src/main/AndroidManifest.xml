@@ -30,6 +30,14 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- AdMob application identifier. This is the Google sample/test App ID,
+             kept here so the multi-sport dev build and any unconfigured sport
+             never crash on launch. tool/build_sport_android.sh overwrites it
+             with the sport's real AdMob App ID at build time (only Basketball
+             today). -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
