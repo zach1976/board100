@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import '../services/ad_service.dart';
 import '../services/photo_library_service.dart';
 
 enum PhotoImportSource { gallery, camera }
@@ -154,6 +155,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
       }
     } else {
       final picker = ImagePicker();
+      AdService.instance.suppressNextAppOpen(); // picker/camera backgrounds the app
       try {
         if (widget.source == PhotoImportSource.camera) {
           final shot = await picker.pickImage(

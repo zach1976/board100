@@ -12,11 +12,16 @@ MODE=${2:-debug}
 DEVICE=${3:-}
 
 # ── Config per sport ─────────────────────────────────────────────────────────
+# ADMOB_APP_ID: the sport's AdMob iOS *application* ID (the "~" form, NOT the
+# "/" ad-unit IDs). Leave empty for sports without ads — the checked-in
+# Info.plist keeps Google's sample App ID so those builds never crash, and
+# AdService gates off live ads for them. See lib/services/ad_service.dart.
+ADMOB_APP_ID=""
 case "$SPORT" in
   badminton)    BUNDLE_ID="com.zach.badmintonBoard";    DISPLAY_NAME="Badminton Board";    ZH_NAME="羽毛球战术板";  JA_NAME="バドミントンボード" ;;
   tableTennis)  BUNDLE_ID="com.zach.tableTennisBoard";  DISPLAY_NAME="Table Tennis Board"; ZH_NAME="乒乓球战术板";  JA_NAME="卓球ボード" ;;
   tennis)       BUNDLE_ID="com.zach.tennisBoard";       DISPLAY_NAME="Tennis Board";       ZH_NAME="网球战术板";    JA_NAME="テニスボード" ;;
-  basketball)   BUNDLE_ID="com.zach.basketballBoard";   DISPLAY_NAME="Basketball Board";   ZH_NAME="篮球战术板";    JA_NAME="バスケボード" ;;
+  basketball)   BUNDLE_ID="com.zach.basketballBoard";   DISPLAY_NAME="Basketball Board";   ZH_NAME="篮球战术板";    JA_NAME="バスケボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~7734769370" ;;
   volleyball)   BUNDLE_ID="com.zach.volleyballBoard";   DISPLAY_NAME="Volleyball Board";   ZH_NAME="排球战术板";    JA_NAME="バレーボード" ;;
   pickleball)   BUNDLE_ID="com.zach.pickleballBoard";   DISPLAY_NAME="Pickleball Board";   ZH_NAME="匹克球战术板";  JA_NAME="ピックルボールボード" ;;
   soccer)       BUNDLE_ID="com.zach.soccerBoard";       DISPLAY_NAME="Soccer Board";       ZH_NAME="足球战术板";    JA_NAME="サッカーボード" ;;
@@ -71,6 +76,12 @@ sed -i '' "s/PRODUCT_BUNDLE_IDENTIFIER = com\.[^;]*/PRODUCT_BUNDLE_IDENTIFIER = 
 
 # ── Patch iOS display name ───────────────────────────────────────────────────
 /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $DISPLAY_NAME" "$PLIST"
+
+# ── Patch AdMob application identifier (only for sports that ship ads) ────────
+if [ -n "$ADMOB_APP_ID" ]; then
+  echo "  AdMob App: $ADMOB_APP_ID"
+  /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $ADMOB_APP_ID" "$PLIST"
+fi
 
 # ── Patch localized app names ────────────────────────────────────────────────
 LPROJ_DIR="ios/Runner"
