@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/practice.dart';
 import '../models/practice_session.dart';
+import '../services/ad_service.dart';
 import '../services/practice_history_service.dart';
 import '../state/tactics_state.dart';
 
@@ -40,6 +41,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   @override
   void initState() {
     super.initState();
+    AdService.instance.pushAdSuppression(); // live practice run stays ad-free
     _idx = widget.initialIndex.clamp(0, widget.practice.items.length - 1);
     widget.state.runningPlanName = null;
     _startedAt = DateTime.now();
@@ -49,6 +51,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   @override
   void dispose() {
     _timer?.cancel();
+    AdService.instance.popAdSuppression();
     _recordSession(completed: false);
     super.dispose();
   }

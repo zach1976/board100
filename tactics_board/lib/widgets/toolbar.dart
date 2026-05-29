@@ -15,6 +15,7 @@ import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
@@ -88,11 +89,13 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
 Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
   final format = await _pickShareFormat(context);
   if (format == null || !context.mounted) return;
-  if (format == 'pdf') {
-    await _sharePdf(context, state);
-  } else {
-    await _sharePng(context, state);
-  }
+  // Returning from the share sheet must not trigger an app-open ad.
+  AdService.instance.suppressNextAppOpen();
+  final shared = format == 'pdf'
+      ? await _sharePdf(context, state)
+      : await _sharePng(context, state);
+  // Interstitial only after a real share (not a cancel), at this natural break.
+  if (shared) AdService.instance.maybeShowInterstitial();
 }
 
 Future<String?> _pickShareFormat(BuildContext context) {
@@ -133,50 +136,48 @@ String _friendlyFileStem(TacticsState state) {
   return '${sanitized.isEmpty ? 'Tactics' : sanitized}_$stamp';
 }
 
-Future<void> _sharePng(BuildContext context, TacticsState state) async {
+Future<bool> _sharePng(BuildContext context, TacticsState state) async {
   state.resetZoom();
   await Future.delayed(const Duration(milliseconds: 200));
   final boundary = boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
   if (boundary == null) {
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('save_error'.tr())));
-    return;
+    return false;
   }
   try {
     final image = await boundary.toImage(pixelRatio: 1.5);
     final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-    if (bytes == null) return;
+    if (bytes == null) return false;
     Directory dir;
     try { dir = await getTemporaryDirectory(); } catch (_) { dir = Directory.systemTemp; }
     final file = File('${dir.path}/${_friendlyFileStem(state)}.png');
     await file.writeAsBytes(bytes.buffer.asUint8List());
-    if (context.mounted) {
-      try {
-        const channel = MethodChannel('com.zach.tacticsboard/share');
-        await channel.invokeMethod('shareFile', {'path': file.path});
-      } catch (_) {
-        await Share.shareXFiles([XFile(file.path)]);
-      }
+    if (!context.mounted) return false;
+    try {
+      const channel = MethodChannel('com.zach.tacticsboard/share');
+      await channel.invokeMethod('shareFile', {'path': file.path});
+      return true; // native share sheet presented
+    } catch (_) {
+      final result = await Share.shareXFiles([XFile(file.path)]);
+      return result.status == ShareResultStatus.success;
     }
   } catch (e) {
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('save_error'.tr())));
+    return false;
   }
 }
 
-Future<void> _sharePdf(BuildContext context, TacticsState state) async {
+Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
   state.resetZoom();
   await Future.delayed(const Duration(milliseconds: 200));
   try {
-    final ok = await PdfExportService.exportCurrentFrame(
+    // Returns true only when the document was actually shared (not cancelled).
+    return await PdfExportService.exportCurrentFrame(
       title: state.currentTacticName?.trim().isNotEmpty == true
           ? state.currentTacticName!.trim()
           : state.sportType.displayName,
       filename: '${_friendlyFileStem(state)}.pdf',
     );
-    if (!ok && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('save_error'.tr())),
-      );
-    }
   } catch (e) {
     debugPrint('PDF export error: $e');
     if (context.mounted) {
@@ -184,6 +185,7 @@ Future<void> _sharePdf(BuildContext context, TacticsState state) async {
         SnackBar(content: Text('save_error'.tr())),
       );
     }
+    return false;
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'models/sport_type.dart';
+import 'services/ad_service.dart';
 import 'state/tactics_state.dart';
 import 'pages/sport_selection_page.dart';
 import 'pages/home_page.dart';
@@ -65,6 +66,9 @@ void main() async {
       child: const TacticsBoardApp(),
     ),
   );
+  // Fire-and-forget: no-op unless this is an iOS single-sport build with
+  // configured ad units (currently only Basketball). See AdService.
+  AdService.instance.init();
 }
 
 class TacticsBoardApp extends StatelessWidget {

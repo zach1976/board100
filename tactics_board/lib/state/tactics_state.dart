@@ -9,6 +9,7 @@ import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
+import '../services/ad_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
@@ -351,6 +352,12 @@ class TacticsState extends ChangeNotifier {
   bool get presentationMode => _presentationMode;
   void togglePresentationMode() {
     _presentationMode = !_presentationMode;
+    // Keep presentation mode ad-free (the coach's "stage").
+    if (_presentationMode) {
+      AdService.instance.pushAdSuppression();
+    } else {
+      AdService.instance.popAdSuppression();
+    }
     if (_presentationMode) {
       _isDrawingMode = false;
       _multiSelectMode = false;

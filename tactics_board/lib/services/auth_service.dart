@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'ad_service.dart';
 
 const _apiServer = 'tacticsboard.100for1.com';
 const _apiBase = 'https://$_apiServer/api/v1';
@@ -41,6 +42,7 @@ class AuthService {
         clientId: _googleClientId.isNotEmpty ? _googleClientId : null,
         scopes: ['email', 'profile'],
       );
+      AdService.instance.suppressNextAppOpen(); // sign-in flow backgrounds the app
       final account = await googleSignIn.signIn();
       if (account == null) {
         return AuthResult(error: 'login_cancelled');
@@ -79,6 +81,7 @@ class AuthService {
       final rawNonce = _generateNonce();
       final nonce = _sha256ofString(rawNonce);
 
+      AdService.instance.suppressNextAppOpen(); // sign-in flow backgrounds the app
       final credential = await SignInWithApple.getAppleIDCredential(
         scopes: [
           AppleIDAuthorizationScopes.email,

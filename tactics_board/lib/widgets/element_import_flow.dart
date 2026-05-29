@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:image_picker/image_picker.dart';
 import '../models/player_icon.dart';
+import '../services/ad_service.dart';
 import '../services/photo_library_service.dart';
 import 'marker_shape_clipper.dart';
 
@@ -16,6 +17,7 @@ class ElementImportFlow {
   static Future<void> show(BuildContext context) async {
     final picker = ImagePicker();
     XFile? picked;
+    AdService.instance.suppressNextAppOpen(); // photo picker backgrounds the app
     try {
       picked = await picker.pickImage(
         source: ImageSource.gallery,

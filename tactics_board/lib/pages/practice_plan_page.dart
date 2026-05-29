@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/practice.dart';
+import '../services/ad_service.dart';
 import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
 import 'practice_history_page.dart';
@@ -174,6 +175,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     final safe = name.replaceAll(RegExp(r'[^A-Za-z0-9_\- ]'), '_');
     final file = File('${dir.path}/$safe.practice.json');
     await file.writeAsString(encoded);
+    AdService.instance.suppressNextAppOpen(); // share sheet backgrounds the app
     await Share.shareXFiles(
       [XFile(file.path, mimeType: 'application/json')],
       subject: name,
