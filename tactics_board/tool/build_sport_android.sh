@@ -17,6 +17,7 @@ SPORTS=("$@")
 
 GRADLE="android/app/build.gradle.kts"
 RES="android/app/src/main/res"
+MANIFEST="android/app/src/main/AndroidManifest.xml"
 OUT="build/aab_play"
 mkdir -p "$OUT"
 
@@ -24,6 +25,7 @@ mkdir -p "$OUT"
 RES_BAK="$(mktemp -d)/res"
 cp -R "$RES" "$RES_BAK"
 cp "$GRADLE" "$GRADLE.bak"
+cp "$MANIFEST" "$MANIFEST.bak"
 cp "assets/icon/app_icon.png" "assets/icon/app_icon.png.bak"
 cp "assets/icon/splash_logo.png" "assets/icon/splash_logo.png.bak"
 cp "pubspec.yaml" "pubspec.yaml.bak"
@@ -31,6 +33,7 @@ cp "pubspec.yaml" "pubspec.yaml.bak"
 restore() {
   echo "Restoring original configs..."
   [ -f "$GRADLE.bak" ] && mv "$GRADLE.bak" "$GRADLE"
+  [ -f "$MANIFEST.bak" ] && mv "$MANIFEST.bak" "$MANIFEST"
   [ -d "$RES_BAK" ] && { rm -rf "$RES"; mv "$RES_BAK" "$RES"; }
   [ -f "assets/icon/app_icon.png.bak" ] && mv "assets/icon/app_icon.png.bak" "assets/icon/app_icon.png"
   [ -f "assets/icon/splash_logo.png.bak" ] && mv "assets/icon/splash_logo.png.bak" "assets/icon/splash_logo.png"
@@ -53,8 +56,13 @@ XML
 VERSION=$(grep -E '^version:' pubspec.yaml.bak | sed 's/version: //; s/+.*//')
 
 for SPORT in "${SPORTS[@]}"; do
+  # ADMOB_APP_ID: the sport's AdMob *Android* application ID (the "~" form, NOT
+  # the "/" ad-unit IDs). Leave empty for sports without ads — the checked-in
+  # manifest keeps Google's sample App ID so those builds never crash, and
+  # AdService gates off live ads for them. See lib/services/ad_service.dart.
+  ADMOB_APP_ID=""
   case "$SPORT" in
-    basketball) BUNDLE_ID="com.zach.basketballBoard"; DISPLAY_NAME="Basketball Board"; ZH_NAME="篮球战术板";   JA_NAME="バスケボード" ;;
+    basketball) BUNDLE_ID="com.zach.basketballBoard"; DISPLAY_NAME="Basketball Board"; ZH_NAME="篮球战术板";   JA_NAME="バスケボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~2744495676" ;;
     soccer)     BUNDLE_ID="com.zach.soccerBoard";     DISPLAY_NAME="Soccer Board";     ZH_NAME="足球战术板";   JA_NAME="サッカーボード" ;;
     volleyball) BUNDLE_ID="com.zach.volleyballBoard"; DISPLAY_NAME="Volleyball Board"; ZH_NAME="排球战术板";   JA_NAME="バレーボード" ;;
     badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード" ;;
@@ -70,6 +78,12 @@ for SPORT in "${SPORTS[@]}"; do
 
   # ── Patch applicationId ────────────────────────────────────────────────────
   sed -i '' "s/applicationId = \"[^\"]*\"/applicationId = \"$BUNDLE_ID\"/" "$GRADLE"
+
+  # ── Patch AdMob application identifier (only for sports that ship ads) ──────
+  if [ -n "$ADMOB_APP_ID" ]; then
+    echo "  AdMob App: $ADMOB_APP_ID"
+    sed -i '' "s|ca-app-pub-[0-9]*~[0-9]*|$ADMOB_APP_ID|" "$MANIFEST"
+  fi
 
   # ── Patch localized app_name (mirror iOS build_sport.sh) ───────────────────
   for dir in "$RES"/values "$RES"/values-*; do

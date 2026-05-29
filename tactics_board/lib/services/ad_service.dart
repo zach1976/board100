@@ -10,35 +10,53 @@ class _AdUnitIds {
   const _AdUnitIds({required this.appOpen, required this.interstitial});
 }
 
-/// Live iOS ad unit IDs, keyed by sport. Only sports listed here serve ads;
-/// any sport absent from this map — and every Android build, and the
-/// multi-sport dev build — runs ad-free (see [AdService.isEnabled]).
+class _SportAds {
+  final _AdUnitIds? ios;
+  final _AdUnitIds? android;
+  const _SportAds({this.ios, this.android});
+}
+
+/// Live ad unit IDs, keyed by sport then platform. AdMob treats iOS and
+/// Android as separate apps, so each platform has its own App ID and ad units.
+/// Only the (sport, platform) pairs present here serve ads; anything absent —
+/// and the multi-sport dev build — runs ad-free (see [AdService.isEnabled]).
 ///
-/// To turn ads on for another sport: create its AdMob app + ad units, add a
-/// row here, and wire its AdMob App ID into tool/build_sport.sh.
-const Map<SportType, _AdUnitIds> _liveIosAdUnits = {
-  SportType.basketball: _AdUnitIds(
-    appOpen: 'ca-app-pub-4247621509300508/7826798940',
-    interstitial: 'ca-app-pub-4247621509300508/2933868834',
+/// To turn ads on for another sport/platform: create its AdMob app + ad units,
+/// fill the slot here, and wire its AdMob App ID into the matching build script
+/// (tool/build_sport.sh for iOS, tool/build_sport_android.sh for Android).
+const Map<SportType, _SportAds> _liveAdUnits = {
+  SportType.basketball: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/7826798940',
+      interstitial: 'ca-app-pub-4247621509300508/2933868834',
+    ),
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/6072836362',
+      interstitial: 'ca-app-pub-4247621509300508/9741148862',
+    ),
   ),
 };
 
-/// Google's official iOS test ad units — always used in debug builds so
-/// development traffic never hits the live units (which would risk AdMob
+/// Google's official test ad units (per platform) — always used in debug builds
+/// so development traffic never hits the live units (which would risk AdMob
 /// policy strikes for invalid traffic).
 const _AdUnitIds _testIosAdUnits = _AdUnitIds(
   appOpen: 'ca-app-pub-3940256099942544/5575463023',
   interstitial: 'ca-app-pub-3940256099942544/4411468910',
 );
+const _AdUnitIds _testAndroidAdUnits = _AdUnitIds(
+  appOpen: 'ca-app-pub-3940256099942544/9257395921',
+  interstitial: 'ca-app-pub-3940256099942544/1033173712',
+);
 
-/// Owns AdMob SDK init and the two ad formats used by the single-sport iOS
-/// apps: an interstitial shown after the user successfully shares/exports a
-/// board, and an app-open ad shown on cold start and on returns to the
-/// foreground.
+/// Owns AdMob SDK init and the two ad formats used by the single-sport apps
+/// (iOS + Android): an interstitial shown after the user successfully
+/// shares/exports a board, and an app-open ad shown on cold start and on
+/// returns to the foreground.
 ///
 /// Every entry point is a no-op unless [isEnabled] — so the shared codebase
-/// keeps building ad-free for Android, the multi-sport dev build, and any
-/// sport without configured ad units.
+/// keeps building ad-free for the multi-sport dev build and any
+/// sport/platform without configured ad units.
 ///
 /// Guards against the classic app-open misfires: callers wrap flows that send
 /// the app to the background (photo picker, share sheet, sign-in) with
@@ -75,12 +93,19 @@ class AdService {
 
   /// Ad units for the current build, or null when ads are off.
   _AdUnitIds? get _ids {
-    if (!Platform.isIOS) return null; // iOS-only for now
     final sport = fixedSport;
     if (sport == null) return null; // multi-sport dev build: no ads
-    final live = _liveIosAdUnits[sport];
-    if (live == null) return null; // sport has no AdMob app yet
-    return kDebugMode ? _testIosAdUnits : live;
+    final ads = _liveAdUnits[sport];
+    if (ads == null) return null; // sport has no AdMob app yet
+    if (Platform.isIOS) {
+      return ads.ios == null ? null : (kDebugMode ? _testIosAdUnits : ads.ios);
+    }
+    if (Platform.isAndroid) {
+      return ads.android == null
+          ? null
+          : (kDebugMode ? _testAndroidAdUnits : ads.android);
+    }
+    return null;
   }
 
   bool get isEnabled => _ids != null;
