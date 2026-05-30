@@ -5,6 +5,6 @@ Design singles, doubles and mixed plays — front-back, side-by-side and rotatio
 - Ready-made patterns and rotation drills
 - Draw arrows, lines and zones
 - Save unlimited tactics, share as image or PDF
-- Works fully offline — no account, no ads
+- Works fully offline — no account needed
 
 This is our first release. We'd love your feedback.
