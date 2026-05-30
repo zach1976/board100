@@ -103,7 +103,10 @@ for SPORT in "${SPORTS[@]}"; do
   dart run flutter_native_splash:create 2>&1 | tail -2
 
   # ── Build signed app bundle ────────────────────────────────────────────────
-  flutter build appbundle --release --dart-define=SPORT=$SPORT
+  # Play needs a versionCode strictly higher than what's already live. Override
+  # via BUILD_NUMBER env (e.g. BUILD_NUMBER=2) since pubspec's "+1" → code 1.
+  flutter build appbundle --release --dart-define=SPORT=$SPORT \
+    ${BUILD_NUMBER:+--build-number="$BUILD_NUMBER"}
 
   DEST="$OUT/${SPORT}-${VERSION}.aab"
   cp "build/app/outputs/bundle/release/app-release.aab" "$DEST"
