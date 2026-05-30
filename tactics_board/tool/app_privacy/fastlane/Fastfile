@@ -1,0 +1,65 @@
+# App Privacy (data-collection nutrition labels) automation.
+#
+# The official App Store Connect API does NOT expose App Privacy, so this uses
+# fastlane's web-session auth (FASTLANE_SESSION from `fastlane spaceauth`).
+#
+# Usage (run from store_assets/app_privacy):
+#   export FASTLANE_USER="<your apple id email>"
+#   fastlane spaceauth -u "$FASTLANE_USER"        # do 2FA once; export the printed FASTLANE_SESSION
+#   fastlane privacy app:pingpong                 # DRAFT only (skip_publish), safe to verify in ASC
+#   fastlane privacy app:pingpong publish:true    # publish that one app
+#   fastlane privacy publish:true                 # publish ALL ad apps
+require 'json'
+
+ROOT = File.expand_path('..', __dir__)
+APPS = JSON.parse(File.read(File.join(ROOT, 'ad_apps.json'))).reject { |k, _| k.start_with?('_') }
+JSON_PATH = File.join(ROOT, 'app_privacy_admob.json')
+
+platform :ios do
+  desc 'Read back the LIVE App Privacy data usages from ASC. Args: app:<key> (default all)'
+  lane :verify do |options|
+    require 'spaceship'
+    Spaceship::ConnectAPI.login(ENV['FASTLANE_USER'], use_portal: false, use_tunes: true,
+                                tunes_team_id: ENV['FASTLANE_ITC_TEAM_ID'] || '126797336')
+    targets = options[:app] ? { options[:app].to_s => APPS.fetch(options[:app].to_s) } : APPS
+    targets.each do |key, bundle|
+      app = Spaceship::ConnectAPI::App.find(bundle)
+      usages = Spaceship::ConnectAPI::AppDataUsage.all(app_id: app.id, includes: 'category,purpose,dataProtection', limit: 500)
+      pub = Spaceship::ConnectAPI::AppDataUsagesPublishState.get(app_id: app.id)
+      UI.header("#{key} (#{bundle}) — published=#{pub.published} — #{usages.size} usage rows")
+      usages.each do |u|
+        cat = u.category&.id
+        pur = u.purpose&.id
+        prot = u.data_protection&.id
+        UI.message("  #{cat} | #{pur} | #{prot}")
+      end
+    end
+  end
+
+  desc 'Push AdMob App Privacy labels. Args: app:<key> (default all), publish:true (default draft-only)'
+  lane :privacy do |options|
+    user = ENV['FASTLANE_USER']
+    UI.user_error!('Set FASTLANE_USER=<apple id email> (and run `fastlane spaceauth -u $FASTLANE_USER`)') if user.to_s.empty?
+
+    publish = options[:publish].to_s == 'true'
+    targets =
+      if options[:app]
+        { options[:app].to_s => APPS.fetch(options[:app].to_s) { UI.user_error!("Unknown app key '#{options[:app]}'. Known: #{APPS.keys.join(', ')}") } }
+      else
+        APPS
+      end
+
+    targets.each do |key, bundle|
+      UI.header("#{key} (#{bundle}) — #{publish ? 'PUBLISH' : 'draft only (skip_publish)'}")
+      upload_app_privacy_details_to_app_store(
+        username: user,
+        app_identifier: bundle,
+        team_id: ENV['FASTLANE_ITC_TEAM_ID'] || '126797336', # zhenyu song (SOFTWARE/INDIVIDUAL); account also has a Podcast team
+        json_path: JSON_PATH,
+        skip_json_file_saving: true,
+        skip_publish: !publish
+      )
+    end
+    UI.success("Done. #{targets.size} app(s) processed (publish=#{publish}).")
+  end
+end
