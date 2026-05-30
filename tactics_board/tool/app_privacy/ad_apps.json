@@ -1,0 +1,17 @@
+{
+  "_comment": "Tactics Board iOS apps that show AdMob ads and therefore need the App Privacy labels. Matches _liveAdUnits (ios) in lib/services/ad_service.dart. sepakTakraw and the multi-sport tacticsBoard have NO ads and are intentionally excluded.",
+  "badminton": "com.zach.badmintonBoard",
+  "tableTennis": "com.zach.tableTennisBoard",
+  "tennis": "com.zach.tennisBoard",
+  "basketball": "com.zach.basketballBoard",
+  "volleyball": "com.zach.volleyballBoard",
+  "pickleball": "com.zach.pickleballBoard",
+  "soccer": "com.zach.soccerBoard",
+  "fieldHockey": "com.zach.fieldHockeyBoard",
+  "rugby": "com.zach.rugbyBoard",
+  "baseball": "com.zach.baseballBoard",
+  "handball": "com.zach.handballBoard",
+  "waterPolo": "com.zach.waterPoloBoard",
+  "beachTennis": "com.zach.beachTennisBoard",
+  "footvolley": "com.zach.footvolleyBoard"
+}
