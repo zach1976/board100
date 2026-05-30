@@ -5,6 +5,6 @@ Diagram pick-and-rolls, motion offense and defensive rotations on an accurate co
 - 3v3 and 5v5 ready-made formations
 - Draw arrows, lines and zones
 - Save unlimited tactics, share as image or PDF
-- Works fully offline — no account, no ads
+- Works fully offline — no account needed
 
 This is our first release. We'd love your feedback.
