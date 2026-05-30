@@ -18,21 +18,21 @@ DEVICE=${3:-}
 # AdService gates off live ads for them. See lib/services/ad_service.dart.
 ADMOB_APP_ID=""
 case "$SPORT" in
-  badminton)    BUNDLE_ID="com.zach.badmintonBoard";    DISPLAY_NAME="Badminton Board";    ZH_NAME="羽毛球战术板";  JA_NAME="バドミントンボード" ;;
-  tableTennis)  BUNDLE_ID="com.zach.tableTennisBoard";  DISPLAY_NAME="Table Tennis Board"; ZH_NAME="乒乓球战术板";  JA_NAME="卓球ボード" ;;
-  tennis)       BUNDLE_ID="com.zach.tennisBoard";       DISPLAY_NAME="Tennis Board";       ZH_NAME="网球战术板";    JA_NAME="テニスボード" ;;
+  badminton)    BUNDLE_ID="com.zach.badmintonBoard";    DISPLAY_NAME="Badminton Board";    ZH_NAME="羽毛球战术板";  JA_NAME="バドミントンボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~8533679872" ;;
+  tableTennis)  BUNDLE_ID="com.zach.tableTennisBoard";  DISPLAY_NAME="Table Tennis Board"; ZH_NAME="乒乓球战术板";  JA_NAME="卓球ボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~2607096007" ;;
+  tennis)       BUNDLE_ID="com.zach.tennisBoard";       DISPLAY_NAME="Tennis Board";       ZH_NAME="网球战术板";    JA_NAME="テニスボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~1321934499" ;;
   basketball)   BUNDLE_ID="com.zach.basketballBoard";   DISPLAY_NAME="Basketball Board";   ZH_NAME="篮球战术板";    JA_NAME="バスケボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~7734769370" ;;
-  volleyball)   BUNDLE_ID="com.zach.volleyballBoard";   DISPLAY_NAME="Volleyball Board";   ZH_NAME="排球战术板";    JA_NAME="バレーボード" ;;
-  pickleball)   BUNDLE_ID="com.zach.pickleballBoard";   DISPLAY_NAME="Pickleball Board";   ZH_NAME="匹克球战术板";  JA_NAME="ピックルボールボード" ;;
-  soccer)       BUNDLE_ID="com.zach.soccerBoard";       DISPLAY_NAME="Soccer Board";       ZH_NAME="足球战术板";    JA_NAME="サッカーボード" ;;
-  fieldHockey)  BUNDLE_ID="com.zach.fieldHockeyBoard";  DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板";  JA_NAME="フィールドホッケーボード" ;;
-  rugby)        BUNDLE_ID="com.zach.rugbyBoard";        DISPLAY_NAME="Rugby Board";        ZH_NAME="橄榄球战术板";  JA_NAME="ラグビーボード" ;;
-  baseball)     BUNDLE_ID="com.zach.baseballBoard";     DISPLAY_NAME="Baseball Board";     ZH_NAME="棒球战术板";    JA_NAME="野球ボード" ;;
-  handball)     BUNDLE_ID="com.zach.handballBoard";     DISPLAY_NAME="Handball Board";     ZH_NAME="手球战术板";    JA_NAME="ハンドボールボード" ;;
-  waterPolo)    BUNDLE_ID="com.zach.waterPoloBoard";    DISPLAY_NAME="Water Polo Board";   ZH_NAME="水球战术板";    JA_NAME="水球ボード" ;;
+  volleyball)   BUNDLE_ID="com.zach.volleyballBoard";   DISPLAY_NAME="Volleyball Board";   ZH_NAME="排球战术板";    JA_NAME="バレーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~2373641809" ;;
+  pickleball)   BUNDLE_ID="com.zach.pickleballBoard";   DISPLAY_NAME="Pickleball Board";   ZH_NAME="匹克球战术板";  JA_NAME="ピックルボールボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~3191899453" ;;
+  soccer)       BUNDLE_ID="com.zach.soccerBoard";       DISPLAY_NAME="Soccer Board";       ZH_NAME="足球战术板";    JA_NAME="サッカーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~2977796941" ;;
+  fieldHockey)  BUNDLE_ID="com.zach.fieldHockeyBoard";  DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板";  JA_NAME="フィールドホッケーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~7240475581" ;;
+  rugby)        BUNDLE_ID="com.zach.rugbyBoard";        DISPLAY_NAME="Rugby Board";        ZH_NAME="橄榄球战术板";  JA_NAME="ラグビーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~3301230572" ;;
+  baseball)     BUNDLE_ID="com.zach.baseballBoard";     DISPLAY_NAME="Baseball Board";     ZH_NAME="棒球战术板";    JA_NAME="野球ボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~8270486222" ;;
+  handball)     BUNDLE_ID="com.zach.handballBoard";     DISPLAY_NAME="Handball Board";     ZH_NAME="手球战术板";    JA_NAME="ハンドボールボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~1878817785" ;;
+  waterPolo)    BUNDLE_ID="com.zach.waterPoloBoard";    DISPLAY_NAME="Water Polo Board";   ZH_NAME="水球战术板";    JA_NAME="水球ボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~6692160761" ;;
   sepakTakraw)  BUNDLE_ID="com.zach.sepakTakrawBoard";  DISPLAY_NAME="Sepak Takraw Board"; ZH_NAME="藤球战术板";    JA_NAME="セパタクローボード" ;;
-  beachTennis)  BUNDLE_ID="com.zach.beachTennisBoard";  DISPLAY_NAME="Beach Tennis Board"; ZH_NAME="沙滩网球战术板"; JA_NAME="ビーチテニスボード" ;;
-  footvolley)   BUNDLE_ID="com.zach.footvolleyBoard";   DISPLAY_NAME="Footvolley Board";   ZH_NAME="足排球战术板";  JA_NAME="フットボレーボード" ;;
+  beachTennis)  BUNDLE_ID="com.zach.beachTennisBoard";  DISPLAY_NAME="Beach Tennis Board"; ZH_NAME="沙滩网球战术板"; JA_NAME="ビーチテニスボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~8509629141" ;;
+  footvolley)   BUNDLE_ID="com.zach.footvolleyBoard";   DISPLAY_NAME="Footvolley Board";   ZH_NAME="足排球战术板";  JA_NAME="フットボレーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~6721904756" ;;
   *)
     echo "Unknown sport: $SPORT"
     echo "Available: badminton tableTennis tennis basketball volleyball pickleball soccer fieldHockey rugby baseball handball waterPolo sepakTakraw beachTennis footvolley"

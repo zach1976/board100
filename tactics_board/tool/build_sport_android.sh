@@ -65,7 +65,7 @@ for SPORT in "${SPORTS[@]}"; do
     basketball) BUNDLE_ID="com.zach.basketballBoard"; DISPLAY_NAME="Basketball Board"; ZH_NAME="篮球战术板";   JA_NAME="バスケボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~2744495676" ;;
     soccer)     BUNDLE_ID="com.zach.soccerBoard";     DISPLAY_NAME="Soccer Board";     ZH_NAME="足球战术板";   JA_NAME="サッカーボード" ;;
     volleyball) BUNDLE_ID="com.zach.volleyballBoard"; DISPLAY_NAME="Volleyball Board"; ZH_NAME="排球战术板";   JA_NAME="バレーボード" ;;
-    badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード" ;;
+    badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~5809946636" ;;
     *) echo "Unknown sport: $SPORT"; echo "Available: basketball soccer volleyball badminton"; exit 1 ;;
   esac
 

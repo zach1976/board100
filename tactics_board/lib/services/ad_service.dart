@@ -25,6 +25,28 @@ class _SportAds {
 /// fill the slot here, and wire its AdMob App ID into the matching build script
 /// (tool/build_sport.sh for iOS, tool/build_sport_android.sh for Android).
 const Map<SportType, _SportAds> _liveAdUnits = {
+  SportType.badminton: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/9358005481',
+      interstitial: 'ca-app-pub-4247621509300508/9599194001',
+    ),
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/3517001384',
+      interstitial: 'ca-app-pub-4247621509300508/9832952121',
+    ),
+  ),
+  SportType.tableTennis: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/6704225901',
+      interstitial: 'ca-app-pub-4247621509300508/3666999022',
+    ),
+  ),
+  SportType.tennis: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/3197437187',
+      interstitial: 'ca-app-pub-4247621509300508/3568972271',
+    ),
+  ),
   SportType.basketball: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/7826798940',
@@ -35,6 +57,67 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       interstitial: 'ca-app-pub-4247621509300508/9741148862',
     ),
   ),
+  SportType.volleyball: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/2353917358',
+      interstitial: 'ca-app-pub-4247621509300508/6733357514',
+    ),
+  ),
+  SportType.pickleball: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/2447462291',
+      interstitial: 'ca-app-pub-4247621509300508/3133858004',
+    ),
+  ),
+  SportType.soccer: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/9521960937',
+      interstitial: 'ca-app-pub-4247621509300508/3511086352',
+    ),
+  ),
+  SportType.fieldHockey: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/5456769018',
+      interstitial: 'ca-app-pub-4247621509300508/9003086181',
+    ),
+  ),
+  SportType.rugby: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/5171652386',
+      interstitial: 'ca-app-pub-4247621509300508/5611847534',
+    ),
+  ),
+  SportType.baseball: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/8832907249',
+      interstitial: 'ca-app-pub-4247621509300508/3022177363',
+    ),
+  ),
+  SportType.handball: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/9685612467',
+      interstitial: 'ca-app-pub-4247621509300508/3311775804',
+    ),
+  ),
+  SportType.waterPolo: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/8258192176',
+      interstitial: 'ca-app-pub-4247621509300508/1481030838',
+    ),
+  ),
+  SportType.beachTennis: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/1651209779',
+      interstitial: 'ca-app-pub-4247621509300508/2871957953',
+    ),
+  ),
+  SportType.footvolley: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/4143687349',
+      interstitial: 'ca-app-pub-4247621509300508/3580580568',
+    ),
+  ),
+  // sepakTakraw: no AdMob app created yet → stays ad-free.
 };
 
 /// Google's official test ad units (per platform) — always used in debug builds
