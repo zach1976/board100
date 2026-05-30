@@ -60,6 +60,30 @@ build_ipa() {
   # Patch display name
   /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $DISPLAY_NAME" "$PLIST"
 
+  # Patch AdMob App ID per sport (must match lib/services/ad_service.dart).
+  # Sports without an AdMob app keep the checked-in sample ID — they run ad-free
+  # at runtime (AdService has no ad units for them). Mirrors build_sport.sh.
+  local ADMOB_APP_ID=""
+  case "$SPORT" in
+    badminton)   ADMOB_APP_ID="ca-app-pub-4247621509300508~8533679872" ;;
+    tableTennis) ADMOB_APP_ID="ca-app-pub-4247621509300508~2607096007" ;;
+    tennis)      ADMOB_APP_ID="ca-app-pub-4247621509300508~1321934499" ;;
+    basketball)  ADMOB_APP_ID="ca-app-pub-4247621509300508~7734769370" ;;
+    volleyball)  ADMOB_APP_ID="ca-app-pub-4247621509300508~2373641809" ;;
+    pickleball)  ADMOB_APP_ID="ca-app-pub-4247621509300508~3191899453" ;;
+    soccer)      ADMOB_APP_ID="ca-app-pub-4247621509300508~2977796941" ;;
+    fieldHockey) ADMOB_APP_ID="ca-app-pub-4247621509300508~7240475581" ;;
+    rugby)       ADMOB_APP_ID="ca-app-pub-4247621509300508~3301230572" ;;
+    baseball)    ADMOB_APP_ID="ca-app-pub-4247621509300508~8270486222" ;;
+    handball)    ADMOB_APP_ID="ca-app-pub-4247621509300508~1878817785" ;;
+    waterPolo)   ADMOB_APP_ID="ca-app-pub-4247621509300508~6692160761" ;;
+    beachTennis) ADMOB_APP_ID="ca-app-pub-4247621509300508~8509629141" ;;
+    footvolley)  ADMOB_APP_ID="ca-app-pub-4247621509300508~6721904756" ;;
+  esac
+  if [ -n "$ADMOB_APP_ID" ]; then
+    /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $ADMOB_APP_ID" "$PLIST"
+  fi
+
   # Localized names
   local LPROJ_DIR="ios/Runner"
   for lproj in en.lproj; do
