@@ -120,6 +120,19 @@ const Map<SportType, _SportAds> _liveAdUnits = {
   // sepakTakraw: no AdMob app created yet → stays ad-free.
 };
 
+/// The multi-sport hub app ("Tactics Board – Coach Playbook", com.zach.tacticsBoard)
+/// has no fixed sport, so it can't be keyed in [_liveAdUnits]. It opts into ads
+/// via --dart-define=HUB_ADS=1 (set only by the hub build in tool/build_all_ipa.sh);
+/// the plain multi-sport dev build leaves this off and stays ad-free.
+const bool _hubAdsEnabled = bool.fromEnvironment('HUB_ADS');
+
+/// iOS ad units for the hub app's own AdMob app (App ID ~5907516538).
+/// iOS only — no Android AdMob app exists for the hub.
+const _AdUnitIds _hubIosAdUnits = _AdUnitIds(
+  appOpen: 'ca-app-pub-4247621509300508/8532312895',
+  interstitial: 'ca-app-pub-4247621509300508/4078062561',
+);
+
 /// Google's official test ad units (per platform) — always used in debug builds
 /// so development traffic never hits the live units (which would risk AdMob
 /// policy strikes for invalid traffic).
@@ -177,7 +190,13 @@ class AdService {
   /// Ad units for the current build, or null when ads are off.
   _AdUnitIds? get _ids {
     final sport = fixedSport;
-    if (sport == null) return null; // multi-sport dev build: no ads
+    if (sport == null) {
+      // Multi-sport hub app: ads only when the production hub build opts in
+      // (HUB_ADS=1); the plain dev build stays ad-free. iOS only — the hub has
+      // no Android AdMob app.
+      if (!_hubAdsEnabled || !Platform.isIOS) return null;
+      return kDebugMode ? _testIosAdUnits : _hubIosAdUnits;
+    }
     final ads = _liveAdUnits[sport];
     if (ads == null) return null; // sport has no AdMob app yet
     if (Platform.isIOS) {

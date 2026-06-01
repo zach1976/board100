@@ -39,6 +39,10 @@ build_ipa() {
   local JA_NAME=$5
   local DART_DEFINES=$6
 
+  # Optional single-app filter: set ONLY to a sport key (or "" for the hub) to
+  # build just that one app. Unset ONLY → build everything (default behavior).
+  if [ -n "${ONLY+x}" ] && [ "$SPORT" != "$ONLY" ]; then return 0; fi
+
   echo ""
   echo "══════════════════════════════════════"
   echo "  Building: $DISPLAY_NAME"
@@ -65,6 +69,7 @@ build_ipa() {
   # at runtime (AdService has no ad units for them). Mirrors build_sport.sh.
   local ADMOB_APP_ID=""
   case "$SPORT" in
+    "")          ADMOB_APP_ID="ca-app-pub-4247621509300508~5907516538" ;; # multi-sport hub (HUB_ADS build)
     badminton)   ADMOB_APP_ID="ca-app-pub-4247621509300508~8533679872" ;;
     tableTennis) ADMOB_APP_ID="ca-app-pub-4247621509300508~2607096007" ;;
     tennis)      ADMOB_APP_ID="ca-app-pub-4247621509300508~1321934499" ;;
@@ -140,8 +145,9 @@ build_ipa() {
 # Build all 16 apps
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Multi-sport (no SPORT define)
-build_ipa "" "com.zach.tacticsBoard" "Tactics Board" "战术板" "タクティクスボード" ""
+# Multi-sport hub ("Coach Playbook") — no SPORT define, but opts into its own
+# AdMob app (iOS App ID ~5907516538) via HUB_ADS. See lib/services/ad_service.dart.
+build_ipa "" "com.zach.tacticsBoard" "Tactics Board" "战术板" "タクティクスボード" "--dart-define=HUB_ADS=1"
 
 # Single-sport apps
 build_ipa "soccer"      "com.zach.soccerBoard"      "Soccer Board"       "足球战术板"     "サッカーボード"         "--dart-define=SPORT=soccer"
