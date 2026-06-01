@@ -1,0 +1,10 @@
+Welcome to Water Polo Board!
+
+Water Polo Board helps coaches plan 4-2 and 3-3 attack, M-drop defenses, and 6-on-5 plays — full pool, all positions.
+
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Tap Play to animate every move, step by step
+- Works fully offline — no account needed
+
+This is our first release. We'd love your feedback.

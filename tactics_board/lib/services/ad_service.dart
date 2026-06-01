@@ -122,15 +122,20 @@ const Map<SportType, _SportAds> _liveAdUnits = {
 
 /// The multi-sport hub app ("Tactics Board – Coach Playbook", com.zach.tacticsBoard)
 /// has no fixed sport, so it can't be keyed in [_liveAdUnits]. It opts into ads
-/// via --dart-define=HUB_ADS=1 (set only by the hub build in tool/build_all_ipa.sh);
-/// the plain multi-sport dev build leaves this off and stays ad-free.
+/// via --dart-define=HUB_ADS=1 (set by the hub build in tool/build_all_ipa.sh for
+/// iOS and tool/build_sport_android.sh for Android); the plain multi-sport dev
+/// build leaves this off and stays ad-free.
 const bool _hubAdsEnabled = bool.fromEnvironment('HUB_ADS');
 
-/// iOS ad units for the hub app's own AdMob app (App ID ~5907516538).
-/// iOS only — no Android AdMob app exists for the hub.
+/// Ad units for the hub app's own AdMob apps (iOS App ID ~5907516538,
+/// Android App ID ~4532136942 — AdMob treats them as separate apps).
 const _AdUnitIds _hubIosAdUnits = _AdUnitIds(
   appOpen: 'ca-app-pub-4247621509300508/8532312895',
   interstitial: 'ca-app-pub-4247621509300508/4078062561',
+);
+const _AdUnitIds _hubAndroidAdUnits = _AdUnitIds(
+  appOpen: 'ca-app-pub-4247621509300508/8478743512',
+  interstitial: 'ca-app-pub-4247621509300508/1809393384',
 );
 
 /// Google's official test ad units (per platform) — always used in debug builds
@@ -192,10 +197,14 @@ class AdService {
     final sport = fixedSport;
     if (sport == null) {
       // Multi-sport hub app: ads only when the production hub build opts in
-      // (HUB_ADS=1); the plain dev build stays ad-free. iOS only — the hub has
-      // no Android AdMob app.
-      if (!_hubAdsEnabled || !Platform.isIOS) return null;
-      return kDebugMode ? _testIosAdUnits : _hubIosAdUnits;
+      // (HUB_ADS=1); the plain dev build stays ad-free. Has its own AdMob app
+      // on both iOS and Android.
+      if (!_hubAdsEnabled) return null;
+      if (Platform.isIOS) return kDebugMode ? _testIosAdUnits : _hubIosAdUnits;
+      if (Platform.isAndroid) {
+        return kDebugMode ? _testAndroidAdUnits : _hubAndroidAdUnits;
+      }
+      return null;
     }
     final ads = _liveAdUnits[sport];
     if (ads == null) return null; // sport has no AdMob app yet

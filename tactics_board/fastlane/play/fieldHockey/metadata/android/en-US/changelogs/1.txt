@@ -1,0 +1,10 @@
+Welcome to Field Hockey Board!
+
+Field Hockey Board gives coaches a precise pitch to plan formations, penalty corners, and pressing triggers — junior to international.
+
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Tap Play to animate every move, step by step
+- Works fully offline — no account needed
+
+This is our first release. We'd love your feedback.
