@@ -1,18 +1,24 @@
 # Google Play 发布素材
 
-篮球 / 足球 / 排球 / 羽毛球 4 个单运动 app 的 Google Play 上架素材。
-当前 store listing locale：**仅 en-US**（其余语言后续再补）。
+全部 16 个 app（15 单运动 + 多运动 hub）的 Google Play 上架素材。
+store listing locale：**11 种语言**（en-US / es-ES / fr-FR / id / ja-JP / ko-KR / ms / th / vi / zh-CN / zh-TW）。
+> Play 语言码 ≠ iOS：`ja→ja-JP`、`ko→ko-KR`、`zh-Hans→zh-CN`、`zh-Hant→zh-TW`。
 
-## 4 个 app
-
-| sport | applicationId | 应用名 (en) | versionName+Code |
-|---|---|---|---|
-| basketball | `com.zach.basketballBoard` | Basketball Board | 1.1.12 (code 1) |
-| soccer     | `com.zach.soccerBoard`     | Soccer Board     | 1.1.12 (code 1) |
-| volleyball | `com.zach.volleyballBoard` | Volleyball Board | 1.1.12 (code 1) |
-| badminton  | `com.zach.badmintonBoard`  | Badminton Board  | 1.1.12 (code 1) |
+## 16 个 app
 
 applicationId 与 iOS `build_sport.sh` 的 bundle ID 一致。**Play 首次上架后不可更改。**
+
+| 状态 | sport | applicationId |
+|---|---|---|
+| 已上架(有Android广告) | basketball | `com.zach.basketballBoard` |
+| 已上架(有Android广告) | badminton  | `com.zach.badmintonBoard`  |
+| 素材就绪(Android无广告) | soccer | `com.zach.soccerBoard` |
+| 素材就绪(Android无广告) | volleyball | `com.zach.volleyballBoard` |
+| 素材就绪(Android无广告) | tennis · tableTennis · pickleball · beachTennis · footvolley · baseball · handball · waterPolo · fieldHockey · rugby · sepakTakraw | `com.zach.<sport>Board` |
+| 素材就绪(Android无广告) | tactics_board (hub) | `com.zach.tacticsBoard` |
+
+> Android 广告仅 basketball + badminton（`ad_service.dart` 里仅这两个有 android 广告单元）；
+> 其余 14 个 Android 端无广告，full_description 不含「广告」相关表述，可放心声明免费。
 
 ## 目录结构
 
@@ -28,10 +34,20 @@ fastlane/play/<sport>/metadata/android/en-US/
     phoneScreenshots/1..6.png  1440×2868 手机截图 (App Store 原图，边缘复制补边到比例 1.99)
 ```
 
-文本素材改写自 iOS App Store 文案（`fastlane/metadata/<sport>/en-US/`），
-已把 "AirPlay to TV" 改成平台中性的 "mirror to a TV"。
+文本素材由 `tool/gen_play_metadata.py` 从 iOS App Store 文案（`fastlane/metadata/<sport>/<locale>/`）生成：
+- **非英文 locale**：逐字复制 iOS 的 name→title、subtitle→short_description、description→full_description。
+- **en-US**：3 处平台化改写 —— 去掉「Name — Name …」重复前缀、插入 `Free forever · Works offline · No account` 一行、把 iOS 专属的 "AirPlay to TV …" 改成 "Big-screen ready — mirror to a TV …"；short_description 用脚本内 `SHORT_EN` 的定制文案（iOS subtitle ≤30 太短）。
+- changelogs/1.txt（仅 en-US，首发说明）也一并生成。
+
+```bash
+python3 tool/gen_play_metadata.py new            # 12 个尚无 Play 文案的 app
+python3 tool/gen_play_metadata.py fill soccer volleyball  # 只补缺失 locale，保留已有 en-US
+python3 tool/gen_play_metadata.py all            # 全部重生成（会覆盖）
+```
+
 截图直接用 App Store 同款原始截图（`fastlane/screenshots/<sport>/en-US/`），
 1320×2868 超出 Play 的 ≤2:1，按行复制最边缘像素向外补到 1440 宽（无缝衔接球场色/工具栏色）。
+hub（tactics_board）无 per-sport 图源，`gen_play_assets.py` 回退用 `app_icon.png` / `splash_logo.png`。
 
 ## 签名
 
