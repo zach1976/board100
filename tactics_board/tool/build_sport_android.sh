@@ -67,10 +67,21 @@ for SPORT in "${SPORTS[@]}"; do
     volleyball) BUNDLE_ID="com.zach.volleyballBoard"; DISPLAY_NAME="Volleyball Board"; ZH_NAME="排球战术板";   JA_NAME="バレーボード" ;;
     badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~5809946636" ;;
     fieldHockey) BUNDLE_ID="com.zach.fieldHockeyBoard"; DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板"; JA_NAME="フィールドホッケーボード" ;; # Android: no AdMob app → ad-free
+    # Below: no Android AdMob app → ad-free on Android (keep checked-in sample ID).
+    tennis)      BUNDLE_ID="com.zach.tennisBoard";      DISPLAY_NAME="Tennis Board";       ZH_NAME="网球战术板";     JA_NAME="テニスボード" ;;
+    tableTennis) BUNDLE_ID="com.zach.tableTennisBoard"; DISPLAY_NAME="Table Tennis Board"; ZH_NAME="乒乓球战术板";   JA_NAME="卓球ボード" ;;
+    pickleball)  BUNDLE_ID="com.zach.pickleballBoard";  DISPLAY_NAME="Pickleball Board";   ZH_NAME="匹克球战术板";   JA_NAME="ピックルボールボード" ;;
+    beachTennis) BUNDLE_ID="com.zach.beachTennisBoard"; DISPLAY_NAME="Beach Tennis Board"; ZH_NAME="沙滩网球战术板"; JA_NAME="ビーチテニスボード" ;;
+    footvolley)  BUNDLE_ID="com.zach.footvolleyBoard";  DISPLAY_NAME="Footvolley Board";   ZH_NAME="足排球战术板";   JA_NAME="フットボレーボード" ;;
+    baseball)    BUNDLE_ID="com.zach.baseballBoard";    DISPLAY_NAME="Baseball Board";     ZH_NAME="棒球战术板";     JA_NAME="野球ボード" ;;
+    handball)    BUNDLE_ID="com.zach.handballBoard";    DISPLAY_NAME="Handball Board";     ZH_NAME="手球战术板";     JA_NAME="ハンドボールボード" ;;
+    waterPolo)   BUNDLE_ID="com.zach.waterPoloBoard";   DISPLAY_NAME="Water Polo Board";   ZH_NAME="水球战术板";     JA_NAME="水球ボード" ;;
+    rugby)       BUNDLE_ID="com.zach.rugbyBoard";       DISPLAY_NAME="Rugby Board";        ZH_NAME="橄榄球战术板";   JA_NAME="ラグビーボード" ;;
+    sepakTakraw) BUNDLE_ID="com.zach.sepakTakrawBoard"; DISPLAY_NAME="Sepak Takraw Board"; ZH_NAME="藤球战术板";     JA_NAME="セパタクローボード" ;;
     # Multi-sport hub: built with NO SPORT define, uses the default app icon/splash,
     # and serves ads via HUB_ADS (its own Android AdMob app ~4532136942).
     tactics_board) BUNDLE_ID="com.zach.tacticsBoard"; DISPLAY_NAME="Tactics Board"; ZH_NAME="战术板"; JA_NAME="タクティクスボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~4532136942" ;;
-    *) echo "Unknown sport: $SPORT"; echo "Available: basketball soccer volleyball badminton fieldHockey tactics_board"; exit 1 ;;
+    *) echo "Unknown sport: $SPORT"; echo "Available: basketball soccer volleyball badminton fieldHockey tennis tableTennis pickleball beachTennis footvolley baseball handball waterPolo rugby sepakTakraw tactics_board"; exit 1 ;;
   esac
 
   echo "══════════════════════════════════════"

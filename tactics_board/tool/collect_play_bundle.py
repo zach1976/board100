@@ -46,8 +46,9 @@ def collect(sport):
             shutil.copy2(os.path.join(ssdir, fn), os.path.join(dest, f"screenshot_{i}.png"))
             n_img += 1
 
-    aabs = [f for f in os.listdir(AAB_DIR)] if os.path.isdir(AAB_DIR) else []
-    aab = next((f for f in aabs if f.startswith(f"{sport}-") and f.endswith(".aab")), None)
+    aabs = sorted(f for f in os.listdir(AAB_DIR)) if os.path.isdir(AAB_DIR) else []
+    matches = [f for f in aabs if f.startswith(f"{sport}-") and f.endswith(".aab")]
+    aab = matches[-1] if matches else None  # latest version (sorted last)
     if aab:
         shutil.copy2(os.path.join(AAB_DIR, aab), os.path.join(dest, aab))
         print(f"  ✓ {sport}: {n_img} images + {aab}")
