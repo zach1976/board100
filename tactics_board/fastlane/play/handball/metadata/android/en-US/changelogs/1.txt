@@ -1,0 +1,10 @@
+Welcome to Handball Board!
+
+Handball Board helps coaches plan attack systems, 6-0 and 5-1 defenses, and fast breaks on a regulation court.
+
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Tap Play to animate every move, step by step
+- Works fully offline — no account needed
+
+This is our first release. We'd love your feedback.

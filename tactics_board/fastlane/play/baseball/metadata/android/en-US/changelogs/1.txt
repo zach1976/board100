@@ -1,0 +1,10 @@
+Welcome to Baseball Board!
+
+Baseball Board lets coaches set defensive shifts, base-running plays, and pitcher coverage — diamond and outfield, all positions.
+
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Tap Play to animate every move, step by step
+- Works fully offline — no account needed
+
+This is our first release. We'd love your feedback.

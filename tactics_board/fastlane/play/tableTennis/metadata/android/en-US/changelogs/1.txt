@@ -1,0 +1,10 @@
+Welcome to Table Tennis Board!
+
+Table Tennis Board lets coaches and players plan service patterns, return strategies, and 3rd-ball attacks on a regulation table.
+
+- Draw arrows, lines and zones
+- Save unlimited tactics, share as image or PDF
+- Tap Play to animate every move, step by step
+- Works fully offline — no account needed
+
+This is our first release. We'd love your feedback.

@@ -29,7 +29,29 @@ SPORTS = {
     "soccer": ("Soccer Board", "Draw a Play. Watch It Run."),
     "volleyball": ("Volleyball Board", "Rotations, Demystified."),
     "badminton": ("Badminton Board", "Win Doubles Without Words."),
+    "baseball": ("Baseball Board", "Set the Defense. Run the Bases."),
+    "beachTennis": ("Beach Tennis Board", "Own the Sand."),
+    "fieldHockey": ("Field Hockey Board", "Corners, Drilled."),
+    "footvolley": ("Footvolley Board", "Sand. Skill. Strategy."),
+    "handball": ("Handball Board", "Attack. Defend. Break."),
+    "pickleball": ("Pickleball Board", "Master the Kitchen."),
+    "rugby": ("Rugby Board", "Lineouts to Tries."),
+    "sepakTakraw": ("Sepak Takraw Board", "Serve. Feed. Spike."),
+    "tableTennis": ("Table Tennis Board", "Serve. Return. Attack."),
+    "tennis": ("Tennis Board", "Plan Every Point."),
+    "waterPolo": ("Water Polo Board", "Command the Pool."),
+    "tactics_board": ("Tactics Board", "Every Sport. One Board."),
 }
+
+# The multi-sport hub has no per-sport asset; it uses the default source PNGs.
+def _icon_src(sport):
+    name = "app_icon.png" if sport == "tactics_board" else f"{sport}_icon.png"
+    return os.path.join(ICON_DIR, name)
+
+
+def _splash_src(sport):
+    name = "splash_logo.png" if sport == "tactics_board" else f"{sport}_splash.png"
+    return os.path.join(ICON_DIR, name)
 
 
 def rounded(img, radius):
@@ -60,7 +82,7 @@ def wrap(draw, text, font, max_w):
 
 
 def gen_icon(sport, outdir):
-    src = Image.open(os.path.join(ICON_DIR, f"{sport}_icon.png")).convert("RGBA")
+    src = Image.open(_icon_src(sport)).convert("RGBA")
     src.resize((512, 512), Image.LANCZOS).save(os.path.join(outdir, "icon.png"))
     print(f"  icon.png            512x512")
 
@@ -69,7 +91,7 @@ def gen_feature(sport, name, tagline, outdir):
     W, H = 1024, 500
 
     # background: cover-fit the splash artwork, center crop
-    splash = Image.open(os.path.join(ICON_DIR, f"{sport}_splash.png")).convert("RGB")
+    splash = Image.open(_splash_src(sport)).convert("RGB")
     sw, sh = splash.size
     scale = max(W / sw, H / sh)
     splash = splash.resize((round(sw * scale), round(sh * scale)), Image.LANCZOS)
@@ -84,7 +106,7 @@ def gen_feature(sport, name, tagline, outdir):
     # icon with rounded corners + soft shadow
     isz = 284
     icon = (
-        Image.open(os.path.join(ICON_DIR, f"{sport}_icon.png"))
+        Image.open(_icon_src(sport))
         .convert("RGBA")
         .resize((isz, isz), Image.LANCZOS)
     )

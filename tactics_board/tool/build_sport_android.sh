@@ -66,7 +66,11 @@ for SPORT in "${SPORTS[@]}"; do
     soccer)     BUNDLE_ID="com.zach.soccerBoard";     DISPLAY_NAME="Soccer Board";     ZH_NAME="足球战术板";   JA_NAME="サッカーボード" ;;
     volleyball) BUNDLE_ID="com.zach.volleyballBoard"; DISPLAY_NAME="Volleyball Board"; ZH_NAME="排球战术板";   JA_NAME="バレーボード" ;;
     badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~5809946636" ;;
-    *) echo "Unknown sport: $SPORT"; echo "Available: basketball soccer volleyball badminton"; exit 1 ;;
+    fieldHockey) BUNDLE_ID="com.zach.fieldHockeyBoard"; DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板"; JA_NAME="フィールドホッケーボード" ;; # Android: no AdMob app → ad-free
+    # Multi-sport hub: built with NO SPORT define, uses the default app icon/splash,
+    # and serves ads via HUB_ADS (its own Android AdMob app ~4532136942).
+    tactics_board) BUNDLE_ID="com.zach.tacticsBoard"; DISPLAY_NAME="Tactics Board"; ZH_NAME="战术板"; JA_NAME="タクティクスボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~4532136942" ;;
+    *) echo "Unknown sport: $SPORT"; echo "Available: basketball soccer volleyball badminton fieldHockey tactics_board"; exit 1 ;;
   esac
 
   echo "══════════════════════════════════════"
@@ -97,15 +101,25 @@ for SPORT in "${SPORTS[@]}"; do
   done
 
   # ── Swap sport icon + splash, regenerate native assets ─────────────────────
-  cp "assets/icon/${SPORT}_icon.png" "assets/icon/app_icon.png"
-  cp "assets/icon/${SPORT}_splash.png" "assets/icon/splash_logo.png"
+  # The hub has no per-sport asset; it keeps the checked-in default app icon/splash.
+  if [ "$SPORT" != "tactics_board" ]; then
+    cp "assets/icon/${SPORT}_icon.png" "assets/icon/app_icon.png"
+    cp "assets/icon/${SPORT}_splash.png" "assets/icon/splash_logo.png"
+  fi
   dart run flutter_launcher_icons 2>&1 | tail -2
   dart run flutter_native_splash:create 2>&1 | tail -2
 
   # ── Build signed app bundle ────────────────────────────────────────────────
   # Play needs a versionCode strictly higher than what's already live. Override
   # via BUILD_NUMBER env (e.g. BUILD_NUMBER=2) since pubspec's "+1" → code 1.
-  flutter build appbundle --release --dart-define=SPORT=$SPORT \
+  # The hub builds with NO SPORT define (multi-sport) but opts into ads via
+  # HUB_ADS=1, matching build_all_ipa.sh. Single sports pass their SPORT.
+  if [ "$SPORT" = "tactics_board" ]; then
+    DART_DEFINES="--dart-define=HUB_ADS=1"
+  else
+    DART_DEFINES="--dart-define=SPORT=$SPORT"
+  fi
+  flutter build appbundle --release $DART_DEFINES \
     ${BUILD_NUMBER:+--build-number="$BUILD_NUMBER"}
 
   DEST="$OUT/${SPORT}-${VERSION}.aab"
