@@ -80,6 +80,10 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       appOpen: 'ca-app-pub-4247621509300508/5456769018',
       interstitial: 'ca-app-pub-4247621509300508/9003086181',
     ),
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/4349062288',
+      interstitial: 'ca-app-pub-4247621509300508/7637266687',
+    ),
   ),
   SportType.rugby: _SportAds(
     ios: _AdUnitIds(

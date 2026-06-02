@@ -66,7 +66,7 @@ for SPORT in "${SPORTS[@]}"; do
     soccer)     BUNDLE_ID="com.zach.soccerBoard";     DISPLAY_NAME="Soccer Board";     ZH_NAME="足球战术板";   JA_NAME="サッカーボード" ;;
     volleyball) BUNDLE_ID="com.zach.volleyballBoard"; DISPLAY_NAME="Volleyball Board"; ZH_NAME="排球战术板";   JA_NAME="バレーボード" ;;
     badminton)  BUNDLE_ID="com.zach.badmintonBoard";  DISPLAY_NAME="Badminton Board";  ZH_NAME="羽毛球战术板"; JA_NAME="バドミントンボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~5809946636" ;;
-    fieldHockey) BUNDLE_ID="com.zach.fieldHockeyBoard"; DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板"; JA_NAME="フィールドホッケーボード" ;; # Android: no AdMob app → ad-free
+    fieldHockey) BUNDLE_ID="com.zach.fieldHockeyBoard"; DISPLAY_NAME="Field Hockey Board"; ZH_NAME="曲棍球战术板"; JA_NAME="フィールドホッケーボード"; ADMOB_APP_ID="ca-app-pub-4247621509300508~3341278543" ;;
     # Below: no Android AdMob app → ad-free on Android (keep checked-in sample ID).
     tennis)      BUNDLE_ID="com.zach.tennisBoard";      DISPLAY_NAME="Tennis Board";       ZH_NAME="网球战术板";     JA_NAME="テニスボード" ;;
     tableTennis) BUNDLE_ID="com.zach.tableTennisBoard"; DISPLAY_NAME="Table Tennis Board"; ZH_NAME="乒乓球战术板";   JA_NAME="卓球ボード" ;;

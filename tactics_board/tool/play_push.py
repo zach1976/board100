@@ -197,12 +197,13 @@ def push(tok, sport, commit):
         api(tok, "DELETE", f"/applications/{pkg}/edits/{eid}")
         print("  DRY-RUN ok, edit discarded (re-run with --commit).\n"); return True
 
+    # Google now sends listing edits for review automatically; the
+    # changesNotSentForReview parameter is rejected (HTTP 400), so don't set it.
     st, r = api(tok, "POST",
-                f"/applications/{pkg}/edits/{eid}:commit?changesNotSentForReview=true", {})
+                f"/applications/{pkg}/edits/{eid}:commit", {})
     if st != 200:
         print(f"  commit HTTP {st}: {r}\n"); return False
-    print(f"  COMMITTED ✓ — listing+graphics saved to draft.")
-    print(f"    ⚠ Finish content rating / data safety / etc. in Console, then 'Send for review'.\n")
+    print(f"  COMMITTED ✓ — listing+graphics pushed (auto-sent for review).\n")
     return True
 
 
