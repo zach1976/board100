@@ -63,3 +63,6 @@ app.*.map.json
 ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage*.png
 android/app/src/main/res/drawable-*/splash.png
 android/app/src/main/res/drawable-*/android12splash.png
+
+# fastlane lane run output (transient test report)
+tool/app_privacy/fastlane/report.xml
