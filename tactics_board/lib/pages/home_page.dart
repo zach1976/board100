@@ -8,7 +8,7 @@ import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/purchase_service.dart';
@@ -1768,7 +1768,7 @@ class _PaywallSheet extends StatefulWidget {
 }
 
 class _PaywallSheetState extends State<_PaywallSheet> {
-  List<Package>? _packages;
+  List<ProductDetails>? _products;
   bool _loading = true;
   bool _busy = false; // a purchase/restore is in flight
 
@@ -1779,19 +1779,19 @@ class _PaywallSheetState extends State<_PaywallSheet> {
   }
 
   Future<void> _load() async {
-    final pkgs = await PurchaseService.instance.packages();
+    final products = await PurchaseService.instance.productList();
     if (!mounted) return;
     setState(() {
-      _packages = pkgs;
+      _products = products;
       _loading = false;
     });
   }
 
-  Future<void> _buy(Package package) async {
+  Future<void> _buy(ProductDetails product) async {
     setState(() => _busy = true);
     bool pro = false;
     try {
-      pro = await PurchaseService.instance.buy(package);
+      pro = await PurchaseService.instance.buy(product);
     } catch (_) {
       if (mounted) _toast('pro_purchase_failed'.tr());
     }
@@ -1820,15 +1820,15 @@ class _PaywallSheetState extends State<_PaywallSheet> {
   void _toast(String msg) => ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(content: Text(msg)));
 
-  /// Localized label for a package by its type (annual vs lifetime).
-  String _labelFor(Package p) {
-    switch (p.packageType) {
-      case PackageType.lifetime:
+  /// Localized label for a product by its App Store Connect id.
+  String _labelFor(ProductDetails p) {
+    switch (p.id) {
+      case PurchaseService.lifetimeId:
         return 'pro_lifetime'.tr();
-      case PackageType.annual:
+      case PurchaseService.yearlyId:
         return 'pro_yearly'.tr();
       default:
-        return p.storeProduct.title;
+        return p.title;
     }
   }
 
@@ -1859,7 +1859,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                 padding: EdgeInsets.symmetric(vertical: 24),
                 child: Center(child: CircularProgressIndicator()),
               )
-            else if (_packages == null || _packages!.isEmpty)
+            else if (_products == null || _products!.isEmpty)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text('pro_unavailable'.tr(),
@@ -1867,7 +1867,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                     style: const TextStyle(color: Colors.white54)),
               )
             else
-              for (final p in _packages!) ...[
+              for (final p in _products!) ...[
                 _buyButton(p),
                 const SizedBox(height: 12),
               ],
@@ -1883,7 +1883,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
     );
   }
 
-  Widget _buyButton(Package p) {
+  Widget _buyButton(ProductDetails p) {
     return ElevatedButton(
       onPressed: _busy ? null : () => _buy(p),
       style: ElevatedButton.styleFrom(
@@ -1899,7 +1899,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
           Text(_labelFor(p),
               style: const TextStyle(
                   fontSize: 16, fontWeight: FontWeight.bold)),
-          Text(p.storeProduct.priceString,
+          Text(p.price,
               style: const TextStyle(
                   fontSize: 16, fontWeight: FontWeight.bold)),
         ],

@@ -1,111 +1,148 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart' show PlatformException;
-import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-/// Owns the RevenueCat SDK and the "remove ads" (Pro) entitlement.
+/// Owns the "remove ads" (Pro) purchase using Apple StoreKit directly via the
+/// official in_app_purchase plugin — no third-party backend.
 ///
-/// Gated like [AdService]: every entry point is a no-op unless [isStoreEnabled],
-/// i.e. a release build that injected a RevenueCat public SDK key via
-/// `--dart-define=RC_IOS_KEY=...` (set by the production iOS build, mirroring
-/// HUB_ADS). With no key the service stays disabled, [hasPro] is always false,
-/// and the shared dev build / Android builds are completely unaffected.
+/// Two products, both granting the same ad-free entitlement:
+///   * [lifetimeId] — a non-consumable (buy once, forever). Fully reliable
+///     locally: restore re-delivers it on any device/reinstall.
+///   * [yearlyId]   — an auto-renewable subscription. NOTE: without server-side
+///     receipt validation we can't see the exact expiry, so a lapsed
+///     subscriber may stay ad-free a little longer than they paid for. For an
+///     ad-removal perk that's an acceptable, user-friendly leniency; add a
+///     Laravel verifyReceipt endpoint later if churn ever matters.
 ///
-/// Apple-only for now (Google Play comes later once volume justifies a merchant
-/// account); an Android key slot is left for that. The Pro entitlement is NOT
-/// tied to login — RevenueCat keys it to an anonymous app-user id, so removing
-/// ads works offline and without an account; signing in only enables optional
-/// cross-device restore.
+/// Gated like [AdService]: a no-op unless [isStoreEnabled] — an iOS release
+/// build that opted in via `--dart-define=IAP=1`. The shared dev build, Android
+/// builds, and any build without the flag are completely unaffected, and the
+/// ad-removal menu item never appears.
+///
+/// The entitlement is local (StoreKit + a persisted flag), not tied to login —
+/// removing ads works offline and without an account.
 class PurchaseService extends ChangeNotifier {
   PurchaseService._();
   static final PurchaseService instance = PurchaseService._();
 
-  /// The single entitlement that unlocks ad removal. Both the yearly
-  /// subscription and the lifetime product must grant this entitlement in the
-  /// RevenueCat dashboard.
-  static const String entitlementId = 'pro';
+  /// App Store Connect product IDs for THIS app. Each single-sport app and the
+  /// hub configure their own products under these same IDs (IDs are scoped per
+  /// app, so they can be reused across the 16 apps).
+  static const String lifetimeId = 'remove_ads_lifetime';
+  static const String yearlyId = 'remove_ads_yearly';
+  static const Set<String> _ids = {lifetimeId, yearlyId};
 
-  // Public SDK keys, injected per-platform by the release build. Empty → off.
-  static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
-  static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
+  /// Persisted "owns ad removal" flag, so a returning user is ad-free instantly
+  /// and offline, before StoreKit re-confirms.
+  static const String _prefKey = 'remove_ads_pro';
 
-  bool _configured = false;
+  /// Opt-in flag set only by production iOS builds. Empty everywhere else.
+  static const bool _enabled = bool.fromEnvironment('IAP');
+
+  final InAppPurchase _iap = InAppPurchase.instance;
+  StreamSubscription<List<PurchaseDetails>>? _sub;
+  bool _initialized = false;
   bool _hasPro = false;
+  List<ProductDetails> _products = const [];
 
-  /// True only when a key is configured for the current platform.
-  bool get isStoreEnabled {
-    if (Platform.isIOS) return _iosKey.isNotEmpty;
-    if (Platform.isAndroid) return _androidKey.isNotEmpty;
-    return false;
-  }
+  // Resolves when an in-flight buy/restore settles (purchased/restored/error).
+  Completer<bool>? _pending;
+
+  bool get isStoreEnabled => _enabled && Platform.isIOS;
 
   /// Whether the user currently owns the ad-removal entitlement. Read live by
-  /// [AdService] to gate every ad. Defaults to false; flips when the SDK
-  /// reports the entitlement (init, purchase, restore, or a background update).
+  /// [AdService] to gate every ad.
   bool get hasPro => _hasPro;
 
-  String get _key => Platform.isIOS ? _iosKey : _androidKey;
+  /// Loaded products (yearly + lifetime) with localized store prices.
+  List<ProductDetails> get products => _products;
 
-  /// Configure the SDK and read the current entitlement. Safe to call once from
+  /// Configure StoreKit and resolve the entitlement. Safe to call once from
   /// main(); returns immediately when the store is disabled for this build.
   Future<void> init() async {
-    if (_configured || !isStoreEnabled) return;
-    _configured = true;
-    try {
-      await Purchases.setLogLevel(kDebugMode ? LogLevel.debug : LogLevel.warn);
-      await Purchases.configure(PurchasesConfiguration(_key));
-      Purchases.addCustomerInfoUpdateListener(_apply);
-      _apply(await Purchases.getCustomerInfo());
-    } catch (_) {
-      // Network/StoreKit hiccup — stay non-Pro; a later listener update or a
-      // manual restore can still unlock.
-    }
+    if (_initialized || !isStoreEnabled) return;
+    _initialized = true;
+
+    // Trust the persisted flag first — instant, offline-friendly.
+    final prefs = await SharedPreferences.getInstance();
+    _hasPro = prefs.getBool(_prefKey) ?? false;
+    if (_hasPro) notifyListeners();
+
+    if (!await _iap.isAvailable()) return;
+    _sub = _iap.purchaseStream.listen(_onPurchases, onError: (_) {});
+    await _loadProducts();
+    // Re-sync with the store (covers reinstalls / new devices).
+    await _iap.restorePurchases();
   }
 
-  /// The current offering's purchasable packages (yearly + lifetime), or null
-  /// when the store is off or none are configured.
-  Future<List<Package>?> packages() async {
+  Future<void> _loadProducts() async {
+    try {
+      final resp = await _iap.queryProductDetails(_ids);
+      _products = resp.productDetails;
+      notifyListeners();
+    } catch (_) {}
+  }
+
+  /// The purchasable products, or null when the store is off / none configured.
+  Future<List<ProductDetails>?> productList() async {
     if (!isStoreEnabled) return null;
-    try {
-      final offerings = await Purchases.getOfferings();
-      return offerings.current?.availablePackages;
-    } catch (_) {
-      return null;
-    }
+    if (_products.isEmpty) await _loadProducts();
+    return _products.isEmpty ? null : _products;
   }
 
-  /// Buy a package. Returns true if the user now owns Pro.
-  Future<bool> buy(Package package) async {
+  /// Buy a product. Completes true once the user owns Pro, false on
+  /// error/cancel. The actual result is delivered asynchronously on the
+  /// purchase stream; this bridges it back to an awaitable for the paywall.
+  Future<bool> buy(ProductDetails product) async {
     if (!isStoreEnabled) return false;
-    try {
-      // purchasePackage is soft-deprecated in 10.x for purchase(PurchaseParams)
-      // but still functional; swap when wiring real products + testing.
-      final result = await Purchases.purchasePackage(package);
-      _apply(result.customerInfo);
-    } on PlatformException catch (e) {
-      // User cancellation is not an error worth surfacing.
-      if (PurchasesErrorHelper.getErrorCode(e) !=
-          PurchasesErrorCode.purchaseCancelledError) {
-        rethrow;
-      }
-    }
-    return _hasPro;
+    _pending = Completer<bool>();
+    await _iap.buyNonConsumable(
+        purchaseParam: PurchaseParam(productDetails: product));
+    return _pending!.future
+        .timeout(const Duration(minutes: 2), onTimeout: () => _hasPro);
   }
 
-  /// Restore prior purchases (required by App Store). Returns true if Pro.
+  /// Restore prior purchases (required by the App Store). Completes true if Pro.
   Future<bool> restore() async {
     if (!isStoreEnabled) return false;
-    try {
-      _apply(await Purchases.restorePurchases());
-    } catch (_) {}
-    return _hasPro;
+    _pending = Completer<bool>();
+    await _iap.restorePurchases();
+    // Restored transactions arrive on the stream; if there are none, nothing is
+    // emitted, so fall back to the current flag after a short wait.
+    return _pending!.future
+        .timeout(const Duration(seconds: 8), onTimeout: () => _hasPro);
   }
 
-  void _apply(CustomerInfo info) {
-    final pro = info.entitlements.active.containsKey(entitlementId);
-    if (pro == _hasPro) return;
-    _hasPro = pro;
-    notifyListeners();
+  Future<void> _onPurchases(List<PurchaseDetails> purchases) async {
+    var unlocked = false;
+    for (final p in purchases) {
+      switch (p.status) {
+        case PurchaseStatus.purchased:
+        case PurchaseStatus.restored:
+          if (_ids.contains(p.productID)) unlocked = true;
+        case PurchaseStatus.error:
+        case PurchaseStatus.canceled:
+          if (!(_pending?.isCompleted ?? true)) _pending!.complete(_hasPro);
+        case PurchaseStatus.pending:
+          break;
+      }
+      if (p.pendingCompletePurchase) await _iap.completePurchase(p);
+    }
+    if (unlocked && !_hasPro) {
+      _hasPro = true;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_prefKey, true);
+      notifyListeners();
+    }
+    if (unlocked && !(_pending?.isCompleted ?? true)) _pending!.complete(true);
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    super.dispose();
   }
 }
