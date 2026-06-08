@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../main.dart' show fixedSport;
 import '../models/sport_type.dart';
+import 'purchase_service.dart';
 
 class _AdUnitIds {
   final String appOpen;
@@ -198,6 +199,10 @@ class AdService {
 
   /// Ad units for the current build, or null when ads are off.
   _AdUnitIds? get _ids {
+    // Pro (ad-removal) purchase disables every ad — load AND show, since both
+    // paths funnel through here / isEnabled. Read live so a mid-session
+    // purchase or restore takes effect immediately.
+    if (PurchaseService.instance.hasPro) return null;
     final sport = fixedSport;
     if (sport == null) {
       // Multi-sport hub app: ads only when the production hub build opts in

@@ -8,8 +8,10 @@ import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
+import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import '../widgets/tactics_canvas.dart';
@@ -478,6 +480,10 @@ class _MenuButton extends StatelessWidget {
             _menuItem(context, 'scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
           _menuItem(context, 'language', Icons.language, 'menu_language'.tr()),
           _menuItem(context, 'contact', Icons.mail_outline, 'menu_contact'.tr()),
+          if (PurchaseService.instance.isStoreEnabled &&
+              !PurchaseService.instance.hasPro)
+            _menuItem(context, 'pro', Icons.workspace_premium_outlined,
+                'menu_remove_ads'.tr()),
           _menuItem(context, 'login', Icons.person_outline, 'menu_login'.tr()),
         ];
       },
@@ -515,7 +521,21 @@ class _MenuButton extends StatelessWidget {
         _showContact(context);
       case 'login':
         _showLogin(context);
+      case 'pro':
+        _showPaywall(context);
     }
+  }
+
+  void _showPaywall(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF15303A),
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => const _PaywallSheet(),
+    );
   }
 
   void _showPracticePlan(BuildContext context) {
@@ -1731,6 +1751,158 @@ class _ZoomModeButton extends StatelessWidget {
                 size: 17 * uiScale(context)),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// "Remove Ads" paywall: lists the current offering's packages (yearly +
+/// lifetime) with their localized store prices, plus a Restore button (required
+/// by the App Store). Buying or restoring flips PurchaseService.hasPro, which
+/// AdService reads live to disable every ad.
+class _PaywallSheet extends StatefulWidget {
+  const _PaywallSheet();
+
+  @override
+  State<_PaywallSheet> createState() => _PaywallSheetState();
+}
+
+class _PaywallSheetState extends State<_PaywallSheet> {
+  List<Package>? _packages;
+  bool _loading = true;
+  bool _busy = false; // a purchase/restore is in flight
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    final pkgs = await PurchaseService.instance.packages();
+    if (!mounted) return;
+    setState(() {
+      _packages = pkgs;
+      _loading = false;
+    });
+  }
+
+  Future<void> _buy(Package package) async {
+    setState(() => _busy = true);
+    bool pro = false;
+    try {
+      pro = await PurchaseService.instance.buy(package);
+    } catch (_) {
+      if (mounted) _toast('pro_purchase_failed'.tr());
+    }
+    if (!mounted) return;
+    setState(() => _busy = false);
+    if (pro) _done();
+  }
+
+  Future<void> _restore() async {
+    setState(() => _busy = true);
+    final pro = await PurchaseService.instance.restore();
+    if (!mounted) return;
+    setState(() => _busy = false);
+    if (pro) {
+      _done();
+    } else {
+      _toast('pro_restore_none'.tr());
+    }
+  }
+
+  void _done() {
+    _toast('pro_thanks'.tr());
+    Navigator.of(context).pop();
+  }
+
+  void _toast(String msg) => ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(msg)));
+
+  /// Localized label for a package by its type (annual vs lifetime).
+  String _labelFor(Package p) {
+    switch (p.packageType) {
+      case PackageType.lifetime:
+        return 'pro_lifetime'.tr();
+      case PackageType.annual:
+        return 'pro_yearly'.tr();
+      default:
+        return p.storeProduct.title;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Icon(Icons.workspace_premium, color: kAccent, size: 48),
+            const SizedBox(height: 12),
+            Text('pro_title'.tr(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Text('pro_subtitle'.tr(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white60, fontSize: 14)),
+            const SizedBox(height: 24),
+            if (_loading)
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 24),
+                child: Center(child: CircularProgressIndicator()),
+              )
+            else if (_packages == null || _packages!.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Text('pro_unavailable'.tr(),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.white54)),
+              )
+            else
+              for (final p in _packages!) ...[
+                _buyButton(p),
+                const SizedBox(height: 12),
+              ],
+            const SizedBox(height: 4),
+            TextButton(
+              onPressed: _busy ? null : _restore,
+              child: Text('pro_restore'.tr(),
+                  style: const TextStyle(color: Colors.white54)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buyButton(Package p) {
+    return ElevatedButton(
+      onPressed: _busy ? null : () => _buy(p),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF2A65A5),
+        foregroundColor: Colors.white,
+        disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(_labelFor(p),
+              style: const TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(p.storeProduct.priceString,
+              style: const TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.bold)),
+        ],
       ),
     );
   }
