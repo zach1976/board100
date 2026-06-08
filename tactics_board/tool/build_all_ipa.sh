@@ -127,8 +127,10 @@ build_ipa() {
   dart run flutter_native_splash:create 2>&1 | tail -1
   [ -f "pubspec.yaml.splashbak" ] && mv "pubspec.yaml.splashbak" "pubspec.yaml"
 
-  # Build IPA
-  flutter build ipa --release $DART_DEFINES 2>&1 | tail -3
+  # Build IPA. IAP=1 turns on the in-app "Remove Ads" purchase (StoreKit) for
+  # every iOS app; see lib/services/purchase_service.dart. Harmless until the
+  # App Store Connect products (remove_ads_lifetime / remove_ads_yearly) exist.
+  flutter build ipa --release $DART_DEFINES --dart-define=IAP=1 2>&1 | tail -3
 
   # Copy IPA
   local IPA_FILE=$(ls build/ios/ipa/*.ipa 2>/dev/null | head -1)
