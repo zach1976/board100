@@ -41,10 +41,20 @@ B = "https://api.appstoreconnect.apple.com"
 SHOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "iap_review_screenshot.png")
 
 LIFETIME_ID = "remove_ads_lifetime"
-YEARLY_ID = "remove_ads_yearly"
+# NB: a deleted subscription's product ID is permanently reserved by Apple and
+# cannot be reused, so the hub's original "remove_ads_yearly" is burned — this
+# is the live id (keep code's PurchaseService.yearlyId in sync).
+YEARLY_ID = "remove_ads_annual"
 GROUP_NAME = "Tactics Board Pro"
-LIFETIME_USD = "6.99"
-YEARLY_USD = "2.99"
+
+# The multi-sport hub bundles every sport, so it's priced at 2x a single-sport
+# app. (USD base; Apple equalizes other territories.)
+HUB_BUNDLE = "com.zach.tacticsBoard"
+
+
+def usd_prices(bundle):
+    """(lifetime, yearly) USD base prices for this app."""
+    return ("13.99", "5.99") if bundle == HUB_BUNDLE else ("6.99", "2.99")
 
 PK = open(KEY_FILE).read()
 
@@ -114,7 +124,7 @@ def upload_screenshot(reserve_type, rel_name, parent_id):
 
 
 # ── Non-consumable (auto-equalizes price from USA via a price schedule) ──────
-def create_lifetime(aid):
+def create_lifetime(aid, usd):
     ex = G(f"/v1/apps/{aid}/inAppPurchasesV2?filter[productId]={LIFETIME_ID}&limit=1").json().get("data")
     if ex:
         iid = ex[0]["id"]; print(f"  lifetime exists id={iid} state={ex[0]['attributes']['state']}")
@@ -132,7 +142,7 @@ def create_lifetime(aid):
             "relationships": {"inAppPurchaseV2": {"data": {"type": "inAppPurchases", "id": iid}}}}})
     if G(f"/v2/inAppPurchases/{iid}/iapPriceSchedule").json().get("data") in (None, {}):
         pp = next((p["id"] for p in G(f"/v2/inAppPurchases/{iid}/pricePoints?filter[territory]=USA&limit=200").json()["data"]
-                   if p["attributes"].get("customerPrice") == LIFETIME_USD), None)
+                   if p["attributes"].get("customerPrice") == usd), None)
         P("/v1/inAppPurchasePriceSchedules", {"data": {"type": "inAppPurchasePriceSchedules", "relationships": {
             "inAppPurchase": {"data": {"type": "inAppPurchases", "id": iid}},
             "baseTerritory": {"data": {"type": "territories", "id": "USA"}},
@@ -150,7 +160,7 @@ def create_lifetime(aid):
 
 
 # ── Auto-renewable subscription (price must be set per territory) ────────────
-def create_yearly(aid):
+def create_yearly(aid, usd):
     grp = next((g for g in G(f"/v1/apps/{aid}/subscriptionGroups?limit=20").json().get("data", [])
                 if g["attributes"]["referenceName"] == GROUP_NAME), None)
     gid = grp["id"] if grp else P("/v1/subscriptionGroups", {"data": {"type": "subscriptionGroups",
@@ -176,9 +186,6 @@ def create_yearly(aid):
             "name": "Remove Ads (Yearly)", "description": "Remove all ads, billed yearly.", "locale": "en-US"},
             "relationships": {"subscription": {"data": {"type": "subscriptions", "id": sid}}}}})
     if not G(f"/v1/subscriptions/{sid}/prices?limit=1").json().get("data"):
-        base = next((p["id"] for p in G(f"/v1/subscriptions/{sid}/pricePoints?filter[territory]=USA&limit=200").json()["data"]
-                     if p["attributes"].get("customerPrice") == YEARLY_USD), None)
-
         def set_price(pp, terr):
             # Starting price: OMIT startDate; include territory + price point.
             return P("/v1/subscriptionPrices", {"data": {"type": "subscriptionPrices",
@@ -186,7 +193,19 @@ def create_yearly(aid):
                 "relationships": {"subscription": {"data": {"type": "subscriptions", "id": sid}},
                 "subscriptionPricePoint": {"data": {"type": "subscriptionPricePoints", "id": pp}},
                 "territory": {"data": {"type": "territories", "id": terr}}}}})
-        set_price(base, "USA")
+
+        # A just-created subscription's price points can lag a few seconds, so
+        # retry the USA base price until it actually sticks.
+        base = None
+        for _ in range(8):
+            base = next((p["id"] for p in G(f"/v1/subscriptions/{sid}/pricePoints?filter[territory]=USA&limit=200").json().get("data", [])
+                         if p["attributes"].get("customerPrice") == usd), None)
+            if base and set_price(base, "USA").ok:
+                break
+            base = None
+            time.sleep(5)
+        if not base:
+            print("   ERR: could not set USA base price"); return sid
         eq, url = [], B + f"/v1/subscriptionPricePoints/{base}/equalizations?include=territory&limit=200"
         while url:
             j = G(url).json()
@@ -229,7 +248,8 @@ if __name__ == "__main__":
     if cmd == "status":
         status(aid)
     elif cmd == "create":
-        create_lifetime(aid)
-        create_yearly(aid)
+        life_usd, year_usd = usd_prices(bundle)
+        create_lifetime(aid, life_usd)
+        create_yearly(aid, year_usd)
         time.sleep(5)
         status(aid)
