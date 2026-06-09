@@ -9,6 +9,7 @@ import '../models/player_icon.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/purchase_service.dart';
@@ -1756,10 +1757,13 @@ class _ZoomModeButton extends StatelessWidget {
   }
 }
 
-/// "Remove Ads" paywall: lists the current offering's packages (yearly +
-/// lifetime) with their localized store prices, plus a Restore button (required
-/// by the App Store). Buying or restoring flips PurchaseService.hasPro, which
-/// AdService reads live to disable every ad.
+/// "Remove Ads" paywall — a professional in-app-purchase sheet: premium badge,
+/// title + value line, a 3-up benefits card, selectable plan cards (yearly
+/// preselected, with a "recommended" badge + per-month price), a prominent
+/// gradient primary CTA, a secondary Restore link, the App Store-required
+/// auto-renew disclosure, and Terms / Privacy links. Selecting a plan only
+/// changes [_selectedId]; the CTA buys it. Buying or restoring flips
+/// PurchaseService.hasPro, which AdService reads live to disable every ad.
 class _PaywallSheet extends StatefulWidget {
   const _PaywallSheet();
 
@@ -1768,7 +1772,12 @@ class _PaywallSheet extends StatefulWidget {
 }
 
 class _PaywallSheetState extends State<_PaywallSheet> {
+  static final Uri _termsUrl =
+      Uri.parse('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/');
+  static final Uri _privacyUrl = Uri.parse('https://tacticsboard.100for1.com/privacy');
+
   List<ProductDetails>? _products;
+  String? _selectedId;
   bool _loading = true;
   bool _busy = false; // a purchase/restore is in flight
 
@@ -1783,11 +1792,25 @@ class _PaywallSheetState extends State<_PaywallSheet> {
     if (!mounted) return;
     setState(() {
       _products = products;
+      // Preselect the yearly plan (the recommended entry point).
+      _selectedId = _byId(PurchaseService.yearlyId) != null
+          ? PurchaseService.yearlyId
+          : (products != null && products.isNotEmpty ? products.first.id : null);
       _loading = false;
     });
   }
 
-  Future<void> _buy(ProductDetails product) async {
+  ProductDetails? _byId(String? id) {
+    if (id == null) return null;
+    for (final p in _products ?? const <ProductDetails>[]) {
+      if (p.id == id) return p;
+    }
+    return null;
+  }
+
+  Future<void> _buySelected() async {
+    final product = _byId(_selectedId);
+    if (product == null) return;
     setState(() => _busy = true);
     bool pro = false;
     try {
@@ -1820,90 +1843,398 @@ class _PaywallSheetState extends State<_PaywallSheet> {
   void _toast(String msg) => ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(content: Text(msg)));
 
-  /// Localized label for a product by its App Store Connect id.
-  String _labelFor(ProductDetails p) {
-    switch (p.id) {
-      case PurchaseService.lifetimeId:
-        return 'pro_lifetime'.tr();
-      case PurchaseService.yearlyId:
-        return 'pro_yearly'.tr();
-      default:
-        return p.title;
-    }
+  /// "≈ ¥1.83 / mo" derived from the yearly plan's localized store price.
+  String? _perMonth(ProductDetails y) {
+    final m = y.rawPrice / 12;
+    if (m <= 0) return null;
+    return 'pro_permonth'.tr(
+        namedArgs: {'p': '${y.currencySymbol}${m.toStringAsFixed(2)}'});
   }
 
   @override
   Widget build(BuildContext context) {
+    final lifetime = _byId(PurchaseService.lifetimeId);
+    final yearly = _byId(PurchaseService.yearlyId);
+    final hasYearly = yearly != null;
     return SafeArea(
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: Container(
+                    width: 38,
+                    height: 4,
+                    decoration: BoxDecoration(
+                        color: Colors.white24,
+                        borderRadius: BorderRadius.circular(2)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Center(child: _badge()),
+                const SizedBox(height: 16),
+                Text('pro_title'.tr(),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0.2)),
+                const SizedBox(height: 8),
+                Text('pro_subtitle'.tr(),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        color: Colors.white60, fontSize: 13.5, height: 1.35)),
+                const SizedBox(height: 20),
+                _benefits(),
+                const SizedBox(height: 18),
+                if (_loading)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 28),
+                    child: Center(child: CircularProgressIndicator(color: kAccent)),
+                  )
+                else if (lifetime == null && yearly == null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    child: Text('pro_unavailable'.tr(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: Colors.white54)),
+                  )
+                else ...[
+                  if (yearly != null)
+                    _planCard(
+                      yearly,
+                      icon: Icons.calendar_month_outlined,
+                      title: 'pro_plan_yearly_t'.tr(),
+                      desc: 'pro_plan_yearly_d'.tr(),
+                      priceSub: _perMonth(yearly),
+                      badge: 'pro_badge'.tr(),
+                    ),
+                  if (yearly != null && lifetime != null)
+                    const SizedBox(height: 12),
+                  if (lifetime != null)
+                    _planCard(
+                      lifetime,
+                      icon: Icons.diamond_outlined,
+                      title: 'pro_plan_lifetime_t'.tr(),
+                      desc: 'pro_plan_lifetime_d'.tr(),
+                      priceSub: 'pro_lifetime_tag'.tr(),
+                    ),
+                  const SizedBox(height: 18),
+                  _cta(),
+                  const SizedBox(height: 6),
+                  Center(
+                    child: TextButton(
+                      onPressed: _busy ? null : _restore,
+                      child: Text('pro_restore'.tr(),
+                          style: const TextStyle(
+                              color: Colors.white70, fontSize: 13)),
+                    ),
+                  ),
+                  if (hasYearly) ...[
+                    const SizedBox(height: 2),
+                    Text('pro_legal'.tr(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.white38, fontSize: 11, height: 1.45)),
+                  ],
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _link('pro_terms'.tr(), _termsUrl),
+                      const Text('    ·    ',
+                          style: TextStyle(color: Colors.white24, fontSize: 12)),
+                      _link('pro_privacy'.tr(), _privacyUrl),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+          Positioned(
+            top: 6,
+            right: 4,
+            child: IconButton(
+              icon: const Icon(Icons.close, color: Colors.white54, size: 22),
+              onPressed: () => Navigator.of(context).maybePop(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _badge() {
+    return Container(
+      width: 74,
+      height: 74,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [kAccentFill, Color(0x142B8AE0)],
+        ),
+        border: Border.all(color: kAccent.withValues(alpha: 0.5), width: 1),
+        boxShadow: [
+          BoxShadow(
+              color: kAccent.withValues(alpha: 0.25),
+              blurRadius: 22,
+              spreadRadius: -4),
+        ],
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: const [
+          Icon(Icons.shield, color: kAccent, size: 44),
+          Padding(
+            padding: EdgeInsets.only(bottom: 4),
+            child: Icon(Icons.star_rounded, color: Color(0xFF06262B), size: 20),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _benefits() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+      decoration: BoxDecoration(
+        color: kSurfaceHi,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: Colors.white10),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _benefit(Icons.do_not_disturb_on_outlined, 'pro_b1_t'.tr(), 'pro_b1_s'.tr()),
+          _benefitDivider(),
+          _benefit(Icons.insights_outlined, 'pro_b2_t'.tr(), 'pro_b2_s'.tr()),
+          _benefitDivider(),
+          _benefit(Icons.cloud_sync_outlined, 'pro_b3_t'.tr(), 'pro_b3_s'.tr()),
+        ],
+      ),
+    );
+  }
+
+  Widget _benefitDivider() =>
+      Container(width: 1, height: 44, color: Colors.white10);
+
+  Widget _benefit(IconData icon, String title, String sub) {
+    return Expanded(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+        padding: const EdgeInsets.symmetric(horizontal: 6),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Icon(Icons.workspace_premium, color: kAccent, size: 48),
-            const SizedBox(height: 12),
-            Text('pro_title'.tr(),
+            Icon(icon, color: kAccent, size: 24),
+            const SizedBox(height: 8),
+            Text(title,
                 textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Text('pro_subtitle'.tr(),
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w600)),
+            const SizedBox(height: 3),
+            Text(sub,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white60, fontSize: 14)),
-            const SizedBox(height: 24),
-            if (_loading)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 24),
-                child: Center(child: CircularProgressIndicator()),
-              )
-            else if (_products == null || _products!.isEmpty)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: Text('pro_unavailable'.tr(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.white54)),
-              )
-            else
-              for (final p in _products!) ...[
-                _buyButton(p),
-                const SizedBox(height: 12),
-              ],
-            const SizedBox(height: 4),
-            TextButton(
-              onPressed: _busy ? null : _restore,
-              child: Text('pro_restore'.tr(),
-                  style: const TextStyle(color: Colors.white54)),
-            ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    color: Colors.white38, fontSize: 10.5, height: 1.25)),
           ],
         ),
       ),
     );
   }
 
-  Widget _buyButton(ProductDetails p) {
-    return ElevatedButton(
-      onPressed: _busy ? null : () => _buy(p),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF2A65A5),
-        foregroundColor: Colors.white,
-        disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  Widget _planCard(
+    ProductDetails p, {
+    required IconData icon,
+    required String title,
+    required String desc,
+    String? priceSub,
+    String? badge,
+  }) {
+    final selected = _selectedId == p.id;
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        GestureDetector(
+          onTap: _busy ? null : () => setState(() => _selectedId = p.id),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 150),
+            padding: const EdgeInsets.fromLTRB(14, 14, 16, 14),
+            decoration: BoxDecoration(
+              color: selected ? kAccentFill : kSurfaceHi,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                  color: selected ? kAccent : Colors.white12,
+                  width: selected ? 1.6 : 1),
+              boxShadow: selected
+                  ? [
+                      BoxShadow(
+                          color: kAccent.withValues(alpha: 0.18),
+                          blurRadius: 16,
+                          spreadRadius: -6),
+                    ]
+                  : null,
+            ),
+            child: Row(
+              children: [
+                _radio(selected),
+                const SizedBox(width: 12),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      color: selected ? kAccentFill : Colors.white10,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Icon(icon,
+                      color: selected ? kAccent : Colors.white70, size: 22),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(title,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700)),
+                      const SizedBox(height: 2),
+                      Text(desc,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                              color: Colors.white54, fontSize: 12)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(p.price,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800)),
+                    if (priceSub != null) ...[
+                      const SizedBox(height: 2),
+                      Text(priceSub,
+                          style: TextStyle(
+                              color: selected ? kAccent : Colors.white38,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w500)),
+                    ],
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        if (badge != null)
+          Positioned(
+            top: -1,
+            right: -1,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+              decoration: const BoxDecoration(
+                color: kAccent,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(14),
+                    bottomLeft: Radius.circular(12)),
+              ),
+              child: Text(badge,
+                  style: const TextStyle(
+                      color: Color(0xFF06262B),
+                      fontSize: 10.5,
+                      fontWeight: FontWeight.w800)),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _radio(bool selected) {
+    return Container(
+      width: 22,
+      height: 22,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+            color: selected ? kAccent : Colors.white38,
+            width: selected ? 6.5 : 1.6),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(_labelFor(p),
-              style: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold)),
-          Text(p.price,
-              style: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold)),
-        ],
+    );
+  }
+
+  Widget _cta() {
+    final enabled = !_busy && _selectedId != null;
+    return Opacity(
+      opacity: enabled ? 1 : 0.6,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFF2B8AE0), kAccent],
+          ),
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+                color: kAccent.withValues(alpha: 0.30),
+                blurRadius: 18,
+                spreadRadius: -6,
+                offset: const Offset(0, 6)),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(14),
+            onTap: enabled ? _buySelected : null,
+            child: Container(
+              height: 54,
+              alignment: Alignment.center,
+              child: _busy
+                  ? const SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(
+                          strokeWidth: 2.4, color: Colors.white))
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.lock_open_rounded,
+                            color: Colors.white, size: 20),
+                        const SizedBox(width: 10),
+                        Text('pro_cta'.tr(),
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700)),
+                      ],
+                    ),
+            ),
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget _link(String label, Uri url) {
+    return GestureDetector(
+      onTap: () => launchUrl(url, mode: LaunchMode.externalApplication),
+      child: Text(label,
+          style: const TextStyle(color: Colors.white38, fontSize: 12)),
     );
   }
 }
