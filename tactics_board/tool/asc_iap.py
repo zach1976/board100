@@ -3,10 +3,12 @@
 """Create the "Remove Ads" in-app products in App Store Connect via the API,
 driving each to **Ready to Submit** without touching the ASC web UI.
 
-Two products per app (same productIds across all 16 apps — IDs are app-scoped):
-  * remove_ads_lifetime  — NON_CONSUMABLE, USD 6.99
-  * remove_ads_yearly    — auto-renewable subscription, USD 2.99 / year
-in a "Tactics Board Pro" subscription group.
+Two products per app, in a "Tactics Board Pro" subscription group:
+  * <prefix>remove_ads_lifetime  — NON_CONSUMABLE
+  * <prefix>remove_ads_yearly    — auto-renewable subscription
+Product IDs are GLOBALLY UNIQUE per developer account (and a deleted id is
+reserved forever), so each app gets its own — see product_ids(). Hub = 2x the
+single-sport price (see usd_prices()).
 
 Reaching "Ready to Submit" needs, for EACH product: an en-US localization, a
 price, availability in all territories, and an App Store review screenshot.
@@ -40,11 +42,6 @@ KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 B = "https://api.appstoreconnect.apple.com"
 SHOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "iap_review_screenshot.png")
 
-LIFETIME_ID = "remove_ads_lifetime"
-# NB: a deleted subscription's product ID is permanently reserved by Apple and
-# cannot be reused, so the hub's original "remove_ads_yearly" is burned — this
-# is the live id (keep code's PurchaseService.yearlyId in sync).
-YEARLY_ID = "remove_ads_annual"
 GROUP_NAME = "Tactics Board Pro"
 
 # The multi-sport hub bundles every sport, so it's priced at 2x a single-sport
@@ -55,6 +52,18 @@ HUB_BUNDLE = "com.zach.tacticsBoard"
 def usd_prices(bundle):
     """(lifetime, yearly) USD base prices for this app."""
     return ("13.99", "5.99") if bundle == HUB_BUNDLE else ("6.99", "2.99")
+
+
+def product_ids(bundle):
+    """(lifetime, yearly) App Store product IDs for this app. Product IDs are
+    globally unique per developer account AND a deleted id is reserved forever,
+    so every app needs its own. The hub keeps the original bare ids ('annual'
+    because 'remove_ads_yearly' was burned by a delete); single-sport apps
+    prefix the sport. Keep in sync with PurchaseService lifetimeId/yearlyId."""
+    if bundle == HUB_BUNDLE:
+        return ("remove_ads_lifetime", "remove_ads_annual")
+    sport = bundle.removeprefix("com.zach.").removesuffix("Board").lower()
+    return (f"{sport}_remove_ads_lifetime", f"{sport}_remove_ads_yearly")
 
 PK = open(KEY_FILE).read()
 
@@ -71,16 +80,28 @@ def H(j=True):
     return h
 
 
+def _do(method, url, **kw):
+    # Retry transient network/SSL errors so a flaky connection doesn't abort a
+    # long multi-app run mid-flight.
+    for i in range(5):
+        try:
+            return requests.request(method, url, headers=H(), verify=False, timeout=60, **kw)
+        except requests.exceptions.RequestException:
+            if i == 4:
+                raise
+            time.sleep(3 + i * 3)
+
+
 def G(u):
-    return requests.get(u if u.startswith("http") else B + u, headers=H(), verify=False, timeout=60)
+    return _do("GET", u if u.startswith("http") else B + u)
 
 
 def P(path, body):
-    return requests.post(B + path, headers=H(), data=json.dumps(body), verify=False, timeout=60)
+    return _do("POST", B + path, data=json.dumps(body))
 
 
 def PATCH(path, body):
-    return requests.patch(B + path, headers=H(), data=json.dumps(body), verify=False, timeout=60)
+    return _do("PATCH", B + path, data=json.dumps(body))
 
 
 def errs(r):
@@ -124,13 +145,13 @@ def upload_screenshot(reserve_type, rel_name, parent_id):
 
 
 # ── Non-consumable (auto-equalizes price from USA via a price schedule) ──────
-def create_lifetime(aid, usd):
-    ex = G(f"/v1/apps/{aid}/inAppPurchasesV2?filter[productId]={LIFETIME_ID}&limit=1").json().get("data")
+def create_lifetime(aid, usd, pid):
+    ex = G(f"/v1/apps/{aid}/inAppPurchasesV2?filter[productId]={pid}&limit=1").json().get("data")
     if ex:
         iid = ex[0]["id"]; print(f"  lifetime exists id={iid} state={ex[0]['attributes']['state']}")
     else:
         r = P("/v2/inAppPurchases", {"data": {"type": "inAppPurchases", "attributes": {
-            "name": "Remove Ads (Lifetime)", "productId": LIFETIME_ID, "inAppPurchaseType": "NON_CONSUMABLE",
+            "name": "Remove Ads (Lifetime)", "productId": pid, "inAppPurchaseType": "NON_CONSUMABLE",
             "reviewNote": "One-time purchase that permanently removes all ads in the app."},
             "relationships": {"app": {"data": {"type": "apps", "id": aid}}}}})
         if not r.ok:
@@ -160,7 +181,7 @@ def create_lifetime(aid, usd):
 
 
 # ── Auto-renewable subscription (price must be set per territory) ────────────
-def create_yearly(aid, usd):
+def create_yearly(aid, usd, pid):
     grp = next((g for g in G(f"/v1/apps/{aid}/subscriptionGroups?limit=20").json().get("data", [])
                 if g["attributes"]["referenceName"] == GROUP_NAME), None)
     gid = grp["id"] if grp else P("/v1/subscriptionGroups", {"data": {"type": "subscriptionGroups",
@@ -170,12 +191,12 @@ def create_yearly(aid, usd):
         P("/v1/subscriptionGroupLocalizations", {"data": {"type": "subscriptionGroupLocalizations",
             "attributes": {"name": GROUP_NAME, "locale": "en-US"},
             "relationships": {"subscriptionGroup": {"data": {"type": "subscriptionGroups", "id": gid}}}}})
-    sub = G(f"/v1/subscriptionGroups/{gid}/subscriptions?filter[productId]={YEARLY_ID}&limit=5").json().get("data")
+    sub = G(f"/v1/subscriptionGroups/{gid}/subscriptions?filter[productId]={pid}&limit=5").json().get("data")
     if sub:
         sid = sub[0]["id"]; print(f"  yearly exists id={sid} state={sub[0]['attributes']['state']}")
     else:
         r = P("/v1/subscriptions", {"data": {"type": "subscriptions", "attributes": {
-            "name": "Remove Ads (Yearly)", "productId": YEARLY_ID, "subscriptionPeriod": "ONE_YEAR",
+            "name": "Remove Ads (Yearly)", "productId": pid, "subscriptionPeriod": "ONE_YEAR",
             "familySharable": False, "reviewNote": "Auto-renewable subscription that removes all ads."},
             "relationships": {"group": {"data": {"type": "subscriptionGroups", "id": gid}}}}})
         if not r.ok:
@@ -197,13 +218,13 @@ def create_yearly(aid, usd):
         # A just-created subscription's price points can lag a few seconds, so
         # retry the USA base price until it actually sticks.
         base = None
-        for _ in range(8):
+        for _ in range(18):  # a fresh subscription's price points can lag a couple minutes
             base = next((p["id"] for p in G(f"/v1/subscriptions/{sid}/pricePoints?filter[territory]=USA&limit=200").json().get("data", [])
                          if p["attributes"].get("customerPrice") == usd), None)
             if base and set_price(base, "USA").ok:
                 break
             base = None
-            time.sleep(5)
+            time.sleep(10)
         if not base:
             print("   ERR: could not set USA base price"); return sid
         eq, url = [], B + f"/v1/subscriptionPricePoints/{base}/equalizations?include=territory&limit=200"
@@ -227,11 +248,11 @@ def create_yearly(aid, usd):
     return sid
 
 
-def status(aid):
-    li = G(f"/v1/apps/{aid}/inAppPurchasesV2?filter[productId]={LIFETIME_ID}&limit=1").json().get("data")
+def status(aid, life_id, year_id):
+    li = G(f"/v1/apps/{aid}/inAppPurchasesV2?filter[productId]={life_id}&limit=1").json().get("data")
     print("  lifetime:", li[0]["attributes"]["state"] if li else "MISSING")
     for g in G(f"/v1/apps/{aid}/subscriptionGroups?limit=20").json().get("data", []):
-        su = G(f"/v1/subscriptionGroups/{g['id']}/subscriptions?filter[productId]={YEARLY_ID}&limit=1").json().get("data")
+        su = G(f"/v1/subscriptionGroups/{g['id']}/subscriptions?filter[productId]={year_id}&limit=1").json().get("data")
         if su:
             print("  yearly:  ", su[0]["attributes"]["state"]); return
     print("  yearly:   MISSING")
@@ -246,10 +267,12 @@ if __name__ == "__main__":
         sys.exit(f"app not found for {bundle}")
     print(f"{bundle} -> app {aid}")
     if cmd == "status":
-        status(aid)
+        life_id, year_id = product_ids(bundle)
+        status(aid, life_id, year_id)
     elif cmd == "create":
         life_usd, year_usd = usd_prices(bundle)
-        create_lifetime(aid, life_usd)
-        create_yearly(aid, year_usd)
+        life_id, year_id = product_ids(bundle)
+        create_lifetime(aid, life_usd, life_id)
+        create_yearly(aid, year_usd, year_id)
         time.sleep(5)
-        status(aid)
+        status(aid, life_id, year_id)
