@@ -31,12 +31,19 @@ class PurchaseService extends ChangeNotifier {
   /// App Store Connect product IDs for THIS app. Each single-sport app and the
   /// hub configure their own products under these same IDs (IDs are scoped per
   /// app, so they can be reused across the 16 apps).
-  static const String lifetimeId = 'remove_ads_lifetime';
-  // 'remove_ads_yearly' was deleted in ASC (to change its price) and Apple
-  // permanently reserves deleted product IDs, so the live yearly product uses a
-  // fresh id. Keep in sync with tool/asc_iap.py YEARLY_ID.
-  static const String yearlyId = 'remove_ads_annual';
-  static const Set<String> _ids = {lifetimeId, yearlyId};
+  // Product IDs are globally unique per developer account (and a deleted id is
+  // reserved forever), so every app needs its own. The hub (no SPORT) keeps the
+  // original bare ids — note 'remove_ads_yearly' was burned by a delete, hence
+  // 'remove_ads_annual'; single-sport apps prefix the SPORT. Keep in sync with
+  // tool/asc_iap.py product_ids().
+  static const String _sport = String.fromEnvironment('SPORT');
+  static String get lifetimeId => _sport.isEmpty
+      ? 'remove_ads_lifetime'
+      : '${_sport.toLowerCase()}_remove_ads_lifetime';
+  static String get yearlyId => _sport.isEmpty
+      ? 'remove_ads_annual'
+      : '${_sport.toLowerCase()}_remove_ads_yearly';
+  static Set<String> get _ids => {lifetimeId, yearlyId};
 
   /// Persisted "owns ad removal" flag, so a returning user is ad-free instantly
   /// and offline, before StoreKit re-confirms.
