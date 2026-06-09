@@ -130,7 +130,10 @@ const Map<SportType, _SportAds> _liveAdUnits = {
 /// via --dart-define=HUB_ADS=1 (set by the hub build in tool/build_all_ipa.sh for
 /// iOS and tool/build_sport_android.sh for Android); the plain multi-sport dev
 /// build leaves this off and stays ad-free.
-const bool _hubAdsEnabled = bool.fromEnvironment('HUB_ADS');
+// NB: the build passes --dart-define=HUB_ADS=1, and bool.fromEnvironment only
+// treats the literal "true" as true (a value of "1" yields false), so compare
+// the string explicitly — otherwise hub ads silently stay off.
+const bool _hubAdsEnabled = String.fromEnvironment('HUB_ADS') == '1';
 
 /// Ad units for the hub app's own AdMob apps (iOS App ID ~5907516538,
 /// Android App ID ~4532136942 — AdMob treats them as separate apps).

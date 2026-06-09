@@ -32,15 +32,20 @@ class PurchaseService extends ChangeNotifier {
   /// hub configure their own products under these same IDs (IDs are scoped per
   /// app, so they can be reused across the 16 apps).
   static const String lifetimeId = 'remove_ads_lifetime';
-  static const String yearlyId = 'remove_ads_yearly';
+  // 'remove_ads_yearly' was deleted in ASC (to change its price) and Apple
+  // permanently reserves deleted product IDs, so the live yearly product uses a
+  // fresh id. Keep in sync with tool/asc_iap.py YEARLY_ID.
+  static const String yearlyId = 'remove_ads_annual';
   static const Set<String> _ids = {lifetimeId, yearlyId};
 
   /// Persisted "owns ad removal" flag, so a returning user is ad-free instantly
   /// and offline, before StoreKit re-confirms.
   static const String _prefKey = 'remove_ads_pro';
 
-  /// Opt-in flag set only by production iOS builds. Empty everywhere else.
-  static const bool _enabled = bool.fromEnvironment('IAP');
+  /// Opt-in flag set only by production iOS builds (--dart-define=IAP=1).
+  /// Compare the string explicitly: bool.fromEnvironment only treats "true" as
+  /// true, so a value of "1" would wrongly read as false.
+  static const bool _enabled = String.fromEnvironment('IAP') == '1';
 
   final InAppPurchase _iap = InAppPurchase.instance;
   StreamSubscription<List<PurchaseDetails>>? _sub;
@@ -74,8 +79,10 @@ class PurchaseService extends ChangeNotifier {
     if (!await _iap.isAvailable()) return;
     _sub = _iap.purchaseStream.listen(_onPurchases, onError: (_) {});
     await _loadProducts();
-    // Re-sync with the store (covers reinstalls / new devices).
-    await _iap.restorePurchases();
+    // Deliberately NOT auto-restoring here: restorePurchases() can pop an
+    // Apple-account sign-in prompt on launch, and Apple recommends restore be
+    // user-initiated. Entitlement persists locally (above); after a reinstall
+    // or on a new device the user taps "Restore Purchases" in the paywall.
   }
 
   Future<void> _loadProducts() async {
