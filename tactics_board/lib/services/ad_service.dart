@@ -238,6 +238,22 @@ class AdService {
 
   bool get isEnabled => _ids != null;
 
+  /// Whether this build is configured to show ads at all on the current
+  /// platform, INDEPENDENT of a Pro purchase. Gates the "Remove Ads" entry: an
+  /// app/platform with no ads must not offer to remove them (App Store 3.1.1 /
+  /// accurate metadata — selling something that does nothing gets rejected).
+  bool get servesAds {
+    final sport = fixedSport;
+    if (sport == null) {
+      return _hubAdsEnabled && (Platform.isIOS || Platform.isAndroid);
+    }
+    final ads = _liveAdUnits[sport];
+    if (ads == null) return false;
+    if (Platform.isIOS) return ads.ios != null;
+    if (Platform.isAndroid) return ads.android != null;
+    return false;
+  }
+
   bool get _suppressed => _suppressDepth > 0;
 
   /// Suppress the *next* return-to-foreground app-open ad. Call this right
