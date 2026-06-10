@@ -122,7 +122,12 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       interstitial: 'ca-app-pub-4247621509300508/3580580568',
     ),
   ),
-  // sepakTakraw: no AdMob app created yet → stays ad-free.
+  SportType.sepakTakraw: _SportAds(
+    ios: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/6195135611',
+      interstitial: 'ca-app-pub-4247621509300508/2389576375',
+    ),
+  ),
 };
 
 /// The multi-sport hub app ("Tactics Board – Coach Playbook", com.zach.tacticsBoard)

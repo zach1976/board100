@@ -84,6 +84,7 @@ build_ipa() {
     waterPolo)   ADMOB_APP_ID="ca-app-pub-4247621509300508~6692160761" ;;
     beachTennis) ADMOB_APP_ID="ca-app-pub-4247621509300508~8509629141" ;;
     footvolley)  ADMOB_APP_ID="ca-app-pub-4247621509300508~6721904756" ;;
+    sepakTakraw) ADMOB_APP_ID="ca-app-pub-4247621509300508~4478884795" ;;
   esac
   if [ -n "$ADMOB_APP_ID" ]; then
     /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $ADMOB_APP_ID" "$PLIST"
