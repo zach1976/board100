@@ -34,13 +34,11 @@ void main() {
   });
 
   group('SportType.isLandscapeCourt', () {
-    test('only basketball is landscape', () {
-      expect(SportType.basketball.isLandscapeCourt, true);
-    });
-
-    test('all other sports are portrait', () {
-      for (final s in SportType.values.where((s) => s != SportType.basketball)) {
-        expect(s.isLandscapeCourt, false, reason: '${s.name} should be portrait');
+    // Since the landscape-court v2 overhaul the canvas itself is landscape for
+    // every sport, so no sport carries the per-sport flag anymore.
+    test('no sport is flagged landscape', () {
+      for (final s in SportType.values) {
+        expect(s.isLandscapeCourt, false, reason: '${s.name} should not be flagged');
       }
     });
   });
@@ -55,10 +53,10 @@ void main() {
     test('badminton has 2 formations', () => expect(SportType.badminton.formations.length, 2));
     test('tableTennis has 2 formations', () => expect(SportType.tableTennis.formations.length, 2));
     test('tennis has 2 formations', () => expect(SportType.tennis.formations.length, 2));
-    test('basketball has 2 formations', () => expect(SportType.basketball.formations.length, 2));
+    test('basketball has 5 formations', () => expect(SportType.basketball.formations.length, 5));
     test('volleyball has 3 formations', () => expect(SportType.volleyball.formations.length, 3));
     test('pickleball has 2 formations', () => expect(SportType.pickleball.formations.length, 2));
-    test('soccer has 3 formations', () => expect(SportType.soccer.formations.length, 3));
+    test('soccer has 6 formations', () => expect(SportType.soccer.formations.length, 6));
 
     test('badminton singles is 1v1', () {
       final f = SportType.badminton.formations[0];
