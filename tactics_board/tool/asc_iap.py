@@ -125,7 +125,19 @@ def all_territories():
     return terrs
 
 
-def upload_screenshot(reserve_type, rel_name, parent_id):
+def screenshot_ok(existing):
+    """True if an existing review screenshot is fully delivered. A reserve that
+    never got its bytes (e.g. the upload 500'd) sits in AWAITING_UPLOAD and must
+    be deleted + re-uploaded, not skipped."""
+    if not existing:
+        return False
+    state = (existing["attributes"].get("assetDeliveryState") or {}).get("state")
+    return state == "COMPLETE"
+
+
+def upload_screenshot(reserve_type, rel_name, parent_id, stale_id=None):
+    if stale_id:  # clear a half-uploaded reservation first
+        _do("DELETE", B + f"/v1/{reserve_type}/{stale_id}")
     b = open(SHOT, "rb").read()
     md5 = hashlib.md5(b).hexdigest()
     parent_type = "subscriptions" if rel_name == "subscription" else "inAppPurchases"
@@ -157,10 +169,14 @@ def create_lifetime(aid, usd, pid):
         if not r.ok:
             print("  lifetime create ERR", errs(r)); return None
         iid = r.json()["data"]["id"]; print("  lifetime created id=", iid)
-    if not G(f"/v1/inAppPurchases/{iid}/inAppPurchaseLocalizations").json().get("data"):
-        P("/v1/inAppPurchaseLocalizations", {"data": {"type": "inAppPurchaseLocalizations", "attributes": {
+    # NB: the localizations READ path is /v2/ (the /v1/ one 404s, which reads as
+    # "no localizations" and causes harmless-but-noisy duplicate POSTs).
+    if not G(f"/v2/inAppPurchases/{iid}/inAppPurchaseLocalizations").json().get("data"):
+        r = P("/v1/inAppPurchaseLocalizations", {"data": {"type": "inAppPurchaseLocalizations", "attributes": {
             "name": "Remove Ads", "locale": "en-US", "description": "Remove all ads permanently."},
             "relationships": {"inAppPurchaseV2": {"data": {"type": "inAppPurchases", "id": iid}}}}})
+        if not r.ok:
+            print("   localization ERR", errs(r))
     if G(f"/v2/inAppPurchases/{iid}/iapPriceSchedule").json().get("data") in (None, {}):
         pp = next((p["id"] for p in G(f"/v2/inAppPurchases/{iid}/pricePoints?filter[territory]=USA&limit=200").json()["data"]
                    if p["attributes"].get("customerPrice") == usd), None)
@@ -175,8 +191,10 @@ def create_lifetime(aid, usd, pid):
             "attributes": {"availableInNewTerritories": True}, "relationships": {
             "inAppPurchase": {"data": {"type": "inAppPurchases", "id": iid}},
             "availableTerritories": {"data": [{"type": "territories", "id": t} for t in all_territories()]}}}})
-    if not G(f"/v2/inAppPurchases/{iid}/appStoreReviewScreenshot").json().get("data"):
-        upload_screenshot("inAppPurchaseAppStoreReviewScreenshots", "inAppPurchaseV2", iid)
+    shot = G(f"/v2/inAppPurchases/{iid}/appStoreReviewScreenshot").json().get("data")
+    if not screenshot_ok(shot):
+        upload_screenshot("inAppPurchaseAppStoreReviewScreenshots", "inAppPurchaseV2", iid,
+                          stale_id=shot["id"] if shot else None)
     return iid
 
 
@@ -203,9 +221,11 @@ def create_yearly(aid, usd, pid):
             print("  yearly create ERR", errs(r)); return None
         sid = r.json()["data"]["id"]; print("  yearly created id=", sid)
     if not G(f"/v1/subscriptions/{sid}/subscriptionLocalizations").json().get("data"):
-        P("/v1/subscriptionLocalizations", {"data": {"type": "subscriptionLocalizations", "attributes": {
+        r = P("/v1/subscriptionLocalizations", {"data": {"type": "subscriptionLocalizations", "attributes": {
             "name": "Remove Ads (Yearly)", "description": "Remove all ads, billed yearly.", "locale": "en-US"},
             "relationships": {"subscription": {"data": {"type": "subscriptions", "id": sid}}}}})
+        if not r.ok:
+            print("   sub localization ERR", errs(r))
     if not G(f"/v1/subscriptions/{sid}/prices?limit=1").json().get("data"):
         def set_price(pp, terr):
             # Starting price: OMIT startDate; include territory + price point.
@@ -239,8 +259,10 @@ def create_yearly(aid, usd, pid):
             "attributes": {"availableInNewTerritories": True}, "relationships": {
             "subscription": {"data": {"type": "subscriptions", "id": sid}},
             "availableTerritories": {"data": [{"type": "territories", "id": t} for t in all_territories()]}}}})
-    if not G(f"/v1/subscriptions/{sid}/appStoreReviewScreenshot").json().get("data"):
-        upload_screenshot("subscriptionAppStoreReviewScreenshots", "subscription", sid)
+    sshot = G(f"/v1/subscriptions/{sid}/appStoreReviewScreenshot").json().get("data")
+    if not screenshot_ok(sshot):
+        upload_screenshot("subscriptionAppStoreReviewScreenshots", "subscription", sid,
+                          stale_id=sshot["id"] if sshot else None)
     # Nudge: a fresh subscription stays stuck on MISSING_METADATA even with every
     # field set, until a metadata PATCH re-triggers Apple's async recompute.
     PATCH(f"/v1/subscriptions/{sid}", {"data": {"type": "subscriptions", "id": sid,
