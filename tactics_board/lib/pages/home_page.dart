@@ -10,6 +10,7 @@ import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../services/ad_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/purchase_service.dart';
@@ -482,6 +483,7 @@ class _MenuButton extends StatelessWidget {
           _menuItem(context, 'language', Icons.language, 'menu_language'.tr()),
           _menuItem(context, 'contact', Icons.mail_outline, 'menu_contact'.tr()),
           if (PurchaseService.instance.isStoreEnabled &&
+              AdService.instance.servesAds &&
               !PurchaseService.instance.hasPro)
             _menuItem(context, 'pro', Icons.workspace_premium_outlined,
                 'menu_remove_ads'.tr()),
