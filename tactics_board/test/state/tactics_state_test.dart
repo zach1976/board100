@@ -276,11 +276,13 @@ void main() {
     test('removePlayerWaypoint removes by index', () {
       final s = TacticsState();
       s.addPlayer(_player('p1'));
-      s.addPlayerMove('p1', const Offset(1, 1));
-      s.addPlayerMove('p1', const Offset(2, 2));
+      // Positions must clear the 8px canvas clamp margin or addPlayerMove
+      // snaps them to the edge.
+      s.addPlayerMove('p1', const Offset(50, 50));
+      s.addPlayerMove('p1', const Offset(100, 100));
       s.removePlayerWaypoint('p1', 0);
       expect(s.players.first.moves.length, 1);
-      expect(s.players.first.moves[0], const Offset(2, 2));
+      expect(s.players.first.moves[0], const Offset(100, 100));
     });
 
     test('removePlayerWaypoint no-op for unknown id', () {
@@ -464,7 +466,7 @@ void main() {
       expect(s.players[1].team, PlayerTeam.away);
     });
 
-    test('positions scaled to canvas size', () {
+    test('positions scaled to the painted field rect', () {
       final s = TacticsState();
       s.setCanvasSize(const Size(400, 700));
       const f = SportFormation(
@@ -474,23 +476,26 @@ void main() {
         addBall: false,
       );
       s.applyFormation(f);
-      expect(s.players[0].position.dx, closeTo(200.0, 0.01));
-      expect(s.players[0].position.dy, closeTo(525.0, 0.01));
+      // Formation coords map onto the sport's painted field rect (so players
+      // stay inside the sidelines on any canvas aspect), not the raw canvas.
+      final field = SportType.basketball.fieldRect(const Size(400, 700));
+      expect(s.players[0].position.dx,
+          closeTo(field.left + 0.5 * field.width, 0.01));
+      expect(s.players[0].position.dy,
+          closeTo(field.top + 0.75 * field.height, 0.01));
     });
 
-    test('adds ball when addBall is true', () {
+    test('does not add a ball (balls are placed manually now)', () {
       final s = TacticsState(sportType: SportType.badminton);
       s.setCanvasSize(const Size(400, 700));
       const f = SportFormation(
         nameKey: 'test',
         homePositions: [Offset(0.5, 0.75)],
         awayPositions: [Offset(0.5, 0.25)],
-        addBall: true,
+        addBall: true, // legacy field — applyFormation no longer consumes it
       );
       s.applyFormation(f);
-      final balls = s.players.where((p) => p.isBall).toList();
-      expect(balls.length, 1);
-      expect(balls.first.position, const Offset(200, 350));
+      expect(s.players.where((p) => p.isBall), isEmpty);
     });
 
     test('clears existing players', () {
@@ -620,8 +625,10 @@ void main() {
         addBall: false,
       );
       s.applyFormation(f);
-      expect(s.players[0].position.dx, closeTo(800, 0.01));
-      expect(s.players[0].position.dy, closeTo(1200, 0.01));
+      // (1.0, 1.0) lands on the bottom-right corner of the painted field rect.
+      final field = SportType.basketball.fieldRect(const Size(800, 1200));
+      expect(s.players[0].position.dx, closeTo(field.right, 0.01));
+      expect(s.players[0].position.dy, closeTo(field.bottom, 0.01));
     });
   });
 }
