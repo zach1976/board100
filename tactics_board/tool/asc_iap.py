@@ -276,3 +276,11 @@ if __name__ == "__main__":
         create_yearly(aid, year_usd, year_id)
         time.sleep(5)
         status(aid, life_id, year_id)
+    elif cmd == "lifetime":
+        # Non-consumable only — does NOT touch subscription pricing (useful while
+        # ASC's subscription-price endpoint is failing).
+        life_usd, _ = usd_prices(bundle)
+        life_id, year_id = product_ids(bundle)
+        create_lifetime(aid, life_usd, life_id)
+        time.sleep(3)
+        status(aid, life_id, year_id)
