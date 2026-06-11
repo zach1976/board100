@@ -1163,6 +1163,61 @@ class _ScorerPromoSheet extends StatelessWidget {
                 ),
               ),
             ),
+            // Badminton-only training companion apps
+            if (sport == SportType.badminton) ...[
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'trainer_also_try'.tr(),
+                  style: const TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600),
+                ),
+              ),
+              const SizedBox(height: 10),
+              _trainerRow(context, Icons.bolt, 'trainer_whip_name'.tr(),
+                  'trainer_whip_desc'.tr(), 'https://apps.apple.com/app/id6775930960'),
+              const SizedBox(height: 8),
+              _trainerRow(context, Icons.directions_run, 'trainer_footwork_name'.tr(),
+                  'trainer_footwork_desc'.tr(), 'https://apps.apple.com/app/id6777419248'),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _trainerRow(BuildContext context, IconData icon, String name, String desc, String urlStr) {
+    return InkWell(
+      onTap: () => _openLink(context, urlStr),
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.06),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 38, height: 38,
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.08),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(icon, color: Colors.white70, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(name, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600)),
+                  Text(desc, style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                ],
+              ),
+            ),
+            const Icon(Icons.open_in_new, color: Colors.white38, size: 18),
           ],
         ),
       ),
@@ -1187,13 +1242,15 @@ class _ScorerPromoSheet extends StatelessWidget {
     );
   }
 
-  Future<void> _openAppStore(BuildContext context) async {
+  Future<void> _openAppStore(BuildContext context) => _openLink(context, url.toString());
+
+  Future<void> _openLink(BuildContext context, String urlStr) async {
     try {
       const channel = MethodChannel('com.zach.tacticsboard/share');
-      await channel.invokeMethod('openUrl', {'url': url.toString()});
+      await channel.invokeMethod('openUrl', {'url': urlStr});
     } catch (_) {
       // Fallback: copy URL to clipboard
-      await Clipboard.setData(ClipboardData(text: url.toString()));
+      await Clipboard.setData(ClipboardData(text: urlStr));
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('scorer_link_copied'.tr()), backgroundColor: Colors.green),
