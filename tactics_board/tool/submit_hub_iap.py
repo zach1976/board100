@@ -30,7 +30,7 @@ PK = open("/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8").read(
 B = "https://api.appstoreconnect.apple.com"
 
 APP_ID = "6761408675"          # com.zach.tacticsBoard
-VERSION = "1.1.16"
+VERSION = "1.1.17"
 LIFETIME_IAP_ID = "6778069876"  # remove_ads_lifetime
 YEARLY_SUB_ID = "6778464630"    # remove_ads_annual
 WHATS_NEW = ("• New: remove ads with a one-time purchase or yearly plan\n"
@@ -91,6 +91,12 @@ def main():
             "type": "appStoreVersionLocalizations", "id": loc["id"],
             "attributes": {"whatsNew": WHATS_NEW}}})
     print("prepared (encryption + whatsNew)")
+
+    if "prep" in sys.argv:
+        print("PREP-ONLY done. Now in App Store Connect: open the version, "
+              "In-App Purchases and Subscriptions -> Select -> add both Remove "
+              "Ads products, then Submit for Review.")
+        return
 
     # 4. clear stale submissions
     for sub in api("GET", f"/v1/apps/{APP_ID}/reviewSubmissions").get("data", []):
