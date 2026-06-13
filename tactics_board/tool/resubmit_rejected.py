@@ -1,107 +1,91 @@
 #!/usr/bin/env python3
-"""Resubmit all DEVELOPER_REJECTED 1.1.4 apps for review (screenshots already uploaded)."""
-import jwt, time, requests as _requests
+# -*- coding: utf-8 -*-
+"""Resubmit a REJECTED single-sport 1.1.18 version (its lifetime IAP rides along)
+after fixing the Age-Rating advertising flag. Flow that works via API:
 
-KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
+  1. cancel the rejected reviewSubmission (PATCH canceled=true)  -> frees the version
+  2. find/create a READY_FOR_REVIEW reviewSubmission for the app
+  3. add the appStoreVersion as a reviewSubmissionItem (retry until the cancel settles)
+  4. PATCH submitted=true
+
+  python3 tool/resubmit_rejected.py fieldHockey rugby handball footvolley sepakTakraw
+  python3 tool/resubmit_rejected.py            # all 6 known-rejected
+"""
+import jwt, time, requests, warnings, sys
+warnings.filterwarnings("ignore")
+
 KEY_ID = "4A9Y2S3D6X"
-ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
-BASE = "https://api.appstoreconnect.apple.com"
+ISSUER = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
+PK = open("/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8").read()
+B = "https://api.appstoreconnect.apple.com"
+DEFAULT = ["tennis", "fieldHockey", "rugby", "handball", "footvolley", "sepakTakraw"]
 
-with open(KEY_FILE) as f:
-    private_key = f.read()
 
-def get_token():
-    payload = {"iss": ISSUER_ID, "iat": int(time.time()), "exp": int(time.time()) + 1200, "aud": "appstoreconnect-v1"}
-    return jwt.encode(payload, private_key, algorithm="ES256", headers={"kid": KEY_ID})
+def tok():
+    return jwt.encode({"iss": ISSUER, "iat": int(time.time()), "exp": int(time.time()) + 1200,
+                       "aud": "appstoreconnect-v1"}, PK, algorithm="ES256", headers={"kid": KEY_ID})
 
-def api(method, path, data=None):
-    token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-    for attempt in range(3):
-        try:
-            resp = _requests.request(method, f"{BASE}{path}", headers=headers,
-                                     json=data, verify=False, timeout=60)
-            if resp.status_code >= 400:
-                return {"_error": True, "_status": resp.status_code, "_body": resp.json() if resp.text else {}}
-            return resp.json() if resp.text else {"_ok": True}
-        except Exception as e:
-            if attempt == 2:
-                raise
-            print(f"    retry {attempt+1}: {e}")
-            time.sleep(3)
 
-APPS = [
-    ("com.zach.tacticsBoard",    "Tactics Board"),
-    ("com.zach.soccerBoard",     "Soccer Board"),
-    ("com.zach.basketballBoard", "Basketball Board"),
-    ("com.zach.volleyballBoard", "Volleyball Board"),
-    ("com.zach.badmintonBoard",  "Badminton Board"),
-    ("com.zach.tennisBoard",     "Tennis Board"),
-    ("com.zach.tableTennisBoard","Table Tennis Board"),
-    ("com.zach.pickleballBoard", "Pickleball Board"),
-]
+def H():
+    return {"Authorization": f"Bearer {tok()}", "Content-Type": "application/json"}
 
-for bundle_id, name in APPS:
-    print(f"\n{name}...")
-    r = api("GET", f"/v1/apps?filter[bundleId]={bundle_id}")
-    app_id = r["data"][0]["id"]
 
-    # Find DEVELOPER_REJECTED version
-    r_ver = api("GET", f"/v1/apps/{app_id}/appStoreVersions?filter[appStoreState]=DEVELOPER_REJECTED&limit=1")
-    if not r_ver.get("data"):
-        r_cur = api("GET", f"/v1/apps/{app_id}/appStoreVersions?limit=1")
-        state = r_cur["data"][0]["attributes"]["appStoreState"] if r_cur.get("data") else "unknown"
-        print(f"  Not DEVELOPER_REJECTED (state: {state}), skipping")
-        continue
+def G(p):
+    return requests.get(B + p, headers={"Authorization": f"Bearer {tok()}"}, verify=False, timeout=60).json()
 
-    version_id = r_ver["data"][0]["id"]
-    ver_str = r_ver["data"][0]["attributes"]["versionString"]
-    print(f"  Version {ver_str} — submitting...")
 
-    # Clean up any existing READY_FOR_REVIEW submissions
-    r_subs = api("GET", f"/v1/apps/{app_id}/reviewSubmissions")
-    for sub in r_subs.get("data", []):
-        if sub["attributes"]["state"] in ("READY_FOR_REVIEW", "WAITING_FOR_REVIEW"):
-            api("DELETE", f"/v1/reviewSubmissions/{sub['id']}")
-            print(f"  Cleaned up existing submission")
+def P(p, b):
+    return requests.post(B + p, headers=H(), json=b, verify=False, timeout=60)
 
-    time.sleep(1)
 
-    # Create review submission
-    r1 = api("POST", "/v1/reviewSubmissions", {
-        "data": {"type": "reviewSubmissions", "attributes": {"platform": "IOS"},
-                 "relationships": {"app": {"data": {"type": "apps", "id": app_id}}}}
-    })
-    if r1.get("_error"):
-        errs = r1["_body"].get("errors", [])
-        print(f"  ❌ create submission: {errs[0].get('detail','?') if errs else r1}")
-        continue
-    sub_id = r1["data"]["id"]
+def PATCH(p, b):
+    return requests.patch(B + p, headers=H(), json=b, verify=False, timeout=60)
 
-    # Add version item
-    r2 = api("POST", "/v1/reviewSubmissionItems", {
-        "data": {"type": "reviewSubmissionItems", "relationships": {
-            "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub_id}},
-            "appStoreVersion": {"data": {"type": "appStoreVersions", "id": version_id}}
-        }}
-    })
-    if r2.get("_error"):
-        errs2 = r2["_body"].get("errors", [])
-        meta2 = errs2[0].get("meta", {}).get("associatedErrors", {}) if errs2 else {}
-        reasons = [ae.get("detail", "?") for ae_list in meta2.values() for ae in ae_list]
-        msg = "; ".join(set(reasons)) if reasons else (errs2[0].get("detail", "?") if errs2 else str(r2))
-        print(f"  ❌ add item: {msg}")
-        api("DELETE", f"/v1/reviewSubmissions/{sub_id}")
-        continue
 
-    # Submit
-    r3 = api("PATCH", f"/v1/reviewSubmissions/{sub_id}", {
-        "data": {"type": "reviewSubmissions", "id": sub_id, "attributes": {"submitted": True}}
-    })
-    if r3.get("_error"):
-        errs3 = r3["_body"].get("errors", [])
-        print(f"  ❌ submit: {errs3[0].get('detail','?') if errs3 else r3}")
-    else:
-        print(f"  ✅ {r3['data']['attributes']['state']}")
+def resubmit(sport):
+    aid = G(f"/v1/apps?filter[bundleId]=com.zach.{sport}Board")["data"][0]["id"]
+    v = next((v for v in G(f"/v1/apps/{aid}/appStoreVersions?limit=6")["data"]
+              if v["attributes"]["versionString"] == "1.1.18"), None)
+    if not v:
+        print(f"{sport:14s} no 1.1.18"); return
+    vid, vst = v["id"], v["attributes"]["appStoreState"]
+    if vst in ("WAITING_FOR_REVIEW", "IN_REVIEW", "PENDING_APPLE_RELEASE", "READY_FOR_SALE"):
+        print(f"{sport:14s} already {vst} — skip"); return
 
-print("\n🎉 Done!")
+    subs = G(f"/v1/apps/{aid}/reviewSubmissions?limit=10").get("data", [])
+    # cancel any rejected (UNRESOLVED_ISSUES) submission to free the version
+    for s in subs:
+        if s["attributes"]["state"] == "UNRESOLVED_ISSUES":
+            PATCH(f"/v1/reviewSubmissions/{s['id']}", {"data": {"type": "reviewSubmissions",
+                "id": s["id"], "attributes": {"canceled": True}}})
+            print(f"{sport:14s} canceled rejected submission {s['id'][:8]}")
+    # find an open READY_FOR_REVIEW submission, else create one
+    sid = next((s["id"] for s in subs if s["attributes"]["state"] == "READY_FOR_REVIEW"), None)
+    if not sid:
+        r = P("/v1/reviewSubmissions", {"data": {"type": "reviewSubmissions",
+            "attributes": {"platform": "IOS"},
+            "relationships": {"app": {"data": {"type": "apps", "id": aid}}}}})
+        if not r.ok:
+            print(f"{sport:14s} create submission ERR {r.status_code} {r.text[:160]}"); return
+        sid = r.json()["data"]["id"]
+
+    # add version (retry while the cancel settles)
+    added = False
+    for _ in range(15):
+        r = P("/v1/reviewSubmissionItems", {"data": {"type": "reviewSubmissionItems",
+            "relationships": {"reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sid}},
+            "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
+        if r.ok:
+            added = True; break
+        time.sleep(8)
+    if not added:
+        print(f"{sport:14s} add version FAILED {r.status_code} {r.text[:160]}"); return
+
+    r = PATCH(f"/v1/reviewSubmissions/{sid}", {"data": {"type": "reviewSubmissions",
+        "id": sid, "attributes": {"submitted": True}}})
+    print(f"{sport:14s} {'RESUBMITTED ✓' if r.ok else 'SUBMIT ERR ' + str(r.status_code) + ' ' + r.text[:160]}")
+
+
+if __name__ == "__main__":
+    for s in (sys.argv[1:] or DEFAULT):
+        resubmit(s)
