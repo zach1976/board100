@@ -226,6 +226,15 @@ def create_yearly(aid, usd, pid):
             "relationships": {"subscription": {"data": {"type": "subscriptions", "id": sid}}}}})
         if not r.ok:
             print("   sub localization ERR", errs(r))
+    # Availability MUST be set BEFORE pricing — a subscription with no available
+    # territories rejects every price POST with RELATIONSHIP.INVALID / "processing
+    # pricing information" (SUBSCRIPTION_SETUP_GUIDE.md §1.4). Non-consumables don't
+    # care about order; subscriptions do.
+    if G(f"/v1/subscriptions/{sid}/subscriptionAvailability").status_code == 404:
+        P("/v1/subscriptionAvailabilities", {"data": {"type": "subscriptionAvailabilities",
+            "attributes": {"availableInNewTerritories": True}, "relationships": {
+            "subscription": {"data": {"type": "subscriptions", "id": sid}},
+            "availableTerritories": {"data": [{"type": "territories", "id": t} for t in all_territories()]}}}})
     if not G(f"/v1/subscriptions/{sid}/prices?limit=1").json().get("data"):
         def set_price(pp, terr):
             # Starting price: OMIT startDate; include territory + price point.
@@ -254,11 +263,6 @@ def create_yearly(aid, usd, pid):
             url = j.get("links", {}).get("next")
         ok = sum(1 for terr, pp in eq if terr != "USA" and set_price(pp, terr).ok)
         print(f"   priced USA + {ok}/{len([e for e in eq if e[0] != 'USA'])} equalized territories")
-    if G(f"/v1/subscriptions/{sid}/subscriptionAvailability").status_code == 404:
-        P("/v1/subscriptionAvailabilities", {"data": {"type": "subscriptionAvailabilities",
-            "attributes": {"availableInNewTerritories": True}, "relationships": {
-            "subscription": {"data": {"type": "subscriptions", "id": sid}},
-            "availableTerritories": {"data": [{"type": "territories", "id": t} for t in all_territories()]}}}})
     sshot = G(f"/v1/subscriptions/{sid}/appStoreReviewScreenshot").json().get("data")
     if not screenshot_ok(sshot):
         upload_screenshot("subscriptionAppStoreReviewScreenshots", "subscription", sid,
