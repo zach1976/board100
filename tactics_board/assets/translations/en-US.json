@@ -272,5 +272,13 @@
   "half_court": "Half Court",
   "full_court": "Full Court",
   "speed": "Speed",
-  "formation_serve_receive": "Serve Receive"
+  "formation_serve_receive": "Serve Receive",
+  "menu_field": "Pitch",
+  "field_color": "Field Color",
+  "field_type": "Field Type",
+  "field_full": "Full",
+  "field_half": "Half",
+  "field_blank": "Blank",
+  "field_half_left": "Half ◀",
+  "field_half_right": "Half ▶"
 }

@@ -191,5 +191,13 @@
   "half_court": "Setengah Lapangan",
   "full_court": "Lapangan Penuh",
   "speed": "Kecepatan",
-  "formation_serve_receive": "Terima Servis"
+  "formation_serve_receive": "Terima Servis",
+  "menu_field": "Lapangan",
+  "field_color": "Warna Lapangan",
+  "field_type": "Tipe Lapangan",
+  "field_full": "Penuh",
+  "field_half": "Setengah",
+  "field_blank": "Kosong",
+  "field_half_left": "Separuh ◀",
+  "field_half_right": "Separuh ▶"
 }

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../painters/soccer_court_painter.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -105,6 +107,12 @@ class TacticsState extends ChangeNotifier {
   // Basketball-only half-court view (zoom preset).
   bool _basketballHalfCourt = false;
 
+  // Soccer-only pitch appearance (layout + grass colour). Persisted across
+  // launches via SharedPreferences; a sticky visual preference, not part of a
+  // saved tactic.
+  SoccerFieldType _soccerFieldType = SoccerFieldType.full;
+  int _soccerTurfIndex = 0;
+
   // Free-form zoom/pan mode. While on, the board content is locked and the
   // InteractiveViewer owns every gesture — so its scale recogniser can never
   // fight a single-finger player drag. While off, the board carries no
@@ -125,6 +133,7 @@ class TacticsState extends ChangeNotifier {
   TacticsState({SportType sportType = SportType.basketball})
       : _sportType = sportType {
     _initExternalDisplay();
+    _loadFieldPrefs();
   }
 
   void _initExternalDisplay() {
@@ -394,6 +403,57 @@ class TacticsState extends ChangeNotifier {
     if (_basketballHalfCourt == v) return;
     _basketballHalfCourt = v;
     notifyListeners();
+  }
+
+  // ── Soccer pitch appearance ──────────────────────────────────────────────
+  static const String _kSoccerFieldTypeKey = 'soccer_field_type';
+  static const String _kSoccerTurfKey = 'soccer_turf_index';
+
+  SoccerFieldType get soccerFieldType => _soccerFieldType;
+  void setSoccerFieldType(SoccerFieldType type) {
+    if (_soccerFieldType == type) return;
+    _soccerFieldType = type;
+    notifyListeners();
+    _persistFieldPrefs();
+  }
+
+  int get soccerTurfIndex => _soccerTurfIndex;
+  void setSoccerTurfIndex(int index) {
+    if (index < 0 || index >= kSoccerTurfs.length || _soccerTurfIndex == index) {
+      return;
+    }
+    _soccerTurfIndex = index;
+    notifyListeners();
+    _persistFieldPrefs();
+  }
+
+  SoccerTurf get soccerTurf => kSoccerTurfs[_soccerTurfIndex];
+
+  Future<void> _loadFieldPrefs() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final ti = prefs.getInt(_kSoccerFieldTypeKey);
+      if (ti != null && ti >= 0 && ti < SoccerFieldType.values.length) {
+        _soccerFieldType = SoccerFieldType.values[ti];
+      }
+      final turf = prefs.getInt(_kSoccerTurfKey);
+      if (turf != null && turf >= 0 && turf < kSoccerTurfs.length) {
+        _soccerTurfIndex = turf;
+      }
+      notifyListeners();
+    } catch (_) {
+      // Prefs unavailable — keep defaults.
+    }
+  }
+
+  Future<void> _persistFieldPrefs() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_kSoccerFieldTypeKey, _soccerFieldType.index);
+      await prefs.setInt(_kSoccerTurfKey, _soccerTurfIndex);
+    } catch (_) {
+      // Best-effort persistence.
+    }
   }
 
   bool get zoomMode => _zoomMode;

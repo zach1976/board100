@@ -191,5 +191,13 @@
   "half_court": "Demi-terrain",
   "full_court": "Terrain complet",
   "speed": "Vitesse",
-  "formation_serve_receive": "Réception"
+  "formation_serve_receive": "Réception",
+  "menu_field": "Terrain",
+  "field_color": "Couleur du terrain",
+  "field_type": "Type de terrain",
+  "field_full": "Complet",
+  "field_half": "Demi-terrain",
+  "field_blank": "Vide",
+  "field_half_left": "Demi ◀",
+  "field_half_right": "Demi ▶"
 }

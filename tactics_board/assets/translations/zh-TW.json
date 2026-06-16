@@ -241,5 +241,13 @@
   "half_court": "半場",
   "full_court": "全場",
   "speed": "速度",
-  "formation_serve_receive": "接發球"
+  "formation_serve_receive": "接發球",
+  "menu_field": "球場",
+  "field_color": "場地顏色",
+  "field_type": "場地類型",
+  "field_full": "全場",
+  "field_half": "半場",
+  "field_blank": "空白",
+  "field_half_left": "半場·左",
+  "field_half_right": "半場·右"
 }

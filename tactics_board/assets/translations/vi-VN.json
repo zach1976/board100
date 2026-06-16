@@ -191,5 +191,13 @@
   "half_court": "Nửa sân",
   "full_court": "Toàn sân",
   "speed": "Tốc độ",
-  "formation_serve_receive": "Đỡ giao bóng"
+  "formation_serve_receive": "Đỡ giao bóng",
+  "menu_field": "Sân",
+  "field_color": "Màu sân",
+  "field_type": "Loại sân",
+  "field_full": "Toàn sân",
+  "field_half": "Nửa sân",
+  "field_blank": "Trống",
+  "field_half_left": "Nửa ◀",
+  "field_half_right": "Nửa ▶"
 }

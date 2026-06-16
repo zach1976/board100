@@ -15,6 +15,7 @@ import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../painters/soccer_court_painter.dart';
 import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
@@ -83,6 +84,205 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)),
   );
+}
+
+/// Public function to show the soccer pitch appearance sheet (layout + grass
+/// colour). Only meaningful for the soccer board.
+void showFieldSettingsSheet(BuildContext context, TacticsState state) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: kSurface,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    builder: (ctx) => scaledSheet(ctx, _FieldSettingsSheet(state: state)),
+  );
+}
+
+class _FieldSettingsSheet extends StatelessWidget {
+  final TacticsState state;
+  const _FieldSettingsSheet({required this.state});
+
+  static const _types = [
+    SoccerFieldType.full,
+    SoccerFieldType.half,
+    SoccerFieldType.halfLeft,
+    SoccerFieldType.halfRight,
+    SoccerFieldType.blank,
+  ];
+
+  String _typeLabel(SoccerFieldType t) {
+    switch (t) {
+      case SoccerFieldType.full:
+        return 'field_full'.tr();
+      case SoccerFieldType.half:
+        return 'field_half'.tr();
+      case SoccerFieldType.halfLeft:
+        return 'field_half_left'.tr();
+      case SoccerFieldType.halfRight:
+        return 'field_half_right'.tr();
+      case SoccerFieldType.blank:
+        return 'field_blank'.tr();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Rebuild on selection so highlights and the live previews stay in sync.
+    return Consumer<TacticsState>(
+      builder: (context, state, _) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 36,
+                    height: 4,
+                    margin: const EdgeInsets.only(bottom: 14),
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                // ── Field colour ──────────────────────────────────────────
+                Text('field_color'.tr(),
+                    style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    for (int i = 0; i < kSoccerTurfs.length; i++) ...[
+                      _TurfDot(
+                        color: kSoccerTurfs[i].swatch,
+                        selected: state.soccerTurfIndex == i,
+                        onTap: () => state.setSoccerTurfIndex(i),
+                      ),
+                      if (i != kSoccerTurfs.length - 1)
+                        const SizedBox(width: 12),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 22),
+                // ── Field type ────────────────────────────────────────────
+                Text('field_type'.tr(),
+                    style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 10),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (final t in _types) ...[
+                        SizedBox(
+                          width: 88,
+                          child: _FieldTypeTile(
+                            type: t,
+                            turf: state.soccerTurf,
+                            label: _typeLabel(t),
+                            selected: state.soccerFieldType == t,
+                            onTap: () => state.setSoccerFieldType(t),
+                          ),
+                        ),
+                        if (t != _types.last) const SizedBox(width: 10),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _TurfDot extends StatelessWidget {
+  final Color color;
+  final bool selected;
+  final VoidCallback onTap;
+  const _TurfDot(
+      {required this.color, required this.selected, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
+          border: Border.all(
+            color: selected ? kAccent : Colors.white24,
+            width: selected ? 3 : 1,
+          ),
+        ),
+        child: selected
+            ? const Icon(Icons.check, color: Colors.white, size: 20)
+            : null,
+      ),
+    );
+  }
+}
+
+class _FieldTypeTile extends StatelessWidget {
+  final SoccerFieldType type;
+  final SoccerTurf turf;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  const _FieldTypeTile({
+    required this.type,
+    required this.turf,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AspectRatio(
+            aspectRatio: 0.72,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: selected ? kAccent : Colors.white24,
+                  width: selected ? 3 : 1,
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: CustomPaint(
+                  painter:
+                      SoccerCourtPainter(fieldType: type, turf: turf),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(label,
+              style: TextStyle(
+                  color: selected ? kAccent : Colors.white70, fontSize: 12)),
+        ],
+      ),
+    );
+  }
 }
 
 /// Public function to share the board — prompts for PNG or PDF format
