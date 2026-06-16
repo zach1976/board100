@@ -191,5 +191,13 @@
   "half_court": "Media cancha",
   "full_court": "Cancha completa",
   "speed": "Velocidad",
-  "formation_serve_receive": "Recepción"
+  "formation_serve_receive": "Recepción",
+  "menu_field": "Campo",
+  "field_color": "Color del campo",
+  "field_type": "Tipo de campo",
+  "field_full": "Completo",
+  "field_half": "Medio campo",
+  "field_blank": "Vacío",
+  "field_half_left": "Medio ◀",
+  "field_half_right": "Medio ▶"
 }

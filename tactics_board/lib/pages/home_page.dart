@@ -476,6 +476,8 @@ class _MenuButton extends StatelessWidget {
         final sport = ctx.read<TacticsState>().sportType;
         return [
           _menuItem(context, 'present', Icons.co_present_outlined, 'present_mode'.tr()),
+          if (sport == SportType.soccer)
+            _menuItem(context, 'field', Icons.grass_outlined, 'menu_field'.tr()),
           _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
           _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
@@ -512,6 +514,8 @@ class _MenuButton extends StatelessWidget {
     switch (value) {
       case 'present':
         context.read<TacticsState>().togglePresentationMode();
+      case 'field':
+        showFieldSettingsSheet(context, context.read<TacticsState>());
       case 'share':
         shareBoardImage(context, context.read<TacticsState>());
       case 'practice':

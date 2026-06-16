@@ -206,5 +206,13 @@
   "half_court": "ハーフコート",
   "full_court": "フルコート",
   "speed": "速度",
-  "formation_serve_receive": "サーブレシーブ"
+  "formation_serve_receive": "サーブレシーブ",
+  "menu_field": "コート",
+  "field_color": "コートの色",
+  "field_type": "コートの種類",
+  "field_full": "フルコート",
+  "field_half": "ハーフコート",
+  "field_blank": "なし",
+  "field_half_left": "ハーフ ◀",
+  "field_half_right": "ハーフ ▶"
 }

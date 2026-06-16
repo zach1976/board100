@@ -191,5 +191,13 @@
   "half_court": "ครึ่งสนาม",
   "full_court": "เต็มสนาม",
   "speed": "ความเร็ว",
-  "formation_serve_receive": "รับลูกเสิร์ฟ"
+  "formation_serve_receive": "รับลูกเสิร์ฟ",
+  "menu_field": "สนาม",
+  "field_color": "สีสนาม",
+  "field_type": "ประเภทสนาม",
+  "field_full": "เต็มสนาม",
+  "field_half": "ครึ่งสนาม",
+  "field_blank": "ว่าง",
+  "field_half_left": "ครึ่ง ◀",
+  "field_half_right": "ครึ่ง ▶"
 }
