@@ -467,7 +467,7 @@ class _MenuButton extends StatelessWidget {
           if (sport == SportType.soccer)
             _menuItem(context, 'field', Icons.grass_outlined, 'menu_field'.tr()),
           if (sport.hasCourtPicker)
-            _menuItem(context, 'court', Icons.dashboard_outlined, 'menu_field'.tr()),
+            _menuItem(context, 'court', Icons.dashboard_outlined, 'menu_court'.tr()),
           _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
           _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)

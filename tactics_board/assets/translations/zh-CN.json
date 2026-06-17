@@ -274,6 +274,7 @@
   "speed": "速度",
   "formation_serve_receive": "接发球",
   "menu_field": "球场",
+  "menu_court": "球场",
   "field_color": "场地颜色",
   "field_type": "场地类型",
   "field_full": "全场",

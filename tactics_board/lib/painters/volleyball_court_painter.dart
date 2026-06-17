@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class VolleyballCourtPainter extends CourtPainterBase {
-  const VolleyballCourtPainter()
+  final CourtLayout layout;
+
+  const VolleyballCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2A5FA0),
+          courtColor: surface ?? const Color(0xFF2A5FA0),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+
+    // Blank court: surface only, no markings.
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -66,4 +72,10 @@ class VolleyballCourtPainter extends CourtPainterBase {
     drawDashedLine(canvas, dashPaint, o(0, 9 + 3), o(9, 9 + 3));
 
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! VolleyballCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

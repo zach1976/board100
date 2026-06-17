@@ -274,6 +274,7 @@
   "speed": "Speed",
   "formation_serve_receive": "Serve Receive",
   "menu_field": "Pitch",
+  "menu_court": "Court",
   "field_color": "Field Color",
   "field_type": "Field Type",
   "field_full": "Full",

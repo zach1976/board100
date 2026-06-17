@@ -276,6 +276,9 @@ extension SportTypeExtension on SportType {
   /// default and reproduces the painter's original colour. Sports with a single
   /// (or no) entry offer no colour choice. Soccer manages its own turf list.
   List<CourtSurface> get courtSurfaces {
+    // Each list leads with the painter's original colour so the default board
+    // is visually unchanged, followed by a few alternates. One helper builds a
+    // {swatch == color} entry since the picker dot is just the surface colour.
     switch (this) {
       case SportType.basketball:
         return const [
@@ -285,19 +288,54 @@ extension SportTypeExtension on SportType {
           CourtSurface(swatch: Color(0xFF2F6FB0), color: Color(0xFF2F6FB0)), // Painted blue
           CourtSurface(swatch: Color(0xFF4C5157), color: Color(0xFF4C5157)), // Slate grey
         ];
-      default:
-        return const [];
+      case SportType.badminton:
+        return _surfaces(const [0xFF1B5E20, 0xFF1565C0, 0xFFB5762E, 0xFF4C5157]);
+      case SportType.tableTennis:
+        return _surfaces(const [0xFF1565C0, 0xFF0D3A6B, 0xFF1B5E20, 0xFF4C5157]);
+      case SportType.tennis:
+        return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFB5651D, 0xFF4C5157]);
+      case SportType.volleyball:
+        return _surfaces(const [0xFFF57F17, 0xFF1565C0, 0xFF1B5E20, 0xFF4C5157]);
+      case SportType.pickleball:
+        return _surfaces(const [0xFF2E7D32, 0xFF1565C0, 0xFF5E35B1, 0xFF4C5157]);
+      case SportType.fieldHockey:
+        return _surfaces(const [0xFF1976D2, 0xFF2E7D32, 0xFF00897B, 0xFF4C5157]);
+      case SportType.rugby:
+        return _surfaces(const [0xFF2E7D32, 0xFF1B5E20, 0xFF7C784A, 0xFF4C5157]);
+      case SportType.baseball:
+        return _surfaces(const [0xFF2E7D32, 0xFF1B5E20, 0xFF7C784A, 0xFF4C5157]);
+      case SportType.handball:
+        return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFC44E3B, 0xFF4C5157]);
+      case SportType.waterPolo:
+        return _surfaces(const [0xFF0277BD, 0xFF01579B, 0xFF00838F, 0xFF4C5157]);
+      case SportType.sepakTakraw:
+        return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFC44E3B, 0xFF4C5157]);
+      case SportType.beachTennis:
+        return _surfaces(const [0xFFEAC478, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+      case SportType.footvolley:
+        return _surfaces(const [0xFFE5B880, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+      case SportType.soccer:
+        return const []; // soccer uses its own turf palette
     }
   }
 
+  static List<CourtSurface> _surfaces(List<int> argb) => [
+        for (final c in argb) CourtSurface(swatch: Color(c), color: Color(c)),
+      ];
+
   /// Court layouts the "Court" picker offers. A single-entry list means no
-  /// layout choice. Soccer manages its own (SoccerFieldType) set.
+  /// layout choice. Soccer manages its own (SoccerFieldType) set. Half is
+  /// offered for sports where a single-end / single-side view aids coaching.
   List<CourtLayout> get courtLayouts {
     switch (this) {
       case SportType.basketball:
         return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
-      default:
+      case SportType.soccer:
         return const [CourtLayout.full];
+      default:
+        // Colour + blank for every other sport. Half is added per sport as the
+        // single-end geometry is implemented (goal sports next).
+        return const [CourtLayout.full, CourtLayout.blank];
     }
   }
 

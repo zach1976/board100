@@ -1,17 +1,23 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class FieldHockeyCourtPainter extends CourtPainterBase {
-  const FieldHockeyCourtPainter()
+  final CourtLayout layout;
+
+  const FieldHockeyCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF1976D2),
+          courtColor: surface ?? const Color(0xFF1976D2),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawTurf(canvas, size);
+
+    // Blank court: turf only, no markings.
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -131,7 +137,13 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     // Blue astroturf — solid, no stripes (modern FIH international)
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFF1976D2)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! FieldHockeyCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

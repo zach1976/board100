@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class PickleballCourtPainter extends CourtPainterBase {
-  const PickleballCourtPainter()
+  final CourtLayout layout;
+
+  const PickleballCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2A6DA8),
+          courtColor: surface ?? const Color(0xFF2A6DA8),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+
+    // Blank court: surface only, no markings.
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -89,4 +95,10 @@ class PickleballCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(3.05, 0), o(3.05, 13.41 / 2 - 2.13), p);
     canvas.drawLine(o(3.05, 13.41 / 2 + 2.13), o(3.05, 13.41), p);
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! PickleballCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

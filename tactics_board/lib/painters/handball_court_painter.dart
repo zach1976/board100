@@ -1,17 +1,22 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class HandballCourtPainter extends CourtPainterBase {
-  const HandballCourtPainter()
+  final CourtLayout layout;
+
+  const HandballCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF1565C0),
+          courtColor: surface ?? const Color(0xFF1565C0),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawFloor(canvas, size);
+
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -173,7 +178,13 @@ class HandballCourtPainter extends CourtPainterBase {
   void _drawFloor(Canvas canvas, Size size) {
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFF1565C0)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! HandballCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

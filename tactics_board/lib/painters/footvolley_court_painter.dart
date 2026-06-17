@@ -1,17 +1,22 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class FootvolleyCourtPainter extends CourtPainterBase {
-  const FootvolleyCourtPainter()
+  final CourtLayout layout;
+
+  const FootvolleyCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFFE5B880),
+          courtColor: surface ?? const Color(0xFFE5B880),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawSand(canvas, size);
+
+    if (layout == CourtLayout.blank) return;
 
     final w = size.width;
     final h = size.height;
@@ -77,7 +82,7 @@ class FootvolleyCourtPainter extends CourtPainterBase {
   void _drawSand(Canvas canvas, Size size) {
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFFE5B880)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
     // Sand speckles for texture
     final speckle = Paint()
@@ -91,4 +96,10 @@ class FootvolleyCourtPainter extends CourtPainterBase {
       canvas.drawCircle(Offset(x, y), 0.9, speckle);
     }
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! FootvolleyCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }
