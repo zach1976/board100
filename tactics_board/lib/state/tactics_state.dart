@@ -429,6 +429,11 @@ class TacticsState extends ChangeNotifier {
 
   SoccerTurf get soccerTurf => kSoccerTurfs[_soccerTurfIndex];
 
+  /// True when the soccer board is showing a single-half layout, which lays
+  /// out formations as one team attacking the lone goal (see [addTeamFromFormation]).
+  bool get isSoccerHalfPitch =>
+      _sportType == SportType.soccer && isSoccerHalfFieldType(_soccerFieldType);
+
   Future<void> _loadFieldPrefs() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -982,9 +987,34 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     final field = _sportType.fieldRect(_canvasSize);
-    Offset toPos(Offset rel) =>
-        Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
     final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
+
+    // On a single-half soccer pitch the formation is laid out as one team
+    // attacking the lone goal: goalkeeper by the goal end, the most advanced
+    // player by the halfway line. Depth is normalised across the team so the
+    // shape fills the visible half regardless of its full-pitch coordinates.
+    final half = isSoccerHalfPitch;
+    double minDy = double.infinity, maxDy = -double.infinity;
+    if (half) {
+      for (final r in positions) {
+        if (r.dy < minDy) minDy = r.dy;
+        if (r.dy > maxDy) maxDy = r.dy;
+      }
+    }
+    final span = (maxDy - minDy).abs() < 1e-6 ? 1.0 : (maxDy - minDy);
+    Offset toPos(Offset rel) {
+      if (half) {
+        // Distance from the team's own goal, normalised to [0,1] (0 = goal).
+        // Home defends the larger-dy end; away the smaller-dy end.
+        final goalDist =
+            team == PlayerTeam.home ? (maxDy - rel.dy) : (rel.dy - minDy);
+        const topPad = 0.07, bottomPad = 0.05;
+        final tDepth = topPad + (goalDist / span) * (1 - topPad - bottomPad);
+        final p = soccerHalfBoardPos(_canvasSize, _soccerFieldType, tDepth, rel.dx);
+        if (p != null) return p;
+      }
+      return Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
+    }
     final existingCount = _players.where((p) => p.team == team).length;
     int num = existingCount + 1;
     int colorIdx = _players.length;

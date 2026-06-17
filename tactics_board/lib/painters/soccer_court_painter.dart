@@ -47,6 +47,59 @@ const List<SoccerTurf> kSoccerTurfs = [
       stripeB: Color(0xFF4C5157)), // Grey
 ];
 
+/// Returns true for the three single-half layouts (which all draw one goal
+/// end and a halfway line via [_paintHalf], optionally rotated).
+bool isSoccerHalfFieldType(SoccerFieldType t) =>
+    t == SoccerFieldType.half ||
+    t == SoccerFieldType.halfLeft ||
+    t == SoccerFieldType.halfRight;
+
+/// Maps a normalised point on the *visible half pitch* to a board coordinate,
+/// matching the geometry [SoccerCourtPainter] draws for the half / halfLeft /
+/// halfRight layouts. [tDepth] runs 0 (goal end) → 1 (halfway end); [tWidth]
+/// runs 0 → 1 across the pitch width. Returns null for full / blank layouts so
+/// callers fall back to the full-pitch rect.
+Offset? soccerHalfBoardPos(
+    Size canvas, SoccerFieldType type, double tDepth, double tWidth) {
+  if (!isSoccerHalfFieldType(type)) return null;
+  const ratio = 68.0 / 52.5; // half-pitch aspect (width / depth), matches _paintHalf
+
+  // The half-pitch drawing rect inside a (w × h) drawing frame.
+  ({double left, double top, double cw, double ch}) rectFor(double w, double h) {
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.90;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.90;
+      ch = cw / ratio;
+    }
+    return (left: (w - cw) / 2, top: (h - ch) / 2, cw: cw, ch: ch);
+  }
+
+  final w = canvas.width, h = canvas.height;
+  switch (type) {
+    case SoccerFieldType.half:
+      // No rotation: width = horizontal, depth = vertical (goal at top).
+      final r = rectFor(w, h);
+      return Offset(r.left + tWidth * r.cw, r.top + tDepth * r.ch);
+    case SoccerFieldType.halfRight:
+      // Drawn in a Size(h, w) frame then mapped by screen = (w - localY, localX).
+      final r = rectFor(h, w);
+      final localX = r.left + tWidth * r.cw; // width axis
+      final localY = r.top + tDepth * r.ch; // depth axis (0 = goal)
+      return Offset(w - localY, localX);
+    case SoccerFieldType.halfLeft:
+      // screen = (localY, h - localX).
+      final r = rectFor(h, w);
+      final localX = r.left + tWidth * r.cw;
+      final localY = r.top + tDepth * r.ch;
+      return Offset(localY, h - localX);
+    default:
+      return null;
+  }
+}
+
 class SoccerCourtPainter extends CourtPainterBase {
   // Softer off-white reduces glare while staying high-contrast on grass.
   static const Color _softLine = Color(0xE6F1F4F0);
