@@ -13,8 +13,10 @@ import '../models/drawing_stroke.dart';
 import '../models/player_photo.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
+import '../models/court_layout.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../painters/basketball_court_painter.dart';
 import '../painters/soccer_court_painter.dart';
 import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
@@ -272,6 +274,166 @@ class _FieldTypeTile extends StatelessWidget {
                   painter:
                       SoccerCourtPainter(fieldType: type, turf: turf),
                 ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(label,
+              style: TextStyle(
+                  color: selected ? kAccent : Colors.white70, fontSize: 12)),
+        ],
+      ),
+    );
+  }
+}
+
+/// Public: show the generic court appearance sheet (surface colour + layout)
+/// for non-soccer sports. Soccer keeps its richer [showFieldSettingsSheet].
+void showCourtSettingsSheet(BuildContext context, TacticsState state) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: kSurface,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    builder: (ctx) => scaledSheet(ctx, _CourtSettingsSheet(state: state)),
+  );
+}
+
+String _courtLayoutLabel(CourtLayout l) {
+  switch (l) {
+    case CourtLayout.full:
+      return 'field_full'.tr();
+    case CourtLayout.half:
+      return 'field_half'.tr();
+    case CourtLayout.blank:
+      return 'field_blank'.tr();
+  }
+}
+
+/// Builds the preview/live painter for a sport's court given a layout + colour.
+/// Extended per sport as the picker rolls out; soccer is handled separately.
+CustomPainter courtPainterFor(SportType sport, CourtLayout layout, Color color) {
+  switch (sport) {
+    case SportType.basketball:
+      return BasketballCourtPainter(layout: layout, floor: color);
+    default:
+      return BasketballCourtPainter(layout: layout, floor: color);
+  }
+}
+
+class _CourtSettingsSheet extends StatelessWidget {
+  final TacticsState state;
+  const _CourtSettingsSheet({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<TacticsState>(
+      builder: (context, state, _) {
+        final sport = state.sportType;
+        final surfaces = sport.courtSurfaces;
+        final layouts = sport.courtLayouts;
+        const headerStyle = TextStyle(
+            color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600);
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 36,
+                    height: 4,
+                    margin: const EdgeInsets.only(bottom: 14),
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                if (surfaces.length > 1) ...[
+                  Text('field_color'.tr(), style: headerStyle),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      for (int i = 0; i < surfaces.length; i++) ...[
+                        _TurfDot(
+                          color: surfaces[i].swatch,
+                          selected: state.courtColorIndex(sport) == i,
+                          onTap: () => state.setCourtColorIndex(sport, i),
+                        ),
+                        if (i != surfaces.length - 1) const SizedBox(width: 12),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 22),
+                ],
+                if (layouts.length > 1) ...[
+                  Text('field_type'.tr(), style: headerStyle),
+                  const SizedBox(height: 10),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (final l in layouts) ...[
+                          SizedBox(
+                            width: 88,
+                            child: _CourtLayoutTile(
+                              painter: courtPainterFor(
+                                  sport, l, state.courtColor(sport)),
+                              label: _courtLayoutLabel(l),
+                              selected: state.courtLayout(sport) == l,
+                              onTap: () => state.setCourtLayout(sport, l),
+                            ),
+                          ),
+                          if (l != layouts.last) const SizedBox(width: 10),
+                        ],
+                      ],
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _CourtLayoutTile extends StatelessWidget {
+  final CustomPainter painter;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  const _CourtLayoutTile({
+    required this.painter,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AspectRatio(
+            aspectRatio: 0.72,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: selected ? kAccent : Colors.white24,
+                  width: selected ? 3 : 1,
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: CustomPaint(painter: painter),
               ),
             ),
           ),
