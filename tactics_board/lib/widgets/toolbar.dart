@@ -3291,6 +3291,12 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
     if (_selectedCount != null && formations.length == 1 && _selectedFormation == null) {
       _selectedFormation = formations.first;
     }
+    // A single-half pitch shows one goal, so formations add one team attacking
+    // it — the "both teams" option doesn't apply. Force single-team selection.
+    final halfPitch = widget.state.isSoccerHalfPitch;
+    if (halfPitch && _teamOption == _TeamOption.both) {
+      _teamOption = _TeamOption.home;
+    }
 
     final s = uiScale(context);
     return Padding(
@@ -3388,8 +3394,10 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
             const SizedBox(height: 6),
             Row(
               children: [
-                _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
-                const SizedBox(width: 8),
+                if (!halfPitch) ...[
+                  _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
+                  const SizedBox(width: 8),
+                ],
                 _buildTeamChip('team_home'.tr(), _TeamOption.home, const Color(0xFF3A7DFF)),
                 const SizedBox(width: 8),
                 _buildTeamChip('team_away'.tr(), _TeamOption.away, const Color(0xFFFF5A5F)),

@@ -4,6 +4,7 @@ import 'package:tactics_board/models/drawing_stroke.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_formation.dart';
 import 'package:tactics_board/models/sport_type.dart';
+import 'package:tactics_board/painters/soccer_court_painter.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 
 PlayerIcon _player(String id, {PlayerTeam team = PlayerTeam.home}) =>
@@ -435,6 +436,63 @@ void main() {
         count++;
       }
       expect(count, lessThanOrEqualTo(50));
+    });
+  });
+
+  group('addTeamFromFormation on a soccer half pitch', () {
+    // GK sits at the deepest dy (own goal); the most advanced player at the
+    // smallest dy. On a half pitch the team should fill the half toward the
+    // single goal regardless of those full-pitch coordinates.
+    const f = SportFormation(
+      nameKey: 'test',
+      homePositions: [Offset(0.5, 0.80), Offset(0.5, 0.52)], // GK, FWD
+      awayPositions: [Offset(0.5, 0.20), Offset(0.5, 0.48)], // GK, FWD
+      addBall: false,
+    );
+
+    test('full pitch is unchanged (GK below FWD, toward bottom goal)', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.addTeamFromFormation(f, PlayerTeam.home);
+      final gk = s.players[0], fwd = s.players[1];
+      expect(gk.position.dy, greaterThan(fwd.position.dy));
+    });
+
+    test('half (goal up): home GK ends up near the top goal', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.setSoccerFieldType(SoccerFieldType.half);
+      s.addTeamFromFormation(f, PlayerTeam.home);
+      final gk = s.players[0], fwd = s.players[1];
+      // Goal is at the top, so GK (by the goal) sits above the forward.
+      expect(gk.position.dy, lessThan(fwd.position.dy));
+    });
+
+    test('halfLeft: goal faces left, so GK sits left of the forward', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.setSoccerFieldType(SoccerFieldType.halfLeft);
+      s.addTeamFromFormation(f, PlayerTeam.home);
+      final gk = s.players[0], fwd = s.players[1];
+      expect(gk.position.dx, lessThan(fwd.position.dx));
+    });
+
+    test('halfRight: goal faces right, so GK sits right of the forward', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.setSoccerFieldType(SoccerFieldType.halfRight);
+      s.addTeamFromFormation(f, PlayerTeam.home);
+      final gk = s.players[0], fwd = s.players[1];
+      expect(gk.position.dx, greaterThan(fwd.position.dx));
+    });
+
+    test('isSoccerHalfPitch only true for soccer half layouts', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      expect(s.isSoccerHalfPitch, isFalse); // defaults to full
+      s.setSoccerFieldType(SoccerFieldType.half);
+      expect(s.isSoccerHalfPitch, isTrue);
+      s.setSoccerFieldType(SoccerFieldType.blank);
+      expect(s.isSoccerHalfPitch, isFalse);
     });
   });
 
