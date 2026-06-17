@@ -19,6 +19,11 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     // Blank court: turf only, no markings.
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -129,6 +134,77 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
           o(goalLeft, fieldH).dy,
           goalW * scX,
           goalDepth * scY),
+      strokeThick,
+    );
+  }
+
+  /// One end (top 45.7m of the pitch) scaled to fill the board: the goal +
+  /// shooting circle (D) at the top, the 23m line below it, and the halfway
+  /// line forming the bottom edge.
+  void _paintHalf(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    // FIH standard: 91.4m × 55m; half = top 45.7m of the 55m-wide pitch.
+    const fieldW = 55.0;
+    const fieldH = 91.4 / 2; // 45.7
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.90;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.90;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    final scY = ch / fieldH;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    final strokeThick = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke;
+
+    // Outer boundary (halfway line is the bottom edge).
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
+
+    // 23m line near the goal end.
+    const line23 = 22.9;
+    canvas.drawLine(o(0, line23), o(fieldW, line23), p);
+
+    // Shooting circle (D-arc, radius 14.63m from goal posts) at the top.
+    const goalW = 3.66;
+    const arcR = 14.63;
+    const goalLeft = (fieldW - goalW) / 2; // 25.67
+    const goalRight = goalLeft + goalW; // 29.33
+    final postL = o(goalLeft, 0);
+    final postR = o(goalRight, 0);
+    final rX = arcR * scX;
+    final rY = arcR * scY;
+    final leftArcRect =
+        Rect.fromCenter(center: postL, width: rX * 2, height: rY * 2);
+    final rightArcRect =
+        Rect.fromCenter(center: postR, width: rX * 2, height: rY * 2);
+    // Arc opens downward (toward field center).
+    canvas.drawArc(leftArcRect, pi / 2, pi / 2, false, p);
+    canvas.drawArc(rightArcRect, 0, pi / 2, false, p);
+    canvas.drawLine(o(goalLeft, arcR), o(goalRight, arcR), p);
+
+    // Penalty-stroke spot.
+    canvas.drawCircle(o(fieldW / 2, 6.4), 0.3 * scX,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+
+    // Goal (3.66m wide × 1.2m deep).
+    const goalDepth = 1.2;
+    canvas.drawRect(
+      Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+          goalW * scX, goalDepth * scY),
       strokeThick,
     );
   }

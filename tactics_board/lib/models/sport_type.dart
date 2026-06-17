@@ -328,14 +328,13 @@ extension SportTypeExtension on SportType {
   /// offered for sports where a single-end / single-side view aids coaching.
   List<CourtLayout> get courtLayouts {
     switch (this) {
-      case SportType.basketball:
-        return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
       case SportType.soccer:
-        return const [CourtLayout.full];
+        return const [CourtLayout.full]; // soccer uses its own Pitch sheet
+      case SportType.baseball:
+        return const [CourtLayout.full, CourtLayout.blank]; // no symmetric half
       default:
-        // Colour + blank for every other sport. Half is added per sport as the
-        // single-end geometry is implemented (goal sports next).
-        return const [CourtLayout.full, CourtLayout.blank];
+        // Goal sports → one goal end; net sports → one side of the net.
+        return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
     }
   }
 

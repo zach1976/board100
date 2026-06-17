@@ -17,6 +17,11 @@ class WaterPoloCourtPainter extends CourtPainterBase {
 
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final w = size.width;
     final h = size.height;
 
@@ -97,6 +102,84 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     );
     canvas.drawRect(
       Rect.fromLTWH(o(goalLeft, fieldH).dx, o(goalLeft, fieldH).dy,
+          goalW * scX, goalDepth * scY),
+      goalPaint,
+    );
+  }
+
+  /// One goal end (20m × 15m) scaled to fill the board: goal at the top, the
+  /// halfway line forming the bottom edge with a centre spot on it. Distances
+  /// are measured from the goal line at y = 0.
+  void _paintHalf(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    // Top half of the 20m × 30m pool: 20 wide × 15 tall.
+    const fieldW = 20.0;
+    const fieldH = 15.0; // half of the full 30m length
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.88;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.88;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    final scY = ch / fieldH;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    final whiteLine = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 1.6
+      ..style = PaintingStyle.stroke;
+    final redLine = Paint()
+      ..color = const Color(0xFFE53935)
+      ..strokeWidth = 2.0
+      ..style = PaintingStyle.stroke;
+    final yellowLine = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..strokeWidth = 2.0
+      ..style = PaintingStyle.stroke;
+
+    // Pool boundary (white). Halfway line is the bottom edge.
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), whiteLine);
+
+    // Goal line (red, full width, at the top).
+    canvas.drawLine(o(0, 0), o(fieldW, 0), redLine);
+
+    // 2m line — white, close to goal.
+    canvas.drawLine(o(0, 2), o(fieldW, 2), whiteLine);
+
+    // 6m line — yellow.
+    canvas.drawLine(o(0, 6), o(fieldW, 6), yellowLine);
+
+    // 5m mark — yellow penalty dot.
+    final yellowFill = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..style = PaintingStyle.fill;
+    canvas.drawCircle(o(fieldW / 2, 5), 0.18 * scX, yellowFill);
+
+    // Halfway line (white) at the bottom edge + centre spot.
+    canvas.drawLine(o(0, fieldH), o(fieldW, fieldH), whiteLine);
+    canvas.drawCircle(o(fieldW / 2, fieldH), 0.22 * scX,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+
+    // Goal (3m wide × 0.7m visual depth, outside the goal line).
+    const goalW = 3.0;
+    const goalDepth = 0.7;
+    const goalLeft = (fieldW - goalW) / 2;
+    final goalPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke;
+    canvas.drawRect(
+      Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
       goalPaint,
     );
