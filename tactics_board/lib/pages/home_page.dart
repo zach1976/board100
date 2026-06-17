@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import '../main.dart';
 import '../models/player_icon.dart';
+import '../models/player_role.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
@@ -1320,6 +1321,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 const SizedBox(width: 6),
                 Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
               ],
+              if (_showRole(p)) ...[
+                const SizedBox(width: 8),
+                _roleChip(p),
+              ],
               const Spacer(),
               // Explicit add-run toggle — while on, taps on the board lay
               // this player's movement path (so a stray tap never can).
@@ -1413,6 +1418,108 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Icon(icon, color: color, size: 18),
+      ),
+    );
+  }
+
+  // Position/role is only meaningful for real outfield players of a sport that
+  // defines roles (soccer, basketball) — not balls or neutral markers.
+  bool _showRole(PlayerIcon p) =>
+      !p.isBall &&
+      !p.isMarker &&
+      p.team != PlayerTeam.neutral &&
+      PlayerRoles.supports(widget.state.sportType);
+
+  Widget _roleChip(PlayerIcon p) {
+    final assigned = p.role != null && p.role!.isNotEmpty;
+    return GestureDetector(
+      onTap: _pickRole,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(
+          color: assigned
+              ? kAccent.withValues(alpha: 0.22)
+              : Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: assigned ? kAccent : Colors.white24, width: 1),
+        ),
+        child: Text(
+          assigned ? p.role! : 'role_set'.tr(),
+          style: TextStyle(
+            color: assigned ? kAccent : Colors.white70,
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _pickRole() async {
+    final state = widget.state;
+    final roles = PlayerRoles.forSport(state.sportType);
+    if (roles.isEmpty) return;
+    final current = widget.player.role;
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor: kSurface,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('role_title'.tr(),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _roleOption(ctx, 'role_none'.tr(), current == null, () {
+                    state.setPlayerRole(widget.player.id, null);
+                  }),
+                  for (final r in roles)
+                    _roleOption(ctx, r, current == r, () {
+                      state.setPlayerRole(widget.player.id, r);
+                    }),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _roleOption(
+      BuildContext ctx, String label, bool selected, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: () {
+        onTap();
+        Navigator.pop(ctx);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+        decoration: BoxDecoration(
+          color: selected ? kAccent : Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+              color: selected ? kAccent : Colors.white24,
+              width: selected ? 2 : 1),
+        ),
+        child: Text(label,
+            style: TextStyle(
+                color: selected ? Colors.white : Colors.white70,
+                fontSize: 13,
+                fontWeight: FontWeight.w600)),
       ),
     );
   }

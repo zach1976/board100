@@ -36,6 +36,11 @@ class PlayerIcon {
   /// When set, the icon renders the corresponding photo from the local
   /// PhotoLibrary as its avatar instead of the solid colour disc.
   final String? photoId;
+  /// Optional fixed position/role code (e.g. 'GK', 'RB', 'CM' for soccer;
+  /// 'PG'..'C' for basketball). When set, the player is placed at the matching
+  /// slot whenever a formation is applied, so their identity sticks across
+  /// formation changes. Null = unassigned (filled in slot order).
+  final String? role;
 
   PlayerIcon({
     required this.id,
@@ -52,6 +57,7 @@ class PlayerIcon {
     this.gender = PlayerGender.unspecified,
     this.markerShape = MarkerShape.none,
     this.photoId,
+    this.role,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveColor = moveColor ?? _moveColors[0];
@@ -84,6 +90,7 @@ class PlayerIcon {
     'gender': gender.index,
     'markerShape': markerShape.index,
     'photoId': photoId,
+    'role': role,
   };
 
   factory PlayerIcon.fromJson(Map<String, dynamic> json) => PlayerIcon(
@@ -100,6 +107,7 @@ class PlayerIcon {
     gender: json['gender'] != null ? PlayerGender.values[json['gender'] as int] : PlayerGender.unspecified,
     markerShape: json['markerShape'] != null ? MarkerShape.values[json['markerShape'] as int] : MarkerShape.none,
     photoId: json['photoId'] as String?,
+    role: json['role'] as String?,
   );
 
   bool get isBall => team == PlayerTeam.neutral && sportType != null && markerShape == MarkerShape.none;
@@ -122,6 +130,8 @@ class PlayerIcon {
     MarkerShape? markerShape,
     String? photoId,
     bool clearPhotoId = false,
+    String? role,
+    bool clearRole = false,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -138,6 +148,7 @@ class PlayerIcon {
       gender: gender ?? this.gender,
       markerShape: markerShape ?? this.markerShape,
       photoId: clearPhotoId ? null : (photoId ?? this.photoId),
+      role: clearRole ? null : (role ?? this.role),
     );
   }
 

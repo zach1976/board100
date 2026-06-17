@@ -439,6 +439,82 @@ void main() {
     });
   });
 
+  group('role-preserving formation relocation', () {
+    SportFormation soccerFormation(String key) =>
+        SportType.soccer.formations.firstWhere((f) => f.nameKey == key);
+
+    test('players created from a formation inherit slot roles', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.addTeamFromFormation(soccerFormation('formation_442'), PlayerTeam.home);
+      final home = s.players.where((p) => p.team == PlayerTeam.home).toList();
+      expect(home.length, 11);
+      expect(home.first.role, 'GK'); // slot 0 is the keeper
+      expect(home.map((p) => p.role), contains('RB'));
+      expect(home.map((p) => p.role), contains('LB'));
+    });
+
+    test('same-count switch relocates the same player by role (keeps identity)',
+        () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.addTeamFromFormation(soccerFormation('formation_442'), PlayerTeam.home);
+      final rb = s.players.firstWhere((p) => p.role == 'RB');
+      final rbId = rb.id;
+      final rbLabel = rb.label;
+
+      s.addTeamFromFormation(soccerFormation('formation_433'), PlayerTeam.home);
+      // No duplicate team — still 11.
+      expect(s.players.where((p) => p.team == PlayerTeam.home).length, 11);
+      // Same object identity preserved.
+      final rb2 = s.players.firstWhere((p) => p.id == rbId);
+      expect(rb2.label, rbLabel);
+      expect(rb2.role, 'RB');
+      // Moved to 433's RB slot.
+      final field = SportType.soccer.fieldRect(const Size(400, 700));
+      const slot = Offset(0.86, 0.71); // 433 home RB
+      expect(rb2.position.dx, closeTo(field.left + slot.dx * field.width, 0.5));
+      expect(rb2.position.dy, closeTo(field.top + slot.dy * field.height, 0.5));
+    });
+
+    test('different count keeps additive behaviour (no relocation)', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.addTeamFromFormation(soccerFormation('formation_442'), PlayerTeam.home);
+      s.addTeamFromFormation(soccerFormation('formation_5v5'), PlayerTeam.home);
+      // 11 + 5 appended.
+      expect(s.players.where((p) => p.team == PlayerTeam.home).length, 16);
+    });
+
+    test('basketball PG stays PG across formations (index-based)', () {
+      final s = TacticsState(sportType: SportType.basketball);
+      s.setCanvasSize(const Size(400, 700));
+      final f122 = SportType.basketball.formations
+          .firstWhere((f) => f.nameKey == 'formation_122');
+      final f23 = SportType.basketball.formations
+          .firstWhere((f) => f.nameKey == 'formation_23');
+      s.addTeamFromFormation(f122, PlayerTeam.home);
+      final pg = s.players.firstWhere((p) => p.role == 'PG');
+      final pgId = pg.id;
+      s.addTeamFromFormation(f23, PlayerTeam.home);
+      expect(s.players.where((p) => p.team == PlayerTeam.home).length, 5);
+      final pg2 = s.players.firstWhere((p) => p.id == pgId);
+      expect(pg2.role, 'PG');
+      final field = SportType.basketball.fieldRect(const Size(400, 700));
+      const slot = Offset(0.32, 0.58); // 23 home PG
+      expect(pg2.position.dx, closeTo(field.left + slot.dx * field.width, 0.5));
+    });
+
+    test('manual setPlayerRole overrides and persists through copyWith', () {
+      final s = TacticsState(sportType: SportType.soccer);
+      s.setCanvasSize(const Size(400, 700));
+      s.addTeamFromFormation(soccerFormation('formation_442'), PlayerTeam.home);
+      final p = s.players.firstWhere((p) => p.role == 'LS');
+      s.setPlayerRole(p.id, 'CB');
+      expect(s.players.firstWhere((q) => q.id == p.id).role, 'CB');
+    });
+  });
+
   group('addTeamFromFormation on a soccer half pitch', () {
     // GK sits at the deepest dy (own goal); the most advanced player at the
     // smallest dy. On a half pitch the team should fill the half toward the
