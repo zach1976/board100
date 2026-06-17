@@ -18,6 +18,11 @@ class HandballCourtPainter extends CourtPainterBase {
 
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -106,6 +111,85 @@ class HandballCourtPainter extends CourtPainterBase {
 
     // ── Center spot ────────────────────────────────────────────────────────
     canvas.drawCircle(o(fieldW / 2, fieldH / 2), 0.25 * scX,
+        Paint()..color = Colors.white..style = PaintingStyle.fill);
+  }
+
+  /// One goal end (20m × 20m) scaled to fill the board: goal at the top, the
+  /// halfway line forming the bottom edge with a centre spot on it. Distances
+  /// are measured from the goal at y = 0.
+  void _paintHalf(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    // Top half of the 40m × 20m court: 20 wide × 20 tall.
+    const fieldW = 20.0;
+    const fieldH = 20.0; // half of the full 40m length
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.90;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.90;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    final scY = ch / fieldH;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    // Outer boundary (halfway line is the bottom edge).
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
+
+    // Goal-end markings (goal at y = 0).
+    const goalW = 3.0;
+    const goal6 = 6.0;
+    const goal9 = 9.0;
+    const goalLeft = (fieldW - goalW) / 2; // 8.5
+    const goalRight = goalLeft + goalW; // 11.5
+
+    final dashed = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 1.5
+      ..style = PaintingStyle.stroke;
+
+    // 6m line — solid.
+    _drawCrescent(canvas, o, goalLeft, goalRight, 0, goal6,
+        bottom: false, paint: p);
+    // 9m line — dashed.
+    _drawCrescent(canvas, o, goalLeft, goalRight, 0, goal9,
+        bottom: false, paint: dashed, dashed: true);
+    // Penalty mark at 7m.
+    canvas.drawLine(
+      o(fieldW / 2 - 0.5, 7.0),
+      o(fieldW / 2 + 0.5, 7.0),
+      p,
+    );
+    // 4m line (goalkeeper restraining line).
+    canvas.drawLine(
+      o(fieldW / 2 - 0.075, 4.0),
+      o(fieldW / 2 + 0.075, 4.0),
+      p,
+    );
+
+    // Goal (3m wide × ~1m deep, outside the goal line).
+    const goalDepth = 1.0;
+    final goalPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke;
+    canvas.drawRect(
+      Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+          goalW * scX, goalDepth * scY),
+      goalPaint,
+    );
+
+    // Centre spot on the halfway (bottom) line.
+    canvas.drawCircle(o(fieldW / 2, fieldH), 0.25 * scX,
         Paint()..color = Colors.white..style = PaintingStyle.fill);
   }
 

@@ -18,6 +18,11 @@ class SepakTakrawCourtPainter extends CourtPainterBase {
 
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final w = size.width;
     final h = size.height;
 
@@ -87,6 +92,70 @@ class SepakTakrawCourtPainter extends CourtPainterBase {
     canvas.drawArc(
       Rect.fromCircle(center: o(fieldW, fieldH / 2), radius: qR * scX),
       pi, pi / 2, false, line,
+    );
+  }
+
+  /// One side of the net filling the canvas: net at the TOP edge, back line at
+  /// the BOTTOM edge. Home half is 6.1m wide × 6.7m deep.
+  void _paintHalf(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    // Half of the 6.1 × 13.4 court → 6.1 wide × 6.7 deep.
+    const fieldW = 6.1;
+    const fieldH = 13.4 / 2; // 6.7
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.88;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.88;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    final scY = ch / fieldH;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    final line = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2.0
+      ..style = PaintingStyle.stroke;
+
+    // Court boundary
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
+
+    // Center / net line (solid white) along the TOP edge
+    canvas.drawLine(o(0, 0), o(fieldW, 0), line);
+
+    // Net representation — short dashes along the top net line
+    final netPaint = Paint()
+      ..color = Colors.white.withValues(alpha: 0.9)
+      ..strokeWidth = 3.0
+      ..style = PaintingStyle.stroke;
+    drawDashedLine(canvas, netPaint,
+        o(0, 0), o(fieldW, 0),
+        dashLength: 6, gapLength: 4);
+
+    // Service circle (0.3m radius) centered 2.45m from the back line
+    const svcR = 0.30;
+    final svcHomeY = fieldH - 2.45; // 4.25
+    canvas.drawCircle(o(fieldW / 2, svcHomeY), svcR * scX, line);
+
+    // Quarter circles (0.9m radius) at each end of the net line, opening down
+    // into the home court.
+    const qR = 0.90;
+    canvas.drawArc(
+      Rect.fromCircle(center: o(0, 0), radius: qR * scX),
+      0, pi / 2, false, line,
+    );
+    canvas.drawArc(
+      Rect.fromCircle(center: o(fieldW, 0), radius: qR * scX),
+      pi / 2, pi / 2, false, line,
     );
   }
 

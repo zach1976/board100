@@ -19,6 +19,12 @@ class BadmintonCourtPainter extends CourtPainterBase {
     // Blank court: surface only, no markings.
     if (layout == CourtLayout.blank) return;
 
+    // Half court: one side of the net filling the board.
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -80,6 +86,66 @@ class BadmintonCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0.46, 0), o(0.46, 13.4), p);
     canvas.drawLine(o(6.1 - 0.46, 0), o(6.1 - 0.46, 13.4), p);
 
+  }
+
+  // Half court: home side only (net at top edge, baseline at bottom).
+  void _paintHalf(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    // Half of the court: 6.1m wide x 6.7m deep (net to baseline).
+    const courtRatio = 6.7 / 6.1;
+    double cw, ch;
+    if (h / w > courtRatio) {
+      cw = w * 0.88;
+      ch = cw * courtRatio;
+    } else {
+      ch = h * 0.88;
+      cw = ch / courtRatio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / 6.1;
+    final scY = ch / 6.7;
+    // y = 0 is the net (top edge); y = 6.7 is the baseline (bottom edge).
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    // Outer boundary
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
+
+    // Net (top edge) - thick band + bright line
+    final netBand = Paint()
+      ..color = Colors.white.withValues(alpha: 0.15)
+      ..strokeWidth = 8
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(6.1, 0), netBand);
+    final netLine = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..strokeWidth = 4
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(6.1, 0), netLine);
+    // Net posts
+    final postPaint = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..strokeWidth = 5
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, -0.3), o(0, 0.3), postPaint);
+    canvas.drawLine(o(6.1, -0.3), o(6.1, 0.3), postPaint);
+
+    // Short service line (1.98m from net)
+    canvas.drawLine(o(0, 1.98), o(6.1, 1.98), p);
+
+    // Center line (net to baseline)
+    canvas.drawLine(o(3.05, 0), o(3.05, 6.7), p);
+
+    // Long service line for doubles (0.76m from back)
+    canvas.drawLine(o(0, 6.7 - 0.76), o(6.1, 6.7 - 0.76), p);
+
+    // Singles sidelines (0.46m from each side)
+    canvas.drawLine(o(0.46, 0), o(0.46, 6.7), p);
+    canvas.drawLine(o(6.1 - 0.46, 0), o(6.1 - 0.46, 6.7), p);
   }
 
   @override

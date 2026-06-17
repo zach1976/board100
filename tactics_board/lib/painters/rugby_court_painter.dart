@@ -18,6 +18,11 @@ class RugbyCourtPainter extends CourtPainterBase {
     // Blank field: grass only, no markings.
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -94,6 +99,73 @@ class RugbyCourtPainter extends CourtPainterBase {
     }
     drawPosts(inGoal, home: false);             // away posts (top)
     drawPosts(fieldH - inGoal, home: true);     // home posts (bottom)
+  }
+
+  /// One end (top 72m of the field) scaled to fill the board: the dead-ball
+  /// line at the very top, the in-goal area + try line + goal posts (H), the
+  /// 22m line below the try line, and the halfway line forming the bottom edge.
+  void _paintHalf(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    // Total field including in-goals: 70m wide × 144m tall; half = top 72m.
+    const fieldW = 70.0;
+    const fieldH = 144.0 / 2; // 72
+    const inGoal = 22.0;
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.92;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.92;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    final scY = ch / fieldH;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    // Outer touch & dead-ball lines (dead-ball line is the top edge, halfway
+    // line is the bottom edge).
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
+
+    // Try line (solid).
+    canvas.drawLine(o(0, inGoal), o(fieldW, inGoal), p);
+
+    // 22m line (solid).
+    canvas.drawLine(o(0, inGoal + 22), o(fieldW, inGoal + 22), p);
+
+    // 5m & 15m lines (dashed, parallel to touchlines) within the in-goal area.
+    final tryY1 = o(0, 0).dy;
+    final tryY2 = o(0, inGoal).dy;
+    for (final dx in [5.0, 15.0, fieldW - 15.0, fieldW - 5.0]) {
+      _drawDashedVertical(canvas, o(dx, 0).dx, tryY1, tryY2, p);
+    }
+
+    // Goal posts (H-shaped) on the try line.
+    const postWidth = 5.6;
+    const crossbarHeight = 3.0;
+    const postExtension = 8.0;
+    final postLeft = (fieldW - postWidth) / 2;
+    final postRight = postLeft + postWidth;
+
+    final postPaint = Paint()
+      ..color = Colors.yellow.shade300
+      ..strokeWidth = 3.0
+      ..style = PaintingStyle.stroke;
+
+    // Away posts (top): crossbar offset toward in-goal (upward, negative y).
+    const tryYm = inGoal;
+    const crossY = tryYm - crossbarHeight;
+    const tipY = tryYm - (crossbarHeight + postExtension);
+    canvas.drawLine(o(postLeft, tryYm), o(postLeft, tipY), postPaint);
+    canvas.drawLine(o(postRight, tryYm), o(postRight, tipY), postPaint);
+    canvas.drawLine(o(postLeft, crossY), o(postRight, crossY), postPaint);
   }
 
   void _drawGrass(Canvas canvas, Size size) {

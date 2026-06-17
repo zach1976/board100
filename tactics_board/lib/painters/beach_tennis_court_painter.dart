@@ -18,6 +18,11 @@ class BeachTennisCourtPainter extends CourtPainterBase {
 
     if (layout == CourtLayout.blank) return;
 
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final w = size.width;
     final h = size.height;
 
@@ -70,6 +75,63 @@ class BeachTennisCourtPainter extends CourtPainterBase {
       ..color = Colors.white.withValues(alpha: 0.4)
       ..style = PaintingStyle.fill;
     canvas.drawCircle(o(fieldW / 2, 0), 0.10 * scX, dot);
+    canvas.drawCircle(o(fieldW / 2, fieldH), 0.10 * scX, dot);
+  }
+
+  /// One side of the net filling the canvas: net at the TOP edge, baseline at
+  /// the BOTTOM edge. Home half is 8m wide × 8m deep.
+  void _paintHalf(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    // Half of the 8 × 16 court → 8 wide × 8 deep.
+    const fieldW = 8.0;
+    const fieldH = 8.0;
+    const ratio = fieldW / fieldH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.85;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.85;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / fieldW;
+    Offset o(double x, double y) => Offset(left + x * (cw / fieldW), top + y * (ch / fieldH));
+
+    final line = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2.2
+      ..style = PaintingStyle.stroke;
+
+    // Court boundary
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
+
+    // Net line — dashed along the TOP edge
+    final netPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 3.0
+      ..style = PaintingStyle.stroke;
+    drawDashedLine(canvas, netPaint,
+        o(0, 0), o(fieldW, 0),
+        dashLength: 8, gapLength: 5);
+
+    // Net posts (small tabs extending just outside the court at the net line)
+    final postPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 3.0
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(-0.25, 0), o(0, 0), postPaint);
+    canvas.drawLine(o(fieldW, 0), o(fieldW + 0.25, 0), postPaint);
+
+    // Subtle serve-target dot along the baseline (visual aid only)
+    final dot = Paint()
+      ..color = Colors.white.withValues(alpha: 0.4)
+      ..style = PaintingStyle.fill;
     canvas.drawCircle(o(fieldW / 2, fieldH), 0.10 * scX, dot);
   }
 

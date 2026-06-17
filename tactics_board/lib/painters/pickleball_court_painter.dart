@@ -18,6 +18,12 @@ class PickleballCourtPainter extends CourtPainterBase {
     // Blank court: surface only, no markings.
     if (layout == CourtLayout.blank) return;
 
+    // Half court: one side of the net filling the board.
+    if (layout == CourtLayout.half) {
+      _paintHalf(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -94,6 +100,72 @@ class PickleballCourtPainter extends CourtPainterBase {
     // Center line (service boxes)
     canvas.drawLine(o(3.05, 0), o(3.05, 13.41 / 2 - 2.13), p);
     canvas.drawLine(o(3.05, 13.41 / 2 + 2.13), o(3.05, 13.41), p);
+  }
+
+  // Half court: home side only (net at top edge, baseline at bottom).
+  void _paintHalf(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    // Half of the court: 6.1m wide x 6.705m deep (net to baseline).
+    const halfLen = 13.41 / 2;
+    const courtRatio = halfLen / 6.1;
+    double cw, ch;
+    if (h / w > courtRatio) {
+      cw = w * 0.88;
+      ch = cw * courtRatio;
+    } else {
+      ch = h * 0.88;
+      cw = ch / courtRatio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+
+    final scX = cw / 6.1;
+    final scY = ch / halfLen;
+    // y = 0 is the net (top edge); y = halfLen is the baseline (bottom edge).
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    // Outer boundary
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p..strokeWidth = 3);
+    p.strokeWidth = 2;
+
+    // Net (top edge) - thick band + bright line
+    final netBand = Paint()
+      ..color = Colors.white.withValues(alpha: 0.15)
+      ..strokeWidth = 10
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(6.1, 0), netBand);
+    final netLine = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..strokeWidth = 4
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(6.1, 0), netLine);
+    // Net posts
+    final postPaint = Paint()
+      ..color = const Color(0xFFFFEB3B)
+      ..strokeWidth = 5
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, -0.4), o(0, 0.4), postPaint);
+    canvas.drawLine(o(6.1, -0.4), o(6.1, 0.4), postPaint);
+
+    // Non-volley zone (kitchen) - 2.13m from net
+    canvas.drawRect(
+      Rect.fromLTWH(
+        o(0, 0).dx,
+        o(0, 0).dy,
+        cw,
+        2.13 * scY,
+      ),
+      Paint()
+        ..color = Colors.white.withValues(alpha: 0.12)
+        ..style = PaintingStyle.fill,
+    );
+    canvas.drawLine(o(0, 2.13), o(6.1, 2.13), p);
+
+    // Center line (service boxes) - kitchen line to baseline
+    canvas.drawLine(o(3.05, 2.13), o(3.05, halfLen), p);
   }
 
   @override
