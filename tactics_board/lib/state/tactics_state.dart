@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../painters/soccer_court_painter.dart';
 import '../models/court_layout.dart';
 import '../models/player_icon.dart';
+import '../models/player_role.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
@@ -1068,18 +1069,41 @@ class TacticsState extends ChangeNotifier {
       }
       return Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
     }
-    final existingCount = _players.where((p) => p.team == team).length;
-    int num = existingCount + 1;
+    final roles = [
+      for (int i = 0; i < positions.length; i++)
+        PlayerRoles.roleForSlot(_sportType, team, i, positions[i]),
+    ];
+    final existing = _players.where((p) => p.team == team).toList();
+
+    // Same-count formation change on a team that already exists: relocate the
+    // existing players onto the new slots by role (preserving their identity)
+    // rather than appending a duplicate set. Different counts keep the
+    // additive behaviour below.
+    if (existing.length == positions.length && PlayerRoles.supports(_sportType)) {
+      _relocateTeamByRole(existing, positions, roles, toPos);
+      _isDrawingMode = false;
+      // Add (don't clear) so the "both teams" caller, which relocates home then
+      // away, ends up with both selected — matching the additive path.
+      _multiSelectMode = true;
+      _selectedPlayerId = null;
+      _selectedWaypointIndex = null;
+      _multiSelectIds.addAll(existing.map((p) => p.id));
+      notifyListeners();
+      return;
+    }
+
+    int num = existing.length + 1;
     int colorIdx = _players.length;
     final addedIds = <String>[];
-    for (final rel in positions) {
+    for (int i = 0; i < positions.length; i++) {
       final id = '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}$num';
       _players.add(PlayerIcon(
         id: id,
         label: '$num',
         team: team,
-        position: toPos(rel),
+        position: toPos(positions[i]),
         moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
+        role: roles[i].isEmpty ? null : roles[i],
       ));
       addedIds.add(id);
       num++;
@@ -1092,6 +1116,77 @@ class TacticsState extends ChangeNotifier {
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _multiSelectIds.addAll(addedIds);
+    notifyListeners();
+  }
+
+  /// Move [existing] team players onto the [positions]/[roles] slots, matching
+  /// by exact role first, then by line (nearest lateral preference), then by
+  /// leftover order. Players keep their id / label / photo / assigned role; an
+  /// unassigned player inherits its slot's role so identity sticks from then on.
+  void _relocateTeamByRole(List<PlayerIcon> existing, List<Offset> positions,
+      List<String> roles, Offset Function(Offset) toPos) {
+    final n = positions.length;
+    final slotPlayer = List<PlayerIcon?>.filled(n, null);
+    final used = <String>{};
+
+    // Pass 1: exact role.
+    for (int i = 0; i < n; i++) {
+      for (final p in existing) {
+        if (!used.contains(p.id) && p.role == roles[i] && roles[i].isNotEmpty) {
+          slotPlayer[i] = p;
+          used.add(p.id);
+          break;
+        }
+      }
+    }
+    // Pass 2: same line, nearest lateral preference.
+    for (int i = 0; i < n; i++) {
+      if (slotPlayer[i] != null) continue;
+      final line = PlayerRoles.lineOf(roles[i]);
+      if (line == null) continue;
+      final xp = PlayerRoles.xPrefOf(roles[i]);
+      PlayerIcon? best;
+      double bestD = double.infinity;
+      for (final p in existing) {
+        if (used.contains(p.id) || p.role == null) continue;
+        if (PlayerRoles.lineOf(p.role!) != line) continue;
+        final dd = (PlayerRoles.xPrefOf(p.role!) - xp).abs();
+        if (dd < bestD) {
+          bestD = dd;
+          best = p;
+        }
+      }
+      if (best != null) {
+        used.add(best.id);
+        slotPlayer[i] = best;
+      }
+    }
+    // Pass 3: leftover players to remaining slots in order.
+    final leftover = [for (final p in existing) if (!used.contains(p.id)) p];
+    int li = 0;
+    for (int i = 0; i < n; i++) {
+      if (slotPlayer[i] == null && li < leftover.length) {
+        slotPlayer[i] = leftover[li++];
+      }
+    }
+    // Apply: reposition each, and give an unassigned player its slot role.
+    for (int i = 0; i < n; i++) {
+      final p = slotPlayer[i];
+      if (p == null) continue;
+      p.position = toPos(positions[i]);
+      if ((p.role == null || p.role!.isEmpty) && roles[i].isNotEmpty) {
+        final idx = _players.indexWhere((q) => q.id == p.id);
+        if (idx >= 0) _players[idx] = _players[idx].copyWith(role: roles[i]);
+      }
+    }
+  }
+
+  /// Assign (or clear, with null) a player's fixed position/role.
+  void setPlayerRole(String playerId, String? role) {
+    final idx = _players.indexWhere((p) => p.id == playerId);
+    if (idx < 0 || _players[idx].role == role) return;
+    _saveSnapshot();
+    _players[idx] = _players[idx].copyWith(role: role, clearRole: role == null);
     notifyListeners();
   }
 
