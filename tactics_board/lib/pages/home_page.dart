@@ -202,18 +202,6 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
           ),
         ),
-        if (state.sportType == SportType.basketball)
-          Positioned(
-            bottom: 12, left: 12,
-            child: IgnorePointer(
-              ignoring: editPanelOpen,
-              child: AnimatedOpacity(
-                opacity: editPanelOpen ? 0.0 : 1.0,
-                duration: const Duration(milliseconds: 160),
-                child: _HalfCourtButton(state: state),
-              ),
-            ),
-          ),
               ],
             );
           },
@@ -478,6 +466,8 @@ class _MenuButton extends StatelessWidget {
           _menuItem(context, 'present', Icons.co_present_outlined, 'present_mode'.tr()),
           if (sport == SportType.soccer)
             _menuItem(context, 'field', Icons.grass_outlined, 'menu_field'.tr()),
+          if (sport.hasCourtPicker)
+            _menuItem(context, 'court', Icons.dashboard_outlined, 'menu_field'.tr()),
           _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
           _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
@@ -516,6 +506,8 @@ class _MenuButton extends StatelessWidget {
         context.read<TacticsState>().togglePresentationMode();
       case 'field':
         showFieldSettingsSheet(context, context.read<TacticsState>());
+      case 'court':
+        showCourtSettingsSheet(context, context.read<TacticsState>());
       case 'share':
         shareBoardImage(context, context.read<TacticsState>());
       case 'practice':
@@ -1585,64 +1577,11 @@ class _ZoomResetButtonState extends State<_ZoomResetButton> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: GestureDetector(
-        onTap: () {
-          state.resetZoom();
-          state.setBasketballHalfCourt(false);
-        },
+        onTap: state.resetZoom,
         child: _GlassCircle(
           size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
           child: Icon(Icons.zoom_out_map,
               color: Colors.white, size: 17 * uiScale(context)),
-        ),
-      ),
-    );
-  }
-}
-
-/// Basketball-only — toggles a zoom preset focused on the home half of the
-/// court, where most set-play coaching happens.
-class _HalfCourtButton extends StatelessWidget {
-  final TacticsState state;
-  const _HalfCourtButton({required this.state});
-
-  @override
-  Widget build(BuildContext context) {
-    final on = state.basketballHalfCourt;
-    return GestureDetector(
-      onTap: () {
-        final next = !on;
-        state.setBasketballHalfCourt(next);
-        if (next) {
-          final sz = state.canvasSize;
-          if (sz.width <= 0 || sz.height <= 0) return;
-          const frac = 0.58; // show the home 58% of the court
-          final s = 1 / frac;
-          state.transformationController.value = Matrix4.identity()
-            ..translate(-sz.width * (s - 1) / 2, -s * (1 - frac) * sz.height)
-            ..scale(s);
-        } else {
-          state.resetZoom();
-        }
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.42),
-          borderRadius: BorderRadius.circular(16),
-          border: on ? Border.all(color: kAccent, width: 1.2) : null,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.straighten,
-                size: 14, color: on ? kAccent : Colors.white),
-            const SizedBox(width: 5),
-            Text(on ? 'full_court'.tr() : 'half_court'.tr(),
-                style: TextStyle(
-                    color: on ? kAccent : Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600)),
-          ],
         ),
       ),
     );

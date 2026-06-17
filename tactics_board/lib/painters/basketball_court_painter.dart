@@ -1,17 +1,30 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class BasketballCourtPainter extends CourtPainterBase {
-  const BasketballCourtPainter()
-      : super(
+  final CourtLayout layout;
+
+  const BasketballCourtPainter({
+    this.layout = CourtLayout.full,
+    Color floor = const Color(0xFFD9A867),
+  }) : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFFD9A867),
+          courtColor: floor,
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawWood(canvas, size);
+
+    // Blank court: hardwood only, no markings.
+    if (layout == CourtLayout.blank) return;
+
+    if (layout == CourtLayout.half) {
+      _paintHalfCourt(canvas, size);
+      return;
+    }
 
     final p = linePaint;
     final w = size.width;
@@ -48,6 +61,56 @@ class BasketballCourtPainter extends CourtPainterBase {
     // Both halves
     _drawHalf(canvas, p, o, sc, isTop: true);
     _drawHalf(canvas, p, o, sc, isTop: false);
+  }
+
+  /// One basket end (15m × 14m) scaled to fill the board: basket at the top,
+  /// the half-court line forming the bottom edge with the centre-circle arc
+  /// bulging up into play.
+  void _paintHalfCourt(Canvas canvas, Size size) {
+    final p = linePaint;
+    final w = size.width;
+    final h = size.height;
+
+    const courtW = 15.0;
+    const halfH = 14.0;
+    const ratio = courtW / halfH;
+
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.90;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.90;
+      ch = cw / ratio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+    final sc = cw / courtW;
+    Offset o(double x, double y) => Offset(left + x * sc, top + y * sc);
+
+    // Outer boundary (half-court line is the bottom edge).
+    canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
+
+    // Centre-circle arc on the half-court line, opening up into play.
+    canvas.drawArc(
+      Rect.fromCircle(center: o(7.5, halfH), radius: 1.8 * sc),
+      pi,
+      pi,
+      false,
+      p,
+    );
+
+    // Reuse the top-half markings (basket, key, three-point arc).
+    _drawHalf(canvas, p, o, sc, isTop: true);
+  }
+
+  // Base returns false unconditionally; repaint when the layout or floor colour
+  // changes so the picker updates the board live.
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return oldDelegate is! BasketballCourtPainter ||
+        oldDelegate.layout != layout ||
+        oldDelegate.courtColor != courtColor;
   }
 
   /// Maple-floor texture — replaces the flat single-tone fill: faint vertical

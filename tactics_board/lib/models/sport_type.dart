@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'court_layout.dart';
 import 'sport_formation.dart';
 
 enum SportType {
@@ -270,6 +271,42 @@ extension SportTypeExtension on SportType {
       case SportType.footvolley:  return const Color(0xFFE5B880); // beach sand
     }
   }
+
+  /// Selectable surface colours for the "Court" picker. The first entry is the
+  /// default and reproduces the painter's original colour. Sports with a single
+  /// (or no) entry offer no colour choice. Soccer manages its own turf list.
+  List<CourtSurface> get courtSurfaces {
+    switch (this) {
+      case SportType.basketball:
+        return const [
+          CourtSurface(swatch: Color(0xFFD9A867), color: Color(0xFFD9A867)), // Maple
+          CourtSurface(swatch: Color(0xFFB5762E), color: Color(0xFFB5762E)), // Walnut
+          CourtSurface(swatch: Color(0xFFC44E3B), color: Color(0xFFC44E3B)), // Painted red
+          CourtSurface(swatch: Color(0xFF2F6FB0), color: Color(0xFF2F6FB0)), // Painted blue
+          CourtSurface(swatch: Color(0xFF4C5157), color: Color(0xFF4C5157)), // Slate grey
+        ];
+      default:
+        return const [];
+    }
+  }
+
+  /// Court layouts the "Court" picker offers. A single-entry list means no
+  /// layout choice. Soccer manages its own (SoccerFieldType) set.
+  List<CourtLayout> get courtLayouts {
+    switch (this) {
+      case SportType.basketball:
+        return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
+      default:
+        return const [CourtLayout.full];
+    }
+  }
+
+  /// Whether the "Court" appearance picker should be offered for this sport
+  /// (i.e. there is at least one colour or layout choice to make). Soccer is
+  /// excluded because it has its own richer "Pitch" sheet.
+  bool get hasCourtPicker =>
+      this != SportType.soccer &&
+      (courtSurfaces.length > 1 || courtLayouts.length > 1);
 
   /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
   double get netY => 0.5;

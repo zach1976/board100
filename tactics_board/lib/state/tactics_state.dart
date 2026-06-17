@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../painters/soccer_court_painter.dart';
+import '../models/court_layout.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -104,14 +105,17 @@ class TacticsState extends ChangeNotifier {
   // Eraser sub-mode (drawing mode only) — taps/drags delete strokes.
   bool _eraserMode = false;
 
-  // Basketball-only half-court view (zoom preset).
-  bool _basketballHalfCourt = false;
-
   // Soccer-only pitch appearance (layout + grass colour). Persisted across
   // launches via SharedPreferences; a sticky visual preference, not part of a
   // saved tactic.
   SoccerFieldType _soccerFieldType = SoccerFieldType.full;
   int _soccerTurfIndex = 0;
+
+  // Generic per-sport court appearance (non-soccer): surface colour index and
+  // layout, keyed by SportType.index. Sticky visual prefs, persisted like the
+  // soccer pitch settings; absent keys fall back to the defaults.
+  final Map<int, int> _courtColorIndex = {};
+  final Map<int, int> _courtLayoutIndex = {};
 
   // Free-form zoom/pan mode. While on, the board content is locked and the
   // InteractiveViewer owns every gesture — so its scale recogniser can never
@@ -323,7 +327,6 @@ class TacticsState extends ChangeNotifier {
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _isAddingMove = false;
-    _basketballHalfCourt = false;
     _zoomMode = false;
     notifyListeners();
   }
@@ -398,16 +401,11 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get basketballHalfCourt => _basketballHalfCourt;
-  void setBasketballHalfCourt(bool v) {
-    if (_basketballHalfCourt == v) return;
-    _basketballHalfCourt = v;
-    notifyListeners();
-  }
-
   // ── Soccer pitch appearance ──────────────────────────────────────────────
   static const String _kSoccerFieldTypeKey = 'soccer_field_type';
   static const String _kSoccerTurfKey = 'soccer_turf_index';
+  static const String _kCourtColorKey = 'court_color_index'; // "sportIdx:colorIdx,..."
+  static const String _kCourtLayoutKey = 'court_layout_index';
 
   SoccerFieldType get soccerFieldType => _soccerFieldType;
   void setSoccerFieldType(SoccerFieldType type) {
@@ -434,6 +432,43 @@ class TacticsState extends ChangeNotifier {
   bool get isSoccerHalfPitch =>
       _sportType == SportType.soccer && isSoccerHalfFieldType(_soccerFieldType);
 
+  // ── Generic court appearance (non-soccer) ────────────────────────────────
+  /// Selected surface-colour index for [sport] (clamped to its palette).
+  int courtColorIndex(SportType sport) {
+    final i = _courtColorIndex[sport.index] ?? 0;
+    final n = sport.courtSurfaces.length;
+    return n == 0 ? 0 : i.clamp(0, n - 1);
+  }
+
+  /// Resolved surface colour for [sport], or its painter default when the
+  /// sport offers no colour choice.
+  Color courtColor(SportType sport) {
+    final surfaces = sport.courtSurfaces;
+    return surfaces.isEmpty ? sport.courtColor : surfaces[courtColorIndex(sport)].color;
+  }
+
+  void setCourtColorIndex(SportType sport, int index) {
+    if (courtColorIndex(sport) == index) return;
+    _courtColorIndex[sport.index] = index;
+    notifyListeners();
+    _persistFieldPrefs();
+  }
+
+  /// Selected layout for [sport] (defaults to full, clamped to supported set).
+  CourtLayout courtLayout(SportType sport) {
+    final i = _courtLayoutIndex[sport.index];
+    if (i == null || i < 0 || i >= CourtLayout.values.length) return CourtLayout.full;
+    final layout = CourtLayout.values[i];
+    return sport.courtLayouts.contains(layout) ? layout : CourtLayout.full;
+  }
+
+  void setCourtLayout(SportType sport, CourtLayout layout) {
+    if (courtLayout(sport) == layout) return;
+    _courtLayoutIndex[sport.index] = layout.index;
+    notifyListeners();
+    _persistFieldPrefs();
+  }
+
   Future<void> _loadFieldPrefs() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -445,6 +480,8 @@ class TacticsState extends ChangeNotifier {
       if (turf != null && turf >= 0 && turf < kSoccerTurfs.length) {
         _soccerTurfIndex = turf;
       }
+      _decodeIntMap(prefs.getString(_kCourtColorKey), _courtColorIndex);
+      _decodeIntMap(prefs.getString(_kCourtLayoutKey), _courtLayoutIndex);
       notifyListeners();
     } catch (_) {
       // Prefs unavailable — keep defaults.
@@ -456,8 +493,24 @@ class TacticsState extends ChangeNotifier {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setInt(_kSoccerFieldTypeKey, _soccerFieldType.index);
       await prefs.setInt(_kSoccerTurfKey, _soccerTurfIndex);
+      await prefs.setString(_kCourtColorKey, _encodeIntMap(_courtColorIndex));
+      await prefs.setString(_kCourtLayoutKey, _encodeIntMap(_courtLayoutIndex));
     } catch (_) {
       // Best-effort persistence.
+    }
+  }
+
+  // Compact "k:v,k:v" encoding for the small per-sport int maps above.
+  static String _encodeIntMap(Map<int, int> m) =>
+      m.entries.map((e) => '${e.key}:${e.value}').join(',');
+
+  static void _decodeIntMap(String? s, Map<int, int> into) {
+    if (s == null || s.isEmpty) return;
+    for (final pair in s.split(',')) {
+      final kv = pair.split(':');
+      if (kv.length != 2) continue;
+      final k = int.tryParse(kv[0]), v = int.tryParse(kv[1]);
+      if (k != null && v != null) into[k] = v;
     }
   }
 

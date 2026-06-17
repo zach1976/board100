@@ -82,7 +82,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       case SportType.badminton:
         return const BadmintonCourtPainter();
       case SportType.basketball:
-        return const BasketballCourtPainter();
+        return BasketballCourtPainter(
+          layout: _state.courtLayout(SportType.basketball),
+          floor: _state.courtColor(SportType.basketball),
+        );
       case SportType.tennis:
         return const TennisCourtPainter();
       case SportType.tableTennis:
