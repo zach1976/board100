@@ -78,43 +78,42 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   }
 
   CustomPainter _courtPainter(SportType sport) {
+    final layout = _state.courtLayout(sport);
+    final surface = _state.courtColor(sport);
     switch (sport) {
       case SportType.badminton:
-        return const BadmintonCourtPainter();
+        return BadmintonCourtPainter(layout: layout, surface: surface);
       case SportType.basketball:
-        return BasketballCourtPainter(
-          layout: _state.courtLayout(SportType.basketball),
-          floor: _state.courtColor(SportType.basketball),
-        );
+        return BasketballCourtPainter(layout: layout, floor: surface);
       case SportType.tennis:
-        return const TennisCourtPainter();
+        return TennisCourtPainter(layout: layout, surface: surface);
       case SportType.tableTennis:
-        return const TableTennisCourtPainter();
+        return TableTennisCourtPainter(layout: layout, surface: surface);
       case SportType.volleyball:
-        return const VolleyballCourtPainter();
+        return VolleyballCourtPainter(layout: layout, surface: surface);
       case SportType.pickleball:
-        return const PickleballCourtPainter();
+        return PickleballCourtPainter(layout: layout, surface: surface);
       case SportType.soccer:
         return SoccerCourtPainter(
           fieldType: _state.soccerFieldType,
           turf: _state.soccerTurf,
         );
       case SportType.fieldHockey:
-        return const FieldHockeyCourtPainter();
+        return FieldHockeyCourtPainter(layout: layout, surface: surface);
       case SportType.rugby:
-        return const RugbyCourtPainter();
+        return RugbyCourtPainter(layout: layout, surface: surface);
       case SportType.baseball:
-        return const BaseballCourtPainter();
+        return BaseballCourtPainter(layout: layout, surface: surface);
       case SportType.handball:
-        return const HandballCourtPainter();
+        return HandballCourtPainter(layout: layout, surface: surface);
       case SportType.waterPolo:
-        return const WaterPoloCourtPainter();
+        return WaterPoloCourtPainter(layout: layout, surface: surface);
       case SportType.sepakTakraw:
-        return const SepakTakrawCourtPainter();
+        return SepakTakrawCourtPainter(layout: layout, surface: surface);
       case SportType.beachTennis:
-        return const BeachTennisCourtPainter();
+        return BeachTennisCourtPainter(layout: layout, surface: surface);
       case SportType.footvolley:
-        return const FootvolleyCourtPainter();
+        return FootvolleyCourtPainter(layout: layout, surface: surface);
     }
   }
 

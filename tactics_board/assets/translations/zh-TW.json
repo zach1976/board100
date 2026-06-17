@@ -243,6 +243,7 @@
   "speed": "速度",
   "formation_serve_receive": "接發球",
   "menu_field": "球場",
+  "menu_court": "球場",
   "field_color": "場地顏色",
   "field_type": "場地類型",
   "field_full": "全場",

@@ -1,12 +1,15 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class BaseballCourtPainter extends CourtPainterBase {
-  const BaseballCourtPainter()
+  final CourtLayout layout;
+
+  const BaseballCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2E7D32),
+          courtColor: surface ?? const Color(0xFF2E7D32),
         );
 
   @override
@@ -27,7 +30,7 @@ class BaseballCourtPainter extends CourtPainterBase {
     // ── Outfield grass background ─────────────────────────────────────────
     canvas.drawRect(
       Rect.fromLTWH(0, 0, w, h),
-      Paint()..color = const Color(0xFF1E5A1E)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
 
     // Mowing pattern — concentric arcs centered at home plate
@@ -70,20 +73,6 @@ class BaseballCourtPainter extends CourtPainterBase {
       ..close();
     canvas.drawPath(rightWedge, foulPaint);
 
-    // ── Outfield warning track / fence arc ────────────────────────────────
-    final fenceR = side * 0.78;
-    final fenceRect = Rect.fromCircle(center: home, radius: fenceR);
-    canvas.drawArc(
-      fenceRect,
-      pi + pi / 4,         // 225°
-      pi / 2,              // 90° sweep (covers outfield)
-      false,
-      Paint()
-        ..color = Colors.white.withValues(alpha: 0.7)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.0,
-    );
-
     // ── Infield dirt (skinned area between baselines + arc) ───────────────
     final dirt = Paint()
       ..color = const Color(0xFFB07A4C)
@@ -112,7 +101,7 @@ class BaseballCourtPainter extends CourtPainterBase {
     // Using saveLayer then drawPath with blendmode:
     canvas.drawPath(
       grassCut,
-      Paint()..color = const Color(0xFF1E5A1E)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
 
     // Pitcher's mound dirt circle
@@ -120,6 +109,23 @@ class BaseballCourtPainter extends CourtPainterBase {
       mound,
       side * 0.045,
       Paint()..color = const Color(0xFFB07A4C)..style = PaintingStyle.fill,
+    );
+
+    // Blank field: grass + dirt surface only, no white lines/bases.
+    if (layout == CourtLayout.blank) return;
+
+    // ── Outfield warning track / fence arc ────────────────────────────────
+    final fenceR = side * 0.78;
+    final fenceRect = Rect.fromCircle(center: home, radius: fenceR);
+    canvas.drawArc(
+      fenceRect,
+      pi + pi / 4,         // 225°
+      pi / 2,              // 90° sweep (covers outfield)
+      false,
+      Paint()
+        ..color = Colors.white.withValues(alpha: 0.7)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.0,
     );
 
     // ── Foul lines ────────────────────────────────────────────────────────
@@ -169,4 +175,10 @@ class BaseballCourtPainter extends CourtPainterBase {
     // Outer field boundary (subtle)
     canvas.drawRect(field, Paint()..color = Colors.white.withValues(alpha: 0.18)..style = PaintingStyle.stroke..strokeWidth = 1);
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! BaseballCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

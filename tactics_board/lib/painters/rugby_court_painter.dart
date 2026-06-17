@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class RugbyCourtPainter extends CourtPainterBase {
-  const RugbyCourtPainter()
+  final CourtLayout layout;
+
+  const RugbyCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2E7D32),
+          courtColor: surface ?? const Color(0xFF2E7D32),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawGrass(canvas, size);
+
+    // Blank field: grass only, no markings.
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -93,7 +99,7 @@ class RugbyCourtPainter extends CourtPainterBase {
   void _drawGrass(Canvas canvas, Size size) {
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFF2E7D32)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
     // Mowing stripes — alternate horizontal bands
     final stripe = Paint()
@@ -133,4 +139,10 @@ class RugbyCourtPainter extends CourtPainterBase {
       y += dash + gap;
     }
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! RugbyCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

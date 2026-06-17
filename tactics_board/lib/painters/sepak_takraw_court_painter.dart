@@ -1,17 +1,22 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class SepakTakrawCourtPainter extends CourtPainterBase {
-  const SepakTakrawCourtPainter()
+  final CourtLayout layout;
+
+  const SepakTakrawCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF1565C0),
+          courtColor: surface ?? const Color(0xFF1565C0),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawFloor(canvas, size);
+
+    if (layout == CourtLayout.blank) return;
 
     final w = size.width;
     final h = size.height;
@@ -88,7 +93,7 @@ class SepakTakrawCourtPainter extends CourtPainterBase {
   void _drawFloor(Canvas canvas, Size size) {
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFF1565C0)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
     // Subtle hardwood/sport-floor stripes
     final stripe = Paint()
@@ -104,4 +109,10 @@ class SepakTakrawCourtPainter extends CourtPainterBase {
       }
     }
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! SepakTakrawCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

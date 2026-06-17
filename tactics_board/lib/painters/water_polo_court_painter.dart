@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class WaterPoloCourtPainter extends CourtPainterBase {
-  const WaterPoloCourtPainter()
+  final CourtLayout layout;
+
+  const WaterPoloCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF0277BD),
+          courtColor: surface ?? const Color(0xFF0277BD),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     _drawWater(canvas, size);
+
+    if (layout == CourtLayout.blank) return;
 
     final w = size.width;
     final h = size.height;
@@ -100,7 +105,7 @@ class WaterPoloCourtPainter extends CourtPainterBase {
   void _drawWater(Canvas canvas, Size size) {
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = const Color(0xFF0277BD)..style = PaintingStyle.fill,
+      Paint()..color = courtColor..style = PaintingStyle.fill,
     );
     // Subtle water ripple stripes
     final stripe = Paint()
@@ -116,4 +121,10 @@ class WaterPoloCourtPainter extends CourtPainterBase {
       }
     }
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! WaterPoloCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }

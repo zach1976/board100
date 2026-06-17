@@ -16,8 +16,21 @@ import '../models/sport_theme.dart';
 import '../models/court_layout.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
+import '../painters/badminton_court_painter.dart';
+import '../painters/baseball_court_painter.dart';
 import '../painters/basketball_court_painter.dart';
+import '../painters/beach_tennis_court_painter.dart';
+import '../painters/field_hockey_court_painter.dart';
+import '../painters/footvolley_court_painter.dart';
+import '../painters/handball_court_painter.dart';
+import '../painters/pickleball_court_painter.dart';
+import '../painters/rugby_court_painter.dart';
+import '../painters/sepak_takraw_court_painter.dart';
 import '../painters/soccer_court_painter.dart';
+import '../painters/table_tennis_court_painter.dart';
+import '../painters/tennis_court_painter.dart';
+import '../painters/volleyball_court_painter.dart';
+import '../painters/water_polo_court_painter.dart';
 import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
@@ -311,13 +324,39 @@ String _courtLayoutLabel(CourtLayout l) {
 }
 
 /// Builds the preview/live painter for a sport's court given a layout + colour.
-/// Extended per sport as the picker rolls out; soccer is handled separately.
+/// Soccer is handled separately (its own Pitch sheet / SoccerCourtPainter).
 CustomPainter courtPainterFor(SportType sport, CourtLayout layout, Color color) {
   switch (sport) {
     case SportType.basketball:
       return BasketballCourtPainter(layout: layout, floor: color);
-    default:
-      return BasketballCourtPainter(layout: layout, floor: color);
+    case SportType.badminton:
+      return BadmintonCourtPainter(layout: layout, surface: color);
+    case SportType.tableTennis:
+      return TableTennisCourtPainter(layout: layout, surface: color);
+    case SportType.tennis:
+      return TennisCourtPainter(layout: layout, surface: color);
+    case SportType.volleyball:
+      return VolleyballCourtPainter(layout: layout, surface: color);
+    case SportType.pickleball:
+      return PickleballCourtPainter(layout: layout, surface: color);
+    case SportType.fieldHockey:
+      return FieldHockeyCourtPainter(layout: layout, surface: color);
+    case SportType.rugby:
+      return RugbyCourtPainter(layout: layout, surface: color);
+    case SportType.baseball:
+      return BaseballCourtPainter(layout: layout, surface: color);
+    case SportType.handball:
+      return HandballCourtPainter(layout: layout, surface: color);
+    case SportType.waterPolo:
+      return WaterPoloCourtPainter(layout: layout, surface: color);
+    case SportType.sepakTakraw:
+      return SepakTakrawCourtPainter(layout: layout, surface: color);
+    case SportType.beachTennis:
+      return BeachTennisCourtPainter(layout: layout, surface: color);
+    case SportType.footvolley:
+      return FootvolleyCourtPainter(layout: layout, surface: color);
+    case SportType.soccer:
+      return BasketballCourtPainter(layout: layout, floor: color); // unused
   }
 }
 

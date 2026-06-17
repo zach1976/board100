@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import '../models/court_layout.dart';
 import 'court_painter_base.dart';
 
 class TennisCourtPainter extends CourtPainterBase {
-  const TennisCourtPainter()
+  final CourtLayout layout;
+
+  const TennisCourtPainter({this.layout = CourtLayout.full, Color? surface})
       : super(
           lineColor: Colors.white,
-          courtColor: const Color(0xFF2A65A5),
+          courtColor: surface ?? const Color(0xFF2A65A5),
         );
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+
+    // Blank court: surface only, no markings.
+    if (layout == CourtLayout.blank) return;
 
     final p = linePaint;
     final w = size.width;
@@ -70,4 +76,10 @@ class TennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(10.97 / 2, 0), o(10.97 / 2, 0.2), p);
     canvas.drawLine(o(10.97 / 2, 23.77 - 0.2), o(10.97 / 2, 23.77), p);
   }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) =>
+      oldDelegate is! TennisCourtPainter ||
+      oldDelegate.layout != layout ||
+      oldDelegate.courtColor != courtColor;
 }
