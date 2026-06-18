@@ -332,6 +332,17 @@ extension SportTypeExtension on SportType {
         return const [CourtLayout.full]; // soccer uses its own Pitch sheet
       case SportType.baseball:
         return const [CourtLayout.full, CourtLayout.blank]; // no symmetric half
+      case SportType.waterPolo:
+      case SportType.fieldHockey:
+        // Wide goal-end courts: also offer the half rotated to face left/right,
+        // which fills a portrait screen better than the upright half.
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.halfLeft,
+          CourtLayout.halfRight,
+          CourtLayout.blank,
+        ];
       default:
         // Goal sports → one goal end; net sports → one side of the net.
         return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
