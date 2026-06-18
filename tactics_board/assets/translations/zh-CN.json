@@ -284,5 +284,6 @@
   "field_half": "半场",
   "field_blank": "空白",
   "field_half_left": "半场·左",
-  "field_half_right": "半场·右"
+  "field_half_right": "半场·右",
+  "photo_no_faces_hint": "试试更清晰、正面的照片。"
 }

@@ -241,6 +241,7 @@
   "photo_detecting_progress": "Detecting faces… {}/{}",
   "photo_saving": "Saving…",
   "photo_no_faces": "No faces detected",
+  "photo_no_faces_hint": "Try a clearer, front-facing photo.",
   "photo_review_count": "Found {} face(s)",
   "photo_review_hint": "Tap × on any face you don't want to keep.",
   "photo_confirm_save": "Save {}",

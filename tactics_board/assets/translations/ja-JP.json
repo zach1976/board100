@@ -218,5 +218,7 @@
   "field_half": "ハーフコート",
   "field_blank": "なし",
   "field_half_left": "ハーフ ◀",
-  "field_half_right": "ハーフ ▶"
+  "field_half_right": "ハーフ ▶",
+  "photo_no_faces": "顔が検出されませんでした",
+  "photo_no_faces_hint": "顔がはっきり写った正面の写真をお試しください。"
 }

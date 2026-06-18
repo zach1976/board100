@@ -203,5 +203,7 @@
   "field_half": "Demi-terrain",
   "field_blank": "Vide",
   "field_half_left": "Demi ◀",
-  "field_half_right": "Demi ▶"
+  "field_half_right": "Demi ▶",
+  "photo_no_faces": "Aucun visage détecté",
+  "photo_no_faces_hint": "Essayez une photo nette, de face."
 }

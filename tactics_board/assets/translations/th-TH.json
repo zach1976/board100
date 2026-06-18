@@ -203,5 +203,7 @@
   "field_half": "ครึ่งสนาม",
   "field_blank": "ว่าง",
   "field_half_left": "ครึ่ง ◀",
-  "field_half_right": "ครึ่ง ▶"
+  "field_half_right": "ครึ่ง ▶",
+  "photo_no_faces": "ไม่พบใบหน้า",
+  "photo_no_faces_hint": "ลองใช้รูปที่ชัดและเห็นใบหน้าตรง ๆ"
 }

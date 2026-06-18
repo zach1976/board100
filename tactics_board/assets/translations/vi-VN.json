@@ -203,5 +203,7 @@
   "field_half": "Nửa sân",
   "field_blank": "Trống",
   "field_half_left": "Nửa ◀",
-  "field_half_right": "Nửa ▶"
+  "field_half_right": "Nửa ▶",
+  "photo_no_faces": "Không phát hiện khuôn mặt",
+  "photo_no_faces_hint": "Hãy thử ảnh rõ nét, chụp chính diện."
 }

@@ -203,5 +203,7 @@
   "field_half": "Medio campo",
   "field_blank": "Vacío",
   "field_half_left": "Medio ◀",
-  "field_half_right": "Medio ▶"
+  "field_half_right": "Medio ▶",
+  "photo_no_faces": "No se detectaron rostros",
+  "photo_no_faces_hint": "Prueba con una foto nítida y de frente."
 }

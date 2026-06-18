@@ -203,5 +203,7 @@
   "field_half": "Setengah",
   "field_blank": "Kosong",
   "field_half_left": "Separuh ◀",
-  "field_half_right": "Separuh ▶"
+  "field_half_right": "Separuh ▶",
+  "photo_no_faces": "Tidak ada wajah terdeteksi",
+  "photo_no_faces_hint": "Coba foto yang jelas dan menghadap depan."
 }

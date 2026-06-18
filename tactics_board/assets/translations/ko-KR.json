@@ -218,5 +218,7 @@
   "field_half": "하프",
   "field_blank": "빈 경기장",
   "field_half_left": "하프 ◀",
-  "field_half_right": "하프 ▶"
+  "field_half_right": "하프 ▶",
+  "photo_no_faces": "얼굴을 찾을 수 없습니다",
+  "photo_no_faces_hint": "얼굴이 선명한 정면 사진을 사용해 보세요."
 }

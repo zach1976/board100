@@ -252,21 +252,63 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
 
   Widget _buildPreview() {
     if (_crops.isEmpty) {
+      const accent = Color(0xFF00C2B2);
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 24),
-          const Icon(Icons.face_retouching_off, color: Colors.white30, size: 48),
-          const SizedBox(height: 12),
+          Container(
+            width: 36,
+            height: 4,
+            margin: const EdgeInsets.only(top: 2, bottom: 22),
+            decoration: BoxDecoration(
+              color: Colors.white24,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          Container(
+            width: 76,
+            height: 76,
+            decoration: BoxDecoration(
+              color: accent.withValues(alpha: 0.12),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.face_retouching_off, color: accent, size: 38),
+          ),
+          const SizedBox(height: 18),
           Text(
             'photo_no_faces'.tr(),
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-          const SizedBox(height: 16),
-          TextButton(
-            onPressed: () => Navigator.of(context).maybePop(),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+          const SizedBox(height: 6),
+          Text(
+            'photo_no_faces_hint'.tr(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.white54, fontSize: 13, height: 1.35),
           ),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            child: TextButton(
+              onPressed: () => Navigator.of(context).maybePop(),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white.withValues(alpha: 0.08),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'cancel'.tr(),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
         ],
       );
     }

@@ -253,5 +253,7 @@
   "field_half": "半場",
   "field_blank": "空白",
   "field_half_left": "半場·左",
-  "field_half_right": "半場·右"
+  "field_half_right": "半場·右",
+  "photo_no_faces": "未偵測到人臉",
+  "photo_no_faces_hint": "試試更清晰、正面的照片。"
 }
