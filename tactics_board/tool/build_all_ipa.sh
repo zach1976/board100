@@ -131,6 +131,10 @@ build_ipa() {
   # Build IPA. IAP=1 turns on the in-app "Remove Ads" purchase (StoreKit) for
   # every iOS app; see lib/services/purchase_service.dart. Harmless until the
   # App Store Connect products (remove_ads_lifetime / remove_ads_yearly) exist.
+  # Clear any prior app's IPA first: the copy step below just greps
+  # build/ios/ipa, so a failed archive would otherwise ship the PREVIOUS
+  # app's IPA under this app's name (a silent, dangerous mismatch).
+  rm -f build/ios/ipa/*.ipa
   flutter build ipa --release $DART_DEFINES --dart-define=IAP=1 2>&1 | tail -3
 
   # Copy IPA
@@ -140,7 +144,8 @@ build_ipa() {
     cp "$IPA_FILE" "$DEST"
     echo "✅ $DEST ($(du -h "$DEST" | cut -f1))"
   else
-    echo "❌ No IPA generated for $DISPLAY_NAME"
+    echo "❌ No IPA generated for $DISPLAY_NAME — archive failed, aborting"
+    exit 1
   fi
 }
 
