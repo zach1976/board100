@@ -57,6 +57,28 @@ platform :ios do
     )
   end
 
+  # ── Add a single new locale (metadata + screenshots) from /tmp/engb ─────────
+  # Used to bring up a brand-new App Store localization (e.g. en-GB). The temp
+  # dirs hold ONLY the new locale, so deliver doesn't touch existing ones.
+  desc "Upload one locale's metadata + screenshots (e.g. en-GB) from /tmp/engb"
+  lane :upload_en_gb do |options|
+    app = options[:app]&.to_sym
+    UI.user_error!("Specify app: fastlane upload_en_gb app:rugby") unless app
+    UI.user_error!("Unknown app: #{app}") unless APPS[app]
+
+    deliver(
+      **DELIVER_DEFAULTS,
+      app_identifier: APPS[app][:id],
+      metadata_path: "/tmp/engb/#{app}",
+      screenshots_path: "/tmp/engb_shots/#{app}",
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      primary_category: "SPORTS",
+      secondary_category: "UTILITIES",
+      ignore_language_directory_validation: true,
+    )
+  end
+
   # ── Upload metadata for ALL apps ───────────────────────────────────────────
   desc "Upload metadata for all 16 apps (no binary)"
   lane :upload_all_metadata do

@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Upload metadata for a specific app (no binary)
 
+### ios upload_en_gb
+
+```sh
+[bundle exec] fastlane ios upload_en_gb
+```
+
+Upload one locale's metadata + screenshots (e.g. en-GB) from /tmp/engb
+
 ### ios upload_all_metadata
 
 ```sh
