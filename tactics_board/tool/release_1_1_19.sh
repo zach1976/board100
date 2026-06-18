@@ -1,0 +1,110 @@
+#!/bin/bash
+# release_1_1_19.sh — end-to-end v1.1.19 feature release (UX overhaul).
+#
+# Ships the timeline gap-counting / presentation mode / kAccent UX
+# overhaul (commit c18ab856) across all 16 board apps. Visual assets
+# (screenshots, app previews) carry forward from v1.1.18.
+#
+# ~3-5 hours wall time. Run this from tactics_board/ root.
+#
+# Each phase is checkpointed; rerunning the script resumes from the last
+# unfinished phase. State is tracked in build/release_state.txt.
+#
+# Required:
+#   - flutter, dart, Xcode toolchain configured for iOS signing
+#   - ASC API key at /Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8
+#   - bundle gem install fastlane (Fastfile lane setup)
+#   - gtimeout (brew install coreutils)
+
+set -e
+cd "$(dirname "$0")/.."
+
+STATE_FILE="build/release_state.txt"
+mkdir -p build
+touch "$STATE_FILE"
+
+did() { grep -qFx "$1" "$STATE_FILE"; }
+mark() { echo "$1" >> "$STATE_FILE"; }
+
+echo "═════════════════════════════════════════════════════════"
+echo "  v1.1.19 UX overhaul release — $(date)"
+echo "═════════════════════════════════════════════════════════"
+echo ""
+echo "Pre-flight:"
+echo "  pubspec version: $(grep '^version:' pubspec.yaml)"
+echo "  state file:      $STATE_FILE"
+echo "  done so far:     $(wc -l < "$STATE_FILE" | tr -d ' ') phases"
+echo ""
+
+# ───────── Phase 1: build 16 IPAs ─────────
+if ! did "ipas_built"; then
+  echo "▶ Phase 1: building 16 IPAs (expect ~2-3h)"
+  ./tool/build_all_ipa.sh
+  COUNT=$(ls build/ipa_all/*.ipa 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$COUNT" != "16" ]; then
+    echo "❌ expected 16 IPAs in build/ipa_all/, got $COUNT — aborting"
+    exit 1
+  fi
+  mark "ipas_built"
+  echo "✅ Phase 1 done"
+else
+  echo "↷ Phase 1 already done (ipas_built)"
+fi
+
+# ───────── Phase 2: upload IPAs to ASC ─────────
+if ! did "ipas_uploaded"; then
+  echo ""
+  echo "▶ Phase 2: uploading 16 IPAs via altool (expect ~1h with retries)"
+  ./tool/upload_all_ipa.sh
+  mark "ipas_uploaded"
+  echo "✅ Phase 2 done"
+else
+  echo "↷ Phase 2 already done (ipas_uploaded)"
+fi
+
+# ───────── Phase 3: wait for ASC build processing ─────────
+if ! did "builds_processed"; then
+  echo ""
+  echo "▶ Phase 3: polling ASC until all 16 v1.1.19 builds reach VALID (~20-30 min)"
+  VERSION=1.1.19 python3 tool/wait_builds_processed.py
+  mark "builds_processed"
+  echo "✅ Phase 3 done"
+else
+  echo "↷ Phase 3 already confirmed (builds_processed)"
+fi
+
+# ───────── Phase 3.5: create v1.1.19 App Store Versions + attach builds ─────────
+if ! did "versions_created"; then
+  echo ""
+  echo "▶ Phase 3.5: create v1.1.19 App Store Versions + attach builds (idempotent)"
+  python3 tool/create_versions_1_1_19.py
+  mark "versions_created"
+  echo "✅ Phase 3.5 done"
+else
+  echo "↷ Phase 3.5 already done (versions_created)"
+fi
+
+# ───────── Phase 4: upload metadata (screenshots/previews reused from v1.1.18) ─────────
+if ! did "metadata_uploaded"; then
+  echo ""
+  echo "▶ Phase 4: upload version-level metadata (description / subtitle / keywords / release_notes)"
+  echo "  (screenshots + app previews on ASC carry forward from v1.1.18 automatically;"
+  echo "  this release ships the UX overhaul code while reusing the existing visual assets)"
+  ( cd fastlane && fastlane upload_all_metadata )
+  mark "metadata_uploaded"
+  echo "✅ Phase 4 done"
+else
+  echo "↷ Phase 4 already done (metadata_uploaded)"
+fi
+
+# ───────── Phase 5: submit — GATED, run manually after a final review ─────────
+# Intentionally NOT auto-run: Phase 5 (submit_all.py) is the irreversible step
+# that pushes 16 live apps into Apple review. This script stops here so the
+# versions/metadata can be eyeballed in ASC first. To submit, run:
+#     VERSION=1.1.19 python3 tool/submit_all.py
+echo ""
+echo "═════════════════════════════════════════════════════════"
+echo "  ✅ v1.1.19 built, uploaded, versioned, metadata set for all 16 apps."
+echo "     STOPPED before submit (Phase 5). Review in ASC, then run:"
+echo "       VERSION=1.1.19 python3 tool/submit_all.py"
+echo "═════════════════════════════════════════════════════════"
