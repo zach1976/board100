@@ -1,11 +1,11 @@
 Win the gainline.
 
-Rugby Tactics Board lets coaches design lineouts, scrum plays, and back-line patterns — for 7s, 10s, and 15s formats.
+Rugby Union Tactics Board lets coaches design lineouts, scrum plays, and back-line patterns — for 7s, 10s, and 15s formats.
 
 DRAW IT. PLAY IT. SHARE IT.
 
-- Drag players onto an accurate, full-color court
-- Draw arrows, lines, and zones — colors and styles your way
+- Drag players onto an accurate, full-colour pitch
+- Draw arrows, lines, and zones — colours and styles your way
 - Tap Play to animate movements step by step
 - Save unlimited tactics, share as crisp images or PDF
 
@@ -14,15 +14,15 @@ FORMATIONS, READY TO GO
 Lineouts · Scrum plays · Back-line attack · Defensive lines · Rucking systems
 Load with one tap, edit your way.
 
-BUILT FOR THE SIDELINE
+BUILT FOR THE TOUCHLINE
 
-- Works offline — no Wi-Fi at the field? No problem.
-- Dark theme — easy on the eyes during evening practice
+- Works offline — no Wi-Fi at the pitch? No problem.
+- Dark theme — easy on the eyes during evening training
 - Undo/redo up to 50 steps — experiment fearlessly
-- AirPlay to TV — turn the locker room into a war room
+- AirPlay to TV — turn the changing room into a war room
 - Free, no account required
 
 11 LANGUAGES
 English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
 
-From Sunday league to the national team — if you can coach it, you can draw it.
+From Sunday league to the national side — if you can coach it, you can draw it.
