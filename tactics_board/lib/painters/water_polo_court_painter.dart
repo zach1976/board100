@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/court_layout.dart';
 import 'court_painter_base.dart';
@@ -17,8 +18,23 @@ class WaterPoloCourtPainter extends CourtPainterBase {
 
     if (layout == CourtLayout.blank) return;
 
-    if (layout == CourtLayout.half) {
-      _paintHalf(canvas, size);
+    if (layout == CourtLayout.half ||
+        layout == CourtLayout.halfLeft ||
+        layout == CourtLayout.halfRight) {
+      final sw = size.width, sh = size.height;
+      canvas.save();
+      if (layout == CourtLayout.halfRight) {
+        canvas.translate(sw, 0);
+        canvas.rotate(pi / 2);
+        _paintHalf(canvas, Size(sh, sw));
+      } else if (layout == CourtLayout.halfLeft) {
+        canvas.translate(0, sh);
+        canvas.rotate(-pi / 2);
+        _paintHalf(canvas, Size(sh, sw));
+      } else {
+        _paintHalf(canvas, size);
+      }
+      canvas.restore();
       return;
     }
 

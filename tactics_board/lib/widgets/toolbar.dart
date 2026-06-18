@@ -318,6 +318,10 @@ String _courtLayoutLabel(CourtLayout l) {
       return 'field_full'.tr();
     case CourtLayout.half:
       return 'field_half'.tr();
+    case CourtLayout.halfLeft:
+      return 'field_half_left'.tr();
+    case CourtLayout.halfRight:
+      return 'field_half_right'.tr();
     case CourtLayout.blank:
       return 'field_blank'.tr();
   }
