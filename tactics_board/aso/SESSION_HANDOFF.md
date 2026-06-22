@@ -1,5 +1,28 @@
 # ASO 战役 · 会话续接备忘
 
+---
+
+## 🆕 会话存档 2026-06-22 — 截图设计 V2 全量重做
+
+把 16 个 board app 的 App Store 截图换成新设计 V2「PLAN EVERY RALLY」:
+**16 运动 × 11 语言 × 6 幕 = 1056 张**,并**撤回 1.1.19 审核 → 换图 → 全部重提成功**
+(16/16 回到 WAITING_FOR_REVIEW,零错误)。审核计时重置,预计再排队 1–2 天。
+
+- 设计:深蓝渐变 + 每运动场地线背景 + 运动图标水印 + 钛框手机(灵动岛/倒影)
+  + TACTICS BOARD 徽章 + 双行白/绿大标题 + 副标题(1290×2796)。
+  6 幕:空场→站位→时间轴→Add菜单→路线→回放。旗舰 6 幕展示 6 个不同运动。
+- 工具(tactics_board/):`tool/aso_design_compositor.py`(合成 `--all`)、
+  `test/export_glyphs_test.dart`(导 SportGlyph 图标)、
+  `integration_test/appstore_screenshots.dart` + `tool/capture_v2.sh`(重截)、
+  `tool/build_captions_v2.py` + `aso/captions_v2.json` + `aso/captions_loc/`(文案/11 语言)、
+  `tool/resubmit_v2.py`(撤回+换图+重提)。
+- 文档:`board100/SCREENSHOT_PIPELINE_V2.md`(工具参考)、`board100/HOWTO_截图设计_多语言.md`(方法)。
+- 踩坑:撤回 IN_REVIEW 后变 DEVELOPER_REJECTED(可编辑可上传);pubspec 的 `integration_test`
+  跑捕获时临时开、**已改回注释 + pub get**;不用真器材摄影图,统一扁平 SportGlyph。
+- Git:分支 `aso/screenshots-v2`,commit `90cb155`,已推送 origin。
+
+---
+
 > 最后更新：2026-05-14（**v1.1.11 已全部提交审核**）
 > 状态：A~Q + P 完成。**26 个 ASO commit 已 push 到 origin/main。**
 > 角色：用户以 15 年 App Growth Hacker / CMO 身份协作
