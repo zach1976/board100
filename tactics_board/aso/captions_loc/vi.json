@@ -1,0 +1,130 @@
+{
+  "badminton": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA CẦU", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi, đôi nam nữ và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "ĐƯỜNG CẦU RÕ", "Vẽ lộ trình, điểm rơi và pha cầu"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "tableTennis": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "CÚ ĐÁNH RÕ", "Vẽ giao bóng, xoáy và pha bóng"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "tennis": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "CÚ ĐÁNH RÕ", "Vẽ giao bóng, trả bóng và pha bóng"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "pickleball": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "CÚ ĐÁNH RÕ", "Vẽ cú dink, cú đập và pha bóng"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "beachTennis": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "CÚ ĐÁNH RÕ", "Vẽ giao bóng, vô lê và pha bóng"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "sepakTakraw": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA CẦU", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Regu, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "ĐƯỜNG CẦU RÕ", "Vẽ giao cầu, cú đập và pha cầu"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "footvolley": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "KIỂU TRẬN ĐẤU", "Đơn, đôi và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "CÚ CHẠM RÕ", "Vẽ giao bóng, chạm bóng và pha bóng"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "volleyball": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI VÒNG XOAY", "6v6, bóng chuyền bãi biển và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA TẤN CÔNG", "Vẽ vòng xoay, cú đập và phòng thủ"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "soccer": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA TẤN CÔNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI SƠ ĐỒ", "11v11, futsal và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA DI CHUYỂN", "Vẽ chạy chỗ, chuyền bóng và pressing"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "basketball": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI ĐỘI HÌNH", "5v5, nửa sân và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA PHỐI HỢP", "Vẽ cắt bóng, che chắn và đột phá"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "handball": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA TẤN CÔNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI ĐỘI HÌNH", "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA DI CHUYỂN", "Vẽ chạy chỗ, che chắn và phản công"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "waterPolo": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA TẤN CÔNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI ĐỘI HÌNH", "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA PHỐI HỢP", "Vẽ đường bơi, chuyền bóng và hơn người"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "rugby": [
+    ["LÊN ĐẤU PHÁP", "TỪNG ĐỢT BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI ĐỘI HÌNH", "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA DI CHUYỂN", "Vẽ chạy chỗ, ruck và đợt tấn công"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "fieldHockey": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA TẤN CÔNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI ĐỘI HÌNH", "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA DI CHUYỂN", "Vẽ chạy chỗ, chuyền bóng và áp sát"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "baseball": [
+    ["LÊN ĐẤU PHÁP", "TỪNG PHA BÓNG", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "ĐỘI HÌNH RA SÂN", "Người đánh, người bắt và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA PHỐI HỢP", "Vẽ ném bóng, chạy chốt và dịch chuyển phòng thủ"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ],
+  "tactics_board": [
+    ["LÊN ĐẤU PHÁP", "MỌI MÔN THỂ THAO", "Kéo cầu thủ, vẽ chiến thuật trong vài giây"],
+    ["SẮP XẾP", "TỪNG VỊ TRÍ", "Dựng đội hình với số áo rõ ràng"],
+    ["DỰNG", "DÒNG THỜI GIAN", "Sắp xếp từng bước theo trình tự rõ ràng"],
+    ["THÊM", "MỌI TRẬN ĐẤU", "Đội bóng, quả bóng và ký hiệu tùy chỉnh"],
+    ["HIỂN THỊ", "PHA PHỐI HỢP", "Vẽ chạy chỗ, lộ trình và sơ đồ"],
+    ["MÔ PHỎNG", "BÀI TẬP", "Chạy từng bước, thấy rõ đường di chuyển"]
+  ]
+}

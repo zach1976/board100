@@ -1,0 +1,130 @@
+{
+  "badminton": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, campuran, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan jalur, sasaran, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "tableTennis": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan servis, spin, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "tennis": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan servis, pengembalian, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "pickleball": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan dink, drive, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "beachTennis": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan servis, voli, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "sepakTakraw": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Regu, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan servis, smes, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "footvolley": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Format Laga", "Tunggal, ganda, dan penanda kustom"],
+    ["Tunjukkan", "Pukulan Jelas", "Petakan servis, sentuhan, dan pola reli"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "volleyball": [
+    ["Rancang", "Setiap Reli", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Rotasi", "6v6, voli pantai, dan penanda kustom"],
+    ["Tunjukkan", "Serangan Jelas", "Petakan rotasi, pukulan, dan penjagaan"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "soccer": [
+    ["Rancang", "Tiap Serangan", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Formasi", "11v11, futsal, dan penanda kustom"],
+    ["Tunjukkan", "Lari Jelas", "Petakan lari, umpan, dan pressing"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "basketball": [
+    ["Rancang", "Setiap Play", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Susunan", "5v5, half-court, dan penanda kustom"],
+    ["Tunjukkan", "Play Jelas", "Petakan cut, screen, dan drive"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "handball": [
+    ["Rancang", "Tiap Serangan", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Susunan", "Tim penuh, cadangan, dan penanda kustom"],
+    ["Tunjukkan", "Lari Jelas", "Petakan lari, screen, dan serangan balik"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "waterPolo": [
+    ["Rancang", "Tiap Serangan", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Susunan", "Tim penuh, cadangan, dan penanda kustom"],
+    ["Tunjukkan", "Play Jelas", "Petakan renang, umpan, dan man-up"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "rugby": [
+    ["Rancang", "Setiap Fase", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Susunan", "Tim penuh, cadangan, dan penanda kustom"],
+    ["Tunjukkan", "Lari Jelas", "Petakan lari, ruck, dan permainan fase"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "fieldHockey": [
+    ["Rancang", "Tiap Serangan", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Susunan", "Tim penuh, cadangan, dan penanda kustom"],
+    ["Tunjukkan", "Lari Jelas", "Petakan lari, umpan, dan pressing"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "baseball": [
+    ["Rancang", "Setiap Play", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Susunan Tim", "Pemukul, penjaga, dan penanda kustom"],
+    ["Tunjukkan", "Play Jelas", "Petakan lemparan, lari, dan pergeseran"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ],
+  "tactics_board": [
+    ["Rancang", "Tiap Olahraga", "Geser pemain dan gambar taktik seketika"],
+    ["Tempatkan", "Tiap Pemain", "Susun formasi dengan penanda bernomor"],
+    ["Buat", "Lini Masa", "Atur tiap gerakan dalam urutan rapi"],
+    ["Tambah", "Tiap Laga", "Tim, bola, dan penanda kustom"],
+    ["Tunjukkan", "Play Jelas", "Petakan lari, jalur, dan pola"],
+    ["Animasikan", "Latihannya", "Putar tiap langkah dan lihat alur gerak"]
+  ]
+}

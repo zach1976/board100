@@ -1,0 +1,5666 @@
+{
+  "badminton": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles, mixed and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map routes, targets and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu, campuran dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan laluan, sasaran dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス・ミックス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "コース・狙い・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles, mixtos y marcadores"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza rutas, objetivos y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打混双，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出线路、落点与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식, 혼합복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "코스, 타깃, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double, mixte et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez trajets, cibles et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA CẦU",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi, đôi nam nữ và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "ĐƯỜNG CẦU RÕ",
+        "Vẽ lộ trình, điểm rơi và pha cầu"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, campuran, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan jalur, sasaran, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ คู่ผสม และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกตีชัดเจน",
+        "วาดเส้นทาง เป้าหมาย และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打、混雙與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出路線、目標與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "tableTennis": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map serves, spins and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan servis, putaran dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "サーブ・回転・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza saques, efectos y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出发球、旋转与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "서브, 스핀, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez services, effets et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "CÚ ĐÁNH RÕ",
+        "Vẽ giao bóng, xoáy và pha bóng"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan servis, spin, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกตีชัดเจน",
+        "วาดลูกเสิร์ฟ ลูกปั่น และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出發球、旋球與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "tennis": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map serves, returns and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan servis, balasan dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "サーブ・リターン・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza saques, restos y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出发球、回球与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "서브, 리턴, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez services, retours et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "CÚ ĐÁNH RÕ",
+        "Vẽ giao bóng, trả bóng và pha bóng"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan servis, pengembalian, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกตีชัดเจน",
+        "วาดลูกเสิร์ฟ ลูกรับ และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出發球、回擊與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "pickleball": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map dinks, drives and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan dink, drive dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "ディンク・ドライブ・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza dinks, drives y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出吊球、抽击与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "딩크, 드라이브, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez dinks, frappes et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "CÚ ĐÁNH RÕ",
+        "Vẽ cú dink, cú đập và pha bóng"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan dink, drive, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกตีชัดเจน",
+        "วาดลูกดิงก์ ลูกไดรฟ์ และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出輕吊、抽擊與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "beachTennis": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map serves, volleys and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan servis, voli dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "サーブ・ボレー・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza saques, voleas y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出发球、截击与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "서브, 발리, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez services, volées et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "CÚ ĐÁNH RÕ",
+        "Vẽ giao bóng, vô lê và pha bóng"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan servis, voli, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกตีชัดเจน",
+        "วาดลูกเสิร์ฟ ลูกวอลเลย์ และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出發球、截擊與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "sepakTakraw": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Regu, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map serves, spikes and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Regu, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "rejaman jelas",
+        "Petakan servis, rejaman dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "レグ・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "サーブ・スパイク・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Regu, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza saques, remates y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "三人组、双人组与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出发球、扣杀与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "레구, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "서브, 스파이크, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Regu, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez services, smashs et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA CẦU",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Regu, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "ĐƯỜNG CẦU RÕ",
+        "Vẽ giao cầu, cú đập và pha cầu"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Regu, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan servis, smes, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "ทีมเรกู คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกเล่นชัดเจน",
+        "วาดลูกเสิร์ฟ ลูกฟาด และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "三人組、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出發球、扣殺與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "footvolley": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "MATCH SETUPS",
+        "Singles, doubles and custom markers"
+      ],
+      [
+        "SHOW",
+        "SHOTS CLEARLY",
+        "Map serves, touches and rally patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "susunan perlawanan",
+        "Perseorangan, beregu dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "pukulan jelas",
+        "Petakan servis, sentuhan dan corak rali"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "試合設定を",
+        "追加する",
+        "シングルス・ダブルス対応"
+      ],
+      [
+        "ショットを",
+        "わかりやすく",
+        "サーブ・タッチ・ラリーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu partido",
+        "Individuales, dobles y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada golpe",
+        "Traza saques, toques y patrones de rally"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "对阵阵容",
+        "单打双打，自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现击球",
+        "标出发球、触球与回合套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "경기 구성을",
+        "추가하라",
+        "단식, 복식과 커스텀 마커"
+      ],
+      [
+        "샷을 한눈에",
+        "보여줘라",
+        "서브, 터치, 랠리 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos configs",
+        "Simple, double et repères perso"
+      ],
+      [
+        "Visualisez",
+        "chaque coup",
+        "Tracez services, touches et schémas d'échange"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "KIỂU TRẬN ĐẤU",
+        "Đơn, đôi và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "CÚ CHẠM RÕ",
+        "Vẽ giao bóng, chạm bóng và pha bóng"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Format Laga",
+        "Tunggal, ganda, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Pukulan Jelas",
+        "Petakan servis, sentuhan, dan pola reli"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "รูปแบบการแข่ง",
+        "เดี่ยว คู่ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "ลูกเล่นชัดเจน",
+        "วาดลูกเสิร์ฟ ลูกสัมผัส และจังหวะแร็ลลี่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一拍",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "對戰設定",
+        "單打、雙打與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現球路",
+        "標出發球、觸球與來回攻防"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "volleyball": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY RALLY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY ROTATION",
+        "6v6, beach and custom markers"
+      ],
+      [
+        "SHOW",
+        "ATTACKS CLEARLY",
+        "Map rotations, hits and coverage"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap rali",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "sebarang putaran",
+        "6v6, pantai dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "serangan jelas",
+        "Petakan putaran, rejaman dan liputan"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全ラリーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ローテーションを",
+        "追加する",
+        "6人制・ビーチ・カスタム対応"
+      ],
+      [
+        "攻撃を",
+        "わかりやすく",
+        "回転・スパイク・カバーを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada rally",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "cualquier rotación",
+        "6 vs 6, playa y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada ataque",
+        "Traza rotaciones, remates y coberturas"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一回合",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意轮转",
+        "六人制、沙排与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现进攻",
+        "标出轮转、扣球与防守覆盖"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 랠리를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 로테이션도",
+        "추가하라",
+        "6대6, 비치와 커스텀 마커"
+      ],
+      [
+        "공격을 한눈에",
+        "보여줘라",
+        "로테이션, 스파이크, 커버를 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque échange",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos rotations",
+        "6c6, beach et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos attaques",
+        "Tracez rotations, frappes et couverture"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI VÒNG XOAY",
+        "6v6, bóng chuyền bãi biển và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA TẤN CÔNG",
+        "Vẽ vòng xoay, cú đập và phòng thủ"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Reli",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Rotasi",
+        "6v6, voli pantai, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Serangan Jelas",
+        "Petakan rotasi, pukulan, dan penjagaan"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแร็ลลี่",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกการหมุน",
+        "6v6 ชายหาด และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "การบุกชัดเจน",
+        "วาดการหมุน การตบ และการคุมพื้นที่"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每一球",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意輪轉",
+        "六打六、沙灘與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現進攻",
+        "標出輪轉、扣球與補位"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "soccer": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY ATTACK",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY FORMATION",
+        "11v11, futsal and custom markers"
+      ],
+      [
+        "SHOW",
+        "RUNS CLEARLY",
+        "Map runs, passes and pressing"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap serangan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana formasi",
+        "11v11, futsal dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "larian jelas",
+        "Petakan larian, hantaran dan tekanan"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全攻撃を",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "フォーメーションを",
+        "追加する",
+        "11人制・フットサル・カスタム対応"
+      ],
+      [
+        "走りを",
+        "わかりやすく",
+        "ラン・パス・プレスを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada ataque",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu formación",
+        "11 vs 11, fútbol sala y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada desmarque",
+        "Traza desmarques, pases y presión"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每次进攻",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵型",
+        "十一人制、五人制与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现跑位",
+        "标出跑动、传球与逼抢"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 공격을",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 포메이션도",
+        "추가하라",
+        "11대11, 풋살과 커스텀 마커"
+      ],
+      [
+        "움직임을 한눈에",
+        "보여줘라",
+        "침투, 패스, 압박을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque attaque",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos formations",
+        "11c11, futsal et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos courses",
+        "Tracez appels, passes et pressing"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA TẤN CÔNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI SƠ ĐỒ",
+        "11v11, futsal và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA DI CHUYỂN",
+        "Vẽ chạy chỗ, chuyền bóng và pressing"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Tiap Serangan",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Formasi",
+        "11v11, futsal, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Lari Jelas",
+        "Petakan lari, umpan, dan pressing"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกการบุก",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกแผนการเล่น",
+        "11v11 ฟุตซอล และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "การวิ่งชัดเจน",
+        "วาดการวิ่ง การจ่ายบอล และการกดดัน"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每次進攻",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣型",
+        "十一人、五人制與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現跑位",
+        "標出跑動、傳球與壓迫"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "basketball": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY PLAY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY LINEUP",
+        "5v5, half-court and custom markers"
+      ],
+      [
+        "SHOW",
+        "PLAYS CLEARLY",
+        "Map cuts, screens and drives"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap permainan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana barisan",
+        "5v5, separuh gelanggang dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "permainan jelas",
+        "Petakan potongan, adangan dan terobosan"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全プレーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "5対5・ハーフコート・カスタム対応"
+      ],
+      [
+        "プレーを",
+        "わかりやすく",
+        "カット・スクリーン・ドライブを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada jugada",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu quinteto",
+        "5 vs 5, media pista y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada jugada",
+        "Traza cortes, bloqueos y penetraciones"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一战术",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵容",
+        "五人制、半场与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现配合",
+        "标出空切、掩护与突破"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 플레이를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 라인업도",
+        "추가하라",
+        "5대5, 하프코트와 커스텀 마커"
+      ],
+      [
+        "플레이를 한눈에",
+        "보여줘라",
+        "컷, 스크린, 드라이브를 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque système",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "vos cinq",
+        "5c5, demi-terrain et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos systèmes",
+        "Tracez coupes, écrans et pénétrations"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI ĐỘI HÌNH",
+        "5v5, nửa sân và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA PHỐI HỢP",
+        "Vẽ cắt bóng, che chắn và đột phá"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Play",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Susunan",
+        "5v5, half-court, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Play Jelas",
+        "Petakan cut, screen, dan drive"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแผนเล่น",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกชุดผู้เล่น",
+        "5v5 ครึ่งสนาม และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "แผนเล่นชัดเจน",
+        "วาดการตัด การสกรีน และการเจาะ"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每套戰術",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣容",
+        "五打五、半場與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現戰術",
+        "標出空切、掩護與突破"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "handball": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY ATTACK",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY LINEUP",
+        "Full teams, subs and custom markers"
+      ],
+      [
+        "SHOW",
+        "RUNS CLEARLY",
+        "Map runs, screens and fast breaks"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap serangan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana barisan",
+        "Pasukan penuh, simpanan dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "larian jelas",
+        "Petakan larian, adangan dan serangan pantas"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全攻撃を",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "フルチーム・控え・カスタム対応"
+      ],
+      [
+        "走りを",
+        "わかりやすく",
+        "ラン・スクリーン・速攻を図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada ataque",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu alineación",
+        "Equipos completos, cambios y marcadores"
+      ],
+      [
+        "Muestra",
+        "cada desmarque",
+        "Traza desmarques, bloqueos y contraataques"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每次进攻",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵容",
+        "全队、替补与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现跑位",
+        "标出跑动、掩护与快攻"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 공격을",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 라인업도",
+        "추가하라",
+        "풀 팀, 교체와 커스텀 마커"
+      ],
+      [
+        "움직임을 한눈에",
+        "보여줘라",
+        "침투, 스크린, 속공을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque attaque",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "votre équipe",
+        "Effectifs, remplaçants et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos courses",
+        "Tracez courses, écrans et contre-attaques"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA TẤN CÔNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI ĐỘI HÌNH",
+        "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA DI CHUYỂN",
+        "Vẽ chạy chỗ, che chắn và phản công"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Tiap Serangan",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Susunan",
+        "Tim penuh, cadangan, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Lari Jelas",
+        "Petakan lari, screen, dan serangan balik"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกการบุก",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกชุดผู้เล่น",
+        "ทีมเต็ม ตัวสำรอง และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "การวิ่งชัดเจน",
+        "วาดการวิ่ง การสกรีน และสวนกลับเร็ว"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每次進攻",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣容",
+        "全隊、替補與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現跑位",
+        "標出跑動、掩護與快攻"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "waterPolo": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY ATTACK",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY LINEUP",
+        "Full teams, subs and custom markers"
+      ],
+      [
+        "SHOW",
+        "PLAYS CLEARLY",
+        "Map swims, passes and man-up"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap serangan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana barisan",
+        "Pasukan penuh, simpanan dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "permainan jelas",
+        "Petakan renangan, hantaran dan lebihan pemain"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全攻撃を",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "フルチーム・控え・カスタム対応"
+      ],
+      [
+        "プレーを",
+        "わかりやすく",
+        "泳ぎ・パス・数的優位を図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada ataque",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu alineación",
+        "Equipos completos, cambios y marcadores"
+      ],
+      [
+        "Muestra",
+        "cada jugada",
+        "Traza nados, pases y superioridad"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每次进攻",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵容",
+        "全队、替补与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现配合",
+        "标出游动、传球与多打少"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 공격을",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 라인업도",
+        "추가하라",
+        "풀 팀, 교체와 커스텀 마커"
+      ],
+      [
+        "플레이를 한눈에",
+        "보여줘라",
+        "수영, 패스, 수적 우세를 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque attaque",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "votre équipe",
+        "Effectifs, remplaçants et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos systèmes",
+        "Tracez nages, passes et supériorité"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA TẤN CÔNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI ĐỘI HÌNH",
+        "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA PHỐI HỢP",
+        "Vẽ đường bơi, chuyền bóng và hơn người"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Tiap Serangan",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Susunan",
+        "Tim penuh, cadangan, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Play Jelas",
+        "Petakan renang, umpan, dan man-up"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกการบุก",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกชุดผู้เล่น",
+        "ทีมเต็ม ตัวสำรอง และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "แผนเล่นชัดเจน",
+        "วาดการว่าย การจ่ายบอล และจังหวะได้เปรียบ"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每次進攻",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣容",
+        "全隊、替補與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現戰術",
+        "標出游動、傳球與多打少"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "rugby": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY PHASE",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY LINEUP",
+        "Full teams, subs and custom markers"
+      ],
+      [
+        "SHOW",
+        "RUNS CLEARLY",
+        "Map runs, rucks and phase play"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap fasa",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana barisan",
+        "Pasukan penuh, simpanan dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "larian jelas",
+        "Petakan larian, ruck dan permainan fasa"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全フェーズを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "フルチーム・控え・カスタム対応"
+      ],
+      [
+        "走りを",
+        "わかりやすく",
+        "ラン・ラック・フェーズを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada fase",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu alineación",
+        "Equipos completos, cambios y marcadores"
+      ],
+      [
+        "Muestra",
+        "cada carrera",
+        "Traza carreras, rucks y juego por fases"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一阶段",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵容",
+        "全队、替补与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现跑位",
+        "标出跑动、争球与多阶段进攻"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 페이즈를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 라인업도",
+        "추가하라",
+        "풀 팀, 교체와 커스텀 마커"
+      ],
+      [
+        "움직임을 한눈에",
+        "보여줘라",
+        "침투, 럭, 페이즈 플레이를 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque phase",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "votre équipe",
+        "Effectifs, remplaçants et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos courses",
+        "Tracez courses, rucks et jeu au sol"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG ĐỢT BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI ĐỘI HÌNH",
+        "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA DI CHUYỂN",
+        "Vẽ chạy chỗ, ruck và đợt tấn công"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Fase",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Susunan",
+        "Tim penuh, cadangan, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Lari Jelas",
+        "Petakan lari, ruck, dan permainan fase"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกเฟส",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกชุดผู้เล่น",
+        "ทีมเต็ม ตัวสำรอง และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "การวิ่งชัดเจน",
+        "วาดการวิ่ง การรัค และเฟสการเล่น"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每個階段",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣容",
+        "全隊、替補與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現跑位",
+        "標出跑動、爭球與階段進攻"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "fieldHockey": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY ATTACK",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY LINEUP",
+        "Full teams, subs and custom markers"
+      ],
+      [
+        "SHOW",
+        "RUNS CLEARLY",
+        "Map runs, passes and press"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap serangan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana barisan",
+        "Pasukan penuh, simpanan dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "larian jelas",
+        "Petakan larian, hantaran dan tekanan"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全攻撃を",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "フルチーム・控え・カスタム対応"
+      ],
+      [
+        "走りを",
+        "わかりやすく",
+        "ラン・パス・プレスを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada ataque",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu alineación",
+        "Equipos completos, cambios y marcadores"
+      ],
+      [
+        "Muestra",
+        "cada desmarque",
+        "Traza desmarques, pases y presión"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每次进攻",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意阵容",
+        "全队、替补与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现跑位",
+        "标出跑动、传球与逼抢"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 공격을",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 라인업도",
+        "추가하라",
+        "풀 팀, 교체와 커스텀 마커"
+      ],
+      [
+        "움직임을 한눈에",
+        "보여줘라",
+        "침투, 패스, 압박을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque attaque",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "votre équipe",
+        "Effectifs, remplaçants et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos courses",
+        "Tracez courses, passes et pressing"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA TẤN CÔNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI ĐỘI HÌNH",
+        "Đội đủ quân, dự bị và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA DI CHUYỂN",
+        "Vẽ chạy chỗ, chuyền bóng và áp sát"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Tiap Serangan",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Susunan",
+        "Tim penuh, cadangan, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Lari Jelas",
+        "Petakan lari, umpan, dan pressing"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกการบุก",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกชุดผู้เล่น",
+        "ทีมเต็ม ตัวสำรอง และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "การวิ่งชัดเจน",
+        "วาดการวิ่ง การจ่ายบอล และการกดดัน"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每次進攻",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "任意陣容",
+        "全隊、替補與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現跑位",
+        "標出跑動、傳球與壓迫"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "baseball": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY PLAY",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "THE LINEUP",
+        "Batters, fielders and custom markers"
+      ],
+      [
+        "SHOW",
+        "PLAYS CLEARLY",
+        "Map throws, runs and defensive shifts"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap permainan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "barisan pemain",
+        "Pemukul, penjaga padang dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "permainan jelas",
+        "Petakan balingan, larian dan anjakan pertahanan"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全プレーを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "ラインナップを",
+        "追加する",
+        "打者・守備・カスタムマーカー"
+      ],
+      [
+        "プレーを",
+        "わかりやすく",
+        "送球・走塁・守備シフトを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada jugada",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "tu alineación",
+        "Bateadores, defensores y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada jugada",
+        "Traza lanzamientos, carreras y defensas"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每一战术",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "排出",
+        "首发阵容",
+        "击球员、守备员与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现配合",
+        "标出传球、跑垒与防守移位"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 플레이를",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "라인업을",
+        "추가하라",
+        "타자, 야수와 커스텀 마커"
+      ],
+      [
+        "플레이를 한눈에",
+        "보여줘라",
+        "송구, 주루, 수비 시프트를 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque action",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "votre alignement",
+        "Frappeurs, défenseurs et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos actions",
+        "Tracez lancers, courses et défenses"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "TỪNG PHA BÓNG",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "ĐỘI HÌNH RA SÂN",
+        "Người đánh, người bắt và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA PHỐI HỢP",
+        "Vẽ ném bóng, chạy chốt và dịch chuyển phòng thủ"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Setiap Play",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Susunan Tim",
+        "Pemukul, penjaga, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Play Jelas",
+        "Petakan lemparan, lari, dan pergeseran"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกแผนเล่น",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ชุดผู้เล่น",
+        "มือตี ผู้เล่นรับ และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "แผนเล่นชัดเจน",
+        "วาดการขว้าง การวิ่ง และการขยับแนวรับ"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "每個守備",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "排出",
+        "守備陣容",
+        "打者、野手與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現戰術",
+        "標出傳球、跑壘與防守移位"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  },
+  "tactics_board": {
+    "en-US": [
+      [
+        "PLAN",
+        "EVERY SPORT",
+        "Drag players and draw tactics in seconds"
+      ],
+      [
+        "PLACE",
+        "EVERY PLAYER",
+        "Build formations with clear numbered markers"
+      ],
+      [
+        "BUILD",
+        "A TIMELINE",
+        "Organize each move in a clear sequence"
+      ],
+      [
+        "ADD",
+        "ANY MATCHUP",
+        "Teams, balls and custom markers"
+      ],
+      [
+        "SHOW",
+        "PLAYS CLEARLY",
+        "Map runs, routes and patterns"
+      ],
+      [
+        "ANIMATE",
+        "THE DRILL",
+        "Play each step and visualize movement paths"
+      ]
+    ],
+    "ms": [
+      [
+        "Rancang",
+        "setiap sukan",
+        "Seret pemain dan lukis taktik dalam saat"
+      ],
+      [
+        "Tempatkan",
+        "setiap pemain",
+        "Susun formasi dengan penanda bernombor jelas"
+      ],
+      [
+        "Bina",
+        "garis masa",
+        "Atur setiap pergerakan dalam urutan jelas"
+      ],
+      [
+        "Tambah",
+        "mana-mana perlawanan",
+        "Pasukan, bola dan penanda tersuai"
+      ],
+      [
+        "Papar",
+        "permainan jelas",
+        "Petakan larian, laluan dan corak"
+      ],
+      [
+        "Animasikan",
+        "latihan itu",
+        "Mainkan setiap langkah dan lihat laluan gerak"
+      ]
+    ],
+    "ja": [
+      [
+        "全スポーツを",
+        "組み立てる",
+        "選手を動かし数秒で戦術を描く"
+      ],
+      [
+        "全選手を",
+        "配置する",
+        "番号マーカーで陣形を作成"
+      ],
+      [
+        "タイムラインを",
+        "構築する",
+        "一手ずつ明確な流れで整理"
+      ],
+      [
+        "対戦を",
+        "追加する",
+        "チーム・ボール・カスタム対応"
+      ],
+      [
+        "プレーを",
+        "わかりやすく",
+        "ラン・コース・パターンを図解"
+      ],
+      [
+        "ドリルを",
+        "動かす",
+        "一手ずつ再生し動きを可視化"
+      ]
+    ],
+    "es-ES": [
+      [
+        "Planifica",
+        "cada deporte",
+        "Mueve jugadores y dibuja tácticas en segundos"
+      ],
+      [
+        "Coloca",
+        "cada jugador",
+        "Crea formaciones con marcadores numerados"
+      ],
+      [
+        "Crea",
+        "tu secuencia",
+        "Ordena cada movimiento en una jugada clara"
+      ],
+      [
+        "Añade",
+        "cualquier duelo",
+        "Equipos, balones y marcadores propios"
+      ],
+      [
+        "Muestra",
+        "cada jugada",
+        "Traza carreras, rutas y patrones de juego"
+      ],
+      [
+        "Anima",
+        "el ejercicio",
+        "Reproduce cada paso y visualiza el movimiento"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "谋划",
+        "每项运动",
+        "拖动球员，秒画战术"
+      ],
+      [
+        "排定",
+        "每名球员",
+        "清晰编号，轻松布阵"
+      ],
+      [
+        "搭建",
+        "时间轴",
+        "每步走位，井然有序"
+      ],
+      [
+        "设置",
+        "任意对阵",
+        "球队、球与自定义标记"
+      ],
+      [
+        "清晰",
+        "呈现配合",
+        "标出跑动、线路与套路"
+      ],
+      [
+        "动画",
+        "演示战术",
+        "逐步播放，直观看跑动"
+      ]
+    ],
+    "ko": [
+      [
+        "모든 종목을",
+        "설계하라",
+        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+      ],
+      [
+        "선수마다",
+        "자리 잡기",
+        "번호 마커로 깔끔하게 포메이션 구성"
+      ],
+      [
+        "타임라인을",
+        "만들어라",
+        "모든 동작을 명확한 순서로 정리"
+      ],
+      [
+        "어떤 대결도",
+        "추가하라",
+        "팀, 볼과 커스텀 마커"
+      ],
+      [
+        "플레이를 한눈에",
+        "보여줘라",
+        "침투, 코스, 패턴을 그려라"
+      ],
+      [
+        "드릴을",
+        "애니메이션으로",
+        "단계별로 재생하고 이동 경로 시각화"
+      ]
+    ],
+    "fr-FR": [
+      [
+        "Pensez",
+        "chaque sport",
+        "Déplacez les joueurs et dessinez vos tactiques"
+      ],
+      [
+        "Placez",
+        "chaque joueur",
+        "Créez des formations aux repères numérotés"
+      ],
+      [
+        "Montez",
+        "une séquence",
+        "Organisez chaque mouvement dans un ordre clair"
+      ],
+      [
+        "Ajoutez",
+        "tout duel",
+        "Équipes, ballons et repères perso"
+      ],
+      [
+        "Visualisez",
+        "vos systèmes",
+        "Tracez courses, trajets et schémas"
+      ],
+      [
+        "Animez",
+        "votre exercice",
+        "Lancez chaque étape et suivez les déplacements"
+      ]
+    ],
+    "vi": [
+      [
+        "LÊN ĐẤU PHÁP",
+        "MỌI MÔN THỂ THAO",
+        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+      ],
+      [
+        "SẮP XẾP",
+        "TỪNG VỊ TRÍ",
+        "Dựng đội hình với số áo rõ ràng"
+      ],
+      [
+        "DỰNG",
+        "DÒNG THỜI GIAN",
+        "Sắp xếp từng bước theo trình tự rõ ràng"
+      ],
+      [
+        "THÊM",
+        "MỌI TRẬN ĐẤU",
+        "Đội bóng, quả bóng và ký hiệu tùy chỉnh"
+      ],
+      [
+        "HIỂN THỊ",
+        "PHA PHỐI HỢP",
+        "Vẽ chạy chỗ, lộ trình và sơ đồ"
+      ],
+      [
+        "MÔ PHỎNG",
+        "BÀI TẬP",
+        "Chạy từng bước, thấy rõ đường di chuyển"
+      ]
+    ],
+    "id": [
+      [
+        "Rancang",
+        "Tiap Olahraga",
+        "Geser pemain dan gambar taktik seketika"
+      ],
+      [
+        "Tempatkan",
+        "Tiap Pemain",
+        "Susun formasi dengan penanda bernomor"
+      ],
+      [
+        "Buat",
+        "Lini Masa",
+        "Atur tiap gerakan dalam urutan rapi"
+      ],
+      [
+        "Tambah",
+        "Tiap Laga",
+        "Tim, bola, dan penanda kustom"
+      ],
+      [
+        "Tunjukkan",
+        "Play Jelas",
+        "Petakan lari, jalur, dan pola"
+      ],
+      [
+        "Animasikan",
+        "Latihannya",
+        "Putar tiap langkah dan lihat alur gerak"
+      ]
+    ],
+    "th": [
+      [
+        "วางแผน",
+        "ทุกกีฬา",
+        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+      ],
+      [
+        "จัดวาง",
+        "ผู้เล่นทุกคน",
+        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+      ],
+      [
+        "สร้าง",
+        "ไทม์ไลน์",
+        "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
+      ],
+      [
+        "เพิ่ม",
+        "ทุกการแข่งขัน",
+        "ทีม ลูกบอล และเครื่องหมายกำหนดเอง"
+      ],
+      [
+        "แสดง",
+        "แผนเล่นชัดเจน",
+        "วาดการวิ่ง เส้นทาง และรูปแบบการเล่น"
+      ],
+      [
+        "จำลอง",
+        "ดริลล์เคลื่อนไหว",
+        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+      ]
+    ],
+    "zh-Hant": [
+      [
+        "規劃",
+        "各種運動",
+        "拖曳球員 秒畫戰術"
+      ],
+      [
+        "排好",
+        "每位球員",
+        "用清楚編號擺出陣型"
+      ],
+      [
+        "建立",
+        "時間軸",
+        "把每步動作排成清晰序列"
+      ],
+      [
+        "加入",
+        "任意對戰",
+        "隊伍、球與自訂標記"
+      ],
+      [
+        "清楚",
+        "呈現戰術",
+        "標出跑動、路線與攻防模式"
+      ],
+      [
+        "動畫",
+        "演練戰術",
+        "逐步播放 視覺化跑位路徑"
+      ]
+    ]
+  }
+}
