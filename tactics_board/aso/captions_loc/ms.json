@@ -1,0 +1,130 @@
+{
+  "badminton": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu, campuran dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan laluan, sasaran dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "tableTennis": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan servis, putaran dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "tennis": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan servis, balasan dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "pickleball": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan dink, drive dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "beachTennis": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan servis, voli dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "sepakTakraw": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Regu, beregu dan penanda tersuai"],
+    ["Papar", "rejaman jelas", "Petakan servis, rejaman dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "footvolley": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "susunan perlawanan", "Perseorangan, beregu dan penanda tersuai"],
+    ["Papar", "pukulan jelas", "Petakan servis, sentuhan dan corak rali"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "volleyball": [
+    ["Rancang", "setiap rali", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "sebarang putaran", "6v6, pantai dan penanda tersuai"],
+    ["Papar", "serangan jelas", "Petakan putaran, rejaman dan liputan"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "soccer": [
+    ["Rancang", "setiap serangan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana formasi", "11v11, futsal dan penanda tersuai"],
+    ["Papar", "larian jelas", "Petakan larian, hantaran dan tekanan"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "basketball": [
+    ["Rancang", "setiap permainan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana barisan", "5v5, separuh gelanggang dan penanda tersuai"],
+    ["Papar", "permainan jelas", "Petakan potongan, adangan dan terobosan"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "handball": [
+    ["Rancang", "setiap serangan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana barisan", "Pasukan penuh, simpanan dan penanda tersuai"],
+    ["Papar", "larian jelas", "Petakan larian, adangan dan serangan pantas"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "waterPolo": [
+    ["Rancang", "setiap serangan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana barisan", "Pasukan penuh, simpanan dan penanda tersuai"],
+    ["Papar", "permainan jelas", "Petakan renangan, hantaran dan lebihan pemain"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "rugby": [
+    ["Rancang", "setiap fasa", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana barisan", "Pasukan penuh, simpanan dan penanda tersuai"],
+    ["Papar", "larian jelas", "Petakan larian, ruck dan permainan fasa"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "fieldHockey": [
+    ["Rancang", "setiap serangan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana barisan", "Pasukan penuh, simpanan dan penanda tersuai"],
+    ["Papar", "larian jelas", "Petakan larian, hantaran dan tekanan"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "baseball": [
+    ["Rancang", "setiap permainan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "barisan pemain", "Pemukul, penjaga padang dan penanda tersuai"],
+    ["Papar", "permainan jelas", "Petakan balingan, larian dan anjakan pertahanan"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ],
+  "tactics_board": [
+    ["Rancang", "setiap sukan", "Seret pemain dan lukis taktik dalam saat"],
+    ["Tempatkan", "setiap pemain", "Susun formasi dengan penanda bernombor jelas"],
+    ["Bina", "garis masa", "Atur setiap pergerakan dalam urutan jelas"],
+    ["Tambah", "mana-mana perlawanan", "Pasukan, bola dan penanda tersuai"],
+    ["Papar", "permainan jelas", "Petakan larian, laluan dan corak"],
+    ["Animasikan", "latihan itu", "Mainkan setiap langkah dan lihat laluan gerak"]
+  ]
+}

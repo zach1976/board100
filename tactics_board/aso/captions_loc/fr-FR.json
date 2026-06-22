@@ -1,0 +1,130 @@
+{
+  "badminton": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double, mixte et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez trajets, cibles et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "tableTennis": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez services, effets et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "tennis": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez services, retours et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "pickleball": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez dinks, frappes et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "beachTennis": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez services, volées et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "sepakTakraw": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Regu, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez services, smashs et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "footvolley": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos configs", "Simple, double et repères perso"],
+    ["Visualisez", "chaque coup", "Tracez services, touches et schémas d'échange"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "volleyball": [
+    ["Pensez", "chaque échange", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos rotations", "6c6, beach et repères perso"],
+    ["Visualisez", "vos attaques", "Tracez rotations, frappes et couverture"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "soccer": [
+    ["Pensez", "chaque attaque", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos formations", "11c11, futsal et repères perso"],
+    ["Visualisez", "vos courses", "Tracez appels, passes et pressing"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "basketball": [
+    ["Pensez", "chaque système", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "vos cinq", "5c5, demi-terrain et repères perso"],
+    ["Visualisez", "vos systèmes", "Tracez coupes, écrans et pénétrations"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "handball": [
+    ["Pensez", "chaque attaque", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "votre équipe", "Effectifs, remplaçants et repères perso"],
+    ["Visualisez", "vos courses", "Tracez courses, écrans et contre-attaques"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "waterPolo": [
+    ["Pensez", "chaque attaque", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "votre équipe", "Effectifs, remplaçants et repères perso"],
+    ["Visualisez", "vos systèmes", "Tracez nages, passes et supériorité"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "rugby": [
+    ["Pensez", "chaque phase", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "votre équipe", "Effectifs, remplaçants et repères perso"],
+    ["Visualisez", "vos courses", "Tracez courses, rucks et jeu au sol"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "fieldHockey": [
+    ["Pensez", "chaque attaque", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "votre équipe", "Effectifs, remplaçants et repères perso"],
+    ["Visualisez", "vos courses", "Tracez courses, passes et pressing"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "baseball": [
+    ["Pensez", "chaque action", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "votre alignement", "Frappeurs, défenseurs et repères perso"],
+    ["Visualisez", "vos actions", "Tracez lancers, courses et défenses"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ],
+  "tactics_board": [
+    ["Pensez", "chaque sport", "Déplacez les joueurs et dessinez vos tactiques"],
+    ["Placez", "chaque joueur", "Créez des formations aux repères numérotés"],
+    ["Montez", "une séquence", "Organisez chaque mouvement dans un ordre clair"],
+    ["Ajoutez", "tout duel", "Équipes, ballons et repères perso"],
+    ["Visualisez", "vos systèmes", "Tracez courses, trajets et schémas"],
+    ["Animez", "votre exercice", "Lancez chaque étape et suivez les déplacements"]
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "badminton": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles, mixtos y marcadores"],
+    ["Muestra", "cada golpe", "Traza rutas, objetivos y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "tableTennis": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza saques, efectos y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "tennis": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza saques, restos y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "pickleball": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza dinks, drives y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "beachTennis": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza saques, voleas y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "sepakTakraw": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Regu, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza saques, remates y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "footvolley": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu partido", "Individuales, dobles y marcadores propios"],
+    ["Muestra", "cada golpe", "Traza saques, toques y patrones de rally"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "volleyball": [
+    ["Planifica", "cada rally", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "cualquier rotación", "6 vs 6, playa y marcadores propios"],
+    ["Muestra", "cada ataque", "Traza rotaciones, remates y coberturas"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "soccer": [
+    ["Planifica", "cada ataque", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu formación", "11 vs 11, fútbol sala y marcadores propios"],
+    ["Muestra", "cada desmarque", "Traza desmarques, pases y presión"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "basketball": [
+    ["Planifica", "cada jugada", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu quinteto", "5 vs 5, media pista y marcadores propios"],
+    ["Muestra", "cada jugada", "Traza cortes, bloqueos y penetraciones"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "handball": [
+    ["Planifica", "cada ataque", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu alineación", "Equipos completos, cambios y marcadores"],
+    ["Muestra", "cada desmarque", "Traza desmarques, bloqueos y contraataques"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "waterPolo": [
+    ["Planifica", "cada ataque", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu alineación", "Equipos completos, cambios y marcadores"],
+    ["Muestra", "cada jugada", "Traza nados, pases y superioridad"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "rugby": [
+    ["Planifica", "cada fase", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu alineación", "Equipos completos, cambios y marcadores"],
+    ["Muestra", "cada carrera", "Traza carreras, rucks y juego por fases"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "fieldHockey": [
+    ["Planifica", "cada ataque", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu alineación", "Equipos completos, cambios y marcadores"],
+    ["Muestra", "cada desmarque", "Traza desmarques, pases y presión"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "baseball": [
+    ["Planifica", "cada jugada", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "tu alineación", "Bateadores, defensores y marcadores propios"],
+    ["Muestra", "cada jugada", "Traza lanzamientos, carreras y defensas"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ],
+  "tactics_board": [
+    ["Planifica", "cada deporte", "Mueve jugadores y dibuja tácticas en segundos"],
+    ["Coloca", "cada jugador", "Crea formaciones con marcadores numerados"],
+    ["Crea", "tu secuencia", "Ordena cada movimiento en una jugada clara"],
+    ["Añade", "cualquier duelo", "Equipos, balones y marcadores propios"],
+    ["Muestra", "cada jugada", "Traza carreras, rutas y patrones de juego"],
+    ["Anima", "el ejercicio", "Reproduce cada paso y visualiza el movimiento"]
+  ]
+}

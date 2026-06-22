@@ -6,88 +6,57 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
-import 'package:tactics_board/models/drawing_stroke.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/pages/home_page.dart';
-import 'package:tactics_board/pages/sport_selection_page.dart';
-import 'package:tactics_board/widgets/timeline_editor.dart';
+import 'package:tactics_board/widgets/toolbar.dart';
 
-final outDir = '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/screenshots_localized';
+// V2 raw app screenshots for the "PLAN EVERY RALLY" design.
+// Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..6}.png
+// 6-shot story: empty · formation · timeline · add-menu · routes · playback.
+final outDir =
+    '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/screenshots_v2_raw';
 
-final allLocales = [
+// (ASC locale name, Flutter locale). 11 store locales.
+final allLocales = <(String, Locale)>[
   ('en-US', const Locale('en', 'US')),
-  ('zh-Hans', const Locale('zh', 'CN')),
+  ('es-ES', const Locale('es', 'ES')),
+  ('fr-FR', const Locale('fr', 'FR')),
+  ('id', const Locale('id', 'ID')),
   ('ja', const Locale('ja', 'JP')),
   ('ko', const Locale('ko', 'KR')),
+  ('ms', const Locale('ms', 'MY')),
+  ('th', const Locale('th', 'TH')),
+  ('vi', const Locale('vi', 'VN')),
+  ('zh-Hans', const Locale('zh', 'CN')),
   ('zh-Hant', const Locale('zh', 'TW')),
 ];
+
+final _supportedLocales = allLocales.map((e) => e.$2).toList();
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Localized Screenshots', () {
-    // ═══ Sport Selection Page (all languages) ═══
-    for (final (lang, locale) in allLocales) {
-      testWidgets('selection_$lang', (t) async {
-        await _launchSelection(t, locale);
-        await _shot(binding, 'tactics_board/$lang/s1_sport_selection');
-      });
-    }
-
-    // ═══ Per-sport screenshots (6 each) ═══
+  group('Screenshots V2', () {
     for (final sport in SportType.values) {
       final sn = sport.name;
       for (final (lang, locale) in allLocales) {
-        // s1: Initial empty court
+        // s1: empty court
         testWidgets('${sn}_${lang}_s1', (t) async {
           await _launchSport(t, sport, locale);
-          await _shot(binding, '$sn/$lang/s1_empty');
+          await _shot(binding, '$sn/$lang/s1');
         });
 
-        // s2: Formation applied
+        // s2: formation (players placed)
         testWidgets('${sn}_${lang}_s2', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          if (sport.formations.isNotEmpty) {
-            s.applyFormation(sport.formations[0]);
-          }
+          if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s2_formation');
+          await _shot(binding, '$sn/$lang/s2');
         });
 
-        // s3: Drawing annotations
+        // s3: timeline editor
         testWidgets('${sn}_${lang}_s3', (t) async {
-          await _launchSport(t, sport, locale);
-          final s = _state(t);
-          if (sport.formations.isNotEmpty) {
-            s.applyFormation(sport.formations.length > 1 ? sport.formations[1] : sport.formations[0]);
-          }
-          await t.pumpAndSettle();
-          s.setDrawingMode(true);
-          s.setStrokeColor(const Color(0xFFFFD600));
-          s.setArrowStyle(ArrowStyle.end);
-          s.setStrokeStyle(StrokeStyle.solid);
-          s.setStrokeWidth(3.0);
-          _draw(s, 0.35, 0.65, 0.60, 0.40);
-          _draw(s, 0.65, 0.60, 0.45, 0.35);
-          s.setStrokeColor(const Color(0xFF43A047));
-          _draw(s, 0.50, 0.70, 0.50, 0.45);
-          await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s3_drawing');
-        });
-
-        // s4: Moves added — home player 1 moves 3 times, home player 2 moves 3 times
-        testWidgets('${sn}_${lang}_s4', (t) async {
-          await _launchSport(t, sport, locale);
-          final s = _state(t);
-          _setupFormationAndMoves(s, sport);
-          s.selectPlayer(null);
-          await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s4_moves');
-        });
-
-        // s5: Timeline editor — court visible with timeline panel pinned at bottom
-        testWidgets('${sn}_${lang}_s5', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
           _setupFormationAndMoves(s, sport);
@@ -95,36 +64,48 @@ void main() {
           await t.pumpAndSettle();
           await t.tap(find.byIcon(Icons.view_timeline));
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s5_timeline');
+          await _shot(binding, '$sn/$lang/s3');
         });
 
-        // s6: Step-by-step playback — at step 2
+        // s4: Add-element bottom sheet (match setups)
+        testWidgets('${sn}_${lang}_s4', (t) async {
+          await _launchSport(t, sport, locale);
+          final ctx = t.element(find.byType(TacticsBoardHomePage));
+          showAddElementSheet(ctx, _state(t));
+          await t.pumpAndSettle();
+          await _shot(binding, '$sn/$lang/s4');
+        });
+
+        // s5: routes / moves with arrows
+        testWidgets('${sn}_${lang}_s5', (t) async {
+          await _launchSport(t, sport, locale);
+          final s = _state(t);
+          _setupFormationAndMoves(s, sport);
+          s.selectPlayer(null);
+          await t.pumpAndSettle();
+          await _shot(binding, '$sn/$lang/s5');
+        });
+
+        // s6: step-by-step playback (at step 2)
         testWidgets('${sn}_${lang}_s6', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
           _setupFormationAndMoves(s, sport);
           s.selectPlayer(null);
-          // Step forward twice
           s.stepForward();
           s.stepForward();
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s6_playback');
+          await _shot(binding, '$sn/$lang/s6');
         });
       }
     }
   });
 }
 
-/// Setup formation + moves + sequential phases
 void _setupFormationAndMoves(TacticsState s, SportType sport) {
-  if (sport.formations.isNotEmpty) {
-    s.applyFormation(sport.formations[0]);
-  }
-  final c = s.canvasSize;
+  if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
   final home = s.players.where((p) => p.team == PlayerTeam.home).toList();
-  if (home.isNotEmpty) {
-    _addMovesToState(s, sport, home);
-  }
+  if (home.isNotEmpty) _addMovesToState(s, sport, home);
 }
 
 void _addMovesToState(TacticsState s, SportType sport, List<PlayerIcon> home) {
@@ -140,7 +121,6 @@ void _addMovesToState(TacticsState s, SportType sport, List<PlayerIcon> home) {
     s.addPlayerMove(p2.id, Offset(c.width * 0.30, c.height * baseY2));
     s.addPlayerMove(p2.id, Offset(c.width * 0.50, c.height * (baseY2 + 0.05)));
     s.addPlayerMove(p2.id, Offset(c.width * 0.70, c.height * (baseY2 + 0.02)));
-    // Sequential phases: p1 on 0,2,4; p2 on 1,3,5
     s.setMovePhase(p1.id, 0, 0);
     s.setMovePhase(p1.id, 1, 2);
     s.setMovePhase(p1.id, 2, 4);
@@ -148,38 +128,6 @@ void _addMovesToState(TacticsState s, SportType sport, List<PlayerIcon> home) {
     s.setMovePhase(p2.id, 1, 3);
     s.setMovePhase(p2.id, 2, 5);
   }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// Helpers
-// ═══════════════════════════════════════════════════════════════════════════════
-
-final _supportedLocales = allLocales.map((e) => e.$2).toList();
-
-Future<void> _launchSelection(WidgetTester t, Locale locale) async {
-  await EasyLocalization.ensureInitialized();
-  await t.pumpWidget(
-    EasyLocalization(
-      supportedLocales: _supportedLocales,
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en', 'US'),
-      startLocale: locale,
-      child: Builder(builder: (ctx) {
-        return ChangeNotifierProvider(
-          create: (_) => TacticsState(),
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: ctx.localizationDelegates,
-            supportedLocales: ctx.supportedLocales,
-            locale: locale,
-            theme: _theme(),
-            home: const SportSelectionPage(),
-          ),
-        );
-      }),
-    ),
-  );
-  await t.pumpAndSettle();
 }
 
 Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async {
@@ -209,29 +157,19 @@ Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async 
 }
 
 ThemeData _theme() => ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark),
-  scaffoldBackgroundColor: const Color(0xFF0D0D1A),
-  sliderTheme: const SliderThemeData(
-    thumbColor: Colors.blue,
-    activeTrackColor: Colors.blue,
-    inactiveTrackColor: Colors.white24,
-  ),
-);
+      colorScheme:
+          ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark),
+      scaffoldBackgroundColor: const Color(0xFF0D0D1A),
+      sliderTheme: const SliderThemeData(
+        thumbColor: Colors.blue,
+        activeTrackColor: Colors.blue,
+        inactiveTrackColor: Colors.white24,
+      ),
+    );
 
 TacticsState _state(WidgetTester t) {
   final ctx = t.element(find.byType(TacticsBoardHomePage));
   return Provider.of<TacticsState>(ctx, listen: false);
-}
-
-void _draw(TacticsState s, double fx, double fy, double tx, double ty) {
-  final c = s.canvasSize;
-  final from = Offset(fx * c.width, fy * c.height);
-  final to = Offset(tx * c.width, ty * c.height);
-  s.startStroke(from);
-  for (int i = 1; i <= 8; i++) {
-    s.addPoint(Offset.lerp(from, to, i / 8.0)!);
-  }
-  s.endStroke();
 }
 
 Future<void> _shot(IntegrationTestWidgetsFlutterBinding b, String name) async {
