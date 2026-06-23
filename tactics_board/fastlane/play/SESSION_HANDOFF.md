@@ -1,5 +1,29 @@
 # Google Play 发布 · 会话续接备忘
 
+---
+
+## 🆕 会话存档 2026-06-23 — 4 个上架 app 换 V2 截图 + 推送 Play
+
+把 **basketball / badminton / soccer / volleyball** 4 个 Play app 的截图换成 App Store 同款
+**V2「PLAN EVERY RALLY」设计**，并推送到 Google Play（含 11 语言 listing 文本 + 图形），4/4 自动送审成功。
+
+- **尺寸坑**：V2 合成器出 1290×2796（App Store 6.7"），比 Play 的 **≤2:1** 上限更高 → Play 拒。
+  新工具 `tool/play_v2_screenshots.py` 复用 `aso_design_compositor.py`（零改动），**只猴补丁画布到
+  1440×2868**；手机截图锁定原宽高比，加宽画布只是加宽深蓝边距，不变形。
+- **生成**：`python3 tool/play_v2_screenshots.py basketball soccer volleyball badminton`
+  → 覆盖各 `fastlane/play/<sport>/metadata/android/en-US/images/phoneScreenshots/{1..6}.png`（24 张，1440×2868 / 24-bit / 无 alpha）。
+- **推送**：`python3 tool/play_push.py --commit basketball badminton soccer volleyball`
+  （androidpublisher Edits API，service account `~/projects/keys/learnthai-play-api.json`，
+  推 11 语言 listing 文本 + en-US icon/featureGraphic/6 截图，自动送审）。先 DRY-RUN 4/4 过再 commit。
+  ⚠️ **本次只推 listing+图形，未推新 AAB**——应用包没动。
+- **目录迁移**：仓库从 `~/Desktop/projects/board100` 移到 `~/projects/board100`；硬编码路径已全量
+  替换并 commit（`7f77920`，50 文件 / 66 路径），`flutter clean` 清掉旧构建缓存。
+- **Git**：分支 `aso/screenshots-v2`，已推 origin。`7f77920` 路径迁移 → `5a05740` Play V2 图+工具。
+- **待办**：Play 审核几小时~1~2 天才上线；其余 12 个未上架运动若要做，需先在 Play Console 手建 app 再
+  `play_v2_screenshots.py --all` + `play_push.py`。
+
+---
+
 > 最后更新：2026-05-19
 > 状态：篮球/足球/排球/羽毛球 4 个 app 的 Google Play 素材已全部产出，**未 commit**。
 > 范围：文案 + 图形 + 签名 AAB，store listing 仅 en-US。
