@@ -9,7 +9,7 @@
 #
 # Required:
 #   - flutter, dart, Xcode toolchain configured for iOS signing
-#   - ASC API key at /Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8
+#   - ASC API key at /Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8
 #   - bundle gem install fastlane (Fastfile lane setup)
 #   - gtimeout (brew install coreutils)
 

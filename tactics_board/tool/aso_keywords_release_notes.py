@@ -3,7 +3,7 @@
 keywords: ≤100 chars, comma-separated, no spaces around commas.
 release_notes: marketing-toned changelog (≤4000, target ≤500)."""
 import os
-BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/fastlane/metadata"
+BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
 # ════════════════════════════════════════════════════════════════════
 # RELEASE NOTES — same hero feature across the lineup, locale-tuned tone

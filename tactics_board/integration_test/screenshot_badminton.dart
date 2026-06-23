@@ -10,7 +10,7 @@ import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/pages/home_page.dart';
 
 final outDir =
-    '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/screenshots_raw';
+    '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_raw';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();

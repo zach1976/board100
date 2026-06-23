@@ -10,7 +10,7 @@ import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/widgets/sport_glyph.dart';
 
 const _outDir =
-    '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/glyphs';
+    '/Users/zhenyusong/projects/board100/tactics_board/aso/glyphs';
 
 void main() {
   Directory(_outDir).createSync(recursive: true);

@@ -4,8 +4,8 @@ import jwt, time, requests, json, os, sys
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
-KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-META_BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/fastlane/metadata"
+KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
+META_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
 APPS = {
     "tactics_board": "com.zach.tacticsBoard",

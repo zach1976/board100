@@ -30,7 +30,7 @@ Usage:
     python3 upload_data_safety.py --post tactics_board  # POST one app
     python3 upload_data_safety.py --post                # POST all configured apps
 
-Service account key: PLAY_SERVICE_ACCOUNT_KEY (env or ~/Desktop/projects/.env),
+Service account key: PLAY_SERVICE_ACCOUNT_KEY (env or ~/projects/.env),
 else the learnthai-play-api.json default. Deps: google-auth.
 """
 import os, sys, json, io, csv, socket, urllib.request, urllib.error
@@ -38,7 +38,7 @@ import os, sys, json, io, csv, socket, urllib.request, urllib.error
 BASE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(BASE, "data_safety", "template_full.json")
 OUTDIR = os.path.join(BASE, "data_safety")
-PROJ_ENV = os.path.expanduser("~/Desktop/projects/.env")
+PROJ_ENV = os.path.expanduser("~/projects/.env")
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3"
 SCOPES = ["https://www.googleapis.com/auth/androidpublisher"]
 
@@ -51,7 +51,7 @@ def load_key():
             if s.startswith("PLAY_SERVICE_ACCOUNT_KEY") and "=" in s:
                 p = s.split("=", 1)[1].strip().strip('"').strip("'")
                 break
-    return p or "/Users/zhenyusong/Desktop/projects/keys/learnthai-play-api.json"
+    return p or "/Users/zhenyusong/projects/keys/learnthai-play-api.json"
 
 
 KEY = load_key()

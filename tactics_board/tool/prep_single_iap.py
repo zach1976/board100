@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
-PK = open("/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8").read()
+PK = open("/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8").read()
 B = "https://api.appstoreconnect.apple.com"
 VERSION = "1.1.18"
 WHATS_NEW = ("• New: remove ads with a one-time purchase\n"
