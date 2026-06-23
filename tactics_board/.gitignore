@@ -66,3 +66,7 @@ android/app/src/main/res/drawable-*/android12splash.png
 
 # fastlane lane run output (transient test report)
 tool/app_privacy/fastlane/report.xml
+
+# v2 screenshot throwaway previews
+aso/sample_v2/
+aso/design_sample_badminton_s1.png
