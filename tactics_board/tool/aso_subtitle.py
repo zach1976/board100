@@ -2,7 +2,7 @@
 """Batch C: subtitle for 16 apps × 11 locales = 176 files.
 30-char hard limit. Benefit-led, sport-flavored where space allows."""
 import os
-BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/fastlane/metadata"
+BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
 # Per-locale benefit-led subtitle. {S} = sport noun (short form).
 # Two variants per locale: SHORT (when sport name fits) vs FALLBACK (universal).

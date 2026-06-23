@@ -4,7 +4,7 @@
 Stronger leads, sport-specific bullets, social proof, CTA. ≤4000 chars each.
 Pattern: HOOK -> ELEVATOR -> 3 sections (Plan/Formation/Sideline) -> SOCIAL_PROOF -> CTA"""
 import os
-BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/fastlane/metadata"
+BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
 # ════════════════════════════════════════════════════════════════════
 # Per-sport DNA

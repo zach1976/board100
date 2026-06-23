@@ -21,7 +21,7 @@ Usage:
   python3 tool/play_push.py --commit tactics_board   # actually push
   python3 tool/play_push.py --commit tennis rugby    # several apps
 
-Service account: PLAY_SERVICE_ACCOUNT_KEY (env or ~/Desktop/projects/.env),
+Service account: PLAY_SERVICE_ACCOUNT_KEY (env or ~/projects/.env),
 else the learnthai-play-api.json default (account-level Admin).
 Deps: google-auth (already installed).
 """
@@ -39,7 +39,7 @@ socket.setdefaulttimeout(180)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLAY = os.path.join(ROOT, "fastlane", "play")
-PROJ_ENV = os.path.expanduser("~/Desktop/projects/.env")
+PROJ_ENV = os.path.expanduser("~/projects/.env")
 
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3"
 UPLOAD = "https://androidpublisher.googleapis.com/upload/androidpublisher/v3"
@@ -58,7 +58,7 @@ def load_key():
             if s.startswith("PLAY_SERVICE_ACCOUNT_KEY") and "=" in s:
                 p = s.split("=", 1)[1].strip().strip('"').strip("'")
                 break
-    return p or "/Users/zhenyusong/Desktop/projects/keys/learnthai-play-api.json"
+    return p or "/Users/zhenyusong/projects/keys/learnthai-play-api.json"
 
 
 KEY = load_key()

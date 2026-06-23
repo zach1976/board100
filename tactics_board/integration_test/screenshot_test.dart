@@ -11,7 +11,7 @@ import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/pages/sport_selection_page.dart';
 
-final outDir = '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/screenshots_raw';
+final outDir = '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_raw';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();

@@ -4,7 +4,7 @@ default_platform(:ios)
 API_KEY = app_store_connect_api_key(
   key_id: "4A9Y2S3D6X",
   issuer_id: "3d46fac5-4873-4806-bf23-3f8f17eddbbe",
-  key_filepath: "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8",
+  key_filepath: "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8",
 )
 
 # ── App configs ──────────────────────────────────────────────────────────────

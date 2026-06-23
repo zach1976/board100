@@ -3,7 +3,7 @@
 import jwt, time, json, os, urllib.request, urllib.error, base64
 import requests as _requests
 
-KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
+KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 BASE = "https://api.appstoreconnect.apple.com"

@@ -14,7 +14,7 @@ import 'package:tactics_board/widgets/toolbar.dart';
 // Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..6}.png
 // 6-shot story: empty · formation · timeline · add-menu · routes · playback.
 final outDir =
-    '/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/screenshots_v2_raw';
+    '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw';
 
 // (ASC locale name, Flutter locale). 11 store locales.
 final allLocales = <(String, Locale)>[

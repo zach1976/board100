@@ -11,7 +11,7 @@
 # Override the env file location with PROJECTS_ENV=/path/to/.env
 set -euo pipefail
 
-ENV_FILE="${PROJECTS_ENV:-$HOME/Desktop/projects/.env}"
+ENV_FILE="${PROJECTS_ENV:-$HOME/projects/.env}"
 [[ -f "$ENV_FILE" ]] || { echo "env file not found: $ENV_FILE" >&2; exit 1; }
 
 # Extract only the FASTLANE_* keys (the .env has other, non-sourceable content).

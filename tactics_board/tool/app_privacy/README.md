@@ -20,13 +20,13 @@ uses.
   ScoreSyncer template, whose apps show ATT.)
 - `fastlane/Fastfile` — the `privacy` / `verify` lanes.
 - `run.sh` — reads `FASTLANE_USER` / `FASTLANE_ITC_TEAM_ID` / `FASTLANE_SESSION`
-  from `~/Desktop/projects/.env` and runs the lane.
+  from `~/projects/.env` and runs the lane.
 
 ## One-time auth — needs 2FA, must be a REAL terminal (cannot be automated)
 ```bash
 fastlane spaceauth -u zachsong@gmail.com   # Apple ID password + 2FA code
 ```
-Paste the printed `FASTLANE_SESSION='...'` into `~/Desktop/projects/.env`
+Paste the printed `FASTLANE_SESSION='...'` into `~/projects/.env`
 (uncomment the `FASTLANE_SESSION=` line). Lasts ~30 days.
 
 ## Then push (from this folder)

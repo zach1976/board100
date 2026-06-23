@@ -8,7 +8,7 @@ Sport name is interpolated as {S} per locale.
 Usage: python3 tool/aso_promo.py
 """
 import os
-BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/fastlane/metadata"
+BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
 PROMO = {
     "en-US": "NEW Timeline Editor: animate multi-phase {S} plays step by step. Free, offline, no ads. Built for coaches who think in pictures.",

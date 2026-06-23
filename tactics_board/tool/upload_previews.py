@@ -21,8 +21,8 @@ import requests
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
-KEY_FILE = "/Users/zhenyusong/Desktop/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-PREVIEWS_BASE = "/Users/zhenyusong/Desktop/projects/board100/tactics_board/aso/previews"
+KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
+PREVIEWS_BASE = "/Users/zhenyusong/projects/board100/tactics_board/aso/previews"
 BASE = "https://api.appstoreconnect.apple.com/v1"
 PREVIEW_TYPE = "IPHONE_67"  # 6.7"/6.9" display — accepts 1320×2868
 
