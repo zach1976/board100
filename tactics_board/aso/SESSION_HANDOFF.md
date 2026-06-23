@@ -19,7 +19,11 @@
 - 文档:`board100/SCREENSHOT_PIPELINE_V2.md`(工具参考)、`board100/HOWTO_截图设计_多语言.md`(方法)。
 - 踩坑:撤回 IN_REVIEW 后变 DEVELOPER_REJECTED(可编辑可上传);pubspec 的 `integration_test`
   跑捕获时临时开、**已改回注释 + pub get**;不用真器材摄影图,统一扁平 SportGlyph。
-- Git:分支 `aso/screenshots-v2`,commit `90cb155`,已推送 origin。
+  ⚠️ `flutter pub get` 不会回滚 **ios/Podfile.lock** 里被 pod install 写入的 `integration_test`
+  —— 必须手动 `git checkout ios/Podfile.lock` 还原,否则下次 iOS 发版被 App Store 拒。已还原。
+- Git:分支 `aso/screenshots-v2`,已推送 origin,最新 `26e0579`。
+  commits:`90cb155` V2 截图+工具+原图 → `37b70b0` 方法文档+存档 → `26e0579` gitignore 预览产物。
+  `aso/sample_v2/` 与 `design_sample_badminton_s1.png` 已 gitignore;工作区干净。
 
 ---
 
