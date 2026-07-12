@@ -9,7 +9,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/player_icon.dart';
-import '../models/drawing_stroke.dart';
 import '../models/player_photo.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
@@ -31,6 +30,8 @@ import '../painters/table_tennis_court_painter.dart';
 import '../painters/tennis_court_painter.dart';
 import '../painters/volleyball_court_painter.dart';
 import '../painters/water_polo_court_painter.dart';
+import '../models/tactic_meta.dart';
+import '../pages/save_tactic_page.dart';
 import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
@@ -38,6 +39,7 @@ import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import 'element_import_flow.dart';
+import 'line_style_sheet.dart';
 import 'marker_shape_clipper.dart';
 import 'photo_crop_editor.dart';
 import 'photo_import_sheet.dart';
@@ -747,8 +749,24 @@ class _SaveLoadSheet extends StatefulWidget {
 }
 
 class _SaveLoadSheetState extends State<_SaveLoadSheet> {
-  late final _nameCtrl = TextEditingController(text: widget.state.currentTacticName ?? '');
-  List<String> _saved = [];
+  List<TacticMeta> _metas = [];
+
+  List<String> get _saved => _metas.map((m) => m.name).toList();
+
+  /// Boards bucketed by folder, default folder ('') first then alphabetical.
+  List<MapEntry<String, List<TacticMeta>>> get _grouped {
+    final byFolder = <String, List<TacticMeta>>{};
+    for (final m in _metas) {
+      byFolder.putIfAbsent(m.folder, () => []).add(m);
+    }
+    final keys = byFolder.keys.toList()
+      ..sort((a, b) {
+        if (a.isEmpty) return -1;
+        if (b.isEmpty) return 1;
+        return a.compareTo(b);
+      });
+    return [for (final k in keys) MapEntry(k, byFolder[k]!)];
+  }
 
   @override
   void initState() {
@@ -757,8 +775,62 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
   }
 
   Future<void> _loadList() async {
-    final list = await widget.state.listSavedTactics();
-    if (mounted) setState(() => _saved = list);
+    final metas = await widget.state.listSavedTacticMetas();
+    if (mounted) setState(() => _metas = metas);
+  }
+
+  /// Opens the full-page save form, then persists what it returns.
+  Future<void> _openSavePage() async {
+    final existing = widget.state.currentTacticName;
+    final initial =
+        existing == null ? null : await widget.state.readTacticMeta(existing);
+    if (!mounted) return;
+
+    final meta = await Navigator.of(context).push<TacticMeta>(
+      MaterialPageRoute(
+        builder: (_) => SaveTacticPage(
+            state: widget.state, initial: initial, knownMetas: _metas),
+      ),
+    );
+    if (meta == null || !mounted) return;
+
+    // Saving under a name that already belongs to a different board replaces
+    // it — make the user say so.
+    if (meta.name != existing && _saved.contains(meta.name)) {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          backgroundColor: kSurface,
+          title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
+          content: Text(meta.name,
+              style: const TextStyle(color: Colors.white70)),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: Text('cancel'.tr())),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text('confirm'.tr(),
+                  style: const TextStyle(color: Color(0xFF00C2B2))),
+            ),
+          ],
+        ),
+      );
+      if (ok != true || !mounted) return;
+    }
+
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+    try {
+      await widget.state.saveTactics(meta.name, meta: meta);
+      navigator.pop();
+      messenger.showSnackBar(
+        SnackBar(content: Text('${'save_success'.tr()}: ${meta.name}')),
+      );
+    } catch (e) {
+      debugPrint('Save error: $e');
+      messenger.showSnackBar(SnackBar(content: Text('Save failed: $e')));
+    }
   }
 
   Future<void> _renameTactic(String oldName) async {
@@ -826,12 +898,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
   }
 
   @override
-  void dispose() {
-    _nameCtrl.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
@@ -849,124 +915,123 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
               ],
             ),
           ),
-          // Save new
+          // Save new — opens the full-page form (name / folder / description).
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _nameCtrl,
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                    decoration: InputDecoration(
-                      hintText: 'tactics_name'.tr(),
-                      hintStyle: const TextStyle(color: Colors.white30),
-                      filled: true,
-                      fillColor: Colors.white.withValues(alpha: 0.08),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-                    ),
+            child: SizedBox(
+              width: double.infinity,
+              child: GestureDetector(
+                onTap: _openSavePage,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.add, color: Colors.white, size: 18),
+                      const SizedBox(width: 6),
+                      Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                    ],
                   ),
                 ),
-                const SizedBox(width: 10),
-                GestureDetector(
-                  onTap: () async {
-                    final name = _nameCtrl.text.trim();
-                    final messenger = ScaffoldMessenger.of(context);
-                    final navigator = Navigator.of(context);
-                    if (name.isEmpty) {
-                      messenger.showSnackBar(
-                        SnackBar(content: Text('tactics_name'.tr())),
-                      );
-                      return;
-                    }
-                    try {
-                      await widget.state.saveTactics(name);
-                      navigator.pop();
-                      messenger.showSnackBar(
-                        SnackBar(content: Text('${'save_success'.tr()}: $name')),
-                      );
-                    } catch (e) {
-                      debugPrint('Save error: $e');
-                      messenger.showSnackBar(
-                        SnackBar(content: Text('Save failed: $e')),
-                      );
-                    }
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(10)),
-                    child: Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-          // Saved list
-          if (_saved.isNotEmpty) ...[
+          // Saved list, grouped by folder
+          if (_metas.isNotEmpty) ...[
             const Divider(color: Colors.white12),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
               child: Text('load'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13)),
             ),
             ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 200),
-              child: ListView.builder(
+              constraints: const BoxConstraints(maxHeight: 260),
+              child: ListView(
                 shrinkWrap: true,
-                itemCount: _saved.length,
-                itemBuilder: (ctx, i) {
-                  final name = _saved[i];
-                  return ListTile(
-                    dense: true,
-                    leading: const Icon(Icons.description, color: Colors.white38, size: 20),
-                    title: Text(name, style: const TextStyle(color: Colors.white, fontSize: 14)),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                          icon: const Icon(Icons.drive_file_rename_outline, color: Colors.white54, size: 20),
-                          onPressed: () => _renameTactic(name),
-                          tooltip: 'Rename',
-                        ),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                          icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00C2B2), size: 20),
-                          onPressed: () => _overwriteTactic(name),
-                          tooltip: 'Update',
-                        ),
-                        const SizedBox(width: 2),
-                        GestureDetector(
-                          onTap: () async {
-                            await widget.state.loadTactics(name);
-                            if (context.mounted) Navigator.pop(context);
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-                            child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
-                          onPressed: () async {
-                            await widget.state.deleteTactics(name);
-                            await _loadList();
-                          },
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                children: [
+                  for (final entry in _grouped) ...[
+                    _folderHeader(entry.key, entry.value.length),
+                    for (final meta in entry.value) _tacticTile(meta),
+                  ],
+                ],
               ),
             ),
           ],
           const SizedBox(height: 8),
+        ],
+      ),
+    );
+  }
+
+  Widget _folderHeader(String folder, int count) => Padding(
+        padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+        child: Row(
+          children: [
+            const Icon(Icons.folder_outlined, color: Colors.white38, size: 16),
+            const SizedBox(width: 6),
+            Text(folder.isEmpty ? 'folder_default'.tr() : folder,
+                style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600)),
+            const SizedBox(width: 6),
+            Text('$count',
+                style: const TextStyle(color: Colors.white30, fontSize: 12)),
+          ],
+        ),
+      );
+
+  Widget _tacticTile(TacticMeta meta) {
+    final name = meta.name;
+    return ListTile(
+      dense: true,
+      leading: const Icon(Icons.description, color: Colors.white38, size: 20),
+      title: Text(name, style: const TextStyle(color: Colors.white, fontSize: 14)),
+      subtitle: meta.description.isEmpty
+          ? null
+          : Text(meta.description,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: Colors.white38, fontSize: 12)),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            icon: const Icon(Icons.drive_file_rename_outline, color: Colors.white54, size: 20),
+            onPressed: () => _renameTactic(name),
+            tooltip: 'Rename',
+          ),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00C2B2), size: 20),
+            onPressed: () => _overwriteTactic(name),
+            tooltip: 'Update',
+          ),
+          const SizedBox(width: 2),
+          GestureDetector(
+            onTap: () async {
+              await widget.state.loadTactics(name);
+              if (context.mounted) Navigator.pop(context);
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
+              child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+            ),
+          ),
+          const SizedBox(width: 4),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+            onPressed: () async {
+              await widget.state.deleteTactics(name);
+              await _loadList();
+            },
+          ),
         ],
       ),
     );
@@ -4124,15 +4189,6 @@ class DrawingOptionsBar extends StatelessWidget {
   final bool showOptions;
   const DrawingOptionsBar({super.key, required this.state, this.showOptions = false});
 
-  static const _colors = [
-    Color(0xFFFFD600),
-    Colors.white,
-    Color(0xFFE53935),
-    Color(0xFF43A047),
-    Color(0xFF1E88E5),
-    Color(0xFFFF6F00),
-  ];
-
   @override
   Widget build(BuildContext context) {
     final sel = state.selectedStroke;
@@ -4173,43 +4229,43 @@ class DrawingOptionsBar extends StatelessWidget {
               ],
             ),
           ),
-        // Row 1: line style + arrow
+        // Row 1: line style picker + eraser
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                _ToggleChip(
-                  label: 'line_solid'.tr(),
-                  selected: state.strokeStyle == StrokeStyle.solid,
-                  onTap: () => state.setStrokeStyle(StrokeStyle.solid),
-                ),
-                const SizedBox(width: 6),
-                _ToggleChip(
-                  label: 'line_dashed'.tr(),
-                  selected: state.strokeStyle == StrokeStyle.dashed,
-                  onTap: () => state.setStrokeStyle(StrokeStyle.dashed),
-                ),
-                const SizedBox(width: 14),
-                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
-                const SizedBox(width: 14),
-                _ToggleChip(
-                  label: 'arrow_none'.tr(),
-                  selected: state.arrowStyle == ArrowStyle.none,
-                  onTap: () => state.setArrowStyle(ArrowStyle.none),
-                ),
-                const SizedBox(width: 6),
-                _ToggleChip(
-                  label: '→',
-                  selected: state.arrowStyle == ArrowStyle.end,
-                  onTap: () => state.setArrowStyle(ArrowStyle.end),
-                ),
-                const SizedBox(width: 6),
-                _ToggleChip(
-                  label: '↔',
-                  selected: state.arrowStyle == ArrowStyle.both,
-                  onTap: () => state.setArrowStyle(ArrowStyle.both),
+                // Opens the full grid of body × dash × terminator combinations.
+                GestureDetector(
+                  onTap: () => showLineStyleSheet(context, state),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8 * s, vertical: 4 * s),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.white24),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('line_label'.tr(),
+                            style: TextStyle(color: Colors.white70, fontSize: 12 * s)),
+                        SizedBox(width: 6 * s),
+                        CustomPaint(
+                          size: Size(56 * s, 22 * s),
+                          painter: LineStylePreviewPainter(
+                            shape: state.lineShape,
+                            dash: state.strokeStyle,
+                            arrow: state.arrowStyle,
+                            color: state.strokeColor,
+                          ),
+                        ),
+                        SizedBox(width: 4 * s),
+                        Icon(Icons.expand_more, color: Colors.white54, size: 16 * s),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 14),
                 const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
@@ -4231,7 +4287,7 @@ class DrawingOptionsBar extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
             child: Row(
               children: [
-                ..._colors.map((c) => _ColorDot(
+                ...kStrokeColors.map((c) => _ColorDot(
                       color: c,
                       selected: state.strokeColor == c,
                       onTap: () => state.setStrokeColor(c),
