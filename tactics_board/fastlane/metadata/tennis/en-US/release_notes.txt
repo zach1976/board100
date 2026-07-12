@@ -1,1 +1,4 @@
-Performance improvements and minor refinements.
+• New line & arrow styles: straight, curved, or wavy lines — solid or dashed — with arrow, double-arrow, cross, and stop-bar ends.
+• Cleaner drawing: lines are now straight by default and automatically smooth out hand shake.
+• Save boards into folders, and add a description and coaching points.
+• The Select tool is now available in landscape too.

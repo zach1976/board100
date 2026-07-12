@@ -1,1 +1,4 @@
-Mejoras de rendimiento y pequeños ajustes.
+• Nuevos estilos de líneas y flechas: rectas, curvas u onduladas, continuas o discontinuas, con puntas de flecha, doble flecha, cruz y barra de parada.
+• Trazo más limpio: las líneas ahora son rectas por defecto y suavizan automáticamente el pulso de la mano.
+• Guarda las pizarras en carpetas y añade una descripción y puntos clave.
+• La herramienta Seleccionar ya está disponible en modo horizontal.
