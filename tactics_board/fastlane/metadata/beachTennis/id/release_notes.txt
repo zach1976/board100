@@ -1,1 +1,4 @@
-Peningkatan performa dan penyempurnaan kecil.
+• Gaya garis & panah baru: lurus, melengkung, atau bergelombang — solid atau putus-putus — dengan ujung panah, panah ganda, silang, dan garis henti.
+• Menggambar lebih rapi: garis kini lurus secara default dan otomatis meredam getaran tangan.
+• Simpan papan ke dalam folder, lengkap dengan deskripsi dan poin kepelatihan.
+• Alat Pilih kini tersedia dalam mode lanskap.

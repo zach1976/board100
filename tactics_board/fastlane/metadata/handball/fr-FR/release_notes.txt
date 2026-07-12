@@ -1,1 +1,4 @@
-Améliorations des performances et ajustements mineurs.
+• Nouveaux styles de traits et de flèches : lignes droites, courbes ou ondulées, pleines ou en pointillés, avec extrémités flèche, double flèche, croix et barre d'arrêt.
+• Tracé plus net : les lignes sont droites par défaut et lissent automatiquement les tremblements de la main.
+• Enregistrez vos tableaux dans des dossiers, avec une description et des points clés.
+• L'outil Sélection est désormais disponible en mode paysage.

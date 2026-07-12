@@ -1,1 +1,4 @@
-Peningkatan prestasi dan penambahbaikan kecil.
+• Gaya garisan & anak panah baharu: lurus, melengkung, atau beralun — pejal atau putus-putus — dengan hujung anak panah, anak panah berkembar, pangkah, dan garis henti.
+• Lukisan lebih kemas: garisan kini lurus secara lalai dan meredam gegaran tangan secara automatik.
+• Simpan papan ke dalam folder, dengan penerangan dan poin kejurulatihan.
+• Alat Pilih kini tersedia dalam mod lanskap.
