@@ -13,6 +13,7 @@ import '../models/player_role.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
+import '../models/tactic_meta.dart';
 import '../services/ad_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
@@ -47,6 +48,9 @@ class TacticsState extends ChangeNotifier {
   bool _isDrawingMode = false;
   StrokeStyle _strokeStyle = StrokeStyle.solid;
   ArrowStyle _arrowStyle = ArrowStyle.end;
+  // Straight by default: a tactics board is mostly clean straight passing/run
+  // arrows. Freehand/wavy stay one tap away in the line-style sheet.
+  LineShape _lineShape = LineShape.straight;
   Color _strokeColor = const Color(0xFFFFD600);
   double _strokeWidth = 3.0;
 
@@ -191,6 +195,7 @@ class TacticsState extends ChangeNotifier {
   bool get isDrawingMode => _isDrawingMode;
   StrokeStyle get strokeStyle => _strokeStyle;
   ArrowStyle get arrowStyle => _arrowStyle;
+  LineShape get lineShape => _lineShape;
   Color get strokeColor => _strokeColor;
   double get strokeWidth => _strokeWidth;
   String? get selectedPlayerId => _selectedPlayerId;
@@ -719,6 +724,11 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setLineShape(LineShape shape) {
+    _lineShape = shape;
+    notifyListeners();
+  }
+
   void setStrokeColor(Color color) {
     _strokeColor = color;
     notifyListeners();
@@ -1199,6 +1209,7 @@ class TacticsState extends ChangeNotifier {
       width: _strokeWidth,
       style: _strokeStyle,
       arrow: _arrowStyle,
+      shape: _lineShape,
     );
     notifyListeners();
   }
@@ -1215,10 +1226,54 @@ class TacticsState extends ChangeNotifier {
     if (_currentStroke == null) return;
     if (_currentStroke!.points.length > 1) {
       _saveSnapshot();
-      _strokes.add(_currentStroke!); // phase defaults to -1 (always visible)
+      // phase defaults to -1 (always visible)
+      _strokes.add(_finalizeStroke(_currentStroke!));
     }
     _currentStroke = null;
     notifyListeners();
+  }
+
+  /// Clean up a just-drawn stroke before storing it.
+  ///
+  /// - straight: drop to first→last, so it renders (and hit-tests) as the
+  ///   clean line the user expects.
+  /// - freehand/wavy: run Ramer–Douglas–Peucker to strip hand jitter, so a
+  ///   drag the user meant to be straight actually reads straight instead of a
+  ///   wobbly curve, while deliberate curves keep their shape. hitTestStroke
+  ///   walks these same points, so it stays in sync with what is drawn.
+  DrawingStroke _finalizeStroke(DrawingStroke s) {
+    if (s.points.length <= 2) return s;
+    if (s.shape == LineShape.straight) {
+      return s.copyWith(points: [s.points.first, s.points.last]);
+    }
+    return s.copyWith(points: _simplify(s.points, 3.0));
+  }
+
+  /// Ramer–Douglas–Peucker: keep only the points that make the polyline
+  /// deviate from its chord by more than [epsilon] px.
+  List<Offset> _simplify(List<Offset> pts, double epsilon) {
+    if (pts.length < 3) return pts;
+    double maxDist = 0;
+    int index = 0;
+    for (int i = 1; i < pts.length - 1; i++) {
+      final d = _perpDistance(pts[i], pts.first, pts.last);
+      if (d > maxDist) {
+        maxDist = d;
+        index = i;
+      }
+    }
+    if (maxDist <= epsilon) return [pts.first, pts.last];
+    final left = _simplify(pts.sublist(0, index + 1), epsilon);
+    final right = _simplify(pts.sublist(index), epsilon);
+    return [...left.sublist(0, left.length - 1), ...right];
+  }
+
+  /// Perpendicular distance from [p] to the line through [a] and [b].
+  double _perpDistance(Offset p, Offset a, Offset b) {
+    final len = (b - a).distance;
+    if (len == 0) return (p - a).distance;
+    return ((p.dx - a.dx) * (b.dy - a.dy) - (p.dy - a.dy) * (b.dx - a.dx)).abs() /
+        len;
   }
 
   void selectStroke(String? id) {
@@ -1250,6 +1305,10 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
   }
 
+  // Note: no `shape` parameter. Switching an existing stroke to
+  // LineShape.straight would have to discard its interior points (see
+  // _finalizeStroke), which is unrecoverable. Shape is chosen before the
+  // stroke is drawn.
   void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow}) {
     final idx = _strokes.indexWhere((s) => s.id == id);
     if (idx < 0) return;
@@ -1404,6 +1463,10 @@ class TacticsState extends ChangeNotifier {
 
   String? currentTacticName;
 
+  /// Metadata of the board currently on the canvas, when it came from (or was
+  /// last written to) disk. Lets a quick-save preserve description/folder.
+  TacticMeta? currentTacticMeta;
+
   String? _editingFromPlan;
   String? get editingFromPlan => _editingFromPlan;
   set editingFromPlan(String? v) {
@@ -1415,12 +1478,37 @@ class TacticsState extends ChangeNotifier {
   String? runningPlanName;
   int runningItemIndex = 0;
 
-  Future<String> saveTactics(String name) async {
+  /// Persist the board as `<name>.json`.
+  ///
+  /// [meta] carries the folder/description/coaching points. When omitted (the
+  /// quick-save path, which has no form to fill in) the metadata already on
+  /// disk is preserved and only `updatedAt` moves forward.
+  Future<String> saveTactics(String name, {TacticMeta? meta}) async {
     final dir = await _tacticsDir;
     final file = File('${dir.path}/$name.json');
-    final payload = toJson();
+    final onDisk = await readTacticMeta(name);
+    // Only fall back to the in-memory meta when it describes *this* board:
+    // "save current board as a new tactic" must not inherit the previous
+    // board's folder and description. But when readTacticMeta comes back null
+    // because the file failed to parse, it keeps a quick-save from wiping the
+    // folder and notes of the board the user is looking at.
+    final inMemory = name == currentTacticName ? currentTacticMeta : null;
+    final base = meta ?? onDisk ?? inMemory ?? TacticMeta.initial(name);
+    final resolved = TacticMeta(
+      name: name,
+      folder: base.folder,
+      description: base.description,
+      coachingPoints: base.coachingPoints,
+      // A board keeps its own birthday. Saving board A's canvas over board B
+      // must not stamp A's createdAt onto B.
+      createdAt: onDisk?.createdAt ?? base.createdAt,
+      updatedAt: DateTime.now(),
+    );
+    final payload = toJson()..['meta'] = resolved.toJson();
     await file.writeAsString(jsonEncode(payload));
     currentTacticName = name;
+    currentTacticMeta = resolved;
+    await _registerFolder(resolved.folder);
     CloudSyncService.markLocalChange();
     if (AuthService.instance.isLoggedIn) {
       SyncService.instance.pushTactic(name, _sportType.name, payload);
@@ -1435,12 +1523,76 @@ class TacticsState extends ChangeNotifier {
     final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
     loadFromJson(json);
     currentTacticName = name;
+    currentTacticMeta = _metaFromPayload(json, name);
   }
 
   Future<List<String>> listSavedTactics() async {
     final dir = await _tacticsDir;
     final files = await dir.list().where((f) => f.path.endsWith('.json')).toList();
     return files.map((f) => f.path.split('/').last.replaceAll('.json', '')).toList()..sort();
+  }
+
+  TacticMeta? _metaFromPayload(Map<String, dynamic> json, String name) {
+    final raw = json['meta'];
+    if (raw is! Map) return null;
+    return TacticMeta.fromJson(Map<String, dynamic>.from(raw), name: name);
+  }
+
+  /// Metadata for a saved board, or null when the file is missing or predates
+  /// the metadata format.
+  Future<TacticMeta?> readTacticMeta(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    if (!await file.exists()) return null;
+    try {
+      final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+      return _metaFromPayload(json, name);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Every saved board with its metadata, sorted by name. Boards saved before
+  /// the metadata format get defaults so they still list and group.
+  Future<List<TacticMeta>> listSavedTacticMetas() async {
+    final names = await listSavedTactics();
+    final metas = <TacticMeta>[];
+    for (final name in names) {
+      metas.add(await readTacticMeta(name) ?? TacticMeta.initial(name));
+    }
+    return metas;
+  }
+
+  // ── Folders ──────────────────────────────────────────────────────────────
+  // Folders are a label on the board, not a directory: SyncService keys tactics
+  // by bare name, so nesting the files would break cloud sync. The user's
+  // folder names persist in prefs so an empty folder survives.
+
+  String get _folderPrefsKey => 'tactic_folders_${_sportType.name}';
+
+  Future<void> _registerFolder(String folder) async {
+    if (folder.isEmpty) return;
+    final prefs = await SharedPreferences.getInstance();
+    final saved = prefs.getStringList(_folderPrefsKey) ?? [];
+    if (saved.contains(folder)) return;
+    await prefs.setStringList(_folderPrefsKey, [...saved, folder]);
+  }
+
+  Future<void> createFolder(String folder) => _registerFolder(folder.trim());
+
+  /// User-created folders unioned with folders actually in use, sorted.
+  ///
+  /// [knownMetas] lets a caller that already listed the boards skip a second
+  /// full read-and-decode of every saved file. The scan is only needed for
+  /// folders that never passed through [_registerFolder] locally — boards
+  /// pulled down from another device.
+  Future<List<String>> listFolders({List<TacticMeta>? knownMetas}) async {
+    final prefs = await SharedPreferences.getInstance();
+    final folders = <String>{...?prefs.getStringList(_folderPrefsKey)};
+    for (final meta in knownMetas ?? await listSavedTacticMetas()) {
+      if (meta.folder.isNotEmpty) folders.add(meta.folder);
+    }
+    return folders.toList()..sort();
   }
 
   Future<void> deleteTactics(String name) async {

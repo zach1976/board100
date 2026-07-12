@@ -20,3 +20,15 @@ const Color kSurfaceHi = Color(0xFF20424C);
 
 /// Destructive action colour (delete / clear-all).
 const Color kDanger = Color(0xFFFF6B6B);
+
+/// Palette offered for drawn strokes. Shared by the draw toolbar's swatch row
+/// and the line-style sheet, which must always offer the same set — otherwise
+/// a colour picked in one fails to show as selected in the other.
+const List<Color> kStrokeColors = [
+  Color(0xFFFFD600),
+  Colors.white,
+  Color(0xFFE53935),
+  Color(0xFF43A047),
+  Color(0xFF1E88E5),
+  Color(0xFFFF6F00),
+];

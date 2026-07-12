@@ -273,12 +273,27 @@ class TacticsBoardHomePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
         child: Column(
           children: [
-            // Mode buttons
+            // Mode buttons — Move / Draw / Select, matching the portrait
+            // toolbar's _ModeSegment so landscape exposes the same modes.
             Row(
               children: [
-                Expanded(child: _lBtn('mode_move', !state.isDrawingMode, () => state.setDrawingMode(false))),
+                Expanded(
+                  child: _lBtn(
+                    'mode_move',
+                    !state.isDrawingMode && !state.multiSelectMode,
+                    () {
+                      state.setMultiSelectMode(false);
+                      state.setDrawingMode(false);
+                    },
+                  ),
+                ),
                 const SizedBox(width: 6),
                 Expanded(child: _lBtn('mode_draw', state.isDrawingMode, () => state.setDrawingMode(true))),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: _lBtn('mode_select', state.multiSelectMode,
+                      () => state.setMultiSelectMode(!state.multiSelectMode)),
+                ),
               ],
             ),
             const SizedBox(height: 10),

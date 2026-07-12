@@ -49,27 +49,79 @@ class DrawingPainter extends CustomPainter {
     }
   }
 
-  Path _buildPath(DrawingStroke stroke) {
+  /// The points that define the stroke's spine. A [LineShape.straight] stroke
+  /// ignores the wobble of the drawn path and spans first → last, so both the
+  /// body and the terminator angle read off the same two points.
+  List<Offset> _spine(DrawingStroke stroke) =>
+      stroke.shape == LineShape.straight
+          ? [stroke.points.first, stroke.points.last]
+          : stroke.points;
+
+  /// Smoothed curve through [points] using midpoint quadratics.
+  Path _smoothPath(List<Offset> points) {
     final path = Path();
-    path.moveTo(stroke.points.first.dx, stroke.points.first.dy);
-    for (int i = 1; i < stroke.points.length; i++) {
+    path.moveTo(points.first.dx, points.first.dy);
+    for (int i = 1; i < points.length; i++) {
       if (i == 1) {
-        path.lineTo(stroke.points[i].dx, stroke.points[i].dy);
+        path.lineTo(points[i].dx, points[i].dy);
       } else {
-        final mid = (stroke.points[i - 1] + stroke.points[i]) / 2;
-        path.quadraticBezierTo(stroke.points[i - 1].dx, stroke.points[i - 1].dy, mid.dx, mid.dy);
+        final mid = (points[i - 1] + points[i]) / 2;
+        path.quadraticBezierTo(points[i - 1].dx, points[i - 1].dy, mid.dx, mid.dy);
       }
     }
-    path.lineTo(stroke.points.last.dx, stroke.points.last.dy);
+    path.lineTo(points.last.dx, points.last.dy);
     return path;
+  }
+
+  Path _buildPath(DrawingStroke stroke) {
+    final base = _smoothPath(_spine(stroke));
+    return stroke.shape == LineShape.wavy
+        ? _wavify(base, stroke.width, dashed: stroke.style == StrokeStyle.dashed)
+        : base;
+  }
+
+  /// Resample [base] into a sine wave oscillating about it. Amplitude tapers to
+  /// zero at both ends so terminators and dash phase still sit on the spine.
+  ///
+  /// A [dashed] wave is stretched out: each dash then spans a gentler arc, so
+  /// the line reads as a broken squiggle rather than a row of commas.
+  Path _wavify(Path base, double strokeWidth, {required bool dashed}) {
+    final amp = (strokeWidth * 1.2).clamp(3.0, 8.0);
+    final preferred =
+        (strokeWidth * 6.0).clamp(16.0, 36.0) * (dashed ? 1.6 : 1.0);
+    const step = 1.5;
+    final out = Path();
+    for (final metric in base.computeMetrics()) {
+      if (metric.length < step * 2) continue; // degenerate
+      // Shrink the wavelength to fit at least two full waves in a short
+      // stroke. A fixed wavelength would make anything shorter than one wave
+      // render as a flat line, silently ignoring the style the user picked.
+      final wavelength = min(preferred, metric.length / 2);
+      // Taper amplitude to zero at both ends so terminators and dash phase sit
+      // on the spine — but never spend more than a quarter of a short stroke
+      // fading in, or the wave flattens out again.
+      final fade = min(wavelength * 0.75, metric.length * 0.25);
+      bool started = false;
+      for (double d = 0; d <= metric.length; d += step) {
+        final t = metric.getTangentForOffset(d);
+        if (t == null) continue;
+        final normal = Offset(-t.vector.dy, t.vector.dx);
+        final taper =
+            (d / fade).clamp(0.0, 1.0) * ((metric.length - d) / fade).clamp(0.0, 1.0);
+        final p = t.position + normal * (amp * taper * sin(d / wavelength * 2 * pi));
+        started ? out.lineTo(p.dx, p.dy) : out.moveTo(p.dx, p.dy);
+        started = true;
+      }
+    }
+    return out;
   }
 
   void _paintStroke(Canvas canvas, DrawingStroke stroke) {
     if (stroke.points.length < 2) return;
 
-    // Use a square (butt) cap when an arrow is attached so the rounded
-    // cap doesn't blob past the arrow tip on thick strokes — the arrow
-    // triangle covers the join. Round cap stays for plain strokes.
+    // Use a square (butt) cap when anything is attached to the end so the
+    // rounded cap doesn't blob past the terminator on thick strokes — the
+    // terminator covers the join. Round cap stays for plain strokes.
     final hasEndArrow =
         stroke.arrow == ArrowStyle.end || stroke.arrow == ArrowStyle.both;
     final hasStartArrow = stroke.arrow == ArrowStyle.both;
@@ -77,36 +129,20 @@ class DrawingPainter extends CustomPainter {
       ..color = stroke.color
       ..strokeWidth = stroke.width
       ..strokeCap =
-          (hasEndArrow || hasStartArrow) ? StrokeCap.butt : StrokeCap.round
+          stroke.arrow == ArrowStyle.none ? StrokeCap.round : StrokeCap.butt
       ..strokeJoin = StrokeJoin.round
       ..style = PaintingStyle.stroke;
 
-    final path = Path();
-    path.moveTo(stroke.points.first.dx, stroke.points.first.dy);
-    for (int i = 1; i < stroke.points.length; i++) {
-      if (i == 1) {
-        path.lineTo(stroke.points[i].dx, stroke.points[i].dy);
-      } else {
-        final mid = (stroke.points[i - 1] + stroke.points[i]) / 2;
-        path.quadraticBezierTo(
-          stroke.points[i - 1].dx,
-          stroke.points[i - 1].dy,
-          mid.dx,
-          mid.dy,
-        );
-      }
-    }
-    // Close to last point
-    path.lineTo(stroke.points.last.dx, stroke.points.last.dy);
+    final path = _buildPath(stroke);
 
     // Trim the path so the arrow head replaces the last (and optionally
     // first) chunk of the line. Prevents thick-stroke blob where the
     // round cap pokes past the arrow tip and gives the arrow a clean
     // triangular silhouette instead of one stacked on a wider tail.
+    // Cross and T-bar sit *on* the endpoint, so they trim nothing.
     Path drawPath = path;
     if (hasEndArrow || hasStartArrow) {
-      final arrowSize = _arrowSize(stroke.width);
-      final trim = arrowSize * 0.55;
+      final trim = _arrowSize(stroke.width) * 0.55;
       drawPath = _trimEnds(
         path,
         trimStart: hasStartArrow ? trim : 0,
@@ -120,9 +156,8 @@ class DrawingPainter extends CustomPainter {
       canvas.drawPath(drawPath, paint);
     }
 
-    // Draw arrow
-    if (stroke.arrow != ArrowStyle.none && stroke.points.length >= 2) {
-      _drawArrowHead(canvas, paint, stroke.points, stroke.arrow);
+    if (stroke.arrow != ArrowStyle.none) {
+      _drawTerminator(canvas, paint, _spine(stroke), stroke.arrow);
     }
   }
 
@@ -150,11 +185,14 @@ class DrawingPainter extends CustomPainter {
 
   void _drawDashedPath(Canvas canvas, Paint paint, Path path) {
     final metrics = path.computeMetrics();
+    // Scale the pattern with the stroke so a thin line doesn't turn into
+    // dots and a thick one doesn't read as a solid bar. At the default width
+    // of 3 this reproduces the previous fixed 12/8 pattern.
+    final dashLen = (paint.strokeWidth * 4.0).clamp(6.0, 40.0);
+    final gapLen = (paint.strokeWidth * 2.6).clamp(4.0, 26.0);
     for (final metric in metrics) {
       double start = 0;
       bool draw = true;
-      const dashLen = 12.0;
-      const gapLen = 8.0;
       while (start < metric.length) {
         final seg = draw ? dashLen : gapLen;
         final end = (start + seg).clamp(0.0, metric.length);
@@ -167,20 +205,57 @@ class DrawingPainter extends CustomPainter {
     }
   }
 
-  void _drawArrowHead(
+  void _drawTerminator(
       Canvas canvas, Paint paint, List<Offset> points, ArrowStyle arrow) {
-    final arrowPaint = Paint()
-      ..color = paint.color
-      ..style = PaintingStyle.fill;
+    final dir = _stableDirection(points, fromEnd: true);
+    switch (arrow) {
+      case ArrowStyle.none:
+        return;
+      case ArrowStyle.end:
+      case ArrowStyle.both:
+        final fill = Paint()
+          ..color = paint.color
+          ..style = PaintingStyle.fill;
+        _arrowAt(canvas, fill, points.last, dir, paint.strokeWidth);
+        if (arrow == ArrowStyle.both) {
+          _arrowAt(canvas, fill, points.first,
+              _stableDirection(points, fromEnd: false), paint.strokeWidth);
+        }
+      case ArrowStyle.cross:
+        _crossAt(canvas, paint, points.last, dir);
+      case ArrowStyle.tbar:
+        _barAt(canvas, paint, points.last, dir);
+    }
+  }
 
-    if (arrow == ArrowStyle.end || arrow == ArrowStyle.both) {
-      final dir = _stableDirection(points, fromEnd: true);
-      _arrowAt(canvas, arrowPaint, points.last, dir, paint.strokeWidth);
+  /// An X centred on [tip], rotated 45° off the line direction. Coaches use it
+  /// to mark a screen, a block, or the end of a run.
+  void _crossAt(Canvas canvas, Paint paint, Offset tip, double angle) {
+    final arm = _arrowSize(paint.strokeWidth) * 0.5;
+    final bar = Paint()
+      ..color = paint.color
+      ..strokeWidth = paint.strokeWidth
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke;
+    for (final a in [angle + pi / 4, angle - pi / 4]) {
+      final d = Offset(cos(a), sin(a)) * arm;
+      canvas.drawLine(tip - d, tip + d, bar);
     }
-    if (arrow == ArrowStyle.both && points.length >= 2) {
-      final dir = _stableDirection(points, fromEnd: false);
-      _arrowAt(canvas, arrowPaint, points.first, dir, paint.strokeWidth);
-    }
+  }
+
+  /// A bar perpendicular to the line at [tip] — the classic "stop here" mark.
+  void _barAt(Canvas canvas, Paint paint, Offset tip, double angle) {
+    final half = _arrowSize(paint.strokeWidth) * 0.5;
+    final n = Offset(-sin(angle), cos(angle)) * half;
+    canvas.drawLine(
+      tip - n,
+      tip + n,
+      Paint()
+        ..color = paint.color
+        ..strokeWidth = paint.strokeWidth
+        ..strokeCap = StrokeCap.round
+        ..style = PaintingStyle.stroke,
+    );
   }
 
   /// Get a stable direction angle by looking at a segment farther back,
