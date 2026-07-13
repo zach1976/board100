@@ -74,7 +74,9 @@ DEFINE=""
 flutter build macos --release $DEFINE 2>&1 | tail -2 || true
 
 # 2) Archive with app-store distribution signing (auto-provision if needed).
-ARCHIVE="build/macos_archive/$SPORT.xcarchive"
+# The hub has an empty SPORT; use a non-empty label so paths aren't ".xcarchive".
+LABEL="${SPORT:-hub}"
+ARCHIVE="build/macos_archive/$LABEL.xcarchive"
 rm -rf "$ARCHIVE"
 # Archive with automatic (development) signing; the app-store export below
 # re-signs with Apple Distribution + a Mac App Store profile. Forcing the
@@ -83,16 +85,16 @@ rm -rf "$ARCHIVE"
     -configuration Release -destination 'generic/platform=macOS' \
     -archivePath "../$ARCHIVE" \
     -allowProvisioningUpdates \
-    archive >/tmp/mac_archive_$SPORT.log 2>&1 ) || {
-      echo "❌ archive failed — tail:"; tail -20 /tmp/mac_archive_$SPORT.log; exit 1; }
+    archive >/tmp/mac_archive_$LABEL.log 2>&1 ) || {
+      echo "❌ archive failed — tail:"; tail -20 /tmp/mac_archive_$LABEL.log; exit 1; }
 
 # 3) Export as app-store .pkg (signed with the installer cert).
-EXPORT="build/macos_export/$SPORT"
+EXPORT="build/macos_export/$LABEL"
 rm -rf "$EXPORT"
 xcodebuild -exportArchive -archivePath "$ARCHIVE" -exportPath "$EXPORT" \
   -exportOptionsPlist tool/ExportOptions_macos_appstore.plist \
-  -allowProvisioningUpdates >/tmp/mac_export_$SPORT.log 2>&1 || {
-    echo "❌ export failed — tail:"; tail -25 /tmp/mac_export_$SPORT.log; exit 1; }
+  -allowProvisioningUpdates >/tmp/mac_export_$LABEL.log 2>&1 || {
+    echo "❌ export failed — tail:"; tail -25 /tmp/mac_export_$LABEL.log; exit 1; }
 
 PKG=$(ls "$EXPORT"/*.pkg 2>/dev/null | head -1)
 if [ -n "$PKG" ]; then
@@ -100,5 +102,5 @@ if [ -n "$PKG" ]; then
   cp "$PKG" "$DEST"
   echo "✅ $DEST ($(du -h "$DEST" | cut -f1))"
 else
-  echo "❌ no .pkg produced"; tail -15 /tmp/mac_export_$SPORT.log; exit 1
+  echo "❌ no .pkg produced"; tail -15 /tmp/mac_export_$LABEL.log; exit 1
 fi
