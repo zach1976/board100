@@ -64,14 +64,17 @@ def api(m, p, d=None):
     return body if body else {"_ok": True}
 
 
+def read_meta(app_key, locale, fname):
+    """Read a metadata file for a locale, falling back to en-US, then None."""
+    for loc in (locale, "en-US"):
+        p = os.path.join(META, app_key, loc, fname)
+        if os.path.exists(p):
+            return open(p).read().strip()
+    return None
+
+
 def read_notes(app_key, locale):
-    p = os.path.join(META, app_key, locale, "release_notes.txt")
-    if os.path.exists(p):
-        return open(p).read().strip()
-    p2 = os.path.join(META, app_key, "en-US", "release_notes.txt")
-    if os.path.exists(p2):
-        return open(p2).read().strip()
-    return "Bug fixes and improvements."
+    return read_meta(app_key, locale, "release_notes.txt") or "Bug fixes and improvements."
 
 
 def err_detail(r):
@@ -122,12 +125,24 @@ def main():
             {"data": {"type": "builds", "id": build_id,
                       "attributes": {"usesNonExemptEncryption": False}}})
 
-        # whatsNew on all localizations
-        r = api("GET", f"/v1/appStoreVersions/{version_id}/appStoreVersionLocalizations")
+        # Set description / keywords / promo from fastlane metadata. whatsNew is
+        # intentionally NOT set — this is the app's first macOS version, and
+        # App Store rejects "What's New" on a first release ("Attribute
+        # 'whatsNew' cannot be edited at this time"). Screenshots are uploaded
+        # separately (upload_macos_screenshot.py).
+        r = api("GET", f"/v1/appStoreVersions/{version_id}/appStoreVersionLocalizations?limit=50")
         for loc in r.get("data", []):
-            api("PATCH", f"/v1/appStoreVersionLocalizations/{loc['id']}",
-                {"data": {"type": "appStoreVersionLocalizations", "id": loc["id"],
-                          "attributes": {"whatsNew": read_notes(app_key, loc["attributes"]["locale"])}}})
+            L = loc["attributes"]["locale"]
+            attrs = {}
+            for key, fname in (("description", "description.txt"),
+                               ("keywords", "keywords.txt"),
+                               ("promotionalText", "promotional_text.txt")):
+                val = read_meta(app_key, L, fname)
+                if val:
+                    attrs[key] = val
+            if attrs:
+                api("PATCH", f"/v1/appStoreVersionLocalizations/{loc['id']}",
+                    {"data": {"type": "appStoreVersionLocalizations", "id": loc["id"], "attributes": attrs}})
         time.sleep(1)
 
         # Clean old READY_FOR_REVIEW MAC_OS submissions
