@@ -756,8 +756,33 @@ class TacticsState extends ChangeNotifier {
   void movePlayer(String id, Offset newPosition) {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
+    final delta = newPosition - _players[idx].position;
     _players[idx] = _players[idx].copyWith(position: newPosition);
+    // A carried ball rides along with its holder, keeping its relative offset.
+    if (!_players[idx].isBall) {
+      for (int i = 0; i < _players.length; i++) {
+        if (_players[i].attachedTo == id) {
+          _players[i] = _players[i].copyWith(position: _players[i].position + delta);
+        }
+      }
+    }
     notifyListeners();
+  }
+
+  /// Nearest real player (not a ball or marker) within [radius] px of [point],
+  /// used to decide which player a dropped ball attaches to.
+  PlayerIcon? _nearestPlayerTo(Offset point, {required String excludeId, double radius = 50}) {
+    PlayerIcon? best;
+    double bestDist = radius;
+    for (final p in _players) {
+      if (p.id == excludeId || p.isBall || p.isMarker) continue;
+      final d = (p.position - point).distance;
+      if (d <= bestDist) {
+        bestDist = d;
+        best = p;
+      }
+    }
+    return best;
   }
 
   void resizePlayer(String id, double newScale) {
@@ -776,7 +801,16 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
-    _players[idx] = _players[idx].copyWith(position: newPosition);
+    var updated = _players[idx].copyWith(position: newPosition);
+    // Dropping a ball onto a player gives that player possession; dropping it
+    // in open space releases it.
+    if (updated.isBall) {
+      final holder = _nearestPlayerTo(newPosition, excludeId: id);
+      updated = holder != null
+          ? updated.copyWith(attachedTo: holder.id)
+          : updated.copyWith(clearAttachedTo: true);
+    }
+    _players[idx] = updated;
     notifyListeners();
   }
 
@@ -798,6 +832,12 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     _players.removeWhere((p) => p.id == id);
+    // Release any ball that was carried by the removed player.
+    for (int i = 0; i < _players.length; i++) {
+      if (_players[i].attachedTo == id) {
+        _players[i] = _players[i].copyWith(clearAttachedTo: true);
+      }
+    }
     if (_selectedPlayerId == id) {
       _selectedPlayerId = null;
       _selectedWaypointIndex = null;
