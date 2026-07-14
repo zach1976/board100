@@ -36,6 +36,7 @@ import '../services/ad_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
+import '../services/video_export_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import 'element_import_flow.dart';
@@ -492,20 +493,88 @@ class _CourtLayoutTile extends StatelessWidget {
   }
 }
 
-/// Public function to share the board — prompts for PNG or PDF format
+/// Public function to share the board — prompts for PNG / PDF (/ Video) format
 Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
-  final format = await _pickShareFormat(context);
+  final format = await _pickShareFormat(context, showVideo: state.hasMoves);
   if (format == null || !context.mounted) return;
   // Returning from the share sheet must not trigger an app-open ad.
   AdService.instance.suppressNextAppOpen();
-  final shared = format == 'pdf'
-      ? await _sharePdf(context, state)
-      : await _sharePng(context, state);
+  final bool shared;
+  switch (format) {
+    case 'pdf':
+      shared = await _sharePdf(context, state);
+    case 'video':
+      shared = await _shareVideo(context, state);
+    default:
+      shared = await _sharePng(context, state);
+  }
   // Interstitial only after a real share (not a cancel), at this natural break.
   if (shared) AdService.instance.maybeShowInterstitial();
 }
 
-Future<String?> _pickShareFormat(BuildContext context) {
+/// Render the move animation to an MP4 and share it, with a progress dialog.
+Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
+  state.resetZoom();
+  await Future.delayed(const Duration(milliseconds: 200));
+  if (!context.mounted) return false;
+
+  final progress = ValueNotifier<double>(0);
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (_) => Center(
+      child: Material(
+        color: kSurface,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('share_video_rendering'.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: 200,
+                child: ValueListenableBuilder<double>(
+                  valueListenable: progress,
+                  builder: (_, v, __) => Column(
+                    children: [
+                      LinearProgressIndicator(
+                          value: v, backgroundColor: Colors.white12, color: kAccent),
+                      const SizedBox(height: 6),
+                      Text('${(v * 100).round()}%',
+                          style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+
+  bool ok = false;
+  try {
+    ok = await VideoExportService.exportAndShare(state,
+        onProgress: (p) => progress.value = p,
+        filename: _friendlyFileStem(state));
+  } catch (e) {
+    debugPrint('Video export error: $e');
+  } finally {
+    if (context.mounted) Navigator.of(context, rootNavigator: true).pop(); // close dialog
+    progress.dispose();
+  }
+  if (!ok && context.mounted) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('save_error'.tr())));
+  }
+  return ok;
+}
+
+Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
   return showModalBottomSheet<String>(
     context: context,
     backgroundColor: const Color(0xFF15303A),
@@ -526,6 +595,15 @@ Future<String?> _pickShareFormat(BuildContext context) {
             title: const Text('PDF', style: TextStyle(color: Colors.white)),
             onTap: () => Navigator.pop(ctx, 'pdf'),
           ),
+          // Video export animates the play; only meaningful when moves exist.
+          if (showVideo)
+            ListTile(
+              leading: const Icon(Icons.videocam_outlined, color: Colors.lightBlueAccent),
+              title: Text('share_video'.tr(), style: const TextStyle(color: Colors.white)),
+              subtitle: Text('share_video_hint'.tr(),
+                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
+              onTap: () => Navigator.pop(ctx, 'video'),
+            ),
           const SizedBox(height: 8),
         ],
       ),
