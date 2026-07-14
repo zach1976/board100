@@ -911,6 +911,17 @@ class _AnimationDriverState extends State<_AnimationDriver>
         // so the player renders at their original player.position naturally
       }
     }
+
+    // A carried ball glues to its holder, overriding any moves of its own: it
+    // sits at the same rest offset from the holder's live (animated) position.
+    for (final ball in widget.players) {
+      if (!ball.isBall || ball.attachedTo == null) continue;
+      final holderIdx = widget.players.indexWhere((p) => p.id == ball.attachedTo);
+      if (holderIdx < 0) continue;
+      final holder = widget.players[holderIdx];
+      final holderPos = positions[holder.id] ?? holder.position;
+      positions[ball.id] = holderPos + (ball.position - holder.position);
+    }
     context.read<TacticsState>().updateAnimatedPositions(positions);
   }
 
