@@ -38,7 +38,7 @@ dependencies:
   share_plus: ^13.0.0
   http: ^1.2.0
   sign_in_with_apple: ^8.0.0
-  google_sign_in: ^6.2.2
+  google_sign_in: ^7.0.0
   crypto: ^3.0.6
   flutter_native_splash: ^2.4.7
   pdf: ^3.11.3

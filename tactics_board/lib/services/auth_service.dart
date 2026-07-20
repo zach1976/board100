@@ -30,6 +30,7 @@ class AuthService {
   String? _token;
   String? _userName;
   String? _userEmail;
+  bool _googleInitialized = false;
 
   bool get isLoggedIn => _token != null;
   String? get token => _token;
@@ -38,18 +39,25 @@ class AuthService {
 
   Future<AuthResult> loginWithGoogle() async {
     try {
-      final googleSignIn = GoogleSignIn(
-        clientId: _googleClientId.isNotEmpty ? _googleClientId : null,
-        scopes: ['email', 'profile'],
-      );
-      AdService.instance.suppressNextAppOpen(); // sign-in flow backgrounds the app
-      final account = await googleSignIn.signIn();
-      if (account == null) {
-        return AuthResult(error: 'login_cancelled');
+      final googleSignIn = GoogleSignIn.instance;
+      // v7 requires a one-time initialize(); keep the same client id so the
+      // backend still verifies the id token against the expected audience.
+      if (!_googleInitialized) {
+        await googleSignIn.initialize(
+          clientId: _googleClientId.isNotEmpty ? _googleClientId : null,
+        );
+        _googleInitialized = true;
       }
-
-      final authentication = await account.authentication;
-      final idToken = authentication.idToken;
+      if (!googleSignIn.supportsAuthenticate()) {
+        return AuthResult(error: 'login_not_available');
+      }
+      AdService.instance.suppressNextAppOpen(); // sign-in flow backgrounds the app
+      // v7: authenticate() throws GoogleSignInException on cancel (handled
+      // below) instead of returning null, and authentication is now a
+      // synchronous getter.
+      final account =
+          await googleSignIn.authenticate(scopeHint: const ['email', 'profile']);
+      final idToken = account.authentication.idToken;
       if (idToken == null) {
         return AuthResult(error: 'login_failed');
       }
@@ -70,6 +78,12 @@ class AuthService {
       } else {
         return AuthResult(error: 'login_server_error');
       }
+    } on GoogleSignInException catch (e) {
+      if (e.code == GoogleSignInExceptionCode.canceled) {
+        return AuthResult(error: 'login_cancelled');
+      }
+      debugPrint('Google login error: $e');
+      return AuthResult(error: _friendlyError(e));
     } catch (e) {
       debugPrint('Google login error: $e');
       return AuthResult(error: _friendlyError(e));
