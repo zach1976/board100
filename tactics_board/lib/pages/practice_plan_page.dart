@@ -176,9 +176,11 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     final file = File('${dir.path}/$safe.practice.json');
     await file.writeAsString(encoded);
     AdService.instance.suppressNextAppOpen(); // share sheet backgrounds the app
-    await Share.shareXFiles(
-      [XFile(file.path, mimeType: 'application/json')],
-      subject: name,
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(file.path, mimeType: 'application/json')],
+        subject: name,
+      ),
     );
   }
 

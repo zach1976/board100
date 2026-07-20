@@ -565,7 +565,8 @@ Future<bool> _sharePng(BuildContext context, TacticsState state) async {
       await channel.invokeMethod('shareFile', {'path': file.path});
       return true; // native share sheet presented
     } catch (_) {
-      final result = await Share.shareXFiles([XFile(file.path)]);
+      final result =
+          await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
       return result.status == ShareResultStatus.success;
     }
   } catch (e) {
