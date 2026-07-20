@@ -77,7 +77,12 @@ flutter:
 
   assets:
     - assets/translations/
-    - assets/icon/
+    # Only the in-app ball images are bundled at runtime. The per-sport
+    # *_icon.png / *_splash.png files in assets/icon/ are build-time inputs
+    # for flutter_launcher_icons / flutter_native_splash (native assets), so
+    # bundling the whole folder shipped ~48MB of unused images in every app.
+    - assets/icon/ball_soccer.png
+    - assets/icon/ball_basketball.png
     - assets/preview/
 
   # To add assets to your application, add an assets section, like this:
