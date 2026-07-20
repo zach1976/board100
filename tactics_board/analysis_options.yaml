@@ -9,6 +9,15 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    # integration_test is intentionally disabled for release builds (its pod
+    # pulls a fat objective_c.framework the App Store rejects). Everything under
+    # these dirs only compiles when the dependency is temporarily re-enabled
+    # locally, so keep them out of the default `flutter analyze`.
+    - test_driver/**
+    - integration_test/**
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
