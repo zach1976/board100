@@ -1599,7 +1599,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                       child: ClipOval(
                         child: SizedBox(
                           width: 28, height: 28,
-                          child: CustomPaint(painter: BallPainter.forSport(state.sportType)),
+                          child: ballWidget(state.sportType),
                         ),
                       ),
                       onTap: () {

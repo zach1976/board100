@@ -202,11 +202,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                             height: kPlayerIconSize,
                             child: player.photoId != null && !player.isMarker && !player.isBall
                                 ? PhotoPlayerShape(player: player, isSelected: false)
+                                : player.isBall
+                                ? ballWidget(player.sportType!)
                                 : CustomPaint(
                               painter: player.isMarker
                                   ? MarkerPainter(shape: player.markerShape, color: player.color)
-                                  : player.isBall
-                                  ? BallPainter.forSport(player.sportType!)
                                   : TopDownPlayerPainter(
                                       color: player.color,
                                       borderColor: player.moveColor,
@@ -1182,6 +1182,8 @@ class _WaypointDotState extends State<_WaypointDot> {
                   isSelected: widget.isSelected,
                 ),
               )
+            else if (widget.player.isBall)
+              ballWidget(widget.player.sportType!)
             else
               CustomPaint(
                 painter: widget.player.isMarker
@@ -1190,8 +1192,6 @@ class _WaypointDotState extends State<_WaypointDot> {
                         color: widget.player.color,
                         isSelected: widget.isSelected,
                       )
-                    : widget.player.isBall
-                    ? BallPainter.forSport(widget.player.sportType!)
                     : TopDownPlayerPainter(
                         color: widget.player.color,
                         borderColor: widget.isPrimary

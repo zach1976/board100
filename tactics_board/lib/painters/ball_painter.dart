@@ -29,6 +29,32 @@ abstract class BallPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
+/// Sports whose on-board ball ships as an image asset instead of the
+/// procedural painter. Others return null and fall back to [BallPainter].
+String? ballImageAsset(SportType sport) {
+  switch (sport) {
+    case SportType.soccer:
+      return 'assets/icon/ball_soccer.png';
+    case SportType.basketball:
+      return 'assets/icon/ball_basketball.png';
+    default:
+      return null;
+  }
+}
+
+/// The on-board visual for a ball of [sport]: an image when one ships,
+/// otherwise the procedural [BallPainter]. Fills its parent box (works in
+/// both tightly-constrained and loose/Stack contexts).
+Widget ballWidget(SportType sport) {
+  final asset = ballImageAsset(sport);
+  if (asset == null) {
+    return CustomPaint(size: Size.infinite, painter: BallPainter.forSport(sport));
+  }
+  return SizedBox.expand(
+    child: Image.asset(asset, fit: BoxFit.contain, filterQuality: FilterQuality.medium),
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Badminton Shuttlecock  (side-view silhouette)
 // ─────────────────────────────────────────────────────────────────────────────
