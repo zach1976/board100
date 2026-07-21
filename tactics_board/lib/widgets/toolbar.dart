@@ -33,6 +33,7 @@ import '../painters/water_polo_court_painter.dart';
 import '../models/tactic_meta.dart';
 import '../pages/save_tactic_page.dart';
 import '../services/ad_service.dart';
+import '../services/review_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
@@ -501,8 +502,13 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
   final shared = format == 'pdf'
       ? await _sharePdf(context, state)
       : await _sharePng(context, state);
-  // Interstitial only after a real share (not a cancel), at this natural break.
-  if (shared) AdService.instance.maybeShowInterstitial();
+  if (shared) {
+    // High-satisfaction moment: maybe ask for a rating. When the system
+    // prompt was requested, skip the interstitial so the two never stack.
+    final askedForReview = await ReviewService.instance.onShareSuccess();
+    // Interstitial only after a real share (not a cancel), at this natural break.
+    if (!askedForReview) AdService.instance.maybeShowInterstitial();
+  }
 }
 
 Future<String?> _pickShareFormat(BuildContext context) {
