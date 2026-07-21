@@ -317,6 +317,87 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ── Video export: precomputed animation frames ─────────────────────────────
+  // Mirrors the on-screen forward interpolation (see _AnimationDriver._onTick)
+  // as a pure function of the players' moves/phases, so the video export can
+  // render deterministic frames without a live ticker.
+
+  int get _animMaxPhase {
+    int mx = -1;
+    for (final p in _players) {
+      p.syncPhases();
+      for (int i = 0; i < p.moves.length; i++) {
+        final ph = i < p.movePhases.length ? p.movePhases[i] : i;
+        if (ph > mx) mx = ph;
+      }
+    }
+    return mx;
+  }
+
+  /// Index into [position, ...moves] where a player rests at the start of
+  /// [phaseValue] — only moves with a strictly-earlier phase have completed.
+  int _restIndexAtPhase(PlayerIcon player, int phaseValue) {
+    int last = -1;
+    for (int i = 0; i < player.moves.length; i++) {
+      final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+      if (ph < phaseValue && i > last) last = i;
+    }
+    return last + 1;
+  }
+
+  /// Every player/ball's position at animation phase [phaseIdx], progress [t].
+  Map<String, Offset> animationPositionsAt(int phaseIdx, double t) {
+    final positions = <String, Offset>{};
+    for (final player in _players) {
+      if (player.moves.isEmpty) continue;
+      final all = [player.position, ...player.moves];
+      int? moveIdx;
+      for (int i = 0; i < player.moves.length; i++) {
+        final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+        if (ph == phaseIdx) {
+          moveIdx = i;
+          break;
+        }
+      }
+      if (moveIdx != null) {
+        final fromIdx = moveIdx.clamp(0, all.length - 1);
+        final toIdx = (moveIdx + 1).clamp(0, all.length - 1);
+        positions[player.id] = Offset.lerp(all[fromIdx], all[toIdx], t)!;
+      } else {
+        final restIdx = _restIndexAtPhase(player, phaseIdx);
+        if (restIdx > 0) positions[player.id] = all[restIdx.clamp(0, all.length - 1)];
+      }
+    }
+    // Carried balls glue to their holder's live position.
+    for (final ball in _players) {
+      if (!ball.isBall || ball.attachedTo == null) continue;
+      final hIdx = _players.indexWhere((p) => p.id == ball.attachedTo);
+      if (hIdx < 0) continue;
+      final holder = _players[hIdx];
+      final hPos = positions[holder.id] ?? holder.position;
+      positions[ball.id] = hPos + (ball.position - holder.position);
+    }
+    return positions;
+  }
+
+  /// The full forward animation as one position-map per frame — for video
+  /// export. Empty when there are no moves to animate.
+  List<Map<String, Offset>> computeAnimationFrames(
+      {int fps = 30, double phaseSeconds = 0.8}) {
+    final maxPhase = _animMaxPhase;
+    if (maxPhase < 0) return const [];
+    final perPhase = (phaseSeconds * fps).round().clamp(2, 240);
+    final frames = <Map<String, Offset>>[];
+    for (int phase = 0; phase <= maxPhase; phase++) {
+      for (int f = 0; f < perPhase; f++) {
+        final raw = perPhase == 1 ? 1.0 : f / (perPhase - 1);
+        final t = Curves.easeInOut.transform(raw.clamp(0.0, 1.0));
+        frames.add(animationPositionsAt(phase, t));
+      }
+    }
+    return frames;
+  }
+
   // Sport switching
   void setSportType(SportType type) {
     _isAnimating = false;
@@ -756,8 +837,33 @@ class TacticsState extends ChangeNotifier {
   void movePlayer(String id, Offset newPosition) {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
+    final delta = newPosition - _players[idx].position;
     _players[idx] = _players[idx].copyWith(position: newPosition);
+    // A carried ball rides along with its holder, keeping its relative offset.
+    if (!_players[idx].isBall) {
+      for (int i = 0; i < _players.length; i++) {
+        if (_players[i].attachedTo == id) {
+          _players[i] = _players[i].copyWith(position: _players[i].position + delta);
+        }
+      }
+    }
     notifyListeners();
+  }
+
+  /// Nearest real player (not a ball or marker) within [radius] px of [point],
+  /// used to decide which player a dropped ball attaches to.
+  PlayerIcon? _nearestPlayerTo(Offset point, {required String excludeId, double radius = 50}) {
+    PlayerIcon? best;
+    double bestDist = radius;
+    for (final p in _players) {
+      if (p.id == excludeId || p.isBall || p.isMarker) continue;
+      final d = (p.position - point).distance;
+      if (d <= bestDist) {
+        bestDist = d;
+        best = p;
+      }
+    }
+    return best;
   }
 
   void resizePlayer(String id, double newScale) {
@@ -776,7 +882,16 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
-    _players[idx] = _players[idx].copyWith(position: newPosition);
+    var updated = _players[idx].copyWith(position: newPosition);
+    // Dropping a ball onto a player gives that player possession; dropping it
+    // in open space releases it.
+    if (updated.isBall) {
+      final holder = _nearestPlayerTo(newPosition, excludeId: id);
+      updated = holder != null
+          ? updated.copyWith(attachedTo: holder.id)
+          : updated.copyWith(clearAttachedTo: true);
+    }
+    _players[idx] = updated;
     notifyListeners();
   }
 
@@ -798,6 +913,12 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     _players.removeWhere((p) => p.id == id);
+    // Release any ball that was carried by the removed player.
+    for (int i = 0; i < _players.length; i++) {
+      if (_players[i].attachedTo == id) {
+        _players[i] = _players[i].copyWith(clearAttachedTo: true);
+      }
+    }
     if (_selectedPlayerId == id) {
       _selectedPlayerId = null;
       _selectedWaypointIndex = null;

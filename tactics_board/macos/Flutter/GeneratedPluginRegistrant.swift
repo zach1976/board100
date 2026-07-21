@@ -6,6 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import file_selector_macos
+import flutter_quick_video_encoder
 import google_sign_in_ios
 import in_app_purchase_storekit
 import printing
@@ -17,6 +18,7 @@ import webview_flutter_wkwebview
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
+  FlutterQuickVideoEncoderPlugin.register(with: registry.registrar(forPlugin: "FlutterQuickVideoEncoderPlugin"))
   FLTGoogleSignInPlugin.register(with: registry.registrar(forPlugin: "FLTGoogleSignInPlugin"))
   InAppPurchasePlugin.register(with: registry.registrar(forPlugin: "InAppPurchasePlugin"))
   PrintingPlugin.register(with: registry.registrar(forPlugin: "PrintingPlugin"))

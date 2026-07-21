@@ -13,6 +13,8 @@ PODS:
     - RecaptchaInterop (~> 101.0)
   - file_selector_macos (0.0.1):
     - FlutterMacOS
+  - flutter_quick_video_encoder (0.0.1):
+    - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - google_sign_in_ios (0.0.1):
     - Flutter
@@ -65,6 +67,7 @@ PODS:
 
 DEPENDENCIES:
   - file_selector_macos (from `Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos`)
+  - flutter_quick_video_encoder (from `Flutter/ephemeral/.symlinks/plugins/flutter_quick_video_encoder/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - google_sign_in_ios (from `Flutter/ephemeral/.symlinks/plugins/google_sign_in_ios/darwin`)
   - in_app_purchase_storekit (from `Flutter/ephemeral/.symlinks/plugins/in_app_purchase_storekit/darwin`)
@@ -89,6 +92,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   file_selector_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos
+  flutter_quick_video_encoder:
+    :path: Flutter/ephemeral/.symlinks/plugins/flutter_quick_video_encoder/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
   google_sign_in_ios:
@@ -112,6 +117,7 @@ SPEC CHECKSUMS:
   AppAuth: ef4da5a3fc2e10b90c09a0a94a9baeaedc0341d5
   AppCheckCore: e215d35177a9cf469927863e69c13e220df32a8b
   file_selector_macos: 9e9e068e90ebee155097d00e89ae91edb2374db7
+  flutter_quick_video_encoder: efd77d113a3c1c93b1268a2012d96a21067b7bdb
   FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
   google_sign_in_ios: 000870aa06da9b28d1d0bf7ef70ff0213059dd28
   GoogleSignIn: e449a40a92e9f2eea56e98b5214d13725dc5a00a
