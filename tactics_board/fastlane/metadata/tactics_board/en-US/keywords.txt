@@ -1,1 +1,1 @@
-football,basketball,volleyball,tennis,badminton,clipboard,whiteboard,formation,drill,academy
+pe,physical education,teacher,multi sport,club,team manager,training,drill,formation,whiteboard
