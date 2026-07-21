@@ -202,11 +202,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                             height: kPlayerIconSize,
                             child: player.photoId != null && !player.isMarker && !player.isBall
                                 ? PhotoPlayerShape(player: player, isSelected: false)
+                                : player.isBall
+                                ? ballWidget(player.sportType!)
                                 : CustomPaint(
                               painter: player.isMarker
                                   ? MarkerPainter(shape: player.markerShape, color: player.color)
-                                  : player.isBall
-                                  ? BallPainter.forSport(player.sportType!)
                                   : TopDownPlayerPainter(
                                       color: player.color,
                                       borderColor: player.moveColor,
@@ -911,6 +911,17 @@ class _AnimationDriverState extends State<_AnimationDriver>
         // so the player renders at their original player.position naturally
       }
     }
+
+    // A carried ball glues to its holder, overriding any moves of its own: it
+    // sits at the same rest offset from the holder's live (animated) position.
+    for (final ball in widget.players) {
+      if (!ball.isBall || ball.attachedTo == null) continue;
+      final holderIdx = widget.players.indexWhere((p) => p.id == ball.attachedTo);
+      if (holderIdx < 0) continue;
+      final holder = widget.players[holderIdx];
+      final holderPos = positions[holder.id] ?? holder.position;
+      positions[ball.id] = holderPos + (ball.position - holder.position);
+    }
     context.read<TacticsState>().updateAnimatedPositions(positions);
   }
 
@@ -1171,6 +1182,8 @@ class _WaypointDotState extends State<_WaypointDot> {
                   isSelected: widget.isSelected,
                 ),
               )
+            else if (widget.player.isBall)
+              ballWidget(widget.player.sportType!)
             else
               CustomPaint(
                 painter: widget.player.isMarker
@@ -1179,8 +1192,6 @@ class _WaypointDotState extends State<_WaypointDot> {
                         color: widget.player.color,
                         isSelected: widget.isSelected,
                       )
-                    : widget.player.isBall
-                    ? BallPainter.forSport(widget.player.sportType!)
                     : TopDownPlayerPainter(
                         color: widget.player.color,
                         borderColor: widget.isPrimary

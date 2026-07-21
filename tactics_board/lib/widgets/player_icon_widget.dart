@@ -843,10 +843,7 @@ class _BallWidgetState extends State<_BallWidget>
   @override
   Widget build(BuildContext context) {
     final ball = ClipOval(
-      child: CustomPaint(
-        painter: BallPainter.forSport(widget.player.sportType!),
-        size: Size.infinite,
-      ),
+      child: ballWidget(widget.player.sportType!),
     );
 
     final inner = _isShuttlecock

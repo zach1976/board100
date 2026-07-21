@@ -41,6 +41,10 @@ class PlayerIcon {
   /// slot whenever a formation is applied, so their identity sticks across
   /// formation changes. Null = unassigned (filled in slot order).
   final String? role;
+  /// For a ball icon: the id of the player currently carrying it. When set, the
+  /// ball follows that player's position during drags and animation playback.
+  /// Null = loose ball. Only meaningful on a ball ([isBall]).
+  final String? attachedTo;
 
   PlayerIcon({
     required this.id,
@@ -58,6 +62,7 @@ class PlayerIcon {
     this.markerShape = MarkerShape.none,
     this.photoId,
     this.role,
+    this.attachedTo,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveColor = moveColor ?? _moveColors[0];
@@ -91,6 +96,7 @@ class PlayerIcon {
     'markerShape': markerShape.index,
     'photoId': photoId,
     'role': role,
+    'attachedTo': attachedTo,
   };
 
   factory PlayerIcon.fromJson(Map<String, dynamic> json) => PlayerIcon(
@@ -108,6 +114,7 @@ class PlayerIcon {
     markerShape: json['markerShape'] != null ? MarkerShape.values[json['markerShape'] as int] : MarkerShape.none,
     photoId: json['photoId'] as String?,
     role: json['role'] as String?,
+    attachedTo: json['attachedTo'] as String?,
   );
 
   bool get isBall => team == PlayerTeam.neutral && sportType != null && markerShape == MarkerShape.none;
@@ -132,6 +139,8 @@ class PlayerIcon {
     bool clearPhotoId = false,
     String? role,
     bool clearRole = false,
+    String? attachedTo,
+    bool clearAttachedTo = false,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -149,6 +158,7 @@ class PlayerIcon {
       markerShape: markerShape ?? this.markerShape,
       photoId: clearPhotoId ? null : (photoId ?? this.photoId),
       role: clearRole ? null : (role ?? this.role),
+      attachedTo: clearAttachedTo ? null : (attachedTo ?? this.attachedTo),
     );
   }
 
