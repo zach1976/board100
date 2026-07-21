@@ -1,4 +1,8 @@
-• New line & arrow styles: straight, curved, or wavy lines — solid or dashed — with arrow, double-arrow, cross, and stop-bar ends.
-• Cleaner drawing: lines are now straight by default and automatically smooth out hand shake.
-• Save boards into folders, and add a description and coaching points.
-• The Select tool is now available in landscape too.
+NEW in 1.1.21
+
+• Ball possession: drop the ball onto a player and it sticks with them through every move and animation.
+• Share as video: export your play as an MP4 animation and send it straight to your team.
+• Crisper, more realistic ball artwork on the board.
+• Much smaller download size.
+• Completed translations across all 12 languages.
+• Bug fixes and performance improvements.

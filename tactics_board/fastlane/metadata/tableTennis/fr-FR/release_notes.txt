@@ -1,4 +1,8 @@
-• Nouveaux styles de traits et de flèches : lignes droites, courbes ou ondulées, pleines ou en pointillés, avec extrémités flèche, double flèche, croix et barre d'arrêt.
-• Tracé plus net : les lignes sont droites par défaut et lissent automatiquement les tremblements de la main.
-• Enregistrez vos tableaux dans des dossiers, avec une description et des points clés.
-• L'outil Sélection est désormais disponible en mode paysage.
+NOUVEAUTÉS de la version 1.1.21
+
+• Possession du ballon : déposez le ballon sur un joueur et il le suit dans chaque déplacement et animation.
+• Partage en vidéo : exportez votre schéma tactique en animation MP4 et envoyez-le directement à votre équipe.
+• Ballon plus net et plus réaliste sur le tableau.
+• Taille de téléchargement fortement réduite.
+• Traductions complétées dans les 12 langues.
+• Corrections de bugs et améliorations des performances.

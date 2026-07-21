@@ -1,4 +1,8 @@
-• Nuevos estilos de líneas y flechas: rectas, curvas u onduladas, continuas o discontinuas, con puntas de flecha, doble flecha, cruz y barra de parada.
-• Trazo más limpio: las líneas ahora son rectas por defecto y suavizan automáticamente el pulso de la mano.
-• Guarda las pizarras en carpetas y añade una descripción y puntos clave.
-• La herramienta Seleccionar ya está disponible en modo horizontal.
+NOVEDADES en 1.1.21
+
+• Posesión del balón: suelta el balón sobre un jugador y lo acompañará en cada movimiento y animación.
+• Compartir como vídeo: exporta tu jugada como animación MP4 y envíala directamente a tu equipo.
+• Balón más nítido y realista en la pizarra.
+• Tamaño de descarga mucho menor.
+• Traducciones completas en los 12 idiomas.
+• Corrección de errores y mejoras de rendimiento.
