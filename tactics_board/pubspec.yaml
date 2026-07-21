@@ -48,6 +48,7 @@ dependencies:
   path: ^1.9.0
   google_mobile_ads: ^9.0.0
   in_app_purchase: ^3.3.0
+  in_app_review: ^2.0.10
   shared_preferences: ^2.3.2
   url_launcher: ^6.3.0
 
