@@ -1,4 +1,8 @@
-• Kiểu đường và mũi tên mới: đường thẳng, cong hoặc lượn sóng — liền hoặc đứt nét — với đầu mũi tên, mũi tên hai chiều, dấu chéo và vạch dừng.
-• Vẽ mượt hơn: đường vẽ mặc định là thẳng và tự động khử rung tay.
-• Lưu bảng vào thư mục, kèm mô tả và điểm huấn luyện.
-• Công cụ Chọn giờ đã có trong chế độ ngang.
+MỚI trong 1.1.21
+
+• Giữ bóng: thả bóng vào một cầu thủ và bóng sẽ đi theo cầu thủ đó trong mọi di chuyển và hoạt ảnh.
+• Chia sẻ dưới dạng video: xuất bài chiến thuật của bạn thành hoạt ảnh MP4 và gửi ngay cho đội của bạn.
+• Hình quả bóng trên bảng sắc nét và chân thực hơn.
+• Dung lượng tải xuống nhỏ hơn nhiều.
+• Hoàn tất bản dịch cho cả 12 ngôn ngữ.
+• Sửa lỗi và cải thiện hiệu năng.

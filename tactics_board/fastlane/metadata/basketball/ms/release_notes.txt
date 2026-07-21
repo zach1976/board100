@@ -1,4 +1,8 @@
-• Gaya garisan & anak panah baharu: lurus, melengkung, atau beralun — pejal atau putus-putus — dengan hujung anak panah, anak panah berkembar, pangkah, dan garis henti.
-• Lukisan lebih kemas: garisan kini lurus secara lalai dan meredam gegaran tangan secara automatik.
-• Simpan papan ke dalam folder, dengan penerangan dan poin kejurulatihan.
-• Alat Pilih kini tersedia dalam mod lanskap.
+BAHARU dalam 1.1.21
+
+• Penguasaan bola: letakkan bola pada pemain dan bola akan mengikutinya dalam setiap pergerakan dan animasi.
+• Kongsi sebagai video: eksport taktik anda sebagai animasi MP4 dan hantar terus kepada pasukan anda.
+• Grafik bola pada papan lebih tajam dan realistik.
+• Saiz muat turun jauh lebih kecil.
+• Terjemahan lengkap untuk semua 12 bahasa.
+• Pembetulan pepijat dan penambahbaikan prestasi.
