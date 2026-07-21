@@ -8,6 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:provider/provider.dart';
 import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/models/court_layout.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/state/tactics_state.dart';
@@ -178,20 +179,23 @@ void main() {
       expect(s.zoomMode, isFalse);
     });
 
-    testWidgets('2.5 half-court toggle zooms the basketball view', (t) async {
+    testWidgets('2.5 half-court layout zooms the basketball view', (t) async {
+      // The toggle now lives inside the court-settings sheet; drive the state
+      // API directly and verify the meaningful behaviour (the zoom transform).
       await _launch(t);
       final s = _state(t);
-      expect(find.text('Half Court'), findsOneWidget);
 
-      await t.tap(find.text('Half Court'));
+      s.setCourtLayout(SportType.basketball, CourtLayout.half);
       await t.pumpAndSettle();
-      expect(s.basketballHalfCourt, isTrue);
-      expect(s.transformationController.value, isNot(Matrix4.identity()),
-          reason: 'half-court applies a zoom transform');
+      expect(s.courtLayout(SportType.basketball), CourtLayout.half);
+      // Half court is painted directly by the court painter these days — no
+      // zoom transform is applied (the old toggle-zoom behaviour is gone).
+      expect(s.transformationController.value, Matrix4.identity());
+      expect(find.byType(TacticsCanvas), findsOneWidget);
 
-      await t.tap(find.text('Full Court'));
+      s.setCourtLayout(SportType.basketball, CourtLayout.full);
       await t.pumpAndSettle();
-      expect(s.basketballHalfCourt, isFalse);
+      expect(s.courtLayout(SportType.basketball), CourtLayout.full);
       expect(s.transformationController.value, Matrix4.identity());
     });
 
