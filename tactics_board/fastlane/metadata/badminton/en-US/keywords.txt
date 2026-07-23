@@ -1,1 +1,1 @@
-doubles,singles,mixed,smash,clear,drop shot,net,front back,side side,shuttle,bwf
+Badminton tactics, badminton board,Badminton double rotation, Badminton training tactics
