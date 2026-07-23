@@ -1,1 +1,1 @@
-doubles,singles,serve,return,volley,baseline,deuce,ad court,grand slam,clay,hard court,racket
+tennis tactics, tennis board, tennis doubles, tennis training tactics

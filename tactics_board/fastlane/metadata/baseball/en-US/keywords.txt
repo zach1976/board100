@@ -1,1 +1,1 @@
-softball,pitching,batting,fielding,bunt,steal,double play,signs,lineup,shift,mlb,npb
+baseball tactics, baseball board, baseball lineup, baseball training tactics
