@@ -43,6 +43,13 @@ build_ipa() {
   # build just that one app. Unset ONLY → build everything (default behavior).
   if [ -n "${ONLY+x}" ] && [ "$SPORT" != "$ONLY" ]; then return 0; fi
 
+  # Optional multi-app filter: set ONLY_APPS to a space-separated list of keys
+  # (hub is "tactics_board") to build a subset. Unset → no effect.
+  if [ -n "${ONLY_APPS+x}" ]; then
+    local _key="${SPORT:-tactics_board}"
+    case " $ONLY_APPS " in *" $_key "*) ;; *) return 0 ;; esac
+  fi
+
   echo ""
   echo "══════════════════════════════════════"
   echo "  Building: $DISPLAY_NAME"
