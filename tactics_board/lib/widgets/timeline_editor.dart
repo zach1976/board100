@@ -160,23 +160,35 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 }),
               ),
             ),
-            // Player rows
-            ...players.map((player) => _buildPlayerRow(player, phaseCount)),
-            // Stroke rows
-            if (strokes.isNotEmpty) ...[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 2),
-                child: Row(
+            // Rows scroll — with many players/strokes the bottom ones would
+            // otherwise be clipped by the sheet and impossible to edit.
+            Flexible(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.draw, color: Colors.white38, size: 14),
-                    const SizedBox(width: 4),
-                    Text('mode_draw'.tr(), style: const TextStyle(color: Colors.white38, fontSize: 11)),
+                    // Player rows
+                    ...players.map((player) => _buildPlayerRow(player, phaseCount)),
+                    // Stroke rows
+                    if (strokes.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 2),
+                        child: Row(
+                          children: [
+                            Icon(Icons.draw, color: Colors.white38, size: 14),
+                            const SizedBox(width: 4),
+                            Text('mode_draw'.tr(), style: const TextStyle(color: Colors.white38, fontSize: 11)),
+                          ],
+                        ),
+                      ),
+                      ...strokes.asMap().entries.map((e) => _buildStrokeRow(e.value, e.key, phaseCount)),
+                    ],
+                    const SizedBox(height: 12),
                   ],
                 ),
               ),
-              ...strokes.asMap().entries.map((e) => _buildStrokeRow(e.value, e.key, phaseCount)),
-            ],
-            const SizedBox(height: 12),
+            ),
           ],
         ),
       );

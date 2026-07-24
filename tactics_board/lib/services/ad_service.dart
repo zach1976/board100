@@ -198,6 +198,7 @@ class AdService {
   bool _appOpenLoading = false;
   DateTime? _appOpenLoadedAt;
   DateTime? _lastAppOpenShownAt;
+  DateTime? _backgroundedAt; // when the app last actually went to background
 
   bool _isShowingFullScreenAd = false;
   bool _coldStart = true;
@@ -286,8 +287,21 @@ class AdService {
     _loadAppOpenAd();
     AppStateEventNotifier.startListening();
     AppStateEventNotifier.appStateStream.listen((state) {
-      if (state == AppState.foreground) _onForeground();
+      if (state == AppState.foreground) {
+        _onForeground();
+      } else if (state == AppState.background) {
+        _onBackground();
+      }
     });
+  }
+
+  void _onBackground() {
+    // Record when the app truly went to the background so a quick return
+    // (< _minAppOpenGap) is treated as the same session and skips the app-open
+    // ad. Ignore background events triggered by our own full-screen ad — those
+    // aren't the user leaving the app.
+    if (_isShowingFullScreenAd) return;
+    _backgroundedAt = DateTime.now();
   }
 
   void _onForeground() {
@@ -395,6 +409,12 @@ class AdService {
       // Just came back from a picker / share / sign-in flow — don't pounce.
       if (_suppressAppOpenUntil != null && now.isBefore(_suppressAppOpenUntil!)) {
         _suppressAppOpenUntil = null;
+        return;
+      }
+      // Don't punish a quick return: if the app was only backgrounded briefly
+      // (< _minAppOpenGap), reopening counts as the same session — no ad.
+      if (_backgroundedAt != null &&
+          now.difference(_backgroundedAt!) < _minAppOpenGap) {
         return;
       }
       // Rate-limit foreground returns so frequent app switching isn't punished.
