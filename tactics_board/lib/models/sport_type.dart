@@ -999,26 +999,27 @@ extension SportTypeExtension on SportType {
       case SportType.waterPolo:
         // Pool 20m × 30m portrait. Goal y=0/1, 2m=0.067, 5m=0.167, 6m=0.20.
         return const [
-          // 7v7 — umbrella attack vs M-zone defense
+          // 7v7 — each team spread in its own half (own goal end), meeting
+          // near the halfway line. Home defends the bottom goal, away the top.
           SportFormation(
             nameKey: 'formation_7v7',
             homePositions: [
-              Offset(0.50, 0.97), // GK
-              Offset(0.50, 0.10), // hole set (CF) at opp 2m
-              Offset(0.10, 0.20), // LW
-              Offset(0.90, 0.20), // RW
-              Offset(0.30, 0.18), // L flat/driver
-              Offset(0.70, 0.18), // R flat/driver
-              Offset(0.50, 0.30), // point
+              Offset(0.50, 0.96), // GK
+              Offset(0.50, 0.56), // hole set (CF) — most advanced, near centre
+              Offset(0.10, 0.66), // LW
+              Offset(0.90, 0.66), // RW
+              Offset(0.30, 0.64), // L flat/driver
+              Offset(0.70, 0.64), // R flat/driver
+              Offset(0.50, 0.74), // point
             ],
             awayPositions: [
-              Offset(0.50, 0.03), // GK
-              Offset(0.50, 0.13), // center back (hole D)
-              Offset(0.18, 0.18),
-              Offset(0.82, 0.18),
-              Offset(0.32, 0.22),
-              Offset(0.68, 0.22),
-              Offset(0.50, 0.28),
+              Offset(0.50, 0.04), // GK
+              Offset(0.50, 0.44), // hole set (CF)
+              Offset(0.90, 0.34), // LW
+              Offset(0.10, 0.34), // RW
+              Offset(0.70, 0.36), // L flat/driver
+              Offset(0.30, 0.36), // R flat/driver
+              Offset(0.50, 0.26), // point
             ],
           ),
           // Power play 6v5 (man-up attack)
@@ -1035,20 +1036,20 @@ extension SportTypeExtension on SportType {
               Offset(0.50, 0.24),
             ],
           ),
-          // 5+1 (training / shorter sides)
+          // 5+1 (training / shorter sides) — each team in its own half.
           SportFormation(
             nameKey: 'formation_5v5',
             homePositions: [
-              Offset(0.50, 0.97), // GK
-              Offset(0.50, 0.12), // hole
-              Offset(0.20, 0.22), Offset(0.80, 0.22),
-              Offset(0.50, 0.32),
+              Offset(0.50, 0.96), // GK
+              Offset(0.50, 0.60), // hole
+              Offset(0.24, 0.70), Offset(0.76, 0.70),
+              Offset(0.50, 0.80),
             ],
             awayPositions: [
-              Offset(0.50, 0.03),
-              Offset(0.50, 0.16),
-              Offset(0.25, 0.20), Offset(0.75, 0.20),
-              Offset(0.50, 0.28),
+              Offset(0.50, 0.04),
+              Offset(0.50, 0.40),
+              Offset(0.76, 0.30), Offset(0.24, 0.30),
+              Offset(0.50, 0.20),
             ],
           ),
         ];
