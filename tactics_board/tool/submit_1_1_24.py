@@ -108,8 +108,11 @@ def process(bundle_id):
     print(f"  build {build_id} VALID")
 
     # Pick the version to reuse: an existing 1.1.24, else the newest non-live one.
-    rv = api("GET", f"/v1/apps/{app_id}/appStoreVersions?limit=10")
-    vers = rv.get("data", [])
+    # MUST filter platform=IOS — these apps also have macOS version records, and
+    # attaching an iOS build to a macOS version 409s ("different platform").
+    rv = api("GET", f"/v1/apps/{app_id}/appStoreVersions?filter[platform]=IOS&limit=10")
+    vers = [v for v in rv.get("data", [])
+            if v["attributes"].get("platform") == "IOS"]
     version = next((v for v in vers
                     if v["attributes"].get("versionString") == TARGET_VERSION), None)
     if not version:
@@ -124,9 +127,17 @@ def process(bundle_id):
     state = version["attributes"].get("appStoreState")
     print(f"  reusing version {version_id} ({cur_ver}, {state})")
 
-    # Cancel any in-review submission so the version becomes editable.
+    # Already submitted at the target version — leave it alone. Re-processing
+    # would cancel the live review and race the re-attach (INVALID_STATE).
+    if cur_ver == TARGET_VERSION and state in ("WAITING_FOR_REVIEW", "IN_REVIEW"):
+        print("  ↷ already in review at 1.1.24 — skip"); return True
+
+    # Cancel any in-review IOS submission so the version becomes editable.
+    # Only touch IOS submissions — never the macOS ones (separate platform).
     rs = api("GET", f"/v1/apps/{app_id}/reviewSubmissions")
     for s in rs.get("data", []):
+        if s["attributes"].get("platform") != "IOS":
+            continue
         st = s["attributes"].get("state")
         if st in ("WAITING_FOR_REVIEW", "IN_REVIEW"):
             print(f"  cancelling {st} submission {s['id']}")
