@@ -1,8 +1,5 @@
-NOUVEAUTÉS de la version 1.1.21
+Nouveautés
 
-• Possession du ballon : déposez le ballon sur un joueur et il le suit dans chaque déplacement et animation.
-• Partage en vidéo : exportez votre schéma tactique en animation MP4 et envoyez-le directement à votre équipe.
-• Ballon plus net et plus réaliste sur le tableau.
-• Taille de téléchargement fortement réduite.
-• Traductions complétées dans les 12 langues.
-• Corrections de bugs et améliorations des performances.
+• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
+• Retour plus fluide lorsque vous revenez dans l'app.
+• Corrections de bugs et améliorations de stabilité.

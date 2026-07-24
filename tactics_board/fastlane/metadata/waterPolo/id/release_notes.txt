@@ -1,8 +1,6 @@
-BARU di 1.1.21
+Yang Baru
 
-• Penguasaan bola: letakkan bola pada pemain dan bola akan mengikutinya di setiap gerakan dan animasi.
-• Bagikan sebagai video: ekspor taktik Anda sebagai animasi MP4 dan kirim langsung ke tim Anda.
-• Gambar bola di papan kini lebih tajam dan realistis.
-• Ukuran unduhan jauh lebih kecil.
-• Terjemahan lengkap untuk semua 12 bahasa.
-• Perbaikan bug dan peningkatan performa.
+• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
+• Kembali ke aplikasi terasa lebih mulus.
+• Formasi tim diperbaiki agar kedua tim berbaris di sisi kolam masing-masing.
+• Perbaikan bug dan peningkatan stabilitas.
