@@ -1,8 +1,5 @@
-NOVEDADES en 1.1.21
+Novedades
 
-• Posesión del balón: suelta el balón sobre un jugador y lo acompañará en cada movimiento y animación.
-• Compartir como vídeo: exporta tu jugada como animación MP4 y envíala directamente a tu equipo.
-• Balón más nítido y realista en la pizarra.
-• Tamaño de descarga mucho menor.
-• Traducciones completas en los 12 idiomas.
-• Corrección de errores y mejoras de rendimiento.
+• El editor de línea de tiempo ahora se desplaza: todas las filas de jugadores y trazos quedan accesibles, sin importar cuántas añadas.
+• Regreso más fluido al volver a la app.
+• Correcciones de errores y mejoras de estabilidad.

@@ -1,8 +1,6 @@
-MỚI trong 1.1.21
+Có gì mới
 
-• Giữ bóng: thả bóng vào một cầu thủ và bóng sẽ đi theo cầu thủ đó trong mọi di chuyển và hoạt ảnh.
-• Chia sẻ dưới dạng video: xuất bài chiến thuật của bạn thành hoạt ảnh MP4 và gửi ngay cho đội của bạn.
-• Hình quả bóng trên bảng sắc nét và chân thực hơn.
-• Dung lượng tải xuống nhỏ hơn nhiều.
-• Hoàn tất bản dịch cho cả 12 ngôn ngữ.
-• Sửa lỗi và cải thiện hiệu năng.
+• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
+• Quay lại ứng dụng mượt mà hơn.
+• Sửa đội hình để hai đội đứng đúng phần bể của mình.
+• Sửa lỗi và cải thiện độ ổn định.

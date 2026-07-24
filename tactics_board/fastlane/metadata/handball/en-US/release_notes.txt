@@ -1,8 +1,5 @@
-NEW in 1.1.21
+What's New
 
-• Ball possession: drop the ball onto a player and it sticks with them through every move and animation.
-• Share as video: export your play as an MP4 animation and send it straight to your team.
-• Crisper, more realistic ball artwork on the board.
-• Much smaller download size.
-• Completed translations across all 12 languages.
-• Bug fixes and performance improvements.
+• The timeline editor now scrolls — every player and drawing row stays reachable, no matter how many you add.
+• Smoother return when you switch back into the app.
+• Bug fixes and stability improvements.

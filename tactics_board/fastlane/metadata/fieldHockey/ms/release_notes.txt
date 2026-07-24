@@ -1,8 +1,5 @@
-BAHARU dalam 1.1.21
+Apa Yang Baharu
 
-• Penguasaan bola: letakkan bola pada pemain dan bola akan mengikutinya dalam setiap pergerakan dan animasi.
-• Kongsi sebagai video: eksport taktik anda sebagai animasi MP4 dan hantar terus kepada pasukan anda.
-• Grafik bola pada papan lebih tajam dan realistik.
-• Saiz muat turun jauh lebih kecil.
-• Terjemahan lengkap untuk semua 12 bahasa.
-• Pembetulan pepijat dan penambahbaikan prestasi.
+• Penyunting garis masa kini boleh ditatal — setiap baris pemain dan lakaran kekal boleh dicapai, tidak kira berapa banyak yang ditambah.
+• Kembali ke apl terasa lebih lancar.
+• Pembaikan pepijat dan penambahbaikan kestabilan.
