@@ -225,7 +225,9 @@ class PlayerIconWidget extends StatelessWidget {
                       : _PlayerShape(player: player, isSelected: isSelected)),
             ),
           ),
-          if (player.label.length > 2)
+          if (player.label.length > 2) ...[
+            // Small gap so the name badge doesn't crowd the avatar's edge.
+            SizedBox(height: 3 * player.scale),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
               decoration: BoxDecoration(
@@ -244,6 +246,7 @@ class PlayerIconWidget extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
+          ],
         ],
       ),
     );
@@ -367,18 +370,17 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
     final p = widget.player;
     final isSelected = widget.isSelected;
     final ghost = widget.isGhost;
+    // Solid team-coloured ring around the photo: with a face filling the disc
+    // the old soft halo alone was not enough to tell home from away apart at a
+    // glance, so the team colour is painted as an actual ring (with a thin
+    // white outline for contrast against any pitch colour).
+    final ringWidth = (3.0 * p.scale).clamp(2.5, 5.0).toDouble();
     final body = Stack(
       children: [
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: _path == null ? p.color : null,
-            image: _path != null
-                ? DecorationImage(
-                    image: FileImage(File(_path!)),
-                    fit: BoxFit.cover,
-                  )
-                : null,
+            color: p.color,
             border: ghost
                 ? null
                 : Border.all(
@@ -406,6 +408,21 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                     ),
                   ],
           ),
+          child: Padding(
+            padding: EdgeInsets.all(ringWidth),
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _path == null ? p.color : Colors.black12,
+                image: _path != null
+                    ? DecorationImage(
+                        image: FileImage(File(_path!)),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
+            ),
+          ),
         ),
         if (ghost)
           Positioned.fill(
@@ -421,16 +438,20 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.65),
+                color: p.color.withValues(alpha: 0.92),
                 borderRadius: BorderRadius.circular(6),
+                border: Border.all(color: Colors.white70, width: 0.8),
               ),
               child: Text(
                 p.label,
                 style: TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 10 * p.scale,
                   height: 1,
+                  shadows: const [
+                    Shadow(color: Colors.black87, blurRadius: 2),
+                  ],
                 ),
               ),
             ),
