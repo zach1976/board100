@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,16 @@ import '../services/cloud_sync_service.dart';
 import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../painters/ball_painter.dart';
+import '../widgets/player_icon_widget.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/sport_glyph.dart';
 import '../widgets/language_picker.dart';
+import '../models/player_photo.dart';
+import '../services/photo_library_service.dart';
 import '../widgets/photo_crop_editor.dart';
+import '../widgets/photo_import_sheet.dart';
 import '../widgets/timeline_editor.dart';
 import '../models/practice.dart';
 import '../services/practice_service.dart';
@@ -84,6 +90,13 @@ class TacticsBoardHomePage extends StatelessWidget {
     );
   }
 
+  /// Vertical offset of the two floating corner buttons. The status bar is
+  /// hidden (UIStatusBarHidden), so the safe-area inset only exists for the
+  /// notch / Dynamic Island — which is centred, leaving both corners free.
+  /// Sitting the buttons beside it instead of below reclaims ~40pt of board.
+  double _chromeTop(double topPad) =>
+      (topPad - 38).clamp(8.0, topPad + 8).toDouble();
+
   Widget _canvasStack(BuildContext context, double topPad) {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     return DragTarget<PhotoDragData>(
@@ -114,7 +127,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               children: [
         if (!isSingleSportApp)
           Positioned(
-            top: topPad + 8, left: 12,
+            top: _chromeTop(topPad), left: 12,
             child: Selector<TacticsState, (String?, String?)>(
               selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
               builder: (context, tuple, _) {
@@ -182,7 +195,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               },
             ),
           ),
-        Positioned(top: topPad + 8, right: 12, child: _MenuButton()),
+        Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
         _CollapsibleEditPanel(),
         Positioned(
           bottom: 12, right: 12,
@@ -1320,52 +1333,64 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           // Row 1 — core actions, always visible.
           Row(
             children: [
-              // Player indicator
-              Container(
-                width: 24, height: 24,
-                decoration: BoxDecoration(
-                  color: p.color,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: kAccent, width: 2),
+              // Identity + role. One flex child soaks up all the slack so the
+              // action cluster stays pinned right while both chips keep their
+              // natural width — a Spacer beside them would split the free
+              // space and ellipsize the role chip on a row that fits fine.
+              Expanded(
+                child: Row(
+                  children: [
+                    // Tapping the chip renames the element: the label is the
+                    // one field this bar has no other route to, and a full
+                    // action button would push the row off-screen once the
+                    // photo-crop action is also showing.
+                    // The only flex child in the row: everything beside it
+                    // keeps its natural width (an assigned role code must
+                    // never be squeezed to blank), so a long name is what
+                    // gives way when the row runs out of space.
+                    Flexible(
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: _promptLabel,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            _identityGlyph(p),
+                            if (p.label.length > 2) ...[
+                              const SizedBox(width: 6),
+                              Flexible(
+                                child: Text(p.label, overflow: TextOverflow.ellipsis, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ),
+                    if (_showRole(p)) ...[
+                      const SizedBox(width: 6),
+                      _roleChip(p),
+                    ],
+                  ],
                 ),
-                child: p.label.length <= 2 && p.label.isNotEmpty
-                    ? Center(child: Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1)))
-                    : null,
               ),
-              if (p.label.length > 2) ...[
-                const SizedBox(width: 6),
-                Text(p.label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
-              ],
-              if (_showRole(p)) ...[
-                const SizedBox(width: 8),
-                _roleChip(p),
-              ],
-              const Spacer(),
+              const SizedBox(width: 6),
               // Explicit add-run toggle — while on, taps on the board lay
               // this player's movement path (so a stray tap never can).
-              _MoveToggle(state: widget.state),
-              const SizedBox(width: 8),
+              _MoveToggle(state: widget.state, compact: p.label.length > 2),
+              const SizedBox(width: 6),
               // Colour + size — collapsed by default; this reveals Row 2.
               _editAction(
                 Icons.tune,
                 _expanded ? kAccent : Colors.white60,
                 () => setState(() => _expanded = !_expanded),
               ),
-              const SizedBox(width: 8),
-              // Adjust photo crop — only visible when the player is using a
-              // user-uploaded face avatar.
-              if (p.photoId != null) ...[
-                _editAction(Icons.crop, kAccent, () {
-                  PhotoCropEditor.show(context, photoId: p.photoId!);
-                }),
-                const SizedBox(width: 8),
-              ],
+              const SizedBox(width: 6),
               // Delete
               _editAction(Icons.delete, kDanger, () {
                 widget.state.removePlayer(p.id);
                 widget.onClose?.call();
               }),
-              const SizedBox(width: 8),
+              const SizedBox(width: 6),
               // Close (deselect).
               GestureDetector(
                 onTap: () {
@@ -1423,6 +1448,261 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     );
   }
 
+  /// Title key follows the element kind — markers and balls aren't
+  /// "players", so the blanket 编辑球员 wording would read incorrectly.
+  String _titleKey() {
+    final p = widget.player;
+    if (p.isBall) return 'edit_ball';
+    if (p.isMarker) return 'edit_marker';
+    return 'edit_player';
+  }
+
+  Future<void> _promptLabel() async {
+    final p = widget.player;
+    // No TextEditingController: the dialog's field outlives the await by one
+    // route transition, so disposing the controller here trips a framework
+    // assertion — an initialValue + onChanged has no such lifecycle.
+    var text = p.label;
+    var team = p.team;
+    var photoId = p.photoId;
+    var role = p.role;
+    // The value is wrapped in a 1-element list so "applied an empty name"
+    // (`['']`) stays distinguishable from "cancelled" (`null`).
+    final result = await showDialog<List<String>>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDialogState) => AlertDialog(
+        backgroundColor: const Color(0xFF213E48),
+        title: Text(_titleKey().tr(), style: const TextStyle(color: Colors.white)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Avatar and name are one edit: tapping the preview opens the
+            // crop editor on top of this dialog (the field keeps its text),
+            // and the preview refreshes itself when the crop is saved.
+            GestureDetector(
+              onTap: (p.isBall || p.isMarker)
+                  ? null
+                  : () async {
+                      final picked = await _pickAvatar(photoId);
+                      if (picked == null) return; // dismissed
+                      setDialogState(() =>
+                          photoId = picked.isEmpty ? null : picked);
+                    },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _identityGlyph(
+                    p.copyWith(
+                      team: team,
+                      photoId: photoId,
+                      clearPhotoId: photoId == null,
+                    ),
+                    dim: 64,
+                  ),
+                  if (!p.isBall && !p.isMarker) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      'avatar_pick_title'.tr(),
+                      style: const TextStyle(color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+            // Which side the player belongs to. Only real players have one —
+            // balls and markers are neutral.
+            if (!p.isBall && !p.isMarker) ...[
+              const SizedBox(height: 14),
+              Row(
+                children: [
+                  for (final t in [PlayerTeam.home, PlayerTeam.away]) ...[
+                    if (t == PlayerTeam.away) const SizedBox(width: 8),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => setDialogState(() => team = t),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          decoration: BoxDecoration(
+                            color: PlayerIcon.teamColor(t)
+                                .withValues(alpha: team == t ? 0.30 : 0.08),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: team == t
+                                  ? PlayerIcon.teamColor(t)
+                                  : Colors.white24,
+                              width: team == t ? 2 : 1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 12, height: 12,
+                                decoration: BoxDecoration(
+                                  color: PlayerIcon.teamColor(t),
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                (t == PlayerTeam.home ? 'team_home' : 'team_away').tr(),
+                                style: TextStyle(
+                                  color: team == t ? Colors.white : Colors.white60,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ],
+            // Position: same sheet the bar chip opens, but the pick is held
+            // until Apply like every other field here.
+            if (_showRole(p)) ...[
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Text('role_title'.tr(),
+                      style: const TextStyle(color: Colors.white60, fontSize: 13)),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () async {
+                      final picked = await _chooseRole(role);
+                      if (picked == null) return;
+                      setDialogState(() => role = picked.isEmpty ? null : picked);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: role != null
+                            ? kAccent.withValues(alpha: 0.22)
+                            : Colors.white.withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                            color: role != null ? kAccent : Colors.white24, width: 1),
+                      ),
+                      child: Text(
+                        role ?? 'role_set'.tr(),
+                        style: TextStyle(
+                          color: role != null ? kAccent : Colors.white70,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            const SizedBox(height: 12),
+            TextFormField(
+              initialValue: p.label,
+              autofocus: true,
+              // A name has to fit the badge under the board icon and the chip
+              // in the edit bar; past this it is only ever seen truncated.
+              maxLength: 12,
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),
+                labelText: 'player_name'.tr(),
+                labelStyle: const TextStyle(color: Colors.white60),
+                enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white30)),
+                focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: kAccent)),
+              ),
+              onChanged: (v) => text = v,
+              onFieldSubmitted: (v) => Navigator.of(ctx).pop([v]),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop([text]),
+            child: Text('confirm'.tr(), style: const TextStyle(color: kAccent)),
+          ),
+        ],
+        ),
+      ),
+    );
+    if (result == null) return; // cancelled
+    // A team switch drops any hand-picked colour — otherwise the player would
+    // keep the old side's colour and the change wouldn't show anywhere.
+    widget.state.updatePlayer(
+      p.id,
+      label: result.first.trim(),
+      team: team == p.team ? null : team,
+      clearCustomColor: team != p.team,
+      photoId: photoId,
+      clearPhotoId: photoId == null,
+    );
+    if (role != p.role) widget.state.setPlayerRole(p.id, role);
+  }
+
+  /// Avatar chooser: pick one of the saved faces, upload a new one, re-crop
+  /// the current one, or drop it. Returns the chosen photo id, `''` to mean
+  /// "no avatar", or null when the sheet was dismissed without a choice.
+  Future<String?> _pickAvatar(String? current) async {
+    return showModalBottomSheet<String>(
+      context: context,
+      backgroundColor: const Color(0xFF15303A),
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => _AvatarPickerSheet(currentPhotoId: current),
+    );
+  }
+
+  /// Miniature of the selected element, drawn with the very same painters the
+  /// board uses, so the chip reads as "this thing" rather than a generic dot.
+  Widget _identityGlyph(PlayerIcon p, {double dim = 26}) {
+    Widget glyph;
+    if (p.photoId != null) {
+      glyph = p.isMarker
+          ? ShapedPhotoMarker(player: p, isSelected: false)
+          : PhotoPlayerShape(player: p, isSelected: false);
+    } else if (p.isBall) {
+      glyph = ballWidget(p.sportType ?? widget.state.sportType);
+    } else if (p.isMarker) {
+      glyph = CustomPaint(
+        painter: MarkerPainter(shape: p.markerShape, color: p.color),
+        size: Size(dim, dim),
+      );
+    } else {
+      glyph = Stack(
+        children: [
+          CustomPaint(
+            painter: TopDownPlayerPainter(
+              color: p.color,
+              borderColor: Colors.white,
+              borderWidth: 1.5,
+              gender: p.gender,
+            ),
+            size: Size(dim, dim),
+          ),
+          if (p.label.isNotEmpty && p.label.length <= 2)
+            Align(
+              alignment: const Alignment(0, 0.35),
+              child: Text(
+                p.label,
+                style: TextStyle(color: Colors.white, fontSize: dim * 0.35, fontWeight: FontWeight.w800, height: 1),
+              ),
+            ),
+        ],
+      );
+    }
+    return SizedBox(width: dim, height: dim, child: glyph);
+  }
+
   Widget _editAction(IconData icon, Color color, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
@@ -1447,10 +1727,14 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
 
   Widget _roleChip(PlayerIcon p) {
     final assigned = p.role != null && p.role!.isNotEmpty;
+    // A named element leaves no room for the "Position" placeholder beside
+    // it, so the unset state falls back to its icon. An assigned role is only
+    // 2-3 characters ('GK', 'CM'), so that always stays as text.
+    final iconOnly = !assigned && p.label.length > 2;
     return GestureDetector(
       onTap: _pickRole,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: iconOnly ? 6 : 10, vertical: 5),
         decoration: BoxDecoration(
           color: assigned
               ? kAccent.withValues(alpha: 0.22)
@@ -1459,24 +1743,35 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           border: Border.all(
               color: assigned ? kAccent : Colors.white24, width: 1),
         ),
-        child: Text(
-          assigned ? p.role! : 'role_set'.tr(),
-          style: TextStyle(
-            color: assigned ? kAccent : Colors.white70,
-            fontSize: 12,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        child: iconOnly
+            ? const Icon(Icons.place_outlined, color: Colors.white70, size: 14)
+            : Text(
+                assigned ? p.role! : 'role_set'.tr(),
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                style: TextStyle(
+                  color: assigned ? kAccent : Colors.white70,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
       ),
     );
   }
 
   Future<void> _pickRole() async {
+    final picked = await _chooseRole(widget.player.role);
+    if (picked == null) return; // dismissed
+    widget.state.setPlayerRole(widget.player.id, picked.isEmpty ? null : picked);
+  }
+
+  /// Role sheet shared by the bar chip and the edit dialog. Returns the picked
+  /// role, `''` for "no role", or null when dismissed without choosing.
+  Future<String?> _chooseRole(String? current) async {
     final state = widget.state;
     final roles = PlayerRoles.forSport(state.sportType);
-    if (roles.isEmpty) return;
-    final current = widget.player.role;
-    await showModalBottomSheet(
+    if (roles.isEmpty) return null;
+    return showModalBottomSheet<String>(
       context: context,
       backgroundColor: kSurface,
       shape: const RoundedRectangleBorder(
@@ -1498,13 +1793,9 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 spacing: 8,
                 runSpacing: 8,
                 children: [
-                  _roleOption(ctx, 'role_none'.tr(), current == null, () {
-                    state.setPlayerRole(widget.player.id, null);
-                  }),
+                  _roleOption(ctx, 'role_none'.tr(), current == null, ''),
                   for (final r in roles)
-                    _roleOption(ctx, r, current == r, () {
-                      state.setPlayerRole(widget.player.id, r);
-                    }),
+                    _roleOption(ctx, r, current == r, r),
                 ],
               ),
             ],
@@ -1515,11 +1806,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   }
 
   Widget _roleOption(
-      BuildContext ctx, String label, bool selected, VoidCallback onTap) {
+      BuildContext ctx, String label, bool selected, String value) {
     return GestureDetector(
       onTap: () {
-        onTap();
-        Navigator.pop(ctx);
+        Navigator.of(ctx).pop(value);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
@@ -1602,9 +1892,155 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
 // Add-run toggle — explicit sub-mode entry shown in the player edit bar.
 // While on, board taps lay this player's run; while off a tap only deselects.
 // ─────────────────────────────────────────────────────────────────────────────
+/// Grid of the saved face photos plus the actions that manage them. Pops the
+/// chosen photo id, `''` for "no avatar", or nothing when dismissed.
+class _AvatarPickerSheet extends StatefulWidget {
+  final String? currentPhotoId;
+  const _AvatarPickerSheet({required this.currentPhotoId});
+
+  @override
+  State<_AvatarPickerSheet> createState() => _AvatarPickerSheetState();
+}
+
+class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
+  late Future<List<(PlayerPhoto, String)>> _photos;
+
+  @override
+  void initState() {
+    super.initState();
+    _photos = _load();
+  }
+
+  Future<List<(PlayerPhoto, String)>> _load() async {
+    final svc = PhotoLibraryService.instance;
+    final list = await svc.list();
+    return [for (final p in list) (p, await svc.resolvePath(p))];
+  }
+
+  Future<void> _upload() async {
+    final groups = await PhotoLibraryService.instance.listGroups();
+    if (!mounted || groups.isEmpty) return;
+    await PhotoImportSheet.showWithSourcePicker(context, groupId: groups.first.id);
+    if (mounted) setState(() => _photos = _load());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'avatar_pick_title'.tr(),
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: const Icon(Icons.close, color: Colors.white54),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height * 0.4,
+              ),
+              child: FutureBuilder<List<(PlayerPhoto, String)>>(
+                future: _photos,
+                builder: (ctx, snap) {
+                  if (snap.connectionState != ConnectionState.done) {
+                    return const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
+                      ),
+                    );
+                  }
+                  final items = snap.data ?? const <(PlayerPhoto, String)>[];
+                  if (items.isEmpty) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Text(
+                        'photo_no_faces'.tr(),
+                        style: const TextStyle(color: Colors.white38, fontSize: 13),
+                      ),
+                    );
+                  }
+                  return SingleChildScrollView(
+                    child: Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
+                      children: [
+                        for (final entry in items)
+                          GestureDetector(
+                            onTap: () => Navigator.of(context).pop(entry.$1.id),
+                            child: Container(
+                              width: 56, height: 56,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: FileImage(File(entry.$2)),
+                                  fit: BoxFit.cover,
+                                ),
+                                border: Border.all(
+                                  color: entry.$1.id == widget.currentPhotoId
+                                      ? kAccent
+                                      : Colors.white24,
+                                  width: entry.$1.id == widget.currentPhotoId ? 2.5 : 1,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            const Divider(color: Colors.white12, height: 24),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.add_a_photo_outlined, color: Colors.white),
+              title: Text('avatar_upload_new'.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 15)),
+              onTap: _upload,
+            ),
+            if (widget.currentPhotoId != null) ...[
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.crop, color: kAccent),
+                title: Text('photo_crop_title'.tr(),
+                    style: const TextStyle(color: kAccent, fontSize: 15)),
+                onTap: () => PhotoCropEditor.show(context, photoId: widget.currentPhotoId!),
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.person_outline, color: Colors.white54),
+                title: Text('avatar_remove'.tr(),
+                    style: const TextStyle(color: Colors.white54, fontSize: 15)),
+                onTap: () => Navigator.of(context).pop(''),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _MoveToggle extends StatelessWidget {
   final TacticsState state;
-  const _MoveToggle({required this.state});
+  /// Icon-only pill. Used when the selected element carries a name, which
+  /// needs the ~50pt the label would otherwise take.
+  final bool compact;
+  const _MoveToggle({required this.state, this.compact = false});
 
   @override
   Widget build(BuildContext context) {
@@ -1616,7 +2052,7 @@ class _MoveToggle extends StatelessWidget {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 140),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: EdgeInsets.symmetric(horizontal: compact ? 8 : 10, vertical: 6),
         decoration: BoxDecoration(
           color: on ? kAccent : kAccentFill,
           borderRadius: BorderRadius.circular(14),
@@ -1627,12 +2063,14 @@ class _MoveToggle extends StatelessWidget {
           children: [
             Icon(on ? Icons.check : Icons.directions_run,
                 size: 14, color: on ? Colors.white : kAccent),
-            const SizedBox(width: 4),
-            Text(on ? 'move_done'.tr() : 'move_add'.tr(),
-                style: TextStyle(
-                    color: on ? Colors.white : kAccent,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600)),
+            if (!compact) ...[
+              const SizedBox(width: 4),
+              Text(on ? 'move_done'.tr() : 'move_add'.tr(),
+                  style: TextStyle(
+                      color: on ? Colors.white : kAccent,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600)),
+            ],
           ],
         ),
       ),

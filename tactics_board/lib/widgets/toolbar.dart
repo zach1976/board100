@@ -49,6 +49,19 @@ import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
 
 /// Tablet (shortestSide >= 600) gets 1.4× sizing for icons/buttons/fonts.
+/// Long-press-drag tuning shared by the add-sheet tiles. The stock 500ms hold
+/// felt sluggish for a tile whose only other gesture is a tap, and the default
+/// anchor pins the feedback's top-left to the grab point — which dropped every
+/// element up-left of the finger, since `onDragEnd` reports that same top-left.
+/// Centring the feedback on the pointer makes the drop land where it looks.
+const Duration kDragHoldDelay = Duration(milliseconds: 180);
+
+DragAnchorStrategy _centredAnchor(double size) =>
+    (_, __, ___) => Offset(size / 2, size / 2);
+
+Offset _dropCentre(DraggableDetails details, double size) =>
+    details.offset + Offset(size / 2, size / 2);
+
 double uiScale(BuildContext context) =>
     MediaQuery.sizeOf(context).shortestSide >= 600 ? 1.4 : 1.0;
 
@@ -2562,13 +2575,16 @@ class _PhotoTileState extends State<_PhotoTile> {
         ),
       ),
     );
+    final fbDim = dim * 1.15;
     final draggable = LongPressDraggable<PhotoDragData>(
       data: dragData,
       feedback: feedback,
+      delay: kDragHoldDelay,
+      dragAnchorStrategy: _centredAnchor(fbDim),
       childWhenDragging: Opacity(opacity: 0.35, child: tile),
       onDragEnd: (details) {
         if (details.wasAccepted) return;
-        widget.onDropOutsideTarget?.call(details.offset);
+        widget.onDropOutsideTarget?.call(_dropCentre(details, fbDim));
       },
       child: GestureDetector(
         onTapDown: (d) => _tapDownPos = d.globalPosition,
@@ -2800,10 +2816,12 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
     return LongPressDraggable<ElementDragData>(
       data: ElementDragData(photo: widget.photo, path: _path),
       feedback: feedback,
+      delay: kDragHoldDelay,
+      dragAnchorStrategy: _centredAnchor(60),
       childWhenDragging: Opacity(opacity: 0.35, child: tile),
       onDragEnd: (details) {
         if (details.wasAccepted) return;
-        widget.onDropOutsideTarget?.call(details.offset);
+        widget.onDropOutsideTarget?.call(_dropCentre(details, 60));
       },
       child: tile,
     );
@@ -3105,36 +3123,17 @@ class _QuickAddTeamGlyph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = PlayerIcon.teamColor(team);
+    // The same top-down body the board paints, so the tile previews exactly
+    // what a tap or drag drops on the pitch — the old circle-with-a-plus read
+    // as a different kind of element.
     return SizedBox(
       width: 28, height: 28,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: color,
-              boxShadow: [
-                BoxShadow(
-                  color: color.withValues(alpha: 0.55),
-                  blurRadius: 5,
-                  spreadRadius: 1,
-                ),
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.35),
-                  blurRadius: 3,
-                  offset: const Offset(0, 1),
-                ),
-              ],
-            ),
-          ),
-          const Positioned.fill(
-            child: Center(
-              child: Icon(Icons.add, color: Colors.white, size: 18),
-            ),
-          ),
-        ],
+      child: CustomPaint(
+        painter: TopDownPlayerPainter(
+          color: PlayerIcon.teamColor(team),
+          borderColor: Colors.white,
+          borderWidth: 1.5,
+        ),
       ),
     );
   }
@@ -3267,10 +3266,12 @@ class _AddAllTile extends StatelessWidget {
     return LongPressDraggable<Object>(
       data: const Object(),
       feedback: feedback,
+      delay: kDragHoldDelay,
+      dragAnchorStrategy: _centredAnchor(60),
       childWhenDragging: Opacity(opacity: 0.35, child: tile),
       onDragEnd: (details) {
         if (details.wasAccepted) return;
-        onDropAt!(details.offset);
+        onDropAt!(_dropCentre(details, 60));
       },
       child: tile,
     );
@@ -4144,10 +4145,12 @@ class _DraggableMarkerCard extends StatelessWidget {
     return LongPressDraggable<Object>(
       data: const Object(),
       feedback: feedback,
+      delay: kDragHoldDelay,
+      dragAnchorStrategy: _centredAnchor(60),
       childWhenDragging: Opacity(opacity: 0.35, child: card),
       onDragEnd: (details) {
         if (details.wasAccepted) return;
-        onDropAt!(details.offset);
+        onDropAt!(_dropCentre(details, 60));
       },
       child: card,
     );

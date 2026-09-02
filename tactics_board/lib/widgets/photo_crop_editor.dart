@@ -3,6 +3,8 @@ import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:image_picker/image_picker.dart';
+import '../services/ad_service.dart';
 import '../services/photo_library_service.dart';
 
 /// Lets the user re-frame an existing avatar — pan with one finger, pinch
@@ -49,6 +51,64 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
     if (photo == null) return;
     final p = await PhotoLibraryService.instance.resolvePath(photo);
     if (mounted) setState(() => _path = p);
+  }
+
+  /// Swap in a different source image. The picked file is only shown — the
+  /// existing photo id is kept, so every player already using this avatar
+  /// picks up the new picture once [_save] writes it.
+  Future<void> _replace() async {
+    final fromCamera = await showModalBottomSheet<bool>(
+      context: context,
+      backgroundColor: const Color(0xFF15303A),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 8),
+            ListTile(
+              leading: const Icon(Icons.photo_camera_outlined, color: Colors.white),
+              title: Text('photo_take'.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 15)),
+              onTap: () => Navigator.of(ctx).pop(true),
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
+              title: Text('photo_from_gallery'.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 15)),
+              onTap: () => Navigator.of(ctx).pop(false),
+            ),
+            const SizedBox(height: 8),
+            ListTile(
+              title: Text('cancel'.tr(),
+                  style: const TextStyle(color: Colors.white54, fontSize: 14),
+                  textAlign: TextAlign.center),
+              onTap: () => Navigator.of(ctx).pop(),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+    if (fromCamera == null || !mounted) return;
+    AdService.instance.suppressNextAppOpen(); // picker/camera backgrounds the app
+    XFile? shot;
+    try {
+      shot = await ImagePicker().pickImage(
+        source: fromCamera ? ImageSource.camera : ImageSource.gallery,
+        imageQuality: 100,
+      );
+    } catch (_) {
+      return;
+    }
+    if (shot == null || !mounted) return;
+    setState(() {
+      _path = shot!.path;
+      _offset = Offset.zero;
+      _scale = 1.0;
+    });
   }
 
   Future<void> _save() async {
@@ -160,7 +220,29 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
+            GestureDetector(
+              onTap: _saving ? null : _replace,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.swap_horiz, color: Color(0xFF00C2B2), size: 18),
+                    const SizedBox(width: 6),
+                    Text(
+                      'photo_replace'.tr(),
+                      style: const TextStyle(
+                        color: Color(0xFF00C2B2),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
