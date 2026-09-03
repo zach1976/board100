@@ -1,0 +1,4 @@
+# Release binaries staged for App Store upload. Half a gigabyte of .ipa per
+# release round — build output, never source. Regenerate with
+# tactics_board/tool/build_all_ipa.sh.
+ipa_staging/
