@@ -1,5 +1,12 @@
 # board100
 
+## 💰 会产生费用的操作：必须三次确认 ★强制（2026-08-26 用户指令）
+
+**任何会产生真实费用的操作（计费 API 调用、enable 计费服务、云资源创建、付费下单等），
+必须获得用户三次独立的明确许可才可以执行。** 细则见
+[`zachs_app_base.md`](见本项目引用路径) 同名章节;免费替代映射见
+`AlphabetLearningFramework/docs/cost_audit_2026-08-26.md`。
+
 > **本项目须遵循 [`zachs_app_base.md`](../zachs_app_base.md) 中的所有项目通用规范。**
 
 ## Project Structure

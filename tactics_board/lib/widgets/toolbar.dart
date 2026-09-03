@@ -513,6 +513,10 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
   if (format == null || !context.mounted) return;
   // Returning from the share sheet must not trigger an app-open ad.
   AdService.instance.suppressNextAppOpen();
+  // A share is now underway, so the post-share interstitial has a real chance
+  // of being used — start loading it. (It is deliberately not preloaded at
+  // launch; see AdService.warmUpInterstitial.)
+  AdService.instance.warmUpInterstitial();
   final bool shared;
   switch (format) {
     case 'pdf':
