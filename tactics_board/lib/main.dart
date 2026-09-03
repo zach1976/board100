@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'models/sport_type.dart';
 import 'services/ad_service.dart';
 import 'services/purchase_service.dart';
+import 'services/tap_guard.dart';
 import 'state/tactics_state.dart';
 import 'pages/sport_selection_page.dart';
 import 'pages/home_page.dart';
@@ -39,6 +40,9 @@ Locale? _resolveEnglishStartLocale() {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Before anything awaited: the app-open ad's cold-start window is measured
+  // from here, not from AdService.init() further down. See AdService.
+  AdService.markLaunch();
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -85,30 +89,34 @@ class TacticsBoardApp extends StatelessWidget {
     return ChangeNotifierProvider(
       lazy: false,
       create: (_) => TacticsState(sportType: fs ?? SportType.basketball),
-      child: MaterialApp(
-        title: 'Tactics Board',
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF00C2B2), // teal/emerald
-            brightness: Brightness.dark,
+      // Records every pointer-down so AdService can refuse to show a
+      // full-screen ad under a finger that's mid-drag. See TapGuard.
+      child: TapGuard.wrap(
+        MaterialApp(
+          title: 'Tactics Board',
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF00C2B2), // teal/emerald
+              brightness: Brightness.dark,
+            ),
+            scaffoldBackgroundColor: const Color(0xFF1A3A4A),
+            appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle.light,
+            ),
+            sliderTheme: const SliderThemeData(
+              thumbColor: Color(0xFF00C2B2),
+              activeTrackColor: Color(0xFF00C2B2),
+              inactiveTrackColor: Colors.white24,
+            ),
           ),
-          scaffoldBackgroundColor: const Color(0xFF1A3A4A),
-          appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle.light,
-          ),
-          sliderTheme: const SliderThemeData(
-            thumbColor: Color(0xFF00C2B2),
-            activeTrackColor: Color(0xFF00C2B2),
-            inactiveTrackColor: Colors.white24,
-          ),
+          home: fs != null
+              ? const TacticsBoardHomePage()
+              : const SportSelectionPage(),
         ),
-        home: fs != null
-            ? const TacticsBoardHomePage()
-            : const SportSelectionPage(),
       ),
     );
   }
