@@ -1,5 +1,9 @@
 # board100 目录结构改造执行计划 — 对齐 ScoreSyncer 模式
 
+> **状态：Phase 0-4 已完成（2026-09-03，分支 `restructure/sport-shells`）。**
+> 提交：`b889aa9` 核心接缝 → `74f817e` 表 + 生成器 + 首壳 → `c7e4834` 其余 14 壳 + 构建管线。
+> 与计划的三处出入见文末「实际执行与计划的差异」。
+
 > 目标：把「一个 Flutter 工程 + 构建时打补丁出 16 个 app」改成 ScoreSyncer 的
 > 「共享核心包 + 每个 app 一个薄壳目录」。补丁-还原机制（`build_sport.sh` 系列）
 > 是这次 Codex review 里 macOS 图标被 footvolley 残留覆盖那类事故的根源，
@@ -111,3 +115,33 @@ ScoreSyncer 薄壳的本质（以 `BadmintonPoints/` 为参照）：
 - 不在改造中夹带任何功能/UI 改动。
 
 **总量级：约 4–5 个工作日，其中 Phase 0 的资产路径收口和 Phase 1 的试点验收是大头。**
+
+
+---
+
+## 实际执行与计划的差异（2026-09-03 完工记录）
+
+1. **资产路径不是大头**。计划把它列为最大工作量/最高风险；实际 `lib/` 里只有 3 处
+   asset 引用（translations + 两张球图，其余全是 CustomPainter），`packageAsset()`
+   收口十分钟完事。风险实际落在别处（见 2、3）。
+2. **广告单元 id 没有按 ScoreSyncer 注入到壳**。board100 已有 `SportType → 单元 id`
+   的中心表（还带熔断注释），壳只声明 sport、id 从表查 —— 壳因此不可能填错 id。
+3. **`tool/` 没有整体搬到 `tools/`**。只搬了跨 app 的发布链（build/upload/verify/
+   wait/submit/release/check_app_status）；ASO、截图、预览、fastlane metadata 仍留在
+   `tactics_board/tool/`，因为它们操作的就是核心目录自己的文件，搬走只会制造一堆
+   相对路径修补。
+4. **发现并修正了一处真实数据漂移**：`sepakTakraw` 的 AdMob App ID 在
+   `build_sport.sh` 表里是空的、在 `build_all_ipa.sh` 表里是 `~4478884795`。
+   出线上包的是后者，`tools/sports.tsv` 采用后者。这正是"两张手工同步的表"要被
+   一张表取代的原因。
+5. **壳依赖锁定**：壳必须复制核心的 `pubspec.lock` 再 `pub get`，否则会解析出比核心新的
+   `google_mobile_ads`（9.1.0 vs 9.0.0），进而要求本地 CocoaPods 缓存里没有的 pod 版本。
+
+## 尚未做（留给发布时）
+
+- 16 个 app 的 release IPA 全量构建 + `verify_ipas.py` 校验（约 2-3 小时机器时间）。
+  这是切换后第一次真正出包，**建议在发 1.1.25 之前先跑一次全量构建 + verify**，
+  确认 16 个 IPA 的版本号与 AdMob App ID 全部正确。
+- Android：6 个上架 app 的 AAB 尚未用新脚本出过包（`tools/build_all_aab.sh`）。
+- macOS：壳目录已生成但未构建（macOS 策略仍是 hub-only、暂停中）。
+- 合并到 main（当前在 `restructure/sport-shells`）。
