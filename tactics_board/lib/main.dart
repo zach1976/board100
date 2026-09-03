@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'config_constants.dart';
 import 'models/sport_type.dart';
 import 'services/ad_service.dart';
 import 'services/purchase_service.dart';
@@ -10,17 +11,10 @@ import 'state/tactics_state.dart';
 import 'pages/sport_selection_page.dart';
 import 'pages/home_page.dart';
 
-/// Read at compile time: --dart-define=SPORT=badminton
-const sportFlavorName = String.fromEnvironment('SPORT');
-
-/// Non-null when app is built for a single sport
-SportType? get fixedSport {
-  if (sportFlavorName.isEmpty) return null;
-  for (final s in SportType.values) {
-    if (s.name == sportFlavorName) return s;
-  }
-  return null;
-}
+/// Non-null when the app is built for a single sport. Set by a shell app's
+/// `main()` via [ConfigConstants.fixedSportType]; defaults to the legacy
+/// --dart-define=SPORT=badminton build path.
+SportType? get fixedSport => ConfigConstants.fixedSportType;
 
 /// True when this is a single-sport flavor (no sport selection page)
 bool get isSingleSportApp => fixedSport != null;
@@ -38,7 +32,13 @@ Locale? _resolveEnglishStartLocale() {
       : const Locale('en', 'GB');
 }
 
-void main() async {
+/// Entry point of the multi-sport hub app. A single-sport shell app does not
+/// call this — it fills in [ConfigConstants] and calls [mainReal] instead.
+void main() => mainReal();
+
+/// The real startup, shared by the hub and every single-sport shell. Callers
+/// must have finished writing [ConfigConstants] before calling it.
+Future<void> mainReal() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Before anything awaited: the app-open ad's cold-start window is measured
   // from here, not from AdService.init() further down. See AdService.
@@ -65,7 +65,7 @@ void main() async {
         Locale('id', 'ID'),
         Locale('ms', 'MY'),
       ],
-      path: 'assets/translations',
+      path: packageAsset('assets/translations'),
       startLocale: _resolveEnglishStartLocale(),
       fallbackLocale: const Locale('en', 'US'),
       child: const TacticsBoardApp(),

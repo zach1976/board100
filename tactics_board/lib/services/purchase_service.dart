@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../config_constants.dart';
+
 /// Owns the "remove ads" (Pro) purchase using Apple StoreKit directly via the
 /// official in_app_purchase plugin — no third-party backend.
 ///
@@ -36,7 +38,7 @@ class PurchaseService extends ChangeNotifier {
   // original bare ids — note 'remove_ads_yearly' was burned by a delete, hence
   // 'remove_ads_annual'; single-sport apps prefix the SPORT. Keep in sync with
   // tool/asc_iap.py product_ids().
-  static const String _sport = String.fromEnvironment('SPORT');
+  static String get _sport => ConfigConstants.fixedSportType?.name ?? '';
   static String get lifetimeId => _sport.isEmpty
       ? 'remove_ads_lifetime'
       : '${_sport.toLowerCase()}_remove_ads_lifetime';

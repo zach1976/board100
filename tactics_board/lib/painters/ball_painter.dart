@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../config_constants.dart';
 import '../models/sport_type.dart';
 
 abstract class BallPainter extends CustomPainter {
@@ -34,9 +35,9 @@ abstract class BallPainter extends CustomPainter {
 String? ballImageAsset(SportType sport) {
   switch (sport) {
     case SportType.soccer:
-      return 'assets/icon/ball_soccer.png';
+      return packageAsset('assets/icon/ball_soccer.png');
     case SportType.basketball:
-      return 'assets/icon/ball_basketball.png';
+      return packageAsset('assets/icon/ball_basketball.png');
     default:
       return null;
   }
