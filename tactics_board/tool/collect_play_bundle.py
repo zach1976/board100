@@ -53,7 +53,7 @@ def collect(sport):
         shutil.copy2(os.path.join(AAB_DIR, aab), os.path.join(dest, aab))
         print(f"  ✓ {sport}: {n_img} images + {aab}")
     else:
-        print(f"  ✓ {sport}: {n_img} images  (no AAB yet — run build_sport_android.sh {sport})")
+        print(f"  ✓ {sport}: {n_img} images  (no AAB yet — run tools/build_all_aab.sh {sport})")
 
 
 def main():

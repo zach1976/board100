@@ -12,7 +12,7 @@ for j in "${JOBS[@]}"; do
   sport="${j%:*}"; code="${j#*:}"
   echo ""
   echo "██████████ $sport  (versionCode $code) ██████████"
-  BUILD_NUMBER="$code" ./tool/build_sport_android.sh "$sport"
+  BUILD_NUMBER="$code" ../../tools/build_all_aab.sh "$sport"
 done
 
 echo ""
