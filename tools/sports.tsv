@@ -1,0 +1,30 @@
+# Single source of truth for the 16 apps. Extracted verbatim from the old
+# tool/build_sport.sh (iOS) + tool/build_sport_android.sh case tables, which
+# were two copies that had to be kept in sync by hand.
+#
+# key            = SportType.name / the legacy --dart-define=SPORT value
+# dir            = shell project directory ("-" for the hub, which IS tactics_board/)
+# bundle         = iOS bundle id AND Android applicationId (must never change:
+#                  a different id is a different app on both stores)
+# name_en/zh/ja  = CFBundleDisplayName / android app_name per locale
+# admob_ios      = AdMob *application* id (~ form) for iOS, "-" when the app
+#                  ships ad-free (its plist then keeps Google's sample id)
+# admob_android  = same for Android; only 4 apps have an Android AdMob app
+#
+# key	dir	bundle	name_en	name_zh	name_ja	admob_ios	admob_android
+tactics_board	-	com.zach.tacticsBoard	Tactics Board	战术板	タクティクスボード	ca-app-pub-4247621509300508~5907516538	ca-app-pub-4247621509300508~4532136942
+badminton	BadmintonBoard	com.zach.badmintonBoard	Badminton Board	羽毛球战术板	バドミントンボード	ca-app-pub-4247621509300508~8533679872	ca-app-pub-4247621509300508~5809946636
+tableTennis	TableTennisBoard	com.zach.tableTennisBoard	Table Tennis Board	乒乓球战术板	卓球ボード	ca-app-pub-4247621509300508~2607096007	-
+tennis	TennisBoard	com.zach.tennisBoard	Tennis Board	网球战术板	テニスボード	ca-app-pub-4247621509300508~1321934499	-
+basketball	BasketballBoard	com.zach.basketballBoard	Basketball Board	篮球战术板	バスケボード	ca-app-pub-4247621509300508~7734769370	ca-app-pub-4247621509300508~2744495676
+volleyball	VolleyballBoard	com.zach.volleyballBoard	Volleyball Board	排球战术板	バレーボード	ca-app-pub-4247621509300508~2373641809	-
+pickleball	PickleballBoard	com.zach.pickleballBoard	Pickleball Board	匹克球战术板	ピックルボールボード	ca-app-pub-4247621509300508~3191899453	-
+soccer	SoccerBoard	com.zach.soccerBoard	Soccer Board	足球战术板	サッカーボード	ca-app-pub-4247621509300508~2977796941	-
+fieldHockey	FieldHockeyBoard	com.zach.fieldHockeyBoard	Field Hockey Board	曲棍球战术板	フィールドホッケーボード	ca-app-pub-4247621509300508~7240475581	ca-app-pub-4247621509300508~3341278543
+rugby	RugbyBoard	com.zach.rugbyBoard	Rugby Board	橄榄球战术板	ラグビーボード	ca-app-pub-4247621509300508~3301230572	-
+baseball	BaseballBoard	com.zach.baseballBoard	Baseball Board	棒球战术板	野球ボード	ca-app-pub-4247621509300508~8270486222	-
+handball	HandballBoard	com.zach.handballBoard	Handball Board	手球战术板	ハンドボールボード	ca-app-pub-4247621509300508~1878817785	-
+waterPolo	WaterPoloBoard	com.zach.waterPoloBoard	Water Polo Board	水球战术板	水球ボード	ca-app-pub-4247621509300508~6692160761	-
+sepakTakraw	SepakTakrawBoard	com.zach.sepakTakrawBoard	Sepak Takraw Board	藤球战术板	セパタクローボード	-	-
+beachTennis	BeachTennisBoard	com.zach.beachTennisBoard	Beach Tennis Board	沙滩网球战术板	ビーチテニスボード	ca-app-pub-4247621509300508~8509629141	-
+footvolley	FootvolleyBoard	com.zach.footvolleyBoard	Footvolley Board	足排球战术板	フットボレーボード	ca-app-pub-4247621509300508~6721904756	-
