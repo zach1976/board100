@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main.dart' show fixedSport;
+import '../config_constants.dart';
 import '../models/sport_type.dart';
 import 'purchase_service.dart';
 import 'tap_guard.dart';
@@ -151,7 +151,7 @@ const Map<SportType, _SportAds> _liveAdUnits = {
 // NB: the build passes --dart-define=HUB_ADS=1, and bool.fromEnvironment only
 // treats the literal "true" as true (a value of "1" yields false), so compare
 // the string explicitly — otherwise hub ads silently stay off.
-const bool _hubAdsEnabled = String.fromEnvironment('HUB_ADS') == '1';
+bool get _hubAdsEnabled => ConfigConstants.hubAdsEnabled;
 
 /// Ad units for the hub app's own AdMob apps (iOS App ID ~5907516538,
 /// Android App ID ~4532136942 — AdMob treats them as separate apps).
@@ -272,7 +272,7 @@ class AdService {
     // paths funnel through here / isEnabled. Read live so a mid-session
     // purchase or restore takes effect immediately.
     if (PurchaseService.instance.hasPro) return null;
-    final sport = fixedSport;
+    final sport = ConfigConstants.fixedSportType;
     if (sport == null) {
       // Multi-sport hub app: ads only when the production hub build opts in
       // (HUB_ADS=1); the plain dev build stays ad-free. Has its own AdMob app
@@ -304,7 +304,7 @@ class AdService {
   /// app/platform with no ads must not offer to remove them (App Store 3.1.1 /
   /// accurate metadata — selling something that does nothing gets rejected).
   bool get servesAds {
-    final sport = fixedSport;
+    final sport = ConfigConstants.fixedSportType;
     if (sport == null) {
       return _hubAdsEnabled && (Platform.isIOS || Platform.isAndroid);
     }
