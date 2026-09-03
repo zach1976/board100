@@ -19,7 +19,7 @@ only blow up later:
 
 Checking 16 zip files takes seconds; a bad batch costs a review cycle x16.
 
-  python3 tool/verify_ipas.py 1.1.25
+  python3 tools/verify_ipas.py 1.1.25
 """
 import plistlib
 import subprocess
@@ -30,28 +30,28 @@ from pathlib import Path
 
 IPA_DIR = Path(__file__).resolve().parent.parent / "build" / "ipa_all"
 
-# bundle-id suffix (== IPA filename stem) -> expected AdMob iOS App ID.
-# Mirrors the case block in build_all_ipa.sh; keep the two in sync.
-EXPECTED_ADMOB = {
-    "tacticsBoard":     "ca-app-pub-4247621509300508~5907516538",
-    "badmintonBoard":   "ca-app-pub-4247621509300508~8533679872",
-    "tableTennisBoard": "ca-app-pub-4247621509300508~2607096007",
-    "tennisBoard":      "ca-app-pub-4247621509300508~1321934499",
-    "basketballBoard":  "ca-app-pub-4247621509300508~7734769370",
-    "volleyballBoard":  "ca-app-pub-4247621509300508~2373641809",
-    "pickleballBoard":  "ca-app-pub-4247621509300508~3191899453",
-    "soccerBoard":      "ca-app-pub-4247621509300508~2977796941",
-    "fieldHockeyBoard": "ca-app-pub-4247621509300508~7240475581",
-    "rugbyBoard":       "ca-app-pub-4247621509300508~3301230572",
-    "baseballBoard":    "ca-app-pub-4247621509300508~8270486222",
-    "handballBoard":    "ca-app-pub-4247621509300508~1878817785",
-    "waterPoloBoard":   "ca-app-pub-4247621509300508~6692160761",
-    "beachTennisBoard": "ca-app-pub-4247621509300508~8509629141",
-    "footvolleyBoard":  "ca-app-pub-4247621509300508~6721904756",
-    "sepakTakrawBoard": "ca-app-pub-4247621509300508~4478884795",
-}
+# Expected identity per app, read from tools/sports.tsv — the one table the
+# shells, the build scripts and this check all share. It used to be a copy of
+# build_all_ipa.sh's case block, and the two drifted (sepakTakraw's AdMob id).
+def _load_table() -> dict:
+    table = Path(__file__).resolve().parent / "sports.tsv"
+    apps = {}
+    for line in table.read_text(encoding="utf-8").splitlines():
+        if line.startswith("#") or not line.strip():
+            continue
+        cols = line.split("\t")
+        if len(cols) < 8:
+            continue
+        _key, _dir, bundle, name_en, _zh, _ja, admob_ios, _admob_android = cols
+        apps[bundle.split(".")[-1]] = {"bundle": bundle, "name": name_en,
+                                       "admob": None if admob_ios == "-" else admob_ios}
+    return apps
 
-# Google's sample/test AdMob app ids — shipping either is a launch crash or a
+
+APPS = _load_table()
+EXPECTED_ADMOB = {k: v["admob"] for k, v in APPS.items() if v["admob"]}
+
+# Google's sample AdMob App IDs. Shipping one is a launch crash / an AdMob
 # policy problem, never correct in a release build.
 PLACEHOLDERS = {
     "ca-app-pub-3940256099942544~1458002511",
@@ -109,8 +109,8 @@ def main() -> int:
         sys.exit(f"no IPAs under {IPA_DIR}")
 
     print(f"Verifying {len(ipas)} IPAs against version {want_version}\n")
-    print(f"{'ipa':20}{'version':10}{'bundle id':30}{'AdMob App ID':42}status")
-    print("-" * 112)
+    print(f"{'ipa':20}{'version':10}{'bundle id':30}{'name':20}{'AdMob App ID':42}status")
+    print("-" * 132)
 
     failures, seen_admob = [], {}
     for ipa in ipas:
@@ -125,12 +125,19 @@ def main() -> int:
         version = info.get("CFBundleShortVersionString", "?")
         bundle = info.get("CFBundleIdentifier", "?")
         admob = info.get("GADApplicationIdentifier", "(missing)")
+        # CFBundleDisplayName is what a device with no matching .lproj shows.
+        # The hub shipped as "Badminton Board" for a while: every build used to
+        # overwrite it, so the committed value was never anyone's identity.
+        name = info.get("CFBundleDisplayName", "(missing)")
 
         problems = []
         if version != want_version:
             problems.append(f"version {version} != {want_version}")
         if bundle != f"com.zach.{stem}":
             problems.append(f"bundle {bundle} != com.zach.{stem}")
+        want_name = APPS.get(stem, {}).get("name")
+        if want_name and name != want_name:
+            problems.append(f"name {name!r} != {want_name!r}")
         expected = EXPECTED_ADMOB.get(stem)
         if expected is None:
             problems.append("unknown app (not in EXPECTED_ADMOB)")
@@ -150,11 +157,11 @@ def main() -> int:
             problems.append(f"non-device arch in {', '.join(bad)}")
 
         status = "OK" if not problems else "; ".join(problems)
-        print(f"{stem:20}{version:10}{bundle:30}{admob:42}{status}")
+        print(f"{stem:20}{version:10}{bundle:30}{name:20}{admob:42}{status}")
         if problems:
             failures.append(f"{stem}: {status}")
 
-    missing = sorted(set(EXPECTED_ADMOB) - {i.stem for i in ipas})
+    missing = sorted(set(APPS) - {i.stem for i in ipas})
     if missing:
         failures.append(f"missing IPAs: {', '.join(missing)}")
 
