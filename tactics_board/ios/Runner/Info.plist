@@ -95,7 +95,7 @@
 		     never crash on launch. tool/build_sport.sh overwrites it with the
 		     sport's real AdMob App ID at build time (only Basketball today). -->
 		<key>GADApplicationIdentifier</key>
-		<string>ca-app-pub-3940256099942544~1458002511</string>
+		<string>ca-app-pub-4247621509300508~5907516538</string>
 		<key>SKAdNetworkItems</key>
 		<array>
 			<dict>

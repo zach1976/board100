@@ -13,8 +13,33 @@
 
 ```
 board100/
-└── tactics_board/   # Flutter app — multi-sport tactics board
+├── tactics_board/     # the shared core package AND the multi-sport hub app
+│                      # (com.zach.tacticsBoard) — all Dart code lives here
+├── SoccerBoard/       # single-sport shell apps: own platform folders
+├── BasketballBoard/   # (bundle id, icons, splash, plists) + a ~20-line
+├── BadmintonBoard/    # lib/main.dart that sets ConfigConstants and calls
+├── ...  (15 shells)   # tactics_board's mainReal()
+├── tools/             # cross-app tooling: sports.tsv (the source of truth
+│                      # for all 16 apps), shell generator, build/release
+└── backend/
 ```
+
+**One app = one directory.** A build never patches another app's files: bundle
+ids, display names, AdMob app ids, icons and splash screens are committed
+inside each shell. (Before 2026-09, all 16 apps came out of `tactics_board/`
+by `sed`-ing its project files and restoring them afterwards — that is how a
+`footvolley` macOS build once left its icon committed as the hub's.)
+
+Adding or refreshing an app:
+
+```bash
+tools/gen_sport_shell.sh soccer   # regenerates SoccerBoard/ from tools/sports.tsv
+tools/gen_sport_shell.sh all      # all 15 shells
+```
+
+`tools/sports.tsv` is the only place app identity is written down: key,
+directory, bundle id, EN/ZH/JA display names, iOS + Android AdMob app ids.
+**Never edit a shell's identity by hand** — change the table and regenerate.
 
 ## AI Code Editing Rules
 
@@ -29,26 +54,30 @@ board100/
 ## Running the App
 
 ```bash
-cd tactics_board
-flutter run -d B90045BA-4C79-4484-9CBC-7BD8C520759D  # iPhone 17 simulator (multi-sport hub)
-flutter run -d macos                                 # macOS hub (multi-sport, dev)
-./tool/build_sport_macos.sh badminton release        # macOS single-sport app (mirrors build_sport.sh)
+cd tactics_board && flutter run          # multi-sport hub (all sports, dev)
+cd SoccerBoard   && flutter run          # one single-sport app
+cd tactics_board && flutter run -d macos # macOS hub
 ```
 
-Per-sport model: like iOS, each sport ships as its own app (own bundle id
-`com.zach.<sport>Board`, name, and `assets/icon/<sport>_icon.png`). Build a
-single-sport macOS app with `tool/build_sport_macos.sh <sport>` — it patches the
-name/bundle-id/icon, builds `--dart-define=SPORT=<sport>`, and restores the
-working tree. First build of a new bundle id auto-creates its provisioning
-profile (Sign in with Apple) via `xcodebuild -allowProvisioningUpdates`.
+Every app is a normal Flutter project — run, debug and profile it directly.
+Release builds:
+
+```bash
+tools/build_all_ipa.sh                 # all 16 IPAs → build/ipa_all/
+tools/build_all_ipa.sh soccer          # just one
+BUILD_NUMBER=5 tools/build_all_aab.sh tactics_board   # Play bundle (6 apps only)
+```
+
+First build of a new bundle id auto-creates its provisioning profile (Sign in
+with Apple) via `xcodebuild -allowProvisioningUpdates`.
 
 Platforms: iOS, Android, macOS (`macos/`). Ads (`google_mobile_ads`) have no
 macOS build; `AdService` already gates on `Platform.isIOS/isAndroid`, so the Mac
 app is ad-free with no code change. macOS signs with team `Q6H46AAX22` (the same
 paid team as iOS, whose App ID already has Sign in with Apple); automatic signing
 provisions `com.apple.developer.applesignin` (`macos/Runner/*.entitlements`), so
-Apple login works. macOS app icon is generated from `assets/icon/app_icon.png`
-via `flutter_launcher_icons` (same source as iOS).
+Apple login works. Each app's macOS icon is generated once by `tools/gen_sport_shell.sh` (from
+`tactics_board/assets/icon/<sport>_icon.png`) and committed, same as iOS.
 
 ## Running Tests
 

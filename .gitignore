@@ -1,4 +1,21 @@
 # Release binaries staged for App Store upload. Half a gigabyte of .ipa per
 # release round — build output, never source. Regenerate with
-# tactics_board/tool/build_all_ipa.sh.
+# tools/build_all_ipa.sh.
 ipa_staging/
+
+# Per-app build output. Every app is its own Flutter project now, so these
+# live under <App>/build/ as well as the repo-root build/ the release
+# scripts write IPAs and AABs into.
+build/
+*/build/
+*/.dart_tool/
+*/ios/Pods/
+*/ios/.symlinks/
+*/ios/Flutter/Generated.xcconfig
+*/ios/Flutter/flutter_export_environment.sh
+*/macos/Pods/
+*/macos/Flutter/ephemeral/
+*/android/.gradle/
+*/android/local.properties
+*/android/key.properties
+.DS_Store
