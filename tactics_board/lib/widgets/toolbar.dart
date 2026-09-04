@@ -38,6 +38,7 @@ import '../services/review_service.dart';
 import '../services/element_usage_service.dart';
 import '../services/pdf_export_service.dart';
 import '../services/photo_library_service.dart';
+import '../services/share_link_service.dart';
 import '../services/video_export_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
@@ -524,6 +525,8 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
       shared = await _sharePdf(context, state);
     case 'video':
       shared = await _shareVideo(context, state);
+    case 'link':
+      shared = await _shareLink(context, state);
     default:
       shared = await _sharePng(context, state);
   }
@@ -533,6 +536,108 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
     final askedForReview = await ReviewService.instance.onShareSuccess();
     // Interstitial only after a real share (not a cancel), at this natural break.
     if (!askedForReview) AdService.instance.maybeShowInterstitial();
+  }
+}
+
+/// Publish the play as a link and share the URL.
+///
+/// Uploads what the app already renders — an MP4 when the play animates, a PNG
+/// when it doesn't — alongside the board JSON, so the page shows the play now
+/// and can be re-rendered properly later. Falls back to sharing the file when
+/// the upload fails, which at a pitch usually means no signal.
+Future<bool> _shareLink(BuildContext context, TacticsState state) async {
+  state.resetZoom();
+  await Future.delayed(const Duration(milliseconds: 200));
+  if (!context.mounted) return false;
+
+  final animated = state.hasMoves;
+  final progress = ValueNotifier<double>(0);
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (_) => Center(
+      child: Material(
+        color: kSurface,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(
+                width: 30, height: 30,
+                child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
+              ),
+              const SizedBox(height: 14),
+              Text('share_link_working'.tr(),
+                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+
+  File? media;
+  try {
+    if (animated) {
+      final path = await VideoExportService.renderToFile(state,
+          onProgress: (v) => progress.value = v);
+      if (path != null) media = File(path);
+    } else {
+      final boundary =
+          boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+      if (boundary != null) {
+        final image = await boundary.toImage(pixelRatio: 1.5);
+        final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+        if (bytes != null) {
+          Directory dir;
+          try { dir = await getTemporaryDirectory(); } catch (_) { dir = Directory.systemTemp; }
+          media = File('${dir.path}/${_friendlyFileStem(state)}.png');
+          await media.writeAsBytes(bytes.buffer.asUint8List());
+        }
+      }
+    }
+
+    final url = await ShareLinkService.instance.publish(
+      sportType: state.sportType.name,
+      data: state.toJson(),
+      media: media,
+      title: state.currentTacticName,
+    );
+
+    if (context.mounted) Navigator.of(context).maybePop(); // close progress
+
+    if (url == null) {
+      // No link, but the render is in hand — share that instead of nothing.
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('share_link_failed'.tr())),
+        );
+      }
+      if (media != null && context.mounted) {
+        final result =
+            await SharePlus.instance.share(ShareParams(files: [XFile(media.path)]));
+        return result.status == ShareResultStatus.success;
+      }
+      return false;
+    }
+
+    await Clipboard.setData(ClipboardData(text: url));
+    if (!context.mounted) return false;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('share_link_copied'.tr())),
+    );
+    final result = await SharePlus.instance.share(ShareParams(text: url));
+    return result.status == ShareResultStatus.success;
+  } catch (_) {
+    if (context.mounted) {
+      Navigator.of(context).maybePop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('share_link_failed'.tr())),
+      );
+    }
+    return false;
   }
 }
 
@@ -628,6 +733,17 @@ Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false})
                   style: const TextStyle(color: Colors.white38, fontSize: 12)),
               onTap: () => Navigator.pop(ctx, 'video'),
             ),
+          const Divider(color: Colors.white12, height: 12),
+          // A link opens in any browser — the receiver needs neither the app
+          // nor an account, which a PNG in a group chat can't say for a play
+          // that moves.
+          ListTile(
+            leading: const Icon(Icons.link, color: kAccent),
+            title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
+            subtitle: Text('share_link_hint'.tr(),
+                style: const TextStyle(color: Colors.white38, fontSize: 12)),
+            onTap: () => Navigator.pop(ctx, 'link'),
+          ),
           const SizedBox(height: 8),
         ],
       ),

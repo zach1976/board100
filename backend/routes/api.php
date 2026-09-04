@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\PracticeHistoryController;
+use App\Http\Controllers\SharedPlayController;
 use App\Http\Controllers\TacticController;
 use App\Http\Middleware\JwtAuthMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,13 @@ Route::prefix('v1')->group(function () {
     // Public
     Route::get('/health', [TacticController::class, 'health']);
     Route::post('/send-email', [ContactController::class, 'sendEmail']);
+
+    // Sharing a play as a link. Public on purpose: the receiver has no app
+    // and no account, and the coach shouldn't need one to hand a play over.
+    // Throttled because it accepts an upload.
+    Route::post('/share', [SharedPlayController::class, 'store'])
+        ->middleware('throttle:20,60');
+    Route::get('/share/{slug}', [SharedPlayController::class, 'show']);
 
     // Auth (public — returns JWT)
     Route::post('/auth/apple', [AuthController::class, 'apple']);
@@ -43,5 +51,8 @@ Route::prefix('v1')->group(function () {
         Route::post('/practice-history', [PracticeHistoryController::class, 'store']);
         Route::post('/practice-history/sync', [PracticeHistoryController::class, 'sync']);
         Route::delete('/practice-history', [PracticeHistoryController::class, 'clear']);
+
+        // Unpublish one of your own links.
+        Route::delete('/share/{slug}', [SharedPlayController::class, 'destroy']);
     });
 });
