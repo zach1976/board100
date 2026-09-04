@@ -18,10 +18,21 @@ List<Drill> loadShipped(String sport) {
       .toList();
 }
 
+/// The sports with a library on disk, in a stable order.
+List<String> shippedSports() =>
+    (Directory('assets/drills').listSync().whereType<File>().toList()
+          ..sort((a, b) => a.path.compareTo(b.path)))
+        .where((f) => f.path.endsWith('.json'))
+        .map((f) => f.uri.pathSegments.last.replaceAll('.json', ''))
+        .toList();
+
 void main() {
   setUpAll(() => TestWidgetsFlutterBinding.ensureInitialized());
 
-  for (final sport in const ['soccer', 'basketball']) {
+  // Every library that ships gets the same contract, found rather than
+  // listed — a new sport must not be able to skip the checks by not being
+  // added here.
+  for (final sport in shippedSports()) {
     _libraryTests(sport);
   }
 
