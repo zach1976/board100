@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'toolbar.dart' show scaledSheet;
+import 'toolbar.dart';
 
 class LanguagePicker {
   static const _languages = [
@@ -22,6 +23,7 @@ class LanguagePicker {
     final current = context.locale;
     showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

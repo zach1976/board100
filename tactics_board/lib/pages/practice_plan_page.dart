@@ -11,6 +11,7 @@ import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
 import 'practice_history_page.dart';
 import 'practice_run_page.dart';
+import '../widgets/toolbar.dart';
 
 const _kBg = Color(0xFF0E1C22);
 const _kCard = Color(0xFF15303A);
@@ -49,6 +50,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     if (_names.isNotEmpty) {
       copyFrom = await showModalBottomSheet<String>(
         context: context,
+        constraints: sheetConstraints(context),
         backgroundColor: _kCard,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -423,6 +425,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     } else {
       base = await showModalBottomSheet<String>(
         context: context,
+        constraints: sheetConstraints(context),
         backgroundColor: _kCard,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -495,6 +498,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     const _newSentinel = '__save_current__';
     final picked = await showModalBottomSheet<String>(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: _kCard,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
