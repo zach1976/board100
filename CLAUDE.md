@@ -15,14 +15,25 @@
 board100/
 ├── tactics_board/     # the shared core package AND the multi-sport hub app
 │                      # (com.zach.tacticsBoard) — all Dart code lives here
-├── SoccerBoard/       # single-sport shell apps: own platform folders
-├── BasketballBoard/   # (bundle id, icons, splash, plists) + a ~20-line
-├── BadmintonBoard/    # lib/main.dart that sets ConfigConstants and calls
-├── ...  (15 shells)   # tactics_board's mainReal()
+├── SoccerBoard/       # single-sport apps. Each owns everything that is only
+├── BasketballBoard/   # its own:
+├── BadmintonBoard/    #   lib/main.dart        ~20 lines: config + mainReal()
+├── ...  (15 apps)     #   ios|android|macos/   bundle id, plists, icons
+│                      #   assets/icon/         app_icon.png, splash_logo.png
+│                      #   fastlane/metadata/   App Store text per locale
+│                      #   fastlane/screenshots/
+│                      #   fastlane/play/       Play listing
 ├── tools/             # cross-app tooling: sports.tsv (the source of truth
-│                      # for all 16 apps), shell generator, build/release
+│                      # for all 16 apps), apps.py (path resolver), shell
+│                      # generator, build/release scripts
 └── backend/
 ```
+
+The core keeps only what every app shares: the Dart code, the translations,
+the two in-game ball images, `assets/preview/`, and fastlane's Appfile /
+Fastfile. Scripts must not hardcode per-app paths — import `tools/apps.py`
+(`metadata_dir(key)`, `screenshots_dir(key)`, `play_metadata_dir(key)`,
+`icon_source(key)`) so the table stays the only mapping.
 
 **One app = one directory.** A build never patches another app's files: bundle
 ids, display names, AdMob app ids, icons and splash screens are committed
