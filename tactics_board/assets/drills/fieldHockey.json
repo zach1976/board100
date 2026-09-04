@@ -1,0 +1,6260 @@
+{
+  "sport": "fieldHockey",
+  "version": 1,
+  "drills": [
+    {
+      "id": "fh_warm_gates",
+      "category": "warmup",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Warm-up dribbling gates",
+        "en-GB": "Warm-up dribbling gates",
+        "zh-CN": "热身 带球过门",
+        "zh-TW": "熱身 帶球過門",
+        "ja-JP": "ウォームアップ ゲートドリブル",
+        "ko-KR": "웜업 게이트 드리블",
+        "es-ES": "Calentamiento puertas de conducción",
+        "fr-FR": "Échauffement portes de conduite",
+        "id-ID": "Pemanasan gerbang dribel",
+        "ms-MY": "Memanaskan badan pintu giring",
+        "th-TH": "วอร์มอัพ ประตูเลี้ยงบอล",
+        "vi-VN": "Khởi động cổng dẫn bóng"
+      },
+      "note": {
+        "en": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "en-GB": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "zh-CN": "抬头，杆压低。必须盯着球才能推球的人，看不到那条本来存在的传球线。",
+        "zh-TW": "抬頭，桿壓低。必須盯著球才能推球的人，看不到那條本來存在的傳球線。",
+        "ja-JP": "顔を上げ、スティックは下げる。ボールを見ないと運べない選手には、通っていたパスが見えない。",
+        "ko-KR": "고개는 들고 스틱은 낮게. 공을 봐야만 움직일 수 있는 선수는 열려 있던 패스를 못 본다.",
+        "es-ES": "Cabeza arriba, stick abajo: quien necesita mirar la bola para moverla no ve el pase que estaba.",
+        "fr-FR": "Tête haute, crosse basse : celui qui doit regarder la balle pour la déplacer ne voit pas la passe qui existait.",
+        "id-ID": "Kepala tegak, tongkat rendah.",
+        "ms-MY": "Kepala tegak, kayu rendah.",
+        "th-TH": "เงยหน้า ไม้ต่ำ",
+        "vi-VN": "Ngẩng đầu, gậy thấp."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                337.527352297593,
+                966.0
+              ],
+              [
+                662.4726477024069,
+                804.0
+              ],
+              [
+                418.7636761487965,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              321.2800875273523,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              370.0218818380744,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              629.9781181619257,
+              804.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              694.9671772428885,
+              804.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              386.26914660831505,
+              642.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m5",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              451.2582056892779,
+              642.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              500.0,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_warm_pairs",
+      "category": "warmup",
+      "minutes": 8,
+      "players": 2,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Warm-up passing in pairs",
+        "en-GB": "Warm-up passing in pairs",
+        "zh-CN": "热身 两人传球",
+        "zh-TW": "熱身 兩人傳球",
+        "ja-JP": "ウォームアップ ペアパス",
+        "ko-KR": "웜업 2인 패스",
+        "es-ES": "Calentamiento pases por parejas",
+        "fr-FR": "Échauffement passes par deux",
+        "id-ID": "Pemanasan operan berpasangan",
+        "ms-MY": "Memanaskan badan hantaran berpasangan",
+        "th-TH": "วอร์มอัพ ส่งบอลเป็นคู่",
+        "vi-VN": "Khởi động chuyền theo cặp"
+      },
+      "note": {
+        "en": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "en-GB": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "zh-CN": "抬头，杆压低。必须盯着球才能推球的人，看不到那条本来存在的传球线。",
+        "zh-TW": "抬頭，桿壓低。必須盯著球才能推球的人，看不到那條本來存在的傳球線。",
+        "ja-JP": "顔を上げ、スティックは下げる。ボールを見ないと運べない選手には、通っていたパスが見えない。",
+        "ko-KR": "고개는 들고 스틱은 낮게. 공을 봐야만 움직일 수 있는 선수는 열려 있던 패스를 못 본다.",
+        "es-ES": "Cabeza arriba, stick abajo: quien necesita mirar la bola para moverla no ve el pase que estaba.",
+        "fr-FR": "Tête haute, crosse basse : celui qui doit regarder la balle pour la déplacer ne voit pas la passe qui existait.",
+        "id-ID": "Kepala tegak, tongkat rendah.",
+        "ms-MY": "Kepala tegak, kayu rendah.",
+        "th-TH": "เงยหน้า ไม้ต่ำ",
+        "vi-VN": "Ngẩng đầu, gậy thấp."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              370.0218818380744,
+              1047.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.5164113785558,
+                912.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              629.9781181619257,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.4835886214441,
+                1019.9999999999999
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              370.0218818380744,
+              1047.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_warm_elimination",
+      "category": "warmup",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Warm-up elimination skills",
+        "en-GB": "Warm-up elimination skills",
+        "zh-CN": "热身 过人技术",
+        "zh-TW": "熱身 過人技術",
+        "ja-JP": "ウォームアップ 抜きの技術",
+        "ko-KR": "웜업 제치기 기술",
+        "es-ES": "Calentamiento recursos de desborde",
+        "fr-FR": "Échauffement gestes d'élimination",
+        "id-ID": "Pemanasan teknik melewati lawan",
+        "ms-MY": "Memanaskan badan teknik melepasi lawan",
+        "th-TH": "วอร์มอัพ ทักษะการเลี้ยงผ่าน",
+        "vi-VN": "Khởi động kỹ thuật vượt người"
+      },
+      "note": {
+        "en": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "en-GB": "Head up, stick down. A player who has to look at the ball to move it cannot see the pass that was on.",
+        "zh-CN": "抬头，杆压低。必须盯着球才能推球的人，看不到那条本来存在的传球线。",
+        "zh-TW": "抬頭，桿壓低。必須盯著球才能推球的人，看不到那條本來存在的傳球線。",
+        "ja-JP": "顔を上げ、スティックは下げる。ボールを見ないと運べない選手には、通っていたパスが見えない。",
+        "ko-KR": "고개는 들고 스틱은 낮게. 공을 봐야만 움직일 수 있는 선수는 열려 있던 패스를 못 본다.",
+        "es-ES": "Cabeza arriba, stick abajo: quien necesita mirar la bola para moverla no ve el pase que estaba.",
+        "fr-FR": "Tête haute, crosse basse : celui qui doit regarder la balle pour la déplacer ne voit pas la passe qui existait.",
+        "id-ID": "Kepala tegak, tongkat rendah.",
+        "ms-MY": "Kepala tegak, kayu rendah.",
+        "th-TH": "เงยหน้า ไม้ต่ำ",
+        "vi-VN": "Ngẩng đầu, gậy thấp."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1074.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                418.7636761487965,
+                885.0
+              ],
+              [
+                548.7417943107221,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              483.7527352297593,
+              858.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                451.2582056892779,
+                831.0000000000001
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              483.7527352297593,
+              858.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              500.0,
+              1074.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_build_from_the_back",
+      "category": "possession",
+      "minutes": 12,
+      "players": 8,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Building up from the back",
+        "en-GB": "Building up from the back",
+        "zh-CN": "组织推进 从后场",
+        "zh-TW": "組織推進 從後場",
+        "ja-JP": "ビルドアップ 後方から",
+        "ko-KR": "빌드업 후방에서",
+        "es-ES": "Salida de balón desde atrás",
+        "fr-FR": "Construction depuis l'arrière",
+        "id-ID": "Membangun serangan dari belakang",
+        "ms-MY": "Membina serangan dari belakang",
+        "th-TH": "การต่อบอลขึ้นเกม จากแดนหลัง",
+        "vi-VN": "Triển khai bóng từ tuyến dưới"
+      },
+      "note": {
+        "en": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "en-GB": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "zh-CN": "先横向转移，再往前推。曲棍球的防守滑得很快，但一次只能往一个方向滑。",
+        "zh-TW": "先橫向轉移，再往前推。曲棍球的防守滑得很快，但一次只能往一個方向滑。",
+        "ja-JP": "前に運ぶ前に横へ動かす。ホッケーの守備は速くスライドするが、一度に片側へしかスライドできない。",
+        "ko-KR": "앞으로 보내기 전에 옆으로 옮겨라. 하키 수비는 빠르게 슬라이드하지만 한 번에 한 방향뿐이다.",
+        "es-ES": "Mueve la bola en horizontal antes que hacia delante: las defensas de hockey bascular rápido, pero solo hacia un lado a la vez.",
+        "fr-FR": "Déplace la balle latéralement avant de l'avancer : les défenses coulissent vite, mais d'un seul côté à la fois.",
+        "id-ID": "Pindahkan bola menyamping sebelum ke depan.",
+        "ms-MY": "Alihkan bola melintang sebelum ke hadapan.",
+        "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
+        "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              223.79649890590807,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                1074.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              402.5164113785558,
+              1074.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                966.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              1074.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                629.9781181619257,
+                939.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              776.203501094092,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                759.9562363238513,
+                1020.0000000000001
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              885.0000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                305.0328227571116,
+                1020.0000000000001
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              564.9890590809628,
+              939.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                532.4945295404814,
+                993.0000000000001
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              723.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              223.79649890590807,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_build_through_midfield",
+      "category": "possession",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Building up through midfield",
+        "en-GB": "Building up through midfield",
+        "zh-CN": "组织推进 经中场",
+        "zh-TW": "組織推進 經中場",
+        "ja-JP": "ビルドアップ 中盤経由",
+        "ko-KR": "빌드업 미드필드를 통해",
+        "es-ES": "Salida de balón por el medio",
+        "fr-FR": "Construction par le milieu",
+        "id-ID": "Membangun serangan lewat lini tengah",
+        "ms-MY": "Membina serangan melalui barisan tengah",
+        "th-TH": "การต่อบอลขึ้นเกม ผ่านกองกลาง",
+        "vi-VN": "Triển khai bóng qua tuyến giữa"
+      },
+      "note": {
+        "en": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "en-GB": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "zh-CN": "先横向转移，再往前推。曲棍球的防守滑得很快，但一次只能往一个方向滑。",
+        "zh-TW": "先橫向轉移，再往前推。曲棍球的防守滑得很快，但一次只能往一個方向滑。",
+        "ja-JP": "前に運ぶ前に横へ動かす。ホッケーの守備は速くスライドするが、一度に片側へしかスライドできない。",
+        "ko-KR": "앞으로 보내기 전에 옆으로 옮겨라. 하키 수비는 빠르게 슬라이드하지만 한 번에 한 방향뿐이다.",
+        "es-ES": "Mueve la bola en horizontal antes que hacia delante: las defensas de hockey bascular rápido, pero solo hacia un lado a la vez.",
+        "fr-FR": "Déplace la balle latéralement avant de l'avancer : les défenses coulissent vite, mais d'un seul côté à la fois.",
+        "id-ID": "Pindahkan bola menyamping sebelum ke depan.",
+        "ms-MY": "Alihkan bola melintang sebelum ke hadapan.",
+        "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
+        "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              223.79649890590807,
+              912.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                831.0000000000001
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              402.5164113785558,
+              831.0000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              831.0000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                629.9781181619257,
+                696.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              776.203501094092,
+              912.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                759.9562363238513,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              642.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                507.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              723.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                305.0328227571116,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              564.9890590809628,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                532.4945295404814,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              223.79649890590807,
+              912.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_build_switching",
+      "category": "possession",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Building up switching the ball",
+        "en-GB": "Building up switching the ball",
+        "zh-CN": "组织推进 转移球",
+        "zh-TW": "組織推進 轉移球",
+        "ja-JP": "ビルドアップ サイドチェンジ",
+        "ko-KR": "빌드업 볼 전환",
+        "es-ES": "Salida de balón cambiando el juego",
+        "fr-FR": "Construction renversement",
+        "id-ID": "Membangun serangan memindahkan bola",
+        "ms-MY": "Membina serangan memindahkan bola",
+        "th-TH": "การต่อบอลขึ้นเกม การเปลี่ยนข้าง",
+        "vi-VN": "Triển khai bóng chuyển hướng bóng"
+      },
+      "note": {
+        "en": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "en-GB": "Move the ball across before you move it forward. Hockey defences slide fast, but they slide one way at a time.",
+        "zh-CN": "先横向转移，再往前推。曲棍球的防守滑得很快，但一次只能往一个方向滑。",
+        "zh-TW": "先橫向轉移，再往前推。曲棍球的防守滑得很快，但一次只能往一個方向滑。",
+        "ja-JP": "前に運ぶ前に横へ動かす。ホッケーの守備は速くスライドするが、一度に片側へしかスライドできない。",
+        "ko-KR": "앞으로 보내기 전에 옆으로 옮겨라. 하키 수비는 빠르게 슬라이드하지만 한 번에 한 방향뿐이다.",
+        "es-ES": "Mueve la bola en horizontal antes que hacia delante: las defensas de hockey bascular rápido, pero solo hacia un lado a la vez.",
+        "fr-FR": "Déplace la balle latéralement avant de l'avancer : les défenses coulissent vite, mais d'un seul côté à la fois.",
+        "id-ID": "Pindahkan bola menyamping sebelum ke depan.",
+        "ms-MY": "Alihkan bola melintang sebelum ke hadapan.",
+        "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
+        "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              223.79649890590807,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                938.9999999999999
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              402.5164113785558,
+              938.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                830.9999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              938.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                629.9781181619257,
+                803.9999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              776.203501094092,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                759.9562363238513,
+                885.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              749.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                615.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              830.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                305.0328227571116,
+                885.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              564.9890590809628,
+              803.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                532.4945295404814,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              587.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              223.79649890590807,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_entry_overlap",
+      "category": "attacking",
+      "minutes": 12,
+      "players": 6,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Entering the circle on the overlap",
+        "en-GB": "Entering the circle on the overlap",
+        "zh-CN": "突入圆圈 套边跑",
+        "zh-TW": "突入圓圈 套邊跑",
+        "ja-JP": "サークル侵入 オーバーラップで",
+        "ko-KR": "서클 진입 오버래핑으로",
+        "es-ES": "Entrada al área en el desdoble",
+        "fr-FR": "Entrée dans le cercle en débordement",
+        "id-ID": "Masuk ke lingkaran dengan overlap",
+        "ms-MY": "Masuk ke bulatan dengan overlap",
+        "th-TH": "การเข้าวงกลมยิง วิ่งอ้อมด้านนอก",
+        "vi-VN": "Vào vòng cấm chồng biên"
+      },
+      "note": {
+        "en": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "en-GB": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "zh-CN": "要么带着控制好的球进去，要么身边有个跑动的人。绝不要两只手都占着、身边一个人都没有地冲进去。",
+        "zh-TW": "要麼帶著控制好的球進去，要麼身邊有個跑動的人。絕不要兩隻手都占著、身邊一個人都沒有地衝進去。",
+        "ja-JP": "コントロールしたボールを持って入るか、走り込む味方と一緒に入るか。両手が塞がってサポートゼロで入ってはいけない。",
+        "ko-KR": "공을 확실히 잡고 들어가거나, 옆에 달려드는 동료와 함께 들어가라.",
+        "es-ES": "Entra con la bola controlada o con alguien corriendo a tu lado, nunca con las manos llenas y sin apoyo.",
+        "fr-FR": "Entre avec la balle maîtrisée ou avec un partenaire lancé à côté — jamais les mains pleines et sans soutien.",
+        "id-ID": "Masuk dengan bola terkendali atau dengan rekan yang berlari di sampingmu.",
+        "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
+        "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
+        "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              223.79649890590807,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                223.79649890590807,
+                480.0
+              ],
+              [
+                337.527352297593,
+                269.676035751345
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                337.527352297593,
+                507.0
+              ],
+              [
+                500.0,
+                210.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              646.2253829321664,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.4835886214441,
+                399.0
+              ],
+              [
+                581.2363238512035,
+                196.5
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              399.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                451.2582056892779,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              372.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                564.9890590809628,
+                264.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              223.79649890590807,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_entry_give_and_go",
+      "category": "attacking",
+      "minutes": 12,
+      "players": 6,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Entering the circle give and go",
+        "en-GB": "Entering the circle give and go",
+        "zh-CN": "突入圆圈 撞墙配合",
+        "zh-TW": "突入圓圈 撞牆配合",
+        "ja-JP": "サークル侵入 ワンツー",
+        "ko-KR": "서클 진입 원투 패스",
+        "es-ES": "Entrada al área pared",
+        "fr-FR": "Entrée dans le cercle une-deux",
+        "id-ID": "Masuk ke lingkaran wall pass",
+        "ms-MY": "Masuk ke bulatan wall pass",
+        "th-TH": "การเข้าวงกลมยิง วันทู",
+        "vi-VN": "Vào vòng cấm phối hợp một-hai"
+      },
+      "note": {
+        "en": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "en-GB": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "zh-CN": "要么带着控制好的球进去，要么身边有个跑动的人。绝不要两只手都占着、身边一个人都没有地冲进去。",
+        "zh-TW": "要麼帶著控制好的球進去，要麼身邊有個跑動的人。絕不要兩隻手都占著、身邊一個人都沒有地衝進去。",
+        "ja-JP": "コントロールしたボールを持って入るか、走り込む味方と一緒に入るか。両手が塞がってサポートゼロで入ってはいけない。",
+        "ko-KR": "공을 확실히 잡고 들어가거나, 옆에 달려드는 동료와 함께 들어가라.",
+        "es-ES": "Entra con la bola controlada o con alguien corriendo a tu lado, nunca con las manos llenas y sin apoyo.",
+        "fr-FR": "Entre avec la balle maîtrisée ou avec un partenaire lancé à côté — jamais les mains pleines et sans soutien.",
+        "id-ID": "Masuk dengan bola terkendali atau dengan rekan yang berlari di sampingmu.",
+        "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
+        "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
+        "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                480.0
+              ],
+              [
+                435.0109409190372,
+                334.69454828986966
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                507.0
+              ],
+              [
+                500.0,
+                210.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              646.2253829321664,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.4835886214441,
+                399.0
+              ],
+              [
+                581.2363238512035,
+                196.5
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              399.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                451.2582056892779,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              372.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                564.9890590809628,
+                264.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              500.0,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_entry_baseline",
+      "category": "attacking",
+      "minutes": 12,
+      "players": 6,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Entering the circle along the baseline",
+        "en-GB": "Entering the circle along the baseline",
+        "zh-CN": "突入圆圈 沿底线",
+        "zh-TW": "突入圓圈 沿底線",
+        "ja-JP": "サークル侵入 ゴールライン沿い",
+        "ko-KR": "서클 진입 골라인 따라",
+        "es-ES": "Entrada al área por la línea de fondo",
+        "fr-FR": "Entrée dans le cercle le long de la ligne de but",
+        "id-ID": "Masuk ke lingkaran menyusur garis belakang",
+        "ms-MY": "Masuk ke bulatan menyusur garisan belakang",
+        "th-TH": "การเข้าวงกลมยิง ตามเส้นหลัง",
+        "vi-VN": "Vào vòng cấm dọc đường biên ngang"
+      },
+      "note": {
+        "en": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "en-GB": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "zh-CN": "要么带着控制好的球进去，要么身边有个跑动的人。绝不要两只手都占着、身边一个人都没有地冲进去。",
+        "zh-TW": "要麼帶著控制好的球進去，要麼身邊有個跑動的人。絕不要兩隻手都占著、身邊一個人都沒有地衝進去。",
+        "ja-JP": "コントロールしたボールを持って入るか、走り込む味方と一緒に入るか。両手が塞がってサポートゼロで入ってはいけない。",
+        "ko-KR": "공을 확실히 잡고 들어가거나, 옆에 달려드는 동료와 함께 들어가라.",
+        "es-ES": "Entra con la bola controlada o con alguien corriendo a tu lado, nunca con las manos llenas y sin apoyo.",
+        "fr-FR": "Entre avec la balle maîtrisée ou avec un partenaire lancé à côté — jamais les mains pleines et sans soutien.",
+        "id-ID": "Masuk dengan bola terkendali atau dengan rekan yang berlari di sampingmu.",
+        "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
+        "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
+        "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              792.4507658643327,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                792.4507658643327,
+                480.0
+              ],
+              [
+                678.7199124726476,
+                248.54604466123757
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              678.7199124726476,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                678.7199124726476,
+                507.0
+              ],
+              [
+                500.0,
+                210.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              646.2253829321664,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.4835886214441,
+                399.0
+              ],
+              [
+                581.2363238512035,
+                196.5
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              399.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                451.2582056892779,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              372.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                564.9890590809628,
+                264.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              792.4507658643327,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_entry_three_v_two",
+      "category": "attacking",
+      "minutes": 12,
+      "players": 6,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Entering the circle 3v2",
+        "en-GB": "Entering the circle 3v2",
+        "zh-CN": "突入圆圈 3v2",
+        "zh-TW": "突入圓圈 3v2",
+        "ja-JP": "サークル侵入 3v2",
+        "ko-KR": "서클 진입 3v2",
+        "es-ES": "Entrada al área 3v2",
+        "fr-FR": "Entrée dans le cercle 3v2",
+        "id-ID": "Masuk ke lingkaran 3v2",
+        "ms-MY": "Masuk ke bulatan 3v2",
+        "th-TH": "การเข้าวงกลมยิง 3v2",
+        "vi-VN": "Vào vòng cấm 3v2"
+      },
+      "note": {
+        "en": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "en-GB": "Enter with the ball under control or with a runner beside you — never with both hands full and nobody in support.",
+        "zh-CN": "要么带着控制好的球进去，要么身边有个跑动的人。绝不要两只手都占着、身边一个人都没有地冲进去。",
+        "zh-TW": "要麼帶著控制好的球進去，要麼身邊有個跑動的人。絕不要兩隻手都占著、身邊一個人都沒有地衝進去。",
+        "ja-JP": "コントロールしたボールを持って入るか、走り込む味方と一緒に入るか。両手が塞がってサポートゼロで入ってはいけない。",
+        "ko-KR": "공을 확실히 잡고 들어가거나, 옆에 달려드는 동료와 함께 들어가라.",
+        "es-ES": "Entra con la bola controlada o con alguien corriendo a tu lado, nunca con las manos llenas y sin apoyo.",
+        "fr-FR": "Entre avec la balle maîtrisée ou avec un partenaire lancé à côté — jamais les mains pleines et sans soutien.",
+        "id-ID": "Masuk dengan bola terkendali atau dengan rekan yang berlari di sampingmu.",
+        "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
+        "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
+        "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              370.0218818380744,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                370.0218818380744,
+                480.0
+              ],
+              [
+                500.0,
+                345.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                507.0
+              ],
+              [
+                500.0,
+                210.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              646.2253829321664,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.4835886214441,
+                399.0
+              ],
+              [
+                581.2363238512035,
+                196.5
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              399.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                451.2582056892779,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              372.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                564.9890590809628,
+                264.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              370.0218818380744,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_shot_deflection",
+      "category": "finishing",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Shooting the deflection",
+        "en-GB": "Shooting the deflection",
+        "zh-CN": "射门 折射攻门",
+        "zh-TW": "射門 折射攻門",
+        "ja-JP": "シュート ディフレクション",
+        "ko-KR": "슛 굴절 슛",
+        "es-ES": "Remate el desvío",
+        "fr-FR": "Tir la déviation",
+        "id-ID": "Tembakan defleksi",
+        "ms-MY": "Tembakan pesongan",
+        "th-TH": "การยิงประตู การเปลี่ยนทิศบอล",
+        "vi-VN": "Dứt điểm đổi hướng bóng"
+      },
+      "note": {
+        "en": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "en-GB": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "zh-CN": "低、狠、打近角，然后安排一个人补射。曲棍球大多数进球来自第二下触球，不是第一下。",
+        "zh-TW": "低、狠、打近角，然後安排一個人補射。曲棍球大多數進球來自第二下觸球，不是第一下。",
+        "ja-JP": "ニアポストへ低く強く。そしてこぼれ球に一人置く。ホッケーの得点の多くは一撃目ではなく二撃目だ。",
+        "ko-KR": "니어포스트로 낮고 강하게, 그리고 리바운드에 한 명. 하키 골 대부분은 두 번째 터치다.",
+        "es-ES": "Golpea raso y fuerte al primer palo y pon a alguien al rechace: la mayoría de goles son el segundo contacto, no el primero.",
+        "fr-FR": "Frappe bas et fort au premier poteau et place quelqu'un sur le rebond : la plupart des buts sont le second contact.",
+        "id-ID": "Pukul rendah dan keras ke tiang dekat, dan siapkan pemantul.",
+        "ms-MY": "Pukul rendah dan kuat ke tiang dekat, dan sediakan pemantul.",
+        "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
+        "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              386.26914660831505,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                386.26914660831505,
+                298.23773847045834
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.5164113785558,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                613.7308533916848,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                142.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              386.26914660831505,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_shot_reverse",
+      "category": "finishing",
+      "minutes": 10,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Shooting on the reverse",
+        "en-GB": "Shooting on the reverse",
+        "zh-CN": "射门 反手推射",
+        "zh-TW": "射門 反手推射",
+        "ja-JP": "シュート リバースで",
+        "ko-KR": "슛 리버스로",
+        "es-ES": "Remate de revés",
+        "fr-FR": "Tir en revers",
+        "id-ID": "Tembakan dengan reverse",
+        "ms-MY": "Tembakan dengan reverse",
+        "th-TH": "การยิงประตู ด้วยไม้กลับด้าน",
+        "vi-VN": "Dứt điểm bằng mặt trái gậy"
+      },
+      "note": {
+        "en": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "en-GB": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "zh-CN": "低、狠、打近角，然后安排一个人补射。曲棍球大多数进球来自第二下触球，不是第一下。",
+        "zh-TW": "低、狠、打近角，然後安排一個人補射。曲棍球大多數進球來自第二下觸球，不是第一下。",
+        "ja-JP": "ニアポストへ低く強く。そしてこぼれ球に一人置く。ホッケーの得点の多くは一撃目ではなく二撃目だ。",
+        "ko-KR": "니어포스트로 낮고 강하게, 그리고 리바운드에 한 명. 하키 골 대부분은 두 번째 터치다.",
+        "es-ES": "Golpea raso y fuerte al primer palo y pon a alguien al rechace: la mayoría de goles son el segundo contacto, no el primero.",
+        "fr-FR": "Frappe bas et fort au premier poteau et place quelqu'un sur le rebond : la plupart des buts sont le second contact.",
+        "id-ID": "Pukul rendah dan keras ke tiang dekat, dan siapkan pemantul.",
+        "ms-MY": "Pukul rendah dan kuat ke tiang dekat, dan sediakan pemantul.",
+        "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
+        "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              629.9781181619257,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                629.9781181619257,
+                286.8627869529181
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.5164113785558,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                613.7308533916848,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                142.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              629.9781181619257,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_shot_tomahawk",
+      "category": "finishing",
+      "minutes": 10,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Shooting the tomahawk",
+        "en-GB": "Shooting the tomahawk",
+        "zh-CN": "射门 反手抽射",
+        "zh-TW": "射門 反手抽射",
+        "ja-JP": "シュート トマホーク",
+        "ko-KR": "슛 토마호크",
+        "es-ES": "Remate el tomahawk",
+        "fr-FR": "Tir le tomahawk",
+        "id-ID": "Tembakan tomahawk",
+        "ms-MY": "Tembakan tomahawk",
+        "th-TH": "การยิงประตู โทมาฮอว์ก",
+        "vi-VN": "Dứt điểm cú tomahawk"
+      },
+      "note": {
+        "en": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "en-GB": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "zh-CN": "低、狠、打近角，然后安排一个人补射。曲棍球大多数进球来自第二下触球，不是第一下。",
+        "zh-TW": "低、狠、打近角，然後安排一個人補射。曲棍球大多數進球來自第二下觸球，不是第一下。",
+        "ja-JP": "ニアポストへ低く強く。そしてこぼれ球に一人置く。ホッケーの得点の多くは一撃目ではなく二撃目だ。",
+        "ko-KR": "니어포스트로 낮고 강하게, 그리고 리바운드에 한 명. 하키 골 대부분은 두 번째 터치다.",
+        "es-ES": "Golpea raso y fuerte al primer palo y pon a alguien al rechace: la mayoría de goles son el segundo contacto, no el primero.",
+        "fr-FR": "Frappe bas et fort au premier poteau et place quelqu'un sur le rebond : la plupart des buts sont le second contact.",
+        "id-ID": "Pukul rendah dan keras ke tiang dekat, dan siapkan pemantul.",
+        "ms-MY": "Pukul rendah dan kuat ke tiang dekat, dan sediakan pemantul.",
+        "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
+        "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              694.9671772428885,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                694.9671772428885,
+                207.13919345325036
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.5164113785558,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                613.7308533916848,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                142.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              694.9671772428885,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_shot_rebound",
+      "category": "finishing",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Shooting off the rebound",
+        "en-GB": "Shooting off the rebound",
+        "zh-CN": "射门 补射",
+        "zh-TW": "射門 補射",
+        "ja-JP": "シュート リバウンドから",
+        "ko-KR": "슛 리바운드에서",
+        "es-ES": "Remate al rechace",
+        "fr-FR": "Tir sur le rebond",
+        "id-ID": "Tembakan dari bola muntah",
+        "ms-MY": "Tembakan daripada bola muntah",
+        "th-TH": "การยิงประตู จากลูกกระดอน",
+        "vi-VN": "Dứt điểm từ bóng bật ra"
+      },
+      "note": {
+        "en": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "en-GB": "Hit it low and hard at the near post, and put someone on the rebound. Most hockey goals are the second contact, not the first.",
+        "zh-CN": "低、狠、打近角，然后安排一个人补射。曲棍球大多数进球来自第二下触球，不是第一下。",
+        "zh-TW": "低、狠、打近角，然後安排一個人補射。曲棍球大多數進球來自第二下觸球，不是第一下。",
+        "ja-JP": "ニアポストへ低く強く。そしてこぼれ球に一人置く。ホッケーの得点の多くは一撃目ではなく二撃目だ。",
+        "ko-KR": "니어포스트로 낮고 강하게, 그리고 리바운드에 한 명. 하키 골 대부분은 두 번째 터치다.",
+        "es-ES": "Golpea raso y fuerte al primer palo y pon a alguien al rechace: la mayoría de goles son el segundo contacto, no el primero.",
+        "fr-FR": "Frappe bas et fort au premier poteau et place quelqu'un sur le rebond : la plupart des buts sont le second contact.",
+        "id-ID": "Pukul rendah dan keras ke tiang dekat, dan siapkan pemantul.",
+        "ms-MY": "Pukul rendah dan kuat ke tiang dekat, dan sediakan pemantul.",
+        "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
+        "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                331.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              435.0109409190372,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.5164113785558,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                613.7308533916848,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                142.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_press_high",
+      "category": "defending",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Press high",
+        "en-GB": "Press high",
+        "zh-CN": "压迫 高位",
+        "zh-TW": "壓迫 高位",
+        "ja-JP": "プレス ハイ",
+        "ko-KR": "압박 높게",
+        "es-ES": "Presión alto",
+        "fr-FR": "Pressing haut",
+        "id-ID": "Pressing tinggi",
+        "ms-MY": "Tekanan tinggi",
+        "th-TH": "การกดดัน สูง",
+        "vi-VN": "Gây áp lực cao"
+      },
+      "note": {
+        "en": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "en-GB": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "zh-CN": "把他们逼向边线，切断转移线路。让球能横传过场的压迫，等于谁也没压到。",
+        "zh-TW": "把他們逼向邊線，切斷轉移線路。讓球能橫傳過場的壓迫，等於誰也沒壓到。",
+        "ja-JP": "サイドライン側へ追い、サイドチェンジを消す。ボールが逆サイドへ渡るプレスは、誰も追い込んでいない。",
+        "ko-KR": "사이드라인 쪽으로 몰고 스위치를 끊어라. 볼이 반대편으로 넘어가는 압박은 압박이 아니다.",
+        "es-ES": "Muéstrales la banda y quítales el cambio: una presión que deja cruzar la bola no ha presionado a nadie.",
+        "fr-FR": "Montre la ligne de touche et supprime le renversement : un pressing qui laisse traverser la balle n'a pressé personne.",
+        "id-ID": "Tunjukkan garis pinggir dan tutup opsi menyilang.",
+        "ms-MY": "Tunjukkan garisan tepi dan tutup pilihan silang.",
+        "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
+        "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                547.5
+              ],
+              [
+                256.2910284463895,
+                601.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                392.7680525164114,
+                547.5
+              ],
+              [
+                376.5207877461707,
+                601.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                529.2450765864332,
+                547.5
+              ],
+              [
+                496.75054704595186,
+                601.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                665.7221006564553,
+                547.5
+              ],
+              [
+                616.980306345733,
+                601.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              696.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              288.7855579868709,
+              642.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                207.54923413566738,
+                696.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              548.7417943107221,
+              669.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              288.7855579868709,
+              642.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_press_half",
+      "category": "defending",
+      "minutes": 12,
+      "players": 8,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Press half",
+        "en-GB": "Press half",
+        "zh-CN": "压迫 中场高度",
+        "zh-TW": "壓迫 中場高度",
+        "ja-JP": "プレス ミドル",
+        "ko-KR": "압박 중간",
+        "es-ES": "Presión medio",
+        "fr-FR": "Pressing médian",
+        "id-ID": "Pressing tengah",
+        "ms-MY": "Tekanan tengah",
+        "th-TH": "การกดดัน กลาง",
+        "vi-VN": "Gây áp lực giữa sân"
+      },
+      "note": {
+        "en": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "en-GB": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "zh-CN": "把他们逼向边线，切断转移线路。让球能横传过场的压迫，等于谁也没压到。",
+        "zh-TW": "把他們逼向邊線，切斷轉移線路。讓球能橫傳過場的壓迫，等於誰也沒壓到。",
+        "ja-JP": "サイドライン側へ追い、サイドチェンジを消す。ボールが逆サイドへ渡るプレスは、誰も追い込んでいない。",
+        "ko-KR": "사이드라인 쪽으로 몰고 스위치를 끊어라. 볼이 반대편으로 넘어가는 압박은 압박이 아니다.",
+        "es-ES": "Muéstrales la banda y quítales el cambio: una presión que deja cruzar la bola no ha presionado a nadie.",
+        "fr-FR": "Montre la ligne de touche et supprime le renversement : un pressing qui laisse traverser la balle n'a pressé personne.",
+        "id-ID": "Tunjukkan garis pinggir dan tutup opsi menyilang.",
+        "ms-MY": "Tunjukkan garisan tepi dan tutup pilihan silang.",
+        "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
+        "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              750.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                817.5000000000001
+              ],
+              [
+                256.2910284463895,
+                871.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              750.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                392.7680525164114,
+                817.5000000000001
+              ],
+              [
+                376.5207877461707,
+                871.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              750.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                529.2450765864332,
+                817.5000000000001
+              ],
+              [
+                496.75054704595186,
+                871.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              750.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                665.7221006564553,
+                817.5000000000001
+              ],
+              [
+                616.980306345733,
+                871.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                992.9999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              288.7855579868709,
+              912.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                207.54923413566738,
+                966.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              548.7417943107221,
+              939.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              288.7855579868709,
+              912.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_press_circle",
+      "category": "defending",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Press in the circle",
+        "en-GB": "Press in the circle",
+        "zh-CN": "压迫 圆圈内",
+        "zh-TW": "壓迫 圓圈內",
+        "ja-JP": "プレス サークル内で",
+        "ko-KR": "압박 서클 안에서",
+        "es-ES": "Presión en el área",
+        "fr-FR": "Pressing dans le cercle",
+        "id-ID": "Pressing di dalam lingkaran",
+        "ms-MY": "Tekanan di dalam bulatan",
+        "th-TH": "การกดดัน ในวงกลมยิง",
+        "vi-VN": "Gây áp lực trong vòng cung"
+      },
+      "note": {
+        "en": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "en-GB": "Show them the sideline and take away the switch. A press that lets the ball cross the pitch has pressed nobody.",
+        "zh-CN": "把他们逼向边线，切断转移线路。让球能横传过场的压迫，等于谁也没压到。",
+        "zh-TW": "把他們逼向邊線，切斷轉移線路。讓球能橫傳過場的壓迫，等於誰也沒壓到。",
+        "ja-JP": "サイドライン側へ追い、サイドチェンジを消す。ボールが逆サイドへ渡るプレスは、誰も追い込んでいない。",
+        "ko-KR": "사이드라인 쪽으로 몰고 스위치를 끊어라. 볼이 반대편으로 넘어가는 압박은 압박이 아니다.",
+        "es-ES": "Muéstrales la banda y quítales el cambio: una presión que deja cruzar la bola no ha presionado a nadie.",
+        "fr-FR": "Montre la ligne de touche et supprime le renversement : un pressing qui laisse traverser la balle n'a pressé personne.",
+        "id-ID": "Tunjukkan garis pinggir dan tutup opsi menyilang.",
+        "ms-MY": "Tunjukkan garisan tepi dan tutup pilihan silang.",
+        "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
+        "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                1087.5
+              ],
+              [
+                256.2910284463895,
+                1141.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                392.7680525164114,
+                1087.5
+              ],
+              [
+                376.5207877461707,
+                1141.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                529.2450765864332,
+                1087.5
+              ],
+              [
+                496.75054704595186,
+                1141.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              1019.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                665.7221006564553,
+                1087.5
+              ],
+              [
+                616.980306345733,
+                1141.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1236.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                435.0109409190372,
+                1262.9999999999998
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              288.7855579868709,
+              1182.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                207.54923413566738,
+                1236.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              548.7417943107221,
+              1209.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              288.7855579868709,
+              1182.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_corner_drag_flick",
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 5,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Penalty corner the drag flick",
+        "en-GB": "Penalty corner the drag flick",
+        "zh-CN": "短角球 推射角球",
+        "zh-TW": "短角球 推射角球",
+        "ja-JP": "ペナルティコーナー ドラッグフリック",
+        "ko-KR": "페널티 코너 드래그 플릭",
+        "es-ES": "Córner corto el drag flick",
+        "fr-FR": "Corner de pénalité le drag-flick",
+        "id-ID": "Penalti sudut drag flick",
+        "ms-MY": "Penjuru penalti drag flick",
+        "th-TH": "ลูกมุมโทษ แดร็กฟลิก",
+        "vi-VN": "Phạt góc cú hất kéo"
+      },
+      "note": {
+        "en": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "I",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              345.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                237.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_corner_straight_strike",
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 5,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Penalty corner the straight strike",
+        "en-GB": "Penalty corner the straight strike",
+        "zh-CN": "短角球 直接抽射",
+        "zh-TW": "短角球 直接抽射",
+        "ja-JP": "ペナルティコーナー ストレートショット",
+        "ko-KR": "페널티 코너 직선 슛",
+        "es-ES": "Córner corto el golpeo directo",
+        "fr-FR": "Corner de pénalité la frappe directe",
+        "id-ID": "Penalti sudut pukulan lurus",
+        "ms-MY": "Penjuru penalti pukulan lurus",
+        "th-TH": "ลูกมุมโทษ การตีตรง",
+        "vi-VN": "Phạt góc cú đánh thẳng"
+      },
+      "note": {
+        "en": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "I",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              345.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                237.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_corner_variation_left",
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 5,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Penalty corner a variation to the left",
+        "en-GB": "Penalty corner a variation to the left",
+        "zh-CN": "短角球 左路变化",
+        "zh-TW": "短角球 左路變化",
+        "ja-JP": "ペナルティコーナー 左への変化",
+        "ko-KR": "페널티 코너 왼쪽 변형",
+        "es-ES": "Córner corto una variante por la izquierda",
+        "fr-FR": "Corner de pénalité une variante à gauche",
+        "id-ID": "Penalti sudut variasi ke kiri",
+        "ms-MY": "Penjuru penalti variasi ke kiri",
+        "th-TH": "ลูกมุมโทษ แผนแปรทางซ้าย",
+        "vi-VN": "Phạt góc biến thể bên trái"
+      },
+      "note": {
+        "en": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "I",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                370.0218818380744,
+                372.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              345.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                237.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_corner_defending_it",
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 9,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Penalty corner defending it",
+        "en-GB": "Penalty corner defending it",
+        "zh-CN": "短角球 防守短角球",
+        "zh-TW": "短角球 防守短角球",
+        "ja-JP": "ペナルティコーナー その守り方",
+        "ko-KR": "페널티 코너 그 수비",
+        "es-ES": "Córner corto defendiéndolo",
+        "fr-FR": "Corner de pénalité sa défense",
+        "id-ID": "Penalti sudut bertahan menghadapinya",
+        "ms-MY": "Penjuru penalti bertahan menghadapinya",
+        "th-TH": "ลูกมุมโทษ การป้องกันมัน",
+        "vi-VN": "Phạt góc cách phòng thủ"
+      },
+      "note": {
+        "en": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "I",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                399.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              345.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                237.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                467.5054704595186,
+                156.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              402.5164113785558,
+              115.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                390.3309628008753,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              467.5054704595186,
+              115.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                463.44365426695845,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              532.4945295404814,
+              115.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                536.5563457330416,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d8",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              597.4835886214441,
+              115.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                609.6690371991247,
+                291.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              857.4398249452954,
+              61.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_set_free_hit",
+      "category": "setpiece",
+      "minutes": 8,
+      "players": 5,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Penalty corner into a free hit routine",
+        "en-GB": "Penalty corner into a free hit routine",
+        "zh-CN": "短角球 自由球战术",
+        "zh-TW": "短角球 自由球戰術",
+        "ja-JP": "ペナルティコーナー フリーヒットの型",
+        "ko-KR": "페널티 코너 프리 히트 루틴",
+        "es-ES": "Córner corto una jugada de golpe franco",
+        "fr-FR": "Corner de pénalité une routine de coup franc",
+        "id-ID": "Penalti sudut rutinitas free hit",
+        "ms-MY": "Penjuru penalti rutin free hit",
+        "th-TH": "ลูกมุมโทษ แผนลูกฟรีฮิต",
+        "vi-VN": "Phạt góc bài đánh phạt trực tiếp"
+      },
+      "note": {
+        "en": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                288.7855579868709,
+                426.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              451.2582056892779,
+              426.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                418.7636761487965,
+                345.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              646.2253829321664,
+              399.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                264.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              353.7746170678337,
+              372.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              256.2910284463895,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_game_3v3",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 7,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Game 3v3",
+        "en-GB": "Game 3v3",
+        "zh-CN": "对抗 3v3",
+        "zh-TW": "對抗 3v3",
+        "ja-JP": "ゲーム 3v3",
+        "ko-KR": "게임 3v3",
+        "es-ES": "Juego 3v3",
+        "fr-FR": "Jeu 3v3",
+        "id-ID": "Permainan 3v3",
+        "ms-MY": "Permainan 3v3",
+        "th-TH": "เกม 3v3",
+        "vi-VN": "Trận đấu 3v3"
+      },
+      "note": {
+        "en": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "en-GB": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "zh-CN": "想练组织的时候，就用进圈次数计分，而不是进球。终结能力会跟着进圈次数一起长。",
+        "zh-TW": "想練組織的時候，就用進圈次數計分，而不是進球。終結能力會跟著進圈次數一起長。",
+        "ja-JP": "ビルドアップを伸ばしたいなら、得点ではなくサークル侵入で点をつける。フィニッシュは侵入回数に付いてくる。",
+        "ko-KR": "빌드업을 키우려면 골이 아니라 서클 진입으로 점수를 매겨라.",
+        "es-ES": "Puntúa entradas al área en vez de goles cuando quieras mejorar la construcción: la definición seguirá a las llegadas.",
+        "fr-FR": "Compte les entrées de cercle plutôt que les buts quand tu veux améliorer la construction : la finition suivra.",
+        "id-ID": "Beri nilai untuk masuk lingkaran, bukan gol, saat ingin memperbaiki build-up.",
+        "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
+        "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
+        "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_game_5v5",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 11,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Game 5v5",
+        "en-GB": "Game 5v5",
+        "zh-CN": "对抗 5v5",
+        "zh-TW": "對抗 5v5",
+        "ja-JP": "ゲーム 5v5",
+        "ko-KR": "게임 5v5",
+        "es-ES": "Juego 5v5",
+        "fr-FR": "Jeu 5v5",
+        "id-ID": "Permainan 5v5",
+        "ms-MY": "Permainan 5v5",
+        "th-TH": "เกม 5v5",
+        "vi-VN": "Trận đấu 5v5"
+      },
+      "note": {
+        "en": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "en-GB": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "zh-CN": "想练组织的时候，就用进圈次数计分，而不是进球。终结能力会跟着进圈次数一起长。",
+        "zh-TW": "想練組織的時候，就用進圈次數計分，而不是進球。終結能力會跟著進圈次數一起長。",
+        "ja-JP": "ビルドアップを伸ばしたいなら、得点ではなくサークル侵入で点をつける。フィニッシュは侵入回数に付いてくる。",
+        "ko-KR": "빌드업을 키우려면 골이 아니라 서클 진입으로 점수를 매겨라.",
+        "es-ES": "Puntúa entradas al área en vez de goles cuando quieras mejorar la construcción: la definición seguirá a las llegadas.",
+        "fr-FR": "Compte les entrées de cercle plutôt que les buts quand tu veux améliorer la construction : la finition suivra.",
+        "id-ID": "Beri nilai untuk masuk lingkaran, bukan gol, saat ingin memperbaiki build-up.",
+        "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
+        "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
+        "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              378.1455142231947,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                378.1455142231947,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              621.8544857768052,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                621.8544857768052,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              378.1455142231947,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                378.1455142231947,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d8",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              621.8544857768052,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                621.8544857768052,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "E",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fh_game_7v7",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 15,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Game 7v7",
+        "en-GB": "Game 7v7",
+        "zh-CN": "对抗 7v7",
+        "zh-TW": "對抗 7v7",
+        "ja-JP": "ゲーム 7v7",
+        "ko-KR": "게임 7v7",
+        "es-ES": "Juego 7v7",
+        "fr-FR": "Jeu 7v7",
+        "id-ID": "Permainan 7v7",
+        "ms-MY": "Permainan 7v7",
+        "th-TH": "เกม 7v7",
+        "vi-VN": "Trận đấu 7v7"
+      },
+      "note": {
+        "en": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "en-GB": "Play to circle entries rather than goals when you want the build-up to improve; the finishing will follow the arrivals.",
+        "zh-CN": "想练组织的时候，就用进圈次数计分，而不是进球。终结能力会跟着进圈次数一起长。",
+        "zh-TW": "想練組織的時候，就用進圈次數計分，而不是進球。終結能力會跟著進圈次數一起長。",
+        "ja-JP": "ビルドアップを伸ばしたいなら、得点ではなくサークル侵入で点をつける。フィニッシュは侵入回数に付いてくる。",
+        "ko-KR": "빌드업을 키우려면 골이 아니라 서클 진입으로 점수를 매겨라.",
+        "es-ES": "Puntúa entradas al área en vez de goles cuando quieras mejorar la construcción: la definición seguirá a las llegadas.",
+        "fr-FR": "Compte les entrées de cercle plutôt que les buts quand tu veux améliorer la construction : la finition suivra.",
+        "id-ID": "Beri nilai untuk masuk lingkaran, bukan gol, saat ingin memperbaiki build-up.",
+        "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
+        "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
+        "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                337.527352297593,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                418.7636761487965,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              662.4726477024069,
+              966.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                662.4726477024069,
+                858.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "7",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                777.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              256.2910284463895,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                256.2910284463895,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d8",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              337.527352297593,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                337.527352297593,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              418.7636761487965,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                418.7636761487965,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "E",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              581.2363238512035,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                581.2363238512035,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "F",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              662.4726477024069,
+              615.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                662.4726477024069,
+                723.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d13",
+            "label": "G",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              743.7089715536106,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                743.7089715536106,
+                642.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d14",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              102.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              256.2910284463895,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    }
+  ]
+}

@@ -14,6 +14,8 @@ maps them, which is the only way to be sure nobody is standing in the margin.
 import math
 from dataclasses import dataclass, field
 
+from .vocab import NEUTRAL, V
+
 CANVAS_W, CANVAS_H = 1000.0, 1500.0
 
 # SportType's enum index — persisted in saved boards, so it is the sport's
@@ -269,9 +271,29 @@ def build_board(drill: Drill, sport: str) -> dict:
 # the same in every language, so a family needs translating once.
 # ─────────────────────────────────────────────────────────────────────────────
 
-def suffixed(base: dict, suffix: str) -> dict:
-    """Family name in every locale with the variant appended."""
-    return {loc: f"{text} {suffix}" for loc, text in base.items()}
+def suffixed(base: dict, suffix) -> dict:
+    """Family name in every locale, with the variant appended in that locale.
+
+    A variant is one of three things. A dict is used as given. A
+    language-neutral string — "5v2", "4-4-2", "zone 4" — reads the same
+    everywhere and passes through. Anything else is an English phrase and must
+    be in the shared vocabulary, or this raises: the alternative is a Chinese
+    coach reading "步法 the forehand net", which is what this check exists to
+    prevent.
+    """
+    if isinstance(suffix, dict):
+        parts = suffix
+    elif NEUTRAL.match(suffix):
+        parts = {}
+    else:
+        try:
+            parts = V[suffix]
+        except KeyError:
+            raise KeyError(
+                f"drill variant {suffix!r} has no translation — add it to "
+                f"tools/drills/vocab.py") from None
+    return {loc: f"{text} {parts.get(loc, parts.get('en', suffix))}"
+            for loc, text in base.items()}
 
 
 def ring(n: int, cx: float, cy: float, rx: float, ry: float,
