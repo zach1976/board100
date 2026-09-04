@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../painters/soccer_court_painter.dart';
 import '../models/court_layout.dart';
 import '../models/player_icon.dart';
+import '../models/player_photo.dart';
 import '../models/player_role.dart';
 import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
@@ -1170,17 +1171,14 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Add players for one team only from a formation (doesn't clear existing players)
-  void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
-    _saveSnapshot();
-    _resetAnimationState();
-    final field = _sportType.fieldRect(_canvasSize);
-    final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
-
-    // On a single-half soccer pitch the formation is laid out as one team
-    // attacking the lone goal: goalkeeper by the goal end, the most advanced
-    // player by the halfway line. Depth is normalised across the team so the
-    // shape fills the visible half regardless of its full-pitch coordinates.
+  /// Maps a formation's relative slot coordinates onto the canvas for [team].
+  ///
+  /// On a single-half soccer pitch the formation is laid out as one team
+  /// attacking the lone goal: goalkeeper by the goal end, the most advanced
+  /// player by the halfway line. Depth is normalised across the team so the
+  /// shape fills the visible half regardless of its full-pitch coordinates.
+  Offset Function(Offset) _slotMapper(
+      List<Offset> positions, PlayerTeam team, Rect field) {
     final half = isSoccerHalfPitch;
     double minDy = double.infinity, maxDy = -double.infinity;
     if (half) {
@@ -1190,7 +1188,7 @@ class TacticsState extends ChangeNotifier {
       }
     }
     final span = (maxDy - minDy).abs() < 1e-6 ? 1.0 : (maxDy - minDy);
-    Offset toPos(Offset rel) {
+    return (Offset rel) {
       if (half) {
         // Distance from the team's own goal, normalised to [0,1] (0 = goal).
         // Home defends the larger-dy end; away the smaller-dy end.
@@ -1201,8 +1199,93 @@ class TacticsState extends ChangeNotifier {
         final p = soccerHalfBoardPos(_canvasSize, _soccerFieldType, tDepth, rel.dx);
         if (p != null) return p;
       }
-      return Offset(field.left + rel.dx * field.width, field.top + rel.dy * field.height);
+      return Offset(
+          field.left + rel.dx * field.width, field.top + rel.dy * field.height);
+    };
+  }
+
+  /// Put a squad on the pitch in [formation]: one member per slot, each
+  /// keeping the number, name, photo and position that belong to the person.
+  ///
+  /// Members are matched to slots by position code first, so a squad with
+  /// roles lands as the coach's actual XI — the goalkeeper in goal — and only
+  /// unassigned members fall through to slot order. Slots left over after the
+  /// squad runs out get plain numbered players; members left over after the
+  /// slots run out are the bench and are not placed. Returns how many were.
+  int addSquadFromFormation(
+      SportFormation formation, PlayerTeam team, List<PlayerPhoto> squad) {
+    _saveSnapshot();
+    _resetAnimationState();
+    final field = _sportType.fieldRect(_canvasSize);
+    final positions =
+        team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
+    final toPos = _slotMapper(positions, team, field);
+    final roles = [
+      for (int i = 0; i < positions.length; i++)
+        PlayerRoles.roleForSlot(_sportType, team, i, positions[i]),
+    ];
+
+    // Same-team players are replaced: applying a squad is "this is my XI",
+    // not "add eleven more".
+    _players.removeWhere((p) => p.team == team);
+
+    final pool = List<PlayerPhoto>.from(squad);
+    final assigned = List<PlayerPhoto?>.filled(positions.length, null);
+    // Pass 1: exact position code.
+    for (int i = 0; i < positions.length; i++) {
+      if (roles[i].isEmpty) continue;
+      final k = pool.indexWhere((m) => m.role == roles[i]);
+      if (k >= 0) assigned[i] = pool.removeAt(k);
     }
+    // Pass 2: whoever is left, in team-sheet order.
+    for (int i = 0; i < positions.length && pool.isNotEmpty; i++) {
+      assigned[i] ??= pool.removeAt(0);
+    }
+
+    int colorIdx = _players.length;
+    int num = 1;
+    final addedIds = <String>[];
+    for (int i = 0; i < positions.length; i++) {
+      final member = assigned[i];
+      final id =
+          '${DateTime.now().microsecondsSinceEpoch}_${team == PlayerTeam.home ? 'h' : 'a'}${i + 1}';
+      final label = member?.boardLabel ?? '';
+      _players.add(PlayerIcon(
+        id: id,
+        label: label.isEmpty ? '$num' : label,
+        team: team,
+        position: toPos(positions[i]),
+        moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
+        photoId: member?.filename.isNotEmpty == true ? member!.id : null,
+        // An unassigned member inherits its slot's role, so the next
+        // formation change keeps them in the same position.
+        role: (member?.role?.isNotEmpty ?? false)
+            ? member!.role
+            : (roles[i].isEmpty ? null : roles[i]),
+      ));
+      addedIds.add(id);
+      num++;
+    }
+
+    _isDrawingMode = false;
+    _multiSelectMode = true;
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    _multiSelectIds
+      ..clear()
+      ..addAll(addedIds);
+    notifyListeners();
+    return squad.length - pool.length;
+  }
+
+  /// Add players for one team only from a formation (doesn't clear existing players)  /// Add players for one team only from a formation (doesn't clear existing players)
+  void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
+    _saveSnapshot();
+    _resetAnimationState();
+    final field = _sportType.fieldRect(_canvasSize);
+    final positions = team == PlayerTeam.home ? formation.homePositions : formation.awayPositions;
+
+    final toPos = _slotMapper(positions, team, field);
     final roles = [
       for (int i = 0; i < positions.length; i++)
         PlayerRoles.roleForSlot(_sportType, team, i, positions[i]),

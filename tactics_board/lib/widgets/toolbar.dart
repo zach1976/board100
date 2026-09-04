@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/player_icon.dart';
 import '../models/player_photo.dart';
+import '../models/player_role.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_theme.dart';
 import '../models/court_layout.dart';
@@ -1844,10 +1845,34 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   /// Add every photo in the current group to the board, lined up in a row
   /// at the chosen team's spawn area. Closes the sheet when done so the
   /// user can see the result.
+  /// The formation to line a squad up in: the one whose size best fits the
+  /// squad without exceeding it (9 players -> 7v7, not 11v11), falling back to
+  /// the smallest the sport defines.
+  SportFormation? _formationForSquad(int size) {
+    final all = state.sportType.formations;
+    if (all.isEmpty) return null;
+    final fitting = all.where((f) => f.homeCount <= size).toList()
+      ..sort((a, b) => b.homeCount.compareTo(a.homeCount));
+    if (fitting.isNotEmpty) return fitting.first;
+    return (all.toList()..sort((a, b) => a.homeCount.compareTo(b.homeCount))).first;
+  }
+
   void _addAllInGroup(List<PlayerPhoto> photos) {
     if (photos.isEmpty) return;
     final c = state.canvasSize;
     if (c.isEmpty) return;
+
+    // A squad that carries positions is a team sheet, not a row of faces:
+    // put it out in a formation so the keeper is in goal. Squads with no
+    // identity at all keep the old line-up-in-a-row behaviour.
+    final formation = _formationForSquad(photos.length);
+    if (formation != null && photos.any((m) => m.hasIdentity)) {
+      state.clearMultiSelect();
+      state.addSquadFromFormation(formation, _team, photos);
+      HapticFeedback.lightImpact();
+      Navigator.of(widget.sheetCtx).maybePop();
+      return;
+    }
     // Use the visible-half spawn rule (sheet hides the bottom half) so all
     // newly-placed players land in the visible part of the board.
     final spawnY = _team == PlayerTeam.away ? c.height * 0.20 : c.height * 0.55;
@@ -1925,12 +1950,16 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final dup =
           state.players.where((p) => p.photoId == photos[i].id).length;
       final id = '${DateTime.now().microsecondsSinceEpoch}_$i';
+      // A squad member brings their shirt number and position with them; only
+      // a member with no identity falls back to the duplicate counter.
+      final label = photos[i].boardLabel;
       state.addPlayer(PlayerIcon(
         id: id,
-        label: dup == 0 ? '' : '${dup + 1}',
+        label: label.isNotEmpty ? label : (dup == 0 ? '' : '${dup + 1}'),
         team: _team,
         position: positions[i],
         photoId: photos[i].id,
+        role: photos[i].role,
       ));
       addedIds.add(id);
     }
@@ -1963,12 +1992,14 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       localPos.dx.clamp(24.0, size.width - 24.0),
       localPos.dy.clamp(24.0, size.height - 24.0),
     );
+    final label = photo.boardLabel;
     state.addPlayer(PlayerIcon(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
-      label: existing == 0 ? '' : '${existing + 1}',
+      label: label.isNotEmpty ? label : (existing == 0 ? '' : '${existing + 1}'),
       team: _team,
       position: clamped,
       photoId: photo.id,
+      role: photo.role,
     ));
     HapticFeedback.lightImpact();
     Navigator.of(widget.sheetCtx).maybePop();
@@ -2897,6 +2928,136 @@ class _PhotosManageDialog extends StatelessWidget {
   final String? groupId;
   const _PhotosManageDialog({required this.photos, required this.groupId});
 
+  /// Edit who a squad member is. These three fields belong to the person, so
+  /// they follow them onto every board — and [role] is what lets a formation
+  /// put the keeper in goal instead of wherever there was a free slot.
+  Future<void> _editIdentity(BuildContext context, PlayerPhoto member) async {
+    var name = member.playerName ?? '';
+    var number = member.jerseyNumber ?? '';
+    var role = member.role;
+    final sport = context.read<TacticsState>().sportType;
+    final roles = PlayerRoles.forSport(sport);
+
+    final saved = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setSheet) => AlertDialog(
+          backgroundColor: const Color(0xFF213E48),
+          title: Text('squad_member_title'.tr(),
+              style: const TextStyle(color: Colors.white)),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      width: 74,
+                      child: TextFormField(
+                        initialValue: number,
+                        maxLength: 3,
+                        keyboardType: TextInputType.number,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          labelText: 'squad_number'.tr(),
+                          counterText: '',
+                          labelStyle: const TextStyle(color: Colors.white60),
+                          enabledBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white30)),
+                          focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: kAccent)),
+                        ),
+                        onChanged: (v) => number = v,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: TextFormField(
+                        initialValue: name,
+                        maxLength: 12,
+                        autofocus: true,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          labelText: 'player_name'.tr(),
+                          counterStyle:
+                              const TextStyle(color: Colors.white38, fontSize: 11),
+                          labelStyle: const TextStyle(color: Colors.white60),
+                          enabledBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white30)),
+                          focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: kAccent)),
+                        ),
+                        onChanged: (v) => name = v,
+                      ),
+                    ),
+                  ],
+                ),
+                if (roles.isNotEmpty) ...[
+                  const SizedBox(height: 14),
+                  Text('role_title'.tr(),
+                      style: const TextStyle(color: Colors.white60, fontSize: 12)),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [
+                      for (final r in <String?>[null, ...roles])
+                        GestureDetector(
+                          onTap: () => setSheet(() => role = r),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: role == r
+                                  ? kAccent
+                                  : Colors.white.withValues(alpha: 0.08),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                  color: role == r ? kAccent : Colors.white24),
+                            ),
+                            child: Text(
+                              r ?? 'role_none'.tr(),
+                              style: TextStyle(
+                                color: role == r ? Colors.white : Colors.white70,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text('cancel'.tr(),
+                  style: const TextStyle(color: Colors.white54)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(true),
+              child: Text('confirm'.tr(),
+                  style: const TextStyle(color: kAccent)),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (saved != true) return;
+    await PhotoLibraryService.instance.setMemberDetails(
+      member.id,
+      playerName: name.trim(),
+      jerseyNumber: number.trim(),
+      role: role,
+      clearRole: role == null,
+    );
+  }
+
   Future<void> _confirmDelete(BuildContext context, PlayerPhoto photo) async {
     final ok = await showDialog<bool>(
       context: context,
@@ -2981,7 +3142,7 @@ class _PhotosManageDialog extends StatelessWidget {
                             crossAxisCount: 3,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12,
-                            childAspectRatio: 0.85,
+                            childAspectRatio: 0.62,
                           ),
                           itemBuilder: (context, i) => _ManageTile(
                             key: ValueKey(list[i].id),
@@ -2990,6 +3151,8 @@ class _PhotosManageDialog extends StatelessWidget {
                             onAdjust: () => PhotoCropEditor.show(
                               context, photoId: list[i].id,
                             ),
+                            onEditIdentity: () =>
+                                _editIdentity(context, list[i]),
                           ),
                         );
                       },
@@ -3009,11 +3172,13 @@ class _ManageTile extends StatefulWidget {
   final PlayerPhoto photo;
   final VoidCallback onDelete;
   final VoidCallback onAdjust;
+  final VoidCallback onEditIdentity;
   const _ManageTile({
     super.key,
     required this.photo,
     required this.onDelete,
     required this.onAdjust,
+    required this.onEditIdentity,
   });
 
   @override
@@ -3076,10 +3241,65 @@ class _ManageTileState extends State<_ManageTile> {
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
+        // Who this is: shirt number, name and position travel with the player
+        // onto every board. Tap to fill them in.
+        GestureDetector(
+          onTap: widget.onEditIdentity,
+          behavior: HitTestBehavior.opaque,
+          child: SizedBox(
+            height: 30,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if ((widget.photo.jerseyNumber?.isNotEmpty ?? false)) ...[
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                        decoration: BoxDecoration(
+                          color: kAccent.withValues(alpha: 0.22),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(widget.photo.jerseyNumber!,
+                            style: const TextStyle(
+                                color: kAccent, fontSize: 11, fontWeight: FontWeight.w700)),
+                      ),
+                      const SizedBox(width: 4),
+                    ],
+                    Flexible(
+                      child: Text(
+                        widget.photo.playerName?.trim().isNotEmpty == true
+                            ? widget.photo.playerName!
+                            : 'squad_member_unnamed'.tr(),
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: widget.photo.playerName?.trim().isNotEmpty == true
+                              ? Colors.white
+                              : Colors.white38,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                if (widget.photo.role?.isNotEmpty ?? false)
+                  Text(widget.photo.role!,
+                      style: const TextStyle(color: Colors.white38, fontSize: 10)),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            _ManageAction(
+              icon: Icons.badge_outlined,
+              color: kAccent,
+              onTap: widget.onEditIdentity,
+            ),
             _ManageAction(
               icon: Icons.crop,
               color: const Color(0xFF00C2B2),
