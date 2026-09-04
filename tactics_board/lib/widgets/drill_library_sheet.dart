@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/drill.dart';
 import '../services/drill_library_service.dart';
+import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import 'toolbar.dart' show sheetConstraints, scaledSheet;
@@ -16,9 +17,13 @@ import 'toolbar.dart' show sheetConstraints, scaledSheet;
 /// catalogue.
 class DrillLibrarySheet extends StatefulWidget {
   final TacticsState state;
-  const DrillLibrarySheet({super.key, required this.state});
 
-  static Future<void> show(BuildContext context, TacticsState state) {
+  /// Opens the purchase sheet. Null on builds with no store.
+  final VoidCallback? onUpgrade;
+  const DrillLibrarySheet({super.key, required this.state, this.onUpgrade});
+
+  static Future<void> show(BuildContext context, TacticsState state,
+      {VoidCallback? onUpgrade}) {
     return showModalBottomSheet<void>(
       context: context,
       constraints: sheetConstraints(context),
@@ -27,7 +32,8 @@ class DrillLibrarySheet extends StatefulWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (ctx) => scaledSheet(ctx, DrillLibrarySheet(state: state)),
+      builder: (ctx) =>
+          scaledSheet(ctx, DrillLibrarySheet(state: state, onUpgrade: onUpgrade)),
     );
   }
 
@@ -45,12 +51,24 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
   }
 
+  /// Locked drills exist only where there is a store to unlock them in: on a
+  /// build with no IAP, showing a lock nobody can open would just be a wall.
+  bool _unlocked(Drill d) =>
+      d.free ||
+      !PurchaseService.instance.isStoreEnabled ||
+      PurchaseService.instance.hasPro;
+
   String get _locale {
     final l = context.locale;
     return l.countryCode == null ? l.languageCode : '${l.languageCode}-${l.countryCode}';
   }
 
   void _load(Drill drill) {
+    if (!_unlocked(drill)) {
+      Navigator.of(context).pop();
+      widget.onUpgrade?.call();
+      return;
+    }
     // A drill is a starting shape the coach edits, so it lands as an unsaved
     // board rather than overwriting whatever they had saved.
     widget.state.loadFromJson(Map<String, dynamic>.from(drill.board));
@@ -100,6 +118,25 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                 const SizedBox(height: 4),
                 Text('drills_hint'.tr(),
                     style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                // Say what's free up front. A lock the user only meets by
+                // tapping reads as a trap; a count reads as an offer.
+                if (all.any((d) => !_unlocked(d))) ...[
+                  const SizedBox(height: 6),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      widget.onUpgrade?.call();
+                    },
+                    child: Text(
+                      'drills_free_count'.tr(args: [
+                        '${all.where((d) => d.free).length}',
+                        '${all.length}',
+                      ]),
+                      style: const TextStyle(
+                          color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 12),
 
                 if (snap.connectionState != ConnectionState.done)
@@ -147,6 +184,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                       itemBuilder: (context, i) => _DrillRow(
                         drill: shown[i],
                         locale: _locale,
+                        locked: !_unlocked(shown[i]),
                         onTap: () => _load(shown[i]),
                       ),
                     ),
@@ -194,8 +232,14 @@ class _CategoryChip extends StatelessWidget {
 class _DrillRow extends StatelessWidget {
   final Drill drill;
   final String locale;
+  final bool locked;
   final VoidCallback onTap;
-  const _DrillRow({required this.drill, required this.locale, required this.onTap});
+  const _DrillRow({
+    required this.drill,
+    required this.locale,
+    required this.locked,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -218,8 +262,10 @@ class _DrillRow extends StatelessWidget {
                 children: [
                   Text(
                     drill.localizedName(locale),
-                    style: const TextStyle(
-                        color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        color: locked ? Colors.white70 : Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 3),
                   Text(
@@ -238,7 +284,8 @@ class _DrillRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            const Icon(Icons.play_circle_outline, color: kAccent, size: 26),
+            Icon(locked ? Icons.lock_outline : Icons.play_circle_outline,
+                color: locked ? Colors.white38 : kAccent, size: 26),
           ],
         ),
       ),
