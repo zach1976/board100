@@ -2,8 +2,12 @@
 """Batch C: subtitle for 16 apps × 11 locales = 176 files.
 30-char hard limit. Benefit-led, sport-flavored where space allows."""
 import os
-BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 # Per-locale benefit-led subtitle. {S} = sport noun (short form).
 # Two variants per locale: SHORT (when sport name fits) vs FALLBACK (universal).
 SUB = {
@@ -93,7 +97,7 @@ for sport in SPORTS:
         if len(text) > 30:
             overflow.append((sport, loc, len(text), text))
             continue
-        path = f"{BASE}/{sport}/{loc}/subtitle.txt"
+        path = f"{metadata_dir(sport)}/{loc}/subtitle.txt"
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)

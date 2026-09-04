@@ -15,13 +15,17 @@ Usage:
 """
 import argparse, jwt, os, sys, time, warnings
 import requests
+
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 warnings.filterwarnings("ignore")
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-META_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
-
 APPS = {
     "tactics_board": "com.zach.tacticsBoard",
     "soccer":        "com.zach.soccerBoard",
@@ -59,7 +63,7 @@ def api(method, url, tok, data=None):
 
 
 def read_promo(app_key, locale):
-    path = os.path.join(META_BASE, app_key, locale, "promotional_text.txt")
+    path = os.path.join(metadata_dir(app_key), locale, "promotional_text.txt")
     if not os.path.exists(path):
         return None
     with open(path) as f:
@@ -98,7 +102,7 @@ def upload_one(app_key, bundle_id, tok, dry_run=False):
     existing = {loc["attributes"]["locale"]: loc["id"] for loc in r.get("data", [])}
 
     ok = err = 0
-    locales_dir = os.path.join(META_BASE, app_key)
+    locales_dir = metadata_dir(app_key)
     for locale in sorted(os.listdir(locales_dir)):
         if not os.path.isdir(os.path.join(locales_dir, locale)):
             continue

@@ -4,7 +4,7 @@
 For each sport, mirrors the established pattern of the first 4 Play apps
 (basketball/soccer/volleyball/badminton):
 
-  fastlane/play/<sport>/metadata/android/<playLocale>/
+  <App>/fastlane/play/metadata/android/<playLocale>/
     title.txt              <- iOS name.txt          (<=30 chars)
     short_description.txt   <- iOS subtitle.txt, EXCEPT en-US which is custom (<=80)
     full_description.txt    <- iOS description.txt   (<=4000)
@@ -26,10 +26,13 @@ Usage:
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IOS = os.path.join(ROOT, "fastlane", "metadata")
-PLAY = os.path.join(ROOT, "fastlane", "play")
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import KEYS, metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # iOS locale dir -> Play locale dir
 LOCALES = {
     "en-US": "en-US",
@@ -126,11 +129,11 @@ def gen_changelog_en(desc):
 def gen_sport(sport, fill_only=False):
     warnings = []
     for ios_loc, play_loc in LOCALES.items():
-        sdir = os.path.join(IOS, sport, ios_loc)
+        sdir = os.path.join(metadata_dir(sport), ios_loc)
         if not os.path.isdir(sdir):
             warnings.append(f"{sport}/{ios_loc}: missing iOS locale, skipped")
             continue
-        out = os.path.join(PLAY, sport, "metadata", "android", play_loc)
+        out = os.path.join(play_metadata_dir(sport), play_loc)
         # fill mode: never overwrite a locale that already has copy (preserves
         # the hand-tuned en-US of already-published apps).
         if fill_only and os.path.exists(os.path.join(out, "full_description.txt")):
@@ -167,9 +170,9 @@ def gen_sport(sport, fill_only=False):
 
 
 def main(argv):
-    all_sports = sorted(
-        d for d in os.listdir(IOS) if os.path.isdir(os.path.join(IOS, d))
-    )
+    # Every app in the repo — the table is the roster now that each app's
+    # metadata lives in its own directory.
+    all_sports = sorted(k for k in KEYS if metadata_dir(k).is_dir())
     fill_only = False
     if argv and argv[0] == "fill":
         fill_only = True

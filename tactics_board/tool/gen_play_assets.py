@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate Google Play store graphics for the single-sport apps.
 
-Outputs into fastlane/play/<sport>/metadata/android/en-US/images/:
+Outputs into <App>/fastlane/play/metadata/android/en-US/images/:
   - icon.png             512x512   (Play app icon)
   - featureGraphic.png   1024x500  (Play feature graphic)
   - phoneScreenshots/1..6.png      (captioned screenshots padded to <=2:1)
@@ -15,11 +15,15 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ICON_DIR = os.path.join(ROOT, "assets", "icon")
 SS_DIR = os.path.join(ROOT, "fastlane", "screenshots")
-PLAY_DIR = os.path.join(ROOT, "fastlane", "play")
-
 FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 FONT_REG = "/System/Library/Fonts/Supplemental/Arial.ttf"
 
@@ -181,7 +185,7 @@ def run(sport):
         print(f"unknown sport: {sport}")
         return
     name, tagline = SPORTS[sport]
-    outdir = os.path.join(PLAY_DIR, sport, "metadata", "android", "en-US", "images")
+    outdir = os.path.join(play_metadata_dir(sport), "en-US", "images")
     os.makedirs(outdir, exist_ok=True)
     print(f"{sport}:")
     gen_icon(sport, outdir)

@@ -9,22 +9,22 @@ API_KEY = app_store_connect_api_key(
 
 # ── App configs ──────────────────────────────────────────────────────────────
 APPS = {
-  tactics_board: { id: "com.zach.tacticsBoard",       name: "Tactics Board" },
-  soccer:        { id: "com.zach.soccerBoard",        name: "Soccer Board" },
-  basketball:    { id: "com.zach.basketballBoard",    name: "Basketball Board" },
-  volleyball:    { id: "com.zach.volleyballBoard",    name: "Volleyball Board" },
-  badminton:     { id: "com.zach.badmintonBoard",     name: "Badminton Board" },
-  tennis:        { id: "com.zach.tennisBoard",        name: "Tennis Board" },
-  tableTennis:   { id: "com.zach.tableTennisBoard",   name: "Table Tennis Board" },
-  pickleball:    { id: "com.zach.pickleballBoard",    name: "Pickleball Board" },
-  baseball:      { id: "com.zach.baseballBoard",      name: "Baseball Board" },
-  handball:      { id: "com.zach.handballBoard",      name: "Handball Board" },
-  rugby:         { id: "com.zach.rugbyBoard",         name: "Rugby Board" },
-  fieldHockey:   { id: "com.zach.fieldHockeyBoard",   name: "Field Hockey Board" },
-  waterPolo:     { id: "com.zach.waterPoloBoard",     name: "Water Polo Board" },
-  sepakTakraw:   { id: "com.zach.sepakTakrawBoard",   name: "Sepak Takraw Board" },
-  beachTennis:   { id: "com.zach.beachTennisBoard",   name: "Beach Tennis Board" },
-  footvolley:    { id: "com.zach.footvolleyBoard",    name: "Footvolley Board" },
+  tactics_board: { id: "com.zach.tacticsBoard",       name: "Tactics Board", dir: "tactics_board" },
+  soccer:        { id: "com.zach.soccerBoard",        name: "Soccer Board", dir: "SoccerBoard" },
+  basketball:    { id: "com.zach.basketballBoard",    name: "Basketball Board", dir: "BasketballBoard" },
+  volleyball:    { id: "com.zach.volleyballBoard",    name: "Volleyball Board", dir: "VolleyballBoard" },
+  badminton:     { id: "com.zach.badmintonBoard",     name: "Badminton Board", dir: "BadmintonBoard" },
+  tennis:        { id: "com.zach.tennisBoard",        name: "Tennis Board", dir: "TennisBoard" },
+  tableTennis:   { id: "com.zach.tableTennisBoard",   name: "Table Tennis Board", dir: "TableTennisBoard" },
+  pickleball:    { id: "com.zach.pickleballBoard",    name: "Pickleball Board", dir: "PickleballBoard" },
+  baseball:      { id: "com.zach.baseballBoard",      name: "Baseball Board", dir: "BaseballBoard" },
+  handball:      { id: "com.zach.handballBoard",      name: "Handball Board", dir: "HandballBoard" },
+  rugby:         { id: "com.zach.rugbyBoard",         name: "Rugby Board", dir: "RugbyBoard" },
+  fieldHockey:   { id: "com.zach.fieldHockeyBoard",   name: "Field Hockey Board", dir: "FieldHockeyBoard" },
+  waterPolo:     { id: "com.zach.waterPoloBoard",     name: "Water Polo Board", dir: "WaterPoloBoard" },
+  sepakTakraw:   { id: "com.zach.sepakTakrawBoard",   name: "Sepak Takraw Board", dir: "SepakTakrawBoard" },
+  beachTennis:   { id: "com.zach.beachTennisBoard",   name: "Beach Tennis Board", dir: "BeachTennisBoard" },
+  footvolley:    { id: "com.zach.footvolleyBoard",    name: "Footvolley Board", dir: "FootvolleyBoard" },
 }
 
 # Common deliver options for new apps
@@ -49,7 +49,7 @@ platform :ios do
     deliver(
       **DELIVER_DEFAULTS,
       app_identifier: APPS[app][:id],
-      metadata_path: "./fastlane/metadata/#{app}",
+      metadata_path: "../#{APPS[app][:dir]}/fastlane/metadata",
       skip_screenshots: true,
       primary_category: "SPORTS",
       secondary_category: "UTILITIES",
@@ -113,8 +113,8 @@ platform :ios do
     deliver(
       **DELIVER_DEFAULTS,
       app_identifier: APPS[app][:id],
-      metadata_path: "./fastlane/metadata/#{app}",
-      screenshots_path: "./fastlane/screenshots/#{app}",
+      metadata_path: "../#{APPS[app][:dir]}/fastlane/metadata",
+      screenshots_path: "../#{APPS[app][:dir]}/fastlane/screenshots",
       skip_metadata: true,
       overwrite_screenshots: true,
       ignore_language_directory_validation: true,
@@ -131,8 +131,8 @@ platform :ios do
     deliver(
       **DELIVER_DEFAULTS,
       app_identifier: APPS[app][:id],
-      metadata_path: "./fastlane/metadata/#{app}",
-      screenshots_path: "./fastlane/screenshots/#{app}",
+      metadata_path: "../#{APPS[app][:dir]}/fastlane/metadata",
+      screenshots_path: "../#{APPS[app][:dir]}/fastlane/screenshots",
       overwrite_screenshots: true,
     )
   end
@@ -146,8 +146,8 @@ platform :ios do
     deliver(
       **DELIVER_DEFAULTS,
       app_identifier: APPS[app][:id],
-      metadata_path: "./fastlane/metadata/#{app}",
-      screenshots_path: "./fastlane/screenshots/#{app}",
+      metadata_path: "../#{APPS[app][:dir]}/fastlane/metadata",
+      screenshots_path: "../#{APPS[app][:dir]}/fastlane/screenshots",
       skip_screenshots: true,
       submit_for_review: true,
       submission_information: {
@@ -166,7 +166,7 @@ platform :ios do
     deliver(
       api_key: API_KEY,
       app_identifier: APPS[app][:id],
-      metadata_path: "./fastlane/metadata/#{app}",
+      metadata_path: "../#{APPS[app][:dir]}/fastlane/metadata",
       skip_binary_upload: true,
       skip_screenshots: true,
       skip_metadata: true,

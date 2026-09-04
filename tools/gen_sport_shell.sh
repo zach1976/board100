@@ -53,8 +53,19 @@ for SPORT in "${SPORTS[@]}"; do
   echo "═══════════════════════════════════════════════"
 
   # ── platform folders + project files, from the core's tracked files ────────
+  # The shell OWNS its artwork and store metadata (assets/, fastlane/): those
+  # are inputs, not generated, so a regeneration must preserve them. Everything
+  # else under $DIR is reproducible from the core + this table.
+  KEEP=$(mktemp -d)
+  for own in assets fastlane; do
+    [ -d "$DIR/$own" ] && mv "$DIR/$own" "$KEEP/$own"
+  done
   rm -rf "$DIR"
   mkdir -p "$DIR"
+  for own in assets fastlane; do
+    [ -d "$KEEP/$own" ] && mv "$KEEP/$own" "$DIR/$own"
+  done
+  rmdir "$KEEP" 2>/dev/null || true
   (cd "$CORE" && git ls-files ios android macos analysis_options.yaml) | while read -r f; do
     mkdir -p "$DIR/$(dirname "$f")"
     cp "$CORE/$f" "$DIR/$f"
@@ -95,28 +106,29 @@ flutter:
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.
-# Sources live with the core, next to every other sport's artwork.
+# The sources are this app's own assets/icon/ — no other app's artwork is
+# reachable from here.
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "../${CORE}/assets/icon/${KEY}_icon.png"
+  image_path: "assets/icon/app_icon.png"
   min_sdk_android: 21
   adaptive_icon_background: "#1E1E2E"
-  adaptive_icon_foreground: "../${CORE}/assets/icon/${KEY}_icon.png"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
   web:
     generate: false
   macos:
     generate: true
-    image_path: "../${CORE}/assets/icon/${KEY}_icon.png"
+    image_path: "assets/icon/app_icon.png"
 
 flutter_native_splash:
   color: "#1A3A4A"
-  image: ../${CORE}/assets/icon/${KEY}_splash.png
+  image: assets/icon/splash_logo.png
   ios_content_mode: scaleAspectFill
   android_gravity: fill
   android_12:
     color: "#1A3A4A"
-    image: ../${CORE}/assets/icon/${KEY}_splash.png
+    image: assets/icon/splash_logo.png
     icon_background_color: "#1A3A4A"
   fullscreen: true
   android: true
@@ -206,6 +218,12 @@ GIT
   sed -i '' "s/^PRODUCT_BUNDLE_IDENTIFIER = .*/PRODUCT_BUNDLE_IDENTIFIER = $BUNDLE/" "$XC"
 
   # ── resolve deps, then generate the native icons + splash once ────────────
+  for f in app_icon.png splash_logo.png; do
+    [ -f "$DIR/assets/icon/$f" ] || {
+      echo "❌ $DIR/assets/icon/$f missing — an app owns its artwork; add it first"
+      exit 1
+    }
+  done
   # Start from the core's resolved versions: a shell that resolves a *newer*
   # google_mobile_ads than the core pinned would need a newer Google-Mobile-Ads
   # pod than the copied Podfile.lock (and the local CocoaPods spec cache) has.

@@ -10,7 +10,11 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent / "fastlane" / "metadata"
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 LOCALES = ("en-US", "zh-Hans", "zh-Hant")
 # Capture shortest leading run that repeats with " — " separator.
 PATTERN = re.compile(r"^(.+?) — \1")

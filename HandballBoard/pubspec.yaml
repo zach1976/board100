@@ -31,24 +31,24 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "../tactics_board/assets/icon/handball_icon.png"
+  image_path: "assets/icon/app_icon.png"
   min_sdk_android: 21
   adaptive_icon_background: "#1E1E2E"
-  adaptive_icon_foreground: "../tactics_board/assets/icon/handball_icon.png"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
   web:
     generate: false
   macos:
     generate: true
-    image_path: "../tactics_board/assets/icon/handball_icon.png"
+    image_path: "assets/icon/app_icon.png"
 
 flutter_native_splash:
   color: "#1A3A4A"
-  image: ../tactics_board/assets/icon/handball_splash.png
+  image: assets/icon/splash_logo.png
   ios_content_mode: scaleAspectFill
   android_gravity: fill
   android_12:
     color: "#1A3A4A"
-    image: ../tactics_board/assets/icon/handball_splash.png
+    image: assets/icon/splash_logo.png
     icon_background_color: "#1A3A4A"
   fullscreen: true
   android: true

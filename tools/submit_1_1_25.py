@@ -16,17 +16,20 @@ Idempotent-ish: safe to re-run; skips apps whose 1.1.25 build isn't VALID yet
 and re-submits any app not already in review at 1.1.25.
 
 Usage:
-  python3 tool/submit_1_1_25.py            # all 16
-  python3 tool/submit_1_1_25.py waterPolo  # subset by sport key
+  python3 tools/submit_1_1_25.py            # all 16
+  python3 tools/submit_1_1_25.py waterPolo  # subset by sport key
 """
 import jwt, time, os, sys
 import requests, urllib3
+
+# Per-app store files live inside each app's own directory; apps.py (next to
+# this script) resolves them from tools/sports.tsv.
+from apps import metadata_dir  # noqa: E402
 urllib3.disable_warnings()
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-META_BASE = os.path.join(os.path.dirname(__file__), "..", "tactics_board", "fastlane", "metadata")
 BASE = "https://api.appstoreconnect.apple.com"
 TARGET_VERSION = "1.1.25"
 
@@ -81,7 +84,7 @@ def api(method, path, data=None):
 
 def read_notes(app_key, locale):
     for loc in (locale, "en-US"):
-        p = os.path.join(META_BASE, app_key, loc, "release_notes.txt")
+        p = os.path.join(metadata_dir(app_key), loc, "release_notes.txt")
         if os.path.exists(p):
             return open(p).read().strip()
     return "Bug fixes and improvements."

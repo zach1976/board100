@@ -3,12 +3,16 @@
 import jwt, time, json, os, urllib.request, urllib.error, base64
 import requests as _requests
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 BASE = "https://api.appstoreconnect.apple.com"
-META_BASE = os.path.join(os.path.dirname(__file__), "..", "fastlane", "metadata")
-
 APP_KEY = {
     "com.zach.tacticsBoard": "tactics_board",
     "com.zach.soccerBoard": "soccer",
@@ -51,10 +55,10 @@ def api(method, path, data=None):
             time.sleep(3)
 
 def read_notes(app_key, locale):
-    p = os.path.join(META_BASE, app_key, locale, "release_notes.txt")
+    p = os.path.join(metadata_dir(app_key), locale, "release_notes.txt")
     if os.path.exists(p):
         return open(p).read().strip()
-    p2 = os.path.join(META_BASE, app_key, "en-US", "release_notes.txt")
+    p2 = os.path.join(metadata_dir(app_key), "en-US", "release_notes.txt")
     if os.path.exists(p2):
         return open(p2).read().strip()
     return "Bug fixes and improvements."

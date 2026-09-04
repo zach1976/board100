@@ -21,12 +21,17 @@ Usage:
 """
 import jwt, time, os, sys
 import requests, urllib3
+
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 urllib3.disable_warnings()
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-META_BASE = os.path.join(os.path.dirname(__file__), "..", "fastlane", "metadata")
 BASE = "https://api.appstoreconnect.apple.com"
 TARGET_VERSION = "1.1.24"
 
@@ -81,7 +86,7 @@ def api(method, path, data=None):
 
 def read_notes(app_key, locale):
     for loc in (locale, "en-US"):
-        p = os.path.join(META_BASE, app_key, loc, "release_notes.txt")
+        p = os.path.join(metadata_dir(app_key), loc, "release_notes.txt")
         if os.path.exists(p):
             return open(p).read().strip()
     return "Bug fixes and improvements."

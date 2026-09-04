@@ -2,11 +2,15 @@
 """Upload screenshots to App Store Connect via API."""
 import jwt, time, requests, json, os, hashlib, struct
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-SCREENSHOTS_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/screenshots"
-
 APPS = {
     "tactics_board": "com.zach.tacticsBoard",
     "soccer": "com.zach.soccerBoard",
@@ -115,7 +119,7 @@ for app_key, bundle_id in APPS.items():
     locs = {loc["attributes"]["locale"]: loc["id"] for loc in r.get("data", [])}
 
     for locale, loc_id in locs.items():
-        screenshot_dir = os.path.join(SCREENSHOTS_BASE, app_key, locale)
+        screenshot_dir = os.path.join(screenshots_dir(app_key), locale)
         if not os.path.isdir(screenshot_dir):
             continue
 

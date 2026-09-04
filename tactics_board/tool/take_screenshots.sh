@@ -6,7 +6,15 @@ set -e
 cd "$(dirname "$0")/.."
 
 DEVICE=${1:-DC18AEE8-4BB3-42D1-BF28-55F85628415A}
-SCREENSHOT_DIR="fastlane/screenshots"
+# Each app owns its screenshots: <App>/fastlane/screenshots/<locale>/.
+# tools/sports.tsv maps a sport key to its app directory.
+app_dir() {  # $1 = sport key
+  local d
+  d=$(awk -F'	' -v k="$1" '$1 == k && $1 !~ /^#/ {print $2; exit}' ../tools/sports.tsv)
+  [ -z "$d" ] && { echo "unknown sport: $1" >&2; return 1; }
+  [ "$d" = "-" ] && d="tactics_board"
+  echo "../$d"
+}
 
 SPORTS=(badminton basketball soccer tennis tableTennis volleyball pickleball)
 # App Store locale codes → easy_localization locale codes
@@ -36,7 +44,7 @@ for sport in "${SPORTS[@]}"; do
     echo "  Sport: $sport | Language: $store_lang"  
     echo "══════════════════════════════════════"
     
-    dst_dir="$SCREENSHOT_DIR/$sport/$store_lang"
+    dst_dir="$(app_dir "$sport")/fastlane/screenshots/$store_lang"
     mkdir -p "$dst_dir"
     
     locale_code="${LOCALE_MAP[$store_lang]}"

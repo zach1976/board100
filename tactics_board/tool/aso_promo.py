@@ -8,8 +8,12 @@ Sport name is interpolated as {S} per locale.
 Usage: python3 tool/aso_promo.py
 """
 import os
-BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 PROMO = {
     "en-US": "NEW Timeline Editor: animate multi-phase {S} plays step by step. Free, offline, no ads. Built for coaches who think in pictures.",
     "zh-Hans": "全新时间线编辑器：把多阶段{S}战术做成动画，一步一停。免费、离线、零广告。给「画面型」教练。",
@@ -55,7 +59,7 @@ for sport in SPORTS:
             print(f"  ⚠ TOO LONG ({len(text)}) {sport}/{loc}: {text}")
             skipped += 1
             continue
-        path = f"{BASE}/{sport}/{loc}/promotional_text.txt"
+        path = f"{metadata_dir(sport)}/{loc}/promotional_text.txt"
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)

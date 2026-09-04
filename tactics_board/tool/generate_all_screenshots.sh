@@ -5,7 +5,15 @@ set -e
 cd "$(dirname "$0")/.."
 
 DEVICE=${1:-DC18AEE8-4BB3-42D1-BF28-55F85628415A}
-SCREENSHOT_BASE="fastlane/screenshots"
+# Each app owns its screenshots: <App>/fastlane/screenshots/<locale>/.
+# tools/sports.tsv maps a sport key to its app directory.
+app_dir() {  # $1 = sport key
+  local d
+  d=$(awk -F'	' -v k="$1" '$1 == k && $1 !~ /^#/ {print $2; exit}' ../tools/sports.tsv)
+  [ -z "$d" ] && { echo "unknown sport: $1" >&2; return 1; }
+  [ "$d" = "-" ] && d="tactics_board"
+  echo "../$d"
+}
 SPORTS=(badminton basketball soccer tennis tableTennis volleyball pickleball fieldHockey rugby baseball handball waterPolo sepakTakraw beachTennis footvolley)
 
 echo "══════════════════════════════════════"
@@ -26,7 +34,7 @@ for sport in "${SPORTS[@]}"; do
   # Integration test screenshots go to build/ directory
   # We need to copy them to fastlane/screenshots/
   for lang_dir in en-US zh-Hans ja ko zh-Hant; do
-    dst="$SCREENSHOT_BASE/$sport/$lang_dir"
+    dst="$(app_dir "$sport")/fastlane/screenshots/$lang_dir"
     mkdir -p "$dst"
     # Screenshots from integration_test are saved with the name we specified
     # They should be in the build directory - find and copy
@@ -40,4 +48,4 @@ done
 echo ""
 echo "══ All screenshots generated ══"
 echo "Total:"
-find "$SCREENSHOT_BASE" -name "*.png" | wc -l
+find ../*/fastlane/screenshots fastlane/screenshots -name "*.png" 2>/dev/null | wc -l

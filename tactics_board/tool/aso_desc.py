@@ -4,8 +4,12 @@
 Stronger leads, sport-specific bullets, social proof, CTA. ≤4000 chars each.
 Pattern: HOOK -> ELEVATOR -> 3 sections (Plan/Formation/Sideline) -> SOCIAL_PROOF -> CTA"""
 import os
-BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 # ════════════════════════════════════════════════════════════════════
 # Per-sport DNA
 # ════════════════════════════════════════════════════════════════════
@@ -285,7 +289,7 @@ for sport in SPORTS:
         if len(text) > 4000:
             over.append((sport, loc, len(text)))
             continue
-        path = f"{BASE}/{sport}/{loc}/description.txt"
+        path = f"{metadata_dir(sport)}/{loc}/description.txt"
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)
