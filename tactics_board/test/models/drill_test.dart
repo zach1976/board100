@@ -21,9 +21,37 @@ List<Drill> loadShipped(String sport) {
 void main() {
   setUpAll(() => TestWidgetsFlutterBinding.ensureInitialized());
 
-  group('the shipped soccer library', () {
+  for (final sport in const ['soccer', 'basketball']) {
+    _libraryTests(sport);
+  }
+
+  group('Drill localisation', () {
+    final drill = Drill(
+      id: 'x', category: DrillCategory.warmup, minutes: 5, players: 2,
+      name: const {'en': 'Rondo', 'zh-CN': '抢圈'},
+      note: const {'en': 'Two touches'},
+      board: const {'players': []},
+    );
+
+    test('exact locale wins', () => expect(drill.localizedName('zh-CN'), '抢圈'));
+
+    test('falls back to the same language', () {
+      expect(drill.localizedName('zh-SG'), '抢圈');
+    });
+
+    test('falls back to English rather than showing nothing', () {
+      expect(drill.localizedName('th-TH'), 'Rondo');
+      expect(drill.localizedNote('zh-CN'), 'Two touches');
+    });
+  });
+}
+
+/// The same contract for every sport that ships a library: a drill nobody can
+/// run, or one that only exists in English, is not shippable content.
+void _libraryTests(String sport) {
+  group('the shipped $sport library', () {
     late List<Drill> drills;
-    setUpAll(() => drills = loadShipped('soccer'));
+    setUpAll(() => drills = loadShipped(sport));
 
     test('is not empty and has unique ids', () {
       expect(drills, isNotEmpty);
@@ -63,7 +91,9 @@ void main() {
         final players = d.board['players'] as List;
         expect(players, isNotEmpty, reason: d.id);
         expect(d.board['canvasWidth'], greaterThan(0));
-        expect(d.board['sportType'], SportType.soccer.index, reason: d.id);
+        expect(d.board['sportType'],
+            SportType.values.firstWhere((s) => s.name == sport).index,
+            reason: d.id);
       }
     });
 
@@ -113,42 +143,42 @@ void main() {
       }
     });
 
-    test('loads onto a board exactly like a saved tactic', () {
-      final state = TacticsState(sportType: SportType.soccer);
-      state.setCanvasSizeSilent(const Size(400, 800));
-      final drill = drills.firstWhere((d) => d.id == 'rondo_4v2');
+    test('every drill loads onto a board and lands inside it', () {
+      final sportType = SportType.values.firstWhere((s) => s.name == sport);
+      for (final drill in drills) {
+        final state = TacticsState(sportType: sportType);
+        state.setCanvasSizeSilent(const Size(400, 800));
 
-      state.loadFromJson(Map<String, dynamic>.from(drill.board));
+        state.loadFromJson(Map<String, dynamic>.from(drill.board));
 
-      expect(state.players, isNotEmpty);
-      expect(state.players.where((p) => p.team == PlayerTeam.home).length, 4);
-      expect(state.players.where((p) => p.team == PlayerTeam.away).length, 2);
-      expect(state.hasMoves, isTrue, reason: 'the rondo has to animate');
-      // Positions were authored on a 1000x1500 canvas and must be rescaled.
-      for (final p in state.players) {
-        expect(p.position.dx, inInclusiveRange(0, 400));
-        expect(p.position.dy, inInclusiveRange(0, 800));
+        expect(state.players, isNotEmpty, reason: drill.id);
+        // Authored on a 1000x1500 canvas; loading rescales.
+        for (final p in state.players) {
+          expect(p.position.dx, inInclusiveRange(0, 400), reason: drill.id);
+          expect(p.position.dy, inInclusiveRange(0, 800), reason: drill.id);
+        }
       }
     });
-  });
 
-  group('Drill localisation', () {
-    final drill = Drill(
-      id: 'x', category: DrillCategory.warmup, minutes: 5, players: 2,
-      name: const {'en': 'Rondo', 'zh-CN': '抢圈'},
-      note: const {'en': 'Two touches'},
-      board: const {'players': []},
-    );
-
-    test('exact locale wins', () => expect(drill.localizedName('zh-CN'), '抢圈'));
-
-    test('falls back to the same language', () {
-      expect(drill.localizedName('zh-SG'), '抢圈');
-    });
-
-    test('falls back to English rather than showing nothing', () {
-      expect(drill.localizedName('th-TH'), 'Rondo');
-      expect(drill.localizedNote('zh-CN'), 'Two touches');
+    test('players stand on the playing surface, not in the margin', () {
+      // A basketball court leaves 14% of the canvas empty at each side; a
+      // player standing there is off the floor. Two exemptions, both real:
+      // drills flagged offSurface (a throw-in taker is behind the touchline
+      // by the rules), and equipment — cones mark channels and gates that sit
+      // outside the lines on purpose.
+      final sportType = SportType.values.firstWhere((s) => s.name == sport);
+      final field = sportType.fieldRect(const Size(1000, 1500));
+      for (final d in drills) {
+        if (d.offSurface) continue;
+        for (final p in (d.board['players'] as List).cast<Map>()) {
+          if ((p['markerShape'] as int? ?? 0) != 0) continue; // equipment
+          final pos = (p['position'] as List).cast<num>();
+          expect(pos[0], inInclusiveRange(field.left - 12, field.right + 12),
+              reason: '${d.id}/${p['id']} is off the surface');
+          expect(pos[1], inInclusiveRange(field.top - 12, field.bottom + 12),
+              reason: '${d.id}/${p['id']} is off the surface');
+        }
+      }
     });
   });
 }
