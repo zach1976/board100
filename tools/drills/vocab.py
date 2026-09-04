@@ -891,3 +891,219 @@ for _n in range(1, 7):
     add(f"zone {_n}", f"{_n}号位", f"{_n}號位", f"ゾーン{_n}", f"{_n}번 자리",
         f"zona {_n}", f"zone {_n}", f"zona {_n}", f"zon {_n}",
         f"ตำแหน่ง {_n}", f"vị trí {_n}")
+
+# ── baseball ─────────────────────────────────────────────────────────────────
+add("long toss", "长传接球", "長傳接球", "ロングトス", "롱토스",
+    "tiro largo", "longs lancers", "lempar jarak jauh", "balingan jarak jauh",
+    "ขว้างระยะไกล", "ném xa")
+add("infield and outfield", "内外野守备", "內外野守備", "シートノック",
+    "내외야 수비", "cuadro y jardines", "champ intérieur et extérieur",
+    "infield dan outfield", "infield dan outfield",
+    "อินฟิลด์และเอาต์ฟิลด์", "trong sân và ngoài sân")
+add("pitchers fielding practice", "投手守备练习", "投手守備練習", "投手の守備練習",
+    "투수 수비 훈련", "defensa del lanzador", "défense du lanceur",
+    "latihan bertahan pitcher", "latihan pertahanan pitcher",
+    "ซ้อมรับของพิตเชอร์", "tập phòng thủ cho người ném")
+add("to home", "传本垒", "傳本壘", "本塁へ", "홈으로",
+    "a home", "vers le marbre", "ke home", "ke home",
+    "ไปโฮมเพลต", "về chốt nhà")
+add("to third", "传三垒", "傳三壘", "三塁へ", "3루로",
+    "a tercera", "vers le troisième but", "ke base tiga", "ke base tiga",
+    "ไปเบสสาม", "về chốt ba")
+add("on the gap ball", "两人之间的球", "兩人之間的球", "ギャップへの打球",
+    "갭 타구에서", "en la bola al hueco", "sur la balle dans l'intervalle",
+    "pada bola di celah", "pada bola di celah", "ลูกลงช่องว่าง",
+    "bóng vào khe")
+add("reading the steal", "判断盗垒时机", "判斷盜壘時機", "スタートの見極め",
+    "도루 타이밍 읽기", "leyendo el robo", "lecture du vol de but",
+    "membaca waktu mencuri base", "membaca masa mencuri base",
+    "อ่านจังหวะขโมยเบส", "đọc thời điểm cướp chốt")
+add("the hit and run", "打带跑", "打帶跑", "ヒットエンドラン", "히트 앤 런",
+    "el bateo y corrido", "le frappé-couru", "hit and run", "hit and run",
+    "ฮิตแอนด์รัน", "đánh và chạy")
+add("tagging up", "触垒再跑", "觸壘再跑", "タッチアップ", "태그업",
+    "el toque y salida", "le renvoi après prise", "tag up", "tag up",
+    "แตะเบสแล้ววิ่ง", "chạm chốt rồi chạy")
+add("first to third", "一垒跑三垒", "一壘跑三壘", "一塁から三塁へ", "1루에서 3루로",
+    "de primera a tercera", "de première à troisième",
+    "dari base satu ke base tiga", "dari base satu ke base tiga",
+    "จากเบสหนึ่งไปเบสสาม", "từ chốt một tới chốt ba")
+add("the secondary lead", "二次离垒", "二次離壘", "セカンドリード", "세컨드 리드",
+    "la segunda salida", "le second décollage", "lead kedua", "lead kedua",
+    "การออกห่างเบสรอบสอง", "bước rời chốt lần hai")
+add("the contact play", "击中即跑", "擊中即跑", "コンタクトプレー", "콘택트 플레이",
+    "la jugada de contacto", "le jeu au contact", "contact play",
+    "contact play", "การวิ่งเมื่อโดนบอล", "chạy khi chạm bóng")
+add("the squeeze", "强迫取分", "強迫取分", "スクイズ", "스퀴즈",
+    "el toque suicida", "le squeeze", "squeeze", "squeeze",
+    "สควีซ", "đánh nhẹ ép điểm")
+add("scoring from second", "二垒回本垒", "二壘回本壘", "二塁からの生還",
+    "2루에서 득점", "anotar desde segunda", "marquer depuis le deuxième but",
+    "mencetak dari base dua", "menjaringkan dari base dua",
+    "ทำแต้มจากเบสสอง", "ghi điểm từ chốt hai")
+add("against the bunt", "防触击", "防觸擊", "バント守備", "번트 수비",
+    "contra el toque", "contre l'amorti", "melawan bunt", "melawan bunt",
+    "รับลูกบันต์", "chống bóng chạm nhẹ")
+add("first and third", "一三垒有人", "一三壘有人", "一三塁", "1·3루",
+    "primera y tercera", "premier et troisième", "base satu dan tiga",
+    "base satu dan tiga", "มีคนที่เบสหนึ่งและสาม", "có người ở chốt một và ba")
+add("with the infield in", "内野前移", "內野前移", "前進守備", "내야 전진 수비",
+    "con el cuadro adelantado", "champ intérieur avancé",
+    "dengan infield maju", "dengan infield ke hadapan",
+    "อินฟิลด์ขยับเข้า", "hàng trong dâng lên")
+add("the pop-up priority", "高飞球呼叫顺位", "高飛球呼叫順位", "フライの優先順位",
+    "뜬공 우선권", "la prioridad en el elevado", "la priorité sur la chandelle",
+    "prioritas bola melambung", "keutamaan bola melambung",
+    "ลำดับการเรียกลูกลอย", "quyền ưu tiên bóng bổng")
+add("the pick-off at first", "一垒牵制", "一壘牽制", "一塁牽制", "1루 견제",
+    "el pisa y corre en primera", "le tir au premier but",
+    "pick-off di base satu", "pick-off di base satu",
+    "การเช็คที่เบสหนึ่ง", "kiểm tra chốt một")
+add("the pick-off at second", "二垒牵制", "二壘牽制", "二塁牽制", "2루 견제",
+    "el pisa y corre en segunda", "le tir au deuxième but",
+    "pick-off di base dua", "pick-off di base dua",
+    "การเช็คที่เบสสอง", "kiểm tra chốt hai")
+add("the rundown", "夹杀", "夾殺", "挟殺プレー", "런다운",
+    "el atrapado entre bases", "la prise en souricière", "rundown", "rundown",
+    "การไล่แท็กระหว่างเบส", "kẹp giữa hai chốt")
+add("the pitch-out", "外角故意投偏", "外角故意投偏", "ピッチアウト", "피치아웃",
+    "el lanzamiento fuera", "le lancer écarté", "pitch-out", "pitch-out",
+    "การขว้างออกนอก", "ném lệch chủ động")
+add("two outs, runner on second", "两出局二垒有人", "兩出局二壘有人",
+    "2アウト二塁", "2아웃 주자 2루", "dos outs, corredor en segunda",
+    "deux retraits, coureur au deuxième", "dua out, pelari di base dua",
+    "dua out, pelari di base dua", "สองเอาต์ มีคนที่เบสสอง",
+    "hai loại, người chạy ở chốt hai")
+add("bases loaded", "满垒", "滿壘", "満塁", "만루",
+    "bases llenas", "bases pleines", "base penuh", "base penuh",
+    "เบสเต็ม", "đầy chốt")
+add("the baserunning game", "跑垒对抗", "跑壘對抗", "走塁ゲーム", "주루 게임",
+    "el juego de corrido", "le jeu de course sur les buts",
+    "permainan lari base", "permainan larian base",
+    "เกมวิ่งเบส", "trò chơi chạy chốt")
+
+# ── sepak takraw ─────────────────────────────────────────────────────────────
+add("juggling in pairs", "两人颠球", "兩人顛球", "二人でリフティング",
+    "둘이 저글링", "malabares por parejas", "jonglage à deux",
+    "juggling berpasangan", "juggling berpasangan", "เดาะบอลเป็นคู่",
+    "tâng bóng theo cặp")
+add("on every surface", "全部位触球", "全部位觸球", "全部位で",
+    "모든 부위로", "con todas las superficies", "avec toutes les surfaces",
+    "dengan semua bagian badan", "dengan semua bahagian badan",
+    "ด้วยทุกส่วนของร่างกาย", "bằng mọi bộ phận")
+add("keeping it up as three", "三人不落地", "三人不落地", "3人でつなぐ",
+    "셋이 이어가기", "manteniéndola entre tres", "à trois sans faute",
+    "bertahan bertiga", "bertahan bertiga", "สามคนไม่ให้ตก",
+    "ba người giữ bóng")
+add("receiving the serve", "接发球", "接發球", "サーブレシーブ", "서브 리시브",
+    "recepción del saque", "réception du service", "menerima servis",
+    "menerima servis", "การรับเสิร์ฟ", "đỡ giao cầu")
+add("the high feed", "高传", "高傳", "高いトス", "높은 토스",
+    "el pase alto", "la passe haute", "umpan tinggi", "umpanan tinggi",
+    "การชงสูง", "chuyền cao")
+add("the quick feed", "快传", "快傳", "速いトス", "빠른 토스",
+    "el pase rápido", "la passe rapide", "umpan cepat", "umpanan pantas",
+    "การชงเร็ว", "chuyền nhanh")
+add("the roll spike", "转体倒钩", "轉體倒鉤", "ローリングアタック", "롤 스파이크",
+    "el remate en giro", "l'attaque roulée", "smes gulung", "rejaman gulung",
+    "ลูกฟาดม้วนตัว", "đá xoay người")
+add("the scissor kick", "剪刀腿扣杀", "剪刀腿扣殺", "シザースキック", "가위차기",
+    "la tijera", "le ciseau", "tendangan gunting", "sepakan gunting",
+    "ลูกฟาดกรรไกร", "đá kéo")
+add("the sunback spike", "背向倒挂", "背向倒掛", "サンバックアタック", "선백 스파이크",
+    "el remate de espaldas", "l'attaque dos au filet", "smes sunback",
+    "rejaman sunback", "ลูกฟาดหลังหัน", "đá lộn người")
+add("the feint", "假动作", "假動作", "フェイント", "페인트",
+    "la finta", "la feinte", "gerak tipu", "gerak tipu",
+    "การหลอก", "động tác giả")
+add("at the net", "网前", "網前", "ネット際で", "네트 앞에서",
+    "en la red", "au filet", "di depan net", "di depan jaring",
+    "หน้าเน็ต", "trên lưới")
+add("behind the block", "拦网身后", "攔網身後", "ブロックの後ろ", "블록 뒤",
+    "detrás del bloqueo", "derrière le contre", "di belakang blok",
+    "di belakang blok", "หลังบล็อก", "sau hàng chắn")
+add("covering the block", "保护拦网", "保護攔網", "ブロックのカバー",
+    "블록 커버", "cubriendo el bloqueo", "couverture du contre",
+    "menutup blok", "menutup blok", "คุมหลังบล็อก", "bọc lót hàng chắn")
+add("with no block", "不设拦网", "不設攔網", "ブロックなしで", "블록 없이",
+    "sin bloqueo", "sans contre", "tanpa blok", "tanpa blok",
+    "ไม่มีบล็อก", "không hàng chắn")
+
+# ── beach tennis and footvolley ──────────────────────────────────────────────
+add("volley exchange", "截击对练", "截擊對練", "ボレーの打ち合い", "발리 주고받기",
+    "intercambio de voleas", "échange de volées", "adu voli", "adu voli",
+    "โต้วอลเลย์", "đôi công vô lê")
+add("short court", "缩短场地", "縮短場地", "ショートコート", "숏 코트",
+    "pista corta", "terrain réduit", "lapangan pendek", "gelanggang pendek",
+    "คอร์ทสั้น", "sân ngắn")
+add("king of the court", "擂台赛", "擂台賽", "キング・オブ・ザ・コート",
+    "킹 오브 더 코트", "rey de la pista", "roi du terrain",
+    "raja lapangan", "raja gelanggang", "คิงออฟเดอะคอร์ท", "vua sân")
+add("chest control", "胸部停球", "胸部停球", "胸トラップ", "가슴 트래핑",
+    "control de pecho", "contrôle de la poitrine", "kontrol dada",
+    "kawalan dada", "การคุมบอลด้วยอก", "khống chế bằng ngực")
+add("the shoulder pass", "肩传", "肩傳", "肩でのパス", "어깨 패스",
+    "el pase de hombro", "la passe de l'épaule", "umpan bahu",
+    "hantaran bahu", "การส่งด้วยไหล่", "chuyền bằng vai")
+add("the shark attack", "鲨鱼式扣杀", "鯊魚式扣殺", "シャークアタック", "샤크 어택",
+    "el ataque tiburón", "l'attaque requin", "serangan shark",
+    "serangan shark", "ชาร์กแอทแทค", "cú tấn công cá mập")
+add("the sombrero", "帽子过顶", "帽子過頂", "ソンブレロ", "솜브레로",
+    "el sombrero", "le sombrero", "sombrero", "sombrero",
+    "ซอมเบรโร", "cú sombrero")
+add("the bicycle kick", "倒钩", "倒鉤", "オーバーヘッドキック", "오버헤드킥",
+    "la chilena", "le retourné", "tendangan salto", "sepakan kilas",
+    "ลูกจักรยานอากาศ", "cú ngả bàn đèn")
+add("the header", "头球", "頭球", "ヘディング", "헤딩",
+    "el cabezazo", "la tête", "sundulan", "tandukan",
+    "ลูกโหม่ง", "cú đánh đầu")
+add("the dig", "救球", "救球", "ディグ", "디그",
+    "la defensa baja", "la défense basse", "dig", "dig",
+    "การรับลูกต่ำ", "cú đỡ bóng")
+
+# ── basketball ───────────────────────────────────────────────────────────────
+add("top", "弧顶", "弧頂", "トップ", "탑",
+    "frontal", "au sommet", "puncak", "puncak", "ยอดวงสามคะแนน", "đỉnh vòng")
+add("the corner", "底角", "底角", "コーナー", "코너",
+    "la esquina", "le corner", "sudut", "sudut", "มุมสนาม", "góc sân")
+add("the elbow", "肘区", "肘區", "エルボー", "엘보우",
+    "el codo", "le coude", "elbow", "elbow", "จุดเอลโบว์", "vị trí elbow")
+add("the backdoor cut", "反跑空切", "反跑空切", "バックドアカット", "백도어 컷",
+    "la puerta atrás", "la porte arrière", "backdoor cut", "backdoor cut",
+    "การตัดหลัง", "cắt sau lưng")
+add("the flare", "外弹掩护", "外彈掩護", "フレアカット", "플레어 컷",
+    "el flare", "le flare", "flare cut", "flare cut",
+    "การตัดออกด้านนอก", "cắt bung ra")
+add("the drop step", "转身勾手", "轉身勾手", "ドロップステップ", "드롭 스텝",
+    "el paso atrás", "le drop step", "drop step", "drop step",
+    "ดรอปสเต็ป", "bước xoay lưng")
+add("facing up", "面框单打", "面框單打", "フェイスアップ", "페이스업",
+    "de cara al aro", "face au panier", "face up", "face up",
+    "หันหน้าเข้าห่วง", "quay mặt rổ")
+add("the kick-out", "分球外线", "分球外線", "キックアウト", "킥아웃",
+    "la asistencia al exterior", "la ressortie", "kick-out", "kick-out",
+    "การจ่ายออกนอก", "chuyền ra ngoài")
+add("the short roll", "短顺下", "短順下", "ショートロール", "숏 롤",
+    "el roll corto", "le roll court", "short roll", "short roll",
+    "ชอร์ตโรล", "cắt xuống ngắn")
+add("in drop coverage", "退防挡拆", "退防擋拆", "ドロップの守り方", "드롭 커버리지",
+    "en drop", "en drop", "coverage drop", "coverage drop",
+    "รับแบบดรอป", "phòng thủ lùi")
+add("hedging", "上提延误", "上提延誤", "ヘッジ", "헤지",
+    "en hedge", "en hedge", "hedging", "hedging",
+    "ออกมาสกัดชั่วคราว", "chặn tạm")
+add("switching", "换防", "換防", "スイッチ", "스위치",
+    "cambiando", "en changement", "switching", "switching",
+    "การสลับประกบ", "đổi người")
+add("icing the side screen", "封边挡拆", "封邊擋拆", "アイス", "아이스",
+    "haciendo ice", "en ice", "ice screen samping", "ice screen tepi",
+    "การไอซ์สกรีนข้าง", "ép biên màn chắn")
+add("the box", "盒式站位", "盒式站位", "ボックス", "박스",
+    "la caja", "la boîte", "formasi kotak", "formasi kotak",
+    "รูปกล่อง", "đội hình hộp")
+add("the zipper", "拉链跑位", "拉鏈跑位", "ジッパー", "지퍼 컷",
+    "la cremallera", "le zipper", "zipper", "zipper",
+    "การวิ่งซิปเปอร์", "chạy zipper")
+add("from the sideline", "边线发球", "邊線發球", "サイドラインから", "사이드라인에서",
+    "desde la banda", "depuis la ligne de touche", "dari garis samping",
+    "dari garisan tepi", "จากเส้นข้าง", "từ đường biên dọc")

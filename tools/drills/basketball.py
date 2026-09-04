@@ -1,5 +1,5 @@
 """The basketball library."""
-from .engine import Drill, M, P
+from .engine import Drill, M, P, ring, suffixed
 
 
 def basketball_drills() -> list[Drill]:
@@ -530,3 +530,362 @@ def basketball_drills() -> list[Drill]:
             ball=0,
         ),
     ]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Families. The half-court landmarks the generators build from.
+# ─────────────────────────────────────────────────────────────────────────────
+RIM = (0.50, 0.06)
+FT_LINE = (0.50, 0.19)
+TOP = (0.50, 0.30)
+WING_L, WING_R = (0.15, 0.26), (0.85, 0.26)
+CORNER_L, CORNER_R = (0.05, 0.11), (0.95, 0.11)
+ELBOW_L, ELBOW_R = (0.33, 0.19), (0.67, 0.19)
+BLOCK_L, BLOCK_R = (0.38, 0.10), (0.62, 0.10)
+SLOT_L, SLOT_R = (0.32, 0.33), (0.68, 0.33)
+HALF = 0.50
+
+BALLHANDLER_SPOTS = {
+    "top": TOP, "left wing": WING_L, "right wing": WING_R,
+    "left halfspace": SLOT_L, "right halfspace": SLOT_R,
+}
+
+
+PNR_NAME = {
+    "en": "Ball screen from", "en-GB": "Ball screen from", "zh-CN": "挡拆起手",
+    "zh-TW": "擋拆起手", "ja-JP": "オンボールスクリーン", "ko-KR": "온볼 스크린",
+    "es-ES": "Bloqueo directo desde", "fr-FR": "Écran sur porteur depuis",
+    "id-ID": "Screen bola dari", "ms-MY": "Screen bola dari",
+    "th-TH": "สกรีนบอลจาก", "vi-VN": "Che chắn bóng từ",
+}
+PNR_NOTE = {
+    "en": "Set the screen and hold it. A screener already rolling when the "
+          "guard arrives has set nothing and fouled nobody.",
+    "en-GB": "Set the screen and hold it. A screener already rolling when the "
+             "guard arrives has set nothing and fouled nobody.",
+    "zh-CN": "掩护要站住、顶住。后卫还没到就已经开始下顺的掩护人，等于什么也没挡到。",
+    "zh-TW": "掩護要站住、頂住。後衛還沒到就已經開始下順的掩護人，等於什麼也沒擋到。",
+    "ja-JP": "スクリーンは立てて止まる。ガードが来る前に既にロールしているスクリーナーは、何もセットしていない。",
+    "ko-KR": "스크린은 세우고 버텨라. 가드가 오기 전에 이미 롤하는 스크리너는 아무것도 세우지 않은 것이다.",
+    "es-ES": "Pon el bloqueo y aguántalo: un bloqueador que ya va rodando "
+             "cuando llega el base no ha bloqueado nada.",
+    "fr-FR": "Pose l'écran et tiens-le : un poseur déjà en rouleau à l'arrivée "
+             "du meneur n'a rien posé du tout.",
+    "id-ID": "Pasang screen dan tahan.",
+    "ms-MY": "Pasang screen dan tahan.",
+    "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
+    "vi-VN": "Đặt màn chắn và giữ vững.",
+}
+
+
+def ball_screen_family() -> list[Drill]:
+    """The same action from every spot a guard actually uses it."""
+    out = []
+    for label, spot in BALLHANDLER_SPOTS.items():
+        toward = -1 if spot[0] > 0.5 else 1
+        screen = (spot[0] + 0.09 * toward, spot[1] - 0.02)
+        out.append(Drill(
+            id=f"bb_screen_{label.replace(' ', '_')}", category="attacking",
+            minutes=12, rel=True, free=(label in ("top", "right wing")),
+            name=suffixed(PNR_NAME, label), note=PNR_NOTE,
+            home=[
+                P(*spot, "1", moves=[(screen[0] + 0.06 * toward, screen[1] - 0.03, 1),
+                                     (spot[0] + 0.20 * toward, 0.16, 2)]),
+                P(*screen, "5", moves=[(screen[0], screen[1] + 0.02, 0),
+                                       (0.50, 0.10, 2)]),
+                P(*CORNER_L, "2"), P(*CORNER_R, "3"),
+                P(*(WING_L if spot[0] > 0.5 else WING_R), "4"),
+            ],
+            away=[P(spot[0], spot[1] - 0.04, "X1", moves=[(screen[0], screen[1] - 0.04, 1)]),
+                  P(screen[0], screen[1] - 0.05, "X5", moves=[(screen[0], screen[1] - 0.02, 1)])],
+            ball=0,
+        ))
+    return out
+
+
+CUT_NAME = {
+    "en": "Cutting", "en-GB": "Cutting", "zh-CN": "空切", "zh-TW": "空切",
+    "ja-JP": "カット", "ko-KR": "컷", "es-ES": "Cortes", "fr-FR": "Coupes",
+    "id-ID": "Cutting", "ms-MY": "Cutting", "th-TH": "การตัดเข้า", "vi-VN": "Cắt vào",
+}
+CUT_NOTE = {
+    "en": "Cut when your defender turns their head, not when you get bored. "
+          "The cut is a reaction to them, not a decision of yours.",
+    "en-GB": "Cut when your defender turns their head, not when you get bored. "
+             "The cut is a reaction to them, not a decision of yours.",
+    "zh-CN": "在你的防守人扭头的那一刻切，而不是你站腻了才切。空切是对他的反应，不是你自己的决定。",
+    "zh-TW": "在你的防守人扭頭的那一刻切，而不是你站膩了才切。空切是對他的反應，不是你自己的決定。",
+    "ja-JP": "自分のマークが顔を向けた瞬間に切る。飽きたからではない。カットは相手への反応であって、自分の判断ではない。",
+    "ko-KR": "수비가 고개를 돌릴 때 컷하라. 지루해서가 아니라. 컷은 상대에 대한 반응이다.",
+    "es-ES": "Corta cuando tu defensor gira la cabeza, no cuando te aburres: "
+             "el corte es una reacción a él, no una decisión tuya.",
+    "fr-FR": "Coupe quand ton défenseur tourne la tête, pas quand tu t'ennuies : "
+             "la coupe est une réaction, pas une décision.",
+    "id-ID": "Cut saat penjagamu menoleh, bukan saat kamu bosan.",
+    "ms-MY": "Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
+    "th-TH": "ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
+    "vi-VN": "Cắt khi người kèm quay đầu, không phải khi bạn chán.",
+}
+
+
+def cut_family() -> list[Drill]:
+    specs = [("give_and_go", "give and go", WING_R, (0.60, 0.10)),
+             ("backdoor", "the backdoor cut", WING_L, (0.34, 0.09)),
+             ("flare", "the flare", SLOT_L, (0.10, 0.30)),
+             ("baseline", "along the baseline", CORNER_L, (0.86, 0.09))]
+    out = []
+    for key, label, start, end in specs:
+        out.append(Drill(
+            id=f"bb_cut_{key}", category="attacking", minutes=10, rel=True,
+            free=(key in ("give_and_go", "backdoor")),
+            name=suffixed(CUT_NAME, label), note=CUT_NOTE,
+            home=[P(*TOP, "1", moves=[(0.50, 0.34, 1)]),
+                  P(*start, "2", moves=[(start[0] + (end[0] - start[0]) * 0.5,
+                                         (start[1] + end[1]) / 2, 1), end + (2,)]),
+                  P(*CORNER_R, "3"), P(*ELBOW_L, "5")],
+            away=[P(start[0], start[1] - 0.04, "X2",
+                    moves=[(start[0] + 0.03, start[1] - 0.02, 1)]),
+                  P(0.50, 0.26, "X1")],
+            ball=0,
+        ))
+    return out
+
+
+SHOT_NAME = {
+    "en": "Shooting", "en-GB": "Shooting", "zh-CN": "投篮", "zh-TW": "投籃",
+    "ja-JP": "シュート", "ko-KR": "슛", "es-ES": "Tiro", "fr-FR": "Tir",
+    "id-ID": "Tembakan", "ms-MY": "Tembakan", "th-TH": "การยิง", "vi-VN": "Ném rổ",
+}
+SHOT_NOTE = {
+    "en": "Feet set before the ball arrives, every time. A shooter who catches "
+          "and then organises has already let the closeout arrive.",
+    "en-GB": "Feet set before the ball arrives, every time. A shooter who "
+             "catches and then organises has already let the closeout arrive.",
+    "zh-CN": "球到之前脚就要站好，每一次都是。先接球再调整的投手，已经等来了对方的扑防。",
+    "zh-TW": "球到之前腳就要站好，每一次都是。先接球再調整的投手，已經等來了對方的撲防。",
+    "ja-JP": "ボールが来る前に足を作る、毎回。キャッチしてから整えるシューターは、クローズアウトを待っているだけだ。",
+    "ko-KR": "공이 오기 전에 발을 만들어라, 매번. 잡고 나서 정리하는 슈터는 클로즈아웃을 부른 것이다.",
+    "es-ES": "Pies listos antes de recibir, siempre: quien recibe y luego se "
+             "organiza ya ha dejado llegar la ayuda.",
+    "fr-FR": "Appuis prêts avant la réception, à chaque fois : celui qui "
+             "s'organise après avoir attrapé a déjà laissé venir le contest.",
+    "id-ID": "Kaki siap sebelum bola datang, setiap kali.",
+    "ms-MY": "Kaki sedia sebelum bola tiba, setiap kali.",
+    "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
+    "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần.",
+}
+
+
+def shooting_family() -> list[Drill]:
+    spots = [("the corner", CORNER_L), ("left wing", WING_L), ("top", TOP),
+             ("right wing", WING_R), ("the elbow", ELBOW_R)]
+    out = []
+    for label, spot in spots:
+        out.append(Drill(
+            id=f"bb_shot_{label.replace(' ', '_')}", category="finishing",
+            minutes=8, rel=True, free=(label in ("the corner", "top")),
+            name=suffixed(SHOT_NAME, label), note=SHOT_NOTE,
+            home=[P(spot[0], spot[1] + 0.07, "1",
+                    moves=[spot + (1,)]),
+                  P(*FT_LINE, "P", moves=[(0.50, 0.22, 0)])],
+            away=[P(spot[0], spot[1] - 0.05, "X",
+                    moves=[(spot[0], spot[1] - 0.02, 1)])],
+            markers=[M(*spot, "square", "")],
+            ball=1,
+        ))
+    return out
+
+
+POST_NAME = {
+    "en": "Post play", "en-GB": "Post play", "zh-CN": "低位单打",
+    "zh-TW": "低位單打", "ja-JP": "ポストプレー", "ko-KR": "포스트 플레이",
+    "es-ES": "Juego de poste", "fr-FR": "Jeu au poste", "id-ID": "Permainan post",
+    "ms-MY": "Permainan post", "th-TH": "การเล่นในโพสต์", "vi-VN": "Chơi trụ",
+}
+POST_NOTE = {
+    "en": "Seal before the pass, then hold the seal. Fighting for position "
+          "after the ball is in the air is fighting a defender who already won.",
+    "en-GB": "Seal before the pass, then hold the seal. Fighting for position "
+             "after the ball is in the air is fighting a defender who already won.",
+    "zh-CN": "传球之前就要封住位置，然后守住。球都到空中了才开始抢位，是在跟一个已经赢了的防守人较劲。",
+    "zh-TW": "傳球之前就要封住位置，然後守住。球都到空中了才開始搶位，是在跟一個已經贏了的防守人較勁。",
+    "ja-JP": "パスの前にシールし、そのまま保つ。ボールが浮いてから位置を争うのは、既に勝った守備と争うことだ。",
+    "ko-KR": "패스 전에 자리를 봉하고 유지하라. 공이 뜬 뒤 자리를 다투는 건 이미 진 싸움이다.",
+    "es-ES": "Sella antes del pase y mantén el sello: pelear la posición con "
+             "la bola en el aire es pelear con un defensor que ya ganó.",
+    "fr-FR": "Scelle avant la passe et tiens la position : se battre une fois "
+             "le ballon en l'air, c'est se battre contre un défenseur déjà gagnant.",
+    "id-ID": "Kunci posisi sebelum umpan, lalu pertahankan.",
+    "ms-MY": "Kunci kedudukan sebelum hantaran, kemudian pertahankan.",
+    "th-TH": "ปิดตำแหน่งก่อนบอลจะถูกส่ง แล้วรักษาไว้",
+    "vi-VN": "Chốt vị trí trước đường chuyền rồi giữ nguyên.",
+}
+
+
+def post_family() -> list[Drill]:
+    specs = [("drop_step", "the drop step", BLOCK_L), ("face_up", "facing up", ELBOW_R),
+             ("kick_out", "the kick-out", BLOCK_R), ("short_roll", "the short roll", FT_LINE)]
+    out = []
+    for key, label, spot in specs:
+        out.append(Drill(
+            id=f"bb_post_{key}", category="attacking", minutes=10, rel=True,
+            free=(key in ("drop_step", "kick_out")),
+            name=suffixed(POST_NAME, label), note=POST_NOTE,
+            home=[P(*WING_R, "1", moves=[(0.80, 0.30, 1)]),
+                  P(*spot, "5", moves=[(spot[0] + (0.5 - spot[0]) * 0.5, 0.08, 2)]),
+                  P(*CORNER_L, "2"), P(*TOP, "3")],
+            away=[P(spot[0], spot[1] - 0.05, "X5",
+                    moves=[(spot[0], spot[1] - 0.02, 1)]),
+                  P(0.68, 0.16, "X4", moves=[(0.58, 0.12, 2)])],
+            ball=0,
+        ))
+    return out
+
+
+DEF_NAME = {
+    "en": "Defence", "en-GB": "Defence", "zh-CN": "防守", "zh-TW": "防守",
+    "ja-JP": "ディフェンス", "ko-KR": "수비", "es-ES": "Defensa",
+    "fr-FR": "Défense", "id-ID": "Pertahanan", "ms-MY": "Pertahanan",
+    "th-TH": "การรับ", "vi-VN": "Phòng thủ",
+}
+DEF_NOTE = {
+    "en": "Every ball screen coverage is a promise between two defenders. Say "
+          "which one you are before the screen, out loud, every possession.",
+    "en-GB": "Every ball screen coverage is a promise between two defenders. "
+             "Say which one you are before the screen, out loud, every possession.",
+    "zh-CN": "每一种挡拆防守都是两个防守人之间的约定。在掩护之前就把你要用哪种喊出来，每一回合都喊。",
+    "zh-TW": "每一種擋拆防守都是兩個防守人之間的約定。在掩護之前就把你要用哪種喊出來，每一回合都喊。",
+    "ja-JP": "スクリーンの守り方はすべて、二人の守備者の約束だ。スクリーン前にどれかを声に出す。毎ポゼッション。",
+    "ko-KR": "모든 스크린 수비는 두 수비수 사이의 약속이다. 스크린 전에 어느 것인지 소리 내어 말하라.",
+    "es-ES": "Cada defensa del bloqueo es un pacto entre dos: dilo en voz alta "
+             "antes del bloqueo, en cada posesión.",
+    "fr-FR": "Chaque couverture d'écran est un pacte entre deux défenseurs : "
+             "annonce-la à voix haute avant l'écran, à chaque possession.",
+    "id-ID": "Setiap cara bertahan screen adalah janji antara dua pemain.",
+    "ms-MY": "Setiap cara bertahan screen ialah janji antara dua pemain.",
+    "th-TH": "ทุกวิธีรับสกรีนคือข้อตกลงระหว่างสองคน พูดออกมาก่อนทุกครั้ง",
+    "vi-VN": "Mỗi cách chống màn chắn là một giao ước giữa hai hậu vệ.",
+}
+
+
+def defence_family() -> list[Drill]:
+    specs = [("drop", "in drop coverage", (0.50, 0.16)),
+             ("hedge", "hedging", (0.56, 0.28)),
+             ("switch", "switching", (0.58, 0.30)),
+             ("ice", "icing the side screen", (0.78, 0.26))]
+    out = []
+    for key, label, big_end in specs:
+        out.append(Drill(
+            id=f"bb_defence_{key}", category="defending", minutes=12, rel=True,
+            free=(key in ("drop", "switch")),
+            name=suffixed(DEF_NAME, label), note=DEF_NOTE,
+            home=[P(0.50, 0.26, "X1", moves=[(0.58, 0.28, 1), (0.62, 0.22, 2)]),
+                  P(0.59, 0.29, "X5", moves=[big_end + (1,)]),
+                  P(*CORNER_L, "X2"), P(*CORNER_R, "X3"), P(*ELBOW_L, "X4")],
+            away=[P(*TOP, "1", moves=[(0.62, 0.30, 1), (0.68, 0.20, 2)]),
+                  P(0.60, 0.31, "5", moves=[(0.60, 0.33, 0), (0.52, 0.10, 2)])],
+            ball=TOP,                   # the attack starts with it
+        ))
+    return out
+
+
+TRANS_NAME = {
+    "en": "Transition", "en-GB": "Transition", "zh-CN": "转换进攻",
+    "zh-TW": "轉換進攻", "ja-JP": "トランジション", "ko-KR": "트랜지션",
+    "es-ES": "Transición", "fr-FR": "Transition", "id-ID": "Transisi",
+    "ms-MY": "Peralihan", "th-TH": "การเปลี่ยนเกม", "vi-VN": "Chuyển đổi",
+}
+TRANS_NOTE = {
+    "en": "Run wide and run early. Two players sprinting the sidelines make a "
+          "three-on-two out of a rebound; three players trailing the ball do not.",
+    "en-GB": "Run wide and run early. Two players sprinting the sidelines make "
+             "a three-on-two out of a rebound; three players trailing the ball do not.",
+    "zh-CN": "跑边、早跑。两个人冲边线，能把一个篮板变成三打二；三个人跟着球跑，什么也变不出来。",
+    "zh-TW": "跑邊、早跑。兩個人衝邊線，能把一個籃板變成三打二；三個人跟著球跑，什麼也變不出來。",
+    "ja-JP": "広く、早く走る。二人がサイドラインを走ればリバウンドが3対2になる。三人がボールを追いかけても何も起きない。",
+    "ko-KR": "넓게, 일찍 뛰어라. 두 명이 사이드라인을 달리면 리바운드가 3대2가 된다.",
+    "es-ES": "Corre abierto y pronto: dos que esprintan las bandas convierten "
+             "un rebote en un tres contra dos; tres siguiendo la bola, no.",
+    "fr-FR": "Cours large et tôt : deux joueurs qui sprintent les lignes de "
+             "touche transforment un rebond en trois contre deux.",
+    "id-ID": "Lari melebar dan lari lebih awal.",
+    "ms-MY": "Lari melebar dan lari lebih awal.",
+    "th-TH": "วิ่งกว้างและวิ่งเร็ว",
+    "vi-VN": "Chạy rộng và chạy sớm.",
+}
+
+
+def transition_family() -> list[Drill]:
+    out = []
+    for n, d in ((3, 2), (4, 3), (5, 4)):
+        lanes = [0.10, 0.90, 0.50, 0.30, 0.70][:n]
+        out.append(Drill(
+            id=f"bb_transition_{n}v{d}", category="ssg", minutes=12, rel=True,
+            free=(n == 3),
+            name=suffixed(TRANS_NAME, f"{n}v{d}"), note=TRANS_NOTE,
+            home=[P(x, 0.62, str(i + 1),
+                    moves=[(x, 0.38, 0), (x + (0.5 - x) * 0.5, 0.18, 1)])
+                  for i, x in enumerate(lanes)],
+            away=[P(0.5 + (i - (d - 1) / 2) * 0.20, 0.24, f"X{i + 1}",
+                    moves=[(0.5 + (i - (d - 1) / 2) * 0.16, 0.14, 1)])
+                  for i in range(d)],
+            ball=0,
+        ))
+    return out
+
+
+SET_NAME = {
+    "en": "Inbounds", "en-GB": "Inbounds", "zh-CN": "发球战术",
+    "zh-TW": "發球戰術", "ja-JP": "スローイン", "ko-KR": "인바운드",
+    "es-ES": "Saque", "fr-FR": "Remise en jeu", "id-ID": "Bola masuk",
+    "ms-MY": "Bola masuk", "th-TH": "การส่งบอลเข้าเล่น", "vi-VN": "Ném biên",
+}
+SET_NOTE = {
+    "en": "The first cutter is the decoy and knows it. If they run it like a "
+          "decoy nobody guards the second one either.",
+    "en-GB": "The first cutter is the decoy and knows it. If they run it like a "
+             "decoy nobody guards the second one either.",
+    "zh-CN": "第一个跑动的人就是诱饵，而且他自己知道。如果他跑得像个诱饵，第二个人也没人防了。",
+    "zh-TW": "第一個跑動的人就是誘餌，而且他自己知道。如果他跑得像個誘餌，第二個人也沒人防了。",
+    "ja-JP": "最初のカッターは囮であり、本人もそれを知っている。囮らしく走れば、二人目も誰も見なくなる。",
+    "ko-KR": "첫 커터는 미끼이고 본인도 안다. 미끼답게 뛰면 두 번째도 아무도 안 막는다.",
+    "es-ES": "El primer cortador es el señuelo y lo sabe: si lo corre como "
+             "señuelo, al segundo tampoco lo marca nadie.",
+    "fr-FR": "Le premier coupeur est le leurre et le sait : s'il joue le "
+             "leurre, personne ne prend le second non plus.",
+    "id-ID": "Pemotong pertama adalah umpan dan dia tahu itu.",
+    "ms-MY": "Pemotong pertama ialah umpan dan dia tahu itu.",
+    "th-TH": "คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
+    "vi-VN": "Người cắt đầu tiên là mồi nhử và anh ta biết điều đó.",
+}
+
+
+def inbounds_family() -> list[Drill]:
+    specs = [("stack", "stack", [(0.50, 0.12), (0.50, 0.16), (0.50, 0.20)]),
+             ("the box", "the box", [ELBOW_L, ELBOW_R, BLOCK_L, BLOCK_R]),
+             ("the zipper", "the zipper", [BLOCK_L, ELBOW_L, WING_R]),
+             ("sideline", "from the sideline", [WING_L, TOP, CORNER_R])]
+    out = []
+    for key, label, spots in specs:
+        out.append(Drill(
+            id=f"bb_inbounds_{key.replace(' ', '_')}", category="setpiece",
+            minutes=8, rel=True, free=(key in ("stack", "the box")),
+            off_surface=True,
+            name=suffixed(SET_NAME, label), note=SET_NOTE,
+            home=[P(0.50, -0.03, "1", moves=[(0.50, 0.04, 2)])] + [
+                P(x, y, str(i + 2),
+                  moves=[(x + (0.5 - x) * 0.4, y + 0.10, 0),
+                         (x + (x - 0.5) * 0.4, y + 0.04, 1)])
+                for i, (x, y) in enumerate(spots)
+            ],
+            away=[P(x, y - 0.04, "X", moves=[(x, y + 0.03, 1)]) for x, y in spots[:2]],
+            ball=0,
+        ))
+    return out
+
+
+def basketball_library() -> list[Drill]:
+    from .engine import merge
+    return merge(basketball_drills(), ball_screen_family(), cut_family(),
+                 shooting_family(), post_family(), defence_family(),
+                 transition_family(), inbounds_family())
