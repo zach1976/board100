@@ -25,6 +25,11 @@ class Drill {
   /// The board itself, in TacticsState's JSON shape.
   final Map<String, dynamic> board;
 
+  /// In the free tier. The free set spans every category on purpose — a coach
+  /// can run a whole session on it — because the subscription has to be worth
+  /// buying on top of something useful, not instead of it.
+  final bool free;
+
   const Drill({
     required this.id,
     required this.category,
@@ -33,6 +38,7 @@ class Drill {
     required this.name,
     required this.note,
     required this.board,
+    this.free = false,
   });
 
   factory Drill.fromJson(Map<String, dynamic> json) => Drill(
@@ -43,6 +49,7 @@ class Drill {
         name: Map<String, String>.from(json['name'] as Map),
         note: Map<String, String>.from(json['note'] as Map? ?? const {}),
         board: Map<String, dynamic>.from(json['board'] as Map),
+        free: json['free'] as bool? ?? false,
       );
 
   /// Best text for [locale] (e.g. 'zh-CN'), falling back to the language

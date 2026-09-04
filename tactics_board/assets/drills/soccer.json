@@ -7,6 +7,7 @@
       "category": "possession",
       "minutes": 10,
       "players": 6,
+      "free": true,
       "name": {
         "en": "Rondo 4v2",
         "zh-CN": "4v2 抢圈",
@@ -321,6 +322,7 @@
       "category": "warmup",
       "minutes": 8,
       "players": 4,
+      "free": true,
       "name": {
         "en": "Passing diamond",
         "zh-CN": "菱形传球",
@@ -571,6 +573,7 @@
       "category": "warmup",
       "minutes": 8,
       "players": 1,
+      "free": false,
       "name": {
         "en": "Dribble slalom",
         "zh-CN": "绕杆运球",
@@ -755,6 +758,7 @@
       "category": "possession",
       "minutes": 15,
       "players": 11,
+      "free": true,
       "name": {
         "en": "7v4 possession",
         "zh-CN": "7v4 控球",
@@ -1145,6 +1149,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 6,
+      "free": true,
       "name": {
         "en": "Overlap and cross",
         "zh-CN": "边路套上传中",
@@ -1367,6 +1372,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 4,
+      "free": true,
       "name": {
         "en": "Third-man run",
         "zh-CN": "第三人跑动",
@@ -1535,6 +1541,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 8,
+      "free": false,
       "name": {
         "en": "Switch the play",
         "zh-CN": "转移进攻",
@@ -1804,6 +1811,7 @@
       "category": "finishing",
       "minutes": 12,
       "players": 6,
+      "free": true,
       "name": {
         "en": "Cutback finish",
         "zh-CN": "倒三角射门",
@@ -2039,6 +2047,7 @@
       "category": "finishing",
       "minutes": 10,
       "players": 2,
+      "free": true,
       "name": {
         "en": "1v1 with the keeper",
         "zh-CN": "单刀对门将",
@@ -2180,6 +2189,7 @@
       "category": "defending",
       "minutes": 12,
       "players": 7,
+      "free": true,
       "name": {
         "en": "Pressing trigger",
         "zh-CN": "压迫触发点",
@@ -2397,6 +2407,7 @@
       "category": "defending",
       "minutes": 12,
       "players": 4,
+      "free": true,
       "name": {
         "en": "2v2 recovery",
         "zh-CN": "2v2 回追防守",
@@ -2547,6 +2558,7 @@
       "category": "setpiece",
       "minutes": 10,
       "players": 9,
+      "free": true,
       "name": {
         "en": "Corner: near post",
         "zh-CN": "角球：近门柱",
@@ -2842,6 +2854,7 @@
       "category": "setpiece",
       "minutes": 10,
       "players": 8,
+      "free": false,
       "name": {
         "en": "Free kick: edge of the box",
         "zh-CN": "禁区前任意球",
@@ -3103,6 +3116,7 @@
       "category": "ssg",
       "minutes": 20,
       "players": 8,
+      "free": true,
       "name": {
         "en": "4v4, four goals",
         "zh-CN": "4v4 四门球",
@@ -3506,6 +3520,7 @@
       "category": "warmup",
       "minutes": 8,
       "players": 4,
+      "free": false,
       "name": {
         "en": "Y-pattern passing",
         "en-GB": "Y-pattern passing",
@@ -3756,6 +3771,7 @@
       "category": "warmup",
       "minutes": 8,
       "players": 2,
+      "free": true,
       "name": {
         "en": "First-touch gates",
         "en-GB": "First-touch gates",
@@ -3995,6 +4011,7 @@
       "category": "possession",
       "minutes": 12,
       "players": 7,
+      "free": false,
       "name": {
         "en": "Rondo 5v2 — split pass",
         "en-GB": "Rondo 5v2 — split pass",
@@ -4325,6 +4342,7 @@
       "category": "possession",
       "minutes": 15,
       "players": 7,
+      "free": false,
       "name": {
         "en": "Three-zone possession",
         "en-GB": "Three-zone possession",
@@ -4647,6 +4665,7 @@
       "category": "possession",
       "minutes": 15,
       "players": 8,
+      "free": false,
       "name": {
         "en": "Building from the keeper",
         "en-GB": "Building from the keeper",
@@ -4918,6 +4937,7 @@
       "category": "attacking",
       "minutes": 10,
       "players": 3,
+      "free": false,
       "name": {
         "en": "Wall pass on the wing",
         "en-GB": "Wall pass on the wing",
@@ -5066,6 +5086,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 5,
+      "free": false,
       "name": {
         "en": "3v2 counter",
         "en-GB": "3v2 counter",
@@ -5298,6 +5319,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 5,
+      "free": false,
       "name": {
         "en": "Half-space run",
         "en-GB": "Half-space run",
@@ -5513,6 +5535,7 @@
       "category": "finishing",
       "minutes": 10,
       "players": 4,
+      "free": false,
       "name": {
         "en": "First-time finishing",
         "en-GB": "First-time finishing",
@@ -5708,6 +5731,7 @@
       "category": "finishing",
       "minutes": 10,
       "players": 4,
+      "free": false,
       "name": {
         "en": "Receive, turn, shoot",
         "en-GB": "Receive, turn, shoot",
@@ -5896,6 +5920,7 @@
       "category": "defending",
       "minutes": 12,
       "players": 7,
+      "free": false,
       "name": {
         "en": "Back four: shift and cover",
         "en-GB": "Back four: shift and cover",
@@ -6120,6 +6145,7 @@
       "category": "defending",
       "minutes": 12,
       "players": 7,
+      "free": false,
       "name": {
         "en": "Counter-press on loss",
         "en-GB": "Counter-press on loss",
@@ -6337,6 +6363,7 @@
       "category": "setpiece",
       "minutes": 8,
       "players": 9,
+      "free": false,
       "name": {
         "en": "Corner: short routine",
         "en-GB": "Corner: short routine",
@@ -6641,6 +6668,7 @@
       "category": "setpiece",
       "minutes": 8,
       "players": 6,
+      "free": false,
       "name": {
         "en": "Attacking throw-in",
         "en-GB": "Attacking throw-in",
@@ -6878,6 +6906,7 @@
       "category": "ssg",
       "minutes": 20,
       "players": 12,
+      "free": false,
       "name": {
         "en": "6v6 transition game",
         "en-GB": "6v6 transition game",
@@ -7248,6 +7277,7 @@
       "category": "warmup",
       "minutes": 8,
       "players": 4,
+      "free": false,
       "name": {
         "en": "Rotation square",
         "en-GB": "Rotation square",
@@ -7498,6 +7528,7 @@
       "category": "warmup",
       "minutes": 6,
       "players": 4,
+      "free": false,
       "name": {
         "en": "Two-ball awareness",
         "en-GB": "Two-ball awareness",
@@ -7748,6 +7779,7 @@
       "category": "possession",
       "minutes": 12,
       "players": 8,
+      "free": false,
       "name": {
         "en": "Overload to isolate",
         "en-GB": "Overload to isolate",
@@ -8019,6 +8051,7 @@
       "category": "attacking",
       "minutes": 12,
       "players": 7,
+      "free": false,
       "name": {
         "en": "Pivot switch",
         "en-GB": "Pivot switch",
@@ -8263,6 +8296,7 @@
       "category": "attacking",
       "minutes": 10,
       "players": 6,
+      "free": false,
       "name": {
         "en": "Far-post cross",
         "en-GB": "Far-post cross",
@@ -8500,6 +8534,7 @@
       "category": "finishing",
       "minutes": 10,
       "players": 3,
+      "free": false,
       "name": {
         "en": "Side volley from the cutback",
         "en-GB": "Side volley from the cutback",
@@ -8668,6 +8703,7 @@
       "category": "defending",
       "minutes": 10,
       "players": 2,
+      "free": false,
       "name": {
         "en": "1v1 defending in the channel",
         "en-GB": "1v1 defending in the channel",
@@ -8814,6 +8850,7 @@
       "category": "setpiece",
       "minutes": 10,
       "players": 9,
+      "free": false,
       "name": {
         "en": "Defending a corner",
         "en-GB": "Defending a corner",
@@ -9098,6 +9135,7 @@
       "category": "ssg",
       "minutes": 18,
       "players": 10,
+      "free": false,
       "name": {
         "en": "5v5, two touches",
         "en-GB": "5v5, two touches",
@@ -9508,6 +9546,7 @@
       "category": "possession",
       "minutes": 12,
       "players": 6,
+      "free": false,
       "name": {
         "en": "Long switch, first time",
         "en-GB": "Long switch, first time",
@@ -9725,6 +9764,7 @@
       "category": "finishing",
       "minutes": 8,
       "players": 2,
+      "free": false,
       "name": {
         "en": "Penalties under fatigue",
         "en-GB": "Penalties under fatigue",

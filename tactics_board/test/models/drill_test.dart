@@ -67,6 +67,18 @@ void main() {
       }
     });
 
+    test('the free set can run a whole session on its own', () {
+      // A starter library that can't start anything is an advert. The free
+      // drills have to span warm-up through a game.
+      final free = drills.where((d) => d.free).toList();
+      expect(free.length, greaterThanOrEqualTo(10));
+      final freeCategories = free.map((d) => d.category).toSet();
+      for (final needed in DrillCategory.values) {
+        expect(freeCategories, contains(needed),
+            reason: 'nothing free in $needed — the free session has a hole');
+      }
+    });
+
     test('most drills animate — a still shape is a diagram, not a drill', () {
       final animated = drills.where((d) => (d.board['players'] as List)
           .any((p) => ((p as Map)['moves'] as List).isNotEmpty));

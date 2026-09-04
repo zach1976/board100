@@ -68,6 +68,10 @@ class Drill:
     markers: list = field(default_factory=list)
     # index into `home` whose feet the ball starts at, or an (x, y) for a loose ball
     ball: object = None
+    # In the free tier. The free set is chosen so a coach can run a whole
+    # session on it — warm-up through small-sided game — because a starter
+    # library that can't start anything is an advert, not a starter library.
+    free: bool = False
 
     @property
     def player_count(self) -> int:
@@ -222,6 +226,7 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
+            free=True,
         ),
         Drill(
             id="passing_diamond", category="warmup", minutes=8,
@@ -249,6 +254,7 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 380), M(800, 700), M(500, 1020), M(200, 700)],
             ball=0,
+            free=True,
         ),
         Drill(
             id="dribble_slalom", category="warmup", minutes=8,
@@ -306,6 +312,7 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
             ball=0,
+            free=True,
         ),
 
         # ── attacking patterns ───────────────────────────────────────────────
@@ -338,6 +345,7 @@ def soccer_drills() -> list[Drill]:
                 P(560, 480, "C"),
             ],
             ball=0,
+            free=True,
         ),
         Drill(
             id="third_man_run", category="attacking", minutes=12,
@@ -364,6 +372,7 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[P(520, 560, "C", moves=[(470, 660, 0)])],
             ball=0,
+            free=True,
         ),
         Drill(
             id="switch_play", category="attacking", minutes=12,
@@ -425,6 +434,7 @@ def soccer_drills() -> list[Drill]:
             away=[P(560, 300, "D"), P(480, 260, "E")],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            free=True,
         ),
         Drill(
             id="one_v_one_gk", category="finishing", minutes=10,
@@ -448,6 +458,7 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(500, 330, 1)])],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            free=True,
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -480,6 +491,7 @@ def soccer_drills() -> list[Drill]:
                 P(300, 350, "5"), P(700, 350, "4"),
             ],
             ball=None,
+            free=True,
         ),
         Drill(
             id="defend_2v2", category="defending", minutes=12,
@@ -508,6 +520,7 @@ def soccer_drills() -> list[Drill]:
                 P(620, 900, "10", moves=[(600, 760, 1)]),
             ],
             ball=None,
+            free=True,
         ),
 
         # ── set pieces ───────────────────────────────────────────────────────
@@ -542,6 +555,7 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            free=True,
         ),
         Drill(
             id="free_kick_edge", category="setpiece", minutes=10,
@@ -606,6 +620,7 @@ def soccer_drills() -> list[Drill]:
                 M(200, 200), M(800, 200), M(200, 1200), M(800, 1200),
             ],
             ball=0,
+            free=True,
         ),
         # ── warm-up ──────────────────────────────────────────────────────────
         Drill(
@@ -659,6 +674,7 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(440, 880), M(560, 880), M(640, 730), M(760, 730), M(440, 550), M(560, 550)],
             ball=0,
+            free=True,
         ),
 
         # ── possession ───────────────────────────────────────────────────────
@@ -1419,6 +1435,7 @@ def build(sport: str) -> dict:
                 "category": d.category,
                 "minutes": d.minutes,
                 "players": d.player_count,
+                "free": d.free,
                 "name": d.name,
                 "note": d.note,
                 "board": build_board(d, sport),

@@ -544,7 +544,11 @@ class _MenuButton extends StatelessWidget {
       case 'share':
         shareBoardImage(context, context.read<TacticsState>());
       case 'drills':
-        DrillLibrarySheet.show(context, context.read<TacticsState>());
+        DrillLibrarySheet.show(
+          context,
+          context.read<TacticsState>(),
+          onUpgrade: () => _showPaywall(context),
+        );
       case 'practice':
         _showPracticePlan(context);
       case 'scorer':
