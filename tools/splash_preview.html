@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Splash preview — board100</title>
+<style>
+  :root {
+    --splash: #1A3A4A;      /* flutter_native_splash color: in every app */
+    --bg: #14181b;
+    --panel: #1e2429;
+    --line: #2e363d;
+    --text: #e7edf2;
+    --dim: #93a1ad;
+    --accent: #00C2B2;      /* the apps' kAccent */
+    --warn: #ffb020;
+    --bad: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px 32px 60px;
+    background: var(--bg); color: var(--text);
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 14px; margin: 32px 0 12px; color: var(--dim);
+       text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+  .sub { color: var(--dim); margin: 0 0 24px; max-width: 70ch; }
+  code { background: #0e1215; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+
+  /* ── drop zone ───────────────────────────────────────────────────────── */
+  #drop {
+    border: 1.5px dashed var(--line); border-radius: 12px; padding: 22px;
+    display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+    background: var(--panel); transition: border-color .15s, background .15s;
+  }
+  #drop.over { border-color: var(--accent); background: #1b2c30; }
+  #drop p { margin: 0; color: var(--dim); }
+  label.file {
+    display: inline-block; padding: 8px 14px; border-radius: 8px;
+    background: var(--accent); color: #06211f; font-weight: 600; cursor: pointer;
+  }
+  label.file input { display: none; }
+  #facts { font-variant-numeric: tabular-nums; }
+  #facts b { color: var(--text); font-weight: 600; }
+  .flag { padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .flag.ok  { background: #123a2e; color: #5ee1a8; }
+  .flag.warn{ background: #3a2f12; color: var(--warn); }
+  .flag.bad { background: #3a1a1a; color: var(--bad); }
+
+  /* ── controls ────────────────────────────────────────────────────────── */
+  .controls { display: flex; gap: 22px; align-items: center; margin: 22px 0 6px; flex-wrap: wrap; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    background: transparent; border: 0; color: var(--dim); padding: 7px 14px;
+    font: inherit; cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: #06211f; font-weight: 600; }
+  .toggle { display: inline-flex; gap: 7px; align-items: center; color: var(--dim); cursor: pointer; }
+
+  /* ── device frames ───────────────────────────────────────────────────── */
+  .frames { display: flex; gap: 34px; flex-wrap: wrap; align-items: flex-start; }
+  figure { margin: 0; }
+  figcaption { color: var(--dim); font-size: 12.5px; margin-top: 8px; text-align: center; }
+  figcaption b { color: var(--text); }
+  .device {
+    position: relative; overflow: hidden; background: var(--splash);
+    border: 2px solid #303840; border-radius: 26px;
+  }
+  .device img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .device img.cover  { object-fit: cover; }
+  /* "center" draws the image at its own pixel size on the device; the preview
+     frame is smaller than a real screen, so scale by the same factor. */
+  .device img.center { object-fit: contain; }
+  .device.empty::after {
+    content: "no image loaded"; position: absolute; inset: 0;
+    display: grid; place-items: center; color: #5d6b76; font-size: 12px;
+  }
+  /* what the phone's own chrome covers */
+  .chrome { position: absolute; left: 0; right: 0; pointer-events: none; display: none; }
+  .chrome.on { display: block; }
+  .chrome.top { top: 0; height: 12%; background: repeating-linear-gradient(
+      45deg, rgba(255,176,32,.16) 0 6px, transparent 6px 12px); border-bottom: 1px solid rgba(255,176,32,.35); }
+  .chrome.bottom { bottom: 0; height: 6%; background: repeating-linear-gradient(
+      45deg, rgba(255,176,32,.16) 0 6px, transparent 6px 12px); border-top: 1px solid rgba(255,176,32,.35); }
+  .notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+           width: 34%; height: 22px; background: #000; border-radius: 12px; pointer-events: none; }
+
+  /* ── reference strip ─────────────────────────────────────────────────── */
+  .strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 14px; }
+  .ref { background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+         padding: 6px; cursor: pointer; text-align: center; }
+  .ref:hover { border-color: var(--accent); }
+  .ref img { width: 100%; aspect-ratio: 853 / 1844; object-fit: cover; border-radius: 4px; display: block; background: #000; }
+  .ref span { display: block; font-size: 11px; color: var(--dim); margin-top: 5px;
+              overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<h1>Splash preview</h1>
+<p class="sub">
+  Drop a generated splash in and see what the phone actually shows. The launch
+  screen scales the image to <b>cover</b> the screen
+  (<code>ios_content_mode: scaleAspectFill</code>), so an image that is not
+  ≈<code>853×1844</code> loses its edges — which is how footvolley's court got
+  cropped away. Everything here is local; nothing is uploaded.
+</p>
+
+<div id="drop">
+  <label class="file">Choose image<input type="file" id="file" accept="image/*"></label>
+  <p>or drag one here</p>
+  <div id="facts" style="margin-left:auto"></div>
+</div>
+
+<div class="controls">
+  <div class="seg" id="mode">
+    <button data-mode="cover" aria-pressed="true">scaleAspectFill (cover)</button>
+    <button data-mode="center" aria-pressed="false">center</button>
+  </div>
+  <label class="toggle"><input type="checkbox" id="chrome" checked> show status bar / home indicator zones</label>
+  <label class="toggle"><input type="checkbox" id="island" checked> Dynamic Island</label>
+</div>
+
+<div class="frames" id="frames"></div>
+
+<h2>The shipped fifteen — click one to load it</h2>
+<div class="strip" id="strip"></div>
+
+<script>
+// Apps and their directories, mirroring tools/sports.tsv. Kept inline because
+// this page opens straight off the filesystem (no server, no fetch).
+const APPS = [
+  ["tactics_board", "tactics_board"], ["badminton", "BadmintonBoard"],
+  ["tableTennis", "TableTennisBoard"], ["tennis", "TennisBoard"],
+  ["basketball", "BasketballBoard"],  ["volleyball", "VolleyballBoard"],
+  ["pickleball", "PickleballBoard"],  ["soccer", "SoccerBoard"],
+  ["fieldHockey", "FieldHockeyBoard"],["rugby", "RugbyBoard"],
+  ["baseball", "BaseballBoard"],      ["handball", "HandballBoard"],
+  ["waterPolo", "WaterPoloBoard"],    ["sepakTakraw", "SepakTakrawBoard"],
+  ["beachTennis", "BeachTennisBoard"],["footvolley", "FootvolleyBoard"],
+];
+
+// Real screens the art has to survive. Height is fixed; width follows aspect.
+const DEVICES = [
+  { name: "iPhone 17 / 16 Pro", px: [1179, 2556], note: "19.5:9" },
+  { name: "iPhone SE",          px: [750, 1334],  note: "16:9 — the squarest phone" },
+  { name: "Pixel 8 / tall",     px: [1080, 2400], note: "20:9 — the tallest" },
+  { name: "iPad 11\"",          px: [1668, 2388], note: "4:3 — the widest" },
+].map(d => ({ ...d, ratio: d.px[0] / d.px[1] }));
+const CANVAS = { w: 853, h: 1844 };
+const FRAME_H = 420;
+
+let mode = "cover";
+let currentURL = null;
+
+const framesEl = document.getElementById("frames");
+DEVICES.forEach((d, i) => {
+  const w = Math.round(FRAME_H * d.ratio);
+  framesEl.insertAdjacentHTML("beforeend", `
+    <figure>
+      <div class="device empty" style="width:${w}px;height:${FRAME_H}px" data-i="${i}">
+        <img alt="" hidden>
+        <div class="chrome top on"></div>
+        <div class="chrome bottom on"></div>
+      </div>
+      <figcaption><b>${d.name}</b><br>${d.note} · ${w}×${FRAME_H}<br>
+        <span class="crop" data-i="${i}"></span></figcaption>
+    </figure>`);
+});
+
+const stripEl = document.getElementById("strip");
+APPS.forEach(([key, dir]) => {
+  stripEl.insertAdjacentHTML("beforeend", `
+    <div class="ref" data-src="../${dir}/assets/icon/splash_logo.png" title="${key}">
+      <img src="../${dir}/assets/icon/splash_logo.png" alt="${key}">
+      <span>${key}</span>
+    </div>`);
+});
+stripEl.addEventListener("click", e => {
+  const ref = e.target.closest(".ref");
+  if (ref) load(ref.dataset.src, ref.title);
+});
+
+function setMode(next) {
+  mode = next;
+  document.querySelectorAll("#mode button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.mode === next)));
+  applyMode();
+  updateCropReadout();
+}
+document.getElementById("mode").addEventListener("click", e => {
+  if (e.target.dataset.mode) setMode(e.target.dataset.mode);
+});
+
+document.getElementById("chrome").addEventListener("change", e => {
+  document.querySelectorAll(".chrome").forEach(c => c.classList.toggle("on", e.target.checked));
+});
+document.getElementById("island").addEventListener("change", e => {
+  document.querySelectorAll(".notch").forEach(n => n.remove());
+  if (e.target.checked) addIslands();
+});
+function addIslands() {
+  document.querySelectorAll(".device").forEach(d =>
+    d.insertAdjacentHTML("beforeend", '<div class="notch"></div>'));
+}
+addIslands();
+
+const factsEl = document.getElementById("facts");
+function load(src, label) {
+  if (currentURL) URL.revokeObjectURL(currentURL);
+  currentURL = null;
+  const probe = new Image();
+  probe.onload = () => {
+    document.querySelectorAll(".device").forEach(d => {
+      d.classList.remove("empty");
+      const img = d.querySelector("img");
+      img.src = src; img.hidden = false;
+    });
+    describe(probe.naturalWidth, probe.naturalHeight, label);
+    applyMode();
+    updateCropReadout(probe.naturalWidth, probe.naturalHeight);
+  };
+  probe.onerror = () => { factsEl.innerHTML =
+    `<span class="flag bad">could not read that file</span>`; };
+  probe.src = src;
+}
+
+let loaded = null;
+function applyMode() {
+  document.querySelectorAll(".device").forEach(d => {
+    const dev = DEVICES[+d.dataset.i];
+    const img = d.querySelector("img");
+    img.className = mode;
+    if (mode === "center" && loaded) {
+      // scale = preview width / real screen width, so a 1024px-wide image on a
+      // 1179px-wide phone covers the same fraction here as it would there.
+      const scale = d.clientWidth / dev.px[0];
+      const w = loaded.w * scale, h = loaded.h * scale;
+      Object.assign(img.style, {
+        width: w + "px", height: h + "px",
+        left: "50%", top: "50%", inset: "auto",
+        transform: "translate(-50%, -50%)",
+      });
+    } else {
+      Object.assign(img.style, {
+        width: "", height: "", left: "", top: "", inset: "0", transform: "",
+      });
+    }
+  });
+}
+
+function describe(w, h, label) {
+  loaded = { w, h };
+  const aspect = w / h;
+  const target = CANVAS.w / CANVAS.h;
+  const off = Math.abs(aspect - target) / target;
+  let flag;
+  if (w === CANVAS.w && h === CANVAS.h) flag = `<span class="flag ok">exact canvas</span>`;
+  else if (off < 0.02) flag = `<span class="flag ok">right shape — resize to ${CANVAS.w}×${CANVAS.h}</span>`;
+  else if (aspect > 0.7) flag = `<span class="flag bad">too square — cover will crop most of it</span>`;
+  else flag = `<span class="flag warn">off-shape — crop with make_splash.py</span>`;
+  factsEl.innerHTML =
+    `${label ? `<b>${label}</b> · ` : ""}<b>${w}×${h}</b> · aspect ${aspect.toFixed(3)}
+     (target ${target.toFixed(3)}) &nbsp; ${flag}`;
+}
+
+function updateCropReadout(w, h) {
+  if (loaded) { w = loaded.w; h = loaded.h; }
+  document.querySelectorAll(".crop").forEach(el => {
+    const d = DEVICES[+el.dataset.i];
+    if (!w) { el.textContent = ""; return; }
+    if (mode !== "cover") {
+      const scale = Math.min(1, d.px[0] / w);
+      el.innerHTML = `<span style="color:var(--dim)">shown at ${Math.round(w * scale)}px wide, nothing cropped</span>`;
+      return;
+    }
+    const imgAspect = w / h;
+    // cover: the image is scaled until it fills; the excess is cut off.
+    const kept = imgAspect > d.ratio
+      ? d.ratio / imgAspect   // sides trimmed
+      : imgAspect / d.ratio;  // top and bottom trimmed
+    const lost = Math.round((1 - kept) * 100);
+    const where = imgAspect > d.ratio ? "sides" : "top+bottom";
+    el.innerHTML = lost === 0 ? "nothing cropped"
+      : `<span style="color:${lost > 25 ? "var(--bad)" : lost > 10 ? "var(--warn)" : "var(--dim)"}">
+           ${lost}% cropped (${where})</span>`;
+  });
+}
+
+// Drag and drop straight from Downloads.
+const drop = document.getElementById("drop");
+["dragenter", "dragover"].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); drop.classList.add("over");
+}));
+["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); drop.classList.remove("over");
+}));
+drop.addEventListener("drop", e => {
+  const f = e.dataTransfer.files[0];
+  if (f) { currentURL = URL.createObjectURL(f); load(currentURL, f.name); }
+});
+document.getElementById("file").addEventListener("change", e => {
+  const f = e.target.files[0];
+  if (f) { currentURL = URL.createObjectURL(f); load(currentURL, f.name); }
+});
+
+// Start on the app that needs the art.
+load("../FootvolleyBoard/assets/icon/splash_logo.png", "footvolley (current)");
+</script>
+</body>
+</html>
