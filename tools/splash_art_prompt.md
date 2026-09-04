@@ -1,5 +1,9 @@
 # Splash artwork — house style and prompts
 
+> The same prompts are built into `tools/splash_preview.html` with copy
+> buttons and a slot-filler for new sports — `open tools/splash_preview.html`.
+> Keep the two in step if you reword anything.
+
 The 15 sport apps share one launch-screen look. Anything new has to match it,
 or that app's launch reads as a different product. This file records the style
 and the prompt that produces it, so the next sport doesn't need reverse
