@@ -85,6 +85,46 @@
   .notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
            width: 34%; height: 22px; background: #000; border-radius: 12px; pointer-events: none; }
 
+  /* ── prompt builder ──────────────────────────────────────────────────── */
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+  .tabs button { background: transparent; border: 0; color: var(--dim); padding: 7px 14px; font: inherit; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { background: var(--accent); color: #06211f; font-weight: 600; }
+  .slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  /* an explicit display: beats the UA rule for [hidden], so restore it */
+  .slots[hidden] { display: none; }
+  .slots label { display: block; font-size: 12px; color: var(--dim); }
+  .slots input {
+    width: 100%; margin-top: 4px; padding: 7px 9px; border-radius: 7px;
+    border: 1px solid var(--line); background: #0e1215; color: var(--text); font: inherit;
+  }
+  .slots input:focus { outline: none; border-color: var(--accent); }
+  .prompt-head { display: flex; align-items: center; gap: 12px; margin: 16px 0 6px; }
+  .prompt-head h3 { margin: 0; font-size: 13px; color: var(--dim); text-transform: uppercase; letter-spacing: .06em; }
+  button.copy {
+    background: #0e1215; border: 1px solid var(--line); color: var(--text);
+    border-radius: 7px; padding: 5px 11px; font: inherit; font-size: 12.5px; cursor: pointer;
+  }
+  button.copy:hover { border-color: var(--accent); color: var(--accent); }
+  button.copy.done { border-color: #5ee1a8; color: #5ee1a8; }
+  pre.prompt {
+    margin: 0; padding: 14px 16px; background: #0e1215; border: 1px solid var(--line);
+    border-radius: 9px; white-space: pre-wrap; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: #cfe3dd; max-height: 340px; overflow: auto;
+  }
+  pre.prompt.negative { color: #e9b9b9; }
+  .style-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 22px; margin-top: 16px; }
+  .style-facts div { font-size: 12.5px; color: var(--dim); }
+  .style-facts b { color: var(--text); font-weight: 600; }
+  .used { font-size: 12.5px; color: var(--dim); margin-top: 10px; }
+  .used span { display: inline-block; padding: 1px 8px; border-radius: 999px; margin: 0 4px 4px 0;
+               background: #0e1215; border: 1px solid var(--line); }
+  .steps { counter-reset: s; margin: 14px 0 0; padding: 0; list-style: none; }
+  .steps li { counter-increment: s; margin: 6px 0; color: var(--dim); font-size: 13px; }
+  .steps li::before { content: counter(s); display: inline-grid; place-items: center;
+    width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: #06211f;
+    font-size: 11px; font-weight: 700; margin-right: 8px; vertical-align: 1px; }
+
   /* ── reference strip ─────────────────────────────────────────────────── */
   .strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 14px; }
   .ref { background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
@@ -106,6 +146,64 @@
   cropped away. Everything here is local; nothing is uploaded.
 </p>
 
+<h2>1 · Prompt — paste into ChatGPT</h2>
+<div class="card">
+  <div class="tabs" id="tabs">
+    <button data-tab="footvolley" aria-pressed="true">Footvolley (needed now)</button>
+    <button data-tab="template" aria-pressed="false">Any other sport</button>
+  </div>
+
+  <div class="slots" id="slots" hidden>
+    <label>Venue at night
+      <input id="s-venue" value="an indoor futsal court" placeholder="a beach footvolley court"></label>
+    <label>One venue feature in the middle distance
+      <input id="s-feature" value="a goal frame" placeholder="net / goal / hoop / lane rope"></label>
+    <label>Hero object
+      <input id="s-hero" value="a futsal ball" placeholder="a yellow-and-black footvolley ball"></label>
+    <label>Surface it rests on
+      <input id="s-surface" value="polished wood" placeholder="fine sand / grass / clay / water"></label>
+    <label>Particles kicked up
+      <input id="s-particles" value="dust motes" placeholder="sand grains / dust / spray"></label>
+    <label>Neon trail colour
+      <input id="s-accent" value="magenta" placeholder="amber-gold / electric blue / lime"></label>
+  </div>
+
+  <div class="prompt-head">
+    <h3>Prompt</h3>
+    <button class="copy" data-copy="prompt">Copy</button>
+    <span style="color:var(--dim);font-size:12.5px">ask for portrait 9:19.5 — or the tallest ratio offered, then crop with <code>make_splash.py</code></span>
+  </div>
+  <pre class="prompt" id="prompt"></pre>
+
+  <div class="prompt-head">
+    <h3>Negative / avoid</h3>
+    <button class="copy" data-copy="negative">Copy</button>
+  </div>
+  <pre class="prompt negative" id="negative"></pre>
+
+  <div class="style-facts">
+    <div><b>853 × 1844 px</b> portrait, aspect 0.463</div>
+    <div><b>One</b> hard light source, upper third, visible rays</div>
+    <div>Hero <b>centred</b>, lower middle, on the real surface</div>
+    <div>A single <b>neon trail</b> arc, one colour per sport</div>
+    <div>Top 20% / bottom 15% stay <b>near black</b></div>
+    <div><b>No text</b>, no logo, no people</div>
+  </div>
+  <div class="used">Accent colours already in use:
+    <span>green — soccer</span><span>electric blue — beach tennis, field hockey, handball</span>
+    <span>cyan — water polo, volleyball</span><span>amber — basketball</span>
+    <span>lime — tennis, sepak takraw</span>
+  </div>
+
+  <ol class="steps">
+    <li>Generate 3-4 variants, download the best.</li>
+    <li><code>python3 tools/make_splash.py ~/Downloads/render.png footvolley</code> — crops to the exact canvas.</li>
+    <li>Drop it below and check what each screen keeps.</li>
+    <li><code>cd FootvolleyBoard &amp;&amp; dart run flutter_native_splash:create</code>, then <code>python3 tools/verify_app_assets.py footvolley</code>.</li>
+  </ol>
+</div>
+
+<h2>2 · Preview — what the phone actually shows</h2>
 <div id="drop">
   <label class="file">Choose image<input type="file" id="file" accept="image/*"></label>
   <p>or drag one here</p>
@@ -123,7 +221,7 @@
 
 <div class="frames" id="frames"></div>
 
-<h2>The shipped fifteen — click one to load it</h2>
+<h2>3 · The shipped fifteen — click one to load it</h2>
 <div class="strip" id="strip"></div>
 
 <script>
@@ -303,6 +401,83 @@ document.getElementById("file").addEventListener("change", e => {
   const f = e.target.files[0];
   if (f) { currentURL = URL.createObjectURL(f); load(currentURL, f.name); }
 });
+
+// ── prompt builder ─────────────────────────────────────────────────────────
+// Same text as tools/splash_art_prompt.md; keep the two in step.
+const FOOTVOLLEY = {
+  venue: "a beach footvolley court",
+  feature: "a beach volleyball net stretching across the middle distance, its top tape catching a thin rim of light",
+  hero: "a yellow-and-black footvolley ball",
+  surface: "fine sand",
+  particles: "sand grains",
+  accent: "amber-gold",
+};
+
+const NEGATIVE = `text, letters, logo, watermark, people, hands, bright daytime sky, flat
+lighting, cartoon, illustration, low contrast, busy background, multiple
+light sources, centred logo composition, square composition`;
+
+function buildPrompt(v) {
+  return `A dramatic, photorealistic 3D product render for a mobile app launch screen,
+vertical portrait composition, aspect ratio 9:19.5.
+
+Scene: ${v.venue} at night. A single stadium floodlight in the upper left casts
+hard visible light rays through the dark air. The background is almost black —
+deep charcoal and midnight blue — with ${v.feature}.
+
+Hero: ${v.hero} resting in ${v.surface} in the lower middle of the frame,
+centred horizontally, lit from the upper left so its surface detail and the
+${v.particles} around it are crisp. A glowing ${v.accent} neon light trail arcs
+up and around it like a curved motion streak, leaving a soft bloom on the
+${v.surface}. A small burst of ${v.particles} is frozen mid-air around its base.
+
+Mood: cinematic, high contrast, moody sports advertising photography.
+The top 20% and bottom 15% of the frame stay almost pure black and empty.
+
+No text, no logos, no watermark, no people, no UI elements.`;
+}
+
+let tab = "footvolley";
+function renderPrompt() {
+  const v = tab === "footvolley" ? FOOTVOLLEY : {
+    venue: val("s-venue"),
+    feature: val("s-feature") + " visible in the middle distance, catching a thin rim of light",
+    hero: val("s-hero"),
+    surface: val("s-surface"),
+    particles: val("s-particles"),
+    accent: val("s-accent"),
+  };
+  document.getElementById("prompt").textContent = buildPrompt(v);
+  document.getElementById("negative").textContent = NEGATIVE;
+}
+const val = id => document.getElementById(id).value.trim() || document.getElementById(id).placeholder;
+
+document.getElementById("tabs").addEventListener("click", e => {
+  if (!e.target.dataset.tab) return;
+  tab = e.target.dataset.tab;
+  document.querySelectorAll("#tabs button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.tab === tab)));
+  document.getElementById("slots").hidden = tab !== "template";
+  renderPrompt();
+});
+document.getElementById("slots").addEventListener("input", renderPrompt);
+
+document.querySelectorAll("button.copy").forEach(btn => btn.addEventListener("click", async () => {
+  const text = document.getElementById(btn.dataset.copy === "prompt" ? "prompt" : "negative").textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    // file:// in some browsers refuses the clipboard API — fall back to a
+    // hidden textarea, which still works from a user gesture.
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+  }
+  btn.textContent = "Copied"; btn.classList.add("done");
+  setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("done"); }, 1400);
+}));
+
+renderPrompt();
 
 // Start on the app that needs the art.
 load("../FootvolleyBoard/assets/icon/splash_logo.png", "footvolley (current)");
