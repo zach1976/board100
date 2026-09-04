@@ -6,6 +6,8 @@ import '../models/practice.dart';
 import '../models/practice_session.dart';
 import '../services/ad_service.dart';
 import '../services/practice_history_service.dart';
+import '../widgets/attendance_sheet.dart';
+import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
 
 const _kBg = Color(0xFF0E1C22);
@@ -37,6 +39,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   int _itemsCompleted = 0;
   int _totalSecondsSpent = 0;
   bool _sessionRecorded = false;
+  PracticeSession? _recorded;
 
   @override
   void initState() {
@@ -71,6 +74,33 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     );
     try {
       await PracticeHistoryService.add(widget.state.sportType, session);
+      _recorded = session;
+    } catch (_) {}
+  }
+
+  /// Ask who was here, right after the session ends — the only moment the
+  /// coach still remembers and still has the phone out. Skipping is fine:
+  /// the log is worth more half-filled than abandoned.
+  Future<void> _askAttendance() async {
+    final session = _recorded;
+    if (session == null) return;
+    final groups = await PhotoLibraryService.instance.listGroups();
+    if (groups.isEmpty || !mounted) return;
+    final squad = await PhotoLibraryService.instance.squad(groups.first.id);
+    if (squad.isEmpty || !mounted) return;
+
+    final present = await AttendanceSheet.show(
+      context,
+      squad: squad,
+      squadId: groups.first.id,
+    );
+    if (present == null) return; // skipped
+    try {
+      await PracticeHistoryService.replace(
+        widget.state.sportType,
+        session,
+        session.withAttendance(present, groups.first.id),
+      );
     } catch (_) {}
   }
 
@@ -166,6 +196,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
 
   Future<void> _showCompleteDialog() async {
     await _recordSession(completed: true);
+    if (!mounted) return;
+    await _askAttendance();
     if (!mounted) return;
     await showDialog(
       context: context,
