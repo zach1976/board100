@@ -13,7 +13,10 @@ For every app in tools/sports.tsv it verifies:
   2. the committed iOS / Android / macOS icons are that source, resized;
   3. the committed iOS / Android splash images are that splash source;
   4. no two apps share the same artwork (a copy-paste mixing up two sports
-     is otherwise invisible — both apps look "fine" on their own).
+     is otherwise invisible — both apps look "fine" on their own);
+  5. the splash source's shape suits the fill mode the app asks for. A
+     near-square image with ios_content_mode: scaleAspectFill gets most of
+     itself cropped away on a phone — footvolley shipped like that.
 
     python3 tools/verify_app_assets.py            # all apps
     python3 tools/verify_app_assets.py soccer     # one app
@@ -52,6 +55,20 @@ def difference(a: Path, b: Path) -> float:
     return sum(pixels) / len(pixels)
 
 
+def splash_shape_problem(key: str) -> str | None:
+    """A wide/square splash under a fill mode loses most of its content."""
+    pubspec = (app_dir(key) / "pubspec.yaml").read_text(encoding="utf-8")
+    fills = "ios_content_mode: scaleAspectFill" in pubspec
+    w, h = Image.open(splash_source(key)).size
+    aspect = w / h
+    # Phones are ~0.46 wide:tall. Anything squarer than 0.7 has nothing to
+    # spare once it is scaled to cover the screen.
+    if fills and aspect > 0.7:
+        return (f"splash art is {w}x{h} (aspect {aspect:.2f}) but the app asks "
+                f"for scaleAspectFill — most of it will be cropped")
+    return None
+
+
 def check(key: str) -> list[str]:
     problems = []
     root = app_dir(key)
@@ -78,6 +95,10 @@ def check(key: str) -> list[str]:
         d = difference(target, splash_source(key))
         if d > TOLERANCE:
             problems.append(f"{label}: differs from this app's splash_logo.png (diff {d:.1f})")
+
+    shape = splash_shape_problem(key)
+    if shape:
+        problems.append(shape)
     return problems
 
 
