@@ -7,8 +7,11 @@ Pattern matched from existing sports:
 """
 import os
 
-BASE = os.path.join(os.path.dirname(__file__), "..", "fastlane", "metadata")
-
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 # Release notes for 1.1.6 across locales (single-sport apps)
 RN = {
     "en-US":   "- iPad layout polish: player icons and popups scale correctly on 13-inch screens\n- External display: landscape canvas renders natively with upright player icons\n- Fixed move lines not auto-showing after animation playback\n",
@@ -901,7 +904,7 @@ ALL_LOCALES = ["en-US", "zh-Hans", "zh-Hant", "ja", "ko", "fr-FR", "es-ES", "vi"
 
 
 def write(sport_key, locale, filename, content):
-    d = os.path.join(BASE, sport_key, locale)
+    d = os.path.join(metadata_dir(sport_key), locale)
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, filename), "w", encoding="utf-8") as f:
         f.write(content)

@@ -2,11 +2,15 @@
 """Upload ASO metadata (keywords, promotional_text) to App Store Connect API."""
 import jwt, time, requests, json, os, sys
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-META_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
-
 APPS = {
     "tactics_board": "com.zach.tacticsBoard",
     "soccer": "com.zach.soccerBoard",
@@ -38,7 +42,7 @@ def api(method, url, data=None):
     return r.json() if r.text else {}
 
 def read_file(app, locale, filename):
-    path = os.path.join(META_BASE, app, locale, filename)
+    path = os.path.join(metadata_dir(app), locale, filename)
     if os.path.exists(path):
         with open(path) as f:
             return f.read().strip()
@@ -88,7 +92,7 @@ for app_key, bundle_id in APPS.items():
         existing_info_locs = {loc["attributes"]["locale"]: loc["id"] for loc in r_il.get("data", [])}
 
     # Update each locale
-    locales_dir = os.path.join(META_BASE, app_key)
+    locales_dir = metadata_dir(app_key)
     updated = 0
     for locale in sorted(os.listdir(locales_dir)):
         locale_path = os.path.join(locales_dir, locale)

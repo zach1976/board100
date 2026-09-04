@@ -6,13 +6,17 @@ Strategy:
 - iPad (APP_IPAD_PRO_3GEN_129): uploaded to en-US ONLY (mirrors badminton config).
 """
 import jwt, time, requests, os, hashlib, warnings
+
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 warnings.filterwarnings("ignore")
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-SCREENSHOTS_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/screenshots"
-
 NEW_APPS = [
     ("fieldHockey", "com.zach.fieldHockeyBoard"),
     ("rugby",       "com.zach.rugbyBoard"),
@@ -157,8 +161,8 @@ for sport, bundle_id in NEW_APPS:
     r = api_get(f"https://api.appstoreconnect.apple.com/v1/appStoreVersions/{version_id}/appStoreVersionLocalizations?limit=20")
     locs = {loc["attributes"]["locale"]: loc["id"] for loc in r.get("data", [])}
 
-    iphone_paths = [f"{SCREENSHOTS_BASE}/{sport}/en-US/0{n}_{sport}.png" for n in range(1, 7)]
-    ipad_path = f"{SCREENSHOTS_BASE}/{sport}/en-US/01_{sport}_ipad.png"
+    iphone_paths = [f"{screenshots_dir(sport)}/en-US/0{n}_{sport}.png" for n in range(1, 7)]
+    ipad_path = f"{screenshots_dir(sport)}/en-US/01_{sport}_ipad.png"
 
     missing = [p for p in iphone_paths if not os.path.exists(p)]
     if missing:

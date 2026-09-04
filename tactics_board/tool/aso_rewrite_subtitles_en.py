@@ -13,8 +13,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent / "fastlane" / "metadata"
-
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 # (app_folder, new_subtitle_en)
 SUBTITLES_EN: dict[str, str] = {
     "badminton":     "Win Doubles Without Words.",
@@ -42,7 +45,7 @@ def main() -> None:
     rows = []
     for app, new_sub in SUBTITLES_EN.items():
         assert len(new_sub) <= MAX_CHARS, f"{app}: '{new_sub}' is {len(new_sub)} chars"
-        target = ROOT / app / "en-US" / "subtitle.txt"
+        target = metadata_dir(app) / "en-US" / "subtitle.txt"
         old = target.read_text(encoding="utf-8").strip() if target.exists() else "<missing>"
         target.write_text(new_sub + "\n", encoding="utf-8")
         rows.append((app, old, new_sub, len(new_sub)))

@@ -4,7 +4,7 @@
 androidpublisher Edits API.
 
 Reads the assets produced by gen_play_metadata.py / gen_play_assets.py under
-  fastlane/play/<sport>/metadata/android/<playLocale>/
+  <App>/fastlane/play/metadata/android/<playLocale>/
 and pushes, in ONE edit per app:
   - title / shortDescription / fullDescription for all 11 locales
   - en-US images: icon (512²), featureGraphic (1024×500), phoneScreenshots
@@ -35,10 +35,15 @@ from urllib.error import HTTPError
 from google.oauth2 import service_account
 import google.auth.transport.requests
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 socket.setdefaulttimeout(180)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PLAY = os.path.join(ROOT, "fastlane", "play")
 PROJ_ENV = os.path.expanduser("~/projects/.env")
 
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3"
@@ -82,7 +87,7 @@ def read(path):
 def load_listings(sport):
     """Return {playLocale: {title, shortDescription, fullDescription}}."""
     out = {}
-    base = os.path.join(PLAY, sport, "metadata", "android")
+    base = os.path.join(play_metadata_dir(sport))
     for loc in LOCALES:
         d = os.path.join(base, loc)
         if not os.path.isdir(d):
@@ -138,7 +143,7 @@ def upload_image(tok, pkg, eid, locale, image_type, path):
 
 def push_images(tok, pkg, eid, sport):
     """Upload en-US icon, featureGraphic, phoneScreenshots. Returns ok bool."""
-    imgdir = os.path.join(PLAY, sport, "metadata", "android", "en-US", "images")
+    imgdir = os.path.join(play_metadata_dir(sport), "en-US", "images")
     ok = True
     for itype, fname in [("icon", "icon.png"), ("featureGraphic", "featureGraphic.png")]:
         p = os.path.join(imgdir, fname)

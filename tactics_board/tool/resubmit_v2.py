@@ -7,7 +7,7 @@ Flow per app:
   1. find the 1.1.19 appStoreVersion (IN_REVIEW / WAITING_FOR_REVIEW)
   2. cancel its active reviewSubmission (PATCH canceled=true) -> frees the version
   3. wait for PREPARE_FOR_SUBMISSION (editable)
-  4. wipe existing iPhone 6.7" screenshots, upload new ones from fastlane/screenshots
+  4. wipe existing iPhone 6.7" screenshots, upload new ones from <App>/fastlane/screenshots
   5. create reviewSubmission, add the version item, PATCH submitted=true
 
 Safety:
@@ -20,10 +20,15 @@ warnings.filterwarnings("ignore")
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 KEY_ID = "4A9Y2S3D6X"
 ISSUER = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
-SCREENSHOTS_BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/screenshots"
 TARGET_VERSION = "1.1.19"
 B = "https://api.appstoreconnect.apple.com"
 
@@ -120,7 +125,7 @@ def upload_screenshots(app_key, vid, dry):
     locs = {l["attributes"]["locale"]: l["id"]
             for l in G(f"/v1/appStoreVersions/{vid}/appStoreVersionLocalizations?limit=40").get("data", [])}
     for locale, loc_id in sorted(locs.items()):
-        d = os.path.join(SCREENSHOTS_BASE, app_key, locale)
+        d = os.path.join(screenshots_dir(app_key), locale)
         if not os.path.isdir(d):
             continue
         pngs = sorted(f for f in os.listdir(d) if f.endswith(".png") and not f.startswith("ipad"))

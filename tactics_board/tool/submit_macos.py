@@ -11,13 +11,18 @@ creates and submits a MAC_OS review submission.
 """
 import jwt, time, os, warnings
 import requests
+
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 warnings.filterwarnings("ignore")
 
 KEY_ID = "4A9Y2S3D6X"
 ISSUER = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 BASE = "https://api.appstoreconnect.apple.com"
-META = os.path.join(os.path.dirname(__file__), "..", "fastlane", "metadata")
 VERSION = os.environ.get("VERSION", "1.1.20")
 
 APPS = [
@@ -67,7 +72,7 @@ def api(m, p, d=None):
 def read_meta(app_key, locale, fname):
     """Read a metadata file for a locale, falling back to en-US, then None."""
     for loc in (locale, "en-US"):
-        p = os.path.join(META, app_key, loc, fname)
+        p = os.path.join(metadata_dir(app_key), loc, fname)
         if os.path.exists(p):
             return open(p).read().strip()
     return None

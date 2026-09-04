@@ -3,7 +3,7 @@
 """Collect each app's Google Play upload artifacts into one folder per app.
 
 For every app it gathers, flat into build/play_bundles/<sport>/:
-  - icon.png, featureGraphic.png            (from fastlane/play/<sport>/.../en-US/images/)
+  - icon.png, featureGraphic.png            (from <App>/fastlane/play/metadata/android/en-US/images/)
   - screenshot_1.png … screenshot_N.png     (the phoneScreenshots, renamed)
   - <sport>-<version>.aab                    (from build/aab_play/, if built)
 
@@ -18,14 +18,19 @@ import os
 import shutil
 import sys
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import KEYS, metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PLAY = os.path.join(ROOT, "fastlane", "play")
 AAB_DIR = os.path.join(ROOT, "build", "aab_play")
 OUT = os.path.join(ROOT, "build", "play_bundles")
 
 
 def collect(sport):
-    imgdir = os.path.join(PLAY, sport, "metadata", "android", "en-US", "images")
+    imgdir = os.path.join(play_metadata_dir(sport), "en-US", "images")
     if not os.path.isdir(imgdir):
         print(f"  ✗ {sport}: no Play images, skipped")
         return
@@ -58,10 +63,7 @@ def collect(sport):
 
 def main():
     args = sys.argv[1:]
-    sports = args or sorted(
-        d for d in os.listdir(PLAY)
-        if os.path.isdir(os.path.join(PLAY, d)) and not d.endswith(".md")
-    )
+    sports = args or sorted(k for k in KEYS if play_metadata_dir(k).is_dir())
     os.makedirs(OUT, exist_ok=True)
     print(f"Collecting into {OUT}\n")
     for s in sports:

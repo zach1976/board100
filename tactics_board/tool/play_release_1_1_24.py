@@ -10,7 +10,7 @@ Only 6 of the 16 apps are published on Play (the rest 404). Per app:
   4. edits.validate -> edits.commit  (auto-sent for review; managed publishing
      off -> auto-publishes on approval)
 
-Release notes are reused from fastlane/metadata/<sport>/<locale>/release_notes.txt
+Release notes are reused from <App>/fastlane/metadata/<locale>/release_notes.txt
 (the App Store notes), mapped App-Store-locale -> Play-locale.
 
 Usage:
@@ -24,9 +24,14 @@ import google.auth.transport.requests
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJ_ENV = os.path.expanduser("~/projects/.env")
-META = os.path.join(ROOT, "fastlane", "metadata")
 AAB_DIR = os.path.join(ROOT, "build", "aab_play")
 VERSION = "1.1.24"
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3"
@@ -97,9 +102,9 @@ def upload_aab(tok, pkg, eid, path):
 def release_notes(sport):
     out = []
     for play_loc, meta_loc in PLAY_TO_META.items():
-        p = os.path.join(META, sport, meta_loc, "release_notes.txt")
+        p = os.path.join(metadata_dir(sport), meta_loc, "release_notes.txt")
         if not os.path.exists(p):
-            p = os.path.join(META, sport, "en-US", "release_notes.txt")
+            p = os.path.join(metadata_dir(sport), "en-US", "release_notes.txt")
         if not os.path.exists(p):
             continue
         text = open(p, encoding="utf-8").read().strip()[:PLAY_NOTES_LIMIT]

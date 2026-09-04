@@ -3,8 +3,12 @@
 keywords: ≤100 chars, comma-separated, no spaces around commas.
 release_notes: marketing-toned changelog (≤4000, target ≤500)."""
 import os
-BASE = "/Users/zhenyusong/projects/board100/tactics_board/fastlane/metadata"
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
 # ════════════════════════════════════════════════════════════════════
 # RELEASE NOTES — same hero feature across the lineup, locale-tuned tone
 # ════════════════════════════════════════════════════════════════════
@@ -250,14 +254,14 @@ for sport in SPORTS:
         if len(kw) > 100:
             overflow_kw.append((sport, loc, len(kw), kw))
         else:
-            path = f"{BASE}/{sport}/{loc}/keywords.txt"
+            path = f"{metadata_dir(sport)}/{loc}/keywords.txt"
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
                 f.write(kw)
             written_kw += 1
         # RELEASE NOTES
         rn = RN[loc]
-        path = f"{BASE}/{sport}/{loc}/release_notes.txt"
+        path = f"{metadata_dir(sport)}/{loc}/release_notes.txt"
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             f.write(rn)

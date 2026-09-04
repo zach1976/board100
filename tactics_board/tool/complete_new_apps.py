@@ -8,7 +8,7 @@ Clones the reference settings from badmintonBoard:
 - Price = Free (USA base, no manual prices)
 - Review contact info
 - Privacy Policy URL, Support URL, Marketing URL
-- description/keywords/whatsNew from fastlane/metadata/<sport>/<locale>/
+- description/keywords/whatsNew from <App>/fastlane/metadata/<locale>/
 
 Then attaches the 1.1.6 build to the appStoreVersion.
 App Privacy (data collection answers) must still be set via web UI — this
@@ -17,14 +17,18 @@ script will print a warning if the endpoint isn't accessible.
 import jwt, time, json, os, sys, warnings
 import requests as _requests
 
+# Per-app store files live inside each app's own directory; tools/apps.py
+# resolves them from tools/sports.tsv.
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'tools'))
+from apps import metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
 warnings.filterwarnings("ignore")
 
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 BASE = "https://api.appstoreconnect.apple.com"
-META_BASE = os.path.join(os.path.dirname(__file__), "..", "fastlane", "metadata")
-
 NEW_APPS = [
     ("com.zach.fieldHockeyBoard", "fieldHockey"),
     ("com.zach.rugbyBoard", "rugby"),
@@ -107,7 +111,7 @@ def err(r, prefix=""):
     return False
 
 def read_meta(sport, locale, field):
-    p = os.path.join(META_BASE, sport, locale, f"{field}.txt")
+    p = os.path.join(metadata_dir(sport), locale, f"{field}.txt")
     if os.path.exists(p):
         return open(p).read().strip()
     return None
