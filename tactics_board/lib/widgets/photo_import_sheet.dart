@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import '../services/ad_service.dart';
 import '../services/photo_library_service.dart';
+import 'toolbar.dart';
 
 enum PhotoImportSource { gallery, camera }
 
@@ -45,6 +46,7 @@ class PhotoImportSheet extends StatefulWidget {
     if (previewPath.isNotEmpty) {
       await showModalBottomSheet(
         context: context,
+        constraints: sheetConstraints(context),
         backgroundColor: const Color(0xFF15303A),
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -61,6 +63,7 @@ class PhotoImportSheet extends StatefulWidget {
 
     final source = await showModalBottomSheet<PhotoImportSource>(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -98,6 +101,7 @@ class PhotoImportSheet extends StatefulWidget {
     if (!context.mounted) return;
     await showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(

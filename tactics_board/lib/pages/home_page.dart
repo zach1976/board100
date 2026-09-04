@@ -78,7 +78,9 @@ class TacticsBoardHomePage extends StatelessWidget {
           selector: (_, s) => (visible: s.toolbarVisible && !s.presentationMode, theme: s.sportType.theme),
           builder: (context, sel, _) => sel.visible
             ? SizedBox(
-                width: 190,
+                // The rail's contents are text at uiScale, so the rail has to
+                // scale with them; a fixed 190 overflows on a tablet.
+                width: 190 * uiScale(context),
                 child: Material(
                   color: sel.theme.panelColor,
                   child: _landscapeSidePanel(context),
@@ -364,9 +366,9 @@ class TacticsBoardHomePage extends StatelessWidget {
                   _lCircleBtn(Icons.view_timeline, Colors.purpleAccent, () {
                     showModalBottomSheet(
                       context: context,
+                      constraints: sheetConstraints(context),
                       backgroundColor: const Color(0xFF15303A),
                       isScrollControlled: true,
-                      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                       builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
                     );
@@ -557,6 +559,7 @@ class _MenuButton extends StatelessWidget {
   void _showPaywall(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -582,6 +585,7 @@ class _MenuButton extends StatelessWidget {
     final url = Uri.parse('https://apps.apple.com/app/id$appleId');
     showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -1653,6 +1657,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   Future<String?> _pickAvatar(String? current) async {
     return showModalBottomSheet<String>(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -1773,6 +1778,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     if (roles.isEmpty) return null;
     return showModalBottomSheet<String>(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: kSurface,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20))),

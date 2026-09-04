@@ -101,6 +101,27 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
 
 /// Wraps a bottom-sheet / dialog child so all Text inside scales on tablets.
 /// Hardcoded icon/container sizes still need to be multiplied by uiScale(ctx).
+/// The widest a panel should be, whatever the screen. Past this a row of
+/// controls stops reading as a group and becomes a wall — an iPad in
+/// landscape is 1194pt wide, six times what any of these panels needs.
+const double kPanelMaxWidth = 620;
+
+/// Constraints for every modal sheet, so on a tablet they open as a centred
+/// panel instead of spanning the whole width.
+BoxConstraints sheetConstraints(BuildContext ctx) => BoxConstraints(
+      maxWidth: kPanelMaxWidth,
+      maxHeight: MediaQuery.sizeOf(ctx).height * 0.92,
+    );
+
+/// Centres a full-width bar's contents on a wide screen. The bar keeps its
+/// background edge to edge; only the controls stop stretching.
+Widget centeredPanel(Widget child) => Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: kPanelMaxWidth),
+        child: child,
+      ),
+    );
+
 Widget scaledSheet(BuildContext ctx, Widget child) {
   final s = uiScale(ctx);
   if (s == 1.0) return child;
@@ -114,6 +135,7 @@ Widget scaledSheet(BuildContext ctx, Widget child) {
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: const Color(0xFF15303A),
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)),
@@ -125,6 +147,7 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
 void showFieldSettingsSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: kSurface,
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -324,6 +347,7 @@ class _FieldTypeTile extends StatelessWidget {
 void showCourtSettingsSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: kSurface,
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -706,6 +730,7 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
 Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
   return showModalBottomSheet<String>(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: const Color(0xFF15303A),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -822,6 +847,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
   final hasStrokes = state.strokes.isNotEmpty;
   showModalBottomSheet(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: kSurface,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -856,11 +882,11 @@ void confirmClearAll(BuildContext context, TacticsState state) {
 void showAddElementSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
+    constraints: sheetConstraints(context),
     backgroundColor: const Color(0xFF15303A),
     // Scroll-controlled so the sheet sizes to its content — which varies by
     // sport — instead of being capped at ~50% and forcing an inner scroll.
     isScrollControlled: true,
-    constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
     ),
@@ -900,7 +926,7 @@ class _MainRow extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-      child: Column(
+      child: centeredPanel(Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           // Row: Mode + Add + Clear on the left, Save + Share on the right.
@@ -947,7 +973,7 @@ class _MainRow extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      )),
     );
   }
 
@@ -1394,11 +1420,11 @@ class _AddPlayerBtn extends StatelessWidget {
   static void showAddSheet(BuildContext context, TacticsState state) {
     showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       // Scroll-controlled so the sheet sizes to its content — which varies by
       // sport — instead of being capped at ~50% and forcing an inner scroll.
       isScrollControlled: true,
-      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -2335,6 +2361,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   Future<void> _onGroupLongPress(BuildContext context, PhotoGroup group) async {
     final action = await showModalBottomSheet<String>(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       builder: (ctx) => SafeArea(
@@ -4945,9 +4972,9 @@ class _TimelineBtn extends StatelessWidget {
   void _showTimeline(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      constraints: sheetConstraints(context),
       backgroundColor: const Color(0xFF15303A),
       isScrollControlled: true,
-      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.9),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

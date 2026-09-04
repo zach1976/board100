@@ -102,9 +102,11 @@
     @endif
   </div>
 
+  {{-- Per-sport App Store links need the numeric app ids, which live in App
+       Store Connect and not in this repo; the project site routes to the
+       right one. --}}
   <div class="cta">
-    <a class="primary" href="https://apps.apple.com/app/id6478977637">Get Tactics Board</a>
-    <a class="ghost" href="/">What is this?</a>
+    <a class="primary" href="/">Draw your own plays</a>
   </div>
 </main>
 

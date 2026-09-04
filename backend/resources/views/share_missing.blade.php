@@ -23,7 +23,7 @@
   <div class="card">
     <h1>This link isn't available</h1>
     <p>Shared plays expire after a while, and a coach can unpublish one at any time. Ask them to send a fresh link.</p>
-    <a href="https://apps.apple.com/app/id6478977637">Get Tactics Board</a>
+    <a href="/">Get the app</a>
   </div>
 </body>
 </html>
