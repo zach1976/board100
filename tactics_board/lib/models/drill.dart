@@ -25,6 +25,10 @@ class Drill {
   /// The board itself, in TacticsState's JSON shape.
   final Map<String, dynamic> board;
 
+  /// This drill deliberately puts someone off the playing surface — a
+  /// throw-in taker stands behind the touchline. Only used by checks.
+  final bool offSurface;
+
   /// In the free tier. The free set spans every category on purpose — a coach
   /// can run a whole session on it — because the subscription has to be worth
   /// buying on top of something useful, not instead of it.
@@ -39,6 +43,7 @@ class Drill {
     required this.note,
     required this.board,
     this.free = false,
+    this.offSurface = false,
   });
 
   factory Drill.fromJson(Map<String, dynamic> json) => Drill(
@@ -50,6 +55,7 @@ class Drill {
         note: Map<String, String>.from(json['note'] as Map? ?? const {}),
         board: Map<String, dynamic>.from(json['board'] as Map),
         free: json['free'] as bool? ?? false,
+        offSurface: json['offSurface'] as bool? ?? false,
       );
 
   /// Best text for [locale] (e.g. 'zh-CN'), falling back to the language
