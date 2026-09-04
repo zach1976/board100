@@ -44,6 +44,7 @@ class DrillLibrarySheet extends StatefulWidget {
 class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   late Future<List<Drill>> _drills;
   DrillCategory? _filter;
+  String _query = '';
 
   @override
   void initState() {
@@ -87,8 +88,14 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
         future: _drills,
         builder: (context, snap) {
           final all = snap.data ?? const <Drill>[];
-          final shown =
-              _filter == null ? all : all.where((d) => d.category == _filter).toList();
+          final q = _query.trim().toLowerCase();
+          final shown = all
+              .where((d) => _filter == null || d.category == _filter)
+              .where((d) =>
+                  q.isEmpty ||
+                  d.localizedName(_locale).toLowerCase().contains(q) ||
+                  d.localizedNote(_locale).toLowerCase().contains(q))
+              .toList();
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
             ..sort((a, b) => a.index.compareTo(b.index));
 
@@ -155,6 +162,33 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     ),
                   )
                 else ...[
+                  // A hundred-plus drills is a list you hunt in, not one you
+                  // scroll. Search reads the localised name and note, so
+                  // "corner" and "角球" both find the same rows.
+                  SizedBox(
+                    height: 38,
+                    child: TextField(
+                      onChanged: (v) => setState(() => _query = v),
+                      style: const TextStyle(color: Colors.white, fontSize: 13.5),
+                      cursorColor: kAccent,
+                      decoration: InputDecoration(
+                        hintText: 'drills_search'.tr(),
+                        hintStyle: const TextStyle(color: Colors.white30, fontSize: 13.5),
+                        prefixIcon: const Icon(Icons.search, color: Colors.white38, size: 18),
+                        prefixIconConstraints:
+                            const BoxConstraints(minWidth: 34, minHeight: 34),
+                        isDense: true,
+                        contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                        filled: true,
+                        fillColor: Colors.white.withValues(alpha: 0.06),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -176,19 +210,28 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Flexible(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      itemCount: shown.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 8),
-                      itemBuilder: (context, i) => _DrillRow(
-                        drill: shown[i],
-                        locale: _locale,
-                        locked: !_unlocked(shown[i]),
-                        onTap: () => _load(shown[i]),
+                  if (shown.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 34),
+                      child: Center(
+                        child: Text('drills_no_match'.tr(args: [_query.trim()]),
+                            style: const TextStyle(color: Colors.white38, fontSize: 13)),
+                      ),
+                    )
+                  else
+                    Flexible(
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: shown.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 8),
+                        itemBuilder: (context, i) => _DrillRow(
+                          drill: shown[i],
+                          locale: _locale,
+                          locked: !_unlocked(shown[i]),
+                          onTap: () => _load(shown[i]),
+                        ),
                       ),
                     ),
-                  ),
                 ],
               ],
             ),

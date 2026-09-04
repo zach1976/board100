@@ -16,6 +16,7 @@ it is on, so these numbers are proportions, not pixels.
 """
 import argparse
 import json
+import math
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -233,6 +234,47 @@ def build_board(drill: Drill, sport: str) -> dict:
         "canvasWidth": CANVAS_W,
         "canvasHeight": CANVAS_H,
     }
+
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Drill families
+#
+# Real coaching libraries are mostly families, not one-offs: a rondo is run at
+# 4v2, 5v2, 6v3; a small-sided game at 3v3 through 7v7; a counter at 2v1
+# through 5v4. Each is a genuinely different session — the numbers change what
+# the players have to solve — so they are generated from one spec rather than
+# copy-pasted, and the geometry is computed instead of hand-placed.
+#
+# Names compose as "<family> <variant>", where the variant ("5v2", "4v4") is
+# the same in every language, so a family needs translating once.
+# ─────────────────────────────────────────────────────────────────────────────
+
+def suffixed(base: dict, suffix: str) -> dict:
+    """Family name in every locale with the variant appended."""
+    return {loc: f"{text} {suffix}" for loc, text in base.items()}
+
+
+def ring(n: int, cx: float, cy: float, rx: float, ry: float,
+         start_deg: float = -90.0) -> list[tuple[float, float]]:
+    """n points evenly spaced on an ellipse, first at start_deg (up = -90)."""
+    out = []
+    for i in range(n):
+        a = math.radians(start_deg + 360.0 * i / n)
+        out.append((cx + rx * math.cos(a), cy + ry * math.sin(a)))
+    return out
+
+
+def grid(cols: int, rows: int, x0: float, y0: float, x1: float, y1: float
+         ) -> list[tuple[float, float]]:
+    """A cols x rows lattice of positions inside the given box."""
+    out = []
+    for r in range(rows):
+        for c in range(cols):
+            fx = x0 if cols == 1 else x0 + (x1 - x0) * c / (cols - 1)
+            fy = y0 if rows == 1 else y0 + (y1 - y0) * r / (rows - 1)
+            out.append((fx, fy))
+    return out
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1467,6 +1509,208 @@ def soccer_drills() -> list[Drill]:
 
 
 
+
+# ── families ────────────────────────────────────────────────────────────────
+
+RONDO_NAME = {"en": "Rondo", "en-GB": "Rondo", "zh-CN": "抢圈", "zh-TW": "搶圈",
+              "ja-JP": "ロンド", "ko-KR": "론도", "es-ES": "Rondo", "fr-FR": "Rondo",
+              "id-ID": "Rondo", "ms-MY": "Rondo", "th-TH": "รอนโด", "vi-VN": "Rondo"}
+RONDO_NOTE = {
+    "en": "Move the ball before the presser arrives, not after. The pass through the middle is worth two on the outside.",
+    "en-GB": "Move the ball before the presser arrives, not after. The pass through the middle is worth two on the outside.",
+    "zh-CN": "在压迫到位之前把球传走，不是之后。穿过中间那脚，抵得上外围两脚。",
+    "zh-TW": "在壓迫到位之前把球傳走，不是之後。穿過中間那腳，抵得上外圍兩腳。",
+    "ja-JP": "プレスが来る前に動かす。中央を通す1本は、外回し2本に値する。",
+    "ko-KR": "압박이 오기 전에 옮겨라. 가운데를 통과하는 한 번이 바깥 두 번의 값어치다.",
+    "es-ES": "Mueve el balón antes de que llegue la presión. Un pase interior vale dos por fuera.",
+    "fr-FR": "Déplace le ballon avant l'arrivée du pressing. Une passe dans l'axe en vaut deux à l'extérieur.",
+    "id-ID": "Pindahkan bola sebelum penekan datang. Satu umpan lewat tengah setara dua di luar.",
+    "ms-MY": "Alihkan bola sebelum penekan tiba. Satu hantaran melalui tengah bernilai dua di luar.",
+    "th-TH": "ย้ายบอลก่อนคนไล่มาถึง บอลทะลุกลางหนึ่งครั้งมีค่าเท่าสองครั้งรอบนอก",
+    "vi-VN": "Chuyền bóng trước khi người pressing đến. Một đường xuyên giữa bằng hai đường vòng ngoài.",
+}
+
+
+def rondo_family() -> list[Drill]:
+    """A rondo per size. Bigger ring, bigger pitch, more time on the ball —
+    the same exercise asking a slightly different question each time."""
+    out = []
+    for attackers, defenders, radius, minutes in [
+        (4, 2, 0.16, 10), (5, 2, 0.18, 10), (6, 3, 0.21, 12),
+        (7, 3, 0.24, 12), (8, 4, 0.27, 15),
+    ]:
+        ring_pos = ring(attackers, 0.5, 0.5, radius * 1.05, radius * 1.5)
+        inner = ring(defenders, 0.5, 0.5, radius * 0.35, radius * 0.5)
+        out.append(Drill(
+            id=f"rondo_{attackers}v{defenders}", category="possession",
+            minutes=minutes, rel=True, free=(attackers == 4),
+            name=suffixed(RONDO_NAME, f"{attackers}v{defenders}"),
+            note=RONDO_NOTE,
+            home=[
+                P(x, y, f"{i + 1}",
+                  moves=[(x + (0.5 - x) * 0.18, y + (0.5 - y) * 0.18, i % 3)])
+                for i, (x, y) in enumerate(ring_pos)
+            ],
+            away=[
+                P(x, y, chr(65 + i),
+                  moves=[(0.5 + (ring_pos[i % attackers][0] - 0.5) * 0.55,
+                          0.5 + (ring_pos[i % attackers][1] - 0.5) * 0.55, i % 2)])
+                for i, (x, y) in enumerate(inner)
+            ],
+            markers=[M(x, y) for x, y in
+                     ring(4, 0.5, 0.5, radius * 1.35, radius * 1.85, -45)],
+            ball=0,
+        ))
+    return out
+
+
+SSG_NAME = {"en": "Small-sided game", "en-GB": "Small-sided game",
+            "zh-CN": "小场比赛", "zh-TW": "小場比賽", "ja-JP": "ミニゲーム",
+            "ko-KR": "미니 게임", "es-ES": "Juego reducido", "fr-FR": "Jeu réduit",
+            "id-ID": "Permainan kecil", "ms-MY": "Permainan kecil",
+            "th-TH": "เกมสนามเล็ก", "vi-VN": "Trò chơi sân nhỏ"}
+SSG_NOTE = {
+    "en": "Small numbers mean nobody hides. Every player is one pass from the ball, so every player is in the game.",
+    "en-GB": "Small numbers mean nobody hides. Every player is one pass from the ball, so every player is in the game.",
+    "zh-CN": "人少就没人能躲。每个人离球都只有一脚传球的距离，所以每个人都在比赛里。",
+    "zh-TW": "人少就沒人能躲。每個人離球都只有一腳傳球的距離，所以每個人都在比賽裡。",
+    "ja-JP": "人数が少なければ隠れられない。全員がボールから1本の距離にいる。",
+    "ko-KR": "인원이 적으면 숨을 수 없다. 모두가 공에서 패스 한 번 거리에 있다.",
+    "es-ES": "Con pocos, nadie se esconde: todos están a un pase del balón.",
+    "fr-FR": "À effectif réduit, personne ne se cache : chacun est à une passe du ballon.",
+    "id-ID": "Jumlah kecil berarti tak ada yang bisa bersembunyi.",
+    "ms-MY": "Bilangan kecil bermakna tiada siapa boleh bersembunyi.",
+    "th-TH": "คนน้อยแปลว่าไม่มีใครหลบได้ ทุกคนห่างจากบอลแค่หนึ่งจังหวะจ่าย",
+    "vi-VN": "Ít người thì không ai trốn được. Ai cũng chỉ cách bóng một đường chuyền.",
+}
+
+
+def ssg_family() -> list[Drill]:
+    """Small-sided games from 3v3 to 7v7. The pitch grows with the numbers so
+    the density — and therefore the problem — stays roughly constant."""
+    out = []
+    for n, minutes in [(3, 15), (4, 18), (5, 18), (6, 20), (7, 20)]:
+        # Wider pitch for bigger games, but the touchline is the touchline:
+        # 7v7 gets its extra room lengthways, not by spilling off the grass.
+        span = min(0.18 + 0.05 * n, 0.45)
+        left, right = 0.5 - span, 0.5 + span
+        depth = 0.16 + 0.012 * n          # how deep each team's block starts
+        cols = min(n, 3)
+        rows = (n + cols - 1) // cols
+        home = grid(cols, rows, left + 0.05, 0.5 + depth + 0.16,
+                    right - 0.05, 0.5 + depth)[:n]
+        away = grid(cols, rows, left + 0.05, 0.5 - depth - 0.16,
+                    right - 0.05, 0.5 - depth)[:n]
+        out.append(Drill(
+            id=f"ssg_{n}v{n}", category="ssg", minutes=minutes, rel=True,
+            free=(n == 4),
+            name=suffixed(SSG_NAME, f"{n}v{n}"), note=SSG_NOTE,
+            home=[
+                P(x, y, f"{i + 1}", moves=[(x, y - 0.09, i % 2)])
+                for i, (x, y) in enumerate(home)
+            ],
+            away=[
+                P(x, y, chr(65 + i), moves=[(x, y + 0.07, i % 2)])
+                for i, (x, y) in enumerate(away)
+            ],
+            markers=[M(left, 0.12, "square"), M(right, 0.12, "square"),
+                     M(left, 0.88, "square"), M(right, 0.88, "square")],
+            ball=0,
+        ))
+    return out
+
+
+COUNTER_NAME = {"en": "Counter", "en-GB": "Counter", "zh-CN": "快速反击",
+                "zh-TW": "快速反擊", "ja-JP": "カウンター", "ko-KR": "역습",
+                "es-ES": "Contragolpe", "fr-FR": "Contre-attaque",
+                "id-ID": "Serangan balik", "ms-MY": "Serangan balas",
+                "th-TH": "สวนกลับ", "vi-VN": "Phản công"}
+COUNTER_NOTE = {
+    "en": "Carry until a defender commits, then release. The extra man only exists while they are still deciding.",
+    "en-GB": "Carry until a defender commits, then release. The extra man only exists while they are still deciding.",
+    "zh-CN": "带球逼到有人上抢再出球。人数优势只在对方还没做决定的那几秒里存在。",
+    "zh-TW": "帶球逼到有人上搶再出球。人數優勢只在對方還沒做決定的那幾秒裡存在。",
+    "ja-JP": "相手が食いつくまで運んでから出す。数的優位は相手が迷っている間だけ。",
+    "ko-KR": "수비가 달려들 때까지 몰고 가서 내줘라. 수적 우위는 그들이 망설이는 동안만 존재한다.",
+    "es-ES": "Conduce hasta que un defensa se comprometa. La superioridad dura lo que dura su duda.",
+    "fr-FR": "Conduis jusqu'à l'engagement du défenseur. Le surnombre n'existe que pendant leur hésitation.",
+    "id-ID": "Giring sampai bek maju, baru lepaskan. Keunggulan hanya ada selama mereka ragu.",
+    "ms-MY": "Bawa bola sehingga bek maju, kemudian lepaskan.",
+    "th-TH": "เลี้ยงจนกองหลังตัดสินใจเข้าบอลแล้วค่อยจ่าย ความได้เปรียบมีแค่ตอนเขายังลังเล",
+    "vi-VN": "Dẫn bóng đến khi hậu vệ lao ra rồi mới chuyền. Lợi thế quân số chỉ tồn tại khi họ còn do dự.",
+}
+
+
+def counter_family() -> list[Drill]:
+    """Transition overloads, 2v1 up to 5v4."""
+    out = []
+    for att, dfn, minutes in [(2, 1, 10), (3, 2, 12), (4, 3, 12), (5, 4, 15)]:
+        xs = [0.5 + (i - (att - 1) / 2) * (0.62 / max(att, 2)) for i in range(att)]
+        dxs = [0.5 + (i - (dfn - 1) / 2) * (0.5 / max(dfn, 2)) for i in range(dfn)]
+        out.append(Drill(
+            id=f"counter_{att}v{dfn}", category="attacking", minutes=minutes,
+            rel=True, free=(att == 3),
+            name=suffixed(COUNTER_NAME, f"{att}v{dfn}"), note=COUNTER_NOTE,
+            home=[
+                P(x, 0.70, f"{i + 1}", moves=[(x, 0.44, 0), (0.5 + (x - 0.5) * 0.55, 0.24, 1)])
+                for i, x in enumerate(xs)
+            ],
+            away=[
+                P(x, 0.42, chr(65 + i), moves=[(x + (0.5 - x) * 0.3, 0.34, 1)])
+                for i, x in enumerate(dxs)
+            ],
+            markers=[M(0.5, 0.03, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+BUILDUP_NAME = {"en": "Playing out under pressure", "en-GB": "Playing out under pressure",
+                "zh-CN": "压迫下出球", "zh-TW": "壓迫下出球",
+                "ja-JP": "プレス下のビルドアップ", "ko-KR": "압박 속 빌드업",
+                "es-ES": "Salida bajo presión", "fr-FR": "Relance sous pression",
+                "id-ID": "Membangun di bawah tekanan", "ms-MY": "Bina di bawah tekanan",
+                "th-TH": "เปิดบอลใต้แรงกดดัน", "vi-VN": "Triển khai dưới áp lực"}
+BUILDUP_NOTE = {
+    "en": "One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
+    "en-GB": "One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
+    "zh-CN": "永远比对方压迫人数多一个。在球到你脚下之前就找到那个空位的人，否则他就不空了。",
+    "zh-TW": "永遠比對方壓迫人數多一個。在球到你腳下之前就找到那個空位的人，否則他就不空了。",
+    "ja-JP": "相手のプレス人数より1人多く。ボールが来る前にフリーマンを見つける。",
+    "ko-KR": "상대 압박보다 한 명 더. 공이 오기 전에 자유로운 선수를 찾아라.",
+    "es-ES": "Un jugador más de los que presionan. Encuentra al libre antes de recibir.",
+    "fr-FR": "Un joueur de plus qu'eux. Trouve l'homme libre avant de recevoir.",
+    "id-ID": "Satu pemain lebih banyak dari yang menekan. Temukan pemain bebas sebelum bola tiba.",
+    "ms-MY": "Satu pemain lebih daripada penekan mereka.",
+    "th-TH": "มีคนมากกว่าฝ่ายกดดันหนึ่งคน หาคนว่างก่อนบอลจะมาถึง",
+    "vi-VN": "Hơn họ một người. Tìm người trống trước khi bóng đến chân.",
+}
+
+
+def buildup_family() -> list[Drill]:
+    """Playing out against one, two and three pressers."""
+    out = []
+    for pressers, minutes in [(1, 10), (2, 12), (3, 15)]:
+        defenders = pressers + 2
+        xs = [0.5 + (i - (defenders - 1) / 2) * (0.66 / defenders) for i in range(defenders)]
+        pxs = [0.5 + (i - (pressers - 1) / 2) * (0.42 / max(pressers, 1)) for i in range(pressers)]
+        out.append(Drill(
+            id=f"buildup_v{pressers}", category="possession", minutes=minutes,
+            rel=True, free=(pressers == 2),
+            name=suffixed(BUILDUP_NAME, f"+{pressers}"), note=BUILDUP_NOTE,
+            home=[P(0.5, 0.94, "GK", role="GK")] + [
+                P(x, 0.80, f"{i + 2}", moves=[(x + (x - 0.5) * 0.35, 0.72, 0)])
+                for i, x in enumerate(xs)
+            ] + [P(0.5, 0.62, "6", moves=[(0.5, 0.54, 1)])],
+            away=[
+                P(x, 0.70, chr(65 + i), moves=[(x + (0.5 - x) * 0.5, 0.78, 0)])
+                for i, x in enumerate(pxs)
+            ],
+            ball=0,
+        ))
+    return out
+
+
 def basketball_drills() -> list[Drill]:
     """Half-court unless stated, attacking the basket at the top (y small).
 
@@ -1997,7 +2241,845 @@ def basketball_drills() -> list[Drill]:
     ]
 
 
-CATALOGUE = {"soccer": soccer_drills, "basketball": basketball_drills}
+
+FINISH_NAME = {"en": "Finishing pattern", "en-GB": "Finishing pattern",
+               "zh-CN": "射门套路", "zh-TW": "射門套路", "ja-JP": "フィニッシュパターン",
+               "ko-KR": "마무리 패턴", "es-ES": "Patrón de definición",
+               "fr-FR": "Combinaison de finition", "id-ID": "Pola penyelesaian",
+               "ms-MY": "Corak penamat", "th-TH": "แพตเทิร์นจบสกอร์",
+               "vi-VN": "Bài dứt điểm"}
+FINISH_NOTE = {
+    "en": "Shoot across the keeper, low and early. The pattern only exists to arrive with your feet already set.",
+    "en-GB": "Shoot across the keeper, low and early. The pattern only exists to arrive with your feet already set.",
+    "zh-CN": "打门将远角，低平球，早出脚。整套跑位的意义就是让你到位时脚步已经站好。",
+    "zh-TW": "打門將遠角，低平球，早出腳。整套跑位的意義就是讓你到位時腳步已經站好。",
+    "ja-JP": "GKの逆へ低く早く。パターンの目的は、到達した時に足が作れていること。",
+    "ko-KR": "골키퍼 반대편으로 낮고 빠르게. 패턴의 목적은 도착했을 때 발이 준비돼 있는 것이다.",
+    "es-ES": "Dispara cruzado, raso y pronto. El patrón existe para llegar con los pies colocados.",
+    "fr-FR": "Frappe croisée, à ras de terre, tôt. La combinaison sert à arriver appuis posés.",
+    "id-ID": "Tembak menyilang, rendah dan cepat. Pola ini agar kaki sudah siap saat tiba.",
+    "ms-MY": "Tendang menyilang, rendah dan awal.",
+    "th-TH": "ยิงตัดเสา ต่ำและเร็ว แพตเทิร์นมีไว้เพื่อให้ถึงบอลโดยตั้งเท้าพร้อมแล้ว",
+    "vi-VN": "Sút chéo góc, sệt và sớm. Bài tập tồn tại để bạn đến nơi với chân đã sẵn sàng.",
+}
+
+
+def finishing_family() -> list[Drill]:
+    """The same finish arrived at from every angle a game offers."""
+    specs = [
+        ("left_wing", 0.16, 0.34, 0.30, 10),
+        ("right_wing", 0.84, 0.34, 0.70, 10),
+        ("left_halfspace", 0.30, 0.42, 0.40, 10),
+        ("right_halfspace", 0.70, 0.42, 0.60, 10),
+        ("central", 0.50, 0.48, 0.50, 10),
+    ]
+    out = []
+    for key, sx, sy, fx, minutes in specs:
+        label = key.replace("_", " ")
+        out.append(Drill(
+            id=f"finish_{key}", category="finishing", minutes=minutes, rel=True,
+            free=(key == "central"),
+            name=suffixed(FINISH_NAME, label),
+            note=FINISH_NOTE,
+            home=[
+                P(sx, sy, "7", moves=[(sx + (0.5 - sx) * 0.25, sy - 0.14, 0)]),
+                P(0.5, 0.55, "9", moves=[(fx, 0.30, 0), (fx + (0.5 - fx) * 0.4, 0.18, 1)]),
+                P(0.5 + (0.5 - sx) * 0.6, 0.52, "10",
+                  moves=[(0.5 + (0.5 - fx) * 0.7, 0.26, 1)]),
+            ],
+            away=[P(0.5, 0.10, "GK", role="GK", moves=[(fx * 0.4 + 0.3, 0.14, 1)])],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+PRESS_NAME = {"en": "Press from", "en-GB": "Press from", "zh-CN": "阵型压迫",
+              "zh-TW": "陣型壓迫", "ja-JP": "プレス（陣形）", "ko-KR": "압박 대형",
+              "es-ES": "Presión desde", "fr-FR": "Pressing en",
+              "id-ID": "Pressing dari", "ms-MY": "Tekanan dari",
+              "th-TH": "กดดันจากแผน", "vi-VN": "Pressing từ"}
+PRESS_NOTE = {
+    "en": "The shape decides who presses first. Whoever goes, the two beside him close the passes either side — one presser alone is just a gap.",
+    "en-GB": "The shape decides who presses first. Whoever goes, the two beside him close the passes either side — one presser alone is just a gap.",
+    "zh-CN": "阵型决定谁先上。谁上抢，旁边两个人就封掉他两侧的传球路线 —— 只有一个人压，那就只是个洞。",
+    "zh-TW": "陣型決定誰先上。誰上搶，旁邊兩個人就封掉他兩側的傳球路線 —— 只有一個人壓，那就只是個洞。",
+    "ja-JP": "陣形が最初に行く者を決める。行った選手の両隣がパスコースを閉じる。1人だけのプレスは穴。",
+    "ko-KR": "대형이 누가 먼저 나갈지를 정한다. 나간 선수의 양옆이 패스 길을 막는다.",
+    "es-ES": "La estructura decide quién sale. Los dos de al lado cierran los pases: un presionador solo es un hueco.",
+    "fr-FR": "La structure décide qui sort. Ses deux voisins ferment les passes : un presseur seul n'est qu'un trou.",
+    "id-ID": "Formasi menentukan siapa menekan lebih dulu; dua di sampingnya menutup jalur umpan.",
+    "ms-MY": "Formasi menentukan siapa menekan dahulu.",
+    "th-TH": "รูปแบบทีมกำหนดว่าใครขึ้นก่อน สองคนข้างๆ ต้องปิดเส้นทางจ่าย",
+    "vi-VN": "Đội hình quyết định ai lao lên trước; hai người bên cạnh chặn hướng chuyền.",
+}
+
+
+def press_family() -> list[Drill]:
+    """Pressing shapes: the same trigger from the four common structures."""
+    shapes = {
+        "442": [(0.38, 0.44), (0.62, 0.44), (0.18, 0.60), (0.40, 0.62), (0.60, 0.62), (0.82, 0.60)],
+        "433": [(0.50, 0.40), (0.24, 0.46), (0.76, 0.46), (0.36, 0.62), (0.64, 0.62), (0.50, 0.70)],
+        "4231": [(0.50, 0.40), (0.24, 0.52), (0.76, 0.52), (0.50, 0.56), (0.38, 0.70), (0.62, 0.70)],
+        "352": [(0.42, 0.42), (0.58, 0.42), (0.20, 0.58), (0.50, 0.60), (0.80, 0.58), (0.50, 0.72)],
+    }
+    out = []
+    for shape, spots in shapes.items():
+        out.append(Drill(
+            id=f"press_{shape}", category="defending", minutes=12, rel=True,
+            free=(shape == "442"),
+            name=suffixed(PRESS_NAME, shape.replace("442", "4-4-2")
+                          .replace("433", "4-3-3").replace("4231", "4-2-3-1")
+                          .replace("352", "3-5-2")),
+            note=PRESS_NOTE,
+            home=[
+                P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.25, y - 0.10, 0)])
+                for i, (x, y) in enumerate(spots)
+            ],
+            away=[
+                P(0.50, 0.28, "6", moves=[(0.50, 0.22, 0)]),
+                P(0.26, 0.24, "5"), P(0.74, 0.24, "4"),
+            ],
+            ball=None,
+        ))
+    return out
+
+
+CORNER_NAME = {"en": "Corner", "en-GB": "Corner", "zh-CN": "角球", "zh-TW": "角球",
+               "ja-JP": "コーナーキック", "ko-KR": "코너킥", "es-ES": "Córner",
+               "fr-FR": "Corner", "id-ID": "Sepak pojok", "ms-MY": "Penjuru",
+               "th-TH": "เตะมุม", "vi-VN": "Phạt góc"}
+CORNER_NOTE = {
+    "en": "Attack the ball moving, from outside the crowd inwards. A runner who is already standing there has been marked since the whistle.",
+    "en-GB": "Attack the ball moving, from outside the crowd inwards. A runner who is already standing there has been marked since the whistle.",
+    "zh-CN": "跑动中抢点，从人堆外面往里冲。早早站在那儿的人，从哨响就已经被盯死了。",
+    "zh-TW": "跑動中搶點，從人堆外面往裡衝。早早站在那兒的人，從哨響就已經被盯死了。",
+    "ja-JP": "動きながら、外から中へ入る。最初から立っている選手は笛の時点でマークされている。",
+    "ko-KR": "움직이면서 바깥에서 안으로 들어가라. 미리 서 있는 선수는 휘슬 때부터 마크된 것이다.",
+    "es-ES": "Ataca el balón en movimiento, de fuera hacia dentro. Al que ya está parado lo marcan desde el pitido.",
+    "fr-FR": "Attaque le ballon en mouvement, de l'extérieur vers l'intérieur. Celui qui attend est marqué depuis le coup de sifflet.",
+    "id-ID": "Serang bola sambil bergerak, dari luar ke dalam.",
+    "ms-MY": "Serang bola sambil bergerak, dari luar ke dalam.",
+    "th-TH": "เข้าชิงบอลขณะเคลื่อนที่ จากนอกกลุ่มเข้าใน คนที่ยืนรออยู่แล้วถูกประกบตั้งแต่เป่านกหวีด",
+    "vi-VN": "Đón bóng khi đang chạy, từ ngoài vào trong. Ai đứng sẵn thì đã bị kèm từ lúc còi thổi.",
+}
+
+
+def corner_family() -> list[Drill]:
+    """The corner routines a team actually needs on a Saturday."""
+    routines = [
+        ("far_post", "far post", (0.36, 0.20), (0.62, 0.42)),
+        ("back_post_pull", "pull back", (0.50, 0.34), (0.52, 0.52)),
+        ("decoy_stack", "stack", (0.44, 0.26), (0.56, 0.40)),
+        ("second_ball", "second ball", (0.50, 0.44), (0.36, 0.54)),
+    ]
+    out = []
+    for key, label, target, start in routines:
+        out.append(Drill(
+            id=f"corner_{key}", category="setpiece", minutes=10, rel=True,
+            free=(key == "far_post"),
+            name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
+            home=[
+                P(0.96, 0.06, "7"),
+                P(start[0], start[1], "9", moves=[(target[0], target[1], 0), (target[0], target[1] - 0.08, 1)]),
+                P(0.40, 0.34, "5", moves=[(0.34, 0.24, 0)]),
+                P(0.60, 0.36, "6", moves=[(0.68, 0.26, 0)]),
+                P(0.50, 0.52, "8", moves=[(0.50, 0.40, 1)]),
+            ],
+            away=[
+                P(0.44, 0.22, "A"), P(0.58, 0.22, "B"), P(0.50, 0.30, "C"),
+                P(0.50, 0.10, "GK", role="GK"),
+            ],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+DUEL_NAME = {"en": "1v1 duels", "en-GB": "1v1 duels", "zh-CN": "1v1 对抗",
+             "zh-TW": "1v1 對抗", "ja-JP": "1対1", "ko-KR": "1대1 대결",
+             "es-ES": "Duelos 1v1", "fr-FR": "Duels 1c1", "id-ID": "Duel 1v1",
+             "ms-MY": "Duel 1v1", "th-TH": "ดวล 1v1", "vi-VN": "Đối kháng 1v1"}
+DUEL_NOTE = {
+    "en": "Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+    "en-GB": "Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+    "zh-CN": "带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
+    "zh-TW": "帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
+    "ja-JP": "スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
+    "ko-KR": "속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
+    "es-ES": "Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
+    "fr-FR": "Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
+    "id-ID": "Serang dengan kecepatan, ubah arah sekali saja.",
+    "ms-MY": "Serang dengan kelajuan, tukar arah sekali sahaja.",
+    "th-TH": "พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
+    "vi-VN": "Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng.",
+}
+
+
+def duel_family() -> list[Drill]:
+    """1v1 from each lane — the attacker's problem changes with the angle."""
+    lanes = [("wide_left", 0.16, "wide left"), ("wide_right", 0.84, "wide right"),
+             ("central", 0.50, "central"), ("half_left", 0.32, "half-space")]
+    out = []
+    for key, x, label in lanes:
+        out.append(Drill(
+            id=f"duel_{key}", category="attacking", minutes=10, rel=True,
+            free=(key == "central"),
+            name=suffixed(DUEL_NAME, label), note=DUEL_NOTE,
+            home=[P(x, 0.62, "11", moves=[(x + (0.5 - x) * 0.3, 0.44, 0),
+                                          (0.5 + (x - 0.5) * 0.4, 0.24, 1)])],
+            away=[P(x, 0.44, "2", moves=[(x, 0.38, 0), (0.5 + (x - 0.5) * 0.7, 0.30, 1)])],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+PASSING_NAME = {"en": "Passing pattern", "en-GB": "Passing pattern",
+                "zh-CN": "传球套路", "zh-TW": "傳球套路", "ja-JP": "パスパターン",
+                "ko-KR": "패스 패턴", "es-ES": "Circuito de pases",
+                "fr-FR": "Circuit de passes", "id-ID": "Pola umpan",
+                "ms-MY": "Corak hantaran", "th-TH": "แพตเทิร์นการจ่าย",
+                "vi-VN": "Bài chuyền bóng"}
+PASSING_NOTE = {
+    "en": "Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+    "en-GB": "Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+    "zh-CN": "每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
+    "zh-TW": "每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
+    "ja-JP": "受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
+    "ko-KR": "받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
+    "es-ES": "Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
+    "fr-FR": "Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
+    "id-ID": "Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
+    "ms-MY": "Sentiasa ke kaki bertentangan arah pusingan penerima.",
+    "th-TH": "จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
+    "vi-VN": "Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người.",
+}
+
+
+def passing_family() -> list[Drill]:
+    """Passing shapes: the geometry that makes each pattern teach something."""
+    shapes = {
+        "triangle": 3, "diamond": 4, "pentagon": 5, "hexagon": 6,
+    }
+    out = []
+    for label, n in shapes.items():
+        spots = ring(n, 0.5, 0.5, 0.28, 0.20)
+        out.append(Drill(
+            id=f"passing_{label}", category="warmup", minutes=8, rel=True,
+            free=(label == "triangle"),
+            name=suffixed(PASSING_NAME, label), note=PASSING_NOTE,
+            home=[
+                P(x, y, f"{i + 1}",
+                  moves=[(spots[(i + 1) % n][0], spots[(i + 1) % n][1], i)])
+                for i, (x, y) in enumerate(spots)
+            ],
+            markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
+            ball=0,
+        ))
+    return out
+
+
+
+CROSS_NAME = {"en": "Crossing", "en-GB": "Crossing", "zh-CN": "传中训练",
+              "zh-TW": "傳中訓練", "ja-JP": "クロス", "ko-KR": "크로스",
+              "es-ES": "Centros", "fr-FR": "Centres", "id-ID": "Umpan silang",
+              "ms-MY": "Lambungan", "th-TH": "การครอส", "vi-VN": "Tạt bóng"}
+CROSS_NOTE = {
+    "en": "Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
+    "en-GB": "Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
+    "zh-CN": "传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
+    "zh-TW": "傳中前抬頭看一次，然後傳你看到的那片空檔 —— 別傳人，人已經跑掉了。",
+    "ja-JP": "上げる前に一度顔を上げ、見えたスペースへ。人は既に動いている。",
+    "ko-KR": "올리기 전에 한 번 보고, 본 공간으로 보내라. 사람은 이미 움직였다.",
+    "es-ES": "Levanta la cabeza una vez y centra al espacio que viste, no a la camiseta: ya se movió.",
+    "fr-FR": "Lève la tête une fois, puis centre dans l'espace vu — pas sur le maillot, déjà parti.",
+    "id-ID": "Angkat kepala sekali sebelum menyilang, lalu kirim ke ruang yang kamu lihat.",
+    "ms-MY": "Angkat kepala sekali sebelum melambung, kemudian hantar ke ruang.",
+    "th-TH": "เงยหน้าหนึ่งครั้งก่อนครอส แล้วส่งไปยังพื้นที่ที่เห็น ไม่ใช่ที่ตัวคน",
+    "vi-VN": "Ngẩng đầu một lần trước khi tạt, rồi đưa bóng vào khoảng trống đã thấy.",
+}
+
+
+def crossing_family() -> list[Drill]:
+    """Where the cross is delivered from, and where it is attacked."""
+    specs = [("near_post", "near post", 0.40, 0.14),
+             ("far_post", "far post", 0.64, 0.16),
+             ("cutback", "cutback", 0.50, 0.26),
+             ("deep", "deep", 0.52, 0.34)]
+    out = []
+    for side, sx in [("left", 0.14), ("right", 0.86)]:
+        for key, label, tx, ty in specs[:2]:
+            out.append(Drill(
+                id=f"cross_{side}_{key}", category="attacking", minutes=10, rel=True,
+                free=(side == "right" and key == "near_post"),
+                name=suffixed(CROSS_NAME, f"{side} · {label}"), note=CROSS_NOTE,
+                home=[
+                    P(sx, 0.44, "7", moves=[(sx + (0.5 - sx) * 0.12, 0.18, 0)]),
+                    P(0.5, 0.52, "9", moves=[(tx, ty, 1)]),
+                    P(0.5 + (0.5 - sx) * 0.5, 0.56, "10",
+                      moves=[(1.0 - tx, ty + 0.06, 1)]),
+                    P(0.5, 0.66, "8", moves=[(0.5, 0.34, 1)]),
+                ],
+                away=[
+                    P(0.42, 0.18, "A"), P(0.58, 0.18, "B"),
+                    P(0.5, 0.09, "GK", role="GK"),
+                ],
+                markers=[M(0.5, 0.04, "square", "")],
+                ball=0,
+            ))
+    return out
+
+
+SHAPE_NAME = {"en": "Defensive shape", "en-GB": "Defensive shape",
+              "zh-CN": "防守阵型", "zh-TW": "防守陣型", "ja-JP": "守備の形",
+              "ko-KR": "수비 대형", "es-ES": "Estructura defensiva",
+              "fr-FR": "Bloc défensif", "id-ID": "Bentuk bertahan",
+              "ms-MY": "Bentuk pertahanan", "th-TH": "รูปแบบเกมรับ",
+              "vi-VN": "Khối phòng ngự"}
+SHAPE_NOTE = {
+    "en": "Move as the ball travels, not when it arrives. The distance between your lines matters more than where the lines are.",
+    "en-GB": "Move as the ball travels, not when it arrives. The distance between your lines matters more than where the lines are.",
+    "zh-CN": "球在飞的时候就动，不是等它落地。两条线之间的距离，比线站在哪儿更重要。",
+    "zh-TW": "球在飛的時候就動，不是等它落地。兩條線之間的距離，比線站在哪兒更重要。",
+    "ja-JP": "ボールが動いている間に動く。ライン間の距離こそが、ラインの位置より重要。",
+    "ko-KR": "공이 이동하는 동안 움직여라. 라인 간 간격이 라인의 위치보다 중요하다.",
+    "es-ES": "Muévete mientras viaja el balón. La distancia entre líneas importa más que dónde están.",
+    "fr-FR": "Bouge pendant le trajet du ballon. La distance entre les lignes compte plus que leur position.",
+    "id-ID": "Bergerak saat bola melaju, bukan saat tiba. Jarak antarlini lebih penting dari posisinya.",
+    "ms-MY": "Bergerak semasa bola bergerak, bukan apabila tiba.",
+    "th-TH": "ขยับตอนบอลกำลังเดินทาง ระยะห่างระหว่างไลน์สำคัญกว่าตำแหน่งของไลน์",
+    "vi-VN": "Di chuyển khi bóng đang bay, không phải khi bóng đến. Khoảng cách giữa các tuyến quan trọng hơn vị trí.",
+}
+
+
+def shape_family() -> list[Drill]:
+    """High, mid and low block — the same team, three heights."""
+    blocks = [("high", 0.42, "high block"), ("mid", 0.56, "mid block"),
+              ("low", 0.72, "low block")]
+    out = []
+    for key, base, label in blocks:
+        back = [(0.16, base + 0.14), (0.38, base + 0.16), (0.62, base + 0.16), (0.84, base + 0.14)]
+        mid = [(0.26, base - 0.02), (0.50, base), (0.74, base - 0.02)]
+        out.append(Drill(
+            id=f"shape_{key}", category="defending", minutes=12, rel=True,
+            free=(key == "mid"),
+            name=suffixed(SHAPE_NAME, label), note=SHAPE_NOTE,
+            home=[
+                P(x, y, f"{i + 2}", moves=[(x + 0.08, y - 0.02, 0), (x + 0.12, y, 1)])
+                for i, (x, y) in enumerate(back)
+            ] + [
+                P(x, y, f"{i + 6}", moves=[(x + 0.10, y - 0.03, 0)])
+                for i, (x, y) in enumerate(mid)
+            ],
+            away=[
+                P(0.22, base - 0.20, "10", moves=[(0.50, base - 0.18, 0)]),
+                P(0.62, base - 0.24, "9", moves=[(0.78, base - 0.20, 1)]),
+            ],
+            ball=None,
+        ))
+    return out
+
+
+GK_NAME = {"en": "Goalkeeping", "en-GB": "Goalkeeping", "zh-CN": "门将训练",
+           "zh-TW": "門將訓練", "ja-JP": "GKトレーニング", "ko-KR": "골키퍼 훈련",
+           "es-ES": "Portería", "fr-FR": "Gardien", "id-ID": "Latihan kiper",
+           "ms-MY": "Latihan penjaga gol", "th-TH": "ฝึกผู้รักษาประตู",
+           "vi-VN": "Tập thủ môn"}
+GK_NOTE = {
+    "en": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+    "en-GB": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+    "zh-CN": "在对方出脚之前站定，不是出脚时还在动。射门瞬间还在移动的门将，是从静止开始扑的。",
+    "zh-TW": "在對方出腳之前站定，不是出腳時還在動。射門瞬間還在移動的門將，是從靜止開始撲的。",
+    "ja-JP": "シュートの前にセットする。打たれた瞬間に動いているGKは、止まった状態から飛ぶことになる。",
+    "ko-KR": "슛 전에 자세를 잡아라. 슛 순간 움직이는 골키퍼는 정지 상태에서 뛰는 셈이다.",
+    "es-ES": "Colócate antes del disparo. Un portero en movimiento al golpeo sale parado.",
+    "fr-FR": "Sois posé avant la frappe. Un gardien encore en mouvement plonge depuis l'arrêt.",
+    "id-ID": "Siapkan posisi sebelum tembakan, bukan saat tembakan.",
+    "ms-MY": "Sedia sebelum tendangan, bukan semasa tendangan.",
+    "th-TH": "ตั้งท่าก่อนบอลถูกยิง ผู้รักษาประตูที่ยังขยับตอนยิงเท่ากับพุ่งจากจุดหยุดนิ่ง",
+    "vi-VN": "Đứng vững trước cú sút. Thủ môn còn di chuyển khi bóng được sút là bay từ trạng thái đứng yên.",
+}
+
+
+def gk_family() -> list[Drill]:
+    """Goalkeeping — the position every rival's library covers and ours didn't."""
+    specs = [
+        ("handling", "handling", [(0.34, 0.30), (0.66, 0.30), (0.50, 0.36)]),
+        ("angles", "angles", [(0.22, 0.24), (0.50, 0.30), (0.78, 0.24)]),
+        ("crosses", "crosses", [(0.10, 0.26), (0.90, 0.26)]),
+        ("distribution", "distribution", [(0.20, 0.52), (0.80, 0.52)]),
+        ("one_v_one", "1v1", [(0.50, 0.46)]),
+    ]
+    out = []
+    for key, label, servers in specs:
+        out.append(Drill(
+            id=f"gk_{key}", category="finishing", minutes=10, rel=True,
+            free=(key == "handling"),
+            name=suffixed(GK_NAME, label), note=GK_NOTE,
+            home=[
+                P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.2, y - 0.06, i % 2)])
+                for i, (x, y) in enumerate(servers)
+            ],
+            away=[P(0.5, 0.10, "GK", role="GK",
+                    moves=[(0.5 + (servers[0][0] - 0.5) * 0.35, 0.14, 0),
+                           (0.5 + (servers[-1][0] - 0.5) * 0.35, 0.13, 1)])],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=None,
+        ))
+    return out
+
+
+COND_NAME = {"en": "Conditioning with the ball", "en-GB": "Conditioning with the ball",
+             "zh-CN": "带球体能", "zh-TW": "帶球體能", "ja-JP": "ボールを使ったフィジカル",
+             "ko-KR": "볼을 활용한 체력", "es-ES": "Físico con balón",
+             "fr-FR": "Physique avec ballon", "id-ID": "Fisik dengan bola",
+             "ms-MY": "Fizikal dengan bola", "th-TH": "ฟิตเนสพร้อมบอล",
+             "vi-VN": "Thể lực với bóng"}
+COND_NOTE = {
+    "en": "The last repetition is the one the match is decided in. Technique holds or it doesn't — that is the whole test.",
+    "en-GB": "The last repetition is the one the match is decided in. Technique holds or it doesn't — that is the whole test.",
+    "zh-CN": "最后那一组才是比赛真正被决定的时刻。技术动作是散是不散 —— 这就是全部考题。",
+    "zh-TW": "最後那一組才是比賽真正被決定的時刻。技術動作是散是不散 —— 這就是全部考題。",
+    "ja-JP": "最後の1本こそ試合が決まる場面。技術が保つか崩れるか、それが全て。",
+    "ko-KR": "마지막 반복이 경기가 결정되는 순간이다. 기술이 버티느냐 무너지느냐가 전부다.",
+    "es-ES": "La última repetición es donde se decide el partido: la técnica aguanta o no.",
+    "fr-FR": "La dernière répétition décide du match : la technique tient ou pas.",
+    "id-ID": "Repetisi terakhir menentukan pertandingan: teknik bertahan atau tidak.",
+    "ms-MY": "Ulangan terakhir menentukan perlawanan.",
+    "th-TH": "เซ็ตสุดท้ายคือจังหวะที่เกมถูกตัดสิน เทคนิคจะอยู่หรือพัง นั่นคือบททดสอบทั้งหมด",
+    "vi-VN": "Lượt cuối cùng là lúc trận đấu được định đoạt. Kỹ thuật trụ được hay không, đó là bài kiểm tra.",
+}
+
+
+def conditioning_family() -> list[Drill]:
+    """Running with a reason: every shuttle ends in a technical action."""
+    specs = [("shuttle_finish", "shuttle to finish", 3),
+             ("repeat_sprint", "repeat sprints", 4),
+             ("box_to_box", "box to box", 2)]
+    out = []
+    for key, label, reps in specs:
+        legs = []
+        y = 0.78
+        for r in range(reps):
+            legs.append((0.5 + (0.16 if r % 2 else -0.16), y, r))
+            y -= 0.16
+        out.append(Drill(
+            id=f"cond_{key}", category="warmup", minutes=12, rel=True,
+            free=(key == "shuttle_finish"),
+            name=suffixed(COND_NAME, label), note=COND_NOTE,
+            home=[P(0.5, 0.86, "1", moves=legs + [(0.5, 0.20, reps)])],
+            markers=[M(0.34, 0.78), M(0.66, 0.78), M(0.34, 0.50), M(0.66, 0.50),
+                     M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+
+SWITCH_NAME = {"en": "Switching play", "en-GB": "Switching play", "zh-CN": "转移球",
+               "zh-TW": "轉移球", "ja-JP": "サイドチェンジ", "ko-KR": "전환 플레이",
+               "es-ES": "Cambio de juego", "fr-FR": "Renversement",
+               "id-ID": "Perpindahan permainan", "ms-MY": "Pertukaran permainan",
+               "th-TH": "การเปลี่ยนข้าง", "vi-VN": "Chuyển hướng"}
+SWITCH_NOTE = {
+    "en": "Draw them across, then switch in one pass, not three. Three passes is enough time for them to slide back.",
+    "en-GB": "Draw them across, then switch in one pass, not three. Three passes is enough time for them to slide back.",
+    "zh-CN": "先把对方拉过来，然后一脚转移，不是三脚。三脚的时间够他们横移回来了。",
+    "zh-TW": "先把對方拉過來，然後一腳轉移，不是三腳。三腳的時間夠他們橫移回來了。",
+    "ja-JP": "引きつけてから1本で逆へ。3本かければスライドで戻られる。",
+    "ko-KR": "끌어들인 뒤 한 번에 전환하라. 세 번이면 그들이 다시 이동할 시간이다.",
+    "es-ES": "Atráelos y cambia en un pase, no en tres: tres les da tiempo a bascular.",
+    "fr-FR": "Attire-les puis renverse en une passe, pas trois : trois leur laissent le temps de coulisser.",
+    "id-ID": "Tarik mereka lalu pindahkan dalam satu umpan, bukan tiga.",
+    "ms-MY": "Tarik mereka kemudian tukar dalam satu hantaran.",
+    "th-TH": "ดึงเขามาก่อนแล้วเปลี่ยนข้างด้วยบอลเดียว ไม่ใช่สามจังหวะ",
+    "vi-VN": "Kéo họ sang rồi chuyển cánh bằng một đường chuyền, không phải ba.",
+}
+
+
+def switch_family() -> list[Drill]:
+    """Switching the point of attack, from each third."""
+    thirds = [("back", 0.76, "own third"), ("middle", 0.56, "middle third"),
+              ("final", 0.34, "final third")]
+    out = []
+    for key, y, label in thirds:
+        out.append(Drill(
+            id=f"switch_{key}", category="possession", minutes=12, rel=True,
+            free=(key == "middle"),
+            name=suffixed(SWITCH_NAME, label), note=SWITCH_NOTE,
+            home=[
+                P(0.14, y + 0.06, "3", moves=[(0.14, y - 0.04, 0)]),
+                P(0.36, y, "6", moves=[(0.42, y - 0.02, 0)]),
+                P(0.62, y - 0.02, "8", moves=[(0.70, y - 0.06, 1)]),
+                P(0.88, y + 0.04, "2", moves=[(0.88, y - 0.10, 1)]),
+                P(0.50, y - 0.16, "9"),
+            ],
+            away=[
+                P(0.26, y - 0.02, "A", moves=[(0.20, y, 0)]),
+                P(0.44, y - 0.06, "B", moves=[(0.36, y - 0.02, 0), (0.56, y - 0.04, 1)]),
+                P(0.66, y - 0.10, "C", moves=[(0.58, y - 0.06, 0), (0.76, y - 0.08, 1)]),
+            ],
+            ball=0,
+        ))
+    return out
+
+
+COMBO_NAME = {"en": "Combination play", "en-GB": "Combination play",
+              "zh-CN": "小组配合", "zh-TW": "小組配合", "ja-JP": "コンビネーション",
+              "ko-KR": "콤비네이션", "es-ES": "Juego combinativo",
+              "fr-FR": "Jeu combiné", "id-ID": "Permainan kombinasi",
+              "ms-MY": "Permainan gabungan", "th-TH": "การเล่นผสมผสาน",
+              "vi-VN": "Phối hợp nhóm"}
+COMBO_NOTE = {
+    "en": "Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+    "en-GB": "Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+    "zh-CN": "三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+    "zh-TW": "三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+    "ja-JP": "3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+    "ko-KR": "세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+    "es-ES": "Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+    "fr-FR": "Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+    "id-ID": "Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+    "ms-MY": "Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+    "th-TH": "สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+    "vi-VN": "Ba người, mỗi người hai chạm, một người chạy vượt bóng.",
+}
+
+
+def combination_family() -> list[Drill]:
+    """Three-player combinations by lane and by shape."""
+    specs = [("wall_left", "wall pass left", 0.22), ("wall_right", "wall pass right", 0.78),
+             ("overlap_left", "overlap left", 0.20), ("overlap_right", "overlap right", 0.80),
+             ("underlap", "underlap", 0.64)]
+    out = []
+    for key, label, x in specs:
+        inside = 0.5 + (x - 0.5) * 0.45
+        out.append(Drill(
+            id=f"combo_{key}", category="attacking", minutes=10, rel=True,
+            free=(key == "wall_right"),
+            name=suffixed(COMBO_NAME, label), note=COMBO_NOTE,
+            home=[
+                P(x, 0.60, "7", moves=[(x, 0.44, 0), (inside, 0.28, 1)]),
+                P(inside, 0.52, "10", moves=[(inside + (0.5 - inside) * 0.4, 0.46, 0)]),
+                P(x + (0.5 - x) * 0.12, 0.72, "2",
+                  moves=[(x + (x - 0.5) * 0.12, 0.48, 0), (x, 0.26, 1)]),
+            ],
+            away=[
+                P(x + (0.5 - x) * 0.25, 0.46, "A", moves=[(x + (0.5 - x) * 0.18, 0.40, 1)]),
+            ],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+FK_NAME = {"en": "Free kick", "en-GB": "Free kick", "zh-CN": "任意球",
+           "zh-TW": "任意球", "ja-JP": "フリーキック", "ko-KR": "프리킥",
+           "es-ES": "Tiro libre", "fr-FR": "Coup franc", "id-ID": "Tendangan bebas",
+           "ms-MY": "Sepakan percuma", "th-TH": "ฟรีคิก", "vi-VN": "Đá phạt"}
+FK_NOTE = {
+    "en": "Everyone knows the routine before the whistle. Deciding at the ball tells the defence as much as it tells your own players.",
+    "en-GB": "Everyone knows the routine before the whistle. Deciding at the ball tells the defence as much as it tells your own players.",
+    "zh-CN": "哨响之前全队就知道要打哪套。站到球边才商量，等于同时告诉了对方防守。",
+    "zh-TW": "哨響之前全隊就知道要打哪套。站到球邊才商量，等於同時告訴了對方防守。",
+    "ja-JP": "笛の前に全員が段取りを知っている。ボールの横で決めるのは相手にも教えること。",
+    "ko-KR": "휘슬 전에 모두가 루틴을 안다. 공 앞에서 정하는 것은 수비에게도 알려주는 것이다.",
+    "es-ES": "Todos saben la jugada antes del pitido. Decidir junto al balón se lo cuenta también a la defensa.",
+    "fr-FR": "Tout le monde connaît la combinaison avant le coup de sifflet. Décider au ballon, c'est prévenir la défense.",
+    "id-ID": "Semua tahu rutinnya sebelum peluit. Memutuskan di dekat bola juga memberi tahu lawan.",
+    "ms-MY": "Semua tahu rutin sebelum wisel.",
+    "th-TH": "ทุกคนรู้แผนก่อนเสียงนกหวีด ตัดสินใจข้างบอลเท่ากับบอกฝ่ายตรงข้ามด้วย",
+    "vi-VN": "Mọi người biết bài trước tiếng còi. Bàn bạc cạnh bóng là báo cho cả hàng thủ đối phương.",
+}
+
+
+def free_kick_family() -> list[Drill]:
+    """Free kicks by distance and angle — direct, layoff, runner, wide."""
+    specs = [("direct_central", "direct", 0.50, 0.42),
+             ("layoff", "layoff", 0.44, 0.46),
+             ("runner", "runner across", 0.56, 0.44),
+             ("wide_left", "wide left", 0.22, 0.36),
+             ("wide_right", "wide right", 0.78, 0.36)]
+    out = []
+    for key, label, bx, by in specs:
+        out.append(Drill(
+            id=f"fk_{key}", category="setpiece", minutes=8, rel=True,
+            free=(key == "direct_central"),
+            name=suffixed(FK_NAME, label), note=FK_NOTE,
+            home=[
+                P(bx - 0.04, by, "10"),
+                P(bx + 0.04, by, "7", moves=[(bx + 0.08, by - 0.06, 0)]),
+                P(0.5 + (bx - 0.5) * 1.4, by + 0.08, "8",
+                  moves=[(0.5 + (bx - 0.5) * 0.4, by - 0.16, 0), (0.5, 0.16, 1)]),
+                P(0.36, 0.24, "9", moves=[(0.44, 0.16, 1)]),
+            ],
+            away=[
+                P(0.44, 0.28, "W1"), P(0.48, 0.28, "W2"),
+                P(0.52, 0.28, "W3"), P(0.56, 0.28, "W4"),
+                P(0.50, 0.10, "GK", role="GK"),
+            ],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+TRANSITION_NAME = {"en": "Transition", "en-GB": "Transition", "zh-CN": "攻防转换",
+                   "zh-TW": "攻防轉換", "ja-JP": "トランジション", "ko-KR": "전환",
+                   "es-ES": "Transición", "fr-FR": "Transition",
+                   "id-ID": "Transisi", "ms-MY": "Peralihan",
+                   "th-TH": "การเปลี่ยนสถานะ", "vi-VN": "Chuyển trạng thái"}
+TRANSITION_NOTE = {
+    "en": "The five seconds after the turnover decide it. Win it back or get behind the ball — standing still does neither.",
+    "en-GB": "The five seconds after the turnover decide it. Win it back or get behind the ball — standing still does neither.",
+    "zh-CN": "转换后的五秒钟决定一切。要么抢回来，要么全体退到球后面 —— 站着不动两样都做不到。",
+    "zh-TW": "轉換後的五秒鐘決定一切。要麼搶回來，要麼全體退到球後面 —— 站著不動兩樣都做不到。",
+    "ja-JP": "切り替え後の5秒が全て。奪い返すか、ボールより後ろに戻るか。立ち止まればどちらも不可能。",
+    "ko-KR": "전환 후 5초가 결정한다. 되찾거나 공 뒤로 내려가라. 서 있으면 둘 다 못한다.",
+    "es-ES": "Los cinco segundos tras la pérdida deciden: recupera o ponte por detrás del balón.",
+    "fr-FR": "Les cinq secondes après la perte décident : récupère ou repasse derrière le ballon.",
+    "id-ID": "Lima detik setelah kehilangan bola menentukan: rebut kembali atau turun di belakang bola.",
+    "ms-MY": "Lima saat selepas kehilangan bola menentukan segalanya.",
+    "th-TH": "ห้าวินาทีหลังเสียบอลคือตัวตัดสิน ไล่เอาคืนหรือถอยให้อยู่หลังบอล",
+    "vi-VN": "Năm giây sau khi mất bóng quyết định tất cả: đoạt lại hoặc lùi về sau bóng.",
+}
+
+
+def transition_family() -> list[Drill]:
+    """Transition games at three sizes, each with a target to attack."""
+    out = []
+    for n, minutes in [(4, 15), (5, 18), (6, 20)]:
+        cols = min(n, 3)
+        rows = (n + cols - 1) // cols
+        home = grid(cols, rows, 0.22, 0.74, 0.78, 0.60)[:n]
+        away = grid(cols, rows, 0.22, 0.26, 0.78, 0.40)[:n]
+        out.append(Drill(
+            id=f"transition_{n}v{n}", category="ssg", minutes=minutes, rel=True,
+            free=(n == 5),
+            name=suffixed(TRANSITION_NAME, f"{n}v{n}"), note=TRANSITION_NOTE,
+            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.12, i % 2)])
+                  for i, (x, y) in enumerate(home)],
+            away=[P(x, y, chr(65 + i), moves=[(x, y + 0.10, i % 2)])
+                  for i, (x, y) in enumerate(away)],
+            markers=[M(0.5, 0.06, "square"), M(0.5, 0.94, "square"),
+                     M(0.14, 0.50), M(0.86, 0.50)],
+            ball=0,
+        ))
+    return out
+
+
+
+TOUCH_NAME = {"en": "First touch", "en-GB": "First touch", "zh-CN": "第一脚触球",
+              "zh-TW": "第一腳觸球", "ja-JP": "ファーストタッチ", "ko-KR": "퍼스트 터치",
+              "es-ES": "Primer control", "fr-FR": "Premier contrôle",
+              "id-ID": "Sentuhan pertama", "ms-MY": "Sentuhan pertama",
+              "th-TH": "จังหวะแรก", "vi-VN": "Chạm bóng đầu"}
+TOUCH_NOTE = {
+    "en": "The first touch is a pass to yourself. Put it where the second touch is already free.",
+    "en-GB": "The first touch is a pass to yourself. Put it where the second touch is already free.",
+    "zh-CN": "第一脚是传给自己的球。要停到第二脚已经没人干扰的位置。",
+    "zh-TW": "第一腳是傳給自己的球。要停到第二腳已經沒人干擾的位置。",
+    "ja-JP": "ファーストタッチは自分へのパス。2タッチ目が自由になる場所に置く。",
+    "ko-KR": "첫 터치는 자신에게 하는 패스다. 두 번째 터치가 이미 자유로운 곳에 놓아라.",
+    "es-ES": "El primer control es un pase a ti mismo: déjalo donde el segundo toque ya esté libre.",
+    "fr-FR": "Le premier contrôle est une passe à soi-même : place-le là où le second est déjà libre.",
+    "id-ID": "Sentuhan pertama adalah umpan untuk diri sendiri.",
+    "ms-MY": "Sentuhan pertama ialah hantaran kepada diri sendiri.",
+    "th-TH": "จังหวะแรกคือการจ่ายให้ตัวเอง วางบอลตรงที่จังหวะสองจะว่างอยู่แล้ว",
+    "vi-VN": "Chạm đầu là đường chuyền cho chính mình. Đặt bóng nơi chạm thứ hai đã thoáng.",
+}
+
+
+def first_touch_family() -> list[Drill]:
+    """Receiving under different pressure directions."""
+    specs = [("from_behind", "pressed from behind", 0.50, 0.34),
+             ("side_on", "pressed side on", 0.34, 0.44),
+             ("open_body", "open body", 0.66, 0.44),
+             ("in_traffic", "in traffic", 0.50, 0.46)]
+    out = []
+    for key, label, px, py in specs:
+        out.append(Drill(
+            id=f"touch_{key}", category="warmup", minutes=8, rel=True,
+            free=(key == "open_body"),
+            name=suffixed(TOUCH_NAME, label), note=TOUCH_NOTE,
+            home=[
+                P(0.50, 0.72, "1", moves=[(0.50, 0.64, 0)]),
+                P(0.50, 0.48, "2", moves=[(px, py - 0.10, 0), (0.5, 0.30, 1)]),
+            ],
+            away=[P(px, py, "A", moves=[(px + (0.5 - px) * 0.4, py - 0.06, 0)])],
+            markers=[M(0.30, 0.62), M(0.70, 0.62), M(0.30, 0.34), M(0.70, 0.34)],
+            ball=0,
+        ))
+    return out
+
+
+HEADER_NAME = {"en": "Heading", "en-GB": "Heading", "zh-CN": "头球",
+               "zh-TW": "頭球", "ja-JP": "ヘディング", "ko-KR": "헤딩",
+               "es-ES": "Juego aéreo", "fr-FR": "Jeu de tête",
+               "id-ID": "Sundulan", "ms-MY": "Tandukan",
+               "th-TH": "ลูกโหม่ง", "vi-VN": "Đánh đầu"}
+HEADER_NOTE = {
+    "en": "Attack the ball, don't wait for it. Whoever is moving when they meet it wins the header.",
+    "en-GB": "Attack the ball, don't wait for it. Whoever is moving when they meet it wins the header.",
+    "zh-CN": "去争球，不要等球。碰到球那一刻还在移动的人，就赢下这个头球。",
+    "zh-TW": "去爭球，不要等球。碰到球那一刻還在移動的人，就贏下這個頭球。",
+    "ja-JP": "待たずに競りに行く。当たる瞬間に動いている方が競り勝つ。",
+    "ko-KR": "기다리지 말고 공을 향해 가라. 맞는 순간 움직이는 쪽이 이긴다.",
+    "es-ES": "Ataca el balón, no lo esperes: gana el que llega en movimiento.",
+    "fr-FR": "Attaque le ballon, ne l'attends pas : celui qui bouge gagne le duel.",
+    "id-ID": "Serang bolanya, jangan menunggu. Yang bergerak saat berbenturan menang.",
+    "ms-MY": "Serang bola, jangan menunggu.",
+    "th-TH": "เข้าชิงบอล อย่ารอ คนที่กำลังเคลื่อนที่ตอนปะทะคือคนชนะ",
+    "vi-VN": "Lao vào bóng, đừng chờ. Ai đang di chuyển khi chạm bóng sẽ thắng.",
+}
+
+
+def heading_family() -> list[Drill]:
+    """Attacking and defensive heading, from a cross and from a clearance."""
+    specs = [("attacking", "attacking", 0.16, 0.30, 0.46, 0.16),
+             ("defensive", "defensive", 0.84, 0.30, 0.44, 0.22)]
+    out = []
+    for key, label, sx, sy, tx, ty in specs:
+        out.append(Drill(
+            id=f"header_{key}", category="finishing", minutes=8, rel=True,
+            free=(key == "attacking"),
+            name=suffixed(HEADER_NAME, label), note=HEADER_NOTE,
+            home=[
+                P(sx, sy, "7", moves=[(sx + (0.5 - sx) * 0.15, sy - 0.10, 0)]),
+                P(0.5, 0.46, "9", moves=[(tx, ty, 0)]),
+            ],
+            away=[
+                P(0.54, 0.30, "5", moves=[(tx + 0.06, ty + 0.03, 0)]),
+                P(0.50, 0.09, "GK", role="GK"),
+            ],
+            markers=[M(0.5, 0.04, "square", "")],
+            ball=0,
+        ))
+    return out
+
+
+GOALKICK_NAME = {"en": "Goal kick", "en-GB": "Goal kick", "zh-CN": "球门球",
+                 "zh-TW": "球門球", "ja-JP": "ゴールキック", "ko-KR": "골킥",
+                 "es-ES": "Saque de puerta", "fr-FR": "Six mètres",
+                 "id-ID": "Tendangan gawang", "ms-MY": "Sepakan gol",
+                 "th-TH": "ลูกตั้งเตะจากประตู", "vi-VN": "Phát bóng"}
+GOALKICK_NOTE = {
+    "en": "Decide the route before the ball is placed. A goal kick that gets discussed on the six-yard box is already a turnover.",
+    "en-GB": "Decide the route before the ball is placed. A goal kick that gets discussed on the six-yard box is already a turnover.",
+    "zh-CN": "摆球之前就决定走哪条线路。在小禁区边上才开始商量的球门球，等于已经丢球了。",
+    "zh-TW": "擺球之前就決定走哪條線路。在小禁區邊上才開始商量的球門球，等於已經丟球了。",
+    "ja-JP": "ボールを置く前にルートを決める。ゴールエリアで相談するゴールキックは既にロスト。",
+    "ko-KR": "공을 놓기 전에 경로를 정하라. 골에어리어에서 상의하는 골킥은 이미 턴오버다.",
+    "es-ES": "Decide la salida antes de colocar el balón: discutirla en el área pequeña ya es una pérdida.",
+    "fr-FR": "Choisis la sortie avant de poser le ballon : en discuter dans les six mètres, c'est déjà une perte.",
+    "id-ID": "Tentukan jalurnya sebelum bola diletakkan.",
+    "ms-MY": "Tentukan laluan sebelum bola diletakkan.",
+    "th-TH": "ตัดสินใจเส้นทางก่อนวางบอล ถ้าเพิ่งมาคุยกันในกรอบเล็กเท่ากับเสียบอลแล้ว",
+    "vi-VN": "Quyết định hướng trước khi đặt bóng.",
+}
+
+
+def goal_kick_family() -> list[Drill]:
+    """Goal kicks: short to the centre-backs, out to the full-back, long."""
+    specs = [("short", "short", [(0.22, 0.86), (0.78, 0.86)], 0.50, 0.72),
+             ("full_back", "to the full-back", [(0.10, 0.74), (0.90, 0.74)], 0.10, 0.62),
+             ("long", "long", [(0.36, 0.60), (0.64, 0.60)], 0.50, 0.40)]
+    out = []
+    for key, label, backs, tx, ty in specs:
+        out.append(Drill(
+            id=f"goalkick_{key}", category="setpiece", minutes=10, rel=True,
+            free=(key == "short"),
+            name=suffixed(GOALKICK_NAME, label), note=GOALKICK_NOTE,
+            home=[P(0.50, 0.95, "GK", role="GK")] + [
+                P(x, y, f"{i + 4}", moves=[(x + (x - 0.5) * 0.25, y - 0.06, 0)])
+                for i, (x, y) in enumerate(backs)
+            ] + [
+                P(0.50, 0.74, "6", moves=[(0.5, 0.66, 0)]),
+                P(tx, ty, "8", moves=[(tx + (0.5 - tx) * 0.3, ty - 0.10, 1)]),
+            ],
+            away=[
+                P(0.42, 0.80, "9", moves=[(0.30, 0.82, 0)]),
+                P(0.58, 0.70, "10", moves=[(0.52, 0.74, 0)]),
+            ],
+            ball=0,
+        ))
+    return out
+
+
+OVERLOAD_NAME = {"en": "Overload possession", "en-GB": "Overload possession",
+                 "zh-CN": "以多打少控球", "zh-TW": "以多打少控球",
+                 "ja-JP": "数的優位のポゼッション", "ko-KR": "수적 우위 점유",
+                 "es-ES": "Posesión en superioridad", "fr-FR": "Conservation en surnombre",
+                 "id-ID": "Penguasaan dengan keunggulan", "ms-MY": "Penguasaan lebihan",
+                 "th-TH": "ครองบอลแบบได้เปรียบจำนวน", "vi-VN": "Giữ bóng hơn người"}
+OVERLOAD_NOTE = {
+    "en": "The extra player has to be findable. Stand where a pass can reach you, not where you'd like the ball to be.",
+    "en-GB": "The extra player has to be findable. Stand where a pass can reach you, not where you'd like the ball to be.",
+    "zh-CN": "多出来的那个人必须是能找得到的。站在传得到你的位置，不是你希望球在的位置。",
+    "zh-TW": "多出來的那個人必須是能找得到的。站在傳得到你的位置，不是你希望球在的位置。",
+    "ja-JP": "余った1人は見つけられる場所にいること。ボールが届く位置に立つ。",
+    "ko-KR": "남는 한 명은 찾을 수 있어야 한다. 패스가 닿는 곳에 서라.",
+    "es-ES": "El jugador de más tiene que ser encontrable: colócate donde llegue el pase.",
+    "fr-FR": "Le joueur en plus doit être trouvable : place-toi là où une passe arrive.",
+    "id-ID": "Pemain lebih harus bisa ditemukan: berdirilah di tempat umpan bisa sampai.",
+    "ms-MY": "Pemain lebihan mesti boleh dicari.",
+    "th-TH": "คนที่เกินมาต้องถูกหาเจอ ยืนในจุดที่บอลส่งถึงได้",
+    "vi-VN": "Người dư phải tìm được. Đứng nơi đường chuyền tới được.",
+}
+
+
+def overload_family() -> list[Drill]:
+    """Possession with a numerical edge, three sizes."""
+    out = []
+    for att, dfn, minutes in [(3, 2, 10), (4, 3, 12), (5, 4, 15), (6, 4, 15)]:
+        a = ring(att, 0.5, 0.55, 0.26, 0.19)
+        d = ring(dfn, 0.5, 0.55, 0.11, 0.08)
+        out.append(Drill(
+            id=f"overload_{att}v{dfn}", category="possession", minutes=minutes,
+            rel=True, free=(att == 4),
+            name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
+            home=[P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.16, y + (0.55 - y) * 0.16, i % 2)])
+                  for i, (x, y) in enumerate(a)],
+            away=[P(x, y, chr(65 + i), moves=[(0.5 + (a[i % att][0] - 0.5) * 0.6,
+                                               0.55 + (a[i % att][1] - 0.55) * 0.6, i % 2)])
+                  for i, (x, y) in enumerate(d)],
+            markers=[M(x, y) for x, y in ring(4, 0.5, 0.55, 0.31, 0.23, -45)],
+            ball=0,
+        ))
+    return out
+
+
+def merge(curated: list[Drill], *families: list[Drill]) -> list[Drill]:
+    """Curated drills first; a family variant with the same id is dropped.
+
+    Families cover sizes that were also written by hand (rondo 4v2, counter
+    3v2). The hand-written one wins: it was tuned, and its coaching note is
+    specific to that size."""
+    out = list(curated)
+    seen = {d.id for d in out}
+    for family in families:
+        for d in family:
+            if d.id in seen:
+                continue
+            seen.add(d.id)
+            out.append(d)
+    return out
+
+
+def soccer_library() -> list[Drill]:
+    """Curated one-offs first, then the families — the order a coach reads."""
+    return merge(soccer_drills(), rondo_family(), ssg_family(),
+                 counter_family(), buildup_family(), finishing_family(),
+                 press_family(), corner_family(), duel_family(),
+                 passing_family(), crossing_family(), shape_family(),
+                 gk_family(), conditioning_family(), switch_family(),
+                 combination_family(), free_kick_family(),
+                 transition_family(), first_touch_family(), heading_family(),
+                 goal_kick_family(), overload_family())
+
+
+CATALOGUE = {"soccer": soccer_library, "basketball": basketball_drills}
 
 
 def build(sport: str) -> dict:

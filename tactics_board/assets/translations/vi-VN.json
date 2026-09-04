@@ -313,6 +313,8 @@
   "drills_hint": "Chạm để đưa lên bảng rồi chỉnh sửa",
   "drills_empty": "Chưa có bài tập cho môn này",
   "drills_minutes": "{} phút",
+  "drills_search": "Tìm bài tập",
+  "drills_no_match": "Không có kết quả cho “{}”",
   "drill_cat_all": "Tất cả",
   "drill_cat_warmup": "Khởi động",
   "drill_cat_possession": "Giữ bóng",

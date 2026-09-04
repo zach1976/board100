@@ -267,6 +267,8 @@
   "drills_hint": "Tap one to put it on the board — then change it",
   "drills_empty": "No drills for this sport yet",
   "drills_minutes": "{} min",
+  "drills_search": "Search drills",
+  "drills_no_match": "Nothing matches “{}”",
   "drill_cat_all": "All",
   "drill_cat_warmup": "Warm-up",
   "drill_cat_possession": "Possession",

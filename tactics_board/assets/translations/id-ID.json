@@ -313,6 +313,8 @@
   "drills_hint": "Ketuk untuk menaruhnya di papan, lalu ubah",
   "drills_empty": "Belum ada latihan untuk olahraga ini",
   "drills_minutes": "{} mnt",
+  "drills_search": "Cari latihan",
+  "drills_no_match": "Tidak ada yang cocok dengan “{}”",
   "drill_cat_all": "Semua",
   "drill_cat_warmup": "Pemanasan",
   "drill_cat_possession": "Penguasaan",
