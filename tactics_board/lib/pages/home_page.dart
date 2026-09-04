@@ -26,6 +26,7 @@ import '../widgets/sport_glyph.dart';
 import '../widgets/language_picker.dart';
 import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
+import '../widgets/drill_library_sheet.dart';
 import '../widgets/photo_crop_editor.dart';
 import '../widgets/photo_import_sheet.dart';
 import '../widgets/timeline_editor.dart';
@@ -500,6 +501,7 @@ class _MenuButton extends StatelessWidget {
           if (sport.hasCourtPicker)
             _menuItem(context, 'court', Icons.dashboard_outlined, 'menu_court'.tr()),
           _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
+          _menuItem(context, 'drills', Icons.menu_book_outlined, 'drills_title'.tr()),
           _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
             _menuItem(context, 'scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
@@ -541,6 +543,8 @@ class _MenuButton extends StatelessWidget {
         showCourtSettingsSheet(context, context.read<TacticsState>());
       case 'share':
         shareBoardImage(context, context.read<TacticsState>());
+      case 'drills':
+        DrillLibrarySheet.show(context, context.read<TacticsState>());
       case 'practice':
         _showPracticePlan(context);
       case 'scorer':
