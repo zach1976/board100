@@ -1,0 +1,4608 @@
+{
+  "sport": "tableTennis",
+  "version": 1,
+  "drills": [
+    {
+      "id": "tt_warm_forehand",
+      "category": "warmup",
+      "minutes": 6,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Warm-up forehand to forehand",
+        "en-GB": "Warm-up forehand to forehand",
+        "zh-CN": "热身 forehand to forehand",
+        "zh-TW": "熱身 forehand to forehand",
+        "ja-JP": "ウォームアップ forehand to forehand",
+        "ko-KR": "웜업 forehand to forehand",
+        "es-ES": "Calentamiento forehand to forehand",
+        "fr-FR": "Échauffement forehand to forehand",
+        "id-ID": "Pemanasan forehand to forehand",
+        "ms-MY": "Memanaskan badan forehand to forehand",
+        "th-TH": "วอร์มอัพ forehand to forehand",
+        "vi-VN": "Khởi động forehand to forehand"
+      },
+      "note": {
+        "en": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "en-GB": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "zh-CN": "把回合数喊出来，把球留在台上。互相对轰得分球的热身，什么也热不起来。",
+        "zh-TW": "把回合數喊出來，把球留在台上。互相對轟得分球的熱身，什麼也熱不起來。",
+        "ja-JP": "ラリー数を声に出して数え、続ける。決め球を打ち合うウォームアップは何も温まらない。",
+        "ko-KR": "랠리 수를 소리 내어 세며 이어가라. 서로 위너를 치는 웜업은 아무것도 데우지 못한다.",
+        "es-ES": "Cuenta el peloteo en voz alta y mantenlo vivo: calentar a base de golpes ganadores no calienta nada.",
+        "fr-FR": "Compte l'échange à voix haute et fais-le durer : s'échauffer en se tirant des points gagnants n'échauffe rien.",
+        "id-ID": "Hitung reli dengan suara keras dan jaga agar tetap hidup.",
+        "ms-MY": "Kira rali dengan kuat dan pastikan ia berterusan.",
+        "th-TH": "นับจำนวนโต้ออกเสียงและรักษาลูกไว้",
+        "vi-VN": "Đếm to số lần đôi công và giữ bóng sống."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1212.0
+              ],
+              [
+                628.5675182481752,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                287.99999999999994
+              ],
+              [
+                371.43248175182475,
+                205.49999999999991
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_warm_backhand",
+      "category": "warmup",
+      "minutes": 6,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Warm-up backhand to backhand",
+        "en-GB": "Warm-up backhand to backhand",
+        "zh-CN": "热身 backhand to backhand",
+        "zh-TW": "熱身 backhand to backhand",
+        "ja-JP": "ウォームアップ backhand to backhand",
+        "ko-KR": "웜업 backhand to backhand",
+        "es-ES": "Calentamiento backhand to backhand",
+        "fr-FR": "Échauffement backhand to backhand",
+        "id-ID": "Pemanasan backhand to backhand",
+        "ms-MY": "Memanaskan badan backhand to backhand",
+        "th-TH": "วอร์มอัพ backhand to backhand",
+        "vi-VN": "Khởi động backhand to backhand"
+      },
+      "note": {
+        "en": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "en-GB": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "zh-CN": "把回合数喊出来，把球留在台上。互相对轰得分球的热身，什么也热不起来。",
+        "zh-TW": "把回合數喊出來，把球留在台上。互相對轟得分球的熱身，什麼也熱不起來。",
+        "ja-JP": "ラリー数を声に出して数え、続ける。決め球を打ち合うウォームアップは何も温まらない。",
+        "ko-KR": "랠리 수를 소리 내어 세며 이어가라. 서로 위너를 치는 웜업은 아무것도 데우지 못한다.",
+        "es-ES": "Cuenta el peloteo en voz alta y mantenlo vivo: calentar a base de golpes ganadores no calienta nada.",
+        "fr-FR": "Compte l'échange à voix haute et fais-le durer : s'échauffer en se tirant des points gagnants n'échauffe rien.",
+        "id-ID": "Hitung reli dengan suara keras dan jaga agar tetap hidup.",
+        "ms-MY": "Kira rali dengan kuat dan pastikan ia berterusan.",
+        "th-TH": "นับจำนวนโต้ออกเสียงและรักษาลูกไว้",
+        "vi-VN": "Đếm to số lần đôi công và giữ bóng sống."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1212.0
+              ],
+              [
+                371.43248175182475,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                287.99999999999994
+              ],
+              [
+                628.5675182481752,
+                205.49999999999991
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              371.43248175182475,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_warm_middle",
+      "category": "warmup",
+      "minutes": 6,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Warm-up down the middle",
+        "en-GB": "Warm-up down the middle",
+        "zh-CN": "热身 down the middle",
+        "zh-TW": "熱身 down the middle",
+        "ja-JP": "ウォームアップ down the middle",
+        "ko-KR": "웜업 down the middle",
+        "es-ES": "Calentamiento down the middle",
+        "fr-FR": "Échauffement down the middle",
+        "id-ID": "Pemanasan down the middle",
+        "ms-MY": "Memanaskan badan down the middle",
+        "th-TH": "วอร์มอัพ down the middle",
+        "vi-VN": "Khởi động down the middle"
+      },
+      "note": {
+        "en": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "en-GB": "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.",
+        "zh-CN": "把回合数喊出来，把球留在台上。互相对轰得分球的热身，什么也热不起来。",
+        "zh-TW": "把回合數喊出來，把球留在台上。互相對轟得分球的熱身，什麼也熱不起來。",
+        "ja-JP": "ラリー数を声に出して数え、続ける。決め球を打ち合うウォームアップは何も温まらない。",
+        "ko-KR": "랠리 수를 소리 내어 세며 이어가라. 서로 위너를 치는 웜업은 아무것도 데우지 못한다.",
+        "es-ES": "Cuenta el peloteo en voz alta y mantenlo vivo: calentar a base de golpes ganadores no calienta nada.",
+        "fr-FR": "Compte l'échange à voix haute et fais-le durer : s'échauffer en se tirant des points gagnants n'échauffe rien.",
+        "id-ID": "Hitung reli dengan suara keras dan jaga agar tetap hidup.",
+        "ms-MY": "Kira rali dengan kuat dan pastikan ia berterusan.",
+        "th-TH": "นับจำนวนโต้ออกเสียงและรักษาลูกไว้",
+        "vi-VN": "Đếm to số lần đôi công và giữ bóng sống."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1212.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                287.99999999999994
+              ],
+              [
+                500.0,
+                205.49999999999991
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_footwork_two_one",
+      "category": "warmup",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Footwork two-one",
+        "en-GB": "Footwork two-one",
+        "zh-CN": "步法 two-one",
+        "zh-TW": "步法 two-one",
+        "ja-JP": "フットワーク two-one",
+        "ko-KR": "풋워크 two-one",
+        "es-ES": "Juego de pies two-one",
+        "fr-FR": "Jeu de jambes two-one",
+        "id-ID": "Footwork two-one",
+        "ms-MY": "Kerja kaki two-one",
+        "th-TH": "ฟุตเวิร์ก two-one",
+        "vi-VN": "Di chuyển chân two-one"
+      },
+      "note": {
+        "en": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "en-GB": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "zh-CN": "用腿移动，不要靠伸手够。每一个你伸手去够的球，其实都来得及跨一步过去。",
+        "zh-TW": "用腿移動，不要靠伸手夠。每一個你伸手去夠的球，其實都來得及跨一步過去。",
+        "ja-JP": "手を伸ばすのではなく脚で動く。伸ばして取った球は、本当は一歩入る時間があった球だ。",
+        "ko-KR": "손을 뻗지 말고 다리로 움직여라. 뻗어서 친 공은 사실 한 발 갈 시간이 있던 공이다.",
+        "es-ES": "Muévete con las piernas, no estirando el brazo: cada bola a la que llegas estirado es una a la que te daba tiempo a ir.",
+        "fr-FR": "Déplace-toi avec les jambes, pas en tendant le bras : chaque balle cherchée en extension était à un pas.",
+        "id-ID": "Bergerak dengan kaki, bukan dengan menjangkau.",
+        "ms-MY": "Bergerak dengan kaki, bukan dengan menghulur.",
+        "th-TH": "เคลื่อนที่ด้วยขา ไม่ใช่ด้วยการเอื้อม",
+        "vi-VN": "Di chuyển bằng chân, không phải với tay."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1278.0
+              ],
+              [
+                500.0,
+                1245.0000000000002
+              ],
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.08302919708024,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_footwork_falkenberg",
+      "category": "warmup",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Footwork Falkenberg",
+        "en-GB": "Footwork Falkenberg",
+        "zh-CN": "步法 Falkenberg",
+        "zh-TW": "步法 Falkenberg",
+        "ja-JP": "フットワーク Falkenberg",
+        "ko-KR": "풋워크 Falkenberg",
+        "es-ES": "Juego de pies Falkenberg",
+        "fr-FR": "Jeu de jambes Falkenberg",
+        "id-ID": "Footwork Falkenberg",
+        "ms-MY": "Kerja kaki Falkenberg",
+        "th-TH": "ฟุตเวิร์ก Falkenberg",
+        "vi-VN": "Di chuyển chân Falkenberg"
+      },
+      "note": {
+        "en": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "en-GB": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "zh-CN": "用腿移动，不要靠伸手够。每一个你伸手去够的球，其实都来得及跨一步过去。",
+        "zh-TW": "用腿移動，不要靠伸手夠。每一個你伸手去夠的球，其實都來得及跨一步過去。",
+        "ja-JP": "手を伸ばすのではなく脚で動く。伸ばして取った球は、本当は一歩入る時間があった球だ。",
+        "ko-KR": "손을 뻗지 말고 다리로 움직여라. 뻗어서 친 공은 사실 한 발 갈 시간이 있던 공이다.",
+        "es-ES": "Muévete con las piernas, no estirando el brazo: cada bola a la que llegas estirado es una a la que te daba tiempo a ir.",
+        "fr-FR": "Déplace-toi avec les jambes, pas en tendant le bras : chaque balle cherchée en extension était à un pas.",
+        "id-ID": "Bergerak dengan kaki, bukan dengan menjangkau.",
+        "ms-MY": "Bergerak dengan kaki, bukan dengan menghulur.",
+        "th-TH": "เคลื่อนที่ด้วยขา ไม่ใช่ด้วยการเอื้อม",
+        "vi-VN": "Di chuyển bằng chân, không phải với tay."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1278.0
+              ],
+              [
+                334.69890510948903,
+                1327.5
+              ],
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                481.6332116788321,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_footwork_side_to_side",
+      "category": "warmup",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Footwork side to side",
+        "en-GB": "Footwork side to side",
+        "zh-CN": "步法 side to side",
+        "zh-TW": "步法 side to side",
+        "ja-JP": "フットワーク side to side",
+        "ko-KR": "풋워크 side to side",
+        "es-ES": "Juego de pies side to side",
+        "fr-FR": "Jeu de jambes side to side",
+        "id-ID": "Footwork side to side",
+        "ms-MY": "Kerja kaki side to side",
+        "th-TH": "ฟุตเวิร์ก side to side",
+        "vi-VN": "Di chuyển chân side to side"
+      },
+      "note": {
+        "en": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "en-GB": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
+        "zh-CN": "用腿移动，不要靠伸手够。每一个你伸手去够的球，其实都来得及跨一步过去。",
+        "zh-TW": "用腿移動，不要靠伸手夠。每一個你伸手去夠的球，其實都來得及跨一步過去。",
+        "ja-JP": "手を伸ばすのではなく脚で動く。伸ばして取った球は、本当は一歩入る時間があった球だ。",
+        "ko-KR": "손을 뻗지 말고 다리로 움직여라. 뻗어서 친 공은 사실 한 발 갈 시간이 있던 공이다.",
+        "es-ES": "Muévete con las piernas, no estirando el brazo: cada bola a la que llegas estirado es una a la que te daba tiempo a ir.",
+        "fr-FR": "Déplace-toi avec les jambes, pas en tendant le bras : chaque balle cherchée en extension était à un pas.",
+        "id-ID": "Bergerak dengan kaki, bukan dengan menjangkau.",
+        "ms-MY": "Bergerak dengan kaki, bukan dengan menghulur.",
+        "th-TH": "เคลื่อนที่ด้วยขา ไม่ใช่ด้วยการเอื้อม",
+        "vi-VN": "Di chuyển bằng chân, không phải với tay."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                343.88229927007296,
+                1294.5
+              ],
+              [
+                656.117700729927,
+                1294.5
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_rally_block_drive",
+      "category": "possession",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Rally control block against the drive",
+        "en-GB": "Rally control block against the drive",
+        "zh-CN": "相持控制 block against the drive",
+        "zh-TW": "相持控制 block against the drive",
+        "ja-JP": "ラリーの組み立て block against the drive",
+        "ko-KR": "랠리 컨트롤 block against the drive",
+        "es-ES": "Control del peloteo block against the drive",
+        "fr-FR": "Contrôle de l'échange block against the drive",
+        "id-ID": "Kontrol reli block against the drive",
+        "ms-MY": "Kawalan rali block against the drive",
+        "th-TH": "การคุมเกมโต้ block against the drive",
+        "vi-VN": "Kiểm soát đôi công block against the drive"
+      },
+      "note": {
+        "en": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "en-GB": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "zh-CN": "上升期就击球。你每往后退一步，就等于多送对面半秒去选择。",
+        "zh-TW": "上升期就擊球。你每往後退一步，就等於多送對面半秒去選擇。",
+        "ja-JP": "ライジングで早く捉える。一歩下がるたびに、相手に選ぶための0.5秒を渡している。",
+        "ko-KR": "라이징에서 일찍 잡아라. 한 발 물러설 때마다 상대에게 0.5초를 준다.",
+        "es-ES": "Golpea pronto, en el ascenso: cada paso atrás le regala al rival medio segundo para elegir.",
+        "fr-FR": "Prends la balle tôt, à la montée : chaque pas en arrière offre une demi-seconde de choix à l'adversaire.",
+        "id-ID": "Pukul bola lebih awal, saat naik.",
+        "ms-MY": "Pukul bola awal, ketika naik.",
+        "th-TH": "ตีลูกเร็วตอนขาขึ้น ทุกก้าวที่ถอยคือให้เวลาคู่แข่งเพิ่มครึ่งวินาที",
+        "vi-VN": "Đánh bóng sớm, ở pha bóng lên."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1212.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1162.5
+              ],
+              [
+                628.5675182481752,
+                1212.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1212.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_rally_counter_drive",
+      "category": "possession",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Rally control counter-drive",
+        "en-GB": "Rally control counter-drive",
+        "zh-CN": "相持控制 counter-drive",
+        "zh-TW": "相持控制 counter-drive",
+        "ja-JP": "ラリーの組み立て counter-drive",
+        "ko-KR": "랠리 컨트롤 counter-drive",
+        "es-ES": "Control del peloteo counter-drive",
+        "fr-FR": "Contrôle de l'échange counter-drive",
+        "id-ID": "Kontrol reli counter-drive",
+        "ms-MY": "Kawalan rali counter-drive",
+        "th-TH": "การคุมเกมโต้ counter-drive",
+        "vi-VN": "Kiểm soát đôi công counter-drive"
+      },
+      "note": {
+        "en": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "en-GB": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "zh-CN": "上升期就击球。你每往后退一步，就等于多送对面半秒去选择。",
+        "zh-TW": "上升期就擊球。你每往後退一步，就等於多送對面半秒去選擇。",
+        "ja-JP": "ライジングで早く捉える。一歩下がるたびに、相手に選ぶための0.5秒を渡している。",
+        "ko-KR": "라이징에서 일찍 잡아라. 한 발 물러설 때마다 상대에게 0.5초를 준다.",
+        "es-ES": "Golpea pronto, en el ascenso: cada paso atrás le regala al rival medio segundo para elegir.",
+        "fr-FR": "Prends la balle tôt, à la montée : chaque pas en arrière offre une demi-seconde de choix à l'adversaire.",
+        "id-ID": "Pukul bola lebih awal, saat naik.",
+        "ms-MY": "Pukul bola awal, ketika naik.",
+        "th-TH": "ตีลูกเร็วตอนขาขึ้น ทุกก้าวที่ถอยคือให้เวลาคู่แข่งเพิ่มครึ่งวินาที",
+        "vi-VN": "Đánh bóng sớm, ở pha bóng lên."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1327.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                628.5675182481752,
+                1327.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1327.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_rally_push_rally",
+      "category": "possession",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Rally control half-long push rally",
+        "en-GB": "Rally control half-long push rally",
+        "zh-CN": "相持控制 half-long push rally",
+        "zh-TW": "相持控制 half-long push rally",
+        "ja-JP": "ラリーの組み立て half-long push rally",
+        "ko-KR": "랠리 컨트롤 half-long push rally",
+        "es-ES": "Control del peloteo half-long push rally",
+        "fr-FR": "Contrôle de l'échange half-long push rally",
+        "id-ID": "Kontrol reli half-long push rally",
+        "ms-MY": "Kawalan rali half-long push rally",
+        "th-TH": "การคุมเกมโต้ half-long push rally",
+        "vi-VN": "Kiểm soát đôi công half-long push rally"
+      },
+      "note": {
+        "en": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "en-GB": "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.",
+        "zh-CN": "上升期就击球。你每往后退一步，就等于多送对面半秒去选择。",
+        "zh-TW": "上升期就擊球。你每往後退一步，就等於多送對面半秒去選擇。",
+        "ja-JP": "ライジングで早く捉える。一歩下がるたびに、相手に選ぶための0.5秒を渡している。",
+        "ko-KR": "라이징에서 일찍 잡아라. 한 발 물러설 때마다 상대에게 0.5초를 준다.",
+        "es-ES": "Golpea pronto, en el ascenso: cada paso atrás le regala al rival medio segundo para elegir.",
+        "fr-FR": "Prends la balle tôt, à la montée : chaque pas en arrière offre une demi-seconde de choix à l'adversaire.",
+        "id-ID": "Pukul bola lebih awal, saat naik.",
+        "ms-MY": "Pukul bola awal, ketika naik.",
+        "th-TH": "ตีลูกเร็วตอนขาขึ้น ทุกก้าวที่ถอยคือให้เวลาคู่แข่งเพิ่มครึ่งวินาที",
+        "vi-VN": "Đánh bóng sớm, ở pha bóng lên."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1245.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1195.5
+              ],
+              [
+                371.43248175182475,
+                1245.0000000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              371.43248175182475,
+              1245.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_short_touch",
+      "category": "attacking",
+      "minutes": 8,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Short game the short touch",
+        "en-GB": "Short game the short touch",
+        "zh-CN": "台内球 the short touch",
+        "zh-TW": "台內球 the short touch",
+        "ja-JP": "台上プレー the short touch",
+        "ko-KR": "테이블 위 플레이 the short touch",
+        "es-ES": "Juego corto the short touch",
+        "fr-FR": "Jeu court the short touch",
+        "id-ID": "Permainan pendek the short touch",
+        "ms-MY": "Permainan pendek the short touch",
+        "th-TH": "ลูกสั้นบนโต๊ะ the short touch",
+        "vi-VN": "Bóng ngắn trên bàn the short touch"
+      },
+      "note": {
+        "en": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "en-GB": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "zh-CN": "右脚上步伸进台下，在最高点触球。站在台外伸手够，会把每一个短球都处理成长球。",
+        "zh-TW": "右腳上步伸進台下，在最高點觸球。站在台外伸手夠，會把每一個短球都處理成長球。",
+        "ja-JP": "右足を台の下へ踏み込み、バウンドの頂点で捉える。外から手を伸ばすと短い球が全部長くなる。",
+        "ko-KR": "오른발을 테이블 밑으로 넣고 바운드 정점에서 잡아라.",
+        "es-ES": "Entra con el pie derecho bajo la mesa y tómala en el punto alto: estirarte desde fuera alarga todas las bolas cortas.",
+        "fr-FR": "Entre le pied droit sous la table et prends la balle au sommet du rebond : tendre le bras de l'extérieur allonge toutes les balles courtes.",
+        "id-ID": "Masukkan kaki kanan ke bawah meja dan ambil di puncak pantulan.",
+        "ms-MY": "Masukkan kaki kanan ke bawah meja dan ambil di puncak lantunan.",
+        "th-TH": "ก้าวเท้าขวาเข้าใต้โต๊ะ แล้วรับที่จุดสูงสุดของการกระดอน",
+        "vi-VN": "Bước chân phải vào dưới bàn và đón ở đỉnh nảy."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.08302919708024,
+                1179.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              684.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              454.08302919708024,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_short_flick",
+      "category": "attacking",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Short game the flick",
+        "en-GB": "Short game the flick",
+        "zh-CN": "台内球 the flick",
+        "zh-TW": "台內球 the flick",
+        "ja-JP": "台上プレー the flick",
+        "ko-KR": "테이블 위 플레이 the flick",
+        "es-ES": "Juego corto the flick",
+        "fr-FR": "Jeu court the flick",
+        "id-ID": "Permainan pendek the flick",
+        "ms-MY": "Permainan pendek the flick",
+        "th-TH": "ลูกสั้นบนโต๊ะ the flick",
+        "vi-VN": "Bóng ngắn trên bàn the flick"
+      },
+      "note": {
+        "en": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "en-GB": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "zh-CN": "右脚上步伸进台下，在最高点触球。站在台外伸手够，会把每一个短球都处理成长球。",
+        "zh-TW": "右腳上步伸進台下，在最高點觸球。站在台外伸手夠，會把每一個短球都處理成長球。",
+        "ja-JP": "右足を台の下へ踏み込み、バウンドの頂点で捉える。外から手を伸ばすと短い球が全部長くなる。",
+        "ko-KR": "오른발을 테이블 밑으로 넣고 바운드 정점에서 잡아라.",
+        "es-ES": "Entra con el pie derecho bajo la mesa y tómala en el punto alto: estirarte desde fuera alarga todas las bolas cortas.",
+        "fr-FR": "Entre le pied droit sous la table et prends la balle au sommet du rebond : tendre le bras de l'extérieur allonge toutes les balles courtes.",
+        "id-ID": "Masukkan kaki kanan ke bawah meja dan ambil di puncak pantulan.",
+        "ms-MY": "Masukkan kaki kanan ke bawah meja dan ambil di puncak lantunan.",
+        "th-TH": "ก้าวเท้าขวาเข้าใต้โต๊ะ แล้วรับที่จุดสูงสุดของการกระดอน",
+        "vi-VN": "Bước chân phải vào dưới bàn và đón ở đỉnh nảy."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.08302919708024,
+                1179.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              585.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              454.08302919708024,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_short_banana",
+      "category": "attacking",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Short game the banana flick",
+        "en-GB": "Short game the banana flick",
+        "zh-CN": "台内球 the banana flick",
+        "zh-TW": "台內球 the banana flick",
+        "ja-JP": "台上プレー the banana flick",
+        "ko-KR": "테이블 위 플레이 the banana flick",
+        "es-ES": "Juego corto the banana flick",
+        "fr-FR": "Jeu court the banana flick",
+        "id-ID": "Permainan pendek the banana flick",
+        "ms-MY": "Permainan pendek the banana flick",
+        "th-TH": "ลูกสั้นบนโต๊ะ the banana flick",
+        "vi-VN": "Bóng ngắn trên bàn the banana flick"
+      },
+      "note": {
+        "en": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "en-GB": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "zh-CN": "右脚上步伸进台下，在最高点触球。站在台外伸手够，会把每一个短球都处理成长球。",
+        "zh-TW": "右腳上步伸進台下，在最高點觸球。站在台外伸手夠，會把每一個短球都處理成長球。",
+        "ja-JP": "右足を台の下へ踏み込み、バウンドの頂点で捉える。外から手を伸ばすと短い球が全部長くなる。",
+        "ko-KR": "오른발을 테이블 밑으로 넣고 바운드 정점에서 잡아라.",
+        "es-ES": "Entra con el pie derecho bajo la mesa y tómala en el punto alto: estirarte desde fuera alarga todas las bolas cortas.",
+        "fr-FR": "Entre le pied droit sous la table et prends la balle au sommet du rebond : tendre le bras de l'extérieur allonge toutes les balles courtes.",
+        "id-ID": "Masukkan kaki kanan ke bawah meja dan ambil di puncak pantulan.",
+        "ms-MY": "Masukkan kaki kanan ke bawah meja dan ambil di puncak lantunan.",
+        "th-TH": "ก้าวเท้าขวาเข้าใต้โต๊ะ แล้วรับที่จุดสูงสุดของการกระดอน",
+        "vi-VN": "Bước chân phải vào dưới bàn và đón ở đỉnh nảy."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.08302919708024,
+                1179.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              618.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              454.08302919708024,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_short_long_push",
+      "category": "attacking",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Short game the long push",
+        "en-GB": "Short game the long push",
+        "zh-CN": "台内球 the long push",
+        "zh-TW": "台內球 the long push",
+        "ja-JP": "台上プレー the long push",
+        "ko-KR": "테이블 위 플레이 the long push",
+        "es-ES": "Juego corto the long push",
+        "fr-FR": "Jeu court the long push",
+        "id-ID": "Permainan pendek the long push",
+        "ms-MY": "Permainan pendek the long push",
+        "th-TH": "ลูกสั้นบนโต๊ะ the long push",
+        "vi-VN": "Bóng ngắn trên bàn the long push"
+      },
+      "note": {
+        "en": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "en-GB": "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.",
+        "zh-CN": "右脚上步伸进台下，在最高点触球。站在台外伸手够，会把每一个短球都处理成长球。",
+        "zh-TW": "右腳上步伸進台下，在最高點觸球。站在台外伸手夠，會把每一個短球都處理成長球。",
+        "ja-JP": "右足を台の下へ踏み込み、バウンドの頂点で捉える。外から手を伸ばすと短い球が全部長くなる。",
+        "ko-KR": "오른발을 테이블 밑으로 넣고 바운드 정점에서 잡아라.",
+        "es-ES": "Entra con el pie derecho bajo la mesa y tómala en el punto alto: estirarte desde fuera alarga todas las bolas cortas.",
+        "fr-FR": "Entre le pied droit sous la table et prends la balle au sommet du rebond : tendre le bras de l'extérieur allonge toutes les balles courtes.",
+        "id-ID": "Masukkan kaki kanan ke bawah meja dan ambil di puncak pantulan.",
+        "ms-MY": "Masukkan kaki kanan ke bawah meja dan ambil di puncak lantunan.",
+        "th-TH": "ก้าวเท้าขวาเข้าใต้โต๊ะ แล้วรับที่จุดสูงสุดของการกระดอน",
+        "vi-VN": "Bước chân phải vào dưới bàn và đón ở đỉnh nảy."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.08302919708024,
+                1179.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              403.49999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              454.08302919708024,
+              849.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_loop_vs_backspin",
+      "category": "attacking",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Loop against backspin",
+        "en-GB": "Loop against backspin",
+        "zh-CN": "拉弧圈 against backspin",
+        "zh-TW": "拉弧圈 against backspin",
+        "ja-JP": "ループドライブ against backspin",
+        "ko-KR": "루프 드라이브 against backspin",
+        "es-ES": "Top spin against backspin",
+        "fr-FR": "Top spin against backspin",
+        "id-ID": "Loop against backspin",
+        "ms-MY": "Loop against backspin",
+        "th-TH": "ลูปไดรฟ์ against backspin",
+        "vi-VN": "Giật bóng against backspin"
+      },
+      "note": {
+        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
+        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
+        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
+        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
+        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
+        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
+        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
+        "ms-MY": "Gosok bola, jangan pukul tembus.",
+        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
+        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1360.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                500.0,
+                1311.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              188.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              403.4999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1360.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_loop_vs_block",
+      "category": "attacking",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Loop against the block",
+        "en-GB": "Loop against the block",
+        "zh-CN": "拉弧圈 against the block",
+        "zh-TW": "拉弧圈 against the block",
+        "ja-JP": "ループドライブ against the block",
+        "ko-KR": "루프 드라이브 against the block",
+        "es-ES": "Top spin against the block",
+        "fr-FR": "Top spin against the block",
+        "id-ID": "Loop against the block",
+        "ms-MY": "Loop against the block",
+        "th-TH": "ลูปไดรฟ์ against the block",
+        "vi-VN": "Giật bóng against the block"
+      },
+      "note": {
+        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
+        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
+        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
+        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
+        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
+        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
+        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
+        "ms-MY": "Gosok bola, jangan pukul tembus.",
+        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
+        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1195.5
+              ],
+              [
+                500.0,
+                1311.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              188.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              403.4999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_loop_from_backhand",
+      "category": "attacking",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Loop from the backhand corner",
+        "en-GB": "Loop from the backhand corner",
+        "zh-CN": "拉弧圈 from the backhand corner",
+        "zh-TW": "拉弧圈 from the backhand corner",
+        "ja-JP": "ループドライブ from the backhand corner",
+        "ko-KR": "루프 드라이브 from the backhand corner",
+        "es-ES": "Top spin from the backhand corner",
+        "fr-FR": "Top spin from the backhand corner",
+        "id-ID": "Loop from the backhand corner",
+        "ms-MY": "Loop from the backhand corner",
+        "th-TH": "ลูปไดรฟ์ from the backhand corner",
+        "vi-VN": "Giật bóng from the backhand corner"
+      },
+      "note": {
+        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
+        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
+        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
+        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
+        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
+        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
+        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
+        "ms-MY": "Gosok bola, jangan pukul tembus.",
+        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
+        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1228.5
+              ],
+              [
+                500.0,
+                1311.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              188.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              403.4999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              371.43248175182475,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_loop_counter_loop",
+      "category": "attacking",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Loop counter-loop",
+        "en-GB": "Loop counter-loop",
+        "zh-CN": "拉弧圈 counter-loop",
+        "zh-TW": "拉弧圈 counter-loop",
+        "ja-JP": "ループドライブ counter-loop",
+        "ko-KR": "루프 드라이브 counter-loop",
+        "es-ES": "Top spin counter-loop",
+        "fr-FR": "Top spin counter-loop",
+        "id-ID": "Loop counter-loop",
+        "ms-MY": "Loop counter-loop",
+        "th-TH": "ลูปไดรฟ์ counter-loop",
+        "vi-VN": "Giật bóng counter-loop"
+      },
+      "note": {
+        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
+        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
+        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
+        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
+        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
+        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
+        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
+        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
+        "ms-MY": "Gosok bola, jangan pukul tembus.",
+        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
+        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1410.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1327.5
+              ],
+              [
+                500.0,
+                1311.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              188.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              403.4999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              628.5675182481752,
+              1410.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_kill_smash",
+      "category": "finishing",
+      "minutes": 8,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Finishing the smash",
+        "en-GB": "Finishing the smash",
+        "zh-CN": "得分球 the smash",
+        "zh-TW": "得分球 the smash",
+        "ja-JP": "決定打 the smash",
+        "ko-KR": "결정타 the smash",
+        "es-ES": "Definición the smash",
+        "fr-FR": "Coup décisif the smash",
+        "id-ID": "Pukulan penentu the smash",
+        "ms-MY": "Pukulan penamat the smash",
+        "th-TH": "ลูกจบ the smash",
+        "vi-VN": "Cú dứt điểm the smash"
+      },
+      "note": {
+        "en": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "en-GB": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "zh-CN": "球到之前就选好角。犹豫得晚，机会球就会变成七成力打向中路的那一板。",
+        "zh-TW": "球到之前就選好角。猶豫得晚，機會球就會變成七成力打向中路的那一板。",
+        "ja-JP": "球が来る前にコースを決める。決断が遅いから、絶好球が七分の力で真ん中に飛ぶ。",
+        "ko-KR": "공이 오기 전에 코스를 정하라. 늦게 정하면 찬스볼이 70퍼센트 힘으로 가운데로 간다.",
+        "es-ES": "Elige la esquina antes de que llegue la bola: decidir tarde convierte un regalo en un golpe al medio a tres cuartos de fuerza.",
+        "fr-FR": "Choisis le coin avant l'arrivée de la balle : décider tard, c'est frapper une balle facile au trois quarts, au milieu.",
+        "id-ID": "Pilih sudutnya sebelum bola datang.",
+        "ms-MY": "Pilih sudutnya sebelum bola sampai.",
+        "th-TH": "เลือกมุมก่อนบอลมาถึง ถ้าตัดสินใจช้า ลูกง่ายจะกลายเป็นลูกกลางโต๊ะแรงเจ็ดส่วน",
+        "vi-VN": "Chọn góc trước khi bóng đến."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1228.5000000000002
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              386.99999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_kill_wide_forehand",
+      "category": "finishing",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Finishing from the wide forehand",
+        "en-GB": "Finishing from the wide forehand",
+        "zh-CN": "得分球 from the wide forehand",
+        "zh-TW": "得分球 from the wide forehand",
+        "ja-JP": "決定打 from the wide forehand",
+        "ko-KR": "결정타 from the wide forehand",
+        "es-ES": "Definición from the wide forehand",
+        "fr-FR": "Coup décisif from the wide forehand",
+        "id-ID": "Pukulan penentu from the wide forehand",
+        "ms-MY": "Pukulan penamat from the wide forehand",
+        "th-TH": "ลูกจบ from the wide forehand",
+        "vi-VN": "Cú dứt điểm from the wide forehand"
+      },
+      "note": {
+        "en": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "en-GB": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "zh-CN": "球到之前就选好角。犹豫得晚，机会球就会变成七成力打向中路的那一板。",
+        "zh-TW": "球到之前就選好角。猶豫得晚，機會球就會變成七成力打向中路的那一板。",
+        "ja-JP": "球が来る前にコースを決める。決断が遅いから、絶好球が七分の力で真ん中に飛ぶ。",
+        "ko-KR": "공이 오기 전에 코스를 정하라. 늦게 정하면 찬스볼이 70퍼센트 힘으로 가운데로 간다.",
+        "es-ES": "Elige la esquina antes de que llegue la bola: decidir tarde convierte un regalo en un golpe al medio a tres cuartos de fuerza.",
+        "fr-FR": "Choisis le coin avant l'arrivée de la balle : décider tard, c'est frapper une balle facile au trois quarts, au milieu.",
+        "id-ID": "Pilih sudutnya sebelum bola datang.",
+        "ms-MY": "Pilih sudutnya sebelum bola sampai.",
+        "th-TH": "เลือกมุมก่อนบอลมาถึง ถ้าตัดสินใจช้า ลูกง่ายจะกลายเป็นลูกกลางโต๊ะแรงเจ็ดส่วน",
+        "vi-VN": "Chọn góc trước khi bóng đến."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              674.4844890510949,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                674.4844890510949,
+                1228.5000000000002
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              453.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_kill_into_the_body",
+      "category": "finishing",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Finishing into the body",
+        "en-GB": "Finishing into the body",
+        "zh-CN": "得分球 into the body",
+        "zh-TW": "得分球 into the body",
+        "ja-JP": "決定打 into the body",
+        "ko-KR": "결정타 into the body",
+        "es-ES": "Definición into the body",
+        "fr-FR": "Coup décisif into the body",
+        "id-ID": "Pukulan penentu into the body",
+        "ms-MY": "Pukulan penamat into the body",
+        "th-TH": "ลูกจบ into the body",
+        "vi-VN": "Cú dứt điểm into the body"
+      },
+      "note": {
+        "en": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "en-GB": "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.",
+        "zh-CN": "球到之前就选好角。犹豫得晚，机会球就会变成七成力打向中路的那一板。",
+        "zh-TW": "球到之前就選好角。猶豫得晚，機會球就會變成七成力打向中路的那一板。",
+        "ja-JP": "球が来る前にコースを決める。決断が遅いから、絶好球が七分の力で真ん中に飛ぶ。",
+        "ko-KR": "공이 오기 전에 코스를 정하라. 늦게 정하면 찬스볼이 70퍼센트 힘으로 가운데로 간다.",
+        "es-ES": "Elige la esquina antes de que llegue la bola: decidir tarde convierte un regalo en un golpe al medio a tres cuartos de fuerza.",
+        "fr-FR": "Choisis le coin avant l'arrivée de la balle : décider tard, c'est frapper une balle facile au trois quarts, au milieu.",
+        "id-ID": "Pilih sudutnya sebelum bola datang.",
+        "ms-MY": "Pilih sudutnya sebelum bola sampai.",
+        "th-TH": "เลือกมุมก่อนบอลมาถึง ถ้าตัดสินใจช้า ลูกง่ายจะกลายเป็นลูกกลางโต๊ะแรงเจ็ดส่วน",
+        "vi-VN": "Chọn góc trước khi bóng đến."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1228.5000000000002
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              419.99999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_defence_chop_block",
+      "category": "defending",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Defending the chop block",
+        "en-GB": "Defending the chop block",
+        "zh-CN": "防守 the chop block",
+        "zh-TW": "防守 the chop block",
+        "ja-JP": "ディフェンス the chop block",
+        "ko-KR": "수비 the chop block",
+        "es-ES": "Defensa the chop block",
+        "fr-FR": "Défense the chop block",
+        "id-ID": "Bertahan the chop block",
+        "ms-MY": "Pertahanan the chop block",
+        "th-TH": "การรับ the chop block",
+        "vi-VN": "Phòng thủ the chop block"
+      },
+      "note": {
+        "en": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "en-GB": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "zh-CN": "要变旋转，不只是变线路。旋转不变的防守球，只是让对手再打一板，而且更重。",
+        "zh-TW": "要變旋轉，不只是變線路。旋轉不變的防守球，只是讓對手再打一板，而且更重。",
+        "ja-JP": "コースだけでなく回転を変える。同じ回転で返す守備は、相手にもう一度、より強く打たせるだけ。",
+        "ko-KR": "방향만이 아니라 회전을 바꿔라. 같은 회전으로 돌아온 공은 더 세게 한 번 더 맞을 공이다.",
+        "es-ES": "Cambia el efecto, no solo la dirección: una bola defensiva igual es una bola que volverán a pegar, más fuerte.",
+        "fr-FR": "Change l'effet, pas seulement la direction : une balle défensive identique sera reprise, plus fort.",
+        "id-ID": "Ubah spinnya, bukan hanya arahnya.",
+        "ms-MY": "Ubah putarannya, bukan hanya arahnya.",
+        "th-TH": "เปลี่ยนสปิน ไม่ใช่แค่เปลี่ยนทาง",
+        "vi-VN": "Đổi độ xoáy, không chỉ đổi hướng."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1228.5000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1228.5000000000002
+              ],
+              [
+                628.5675182481752,
+                1228.5000000000002
+              ],
+              [
+                500.0,
+                1228.5000000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                238.49999999999994
+              ],
+              [
+                628.5675182481752,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_defence_deep_chop",
+      "category": "defending",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Defending the deep chop",
+        "en-GB": "Defending the deep chop",
+        "zh-CN": "防守 the deep chop",
+        "zh-TW": "防守 the deep chop",
+        "ja-JP": "ディフェンス the deep chop",
+        "ko-KR": "수비 the deep chop",
+        "es-ES": "Defensa the deep chop",
+        "fr-FR": "Défense the deep chop",
+        "id-ID": "Bertahan the deep chop",
+        "ms-MY": "Pertahanan the deep chop",
+        "th-TH": "การรับ the deep chop",
+        "vi-VN": "Phòng thủ the deep chop"
+      },
+      "note": {
+        "en": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "en-GB": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "zh-CN": "要变旋转，不只是变线路。旋转不变的防守球，只是让对手再打一板，而且更重。",
+        "zh-TW": "要變旋轉，不只是變線路。旋轉不變的防守球，只是讓對手再打一板，而且更重。",
+        "ja-JP": "コースだけでなく回転を変える。同じ回転で返す守備は、相手にもう一度、より強く打たせるだけ。",
+        "ko-KR": "방향만이 아니라 회전을 바꿔라. 같은 회전으로 돌아온 공은 더 세게 한 번 더 맞을 공이다.",
+        "es-ES": "Cambia el efecto, no solo la dirección: una bola defensiva igual es una bola que volverán a pegar, más fuerte.",
+        "fr-FR": "Change l'effet, pas seulement la direction : une balle défensive identique sera reprise, plus fort.",
+        "id-ID": "Ubah spinnya, bukan hanya arahnya.",
+        "ms-MY": "Ubah putarannya, bukan hanya arahnya.",
+        "th-TH": "เปลี่ยนสปิน ไม่ใช่แค่เปลี่ยนทาง",
+        "vi-VN": "Đổi độ xoáy, không chỉ đổi hướng."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1443.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1443.0000000000002
+              ],
+              [
+                628.5675182481752,
+                1443.0000000000002
+              ],
+              [
+                500.0,
+                1443.0000000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                238.49999999999994
+              ],
+              [
+                628.5675182481752,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_defence_lob",
+      "category": "defending",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Defending the lob and recover",
+        "en-GB": "Defending the lob and recover",
+        "zh-CN": "防守 the lob and recover",
+        "zh-TW": "防守 the lob and recover",
+        "ja-JP": "ディフェンス the lob and recover",
+        "ko-KR": "수비 the lob and recover",
+        "es-ES": "Defensa the lob and recover",
+        "fr-FR": "Défense the lob and recover",
+        "id-ID": "Bertahan the lob and recover",
+        "ms-MY": "Pertahanan the lob and recover",
+        "th-TH": "การรับ the lob and recover",
+        "vi-VN": "Phòng thủ the lob and recover"
+      },
+      "note": {
+        "en": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "en-GB": "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.",
+        "zh-CN": "要变旋转，不只是变线路。旋转不变的防守球，只是让对手再打一板，而且更重。",
+        "zh-TW": "要變旋轉，不只是變線路。旋轉不變的防守球，只是讓對手再打一板，而且更重。",
+        "ja-JP": "コースだけでなく回転を変える。同じ回転で返す守備は、相手にもう一度、より強く打たせるだけ。",
+        "ko-KR": "방향만이 아니라 회전을 바꿔라. 같은 회전으로 돌아온 공은 더 세게 한 번 더 맞을 공이다.",
+        "es-ES": "Cambia el efecto, no solo la dirección: una bola defensiva igual es una bola que volverán a pegar, más fuerte.",
+        "fr-FR": "Change l'effet, pas seulement la direction : une balle défensive identique sera reprise, plus fort.",
+        "id-ID": "Ubah spinnya, bukan hanya arahnya.",
+        "ms-MY": "Ubah putarannya, bukan hanya arahnya.",
+        "th-TH": "เปลี่ยนสปิน ไม่ใช่แค่เปลี่ยนทาง",
+        "vi-VN": "Đổi độ xoáy, không chỉ đổi hướng."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1410.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1410.0000000000002
+              ],
+              [
+                628.5675182481752,
+                1410.0000000000002
+              ],
+              [
+                500.0,
+                1410.0000000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                238.49999999999994
+              ],
+              [
+                628.5675182481752,
+                238.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_serve_short_backspin",
+      "category": "setpiece",
+      "minutes": 8,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Serve short backspin",
+        "en-GB": "Serve short backspin",
+        "zh-CN": "发球 short backspin",
+        "zh-TW": "發球 short backspin",
+        "ja-JP": "サーブ short backspin",
+        "ko-KR": "서브 short backspin",
+        "es-ES": "Saque short backspin",
+        "fr-FR": "Service short backspin",
+        "id-ID": "Servis short backspin",
+        "ms-MY": "Servis short backspin",
+        "th-TH": "การเสิร์ฟ short backspin",
+        "vi-VN": "Giao bóng short backspin"
+      },
+      "note": {
+        "en": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "en-GB": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "zh-CN": "发球是为了铺垫你早就想好的第三板。没有后续计划的好发球，只能靠运气赢一分。",
+        "zh-TW": "發球是為了鋪墊你早就想好的第三板。沒有後續計畫的好發球，只能靠運氣贏一分。",
+        "ja-JP": "サーブは、既に打つと決めている3球目を作るためのもの。狙いのない好サーブは偶然1点取るだけ。",
+        "ko-KR": "서브는 이미 정해둔 3구를 만들기 위한 것이다. 계획 없는 좋은 서브는 우연히 1점일 뿐이다.",
+        "es-ES": "Saca para preparar la tercera bola que ya sabes que quieres jugar: un gran saque sin plan gana un punto por casualidad.",
+        "fr-FR": "Sers pour préparer la troisième balle que tu as déjà choisie : un beau service sans plan gagne un point par hasard.",
+        "id-ID": "Servis untuk menyiapkan bola ketiga yang sudah kamu rencanakan.",
+        "ms-MY": "Servis untuk menyediakan bola ketiga yang sudah anda rancang.",
+        "th-TH": "เสิร์ฟเพื่อเตรียมลูกที่สามที่คุณตั้งใจจะเล่นอยู่แล้ว",
+        "vi-VN": "Giao bóng để dọn cho quả thứ ba bạn đã định đánh."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              651.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_serve_long_fast",
+      "category": "setpiece",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Serve long and fast",
+        "en-GB": "Serve long and fast",
+        "zh-CN": "发球 long and fast",
+        "zh-TW": "發球 long and fast",
+        "ja-JP": "サーブ long and fast",
+        "ko-KR": "서브 long and fast",
+        "es-ES": "Saque long and fast",
+        "fr-FR": "Service long and fast",
+        "id-ID": "Servis long and fast",
+        "ms-MY": "Servis long and fast",
+        "th-TH": "การเสิร์ฟ long and fast",
+        "vi-VN": "Giao bóng long and fast"
+      },
+      "note": {
+        "en": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "en-GB": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "zh-CN": "发球是为了铺垫你早就想好的第三板。没有后续计划的好发球，只能靠运气赢一分。",
+        "zh-TW": "發球是為了鋪墊你早就想好的第三板。沒有後續計畫的好發球，只能靠運氣贏一分。",
+        "ja-JP": "サーブは、既に打つと決めている3球目を作るためのもの。狙いのない好サーブは偶然1点取るだけ。",
+        "ko-KR": "서브는 이미 정해둔 3구를 만들기 위한 것이다. 계획 없는 좋은 서브는 우연히 1점일 뿐이다.",
+        "es-ES": "Saca para preparar la tercera bola que ya sabes que quieres jugar: un gran saque sin plan gana un punto por casualidad.",
+        "fr-FR": "Sers pour préparer la troisième balle que tu as déjà choisie : un beau service sans plan gagne un point par hasard.",
+        "id-ID": "Servis untuk menyiapkan bola ketiga yang sudah kamu rencanakan.",
+        "ms-MY": "Servis untuk menyediakan bola ketiga yang sudah anda rancang.",
+        "th-TH": "เสิร์ฟเพื่อเตรียมลูกที่สามที่คุณตั้งใจจะเล่นอยู่แล้ว",
+        "vi-VN": "Giao bóng để dọn cho quả thứ ba bạn đã định đánh."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              386.99999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_serve_sidespin_wide",
+      "category": "setpiece",
+      "minutes": 8,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Serve sidespin wide",
+        "en-GB": "Serve sidespin wide",
+        "zh-CN": "发球 sidespin wide",
+        "zh-TW": "發球 sidespin wide",
+        "ja-JP": "サーブ sidespin wide",
+        "ko-KR": "서브 sidespin wide",
+        "es-ES": "Saque sidespin wide",
+        "fr-FR": "Service sidespin wide",
+        "id-ID": "Servis sidespin wide",
+        "ms-MY": "Servis sidespin wide",
+        "th-TH": "การเสิร์ฟ sidespin wide",
+        "vi-VN": "Giao bóng sidespin wide"
+      },
+      "note": {
+        "en": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "en-GB": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "zh-CN": "发球是为了铺垫你早就想好的第三板。没有后续计划的好发球，只能靠运气赢一分。",
+        "zh-TW": "發球是為了鋪墊你早就想好的第三板。沒有後續計畫的好發球，只能靠運氣贏一分。",
+        "ja-JP": "サーブは、既に打つと決めている3球目を作るためのもの。狙いのない好サーブは偶然1点取るだけ。",
+        "ko-KR": "서브는 이미 정해둔 3구를 만들기 위한 것이다. 계획 없는 좋은 서브는 우연히 1점일 뿐이다.",
+        "es-ES": "Saca para preparar la tercera bola que ya sabes que quieres jugar: un gran saque sin plan gana un punto por casualidad.",
+        "fr-FR": "Sers pour préparer la troisième balle que tu as déjà choisie : un beau service sans plan gagne un point par hasard.",
+        "id-ID": "Servis untuk menyiapkan bola ketiga yang sudah kamu rencanakan.",
+        "ms-MY": "Servis untuk menyediakan bola ketiga yang sudah anda rancang.",
+        "th-TH": "เสิร์ฟเพื่อเตรียมลูกที่สามที่คุณตั้งใจจะเล่นอยู่แล้ว",
+        "vi-VN": "Giao bóng để dọn cho quả thứ ba bạn đã định đánh."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                665.301094890511,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              665.301094890511,
+              585.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_serve_third_ball",
+      "category": "setpiece",
+      "minutes": 8,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Serve serve and third ball",
+        "en-GB": "Serve serve and third ball",
+        "zh-CN": "发球 serve and third ball",
+        "zh-TW": "發球 serve and third ball",
+        "ja-JP": "サーブ serve and third ball",
+        "ko-KR": "서브 serve and third ball",
+        "es-ES": "Saque serve and third ball",
+        "fr-FR": "Service serve and third ball",
+        "id-ID": "Servis serve and third ball",
+        "ms-MY": "Servis serve and third ball",
+        "th-TH": "การเสิร์ฟ serve and third ball",
+        "vi-VN": "Giao bóng serve and third ball"
+      },
+      "note": {
+        "en": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "en-GB": "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.",
+        "zh-CN": "发球是为了铺垫你早就想好的第三板。没有后续计划的好发球，只能靠运气赢一分。",
+        "zh-TW": "發球是為了鋪墊你早就想好的第三板。沒有後續計畫的好發球，只能靠運氣贏一分。",
+        "ja-JP": "サーブは、既に打つと決めている3球目を作るためのもの。狙いのない好サーブは偶然1点取るだけ。",
+        "ko-KR": "서브는 이미 정해둔 3구를 만들기 위한 것이다. 계획 없는 좋은 서브는 우연히 1점일 뿐이다.",
+        "es-ES": "Saca para preparar la tercera bola que ya sabes que quieres jugar: un gran saque sin plan gana un punto por casualidad.",
+        "fr-FR": "Sers pour préparer la troisième balle que tu as déjà choisie : un beau service sans plan gagne un point par hasard.",
+        "id-ID": "Servis untuk menyiapkan bola ketiga yang sudah kamu rencanakan.",
+        "ms-MY": "Servis untuk menyediakan bola ketiga yang sudah anda rancang.",
+        "th-TH": "เสิร์ฟเพื่อเตรียมลูกที่สามที่คุณตั้งใจจะเล่นอยู่แล้ว",
+        "vi-VN": "Giao bóng để dọn cho quả thứ ba bạn đã định đánh."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1294.5
+              ],
+              [
+                628.5675182481752,
+                1278.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                254.99999999999994
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              634.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              325.51551094890505,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_game_half_table",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Match play half table",
+        "en-GB": "Match play half table",
+        "zh-CN": "实战对抗 half table",
+        "zh-TW": "實戰對抗 half table",
+        "ja-JP": "ゲーム練習 half table",
+        "ko-KR": "실전 게임 half table",
+        "es-ES": "Juego de partido half table",
+        "fr-FR": "Jeu en match half table",
+        "id-ID": "Permainan pertandingan half table",
+        "ms-MY": "Permainan perlawanan half table",
+        "th-TH": "เล่นแบบแข่งขัน half table",
+        "vi-VN": "Đánh như thi đấu half table"
+      },
+      "note": {
+        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
+        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
+        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
+        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
+        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
+        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
+        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
+        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
+        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
+        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                1228.5000000000002
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                271.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              403.4999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              371.43248175182475,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_game_serve_receive",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 2,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Match play serve and receive only",
+        "en-GB": "Match play serve and receive only",
+        "zh-CN": "实战对抗 serve and receive only",
+        "zh-TW": "實戰對抗 serve and receive only",
+        "ja-JP": "ゲーム練習 serve and receive only",
+        "ko-KR": "실전 게임 serve and receive only",
+        "es-ES": "Juego de partido serve and receive only",
+        "fr-FR": "Jeu en match serve and receive only",
+        "id-ID": "Permainan pertandingan serve and receive only",
+        "ms-MY": "Permainan perlawanan serve and receive only",
+        "th-TH": "เล่นแบบแข่งขัน serve and receive only",
+        "vi-VN": "Đánh như thi đấu serve and receive only"
+      },
+      "note": {
+        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
+        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
+        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
+        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
+        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
+        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
+        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
+        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
+        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
+        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1228.5000000000002
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                271.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_game_full_match",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Match play full match",
+        "en-GB": "Match play full match",
+        "zh-CN": "实战对抗 full match",
+        "zh-TW": "實戰對抗 full match",
+        "ja-JP": "ゲーム練習 full match",
+        "ko-KR": "실전 게임 full match",
+        "es-ES": "Juego de partido full match",
+        "fr-FR": "Jeu en match full match",
+        "id-ID": "Permainan pertandingan full match",
+        "ms-MY": "Permainan perlawanan full match",
+        "th-TH": "เล่นแบบแข่งขัน full match",
+        "vi-VN": "Đánh như thi đấu full match"
+      },
+      "note": {
+        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
+        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
+        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
+        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
+        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
+        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
+        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
+        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
+        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
+        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1228.5000000000002
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              205.49999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                271.49999999999994
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tt_game_doubles",
+      "category": "ssg",
+      "minutes": 15,
+      "players": 4,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Match play doubles rotation",
+        "en-GB": "Match play doubles rotation",
+        "zh-CN": "实战对抗 doubles rotation",
+        "zh-TW": "實戰對抗 doubles rotation",
+        "ja-JP": "ゲーム練習 doubles rotation",
+        "ko-KR": "실전 게임 doubles rotation",
+        "es-ES": "Juego de partido doubles rotation",
+        "fr-FR": "Jeu en match doubles rotation",
+        "id-ID": "Permainan pertandingan doubles rotation",
+        "ms-MY": "Permainan perlawanan doubles rotation",
+        "th-TH": "เล่นแบบแข่งขัน doubles rotation",
+        "vi-VN": "Đánh như thi đấu doubles rotation"
+      },
+      "note": {
+        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
+        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
+        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
+        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
+        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
+        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
+        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
+        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
+        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
+        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
+        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                307.1487226277372,
+                1360.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              297.96532846715326,
+              1377.0000000000002
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1278.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              221.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                692.8512773722628,
+                139.49999999999991
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              702.0346715328467,
+              122.99999999999991
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                371.43248175182475,
+                221.99999999999991
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              371.43248175182475,
+              1278.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    }
+  ]
+}
