@@ -358,6 +358,47 @@ class PhotoLibraryService extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Set a squad member's identity — the fields that belong to the person and
+  /// not to any one board. Pass a field to change it; omit it to leave it be.
+  /// [clearRole] removes a position assignment (there is no "empty string"
+  /// role, so it needs its own flag).
+  Future<void> setMemberDetails(
+    String photoId, {
+    String? playerName,
+    String? jerseyNumber,
+    String? role,
+    bool clearRole = false,
+  }) async {
+    await _ensureInit();
+    final idx = _photos.indexWhere((p) => p.id == photoId);
+    if (idx < 0) return;
+    _photos[idx] = _photos[idx].copyWith(
+      playerName: playerName,
+      jerseyNumber: jerseyNumber,
+      role: role,
+      clearRole: clearRole,
+    );
+    await _persistIndex();
+    notifyListeners();
+  }
+
+  /// Members of one squad, ordered the way a coach reads a team sheet:
+  /// by shirt number when numbers exist, then by name, then by import order.
+  Future<List<PlayerPhoto>> squad(String groupId) async {
+    final all = await list();
+    final members = all.where((p) => p.groupId == groupId).toList();
+    members.sort((a, b) {
+      final an = int.tryParse(a.jerseyNumber ?? ''), bn = int.tryParse(b.jerseyNumber ?? '');
+      if (an != null && bn != null && an != bn) return an.compareTo(bn);
+      if (an != null && bn == null) return -1;
+      if (an == null && bn != null) return 1;
+      final byName = (a.playerName ?? '').compareTo(b.playerName ?? '');
+      if (byName != 0) return byName;
+      return a.createdAtMs.compareTo(b.createdAtMs);
+    });
+    return members;
+  }
+
   /// Overwrite an existing photo's bytes (used by the crop editor). Rather
   /// than reusing the same filename — which Flutter's FileImage cache holds
   /// onto by path — we write to a fresh filename and rewrite the index to
