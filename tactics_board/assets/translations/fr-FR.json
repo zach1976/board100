@@ -313,6 +313,8 @@
   "drills_hint": "Touchez pour le placer sur le tableau, puis modifiez",
   "drills_empty": "Pas encore d’exercices pour ce sport",
   "drills_minutes": "{} min",
+  "drills_search": "Rechercher un exercice",
+  "drills_no_match": "Aucun résultat pour « {} »",
   "drill_cat_all": "Tout",
   "drill_cat_warmup": "Échauffement",
   "drill_cat_possession": "Conservation",

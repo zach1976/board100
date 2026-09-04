@@ -313,6 +313,8 @@
   "drills_hint": "タップでボードに配置。そのまま編集できます",
   "drills_empty": "このスポーツのドリルはまだありません",
   "drills_minutes": "{}分",
+  "drills_search": "ドリルを検索",
+  "drills_no_match": "「{}」に一致するものはありません",
   "drill_cat_all": "すべて",
   "drill_cat_warmup": "ウォームアップ",
   "drill_cat_possession": "ポゼッション",

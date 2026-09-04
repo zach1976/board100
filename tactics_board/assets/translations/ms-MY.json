@@ -313,6 +313,8 @@
   "drills_hint": "Ketik untuk letak di papan, kemudian ubah",
   "drills_empty": "Belum ada latihan untuk sukan ini",
   "drills_minutes": "{} min",
+  "drills_search": "Cari latihan",
+  "drills_no_match": "Tiada padanan untuk “{}”",
   "drill_cat_all": "Semua",
   "drill_cat_warmup": "Memanaskan badan",
   "drill_cat_possession": "Penguasaan",

@@ -292,6 +292,8 @@
   "drills_hint": "点一个直接放到板上，随便改",
   "drills_empty": "这个运动暂时还没有素材",
   "drills_minutes": "{} 分钟",
+  "drills_search": "搜索训练",
+  "drills_no_match": "没有匹配“{}”的训练",
   "drill_cat_all": "全部",
   "drill_cat_warmup": "热身",
   "drill_cat_possession": "控球",

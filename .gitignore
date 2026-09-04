@@ -19,3 +19,7 @@ build/
 */android/local.properties
 */android/key.properties
 .DS_Store
+
+# python bytecode from tools/
+__pycache__/
+*.pyc

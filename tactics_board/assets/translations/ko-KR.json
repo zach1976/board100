@@ -313,6 +313,8 @@
   "drills_hint": "탭하면 보드에 배치됩니다. 자유롭게 수정하세요",
   "drills_empty": "이 종목의 훈련이 아직 없습니다",
   "drills_minutes": "{}분",
+  "drills_search": "훈련 검색",
+  "drills_no_match": "“{}”와 일치하는 항목 없음",
   "drill_cat_all": "전체",
   "drill_cat_warmup": "워밍업",
   "drill_cat_possession": "점유",
