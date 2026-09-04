@@ -37,6 +37,34 @@ class PracticeHistoryService {
     }
   }
 
+  /// Swap one recorded session for an updated copy — used when attendance is
+  /// added right after the session was written. Matched on start time, which
+  /// is unique per session on a device.
+  static Future<void> replace(
+      SportType sport, PracticeSession original, PracticeSession updated) async {
+    final all = await list(sport);
+    final idx = all.indexWhere((s) => s.startedAt == original.startedAt);
+    if (idx < 0) return;
+    all[idx] = updated;
+    final file = await _file(sport);
+    await file.writeAsString(jsonEncode(all.map((s) => s.toJson()).toList()));
+    CloudSyncService.markLocalChange();
+    // The server takes one session at a time (pushSession); re-push the
+    // updated row so a synced device sees the attendance too.
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.pushSession({
+        'sport_type': sport.name,
+        'plan_name': updated.planName,
+        'started_at': updated.startedAt.toIso8601String(),
+        'completed_at': updated.completedAt.toIso8601String(),
+        'items_completed': updated.itemsCompleted,
+        'planned_items': updated.plannedItems,
+        'total_seconds_spent': updated.totalSecondsSpent,
+        'completed': updated.completed,
+      });
+    }
+  }
+
   static Future<void> add(SportType sport, PracticeSession session) async {
     final all = await list(sport);
     all.insert(0, session);
