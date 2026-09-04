@@ -95,6 +95,30 @@ void _libraryTests(String sport) {
       }
     });
 
+    test('a CJK or Thai name is not half English', () {
+      // Family names compose as "<family> <variant>", and the variant used to
+      // be appended in English for every locale — a Chinese coach read
+      // "步法 the forehand net". The generator now translates the variant, and
+      // this is the check that keeps it that way. Terms a coach genuinely
+      // writes in the Latin alphabet are listed rather than guessed at.
+      const borrowed = {
+        'falkenberg', 'ernie', 'australia', 'stack', 'stacking', 'drive',
+        'flick', 'blitz', 'jackal', 'scrum', 'lineout', 'pivot', 'block',
+        'slice', 'drop', 'dropshot', 'lob', 'net', 'kick', 'switch', 'loop',
+        'rondo', 'pepper', 'perimeter', 'payung', 'touch', 'rugby',
+      };
+      final latin = RegExp(r'[A-Za-z]{3,}');
+      for (final d in drills) {
+        for (final loc in ['zh-CN', 'zh-TW', 'ja-JP', 'ko-KR', 'th-TH']) {
+          final name = d.localizedName(loc);
+          for (final word in latin.allMatches(name).map((m) => m[0]!)) {
+            expect(borrowed, contains(word.toLowerCase()),
+                reason: '${d.id} reads "$name" in $loc');
+          }
+        }
+      }
+    });
+
     test('every drill carries a runnable board', () {
       for (final d in drills) {
         expect(d.minutes, greaterThan(0), reason: d.id);
