@@ -44,13 +44,8 @@ flutter_launcher_icons:
 flutter_native_splash:
   color: "#1A3A4A"
   image: assets/icon/splash_logo.png
-  # Footvolley's splash art is a 1024-square (the other 15 apps ship a
-  # 853x1844 portrait hero), so filling the screen crops away most of the
-  # court. Centre it on the splash colour instead — this is what
-  # build_sport.sh's FULL_BLEED list always intended for footvolley; the
-  # patch it used never matched, so the intent never actually shipped.
-  ios_content_mode: center
-  android_gravity: center
+  ios_content_mode: scaleAspectFill
+  android_gravity: fill
   android_12:
     color: "#1A3A4A"
     image: assets/icon/splash_logo.png
