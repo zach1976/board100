@@ -23,3 +23,7 @@ build/
 # python bytecode from tools/
 __pycache__/
 *.pyc
+
+# Local UI-walk output from tools/drive_app.sh (per-app; the hub keeps its
+# own committed screenshots/, which the script no longer touches).
+*Board/screenshots/
