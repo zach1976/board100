@@ -350,11 +350,18 @@ class _DrillRow extends StatelessWidget {
                     const SizedBox(height: 7),
                     Row(
                       children: [
-                        _Fact(
-                            icon: Icons.schedule,
-                            text: 'drills_minutes'.tr(args: ['${first.minutes}'])),
+                        Flexible(
+                          child: _Fact(
+                              icon: Icons.schedule,
+                              text: 'drills_minutes'
+                                  .tr(args: ['${first.minutes}'])),
+                        ),
                         const SizedBox(width: 12),
-                        _Fact(icon: Icons.groups_outlined, text: '${first.players}'),
+                        Flexible(
+                          child: _Fact(
+                              icon: Icons.groups_outlined,
+                              text: '${first.players}'),
+                        ),
                       ],
                     ),
                   ],
@@ -435,11 +442,18 @@ class _VariantChip extends StatelessWidget {
             Icon(locked ? Icons.lock_outline : Icons.play_arrow_rounded,
                 size: 14, color: locked ? Colors.white38 : kAccent),
             const SizedBox(width: 5),
-            Text(label,
-                style: TextStyle(
-                    color: locked ? Colors.white38 : Colors.white,
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w600)),
+            // Flexible, not bare: a Wrap gives each chip the full row width,
+            // so a long variant name — "the Australian formation", or its
+            // French — overflows instead of shrinking. One line, ellipsised.
+            Flexible(
+              child: Text(label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: locked ? Colors.white38 : Colors.white,
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600)),
+            ),
           ],
         ),
       ),
@@ -459,7 +473,12 @@ class _Fact extends StatelessWidget {
       children: [
         Icon(icon, size: 13, color: Colors.white38),
         const SizedBox(width: 4),
-        Text(text, style: const TextStyle(color: Colors.white38, fontSize: 11.5)),
+        Flexible(
+          child: Text(text,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: Colors.white38, fontSize: 11.5)),
+        ),
       ],
     );
   }
