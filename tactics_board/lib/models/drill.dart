@@ -74,6 +74,24 @@ class Drill {
   String localizedNote(String locale) => _pick(note, locale);
 }
 
+/// Which words a sport's coach uses for the seven categories.
+///
+/// A session is built the same way everywhere — warm up, work the ball, work
+/// the goal, play a game — so the categories themselves are shared. The words
+/// are not: "possession" means nothing in badminton, where the same category
+/// is the rally, and "set piece" there is just the serve. Only the words that
+/// are actually wrong are overridden; the rest fall back to the shared key.
+enum DrillVocabulary {
+  /// Invasion sports. The default labels were written for these.
+  pitch,
+
+  /// Racket and net sports — a rally, a serve, and match play.
+  net,
+
+  /// Baseball, which shares almost none of the vocabulary.
+  diamond,
+}
+
 enum DrillCategory {
   warmup,
   possession,
@@ -88,7 +106,32 @@ enum DrillCategory {
         orElse: () => DrillCategory.possession,
       );
 
-  /// Translation key for the category chip.
+  /// Translation key for the category chip, in the sport's own words.
+  ///
+  /// Falls back to the shared key wherever a sport has no better word, which
+  /// is most of them — "Warm-up" and "Defending" need no translating twice.
+  String labelKeyFor(DrillVocabulary vocabulary) {
+    const overrides = <DrillVocabulary, Set<DrillCategory>>{
+      DrillVocabulary.net: {
+        DrillCategory.possession,   // the rally
+        DrillCategory.setpiece,     // the serve
+        DrillCategory.ssg,          // match play
+      },
+      DrillVocabulary.diamond: {
+        DrillCategory.possession,   // fielding
+        DrillCategory.attacking,    // baserunning
+        DrillCategory.finishing,    // scoring
+        DrillCategory.setpiece,     // holding the runner
+        DrillCategory.ssg,          // scrimmage
+      },
+    };
+    if (overrides[vocabulary]?.contains(this) ?? false) {
+      return 'drill_cat_${name}_${vocabulary.name}';
+    }
+    return 'drill_cat_$name';
+  }
+
+  /// The shared key, for anywhere a sport is not in hand.
   String get labelKey => 'drill_cat_$name';
 }
 

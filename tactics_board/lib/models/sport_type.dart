@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'court_layout.dart';
+import 'drill.dart' show DrillVocabulary;
 import 'sport_formation.dart';
 
 enum SportType {
@@ -361,6 +362,31 @@ extension SportTypeExtension on SportType {
 
   /// True for racquet/net sports that have singles/doubles variants
   bool get hasDoubles => formations.any((f) => f.nameKey == 'formation_doubles');
+
+  /// Which set of words this sport's coach uses for drill categories.
+  /// See DrillVocabulary in models/drill.dart.
+  DrillVocabulary get drillVocabulary {
+    switch (this) {
+      case SportType.badminton:
+      case SportType.tableTennis:
+      case SportType.tennis:
+      case SportType.volleyball:
+      case SportType.pickleball:
+      case SportType.sepakTakraw:
+      case SportType.beachTennis:
+      case SportType.footvolley:
+        return DrillVocabulary.net;
+      case SportType.baseball:
+        return DrillVocabulary.diamond;
+      case SportType.basketball:
+      case SportType.soccer:
+      case SportType.fieldHockey:
+      case SportType.rugby:
+      case SportType.handball:
+      case SportType.waterPolo:
+        return DrillVocabulary.pitch;
+    }
+  }
 
   /// Returns the playable field/court rect inside the canvas, matching the
   /// geometry each sport's court painter draws. Formation coordinates (0..1)
