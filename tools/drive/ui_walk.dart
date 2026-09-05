@@ -29,7 +29,7 @@ void main() {
     // same for both shapes.
     var menu = find.byIcon(Icons.more_horiz);
     if (menu.evaluate().isEmpty) {
-      final tiles = find.byIcon(Icons.chevron_right);
+      final tiles = find.byIcon(Icons.arrow_forward_ios_rounded);
       if (tiles.evaluate().isEmpty) {
         await binding.takeScreenshot('02-no-board');
         return;

@@ -44,6 +44,13 @@ drive_one() {
     rmdir integration_test test_driver 2>/dev/null || true
     flutter pub get >/dev/null 2>&1 || true
     flutter clean >/dev/null 2>&1 || true
+    # pod install runs during flutter drive and writes Podfile.lock. The
+    # shells' locks are gitignored, but tactics_board's is committed — and
+    # integration_test in it is exactly what ced2daa had to clean out. Put it
+    # back if the run dirtied it.
+    if git -C "$REPO" ls-files --error-unmatch "$dir/ios/Podfile.lock" >/dev/null 2>&1; then
+      git -C "$REPO" checkout -- "$dir/ios/Podfile.lock" 2>/dev/null || true
+    fi
   }
   trap restore RETURN
 
