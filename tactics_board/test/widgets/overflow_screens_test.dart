@@ -65,6 +65,9 @@ void main() {
     // long labels live — "Practice plan" and "Remove ads" ran 65 pixels past
     // the edge here before the menu item learned to wrap.
     final unopened = <String>[];
+    // What the sweep actually managed to render, so a run that silently
+    // checks nothing cannot pass.
+    final opened = <String>[];
     for (final locale in kLocales) {
       await ctx.setLocale(locale);
       for (var i = 0; i < 6; i++) {
@@ -83,13 +86,58 @@ void main() {
       }
       // Nothing to assert here: an overflow while the menu was up has already
       // failed the test by the time we reach this line.
+
+      // Then the sheets behind it. Each is opened from the menu, looked at,
+      // and dismissed. The list is the text-heavy ones a coach reaches for;
+      // share and login are left out because they hand off to the platform.
+      for (final entry in <(String, IconData)>[
+        ('field settings', Icons.grass_outlined),
+        ('court settings', Icons.dashboard_outlined),
+        ('language', Icons.language),
+      ]) {
+        final item = find.byIcon(entry.$2);
+        if (item.evaluate().isEmpty) continue;
+        await tester.tap(item.first, warnIfMissed: false);
+        for (var i = 0; i < 8; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
+        opened.add('$tag ${entry.$1}');
+        await tester.tapAt(const Offset(5, 5));
+        for (var i = 0; i < 6; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
+        // Re-open the menu for the next entry.
+        final again = find.byIcon(Icons.more_horiz);
+        if (again.evaluate().isEmpty) break;
+        await tester.tap(again.first, warnIfMissed: false);
+        for (var i = 0; i < 6; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
+      }
       await tester.tapAt(const Offset(5, 5));
       for (var i = 0; i < 6; i++) {
         await tester.pump(const Duration(milliseconds: 80));
+      }
+
+      // The add-element sheet lives on the board's own toolbar.
+      final add = find.byIcon(Icons.add);
+      if (add.evaluate().isNotEmpty) {
+        await tester.tap(add.first, warnIfMissed: false);
+        for (var i = 0; i < 8; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
+        opened.add('$tag add element');
+        await tester.tapAt(const Offset(5, 5));
+        for (var i = 0; i < 6; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
       }
     }
 
     debugDefaultTargetPlatformOverride = null;
     expect(unopened, isEmpty, reason: '\n${unopened.join('\n')}');
+    expect(opened.length, greaterThanOrEqualTo(kLocales.length * 3),
+        reason: 'the sweep opened too little to mean anything:\n'
+            '${opened.join('\n')}');
   });
 }
