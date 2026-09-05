@@ -315,6 +315,7 @@
   "drills_minutes": "{}분",
   "drills_search": "훈련 검색",
   "drills_no_match": "“{}”와 일치하는 항목 없음",
+  "drills_mine": "내 보드",
   "drill_cat_all": "전체",
   "drill_cat_warmup": "워밍업",
   "drill_cat_possession": "점유",

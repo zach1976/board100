@@ -315,6 +315,7 @@
   "drills_minutes": "{} นาที",
   "drills_search": "ค้นหาแบบฝึก",
   "drills_no_match": "ไม่พบ “{}”",
+  "drills_mine": "ของฉัน",
   "drill_cat_all": "ทั้งหมด",
   "drill_cat_warmup": "วอร์มอัพ",
   "drill_cat_possession": "ครองบอล",

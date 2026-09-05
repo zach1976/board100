@@ -315,6 +315,7 @@
   "drills_minutes": "{} 分鐘",
   "drills_search": "搜尋訓練",
   "drills_no_match": "沒有符合「{}」的訓練",
+  "drills_mine": "我的",
   "drill_cat_all": "全部",
   "drill_cat_warmup": "熱身",
   "drill_cat_possession": "控球",

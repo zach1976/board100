@@ -315,6 +315,7 @@
   "drills_minutes": "{} min",
   "drills_search": "Buscar ejercicios",
   "drills_no_match": "Nada coincide con «{}»",
+  "drills_mine": "Míos",
   "drill_cat_all": "Todo",
   "drill_cat_warmup": "Calentamiento",
   "drill_cat_possession": "Posesión",
