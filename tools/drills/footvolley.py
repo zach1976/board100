@@ -152,7 +152,7 @@ def serve_family() -> list[Drill]:
 
 
 ATTACK_NAME = {
-    "en": "Attacking", "en-GB": "Attacking", "zh-CN": "进攻", "zh-TW": "進攻",
+    "en": "Setting up", "en-GB": "Setting up", "zh-CN": "进攻", "zh-TW": "進攻",
     "ja-JP": "攻撃", "ko-KR": "공격", "es-ES": "Ataque", "fr-FR": "Attaque",
     "id-ID": "Serangan", "ms-MY": "Serangan", "th-TH": "การบุก", "vi-VN": "Tấn công",
 }

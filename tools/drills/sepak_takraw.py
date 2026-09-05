@@ -67,7 +67,7 @@ def warmup_family() -> list[Drill]:
 
 
 FEED_NAME = {
-    "en": "The feed", "en-GB": "The feed", "zh-CN": "传球", "zh-TW": "傳球",
+    "en": "Feeding", "en-GB": "Feeding", "zh-CN": "传球", "zh-TW": "傳球",
     "ja-JP": "トス", "ko-KR": "토스", "es-ES": "El pase", "fr-FR": "La passe",
     "id-ID": "Umpan", "ms-MY": "Umpanan", "th-TH": "การชง", "vi-VN": "Đường chuyền",
 }
@@ -92,9 +92,11 @@ FEED_NOTE = {
 
 
 def feed_family() -> list[Drill]:
+    # The receiver is a back-court player, never the inside player who is
+    # about to feed — the two used to share a coordinate exactly.
     specs = [("receiving_the_serve", "receiving the serve", TEKONG, FEED_POINT),
-             ("the_high_feed", "the high feed", LEFT_INSIDE, (0.42, 0.56)),
-             ("the_quick_feed", "the quick feed", RIGHT_INSIDE, (0.58, 0.55))]
+             ("the_high_feed", "the high feed", (0.20, 0.80), (0.42, 0.56)),
+             ("the_quick_feed", "the quick feed", (0.80, 0.80), (0.58, 0.55))]
     out = []
     for key, label, receiver, target in specs:
         out.append(Drill(
@@ -112,7 +114,7 @@ def feed_family() -> list[Drill]:
 
 
 SPIKE_NAME = {
-    "en": "Spike", "en-GB": "Spike", "zh-CN": "扣球", "zh-TW": "扣球",
+    "en": "Spiking", "en-GB": "Spiking", "zh-CN": "扣球", "zh-TW": "扣球",
     "ja-JP": "アタック", "ko-KR": "스파이크", "es-ES": "Remate",
     "fr-FR": "Attaque", "id-ID": "Smes", "ms-MY": "Rejaman",
     "th-TH": "การฟาด", "vi-VN": "Đá tấn công",
@@ -231,7 +233,7 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("at the net", "at the net", (0.58, 0.52)),
+    specs = [("at the net", "at the net", (0.68, 0.56)),
              ("behind the block", "behind the block", (0.40, 0.72)),
              ("covering the block", "covering the block", (0.30, 0.60))]
     out = []

@@ -158,8 +158,10 @@ def man_up_family() -> list[Drill]:
             home=[P(x, y, str(i + 1),
                     moves=[(x + (0.5 - x) * 0.08, y - 0.01, i % 3)])
                   for i, (x, y) in enumerate(spots)],
-            away=[P(0.5 - 0.28 + 0.14 * i, 0.055, "D",
-                    moves=[(0.5 - 0.26 + 0.13 * i, 0.07, 1)]) for i in range(5)]
+            # In the seams, half a slot across from the attackers — directly
+            # underneath them they stacked, and dead centre they sat on the GK.
+            away=[P(0.5 - 0.21 + 0.14 * i, 0.055, "D",
+                    moves=[(0.5 - 0.20 + 0.13 * i, 0.068, 1)]) for i in range(5)]
                  + [P(*GOAL, "GK", role="GK", moves=[(0.44, 0.05, 2)])],
             ball=0,
         ))
@@ -240,8 +242,10 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
+    # front-the-centre is a real step, not zero: the whole point of the
+    # scheme is the defender moving ball-side of the centre forward.
     specs = [("press", "pressing", 0.04), ("drop", "the drop", -0.06),
-             ("front_the_centre", "fronting the centre", 0.0),
+             ("front_the_centre", "fronting the centre", 0.035),
              ("five_on_six", "five against six", -0.02)]
     out = []
     for key, label, push in specs:

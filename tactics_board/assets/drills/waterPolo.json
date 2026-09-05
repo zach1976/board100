@@ -6,18 +6,18 @@
       "id": "wp_warm_eggbeater",
       "family": "waterPolo_family_2",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -65,15 +65,8 @@
               486.00000000000006
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                500.0,
-                486.00000000000006
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -99,7 +92,7 @@
               ]
             ],
             "movePhases": [
-              1
+              0
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -119,15 +112,8 @@
               750.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                500.0,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
@@ -153,7 +139,7 @@
               ]
             ],
             "movePhases": [
-              1
+              0
             ],
             "moveColor": 4294956864,
             "customColor": null,
@@ -193,18 +179,18 @@
       "id": "wp_warm_swim_catch",
       "family": "waterPolo_family_2",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -336,18 +322,18 @@
       "id": "wp_warm_wet_pass",
       "family": "waterPolo_family_2",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -469,18 +455,18 @@
       "id": "wp_perimeter_circulation",
       "family": "waterPolo_family_3",
       "familyName": {
-        "fr-FR": "Périmètre",
+        "en": "Perimeter",
         "en-GB": "Perimeter",
+        "es-ES": "Perímetro",
+        "fr-FR": "Périmètre",
+        "id-ID": "Perimeter",
+        "ja-JP": "外周のボール回し",
         "ko-KR": "외곽 볼 순환",
         "ms-MY": "Perimeter",
-        "ja-JP": "外周のボール回し",
         "th-TH": "การหมุนบอลรอบนอก",
-        "zh-TW": "外圍轉移",
-        "en": "Perimeter",
         "vi-VN": "Vòng ngoài",
         "zh-CN": "外围转移",
-        "id-ID": "Perimeter",
-        "es-ES": "Perímetro"
+        "zh-TW": "外圍轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -838,18 +824,18 @@
       "id": "wp_perimeter_with_centre",
       "family": "waterPolo_family_3",
       "familyName": {
-        "fr-FR": "Périmètre",
+        "en": "Perimeter",
         "en-GB": "Perimeter",
+        "es-ES": "Perímetro",
+        "fr-FR": "Périmètre",
+        "id-ID": "Perimeter",
+        "ja-JP": "外周のボール回し",
         "ko-KR": "외곽 볼 순환",
         "ms-MY": "Perimeter",
-        "ja-JP": "外周のボール回し",
         "th-TH": "การหมุนบอลรอบนอก",
-        "zh-TW": "外圍轉移",
-        "en": "Perimeter",
         "vi-VN": "Vòng ngoài",
         "zh-CN": "外围转移",
-        "id-ID": "Perimeter",
-        "es-ES": "Perímetro"
+        "zh-TW": "外圍轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -1234,18 +1220,18 @@
       "id": "wp_perimeter_drive_and_kick",
       "family": "waterPolo_family_3",
       "familyName": {
-        "fr-FR": "Périmètre",
+        "en": "Perimeter",
         "en-GB": "Perimeter",
+        "es-ES": "Perímetro",
+        "fr-FR": "Périmètre",
+        "id-ID": "Perimeter",
+        "ja-JP": "外周のボール回し",
         "ko-KR": "외곽 볼 순환",
         "ms-MY": "Perimeter",
-        "ja-JP": "外周のボール回し",
         "th-TH": "การหมุนบอลรอบนอก",
-        "zh-TW": "外圍轉移",
-        "en": "Perimeter",
         "vi-VN": "Vòng ngoài",
         "zh-CN": "外围转移",
-        "id-ID": "Perimeter",
-        "es-ES": "Perímetro"
+        "zh-TW": "外圍轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -1635,18 +1621,18 @@
       "id": "wp_counter_2v1",
       "family": "waterPolo_family_1",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Counter-attack",
         "en-GB": "Counter-attack",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik",
+        "ja-JP": "カウンター",
         "ko-KR": "역습",
         "ms-MY": "Serangan balas",
-        "ja-JP": "カウンター",
         "th-TH": "การสวนกลับ",
-        "zh-TW": "反擊",
-        "en": "Counter-attack",
         "vi-VN": "Phản công",
         "zh-CN": "反击",
-        "id-ID": "Serangan balik",
-        "es-ES": "Contraataque"
+        "zh-TW": "反擊"
       },
       "category": "attacking",
       "minutes": 10,
@@ -1825,18 +1811,18 @@
       "id": "wp_counter_3v2",
       "family": "waterPolo_family_1",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Counter-attack",
         "en-GB": "Counter-attack",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik",
+        "ja-JP": "カウンター",
         "ko-KR": "역습",
         "ms-MY": "Serangan balas",
-        "ja-JP": "カウンター",
         "th-TH": "การสวนกลับ",
-        "zh-TW": "反擊",
-        "en": "Counter-attack",
         "vi-VN": "Phản công",
         "zh-CN": "反击",
-        "id-ID": "Serangan balik",
-        "es-ES": "Contraataque"
+        "zh-TW": "反擊"
       },
       "category": "attacking",
       "minutes": 10,
@@ -2074,18 +2060,18 @@
       "id": "wp_counter_4v3",
       "family": "waterPolo_family_1",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Counter-attack",
         "en-GB": "Counter-attack",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik",
+        "ja-JP": "カウンター",
         "ko-KR": "역습",
         "ms-MY": "Serangan balas",
-        "ja-JP": "カウンター",
         "th-TH": "การสวนกลับ",
-        "zh-TW": "反擊",
-        "en": "Counter-attack",
         "vi-VN": "Phản công",
         "zh-CN": "反击",
-        "id-ID": "Serangan balik",
-        "es-ES": "Contraataque"
+        "zh-TW": "反擊"
       },
       "category": "attacking",
       "minutes": 10,
@@ -2382,18 +2368,18 @@
       "id": "wp_manup_four_two",
       "family": "waterPolo_family_6",
       "familyName": {
-        "fr-FR": "Supériorité numérique",
+        "en": "Six on five",
         "en-GB": "Six on five",
+        "es-ES": "Superioridad",
+        "fr-FR": "Supériorité numérique",
+        "id-ID": "Enam lawan lima",
+        "ja-JP": "6対5",
         "ko-KR": "6대5",
         "ms-MY": "Enam lawan lima",
-        "ja-JP": "6対5",
         "th-TH": "หกต่อห้า",
-        "zh-TW": "多打少",
-        "en": "Six on five",
         "vi-VN": "Sáu đánh năm",
         "zh-CN": "多打少",
-        "id-ID": "Enam lawan lima",
-        "es-ES": "Superioridad"
+        "zh-TW": "多打少"
       },
       "category": "attacking",
       "minutes": 12,
@@ -2599,14 +2585,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              253.59999999999997,
+              315.20000000000005,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                271.2,
-                182.4
+                324.0,
+                179.76
               ]
             ],
             "movePhases": [
@@ -2626,14 +2612,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              376.8,
+              438.40000000000003,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                385.6,
-                182.4
+                438.4,
+                179.76
               ]
             ],
             "movePhases": [
@@ -2653,14 +2639,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
+              561.6000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                182.4
+                552.8000000000001,
+                179.76
               ]
             ],
             "movePhases": [
@@ -2680,14 +2666,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              623.2,
+              684.8000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.4,
-                182.4
+                667.1999999999999,
+                179.76
               ]
             ],
             "movePhases": [
@@ -2707,14 +2693,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              746.4,
+              808.0000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                728.8,
-                182.4
+                781.6,
+                179.76
               ]
             ],
             "movePhases": [
@@ -2785,18 +2771,18 @@
       "id": "wp_manup_three_three",
       "family": "waterPolo_family_6",
       "familyName": {
-        "fr-FR": "Supériorité numérique",
+        "en": "Six on five",
         "en-GB": "Six on five",
+        "es-ES": "Superioridad",
+        "fr-FR": "Supériorité numérique",
+        "id-ID": "Enam lawan lima",
+        "ja-JP": "6対5",
         "ko-KR": "6대5",
         "ms-MY": "Enam lawan lima",
-        "ja-JP": "6対5",
         "th-TH": "หกต่อห้า",
-        "zh-TW": "多打少",
-        "en": "Six on five",
         "vi-VN": "Sáu đánh năm",
         "zh-CN": "多打少",
-        "id-ID": "Enam lawan lima",
-        "es-ES": "Superioridad"
+        "zh-TW": "多打少"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3002,14 +2988,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              253.59999999999997,
+              315.20000000000005,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                271.2,
-                182.4
+                324.0,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3029,14 +3015,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              376.8,
+              438.40000000000003,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                385.6,
-                182.4
+                438.4,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3056,14 +3042,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
+              561.6000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                182.4
+                552.8000000000001,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3083,14 +3069,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              623.2,
+              684.8000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.4,
-                182.4
+                667.1999999999999,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3110,14 +3096,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              746.4,
+              808.0000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                728.8,
-                182.4
+                781.6,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3188,18 +3174,18 @@
       "id": "wp_manup_umbrella",
       "family": "waterPolo_family_6",
       "familyName": {
-        "fr-FR": "Supériorité numérique",
+        "en": "Six on five",
         "en-GB": "Six on five",
+        "es-ES": "Superioridad",
+        "fr-FR": "Supériorité numérique",
+        "id-ID": "Enam lawan lima",
+        "ja-JP": "6対5",
         "ko-KR": "6대5",
         "ms-MY": "Enam lawan lima",
-        "ja-JP": "6対5",
         "th-TH": "หกต่อห้า",
-        "zh-TW": "多打少",
-        "en": "Six on five",
         "vi-VN": "Sáu đánh năm",
         "zh-CN": "多打少",
-        "id-ID": "Enam lawan lima",
-        "es-ES": "Superioridad"
+        "zh-TW": "多打少"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3405,14 +3391,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              253.59999999999997,
+              315.20000000000005,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                271.2,
-                182.4
+                324.0,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3432,14 +3418,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              376.8,
+              438.40000000000003,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                385.6,
-                182.4
+                438.4,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3459,14 +3445,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
+              561.6000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                182.4
+                552.8000000000001,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3486,14 +3472,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              623.2,
+              684.8000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.4,
-                182.4
+                667.1999999999999,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3513,14 +3499,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              746.4,
+              808.0000000000001,
               162.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                728.8,
-                182.4
+                781.6,
+                179.76
               ]
             ],
             "movePhases": [
@@ -3591,18 +3577,18 @@
       "id": "wp_centre_entry",
       "family": "waterPolo_family_7",
       "familyName": {
-        "fr-FR": "Pointe",
+        "en": "Centre forward",
         "en-GB": "Centre forward",
+        "es-ES": "Boya",
+        "fr-FR": "Pointe",
+        "id-ID": "Center forward",
+        "ja-JP": "センターフォワード",
         "ko-KR": "센터 포워드",
         "ms-MY": "Center forward",
-        "ja-JP": "センターフォワード",
         "th-TH": "เซ็นเตอร์ฟอร์เวิร์ด",
-        "zh-TW": "中鋒",
-        "en": "Centre forward",
         "vi-VN": "Trung phong",
         "zh-CN": "中锋",
-        "id-ID": "Center forward",
-        "es-ES": "Boya"
+        "zh-TW": "中鋒"
       },
       "category": "finishing",
       "minutes": 10,
@@ -3818,18 +3804,18 @@
       "id": "wp_centre_backhand",
       "family": "waterPolo_family_7",
       "familyName": {
-        "fr-FR": "Pointe",
+        "en": "Centre forward",
         "en-GB": "Centre forward",
+        "es-ES": "Boya",
+        "fr-FR": "Pointe",
+        "id-ID": "Center forward",
+        "ja-JP": "センターフォワード",
         "ko-KR": "센터 포워드",
         "ms-MY": "Center forward",
-        "ja-JP": "センターフォワード",
         "th-TH": "เซ็นเตอร์ฟอร์เวิร์ด",
-        "zh-TW": "中鋒",
-        "en": "Centre forward",
         "vi-VN": "Trung phong",
         "zh-CN": "中锋",
-        "id-ID": "Center forward",
-        "es-ES": "Boya"
+        "zh-TW": "中鋒"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4045,18 +4031,18 @@
       "id": "wp_centre_sweep",
       "family": "waterPolo_family_7",
       "familyName": {
-        "fr-FR": "Pointe",
+        "en": "Centre forward",
         "en-GB": "Centre forward",
+        "es-ES": "Boya",
+        "fr-FR": "Pointe",
+        "id-ID": "Center forward",
+        "ja-JP": "センターフォワード",
         "ko-KR": "센터 포워드",
         "ms-MY": "Center forward",
-        "ja-JP": "センターフォワード",
         "th-TH": "เซ็นเตอร์ฟอร์เวิร์ด",
-        "zh-TW": "中鋒",
-        "en": "Centre forward",
         "vi-VN": "Trung phong",
         "zh-CN": "中锋",
-        "id-ID": "Center forward",
-        "es-ES": "Boya"
+        "zh-TW": "中鋒"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4272,18 +4258,18 @@
       "id": "wp_centre_draw_foul",
       "family": "waterPolo_family_7",
       "familyName": {
-        "fr-FR": "Pointe",
+        "en": "Centre forward",
         "en-GB": "Centre forward",
+        "es-ES": "Boya",
+        "fr-FR": "Pointe",
+        "id-ID": "Center forward",
+        "ja-JP": "センターフォワード",
         "ko-KR": "센터 포워드",
         "ms-MY": "Center forward",
-        "ja-JP": "センターフォワード",
         "th-TH": "เซ็นเตอร์ฟอร์เวิร์ด",
-        "zh-TW": "中鋒",
-        "en": "Centre forward",
         "vi-VN": "Trung phong",
         "zh-CN": "中锋",
-        "id-ID": "Center forward",
-        "es-ES": "Boya"
+        "zh-TW": "中鋒"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4499,18 +4485,18 @@
       "id": "wp_defence_press",
       "family": "waterPolo_family_0",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -4935,18 +4921,18 @@
       "id": "wp_defence_drop",
       "family": "waterPolo_family_0",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -5371,18 +5357,18 @@
       "id": "wp_defence_front_the_centre",
       "family": "waterPolo_family_0",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -5397,7 +5383,7 @@
         "ja-JP": "ディフェンス センターのフロント",
         "ko-KR": "수비 센터 앞막기",
         "es-ES": "Defensa fronteando al boya",
-        "fr-FR": "Défense défense devant la pointe",
+        "fr-FR": "Défense devant la pointe",
         "id-ID": "Pertahanan menutup depan center",
         "ms-MY": "Pertahanan menutup depan center",
         "th-TH": "การรับ ยืนหน้าเซ็นเตอร์",
@@ -5595,7 +5581,7 @@
             "moves": [
               [
                 500.0,
-                591.6
+                637.8000000000001
               ]
             ],
             "movePhases": [
@@ -5622,7 +5608,7 @@
             "moves": [
               [
                 306.40000000000003,
-                499.2
+                545.4
               ]
             ],
             "movePhases": [
@@ -5649,7 +5635,7 @@
             "moves": [
               [
                 693.6,
-                499.2
+                545.4
               ]
             ],
             "movePhases": [
@@ -5676,7 +5662,7 @@
             "moves": [
               [
                 165.6,
-                340.8
+                387.0
               ]
             ],
             "movePhases": [
@@ -5703,7 +5689,7 @@
             "moves": [
               [
                 834.4,
-                340.8
+                387.0
               ]
             ],
             "movePhases": [
@@ -5807,18 +5793,18 @@
       "id": "wp_defence_five_on_six",
       "family": "waterPolo_family_0",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -6216,18 +6202,18 @@
       "id": "wp_set_penalty",
       "family": "waterPolo_family_4",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Restart",
         "en-GB": "Restart",
+        "es-ES": "Reanudación",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Restart",
+        "ja-JP": "リスタート",
         "ko-KR": "리스타트",
         "ms-MY": "Mula semula",
-        "ja-JP": "リスタート",
         "th-TH": "การเริ่มเล่นใหม่",
-        "zh-TW": "死球恢復",
-        "en": "Restart",
         "vi-VN": "Phát bóng lại",
         "zh-CN": "死球恢复",
-        "id-ID": "Restart",
-        "es-ES": "Reanudación"
+        "zh-TW": "死球恢復"
       },
       "category": "setpiece",
       "minutes": 6,
@@ -6369,18 +6355,18 @@
       "id": "wp_set_free_throw",
       "family": "waterPolo_family_4",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Restart",
         "en-GB": "Restart",
+        "es-ES": "Reanudación",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Restart",
+        "ja-JP": "リスタート",
         "ko-KR": "리스타트",
         "ms-MY": "Mula semula",
-        "ja-JP": "リスタート",
         "th-TH": "การเริ่มเล่นใหม่",
-        "zh-TW": "死球恢復",
-        "en": "Restart",
         "vi-VN": "Phát bóng lại",
         "zh-CN": "死球恢复",
-        "id-ID": "Restart",
-        "es-ES": "Reanudación"
+        "zh-TW": "死球恢復"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -6589,18 +6575,18 @@
       "id": "wp_set_swim_off",
       "family": "waterPolo_family_4",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Restart",
         "en-GB": "Restart",
+        "es-ES": "Reanudación",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Restart",
+        "ja-JP": "リスタート",
         "ko-KR": "리스타트",
         "ms-MY": "Mula semula",
-        "ja-JP": "リスタート",
         "th-TH": "การเริ่มเล่นใหม่",
-        "zh-TW": "死球恢復",
-        "en": "Restart",
         "vi-VN": "Phát bóng lại",
         "zh-CN": "死球恢复",
-        "id-ID": "Restart",
-        "es-ES": "Reanudación"
+        "zh-TW": "死球恢復"
       },
       "category": "setpiece",
       "minutes": 6,
@@ -6776,18 +6762,18 @@
       "id": "wp_game_3v3",
       "family": "waterPolo_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -7037,18 +7023,18 @@
       "id": "wp_game_4v4",
       "family": "waterPolo_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -7352,18 +7338,18 @@
       "id": "wp_game_6v6",
       "family": "waterPolo_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,

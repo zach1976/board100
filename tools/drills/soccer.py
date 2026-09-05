@@ -1570,7 +1570,9 @@ def corner_family() -> list[Drill]:
     """The corner routines a team actually needs on a Saturday."""
     routines = [
         ("far_post", "far post", (0.36, 0.20), (0.62, 0.42)),
-        ("back_post_pull", "pull back", (0.50, 0.34), (0.52, 0.52)),
+        # The pull-back runner starts wide of the 8, who holds the same
+        # edge-of-box spot in all four routines — they used to overlap.
+        ("back_post_pull", "pull back", (0.50, 0.34), (0.60, 0.49)),
         ("decoy_stack", "stack", (0.44, 0.26), (0.56, 0.40)),
         ("second_ball", "second ball", (0.50, 0.44), (0.36, 0.54)),
     ]
