@@ -294,6 +294,7 @@
   "drills_minutes": "{} min",
   "drills_search": "Search drills",
   "drills_no_match": "Nothing matches “{}”",
+  "drills_mine": "Mine",
   "drill_cat_all": "All",
   "drill_cat_warmup": "Warm-up",
   "drill_cat_possession": "Possession",

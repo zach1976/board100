@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../models/drill.dart';
+import '../models/tactic_meta.dart';
 import '../models/sport_type.dart';
 import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
@@ -47,11 +48,31 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   DrillCategory? _filter;
   DrillLevel? _level;
   String _query = '';
+  // The coach's own saved boards, offered beside the shipped library. A
+  // drill and a saved tactic are the same JSON, so "use my own" is loading,
+  // not importing.
+  List<TacticMeta> _mine = const [];
+  bool _showMine = false;
 
   @override
   void initState() {
     super.initState();
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
+    widget.state.listSavedTacticMetas().then((metas) {
+      if (mounted) setState(() => _mine = metas);
+    }).catchError((_) {
+      // No saved boards is a normal state (first run, tests); the chip
+      // simply does not appear.
+    });
+  }
+
+  Future<void> _loadMine(TacticMeta meta) async {
+    await widget.state.loadTactics(meta.name);
+    if (!mounted) return;
+    Navigator.of(context).pop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(meta.name)),
+    );
   }
 
   /// Locked drills exist only where there is a store to unlock them in: on a
@@ -215,10 +236,22 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        if (_mine.isNotEmpty) ...[
+                          _CategoryChip(
+                            label: 'drills_mine'.tr(),
+                            selected: _showMine,
+                            onTap: () =>
+                                setState(() => _showMine = !_showMine),
+                          ),
+                          const SizedBox(width: 6),
+                        ],
                         _CategoryChip(
                           label: 'drill_cat_all'.tr(),
-                          selected: _filter == null,
-                          onTap: () => setState(() => _filter = null),
+                          selected: !_showMine && _filter == null,
+                          onTap: () => setState(() {
+                            _showMine = false;
+                            _filter = null;
+                          }),
                         ),
                         for (final c in categories) ...[
                           const SizedBox(width: 6),
@@ -254,7 +287,19 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  if (shown.isEmpty)
+                  if (_showMine)
+                    Flexible(
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: _mine.length,
+                        separatorBuilder: (_, i) => const SizedBox(height: 8),
+                        itemBuilder: (context, i) => _MineRow(
+                          meta: _mine[i],
+                          onTap: () => _loadMine(_mine[i]),
+                        ),
+                      ),
+                    )
+                  else if (shown.isEmpty)
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 34),
                       child: Center(
@@ -490,6 +535,57 @@ class _VariantChip extends StatelessWidget {
                       fontSize: 12.5,
                       fontWeight: FontWeight.w600)),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// One of the coach's own saved boards — name, folder, and a play button.
+class _MineRow extends StatelessWidget {
+  final TacticMeta meta;
+  final VoidCallback onTap;
+  const _MineRow({required this.meta, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.05),
+          borderRadius: BorderRadius.circular(11),
+          border: Border.all(color: Colors.white12),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(meta.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600)),
+                  if (meta.folder.isNotEmpty) ...[
+                    const SizedBox(height: 3),
+                    Text(meta.folder,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: Colors.white54, fontSize: 12)),
+                  ],
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            const Icon(Icons.play_circle_outline, color: kAccent, size: 26),
           ],
         ),
       ),

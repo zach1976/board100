@@ -315,6 +315,7 @@
   "drills_minutes": "{}分",
   "drills_search": "ドリルを検索",
   "drills_no_match": "「{}」に一致するものはありません",
+  "drills_mine": "マイボード",
   "drill_cat_all": "すべて",
   "drill_cat_warmup": "ウォームアップ",
   "drill_cat_possession": "ポゼッション",

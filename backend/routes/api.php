@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\PracticeHistoryController;
+use App\Http\Controllers\DrillPackController;
 use App\Http\Controllers\SharedPlayController;
 use App\Http\Controllers\TacticController;
 use App\Http\Middleware\JwtAuthMiddleware;
@@ -20,6 +21,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/share', [SharedPlayController::class, 'store'])
         ->middleware('throttle:20,60');
     Route::get('/share/{slug}', [SharedPlayController::class, 'show']);
+    Route::get('/drills/{sport}', [DrillPackController::class, 'show']);
 
     // Auth (public — returns JWT)
     Route::post('/auth/apple', [AuthController::class, 'apple']);

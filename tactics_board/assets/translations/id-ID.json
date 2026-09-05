@@ -315,6 +315,7 @@
   "drills_minutes": "{} mnt",
   "drills_search": "Cari latihan",
   "drills_no_match": "Tidak ada yang cocok dengan “{}”",
+  "drills_mine": "Milikku",
   "drill_cat_all": "Semua",
   "drill_cat_warmup": "Pemanasan",
   "drill_cat_possession": "Penguasaan",
