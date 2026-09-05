@@ -375,7 +375,9 @@ def setpiece_family() -> list[Drill]:
     )]
     routines = [("nine_metre", "the 9 m free throw", CB, LB),
                 ("throw_off", "the throw-off", (0.50, 0.50), (0.34, 0.44)),
-                ("sideline", "the sideline throw", (0.02, 0.30), (0.22, 0.26))]
+                # the thrower stands outside the line, which is what the
+                # off_surface flag is for
+                ("sideline", "the sideline throw", (-0.02, 0.30), (0.22, 0.26))]
     for key, label, thrower, runner in routines:
         out.append(Drill(
             id=f"hb_set_{key}", category="setpiece", minutes=8, rel=True,

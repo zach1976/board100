@@ -474,6 +474,19 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
         assert not _STUTTER.search(name) and "  " not in name, (
             f"{sport}/{drill.id} [{loc}]: {name!r} reads as a stutter")
 
+    if drill.off_surface:
+        left, top, w, h = court_rect(sport)
+        def outside(pt):
+            return not (left - 12 <= pt[0] <= left + w + 12
+                        and top - 12 <= pt[1] <= top + h + 12)
+        exercised = any(
+            outside(p["position"]) or any(outside(m) for m in p["moves"])
+            for p in people)
+        assert exercised, (
+            f"{sport}/{drill.id}: marked off_surface but nobody leaves the "
+            f"surface — the flag only exists to exempt someone who does, and "
+            f"an unused one is a hole in the on-surface check")
+
     m = _NVM.search(drill.name["en"])
     if m:
         n1, n2 = int(m.group(1)), int(m.group(2))

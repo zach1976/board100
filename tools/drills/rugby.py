@@ -286,8 +286,12 @@ def setpiece_family() -> list[Drill]:
                              ("scrum", "the scrum", 8, 0.54),
                              ("kick_off", "receiving the kick-off", 6, 0.62)]:
         if key.startswith("lineout"):
-            home = [P(0.14, y + 0.02 * i, f"{i + 1}",
-                      moves=[(0.16, y - 0.03 + 0.02 * i, 0)]) for i in range(n)]
+            # The hooker throws from outside the touchline — a lineout with
+            # no thrower is not a lineout, and they are why off_surface is set.
+            home = [P(-0.02, y + 0.02 * (n // 2), "2",
+                      moves=[(0.01, y + 0.02 * (n // 2), 1)])] + [
+                P(0.14, y + 0.02 * i, f"{i + 3}",
+                  moves=[(0.16, y - 0.03 + 0.02 * i, 0)]) for i in range(n)]
             away = [P(0.22, y + 0.02 * i, "D") for i in range(n)]
         elif key == "scrum":
             home = [P(0.44 + 0.03 * (i % 3), y + 0.02 * (i // 3), f"{i + 1}",

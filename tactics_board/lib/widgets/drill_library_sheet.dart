@@ -353,14 +353,13 @@ class _DrillRow extends StatelessWidget {
                         Flexible(
                           child: _Fact(
                               icon: Icons.schedule,
-                              text: 'drills_minutes'
-                                  .tr(args: ['${first.minutes}'])),
+                              text: 'drills_minutes'.tr(args: [_span((d) => d.minutes)])),
                         ),
                         const SizedBox(width: 12),
                         Flexible(
                           child: _Fact(
                               icon: Icons.groups_outlined,
-                              text: '${first.players}'),
+                              text: _span((d) => d.players)),
                         ),
                       ],
                     ),
@@ -401,6 +400,19 @@ class _DrillRow extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       child: card,
     );
+  }
+
+  /// "10" for a single drill, "10–20" across a family. A rondo family runs
+  /// 4v2 to 8v4, and showing only the first variant's numbers told a coach
+  /// the whole card needed six players when the last chip needs twelve.
+  String _span(int Function(Drill) of) {
+    var lo = of(variants.first), hi = lo;
+    for (final v in variants) {
+      final n = of(v);
+      if (n < lo) lo = n;
+      if (n > hi) hi = n;
+    }
+    return lo == hi ? '$lo' : '$lo–$hi';
   }
 
   /// The drill's name with the family heading taken off the front. Falls back
