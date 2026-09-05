@@ -97,6 +97,25 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                   d.localizedName(_locale).toLowerCase().contains(q) ||
                   d.localizedNote(_locale).toLowerCase().contains(q))
               .toList();
+          // Variants of a family share their note word for word, so a flat
+          // list shows the same paragraph five times over. Group them: one
+          // card per family, the coaching point once, the variants beside it.
+          final groups = <List<Drill>>[];
+          final byFamily = <String, int>{};
+          for (final d in shown) {
+            final fam = d.family;
+            if (fam == null) {
+              groups.add([d]);
+              continue;
+            }
+            final at = byFamily[fam];
+            if (at == null) {
+              byFamily[fam] = groups.length;
+              groups.add([d]);
+            } else {
+              groups[at].add(d);
+            }
+          }
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
             ..sort((a, b) => a.index.compareTo(b.index));
 
@@ -223,13 +242,13 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     Flexible(
                       child: ListView.separated(
                         shrinkWrap: true,
-                        itemCount: shown.length,
+                        itemCount: groups.length,
                         separatorBuilder: (_, __) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _DrillRow(
-                          drill: shown[i],
+                          variants: groups[i],
                           locale: _locale,
-                          locked: !_unlocked(shown[i]),
-                          onTap: () => _load(shown[i]),
+                          isLocked: (d) => !_unlocked(d),
+                          onLoad: _load,
                         ),
                       ),
                     ),
@@ -273,17 +292,130 @@ class _CategoryChip extends StatelessWidget {
   }
 }
 
+/// One card. A family shows its heading, its coaching point once, and a chip
+/// per variant; a drill that stands alone shows its own name and note and is
+/// tappable as a whole.
 class _DrillRow extends StatelessWidget {
-  final Drill drill;
+  final List<Drill> variants;
   final String locale;
+  final bool Function(Drill) isLocked;
+  final void Function(Drill) onLoad;
+  const _DrillRow({
+    required this.variants,
+    required this.locale,
+    required this.isLocked,
+    required this.onLoad,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final first = variants.first;
+    final grouped = variants.length > 1;
+    // A family is locked only when every variant is: the free tier deliberately
+    // opens one size of a rondo, not none of it.
+    final allLocked = variants.every(isLocked);
+
+    final card = Container(
+      padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(11),
+        border: Border.all(color: Colors.white12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      grouped
+                          ? first.localizedFamilyName(locale)
+                          : first.localizedName(locale),
+                      style: TextStyle(
+                          color: allLocked ? Colors.white70 : Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      first.localizedNote(locale),
+                      style: const TextStyle(
+                          color: Colors.white54, fontSize: 12, height: 1.35),
+                    ),
+                    const SizedBox(height: 7),
+                    Row(
+                      children: [
+                        _Fact(
+                            icon: Icons.schedule,
+                            text: 'drills_minutes'.tr(args: ['${first.minutes}'])),
+                        const SizedBox(width: 12),
+                        _Fact(icon: Icons.groups_outlined, text: '${first.players}'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              if (!grouped)
+                Icon(allLocked ? Icons.lock_outline : Icons.play_circle_outline,
+                    color: allLocked ? Colors.white38 : kAccent, size: 26),
+            ],
+          ),
+          if (grouped) ...[
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 6,
+              runSpacing: 6,
+              children: [
+                for (final v in variants)
+                  _VariantChip(
+                    // The variant half of "<family> <variant>" is what the
+                    // chip is for; showing the family name again on every
+                    // chip is the repetition this grouping exists to remove.
+                    label: _variantLabel(v),
+                    locked: isLocked(v),
+                    onTap: () => onLoad(v),
+                  ),
+              ],
+            ),
+          ],
+        ],
+      ),
+    );
+
+    if (grouped) return card;
+    return GestureDetector(
+      onTap: () => onLoad(first),
+      behavior: HitTestBehavior.opaque,
+      child: card,
+    );
+  }
+
+  /// The drill's name with the family heading taken off the front. Falls back
+  /// to the whole name whenever it does not start with the heading — a
+  /// language whose word order puts the variant first, for instance.
+  String _variantLabel(Drill v) {
+    final full = v.localizedName(locale);
+    final head = v.localizedFamilyName(locale);
+    if (head.isNotEmpty && full.length > head.length && full.startsWith(head)) {
+      final rest = full.substring(head.length).trim();
+      if (rest.isNotEmpty) return rest;
+    }
+    return full;
+  }
+}
+
+class _VariantChip extends StatelessWidget {
+  final String label;
   final bool locked;
   final VoidCallback onTap;
-  const _DrillRow({
-    required this.drill,
-    required this.locale,
-    required this.locked,
-    required this.onTap,
-  });
+  const _VariantChip(
+      {required this.label, required this.locked, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -291,45 +423,23 @@ class _DrillRow extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Container(
-        padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+        padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.05),
-          borderRadius: BorderRadius.circular(11),
-          border: Border.all(color: Colors.white12),
+          color: Colors.white.withValues(alpha: locked ? 0.03 : 0.08),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: locked ? Colors.white12 : kAccent.withValues(alpha: 0.55)),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    drill.localizedName(locale),
-                    style: TextStyle(
-                        color: locked ? Colors.white70 : Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 3),
-                  Text(
-                    drill.localizedNote(locale),
-                    style: const TextStyle(color: Colors.white54, fontSize: 12, height: 1.35),
-                  ),
-                  const SizedBox(height: 7),
-                  Row(
-                    children: [
-                      _Fact(icon: Icons.schedule, text: 'drills_minutes'.tr(args: ['${drill.minutes}'])),
-                      const SizedBox(width: 12),
-                      _Fact(icon: Icons.groups_outlined, text: '${drill.players}'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 8),
-            Icon(locked ? Icons.lock_outline : Icons.play_circle_outline,
-                color: locked ? Colors.white38 : kAccent, size: 26),
+            Icon(locked ? Icons.lock_outline : Icons.play_arrow_rounded,
+                size: 14, color: locked ? Colors.white38 : kAccent),
+            const SizedBox(width: 5),
+            Text(label,
+                style: TextStyle(
+                    color: locked ? Colors.white38 : Colors.white,
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w600)),
           ],
         ),
       ),

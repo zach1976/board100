@@ -25,6 +25,14 @@ class Drill {
   /// The board itself, in TacticsState's JSON shape.
   final Map<String, dynamic> board;
 
+  /// Set when this drill is one variant of a generated family — a rondo at
+  /// 4v2 and at 6v3, footwork to each of four corners. Variants of a family
+  /// share their coaching point word for word, so the library shows the
+  /// family once with its variants beside it rather than repeating the same
+  /// paragraph on five cards.
+  final String? family;
+  final Map<String, String>? familyName;
+
   /// This drill deliberately puts someone off the playing surface — a
   /// throw-in taker stands behind the touchline. Only used by checks.
   final bool offSurface;
@@ -42,6 +50,8 @@ class Drill {
     required this.name,
     required this.note,
     required this.board,
+    this.family,
+    this.familyName,
     this.free = false,
     this.offSurface = false,
   });
@@ -54,6 +64,10 @@ class Drill {
         name: Map<String, String>.from(json['name'] as Map),
         note: Map<String, String>.from(json['note'] as Map? ?? const {}),
         board: Map<String, dynamic>.from(json['board'] as Map),
+        family: json['family'] as String?,
+        familyName: json['familyName'] == null
+            ? null
+            : Map<String, String>.from(json['familyName'] as Map),
         free: json['free'] as bool? ?? false,
         offSurface: json['offSurface'] as bool? ?? false,
       );
@@ -70,6 +84,10 @@ class Drill {
   }
 
   String localizedName(String locale) => _pick(name, locale);
+
+  /// The family heading, or the drill's own name when it stands alone.
+  String localizedFamilyName(String locale) =>
+      familyName == null ? localizedName(locale) : _pick(familyName!, locale);
 
   String localizedNote(String locale) => _pick(note, locale);
 }
