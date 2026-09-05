@@ -527,7 +527,19 @@ class _MenuButton extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.white70, size: 20 * s),
           SizedBox(width: 12 * s),
-          Text(label, style: TextStyle(color: Colors.white, fontSize: 14 * s)),
+          // Expanded, and allowed a second line: the menu is as wide as the
+          // phone lets it be, and several of these labels are long in French,
+          // Vietnamese and Thai — "Remove ads" and "Practice plan" ran 65px
+          // past the edge on a 320pt screen. `height` above is a minimum, so
+          // an item that needs two lines simply gets taller.
+          Expanded(
+            child: Text(
+              label,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: Colors.white, fontSize: 14 * s),
+            ),
+          ),
         ],
       ),
     );
