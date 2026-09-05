@@ -54,10 +54,18 @@ drive_one() {
   }
   trap restore RETURN
 
+  # A stale backup means a previous run died before restoring. Put it back
+  # rather than patching an already-patched pubspec — that produced a
+  # duplicate dev_dependency key and a pubspec no flutter command would read.
+  if [ -f pubspec.yaml.driveback ]; then
+    echo "  ! recovering pubspec.yaml from a previous run"
+    mv -f pubspec.yaml.driveback pubspec.yaml
+  fi
   cp pubspec.yaml pubspec.yaml.driveback
   python3 - <<'PY'
 import pathlib
 p = pathlib.Path('pubspec.yaml'); s = p.read_text()
+assert 'integration_test' not in s, 'pubspec is already patched'
 s = s.replace("""dev_dependencies:
   flutter_test:
     sdk: flutter""", """dev_dependencies:
@@ -82,7 +90,14 @@ PY
   # Install first: an app that has never been installed has no data container,
   # so writing the flag before this point writes it nowhere. The container then
   # survives the reinstall that flutter drive does.
-  flutter install -d "$UDID" >/dev/null 2>&1 || true
+  #
+  # Build and install explicitly rather than `flutter install`, which needs an
+  # existing build and fails silently after the restore's flutter clean — the
+  # symptom is the app-open ad covering the whole walk.
+  flutter build ios --simulator --debug >/dev/null || {
+    echo "  ✗ $key: simulator build failed"; return 1; }
+  xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app >/dev/null || {
+    echo "  ✗ $key: install failed"; return 1; }
   local container plist
   container=$(xcrun simctl get_app_container "$UDID" "$bundle" data 2>/dev/null || true)
   if [ -n "$container" ]; then
