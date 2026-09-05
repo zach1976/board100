@@ -36,6 +36,42 @@ void main() {
     _libraryTests(sport);
   }
 
+  group('category labels speak the sport\'s language', () {
+    test('a net sport calls it a rally and a serve, not possession', () {
+      const net = DrillVocabulary.net;
+      expect(DrillCategory.possession.labelKeyFor(net),
+          'drill_cat_possession_net');
+      expect(DrillCategory.setpiece.labelKeyFor(net), 'drill_cat_setpiece_net');
+      expect(DrillCategory.ssg.labelKeyFor(net), 'drill_cat_ssg_net');
+    });
+
+    test('words that are already right are not overridden', () {
+      // Nothing is gained by translating "Warm-up" twice, and every override
+      // is a key that has to exist in twelve files.
+      for (final vocab in DrillVocabulary.values) {
+        expect(DrillCategory.warmup.labelKeyFor(vocab), 'drill_cat_warmup');
+        expect(DrillCategory.defending.labelKeyFor(vocab), 'drill_cat_defending');
+      }
+      for (final c in DrillCategory.values) {
+        expect(c.labelKeyFor(DrillVocabulary.pitch), c.labelKey,
+            reason: 'the default labels were written for invasion sports');
+      }
+    });
+
+    test('every sport has a vocabulary and every key it needs exists', () {
+      final en = jsonDecode(
+              File('assets/translations/en-US.json').readAsStringSync())
+          as Map<String, dynamic>;
+      for (final sport in SportType.values) {
+        for (final c in DrillCategory.values) {
+          final key = c.labelKeyFor(sport.drillVocabulary);
+          expect(en.containsKey(key), isTrue,
+              reason: '${sport.name} needs \'$key\' and it is not translated');
+        }
+      }
+    });
+  });
+
   group('Drill localisation', () {
     final drill = Drill(
       id: 'x', category: DrillCategory.warmup, minutes: 5, players: 2,

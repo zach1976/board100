@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../models/drill.dart';
+import '../models/sport_type.dart';
 import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
@@ -201,7 +202,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                         for (final c in categories) ...[
                           const SizedBox(width: 6),
                           _CategoryChip(
-                            label: c.labelKey.tr(),
+                            label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
                             selected: _filter == c,
                             onTap: () => setState(() => _filter = c),
                           ),
