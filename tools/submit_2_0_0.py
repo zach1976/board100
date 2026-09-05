@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
-"""Ship v1.1.25 (code fixes) to all 16 apps, reusing the ASO metadata already
+"""Ship v2.0.0 (code fixes) to all 16 apps, reusing the ASO metadata already
 sitting on each app's pending (Waiting-for-Review) version.
 
 Per app:
   1. Locate the app's newest editable version (the pending ASO one, whatever
      number — 1.1.21 / .22 / .23).
   2. Cancel its WAITING_FOR_REVIEW / delete stale READY_FOR_REVIEW submission.
-  3. Retarget that version's versionString -> 1.1.25 (keeps its ASO
+  3. Retarget that version's versionString -> 2.0.0 (keeps its ASO
      localizations: description / keywords / promo text).
-  4. Attach the uploaded 1.1.25 build (must be VALID), set
+  4. Attach the uploaded 2.0.0 build (must be VALID), set
      usesNonExemptEncryption=false, and push localized whatsNew.
   5. Create a fresh reviewSubmission + item and submit.
 
-Idempotent-ish: safe to re-run; skips apps whose 1.1.25 build isn't VALID yet
-and re-submits any app not already in review at 1.1.25.
+Idempotent-ish: safe to re-run; skips apps whose 2.0.0 build isn't VALID yet
+and re-submits any app not already in review at 2.0.0.
 
 Usage:
-  python3 tools/submit_1_1_25.py            # all 16
-  python3 tools/submit_1_1_25.py waterPolo  # subset by sport key
+  python3 tools/submit_2_0_0.py            # all 16
+  python3 tools/submit_2_0_0.py waterPolo  # subset by sport key
 """
 import jwt, time, os, sys
 import requests, urllib3
@@ -31,7 +31,7 @@ KEY_ID = "4A9Y2S3D6X"
 ISSUER_ID = "3d46fac5-4873-4806-bf23-3f8f17eddbbe"
 KEY_FILE = "/Users/zhenyusong/projects/keys/AuthKey_4A9Y2S3D6X.p8"
 BASE = "https://api.appstoreconnect.apple.com"
-TARGET_VERSION = "1.1.25"
+TARGET_VERSION = "2.0.0"
 
 APP_KEY = {
     "com.zach.tacticsBoard": "tactics_board",
@@ -98,7 +98,7 @@ def process(bundle_id):
         print("  ❌ app not found"); return False
     app_id = r["data"][0]["id"]
 
-    # 1.1.25 build must be uploaded + VALID.
+    # 2.0.0 build must be uploaded + VALID.
     rb = api("GET", f"/v1/builds?filter[app]={app_id}"
                     f"&filter[preReleaseVersion.version]={TARGET_VERSION}"
                     f"&sort=-uploadedDate&limit=10")
@@ -110,7 +110,7 @@ def process(bundle_id):
     build_id = build["id"]
     print(f"  build {build_id} VALID")
 
-    # Pick the version to reuse: an existing 1.1.25, else the newest non-live one.
+    # Pick the version to reuse: an existing 2.0.0, else the newest non-live one.
     # MUST filter platform=IOS — these apps also have macOS version records, and
     # attaching an iOS build to a macOS version 409s ("different platform").
     rv = api("GET", f"/v1/apps/{app_id}/appStoreVersions?filter[platform]=IOS&limit=10")
@@ -133,7 +133,7 @@ def process(bundle_id):
     # Already submitted at the target version — leave it alone. Re-processing
     # would cancel the live review and race the re-attach (INVALID_STATE).
     if cur_ver == TARGET_VERSION and state in ("WAITING_FOR_REVIEW", "IN_REVIEW"):
-        print("  ↷ already in review at 1.1.25 — skip"); return True
+        print("  ↷ already in review at 2.0.0 — skip"); return True
 
     # Cancel any in-review IOS submission so the version becomes editable.
     # Only touch IOS submissions — never the macOS ones (separate platform).
@@ -152,7 +152,7 @@ def process(bundle_id):
             api("DELETE", f"/v1/reviewSubmissions/{s['id']}")
     time.sleep(6)
 
-    # Retarget versionString -> 1.1.25 (no-op if already 1.1.25).
+    # Retarget versionString -> 2.0.0 (no-op if already 2.0.0).
     if cur_ver != TARGET_VERSION:
         r = api("PATCH", f"/v1/appStoreVersions/{version_id}",
                 {"data": {"type": "appStoreVersions", "id": version_id,

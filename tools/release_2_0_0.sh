@@ -1,5 +1,5 @@
 #!/bin/bash
-# release_1_1_25.sh — iOS v1.1.25 build + upload for all 16 apps, then submit
+# release_2_0_0.sh — iOS v2.0.0 build + upload for all 16 apps, then submit
 # ONE of them (Phase 4 takes a sport key; see the cadence note there).
 #
 # Runs from the repo root: every app is its own project now (tactics_board/ is
@@ -18,25 +18,25 @@
 #     on 1.1.24); warmed up when a share flow starts instead.
 #
 # ⚠️ PRECONDITION — iOS 1.1.24 is WAITING_FOR_REVIEW as of 2026-07-26.
-#    submit_1_1_25.py cancels the pending submission and retargets the version.
+#    submit_2_0_0.py cancels the pending submission and retargets the version.
 #    That forfeits 1.1.24's queue position. Before running Phase 4, check whether
 #    1.1.24 has already been approved:
 #        python3 tools/check_app_status.py
-#    If it went READY_FOR_SALE, 1.1.25 submits cleanly on top with no cancel.
+#    If it went READY_FOR_SALE, 2.0.0 submits cleanly on top with no cancel.
 #
 # Checkpointed: rerun to resume from the last unfinished phase.
-# State: build/release_1_1_25_state.txt
+# State: build/release_2_0_0_state.txt
 set -e
 cd "$(dirname "$0")/.."
 
-STATE_FILE="build/release_1_1_25_state.txt"  # repo-root build/
+STATE_FILE="build/release_2_0_0_state.txt"  # repo-root build/
 mkdir -p build
 touch "$STATE_FILE"
 did() { grep -qFx "$1" "$STATE_FILE"; }
 mark() { echo "$1" >> "$STATE_FILE"; }
 
 echo "═════════════════════════════════════════════════════════"
-echo "  iOS v1.1.25 release — $(date)"
+echo "  iOS v2.0.0 release — $(date)"
 echo "  pubspec: $(grep '^version:' tactics_board/pubspec.yaml)"
 echo "  done:    $(wc -l < "$STATE_FILE" | tr -d ' ') phases"
 echo "═════════════════════════════════════════════════════════"
@@ -66,7 +66,7 @@ else echo "↷ Phase 1 done"; fi
 # GADApplicationIdentifier. Cheap to check, expensive to miss.
 if ! did "ipas_verified"; then
   echo "▶ Phase 1b: verifying versions + AdMob App IDs"
-  python3 tools/verify_ipas.py 1.1.25
+  python3 tools/verify_ipas.py 2.0.0
   mark "ipas_verified"; echo "✅ Phase 1b done"
 else echo "↷ Phase 1b done"; fi
 
@@ -79,8 +79,8 @@ else echo "↷ Phase 2 done"; fi
 
 # ── Phase 3: wait for ASC processing ──
 if ! did "builds_processed"; then
-  echo "▶ Phase 3: polling until all 16 v1.1.25 builds are VALID (~20-30 min)"
-  VERSION=1.1.25 python3 tools/wait_builds_processed.py
+  echo "▶ Phase 3: polling until all 16 v2.0.0 builds are VALID (~20-30 min)"
+  VERSION=2.0.0 python3 tools/wait_builds_processed.py
   mark "builds_processed"; echo "✅ Phase 3 done"
 else echo "↷ Phase 3 done"; fi
 
@@ -89,7 +89,7 @@ else echo "↷ Phase 3 done"; fi
 # only after the previous one has a verdict plus >=1 week. Same-day bulk
 # submission is what triggered the 2026-08-09 Guideline 5.6 account
 # suspension, so this phase never fans out — it takes exactly one sport key
-# and refuses to guess. submit_1_1_25.py with no argument submits all 16.
+# and refuses to guess. submit_2_0_0.py with no argument submits all 16.
 SUBMIT_SPORT="${SUBMIT_SPORT:-${1:-}}"
 if [ -z "$SUBMIT_SPORT" ]; then
   echo ""
@@ -103,13 +103,13 @@ if [ -z "$SUBMIT_SPORT" ]; then
   exit 0
 fi
 if ! did "ios_submitted_$SUBMIT_SPORT"; then
-  echo "▶ Phase 4: retarget + submit 1.1.25 for review — $SUBMIT_SPORT only"
-  python3 tools/submit_1_1_25.py "$SUBMIT_SPORT"
+  echo "▶ Phase 4: retarget + submit 2.0.0 for review — $SUBMIT_SPORT only"
+  python3 tools/submit_2_0_0.py "$SUBMIT_SPORT"
   mark "ios_submitted_$SUBMIT_SPORT"; echo "✅ Phase 4 done ($SUBMIT_SPORT)"
 else echo "↷ Phase 4 already done for $SUBMIT_SPORT"; fi
 
 echo ""
-echo "🎉 iOS v1.1.25: $SUBMIT_SPORT submitted for review."
+echo "🎉 iOS v2.0.0: $SUBMIT_SPORT submitted for review."
 echo "   Do NOT submit the next app until this one has a verdict + >=1 week."
 echo "   Then: watch CTR weekly via marketing/tools/admob_report.py."
 echo "   Target: board100 CTR <= 4% within 2 weeks (was 11.5%)."
