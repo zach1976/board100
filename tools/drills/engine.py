@@ -335,17 +335,88 @@ def merge(curated: list[Drill], *families: list[Drill]) -> list[Drill]:
     return out
 
 
+def _common_prefix(names: list[str]) -> str:
+    """The family half of "<family> <variant>", found back from the variants."""
+    if not names:
+        return ""
+    head = names[0]
+    for other in names[1:]:
+        i = 0
+        while i < min(len(head), len(other)) and head[i] == other[i]:
+            i += 1
+        head = head[:i]
+    # Trim back to a word boundary — "Footwork to the " must not become
+    # "Footwork to the f" just because two variants both start with "forehand".
+    head = head.rstrip(" ·-–—,")
+    # Then drop trailing function words. A family name reads as "<family>
+    # <variant>" by construction, so several legitimately end in a preposition
+    # or article ("Footwork to", "Attack from") — fine inside a full name,
+    # wrong as a heading on its own. CJK and Thai need none of this.
+    stop = {"to", "from", "off", "a", "an", "the", "at", "in", "on", "with",
+            "for", "into", "and", "under", "against", "by", "de", "del", "en",
+            "sur", "depuis", "dans", "des", "du", "la", "le", "les", "el",
+            "dari", "ke", "dengan", "di", "pada", "từ", "vào", "trong"}
+    parts = head.split(" ")
+    while len(parts) > 1 and parts[-1].lower() in stop:
+        parts.pop()
+    return " ".join(parts).strip(" ·-–—,")
+
+
+def assign_families(drills: list[Drill], sport: str) -> dict:
+    """Group the variants of a family so the library can show them as one.
+
+    A family is generated from one spec, so its variants share a note word for
+    word — five cards carrying the same paragraph read as padding even though
+    the coaching point really is the same for all five. Rather than invent
+    five different paragraphs, the app shows the family once with its variants
+    beside it, and that grouping is decided here, where the shared note is
+    the evidence.
+
+    Returns {drill id: (family id, {locale: family name})}.
+    """
+    buckets: dict[tuple, list[Drill]] = {}
+    for d in drills:
+        buckets.setdefault((d.category, d.note.get("en", d.id)), []).append(d)
+
+    out = {}
+    for n, (_, group) in enumerate(sorted(buckets.items(), key=lambda kv: kv[0][1])):
+        if len(group) < 2:
+            continue
+        # Only group where the names really are "<family> <variant>": a couple
+        # of hand-written drills share a note by coincidence, and forcing them
+        # under a made-up heading would be worse than leaving them apart.
+        locales = set().union(*(set(d.name) for d in group))
+        family_name = {}
+        for loc in locales:
+            names = [d.name.get(loc, d.name["en"]) for d in group]
+            prefix = _common_prefix(names)
+            if prefix:
+                family_name[loc] = prefix
+        if "en" not in family_name or len(family_name["en"]) < 3:
+            continue
+        fid = f"{sport}_family_{n}"
+        for d in group:
+            out[d.id] = (fid, family_name)
+    return out
+
+
 def build(sport: str, library) -> dict:
     """Render one sport's library to the JSON the app ships."""
     drills = library()
     ids = [d.id for d in drills]
     assert len(ids) == len(set(ids)), f"duplicate drill id in {sport}"
+    families = assign_families(drills, sport)
     return {
         "sport": sport,
         "version": 1,
         "drills": [
             {
                 "id": d.id,
+                # Set when this drill is one variant of a generated family, so
+                # the library can show the family once instead of repeating
+                # its coaching point on every variant.
+                "family": families.get(d.id, (None, None))[0],
+                "familyName": families.get(d.id, (None, None))[1],
                 "category": d.category,
                 "minutes": d.minutes,
                 "players": d.player_count,
