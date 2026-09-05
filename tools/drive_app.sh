@@ -29,9 +29,19 @@ drive_one() {
 
   echo "══ $key — $dir ($bundle, package $pkg)"
 
+  # Only ever remove what this script created. tactics_board has its own
+  # committed integration_test/, test_driver/ and screenshots/ — an earlier
+  # version of this cleanup deleted them, so the files are named explicitly
+  # and pre-existing directories are left alone.
   restore() {
     mv -f pubspec.yaml.driveback pubspec.yaml 2>/dev/null || true
-    rm -rf integration_test test_driver
+    rm -f integration_test/ui_walk.dart
+    [ -f test_driver/integration_test.dart ] && [ ! -s .drive_kept_driver ] \
+      && rm -f test_driver/integration_test.dart
+    [ -f test_driver/.driver_backup ] \
+      && mv -f test_driver/.driver_backup test_driver/integration_test.dart
+    rm -f .drive_kept_driver
+    rmdir integration_test test_driver 2>/dev/null || true
     flutter pub get >/dev/null 2>&1 || true
     flutter clean >/dev/null 2>&1 || true
   }
@@ -51,6 +61,9 @@ s = s.replace("""dev_dependencies:
 p.write_text(s)
 PY
   mkdir -p integration_test test_driver
+  # If the app already ships its own driver, keep it and put ours aside.
+  [ -f test_driver/integration_test.dart ] && touch .drive_kept_driver \
+    && cp test_driver/integration_test.dart test_driver/.driver_backup
   cp "$REPO/tools/drive/driver.dart" test_driver/integration_test.dart
   sed "s/__PACKAGE__/$pkg/" "$REPO/tools/drive/ui_walk.dart" > integration_test/ui_walk.dart
   flutter pub get >/dev/null
@@ -73,7 +86,8 @@ PY
     echo "  ! no data container for $bundle — the app-open ad may cover the walk"
   fi
 
-  rm -rf screenshots
+  # Not rm -rf: tactics_board/screenshots/ holds committed store screenshots.
+  rm -f screenshots/0[0-9]-*.png; mkdir -p screenshots
   flutter drive --driver=test_driver/integration_test.dart \
                 --target=integration_test/ui_walk.dart -d "$UDID"
   echo "  → $dir/screenshots: $(ls -1 screenshots 2>/dev/null | tr '\n' ' ')"

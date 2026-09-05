@@ -24,12 +24,23 @@ void main() {
     }
     await binding.takeScreenshot('01-board');
 
-    // The hub opens on the sport grid; a single-sport app opens on its board.
-    // Either way the library lives behind the overflow menu.
-    final menu = find.byIcon(Icons.more_horiz);
+    // The hub opens on the sport grid, a single-sport app straight onto its
+    // board. On the hub, pick the first sport so the rest of the walk is the
+    // same for both shapes.
+    var menu = find.byIcon(Icons.more_horiz);
     if (menu.evaluate().isEmpty) {
-      await binding.takeScreenshot('02-no-menu');
-      return;
+      final tiles = find.byIcon(Icons.chevron_right);
+      if (tiles.evaluate().isEmpty) {
+        await binding.takeScreenshot('02-no-board');
+        return;
+      }
+      await tester.tap(tiles.first);
+      for (var i = 0; i < 12; i++) {
+        await tester.pump(const Duration(milliseconds: 200));
+      }
+      await binding.takeScreenshot('02-picked-sport');
+      menu = find.byIcon(Icons.more_horiz);
+      if (menu.evaluate().isEmpty) return;
     }
     await tester.tap(menu.first);
     await tester.pumpAndSettle();
