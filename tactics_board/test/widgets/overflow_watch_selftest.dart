@@ -14,8 +14,9 @@ void main() {
   testWidgets('OverflowWatch catches a Row that is too wide', (tester) async {
     final watch = OverflowWatch()..start();
     addTearDown(watch.stop);
-    await tester.binding.setSurfaceSize(const Size(100, 200));
-    addTearDown(() => tester.binding.setSurfaceSize(null));
+    tester.view.physicalSize = const Size(100, 200);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
 
     await tester.pumpWidget(const MaterialApp(
       home: Scaffold(
