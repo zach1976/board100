@@ -4,7 +4,7 @@
   "drills": [
     {
       "id": "bt_warm_volley_exchange",
-      "family": "beachTennis_family_5",
+      "family": "beachTennis_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -147,7 +147,7 @@
     },
     {
       "id": "bt_warm_short_court",
-      "family": "beachTennis_family_5",
+      "family": "beachTennis_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -290,7 +290,7 @@
     },
     {
       "id": "bt_rally_straight",
-      "family": "beachTennis_family_6",
+      "family": "beachTennis_family_9",
       "familyName": {
         "en": "Volley rally",
         "en-GB": "Volley rally",
@@ -428,7 +428,7 @@
     },
     {
       "id": "bt_rally_cross_court",
-      "family": "beachTennis_family_6",
+      "family": "beachTennis_family_9",
       "familyName": {
         "en": "Volley rally",
         "en-GB": "Volley rally",
@@ -565,8 +565,408 @@
       }
     },
     {
+      "id": "bt_return_block",
+      "family": "beachTennis_family_8",
+      "familyName": {
+        "en": "Return",
+        "en-GB": "Return",
+        "es-ES": "Resto",
+        "fr-FR": "Retour",
+        "id-ID": "Pengembalian",
+        "ja-JP": "リターン",
+        "ko-KR": "리턴",
+        "ms-MY": "Pulangan",
+        "th-TH": "การรับเสิร์ฟ",
+        "vi-VN": "Trả giao bóng",
+        "zh-CN": "接发",
+        "zh-TW": "接發"
+      },
+      "category": "possession",
+      "minutes": 8,
+      "players": 4,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Return the block",
+        "en-GB": "Return the block",
+        "zh-CN": "接发 挡球",
+        "zh-TW": "接發 擋球",
+        "ja-JP": "リターン ブロック",
+        "ko-KR": "리턴 블록",
+        "es-ES": "Resto el bloqueo",
+        "fr-FR": "Retour le blocage",
+        "id-ID": "Pengembalian blok",
+        "ms-MY": "Pulangan blok",
+        "th-TH": "การรับเสิร์ฟ การบล็อก",
+        "vi-VN": "Trả giao bóng chắn bóng"
+      },
+      "note": {
+        "en": "The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "en-GB": "The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "zh-CN": "接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
+        "zh-TW": "接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
+        "ja-JP": "リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
+        "ko-KR": "리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
+        "es-ES": "El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
+        "fr-FR": "Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
+        "id-ID": "Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
+        "ms-MY": "Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
+        "th-TH": "การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
+        "vi-VN": "Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              398.0,
+              1132.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                372.5,
+                775.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              627.5,
+              954.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.75,
+                877.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "S",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              372.5,
+              87.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                385.25,
+                367.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "P",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              640.25,
+              520.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              372.5,
+              240.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              372.5,
+              87.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bt_return_attacking",
+      "family": "beachTennis_family_8",
+      "familyName": {
+        "en": "Return",
+        "en-GB": "Return",
+        "es-ES": "Resto",
+        "fr-FR": "Retour",
+        "id-ID": "Pengembalian",
+        "ja-JP": "リターン",
+        "ko-KR": "리턴",
+        "ms-MY": "Pulangan",
+        "th-TH": "การรับเสิร์ฟ",
+        "vi-VN": "Trả giao bóng",
+        "zh-CN": "接发",
+        "zh-TW": "接發"
+      },
+      "category": "possession",
+      "minutes": 8,
+      "players": 4,
+      "free": false,
+      "offSurface": true,
+      "name": {
+        "en": "Return on the attack",
+        "en-GB": "Return on the attack",
+        "zh-CN": "接发 转入进攻",
+        "zh-TW": "接發 轉入進攻",
+        "ja-JP": "リターン 攻めながら",
+        "ko-KR": "리턴 공격적으로",
+        "es-ES": "Resto atacando",
+        "fr-FR": "Retour offensif",
+        "id-ID": "Pengembalian sambil menyerang",
+        "ms-MY": "Pulangan sambil menyerang",
+        "th-TH": "การรับเสิร์ฟ เชิงรุก",
+        "vi-VN": "Trả giao bóng vừa đỡ vừa công"
+      },
+      "note": {
+        "en": "The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "en-GB": "The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "zh-CN": "接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
+        "zh-TW": "接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
+        "ja-JP": "リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
+        "ko-KR": "리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
+        "es-ES": "El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
+        "fr-FR": "Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
+        "id-ID": "Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
+        "ms-MY": "Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
+        "th-TH": "การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
+        "vi-VN": "Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              398.0,
+              1132.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                627.5,
+                1030.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              627.5,
+              954.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.75,
+                877.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "S",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              372.5,
+              87.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                385.25,
+                367.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "P",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              640.25,
+              520.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              627.5,
+              558.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              372.5,
+              87.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "bt_serve_flat",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -771,7 +1171,7 @@
     },
     {
       "id": "bt_serve_sliced",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -976,7 +1376,7 @@
     },
     {
       "id": "bt_serve_jump",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -1181,7 +1581,7 @@
     },
     {
       "id": "bt_attack_approach",
-      "family": "beachTennis_family_2",
+      "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -1381,7 +1781,7 @@
     },
     {
       "id": "bt_attack_the_drop",
-      "family": "beachTennis_family_2",
+      "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -1581,7 +1981,7 @@
     },
     {
       "id": "bt_attack_cross_court",
-      "family": "beachTennis_family_2",
+      "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -1780,8 +2180,395 @@
       }
     },
     {
-      "id": "bt_smash_straight",
+      "id": "bt_lob_over",
       "family": "beachTennis_family_0",
+      "familyName": {
+        "en": "Lob battle",
+        "en-GB": "Lob battle",
+        "es-ES": "Duelo de globos",
+        "fr-FR": "Bataille de lobs",
+        "id-ID": "Adu lob me",
+        "ja-JP": "ロブ戦",
+        "ko-KR": "로브 싸움",
+        "ms-MY": "Adu lob me",
+        "th-TH": "เกมลูกโด่ง",
+        "vi-VN": "Đấu bóng bổng",
+        "zh-CN": "高球攻防",
+        "zh-TW": "高球攻防"
+      },
+      "category": "attacking",
+      "minutes": 8,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Lob battle over the net pair",
+        "en-GB": "Lob battle over the net pair",
+        "zh-CN": "高球攻防 越过网前二人",
+        "zh-TW": "高球攻防 越過網前二人",
+        "ja-JP": "ロブ戦 前衛の頭上へ",
+        "ko-KR": "로브 싸움 네트 조 머리 위로",
+        "es-ES": "Duelo de globos por encima de la pareja en red",
+        "fr-FR": "Bataille de lobs par-dessus la paire au filet",
+        "id-ID": "Adu lob melewati pasangan di net",
+        "ms-MY": "Adu lob melepasi pasangan di jaring",
+        "th-TH": "เกมลูกโด่ง ข้ามคู่หน้าเน็ต",
+        "vi-VN": "Đấu bóng bổng qua đầu cặp trên lưới"
+      },
+      "note": {
+        "en": "A lob into the sun or the wind is a weapon; the same lob with them at your back is a feed. Check both before you choose it.",
+        "en-GB": "A lob into the sun or the wind is a weapon; the same lob with them at your back is a feed. Check both before you choose it.",
+        "zh-CN": "顶着太阳或逆风的高球是武器；顺风背光的同一个高球是喂球。选它之前先看这两样。",
+        "zh-TW": "頂著太陽或逆風的高球是武器；順風背光的同一個高球是餵球。選它之前先看這兩樣。",
+        "ja-JP": "太陽や風に向かわせるロブは武器。追い風で打つ同じロブはただの餌だ。上げる前に両方を確認する。",
+        "ko-KR": "해와 바람을 상대에게 안기는 로브는 무기고, 등지고 올리는 같은 로브는 먹이다.",
+        "es-ES": "Un globo contra el sol o el viento es un arma; el mismo globo con ellos a favor es comida. Mira ambos antes de elegirlo.",
+        "fr-FR": "Un lob dans le soleil ou le vent est une arme ; le même lob vent dans le dos est une offrande. Vérifie les deux avant.",
+        "id-ID": "Lob melawan matahari atau angin adalah senjata.",
+        "ms-MY": "Lob melawan matahari atau angin ialah senjata.",
+        "th-TH": "ลูกโด่งเข้าหาแดดหรือลมคืออาวุธ ลูกเดียวกันตามลมคือการป้อน",
+        "vi-VN": "Bóng bổng ngược nắng hay ngược gió là vũ khí."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              372.5,
+              1209.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                385.25,
+                1132.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              627.5,
+              1209.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              385.25,
+              648.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                372.5,
+                418.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              614.75,
+              648.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                602.0,
+                495.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              602.0,
+              1260.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              372.5,
+              1209.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bt_lob_recover",
+      "family": "beachTennis_family_0",
+      "familyName": {
+        "en": "Lob battle",
+        "en-GB": "Lob battle",
+        "es-ES": "Duelo de globos",
+        "fr-FR": "Bataille de lobs",
+        "id-ID": "Adu lob me",
+        "ja-JP": "ロブ戦",
+        "ko-KR": "로브 싸움",
+        "ms-MY": "Adu lob me",
+        "th-TH": "เกมลูกโด่ง",
+        "vi-VN": "Đấu bóng bổng",
+        "zh-CN": "高球攻防",
+        "zh-TW": "高球攻防"
+      },
+      "category": "attacking",
+      "minutes": 8,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Lob battle recovering it",
+        "en-GB": "Lob battle recovering it",
+        "zh-CN": "高球攻防 回追处理",
+        "zh-TW": "高球攻防 回追處理",
+        "ja-JP": "ロブ戦 追って処理",
+        "ko-KR": "로브 싸움 쫓아가 처리",
+        "es-ES": "Duelo de globos recuperándolo",
+        "fr-FR": "Bataille de lobs le rattraper",
+        "id-ID": "Adu lob mengejarnya",
+        "ms-MY": "Adu lob mengejarnya",
+        "th-TH": "เกมลูกโด่ง ไล่เก็บ",
+        "vi-VN": "Đấu bóng bổng đuổi theo xử lý"
+      },
+      "note": {
+        "en": "A lob into the sun or the wind is a weapon; the same lob with them at your back is a feed. Check both before you choose it.",
+        "en-GB": "A lob into the sun or the wind is a weapon; the same lob with them at your back is a feed. Check both before you choose it.",
+        "zh-CN": "顶着太阳或逆风的高球是武器；顺风背光的同一个高球是喂球。选它之前先看这两样。",
+        "zh-TW": "頂著太陽或逆風的高球是武器；順風背光的同一個高球是餵球。選它之前先看這兩樣。",
+        "ja-JP": "太陽や風に向かわせるロブは武器。追い風で打つ同じロブはただの餌だ。上げる前に両方を確認する。",
+        "ko-KR": "해와 바람을 상대에게 안기는 로브는 무기고, 등지고 올리는 같은 로브는 먹이다.",
+        "es-ES": "Un globo contra el sol o el viento es un arma; el mismo globo con ellos a favor es comida. Mira ambos antes de elegirlo.",
+        "fr-FR": "Un lob dans le soleil ou le vent est une arme ; le même lob vent dans le dos est une offrande. Vérifie les deux avant.",
+        "id-ID": "Lob melawan matahari atau angin adalah senjata.",
+        "ms-MY": "Lob melawan matahari atau angin ialah senjata.",
+        "th-TH": "ลูกโด่งเข้าหาแดดหรือลมคืออาวุธ ลูกเดียวกันตามลมคือการป้อน",
+        "vi-VN": "Bóng bổng ngược nắng hay ngược gió là vũ khí."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              372.5,
+              1030.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                398.0,
+                1132.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              627.5,
+              954.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                398.0,
+                189.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              385.25,
+              648.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                372.5,
+                418.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              614.75,
+              648.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                602.0,
+                495.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              372.5,
+              1030.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bt_smash_straight",
+      "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
         "en-GB": "Smash",
@@ -1974,7 +2761,7 @@
     },
     {
       "id": "bt_smash_cross_court",
-      "family": "beachTennis_family_0",
+      "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
         "en-GB": "Smash",
@@ -2167,7 +2954,7 @@
     },
     {
       "id": "bt_smash_jump",
-      "family": "beachTennis_family_0",
+      "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
         "en-GB": "Smash",
@@ -2360,7 +3147,7 @@
     },
     {
       "id": "bt_defence_the_block",
-      "family": "beachTennis_family_1",
+      "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2560,7 +3347,7 @@
     },
     {
       "id": "bt_defence_the_lob",
-      "family": "beachTennis_family_1",
+      "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2760,7 +3547,7 @@
     },
     {
       "id": "bt_defence_the_drop",
-      "family": "beachTennis_family_1",
+      "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2959,8 +3746,368 @@
       }
     },
     {
+      "id": "bt_cover_middle",
+      "family": "beachTennis_family_7",
+      "familyName": {
+        "en": "Court coverage",
+        "en-GB": "Court coverage",
+        "es-ES": "Cobertura",
+        "fr-FR": "Couverture",
+        "id-ID": "Menutup lapangan b",
+        "ja-JP": "コートカバー",
+        "ko-KR": "코트 커버",
+        "ms-MY": "Litupan gelanggang b",
+        "th-TH": "การคุมพื้นที่",
+        "vi-VN": "Bọc sân",
+        "zh-CN": "补位",
+        "zh-TW": "補位"
+      },
+      "category": "defending",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Court coverage the middle ball",
+        "en-GB": "Court coverage the middle ball",
+        "zh-CN": "补位 中路球",
+        "zh-TW": "補位 中路球",
+        "ja-JP": "コートカバー 真ん中のボール",
+        "ko-KR": "코트 커버 가운데 공",
+        "es-ES": "Cobertura la bola al medio",
+        "fr-FR": "Couverture la balle au milieu",
+        "id-ID": "Menutup lapangan bola tengah",
+        "ms-MY": "Litupan gelanggang bola tengah",
+        "th-TH": "การคุมพื้นที่ ลูกกลาง",
+        "vi-VN": "Bọc sân bóng vào giữa"
+      },
+      "note": {
+        "en": "The middle belongs to the forehand — call it before the point, not during it. Two rackets meeting in the middle is a point for them.",
+        "en-GB": "The middle belongs to the forehand — call it before the point, not during it. Two rackets meeting in the middle is a point for them.",
+        "zh-CN": "中路归正手——分开始之前就说好，别在球飞过来时才商量。两把拍子在中间相撞，这分就是对面的。",
+        "zh-TW": "中路歸正手——分開始之前就說好，別在球飛過來時才商量。兩把拍子在中間相撞，這分就是對面的。",
+        "ja-JP": "真ん中はフォアハンド側のもの。ポイントの前に決めておく。真ん中でラケットが2本ぶつかったら相手の得点だ。",
+        "ko-KR": "가운데는 포핸드의 몫 — 포인트 전에 정해둬라. 라켓 두 개가 가운데서 만나면 상대 점수다.",
+        "es-ES": "El medio es de la derecha: decidlo antes del punto. Dos palas chocando en el centro es un punto para ellos.",
+        "fr-FR": "Le milieu appartient au coup droit — décidez-le avant le point. Deux raquettes au centre, c'est un point pour eux.",
+        "id-ID": "Tengah milik forehand — sepakati sebelum poin dimulai.",
+        "ms-MY": "Tengah milik forehand — setuju sebelum mata bermula.",
+        "th-TH": "ตรงกลางเป็นของโฟร์แฮนด์ ตกลงกันก่อนเริ่มแต้ม",
+        "vi-VN": "Khoảng giữa thuộc về thuận tay — thống nhất trước điểm đấu."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              398.0,
+              1005.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                474.5,
+                903.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              1005.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                627.5,
+                1030.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              495.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                512.75,
+                597.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              334.25,
+              469.50000000000006
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              500.0,
+              495.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bt_cover_switching",
+      "family": "beachTennis_family_7",
+      "familyName": {
+        "en": "Court coverage",
+        "en-GB": "Court coverage",
+        "es-ES": "Cobertura",
+        "fr-FR": "Couverture",
+        "id-ID": "Menutup lapangan b",
+        "ja-JP": "コートカバー",
+        "ko-KR": "코트 커버",
+        "ms-MY": "Litupan gelanggang b",
+        "th-TH": "การคุมพื้นที่",
+        "vi-VN": "Bọc sân",
+        "zh-CN": "补位",
+        "zh-TW": "補位"
+      },
+      "category": "defending",
+      "minutes": 10,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Court coverage switching sides",
+        "en-GB": "Court coverage switching sides",
+        "zh-CN": "补位 左右换位",
+        "zh-TW": "補位 左右換位",
+        "ja-JP": "コートカバー サイドチェンジ",
+        "ko-KR": "코트 커버 사이드 교대",
+        "es-ES": "Cobertura cambio de lados",
+        "fr-FR": "Couverture changement de côtés",
+        "id-ID": "Menutup lapangan bertukar sisi",
+        "ms-MY": "Litupan gelanggang bertukar sisi",
+        "th-TH": "การคุมพื้นที่ สลับฝั่ง",
+        "vi-VN": "Bọc sân đổi bên"
+      },
+      "note": {
+        "en": "The middle belongs to the forehand — call it before the point, not during it. Two rackets meeting in the middle is a point for them.",
+        "en-GB": "The middle belongs to the forehand — call it before the point, not during it. Two rackets meeting in the middle is a point for them.",
+        "zh-CN": "中路归正手——分开始之前就说好，别在球飞过来时才商量。两把拍子在中间相撞，这分就是对面的。",
+        "zh-TW": "中路歸正手——分開始之前就說好，別在球飛過來時才商量。兩把拍子在中間相撞，這分就是對面的。",
+        "ja-JP": "真ん中はフォアハンド側のもの。ポイントの前に決めておく。真ん中でラケットが2本ぶつかったら相手の得点だ。",
+        "ko-KR": "가운데는 포핸드의 몫 — 포인트 전에 정해둬라. 라켓 두 개가 가운데서 만나면 상대 점수다.",
+        "es-ES": "El medio es de la derecha: decidlo antes del punto. Dos palas chocando en el centro es un punto para ellos.",
+        "fr-FR": "Le milieu appartient au coup droit — décidez-le avant le point. Deux raquettes au centre, c'est un point pour eux.",
+        "id-ID": "Tengah milik forehand — sepakati sebelum poin dimulai.",
+        "ms-MY": "Tengah milik forehand — setuju sebelum mata bermula.",
+        "th-TH": "ตรงกลางเป็นของโฟร์แฮนด์ ตกลงกันก่อนเริ่มแต้ม",
+        "vi-VN": "Khoảng giữa thuộc về thuận tay — thống nhất trước điểm đấu."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              359.75,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                627.5,
+                928.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              640.25,
+              1107.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                372.5,
+                1107.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              495.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                512.75,
+                597.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              334.25,
+              469.50000000000006
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 13,
+            "position": [
+              500.0,
+              495.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "bt_game_half_court",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -3133,7 +4280,7 @@
     },
     {
       "id": "bt_game_king_of_the_court",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -3320,7 +4467,7 @@
     },
     {
       "id": "bt_game_full_doubles",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",

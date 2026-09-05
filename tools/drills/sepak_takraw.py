@@ -344,6 +344,151 @@ def game_family() -> list[Drill]:
 
 
 def sepak_takraw_library() -> list[Drill]:
-    return (warmup_family() + feed_family() + attack_family()
-            + spike_family() + defence_family() + serve_family()
+    return (warmup_family() + receive2_family() + feed_family()
+            + attack_family() + spike_family() + defence_family()
+            + cover_family() + serve_family() + tekong_family()
             + game_family())
+
+TEKONG_NAME = {
+    "en": "Tekong serve", "en-GB": "Tekong serve", "zh-CN": "发球手发球",
+    "zh-TW": "發球手發球", "ja-JP": "テコンのサーブ", "ko-KR": "테콩 서브",
+    "es-ES": "Saque del tekong", "fr-FR": "Service du tekong",
+    "id-ID": "Servis tekong", "ms-MY": "Servis tekong",
+    "th-TH": "ลูกเสิร์ฟเตะกง", "vi-VN": "Giao cầu tekong",
+}
+TEKONG_NOTE = {
+    "en": "The toss is the serve. The inside player throws it to the same "
+          "spot every time, and the tekong's kicking foot does the rest.",
+    "en-GB": "The toss is the serve. The inside player throws it to the same "
+             "spot every time, and the tekong's kicking foot does the rest.",
+    "zh-CN": "抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
+    "zh-TW": "拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
+    "ja-JP": "トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
+    "ko-KR": "토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
+    "es-ES": "El lanzamiento es el saque: el interior lo lanza siempre al "
+             "mismo punto y el pie del tekong hace el resto.",
+    "fr-FR": "Le lancer est le service : l'intérieur le lance toujours au "
+             "même point, le pied du tekong fait le reste.",
+    "id-ID": "Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
+    "ms-MY": "Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
+    "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+    "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm.",
+}
+
+
+def tekong_family() -> list[Drill]:
+    """The serve from the server's side: the toss-kick partnership."""
+    specs = [("high_toss", "off the high toss", (0.44, 0.80)),
+             ("low_drive", "driven low", (0.56, 0.82))]
+    out = []
+    for key, label, thrower in specs:
+        out.append(Drill(
+            id=f"st_tekong_{key}", category="setpiece", minutes=10, rel=True,
+            free=(key == "high_toss"),
+            name=suffixed(TEKONG_NAME, label), note=TEKONG_NOTE,
+            home=[P(*TEKONG, "T", moves=[(0.50, 0.82, 1)]),
+                  P(*thrower, "L", moves=[(thrower[0], thrower[1] - 0.06, 0),
+                                          (0.30, 0.60, 2)]),
+                  P(0.88, 0.54, "R", moves=[(0.66, 0.60, 2)])],
+            away=[P(0.50, 0.24, "D", moves=[(0.44, 0.16 if key == "high_toss"
+                                             else 0.30, 1)])],
+            markers=[M(*TEKONG, "circle", "")],
+            ball=1,
+        ))
+    return out
+
+
+RECEIVE2_NAME = {
+    "en": "Serve receive", "en-GB": "Serve receive", "zh-CN": "接发球",
+    "zh-TW": "接發球", "ja-JP": "サーブレシーブ", "ko-KR": "서브 리시브",
+    "es-ES": "Recepción de saque", "fr-FR": "Réception de service",
+    "id-ID": "Terima servis", "ms-MY": "Terima servis",
+    "th-TH": "การรับเสิร์ฟ", "vi-VN": "Đỡ giao cầu",
+}
+RECEIVE2_NOTE = {
+    "en": "Receive with the inside of the foot and cushion upward — the first "
+          "touch has to hang long enough for the feeder to reach it.",
+    "en-GB": "Receive with the inside of the foot and cushion upward — the "
+             "first touch has to hang long enough for the feeder to reach it.",
+    "zh-CN": "用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
+    "zh-TW": "用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
+    "ja-JP": "足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
+    "ko-KR": "발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
+    "es-ES": "Recibe con el interior del pie y amortigua hacia arriba: el "
+             "primer toque debe flotar hasta que llegue el pasador.",
+    "fr-FR": "Reçois de l'intérieur du pied en amortissant vers le haut : la "
+             "première touche doit flotter le temps que le passeur arrive.",
+    "id-ID": "Terima dengan kaki bagian dalam dan redam ke atas.",
+    "ms-MY": "Terima dengan bahagian dalam kaki dan redam ke atas.",
+    "th-TH": "รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
+    "vi-VN": "Đỡ bằng lòng bàn chân và hoãn lực lên cao.",
+}
+
+
+def receive2_family() -> list[Drill]:
+    specs = [("left", "on the left", 0.26), ("right", "on the right", 0.74)]
+    out = []
+    for key, label, x in specs:
+        out.append(Drill(
+            id=f"st_receive_{key}", category="possession", minutes=10, rel=True,
+            free=(key == "left"),
+            name=suffixed(RECEIVE2_NAME, label), note=RECEIVE2_NOTE,
+            home=[P(x, 0.76, "1", moves=[(x, 0.70, 0),
+                                         (FEED_POINT[0], FEED_POINT[1] + 0.14, 1)]),
+                  P(1 - x, 0.60, "2", moves=[FEED_POINT + (1,)]),
+                  P(*TEKONG, "T", moves=[(0.50, 0.78, 1)])],
+            away=[P(0.50, 0.14, "T", moves=[(0.50, 0.20, 0)])],
+            markers=[M(*FEED_POINT, "square", "")],
+            ball=(0.50, 0.14),
+        ))
+    return out
+
+
+COVER_NAME = {
+    "en": "Covering the spike", "en-GB": "Covering the spike",
+    "zh-CN": "保护补位", "zh-TW": "保護補位", "ja-JP": "スパイクカバー",
+    "ko-KR": "스파이크 커버", "es-ES": "Cobertura del remate",
+    "fr-FR": "Couverture de l'attaque", "id-ID": "Menutup smes",
+    "ms-MY": "Menutup rejaman", "th-TH": "การคุมลูกฟาดกลับ",
+    "vi-VN": "Bọc lót cú đá",
+}
+COVER_NOTE = {
+    "en": "The block sends the ball straight down on your own side more often "
+          "than over — two players crouch under your own spiker, every time.",
+    "en-GB": "The block sends the ball straight down on your own side more "
+             "often than over — two players crouch under your own spiker, every time.",
+    "zh-CN": "被拦回来的球多数直坠在本方场内——每一次进攻，都要有两个人蹲在自己攻手身后。",
+    "zh-TW": "被攔回來的球多數直墜在本方場內——每一次進攻，都要有兩個人蹲在自己攻手身後。",
+    "ja-JP": "ブロックされた球は越えるより自陣に真下に落ちることの方が多い。毎回、自分のアタッカーの下に2人が沈む。",
+    "ko-KR": "블록된 공은 넘어가기보다 자기 쪽에 수직으로 떨어진다. 매번 두 명이 자기 공격수 밑에 앉아라.",
+    "es-ES": "El bloqueo devuelve la bola en vertical a tu campo más veces de "
+             "las que pasa: dos jugadores agachados bajo vuestro rematador, siempre.",
+    "fr-FR": "Le contre renvoie la balle à la verticale chez toi plus souvent "
+             "qu'il ne passe : deux joueurs accroupis sous votre attaquant, à chaque fois.",
+    "id-ID": "Bola yang diblok lebih sering jatuh tegak di sisi sendiri.",
+    "ms-MY": "Bola yang disekat lebih kerap jatuh tegak di pihak sendiri.",
+    "th-TH": "ลูกที่โดนบล็อกมักตกดิ่งฝั่งตัวเอง ต้องมีสองคนย่อรอใต้ตัวฟาดทุกครั้ง",
+    "vi-VN": "Bóng bị chắn thường rơi thẳng xuống sân mình — hai người phải chùng sẵn dưới chân đá.",
+}
+
+
+def cover_family() -> list[Drill]:
+    return [Drill(
+        id="st_cover_spike", category="defending", minutes=10, rel=True,
+        free=True,
+        name=suffixed(COVER_NAME, "behind your own attack"), note=COVER_NOTE,
+        home=[P(*RIGHT_INSIDE, "S", moves=[(0.62, 0.54, 1)]),
+              P(*LEFT_INSIDE, "F", moves=[(0.52, 0.66, 1)]),
+              P(*TEKONG, "T", moves=[(0.62, 0.74, 1)])],
+        away=[P(0.62, 0.46, "B", moves=[(0.62, 0.455, 1)])],
+        ball=0,
+    ), Drill(
+        id="st_game_regu", category="ssg", minutes=20, rel=True, free=True,
+        name=suffixed(GAME_NAME, "full regu"), note=GAME_NOTE,
+        home=[P(0.12, 0.54, "L"), P(0.88, 0.54, "R"),
+              P(*TEKONG, "T", moves=[(0.50, 0.80, 0)])],
+        away=[P(0.12, 0.46, "L"), P(0.88, 0.46, "R"),
+              P(0.50, 0.14, "T", moves=[(0.50, 0.20, 0)])],
+        ball=2,
+    )]
+

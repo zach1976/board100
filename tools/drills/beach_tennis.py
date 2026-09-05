@@ -323,6 +323,147 @@ def game_family() -> list[Drill]:
 
 
 def beach_tennis_library() -> list[Drill]:
-    return (warmup_family() + rally_family() + serve_family()
-            + attack_family() + smash_family() + defence_family()
+    return (warmup_family() + rally_family() + return_family()
+            + serve_family() + attack_family() + lob_family()
+            + smash_family() + defence_family() + coverage_family()
             + game_family())
+
+RETURN_NAME = {
+    "en": "Return", "en-GB": "Return", "zh-CN": "接发", "zh-TW": "接發",
+    "ja-JP": "リターン", "ko-KR": "리턴", "es-ES": "Resto", "fr-FR": "Retour",
+    "id-ID": "Pengembalian", "ms-MY": "Pulangan", "th-TH": "การรับเสิร์ฟ",
+    "vi-VN": "Trả giao bóng",
+}
+RETURN_NOTE = {
+    "en": "The return is a volley like everything else here — block it deep "
+          "and take the net before the server's partner does.",
+    "en-GB": "The return is a volley like everything else here — block it "
+             "deep and take the net before the server's partner does.",
+    "zh-CN": "接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
+    "zh-TW": "接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
+    "ja-JP": "リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
+    "ko-KR": "리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
+    "es-ES": "El resto es una volea como todo aquí: bloquéalo profundo y toma "
+             "la red antes que el compañero del sacador.",
+    "fr-FR": "Le retour est une volée comme tout le reste : bloque profond et "
+             "prends le filet avant le partenaire du serveur.",
+    "id-ID": "Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
+    "ms-MY": "Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
+    "th-TH": "การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
+    "vi-VN": "Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước.",
+}
+
+
+def return_family() -> list[Drill]:
+    specs = [("block", "the block", (0.30, 0.10)),
+             ("attacking", "on the attack", (0.70, 0.35))]
+    out = []
+    for key, label, to in specs:
+        out.append(Drill(
+            id=f"bt_return_{key}", category="possession", minutes=8, rel=True,
+            free=(key == "block"), off_surface=True,   # the server behind the line
+            name=suffixed(RETURN_NAME, label), note=RETURN_NOTE,
+            home=[P(0.34, 0.80, "R", moves=[(to[0], min(to[1] + 0.42, 0.72), 1)]),
+                  P(0.70, 0.66, "P", moves=[(0.68, 0.60, 1)])],
+            away=[P(0.30, -0.02, "S", moves=[(0.32, 0.20, 1)]),
+                  P(0.72, 0.32, "P")],
+            markers=[M(*to, "zone", "")],
+            ball=(0.30, -0.02),
+        ))
+    return out
+
+
+COVER_NAME = {
+    "en": "Court coverage", "en-GB": "Court coverage", "zh-CN": "补位",
+    "zh-TW": "補位", "ja-JP": "コートカバー", "ko-KR": "코트 커버",
+    "es-ES": "Cobertura", "fr-FR": "Couverture", "id-ID": "Menutup lapangan",
+    "ms-MY": "Litupan gelanggang", "th-TH": "การคุมพื้นที่", "vi-VN": "Bọc sân",
+}
+COVER_NOTE = {
+    "en": "The middle belongs to the forehand — call it before the point, not "
+          "during it. Two rackets meeting in the middle is a point for them.",
+    "en-GB": "The middle belongs to the forehand — call it before the point, "
+             "not during it. Two rackets meeting in the middle is a point for them.",
+    "zh-CN": "中路归正手——分开始之前就说好，别在球飞过来时才商量。两把拍子在中间相撞，这分就是对面的。",
+    "zh-TW": "中路歸正手——分開始之前就說好，別在球飛過來時才商量。兩把拍子在中間相撞，這分就是對面的。",
+    "ja-JP": "真ん中はフォアハンド側のもの。ポイントの前に決めておく。真ん中でラケットが2本ぶつかったら相手の得点だ。",
+    "ko-KR": "가운데는 포핸드의 몫 — 포인트 전에 정해둬라. 라켓 두 개가 가운데서 만나면 상대 점수다.",
+    "es-ES": "El medio es de la derecha: decidlo antes del punto. Dos palas "
+             "chocando en el centro es un punto para ellos.",
+    "fr-FR": "Le milieu appartient au coup droit — décidez-le avant le point. "
+             "Deux raquettes au centre, c'est un point pour eux.",
+    "id-ID": "Tengah milik forehand — sepakati sebelum poin dimulai.",
+    "ms-MY": "Tengah milik forehand — setuju sebelum mata bermula.",
+    "th-TH": "ตรงกลางเป็นของโฟร์แฮนด์ ตกลงกันก่อนเริ่มแต้ม",
+    "vi-VN": "Khoảng giữa thuộc về thuận tay — thống nhất trước điểm đấu.",
+}
+
+
+def coverage_family() -> list[Drill]:
+    specs = [("middle", "the middle ball", [(0.34, 0.70), (0.66, 0.70)],
+              [(0.46, 0.62), (0.70, 0.72)]),
+             ("switching", "switching sides", [(0.28, 0.62), (0.72, 0.78)],
+              [(0.70, 0.64), (0.30, 0.78)])]
+    out = []
+    for key, label, start, end in specs:
+        out.append(Drill(
+            id=f"bt_cover_{key}", category="defending", minutes=10, rel=True,
+            free=(key == "middle"),
+            name=suffixed(COVER_NAME, label), note=COVER_NOTE,
+            home=[P(x, y, f"{i + 1}", moves=[end[i] + (1,)])
+                  for i, (x, y) in enumerate(start)],
+            away=[P(0.50, 0.30, "A", moves=[(0.52, 0.38, 0)]), P(0.24, 0.28, "B")],
+            ball=(0.50, 0.30),
+        ))
+    return out
+
+
+LOB_NAME = {
+    "en": "Lob battle", "en-GB": "Lob battle", "zh-CN": "高球攻防",
+    "zh-TW": "高球攻防", "ja-JP": "ロブ戦", "ko-KR": "로브 싸움",
+    "es-ES": "Duelo de globos", "fr-FR": "Bataille de lobs",
+    "id-ID": "Adu lob", "ms-MY": "Adu lob", "th-TH": "เกมลูกโด่ง",
+    "vi-VN": "Đấu bóng bổng",
+}
+LOB_NOTE = {
+    "en": "A lob into the sun or the wind is a weapon; the same lob with them "
+          "at your back is a feed. Check both before you choose it.",
+    "en-GB": "A lob into the sun or the wind is a weapon; the same lob with "
+             "them at your back is a feed. Check both before you choose it.",
+    "zh-CN": "顶着太阳或逆风的高球是武器；顺风背光的同一个高球是喂球。选它之前先看这两样。",
+    "zh-TW": "頂著太陽或逆風的高球是武器；順風背光的同一個高球是餵球。選它之前先看這兩樣。",
+    "ja-JP": "太陽や風に向かわせるロブは武器。追い風で打つ同じロブはただの餌だ。上げる前に両方を確認する。",
+    "ko-KR": "해와 바람을 상대에게 안기는 로브는 무기고, 등지고 올리는 같은 로브는 먹이다.",
+    "es-ES": "Un globo contra el sol o el viento es un arma; el mismo globo "
+             "con ellos a favor es comida. Mira ambos antes de elegirlo.",
+    "fr-FR": "Un lob dans le soleil ou le vent est une arme ; le même lob "
+             "vent dans le dos est une offrande. Vérifie les deux avant.",
+    "id-ID": "Lob melawan matahari atau angin adalah senjata.",
+    "ms-MY": "Lob melawan matahari atau angin ialah senjata.",
+    "th-TH": "ลูกโด่งเข้าหาแดดหรือลมคืออาวุธ ลูกเดียวกันตามลมคือการป้อน",
+    "vi-VN": "Bóng bổng ngược nắng hay ngược gió là vũ khí.",
+}
+
+
+def lob_family() -> list[Drill]:
+    specs = [("over", "over the net pair", (0.66, 0.90)),
+             ("recover", "recovering it", (0.34, 0.06))]
+    out = []
+    for key, label, land in specs:
+        home = ([P(0.30, 0.72, "1", moves=[(0.34, 0.80, 1)]),
+                 P(0.70, 0.66, "2", moves=[(land[0], land[1], 1)])]
+                if key == "recover" else
+                [P(0.30, 0.86, "1", moves=[(0.32, 0.80, 1)]),
+                 P(0.70, 0.86, "2")])
+        out.append(Drill(
+            id=f"bt_lob_{key}", category="attacking", minutes=8, rel=True,
+            free=(key == "over"),
+            name=suffixed(LOB_NAME, label), note=LOB_NOTE,
+            home=home,
+            away=[P(0.32, 0.42, "A", moves=[(0.30, 0.24, 1)]),
+                  P(0.68, 0.42, "B", moves=[(0.66, 0.30, 1)])],
+            markers=[M(*land, "zone", "")] if key == "over" else [],
+            ball=0,
+        ))
+    return out
+

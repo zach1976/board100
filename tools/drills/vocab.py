@@ -1176,3 +1176,54 @@ add("driving from the lineout", "边线球起推", "邊線球起推",
     "ラインアウトからのドライブ", "라인아웃 드라이브",
     "desde el touch", "sur touche", "dorongan dari lineout",
     "tolakan dari lineout", "ดันจากไลน์เอาท์", "đẩy từ ném biên")
+add("the middle ball", "中路球", "中路球", "真ん中のボール", "가운데 공",
+    "la bola al medio", "la balle au milieu", "bola tengah", "bola tengah",
+    "ลูกกลาง", "bóng vào giữa")
+add("switching sides", "左右换位", "左右換位", "サイドチェンジ", "사이드 교대",
+    "cambio de lados", "changement de côtés", "bertukar sisi",
+    "bertukar sisi", "สลับฝั่ง", "đổi bên")
+add("over the net pair", "越过网前二人", "越過網前二人", "前衛の頭上へ",
+    "네트 조 머리 위로", "por encima de la pareja en red",
+    "par-dessus la paire au filet", "melewati pasangan di net",
+    "melepasi pasangan di jaring", "ข้ามคู่หน้าเน็ต", "qua đầu cặp trên lưới")
+add("recovering it", "回追处理", "回追處理", "追って処理", "쫓아가 처리",
+    "recuperándolo", "le rattraper", "mengejarnya", "mengejarnya",
+    "ไล่เก็บ", "đuổi theo xử lý")
+add("on the attack", "转入进攻", "轉入進攻", "攻めながら", "공격적으로",
+    "atacando", "offensif", "sambil menyerang", "sambil menyerang",
+    "เชิงรุก", "vừa đỡ vừa công")
+add("with the thigh", "大腿停球", "大腿停球", "腿トラップ", "허벅지 트래핑",
+    "con el muslo", "de la cuisse", "dengan paha", "dengan peha",
+    "ด้วยต้นขา", "bằng đùi")
+add("off the quick set", "快球进攻", "快球進攻", "クイックトスから", "퀵 세트에서",
+    "tras colocación rápida", "sur passe rapide", "dari umpan cepat",
+    "dari umpanan pantas", "จากการเซตเร็ว", "từ chuyền nhanh")
+add("from the back court", "后场进攻", "後場進攻", "後方から", "후위에서",
+    "desde el fondo", "depuis l'arrière", "dari belakang", "dari belakang",
+    "จากแดนหลัง", "từ cuối sân")
+add("attacking the second ball", "二次球突袭", "二次球突襲", "2タッチ目で攻める",
+    "두 번째 터치 공격", "atacando el segundo toque",
+    "attaquer la deuxième touche", "menyerang sentuhan kedua",
+    "menyerang sentuhan kedua", "บุกด้วยสัมผัสที่สอง", "tấn công ngay chạm hai")
+add("1v1 at the net", "网前 1v1", "網前 1v1", "ネット際の1対1", "네트 1대1",
+    "1c1 en la red", "1c1 au filet", "1v1 di net", "1v1 di jaring",
+    "1v1 หน้าเน็ต", "1v1 trên lưới")
+add("off the high toss", "高抛", "高拋", "高いトスから", "높은 토스에서",
+    "con lanzamiento alto", "sur lancer haut", "dari lambungan tinggi",
+    "dari lambungan tinggi", "จากการโยนสูง", "từ cú tung cao")
+add("driven low", "低平抽射", "低平抽射", "低く鋭く", "낮고 강하게",
+    "raso y tenso", "tendu et bas", "mendatar rendah", "mendatar rendah",
+    "เรียบต่ำ", "căng thấp")
+add("on the left", "左侧", "左側", "左サイド", "왼쪽",
+    "por la izquierda", "à gauche", "sisi kiri", "sebelah kiri",
+    "ฝั่งซ้าย", "bên trái")
+add("on the right", "右侧", "右側", "右サイド", "오른쪽",
+    "por la derecha", "à droite", "sisi kanan", "sebelah kanan",
+    "ฝั่งขวา", "bên phải")
+add("behind your own attack", "攻手身后", "攻手身後", "自軍アタックの後ろ",
+    "자기 공격 뒤", "tras vuestro remate", "derrière votre attaque",
+    "di belakang serangan sendiri", "di belakang serangan sendiri",
+    "หลังตัวฟาดฝั่งตัวเอง", "sau chân đá của đội mình")
+add("full regu", "整队对抗", "整隊對抗", "レグ戦", "레구 경기",
+    "regu completo", "regu complet", "regu penuh", "regu penuh",
+    "เรกูเต็มทีม", "regu đầy đủ")

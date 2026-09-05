@@ -4,7 +4,7 @@
   "drills": [
     {
       "id": "st_warm_juggling",
-      "family": "sepakTakraw_family_6",
+      "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -137,7 +137,7 @@
     },
     {
       "id": "st_warm_all_surfaces",
-      "family": "sepakTakraw_family_6",
+      "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -270,7 +270,7 @@
     },
     {
       "id": "st_warm_keep_up",
-      "family": "sepakTakraw_family_6",
+      "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -421,6 +421,430 @@
             "photoId": null,
             "role": null,
             "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_receive_left",
+      "family": "sepakTakraw_family_3",
+      "familyName": {
+        "en": "Serve receive",
+        "en-GB": "Serve receive",
+        "es-ES": "Recepción de saque por",
+        "fr-FR": "Réception de service à",
+        "id-ID": "Terima servis sisi k",
+        "ja-JP": "サーブレシーブ",
+        "ko-KR": "서브 리시브",
+        "ms-MY": "Terima servis sebelah k",
+        "th-TH": "การรับเสิร์ฟ ฝั่ง",
+        "vi-VN": "Đỡ giao cầu bên",
+        "zh-CN": "接发球",
+        "zh-TW": "接發球"
+      },
+      "category": "possession",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Serve receive on the left",
+        "en-GB": "Serve receive on the left",
+        "zh-CN": "接发球 左侧",
+        "zh-TW": "接發球 左側",
+        "ja-JP": "サーブレシーブ 左サイド",
+        "ko-KR": "서브 리시브 왼쪽",
+        "es-ES": "Recepción de saque por la izquierda",
+        "fr-FR": "Réception de service à gauche",
+        "id-ID": "Terima servis sisi kiri",
+        "ms-MY": "Terima servis sebelah kiri",
+        "th-TH": "การรับเสิร์ฟ ฝั่งซ้าย",
+        "vi-VN": "Đỡ giao cầu bên trái"
+      },
+      "note": {
+        "en": "Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "en-GB": "Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "zh-CN": "用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
+        "zh-TW": "用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
+        "ja-JP": "足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
+        "ko-KR": "발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
+        "es-ES": "Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
+        "fr-FR": "Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
+        "id-ID": "Terima dengan kaki bagian dalam dan redam ke atas.",
+        "ms-MY": "Terima dengan bahagian dalam kaki dan redam ke atas.",
+        "th-TH": "รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
+        "vi-VN": "Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              355.7850746268657,
+              1093.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                355.7850746268657,
+                1013.9999999999999
+              ],
+              [
+                500.0,
+                1040.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              644.2149253731343,
+              882.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                855.5999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1119.6000000000001
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "T",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                354.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              855.5999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              500.0,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_receive_right",
+      "family": "sepakTakraw_family_3",
+      "familyName": {
+        "en": "Serve receive",
+        "en-GB": "Serve receive",
+        "es-ES": "Recepción de saque por",
+        "fr-FR": "Réception de service à",
+        "id-ID": "Terima servis sisi k",
+        "ja-JP": "サーブレシーブ",
+        "ko-KR": "서브 리시브",
+        "ms-MY": "Terima servis sebelah k",
+        "th-TH": "การรับเสิร์ฟ ฝั่ง",
+        "vi-VN": "Đỡ giao cầu bên",
+        "zh-CN": "接发球",
+        "zh-TW": "接發球"
+      },
+      "category": "possession",
+      "minutes": 10,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Serve receive on the right",
+        "en-GB": "Serve receive on the right",
+        "zh-CN": "接发球 右侧",
+        "zh-TW": "接發球 右側",
+        "ja-JP": "サーブレシーブ 右サイド",
+        "ko-KR": "서브 리시브 오른쪽",
+        "es-ES": "Recepción de saque por la derecha",
+        "fr-FR": "Réception de service à droite",
+        "id-ID": "Terima servis sisi kanan",
+        "ms-MY": "Terima servis sebelah kanan",
+        "th-TH": "การรับเสิร์ฟ ฝั่งขวา",
+        "vi-VN": "Đỡ giao cầu bên phải"
+      },
+      "note": {
+        "en": "Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "en-GB": "Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "zh-CN": "用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
+        "zh-TW": "用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
+        "ja-JP": "足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
+        "ko-KR": "발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
+        "es-ES": "Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
+        "fr-FR": "Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
+        "id-ID": "Terima dengan kaki bagian dalam dan redam ke atas.",
+        "ms-MY": "Terima dengan bahagian dalam kaki dan redam ke atas.",
+        "th-TH": "รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
+        "vi-VN": "Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              644.2149253731343,
+              1093.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                644.2149253731343,
+                1013.9999999999999
+              ],
+              [
+                500.0,
+                1040.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              355.7850746268657,
+              882.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                855.5999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1119.6000000000001
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "T",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                354.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              855.5999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              500.0,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2353,7 +2777,7 @@
     },
     {
       "id": "st_defence_at_the_net",
-      "family": "sepakTakraw_family_3",
+      "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2567,7 +2991,7 @@
     },
     {
       "id": "st_defence_behind_the_block",
-      "family": "sepakTakraw_family_3",
+      "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2781,7 +3205,7 @@
     },
     {
       "id": "st_defence_covering_the_block",
-      "family": "sepakTakraw_family_3",
+      "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -2994,8 +3418,388 @@
       }
     },
     {
+      "id": "st_cover_spike",
+      "family": null,
+      "familyName": null,
+      "category": "defending",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Covering the spike behind your own attack",
+        "en-GB": "Covering the spike behind your own attack",
+        "zh-CN": "保护补位 攻手身后",
+        "zh-TW": "保護補位 攻手身後",
+        "ja-JP": "スパイクカバー 自軍アタックの後ろ",
+        "ko-KR": "스파이크 커버 자기 공격 뒤",
+        "es-ES": "Cobertura del remate tras vuestro remate",
+        "fr-FR": "Couverture de l'attaque derrière votre attaque",
+        "id-ID": "Menutup smes di belakang serangan sendiri",
+        "ms-MY": "Menutup rejaman di belakang serangan sendiri",
+        "th-TH": "การคุมลูกฟาดกลับ หลังตัวฟาดฝั่งตัวเอง",
+        "vi-VN": "Bọc lót cú đá sau chân đá của đội mình"
+      },
+      "note": {
+        "en": "The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
+        "en-GB": "The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
+        "zh-CN": "被拦回来的球多数直坠在本方场内——每一次进攻，都要有两个人蹲在自己攻手身后。",
+        "zh-TW": "被攔回來的球多數直墜在本方場內——每一次進攻，都要有兩個人蹲在自己攻手身後。",
+        "ja-JP": "ブロックされた球は越えるより自陣に真下に落ちることの方が多い。毎回、自分のアタッカーの下に2人が沈む。",
+        "ko-KR": "블록된 공은 넘어가기보다 자기 쪽에 수직으로 떨어진다. 매번 두 명이 자기 공격수 밑에 앉아라.",
+        "es-ES": "El bloqueo devuelve la bola en vertical a tu campo más veces de las que pasa: dos jugadores agachados bajo vuestro rematador, siempre.",
+        "fr-FR": "Le contre renvoie la balle à la verticale chez toi plus souvent qu'il ne passe : deux joueurs accroupis sous votre attaquant, à chaque fois.",
+        "id-ID": "Bola yang diblok lebih sering jatuh tegak di sisi sendiri.",
+        "ms-MY": "Bola yang disekat lebih kerap jatuh tegak di pihak sendiri.",
+        "th-TH": "ลูกที่โดนบล็อกมักตกดิ่งฝั่งตัวเอง ต้องมีสองคนย่อรอใต้ตัวฟาดทุกครั้ง",
+        "vi-VN": "Bóng bị chắn thường rơi thẳng xuống sân mình — hai người phải chùng sẵn dưới chân đá."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              632.1970149253732,
+              934.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                572.1074626865671,
+                802.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              367.8029850746269,
+              934.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                512.0179104477612,
+                961.2
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                572.1074626865671,
+                1066.8
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              572.1074626865671,
+              697.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              632.1970149253732,
+              934.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_game_regu",
+      "family": "sepakTakraw_family_8",
+      "familyName": {
+        "en": "Game",
+        "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
+        "ko-KR": "게임",
+        "ms-MY": "Permainan",
+        "th-TH": "เกม",
+        "vi-VN": "Trận đấu",
+        "zh-CN": "对抗",
+        "zh-TW": "對抗"
+      },
+      "category": "ssg",
+      "minutes": 20,
+      "players": 6,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Game full regu",
+        "en-GB": "Game full regu",
+        "zh-CN": "对抗 整队对抗",
+        "zh-TW": "對抗 整隊對抗",
+        "ja-JP": "ゲーム レグ戦",
+        "ko-KR": "게임 레구 경기",
+        "es-ES": "Juego regu completo",
+        "fr-FR": "Jeu regu complet",
+        "id-ID": "Permainan regu penuh",
+        "ms-MY": "Permainan regu penuh",
+        "th-TH": "เกม เรกูเต็มทีม",
+        "vi-VN": "Trận đấu regu đầy đủ"
+      },
+      "note": {
+        "en": "Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "en-GB": "Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "zh-CN": "三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
+        "zh-TW": "三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
+        "ja-JP": "3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
+        "ko-KR": "세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
+        "es-ES": "Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
+        "fr-FR": "Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
+        "id-ID": "Tiga sentuhan, tiga pemain, satu reli.",
+        "ms-MY": "Tiga sentuhan, tiga pemain, satu rali.",
+        "th-TH": "สามสัมผัส สามคน หนึ่งการโต้",
+        "vi-VN": "Ba chạm, ba người, một pha bóng."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "L",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              271.6597014925373,
+              802.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              728.3402985074626,
+              802.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1146.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "L",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              271.6597014925373,
+              697.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              728.3402985074626,
+              697.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "T",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                354.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d2"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "st_serve_deep",
-      "family": "sepakTakraw_family_4",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -3222,7 +4026,7 @@
     },
     {
       "id": "st_serve_at_the_seam",
-      "family": "sepakTakraw_family_4",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -3449,7 +4253,7 @@
     },
     {
       "id": "st_serve_short",
-      "family": "sepakTakraw_family_4",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -3675,8 +4479,432 @@
       }
     },
     {
+      "id": "st_tekong_high_toss",
+      "family": "sepakTakraw_family_7",
+      "familyName": {
+        "en": "Tekong serve",
+        "en-GB": "Tekong serve",
+        "es-ES": "Saque del tekong",
+        "fr-FR": "Service du tekong",
+        "id-ID": "Servis tekong",
+        "ja-JP": "テコンのサーブ",
+        "ko-KR": "테콩 서브",
+        "ms-MY": "Servis tekong",
+        "th-TH": "ลูกเสิร์ฟเตะกง",
+        "vi-VN": "Giao cầu tekong",
+        "zh-CN": "发球手发球",
+        "zh-TW": "發球手發球"
+      },
+      "category": "setpiece",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Tekong serve off the high toss",
+        "en-GB": "Tekong serve off the high toss",
+        "zh-CN": "发球手发球 高抛",
+        "zh-TW": "發球手發球 高拋",
+        "ja-JP": "テコンのサーブ 高いトスから",
+        "ko-KR": "테콩 서브 높은 토스에서",
+        "es-ES": "Saque del tekong con lanzamiento alto",
+        "fr-FR": "Service du tekong sur lancer haut",
+        "id-ID": "Servis tekong dari lambungan tinggi",
+        "ms-MY": "Servis tekong dari lambungan tinggi",
+        "th-TH": "ลูกเสิร์ฟเตะกง จากการโยนสูง",
+        "vi-VN": "Giao cầu tekong từ cú tung cao"
+      },
+      "note": {
+        "en": "The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "en-GB": "The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "zh-CN": "抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
+        "zh-TW": "拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
+        "ja-JP": "トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
+        "ko-KR": "토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
+        "es-ES": "El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
+        "fr-FR": "Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
+        "id-ID": "Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
+        "ms-MY": "Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
+        "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+        "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1172.3999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "L",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              463.9462686567164,
+              1146.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                463.9462686567164,
+                1066.8
+              ],
+              [
+                379.820895522388,
+                882.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              728.3402985074626,
+              802.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                596.1432835820896,
+                882.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              406.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                463.9462686567164,
+                301.20000000000005
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 1,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              463.9462686567164,
+              1146.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d1"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_tekong_low_drive",
+      "family": "sepakTakraw_family_7",
+      "familyName": {
+        "en": "Tekong serve",
+        "en-GB": "Tekong serve",
+        "es-ES": "Saque del tekong",
+        "fr-FR": "Service du tekong",
+        "id-ID": "Servis tekong",
+        "ja-JP": "テコンのサーブ",
+        "ko-KR": "테콩 서브",
+        "ms-MY": "Servis tekong",
+        "th-TH": "ลูกเสิร์ฟเตะกง",
+        "vi-VN": "Giao cầu tekong",
+        "zh-CN": "发球手发球",
+        "zh-TW": "發球手發球"
+      },
+      "category": "setpiece",
+      "minutes": 10,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Tekong serve driven low",
+        "en-GB": "Tekong serve driven low",
+        "zh-CN": "发球手发球 低平抽射",
+        "zh-TW": "發球手發球 低平抽射",
+        "ja-JP": "テコンのサーブ 低く鋭く",
+        "ko-KR": "테콩 서브 낮고 강하게",
+        "es-ES": "Saque del tekong raso y tenso",
+        "fr-FR": "Service du tekong tendu et bas",
+        "id-ID": "Servis tekong mendatar rendah",
+        "ms-MY": "Servis tekong mendatar rendah",
+        "th-TH": "ลูกเสิร์ฟเตะกง เรียบต่ำ",
+        "vi-VN": "Giao cầu tekong căng thấp"
+      },
+      "note": {
+        "en": "The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "en-GB": "The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "zh-CN": "抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
+        "zh-TW": "拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
+        "ja-JP": "トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
+        "ko-KR": "토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
+        "es-ES": "El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
+        "fr-FR": "Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
+        "id-ID": "Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
+        "ms-MY": "Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
+        "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+        "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1172.3999999999999
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "L",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              536.0537313432836,
+              1172.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                536.0537313432836,
+                1093.2
+              ],
+              [
+                379.820895522388,
+                882.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              728.3402985074626,
+              802.8000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                596.1432835820896,
+                882.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              406.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                463.9462686567164,
+                486.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 1,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              536.0537313432836,
+              1172.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d1"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "st_game_2v2",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -3863,7 +5091,7 @@
     },
     {
       "id": "st_game_3v3",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -4104,7 +5332,7 @@
     },
     {
       "id": "st_game_no_block",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
