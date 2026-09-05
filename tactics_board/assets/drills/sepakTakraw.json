@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "st_warm_juggling",
+      "level": "foundation",
       "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
@@ -137,6 +138,7 @@
     },
     {
       "id": "st_warm_all_surfaces",
+      "level": "foundation",
       "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
@@ -270,6 +272,7 @@
     },
     {
       "id": "st_warm_keep_up",
+      "level": "foundation",
       "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Warm-up",
@@ -430,6 +433,7 @@
     },
     {
       "id": "st_receive_left",
+      "level": "development",
       "family": "sepakTakraw_family_3",
       "familyName": {
         "en": "Serve receive",
@@ -642,6 +646,7 @@
     },
     {
       "id": "st_receive_right",
+      "level": "development",
       "family": "sepakTakraw_family_3",
       "familyName": {
         "en": "Serve receive",
@@ -854,6 +859,7 @@
     },
     {
       "id": "st_feed_receiving_the_serve",
+      "level": "development",
       "family": "sepakTakraw_family_0",
       "familyName": {
         "en": "Feeding",
@@ -1061,6 +1067,7 @@
     },
     {
       "id": "st_feed_the_high_feed",
+      "level": "development",
       "family": "sepakTakraw_family_0",
       "familyName": {
         "en": "Feeding",
@@ -1268,6 +1275,7 @@
     },
     {
       "id": "st_feed_the_quick_feed",
+      "level": "development",
       "family": "sepakTakraw_family_0",
       "familyName": {
         "en": "Feeding",
@@ -1475,6 +1483,7 @@
     },
     {
       "id": "st_attack_straight",
+      "level": "development",
       "family": "sepakTakraw_family_2",
       "familyName": {
         "en": "Attacking",
@@ -1702,6 +1711,7 @@
     },
     {
       "id": "st_attack_cross_court",
+      "level": "development",
       "family": "sepakTakraw_family_2",
       "familyName": {
         "en": "Attacking",
@@ -1929,6 +1939,7 @@
     },
     {
       "id": "st_attack_the_feint",
+      "level": "development",
       "family": "sepakTakraw_family_2",
       "familyName": {
         "en": "Attacking",
@@ -2156,6 +2167,7 @@
     },
     {
       "id": "st_spike_roll",
+      "level": "advanced",
       "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Spiking",
@@ -2363,6 +2375,7 @@
     },
     {
       "id": "st_spike_scissor",
+      "level": "advanced",
       "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Spiking",
@@ -2570,6 +2583,7 @@
     },
     {
       "id": "st_spike_sunback",
+      "level": "advanced",
       "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Spiking",
@@ -2777,6 +2791,7 @@
     },
     {
       "id": "st_defence_at_the_net",
+      "level": "development",
       "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
@@ -2991,6 +3006,7 @@
     },
     {
       "id": "st_defence_behind_the_block",
+      "level": "development",
       "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
@@ -3205,6 +3221,7 @@
     },
     {
       "id": "st_defence_covering_the_block",
+      "level": "development",
       "family": "sepakTakraw_family_5",
       "familyName": {
         "en": "Defending",
@@ -3419,6 +3436,7 @@
     },
     {
       "id": "st_cover_spike",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -3586,6 +3604,7 @@
     },
     {
       "id": "st_game_regu",
+      "level": "development",
       "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
@@ -3799,6 +3818,7 @@
     },
     {
       "id": "st_serve_deep",
+      "level": "development",
       "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
@@ -4026,6 +4046,7 @@
     },
     {
       "id": "st_serve_at_the_seam",
+      "level": "development",
       "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
@@ -4253,6 +4274,7 @@
     },
     {
       "id": "st_serve_short",
+      "level": "development",
       "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Serve",
@@ -4480,6 +4502,7 @@
     },
     {
       "id": "st_tekong_high_toss",
+      "level": "development",
       "family": "sepakTakraw_family_7",
       "familyName": {
         "en": "Tekong serve",
@@ -4692,6 +4715,7 @@
     },
     {
       "id": "st_tekong_low_drive",
+      "level": "development",
       "family": "sepakTakraw_family_7",
       "familyName": {
         "en": "Tekong serve",
@@ -4904,6 +4928,7 @@
     },
     {
       "id": "st_game_2v2",
+      "level": "development",
       "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
@@ -5091,6 +5116,7 @@
     },
     {
       "id": "st_game_3v3",
+      "level": "development",
       "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",
@@ -5332,6 +5358,7 @@
     },
     {
       "id": "st_game_no_block",
+      "level": "development",
       "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Game",

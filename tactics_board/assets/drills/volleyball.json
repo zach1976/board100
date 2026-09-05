@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "vb_warm_pepper",
+      "level": "foundation",
       "family": "volleyball_family_3",
       "familyName": {
         "en": "Warm-up",
@@ -147,6 +148,7 @@
     },
     {
       "id": "vb_warm_butterfly",
+      "level": "foundation",
       "family": "volleyball_family_3",
       "familyName": {
         "en": "Warm-up",
@@ -334,6 +336,7 @@
     },
     {
       "id": "vb_warm_dig_shuffle",
+      "level": "foundation",
       "family": "volleyball_family_3",
       "familyName": {
         "en": "Warm-up",
@@ -504,6 +507,7 @@
     },
     {
       "id": "vb_receive_r1",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -802,6 +806,7 @@
     },
     {
       "id": "vb_receive_r2",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -1100,6 +1105,7 @@
     },
     {
       "id": "vb_receive_r3",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -1398,6 +1404,7 @@
     },
     {
       "id": "vb_receive_r4",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -1696,6 +1703,7 @@
     },
     {
       "id": "vb_receive_r5",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -1994,6 +2002,7 @@
     },
     {
       "id": "vb_receive_r6",
+      "level": "development",
       "family": "volleyball_family_9",
       "familyName": {
         "en": "Serve receive rotation",
@@ -2292,6 +2301,7 @@
     },
     {
       "id": "vb_set_front",
+      "level": "foundation",
       "family": "volleyball_family_7",
       "familyName": {
         "en": "Setting",
@@ -2472,6 +2482,7 @@
     },
     {
       "id": "vb_set_back",
+      "level": "foundation",
       "family": "volleyball_family_7",
       "familyName": {
         "en": "Setting",
@@ -2652,6 +2663,7 @@
     },
     {
       "id": "vb_set_jump",
+      "level": "foundation",
       "family": "volleyball_family_7",
       "familyName": {
         "en": "Setting",
@@ -2832,6 +2844,7 @@
     },
     {
       "id": "vb_setter_z1",
+      "level": "development",
       "family": "volleyball_family_4",
       "familyName": {
         "en": "Setter release from zone",
@@ -3081,6 +3094,7 @@
     },
     {
       "id": "vb_setter_z6",
+      "level": "development",
       "family": "volleyball_family_4",
       "familyName": {
         "en": "Setter release from zone",
@@ -3330,6 +3344,7 @@
     },
     {
       "id": "vb_setter_z5",
+      "level": "development",
       "family": "volleyball_family_4",
       "familyName": {
         "en": "Setter release from zone",
@@ -3579,6 +3594,7 @@
     },
     {
       "id": "vb_free_ball",
+      "level": "development",
       "family": "volleyball_family_0",
       "familyName": {
         "en": "Transition",
@@ -3850,6 +3866,7 @@
     },
     {
       "id": "vb_down_ball",
+      "level": "development",
       "family": "volleyball_family_0",
       "familyName": {
         "en": "Transition",
@@ -4121,6 +4138,7 @@
     },
     {
       "id": "vb_attack_outside",
+      "level": "development",
       "family": "volleyball_family_8",
       "familyName": {
         "en": "Attack",
@@ -4387,6 +4405,7 @@
     },
     {
       "id": "vb_attack_middle",
+      "level": "development",
       "family": "volleyball_family_8",
       "familyName": {
         "en": "Attack",
@@ -4653,6 +4672,7 @@
     },
     {
       "id": "vb_attack_opposite",
+      "level": "development",
       "family": "volleyball_family_8",
       "familyName": {
         "en": "Attack",
@@ -4919,6 +4939,7 @@
     },
     {
       "id": "vb_attack_pipe",
+      "level": "advanced",
       "family": "volleyball_family_8",
       "familyName": {
         "en": "Attack",
@@ -5185,6 +5206,7 @@
     },
     {
       "id": "vb_block_solo",
+      "level": "development",
       "family": "volleyball_family_2",
       "familyName": {
         "en": "Block",
@@ -5397,6 +5419,7 @@
     },
     {
       "id": "vb_block_double_outside",
+      "level": "development",
       "family": "volleyball_family_2",
       "familyName": {
         "en": "Block",
@@ -5636,6 +5659,7 @@
     },
     {
       "id": "vb_block_double_middle",
+      "level": "development",
       "family": "volleyball_family_2",
       "familyName": {
         "en": "Block",
@@ -5875,6 +5899,7 @@
     },
     {
       "id": "vb_block_triple",
+      "level": "development",
       "family": "volleyball_family_2",
       "familyName": {
         "en": "Block",
@@ -6141,6 +6166,7 @@
     },
     {
       "id": "vb_defense_perimeter",
+      "level": "development",
       "family": "volleyball_family_1",
       "familyName": {
         "en": "Defence",
@@ -6429,6 +6455,7 @@
     },
     {
       "id": "vb_defense_rotation",
+      "level": "development",
       "family": "volleyball_family_1",
       "familyName": {
         "en": "Defence",
@@ -6717,6 +6744,7 @@
     },
     {
       "id": "vb_defense_man_up",
+      "level": "advanced",
       "family": "volleyball_family_1",
       "familyName": {
         "en": "Defence",
@@ -7005,6 +7033,7 @@
     },
     {
       "id": "vb_serve_float_deep",
+      "level": "development",
       "family": "volleyball_family_6",
       "familyName": {
         "en": "Serve",
@@ -7217,6 +7246,7 @@
     },
     {
       "id": "vb_serve_jump",
+      "level": "advanced",
       "family": "volleyball_family_6",
       "familyName": {
         "en": "Serve",
@@ -7429,6 +7459,7 @@
     },
     {
       "id": "vb_serve_short",
+      "level": "development",
       "family": "volleyball_family_6",
       "familyName": {
         "en": "Serve",
@@ -7641,6 +7672,7 @@
     },
     {
       "id": "vb_serve_seam",
+      "level": "development",
       "family": "volleyball_family_6",
       "familyName": {
         "en": "Serve",
@@ -7853,6 +7885,7 @@
     },
     {
       "id": "vb_game_2v2",
+      "level": "development",
       "family": "volleyball_family_5",
       "familyName": {
         "en": "Game",
@@ -8040,6 +8073,7 @@
     },
     {
       "id": "vb_game_3v3",
+      "level": "development",
       "family": "volleyball_family_5",
       "familyName": {
         "en": "Game",
@@ -8281,6 +8315,7 @@
     },
     {
       "id": "vb_game_4v4",
+      "level": "development",
       "family": "volleyball_family_5",
       "familyName": {
         "en": "Game",
@@ -8576,6 +8611,7 @@
     },
     {
       "id": "vb_game_6v6",
+      "level": "development",
       "family": "volleyball_family_5",
       "familyName": {
         "en": "Game",

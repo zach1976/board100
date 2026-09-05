@@ -11,6 +11,7 @@
 class Drill {
   final String id;
   final DrillCategory category;
+  final DrillLevel level;
 
   /// Rough session length, and how many players it needs on the pitch. Both
   /// are what a coach actually filters on when planning a Tuesday.
@@ -45,6 +46,7 @@ class Drill {
   const Drill({
     required this.id,
     required this.category,
+    this.level = DrillLevel.development,
     required this.minutes,
     required this.players,
     required this.name,
@@ -59,6 +61,7 @@ class Drill {
   factory Drill.fromJson(Map<String, dynamic> json) => Drill(
         id: json['id'] as String,
         category: DrillCategory.parse(json['category'] as String?),
+        level: DrillLevel.parse(json['level'] as String?),
         minutes: (json['minutes'] as num?)?.toInt() ?? 0,
         players: (json['players'] as num?)?.toInt() ?? 0,
         name: Map<String, String>.from(json['name'] as Map),
@@ -108,6 +111,22 @@ enum DrillVocabulary {
 
   /// Baseball, which shares almost none of the vocabulary.
   diamond,
+}
+
+/// How much the drill asks of the players — the second axis a coach filters
+/// on. Foundation is where a session starts; advanced is named drill by
+/// drill in the generator, never guessed from geometry.
+enum DrillLevel {
+  foundation,
+  development,
+  advanced;
+
+  static DrillLevel parse(String? raw) => DrillLevel.values.firstWhere(
+        (l) => l.name == raw,
+        orElse: () => DrillLevel.development,
+      );
+
+  String get labelKey => 'drill_level_$name';
 }
 
 enum DrillCategory {

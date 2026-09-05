@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "rondo_4v2",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -322,6 +323,7 @@
     },
     {
       "id": "passing_diamond",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -576,6 +578,7 @@
     },
     {
       "id": "dribble_slalom",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -764,6 +767,7 @@
     },
     {
       "id": "possession_7v4",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -1158,6 +1162,7 @@
     },
     {
       "id": "overlap_wide",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1384,6 +1389,7 @@
     },
     {
       "id": "third_man_run",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1556,6 +1562,7 @@
     },
     {
       "id": "switch_play",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1829,6 +1836,7 @@
     },
     {
       "id": "cutback_finish",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -2068,6 +2076,7 @@
     },
     {
       "id": "one_v_one_gk",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -2213,6 +2222,7 @@
     },
     {
       "id": "press_trigger",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -2434,6 +2444,7 @@
     },
     {
       "id": "defend_2v2",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -2588,6 +2599,7 @@
     },
     {
       "id": "corner_near_post",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -2887,6 +2899,7 @@
     },
     {
       "id": "free_kick_edge",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -3152,6 +3165,7 @@
     },
     {
       "id": "ssg_4v4_four_goals",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "ssg",
@@ -3559,6 +3573,7 @@
     },
     {
       "id": "warmup_y_pattern",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -3813,6 +3828,7 @@
     },
     {
       "id": "warmup_first_touch_gate",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -4056,6 +4072,7 @@
     },
     {
       "id": "rondo_5v2_split",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -4390,6 +4407,7 @@
     },
     {
       "id": "possession_3_zone",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -4716,6 +4734,7 @@
     },
     {
       "id": "build_from_gk",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -4991,6 +5010,7 @@
     },
     {
       "id": "wall_pass_wide",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -5143,6 +5163,7 @@
     },
     {
       "id": "counter_3v2",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -5379,6 +5400,7 @@
     },
     {
       "id": "halfspace_run",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -5598,6 +5620,7 @@
     },
     {
       "id": "finish_first_time",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -5797,6 +5820,7 @@
     },
     {
       "id": "finish_turn_shoot",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -5989,6 +6013,7 @@
     },
     {
       "id": "defend_shape_shift",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -6217,6 +6242,7 @@
     },
     {
       "id": "defend_counter_press",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -6438,6 +6464,7 @@
     },
     {
       "id": "corner_short",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -6746,6 +6773,7 @@
     },
     {
       "id": "throw_in_third",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -6987,6 +7015,7 @@
     },
     {
       "id": "ssg_6v6_transition",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "ssg",
@@ -7361,6 +7390,7 @@
     },
     {
       "id": "warmup_rotation_square",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -7615,6 +7645,7 @@
     },
     {
       "id": "warmup_two_ball",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -7869,6 +7900,7 @@
     },
     {
       "id": "possession_overload_4v2_plus",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -8144,6 +8176,7 @@
     },
     {
       "id": "attack_double_pivot_switch",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -8392,6 +8425,7 @@
     },
     {
       "id": "attack_cross_far_post",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -8633,6 +8667,7 @@
     },
     {
       "id": "finish_volley_side",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -8805,6 +8840,7 @@
     },
     {
       "id": "defend_1v1_channel",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -8955,6 +8991,7 @@
     },
     {
       "id": "setpiece_defend_corner",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -9243,6 +9280,7 @@
     },
     {
       "id": "ssg_5v5_two_touch",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "ssg",
@@ -9657,6 +9695,7 @@
     },
     {
       "id": "possession_switch_two_touch",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -9878,6 +9917,7 @@
     },
     {
       "id": "finish_penalty_routine",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -10028,6 +10068,7 @@
     },
     {
       "id": "rondo_5v2",
+      "level": "development",
       "family": "soccer_family_22",
       "familyName": {
         "en": "Rondo",
@@ -10376,6 +10417,7 @@
     },
     {
       "id": "rondo_6v3",
+      "level": "development",
       "family": "soccer_family_22",
       "familyName": {
         "en": "Rondo",
@@ -10778,6 +10820,7 @@
     },
     {
       "id": "rondo_7v3",
+      "level": "development",
       "family": "soccer_family_22",
       "familyName": {
         "en": "Rondo",
@@ -11207,6 +11250,7 @@
     },
     {
       "id": "rondo_8v4",
+      "level": "development",
       "family": "soccer_family_22",
       "familyName": {
         "en": "Rondo",
@@ -11690,6 +11734,7 @@
     },
     {
       "id": "ssg_3v3",
+      "level": "development",
       "family": "soccer_family_35",
       "familyName": {
         "en": "Small-sided game",
@@ -12011,6 +12056,7 @@
     },
     {
       "id": "ssg_4v4",
+      "level": "development",
       "family": "soccer_family_35",
       "familyName": {
         "en": "Small-sided game",
@@ -12386,6 +12432,7 @@
     },
     {
       "id": "ssg_5v5",
+      "level": "development",
       "family": "soccer_family_35",
       "familyName": {
         "en": "Small-sided game",
@@ -12815,6 +12862,7 @@
     },
     {
       "id": "ssg_6v6",
+      "level": "development",
       "family": "soccer_family_35",
       "familyName": {
         "en": "Small-sided game",
@@ -13298,6 +13346,7 @@
     },
     {
       "id": "ssg_7v7",
+      "level": "development",
       "family": "soccer_family_35",
       "familyName": {
         "en": "Small-sided game",
@@ -13835,6 +13884,7 @@
     },
     {
       "id": "counter_2v1",
+      "level": "development",
       "family": "soccer_family_8",
       "familyName": {
         "en": "Counter",
@@ -14025,6 +14075,7 @@
     },
     {
       "id": "counter_4v3",
+      "level": "development",
       "family": "soccer_family_8",
       "familyName": {
         "en": "Counter",
@@ -14333,6 +14384,7 @@
     },
     {
       "id": "counter_5v4",
+      "level": "development",
       "family": "soccer_family_8",
       "familyName": {
         "en": "Counter",
@@ -14700,6 +14752,7 @@
     },
     {
       "id": "buildup_v1",
+      "level": "development",
       "family": "soccer_family_23",
       "familyName": {
         "en": "Playing out under pressure +",
@@ -14934,6 +14987,7 @@
     },
     {
       "id": "buildup_v2",
+      "level": "development",
       "family": "soccer_family_23",
       "familyName": {
         "en": "Playing out under pressure +",
@@ -15222,6 +15276,7 @@
     },
     {
       "id": "buildup_v3",
+      "level": "development",
       "family": "soccer_family_23",
       "familyName": {
         "en": "Playing out under pressure +",
@@ -15564,6 +15619,7 @@
     },
     {
       "id": "finish_left_wing",
+      "level": "development",
       "family": "soccer_family_32",
       "familyName": {
         "en": "Finishing pattern",
@@ -15776,6 +15832,7 @@
     },
     {
       "id": "finish_right_wing",
+      "level": "development",
       "family": "soccer_family_32",
       "familyName": {
         "en": "Finishing pattern",
@@ -15988,6 +16045,7 @@
     },
     {
       "id": "finish_left_halfspace",
+      "level": "development",
       "family": "soccer_family_32",
       "familyName": {
         "en": "Finishing pattern",
@@ -16200,6 +16258,7 @@
     },
     {
       "id": "finish_right_halfspace",
+      "level": "development",
       "family": "soccer_family_32",
       "familyName": {
         "en": "Finishing pattern",
@@ -16412,6 +16471,7 @@
     },
     {
       "id": "finish_central",
+      "level": "development",
       "family": "soccer_family_32",
       "familyName": {
         "en": "Finishing pattern",
@@ -16624,6 +16684,7 @@
     },
     {
       "id": "press_442",
+      "level": "advanced",
       "family": "soccer_family_46",
       "familyName": {
         "en": "Press",
@@ -16912,6 +16973,7 @@
     },
     {
       "id": "press_433",
+      "level": "advanced",
       "family": "soccer_family_46",
       "familyName": {
         "en": "Press",
@@ -17200,6 +17262,7 @@
     },
     {
       "id": "press_4231",
+      "level": "advanced",
       "family": "soccer_family_46",
       "familyName": {
         "en": "Press",
@@ -17488,6 +17551,7 @@
     },
     {
       "id": "press_352",
+      "level": "advanced",
       "family": "soccer_family_46",
       "familyName": {
         "en": "Press",
@@ -17776,6 +17840,7 @@
     },
     {
       "id": "corner_far_post",
+      "level": "development",
       "family": "soccer_family_2",
       "familyName": {
         "en": "Corner",
@@ -18088,6 +18153,7 @@
     },
     {
       "id": "corner_back_post_pull",
+      "level": "development",
       "family": "soccer_family_2",
       "familyName": {
         "en": "Corner",
@@ -18400,6 +18466,7 @@
     },
     {
       "id": "corner_decoy_stack",
+      "level": "development",
       "family": "soccer_family_2",
       "familyName": {
         "en": "Corner",
@@ -18712,6 +18779,7 @@
     },
     {
       "id": "corner_second_ball",
+      "level": "development",
       "family": "soccer_family_2",
       "familyName": {
         "en": "Corner",
@@ -19024,6 +19092,7 @@
     },
     {
       "id": "duel_wide_left",
+      "level": "development",
       "family": "soccer_family_1",
       "familyName": {
         "en": "1v1 duels",
@@ -19187,6 +19256,7 @@
     },
     {
       "id": "duel_wide_right",
+      "level": "development",
       "family": "soccer_family_1",
       "familyName": {
         "en": "1v1 duels",
@@ -19350,6 +19420,7 @@
     },
     {
       "id": "duel_central",
+      "level": "development",
       "family": "soccer_family_1",
       "familyName": {
         "en": "1v1 duels",
@@ -19513,6 +19584,7 @@
     },
     {
       "id": "duel_half_left",
+      "level": "development",
       "family": "soccer_family_1",
       "familyName": {
         "en": "1v1 duels",
@@ -19676,6 +19748,7 @@
     },
     {
       "id": "passing_triangle",
+      "level": "foundation",
       "family": "soccer_family_15",
       "familyName": {
         "en": "Passing pattern",
@@ -19896,6 +19969,7 @@
     },
     {
       "id": "passing_pentagon",
+      "level": "foundation",
       "family": "soccer_family_15",
       "familyName": {
         "en": "Passing pattern",
@@ -20210,6 +20284,7 @@
     },
     {
       "id": "passing_hexagon",
+      "level": "foundation",
       "family": "soccer_family_15",
       "familyName": {
         "en": "Passing pattern",
@@ -20571,6 +20646,7 @@
     },
     {
       "id": "cross_left_near_post",
+      "level": "development",
       "family": "soccer_family_20",
       "familyName": {
         "en": "Crossing",
@@ -20838,6 +20914,7 @@
     },
     {
       "id": "cross_left_far_post",
+      "level": "development",
       "family": "soccer_family_20",
       "familyName": {
         "en": "Crossing",
@@ -21105,6 +21182,7 @@
     },
     {
       "id": "cross_right_near_post",
+      "level": "development",
       "family": "soccer_family_20",
       "familyName": {
         "en": "Crossing",
@@ -21372,6 +21450,7 @@
     },
     {
       "id": "cross_right_far_post",
+      "level": "development",
       "family": "soccer_family_20",
       "familyName": {
         "en": "Crossing",
@@ -21639,6 +21718,7 @@
     },
     {
       "id": "shape_high",
+      "level": "advanced",
       "family": "soccer_family_21",
       "familyName": {
         "en": "Defensive shape",
@@ -21961,6 +22041,7 @@
     },
     {
       "id": "shape_mid",
+      "level": "advanced",
       "family": "soccer_family_21",
       "familyName": {
         "en": "Defensive shape",
@@ -22283,6 +22364,7 @@
     },
     {
       "id": "shape_low",
+      "level": "advanced",
       "family": "soccer_family_21",
       "familyName": {
         "en": "Defensive shape",
@@ -22605,6 +22687,7 @@
     },
     {
       "id": "gk_handling",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -22797,6 +22880,7 @@
     },
     {
       "id": "gk_angles",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -22989,6 +23073,7 @@
     },
     {
       "id": "gk_crosses",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -23154,6 +23239,7 @@
     },
     {
       "id": "gk_distribution",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -23319,6 +23405,7 @@
     },
     {
       "id": "gk_one_v_one",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -23457,6 +23544,7 @@
     },
     {
       "id": "gk_set_position",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -23622,6 +23710,7 @@
     },
     {
       "id": "gk_sweeper",
+      "level": "development",
       "family": "soccer_family_30",
       "familyName": {
         "en": "Goalkeeping",
@@ -23787,6 +23876,7 @@
     },
     {
       "id": "cond_shuttle_finish",
+      "level": "foundation",
       "family": "soccer_family_43",
       "familyName": {
         "en": "Conditioning with the ball",
@@ -24008,6 +24098,7 @@
     },
     {
       "id": "cond_repeat_sprint",
+      "level": "foundation",
       "family": "soccer_family_43",
       "familyName": {
         "en": "Conditioning with the ball",
@@ -24234,6 +24325,7 @@
     },
     {
       "id": "cond_box_to_box",
+      "level": "foundation",
       "family": "soccer_family_43",
       "familyName": {
         "en": "Conditioning with the ball",
@@ -24450,6 +24542,7 @@
     },
     {
       "id": "switch_back",
+      "level": "development",
       "family": "soccer_family_13",
       "familyName": {
         "en": "Switching play",
@@ -24748,6 +24841,7 @@
     },
     {
       "id": "switch_middle",
+      "level": "development",
       "family": "soccer_family_13",
       "familyName": {
         "en": "Switching play",
@@ -25046,6 +25140,7 @@
     },
     {
       "id": "switch_final",
+      "level": "development",
       "family": "soccer_family_13",
       "familyName": {
         "en": "Switching play",
@@ -25344,6 +25439,7 @@
     },
     {
       "id": "combo_wall_left",
+      "level": "development",
       "family": "soccer_family_50",
       "familyName": {
         "en": "Combination play",
@@ -25561,6 +25657,7 @@
     },
     {
       "id": "combo_wall_right",
+      "level": "development",
       "family": "soccer_family_50",
       "familyName": {
         "en": "Combination play",
@@ -25778,6 +25875,7 @@
     },
     {
       "id": "combo_overlap_left",
+      "level": "development",
       "family": "soccer_family_50",
       "familyName": {
         "en": "Combination play",
@@ -25995,6 +26093,7 @@
     },
     {
       "id": "combo_overlap_right",
+      "level": "development",
       "family": "soccer_family_50",
       "familyName": {
         "en": "Combination play",
@@ -26212,6 +26311,7 @@
     },
     {
       "id": "combo_underlap",
+      "level": "development",
       "family": "soccer_family_50",
       "familyName": {
         "en": "Combination play",
@@ -26429,6 +26529,7 @@
     },
     {
       "id": "fk_direct_central",
+      "level": "development",
       "family": "soccer_family_16",
       "familyName": {
         "en": "Free kick",
@@ -26734,6 +26835,7 @@
     },
     {
       "id": "fk_layoff",
+      "level": "development",
       "family": "soccer_family_16",
       "familyName": {
         "en": "Free kick",
@@ -27039,6 +27141,7 @@
     },
     {
       "id": "fk_runner",
+      "level": "development",
       "family": "soccer_family_16",
       "familyName": {
         "en": "Free kick",
@@ -27344,6 +27447,7 @@
     },
     {
       "id": "fk_wide_left",
+      "level": "development",
       "family": "soccer_family_16",
       "familyName": {
         "en": "Free kick",
@@ -27649,6 +27753,7 @@
     },
     {
       "id": "fk_wide_right",
+      "level": "development",
       "family": "soccer_family_16",
       "familyName": {
         "en": "Free kick",
@@ -27954,6 +28059,7 @@
     },
     {
       "id": "transition_4v4",
+      "level": "development",
       "family": "soccer_family_42",
       "familyName": {
         "en": "Transition",
@@ -28329,6 +28435,7 @@
     },
     {
       "id": "transition_5v5",
+      "level": "development",
       "family": "soccer_family_42",
       "familyName": {
         "en": "Transition",
@@ -28758,6 +28865,7 @@
     },
     {
       "id": "transition_6v6",
+      "level": "development",
       "family": "soccer_family_42",
       "familyName": {
         "en": "Transition",
@@ -29241,6 +29349,7 @@
     },
     {
       "id": "touch_from_behind",
+      "level": "foundation",
       "family": "soccer_family_41",
       "familyName": {
         "en": "First touch",
@@ -29486,6 +29595,7 @@
     },
     {
       "id": "touch_side_on",
+      "level": "foundation",
       "family": "soccer_family_41",
       "familyName": {
         "en": "First touch",
@@ -29731,6 +29841,7 @@
     },
     {
       "id": "touch_open_body",
+      "level": "foundation",
       "family": "soccer_family_41",
       "familyName": {
         "en": "First touch",
@@ -29976,6 +30087,7 @@
     },
     {
       "id": "touch_in_traffic",
+      "level": "foundation",
       "family": "soccer_family_41",
       "familyName": {
         "en": "First touch",
@@ -30221,6 +30333,7 @@
     },
     {
       "id": "header_attacking",
+      "level": "development",
       "family": "soccer_family_3",
       "familyName": {
         "en": "Heading",
@@ -30421,6 +30534,7 @@
     },
     {
       "id": "header_defensive",
+      "level": "development",
       "family": "soccer_family_3",
       "familyName": {
         "en": "Heading",
@@ -30621,6 +30735,7 @@
     },
     {
       "id": "goalkick_short",
+      "level": "development",
       "family": "soccer_family_12",
       "familyName": {
         "en": "Goal kick",
@@ -30882,6 +30997,7 @@
     },
     {
       "id": "goalkick_full_back",
+      "level": "development",
       "family": "soccer_family_12",
       "familyName": {
         "en": "Goal kick",
@@ -31143,6 +31259,7 @@
     },
     {
       "id": "goalkick_long",
+      "level": "development",
       "family": "soccer_family_12",
       "familyName": {
         "en": "Goal kick",
@@ -31404,6 +31521,7 @@
     },
     {
       "id": "overload_3v2",
+      "level": "development",
       "family": "soccer_family_39",
       "familyName": {
         "en": "Overload possession",
@@ -31698,6 +31816,7 @@
     },
     {
       "id": "overload_4v3",
+      "level": "development",
       "family": "soccer_family_39",
       "familyName": {
         "en": "Overload possession",
@@ -32046,6 +32165,7 @@
     },
     {
       "id": "overload_5v4",
+      "level": "development",
       "family": "soccer_family_39",
       "familyName": {
         "en": "Overload possession",
@@ -32448,6 +32568,7 @@
     },
     {
       "id": "overload_6v4",
+      "level": "development",
       "family": "soccer_family_39",
       "familyName": {
         "en": "Overload possession",

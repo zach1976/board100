@@ -120,6 +120,10 @@ class Drill:
     # session on it — warm-up through small-sided game — because a starter
     # library that can't start anything is an advert, not a starter library.
     free: bool = False
+    # foundation | development | advanced. Left None, it is derived from what
+    # the drill demands (see derive_level); set it only where the rule is
+    # wrong — a banana flick needs two players and years of table time.
+    level: str | None = None
 
     @property
     def player_count(self) -> int:
@@ -437,6 +441,62 @@ def assign_families(drills: list[Drill], sport: str) -> dict:
     return out
 
 
+LEVELS = ("foundation", "development", "advanced")
+
+# Advanced is a judgment about technique or tactical literacy, not geometry —
+# a banana flick needs two players and years of table time, while a 6-4-3 is
+# nine bodies doing something every little-league team drills. So advanced is
+# never derived; it is named here, drill by drill, where a coach would name it.
+ADVANCED = {
+    # soccer: pressing by formation, block heights, the empty-goal gamble
+    "press_442", "press_433", "press_4231", "press_352",
+    "shape_high", "shape_mid", "shape_low",
+    # basketball
+    "bb_horns_set", "bb_press_break", "bb_defence_ice",
+    # volleyball
+    "vb_serve_jump", "vb_attack_pipe", "vb_defense_man_up",
+    # badminton
+    "bd_deception_hold_flick", "bd_deception_double_motion", "bd_net_spin",
+    # tennis
+    "tn_doubles_australian", "tn_inside_out",
+    # table tennis
+    "tt_short_banana", "tt_loop_counter_loop", "tt_defence_deep_chop",
+    # handball
+    "hb_defence_three_two_one", "hb_attack_empty_goal",
+    # rugby
+    "rg_phase_one_three_three_one", "rg_set_lineout_seven", "rg_maul_defend",
+    # field hockey
+    "fh_corner_drag_flick", "fh_shot_tomahawk",
+    # water polo
+    "wp_manup_umbrella", "wp_defence_five_on_six",
+    # baseball
+    "bb_dp_one_six_three", "bb_score_squeeze", "bb_defence_first_and_third",
+    # pickleball
+    "pb_speedup_ernie", "pb_putaway_atp",
+    # sepak takraw — the acrobatic spikes ARE the advanced tier
+    "st_spike_roll", "st_spike_scissor", "st_spike_sunback",
+    # footvolley
+    "fv_finish_the_bicycle_kick", "fv_attack_the_shark_attack",
+    "fv_attack_the_sombrero",
+    # beach tennis
+    "bt_serve_jump", "bt_smash_jump",
+}
+
+
+def derive_level(drill: Drill) -> str:
+    """Foundation is derived — warm-ups and small unopposed work, which is
+    where any session starts. Advanced is named in ADVANCED, never guessed.
+    Everything else, which is most of a library, is development."""
+    if drill.level:
+        assert drill.level in LEVELS, f"{drill.id}: unknown level {drill.level}"
+        return drill.level
+    if drill.id in ADVANCED:
+        return "advanced"
+    if drill.category == "warmup" or (drill.player_count <= 3 and not drill.away):
+        return "foundation"
+    return "development"
+
+
 _NVM = _re.compile(r"\b(\d+)v(\d+)\b")
 _STUTTER = _re.compile(r"\b(\w+) \1\b", _re.IGNORECASE)
 
@@ -510,6 +570,7 @@ def build(sport: str, library) -> dict:
         "drills": [
             {
                 "id": d.id,
+                "level": derive_level(d),
                 # Set when this drill is one variant of a generated family, so
                 # the library can show the family once instead of repeating
                 # its coaching point on every variant.

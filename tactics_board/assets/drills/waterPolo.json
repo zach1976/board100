@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "wp_warm_eggbeater",
+      "level": "foundation",
       "family": "waterPolo_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -177,6 +178,7 @@
     },
     {
       "id": "wp_warm_swim_catch",
+      "level": "foundation",
       "family": "waterPolo_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -320,6 +322,7 @@
     },
     {
       "id": "wp_warm_wet_pass",
+      "level": "foundation",
       "family": "waterPolo_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -453,6 +456,7 @@
     },
     {
       "id": "wp_perimeter_circulation",
+      "level": "development",
       "family": "waterPolo_family_3",
       "familyName": {
         "en": "Perimeter",
@@ -822,6 +826,7 @@
     },
     {
       "id": "wp_perimeter_with_centre",
+      "level": "development",
       "family": "waterPolo_family_3",
       "familyName": {
         "en": "Perimeter",
@@ -1218,6 +1223,7 @@
     },
     {
       "id": "wp_perimeter_drive_and_kick",
+      "level": "development",
       "family": "waterPolo_family_3",
       "familyName": {
         "en": "Perimeter",
@@ -1619,6 +1625,7 @@
     },
     {
       "id": "wp_counter_2v1",
+      "level": "development",
       "family": "waterPolo_family_1",
       "familyName": {
         "en": "Counter-attack",
@@ -1809,6 +1816,7 @@
     },
     {
       "id": "wp_counter_3v2",
+      "level": "development",
       "family": "waterPolo_family_1",
       "familyName": {
         "en": "Counter-attack",
@@ -2058,6 +2066,7 @@
     },
     {
       "id": "wp_counter_4v3",
+      "level": "development",
       "family": "waterPolo_family_1",
       "familyName": {
         "en": "Counter-attack",
@@ -2366,6 +2375,7 @@
     },
     {
       "id": "wp_manup_four_two",
+      "level": "development",
       "family": "waterPolo_family_6",
       "familyName": {
         "en": "Six on five",
@@ -2769,6 +2779,7 @@
     },
     {
       "id": "wp_manup_three_three",
+      "level": "development",
       "family": "waterPolo_family_6",
       "familyName": {
         "en": "Six on five",
@@ -3172,6 +3183,7 @@
     },
     {
       "id": "wp_manup_umbrella",
+      "level": "advanced",
       "family": "waterPolo_family_6",
       "familyName": {
         "en": "Six on five",
@@ -3575,6 +3587,7 @@
     },
     {
       "id": "wp_centre_entry",
+      "level": "development",
       "family": "waterPolo_family_7",
       "familyName": {
         "en": "Centre forward",
@@ -3802,6 +3815,7 @@
     },
     {
       "id": "wp_centre_backhand",
+      "level": "development",
       "family": "waterPolo_family_7",
       "familyName": {
         "en": "Centre forward",
@@ -4029,6 +4043,7 @@
     },
     {
       "id": "wp_centre_sweep",
+      "level": "development",
       "family": "waterPolo_family_7",
       "familyName": {
         "en": "Centre forward",
@@ -4256,6 +4271,7 @@
     },
     {
       "id": "wp_centre_draw_foul",
+      "level": "development",
       "family": "waterPolo_family_7",
       "familyName": {
         "en": "Centre forward",
@@ -4483,6 +4499,7 @@
     },
     {
       "id": "wp_defence_press",
+      "level": "development",
       "family": "waterPolo_family_0",
       "familyName": {
         "en": "Defence",
@@ -4919,6 +4936,7 @@
     },
     {
       "id": "wp_defence_drop",
+      "level": "development",
       "family": "waterPolo_family_0",
       "familyName": {
         "en": "Defence",
@@ -5355,6 +5373,7 @@
     },
     {
       "id": "wp_defence_front_the_centre",
+      "level": "development",
       "family": "waterPolo_family_0",
       "familyName": {
         "en": "Defence",
@@ -5791,6 +5810,7 @@
     },
     {
       "id": "wp_defence_five_on_six",
+      "level": "advanced",
       "family": "waterPolo_family_0",
       "familyName": {
         "en": "Defence",
@@ -6200,6 +6220,7 @@
     },
     {
       "id": "wp_set_penalty",
+      "level": "development",
       "family": "waterPolo_family_4",
       "familyName": {
         "en": "Restart",
@@ -6353,6 +6374,7 @@
     },
     {
       "id": "wp_set_free_throw",
+      "level": "development",
       "family": "waterPolo_family_4",
       "familyName": {
         "en": "Restart",
@@ -6573,6 +6595,7 @@
     },
     {
       "id": "wp_set_swim_off",
+      "level": "development",
       "family": "waterPolo_family_4",
       "familyName": {
         "en": "Restart",
@@ -6760,6 +6783,7 @@
     },
     {
       "id": "wp_game_3v3",
+      "level": "development",
       "family": "waterPolo_family_5",
       "familyName": {
         "en": "Game",
@@ -7021,6 +7045,7 @@
     },
     {
       "id": "wp_game_4v4",
+      "level": "development",
       "family": "waterPolo_family_5",
       "familyName": {
         "en": "Game",
@@ -7336,6 +7361,7 @@
     },
     {
       "id": "wp_game_6v6",
+      "level": "development",
       "family": "waterPolo_family_5",
       "familyName": {
         "en": "Game",
