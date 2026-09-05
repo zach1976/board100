@@ -1164,3 +1164,15 @@ fix("man-up", en="middle-up", en_GB="middle-up",
 fix("rotation", zh_CN="边跟进", zh_TW="邊跟進")
 fix("perimeter", zh_CN="马蹄形站位", zh_TW="馬蹄形站位",
     ja_JP="ミドルバック", ko_KR="미들백")
+
+add("set position", "预备姿势", "預備姿勢", "構え", "준비 자세",
+    "posición de base", "position d'attente", "posisi siap", "kedudukan sedia",
+    "ท่าเตรียมรับ", "tư thế chuẩn bị")
+add("sweeping behind the line", "防线身后清扫", "防線身後清掃",
+    "スイーパーキーパー", "스위퍼 키퍼", "de líbero tras la línea",
+    "en libéro derrière la ligne", "menyapu di belakang garis",
+    "menyapu di belakang barisan", "กวาดหลังแนวรับ", "quét sau hàng thủ")
+add("driving from the lineout", "边线球起推", "邊線球起推",
+    "ラインアウトからのドライブ", "라인아웃 드라이브",
+    "desde el touch", "sur touche", "dorongan dari lineout",
+    "tolakan dari lineout", "ดันจากไลน์เอาท์", "đẩy từ ném biên")

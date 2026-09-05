@@ -454,4 +454,55 @@ def game_family() -> list[Drill]:
 def rugby_library() -> list[Drill]:
     return (handling_family() + phase_family() + breakdown_family()
             + move_family() + kicking_family() + finishing_family()
-            + defence_family() + setpiece_family() + game_family())
+            + defence_family() + setpiece_family() + maul_family()
+            + game_family())
+
+MAUL_NAME = {
+    "en": "Maul", "en-GB": "Maul", "zh-CN": "冒尔推进", "zh-TW": "冒爾推進",
+    "ja-JP": "モール", "ko-KR": "몰", "es-ES": "Maul", "fr-FR": "Maul",
+    "id-ID": "Maul", "ms-MY": "Maul", "th-TH": "มอล", "vi-VN": "Maul",
+}
+MAUL_NOTE = {
+    "en": "The ball goes to the back before the drive starts. A maul that "
+          "moves with the ball at the front is one rip from a turnover.",
+    "en-GB": "The ball goes to the back before the drive starts. A maul that "
+             "moves with the ball at the front is one rip from a turnover.",
+    "zh-CN": "先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
+    "zh-TW": "先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
+    "ja-JP": "ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
+    "ko-KR": "드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
+    "es-ES": "El balón va atrás antes de empezar a empujar: un maul que avanza "
+             "con el balón delante está a un tirón de la pérdida.",
+    "fr-FR": "Le ballon passe au fond avant de pousser : un maul qui avance "
+             "ballon devant est à un arrachage du turnover.",
+    "id-ID": "Bola ke belakang dulu sebelum dorongan dimulai.",
+    "ms-MY": "Bola ke belakang dahulu sebelum tolakan bermula.",
+    "th-TH": "ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
+    "vi-VN": "Đưa bóng về cuối trước khi bắt đầu đẩy.",
+}
+
+
+def maul_family() -> list[Drill]:
+    """The lineout's second act — a coach reviewing the set pieces asked
+    where it was."""
+    out = []
+    for key, label, defenders in [("drive", "driving from the lineout", 3),
+                                  ("defend", "defending it", 5)]:
+        y = 0.40
+        pod = [P(-0.02 if i == 0 else 0.13 + 0.025 * (i - 1),
+                 y + (0.012 * i if i else 0.03), "2" if i == 0 else f"{i + 3}",
+                 moves=[(0.16 + 0.02 * (i - 1), y - 0.06 + 0.012 * i, 1)]
+                 if i else [(0.06, y + 0.02, 1)])
+               for i in range(6)]
+        out.append(Drill(
+            id=f"rg_maul_{key}", category="setpiece", minutes=12, rel=True,
+            free=(key == "drive"), off_surface=True,
+            name=suffixed(MAUL_NAME, label), note=MAUL_NOTE,
+            home=pod,
+            away=[P(0.20 + 0.03 * i, y - 0.10, "D",
+                    moves=[(0.18 + 0.03 * i, y - 0.05, 1)])
+                  for i in range(defenders)],
+            ball=0,
+        ))
+    return out
+
