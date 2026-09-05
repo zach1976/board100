@@ -1813,6 +1813,11 @@ def gk_family() -> list[Drill]:
         ("crosses", "crosses", [(0.10, 0.26), (0.90, 0.26)]),
         ("distribution", "distribution", [(0.20, 0.52), (0.80, 0.52)]),
         ("one_v_one", "1v1", [(0.50, 0.46)]),
+        # A save starts from being set: feet still before the strike.
+        ("set_position", "set position", [(0.36, 0.34), (0.64, 0.34)]),
+        # The modern half of the job — starting high and eating the ball
+        # played in behind.
+        ("sweeper", "sweeping behind the line", [(0.30, 0.60), (0.70, 0.60)]),
     ]
     out = []
     for key, label, servers in specs:

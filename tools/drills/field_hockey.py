@@ -311,7 +311,35 @@ def setpiece_family() -> list[Drill]:
         ))
     out.append(Drill(
         id="fh_set_free_hit", category="setpiece", minutes=8, rel=True,
-        name=suffixed(CORNER_NAME, "into a free hit routine"), note=CORNER_NOTE,
+        # Its own name and note: this drill used to borrow the penalty-corner
+        # note, which coaches injection-stop-strike — a free hit has no
+        # injection, and its defining option is the self-pass.
+        name={"en": "Free hit routine", "en-GB": "Free hit routine",
+              "zh-CN": "自由球战术", "zh-TW": "自由球戰術",
+              "ja-JP": "フリーヒットの型", "ko-KR": "프리 히트 루틴",
+              "es-ES": "Rutina de golpe franco", "fr-FR": "Routine de coup franc",
+              "id-ID": "Rutinitas free hit", "ms-MY": "Rutin free hit",
+              "th-TH": "แผนลูกฟรีฮิต", "vi-VN": "Bài phạt trực tiếp"},
+        note={"en": "Take the self-pass before the defence sets — the free "
+                    "hit's whole advantage is the three seconds they need "
+                    "to get five metres back.",
+              "en-GB": "Take the self-pass before the defence sets — the free "
+                       "hit's whole advantage is the three seconds they need "
+                       "to get five metres back.",
+              "zh-CN": "趁防守没站好就自传自带。自由球的全部优势，就是对手退开五米需要的那三秒钟。",
+              "zh-TW": "趁防守沒站好就自傳自帶。自由球的全部優勢，就是對手退開五米需要的那三秒鐘。",
+              "ja-JP": "守備が整う前にセルフパスで動かす。フリーヒットの優位は、相手が5m下がるのに要する3秒だけだ。",
+              "ko-KR": "수비가 자리 잡기 전에 셀프 패스로 시작하라. 프리 히트의 이점은 상대가 5미터 물러나는 데 걸리는 3초뿐이다.",
+              "es-ES": "Juega el autopase antes de que la defensa se coloque: "
+                       "la ventaja del golpe franco son los tres segundos que "
+                       "tardan en retirarse cinco metros.",
+              "fr-FR": "Joue l'auto-passe avant que la défense se place : "
+                       "l'avantage du coup franc, ce sont les trois secondes "
+                       "qu'il leur faut pour reculer de cinq mètres.",
+              "id-ID": "Mainkan self-pass sebelum pertahanan siap.",
+              "ms-MY": "Main self-pass sebelum pertahanan bersedia.",
+              "th-TH": "เล่น self-pass ก่อนแนวรับตั้งตัว ข้อได้เปรียบคือสามวินาทีที่เขาต้องถอยห้าเมตร",
+              "vi-VN": "Tự chuyền cho mình trước khi hàng thủ kịp đứng vững."},
         home=[P(0.20, 0.30, "1", moves=[(0.24, 0.26, 0)]),
               P(0.44, 0.26, "2", moves=[(0.40, 0.20, 1)]),
               P(0.68, 0.24, "3", moves=[(0.60, 0.14, 1)])],

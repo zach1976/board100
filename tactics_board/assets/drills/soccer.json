@@ -23456,6 +23456,336 @@
       }
     },
     {
+      "id": "gk_set_position",
+      "family": "soccer_family_30",
+      "familyName": {
+        "en": "Goalkeeping",
+        "en-GB": "Goalkeeping",
+        "es-ES": "Portería",
+        "fr-FR": "Gardien",
+        "id-ID": "Latihan kiper",
+        "ja-JP": "GKトレーニング",
+        "ko-KR": "골키퍼 훈련",
+        "ms-MY": "Latihan penjaga gol",
+        "th-TH": "ฝึกผู้รักษาประตู",
+        "vi-VN": "Tập thủ môn",
+        "zh-CN": "门将训练",
+        "zh-TW": "門將訓練"
+      },
+      "category": "finishing",
+      "minutes": 10,
+      "players": 3,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Goalkeeping set position",
+        "en-GB": "Goalkeeping set position",
+        "zh-CN": "门将训练 预备姿势",
+        "zh-TW": "門將訓練 預備姿勢",
+        "ja-JP": "GKトレーニング 構え",
+        "ko-KR": "골키퍼 훈련 준비 자세",
+        "es-ES": "Portería posición de base",
+        "fr-FR": "Gardien position d'attente",
+        "id-ID": "Latihan kiper posisi siap",
+        "ms-MY": "Latihan penjaga gol kedudukan sedia",
+        "th-TH": "ฝึกผู้รักษาประตู ท่าเตรียมรับ",
+        "vi-VN": "Tập thủ môn tư thế chuẩn bị"
+      },
+      "note": {
+        "en": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+        "en-GB": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+        "zh-CN": "在对方出脚之前站定，不是出脚时还在动。射门瞬间还在移动的门将，是从静止开始扑的。",
+        "zh-TW": "在對方出腳之前站定，不是出腳時還在動。射門瞬間還在移動的門將，是從靜止開始撲的。",
+        "ja-JP": "シュートの前にセットする。打たれた瞬間に動いているGKは、止まった状態から飛ぶことになる。",
+        "ko-KR": "슛 전에 자세를 잡아라. 슛 순간 움직이는 골키퍼는 정지 상태에서 뛰는 셈이다.",
+        "es-ES": "Colócate antes del disparo. Un portero en movimiento al golpeo sale parado.",
+        "fr-FR": "Sois posé avant la frappe. Un gardien encore en mouvement plonge depuis l'arrêt.",
+        "id-ID": "Siapkan posisi sebelum tembakan, bukan saat tembakan.",
+        "ms-MY": "Sedia sebelum tendangan, bukan semasa tendangan.",
+        "th-TH": "ตั้งท่าก่อนบอลถูกยิง ผู้รักษาประตูที่ยังขยับตอนยิงเท่ากับพุ่งจากจุดหยุดนิ่ง",
+        "vi-VN": "Đứng vững trước cú sút. Thủ môn còn di chuyển khi bóng được sút là bay từ trạng thái đứng yên."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              377.59999999999997,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                402.08,
+                453.00000000000006
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              622.4000000000001,
+              534.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                597.9200000000001,
+                453.00000000000006
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                457.16,
+                264.0
+              ],
+              [
+                542.84,
+                250.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              129.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "gk_sweeper",
+      "family": "soccer_family_30",
+      "familyName": {
+        "en": "Goalkeeping",
+        "en-GB": "Goalkeeping",
+        "es-ES": "Portería",
+        "fr-FR": "Gardien",
+        "id-ID": "Latihan kiper",
+        "ja-JP": "GKトレーニング",
+        "ko-KR": "골키퍼 훈련",
+        "ms-MY": "Latihan penjaga gol",
+        "th-TH": "ฝึกผู้รักษาประตู",
+        "vi-VN": "Tập thủ môn",
+        "zh-CN": "门将训练",
+        "zh-TW": "門將訓練"
+      },
+      "category": "finishing",
+      "minutes": 10,
+      "players": 3,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Goalkeeping sweeping behind the line",
+        "en-GB": "Goalkeeping sweeping behind the line",
+        "zh-CN": "门将训练 防线身后清扫",
+        "zh-TW": "門將訓練 防線身後清掃",
+        "ja-JP": "GKトレーニング スイーパーキーパー",
+        "ko-KR": "골키퍼 훈련 스위퍼 키퍼",
+        "es-ES": "Portería de líbero tras la línea",
+        "fr-FR": "Gardien en libéro derrière la ligne",
+        "id-ID": "Latihan kiper menyapu di belakang garis",
+        "ms-MY": "Latihan penjaga gol menyapu di belakang barisan",
+        "th-TH": "ฝึกผู้รักษาประตู กวาดหลังแนวรับ",
+        "vi-VN": "Tập thủ môn quét sau hàng thủ"
+      },
+      "note": {
+        "en": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+        "en-GB": "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.",
+        "zh-CN": "在对方出脚之前站定，不是出脚时还在动。射门瞬间还在移动的门将，是从静止开始扑的。",
+        "zh-TW": "在對方出腳之前站定，不是出腳時還在動。射門瞬間還在移動的門將，是從靜止開始撲的。",
+        "ja-JP": "シュートの前にセットする。打たれた瞬間に動いているGKは、止まった状態から飛ぶことになる。",
+        "ko-KR": "슛 전에 자세를 잡아라. 슛 순간 움직이는 골키퍼는 정지 상태에서 뛰는 셈이다.",
+        "es-ES": "Colócate antes del disparo. Un portero en movimiento al golpeo sale parado.",
+        "fr-FR": "Sois posé avant la frappe. Un gardien encore en mouvement plonge depuis l'arrêt.",
+        "id-ID": "Siapkan posisi sebelum tembakan, bukan saat tembakan.",
+        "ms-MY": "Sedia sebelum tendangan, bukan semasa tendangan.",
+        "th-TH": "ตั้งท่าก่อนบอลถูกยิง ผู้รักษาประตูที่ยังขยับตอนยิงเท่ากับพุ่งจากจุดหยุดนิ่ง",
+        "vi-VN": "Đứng vững trước cú sút. Thủ môn còn di chuyển khi bóng được sút là bay từ trạng thái đứng yên."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              325.1428571428571,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                360.1142857142857,
+                804.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              674.8571428571429,
+              885.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                639.8857142857141,
+                804.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                438.8,
+                264.0
+              ],
+              [
+                561.2,
+                250.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              129.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "cond_shuttle_finish",
       "family": "soccer_family_43",
       "familyName": {
