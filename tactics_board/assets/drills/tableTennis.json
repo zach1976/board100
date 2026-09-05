@@ -492,6 +492,181 @@
       }
     },
     {
+      "id": "tt_multiball",
+      "family": null,
+      "familyName": null,
+      "category": "warmup",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Multiball",
+        "en-GB": "Multiball",
+        "zh-CN": "多球训练",
+        "zh-TW": "多球訓練",
+        "ja-JP": "多球練習",
+        "ko-KR": "다구 연습",
+        "es-ES": "Multibolas",
+        "fr-FR": "Panier de balles",
+        "id-ID": "Latihan multibola",
+        "ms-MY": "Latihan multibola",
+        "th-TH": "ฝึกหลายลูก",
+        "vi-VN": "Tập đa bóng"
+      },
+      "note": {
+        "en": "One ball a second and no time to think between strokes — multiball buys ten times the repetitions of any rally.",
+        "en-GB": "One ball a second and no time to think between strokes — multiball buys ten times the repetitions of any rally.",
+        "zh-CN": "一秒一球，两板之间没时间想。多球换来的重复次数，是对拉的十倍。",
+        "zh-TW": "一秒一球，兩板之間沒時間想。多球換來的重複次數，是對拉的十倍。",
+        "ja-JP": "1秒1球、考える間はない。多球はラリーの10倍の反復を買ってくれる。",
+        "ko-KR": "1초에 한 공, 생각할 틈이 없다. 다구는 랠리의 열 배의 반복을 사준다.",
+        "es-ES": "Una bola por segundo y sin tiempo de pensar entre golpes: el multibolas compra diez veces las repeticiones de un peloteo.",
+        "fr-FR": "Une balle par seconde, pas le temps de réfléchir : le panier achète dix fois les répétitions d'un échange.",
+        "id-ID": "Satu bola per detik, tanpa waktu berpikir di antara pukulan.",
+        "ms-MY": "Satu bola sesaat, tiada masa berfikir antara pukulan.",
+        "th-TH": "วินาทีละลูก ไม่มีเวลาคิดระหว่างจังหวะ ได้จำนวนซ้ำสิบเท่าของการโต้",
+        "vi-VN": "Mỗi giây một bóng, không kịp nghĩ giữa hai cú đánh."
+      },
+      "board": {
+        "sportType": 1,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1294.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                371.43248175182475,
+                1278.0
+              ],
+              [
+                628.5675182481752,
+                1278.0
+              ],
+              [
+                500.0,
+                1294.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              141.8476277372262,
+              502.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                141.8476277372262,
+                535.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              628.5675182481752,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              371.43248175182475,
+              1096.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 1,
+            "position": [
+              141.8476277372262,
+              502.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "tt_footwork_two_one",
       "family": "tableTennis_family_3",
       "familyName": {
@@ -1032,7 +1207,7 @@
     },
     {
       "id": "tt_rally_block_drive",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1190,7 +1365,7 @@
     },
     {
       "id": "tt_rally_counter_drive",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1348,7 +1523,7 @@
     },
     {
       "id": "tt_rally_push_rally",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1506,7 +1681,7 @@
     },
     {
       "id": "tt_short_touch",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -1684,7 +1859,7 @@
     },
     {
       "id": "tt_short_flick",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -1862,7 +2037,7 @@
     },
     {
       "id": "tt_short_banana",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2040,7 +2215,7 @@
     },
     {
       "id": "tt_short_long_push",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2850,7 +3025,7 @@
     },
     {
       "id": "tt_kill_smash",
-      "family": "tableTennis_family_4",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3008,7 +3183,7 @@
     },
     {
       "id": "tt_kill_wide_forehand",
-      "family": "tableTennis_family_4",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3166,7 +3341,7 @@
     },
     {
       "id": "tt_kill_into_the_body",
-      "family": "tableTennis_family_4",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3828,7 +4003,7 @@
     },
     {
       "id": "tt_serve_short_backspin",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -3981,7 +4156,7 @@
     },
     {
       "id": "tt_serve_long_fast",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4134,7 +4309,7 @@
     },
     {
       "id": "tt_serve_sidespin_wide",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4287,7 +4462,7 @@
     },
     {
       "id": "tt_serve_third_ball",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4445,7 +4620,7 @@
     },
     {
       "id": "tt_game_half_table",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",
@@ -4618,7 +4793,7 @@
     },
     {
       "id": "tt_game_serve_receive",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",
@@ -4751,7 +4926,7 @@
     },
     {
       "id": "tt_game_full_match",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",
@@ -4884,7 +5059,7 @@
     },
     {
       "id": "tt_game_doubles",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",

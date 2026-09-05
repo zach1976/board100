@@ -521,7 +521,44 @@ def game_family() -> list[Drill]:
 
 
 def badminton_library() -> list[Drill]:
-    return (footwork_family() + clear_family() + drive_family()
+    return (footwork_family() + multi_shuttle() + clear_family() + drive_family()
             + drop_family() + net_family() + deception_family()
             + doubles_family() + smash_family() + defence_family()
             + serve_family() + game_family())
+
+def multi_shuttle() -> list[Drill]:
+    """Multi-shuttle feeding — the staple of Asian badminton training, and a
+    gap any coach would have flagged: a feeder with a box of shuttles sets a
+    tempo no rally can."""
+    return [Drill(
+        id="bd_multi_shuttle", category="warmup", minutes=10, rel=True,
+        free=False,
+        name={"en": "Multi-shuttle feeding", "en-GB": "Multi-shuttle feeding",
+              "zh-CN": "多球训练", "zh-TW": "多球訓練",
+              "ja-JP": "ノック練習", "ko-KR": "멀티셔틀 훈련",
+              "es-ES": "Multivolantes", "fr-FR": "Multivolants",
+              "id-ID": "Latihan multi-shuttlecock", "ms-MY": "Latihan multi-bulu tangkis",
+              "th-TH": "ตีลูกป้อนต่อเนื่อง", "vi-VN": "Tập đa cầu"},
+        note={"en": "The feed sets the tempo just past comfortable. Technique "
+                    "that survives the tenth shuttle is technique you own.",
+              "en-GB": "The feed sets the tempo just past comfortable. Technique "
+                       "that survives the tenth shuttle is technique you own.",
+              "zh-CN": "喂球节奏要比舒服再快一点。第十个球还不变形的技术，才是真正属于你的技术。",
+              "zh-TW": "餵球節奏要比舒服再快一點。第十個球還不變形的技術，才是真正屬於你的技術。",
+              "ja-JP": "ノックのテンポは「余裕より少し速く」。10球目でも崩れない技術だけが本物の技術だ。",
+              "ko-KR": "피딩 템포는 편안함보다 살짝 빠르게. 열 번째 셔틀에도 무너지지 않는 기술이 진짜 네 기술이다.",
+              "es-ES": "El ritmo de alimentación va justo por encima de lo cómodo: "
+                       "la técnica que sobrevive al décimo volante es la tuya.",
+              "fr-FR": "La cadence dépasse juste le confortable : la technique qui "
+                       "tient au dixième volant est celle qui t'appartient.",
+              "id-ID": "Tempo umpan sedikit di atas nyaman.",
+              "ms-MY": "Tempo suapan sedikit melebihi selesa.",
+              "th-TH": "จังหวะป้อนต้องเร็วกว่าที่สบายนิดหนึ่ง เทคนิคที่รอดถึงลูกที่สิบคือของจริง",
+              "vi-VN": "Nhịp cấp cầu nhanh hơn mức thoải mái một chút."},
+        home=[P(*BASE, "1", moves=[FR + (0,), BASE + (1,), FL + (2,),
+                                   BASE + (3,), RR + (4,), BASE + (5,)])],
+        away=[P(0.5, 0.44, "C", moves=[(0.46, 0.44, 2)])],
+        markers=[M(*c, "cone", "") for c in (FL, FR, RR)],
+        ball=(0.5, 0.44),           # in the feeder's hand
+    )]
+

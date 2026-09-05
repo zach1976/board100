@@ -4,7 +4,7 @@
   "drills": [
     {
       "id": "bd_footwork_net_forehand",
-      "family": "badminton_family_10",
+      "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -222,7 +222,7 @@
     },
     {
       "id": "bd_footwork_net_backhand",
-      "family": "badminton_family_10",
+      "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -440,7 +440,7 @@
     },
     {
       "id": "bd_footwork_rear_forehand",
-      "family": "badminton_family_10",
+      "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -658,7 +658,7 @@
     },
     {
       "id": "bd_footwork_rear_backhand",
-      "family": "badminton_family_10",
+      "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -876,7 +876,7 @@
     },
     {
       "id": "bd_footwork_four_corner",
-      "family": "badminton_family_10",
+      "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -1065,6 +1065,211 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bd_multi_shuttle",
+      "family": null,
+      "familyName": null,
+      "category": "warmup",
+      "minutes": 10,
+      "players": 2,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Multi-shuttle feeding",
+        "en-GB": "Multi-shuttle feeding",
+        "zh-CN": "多球训练",
+        "zh-TW": "多球訓練",
+        "ja-JP": "ノック練習",
+        "ko-KR": "멀티셔틀 훈련",
+        "es-ES": "Multivolantes",
+        "fr-FR": "Multivolants",
+        "id-ID": "Latihan multi-shuttlecock",
+        "ms-MY": "Latihan multi-bulu tangkis",
+        "th-TH": "ตีลูกป้อนต่อเนื่อง",
+        "vi-VN": "Tập đa cầu"
+      },
+      "note": {
+        "en": "The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
+        "en-GB": "The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
+        "zh-CN": "喂球节奏要比舒服再快一点。第十个球还不变形的技术，才是真正属于你的技术。",
+        "zh-TW": "餵球節奏要比舒服再快一點。第十個球還不變形的技術，才是真正屬於你的技術。",
+        "ja-JP": "ノックのテンポは「余裕より少し速く」。10球目でも崩れない技術だけが本物の技術だ。",
+        "ko-KR": "피딩 템포는 편안함보다 살짝 빠르게. 열 번째 셔틀에도 무너지지 않는 기술이 진짜 네 기술이다.",
+        "es-ES": "El ritmo de alimentación va justo por encima de lo cómodo: la técnica que sobrevive al décimo volante es la tuya.",
+        "fr-FR": "La cadence dépasse juste le confortable : la technique qui tient au dixième volant est celle qui t'appartient.",
+        "id-ID": "Tempo umpan sedikit di atas nyaman.",
+        "ms-MY": "Tempo suapan sedikit melebihi selesa.",
+        "th-TH": "จังหวะป้อนต้องเร็วกว่าที่สบายนิดหนึ่ง เทคนิคที่รอดถึงลูกที่สิบคือของจริง",
+        "vi-VN": "Nhịp cấp cầu nhanh hơn mức thoải mái một chút."
+      },
+      "board": {
+        "sportType": 0,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1040.4
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                692.2865671641791,
+                855.5999999999999
+              ],
+              [
+                500.0,
+                1040.4
+              ],
+              [
+                307.71343283582087,
+                855.5999999999999
+              ],
+              [
+                500.0,
+                1040.4
+              ],
+              [
+                716.3223880597016,
+                1330.8
+              ],
+              [
+                500.0,
+                1040.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              670.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                475.96417910447764,
+                670.8
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              307.71343283582087,
+              855.5999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              692.2865671641791,
+              855.5999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              716.3223880597016,
+              1330.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 0,
+            "position": [
+              500.0,
+              670.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
             "photoId": null,
             "role": null,
             "attachedTo": null
@@ -1679,7 +1884,7 @@
     },
     {
       "id": "bd_drop_straight",
-      "family": "badminton_family_11",
+      "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
         "en-GB": "Drop",
@@ -1837,7 +2042,7 @@
     },
     {
       "id": "bd_drop_cross",
-      "family": "badminton_family_11",
+      "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
         "en-GB": "Drop",
@@ -1995,7 +2200,7 @@
     },
     {
       "id": "bd_drop_slice",
-      "family": "badminton_family_11",
+      "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
         "en-GB": "Drop",
@@ -4368,7 +4573,7 @@
     },
     {
       "id": "bd_serve_short",
-      "family": "badminton_family_9",
+      "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4521,7 +4726,7 @@
     },
     {
       "id": "bd_serve_flick",
-      "family": "badminton_family_9",
+      "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4674,7 +4879,7 @@
     },
     {
       "id": "bd_serve_high",
-      "family": "badminton_family_9",
+      "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4827,7 +5032,7 @@
     },
     {
       "id": "bd_serve_drive",
-      "family": "badminton_family_9",
+      "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",

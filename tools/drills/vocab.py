@@ -1150,3 +1150,17 @@ fix("front set", en="to the front", en_GB="to the front")
 fix("back set", en="behind the head", en_GB="behind the head")
 fix("jump set", en="off the jump", en_GB="off the jump")
 fix("full match", en="a full game", en_GB="a full game")
+
+# ── Coach-review corrections (2026-09-05) ────────────────────────────────────
+# Volleyball floor-defence systems. "Man-up" is handball and water polo
+# vocabulary; volleyball's third system is middle-up, 心跟进 in every Chinese
+# textbook, with rotation being 边跟进. These three keys are used only by the
+# volleyball defence family, so retargeting them is safe.
+fix("man-up", en="middle-up", en_GB="middle-up",
+    zh_CN="心跟进", zh_TW="心跟進", ja_JP="ミドルアップ", ko_KR="미들업",
+    es_ES="con el 6 adelantado", fr_FR="6 avancé",
+    id_ID="middle-up", ms_MY="middle-up", th_TH="ระบบ 6 ขึ้นหน้า",
+    vi_VN="số 6 dâng")
+fix("rotation", zh_CN="边跟进", zh_TW="邊跟進")
+fix("perimeter", zh_CN="马蹄形站位", zh_TW="馬蹄形站位",
+    ja_JP="ミドルバック", ko_KR="미들백")

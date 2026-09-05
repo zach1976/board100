@@ -286,9 +286,12 @@ def serve_family() -> list[Drill]:
             id=f"st_serve_{key.replace(' ', '_')}", category="setpiece",
             minutes=8, rel=True, free=(key == "deep"),
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
+            # The inside players start in the quarter circles at the net —
+            # that is where the rules put them for the serve; mid-court is
+            # where they drop to once it is away.
             home=[P(*TEKONG, "T", moves=[(0.50, 0.80, 1)]),
-                  P(*LEFT_INSIDE, "L", moves=[(0.34, 0.58, 0)]),
-                  P(*RIGHT_INSIDE, "R", moves=[(0.66, 0.58, 0)])],
+                  P(0.12, 0.54, "L", moves=[(0.34, 0.60, 0)]),
+                  P(0.88, 0.54, "R", moves=[(0.66, 0.60, 0)])],
             away=[P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 1)])],
             markers=[M(*TEKONG, "circle", ""), M(*land, "zone", "")],
             ball=0,
