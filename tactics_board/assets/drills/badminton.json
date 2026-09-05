@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "bd_footwork_net_forehand",
+      "level": "foundation",
       "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
@@ -222,6 +223,7 @@
     },
     {
       "id": "bd_footwork_net_backhand",
+      "level": "foundation",
       "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
@@ -440,6 +442,7 @@
     },
     {
       "id": "bd_footwork_rear_forehand",
+      "level": "foundation",
       "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
@@ -658,6 +661,7 @@
     },
     {
       "id": "bd_footwork_rear_backhand",
+      "level": "foundation",
       "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
@@ -876,6 +880,7 @@
     },
     {
       "id": "bd_footwork_four_corner",
+      "level": "foundation",
       "family": "badminton_family_11",
       "familyName": {
         "en": "Footwork",
@@ -1077,6 +1082,7 @@
     },
     {
       "id": "bd_multi_shuttle",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -1282,6 +1288,7 @@
     },
     {
       "id": "bd_clear_straight",
+      "level": "development",
       "family": "badminton_family_0",
       "familyName": {
         "en": "Clear",
@@ -1445,6 +1452,7 @@
     },
     {
       "id": "bd_clear_cross",
+      "level": "development",
       "family": "badminton_family_0",
       "familyName": {
         "en": "Clear",
@@ -1608,6 +1616,7 @@
     },
     {
       "id": "bd_drive_flat",
+      "level": "development",
       "family": "badminton_family_6",
       "familyName": {
         "en": "Drive rally",
@@ -1746,6 +1755,7 @@
     },
     {
       "id": "bd_drive_crosscourt",
+      "level": "development",
       "family": "badminton_family_6",
       "familyName": {
         "en": "Drive rally",
@@ -1884,6 +1894,7 @@
     },
     {
       "id": "bd_drop_straight",
+      "level": "development",
       "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
@@ -2042,6 +2053,7 @@
     },
     {
       "id": "bd_drop_cross",
+      "level": "development",
       "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
@@ -2200,6 +2212,7 @@
     },
     {
       "id": "bd_drop_slice",
+      "level": "development",
       "family": "badminton_family_12",
       "familyName": {
         "en": "Drop",
@@ -2358,6 +2371,7 @@
     },
     {
       "id": "bd_net_kill",
+      "level": "development",
       "family": "badminton_family_8",
       "familyName": {
         "en": "Net",
@@ -2516,6 +2530,7 @@
     },
     {
       "id": "bd_net_lift",
+      "level": "development",
       "family": "badminton_family_8",
       "familyName": {
         "en": "Net",
@@ -2674,6 +2689,7 @@
     },
     {
       "id": "bd_net_spin",
+      "level": "advanced",
       "family": "badminton_family_8",
       "familyName": {
         "en": "Net",
@@ -2832,6 +2848,7 @@
     },
     {
       "id": "bd_deception_hold_flick",
+      "level": "advanced",
       "family": "badminton_family_1",
       "familyName": {
         "en": "Deception",
@@ -2995,6 +3012,7 @@
     },
     {
       "id": "bd_deception_double_motion",
+      "level": "advanced",
       "family": "badminton_family_1",
       "familyName": {
         "en": "Deception",
@@ -3158,6 +3176,7 @@
     },
     {
       "id": "bd_doubles_attack",
+      "level": "development",
       "family": "badminton_family_2",
       "familyName": {
         "en": "Doubles",
@@ -3318,6 +3337,7 @@
     },
     {
       "id": "bd_doubles_defence",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -3465,6 +3485,7 @@
     },
     {
       "id": "bd_doubles_rotation",
+      "level": "development",
       "family": "badminton_family_2",
       "familyName": {
         "en": "Doubles",
@@ -3625,6 +3646,7 @@
     },
     {
       "id": "bd_smash_straight",
+      "level": "development",
       "family": "badminton_family_4",
       "familyName": {
         "en": "Smash",
@@ -3783,6 +3805,7 @@
     },
     {
       "id": "bd_smash_cross",
+      "level": "development",
       "family": "badminton_family_4",
       "familyName": {
         "en": "Smash",
@@ -3941,6 +3964,7 @@
     },
     {
       "id": "bd_smash_steep",
+      "level": "development",
       "family": "badminton_family_4",
       "familyName": {
         "en": "Smash",
@@ -4099,6 +4123,7 @@
     },
     {
       "id": "bd_defence_block",
+      "level": "development",
       "family": "badminton_family_5",
       "familyName": {
         "en": "Defence",
@@ -4257,6 +4282,7 @@
     },
     {
       "id": "bd_defence_drive",
+      "level": "development",
       "family": "badminton_family_5",
       "familyName": {
         "en": "Defence",
@@ -4415,6 +4441,7 @@
     },
     {
       "id": "bd_defence_lift",
+      "level": "development",
       "family": "badminton_family_5",
       "familyName": {
         "en": "Defence",
@@ -4573,6 +4600,7 @@
     },
     {
       "id": "bd_serve_short",
+      "level": "development",
       "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
@@ -4726,6 +4754,7 @@
     },
     {
       "id": "bd_serve_flick",
+      "level": "development",
       "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
@@ -4879,6 +4908,7 @@
     },
     {
       "id": "bd_serve_high",
+      "level": "development",
       "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
@@ -5032,6 +5062,7 @@
     },
     {
       "id": "bd_serve_drive",
+      "level": "development",
       "family": "badminton_family_10",
       "familyName": {
         "en": "Serve",
@@ -5185,6 +5216,7 @@
     },
     {
       "id": "bd_game_half_court",
+      "level": "development",
       "family": "badminton_family_7",
       "familyName": {
         "en": "Conditioned game",
@@ -5358,6 +5390,7 @@
     },
     {
       "id": "bd_game_front_court",
+      "level": "development",
       "family": "badminton_family_7",
       "familyName": {
         "en": "Conditioned game",
@@ -5491,6 +5524,7 @@
     },
     {
       "id": "bd_game_two_v_one",
+      "level": "development",
       "family": "badminton_family_7",
       "familyName": {
         "en": "Conditioned game",
@@ -5651,6 +5685,7 @@
     },
     {
       "id": "bd_game_full_doubles",
+      "level": "development",
       "family": "badminton_family_7",
       "familyName": {
         "en": "Conditioned game",

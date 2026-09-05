@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "tt_warm_forehand",
+      "level": "foundation",
       "family": "tableTennis_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -167,6 +168,7 @@
     },
     {
       "id": "tt_warm_backhand",
+      "level": "foundation",
       "family": "tableTennis_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -330,6 +332,7 @@
     },
     {
       "id": "tt_warm_middle",
+      "level": "foundation",
       "family": "tableTennis_family_2",
       "familyName": {
         "en": "Warm-up",
@@ -493,6 +496,7 @@
     },
     {
       "id": "tt_multiball",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -668,6 +672,7 @@
     },
     {
       "id": "tt_footwork_two_one",
+      "level": "foundation",
       "family": "tableTennis_family_3",
       "familyName": {
         "en": "Footwork",
@@ -856,6 +861,7 @@
     },
     {
       "id": "tt_footwork_falkenberg",
+      "level": "foundation",
       "family": "tableTennis_family_3",
       "familyName": {
         "en": "Footwork",
@@ -1064,6 +1070,7 @@
     },
     {
       "id": "tt_footwork_side_to_side",
+      "level": "foundation",
       "family": "tableTennis_family_3",
       "familyName": {
         "en": "Footwork",
@@ -1207,6 +1214,7 @@
     },
     {
       "id": "tt_rally_block_drive",
+      "level": "development",
       "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
@@ -1365,6 +1373,7 @@
     },
     {
       "id": "tt_rally_counter_drive",
+      "level": "development",
       "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
@@ -1523,6 +1532,7 @@
     },
     {
       "id": "tt_rally_push_rally",
+      "level": "development",
       "family": "tableTennis_family_6",
       "familyName": {
         "en": "Rally control",
@@ -1681,6 +1691,7 @@
     },
     {
       "id": "tt_short_touch",
+      "level": "development",
       "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
@@ -1859,6 +1870,7 @@
     },
     {
       "id": "tt_short_flick",
+      "level": "development",
       "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
@@ -2037,6 +2049,7 @@
     },
     {
       "id": "tt_short_banana",
+      "level": "advanced",
       "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
@@ -2215,6 +2228,7 @@
     },
     {
       "id": "tt_short_long_push",
+      "level": "development",
       "family": "tableTennis_family_9",
       "familyName": {
         "en": "Short game",
@@ -2393,6 +2407,7 @@
     },
     {
       "id": "tt_loop_vs_backspin",
+      "level": "development",
       "family": "tableTennis_family_0",
       "familyName": {
         "en": "Loop",
@@ -2551,6 +2566,7 @@
     },
     {
       "id": "tt_loop_vs_block",
+      "level": "development",
       "family": "tableTennis_family_0",
       "familyName": {
         "en": "Loop",
@@ -2709,6 +2725,7 @@
     },
     {
       "id": "tt_loop_from_backhand",
+      "level": "development",
       "family": "tableTennis_family_0",
       "familyName": {
         "en": "Loop",
@@ -2867,6 +2884,7 @@
     },
     {
       "id": "tt_loop_counter_loop",
+      "level": "advanced",
       "family": "tableTennis_family_0",
       "familyName": {
         "en": "Loop",
@@ -3025,6 +3043,7 @@
     },
     {
       "id": "tt_kill_smash",
+      "level": "development",
       "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
@@ -3183,6 +3202,7 @@
     },
     {
       "id": "tt_kill_wide_forehand",
+      "level": "development",
       "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
@@ -3341,6 +3361,7 @@
     },
     {
       "id": "tt_kill_into_the_body",
+      "level": "development",
       "family": "tableTennis_family_5",
       "familyName": {
         "en": "Finishing",
@@ -3499,6 +3520,7 @@
     },
     {
       "id": "tt_defence_chop_block",
+      "level": "development",
       "family": "tableTennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -3667,6 +3689,7 @@
     },
     {
       "id": "tt_defence_deep_chop",
+      "level": "advanced",
       "family": "tableTennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -3835,6 +3858,7 @@
     },
     {
       "id": "tt_defence_lob",
+      "level": "development",
       "family": "tableTennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -4003,6 +4027,7 @@
     },
     {
       "id": "tt_serve_short_backspin",
+      "level": "development",
       "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
@@ -4156,6 +4181,7 @@
     },
     {
       "id": "tt_serve_long_fast",
+      "level": "development",
       "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
@@ -4309,6 +4335,7 @@
     },
     {
       "id": "tt_serve_sidespin_wide",
+      "level": "development",
       "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
@@ -4462,6 +4489,7 @@
     },
     {
       "id": "tt_serve_third_ball",
+      "level": "development",
       "family": "tableTennis_family_8",
       "familyName": {
         "en": "Serve",
@@ -4620,6 +4648,7 @@
     },
     {
       "id": "tt_game_half_table",
+      "level": "development",
       "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
@@ -4793,6 +4822,7 @@
     },
     {
       "id": "tt_game_serve_receive",
+      "level": "development",
       "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
@@ -4926,6 +4956,7 @@
     },
     {
       "id": "tt_game_full_match",
+      "level": "development",
       "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",
@@ -5059,6 +5090,7 @@
     },
     {
       "id": "tt_game_doubles",
+      "level": "development",
       "family": "tableTennis_family_7",
       "familyName": {
         "en": "Match play",

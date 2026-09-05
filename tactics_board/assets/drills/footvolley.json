@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "fv_warm_juggling_in_pairs",
+      "level": "foundation",
       "family": "footvolley_family_3",
       "familyName": {
         "en": "Warm-up",
@@ -137,6 +138,7 @@
     },
     {
       "id": "fv_warm_on_every_surface",
+      "level": "foundation",
       "family": "footvolley_family_3",
       "familyName": {
         "en": "Warm-up",
@@ -270,6 +272,7 @@
     },
     {
       "id": "fv_control_chest_control",
+      "level": "development",
       "family": "footvolley_family_9",
       "familyName": {
         "en": "Ball control",
@@ -450,6 +453,7 @@
     },
     {
       "id": "fv_control_the_shoulder_pass",
+      "level": "development",
       "family": "footvolley_family_9",
       "familyName": {
         "en": "Ball control",
@@ -630,6 +634,7 @@
     },
     {
       "id": "fv_control_the_high_feed",
+      "level": "development",
       "family": "footvolley_family_9",
       "familyName": {
         "en": "Ball control",
@@ -810,6 +815,7 @@
     },
     {
       "id": "fv_receive_chest",
+      "level": "development",
       "family": "footvolley_family_6",
       "familyName": {
         "en": "Receiving",
@@ -995,6 +1001,7 @@
     },
     {
       "id": "fv_receive_thigh",
+      "level": "development",
       "family": "footvolley_family_6",
       "familyName": {
         "en": "Receiving",
@@ -1180,6 +1187,7 @@
     },
     {
       "id": "fv_serve_long_and_fast",
+      "level": "development",
       "family": "footvolley_family_0",
       "familyName": {
         "en": "Serve",
@@ -1358,6 +1366,7 @@
     },
     {
       "id": "fv_serve_in_the_corner",
+      "level": "development",
       "family": "footvolley_family_0",
       "familyName": {
         "en": "Serve",
@@ -1536,6 +1545,7 @@
     },
     {
       "id": "fv_serve_at_the_seam",
+      "level": "development",
       "family": "footvolley_family_0",
       "familyName": {
         "en": "Serve",
@@ -1714,6 +1724,7 @@
     },
     {
       "id": "fv_attack_the_shark_attack",
+      "level": "advanced",
       "family": "footvolley_family_8",
       "familyName": {
         "en": "Setting up",
@@ -1926,6 +1937,7 @@
     },
     {
       "id": "fv_attack_the_sombrero",
+      "level": "advanced",
       "family": "footvolley_family_8",
       "familyName": {
         "en": "Setting up",
@@ -2138,6 +2150,7 @@
     },
     {
       "id": "fv_attack_cross_court",
+      "level": "development",
       "family": "footvolley_family_8",
       "familyName": {
         "en": "Setting up",
@@ -2350,6 +2363,7 @@
     },
     {
       "id": "fv_combo_quick",
+      "level": "development",
       "family": "footvolley_family_7",
       "familyName": {
         "en": "Combination",
@@ -2562,6 +2576,7 @@
     },
     {
       "id": "fv_combo_back",
+      "level": "development",
       "family": "footvolley_family_7",
       "familyName": {
         "en": "Combination",
@@ -2774,6 +2789,7 @@
     },
     {
       "id": "fv_combo_second_ball",
+      "level": "development",
       "family": "footvolley_family_7",
       "familyName": {
         "en": "Combination",
@@ -2986,6 +3002,7 @@
     },
     {
       "id": "fv_finish_the_bicycle_kick",
+      "level": "advanced",
       "family": "footvolley_family_1",
       "familyName": {
         "en": "Finishing",
@@ -3186,6 +3203,7 @@
     },
     {
       "id": "fv_finish_the_header",
+      "level": "development",
       "family": "footvolley_family_1",
       "familyName": {
         "en": "Finishing",
@@ -3386,6 +3404,7 @@
     },
     {
       "id": "fv_finish_the_drop",
+      "level": "development",
       "family": "footvolley_family_1",
       "familyName": {
         "en": "Finishing",
@@ -3586,6 +3605,7 @@
     },
     {
       "id": "fv_defence_the_block",
+      "level": "development",
       "family": "footvolley_family_4",
       "familyName": {
         "en": "Defending",
@@ -3773,6 +3793,7 @@
     },
     {
       "id": "fv_defence_covering_the_block",
+      "level": "development",
       "family": "footvolley_family_4",
       "familyName": {
         "en": "Defending",
@@ -3960,6 +3981,7 @@
     },
     {
       "id": "fv_defence_the_dig",
+      "level": "development",
       "family": "footvolley_family_4",
       "familyName": {
         "en": "Defending",
@@ -4147,6 +4169,7 @@
     },
     {
       "id": "fv_block_timing",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -4321,6 +4344,7 @@
     },
     {
       "id": "fv_game_1v1",
+      "level": "development",
       "family": "footvolley_family_5",
       "familyName": {
         "en": "Game",
@@ -4454,6 +4478,7 @@
     },
     {
       "id": "fv_game_2v2",
+      "level": "development",
       "family": "footvolley_family_5",
       "familyName": {
         "en": "Game",
@@ -4641,6 +4666,7 @@
     },
     {
       "id": "fv_game_4v4",
+      "level": "development",
       "family": "footvolley_family_5",
       "familyName": {
         "en": "Game",
@@ -4936,6 +4962,7 @@
     },
     {
       "id": "fv_game_3v3",
+      "level": "development",
       "family": "footvolley_family_5",
       "familyName": {
         "en": "Game",

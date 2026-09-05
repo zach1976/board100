@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "fh_warm_gates",
+      "level": "foundation",
       "family": "fieldHockey_family_1",
       "familyName": {
         "en": "Warm-up",
@@ -240,6 +241,7 @@
     },
     {
       "id": "fh_warm_pairs",
+      "level": "foundation",
       "family": "fieldHockey_family_1",
       "familyName": {
         "en": "Warm-up",
@@ -373,6 +375,7 @@
     },
     {
       "id": "fh_warm_elimination",
+      "level": "foundation",
       "family": "fieldHockey_family_1",
       "familyName": {
         "en": "Warm-up",
@@ -531,6 +534,7 @@
     },
     {
       "id": "fh_build_from_the_back",
+      "level": "development",
       "family": "fieldHockey_family_4",
       "familyName": {
         "en": "Building up",
@@ -819,6 +823,7 @@
     },
     {
       "id": "fh_build_through_midfield",
+      "level": "development",
       "family": "fieldHockey_family_4",
       "familyName": {
         "en": "Building up",
@@ -1107,6 +1112,7 @@
     },
     {
       "id": "fh_build_switching",
+      "level": "development",
       "family": "fieldHockey_family_4",
       "familyName": {
         "en": "Building up",
@@ -1395,6 +1401,7 @@
     },
     {
       "id": "fh_entry_overlap",
+      "level": "development",
       "family": "fieldHockey_family_0",
       "familyName": {
         "en": "Entering the circle",
@@ -1664,6 +1671,7 @@
     },
     {
       "id": "fh_entry_give_and_go",
+      "level": "development",
       "family": "fieldHockey_family_0",
       "familyName": {
         "en": "Entering the circle",
@@ -1933,6 +1941,7 @@
     },
     {
       "id": "fh_entry_baseline",
+      "level": "development",
       "family": "fieldHockey_family_0",
       "familyName": {
         "en": "Entering the circle",
@@ -2202,6 +2211,7 @@
     },
     {
       "id": "fh_entry_three_v_two",
+      "level": "development",
       "family": "fieldHockey_family_0",
       "familyName": {
         "en": "Entering the circle",
@@ -2471,6 +2481,7 @@
     },
     {
       "id": "fh_shot_deflection",
+      "level": "development",
       "family": "fieldHockey_family_2",
       "familyName": {
         "en": "Shooting",
@@ -2678,6 +2689,7 @@
     },
     {
       "id": "fh_shot_reverse",
+      "level": "development",
       "family": "fieldHockey_family_2",
       "familyName": {
         "en": "Shooting",
@@ -2885,6 +2897,7 @@
     },
     {
       "id": "fh_shot_tomahawk",
+      "level": "advanced",
       "family": "fieldHockey_family_2",
       "familyName": {
         "en": "Shooting",
@@ -3092,6 +3105,7 @@
     },
     {
       "id": "fh_shot_rebound",
+      "level": "development",
       "family": "fieldHockey_family_2",
       "familyName": {
         "en": "Shooting",
@@ -3299,6 +3313,7 @@
     },
     {
       "id": "fh_press_high",
+      "level": "development",
       "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Press",
@@ -3600,6 +3615,7 @@
     },
     {
       "id": "fh_press_half",
+      "level": "development",
       "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Press",
@@ -3901,6 +3917,7 @@
     },
     {
       "id": "fh_press_circle",
+      "level": "development",
       "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Press",
@@ -4202,6 +4219,7 @@
     },
     {
       "id": "fh_corner_drag_flick",
+      "level": "advanced",
       "family": "fieldHockey_family_3",
       "familyName": {
         "en": "Penalty corner",
@@ -4436,6 +4454,7 @@
     },
     {
       "id": "fh_corner_straight_strike",
+      "level": "development",
       "family": "fieldHockey_family_3",
       "familyName": {
         "en": "Penalty corner",
@@ -4670,6 +4689,7 @@
     },
     {
       "id": "fh_corner_variation_left",
+      "level": "development",
       "family": "fieldHockey_family_3",
       "familyName": {
         "en": "Penalty corner",
@@ -4904,6 +4924,7 @@
     },
     {
       "id": "fh_corner_defending_it",
+      "level": "development",
       "family": "fieldHockey_family_3",
       "familyName": {
         "en": "Penalty corner",
@@ -5246,6 +5267,7 @@
     },
     {
       "id": "fh_set_free_hit",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -5453,6 +5475,7 @@
     },
     {
       "id": "fh_game_3v3",
+      "level": "development",
       "family": "fieldHockey_family_5",
       "familyName": {
         "en": "Game",
@@ -5734,6 +5757,7 @@
     },
     {
       "id": "fh_game_5v5",
+      "level": "development",
       "family": "fieldHockey_family_5",
       "familyName": {
         "en": "Game",
@@ -6123,6 +6147,7 @@
     },
     {
       "id": "fh_game_7v7",
+      "level": "development",
       "family": "fieldHockey_family_5",
       "familyName": {
         "en": "Game",

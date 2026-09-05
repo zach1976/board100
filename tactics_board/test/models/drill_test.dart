@@ -105,6 +105,17 @@ void _libraryTests(String sport) {
       expect(drills.map((d) => d.id).toSet().length, drills.length);
     });
 
+    test('every tier has drills, and every level key is translated', () {
+      final en = jsonDecode(
+              File('assets/translations/en-US.json').readAsStringSync())
+          as Map<String, dynamic>;
+      for (final l in DrillLevel.values) {
+        expect(drills.where((d) => d.level == l).length, greaterThanOrEqualTo(2),
+            reason: 'fewer than two $l drills — the filter chip would be a dud');
+        expect(en.containsKey(l.labelKey), isTrue, reason: l.labelKey);
+      }
+    });
+
     test('covers every category a session is built from', () {
       final covered = drills.map((d) => d.category).toSet();
       for (final needed in [

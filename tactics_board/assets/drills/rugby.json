@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "rg_handling_grid",
+      "level": "foundation",
       "family": "rugby_family_6",
       "familyName": {
         "en": "Handling",
@@ -291,6 +292,7 @@
     },
     {
       "id": "rg_handling_threes",
+      "level": "foundation",
       "family": "rugby_family_6",
       "familyName": {
         "en": "Handling",
@@ -526,6 +528,7 @@
     },
     {
       "id": "rg_handling_wide",
+      "level": "foundation",
       "family": "rugby_family_6",
       "familyName": {
         "en": "Handling",
@@ -917,6 +920,7 @@
     },
     {
       "id": "rg_phase_one_three_three_one",
+      "level": "advanced",
       "family": "rugby_family_4",
       "familyName": {
         "en": "Phase play",
@@ -1414,6 +1418,7 @@
     },
     {
       "id": "rg_phase_two_four_two",
+      "level": "development",
       "family": "rugby_family_4",
       "familyName": {
         "en": "Phase play",
@@ -1911,6 +1916,7 @@
     },
     {
       "id": "rg_phase_left_to_right",
+      "level": "development",
       "family": "rugby_family_4",
       "familyName": {
         "en": "Phase play",
@@ -2344,6 +2350,7 @@
     },
     {
       "id": "rg_breakdown_quick_ball",
+      "level": "development",
       "family": "rugby_family_3",
       "familyName": {
         "en": "Breakdown",
@@ -2568,6 +2575,7 @@
     },
     {
       "id": "rg_breakdown_jackal",
+      "level": "development",
       "family": "rugby_family_3",
       "familyName": {
         "en": "Breakdown",
@@ -2760,6 +2768,7 @@
     },
     {
       "id": "rg_breakdown_counter_ruck",
+      "level": "development",
       "family": "rugby_family_3",
       "familyName": {
         "en": "Breakdown",
@@ -3016,6 +3025,7 @@
     },
     {
       "id": "rg_move_miss_pass",
+      "level": "development",
       "family": "rugby_family_2",
       "familyName": {
         "en": "Backline move",
@@ -3415,6 +3425,7 @@
     },
     {
       "id": "rg_move_switch",
+      "level": "development",
       "family": "rugby_family_2",
       "familyName": {
         "en": "Backline move",
@@ -3814,6 +3825,7 @@
     },
     {
       "id": "rg_move_loop",
+      "level": "development",
       "family": "rugby_family_2",
       "familyName": {
         "en": "Backline move",
@@ -4213,6 +4225,7 @@
     },
     {
       "id": "rg_move_cut_out",
+      "level": "development",
       "family": "rugby_family_2",
       "familyName": {
         "en": "Backline move",
@@ -4612,6 +4625,7 @@
     },
     {
       "id": "rg_move_dummy_runner",
+      "level": "development",
       "family": "rugby_family_2",
       "familyName": {
         "en": "Backline move",
@@ -5011,6 +5025,7 @@
     },
     {
       "id": "rg_kick_box",
+      "level": "development",
       "family": "rugby_family_0",
       "familyName": {
         "en": "Kicking",
@@ -5218,6 +5233,7 @@
     },
     {
       "id": "rg_kick_cross_field",
+      "level": "development",
       "family": "rugby_family_0",
       "familyName": {
         "en": "Kicking",
@@ -5425,6 +5441,7 @@
     },
     {
       "id": "rg_kick_territory",
+      "level": "development",
       "family": "rugby_family_0",
       "familyName": {
         "en": "Kicking",
@@ -5632,6 +5649,7 @@
     },
     {
       "id": "rg_kick_grubber",
+      "level": "development",
       "family": "rugby_family_0",
       "familyName": {
         "en": "Kicking",
@@ -5839,6 +5857,7 @@
     },
     {
       "id": "rg_finish_pick_and_go",
+      "level": "development",
       "family": "rugby_family_7",
       "familyName": {
         "en": "Finishing",
@@ -6039,6 +6058,7 @@
     },
     {
       "id": "rg_finish_wide_finish",
+      "level": "development",
       "family": "rugby_family_7",
       "familyName": {
         "en": "Finishing",
@@ -6239,6 +6259,7 @@
     },
     {
       "id": "rg_finish_kick_chase",
+      "level": "development",
       "family": "rugby_family_7",
       "familyName": {
         "en": "Finishing",
@@ -6439,6 +6460,7 @@
     },
     {
       "id": "rg_defence_drift",
+      "level": "development",
       "family": "rugby_family_1",
       "familyName": {
         "en": "Defence",
@@ -6845,6 +6867,7 @@
     },
     {
       "id": "rg_defence_blitz",
+      "level": "development",
       "family": "rugby_family_1",
       "familyName": {
         "en": "Defence",
@@ -7251,6 +7274,7 @@
     },
     {
       "id": "rg_defence_scramble",
+      "level": "development",
       "family": "rugby_family_1",
       "familyName": {
         "en": "Defence",
@@ -7657,6 +7681,7 @@
     },
     {
       "id": "rg_set_lineout_five",
+      "level": "development",
       "family": "rugby_family_9",
       "familyName": {
         "en": "Set piece",
@@ -7998,6 +8023,7 @@
     },
     {
       "id": "rg_set_lineout_seven",
+      "level": "advanced",
       "family": "rugby_family_9",
       "familyName": {
         "en": "Set piece",
@@ -8433,6 +8459,7 @@
     },
     {
       "id": "rg_set_scrum",
+      "level": "development",
       "family": "rugby_family_9",
       "familyName": {
         "en": "Set piece",
@@ -8888,6 +8915,7 @@
     },
     {
       "id": "rg_set_kick_off",
+      "level": "development",
       "family": "rugby_family_9",
       "familyName": {
         "en": "Set piece",
@@ -9321,6 +9349,7 @@
     },
     {
       "id": "rg_maul_drive",
+      "level": "development",
       "family": "rugby_family_8",
       "familyName": {
         "en": "Maul d",
@@ -9643,6 +9672,7 @@
     },
     {
       "id": "rg_maul_defend",
+      "level": "advanced",
       "family": "rugby_family_8",
       "familyName": {
         "en": "Maul d",
@@ -10019,6 +10049,7 @@
     },
     {
       "id": "rg_game_5v5",
+      "level": "development",
       "family": "rugby_family_5",
       "familyName": {
         "en": "Game",
@@ -10368,6 +10399,7 @@
     },
     {
       "id": "rg_game_7v7",
+      "level": "development",
       "family": "rugby_family_5",
       "familyName": {
         "en": "Game",
@@ -10825,6 +10857,7 @@
     },
     {
       "id": "rg_game_8v8",
+      "level": "development",
       "family": "rugby_family_5",
       "familyName": {
         "en": "Game",

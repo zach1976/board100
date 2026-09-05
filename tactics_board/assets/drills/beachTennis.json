@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "bt_warm_volley_exchange",
+      "level": "foundation",
       "family": "beachTennis_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -147,6 +148,7 @@
     },
     {
       "id": "bt_warm_short_court",
+      "level": "foundation",
       "family": "beachTennis_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -290,6 +292,7 @@
     },
     {
       "id": "bt_rally_straight",
+      "level": "development",
       "family": "beachTennis_family_9",
       "familyName": {
         "en": "Volley rally",
@@ -428,6 +431,7 @@
     },
     {
       "id": "bt_rally_cross_court",
+      "level": "development",
       "family": "beachTennis_family_9",
       "familyName": {
         "en": "Volley rally",
@@ -566,6 +570,7 @@
     },
     {
       "id": "bt_return_block",
+      "level": "development",
       "family": "beachTennis_family_8",
       "familyName": {
         "en": "Return",
@@ -766,6 +771,7 @@
     },
     {
       "id": "bt_return_attacking",
+      "level": "development",
       "family": "beachTennis_family_8",
       "familyName": {
         "en": "Return",
@@ -966,6 +972,7 @@
     },
     {
       "id": "bt_serve_flat",
+      "level": "development",
       "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -1171,6 +1178,7 @@
     },
     {
       "id": "bt_serve_sliced",
+      "level": "development",
       "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -1376,6 +1384,7 @@
     },
     {
       "id": "bt_serve_jump",
+      "level": "advanced",
       "family": "beachTennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -1581,6 +1590,7 @@
     },
     {
       "id": "bt_attack_approach",
+      "level": "development",
       "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
@@ -1781,6 +1791,7 @@
     },
     {
       "id": "bt_attack_the_drop",
+      "level": "development",
       "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
@@ -1981,6 +1992,7 @@
     },
     {
       "id": "bt_attack_cross_court",
+      "level": "development",
       "family": "beachTennis_family_3",
       "familyName": {
         "en": "Attacking",
@@ -2181,6 +2193,7 @@
     },
     {
       "id": "bt_lob_over",
+      "level": "development",
       "family": "beachTennis_family_0",
       "familyName": {
         "en": "Lob battle",
@@ -2381,6 +2394,7 @@
     },
     {
       "id": "bt_lob_recover",
+      "level": "development",
       "family": "beachTennis_family_0",
       "familyName": {
         "en": "Lob battle",
@@ -2568,6 +2582,7 @@
     },
     {
       "id": "bt_smash_straight",
+      "level": "development",
       "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
@@ -2761,6 +2776,7 @@
     },
     {
       "id": "bt_smash_cross_court",
+      "level": "development",
       "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
@@ -2954,6 +2970,7 @@
     },
     {
       "id": "bt_smash_jump",
+      "level": "advanced",
       "family": "beachTennis_family_1",
       "familyName": {
         "en": "Smash",
@@ -3147,6 +3164,7 @@
     },
     {
       "id": "bt_defence_the_block",
+      "level": "development",
       "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
@@ -3347,6 +3365,7 @@
     },
     {
       "id": "bt_defence_the_lob",
+      "level": "development",
       "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
@@ -3547,6 +3566,7 @@
     },
     {
       "id": "bt_defence_the_drop",
+      "level": "development",
       "family": "beachTennis_family_2",
       "familyName": {
         "en": "Defending",
@@ -3747,6 +3767,7 @@
     },
     {
       "id": "bt_cover_middle",
+      "level": "development",
       "family": "beachTennis_family_7",
       "familyName": {
         "en": "Court coverage",
@@ -3927,6 +3948,7 @@
     },
     {
       "id": "bt_cover_switching",
+      "level": "development",
       "family": "beachTennis_family_7",
       "familyName": {
         "en": "Court coverage",
@@ -4107,6 +4129,7 @@
     },
     {
       "id": "bt_game_half_court",
+      "level": "development",
       "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",
@@ -4280,6 +4303,7 @@
     },
     {
       "id": "bt_game_king_of_the_court",
+      "level": "development",
       "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",
@@ -4467,6 +4491,7 @@
     },
     {
       "id": "bt_game_full_doubles",
+      "level": "development",
       "family": "beachTennis_family_4",
       "familyName": {
         "en": "Game",

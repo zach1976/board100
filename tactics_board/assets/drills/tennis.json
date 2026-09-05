@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "tn_warm_mini_tennis",
+      "level": "foundation",
       "family": "tennis_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -147,6 +148,7 @@
     },
     {
       "id": "tn_warm_service_box",
+      "level": "foundation",
       "family": "tennis_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -290,6 +292,7 @@
     },
     {
       "id": "tn_warm_baseline_feed",
+      "level": "foundation",
       "family": "tennis_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -433,6 +436,7 @@
     },
     {
       "id": "tn_rally_crosscourt_fh",
+      "level": "development",
       "family": "tennis_family_4",
       "familyName": {
         "en": "Rally",
@@ -616,6 +620,7 @@
     },
     {
       "id": "tn_rally_crosscourt_bh",
+      "level": "development",
       "family": "tennis_family_4",
       "familyName": {
         "en": "Rally",
@@ -799,6 +804,7 @@
     },
     {
       "id": "tn_rally_down_the_line",
+      "level": "development",
       "family": "tennis_family_4",
       "familyName": {
         "en": "Rally",
@@ -982,6 +988,7 @@
     },
     {
       "id": "tn_rally_figure_eight",
+      "level": "development",
       "family": "tennis_family_4",
       "familyName": {
         "en": "Rally",
@@ -1153,6 +1160,7 @@
     },
     {
       "id": "tn_serve_plus_one",
+      "level": "development",
       "family": "tennis_family_0",
       "familyName": {
         "en": "Plus one",
@@ -1316,6 +1324,7 @@
     },
     {
       "id": "tn_return_plus_one",
+      "level": "development",
       "family": "tennis_family_0",
       "familyName": {
         "en": "Plus one",
@@ -1479,6 +1488,7 @@
     },
     {
       "id": "tn_inside_out",
+      "level": "advanced",
       "family": "tennis_family_0",
       "familyName": {
         "en": "Plus one",
@@ -1642,6 +1652,7 @@
     },
     {
       "id": "tn_approach",
+      "level": "development",
       "family": "tennis_family_0",
       "familyName": {
         "en": "Plus one",
@@ -1805,6 +1816,7 @@
     },
     {
       "id": "tn_doubles_one_up_one_back",
+      "level": "development",
       "family": "tennis_family_7",
       "familyName": {
         "en": "Doubles",
@@ -1985,6 +1997,7 @@
     },
     {
       "id": "tn_doubles_both_back",
+      "level": "development",
       "family": "tennis_family_7",
       "familyName": {
         "en": "Doubles",
@@ -2165,6 +2178,7 @@
     },
     {
       "id": "tn_doubles_both_up",
+      "level": "development",
       "family": "tennis_family_7",
       "familyName": {
         "en": "Doubles",
@@ -2345,6 +2359,7 @@
     },
     {
       "id": "tn_doubles_australian",
+      "level": "advanced",
       "family": "tennis_family_7",
       "familyName": {
         "en": "Doubles",
@@ -2525,6 +2540,7 @@
     },
     {
       "id": "tn_net_first_volley",
+      "level": "development",
       "family": "tennis_family_2",
       "familyName": {
         "en": "At the net",
@@ -2683,6 +2699,7 @@
     },
     {
       "id": "tn_net_second_volley",
+      "level": "development",
       "family": "tennis_family_2",
       "familyName": {
         "en": "At the net",
@@ -2841,6 +2858,7 @@
     },
     {
       "id": "tn_net_overhead",
+      "level": "development",
       "family": "tennis_family_2",
       "familyName": {
         "en": "At the net",
@@ -2999,6 +3017,7 @@
     },
     {
       "id": "tn_net_drop_volley",
+      "level": "development",
       "family": "tennis_family_2",
       "familyName": {
         "en": "At the net",
@@ -3157,6 +3176,7 @@
     },
     {
       "id": "tn_defend_slice",
+      "level": "development",
       "family": "tennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -3320,6 +3340,7 @@
     },
     {
       "id": "tn_defend_lob",
+      "level": "development",
       "family": "tennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -3483,6 +3504,7 @@
     },
     {
       "id": "tn_defend_block_return",
+      "level": "development",
       "family": "tennis_family_1",
       "familyName": {
         "en": "Defending",
@@ -3646,6 +3668,7 @@
     },
     {
       "id": "tn_serve_deuce_wide",
+      "level": "development",
       "family": "tennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -3804,6 +3827,7 @@
     },
     {
       "id": "tn_serve_deuce_t",
+      "level": "development",
       "family": "tennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -3962,6 +3986,7 @@
     },
     {
       "id": "tn_serve_deuce_body",
+      "level": "development",
       "family": "tennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -4120,6 +4145,7 @@
     },
     {
       "id": "tn_serve_ad_wide",
+      "level": "development",
       "family": "tennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -4278,6 +4304,7 @@
     },
     {
       "id": "tn_serve_ad_t",
+      "level": "development",
       "family": "tennis_family_5",
       "familyName": {
         "en": "Serve",
@@ -4436,6 +4463,7 @@
     },
     {
       "id": "tn_game_half_court",
+      "level": "development",
       "family": "tennis_family_3",
       "familyName": {
         "en": "Point play",
@@ -4609,6 +4637,7 @@
     },
     {
       "id": "tn_game_first_to_seven",
+      "level": "development",
       "family": "tennis_family_3",
       "familyName": {
         "en": "Point play",
@@ -4742,6 +4771,7 @@
     },
     {
       "id": "tn_game_approach_only",
+      "level": "development",
       "family": "tennis_family_3",
       "familyName": {
         "en": "Point play",
@@ -4875,6 +4905,7 @@
     },
     {
       "id": "tn_game_doubles_set",
+      "level": "development",
       "family": "tennis_family_3",
       "familyName": {
         "en": "Point play",

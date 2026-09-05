@@ -45,6 +45,7 @@ class DrillLibrarySheet extends StatefulWidget {
 class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   late Future<List<Drill>> _drills;
   DrillCategory? _filter;
+  DrillLevel? _level;
   String _query = '';
 
   @override
@@ -92,6 +93,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
           final q = _query.trim().toLowerCase();
           final shown = all
               .where((d) => _filter == null || d.category == _filter)
+              .where((d) => _level == null || d.level == _level)
               .where((d) =>
                   q.isEmpty ||
                   d.localizedName(_locale).toLowerCase().contains(q) ||
@@ -224,6 +226,28 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                             label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
                             selected: _filter == c,
                             onTap: () => setState(() => _filter = c),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  // The second axis: how much the drill asks of the players.
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _CategoryChip(
+                          label: 'drill_cat_all'.tr(),
+                          selected: _level == null,
+                          onTap: () => setState(() => _level = null),
+                        ),
+                        for (final l in DrillLevel.values) ...[
+                          const SizedBox(width: 6),
+                          _CategoryChip(
+                            label: l.labelKey.tr(),
+                            selected: _level == l,
+                            onTap: () => setState(() => _level = l),
                           ),
                         ],
                       ],

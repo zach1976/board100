@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "pb_warm_dink_warm",
+      "level": "foundation",
       "family": "pickleball_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -182,6 +183,7 @@
     },
     {
       "id": "pb_warm_hands",
+      "level": "foundation",
       "family": "pickleball_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -360,6 +362,7 @@
     },
     {
       "id": "pb_warm_transition",
+      "level": "foundation",
       "family": "pickleball_family_6",
       "familyName": {
         "en": "Warm-up",
@@ -543,6 +546,7 @@
     },
     {
       "id": "pb_dink_straight",
+      "level": "development",
       "family": "pickleball_family_4",
       "familyName": {
         "en": "Dink",
@@ -714,6 +718,7 @@
     },
     {
       "id": "pb_dink_cross",
+      "level": "development",
       "family": "pickleball_family_4",
       "familyName": {
         "en": "Dink",
@@ -892,6 +897,7 @@
     },
     {
       "id": "pb_dink_to_backhand",
+      "level": "development",
       "family": "pickleball_family_4",
       "familyName": {
         "en": "Dink",
@@ -1070,6 +1076,7 @@
     },
     {
       "id": "pb_dink_pull",
+      "level": "development",
       "family": "pickleball_family_4",
       "familyName": {
         "en": "Dink",
@@ -1248,6 +1255,7 @@
     },
     {
       "id": "pb_serve_deep_backhand",
+      "level": "development",
       "family": "pickleball_family_2",
       "familyName": {
         "en": "Serve and return",
@@ -1401,6 +1409,7 @@
     },
     {
       "id": "pb_serve_deep_forehand",
+      "level": "development",
       "family": "pickleball_family_2",
       "familyName": {
         "en": "Serve and return",
@@ -1554,6 +1563,7 @@
     },
     {
       "id": "pb_serve_return_and_in",
+      "level": "development",
       "family": "pickleball_family_2",
       "familyName": {
         "en": "Serve and return",
@@ -1712,6 +1722,7 @@
     },
     {
       "id": "pb_third_drop",
+      "level": "development",
       "family": "pickleball_family_8",
       "familyName": {
         "en": "Third shot",
@@ -1942,6 +1953,7 @@
     },
     {
       "id": "pb_third_drive",
+      "level": "development",
       "family": "pickleball_family_8",
       "familyName": {
         "en": "Third shot",
@@ -2172,6 +2184,7 @@
     },
     {
       "id": "pb_third_fifth",
+      "level": "development",
       "family": "pickleball_family_8",
       "familyName": {
         "en": "Third shot",
@@ -2397,6 +2410,7 @@
     },
     {
       "id": "pb_speedup_shoulder",
+      "level": "development",
       "family": "pickleball_family_0",
       "familyName": {
         "en": "Speed-up",
@@ -2610,6 +2624,7 @@
     },
     {
       "id": "pb_speedup_hip",
+      "level": "development",
       "family": "pickleball_family_0",
       "familyName": {
         "en": "Speed-up",
@@ -2823,6 +2838,7 @@
     },
     {
       "id": "pb_speedup_ernie",
+      "level": "advanced",
       "family": "pickleball_family_0",
       "familyName": {
         "en": "Speed-up",
@@ -3041,6 +3057,7 @@
     },
     {
       "id": "pb_putaway_overhead",
+      "level": "development",
       "family": "pickleball_family_3",
       "familyName": {
         "en": "Put-away",
@@ -3234,6 +3251,7 @@
     },
     {
       "id": "pb_putaway_roll_volley",
+      "level": "development",
       "family": "pickleball_family_3",
       "familyName": {
         "en": "Put-away",
@@ -3427,6 +3445,7 @@
     },
     {
       "id": "pb_putaway_atp",
+      "level": "advanced",
       "family": "pickleball_family_3",
       "familyName": {
         "en": "Put-away",
@@ -3620,6 +3639,7 @@
     },
     {
       "id": "pb_defend_block",
+      "level": "development",
       "family": "pickleball_family_5",
       "familyName": {
         "en": "Defending",
@@ -3813,6 +3833,7 @@
     },
     {
       "id": "pb_defend_reset",
+      "level": "development",
       "family": "pickleball_family_5",
       "familyName": {
         "en": "Defending",
@@ -4006,6 +4027,7 @@
     },
     {
       "id": "pb_defend_lob",
+      "level": "development",
       "family": "pickleball_family_5",
       "familyName": {
         "en": "Defending",
@@ -4199,6 +4221,7 @@
     },
     {
       "id": "pb_defend_counter",
+      "level": "development",
       "family": "pickleball_family_5",
       "familyName": {
         "en": "Defending",
@@ -4392,6 +4415,7 @@
     },
     {
       "id": "pb_shape_both_up",
+      "level": "development",
       "family": "pickleball_family_7",
       "familyName": {
         "en": "Team shape",
@@ -4598,6 +4622,7 @@
     },
     {
       "id": "pb_shape_stacking",
+      "level": "development",
       "family": "pickleball_family_7",
       "familyName": {
         "en": "Team shape",
@@ -4818,6 +4843,7 @@
     },
     {
       "id": "pb_shape_switch_on_lob",
+      "level": "development",
       "family": "pickleball_family_7",
       "familyName": {
         "en": "Team shape",
@@ -5038,6 +5064,7 @@
     },
     {
       "id": "pb_game_dink_only",
+      "level": "development",
       "family": "pickleball_family_1",
       "familyName": {
         "en": "Game",
@@ -5265,6 +5292,7 @@
     },
     {
       "id": "pb_game_skinny_singles",
+      "level": "development",
       "family": "pickleball_family_1",
       "familyName": {
         "en": "Game",
@@ -5438,6 +5466,7 @@
     },
     {
       "id": "pb_game_third_shot",
+      "level": "development",
       "family": "pickleball_family_1",
       "familyName": {
         "en": "Game",
@@ -5665,6 +5694,7 @@
     },
     {
       "id": "pb_game_full_doubles",
+      "level": "development",
       "family": "pickleball_family_1",
       "familyName": {
         "en": "Game",

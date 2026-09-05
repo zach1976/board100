@@ -4,6 +4,7 @@
   "drills": [
     {
       "id": "bb_layup_lines",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -174,6 +175,7 @@
     },
     {
       "id": "bb_two_ball_dribble",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -352,6 +354,7 @@
     },
     {
       "id": "bb_star_passing",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "warmup",
@@ -553,6 +556,7 @@
     },
     {
       "id": "bb_five_out_spacing",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -740,6 +744,7 @@
     },
     {
       "id": "bb_pick_and_roll",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -989,6 +994,7 @@
     },
     {
       "id": "bb_pick_and_pop",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1228,6 +1234,7 @@
     },
     {
       "id": "bb_backdoor_cut",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1413,6 +1420,7 @@
     },
     {
       "id": "bb_dho",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "attacking",
@@ -1630,6 +1638,7 @@
     },
     {
       "id": "bb_horns_set",
+      "level": "advanced",
       "family": null,
       "familyName": null,
       "category": "possession",
@@ -1822,6 +1831,7 @@
     },
     {
       "id": "bb_catch_and_shoot",
+      "level": "foundation",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -1962,6 +1972,7 @@
     },
     {
       "id": "bb_post_finish",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "finishing",
@@ -2129,6 +2140,7 @@
     },
     {
       "id": "bb_closeout",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -2269,6 +2281,7 @@
     },
     {
       "id": "bb_help_and_recover",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -2428,6 +2441,7 @@
     },
     {
       "id": "bb_box_out",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -2592,6 +2606,7 @@
     },
     {
       "id": "bb_blob_box",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -2851,6 +2866,7 @@
     },
     {
       "id": "bb_press_break",
+      "level": "advanced",
       "family": null,
       "familyName": null,
       "category": "setpiece",
@@ -3119,6 +3135,7 @@
     },
     {
       "id": "bb_3v3_no_dribble",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "ssg",
@@ -3333,6 +3350,7 @@
     },
     {
       "id": "bb_transition_2v1",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "ssg",
@@ -3490,6 +3508,7 @@
     },
     {
       "id": "bb_screen_top",
+      "level": "development",
       "family": "basketball_family_18",
       "familyName": {
         "en": "Ball screen",
@@ -3747,6 +3766,7 @@
     },
     {
       "id": "bb_screen_left_wing",
+      "level": "development",
       "family": "basketball_family_18",
       "familyName": {
         "en": "Ball screen",
@@ -4004,6 +4024,7 @@
     },
     {
       "id": "bb_screen_right_wing",
+      "level": "development",
       "family": "basketball_family_18",
       "familyName": {
         "en": "Ball screen",
@@ -4261,6 +4282,7 @@
     },
     {
       "id": "bb_screen_left_halfspace",
+      "level": "development",
       "family": "basketball_family_18",
       "familyName": {
         "en": "Ball screen",
@@ -4518,6 +4540,7 @@
     },
     {
       "id": "bb_screen_right_halfspace",
+      "level": "development",
       "family": "basketball_family_18",
       "familyName": {
         "en": "Ball screen",
@@ -4775,6 +4798,7 @@
     },
     {
       "id": "bb_cut_give_and_go",
+      "level": "development",
       "family": "basketball_family_1",
       "familyName": {
         "en": "Cutting",
@@ -5000,6 +5024,7 @@
     },
     {
       "id": "bb_cut_backdoor",
+      "level": "development",
       "family": "basketball_family_1",
       "familyName": {
         "en": "Cutting",
@@ -5225,6 +5250,7 @@
     },
     {
       "id": "bb_cut_flare",
+      "level": "development",
       "family": "basketball_family_1",
       "familyName": {
         "en": "Cutting",
@@ -5450,6 +5476,7 @@
     },
     {
       "id": "bb_cut_baseline",
+      "level": "development",
       "family": "basketball_family_1",
       "familyName": {
         "en": "Cutting",
@@ -5675,6 +5702,7 @@
     },
     {
       "id": "bb_shot_the_corner",
+      "level": "development",
       "family": "basketball_family_4",
       "familyName": {
         "en": "Shooting",
@@ -5855,6 +5883,7 @@
     },
     {
       "id": "bb_shot_left_wing",
+      "level": "development",
       "family": "basketball_family_4",
       "familyName": {
         "en": "Shooting",
@@ -6035,6 +6064,7 @@
     },
     {
       "id": "bb_shot_top",
+      "level": "development",
       "family": "basketball_family_4",
       "familyName": {
         "en": "Shooting",
@@ -6215,6 +6245,7 @@
     },
     {
       "id": "bb_shot_right_wing",
+      "level": "development",
       "family": "basketball_family_4",
       "familyName": {
         "en": "Shooting",
@@ -6395,6 +6426,7 @@
     },
     {
       "id": "bb_shot_the_elbow",
+      "level": "development",
       "family": "basketball_family_4",
       "familyName": {
         "en": "Shooting",
@@ -6575,6 +6607,7 @@
     },
     {
       "id": "bb_post_drop_step",
+      "level": "development",
       "family": "basketball_family_16",
       "familyName": {
         "en": "Post play",
@@ -6802,6 +6835,7 @@
     },
     {
       "id": "bb_post_face_up",
+      "level": "development",
       "family": "basketball_family_16",
       "familyName": {
         "en": "Post play",
@@ -7029,6 +7063,7 @@
     },
     {
       "id": "bb_post_kick_out",
+      "level": "development",
       "family": "basketball_family_16",
       "familyName": {
         "en": "Post play",
@@ -7256,6 +7291,7 @@
     },
     {
       "id": "bb_post_short_roll",
+      "level": "development",
       "family": "basketball_family_16",
       "familyName": {
         "en": "Post play",
@@ -7483,6 +7519,7 @@
     },
     {
       "id": "bb_defence_drop",
+      "level": "development",
       "family": "basketball_family_2",
       "familyName": {
         "en": "Defence",
@@ -7745,6 +7782,7 @@
     },
     {
       "id": "bb_defence_hedge",
+      "level": "development",
       "family": "basketball_family_2",
       "familyName": {
         "en": "Defence",
@@ -8007,6 +8045,7 @@
     },
     {
       "id": "bb_defence_switch",
+      "level": "development",
       "family": "basketball_family_2",
       "familyName": {
         "en": "Defence",
@@ -8269,6 +8308,7 @@
     },
     {
       "id": "bb_defence_ice",
+      "level": "advanced",
       "family": "basketball_family_2",
       "familyName": {
         "en": "Defence",
@@ -8531,6 +8571,7 @@
     },
     {
       "id": "bb_shell_4v4",
+      "level": "development",
       "family": null,
       "familyName": null,
       "category": "defending",
@@ -8833,6 +8874,7 @@
     },
     {
       "id": "bb_transition_3v2",
+      "level": "development",
       "family": "basketball_family_14",
       "familyName": {
         "en": "Transition",
@@ -9062,6 +9104,7 @@
     },
     {
       "id": "bb_transition_4v3",
+      "level": "development",
       "family": "basketball_family_14",
       "familyName": {
         "en": "Transition",
@@ -9350,6 +9393,7 @@
     },
     {
       "id": "bb_transition_5v4",
+      "level": "development",
       "family": "basketball_family_14",
       "familyName": {
         "en": "Transition",
@@ -9697,6 +9741,7 @@
     },
     {
       "id": "bb_inbounds_stack",
+      "level": "development",
       "family": "basketball_family_23",
       "familyName": {
         "en": "Inbounds",
@@ -9953,6 +9998,7 @@
     },
     {
       "id": "bb_inbounds_the_box",
+      "level": "development",
       "family": "basketball_family_23",
       "familyName": {
         "en": "Inbounds",
@@ -10241,6 +10287,7 @@
     },
     {
       "id": "bb_inbounds_the_zipper",
+      "level": "development",
       "family": "basketball_family_23",
       "familyName": {
         "en": "Inbounds",
@@ -10497,6 +10544,7 @@
     },
     {
       "id": "bb_inbounds_sideline",
+      "level": "development",
       "family": "basketball_family_23",
       "familyName": {
         "en": "Inbounds",
