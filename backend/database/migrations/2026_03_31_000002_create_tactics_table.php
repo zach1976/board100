@@ -13,7 +13,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('sport_type'); // badminton, basketball, etc.
-            $table->json('data'); // full tactics JSON (players, strokes, phases)
+            // longText, not json: MariaDB 5.5 on the shared server has no JSON
+            // column type. The server has been running it this way since it
+            // was deployed; the repo had drifted.
+            $table->longText('data'); // full tactics JSON (players, strokes, phases)
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

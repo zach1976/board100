@@ -58,8 +58,11 @@ class SharedPlayController extends Controller
             'title' => $validated['title'] ?? null,
             'sport_type' => $validated['sport_type'],
             'data' => $data,
+            // (int) is not decoration: the app posts multipart, so ttl_days
+            // arrives as the string "7" and Carbon::addDays() rejects a string
+            // outright. Validation says integer but does not cast.
             'expires_at' => Carbon::now()->addDays(
-                $validated['ttl_days'] ?? self::DEFAULT_TTL_DAYS
+                (int) ($validated['ttl_days'] ?? self::DEFAULT_TTL_DAYS)
             ),
         ]);
 

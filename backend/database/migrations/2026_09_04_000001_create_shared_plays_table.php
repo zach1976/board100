@@ -26,7 +26,10 @@ return new class extends Migration
             $table->string('sport_type', 32);
             // The board itself, same shape the app saves locally — enough to
             // re-render the play later without re-uploading anything.
-            $table->json('data');
+            // longText, not json: the shared server runs MariaDB 5.5, which
+            // has no JSON column type (zachs_app_base.md §11.1). The model
+            // casts it to an array either way.
+            $table->longText('data');
             // Rendered MP4 or PNG under storage/app/public/shares/.
             $table->string('media_path')->nullable();
             $table->string('media_kind', 8)->nullable(); // mp4 | png
