@@ -254,7 +254,17 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
             style: const TextStyle(color: Colors.white)),
       ),
       body: SafeArea(
-        child: Padding(
+        // Fill the screen when it fits, scroll when it does not. The timer is
+        // 84pt and the two button rows are fixed, so on a 320x568 phone — or
+        // any phone once the drill note runs to several lines — this column
+        // was 158 to 194 pixels taller than the space it had. IntrinsicHeight
+        // keeps the Spacer working in the case that does fit.
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
+                child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
@@ -351,6 +361,10 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
               ),
               const SizedBox(height: 8),
             ],
+          ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
