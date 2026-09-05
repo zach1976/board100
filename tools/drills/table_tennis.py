@@ -443,6 +443,42 @@ def game_family() -> list[Drill]:
 
 
 def table_tennis_library() -> list[Drill]:
-    return (warmup_family() + footwork_family() + rally_family()
+    return (warmup_family() + multiball() + footwork_family() + rally_family()
             + short_family() + loop_family() + kill_family()
             + defence_family() + serve_family() + game_family())
+
+def multiball() -> list[Drill]:
+    """Multiball — the other canonical feeding drill. The coach stands beside
+    the table with a basket; the player never waits for a rally to restart."""
+    return [tt(
+        "tt_multiball", "warmup", 10,
+        {"en": "Multiball", "en-GB": "Multiball",
+         "zh-CN": "多球训练", "zh-TW": "多球訓練",
+         "ja-JP": "多球練習", "ko-KR": "다구 연습",
+         "es-ES": "Multibolas", "fr-FR": "Panier de balles",
+         "id-ID": "Latihan multibola", "ms-MY": "Latihan multibola",
+         "th-TH": "ฝึกหลายลูก", "vi-VN": "Tập đa bóng"},
+        {"en": "One ball a second and no time to think between strokes — "
+               "multiball buys ten times the repetitions of any rally.",
+         "en-GB": "One ball a second and no time to think between strokes — "
+                  "multiball buys ten times the repetitions of any rally.",
+         "zh-CN": "一秒一球，两板之间没时间想。多球换来的重复次数，是对拉的十倍。",
+         "zh-TW": "一秒一球，兩板之間沒時間想。多球換來的重複次數，是對拉的十倍。",
+         "ja-JP": "1秒1球、考える間はない。多球はラリーの10倍の反復を買ってくれる。",
+         "ko-KR": "1초에 한 공, 생각할 틈이 없다. 다구는 랠리의 열 배의 반복을 사준다.",
+         "es-ES": "Una bola por segundo y sin tiempo de pensar entre golpes: "
+                  "el multibolas compra diez veces las repeticiones de un peloteo.",
+         "fr-FR": "Une balle par seconde, pas le temps de réfléchir : le panier "
+                  "achète dix fois les répétitions d'un échange.",
+         "id-ID": "Satu bola per detik, tanpa waktu berpikir di antara pukulan.",
+         "ms-MY": "Satu bola sesaat, tiada masa berfikir antara pukulan.",
+         "th-TH": "วินาทีละลูก ไม่มีเวลาคิดระหว่างจังหวะ ได้จำนวนซ้ำสิบเท่าของการโต้",
+         "vi-VN": "Mỗi giây một bóng, không kịp nghĩ giữa hai cú đánh."},
+        home=[P(*HOME_READY, "1",
+                moves=[(FH, 1.14, 0), (BH, 1.14, 1), (FH, 1.14, 2),
+                       (0.50, 1.16, 3)])],
+        away=[P(-0.28, 0.20, "C", moves=[(-0.28, 0.24, 1)])],
+        markers=[M(FH, DEEP, "zone", ""), M(BH, DEEP, "zone", "")],
+        ball=(-0.28, 0.20), free=True,
+    )]
+

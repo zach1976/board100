@@ -891,4 +891,45 @@ def basketball_library() -> list[Drill]:
     from .engine import merge
     return merge(basketball_drills(), ball_screen_family(), cut_family(),
                  shooting_family(), post_family(), defence_family(),
-                 transition_family(), inbounds_family())
+                 shell_drill(), transition_family(), inbounds_family())
+
+def shell_drill() -> list[Drill]:
+    """4v4 shell — the one defensive drill every programme runs. Its absence
+    was the first thing a coach reviewing this library would have noticed."""
+    o = [CORNER_L, WING_L, WING_R, CORNER_R]
+    return [Drill(
+        id="bb_shell_4v4", category="defending", minutes=12, rel=True,
+        free=True,
+        name={"en": "Shell drill 4v4", "en-GB": "Shell drill 4v4",
+              "zh-CN": "4v4 防守轮转", "zh-TW": "4v4 防守輪轉",
+              "ja-JP": "シェルドリル 4対4", "ko-KR": "쉘 드릴 4대4",
+              "es-ES": "Shell 4c4", "fr-FR": "Shell drill 4c4",
+              "id-ID": "Shell drill 4v4", "ms-MY": "Shell drill 4v4",
+              "th-TH": "เชลล์ดริล 4v4", "vi-VN": "Shell drill 4v4"},
+        note={"en": "On every pass the whole shell moves — ball, you, man. "
+                    "The defender who shifts late is the one a guard hunts.",
+              "en-GB": "On every pass the whole shell moves — ball, you, man. "
+                       "The defender who shifts late is the one a guard hunts.",
+              "zh-CN": "每一次传球，整个防守壳都要动——球、你、人三点连线。谁挪得慢，控卫就打谁。",
+              "zh-TW": "每一次傳球，整個防守殼都要動——球、你、人三點連線。誰挪得慢，控衛就打誰。",
+              "ja-JP": "パスのたびにシェル全体が動く。ボール・自分・マークの3点を結び直す。ずれるのが遅い守備者こそガードの獲物だ。",
+              "ko-KR": "패스 한 번마다 셸 전체가 움직인다 — 볼, 나, 맨. 늦게 움직이는 수비수가 가드의 사냥감이 된다.",
+              "es-ES": "En cada pase se mueve toda la concha: balón, tú, atacante. "
+                       "Al defensor que llega tarde es al que caza el base.",
+              "fr-FR": "À chaque passe toute la coquille bouge : ballon, toi, joueur. "
+                       "Le défenseur en retard est celui que le meneur chasse.",
+              "id-ID": "Setiap umpan seluruh shell bergerak — bola, kamu, lawan.",
+              "ms-MY": "Setiap hantaran seluruh shell bergerak — bola, anda, lawan.",
+              "th-TH": "ทุกการส่งบอล เชลล์ทั้งวงต้องขยับ — บอล ตัวเอง คนที่ประกบ ใครขยับช้าคือเหยื่อของการ์ด",
+              "vi-VN": "Mỗi đường chuyền cả lớp vỏ phòng thủ phải dịch — bóng, bạn, người. "
+                       "Ai dịch chậm là con mồi của hậu vệ."},
+        home=[P(x, y - 0.05, f"X{i + 1}",
+                moves=[(x * 0.6 + 0.5 * 0.4, (y - 0.05) * 0.7 + 0.06 * 0.3, (i + 1) % 3),
+                       (x, y - 0.05, ((i + 1) % 3) + 1)])
+              for i, (x, y) in enumerate(o)],
+        away=[P(x, y, f"{i + 1}",
+                moves=[(x, y + 0.02, i % 3)]) for i, (x, y) in enumerate(o)],
+        ball=CORNER_L,              # the swing starts from the corner
+    )]
+
+
