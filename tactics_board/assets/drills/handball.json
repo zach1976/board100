@@ -53,6 +53,20 @@
         "th-TH": "รับบอลโดยยกแขนเตรียมไว้แล้ว",
         "vi-VN": "Bắt bóng với tay đã giơ sẵn."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -261,6 +275,20 @@
         "th-TH": "รับบอลโดยยกแขนเตรียมไว้แล้ว",
         "vi-VN": "Bắt bóng với tay đã giơ sẵn."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -437,6 +465,20 @@
         "th-TH": "รับบอลโดยยกแขนเตรียมไว้แล้ว",
         "vi-VN": "Bắt bóng với tay đã giơ sẵn."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -597,6 +639,20 @@
         "ms-MY": "Hantar dan melangkah ke arah gol, bukan ke tepi.",
         "th-TH": "จ่ายแล้วก้าวไปทางประตู ไม่ใช่ก้าวข้าง",
         "vi-VN": "Chuyền rồi bước về phía khung thành, không đi ngang."
+      },
+      "mistake": {
+        "en": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "en-GB": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "zh-CN": "只横传不往门前迈步——六个防守整场站着不动。",
+        "zh-TW": "只橫傳不往門前邁步——六個防守整場站著不動。",
+        "ja-JP": "横パスばかりでゴールへ踏まない——6人が立ったまま。",
+        "ko-KR": "횡패스만 하고 골로 안 밟는다 — 여섯이 서 있다.",
+        "es-ES": "Pasar en horizontal sin pisar hacia portería.",
+        "fr-FR": "Passer latéralement sans avancer vers le but.",
+        "id-ID": "Umpan menyamping tanpa melangkah ke gawang.",
+        "ms-MY": "Hantar melintang tanpa melangkah ke gol.",
+        "th-TH": "จ่ายข้างไม่ก้าวหาประตู",
+        "vi-VN": "Chuyền ngang mà không bước lên."
       },
       "board": {
         "sportType": 10,
@@ -938,6 +994,20 @@
         "ms-MY": "Hantar dan melangkah ke arah gol, bukan ke tepi.",
         "th-TH": "จ่ายแล้วก้าวไปทางประตู ไม่ใช่ก้าวข้าง",
         "vi-VN": "Chuyền rồi bước về phía khung thành, không đi ngang."
+      },
+      "mistake": {
+        "en": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "en-GB": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "zh-CN": "只横传不往门前迈步——六个防守整场站着不动。",
+        "zh-TW": "只橫傳不往門前邁步——六個防守整場站著不動。",
+        "ja-JP": "横パスばかりでゴールへ踏まない——6人が立ったまま。",
+        "ko-KR": "횡패스만 하고 골로 안 밟는다 — 여섯이 서 있다.",
+        "es-ES": "Pasar en horizontal sin pisar hacia portería.",
+        "fr-FR": "Passer latéralement sans avancer vers le but.",
+        "id-ID": "Umpan menyamping tanpa melangkah ke gawang.",
+        "ms-MY": "Hantar melintang tanpa melangkah ke gol.",
+        "th-TH": "จ่ายข้างไม่ก้าวหาประตู",
+        "vi-VN": "Chuyền ngang mà không bước lên."
       },
       "board": {
         "sportType": 10,
@@ -1306,6 +1376,20 @@
         "ms-MY": "Hantar dan melangkah ke arah gol, bukan ke tepi.",
         "th-TH": "จ่ายแล้วก้าวไปทางประตู ไม่ใช่ก้าวข้าง",
         "vi-VN": "Chuyền rồi bước về phía khung thành, không đi ngang."
+      },
+      "mistake": {
+        "en": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "en-GB": "Passing sideways instead of stepping at goal — six defenders stand still all attack.",
+        "zh-CN": "只横传不往门前迈步——六个防守整场站着不动。",
+        "zh-TW": "只橫傳不往門前邁步——六個防守整場站著不動。",
+        "ja-JP": "横パスばかりでゴールへ踏まない——6人が立ったまま。",
+        "ko-KR": "횡패스만 하고 골로 안 밟는다 — 여섯이 서 있다.",
+        "es-ES": "Pasar en horizontal sin pisar hacia portería.",
+        "fr-FR": "Passer latéralement sans avancer vers le but.",
+        "id-ID": "Umpan menyamping tanpa melangkah ke gawang.",
+        "ms-MY": "Hantar melintang tanpa melangkah ke gol.",
+        "th-TH": "จ่ายข้างไม่ก้าวหาประตู",
+        "vi-VN": "Chuyền ngang mà không bước lên."
       },
       "board": {
         "sportType": 10,
@@ -1702,6 +1786,20 @@
         "th-TH": "บุกไหล่ด้านนอกของกองหลังก่อน แล้วค่อยไขว้",
         "vi-VN": "Tấn công vai ngoài của hậu vệ rồi mới cắt chéo."
       },
+      "mistake": {
+        "en": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "en-GB": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "zh-CN": "站着不动就交叉——从静止开始的交叉调动不了防守。",
+        "zh-TW": "站著不動就交叉——從靜止開始的交叉調動不了防守。",
+        "ja-JP": "止まってクロス——静止からの交差は誰も動かせない。",
+        "ko-KR": "멈춘 채 교차 — 아무도 못 움직인다.",
+        "es-ES": "Cruzar parado: un cruce sin arrancada no mueve a nadie.",
+        "fr-FR": "Croiser à l'arrêt — un croisé statique ne déplace personne.",
+        "id-ID": "Menyilang dari diam.",
+        "ms-MY": "Bersilang dari diam.",
+        "th-TH": "ไขว้จากจุดนิ่ง",
+        "vi-VN": "Cắt chéo từ tư thế đứng."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -2066,6 +2164,20 @@
         "th-TH": "บุกไหล่ด้านนอกของกองหลังก่อน แล้วค่อยไขว้",
         "vi-VN": "Tấn công vai ngoài của hậu vệ rồi mới cắt chéo."
       },
+      "mistake": {
+        "en": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "en-GB": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "zh-CN": "站着不动就交叉——从静止开始的交叉调动不了防守。",
+        "zh-TW": "站著不動就交叉——從靜止開始的交叉調動不了防守。",
+        "ja-JP": "止まってクロス——静止からの交差は誰も動かせない。",
+        "ko-KR": "멈춘 채 교차 — 아무도 못 움직인다.",
+        "es-ES": "Cruzar parado: un cruce sin arrancada no mueve a nadie.",
+        "fr-FR": "Croiser à l'arrêt — un croisé statique ne déplace personne.",
+        "id-ID": "Menyilang dari diam.",
+        "ms-MY": "Bersilang dari diam.",
+        "th-TH": "ไขว้จากจุดนิ่ง",
+        "vi-VN": "Cắt chéo từ tư thế đứng."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -2410,6 +2522,20 @@
         "th-TH": "บุกไหล่ด้านนอกของกองหลังก่อน แล้วค่อยไขว้",
         "vi-VN": "Tấn công vai ngoài của hậu vệ rồi mới cắt chéo."
       },
+      "mistake": {
+        "en": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "en-GB": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "zh-CN": "站着不动就交叉——从静止开始的交叉调动不了防守。",
+        "zh-TW": "站著不動就交叉——從靜止開始的交叉調動不了防守。",
+        "ja-JP": "止まってクロス——静止からの交差は誰も動かせない。",
+        "ko-KR": "멈춘 채 교차 — 아무도 못 움직인다.",
+        "es-ES": "Cruzar parado: un cruce sin arrancada no mueve a nadie.",
+        "fr-FR": "Croiser à l'arrêt — un croisé statique ne déplace personne.",
+        "id-ID": "Menyilang dari diam.",
+        "ms-MY": "Bersilang dari diam.",
+        "th-TH": "ไขว้จากจุดนิ่ง",
+        "vi-VN": "Cắt chéo từ tư thế đứng."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -2733,6 +2859,20 @@
         "ms-MY": "Serang bahu luar pemain bertahan, kemudian bersilang.",
         "th-TH": "บุกไหล่ด้านนอกของกองหลังก่อน แล้วค่อยไขว้",
         "vi-VN": "Tấn công vai ngoài của hậu vệ rồi mới cắt chéo."
+      },
+      "mistake": {
+        "en": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "en-GB": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "zh-CN": "站着不动就交叉——从静止开始的交叉调动不了防守。",
+        "zh-TW": "站著不動就交叉——從靜止開始的交叉調動不了防守。",
+        "ja-JP": "止まってクロス——静止からの交差は誰も動かせない。",
+        "ko-KR": "멈춘 채 교차 — 아무도 못 움직인다.",
+        "es-ES": "Cruzar parado: un cruce sin arrancada no mueve a nadie.",
+        "fr-FR": "Croiser à l'arrêt — un croisé statique ne déplace personne.",
+        "id-ID": "Menyilang dari diam.",
+        "ms-MY": "Bersilang dari diam.",
+        "th-TH": "ไขว้จากจุดนิ่ง",
+        "vi-VN": "Cắt chéo từ tư thế đứng."
       },
       "board": {
         "sportType": 10,
@@ -3078,6 +3218,20 @@
         "th-TH": "บุกไหล่ด้านนอกของกองหลังก่อน แล้วค่อยไขว้",
         "vi-VN": "Tấn công vai ngoài của hậu vệ rồi mới cắt chéo."
       },
+      "mistake": {
+        "en": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "en-GB": "Crossing from a standstill — a cross that starts still moves no defender.",
+        "zh-CN": "站着不动就交叉——从静止开始的交叉调动不了防守。",
+        "zh-TW": "站著不動就交叉——從靜止開始的交叉調動不了防守。",
+        "ja-JP": "止まってクロス——静止からの交差は誰も動かせない。",
+        "ko-KR": "멈춘 채 교차 — 아무도 못 움직인다.",
+        "es-ES": "Cruzar parado: un cruce sin arrancada no mueve a nadie.",
+        "fr-FR": "Croiser à l'arrêt — un croisé statique ne déplace personne.",
+        "id-ID": "Menyilang dari diam.",
+        "ms-MY": "Bersilang dari diam.",
+        "th-TH": "ไขว้จากจุดนิ่ง",
+        "vi-VN": "Cắt chéo từ tư thế đứng."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -3408,13 +3562,13 @@
         "es-ES": "Contraataque",
         "fr-FR": "Contre-attaque",
         "id-ID": "Serangan balik gelombang",
-        "ja-JP": "速攻 第",
+        "ja-JP": "速攻",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "th-TH": "การสวนกลับเร็ว คลื่น",
+        "th-TH": "การสวนกลับเร็ว",
         "vi-VN": "Phản công nhanh đợt",
-        "zh-CN": "快攻 第",
-        "zh-TW": "快攻 第"
+        "zh-CN": "快攻",
+        "zh-TW": "快攻"
       },
       "category": "attacking",
       "minutes": 10,
@@ -3448,6 +3602,20 @@
         "ms-MY": "Pemain sayap berlari ketika penyelamatan, bukan ketika hantaran keluar.",
         "th-TH": "ปีกออกวิ่งตอนเซฟ ไม่ใช่ตอนจ่ายออก",
         "vi-VN": "Cánh chạy ngay khi thủ môn cản phá, không đợi đường chuyền."
+      },
+      "mistake": {
+        "en": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "en-GB": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "zh-CN": "边锋等接到球才跑，不是扑到球就跑——就差那半秒。",
+        "zh-TW": "邊鋒等接到球才跑，不是撲到球就跑——就差那半秒。",
+        "ja-JP": "ウイングがセーブでなくパスで走る——その0.5秒が速攻。",
+        "ko-KR": "윙이 세이브가 아니라 패스에 뛴다 — 0.5초 차.",
+        "es-ES": "Los extremos salen con el pase, no con la parada.",
+        "fr-FR": "Les ailiers partent sur la relance, pas sur l'arrêt.",
+        "id-ID": "Sayap lari saat umpan, bukan penyelamatan.",
+        "ms-MY": "Pemain sayap lari ketika umpan, bukan penyelamatan.",
+        "th-TH": "ปีกออกตอนจ่าย ไม่ใช่ตอนเซฟ",
+        "vi-VN": "Cánh chạy khi chuyền ra, không phải khi cản phá."
       },
       "board": {
         "sportType": 10,
@@ -3587,13 +3755,13 @@
         "es-ES": "Contraataque",
         "fr-FR": "Contre-attaque",
         "id-ID": "Serangan balik gelombang",
-        "ja-JP": "速攻 第",
+        "ja-JP": "速攻",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "th-TH": "การสวนกลับเร็ว คลื่น",
+        "th-TH": "การสวนกลับเร็ว",
         "vi-VN": "Phản công nhanh đợt",
-        "zh-CN": "快攻 第",
-        "zh-TW": "快攻 第"
+        "zh-CN": "快攻",
+        "zh-TW": "快攻"
       },
       "category": "attacking",
       "minutes": 10,
@@ -3627,6 +3795,20 @@
         "ms-MY": "Pemain sayap berlari ketika penyelamatan, bukan ketika hantaran keluar.",
         "th-TH": "ปีกออกวิ่งตอนเซฟ ไม่ใช่ตอนจ่ายออก",
         "vi-VN": "Cánh chạy ngay khi thủ môn cản phá, không đợi đường chuyền."
+      },
+      "mistake": {
+        "en": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "en-GB": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "zh-CN": "边锋等接到球才跑，不是扑到球就跑——就差那半秒。",
+        "zh-TW": "邊鋒等接到球才跑，不是撲到球就跑——就差那半秒。",
+        "ja-JP": "ウイングがセーブでなくパスで走る——その0.5秒が速攻。",
+        "ko-KR": "윙이 세이브가 아니라 패스에 뛴다 — 0.5초 차.",
+        "es-ES": "Los extremos salen con el pase, no con la parada.",
+        "fr-FR": "Les ailiers partent sur la relance, pas sur l'arrêt.",
+        "id-ID": "Sayap lari saat umpan, bukan penyelamatan.",
+        "ms-MY": "Pemain sayap lari ketika umpan, bukan penyelamatan.",
+        "th-TH": "ปีกออกตอนจ่าย ไม่ใช่ตอนเซฟ",
+        "vi-VN": "Cánh chạy khi chuyền ra, không phải khi cản phá."
       },
       "board": {
         "sportType": 10,
@@ -3830,13 +4012,13 @@
         "es-ES": "Contraataque",
         "fr-FR": "Contre-attaque",
         "id-ID": "Serangan balik gelombang",
-        "ja-JP": "速攻 第",
+        "ja-JP": "速攻",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "th-TH": "การสวนกลับเร็ว คลื่น",
+        "th-TH": "การสวนกลับเร็ว",
         "vi-VN": "Phản công nhanh đợt",
-        "zh-CN": "快攻 第",
-        "zh-TW": "快攻 第"
+        "zh-CN": "快攻",
+        "zh-TW": "快攻"
       },
       "category": "attacking",
       "minutes": 10,
@@ -3870,6 +4052,20 @@
         "ms-MY": "Pemain sayap berlari ketika penyelamatan, bukan ketika hantaran keluar.",
         "th-TH": "ปีกออกวิ่งตอนเซฟ ไม่ใช่ตอนจ่ายออก",
         "vi-VN": "Cánh chạy ngay khi thủ môn cản phá, không đợi đường chuyền."
+      },
+      "mistake": {
+        "en": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "en-GB": "Wings leaving on the outlet, not the save — half a second is the break.",
+        "zh-CN": "边锋等接到球才跑，不是扑到球就跑——就差那半秒。",
+        "zh-TW": "邊鋒等接到球才跑，不是撲到球就跑——就差那半秒。",
+        "ja-JP": "ウイングがセーブでなくパスで走る——その0.5秒が速攻。",
+        "ko-KR": "윙이 세이브가 아니라 패스에 뛴다 — 0.5초 차.",
+        "es-ES": "Los extremos salen con el pase, no con la parada.",
+        "fr-FR": "Les ailiers partent sur la relance, pas sur l'arrêt.",
+        "id-ID": "Sayap lari saat umpan, bukan penyelamatan.",
+        "ms-MY": "Pemain sayap lari ketika umpan, bukan penyelamatan.",
+        "th-TH": "ปีกออกตอนจ่าย ไม่ใช่ตอนเซฟ",
+        "vi-VN": "Cánh chạy khi chuyền ra, không phải khi cản phá."
       },
       "board": {
         "sportType": 10,
@@ -4178,6 +4374,20 @@
         "th-TH": "ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
         "vi-VN": "Nhìn chân thủ môn, đừng nhìn khung thành."
       },
+      "mistake": {
+        "en": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "en-GB": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "zh-CN": "看球门不看门将的脚——他的重心告诉你哪个角空。",
+        "zh-TW": "看球門不看門將的腳——他的重心告訴你哪個角空。",
+        "ja-JP": "ゴールを見てGKの足を見ない——重心が空く隅を教える。",
+        "ko-KR": "골대만 보고 골키퍼 발을 안 본다.",
+        "es-ES": "Mirar la portería y no los pies del portero.",
+        "fr-FR": "Regarder le but, pas les appuis du gardien.",
+        "id-ID": "Melihat gawang, bukan kaki kiper.",
+        "ms-MY": "Melihat gol, bukan kaki penjaga.",
+        "th-TH": "ดูประตูไม่ดูเท้าผู้รักษา",
+        "vi-VN": "Nhìn khung thành, không nhìn chân thủ môn."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -4358,6 +4568,20 @@
         "ms-MY": "Lihat kaki penjaga gol, bukan gol.",
         "th-TH": "ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
         "vi-VN": "Nhìn chân thủ môn, đừng nhìn khung thành."
+      },
+      "mistake": {
+        "en": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "en-GB": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "zh-CN": "看球门不看门将的脚——他的重心告诉你哪个角空。",
+        "zh-TW": "看球門不看門將的腳——他的重心告訴你哪個角空。",
+        "ja-JP": "ゴールを見てGKの足を見ない——重心が空く隅を教える。",
+        "ko-KR": "골대만 보고 골키퍼 발을 안 본다.",
+        "es-ES": "Mirar la portería y no los pies del portero.",
+        "fr-FR": "Regarder le but, pas les appuis du gardien.",
+        "id-ID": "Melihat gawang, bukan kaki kiper.",
+        "ms-MY": "Melihat gol, bukan kaki penjaga.",
+        "th-TH": "ดูประตูไม่ดูเท้าผู้รักษา",
+        "vi-VN": "Nhìn khung thành, không nhìn chân thủ môn."
       },
       "board": {
         "sportType": 10,
@@ -4540,6 +4764,20 @@
         "th-TH": "ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
         "vi-VN": "Nhìn chân thủ môn, đừng nhìn khung thành."
       },
+      "mistake": {
+        "en": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "en-GB": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "zh-CN": "看球门不看门将的脚——他的重心告诉你哪个角空。",
+        "zh-TW": "看球門不看門將的腳——他的重心告訴你哪個角空。",
+        "ja-JP": "ゴールを見てGKの足を見ない——重心が空く隅を教える。",
+        "ko-KR": "골대만 보고 골키퍼 발을 안 본다.",
+        "es-ES": "Mirar la portería y no los pies del portero.",
+        "fr-FR": "Regarder le but, pas les appuis du gardien.",
+        "id-ID": "Melihat gawang, bukan kaki kiper.",
+        "ms-MY": "Melihat gol, bukan kaki penjaga.",
+        "th-TH": "ดูประตูไม่ดูเท้าผู้รักษา",
+        "vi-VN": "Nhìn khung thành, không nhìn chân thủ môn."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -4721,6 +4959,20 @@
         "th-TH": "ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
         "vi-VN": "Nhìn chân thủ môn, đừng nhìn khung thành."
       },
+      "mistake": {
+        "en": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "en-GB": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
+        "zh-CN": "看球门不看门将的脚——他的重心告诉你哪个角空。",
+        "zh-TW": "看球門不看門將的腳——他的重心告訴你哪個角空。",
+        "ja-JP": "ゴールを見てGKの足を見ない——重心が空く隅を教える。",
+        "ko-KR": "골대만 보고 골키퍼 발을 안 본다.",
+        "es-ES": "Mirar la portería y no los pies del portero.",
+        "fr-FR": "Regarder le but, pas les appuis du gardien.",
+        "id-ID": "Melihat gawang, bukan kaki kiper.",
+        "ms-MY": "Melihat gol, bukan kaki penjaga.",
+        "th-TH": "ดูประตูไม่ดูเท้าผู้รักษา",
+        "vi-VN": "Nhìn khung thành, không nhìn chân thủ môn."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -4901,6 +5153,20 @@
         "ms-MY": "Maju bersama, berundur bersama.",
         "th-TH": "ออกพร้อมกัน ถอยพร้อมกัน",
         "vi-VN": "Cùng dâng lên, cùng lùi về."
+      },
+      "mistake": {
+        "en": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "en-GB": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "zh-CN": "单独一个人上抢——那不是压迫，是开了一扇门。",
+        "zh-TW": "單獨一個人上搶——那不是壓迫，是開了一扇門。",
+        "ja-JP": "一人だけ前に出る——プレスではなく門を開ける。",
+        "ko-KR": "혼자 나간다 — 압박이 아니라 문 열기.",
+        "es-ES": "Un defensor sale solo: no es presión, es una puerta.",
+        "fr-FR": "Un défenseur sort seul — ce n'est pas presser, c'est ouvrir.",
+        "id-ID": "Satu bek maju sendiri.",
+        "ms-MY": "Seorang bek maju sendiri.",
+        "th-TH": "คนเดียวออกไปกดดัน",
+        "vi-VN": "Một hậu vệ dâng lẻ."
       },
       "board": {
         "sportType": 10,
@@ -5356,6 +5622,20 @@
         "th-TH": "ออกพร้อมกัน ถอยพร้อมกัน",
         "vi-VN": "Cùng dâng lên, cùng lùi về."
       },
+      "mistake": {
+        "en": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "en-GB": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "zh-CN": "单独一个人上抢——那不是压迫，是开了一扇门。",
+        "zh-TW": "單獨一個人上搶——那不是壓迫，是開了一扇門。",
+        "ja-JP": "一人だけ前に出る——プレスではなく門を開ける。",
+        "ko-KR": "혼자 나간다 — 압박이 아니라 문 열기.",
+        "es-ES": "Un defensor sale solo: no es presión, es una puerta.",
+        "fr-FR": "Un défenseur sort seul — ce n'est pas presser, c'est ouvrir.",
+        "id-ID": "Satu bek maju sendiri.",
+        "ms-MY": "Seorang bek maju sendiri.",
+        "th-TH": "คนเดียวออกไปกดดัน",
+        "vi-VN": "Một hậu vệ dâng lẻ."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -5809,6 +6089,20 @@
         "ms-MY": "Maju bersama, berundur bersama.",
         "th-TH": "ออกพร้อมกัน ถอยพร้อมกัน",
         "vi-VN": "Cùng dâng lên, cùng lùi về."
+      },
+      "mistake": {
+        "en": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "en-GB": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "zh-CN": "单独一个人上抢——那不是压迫，是开了一扇门。",
+        "zh-TW": "單獨一個人上搶——那不是壓迫，是開了一扇門。",
+        "ja-JP": "一人だけ前に出る——プレスではなく門を開ける。",
+        "ko-KR": "혼자 나간다 — 압박이 아니라 문 열기.",
+        "es-ES": "Un defensor sale solo: no es presión, es una puerta.",
+        "fr-FR": "Un défenseur sort seul — ce n'est pas presser, c'est ouvrir.",
+        "id-ID": "Satu bek maju sendiri.",
+        "ms-MY": "Seorang bek maju sendiri.",
+        "th-TH": "คนเดียวออกไปกดดัน",
+        "vi-VN": "Một hậu vệ dâng lẻ."
       },
       "board": {
         "sportType": 10,
@@ -6264,6 +6558,20 @@
         "th-TH": "ออกพร้อมกัน ถอยพร้อมกัน",
         "vi-VN": "Cùng dâng lên, cùng lùi về."
       },
+      "mistake": {
+        "en": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "en-GB": "One defender stepping out alone — that is not pressure, it is an open gate.",
+        "zh-CN": "单独一个人上抢——那不是压迫，是开了一扇门。",
+        "zh-TW": "單獨一個人上搶——那不是壓迫，是開了一扇門。",
+        "ja-JP": "一人だけ前に出る——プレスではなく門を開ける。",
+        "ko-KR": "혼자 나간다 — 압박이 아니라 문 열기.",
+        "es-ES": "Un defensor sale solo: no es presión, es una puerta.",
+        "fr-FR": "Un défenseur sort seul — ce n'est pas presser, c'est ouvrir.",
+        "id-ID": "Satu bek maju sendiri.",
+        "ms-MY": "Seorang bek maju sendiri.",
+        "th-TH": "คนเดียวออกไปกดดัน",
+        "vi-VN": "Một hậu vệ dâng lẻ."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -6675,7 +6983,7 @@
         "en": "Set piece",
         "en-GB": "Set piece",
         "es-ES": "Jugada a balón parado",
-        "fr-FR": "Phase arrêtée l",
+        "fr-FR": "Phase arrêtée",
         "id-ID": "Bola mati lemparan",
         "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
@@ -6717,6 +7025,20 @@
         "ms-MY": "Latih sehingga tiada siapa perlu mendongak.",
         "th-TH": "ซ้อมจนไม่มีใครต้องเงยหน้ามอง",
         "vi-VN": "Tập đến khi không ai phải ngẩng lên tìm nhau."
+      },
+      "mistake": {
+        "en": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "en-GB": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "zh-CN": "三个人还在互相看——靠眼神打的定位球是浪费。",
+        "zh-TW": "三個人還在互相看——靠眼神打的定位球是浪費。",
+        "ja-JP": "3人が目で相談——仕込みを目で打つのは無駄。",
+        "ko-KR": "셋이 눈치 본다 — 눈으로 하는 세트는 낭비.",
+        "es-ES": "Tres mirándose: una jugada ensayada leída con los ojos se pierde.",
+        "fr-FR": "Trois qui se cherchent du regard — une combinaison lue à l'œil est perdue.",
+        "id-ID": "Tiga pemain saling membaca.",
+        "ms-MY": "Tiga pemain saling membaca.",
+        "th-TH": "สามคนยังสบตากัน",
+        "vi-VN": "Ba người còn nhìn nhau."
       },
       "board": {
         "sportType": 10,
@@ -6849,7 +7171,7 @@
         "en": "Set piece",
         "en-GB": "Set piece",
         "es-ES": "Jugada a balón parado",
-        "fr-FR": "Phase arrêtée l",
+        "fr-FR": "Phase arrêtée",
         "id-ID": "Bola mati lemparan",
         "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
@@ -6891,6 +7213,20 @@
         "ms-MY": "Latih sehingga tiada siapa perlu mendongak.",
         "th-TH": "ซ้อมจนไม่มีใครต้องเงยหน้ามอง",
         "vi-VN": "Tập đến khi không ai phải ngẩng lên tìm nhau."
+      },
+      "mistake": {
+        "en": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "en-GB": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "zh-CN": "三个人还在互相看——靠眼神打的定位球是浪费。",
+        "zh-TW": "三個人還在互相看——靠眼神打的定位球是浪費。",
+        "ja-JP": "3人が目で相談——仕込みを目で打つのは無駄。",
+        "ko-KR": "셋이 눈치 본다 — 눈으로 하는 세트는 낭비.",
+        "es-ES": "Tres mirándose: una jugada ensayada leída con los ojos se pierde.",
+        "fr-FR": "Trois qui se cherchent du regard — une combinaison lue à l'œil est perdue.",
+        "id-ID": "Tiga pemain saling membaca.",
+        "ms-MY": "Tiga pemain saling membaca.",
+        "th-TH": "สามคนยังสบตากัน",
+        "vi-VN": "Ba người còn nhìn nhau."
       },
       "board": {
         "sportType": 10,
@@ -7150,7 +7486,7 @@
         "en": "Set piece",
         "en-GB": "Set piece",
         "es-ES": "Jugada a balón parado",
-        "fr-FR": "Phase arrêtée l",
+        "fr-FR": "Phase arrêtée",
         "id-ID": "Bola mati lemparan",
         "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
@@ -7192,6 +7528,20 @@
         "ms-MY": "Latih sehingga tiada siapa perlu mendongak.",
         "th-TH": "ซ้อมจนไม่มีใครต้องเงยหน้ามอง",
         "vi-VN": "Tập đến khi không ai phải ngẩng lên tìm nhau."
+      },
+      "mistake": {
+        "en": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "en-GB": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "zh-CN": "三个人还在互相看——靠眼神打的定位球是浪费。",
+        "zh-TW": "三個人還在互相看——靠眼神打的定位球是浪費。",
+        "ja-JP": "3人が目で相談——仕込みを目で打つのは無駄。",
+        "ko-KR": "셋이 눈치 본다 — 눈으로 하는 세트는 낭비.",
+        "es-ES": "Tres mirándose: una jugada ensayada leída con los ojos se pierde.",
+        "fr-FR": "Trois qui se cherchent du regard — une combinaison lue à l'œil est perdue.",
+        "id-ID": "Tiga pemain saling membaca.",
+        "ms-MY": "Tiga pemain saling membaca.",
+        "th-TH": "สามคนยังสบตากัน",
+        "vi-VN": "Ba người còn nhìn nhau."
       },
       "board": {
         "sportType": 10,
@@ -7451,7 +7801,7 @@
         "en": "Set piece",
         "en-GB": "Set piece",
         "es-ES": "Jugada a balón parado",
-        "fr-FR": "Phase arrêtée l",
+        "fr-FR": "Phase arrêtée",
         "id-ID": "Bola mati lemparan",
         "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
@@ -7493,6 +7843,20 @@
         "ms-MY": "Latih sehingga tiada siapa perlu mendongak.",
         "th-TH": "ซ้อมจนไม่มีใครต้องเงยหน้ามอง",
         "vi-VN": "Tập đến khi không ai phải ngẩng lên tìm nhau."
+      },
+      "mistake": {
+        "en": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "en-GB": "Three players still reading each other — a rehearsed play played by eye is wasted.",
+        "zh-CN": "三个人还在互相看——靠眼神打的定位球是浪费。",
+        "zh-TW": "三個人還在互相看——靠眼神打的定位球是浪費。",
+        "ja-JP": "3人が目で相談——仕込みを目で打つのは無駄。",
+        "ko-KR": "셋이 눈치 본다 — 눈으로 하는 세트는 낭비.",
+        "es-ES": "Tres mirándose: una jugada ensayada leída con los ojos se pierde.",
+        "fr-FR": "Trois qui se cherchent du regard — une combinaison lue à l'œil est perdue.",
+        "id-ID": "Tiga pemain saling membaca.",
+        "ms-MY": "Tiga pemain saling membaca.",
+        "th-TH": "สามคนยังสบตากัน",
+        "vi-VN": "Ba người còn nhìn nhau."
       },
       "board": {
         "sportType": 10,
@@ -7795,6 +8159,20 @@
         "th-TH": "คนน้อยลง ประตูเท่าเดิม โอกาสยิงมาเร็วขึ้น",
         "vi-VN": "Ít người hơn, khung thành như cũ."
       },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
       "board": {
         "sportType": 10,
         "players": [
@@ -8056,6 +8434,20 @@
         "ms-MY": "Pemain lebih sedikit, gol sama besar.",
         "th-TH": "คนน้อยลง ประตูเท่าเดิม โอกาสยิงมาเร็วขึ้น",
         "vi-VN": "Ít người hơn, khung thành như cũ."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 10,
@@ -8372,6 +8764,20 @@
         "ms-MY": "Pemain lebih sedikit, gol sama besar.",
         "th-TH": "คนน้อยลง ประตูเท่าเดิม โอกาสยิงมาเร็วขึ้น",
         "vi-VN": "Ít người hơn, khung thành như cũ."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 10,
@@ -8742,6 +9148,20 @@
         "ms-MY": "Pemain lebih sedikit, gol sama besar.",
         "th-TH": "คนน้อยลง ประตูเท่าเดิม โอกาสยิงมาเร็วขึ้น",
         "vi-VN": "Ít người hơn, khung thành như cũ."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 10,

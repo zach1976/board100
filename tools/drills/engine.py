@@ -383,9 +383,14 @@ def _common_prefix(names: list[str]) -> str:
         while i < min(len(head), len(other)) and head[i] == other[i]:
             i += 1
         head = head[:i]
-    # Trim back to a word boundary — "Footwork to the " must not become
-    # "Footwork to the f" just because two variants both start with "forehand".
-    head = head.rstrip(" ·-–—,")
+    # Cut to a word boundary first: "Maul driving…" and "Maul defending…"
+    # share the characters "Maul d", and a family must never be christened
+    # with half a word. Composition always joins with a space, so the last
+    # space in the raw prefix is the last safe place to stand.
+    cut = head.rfind(" ")
+    if cut >= 0 and head and head[-1] != " ":
+        head = head[:cut + 1]
+    head = head.rstrip(" ·-–—,+")
     # Then drop trailing function words. A family name reads as "<family>
     # <variant>" by construction, so several legitimately end in a preposition
     # or article ("Footwork to", "Attack from") — fine inside a full name,
@@ -560,10 +565,27 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
 
 def build(sport: str, library) -> dict:
     """Render one sport's library to the JSON the app ships."""
+    from .mistakes import lookup
     drills = library()
     ids = [d.id for d in drills]
     assert len(ids) == len(set(ids)), f"duplicate drill id in {sport}"
     families = assign_families(drills, sport)
+
+    # Every family must carry a mistake — the note's other half. A new family
+    # with none is a blank line on the card, so the build refuses it.
+    from .mistakes import lookup
+    missing = sorted({
+        (families[d.id][1].get("en", "") if d.id in families else d.name["en"],
+         d.category)
+        for d in drills
+        if lookup(sport,
+                  families[d.id][1].get("en", "") if d.id in families
+                  else d.name["en"], d.category) is None
+    })
+    assert not missing, (
+        f"{sport}: no common-mistake for: {missing}\n"
+        f"    add a family entry, or a category floor via cat() in mistakes.py")
+
     return {
         "sport": sport,
         "version": 1,
@@ -583,6 +605,13 @@ def build(sport: str, library) -> dict:
                 "offSurface": d.off_surface,
                 "name": d.name,
                 "note": d.note,
+                # The family's most common error — the other half of the
+                # coaching point, shown once per card like the note.
+                "mistake": lookup(
+                    sport,
+                    families[d.id][1].get("en", "") if d.id in families
+                    else d.name["en"],
+                    d.category),
                 "board": (lambda b, dd=d: (audit(sport, dd, b), b)[1])(
                     build_board(d, sport)),
             }

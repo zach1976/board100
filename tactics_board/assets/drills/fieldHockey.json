@@ -53,6 +53,20 @@
         "th-TH": "เงยหน้า ไม้ต่ำ",
         "vi-VN": "Ngẩng đầu, gậy thấp."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -290,6 +304,20 @@
         "th-TH": "เงยหน้า ไม้ต่ำ",
         "vi-VN": "Ngẩng đầu, gậy thấp."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -423,6 +451,20 @@
         "ms-MY": "Kepala tegak, kayu rendah.",
         "th-TH": "เงยหน้า ไม้ต่ำ",
         "vi-VN": "Ngẩng đầu, gậy thấp."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 7,
@@ -582,6 +624,20 @@
         "ms-MY": "Alihkan bola melintang sebelum ke hadapan.",
         "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
         "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
+      },
+      "mistake": {
+        "en": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "en-GB": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "zh-CN": "先纵后横——防守只能往一边滑，先横向调动它。",
+        "zh-TW": "先縱後橫——防守只能往一邊滑，先橫向調動它。",
+        "ja-JP": "横より先に前へ運ぶ——守備は片側にしか滑れない、先に横へ。",
+        "ko-KR": "앞보다 옆으로 먼저 — 수비는 한쪽으로만 슬라이드.",
+        "es-ES": "Adelantar antes de mover en horizontal.",
+        "fr-FR": "Avancer avant de déplacer latéralement.",
+        "id-ID": "Memajukan bola sebelum menyilang.",
+        "ms-MY": "Memajukan bola sebelum melintang.",
+        "th-TH": "ดันหน้าก่อนย้ายข้าง",
+        "vi-VN": "Đưa lên trước khi chuyển ngang."
       },
       "board": {
         "sportType": 7,
@@ -872,6 +928,20 @@
         "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
         "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
       },
+      "mistake": {
+        "en": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "en-GB": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "zh-CN": "先纵后横——防守只能往一边滑，先横向调动它。",
+        "zh-TW": "先縱後橫——防守只能往一邊滑，先橫向調動它。",
+        "ja-JP": "横より先に前へ運ぶ——守備は片側にしか滑れない、先に横へ。",
+        "ko-KR": "앞보다 옆으로 먼저 — 수비는 한쪽으로만 슬라이드.",
+        "es-ES": "Adelantar antes de mover en horizontal.",
+        "fr-FR": "Avancer avant de déplacer latéralement.",
+        "id-ID": "Memajukan bola sebelum menyilang.",
+        "ms-MY": "Memajukan bola sebelum melintang.",
+        "th-TH": "ดันหน้าก่อนย้ายข้าง",
+        "vi-VN": "Đưa lên trước khi chuyển ngang."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -1160,6 +1230,20 @@
         "ms-MY": "Alihkan bola melintang sebelum ke hadapan.",
         "th-TH": "ย้ายบอลข้างก่อนดันไปข้างหน้า",
         "vi-VN": "Chuyển bóng ngang trước khi đưa lên."
+      },
+      "mistake": {
+        "en": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "en-GB": "Moving the ball forward before across — the defence slides one way, so go the other first.",
+        "zh-CN": "先纵后横——防守只能往一边滑，先横向调动它。",
+        "zh-TW": "先縱後橫——防守只能往一邊滑，先橫向調動它。",
+        "ja-JP": "横より先に前へ運ぶ——守備は片側にしか滑れない、先に横へ。",
+        "ko-KR": "앞보다 옆으로 먼저 — 수비는 한쪽으로만 슬라이드.",
+        "es-ES": "Adelantar antes de mover en horizontal.",
+        "fr-FR": "Avancer avant de déplacer latéralement.",
+        "id-ID": "Memajukan bola sebelum menyilang.",
+        "ms-MY": "Memajukan bola sebelum melintang.",
+        "th-TH": "ดันหน้าก่อนย้ายข้าง",
+        "vi-VN": "Đưa lên trước khi chuyển ngang."
       },
       "board": {
         "sportType": 7,
@@ -1450,6 +1534,20 @@
         "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
         "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
       },
+      "mistake": {
+        "en": "Entering with both hands full and no support.",
+        "en-GB": "Entering with both hands full and no support.",
+        "zh-CN": "两手占着、没人支援就冲进圈里。",
+        "zh-TW": "兩手占著、沒人支援就衝進圈裡。",
+        "ja-JP": "両手が塞がりサポートなしで入る。",
+        "ko-KR": "양손이 찬 채 지원 없이 들어간다.",
+        "es-ES": "Entrar con las manos llenas y sin apoyo.",
+        "fr-FR": "Entrer les mains pleines sans soutien.",
+        "id-ID": "Masuk dengan tangan penuh tanpa bantuan.",
+        "ms-MY": "Masuk dengan tangan penuh tanpa sokongan.",
+        "th-TH": "เข้าวงมือเต็มไม่มีคนช่วย",
+        "vi-VN": "Vào vòng tay đầy, không hỗ trợ."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -1719,6 +1817,20 @@
         "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
         "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
         "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "mistake": {
+        "en": "Entering with both hands full and no support.",
+        "en-GB": "Entering with both hands full and no support.",
+        "zh-CN": "两手占着、没人支援就冲进圈里。",
+        "zh-TW": "兩手占著、沒人支援就衝進圈裡。",
+        "ja-JP": "両手が塞がりサポートなしで入る。",
+        "ko-KR": "양손이 찬 채 지원 없이 들어간다.",
+        "es-ES": "Entrar con las manos llenas y sin apoyo.",
+        "fr-FR": "Entrer les mains pleines sans soutien.",
+        "id-ID": "Masuk dengan tangan penuh tanpa bantuan.",
+        "ms-MY": "Masuk dengan tangan penuh tanpa sokongan.",
+        "th-TH": "เข้าวงมือเต็มไม่มีคนช่วย",
+        "vi-VN": "Vào vòng tay đầy, không hỗ trợ."
       },
       "board": {
         "sportType": 7,
@@ -1990,6 +2102,20 @@
         "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
         "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
       },
+      "mistake": {
+        "en": "Entering with both hands full and no support.",
+        "en-GB": "Entering with both hands full and no support.",
+        "zh-CN": "两手占着、没人支援就冲进圈里。",
+        "zh-TW": "兩手占著、沒人支援就衝進圈裡。",
+        "ja-JP": "両手が塞がりサポートなしで入る。",
+        "ko-KR": "양손이 찬 채 지원 없이 들어간다.",
+        "es-ES": "Entrar con las manos llenas y sin apoyo.",
+        "fr-FR": "Entrer les mains pleines sans soutien.",
+        "id-ID": "Masuk dengan tangan penuh tanpa bantuan.",
+        "ms-MY": "Masuk dengan tangan penuh tanpa sokongan.",
+        "th-TH": "เข้าวงมือเต็มไม่มีคนช่วย",
+        "vi-VN": "Vào vòng tay đầy, không hỗ trợ."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -2259,6 +2385,20 @@
         "ms-MY": "Masuk dengan bola terkawal atau dengan rakan yang berlari di sisi.",
         "th-TH": "เข้าไปพร้อมบอลที่คุมได้ หรือพร้อมเพื่อนที่วิ่งข้าง ๆ",
         "vi-VN": "Vào với bóng trong tầm kiểm soát hoặc có đồng đội chạy bên cạnh."
+      },
+      "mistake": {
+        "en": "Entering with both hands full and no support.",
+        "en-GB": "Entering with both hands full and no support.",
+        "zh-CN": "两手占着、没人支援就冲进圈里。",
+        "zh-TW": "兩手占著、沒人支援就衝進圈裡。",
+        "ja-JP": "両手が塞がりサポートなしで入る。",
+        "ko-KR": "양손이 찬 채 지원 없이 들어간다.",
+        "es-ES": "Entrar con las manos llenas y sin apoyo.",
+        "fr-FR": "Entrer les mains pleines sans soutien.",
+        "id-ID": "Masuk dengan tangan penuh tanpa bantuan.",
+        "ms-MY": "Masuk dengan tangan penuh tanpa sokongan.",
+        "th-TH": "เข้าวงมือเต็มไม่มีคนช่วย",
+        "vi-VN": "Vào vòng tay đầy, không hỗ trợ."
       },
       "board": {
         "sportType": 7,
@@ -2530,6 +2670,20 @@
         "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
         "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
       },
+      "mistake": {
+        "en": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "en-GB": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "zh-CN": "打高打干净，不打低、不安排补射——大多数进球是第二下触球。",
+        "zh-TW": "打高打乾淨，不打低、不安排補射——大多數進球是第二下觸球。",
+        "ja-JP": "高く綺麗に打ちこぼれ球に人を置かない——得点の多くは2度目の触球。",
+        "ko-KR": "높고 깨끗하게, 리바운드에 사람 없이 — 대부분 두 번째 터치.",
+        "es-ES": "Pegar alto y limpio sin nadie al rechace.",
+        "fr-FR": "Frapper haut et propre sans personne au rebond.",
+        "id-ID": "Memukul tinggi bersih tanpa pemantul.",
+        "ms-MY": "Memukul tinggi bersih tanpa pemantul.",
+        "th-TH": "ตีสูงสะอาดไม่มีคนตามเก็บ",
+        "vi-VN": "Đánh cao sạch mà không ai đón bóng bật."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -2737,6 +2891,20 @@
         "ms-MY": "Pukul rendah dan kuat ke tiang dekat, dan sediakan pemantul.",
         "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
         "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
+      },
+      "mistake": {
+        "en": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "en-GB": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "zh-CN": "打高打干净，不打低、不安排补射——大多数进球是第二下触球。",
+        "zh-TW": "打高打乾淨，不打低、不安排補射——大多數進球是第二下觸球。",
+        "ja-JP": "高く綺麗に打ちこぼれ球に人を置かない——得点の多くは2度目の触球。",
+        "ko-KR": "높고 깨끗하게, 리바운드에 사람 없이 — 대부분 두 번째 터치.",
+        "es-ES": "Pegar alto y limpio sin nadie al rechace.",
+        "fr-FR": "Frapper haut et propre sans personne au rebond.",
+        "id-ID": "Memukul tinggi bersih tanpa pemantul.",
+        "ms-MY": "Memukul tinggi bersih tanpa pemantul.",
+        "th-TH": "ตีสูงสะอาดไม่มีคนตามเก็บ",
+        "vi-VN": "Đánh cao sạch mà không ai đón bóng bật."
       },
       "board": {
         "sportType": 7,
@@ -2946,6 +3114,20 @@
         "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
         "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
       },
+      "mistake": {
+        "en": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "en-GB": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "zh-CN": "打高打干净，不打低、不安排补射——大多数进球是第二下触球。",
+        "zh-TW": "打高打乾淨，不打低、不安排補射——大多數進球是第二下觸球。",
+        "ja-JP": "高く綺麗に打ちこぼれ球に人を置かない——得点の多くは2度目の触球。",
+        "ko-KR": "높고 깨끗하게, 리바운드에 사람 없이 — 대부분 두 번째 터치.",
+        "es-ES": "Pegar alto y limpio sin nadie al rechace.",
+        "fr-FR": "Frapper haut et propre sans personne au rebond.",
+        "id-ID": "Memukul tinggi bersih tanpa pemantul.",
+        "ms-MY": "Memukul tinggi bersih tanpa pemantul.",
+        "th-TH": "ตีสูงสะอาดไม่มีคนตามเก็บ",
+        "vi-VN": "Đánh cao sạch mà không ai đón bóng bật."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -3154,6 +3336,20 @@
         "th-TH": "ยิงต่ำและแรงที่เสาใกล้ แล้ววางคนไว้ที่ลูกกระดอน",
         "vi-VN": "Đánh thấp và mạnh vào cột gần, và bố trí người đón bóng bật ra."
       },
+      "mistake": {
+        "en": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "en-GB": "Hitting high and clean, not low with a body on the rebound — most goals are the second contact.",
+        "zh-CN": "打高打干净，不打低、不安排补射——大多数进球是第二下触球。",
+        "zh-TW": "打高打乾淨，不打低、不安排補射——大多數進球是第二下觸球。",
+        "ja-JP": "高く綺麗に打ちこぼれ球に人を置かない——得点の多くは2度目の触球。",
+        "ko-KR": "높고 깨끗하게, 리바운드에 사람 없이 — 대부분 두 번째 터치.",
+        "es-ES": "Pegar alto y limpio sin nadie al rechace.",
+        "fr-FR": "Frapper haut et propre sans personne au rebond.",
+        "id-ID": "Memukul tinggi bersih tanpa pemantul.",
+        "ms-MY": "Memukul tinggi bersih tanpa pemantul.",
+        "th-TH": "ตีสูงสะอาดไม่มีคนตามเก็บ",
+        "vi-VN": "Đánh cao sạch mà không ai đón bóng bật."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -3361,6 +3557,20 @@
         "ms-MY": "Tunjukkan garisan tepi dan tutup pilihan silang.",
         "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
         "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
+      },
+      "mistake": {
+        "en": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "en-GB": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "zh-CN": "让球横传过场的压迫等于没压。",
+        "zh-TW": "讓球橫傳過場的壓迫等於沒壓。",
+        "ja-JP": "逆サイドへ渡すプレスは誰も追い込んでいない。",
+        "ko-KR": "반대편으로 넘기는 압박은 압박이 아니다.",
+        "es-ES": "Una presión que deja cambiar el juego no presionó a nadie.",
+        "fr-FR": "Un pressing qui laisse renverser n'a pressé personne.",
+        "id-ID": "Pressing yang membiarkan bola menyilang.",
+        "ms-MY": "Tekanan yang membiarkan bola melintang.",
+        "th-TH": "กดดันแต่ปล่อยเปลี่ยนข้าง",
+        "vi-VN": "Gây áp lực mà để chuyển cánh."
       },
       "board": {
         "sportType": 7,
@@ -3664,6 +3874,20 @@
         "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
         "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
       },
+      "mistake": {
+        "en": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "en-GB": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "zh-CN": "让球横传过场的压迫等于没压。",
+        "zh-TW": "讓球橫傳過場的壓迫等於沒壓。",
+        "ja-JP": "逆サイドへ渡すプレスは誰も追い込んでいない。",
+        "ko-KR": "반대편으로 넘기는 압박은 압박이 아니다.",
+        "es-ES": "Una presión que deja cambiar el juego no presionó a nadie.",
+        "fr-FR": "Un pressing qui laisse renverser n'a pressé personne.",
+        "id-ID": "Pressing yang membiarkan bola menyilang.",
+        "ms-MY": "Tekanan yang membiarkan bola melintang.",
+        "th-TH": "กดดันแต่ปล่อยเปลี่ยนข้าง",
+        "vi-VN": "Gây áp lực mà để chuyển cánh."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -3965,6 +4189,20 @@
         "ms-MY": "Tunjukkan garisan tepi dan tutup pilihan silang.",
         "th-TH": "ไล่ให้ไปริมเส้นและตัดการเปลี่ยนข้าง",
         "vi-VN": "Đẩy họ ra biên và cắt đường chuyển cánh."
+      },
+      "mistake": {
+        "en": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "en-GB": "A press that lets the ball switch across the pitch has pressed nobody.",
+        "zh-CN": "让球横传过场的压迫等于没压。",
+        "zh-TW": "讓球橫傳過場的壓迫等於沒壓。",
+        "ja-JP": "逆サイドへ渡すプレスは誰も追い込んでいない。",
+        "ko-KR": "반대편으로 넘기는 압박은 압박이 아니다.",
+        "es-ES": "Una presión que deja cambiar el juego no presionó a nadie.",
+        "fr-FR": "Un pressing qui laisse renverser n'a pressé personne.",
+        "id-ID": "Pressing yang membiarkan bola menyilang.",
+        "ms-MY": "Tekanan yang membiarkan bola melintang.",
+        "th-TH": "กดดันแต่ปล่อยเปลี่ยนข้าง",
+        "vi-VN": "Gây áp lực mà để chuyển cánh."
       },
       "board": {
         "sportType": 7,
@@ -4268,6 +4506,20 @@
         "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
         "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
+      "mistake": {
+        "en": "The stop is what fails — drill the trap on its own until it is boring.",
+        "en-GB": "The stop is what fails — drill the trap on its own until it is boring.",
+        "zh-CN": "出问题的是停球——把停球单独练到无聊为止。",
+        "zh-TW": "出問題的是停球——把停球單獨練到無聊為止。",
+        "ja-JP": "失敗するのはストップ——トラップだけを退屈になるまで。",
+        "ko-KR": "실패하는 건 스톱 — 트래핑만 지겹도록.",
+        "es-ES": "Lo que falla es la parada: entrena el control hasta aburrir.",
+        "fr-FR": "C'est le blocage qui échoue — travaille l'arrêt jusqu'à l'ennui.",
+        "id-ID": "Yang gagal adalah stopnya.",
+        "ms-MY": "Yang gagal ialah hentiannya.",
+        "th-TH": "สิ่งที่พลาดคือการหยุดบอล",
+        "vi-VN": "Khâu hỏng là dừng bóng."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -4502,6 +4754,20 @@
         "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
         "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
         "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "mistake": {
+        "en": "The stop is what fails — drill the trap on its own until it is boring.",
+        "en-GB": "The stop is what fails — drill the trap on its own until it is boring.",
+        "zh-CN": "出问题的是停球——把停球单独练到无聊为止。",
+        "zh-TW": "出問題的是停球——把停球單獨練到無聊為止。",
+        "ja-JP": "失敗するのはストップ——トラップだけを退屈になるまで。",
+        "ko-KR": "실패하는 건 스톱 — 트래핑만 지겹도록.",
+        "es-ES": "Lo que falla es la parada: entrena el control hasta aburrir.",
+        "fr-FR": "C'est le blocage qui échoue — travaille l'arrêt jusqu'à l'ennui.",
+        "id-ID": "Yang gagal adalah stopnya.",
+        "ms-MY": "Yang gagal ialah hentiannya.",
+        "th-TH": "สิ่งที่พลาดคือการหยุดบอล",
+        "vi-VN": "Khâu hỏng là dừng bóng."
       },
       "board": {
         "sportType": 7,
@@ -4738,6 +5004,20 @@
         "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
         "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
+      "mistake": {
+        "en": "The stop is what fails — drill the trap on its own until it is boring.",
+        "en-GB": "The stop is what fails — drill the trap on its own until it is boring.",
+        "zh-CN": "出问题的是停球——把停球单独练到无聊为止。",
+        "zh-TW": "出問題的是停球——把停球單獨練到無聊為止。",
+        "ja-JP": "失敗するのはストップ——トラップだけを退屈になるまで。",
+        "ko-KR": "실패하는 건 스톱 — 트래핑만 지겹도록.",
+        "es-ES": "Lo que falla es la parada: entrena el control hasta aburrir.",
+        "fr-FR": "C'est le blocage qui échoue — travaille l'arrêt jusqu'à l'ennui.",
+        "id-ID": "Yang gagal adalah stopnya.",
+        "ms-MY": "Yang gagal ialah hentiannya.",
+        "th-TH": "สิ่งที่พลาดคือการหยุดบอล",
+        "vi-VN": "Khâu hỏng là dừng bóng."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -4972,6 +5252,20 @@
         "ms-MY": "Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
         "th-TH": "ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
         "vi-VN": "Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+      },
+      "mistake": {
+        "en": "The stop is what fails — drill the trap on its own until it is boring.",
+        "en-GB": "The stop is what fails — drill the trap on its own until it is boring.",
+        "zh-CN": "出问题的是停球——把停球单独练到无聊为止。",
+        "zh-TW": "出問題的是停球——把停球單獨練到無聊為止。",
+        "ja-JP": "失敗するのはストップ——トラップだけを退屈になるまで。",
+        "ko-KR": "실패하는 건 스톱 — 트래핑만 지겹도록.",
+        "es-ES": "Lo que falla es la parada: entrena el control hasta aburrir.",
+        "fr-FR": "C'est le blocage qui échoue — travaille l'arrêt jusqu'à l'ennui.",
+        "id-ID": "Yang gagal adalah stopnya.",
+        "ms-MY": "Yang gagal ialah hentiannya.",
+        "th-TH": "สิ่งที่พลาดคือการหยุดบอล",
+        "vi-VN": "Khâu hỏng là dừng bóng."
       },
       "board": {
         "sportType": 7,
@@ -5303,6 +5597,20 @@
         "th-TH": "เล่น self-pass ก่อนแนวรับตั้งตัว ข้อได้เปรียบคือสามวินาทีที่เขาต้องถอยห้าเมตร",
         "vi-VN": "Tự chuyền cho mình trước khi hàng thủ kịp đứng vững."
       },
+      "mistake": {
+        "en": "Improvising a moment whose value was that it was rehearsed.",
+        "en-GB": "Improvising a moment whose value was that it was rehearsed.",
+        "zh-CN": "把价值在于排练的时刻临场发挥。",
+        "zh-TW": "把價值在於排練的時刻臨場發揮。",
+        "ja-JP": "仕込みが価値の場面を即興でやる。",
+        "ko-KR": "연습이 가치인 순간을 즉흥으로.",
+        "es-ES": "Improvisar un momento cuyo valor era estar ensayado.",
+        "fr-FR": "Improviser un moment dont la valeur était d'être répété.",
+        "id-ID": "Berimprovisasi di momen yang mestinya terlatih.",
+        "ms-MY": "Berimprovisasi pada saat yang sepatutnya terlatih.",
+        "th-TH": "ด้นสดในจังหวะที่ควรซ้อม",
+        "vi-VN": "Ứng biến ở tình huống lẽ ra đã tập."
+      },
       "board": {
         "sportType": 7,
         "players": [
@@ -5523,6 +5831,20 @@
         "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
         "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
         "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 7,
@@ -5805,6 +6127,20 @@
         "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
         "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
         "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 7,
@@ -6195,6 +6531,20 @@
         "ms-MY": "Beri mata untuk masuk bulatan, bukan gol, ketika ingin memperbaiki binaan.",
         "th-TH": "ถ้าจะพัฒนาการต่อบอล ให้นับแต้มจากการเข้าวงกลม ไม่ใช่ประตู",
         "vi-VN": "Tính điểm theo số lần vào vòng cấm thay vì bàn thắng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 7,

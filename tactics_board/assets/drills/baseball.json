@@ -53,6 +53,20 @@
         "th-TH": "ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
         "vi-VN": "Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -206,6 +220,20 @@
         "ms-MY": "Baling ke sasaran, lurus, setiap kali.",
         "th-TH": "ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
         "vi-VN": "Ném vào mục tiêu, theo đường thẳng, mọi lần."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 9,
@@ -523,6 +551,20 @@
         "th-TH": "ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
         "vi-VN": "Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -681,6 +723,20 @@
         "ms-MY": "Hantaran yang menentukan double play, bukan lengan.",
         "th-TH": "สิ่งที่ตัดสินดับเบิลเพลย์คือการส่งต่อ ไม่ใช่แรงแขน",
         "vi-VN": "Đường chuyền quyết định loại kép, không phải sức tay."
+      },
+      "mistake": {
+        "en": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "en-GB": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "zh-CN": "急着传球而不是急着送球——决定双杀的是那记送球，不是臂力。",
+        "zh-TW": "急著傳球而不是急著送球——決定雙殺的是那記送球，不是臂力。",
+        "ja-JP": "トスでなく送球を急ぐ——併殺を作るのはトス。",
+        "ko-KR": "송구를 서두른다 — 병살은 토스가 만든다.",
+        "es-ES": "Apurar el tiro y no la entrega: el doble play lo hace la entrega.",
+        "fr-FR": "Précipiter le lancer, pas la transmission — c'est elle qui fait le double jeu.",
+        "id-ID": "Terburu melempar, bukan mengumpan.",
+        "ms-MY": "Tergesa membaling, bukan menghantar.",
+        "th-TH": "รีบขว้างแทนที่จะรีบส่งต่อ",
+        "vi-VN": "Vội ném thay vì vội chuyền."
       },
       "board": {
         "sportType": 9,
@@ -1102,6 +1158,20 @@
         "th-TH": "สิ่งที่ตัดสินดับเบิลเพลย์คือการส่งต่อ ไม่ใช่แรงแขน",
         "vi-VN": "Đường chuyền quyết định loại kép, không phải sức tay."
       },
+      "mistake": {
+        "en": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "en-GB": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "zh-CN": "急着传球而不是急着送球——决定双杀的是那记送球，不是臂力。",
+        "zh-TW": "急著傳球而不是急著送球——決定雙殺的是那記送球，不是臂力。",
+        "ja-JP": "トスでなく送球を急ぐ——併殺を作るのはトス。",
+        "ko-KR": "송구를 서두른다 — 병살은 토스가 만든다.",
+        "es-ES": "Apurar el tiro y no la entrega: el doble play lo hace la entrega.",
+        "fr-FR": "Précipiter le lancer, pas la transmission — c'est elle qui fait le double jeu.",
+        "id-ID": "Terburu melempar, bukan mengumpan.",
+        "ms-MY": "Tergesa membaling, bukan menghantar.",
+        "th-TH": "รีบขว้างแทนที่จะรีบส่งต่อ",
+        "vi-VN": "Vội ném thay vì vội chuyền."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -1521,6 +1591,20 @@
         "ms-MY": "Hantaran yang menentukan double play, bukan lengan.",
         "th-TH": "สิ่งที่ตัดสินดับเบิลเพลย์คือการส่งต่อ ไม่ใช่แรงแขน",
         "vi-VN": "Đường chuyền quyết định loại kép, không phải sức tay."
+      },
+      "mistake": {
+        "en": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "en-GB": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "zh-CN": "急着传球而不是急着送球——决定双杀的是那记送球，不是臂力。",
+        "zh-TW": "急著傳球而不是急著送球——決定雙殺的是那記送球，不是臂力。",
+        "ja-JP": "トスでなく送球を急ぐ——併殺を作るのはトス。",
+        "ko-KR": "송구를 서두른다 — 병살은 토스가 만든다.",
+        "es-ES": "Apurar el tiro y no la entrega: el doble play lo hace la entrega.",
+        "fr-FR": "Précipiter le lancer, pas la transmission — c'est elle qui fait le double jeu.",
+        "id-ID": "Terburu melempar, bukan mengumpan.",
+        "ms-MY": "Tergesa membaling, bukan menghantar.",
+        "th-TH": "รีบขว้างแทนที่จะรีบส่งต่อ",
+        "vi-VN": "Vội ném thay vì vội chuyền."
       },
       "board": {
         "sportType": 9,
@@ -1942,6 +2026,20 @@
         "th-TH": "สิ่งที่ตัดสินดับเบิลเพลย์คือการส่งต่อ ไม่ใช่แรงแขน",
         "vi-VN": "Đường chuyền quyết định loại kép, không phải sức tay."
       },
+      "mistake": {
+        "en": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "en-GB": "Rushing the throw instead of the feed — the feed makes the double play, not the arm.",
+        "zh-CN": "急着传球而不是急着送球——决定双杀的是那记送球，不是臂力。",
+        "zh-TW": "急著傳球而不是急著送球——決定雙殺的是那記送球，不是臂力。",
+        "ja-JP": "トスでなく送球を急ぐ——併殺を作るのはトス。",
+        "ko-KR": "송구를 서두른다 — 병살은 토스가 만든다.",
+        "es-ES": "Apurar el tiro y no la entrega: el doble play lo hace la entrega.",
+        "fr-FR": "Précipiter le lancer, pas la transmission — c'est elle qui fait le double jeu.",
+        "id-ID": "Terburu melempar, bukan mengumpan.",
+        "ms-MY": "Tergesa membaling, bukan menghantar.",
+        "th-TH": "รีบขว้างแทนที่จะรีบส่งต่อ",
+        "vi-VN": "Vội ném thay vì vội chuyền."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -2362,6 +2460,20 @@
         "th-TH": "ยืนบนเส้นระหว่างบอลกับเบส แล้วตะโกนเรียกให้ดัง",
         "vi-VN": "Đứng trên đường nối bóng và chốt, và gọi thật to."
       },
+      "mistake": {
+        "en": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "en-GB": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "zh-CN": "看不见的中继人没人用——站到连线上，大声喊。",
+        "zh-TW": "看不見的中繼人沒人用——站到連線上，大聲喊。",
+        "ja-JP": "見えないカットマンは使われない——線上に立ち大声で。",
+        "ko-KR": "안 보이는 컷맨은 안 쓴다 — 선상에 서서 크게.",
+        "es-ES": "Un cortador invisible no se usa: alinéate y pide a gritos.",
+        "fr-FR": "Un relayeur invisible ne sert pas — aligne-toi et appelle fort.",
+        "id-ID": "Cut-off yang tak terlihat tak terpakai.",
+        "ms-MY": "Cut-off yang tak kelihatan tak digunakan.",
+        "th-TH": "คนรับต่อที่มองไม่เห็นก็ไม่มีใครใช้",
+        "vi-VN": "Cắt bóng không ai thấy thì không ai dùng."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -2688,6 +2800,20 @@
         "th-TH": "ยืนบนเส้นระหว่างบอลกับเบส แล้วตะโกนเรียกให้ดัง",
         "vi-VN": "Đứng trên đường nối bóng và chốt, và gọi thật to."
       },
+      "mistake": {
+        "en": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "en-GB": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "zh-CN": "看不见的中继人没人用——站到连线上，大声喊。",
+        "zh-TW": "看不見的中繼人沒人用——站到連線上，大聲喊。",
+        "ja-JP": "見えないカットマンは使われない——線上に立ち大声で。",
+        "ko-KR": "안 보이는 컷맨은 안 쓴다 — 선상에 서서 크게.",
+        "es-ES": "Un cortador invisible no se usa: alinéate y pide a gritos.",
+        "fr-FR": "Un relayeur invisible ne sert pas — aligne-toi et appelle fort.",
+        "id-ID": "Cut-off yang tak terlihat tak terpakai.",
+        "ms-MY": "Cut-off yang tak kelihatan tak digunakan.",
+        "th-TH": "คนรับต่อที่มองไม่เห็นก็ไม่มีใครใช้",
+        "vi-VN": "Cắt bóng không ai thấy thì không ai dùng."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -3008,6 +3134,20 @@
         "ms-MY": "Berdiri di garisan antara bola dan base, dan menjerit meminta.",
         "th-TH": "ยืนบนเส้นระหว่างบอลกับเบส แล้วตะโกนเรียกให้ดัง",
         "vi-VN": "Đứng trên đường nối bóng và chốt, và gọi thật to."
+      },
+      "mistake": {
+        "en": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "en-GB": "A cut man nobody can see is a cut man nobody uses — line up and call loudly.",
+        "zh-CN": "看不见的中继人没人用——站到连线上，大声喊。",
+        "zh-TW": "看不見的中繼人沒人用——站到連線上，大聲喊。",
+        "ja-JP": "見えないカットマンは使われない——線上に立ち大声で。",
+        "ko-KR": "안 보이는 컷맨은 안 쓴다 — 선상에 서서 크게.",
+        "es-ES": "Un cortador invisible no se usa: alinéate y pide a gritos.",
+        "fr-FR": "Un relayeur invisible ne sert pas — aligne-toi et appelle fort.",
+        "id-ID": "Cut-off yang tak terlihat tak terpakai.",
+        "ms-MY": "Cut-off yang tak kelihatan tak digunakan.",
+        "th-TH": "คนรับต่อที่มองไม่เห็นก็ไม่มีใครใช้",
+        "vi-VN": "Cắt bóng không ai thấy thì không ai dùng."
       },
       "board": {
         "sportType": 9,
@@ -3334,6 +3474,20 @@
         "ms-MY": "Baca tumit hadapan pembaling, bukan bolanya.",
         "th-TH": "อ่านส้นเท้าหน้าของพิตเชอร์ ไม่ใช่ดูลูกบอล",
         "vi-VN": "Đọc gót chân trước của người ném, đừng nhìn bóng."
+      },
+      "mistake": {
+        "en": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "en-GB": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "zh-CN": "看球而不是看投手脚跟——等你看到球，决定已经做完了。",
+        "zh-TW": "看球而不是看投手腳跟——等你看到球，決定已經做完了。",
+        "ja-JP": "投手のかかとでなくボールを読む——見えた時には決している。",
+        "ko-KR": "공을 읽는다, 투수 뒤꿈치가 아니라 — 보이면 이미 끝.",
+        "es-ES": "Leer la bola y no el talón del lanzador.",
+        "fr-FR": "Lire la balle, pas le talon du lanceur.",
+        "id-ID": "Membaca bola, bukan tumit pelempar.",
+        "ms-MY": "Membaca bola, bukan tumit pembaling.",
+        "th-TH": "อ่านบอลไม่อ่านส้นพิตเชอร์",
+        "vi-VN": "Đọc bóng thay vì gót người ném."
       },
       "board": {
         "sportType": 9,
@@ -3679,6 +3833,20 @@
         "th-TH": "อ่านส้นเท้าหน้าของพิตเชอร์ ไม่ใช่ดูลูกบอล",
         "vi-VN": "Đọc gót chân trước của người ném, đừng nhìn bóng."
       },
+      "mistake": {
+        "en": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "en-GB": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "zh-CN": "看球而不是看投手脚跟——等你看到球，决定已经做完了。",
+        "zh-TW": "看球而不是看投手腳跟——等你看到球，決定已經做完了。",
+        "ja-JP": "投手のかかとでなくボールを読む——見えた時には決している。",
+        "ko-KR": "공을 읽는다, 투수 뒤꿈치가 아니라 — 보이면 이미 끝.",
+        "es-ES": "Leer la bola y no el talón del lanzador.",
+        "fr-FR": "Lire la balle, pas le talon du lanceur.",
+        "id-ID": "Membaca bola, bukan tumit pelempar.",
+        "ms-MY": "Membaca bola, bukan tumit pembaling.",
+        "th-TH": "อ่านบอลไม่อ่านส้นพิตเชอร์",
+        "vi-VN": "Đọc bóng thay vì gót người ném."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -4022,6 +4190,20 @@
         "ms-MY": "Baca tumit hadapan pembaling, bukan bolanya.",
         "th-TH": "อ่านส้นเท้าหน้าของพิตเชอร์ ไม่ใช่ดูลูกบอล",
         "vi-VN": "Đọc gót chân trước của người ném, đừng nhìn bóng."
+      },
+      "mistake": {
+        "en": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "en-GB": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "zh-CN": "看球而不是看投手脚跟——等你看到球，决定已经做完了。",
+        "zh-TW": "看球而不是看投手腳跟——等你看到球，決定已經做完了。",
+        "ja-JP": "投手のかかとでなくボールを読む——見えた時には決している。",
+        "ko-KR": "공을 읽는다, 투수 뒤꿈치가 아니라 — 보이면 이미 끝.",
+        "es-ES": "Leer la bola y no el talón del lanzador.",
+        "fr-FR": "Lire la balle, pas le talon du lanceur.",
+        "id-ID": "Membaca bola, bukan tumit pelempar.",
+        "ms-MY": "Membaca bola, bukan tumit pembaling.",
+        "th-TH": "อ่านบอลไม่อ่านส้นพิตเชอร์",
+        "vi-VN": "Đọc bóng thay vì gót người ném."
       },
       "board": {
         "sportType": 9,
@@ -4367,6 +4549,20 @@
         "th-TH": "อ่านส้นเท้าหน้าของพิตเชอร์ ไม่ใช่ดูลูกบอล",
         "vi-VN": "Đọc gót chân trước của người ném, đừng nhìn bóng."
       },
+      "mistake": {
+        "en": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "en-GB": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "zh-CN": "看球而不是看投手脚跟——等你看到球，决定已经做完了。",
+        "zh-TW": "看球而不是看投手腳跟——等你看到球，決定已經做完了。",
+        "ja-JP": "投手のかかとでなくボールを読む——見えた時には決している。",
+        "ko-KR": "공을 읽는다, 투수 뒤꿈치가 아니라 — 보이면 이미 끝.",
+        "es-ES": "Leer la bola y no el talón del lanzador.",
+        "fr-FR": "Lire la balle, pas le talon du lanceur.",
+        "id-ID": "Membaca bola, bukan tumit pelempar.",
+        "ms-MY": "Membaca bola, bukan tumit pembaling.",
+        "th-TH": "อ่านบอลไม่อ่านส้นพิตเชอร์",
+        "vi-VN": "Đọc bóng thay vì gót người ném."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -4710,6 +4906,20 @@
         "ms-MY": "Baca tumit hadapan pembaling, bukan bolanya.",
         "th-TH": "อ่านส้นเท้าหน้าของพิตเชอร์ ไม่ใช่ดูลูกบอล",
         "vi-VN": "Đọc gót chân trước của người ném, đừng nhìn bóng."
+      },
+      "mistake": {
+        "en": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "en-GB": "Reading the ball, not the pitcher's heel — by the time you see the ball, it is decided.",
+        "zh-CN": "看球而不是看投手脚跟——等你看到球，决定已经做完了。",
+        "zh-TW": "看球而不是看投手腳跟——等你看到球，決定已經做完了。",
+        "ja-JP": "投手のかかとでなくボールを読む——見えた時には決している。",
+        "ko-KR": "공을 읽는다, 투수 뒤꿈치가 아니라 — 보이면 이미 끝.",
+        "es-ES": "Leer la bola y no el talón del lanzador.",
+        "fr-FR": "Lire la balle, pas le talon du lanceur.",
+        "id-ID": "Membaca bola, bukan tumit pelempar.",
+        "ms-MY": "Membaca bola, bukan tumit pembaling.",
+        "th-TH": "อ่านบอลไม่อ่านส้นพิตเชอร์",
+        "vi-VN": "Đọc bóng thay vì gót người ném."
       },
       "board": {
         "sportType": 9,
@@ -5055,6 +5265,20 @@
         "th-TH": "ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
         "vi-VN": "Quyết định trước khi ném xem có chạy khi chạm bóng không."
       },
+      "mistake": {
+        "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "en-GB": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "zh-CN": "到本垒才决定——决定得晚的跑者在本垒被杀。",
+        "zh-TW": "到本壘才決定——決定得晚的跑者在本壘被殺。",
+        "ja-JP": "本塁で迷う——遅い判断は本塁で刺される。",
+        "ko-KR": "홈에서 정한다 — 늦으면 홈에서 잡힌다.",
+        "es-ES": "Decidir en el plato: quien decide tarde muere en casa.",
+        "fr-FR": "Décider au marbre — celui qui décide tard est retiré au marbre.",
+        "id-ID": "Memutuskan di home plate.",
+        "ms-MY": "Membuat keputusan di home plate.",
+        "th-TH": "ตัดสินใจที่โฮม",
+        "vi-VN": "Quyết định ở chốt nhà."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -5358,6 +5582,20 @@
         "ms-MY": "Tentukan sebelum balingan sama ada anda lari ketika kontak.",
         "th-TH": "ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
         "vi-VN": "Quyết định trước khi ném xem có chạy khi chạm bóng không."
+      },
+      "mistake": {
+        "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "en-GB": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "zh-CN": "到本垒才决定——决定得晚的跑者在本垒被杀。",
+        "zh-TW": "到本壘才決定——決定得晚的跑者在本壘被殺。",
+        "ja-JP": "本塁で迷う——遅い判断は本塁で刺される。",
+        "ko-KR": "홈에서 정한다 — 늦으면 홈에서 잡힌다.",
+        "es-ES": "Decidir en el plato: quien decide tarde muere en casa.",
+        "fr-FR": "Décider au marbre — celui qui décide tard est retiré au marbre.",
+        "id-ID": "Memutuskan di home plate.",
+        "ms-MY": "Membuat keputusan di home plate.",
+        "th-TH": "ตัดสินใจที่โฮม",
+        "vi-VN": "Quyết định ở chốt nhà."
       },
       "board": {
         "sportType": 9,
@@ -5663,6 +5901,20 @@
         "th-TH": "ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
         "vi-VN": "Quyết định trước khi ném xem có chạy khi chạm bóng không."
       },
+      "mistake": {
+        "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "en-GB": "Deciding at the plate — a runner who decides late is thrown out at home.",
+        "zh-CN": "到本垒才决定——决定得晚的跑者在本垒被杀。",
+        "zh-TW": "到本壘才決定——決定得晚的跑者在本壘被殺。",
+        "ja-JP": "本塁で迷う——遅い判断は本塁で刺される。",
+        "ko-KR": "홈에서 정한다 — 늦으면 홈에서 잡힌다.",
+        "es-ES": "Decidir en el plato: quien decide tarde muere en casa.",
+        "fr-FR": "Décider au marbre — celui qui décide tard est retiré au marbre.",
+        "id-ID": "Memutuskan di home plate.",
+        "ms-MY": "Membuat keputusan di home plate.",
+        "th-TH": "ตัดสินใจที่โฮม",
+        "vi-VN": "Quyết định ở chốt nhà."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -5966,6 +6218,20 @@
         "ms-MY": "Sebutkan rancangannya dengan kuat sebelum balingan.",
         "th-TH": "พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
         "vi-VN": "Nói to phương án trước mỗi quả ném."
+      },
+      "mistake": {
+        "en": "Silence before the pitch — two fielders end up covering the same base.",
+        "en-GB": "Silence before the pitch — two fielders end up covering the same base.",
+        "zh-CN": "投球前没人说话——两个野手守同一个垒。",
+        "zh-TW": "投球前沒人說話——兩個野手守同一個壘。",
+        "ja-JP": "投球前の沈黙——二人が同じベースに入る。",
+        "ko-KR": "투구 전 침묵 — 둘이 같은 베이스.",
+        "es-ES": "Silencio antes del lanzamiento: dos cubren la misma base.",
+        "fr-FR": "Silence avant le lancer — deux couvrent le même but.",
+        "id-ID": "Hening sebelum lemparan.",
+        "ms-MY": "Senyap sebelum balingan.",
+        "th-TH": "เงียบก่อนขว้าง",
+        "vi-VN": "Im lặng trước khi ném."
       },
       "board": {
         "sportType": 9,
@@ -6374,6 +6640,20 @@
         "ms-MY": "Sebutkan rancangannya dengan kuat sebelum balingan.",
         "th-TH": "พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
         "vi-VN": "Nói to phương án trước mỗi quả ném."
+      },
+      "mistake": {
+        "en": "Silence before the pitch — two fielders end up covering the same base.",
+        "en-GB": "Silence before the pitch — two fielders end up covering the same base.",
+        "zh-CN": "投球前没人说话——两个野手守同一个垒。",
+        "zh-TW": "投球前沒人說話——兩個野手守同一個壘。",
+        "ja-JP": "投球前の沈黙——二人が同じベースに入る。",
+        "ko-KR": "투구 전 침묵 — 둘이 같은 베이스.",
+        "es-ES": "Silencio antes del lanzamiento: dos cubren la misma base.",
+        "fr-FR": "Silence avant le lancer — deux couvrent le même but.",
+        "id-ID": "Hening sebelum lemparan.",
+        "ms-MY": "Senyap sebelum balingan.",
+        "th-TH": "เงียบก่อนขว้าง",
+        "vi-VN": "Im lặng trước khi ném."
       },
       "board": {
         "sportType": 9,
@@ -6810,6 +7090,20 @@
         "th-TH": "พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
         "vi-VN": "Nói to phương án trước mỗi quả ném."
       },
+      "mistake": {
+        "en": "Silence before the pitch — two fielders end up covering the same base.",
+        "en-GB": "Silence before the pitch — two fielders end up covering the same base.",
+        "zh-CN": "投球前没人说话——两个野手守同一个垒。",
+        "zh-TW": "投球前沒人說話——兩個野手守同一個壘。",
+        "ja-JP": "投球前の沈黙——二人が同じベースに入る。",
+        "ko-KR": "투구 전 침묵 — 둘이 같은 베이스.",
+        "es-ES": "Silencio antes del lanzamiento: dos cubren la misma base.",
+        "fr-FR": "Silence avant le lancer — deux couvrent le même but.",
+        "id-ID": "Hening sebelum lemparan.",
+        "ms-MY": "Senyap sebelum balingan.",
+        "th-TH": "เงียบก่อนขว้าง",
+        "vi-VN": "Im lặng trước khi ném."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -7232,6 +7526,20 @@
         "th-TH": "พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
         "vi-VN": "Nói to phương án trước mỗi quả ném."
       },
+      "mistake": {
+        "en": "Silence before the pitch — two fielders end up covering the same base.",
+        "en-GB": "Silence before the pitch — two fielders end up covering the same base.",
+        "zh-CN": "投球前没人说话——两个野手守同一个垒。",
+        "zh-TW": "投球前沒人說話——兩個野手守同一個壘。",
+        "ja-JP": "投球前の沈黙——二人が同じベースに入る。",
+        "ko-KR": "투구 전 침묵 — 둘이 같은 베이스.",
+        "es-ES": "Silencio antes del lanzamiento: dos cubren la misma base.",
+        "fr-FR": "Silence avant le lancer — deux couvrent le même but.",
+        "id-ID": "Hening sebelum lemparan.",
+        "ms-MY": "Senyap sebelum balingan.",
+        "th-TH": "เงียบก่อนขว้าง",
+        "vi-VN": "Im lặng trước khi ném."
+      },
       "board": {
         "sportType": 9,
         "players": [
@@ -7597,12 +7905,12 @@
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
         "es-ES": "Sujetar al corredor",
-        "fr-FR": "Fixer le coureur l",
+        "fr-FR": "Fixer le coureur",
         "id-ID": "Menahan pelari",
         "ja-JP": "走者を釘付けにする",
         "ko-KR": "주자 견제",
         "ms-MY": "Menahan pelari",
-        "th-TH": "การตรึงผู้วิ่ง การ",
+        "th-TH": "การตรึงผู้วิ่ง",
         "vi-VN": "Giữ chân người chạy",
         "zh-CN": "牵制跑者",
         "zh-TW": "牽制跑者"
@@ -7639,6 +7947,20 @@
         "ms-MY": "Pelbagaikan jeda menahan, bukan hanya balingan.",
         "th-TH": "เปลี่ยนจังหวะการหน่วง ไม่ใช่แค่ลูกขว้างเช็ค",
         "vi-VN": "Thay đổi nhịp giữ, không chỉ cú ném kiểm tra."
+      },
+      "mistake": {
+        "en": "Counting to the same number every time — you tell the runner when to leave.",
+        "en-GB": "Counting to the same number every time — you tell the runner when to leave.",
+        "zh-CN": "每次都数到同一个数——等于告诉跑者何时起跑。",
+        "zh-TW": "每次都數到同一個數——等於告訴跑者何時起跑。",
+        "ja-JP": "毎回同じ数を数える——走者に出発を教える。",
+        "ko-KR": "매번 같은 박자 — 주자에게 출발 신호.",
+        "es-ES": "Contar siempre igual: le dices al corredor cuándo salir.",
+        "fr-FR": "Compter toujours pareil — tu dis au coureur quand partir.",
+        "id-ID": "Menghitung sama setiap kali.",
+        "ms-MY": "Mengira sama setiap kali.",
+        "th-TH": "นับจังหวะเดิมทุกครั้ง",
+        "vi-VN": "Đếm cùng nhịp mỗi lần."
       },
       "board": {
         "sportType": 9,
@@ -7956,12 +8278,12 @@
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
         "es-ES": "Sujetar al corredor",
-        "fr-FR": "Fixer le coureur l",
+        "fr-FR": "Fixer le coureur",
         "id-ID": "Menahan pelari",
         "ja-JP": "走者を釘付けにする",
         "ko-KR": "주자 견제",
         "ms-MY": "Menahan pelari",
-        "th-TH": "การตรึงผู้วิ่ง การ",
+        "th-TH": "การตรึงผู้วิ่ง",
         "vi-VN": "Giữ chân người chạy",
         "zh-CN": "牵制跑者",
         "zh-TW": "牽制跑者"
@@ -7998,6 +8320,20 @@
         "ms-MY": "Pelbagaikan jeda menahan, bukan hanya balingan.",
         "th-TH": "เปลี่ยนจังหวะการหน่วง ไม่ใช่แค่ลูกขว้างเช็ค",
         "vi-VN": "Thay đổi nhịp giữ, không chỉ cú ném kiểm tra."
+      },
+      "mistake": {
+        "en": "Counting to the same number every time — you tell the runner when to leave.",
+        "en-GB": "Counting to the same number every time — you tell the runner when to leave.",
+        "zh-CN": "每次都数到同一个数——等于告诉跑者何时起跑。",
+        "zh-TW": "每次都數到同一個數——等於告訴跑者何時起跑。",
+        "ja-JP": "毎回同じ数を数える——走者に出発を教える。",
+        "ko-KR": "매번 같은 박자 — 주자에게 출발 신호.",
+        "es-ES": "Contar siempre igual: le dices al corredor cuándo salir.",
+        "fr-FR": "Compter toujours pareil — tu dis au coureur quand partir.",
+        "id-ID": "Menghitung sama setiap kali.",
+        "ms-MY": "Mengira sama setiap kali.",
+        "th-TH": "นับจังหวะเดิมทุกครั้ง",
+        "vi-VN": "Đếm cùng nhịp mỗi lần."
       },
       "board": {
         "sportType": 9,
@@ -8315,12 +8651,12 @@
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
         "es-ES": "Sujetar al corredor",
-        "fr-FR": "Fixer le coureur l",
+        "fr-FR": "Fixer le coureur",
         "id-ID": "Menahan pelari",
         "ja-JP": "走者を釘付けにする",
         "ko-KR": "주자 견제",
         "ms-MY": "Menahan pelari",
-        "th-TH": "การตรึงผู้วิ่ง การ",
+        "th-TH": "การตรึงผู้วิ่ง",
         "vi-VN": "Giữ chân người chạy",
         "zh-CN": "牵制跑者",
         "zh-TW": "牽制跑者"
@@ -8357,6 +8693,20 @@
         "ms-MY": "Pelbagaikan jeda menahan, bukan hanya balingan.",
         "th-TH": "เปลี่ยนจังหวะการหน่วง ไม่ใช่แค่ลูกขว้างเช็ค",
         "vi-VN": "Thay đổi nhịp giữ, không chỉ cú ném kiểm tra."
+      },
+      "mistake": {
+        "en": "Counting to the same number every time — you tell the runner when to leave.",
+        "en-GB": "Counting to the same number every time — you tell the runner when to leave.",
+        "zh-CN": "每次都数到同一个数——等于告诉跑者何时起跑。",
+        "zh-TW": "每次都數到同一個數——等於告訴跑者何時起跑。",
+        "ja-JP": "毎回同じ数を数える——走者に出発を教える。",
+        "ko-KR": "매번 같은 박자 — 주자에게 출발 신호.",
+        "es-ES": "Contar siempre igual: le dices al corredor cuándo salir.",
+        "fr-FR": "Compter toujours pareil — tu dis au coureur quand partir.",
+        "id-ID": "Menghitung sama setiap kali.",
+        "ms-MY": "Mengira sama setiap kali.",
+        "th-TH": "นับจังหวะเดิมทุกครั้ง",
+        "vi-VN": "Đếm cùng nhịp mỗi lần."
       },
       "board": {
         "sportType": 9,
@@ -8674,12 +9024,12 @@
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
         "es-ES": "Sujetar al corredor",
-        "fr-FR": "Fixer le coureur l",
+        "fr-FR": "Fixer le coureur",
         "id-ID": "Menahan pelari",
         "ja-JP": "走者を釘付けにする",
         "ko-KR": "주자 견제",
         "ms-MY": "Menahan pelari",
-        "th-TH": "การตรึงผู้วิ่ง การ",
+        "th-TH": "การตรึงผู้วิ่ง",
         "vi-VN": "Giữ chân người chạy",
         "zh-CN": "牵制跑者",
         "zh-TW": "牽制跑者"
@@ -8716,6 +9066,20 @@
         "ms-MY": "Pelbagaikan jeda menahan, bukan hanya balingan.",
         "th-TH": "เปลี่ยนจังหวะการหน่วง ไม่ใช่แค่ลูกขว้างเช็ค",
         "vi-VN": "Thay đổi nhịp giữ, không chỉ cú ném kiểm tra."
+      },
+      "mistake": {
+        "en": "Counting to the same number every time — you tell the runner when to leave.",
+        "en-GB": "Counting to the same number every time — you tell the runner when to leave.",
+        "zh-CN": "每次都数到同一个数——等于告诉跑者何时起跑。",
+        "zh-TW": "每次都數到同一個數——等於告訴跑者何時起跑。",
+        "ja-JP": "毎回同じ数を数える——走者に出発を教える。",
+        "ko-KR": "매번 같은 박자 — 주자에게 출발 신호.",
+        "es-ES": "Contar siempre igual: le dices al corredor cuándo salir.",
+        "fr-FR": "Compter toujours pareil — tu dis au coureur quand partir.",
+        "id-ID": "Menghitung sama setiap kali.",
+        "ms-MY": "Mengira sama setiap kali.",
+        "th-TH": "นับจังหวะเดิมทุกครั้ง",
+        "vi-VN": "Đếm cùng nhịp mỗi lần."
       },
       "board": {
         "sportType": 9,
@@ -9075,6 +9439,20 @@
         "ms-MY": "Tetapkan count dan out sebelum setiap balingan.",
         "th-TH": "กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
         "vi-VN": "Đặt số bóng và số loại trước mỗi quả ném."
+      },
+      "mistake": {
+        "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "en-GB": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "zh-CN": "不设球数和出局数就打——没情境的练习是九个人看一个。",
+        "zh-TW": "不設球數和出局數就打——沒情境的練習是九個人看一個。",
+        "ja-JP": "カウントもアウトも決めず打つ——状況なしは9人が1人を見る。",
+        "ko-KR": "카운트·아웃 없이 — 상황 없는 연습은 아홉이 하나 구경.",
+        "es-ES": "Jugar sin cuenta ni outs: sin situación, nueve miran a uno.",
+        "fr-FR": "Jouer sans compte ni retraits — sans situation, neuf en regardent un.",
+        "id-ID": "Bermain tanpa count dan out.",
+        "ms-MY": "Bermain tanpa count dan out.",
+        "th-TH": "เล่นโดยไม่ตั้งเคานต์และเอาต์",
+        "vi-VN": "Chơi mà không đặt bóng và loại."
       },
       "board": {
         "sportType": 9,
@@ -9469,6 +9847,20 @@
         "ms-MY": "Tetapkan count dan out sebelum setiap balingan.",
         "th-TH": "กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
         "vi-VN": "Đặt số bóng và số loại trước mỗi quả ném."
+      },
+      "mistake": {
+        "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "en-GB": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "zh-CN": "不设球数和出局数就打——没情境的练习是九个人看一个。",
+        "zh-TW": "不設球數和出局數就打——沒情境的練習是九個人看一個。",
+        "ja-JP": "カウントもアウトも決めず打つ——状況なしは9人が1人を見る。",
+        "ko-KR": "카운트·아웃 없이 — 상황 없는 연습은 아홉이 하나 구경.",
+        "es-ES": "Jugar sin cuenta ni outs: sin situación, nueve miran a uno.",
+        "fr-FR": "Jouer sans compte ni retraits — sans situation, neuf en regardent un.",
+        "id-ID": "Bermain tanpa count dan out.",
+        "ms-MY": "Bermain tanpa count dan out.",
+        "th-TH": "เล่นโดยไม่ตั้งเคานต์และเอาต์",
+        "vi-VN": "Chơi mà không đặt bóng và loại."
       },
       "board": {
         "sportType": 9,
@@ -9917,6 +10309,20 @@
         "ms-MY": "Tetapkan count dan out sebelum setiap balingan.",
         "th-TH": "กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
         "vi-VN": "Đặt số bóng và số loại trước mỗi quả ném."
+      },
+      "mistake": {
+        "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "en-GB": "Playing with no count and no outs set — practice without a situation is nine watching one.",
+        "zh-CN": "不设球数和出局数就打——没情境的练习是九个人看一个。",
+        "zh-TW": "不設球數和出局數就打——沒情境的練習是九個人看一個。",
+        "ja-JP": "カウントもアウトも決めず打つ——状況なしは9人が1人を見る。",
+        "ko-KR": "카운트·아웃 없이 — 상황 없는 연습은 아홉이 하나 구경.",
+        "es-ES": "Jugar sin cuenta ni outs: sin situación, nueve miran a uno.",
+        "fr-FR": "Jouer sans compte ni retraits — sans situation, neuf en regardent un.",
+        "id-ID": "Bermain tanpa count dan out.",
+        "ms-MY": "Bermain tanpa count dan out.",
+        "th-TH": "เล่นโดยไม่ตั้งเคานต์และเอาต์",
+        "vi-VN": "Chơi mà không đặt bóng và loại."
       },
       "board": {
         "sportType": 9,

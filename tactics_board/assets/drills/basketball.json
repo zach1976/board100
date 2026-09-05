@@ -40,6 +40,20 @@
         "th-TH": "เท้าใน มือนอก สายตาจับกรอบสี่เหลี่ยมบนแป้น",
         "vi-VN": "Chân trong, tay ngoài, mắt nhìn ô vuông trên bảng."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -210,6 +224,20 @@
         "ms-MY": "Kepala tegak sepanjang masa.",
         "th-TH": "เงยหน้าตลอด ถ้าบอกจำนวนนิ้วของโค้ชไม่ได้ แปลว่ากำลังมองบอล",
         "vi-VN": "Ngẩng đầu suốt. Không đọc được số ngón tay của HLV nghĩa là đang nhìn bóng."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 3,
@@ -389,6 +417,20 @@
         "ms-MY": "Hantar dan berlari di belakang penerima.",
         "th-TH": "ส่งแล้ววิ่งไปด้านหลังคนที่รับ การส่งที่ไม่มีการเคลื่อนที่คือการหยุด",
         "vi-VN": "Chuyền rồi chạy ra sau người nhận."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 3,
@@ -592,6 +634,20 @@
         "th-TH": "ห่างกัน 4-5 เมตร อย่าให้กองหลังคนเดียวคุมได้สองคน",
         "vi-VN": "Cách nhau 4-5 mét. Một hậu vệ không được kèm cùng lúc hai người."
       },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -779,6 +835,20 @@
         "ms-MY": "Pasang skrin dan tahan. Pengendali bola pusing rapat.",
         "th-TH": "ตั้งสกรีนแล้วอยู่นิ่ง คนเลี้ยงต้องเลี้ยวชิดจนกองหลังทั้งสองอยู่ข้างหลัง",
         "vi-VN": "Dựng màn chắn và giữ yên. Người cầm bóng phải vòng sát để cả hai hậu vệ ở lại sau lưng."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
       },
       "board": {
         "sportType": 3,
@@ -1030,6 +1100,20 @@
         "th-TH": "สกรีนเดิม แต่อ่านตรงข้าม ถ้ากองหลังของบิ๊กแมนขึ้นมา ให้ถอยออกแทนการมุด",
         "vi-VN": "Cùng màn chắn, đọc ngược lại: nếu hậu vệ kèm trung phong dâng lên thì bật ra thay vì cắt vào."
       },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -1270,6 +1354,20 @@
         "th-TH": "คำตอบของการประกบเกิน ก้าวออกสองก้าวแล้วพุ่งเข้าห่วงทันทีที่เขาหันหน้า",
         "vi-VN": "Câu trả lời cho kèm quá sát: bước ra hai bước rồi cắt thẳng vào rổ."
       },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -1455,6 +1553,20 @@
         "ms-MY": "Serah bahu ke bahu.",
         "th-TH": "ส่งบอลไหล่ชนไหล่ ช่องว่างขนาดคนหนึ่งคือช่องที่เขาจะเสียบ",
         "vi-VN": "Trao bóng vai kề vai — khe hở vừa một hậu vệ là khe hở sẽ bị luồn."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
       },
       "board": {
         "sportType": 3,
@@ -1674,6 +1786,20 @@
         "th-TH": "บิ๊กแมนสองคนที่เอลโบว์ อีกสองอยู่มุม ปิดสกรีนฝั่งไหน อีกฝั่งก็ว่าง",
         "vi-VN": "Hai trung phong ở elbow, hai người ở góc. Chặn màn nào thì màn kia mở."
       },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -1867,6 +1993,20 @@
         "th-TH": "เตรียมเท้าและมือก่อนบอลมา การยิงเริ่มตั้งแต่จังหวะรับ",
         "vi-VN": "Chân và tay sẵn sàng trước khi bóng đến. Cú ném bắt đầu từ lúc bắt bóng."
       },
+      "mistake": {
+        "en": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "en-GB": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "zh-CN": "决定得太晚——终结在球到之前就该定好。",
+        "zh-TW": "決定得太晚——終結在球到之前就該定好。",
+        "ja-JP": "決断が遅い——フィニッシュは球が来る前に決める。",
+        "ko-KR": "늦게 정한다 — 마무리는 공 오기 전에.",
+        "es-ES": "Decidir tarde: la definición se elige antes de que llegue el balón.",
+        "fr-FR": "Décider tard — la finition se choisit avant l'arrivée du ballon.",
+        "id-ID": "Memutuskan terlambat.",
+        "ms-MY": "Membuat keputusan lewat.",
+        "th-TH": "ตัดสินใจช้า",
+        "vi-VN": "Quyết định muộn."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -2007,6 +2147,20 @@
         "ms-MY": "Kunci kedudukan, tangkap, satu dribel, selesaikan.",
         "th-TH": "ปิดตัว รับบอล เลี้ยงหนึ่งครั้ง แล้วจบด้านตรงข้ามกับคนมาช่วย",
         "vi-VN": "Chèn vị trí, bắt bóng, một nhịp dẫn, kết thúc phía xa người bọc lót."
+      },
+      "mistake": {
+        "en": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "en-GB": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "zh-CN": "决定得太晚——终结在球到之前就该定好。",
+        "zh-TW": "決定得太晚——終結在球到之前就該定好。",
+        "ja-JP": "決断が遅い——フィニッシュは球が来る前に決める。",
+        "ko-KR": "늦게 정한다 — 마무리는 공 오기 전에.",
+        "es-ES": "Decidir tarde: la definición se elige antes de que llegue el balón.",
+        "fr-FR": "Décider tard — la finition se choisit avant l'arrivée du ballon.",
+        "id-ID": "Memutuskan terlambat.",
+        "ms-MY": "Membuat keputusan lewat.",
+        "th-TH": "ตัดสินใจช้า",
+        "vi-VN": "Quyết định muộn."
       },
       "board": {
         "sportType": 3,
@@ -2176,6 +2330,20 @@
         "th-TH": "วิ่งเต็มสองในสาม ที่เหลือย่อก้าวสั้นและยกมือ พุ่งใส่คือฟาวล์",
         "vi-VN": "Chạy hai phần ba, phanh một phần ba cuối bằng bước ngắn và giơ tay cao."
       },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -2316,6 +2484,20 @@
         "ms-MY": "Bantu awal, pulih ketika bola dihantar.",
         "th-TH": "ช่วยเร็ว กลับตอนบอลถูกส่ง ไม่ใช่ตอนรับ กลับช้ายังแย่กว่าไม่ช่วย",
         "vi-VN": "Bọc lót sớm, về vị trí ngay khi bóng được chuyền, không phải khi đối thủ bắt bóng."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
       },
       "board": {
         "sportType": 3,
@@ -2476,6 +2658,20 @@
         "ms-MY": "Cari lawan anda dahulu, bukan bola.",
         "th-TH": "หาคนก่อนหาบอล ปะทะก่อนแล้วค่อยไปเก็บ",
         "vi-VN": "Tìm người trước khi tìm bóng. Tiếp xúc trước rồi mới bắt bóng."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
       },
       "board": {
         "sportType": 3,
@@ -2641,6 +2837,20 @@
         "ms-MY": "Pemotong pertama adalah umpan, pemasang skrin sasaran.",
         "th-TH": "คนตัดคนแรกคือตัวล่อ คนตั้งสกรีนคือเป้าหมาย นับออกเสียง ห้าวินาทีหมดเร็ว",
         "vi-VN": "Người cắt đầu là mồi nhử, người dựng màn mới là mục tiêu. Đếm to — năm giây trôi nhanh."
+      },
+      "mistake": {
+        "en": "Improvising a moment whose value was that it was rehearsed.",
+        "en-GB": "Improvising a moment whose value was that it was rehearsed.",
+        "zh-CN": "把价值在于排练的时刻临场发挥。",
+        "zh-TW": "把價值在於排練的時刻臨場發揮。",
+        "ja-JP": "仕込みが価値の場面を即興でやる。",
+        "ko-KR": "연습이 가치인 순간을 즉흥으로.",
+        "es-ES": "Improvisar un momento cuyo valor era estar ensayado.",
+        "fr-FR": "Improviser un moment dont la valeur était d'être répété.",
+        "id-ID": "Berimprovisasi di momen yang mestinya terlatih.",
+        "ms-MY": "Berimprovisasi pada saat yang sepatutnya terlatih.",
+        "th-TH": "ด้นสดในจังหวะที่ควรซ้อม",
+        "vi-VN": "Ứng biến ở tình huống lẽ ra đã tập."
       },
       "board": {
         "sportType": 3,
@@ -2901,6 +3111,20 @@
         "ms-MY": "Bawa bola ke tengah.",
         "th-TH": "พาบอลเข้ากลางสนาม บอลกลางแก้เพรสได้ บอลริมเส้นคืออาหารของเขา",
         "vi-VN": "Đưa bóng vào giữa sân. Bóng ở giữa phá được pressing, bóng sát biên là mồi."
+      },
+      "mistake": {
+        "en": "Improvising a moment whose value was that it was rehearsed.",
+        "en-GB": "Improvising a moment whose value was that it was rehearsed.",
+        "zh-CN": "把价值在于排练的时刻临场发挥。",
+        "zh-TW": "把價值在於排練的時刻臨場發揮。",
+        "ja-JP": "仕込みが価値の場面を即興でやる。",
+        "ko-KR": "연습이 가치인 순간을 즉흥으로.",
+        "es-ES": "Improvisar un momento cuyo valor era estar ensayado.",
+        "fr-FR": "Improviser un moment dont la valeur était d'être répété.",
+        "id-ID": "Berimprovisasi di momen yang mestinya terlatih.",
+        "ms-MY": "Berimprovisasi pada saat yang sepatutnya terlatih.",
+        "th-TH": "ด้นสดในจังหวะที่ควรซ้อม",
+        "vi-VN": "Ứng biến ở tình huống lẽ ra đã tập."
       },
       "board": {
         "sportType": 3,
@@ -3171,6 +3395,20 @@
         "th-TH": "ไม่มีการเลี้ยง วิธีเดียวที่บอลจะเคลื่อนคือคนต้องเคลื่อน ส่งแล้วตัดทุกครั้ง",
         "vi-VN": "Không dẫn bóng thì cách duy nhất để bóng di chuyển là người di chuyển."
       },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -3386,6 +3624,20 @@
         "th-TH": "พุ่งเข้าหาไหล่ด้านในของกองหลัง จ่ายเมื่อเขาขยับเท่านั้น",
         "vi-VN": "Tấn công vai trong của hậu vệ. Chỉ chuyền khi anh ta lao ra."
       },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -3556,6 +3808,20 @@
         "ms-MY": "Pasang screen dan tahan.",
         "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
         "vi-VN": "Đặt màn chắn và giữ vững."
+      },
+      "mistake": {
+        "en": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "en-GB": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "zh-CN": "习惯性拒绝掩护——要用掉它，否则整个战术只是摆设。",
+        "zh-TW": "習慣性拒絕掩護——要用掉它，否則整個戰術只是擺設。",
+        "ja-JP": "習慣でスクリーンを断る——使わなければ全部が飾りだ。",
+        "ko-KR": "습관적으로 스크린을 거부한다 — 안 쓰면 전부 장식.",
+        "es-ES": "Rechazar el bloqueo por costumbre: úsalo o toda la acción fue decoración.",
+        "fr-FR": "Refuser l'écran par habitude — sers-t'en, sinon tout n'était que décor.",
+        "id-ID": "Menolak screen karena kebiasaan.",
+        "ms-MY": "Menolak screen kerana kebiasaan.",
+        "th-TH": "ปฏิเสธสกรีนโดยเคยชิน",
+        "vi-VN": "Từ chối màn chắn theo thói quen."
       },
       "board": {
         "sportType": 3,
@@ -3815,6 +4081,20 @@
         "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
         "vi-VN": "Đặt màn chắn và giữ vững."
       },
+      "mistake": {
+        "en": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "en-GB": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "zh-CN": "习惯性拒绝掩护——要用掉它，否则整个战术只是摆设。",
+        "zh-TW": "習慣性拒絕掩護——要用掉它，否則整個戰術只是擺設。",
+        "ja-JP": "習慣でスクリーンを断る——使わなければ全部が飾りだ。",
+        "ko-KR": "습관적으로 스크린을 거부한다 — 안 쓰면 전부 장식.",
+        "es-ES": "Rechazar el bloqueo por costumbre: úsalo o toda la acción fue decoración.",
+        "fr-FR": "Refuser l'écran par habitude — sers-t'en, sinon tout n'était que décor.",
+        "id-ID": "Menolak screen karena kebiasaan.",
+        "ms-MY": "Menolak screen kerana kebiasaan.",
+        "th-TH": "ปฏิเสธสกรีนโดยเคยชิน",
+        "vi-VN": "Từ chối màn chắn theo thói quen."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -4072,6 +4352,20 @@
         "ms-MY": "Pasang screen dan tahan.",
         "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
         "vi-VN": "Đặt màn chắn và giữ vững."
+      },
+      "mistake": {
+        "en": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "en-GB": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "zh-CN": "习惯性拒绝掩护——要用掉它，否则整个战术只是摆设。",
+        "zh-TW": "習慣性拒絕掩護——要用掉它，否則整個戰術只是擺設。",
+        "ja-JP": "習慣でスクリーンを断る——使わなければ全部が飾りだ。",
+        "ko-KR": "습관적으로 스크린을 거부한다 — 안 쓰면 전부 장식.",
+        "es-ES": "Rechazar el bloqueo por costumbre: úsalo o toda la acción fue decoración.",
+        "fr-FR": "Refuser l'écran par habitude — sers-t'en, sinon tout n'était que décor.",
+        "id-ID": "Menolak screen karena kebiasaan.",
+        "ms-MY": "Menolak screen kerana kebiasaan.",
+        "th-TH": "ปฏิเสธสกรีนโดยเคยชิน",
+        "vi-VN": "Từ chối màn chắn theo thói quen."
       },
       "board": {
         "sportType": 3,
@@ -4331,6 +4625,20 @@
         "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
         "vi-VN": "Đặt màn chắn và giữ vững."
       },
+      "mistake": {
+        "en": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "en-GB": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "zh-CN": "习惯性拒绝掩护——要用掉它，否则整个战术只是摆设。",
+        "zh-TW": "習慣性拒絕掩護——要用掉它，否則整個戰術只是擺設。",
+        "ja-JP": "習慣でスクリーンを断る——使わなければ全部が飾りだ。",
+        "ko-KR": "습관적으로 스크린을 거부한다 — 안 쓰면 전부 장식.",
+        "es-ES": "Rechazar el bloqueo por costumbre: úsalo o toda la acción fue decoración.",
+        "fr-FR": "Refuser l'écran par habitude — sers-t'en, sinon tout n'était que décor.",
+        "id-ID": "Menolak screen karena kebiasaan.",
+        "ms-MY": "Menolak screen kerana kebiasaan.",
+        "th-TH": "ปฏิเสธสกรีนโดยเคยชิน",
+        "vi-VN": "Từ chối màn chắn theo thói quen."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -4588,6 +4896,20 @@
         "ms-MY": "Pasang screen dan tahan.",
         "th-TH": "ตั้งสกรีนแล้วยืนนิ่ง",
         "vi-VN": "Đặt màn chắn và giữ vững."
+      },
+      "mistake": {
+        "en": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "en-GB": "Rejecting the screen out of habit — use it or the whole action was decoration.",
+        "zh-CN": "习惯性拒绝掩护——要用掉它，否则整个战术只是摆设。",
+        "zh-TW": "習慣性拒絕掩護——要用掉它，否則整個戰術只是擺設。",
+        "ja-JP": "習慣でスクリーンを断る——使わなければ全部が飾りだ。",
+        "ko-KR": "습관적으로 스크린을 거부한다 — 안 쓰면 전부 장식.",
+        "es-ES": "Rechazar el bloqueo por costumbre: úsalo o toda la acción fue decoración.",
+        "fr-FR": "Refuser l'écran par habitude — sers-t'en, sinon tout n'était que décor.",
+        "id-ID": "Menolak screen karena kebiasaan.",
+        "ms-MY": "Menolak screen kerana kebiasaan.",
+        "th-TH": "ปฏิเสธสกรีนโดยเคยชิน",
+        "vi-VN": "Từ chối màn chắn theo thói quen."
       },
       "board": {
         "sportType": 3,
@@ -4847,6 +5169,20 @@
         "th-TH": "ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
         "vi-VN": "Cắt khi người kèm quay đầu, không phải khi bạn chán."
       },
+      "mistake": {
+        "en": "Cutting when bored, not when the defender's head turns.",
+        "en-GB": "Cutting when bored, not when the defender's head turns.",
+        "zh-CN": "站腻了才切，而不是趁防守扭头时切。",
+        "zh-TW": "站膩了才切，而不是趁防守扭頭時切。",
+        "ja-JP": "飽きたら切る——守備が顔を背けた瞬間ではなく。",
+        "ko-KR": "지루하면 컷 — 수비가 고개 돌릴 때가 아니라.",
+        "es-ES": "Cortar por aburrimiento, no cuando el defensor gira la cabeza.",
+        "fr-FR": "Couper par ennui, pas quand le défenseur tourne la tête.",
+        "id-ID": "Cut karena bosan, bukan saat penjaga menoleh.",
+        "ms-MY": "Cut kerana bosan, bukan ketika penjaga menoleh.",
+        "th-TH": "ตัดเพราะเบื่อ ไม่ใช่ตอนคนประกบหันหน้า",
+        "vi-VN": "Cắt vì chán chứ không phải khi người kèm quay đầu."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -5072,6 +5408,20 @@
         "ms-MY": "Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
         "th-TH": "ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
         "vi-VN": "Cắt khi người kèm quay đầu, không phải khi bạn chán."
+      },
+      "mistake": {
+        "en": "Cutting when bored, not when the defender's head turns.",
+        "en-GB": "Cutting when bored, not when the defender's head turns.",
+        "zh-CN": "站腻了才切，而不是趁防守扭头时切。",
+        "zh-TW": "站膩了才切，而不是趁防守扭頭時切。",
+        "ja-JP": "飽きたら切る——守備が顔を背けた瞬間ではなく。",
+        "ko-KR": "지루하면 컷 — 수비가 고개 돌릴 때가 아니라.",
+        "es-ES": "Cortar por aburrimiento, no cuando el defensor gira la cabeza.",
+        "fr-FR": "Couper par ennui, pas quand le défenseur tourne la tête.",
+        "id-ID": "Cut karena bosan, bukan saat penjaga menoleh.",
+        "ms-MY": "Cut kerana bosan, bukan ketika penjaga menoleh.",
+        "th-TH": "ตัดเพราะเบื่อ ไม่ใช่ตอนคนประกบหันหน้า",
+        "vi-VN": "Cắt vì chán chứ không phải khi người kèm quay đầu."
       },
       "board": {
         "sportType": 3,
@@ -5299,6 +5649,20 @@
         "th-TH": "ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
         "vi-VN": "Cắt khi người kèm quay đầu, không phải khi bạn chán."
       },
+      "mistake": {
+        "en": "Cutting when bored, not when the defender's head turns.",
+        "en-GB": "Cutting when bored, not when the defender's head turns.",
+        "zh-CN": "站腻了才切，而不是趁防守扭头时切。",
+        "zh-TW": "站膩了才切，而不是趁防守扭頭時切。",
+        "ja-JP": "飽きたら切る——守備が顔を背けた瞬間ではなく。",
+        "ko-KR": "지루하면 컷 — 수비가 고개 돌릴 때가 아니라.",
+        "es-ES": "Cortar por aburrimiento, no cuando el defensor gira la cabeza.",
+        "fr-FR": "Couper par ennui, pas quand le défenseur tourne la tête.",
+        "id-ID": "Cut karena bosan, bukan saat penjaga menoleh.",
+        "ms-MY": "Cut kerana bosan, bukan ketika penjaga menoleh.",
+        "th-TH": "ตัดเพราะเบื่อ ไม่ใช่ตอนคนประกบหันหน้า",
+        "vi-VN": "Cắt vì chán chứ không phải khi người kèm quay đầu."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -5524,6 +5888,20 @@
         "ms-MY": "Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
         "th-TH": "ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
         "vi-VN": "Cắt khi người kèm quay đầu, không phải khi bạn chán."
+      },
+      "mistake": {
+        "en": "Cutting when bored, not when the defender's head turns.",
+        "en-GB": "Cutting when bored, not when the defender's head turns.",
+        "zh-CN": "站腻了才切，而不是趁防守扭头时切。",
+        "zh-TW": "站膩了才切，而不是趁防守扭頭時切。",
+        "ja-JP": "飽きたら切る——守備が顔を背けた瞬間ではなく。",
+        "ko-KR": "지루하면 컷 — 수비가 고개 돌릴 때가 아니라.",
+        "es-ES": "Cortar por aburrimiento, no cuando el defensor gira la cabeza.",
+        "fr-FR": "Couper par ennui, pas quand le défenseur tourne la tête.",
+        "id-ID": "Cut karena bosan, bukan saat penjaga menoleh.",
+        "ms-MY": "Cut kerana bosan, bukan ketika penjaga menoleh.",
+        "th-TH": "ตัดเพราะเบื่อ ไม่ใช่ตอนคนประกบหันหน้า",
+        "vi-VN": "Cắt vì chán chứ không phải khi người kèm quay đầu."
       },
       "board": {
         "sportType": 3,
@@ -5751,6 +6129,20 @@
         "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
         "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần."
       },
+      "mistake": {
+        "en": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "en-GB": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "zh-CN": "先接球再摆脚——你调整的功夫，扑防就到了。",
+        "zh-TW": "先接球再擺腳——你調整的功夫，撲防就到了。",
+        "ja-JP": "捕ってから足を作る——整える間にクローズアウトが来る。",
+        "ko-KR": "잡고 나서 발을 만든다 — 정리하는 사이 클로즈아웃이 온다.",
+        "es-ES": "Recibir y luego colocar los pies: la ayuda llega mientras te organizas.",
+        "fr-FR": "Attraper puis placer les appuis — le contest arrive pendant que tu t'organises.",
+        "id-ID": "Menangkap lalu baru menata kaki.",
+        "ms-MY": "Menangkap kemudian baru menyusun kaki.",
+        "th-TH": "รับแล้วค่อยตั้งเท้า",
+        "vi-VN": "Bắt bóng rồi mới đặt chân."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -5931,6 +6323,20 @@
         "ms-MY": "Kaki sedia sebelum bola tiba, setiap kali.",
         "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
         "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần."
+      },
+      "mistake": {
+        "en": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "en-GB": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "zh-CN": "先接球再摆脚——你调整的功夫，扑防就到了。",
+        "zh-TW": "先接球再擺腳——你調整的功夫，撲防就到了。",
+        "ja-JP": "捕ってから足を作る——整える間にクローズアウトが来る。",
+        "ko-KR": "잡고 나서 발을 만든다 — 정리하는 사이 클로즈아웃이 온다.",
+        "es-ES": "Recibir y luego colocar los pies: la ayuda llega mientras te organizas.",
+        "fr-FR": "Attraper puis placer les appuis — le contest arrive pendant que tu t'organises.",
+        "id-ID": "Menangkap lalu baru menata kaki.",
+        "ms-MY": "Menangkap kemudian baru menyusun kaki.",
+        "th-TH": "รับแล้วค่อยตั้งเท้า",
+        "vi-VN": "Bắt bóng rồi mới đặt chân."
       },
       "board": {
         "sportType": 3,
@@ -6113,6 +6519,20 @@
         "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
         "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần."
       },
+      "mistake": {
+        "en": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "en-GB": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "zh-CN": "先接球再摆脚——你调整的功夫，扑防就到了。",
+        "zh-TW": "先接球再擺腳——你調整的功夫，撲防就到了。",
+        "ja-JP": "捕ってから足を作る——整える間にクローズアウトが来る。",
+        "ko-KR": "잡고 나서 발을 만든다 — 정리하는 사이 클로즈아웃이 온다.",
+        "es-ES": "Recibir y luego colocar los pies: la ayuda llega mientras te organizas.",
+        "fr-FR": "Attraper puis placer les appuis — le contest arrive pendant que tu t'organises.",
+        "id-ID": "Menangkap lalu baru menata kaki.",
+        "ms-MY": "Menangkap kemudian baru menyusun kaki.",
+        "th-TH": "รับแล้วค่อยตั้งเท้า",
+        "vi-VN": "Bắt bóng rồi mới đặt chân."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -6293,6 +6713,20 @@
         "ms-MY": "Kaki sedia sebelum bola tiba, setiap kali.",
         "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
         "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần."
+      },
+      "mistake": {
+        "en": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "en-GB": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "zh-CN": "先接球再摆脚——你调整的功夫，扑防就到了。",
+        "zh-TW": "先接球再擺腳——你調整的功夫，撲防就到了。",
+        "ja-JP": "捕ってから足を作る——整える間にクローズアウトが来る。",
+        "ko-KR": "잡고 나서 발을 만든다 — 정리하는 사이 클로즈아웃이 온다.",
+        "es-ES": "Recibir y luego colocar los pies: la ayuda llega mientras te organizas.",
+        "fr-FR": "Attraper puis placer les appuis — le contest arrive pendant que tu t'organises.",
+        "id-ID": "Menangkap lalu baru menata kaki.",
+        "ms-MY": "Menangkap kemudian baru menyusun kaki.",
+        "th-TH": "รับแล้วค่อยตั้งเท้า",
+        "vi-VN": "Bắt bóng rồi mới đặt chân."
       },
       "board": {
         "sportType": 3,
@@ -6475,6 +6909,20 @@
         "th-TH": "ตั้งเท้าก่อนบอลมาถึงทุกครั้ง",
         "vi-VN": "Đặt chân xong trước khi bóng tới, mọi lần."
       },
+      "mistake": {
+        "en": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "en-GB": "Catching, then setting the feet — the closeout arrives in the time you take to organise.",
+        "zh-CN": "先接球再摆脚——你调整的功夫，扑防就到了。",
+        "zh-TW": "先接球再擺腳——你調整的功夫，撲防就到了。",
+        "ja-JP": "捕ってから足を作る——整える間にクローズアウトが来る。",
+        "ko-KR": "잡고 나서 발을 만든다 — 정리하는 사이 클로즈아웃이 온다.",
+        "es-ES": "Recibir y luego colocar los pies: la ayuda llega mientras te organizas.",
+        "fr-FR": "Attraper puis placer les appuis — le contest arrive pendant que tu t'organises.",
+        "id-ID": "Menangkap lalu baru menata kaki.",
+        "ms-MY": "Menangkap kemudian baru menyusun kaki.",
+        "th-TH": "รับแล้วค่อยตั้งเท้า",
+        "vi-VN": "Bắt bóng rồi mới đặt chân."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -6655,6 +7103,20 @@
         "ms-MY": "Kunci kedudukan sebelum hantaran, kemudian pertahankan.",
         "th-TH": "ปิดตำแหน่งก่อนบอลจะถูกส่ง แล้วรักษาไว้",
         "vi-VN": "Chốt vị trí trước đường chuyền rồi giữ nguyên."
+      },
+      "mistake": {
+        "en": "Fighting for position after the entry pass is already in the air.",
+        "en-GB": "Fighting for position after the entry pass is already in the air.",
+        "zh-CN": "球都传到空中了才开始卡位。",
+        "zh-TW": "球都傳到空中了才開始卡位。",
+        "ja-JP": "エントリーパスが浮いてから位置を争う。",
+        "ko-KR": "엔트리 패스가 뜬 뒤에 자리를 다툰다.",
+        "es-ES": "Pelear la posición cuando el pase interior ya va por el aire.",
+        "fr-FR": "Se battre pour la position une fois la passe déjà en l'air.",
+        "id-ID": "Berebut posisi setelah umpan melayang.",
+        "ms-MY": "Berebut kedudukan selepas umpan melayang.",
+        "th-TH": "แย่งตำแหน่งหลังบอลลอยแล้ว",
+        "vi-VN": "Tranh vị trí khi bóng đã bay tới."
       },
       "board": {
         "sportType": 3,
@@ -6884,6 +7346,20 @@
         "th-TH": "ปิดตำแหน่งก่อนบอลจะถูกส่ง แล้วรักษาไว้",
         "vi-VN": "Chốt vị trí trước đường chuyền rồi giữ nguyên."
       },
+      "mistake": {
+        "en": "Fighting for position after the entry pass is already in the air.",
+        "en-GB": "Fighting for position after the entry pass is already in the air.",
+        "zh-CN": "球都传到空中了才开始卡位。",
+        "zh-TW": "球都傳到空中了才開始卡位。",
+        "ja-JP": "エントリーパスが浮いてから位置を争う。",
+        "ko-KR": "엔트리 패스가 뜬 뒤에 자리를 다툰다.",
+        "es-ES": "Pelear la posición cuando el pase interior ya va por el aire.",
+        "fr-FR": "Se battre pour la position une fois la passe déjà en l'air.",
+        "id-ID": "Berebut posisi setelah umpan melayang.",
+        "ms-MY": "Berebut kedudukan selepas umpan melayang.",
+        "th-TH": "แย่งตำแหน่งหลังบอลลอยแล้ว",
+        "vi-VN": "Tranh vị trí khi bóng đã bay tới."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -7111,6 +7587,20 @@
         "ms-MY": "Kunci kedudukan sebelum hantaran, kemudian pertahankan.",
         "th-TH": "ปิดตำแหน่งก่อนบอลจะถูกส่ง แล้วรักษาไว้",
         "vi-VN": "Chốt vị trí trước đường chuyền rồi giữ nguyên."
+      },
+      "mistake": {
+        "en": "Fighting for position after the entry pass is already in the air.",
+        "en-GB": "Fighting for position after the entry pass is already in the air.",
+        "zh-CN": "球都传到空中了才开始卡位。",
+        "zh-TW": "球都傳到空中了才開始卡位。",
+        "ja-JP": "エントリーパスが浮いてから位置を争う。",
+        "ko-KR": "엔트리 패스가 뜬 뒤에 자리를 다툰다.",
+        "es-ES": "Pelear la posición cuando el pase interior ya va por el aire.",
+        "fr-FR": "Se battre pour la position une fois la passe déjà en l'air.",
+        "id-ID": "Berebut posisi setelah umpan melayang.",
+        "ms-MY": "Berebut kedudukan selepas umpan melayang.",
+        "th-TH": "แย่งตำแหน่งหลังบอลลอยแล้ว",
+        "vi-VN": "Tranh vị trí khi bóng đã bay tới."
       },
       "board": {
         "sportType": 3,
@@ -7340,6 +7830,20 @@
         "th-TH": "ปิดตำแหน่งก่อนบอลจะถูกส่ง แล้วรักษาไว้",
         "vi-VN": "Chốt vị trí trước đường chuyền rồi giữ nguyên."
       },
+      "mistake": {
+        "en": "Fighting for position after the entry pass is already in the air.",
+        "en-GB": "Fighting for position after the entry pass is already in the air.",
+        "zh-CN": "球都传到空中了才开始卡位。",
+        "zh-TW": "球都傳到空中了才開始卡位。",
+        "ja-JP": "エントリーパスが浮いてから位置を争う。",
+        "ko-KR": "엔트리 패스가 뜬 뒤에 자리를 다툰다.",
+        "es-ES": "Pelear la posición cuando el pase interior ya va por el aire.",
+        "fr-FR": "Se battre pour la position une fois la passe déjà en l'air.",
+        "id-ID": "Berebut posisi setelah umpan melayang.",
+        "ms-MY": "Berebut kedudukan selepas umpan melayang.",
+        "th-TH": "แย่งตำแหน่งหลังบอลลอยแล้ว",
+        "vi-VN": "Tranh vị trí khi bóng đã bay tới."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -7567,6 +8071,20 @@
         "ms-MY": "Setiap cara bertahan screen ialah janji antara dua pemain.",
         "th-TH": "ทุกวิธีรับสกรีนคือข้อตกลงระหว่างสองคน พูดออกมาก่อนทุกครั้ง",
         "vi-VN": "Mỗi cách chống màn chắn là một giao ước giữa hai hậu vệ."
+      },
+      "mistake": {
+        "en": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "en-GB": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "zh-CN": "两个防守人都以为对方去挡——每一回合都要喊出来。",
+        "zh-TW": "兩個防守人都以為對方去擋——每一回合都要喊出來。",
+        "ja-JP": "二人が互いに相手が対応すると思い込む——毎回声に出す。",
+        "ko-KR": "둘 다 상대가 스크린을 맡는다고 여긴다 — 매 소유마다 콜하라.",
+        "es-ES": "Dos defensores creyendo que el otro cubre el bloqueo: dilo en voz alta cada posesión.",
+        "fr-FR": "Deux défenseurs comptant l'un sur l'autre — annonce-le à chaque possession.",
+        "id-ID": "Dua pemain saling mengira yang lain menutup screen.",
+        "ms-MY": "Dua pemain saling menyangka yang lain menutup.",
+        "th-TH": "สองคนต่างคิดว่าอีกคนรับสกรีน",
+        "vi-VN": "Hai người đều tưởng người kia lo màn chắn."
       },
       "board": {
         "sportType": 3,
@@ -7831,6 +8349,20 @@
         "th-TH": "ทุกวิธีรับสกรีนคือข้อตกลงระหว่างสองคน พูดออกมาก่อนทุกครั้ง",
         "vi-VN": "Mỗi cách chống màn chắn là một giao ước giữa hai hậu vệ."
       },
+      "mistake": {
+        "en": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "en-GB": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "zh-CN": "两个防守人都以为对方去挡——每一回合都要喊出来。",
+        "zh-TW": "兩個防守人都以為對方去擋——每一回合都要喊出來。",
+        "ja-JP": "二人が互いに相手が対応すると思い込む——毎回声に出す。",
+        "ko-KR": "둘 다 상대가 스크린을 맡는다고 여긴다 — 매 소유마다 콜하라.",
+        "es-ES": "Dos defensores creyendo que el otro cubre el bloqueo: dilo en voz alta cada posesión.",
+        "fr-FR": "Deux défenseurs comptant l'un sur l'autre — annonce-le à chaque possession.",
+        "id-ID": "Dua pemain saling mengira yang lain menutup screen.",
+        "ms-MY": "Dua pemain saling menyangka yang lain menutup.",
+        "th-TH": "สองคนต่างคิดว่าอีกคนรับสกรีน",
+        "vi-VN": "Hai người đều tưởng người kia lo màn chắn."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -8093,6 +8625,20 @@
         "ms-MY": "Setiap cara bertahan screen ialah janji antara dua pemain.",
         "th-TH": "ทุกวิธีรับสกรีนคือข้อตกลงระหว่างสองคน พูดออกมาก่อนทุกครั้ง",
         "vi-VN": "Mỗi cách chống màn chắn là một giao ước giữa hai hậu vệ."
+      },
+      "mistake": {
+        "en": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "en-GB": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "zh-CN": "两个防守人都以为对方去挡——每一回合都要喊出来。",
+        "zh-TW": "兩個防守人都以為對方去擋——每一回合都要喊出來。",
+        "ja-JP": "二人が互いに相手が対応すると思い込む——毎回声に出す。",
+        "ko-KR": "둘 다 상대가 스크린을 맡는다고 여긴다 — 매 소유마다 콜하라.",
+        "es-ES": "Dos defensores creyendo que el otro cubre el bloqueo: dilo en voz alta cada posesión.",
+        "fr-FR": "Deux défenseurs comptant l'un sur l'autre — annonce-le à chaque possession.",
+        "id-ID": "Dua pemain saling mengira yang lain menutup screen.",
+        "ms-MY": "Dua pemain saling menyangka yang lain menutup.",
+        "th-TH": "สองคนต่างคิดว่าอีกคนรับสกรีน",
+        "vi-VN": "Hai người đều tưởng người kia lo màn chắn."
       },
       "board": {
         "sportType": 3,
@@ -8357,6 +8903,20 @@
         "th-TH": "ทุกวิธีรับสกรีนคือข้อตกลงระหว่างสองคน พูดออกมาก่อนทุกครั้ง",
         "vi-VN": "Mỗi cách chống màn chắn là một giao ước giữa hai hậu vệ."
       },
+      "mistake": {
+        "en": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "en-GB": "Two defenders assuming the other has the screen — say it out loud, every possession.",
+        "zh-CN": "两个防守人都以为对方去挡——每一回合都要喊出来。",
+        "zh-TW": "兩個防守人都以為對方去擋——每一回合都要喊出來。",
+        "ja-JP": "二人が互いに相手が対応すると思い込む——毎回声に出す。",
+        "ko-KR": "둘 다 상대가 스크린을 맡는다고 여긴다 — 매 소유마다 콜하라.",
+        "es-ES": "Dos defensores creyendo que el otro cubre el bloqueo: dilo en voz alta cada posesión.",
+        "fr-FR": "Deux défenseurs comptant l'un sur l'autre — annonce-le à chaque possession.",
+        "id-ID": "Dua pemain saling mengira yang lain menutup screen.",
+        "ms-MY": "Dua pemain saling menyangka yang lain menutup.",
+        "th-TH": "สองคนต่างคิดว่าอีกคนรับสกรีน",
+        "vi-VN": "Hai người đều tưởng người kia lo màn chắn."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -8606,6 +9166,20 @@
         "ms-MY": "Setiap hantaran seluruh shell bergerak — bola, anda, lawan.",
         "th-TH": "ทุกการส่งบอล เชลล์ทั้งวงต้องขยับ — บอล ตัวเอง คนที่ประกบ ใครขยับช้าคือเหยื่อของการ์ด",
         "vi-VN": "Mỗi đường chuyền cả lớp vỏ phòng thủ phải dịch — bóng, bạn, người. Ai dịch chậm là con mồi của hậu vệ."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
       },
       "board": {
         "sportType": 3,
@@ -8923,6 +9497,20 @@
         "th-TH": "วิ่งกว้างและวิ่งเร็ว",
         "vi-VN": "Chạy rộng và chạy sớm."
       },
+      "mistake": {
+        "en": "Everyone follows the ball instead of filling the lanes.",
+        "en-GB": "Everyone follows the ball instead of filling the lanes.",
+        "zh-CN": "所有人跟着球跑，没人拉开跑道。",
+        "zh-TW": "所有人跟著球跑，沒人拉開跑道。",
+        "ja-JP": "全員がボールを追い、レーンを埋めない。",
+        "ko-KR": "모두 공만 따라가고 레인을 채우지 않는다.",
+        "es-ES": "Todos siguen el balón en vez de llenar los carriles.",
+        "fr-FR": "Tout le monde suit le ballon au lieu de remplir les couloirs.",
+        "id-ID": "Semua mengikuti bola, bukan mengisi jalur.",
+        "ms-MY": "Semua mengikut bola, bukan mengisi lorong.",
+        "th-TH": "ทุกคนตามบอลแทนที่จะวิ่งเลน",
+        "vi-VN": "Ai cũng theo bóng thay vì lấp làn."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -9152,6 +9740,20 @@
         "ms-MY": "Lari melebar dan lari lebih awal.",
         "th-TH": "วิ่งกว้างและวิ่งเร็ว",
         "vi-VN": "Chạy rộng và chạy sớm."
+      },
+      "mistake": {
+        "en": "Everyone follows the ball instead of filling the lanes.",
+        "en-GB": "Everyone follows the ball instead of filling the lanes.",
+        "zh-CN": "所有人跟着球跑，没人拉开跑道。",
+        "zh-TW": "所有人跟著球跑，沒人拉開跑道。",
+        "ja-JP": "全員がボールを追い、レーンを埋めない。",
+        "ko-KR": "모두 공만 따라가고 레인을 채우지 않는다.",
+        "es-ES": "Todos siguen el balón en vez de llenar los carriles.",
+        "fr-FR": "Tout le monde suit le ballon au lieu de remplir les couloirs.",
+        "id-ID": "Semua mengikuti bola, bukan mengisi jalur.",
+        "ms-MY": "Semua mengikut bola, bukan mengisi lorong.",
+        "th-TH": "ทุกคนตามบอลแทนที่จะวิ่งเลน",
+        "vi-VN": "Ai cũng theo bóng thay vì lấp làn."
       },
       "board": {
         "sportType": 3,
@@ -9441,6 +10043,20 @@
         "ms-MY": "Lari melebar dan lari lebih awal.",
         "th-TH": "วิ่งกว้างและวิ่งเร็ว",
         "vi-VN": "Chạy rộng và chạy sớm."
+      },
+      "mistake": {
+        "en": "Everyone follows the ball instead of filling the lanes.",
+        "en-GB": "Everyone follows the ball instead of filling the lanes.",
+        "zh-CN": "所有人跟着球跑，没人拉开跑道。",
+        "zh-TW": "所有人跟著球跑，沒人拉開跑道。",
+        "ja-JP": "全員がボールを追い、レーンを埋めない。",
+        "ko-KR": "모두 공만 따라가고 레인을 채우지 않는다.",
+        "es-ES": "Todos siguen el balón en vez de llenar los carriles.",
+        "fr-FR": "Tout le monde suit le ballon au lieu de remplir les couloirs.",
+        "id-ID": "Semua mengikuti bola, bukan mengisi jalur.",
+        "ms-MY": "Semua mengikut bola, bukan mengisi lorong.",
+        "th-TH": "ทุกคนตามบอลแทนที่จะวิ่งเลน",
+        "vi-VN": "Ai cũng theo bóng thay vì lấp làn."
       },
       "board": {
         "sportType": 3,
@@ -9790,6 +10406,20 @@
         "th-TH": "คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
         "vi-VN": "Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
       },
+      "mistake": {
+        "en": "The first cutter runs it like a decoy he does not believe in.",
+        "en-GB": "The first cutter runs it like a decoy he does not believe in.",
+        "zh-CN": "第一个跑动的人当诱饵，自己都不信。",
+        "zh-TW": "第一個跑動的人當誘餌，自己都不信。",
+        "ja-JP": "最初のカッターが自分でも信じていない囮を走る。",
+        "ko-KR": "첫 커터가 스스로도 안 믿는 미끼를 뛴다.",
+        "es-ES": "El primer cortador corre un señuelo que ni él se cree.",
+        "fr-FR": "Le premier coupeur joue un leurre auquel il ne croit pas.",
+        "id-ID": "Pemotong pertama berlari sebagai umpan yang ia sendiri tak yakini.",
+        "ms-MY": "Pemotong pertama berlari sebagai umpan yang dia sendiri tak percaya.",
+        "th-TH": "คนตัดคนแรกวิ่งหลอกแบบไม่เชื่อเอง",
+        "vi-VN": "Người cắt đầu chạy mồi mà chính mình không tin."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -10046,6 +10676,20 @@
         "ms-MY": "Pemotong pertama ialah umpan dan dia tahu itu.",
         "th-TH": "คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
         "vi-VN": "Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
+      },
+      "mistake": {
+        "en": "The first cutter runs it like a decoy he does not believe in.",
+        "en-GB": "The first cutter runs it like a decoy he does not believe in.",
+        "zh-CN": "第一个跑动的人当诱饵，自己都不信。",
+        "zh-TW": "第一個跑動的人當誘餌，自己都不信。",
+        "ja-JP": "最初のカッターが自分でも信じていない囮を走る。",
+        "ko-KR": "첫 커터가 스스로도 안 믿는 미끼를 뛴다.",
+        "es-ES": "El primer cortador corre un señuelo que ni él se cree.",
+        "fr-FR": "Le premier coupeur joue un leurre auquel il ne croit pas.",
+        "id-ID": "Pemotong pertama berlari sebagai umpan yang ia sendiri tak yakini.",
+        "ms-MY": "Pemotong pertama berlari sebagai umpan yang dia sendiri tak percaya.",
+        "th-TH": "คนตัดคนแรกวิ่งหลอกแบบไม่เชื่อเอง",
+        "vi-VN": "Người cắt đầu chạy mồi mà chính mình không tin."
       },
       "board": {
         "sportType": 3,
@@ -10336,6 +10980,20 @@
         "th-TH": "คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
         "vi-VN": "Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
       },
+      "mistake": {
+        "en": "The first cutter runs it like a decoy he does not believe in.",
+        "en-GB": "The first cutter runs it like a decoy he does not believe in.",
+        "zh-CN": "第一个跑动的人当诱饵，自己都不信。",
+        "zh-TW": "第一個跑動的人當誘餌，自己都不信。",
+        "ja-JP": "最初のカッターが自分でも信じていない囮を走る。",
+        "ko-KR": "첫 커터가 스스로도 안 믿는 미끼를 뛴다.",
+        "es-ES": "El primer cortador corre un señuelo que ni él se cree.",
+        "fr-FR": "Le premier coupeur joue un leurre auquel il ne croit pas.",
+        "id-ID": "Pemotong pertama berlari sebagai umpan yang ia sendiri tak yakini.",
+        "ms-MY": "Pemotong pertama berlari sebagai umpan yang dia sendiri tak percaya.",
+        "th-TH": "คนตัดคนแรกวิ่งหลอกแบบไม่เชื่อเอง",
+        "vi-VN": "Người cắt đầu chạy mồi mà chính mình không tin."
+      },
       "board": {
         "sportType": 3,
         "players": [
@@ -10592,6 +11250,20 @@
         "ms-MY": "Pemotong pertama ialah umpan dan dia tahu itu.",
         "th-TH": "คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
         "vi-VN": "Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
+      },
+      "mistake": {
+        "en": "The first cutter runs it like a decoy he does not believe in.",
+        "en-GB": "The first cutter runs it like a decoy he does not believe in.",
+        "zh-CN": "第一个跑动的人当诱饵，自己都不信。",
+        "zh-TW": "第一個跑動的人當誘餌，自己都不信。",
+        "ja-JP": "最初のカッターが自分でも信じていない囮を走る。",
+        "ko-KR": "첫 커터가 스스로도 안 믿는 미끼를 뛴다.",
+        "es-ES": "El primer cortador corre un señuelo que ni él se cree.",
+        "fr-FR": "Le premier coupeur joue un leurre auquel il ne croit pas.",
+        "id-ID": "Pemotong pertama berlari sebagai umpan yang ia sendiri tak yakini.",
+        "ms-MY": "Pemotong pertama berlari sebagai umpan yang dia sendiri tak percaya.",
+        "th-TH": "คนตัดคนแรกวิ่งหลอกแบบไม่เชื่อเอง",
+        "vi-VN": "Người cắt đầu chạy mồi mà chính mình không tin."
       },
       "board": {
         "sportType": 3,

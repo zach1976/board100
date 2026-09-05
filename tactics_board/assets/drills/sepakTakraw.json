@@ -53,6 +53,20 @@
         "th-TH": "สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
         "vi-VN": "Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -186,6 +200,20 @@
         "ms-MY": "Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
         "th-TH": "สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
         "vi-VN": "Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 12,
@@ -321,6 +349,20 @@
         "th-TH": "สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
         "vi-VN": "Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -440,11 +482,11 @@
         "en-GB": "Serve receive",
         "es-ES": "Recepción de saque por",
         "fr-FR": "Réception de service à",
-        "id-ID": "Terima servis sisi k",
+        "id-ID": "Terima servis sisi",
         "ja-JP": "サーブレシーブ",
         "ko-KR": "서브 리시브",
-        "ms-MY": "Terima servis sebelah k",
-        "th-TH": "การรับเสิร์ฟ ฝั่ง",
+        "ms-MY": "Terima servis sebelah",
+        "th-TH": "การรับเสิร์ฟ",
         "vi-VN": "Đỡ giao cầu bên",
         "zh-CN": "接发球",
         "zh-TW": "接發球"
@@ -481,6 +523,20 @@
         "ms-MY": "Terima dengan bahagian dalam kaki dan redam ke atas.",
         "th-TH": "รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
         "vi-VN": "Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+      },
+      "mistake": {
+        "en": "A flat first touch — cushion upward so the feeder can reach it.",
+        "en-GB": "A flat first touch — cushion upward so the feeder can reach it.",
+        "zh-CN": "一传停平了——要向上卸力，让二传赶得到。",
+        "zh-TW": "一傳停平了——要向上卸力，讓二傳趕得到。",
+        "ja-JP": "1タッチ目が平ら——上へ吸収してトサーが間に合うように。",
+        "ko-KR": "첫 터치가 평평 — 위로 죽여 토서가 닿게.",
+        "es-ES": "Un primer toque plano: amortigua arriba para que llegue el pasador.",
+        "fr-FR": "Une première touche plate — amortis vers le haut.",
+        "id-ID": "Sentuhan pertama datar.",
+        "ms-MY": "Sentuhan pertama rata.",
+        "th-TH": "สัมผัสแรกแบน",
+        "vi-VN": "Chạm đầu bị phẳng."
       },
       "board": {
         "sportType": 12,
@@ -653,11 +709,11 @@
         "en-GB": "Serve receive",
         "es-ES": "Recepción de saque por",
         "fr-FR": "Réception de service à",
-        "id-ID": "Terima servis sisi k",
+        "id-ID": "Terima servis sisi",
         "ja-JP": "サーブレシーブ",
         "ko-KR": "서브 리시브",
-        "ms-MY": "Terima servis sebelah k",
-        "th-TH": "การรับเสิร์ฟ ฝั่ง",
+        "ms-MY": "Terima servis sebelah",
+        "th-TH": "การรับเสิร์ฟ",
         "vi-VN": "Đỡ giao cầu bên",
         "zh-CN": "接发球",
         "zh-TW": "接發球"
@@ -694,6 +750,20 @@
         "ms-MY": "Terima dengan bahagian dalam kaki dan redam ke atas.",
         "th-TH": "รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
         "vi-VN": "Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+      },
+      "mistake": {
+        "en": "A flat first touch — cushion upward so the feeder can reach it.",
+        "en-GB": "A flat first touch — cushion upward so the feeder can reach it.",
+        "zh-CN": "一传停平了——要向上卸力，让二传赶得到。",
+        "zh-TW": "一傳停平了——要向上卸力，讓二傳趕得到。",
+        "ja-JP": "1タッチ目が平ら——上へ吸収してトサーが間に合うように。",
+        "ko-KR": "첫 터치가 평평 — 위로 죽여 토서가 닿게.",
+        "es-ES": "Un primer toque plano: amortigua arriba para que llegue el pasador.",
+        "fr-FR": "Une première touche plate — amortis vers le haut.",
+        "id-ID": "Sentuhan pertama datar.",
+        "ms-MY": "Sentuhan pertama rata.",
+        "th-TH": "สัมผัสแรกแบน",
+        "vi-VN": "Chạm đầu bị phẳng."
       },
       "board": {
         "sportType": 12,
@@ -870,7 +940,7 @@
         "ja-JP": "トス",
         "ko-KR": "토스",
         "ms-MY": "Umpanan",
-        "th-TH": "การชง การ",
+        "th-TH": "การชง",
         "vi-VN": "Đường chuyền",
         "zh-CN": "传球",
         "zh-TW": "傳球"
@@ -907,6 +977,20 @@
         "ms-MY": "Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
         "th-TH": "ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
         "vi-VN": "Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+      },
+      "mistake": {
+        "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "en-GB": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "zh-CN": "把球传到扣球手现在的位置，不是脚将到的位置——高度对，位置错。",
+        "zh-TW": "把球傳到扣球手現在的位置，不是腳將到的位置——高度對，位置錯。",
+        "ja-JP": "今いる場所へ上げる——高さは合っても場所が違う。",
+        "ko-KR": "지금 자리에 올린다 — 높이는 맞고 위치가 틀리다.",
+        "es-ES": "Pasar donde está y no donde estará su pie.",
+        "fr-FR": "Passer où il est, pas où sera son pied.",
+        "id-ID": "Umpan ke tempat sekarang, bukan tempat kaki akan berada.",
+        "ms-MY": "Umpan ke tempat kini, bukan tempat kaki akan berada.",
+        "th-TH": "ชงตรงที่ยืน ไม่ใช่ตรงที่เท้าจะไป",
+        "vi-VN": "Chuyền nơi họ đứng, không phải nơi chân sẽ tới."
       },
       "board": {
         "sportType": 12,
@@ -1078,7 +1162,7 @@
         "ja-JP": "トス",
         "ko-KR": "토스",
         "ms-MY": "Umpanan",
-        "th-TH": "การชง การ",
+        "th-TH": "การชง",
         "vi-VN": "Đường chuyền",
         "zh-CN": "传球",
         "zh-TW": "傳球"
@@ -1115,6 +1199,20 @@
         "ms-MY": "Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
         "th-TH": "ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
         "vi-VN": "Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+      },
+      "mistake": {
+        "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "en-GB": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "zh-CN": "把球传到扣球手现在的位置，不是脚将到的位置——高度对，位置错。",
+        "zh-TW": "把球傳到扣球手現在的位置，不是腳將到的位置——高度對，位置錯。",
+        "ja-JP": "今いる場所へ上げる——高さは合っても場所が違う。",
+        "ko-KR": "지금 자리에 올린다 — 높이는 맞고 위치가 틀리다.",
+        "es-ES": "Pasar donde está y no donde estará su pie.",
+        "fr-FR": "Passer où il est, pas où sera son pied.",
+        "id-ID": "Umpan ke tempat sekarang, bukan tempat kaki akan berada.",
+        "ms-MY": "Umpan ke tempat kini, bukan tempat kaki akan berada.",
+        "th-TH": "ชงตรงที่ยืน ไม่ใช่ตรงที่เท้าจะไป",
+        "vi-VN": "Chuyền nơi họ đứng, không phải nơi chân sẽ tới."
       },
       "board": {
         "sportType": 12,
@@ -1286,7 +1384,7 @@
         "ja-JP": "トス",
         "ko-KR": "토스",
         "ms-MY": "Umpanan",
-        "th-TH": "การชง การ",
+        "th-TH": "การชง",
         "vi-VN": "Đường chuyền",
         "zh-CN": "传球",
         "zh-TW": "傳球"
@@ -1323,6 +1421,20 @@
         "ms-MY": "Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
         "th-TH": "ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
         "vi-VN": "Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+      },
+      "mistake": {
+        "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "en-GB": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
+        "zh-CN": "把球传到扣球手现在的位置，不是脚将到的位置——高度对，位置错。",
+        "zh-TW": "把球傳到扣球手現在的位置，不是腳將到的位置——高度對，位置錯。",
+        "ja-JP": "今いる場所へ上げる——高さは合っても場所が違う。",
+        "ko-KR": "지금 자리에 올린다 — 높이는 맞고 위치가 틀리다.",
+        "es-ES": "Pasar donde está y no donde estará su pie.",
+        "fr-FR": "Passer où il est, pas où sera son pied.",
+        "id-ID": "Umpan ke tempat sekarang, bukan tempat kaki akan berada.",
+        "ms-MY": "Umpan ke tempat kini, bukan tempat kaki akan berada.",
+        "th-TH": "ชงตรงที่ยืน ไม่ใช่ตรงที่เท้าจะไป",
+        "vi-VN": "Chuyền nơi họ đứng, không phải nơi chân sẽ tới."
       },
       "board": {
         "sportType": 12,
@@ -1531,6 +1643,20 @@
         "ms-MY": "Lihat tangan pemblok ketika naik.",
         "th-TH": "มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
         "vi-VN": "Nhìn tay người chắn khi bật lên."
+      },
+      "mistake": {
+        "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "en-GB": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "zh-CN": "起跳时不看拦网——三次触球没时间落地再想。",
+        "zh-TW": "起跳時不看攔網——三次觸球沒時間落地再想。",
+        "ja-JP": "跳びながらブロックを見ない——3タッチは地上で考える暇なし。",
+        "ko-KR": "뜨면서 블록을 안 본다 — 세 번엔 지상에서 정할 시간 없다.",
+        "es-ES": "No leer el bloqueo al subir.",
+        "fr-FR": "Ne pas lire le contre en montant.",
+        "id-ID": "Tidak membaca blok saat naik.",
+        "ms-MY": "Tidak membaca blok ketika naik.",
+        "th-TH": "ไม่อ่านบล็อกตอนลอย",
+        "vi-VN": "Không đọc hàng chắn khi bật lên."
       },
       "board": {
         "sportType": 12,
@@ -1760,6 +1886,20 @@
         "th-TH": "มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
         "vi-VN": "Nhìn tay người chắn khi bật lên."
       },
+      "mistake": {
+        "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "en-GB": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "zh-CN": "起跳时不看拦网——三次触球没时间落地再想。",
+        "zh-TW": "起跳時不看攔網——三次觸球沒時間落地再想。",
+        "ja-JP": "跳びながらブロックを見ない——3タッチは地上で考える暇なし。",
+        "ko-KR": "뜨면서 블록을 안 본다 — 세 번엔 지상에서 정할 시간 없다.",
+        "es-ES": "No leer el bloqueo al subir.",
+        "fr-FR": "Ne pas lire le contre en montant.",
+        "id-ID": "Tidak membaca blok saat naik.",
+        "ms-MY": "Tidak membaca blok ketika naik.",
+        "th-TH": "ไม่อ่านบล็อกตอนลอย",
+        "vi-VN": "Không đọc hàng chắn khi bật lên."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -1988,6 +2128,20 @@
         "th-TH": "มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
         "vi-VN": "Nhìn tay người chắn khi bật lên."
       },
+      "mistake": {
+        "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "en-GB": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
+        "zh-CN": "起跳时不看拦网——三次触球没时间落地再想。",
+        "zh-TW": "起跳時不看攔網——三次觸球沒時間落地再想。",
+        "ja-JP": "跳びながらブロックを見ない——3タッチは地上で考える暇なし。",
+        "ko-KR": "뜨면서 블록을 안 본다 — 세 번엔 지상에서 정할 시간 없다.",
+        "es-ES": "No leer el bloqueo al subir.",
+        "fr-FR": "Ne pas lire le contre en montant.",
+        "id-ID": "Tidak membaca blok saat naik.",
+        "ms-MY": "Tidak membaca blok ketika naik.",
+        "th-TH": "ไม่อ่านบล็อกตอนลอย",
+        "vi-VN": "Không đọc hàng chắn khi bật lên."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -2178,7 +2332,7 @@
         "ja-JP": "アタック",
         "ko-KR": "스파이크",
         "ms-MY": "Rejaman",
-        "th-TH": "การฟาด ลูกฟาด",
+        "th-TH": "การฟาด",
         "vi-VN": "Đá tấn công",
         "zh-CN": "扣球",
         "zh-TW": "扣球"
@@ -2215,6 +2369,20 @@
         "ms-MY": "Bawa pinggul di atas bola sebelum kaki menghayun.",
         "th-TH": "เอาสะโพกขึ้นเหนือบอลก่อนเหวี่ยงเท้า ความสูงมาจากการกระโดด",
         "vi-VN": "Đưa hông lên trên bóng trước khi vung chân."
+      },
+      "mistake": {
+        "en": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "en-GB": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "zh-CN": "在球下方起脚——起脚前先把胯送到球上方。",
+        "zh-TW": "在球下方起腳——起腳前先把胯送到球上方。",
+        "ja-JP": "ボールの下から蹴る——足を振る前に腰を上へ。",
+        "ko-KR": "공 아래에서 찬다 — 발 휘두르기 전 골반을 위로.",
+        "es-ES": "Golpear desde debajo: lleva la cadera por encima antes de golpear.",
+        "fr-FR": "Frapper sous la balle — hisse les hanches au-dessus d'abord.",
+        "id-ID": "Menendang dari bawah bola.",
+        "ms-MY": "Menyepak dari bawah bola.",
+        "th-TH": "เตะจากใต้ลูก",
+        "vi-VN": "Đá từ dưới bóng."
       },
       "board": {
         "sportType": 12,
@@ -2386,7 +2554,7 @@
         "ja-JP": "アタック",
         "ko-KR": "스파이크",
         "ms-MY": "Rejaman",
-        "th-TH": "การฟาด ลูกฟาด",
+        "th-TH": "การฟาด",
         "vi-VN": "Đá tấn công",
         "zh-CN": "扣球",
         "zh-TW": "扣球"
@@ -2423,6 +2591,20 @@
         "ms-MY": "Bawa pinggul di atas bola sebelum kaki menghayun.",
         "th-TH": "เอาสะโพกขึ้นเหนือบอลก่อนเหวี่ยงเท้า ความสูงมาจากการกระโดด",
         "vi-VN": "Đưa hông lên trên bóng trước khi vung chân."
+      },
+      "mistake": {
+        "en": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "en-GB": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "zh-CN": "在球下方起脚——起脚前先把胯送到球上方。",
+        "zh-TW": "在球下方起腳——起腳前先把胯送到球上方。",
+        "ja-JP": "ボールの下から蹴る——足を振る前に腰を上へ。",
+        "ko-KR": "공 아래에서 찬다 — 발 휘두르기 전 골반을 위로.",
+        "es-ES": "Golpear desde debajo: lleva la cadera por encima antes de golpear.",
+        "fr-FR": "Frapper sous la balle — hisse les hanches au-dessus d'abord.",
+        "id-ID": "Menendang dari bawah bola.",
+        "ms-MY": "Menyepak dari bawah bola.",
+        "th-TH": "เตะจากใต้ลูก",
+        "vi-VN": "Đá từ dưới bóng."
       },
       "board": {
         "sportType": 12,
@@ -2594,7 +2776,7 @@
         "ja-JP": "アタック",
         "ko-KR": "스파이크",
         "ms-MY": "Rejaman",
-        "th-TH": "การฟาด ลูกฟาด",
+        "th-TH": "การฟาด",
         "vi-VN": "Đá tấn công",
         "zh-CN": "扣球",
         "zh-TW": "扣球"
@@ -2631,6 +2813,20 @@
         "ms-MY": "Bawa pinggul di atas bola sebelum kaki menghayun.",
         "th-TH": "เอาสะโพกขึ้นเหนือบอลก่อนเหวี่ยงเท้า ความสูงมาจากการกระโดด",
         "vi-VN": "Đưa hông lên trên bóng trước khi vung chân."
+      },
+      "mistake": {
+        "en": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "en-GB": "Kicking from below the ball — get the hips above it before the foot swings.",
+        "zh-CN": "在球下方起脚——起脚前先把胯送到球上方。",
+        "zh-TW": "在球下方起腳——起腳前先把胯送到球上方。",
+        "ja-JP": "ボールの下から蹴る——足を振る前に腰を上へ。",
+        "ko-KR": "공 아래에서 찬다 — 발 휘두르기 전 골반을 위로.",
+        "es-ES": "Golpear desde debajo: lleva la cadera por encima antes de golpear.",
+        "fr-FR": "Frapper sous la balle — hisse les hanches au-dessus d'abord.",
+        "id-ID": "Menendang dari bawah bola.",
+        "ms-MY": "Menyepak dari bawah bola.",
+        "th-TH": "เตะจากใต้ลูก",
+        "vi-VN": "Đá từ dưới bóng."
       },
       "board": {
         "sportType": 12,
@@ -2839,6 +3035,20 @@
         "ms-MY": "Pemblok membelakangi dan dua di belakang menutup baki blok.",
         "th-TH": "คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
         "vi-VN": "Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
+      },
+      "mistake": {
+        "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "en-GB": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "zh-CN": "对着扣杀做反应而不是读二传——藤球扣死没人靠反射救得起。",
+        "zh-TW": "對著扣殺做反應而不是讀二傳——藤球扣死沒人靠反射救得起。",
+        "ja-JP": "セッターでなくスパイクに反応——反射では拾えない。",
+        "ko-KR": "세터가 아니라 스파이크에 반응 — 반사로는 못 막는다.",
+        "es-ES": "Reaccionar al remate y no leer al colocador.",
+        "fr-FR": "Réagir à l'attaque au lieu de lire le passeur.",
+        "id-ID": "Bereaksi pada smes, bukan membaca tosser.",
+        "ms-MY": "Bertindak balas pada rejaman, bukan membaca tosser.",
+        "th-TH": "รับตามลูกฟาดแทนอ่านเซตเตอร์",
+        "vi-VN": "Phản xạ theo cú đá thay vì đọc chuyền."
       },
       "board": {
         "sportType": 12,
@@ -3055,6 +3265,20 @@
         "th-TH": "คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
         "vi-VN": "Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
       },
+      "mistake": {
+        "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "en-GB": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "zh-CN": "对着扣杀做反应而不是读二传——藤球扣死没人靠反射救得起。",
+        "zh-TW": "對著扣殺做反應而不是讀二傳——藤球扣死沒人靠反射救得起。",
+        "ja-JP": "セッターでなくスパイクに反応——反射では拾えない。",
+        "ko-KR": "세터가 아니라 스파이크에 반응 — 반사로는 못 막는다.",
+        "es-ES": "Reaccionar al remate y no leer al colocador.",
+        "fr-FR": "Réagir à l'attaque au lieu de lire le passeur.",
+        "id-ID": "Bereaksi pada smes, bukan membaca tosser.",
+        "ms-MY": "Bertindak balas pada rejaman, bukan membaca tosser.",
+        "th-TH": "รับตามลูกฟาดแทนอ่านเซตเตอร์",
+        "vi-VN": "Phản xạ theo cú đá thay vì đọc chuyền."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -3270,6 +3494,20 @@
         "th-TH": "คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
         "vi-VN": "Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
       },
+      "mistake": {
+        "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "en-GB": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
+        "zh-CN": "对着扣杀做反应而不是读二传——藤球扣死没人靠反射救得起。",
+        "zh-TW": "對著扣殺做反應而不是讀二傳——藤球扣死沒人靠反射救得起。",
+        "ja-JP": "セッターでなくスパイクに反応——反射では拾えない。",
+        "ko-KR": "세터가 아니라 스파이크에 반응 — 반사로는 못 막는다.",
+        "es-ES": "Reaccionar al remate y no leer al colocador.",
+        "fr-FR": "Réagir à l'attaque au lieu de lire le passeur.",
+        "id-ID": "Bereaksi pada smes, bukan membaca tosser.",
+        "ms-MY": "Bertindak balas pada rejaman, bukan membaca tosser.",
+        "th-TH": "รับตามลูกฟาดแทนอ่านเซตเตอร์",
+        "vi-VN": "Phản xạ theo cú đá thay vì đọc chuyền."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -3472,6 +3710,20 @@
         "th-TH": "ลูกที่โดนบล็อกมักตกดิ่งฝั่งตัวเอง ต้องมีสองคนย่อรอใต้ตัวฟาดทุกครั้ง",
         "vi-VN": "Bóng bị chắn thường rơi thẳng xuống sân mình — hai người phải chùng sẵn dưới chân đá."
       },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -3652,6 +3904,20 @@
         "ms-MY": "Tiga sentuhan, tiga pemain, satu rali.",
         "th-TH": "สามสัมผัส สามคน หนึ่งการโต้",
         "vi-VN": "Ba chạm, ba người, một pha bóng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 12,
@@ -3866,6 +4132,20 @@
         "ms-MY": "Servis tekong ialah satu-satunya serangan yang tidak diblok.",
         "th-TH": "ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
         "vi-VN": "Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
+      },
+      "mistake": {
+        "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "en-GB": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "zh-CN": "发到谁都够得到的中间——要打对手不擅长的部位。",
+        "zh-TW": "發到誰都夠得到的中間——要打對手不擅長的部位。",
+        "ja-JP": "誰でも届く真ん中へ——苦手な部位を狙う。",
+        "ko-KR": "누구나 닿는 가운데로 — 약한 부위를 노려라.",
+        "es-ES": "Sacar al centro donde todos llegan: busca la superficie débil.",
+        "fr-FR": "Servir au milieu accessible — vise la surface faible.",
+        "id-ID": "Servis ke tengah yang mudah dijangkau.",
+        "ms-MY": "Servis ke tengah yang mudah dicapai.",
+        "th-TH": "เสิร์ฟกลางที่ใครก็รับได้",
+        "vi-VN": "Giao vào giữa ai cũng đỡ."
       },
       "board": {
         "sportType": 12,
@@ -4095,6 +4375,20 @@
         "th-TH": "ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
         "vi-VN": "Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
       },
+      "mistake": {
+        "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "en-GB": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "zh-CN": "发到谁都够得到的中间——要打对手不擅长的部位。",
+        "zh-TW": "發到誰都夠得到的中間——要打對手不擅長的部位。",
+        "ja-JP": "誰でも届く真ん中へ——苦手な部位を狙う。",
+        "ko-KR": "누구나 닿는 가운데로 — 약한 부위를 노려라.",
+        "es-ES": "Sacar al centro donde todos llegan: busca la superficie débil.",
+        "fr-FR": "Servir au milieu accessible — vise la surface faible.",
+        "id-ID": "Servis ke tengah yang mudah dijangkau.",
+        "ms-MY": "Servis ke tengah yang mudah dicapai.",
+        "th-TH": "เสิร์ฟกลางที่ใครก็รับได้",
+        "vi-VN": "Giao vào giữa ai cũng đỡ."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -4322,6 +4616,20 @@
         "ms-MY": "Servis tekong ialah satu-satunya serangan yang tidak diblok.",
         "th-TH": "ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
         "vi-VN": "Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
+      },
+      "mistake": {
+        "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "en-GB": "Serving to the middle where anyone reaches it — go at the weak surface.",
+        "zh-CN": "发到谁都够得到的中间——要打对手不擅长的部位。",
+        "zh-TW": "發到誰都夠得到的中間——要打對手不擅長的部位。",
+        "ja-JP": "誰でも届く真ん中へ——苦手な部位を狙う。",
+        "ko-KR": "누구나 닿는 가운데로 — 약한 부위를 노려라.",
+        "es-ES": "Sacar al centro donde todos llegan: busca la superficie débil.",
+        "fr-FR": "Servir au milieu accessible — vise la surface faible.",
+        "id-ID": "Servis ke tengah yang mudah dijangkau.",
+        "ms-MY": "Servis ke tengah yang mudah dicapai.",
+        "th-TH": "เสิร์ฟกลางที่ใครก็รับได้",
+        "vi-VN": "Giao vào giữa ai cũng đỡ."
       },
       "board": {
         "sportType": 12,
@@ -4551,6 +4859,20 @@
         "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
         "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm."
       },
+      "mistake": {
+        "en": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
+        "en-GB": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
+        "zh-CN": "抛球飘忽——发球手那只脚补不了不稳定的抛球。",
+        "zh-TW": "拋球飄忽——發球手那隻腳補不了不穩定的拋球。",
+        "ja-JP": "トスがぶれる——テコンの足では不安定な投げを直せない。",
+        "ko-KR": "토스가 흔들린다 — 테콩의 발로는 못 고친다.",
+        "es-ES": "Un lanzamiento inestable: el pie del tekong no lo arregla.",
+        "fr-FR": "Un lancer instable — le pied du tekong ne rattrape pas.",
+        "id-ID": "Lambungan yang goyah.",
+        "ms-MY": "Lambungan yang tidak stabil.",
+        "th-TH": "การโยนที่ไม่นิ่ง",
+        "vi-VN": "Cú tung chao đảo."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -4763,6 +5085,20 @@
         "ms-MY": "Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
         "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
         "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm."
+      },
+      "mistake": {
+        "en": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
+        "en-GB": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
+        "zh-CN": "抛球飘忽——发球手那只脚补不了不稳定的抛球。",
+        "zh-TW": "拋球飄忽——發球手那隻腳補不了不穩定的拋球。",
+        "ja-JP": "トスがぶれる——テコンの足では不安定な投げを直せない。",
+        "ko-KR": "토스가 흔들린다 — 테콩의 발로는 못 고친다.",
+        "es-ES": "Un lanzamiento inestable: el pie del tekong no lo arregla.",
+        "fr-FR": "Un lancer instable — le pied du tekong ne rattrape pas.",
+        "id-ID": "Lambungan yang goyah.",
+        "ms-MY": "Lambungan yang tidak stabil.",
+        "th-TH": "การโยนที่ไม่นิ่ง",
+        "vi-VN": "Cú tung chao đảo."
       },
       "board": {
         "sportType": 12,
@@ -4977,6 +5313,20 @@
         "th-TH": "สามสัมผัส สามคน หนึ่งการโต้",
         "vi-VN": "Ba chạm, ba người, một pha bóng."
       },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
       "board": {
         "sportType": 12,
         "players": [
@@ -5164,6 +5514,20 @@
         "ms-MY": "Tiga sentuhan, tiga pemain, satu rali.",
         "th-TH": "สามสัมผัส สามคน หนึ่งการโต้",
         "vi-VN": "Ba chạm, ba người, một pha bóng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 12,
@@ -5406,6 +5770,20 @@
         "ms-MY": "Tiga sentuhan, tiga pemain, satu rali.",
         "th-TH": "สามสัมผัส สามคน หนึ่งการโต้",
         "vi-VN": "Ba chạm, ba người, một pha bóng."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 12,

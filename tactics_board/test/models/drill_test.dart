@@ -166,6 +166,17 @@ void _libraryTests(String sport) {
       }
     });
 
+    test('every drill names a common mistake in all 12 locales', () {
+      const locales = ['en-US', 'en-GB', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR',
+                       'es-ES', 'fr-FR', 'id-ID', 'ms-MY', 'th-TH', 'vi-VN'];
+      for (final d in drills) {
+        for (final loc in locales) {
+          expect(d.localizedMistake(loc), isNotNull, reason: '${d.id}/$loc');
+          expect(d.localizedMistake(loc), isNotEmpty, reason: '${d.id}/$loc');
+        }
+      }
+    });
+
     test('every drill carries a runnable board', () {
       for (final d in drills) {
         expect(d.minutes, greaterThan(0), reason: d.id);
