@@ -5,7 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/main.dart';
+import 'package:provider/provider.dart';
+import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
+import 'package:tactics_board/state/tactics_state.dart';
 
 import 'overflow_test.dart' show kLocales, kNarrow;
 
@@ -41,8 +44,14 @@ void main() {
     addTearDown(() => ConfigConstants.fixedSportType = null);
 
     await EasyLocalization.ensureInitialized();
-    await tester.binding.setSurfaceSize(kNarrow);
-    addTearDown(() => tester.binding.setSurfaceSize(null));
+    // tester.view, not binding.setSurfaceSize: the latter left MediaQuery
+    // reporting the 800x600 test default while the render surface changed
+    // underneath it, so every one of these sweeps was silently running at
+    // tablet size — and the mismatch produced a 122-pixel "overflow" in the
+    // player edit bar that does not exist at any real size.
+    tester.view.physicalSize = Size(kNarrow.width * 3, kNarrow.height * 3);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.reset);
 
     late BuildContext ctx;
     await tester.pumpWidget(
@@ -68,6 +77,31 @@ void main() {
     // What the sweep actually managed to render, so a run that silently
     // checks nothing cannot pass.
     final opened = <String>[];
+
+    /// Get back to the board. Some menu entries open a sheet, which a tap
+    /// outside dismisses; others push a whole page, which it does not — and a
+    /// page left on the stack is why the player edit bar was once measured
+    /// 14 pixels wide and reported a 122 pixel overflow that was not real.
+    Future<void> dismiss() async {
+      for (var attempt = 0; attempt < 3; attempt++) {
+        final back = find.byType(BackButton);
+        final backIcon = find.byIcon(Icons.arrow_back);
+        final chevron = find.byIcon(Icons.arrow_back_ios_new);
+        if (back.evaluate().isNotEmpty) {
+          await tester.tap(back.first, warnIfMissed: false);
+        } else if (backIcon.evaluate().isNotEmpty) {
+          await tester.tap(backIcon.first, warnIfMissed: false);
+        } else if (chevron.evaluate().isNotEmpty) {
+          await tester.tap(chevron.first, warnIfMissed: false);
+        } else {
+          await tester.tapAt(const Offset(5, 5));
+        }
+        for (var i = 0; i < 6; i++) {
+          await tester.pump(const Duration(milliseconds: 80));
+        }
+        if (find.byIcon(Icons.more_horiz).evaluate().isNotEmpty) return;
+      }
+    }
     for (final locale in kLocales) {
       await ctx.setLocale(locale);
       for (var i = 0; i < 6; i++) {
@@ -94,6 +128,8 @@ void main() {
         ('field settings', Icons.grass_outlined),
         ('court settings', Icons.dashboard_outlined),
         ('language', Icons.language),
+        ('practice plan', Icons.event_note_outlined),
+        ('contact', Icons.mail_outline),
       ]) {
         final item = find.byIcon(entry.$2);
         if (item.evaluate().isEmpty) continue;
@@ -102,10 +138,7 @@ void main() {
           await tester.pump(const Duration(milliseconds: 80));
         }
         opened.add('$tag ${entry.$1}');
-        await tester.tapAt(const Offset(5, 5));
-        for (var i = 0; i < 6; i++) {
-          await tester.pump(const Duration(milliseconds: 80));
-        }
+        await dismiss();
         // Re-open the menu for the next entry.
         final again = find.byIcon(Icons.more_horiz);
         if (again.evaluate().isEmpty) break;
@@ -114,10 +147,7 @@ void main() {
           await tester.pump(const Duration(milliseconds: 80));
         }
       }
-      await tester.tapAt(const Offset(5, 5));
-      for (var i = 0; i < 6; i++) {
-        await tester.pump(const Duration(milliseconds: 80));
-      }
+      await dismiss();
 
       // The add-element sheet lives on the board's own toolbar.
       final add = find.byIcon(Icons.add);
@@ -127,10 +157,48 @@ void main() {
           await tester.pump(const Duration(milliseconds: 80));
         }
         opened.add('$tag add element');
-        await tester.tapAt(const Offset(5, 5));
-        for (var i = 0; i < 6; i++) {
-          await tester.pump(const Duration(milliseconds: 80));
-        }
+        await dismiss();
+      }
+
+      // The player edit bar only exists while a player is selected, and it is
+      // the busiest row in the app — an identity chip, a role chip, a move
+      // toggle and four buttons, all in one line. Put a player on the board
+      // and select it rather than trying to hit one by touch.
+      // Let every route transition finish first. Selecting a player while a
+      // page is still popping measures the edit bar against a dying tree —
+      // the widgets come back DEFUNCT and 14 pixels wide, and the "overflow"
+      // that reports is an artefact of the teardown, not a layout bug.
+      for (var i = 0; i < 20; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      // Only meaningful on the board itself, so make sure we are on it.
+      if (find.byIcon(Icons.more_horiz).evaluate().isEmpty) {
+        unopened.add('$tag: never got back to the board for the edit bar');
+        continue;
+      }
+      // A context *below* the provider: TacticsBoardApp creates it, so its
+      // own element cannot see it.
+      final state =
+          tester.element(find.byType(Scaffold).first).read<TacticsState>();
+      if (state.players.isEmpty) {
+        state.addPlayer(PlayerIcon(
+          id: 'sweep',
+          label: 'Alexandrine',
+          team: PlayerTeam.home,
+          position: const Offset(160, 260),
+        ));
+      }
+      state.selectPlayer('sweep');
+      for (var i = 0; i < 8; i++) {
+        await tester.pump(const Duration(milliseconds: 80));
+      }
+      opened.add('$tag player edit bar');
+      state.selectPlayer(null);
+      // Fully gone before the next locale rebuilds the tree: a bar still
+      // mounted when its subtree is disposed gets measured DEFUNCT at 14
+      // pixels wide, and reports an overflow nobody could ever see.
+      for (var i = 0; i < 15; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
       }
     }
 

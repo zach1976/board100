@@ -70,8 +70,14 @@ void main() {
     // connect until asked.
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     await EasyLocalization.ensureInitialized();
-    await tester.binding.setSurfaceSize(kNarrow);
-    addTearDown(() => tester.binding.setSurfaceSize(null));
+    // tester.view, not binding.setSurfaceSize: the latter left MediaQuery
+    // reporting the 800x600 test default while the render surface changed
+    // underneath it, so every one of these sweeps was silently running at
+    // tablet size — and the mismatch produced a 122-pixel "overflow" in the
+    // player edit bar that does not exist at any real size.
+    tester.view.physicalSize = Size(kNarrow.width * 3, kNarrow.height * 3);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.reset);
     final watch = OverflowWatch()..start();
     addTearDown(watch.stop);
 
