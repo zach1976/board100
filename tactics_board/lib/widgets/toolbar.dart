@@ -188,8 +188,12 @@ class _FieldSettingsSheet extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+          // Scrollable, because the sheet is taller than a small phone once a
+          // language needs two lines for a heading — it overflowed its own
+          // bottom by 17px on an iPhone SE.
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -255,6 +259,7 @@ class _FieldSettingsSheet extends StatelessWidget {
                 ),
               ],
             ),
+          ),
           ),
         );
       },
@@ -421,8 +426,12 @@ class _CourtSettingsSheet extends StatelessWidget {
         const headerStyle = TextStyle(
             color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600);
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+          // Scrollable, because the sheet is taller than a small phone once a
+          // language needs two lines for a heading — it overflowed its own
+          // bottom by 17px on an iPhone SE.
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -480,6 +489,7 @@ class _CourtSettingsSheet extends StatelessWidget {
                   ),
                 ],
               ],
+              ),
             ),
           ),
         );
@@ -1921,12 +1931,18 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   children: [
                     const Icon(Icons.people_outline, color: Colors.white60, size: 18),
                     const SizedBox(width: 8),
-                    Text('photos_label'.tr(),
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14)),
-                    const Spacer(),
+                    // Expanded instead of Text + Spacer: the label is long in
+                    // several languages and had nothing to give, so the row
+                    // ran past the edge on a narrow phone.
+                    Expanded(
+                      child: Text('photos_label'.tr(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14)),
+                    ),
                     Icon(_showPhotos ? Icons.expand_less : Icons.expand_more,
                         color: Colors.white54),
                   ],
