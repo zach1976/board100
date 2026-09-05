@@ -416,6 +416,30 @@ class _DrillRow extends StatelessWidget {
                       style: const TextStyle(
                           color: Colors.white54, fontSize: 12, height: 1.35),
                     ),
+                    if (first.localizedMistake(locale) != null) ...[
+                      const SizedBox(height: 6),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 1),
+                            child: Icon(Icons.warning_amber_rounded,
+                                size: 13, color: Color(0xFFE0A030)),
+                          ),
+                          const SizedBox(width: 5),
+                          Expanded(
+                            child: Text(
+                              first.localizedMistake(locale)!,
+                              style: const TextStyle(
+                                  color: Color(0xFFC79A4B),
+                                  fontSize: 11.5,
+                                  height: 1.3,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                     const SizedBox(height: 7),
                     Row(
                       children: [

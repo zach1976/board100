@@ -23,6 +23,11 @@ class Drill {
   final Map<String, String> name;
   final Map<String, String> note;
 
+  /// The family's most common error — the other half of the coaching point.
+  /// Always present (the generator refuses a drill without one), so the card
+  /// can show it unconditionally.
+  final Map<String, String>? mistake;
+
   /// The board itself, in TacticsState's JSON shape.
   final Map<String, dynamic> board;
 
@@ -51,6 +56,7 @@ class Drill {
     required this.players,
     required this.name,
     required this.note,
+    this.mistake,
     required this.board,
     this.family,
     this.familyName,
@@ -66,6 +72,9 @@ class Drill {
         players: (json['players'] as num?)?.toInt() ?? 0,
         name: Map<String, String>.from(json['name'] as Map),
         note: Map<String, String>.from(json['note'] as Map? ?? const {}),
+        mistake: json['mistake'] == null
+            ? null
+            : Map<String, String>.from(json['mistake'] as Map),
         board: Map<String, dynamic>.from(json['board'] as Map),
         family: json['family'] as String?,
         familyName: json['familyName'] == null
@@ -93,6 +102,9 @@ class Drill {
       familyName == null ? localizedName(locale) : _pick(familyName!, locale);
 
   String localizedNote(String locale) => _pick(note, locale);
+
+  String? localizedMistake(String locale) =>
+      mistake == null ? null : _pick(mistake!, locale);
 }
 
 /// Which words a sport's coach uses for the seven categories.

@@ -53,6 +53,20 @@
         "th-TH": "เริ่มในกรอบเสิร์ฟแล้วค่อยถอยออก จังหวะก่อน พลังทีหลัง",
         "vi-VN": "Bắt đầu trong ô giao bóng rồi lùi dần. Nhịp trước, lực sau."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -196,6 +210,20 @@
         "ms-MY": "Mula dalam kotak servis kemudian berundur. Rentak dahulu.",
         "th-TH": "เริ่มในกรอบเสิร์ฟแล้วค่อยถอยออก จังหวะก่อน พลังทีหลัง",
         "vi-VN": "Bắt đầu trong ô giao bóng rồi lùi dần. Nhịp trước, lực sau."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 2,
@@ -341,6 +369,20 @@
         "th-TH": "เริ่มในกรอบเสิร์ฟแล้วค่อยถอยออก จังหวะก่อน พลังทีหลัง",
         "vi-VN": "Bắt đầu trong ô giao bóng rồi lùi dần. Nhịp trước, lực sau."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -484,6 +526,20 @@
         "ms-MY": "Kembali ke tengah sudut yang ada pada lawan, bukan ke tanda tengah.",
         "th-TH": "กลับมายืนกลางมุมที่คู่แข่งมี ไม่ใช่กลับมาที่จุดกลางสนาม",
         "vi-VN": "Về giữa các góc mà đối thủ có, không phải về vạch giữa."
+      },
+      "mistake": {
+        "en": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "en-GB": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "zh-CN": "回到中点标记而不是对手角度的中间——看着整齐，其实错了。",
+        "zh-TW": "回到中點標記而不是對手角度的中間——看著整齊，其實錯了。",
+        "ja-JP": "角度の中間ではなくセンターマークへ戻る——整って見えるが誤り。",
+        "ko-KR": "각도의 한가운데가 아니라 센터마크로 — 깔끔하지만 틀렸다.",
+        "es-ES": "Recuperar a la marca central, no al medio de sus ángulos.",
+        "fr-FR": "Se replacer sur la marque centrale, pas au milieu des angles.",
+        "id-ID": "Pulih ke tanda tengah, bukan tengah sudut lawan.",
+        "ms-MY": "Kembali ke tanda tengah, bukan tengah sudut lawan.",
+        "th-TH": "กลับจุดกลางแทนกลางมุมคู่แข่ง",
+        "vi-VN": "Về vạch giữa thay vì giữa các góc."
       },
       "board": {
         "sportType": 2,
@@ -669,6 +725,20 @@
         "th-TH": "กลับมายืนกลางมุมที่คู่แข่งมี ไม่ใช่กลับมาที่จุดกลางสนาม",
         "vi-VN": "Về giữa các góc mà đối thủ có, không phải về vạch giữa."
       },
+      "mistake": {
+        "en": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "en-GB": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "zh-CN": "回到中点标记而不是对手角度的中间——看着整齐，其实错了。",
+        "zh-TW": "回到中點標記而不是對手角度的中間——看著整齊，其實錯了。",
+        "ja-JP": "角度の中間ではなくセンターマークへ戻る——整って見えるが誤り。",
+        "ko-KR": "각도의 한가운데가 아니라 센터마크로 — 깔끔하지만 틀렸다.",
+        "es-ES": "Recuperar a la marca central, no al medio de sus ángulos.",
+        "fr-FR": "Se replacer sur la marque centrale, pas au milieu des angles.",
+        "id-ID": "Pulih ke tanda tengah, bukan tengah sudut lawan.",
+        "ms-MY": "Kembali ke tanda tengah, bukan tengah sudut lawan.",
+        "th-TH": "กลับจุดกลางแทนกลางมุมคู่แข่ง",
+        "vi-VN": "Về vạch giữa thay vì giữa các góc."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -852,6 +922,20 @@
         "ms-MY": "Kembali ke tengah sudut yang ada pada lawan, bukan ke tanda tengah.",
         "th-TH": "กลับมายืนกลางมุมที่คู่แข่งมี ไม่ใช่กลับมาที่จุดกลางสนาม",
         "vi-VN": "Về giữa các góc mà đối thủ có, không phải về vạch giữa."
+      },
+      "mistake": {
+        "en": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "en-GB": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "zh-CN": "回到中点标记而不是对手角度的中间——看着整齐，其实错了。",
+        "zh-TW": "回到中點標記而不是對手角度的中間——看著整齊，其實錯了。",
+        "ja-JP": "角度の中間ではなくセンターマークへ戻る——整って見えるが誤り。",
+        "ko-KR": "각도의 한가운데가 아니라 센터마크로 — 깔끔하지만 틀렸다.",
+        "es-ES": "Recuperar a la marca central, no al medio de sus ángulos.",
+        "fr-FR": "Se replacer sur la marque centrale, pas au milieu des angles.",
+        "id-ID": "Pulih ke tanda tengah, bukan tengah sudut lawan.",
+        "ms-MY": "Kembali ke tanda tengah, bukan tengah sudut lawan.",
+        "th-TH": "กลับจุดกลางแทนกลางมุมคู่แข่ง",
+        "vi-VN": "Về vạch giữa thay vì giữa các góc."
       },
       "board": {
         "sportType": 2,
@@ -1037,6 +1121,20 @@
         "th-TH": "กลับมายืนกลางมุมที่คู่แข่งมี ไม่ใช่กลับมาที่จุดกลางสนาม",
         "vi-VN": "Về giữa các góc mà đối thủ có, không phải về vạch giữa."
       },
+      "mistake": {
+        "en": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "en-GB": "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.",
+        "zh-CN": "回到中点标记而不是对手角度的中间——看着整齐，其实错了。",
+        "zh-TW": "回到中點標記而不是對手角度的中間——看著整齊，其實錯了。",
+        "ja-JP": "角度の中間ではなくセンターマークへ戻る——整って見えるが誤り。",
+        "ko-KR": "각도의 한가운데가 아니라 센터마크로 — 깔끔하지만 틀렸다.",
+        "es-ES": "Recuperar a la marca central, no al medio de sus ángulos.",
+        "fr-FR": "Se replacer sur la marque centrale, pas au milieu des angles.",
+        "id-ID": "Pulih ke tanda tengah, bukan tengah sudut lawan.",
+        "ms-MY": "Kembali ke tanda tengah, bukan tengah sudut lawan.",
+        "th-TH": "กลับจุดกลางแทนกลางมุมคู่แข่ง",
+        "vi-VN": "Về vạch giữa thay vì giữa các góc."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -1209,6 +1307,20 @@
         "th-TH": "ตัดสินใจลูกที่สองก่อนตีลูกแรก แต้มส่วนใหญ่จบที่ลูกที่สาม",
         "vi-VN": "Quyết định quả thứ hai trước khi đánh quả đầu."
       },
+      "mistake": {
+        "en": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "en-GB": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "zh-CN": "临场想第二拍——大多数分第三拍就结束，来不及现编。",
+        "zh-TW": "臨場想第二拍——大多數分第三拍就結束，來不及現編。",
+        "ja-JP": "2球目を即興で——多くは3球目で終わる、アドリブには早い。",
+        "ko-KR": "둘째 공을 즉흥으로 — 대부분 3구에 끝난다.",
+        "es-ES": "Improvisar la segunda bola: casi todo acaba en el tercer golpe.",
+        "fr-FR": "Improviser la deuxième balle — la plupart finissent au troisième coup.",
+        "id-ID": "Improvisasi bola kedua.",
+        "ms-MY": "Improvisasi bola kedua.",
+        "th-TH": "ด้นลูกที่สอง แต้มจบที่ลูกสาม",
+        "vi-VN": "Ứng biến quả hai — điểm kết ở quả ba."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -1372,6 +1484,20 @@
         "ms-MY": "Tentukan bola kedua sebelum memukul yang pertama.",
         "th-TH": "ตัดสินใจลูกที่สองก่อนตีลูกแรก แต้มส่วนใหญ่จบที่ลูกที่สาม",
         "vi-VN": "Quyết định quả thứ hai trước khi đánh quả đầu."
+      },
+      "mistake": {
+        "en": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "en-GB": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "zh-CN": "临场想第二拍——大多数分第三拍就结束，来不及现编。",
+        "zh-TW": "臨場想第二拍——大多數分第三拍就結束，來不及現編。",
+        "ja-JP": "2球目を即興で——多くは3球目で終わる、アドリブには早い。",
+        "ko-KR": "둘째 공을 즉흥으로 — 대부분 3구에 끝난다.",
+        "es-ES": "Improvisar la segunda bola: casi todo acaba en el tercer golpe.",
+        "fr-FR": "Improviser la deuxième balle — la plupart finissent au troisième coup.",
+        "id-ID": "Improvisasi bola kedua.",
+        "ms-MY": "Improvisasi bola kedua.",
+        "th-TH": "ด้นลูกที่สอง แต้มจบที่ลูกสาม",
+        "vi-VN": "Ứng biến quả hai — điểm kết ở quả ba."
       },
       "board": {
         "sportType": 2,
@@ -1537,6 +1663,20 @@
         "th-TH": "ตัดสินใจลูกที่สองก่อนตีลูกแรก แต้มส่วนใหญ่จบที่ลูกที่สาม",
         "vi-VN": "Quyết định quả thứ hai trước khi đánh quả đầu."
       },
+      "mistake": {
+        "en": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "en-GB": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "zh-CN": "临场想第二拍——大多数分第三拍就结束，来不及现编。",
+        "zh-TW": "臨場想第二拍——大多數分第三拍就結束，來不及現編。",
+        "ja-JP": "2球目を即興で——多くは3球目で終わる、アドリブには早い。",
+        "ko-KR": "둘째 공을 즉흥으로 — 대부분 3구에 끝난다.",
+        "es-ES": "Improvisar la segunda bola: casi todo acaba en el tercer golpe.",
+        "fr-FR": "Improviser la deuxième balle — la plupart finissent au troisième coup.",
+        "id-ID": "Improvisasi bola kedua.",
+        "ms-MY": "Improvisasi bola kedua.",
+        "th-TH": "ด้นลูกที่สอง แต้มจบที่ลูกสาม",
+        "vi-VN": "Ứng biến quả hai — điểm kết ở quả ba."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -1701,6 +1841,20 @@
         "th-TH": "ตัดสินใจลูกที่สองก่อนตีลูกแรก แต้มส่วนใหญ่จบที่ลูกที่สาม",
         "vi-VN": "Quyết định quả thứ hai trước khi đánh quả đầu."
       },
+      "mistake": {
+        "en": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "en-GB": "Improvising the second ball — most points end on shot three, too early to wing it.",
+        "zh-CN": "临场想第二拍——大多数分第三拍就结束，来不及现编。",
+        "zh-TW": "臨場想第二拍——大多數分第三拍就結束，來不及現編。",
+        "ja-JP": "2球目を即興で——多くは3球目で終わる、アドリブには早い。",
+        "ko-KR": "둘째 공을 즉흥으로 — 대부분 3구에 끝난다.",
+        "es-ES": "Improvisar la segunda bola: casi todo acaba en el tercer golpe.",
+        "fr-FR": "Improviser la deuxième balle — la plupart finissent au troisième coup.",
+        "id-ID": "Improvisasi bola kedua.",
+        "ms-MY": "Improvisasi bola kedua.",
+        "th-TH": "ด้นลูกที่สอง แต้มจบที่ลูกสาม",
+        "vi-VN": "Ứng biến quả hai — điểm kết ở quả ba."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -1864,6 +2018,20 @@
         "ms-MY": "Pasangan bergerak sebagai satu garisan, secara pepenjuru.",
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวกันในแนวทแยง",
         "vi-VN": "Cặp đôi di chuyển như một đường thẳng, theo đường chéo."
+      },
+      "mistake": {
+        "en": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "en-GB": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "zh-CN": "两个人各动各的——同伴被拉边时你在看，不是补。",
+        "zh-TW": "兩個人各動各的——同伴被拉邊時你在看，不是補。",
+        "ja-JP": "一本の線でなく個々に動く——相棒が振られたら見ている。",
+        "ko-KR": "한 줄이 아니라 따로 움직인다 — 파트너가 밀리면 구경한다.",
+        "es-ES": "Moverse por separado: cuando abren a tu compañero, miras.",
+        "fr-FR": "Bouger séparément — quand ton partenaire est écarté, tu regardes.",
+        "id-ID": "Bergerak sendiri-sendiri.",
+        "ms-MY": "Bergerak sendiri-sendiri.",
+        "th-TH": "ต่างคนต่างขยับ",
+        "vi-VN": "Di chuyển rời rạc."
       },
       "board": {
         "sportType": 2,
@@ -2046,6 +2214,20 @@
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวกันในแนวทแยง",
         "vi-VN": "Cặp đôi di chuyển như một đường thẳng, theo đường chéo."
       },
+      "mistake": {
+        "en": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "en-GB": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "zh-CN": "两个人各动各的——同伴被拉边时你在看，不是补。",
+        "zh-TW": "兩個人各動各的——同伴被拉邊時你在看，不是補。",
+        "ja-JP": "一本の線でなく個々に動く——相棒が振られたら見ている。",
+        "ko-KR": "한 줄이 아니라 따로 움직인다 — 파트너가 밀리면 구경한다.",
+        "es-ES": "Moverse por separado: cuando abren a tu compañero, miras.",
+        "fr-FR": "Bouger séparément — quand ton partenaire est écarté, tu regardes.",
+        "id-ID": "Bergerak sendiri-sendiri.",
+        "ms-MY": "Bergerak sendiri-sendiri.",
+        "th-TH": "ต่างคนต่างขยับ",
+        "vi-VN": "Di chuyển rời rạc."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -2226,6 +2408,20 @@
         "ms-MY": "Pasangan bergerak sebagai satu garisan, secara pepenjuru.",
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวกันในแนวทแยง",
         "vi-VN": "Cặp đôi di chuyển như một đường thẳng, theo đường chéo."
+      },
+      "mistake": {
+        "en": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "en-GB": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "zh-CN": "两个人各动各的——同伴被拉边时你在看，不是补。",
+        "zh-TW": "兩個人各動各的——同伴被拉邊時你在看，不是補。",
+        "ja-JP": "一本の線でなく個々に動く——相棒が振られたら見ている。",
+        "ko-KR": "한 줄이 아니라 따로 움직인다 — 파트너가 밀리면 구경한다.",
+        "es-ES": "Moverse por separado: cuando abren a tu compañero, miras.",
+        "fr-FR": "Bouger séparément — quand ton partenaire est écarté, tu regardes.",
+        "id-ID": "Bergerak sendiri-sendiri.",
+        "ms-MY": "Bergerak sendiri-sendiri.",
+        "th-TH": "ต่างคนต่างขยับ",
+        "vi-VN": "Di chuyển rời rạc."
       },
       "board": {
         "sportType": 2,
@@ -2408,6 +2604,20 @@
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวกันในแนวทแยง",
         "vi-VN": "Cặp đôi di chuyển như một đường thẳng, theo đường chéo."
       },
+      "mistake": {
+        "en": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "en-GB": "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.",
+        "zh-CN": "两个人各动各的——同伴被拉边时你在看，不是补。",
+        "zh-TW": "兩個人各動各的——同伴被拉邊時你在看，不是補。",
+        "ja-JP": "一本の線でなく個々に動く——相棒が振られたら見ている。",
+        "ko-KR": "한 줄이 아니라 따로 움직인다 — 파트너가 밀리면 구경한다.",
+        "es-ES": "Moverse por separado: cuando abren a tu compañero, miras.",
+        "fr-FR": "Bouger séparément — quand ton partenaire est écarté, tu regardes.",
+        "id-ID": "Bergerak sendiri-sendiri.",
+        "ms-MY": "Bergerak sendiri-sendiri.",
+        "th-TH": "ต่างคนต่างขยับ",
+        "vi-VN": "Di chuyển rời rạc."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -2589,6 +2799,20 @@
         "th-TH": "ก้าวไปข้างหน้าขณะวอลเลย์ ถ้ายืนนิ่งตี ก็คือตีจากจุดที่บังเอิญหยุด",
         "vi-VN": "Tiến lên khi vô lê, đừng đứng yên."
       },
+      "mistake": {
+        "en": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "en-GB": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "zh-CN": "站定了打截击——停着打的截击，从你恰好停下的地方来。",
+        "zh-TW": "站定了打截擊——停著打的截擊，從你恰好停下的地方來。",
+        "ja-JP": "止まってボレー——止まって打つ球は止まった場所から。",
+        "ko-KR": "멈춰서 발리 — 멈춘 자리에서 나온 공.",
+        "es-ES": "Volear parado: una volea a pie firme sale de donde te paraste.",
+        "fr-FR": "Volée à l'arrêt — elle part d'où tu t'es arrêté.",
+        "id-ID": "Voli sambil diam.",
+        "ms-MY": "Voli sambil berdiri.",
+        "th-TH": "วอลเลย์ยืนนิ่ง",
+        "vi-VN": "Vô lê đứng yên."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -2747,6 +2971,20 @@
         "ms-MY": "Maju menerusi voli, jangan berdiri diam.",
         "th-TH": "ก้าวไปข้างหน้าขณะวอลเลย์ ถ้ายืนนิ่งตี ก็คือตีจากจุดที่บังเอิญหยุด",
         "vi-VN": "Tiến lên khi vô lê, đừng đứng yên."
+      },
+      "mistake": {
+        "en": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "en-GB": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "zh-CN": "站定了打截击——停着打的截击，从你恰好停下的地方来。",
+        "zh-TW": "站定了打截擊——停著打的截擊，從你恰好停下的地方來。",
+        "ja-JP": "止まってボレー——止まって打つ球は止まった場所から。",
+        "ko-KR": "멈춰서 발리 — 멈춘 자리에서 나온 공.",
+        "es-ES": "Volear parado: una volea a pie firme sale de donde te paraste.",
+        "fr-FR": "Volée à l'arrêt — elle part d'où tu t'es arrêté.",
+        "id-ID": "Voli sambil diam.",
+        "ms-MY": "Voli sambil berdiri.",
+        "th-TH": "วอลเลย์ยืนนิ่ง",
+        "vi-VN": "Vô lê đứng yên."
       },
       "board": {
         "sportType": 2,
@@ -2907,6 +3145,20 @@
         "th-TH": "ก้าวไปข้างหน้าขณะวอลเลย์ ถ้ายืนนิ่งตี ก็คือตีจากจุดที่บังเอิญหยุด",
         "vi-VN": "Tiến lên khi vô lê, đừng đứng yên."
       },
+      "mistake": {
+        "en": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "en-GB": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "zh-CN": "站定了打截击——停着打的截击，从你恰好停下的地方来。",
+        "zh-TW": "站定了打截擊——停著打的截擊，從你恰好停下的地方來。",
+        "ja-JP": "止まってボレー——止まって打つ球は止まった場所から。",
+        "ko-KR": "멈춰서 발리 — 멈춘 자리에서 나온 공.",
+        "es-ES": "Volear parado: una volea a pie firme sale de donde te paraste.",
+        "fr-FR": "Volée à l'arrêt — elle part d'où tu t'es arrêté.",
+        "id-ID": "Voli sambil diam.",
+        "ms-MY": "Voli sambil berdiri.",
+        "th-TH": "วอลเลย์ยืนนิ่ง",
+        "vi-VN": "Vô lê đứng yên."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -3066,6 +3318,20 @@
         "th-TH": "ก้าวไปข้างหน้าขณะวอลเลย์ ถ้ายืนนิ่งตี ก็คือตีจากจุดที่บังเอิญหยุด",
         "vi-VN": "Tiến lên khi vô lê, đừng đứng yên."
       },
+      "mistake": {
+        "en": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "en-GB": "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.",
+        "zh-CN": "站定了打截击——停着打的截击，从你恰好停下的地方来。",
+        "zh-TW": "站定了打截擊——停著打的截擊，從你恰好停下的地方來。",
+        "ja-JP": "止まってボレー——止まって打つ球は止まった場所から。",
+        "ko-KR": "멈춰서 발리 — 멈춘 자리에서 나온 공.",
+        "es-ES": "Volear parado: una volea a pie firme sale de donde te paraste.",
+        "fr-FR": "Volée à l'arrêt — elle part d'où tu t'es arrêté.",
+        "id-ID": "Voli sambil diam.",
+        "ms-MY": "Voli sambil berdiri.",
+        "th-TH": "วอลเลย์ยืนนิ่ง",
+        "vi-VN": "Vô lê đứng yên."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -3224,6 +3490,20 @@
         "ms-MY": "Tinggi dan dalam dahulu, sudut jangan sekali.",
         "th-TH": "เอาความสูงและความลึกก่อน อย่าเอามุม ลูกรับที่สั้นคือลูกสุดท้ายของแต้มนั้น",
         "vi-VN": "Ưu tiên độ cao và độ sâu, tuyệt đối không góc."
+      },
+      "mistake": {
+        "en": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "en-GB": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "zh-CN": "防守球求角度——又浅又偏，是这一分最后一拍。",
+        "zh-TW": "防守球求角度——又淺又偏，是這一分最後一拍。",
+        "ja-JP": "守備の球で角度を狙う——浅く広くはその点の最後。",
+        "ko-KR": "수비 공에 각을 노린다 — 짧고 넓으면 마지막 샷.",
+        "es-ES": "Buscar ángulo en una bola defensiva: corta y abierta, último golpe.",
+        "fr-FR": "Chercher l'angle en défense — court et large, dernier coup du point.",
+        "id-ID": "Mencari sudut pada bola bertahan.",
+        "ms-MY": "Mencari sudut pada bola bertahan.",
+        "th-TH": "หาลูกมุมตอนตั้งรับ",
+        "vi-VN": "Tìm góc khi phòng thủ."
       },
       "board": {
         "sportType": 2,
@@ -3389,6 +3669,20 @@
         "th-TH": "เอาความสูงและความลึกก่อน อย่าเอามุม ลูกรับที่สั้นคือลูกสุดท้ายของแต้มนั้น",
         "vi-VN": "Ưu tiên độ cao và độ sâu, tuyệt đối không góc."
       },
+      "mistake": {
+        "en": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "en-GB": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "zh-CN": "防守球求角度——又浅又偏，是这一分最后一拍。",
+        "zh-TW": "防守球求角度——又淺又偏，是這一分最後一拍。",
+        "ja-JP": "守備の球で角度を狙う——浅く広くはその点の最後。",
+        "ko-KR": "수비 공에 각을 노린다 — 짧고 넓으면 마지막 샷.",
+        "es-ES": "Buscar ángulo en una bola defensiva: corta y abierta, último golpe.",
+        "fr-FR": "Chercher l'angle en défense — court et large, dernier coup du point.",
+        "id-ID": "Mencari sudut pada bola bertahan.",
+        "ms-MY": "Mencari sudut pada bola bertahan.",
+        "th-TH": "หาลูกมุมตอนตั้งรับ",
+        "vi-VN": "Tìm góc khi phòng thủ."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -3553,6 +3847,20 @@
         "th-TH": "เอาความสูงและความลึกก่อน อย่าเอามุม ลูกรับที่สั้นคือลูกสุดท้ายของแต้มนั้น",
         "vi-VN": "Ưu tiên độ cao và độ sâu, tuyệt đối không góc."
       },
+      "mistake": {
+        "en": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "en-GB": "Going for angle on a defensive ball — short and wide is the last shot of the point.",
+        "zh-CN": "防守球求角度——又浅又偏，是这一分最后一拍。",
+        "zh-TW": "防守球求角度——又淺又偏，是這一分最後一拍。",
+        "ja-JP": "守備の球で角度を狙う——浅く広くはその点の最後。",
+        "ko-KR": "수비 공에 각을 노린다 — 짧고 넓으면 마지막 샷.",
+        "es-ES": "Buscar ángulo en una bola defensiva: corta y abierta, último golpe.",
+        "fr-FR": "Chercher l'angle en défense — court et large, dernier coup du point.",
+        "id-ID": "Mencari sudut pada bola bertahan.",
+        "ms-MY": "Mencari sudut pada bola bertahan.",
+        "th-TH": "หาลูกมุมตอนตั้งรับ",
+        "vi-VN": "Tìm góc khi phòng thủ."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -3679,7 +3987,7 @@
         "ja-JP": "サーブ",
         "ko-KR": "서브",
         "ms-MY": "Servis",
-        "th-TH": "การเสิร์ฟ ฝั่ง",
+        "th-TH": "การเสิร์ฟ",
         "vi-VN": "Giao bóng ô",
         "zh-CN": "发球",
         "zh-TW": "發球"
@@ -3716,6 +4024,20 @@
         "ms-MY": "Lambungan sama, sasaran berbeza.",
         "th-TH": "โยนบอลเหมือนกัน แต่เป้าต่างกัน ถ้าการโยนเปลี่ยนตามเป้า เท่ากับบอกทางก่อนตี",
         "vi-VN": "Tung bóng như nhau, mục tiêu khác nhau."
+      },
+      "mistake": {
+        "en": "A toss that moves with the target — you announce the direction before you hit.",
+        "en-GB": "A toss that moves with the target — you announce the direction before you hit.",
+        "zh-CN": "抛球跟着落点走——击球前就报了方向。",
+        "zh-TW": "拋球跟著落點走——擊球前就報了方向。",
+        "ja-JP": "狙いに合わせて動くトス——打つ前にコースを教えている。",
+        "ko-KR": "목표 따라 움직이는 토스 — 치기 전에 코스를 알린다.",
+        "es-ES": "Un lanzamiento que se mueve con el objetivo: cantas la dirección.",
+        "fr-FR": "Un lancer qui suit la cible — tu annonces la direction.",
+        "id-ID": "Lambungan yang bergerak mengikuti target.",
+        "ms-MY": "Lambungan bergerak mengikut sasaran.",
+        "th-TH": "โยนบอลตามเป้า บอกทางล่วงหน้า",
+        "vi-VN": "Tung bóng theo mục tiêu — lộ hướng trước."
       },
       "board": {
         "sportType": 2,
@@ -3838,7 +4160,7 @@
         "ja-JP": "サーブ",
         "ko-KR": "서브",
         "ms-MY": "Servis",
-        "th-TH": "การเสิร์ฟ ฝั่ง",
+        "th-TH": "การเสิร์ฟ",
         "vi-VN": "Giao bóng ô",
         "zh-CN": "发球",
         "zh-TW": "發球"
@@ -3875,6 +4197,20 @@
         "ms-MY": "Lambungan sama, sasaran berbeza.",
         "th-TH": "โยนบอลเหมือนกัน แต่เป้าต่างกัน ถ้าการโยนเปลี่ยนตามเป้า เท่ากับบอกทางก่อนตี",
         "vi-VN": "Tung bóng như nhau, mục tiêu khác nhau."
+      },
+      "mistake": {
+        "en": "A toss that moves with the target — you announce the direction before you hit.",
+        "en-GB": "A toss that moves with the target — you announce the direction before you hit.",
+        "zh-CN": "抛球跟着落点走——击球前就报了方向。",
+        "zh-TW": "拋球跟著落點走——擊球前就報了方向。",
+        "ja-JP": "狙いに合わせて動くトス——打つ前にコースを教えている。",
+        "ko-KR": "목표 따라 움직이는 토스 — 치기 전에 코스를 알린다.",
+        "es-ES": "Un lanzamiento que se mueve con el objetivo: cantas la dirección.",
+        "fr-FR": "Un lancer qui suit la cible — tu annonces la direction.",
+        "id-ID": "Lambungan yang bergerak mengikuti target.",
+        "ms-MY": "Lambungan bergerak mengikut sasaran.",
+        "th-TH": "โยนบอลตามเป้า บอกทางล่วงหน้า",
+        "vi-VN": "Tung bóng theo mục tiêu — lộ hướng trước."
       },
       "board": {
         "sportType": 2,
@@ -3997,7 +4333,7 @@
         "ja-JP": "サーブ",
         "ko-KR": "서브",
         "ms-MY": "Servis",
-        "th-TH": "การเสิร์ฟ ฝั่ง",
+        "th-TH": "การเสิร์ฟ",
         "vi-VN": "Giao bóng ô",
         "zh-CN": "发球",
         "zh-TW": "發球"
@@ -4034,6 +4370,20 @@
         "ms-MY": "Lambungan sama, sasaran berbeza.",
         "th-TH": "โยนบอลเหมือนกัน แต่เป้าต่างกัน ถ้าการโยนเปลี่ยนตามเป้า เท่ากับบอกทางก่อนตี",
         "vi-VN": "Tung bóng như nhau, mục tiêu khác nhau."
+      },
+      "mistake": {
+        "en": "A toss that moves with the target — you announce the direction before you hit.",
+        "en-GB": "A toss that moves with the target — you announce the direction before you hit.",
+        "zh-CN": "抛球跟着落点走——击球前就报了方向。",
+        "zh-TW": "拋球跟著落點走——擊球前就報了方向。",
+        "ja-JP": "狙いに合わせて動くトス——打つ前にコースを教えている。",
+        "ko-KR": "목표 따라 움직이는 토스 — 치기 전에 코스를 알린다.",
+        "es-ES": "Un lanzamiento que se mueve con el objetivo: cantas la dirección.",
+        "fr-FR": "Un lancer qui suit la cible — tu annonces la direction.",
+        "id-ID": "Lambungan yang bergerak mengikuti target.",
+        "ms-MY": "Lambungan bergerak mengikut sasaran.",
+        "th-TH": "โยนบอลตามเป้า บอกทางล่วงหน้า",
+        "vi-VN": "Tung bóng theo mục tiêu — lộ hướng trước."
       },
       "board": {
         "sportType": 2,
@@ -4156,7 +4506,7 @@
         "ja-JP": "サーブ",
         "ko-KR": "서브",
         "ms-MY": "Servis",
-        "th-TH": "การเสิร์ฟ ฝั่ง",
+        "th-TH": "การเสิร์ฟ",
         "vi-VN": "Giao bóng ô",
         "zh-CN": "发球",
         "zh-TW": "發球"
@@ -4193,6 +4543,20 @@
         "ms-MY": "Lambungan sama, sasaran berbeza.",
         "th-TH": "โยนบอลเหมือนกัน แต่เป้าต่างกัน ถ้าการโยนเปลี่ยนตามเป้า เท่ากับบอกทางก่อนตี",
         "vi-VN": "Tung bóng như nhau, mục tiêu khác nhau."
+      },
+      "mistake": {
+        "en": "A toss that moves with the target — you announce the direction before you hit.",
+        "en-GB": "A toss that moves with the target — you announce the direction before you hit.",
+        "zh-CN": "抛球跟着落点走——击球前就报了方向。",
+        "zh-TW": "拋球跟著落點走——擊球前就報了方向。",
+        "ja-JP": "狙いに合わせて動くトス——打つ前にコースを教えている。",
+        "ko-KR": "목표 따라 움직이는 토스 — 치기 전에 코스를 알린다.",
+        "es-ES": "Un lanzamiento que se mueve con el objetivo: cantas la dirección.",
+        "fr-FR": "Un lancer qui suit la cible — tu annonces la direction.",
+        "id-ID": "Lambungan yang bergerak mengikuti target.",
+        "ms-MY": "Lambungan bergerak mengikut sasaran.",
+        "th-TH": "โยนบอลตามเป้า บอกทางล่วงหน้า",
+        "vi-VN": "Tung bóng theo mục tiêu — lộ hướng trước."
       },
       "board": {
         "sportType": 2,
@@ -4315,7 +4679,7 @@
         "ja-JP": "サーブ",
         "ko-KR": "서브",
         "ms-MY": "Servis",
-        "th-TH": "การเสิร์ฟ ฝั่ง",
+        "th-TH": "การเสิร์ฟ",
         "vi-VN": "Giao bóng ô",
         "zh-CN": "发球",
         "zh-TW": "發球"
@@ -4352,6 +4716,20 @@
         "ms-MY": "Lambungan sama, sasaran berbeza.",
         "th-TH": "โยนบอลเหมือนกัน แต่เป้าต่างกัน ถ้าการโยนเปลี่ยนตามเป้า เท่ากับบอกทางก่อนตี",
         "vi-VN": "Tung bóng như nhau, mục tiêu khác nhau."
+      },
+      "mistake": {
+        "en": "A toss that moves with the target — you announce the direction before you hit.",
+        "en-GB": "A toss that moves with the target — you announce the direction before you hit.",
+        "zh-CN": "抛球跟着落点走——击球前就报了方向。",
+        "zh-TW": "拋球跟著落點走——擊球前就報了方向。",
+        "ja-JP": "狙いに合わせて動くトス——打つ前にコースを教えている。",
+        "ko-KR": "목표 따라 움직이는 토스 — 치기 전에 코스를 알린다.",
+        "es-ES": "Un lanzamiento que se mueve con el objetivo: cantas la dirección.",
+        "fr-FR": "Un lancer qui suit la cible — tu annonces la direction.",
+        "id-ID": "Lambungan yang bergerak mengikuti target.",
+        "ms-MY": "Lambungan bergerak mengikut sasaran.",
+        "th-TH": "โยนบอลตามเป้า บอกทางล่วงหน้า",
+        "vi-VN": "Tung bóng theo mục tiêu — lộ hướng trước."
       },
       "board": {
         "sportType": 2,
@@ -4511,6 +4889,20 @@
         "ms-MY": "Main untuk mata dari bola pertama.",
         "th-TH": "เล่นเอาแต้มตั้งแต่ลูกแรก แบบฝึกที่แพ้ไม่ได้คือแบบฝึกที่ไม่มีใครตั้งใจ",
         "vi-VN": "Tính điểm ngay từ quả đầu tiên."
+      },
+      "mistake": {
+        "en": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "en-GB": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "zh-CN": "第一球起没当真打——输不掉的练习什么也教不了。",
+        "zh-TW": "第一球起沒當真打——輸不掉的練習什麼也教不了。",
+        "ja-JP": "1球目から本気でない——負けようのない練習は無意味。",
+        "ko-KR": "첫 공부터 진지하지 않다 — 질 수 없는 훈련은 무의미.",
+        "es-ES": "No jugar en serio desde la primera: un ejercicio que no se pierde no enseña.",
+        "fr-FR": "Ne pas jouer sérieusement dès la première balle.",
+        "id-ID": "Tidak sungguh-sungguh sejak bola pertama.",
+        "ms-MY": "Tidak bersungguh dari bola pertama.",
+        "th-TH": "ไม่เอาจริงตั้งแต่ลูกแรก",
+        "vi-VN": "Không đánh thật từ quả đầu."
       },
       "board": {
         "sportType": 2,
@@ -4686,6 +5078,20 @@
         "th-TH": "เล่นเอาแต้มตั้งแต่ลูกแรก แบบฝึกที่แพ้ไม่ได้คือแบบฝึกที่ไม่มีใครตั้งใจ",
         "vi-VN": "Tính điểm ngay từ quả đầu tiên."
       },
+      "mistake": {
+        "en": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "en-GB": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "zh-CN": "第一球起没当真打——输不掉的练习什么也教不了。",
+        "zh-TW": "第一球起沒當真打——輸不掉的練習什麼也教不了。",
+        "ja-JP": "1球目から本気でない——負けようのない練習は無意味。",
+        "ko-KR": "첫 공부터 진지하지 않다 — 질 수 없는 훈련은 무의미.",
+        "es-ES": "No jugar en serio desde la primera: un ejercicio que no se pierde no enseña.",
+        "fr-FR": "Ne pas jouer sérieusement dès la première balle.",
+        "id-ID": "Tidak sungguh-sungguh sejak bola pertama.",
+        "ms-MY": "Tidak bersungguh dari bola pertama.",
+        "th-TH": "ไม่เอาจริงตั้งแต่ลูกแรก",
+        "vi-VN": "Không đánh thật từ quả đầu."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -4820,6 +5226,20 @@
         "th-TH": "เล่นเอาแต้มตั้งแต่ลูกแรก แบบฝึกที่แพ้ไม่ได้คือแบบฝึกที่ไม่มีใครตั้งใจ",
         "vi-VN": "Tính điểm ngay từ quả đầu tiên."
       },
+      "mistake": {
+        "en": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "en-GB": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "zh-CN": "第一球起没当真打——输不掉的练习什么也教不了。",
+        "zh-TW": "第一球起沒當真打——輸不掉的練習什麼也教不了。",
+        "ja-JP": "1球目から本気でない——負けようのない練習は無意味。",
+        "ko-KR": "첫 공부터 진지하지 않다 — 질 수 없는 훈련은 무의미.",
+        "es-ES": "No jugar en serio desde la primera: un ejercicio que no se pierde no enseña.",
+        "fr-FR": "Ne pas jouer sérieusement dès la première balle.",
+        "id-ID": "Tidak sungguh-sungguh sejak bola pertama.",
+        "ms-MY": "Tidak bersungguh dari bola pertama.",
+        "th-TH": "ไม่เอาจริงตั้งแต่ลูกแรก",
+        "vi-VN": "Không đánh thật từ quả đầu."
+      },
       "board": {
         "sportType": 2,
         "players": [
@@ -4953,6 +5373,20 @@
         "ms-MY": "Main untuk mata dari bola pertama.",
         "th-TH": "เล่นเอาแต้มตั้งแต่ลูกแรก แบบฝึกที่แพ้ไม่ได้คือแบบฝึกที่ไม่มีใครตั้งใจ",
         "vi-VN": "Tính điểm ngay từ quả đầu tiên."
+      },
+      "mistake": {
+        "en": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "en-GB": "Not playing for real from the first ball — a drill you cannot lose teaches nothing.",
+        "zh-CN": "第一球起没当真打——输不掉的练习什么也教不了。",
+        "zh-TW": "第一球起沒當真打——輸不掉的練習什麼也教不了。",
+        "ja-JP": "1球目から本気でない——負けようのない練習は無意味。",
+        "ko-KR": "첫 공부터 진지하지 않다 — 질 수 없는 훈련은 무의미.",
+        "es-ES": "No jugar en serio desde la primera: un ejercicio que no se pierde no enseña.",
+        "fr-FR": "Ne pas jouer sérieusement dès la première balle.",
+        "id-ID": "Tidak sungguh-sungguh sejak bola pertama.",
+        "ms-MY": "Tidak bersungguh dari bola pertama.",
+        "th-TH": "ไม่เอาจริงตั้งแต่ลูกแรก",
+        "vi-VN": "Không đánh thật từ quả đầu."
       },
       "board": {
         "sportType": 2,

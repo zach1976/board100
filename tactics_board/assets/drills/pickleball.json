@@ -53,6 +53,20 @@
         "th-TH": "เริ่มที่หน้าเน็ต ไม่ใช่เส้นหลัง เกมชนะกันตรงนั้น",
         "vi-VN": "Bắt đầu ở vùng bếp, không phải vạch cuối."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -232,6 +246,20 @@
         "th-TH": "เริ่มที่หน้าเน็ต ไม่ใช่เส้นหลัง เกมชนะกันตรงนั้น",
         "vi-VN": "Bắt đầu ở vùng bếp, không phải vạch cuối."
       },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -410,6 +438,20 @@
         "ms-MY": "Mula di kitchen, bukan di garisan belakang.",
         "th-TH": "เริ่มที่หน้าเน็ต ไม่ใช่เส้นหลัง เกมชนะกันตรงนั้น",
         "vi-VN": "Bắt đầu ở vùng bếp, không phải vạch cuối."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
       },
       "board": {
         "sportType": 5,
@@ -595,6 +637,20 @@
         "th-TH": "ดันจากไหล่ ข้อมือนิ่ง เล็งขอบบนของเน็ต ไม่ใช่พื้น ดิ้งก์ที่ลอยคือดิ้งก์ที่โดนตบ",
         "vi-VN": "Đẩy từ vai, cổ tay cố định, nhắm mép trên của lưới."
       },
+      "mistake": {
+        "en": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "en-GB": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "zh-CN": "小球放高了——高过网的球就是被打死的球。",
+        "zh-TW": "小球放高了——高過網的球就是被打死的球。",
+        "ja-JP": "ディンクが浮く——ネットより高い球は叩かれる。",
+        "ko-KR": "딩크가 뜬다 — 네트 위 공은 맞는 공.",
+        "es-ES": "Dejar subir el dink: una bola sobre la red la atacan.",
+        "fr-FR": "Laisser monter le dink — une balle au-dessus du filet est attaquée.",
+        "id-ID": "Membiarkan dink naik.",
+        "ms-MY": "Membiarkan dink naik.",
+        "th-TH": "ดิ้งก์ลอย",
+        "vi-VN": "Bỏ nhỏ bị nổi."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -766,6 +822,20 @@
         "ms-MY": "Tolak dari bahu dengan pergelangan tangan tetap, sasarkan bibir jaring.",
         "th-TH": "ดันจากไหล่ ข้อมือนิ่ง เล็งขอบบนของเน็ต ไม่ใช่พื้น ดิ้งก์ที่ลอยคือดิ้งก์ที่โดนตบ",
         "vi-VN": "Đẩy từ vai, cổ tay cố định, nhắm mép trên của lưới."
+      },
+      "mistake": {
+        "en": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "en-GB": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "zh-CN": "小球放高了——高过网的球就是被打死的球。",
+        "zh-TW": "小球放高了——高過網的球就是被打死的球。",
+        "ja-JP": "ディンクが浮く——ネットより高い球は叩かれる。",
+        "ko-KR": "딩크가 뜬다 — 네트 위 공은 맞는 공.",
+        "es-ES": "Dejar subir el dink: una bola sobre la red la atacan.",
+        "fr-FR": "Laisser monter le dink — une balle au-dessus du filet est attaquée.",
+        "id-ID": "Membiarkan dink naik.",
+        "ms-MY": "Membiarkan dink naik.",
+        "th-TH": "ดิ้งก์ลอย",
+        "vi-VN": "Bỏ nhỏ bị nổi."
       },
       "board": {
         "sportType": 5,
@@ -946,6 +1016,20 @@
         "th-TH": "ดันจากไหล่ ข้อมือนิ่ง เล็งขอบบนของเน็ต ไม่ใช่พื้น ดิ้งก์ที่ลอยคือดิ้งก์ที่โดนตบ",
         "vi-VN": "Đẩy từ vai, cổ tay cố định, nhắm mép trên của lưới."
       },
+      "mistake": {
+        "en": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "en-GB": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "zh-CN": "小球放高了——高过网的球就是被打死的球。",
+        "zh-TW": "小球放高了——高過網的球就是被打死的球。",
+        "ja-JP": "ディンクが浮く——ネットより高い球は叩かれる。",
+        "ko-KR": "딩크가 뜬다 — 네트 위 공은 맞는 공.",
+        "es-ES": "Dejar subir el dink: una bola sobre la red la atacan.",
+        "fr-FR": "Laisser monter le dink — une balle au-dessus du filet est attaquée.",
+        "id-ID": "Membiarkan dink naik.",
+        "ms-MY": "Membiarkan dink naik.",
+        "th-TH": "ดิ้งก์ลอย",
+        "vi-VN": "Bỏ nhỏ bị nổi."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -1124,6 +1208,20 @@
         "ms-MY": "Tolak dari bahu dengan pergelangan tangan tetap, sasarkan bibir jaring.",
         "th-TH": "ดันจากไหล่ ข้อมือนิ่ง เล็งขอบบนของเน็ต ไม่ใช่พื้น ดิ้งก์ที่ลอยคือดิ้งก์ที่โดนตบ",
         "vi-VN": "Đẩy từ vai, cổ tay cố định, nhắm mép trên của lưới."
+      },
+      "mistake": {
+        "en": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "en-GB": "Letting the dink rise — a ball above the net is a ball they attack.",
+        "zh-CN": "小球放高了——高过网的球就是被打死的球。",
+        "zh-TW": "小球放高了——高過網的球就是被打死的球。",
+        "ja-JP": "ディンクが浮く——ネットより高い球は叩かれる。",
+        "ko-KR": "딩크가 뜬다 — 네트 위 공은 맞는 공.",
+        "es-ES": "Dejar subir el dink: una bola sobre la red la atacan.",
+        "fr-FR": "Laisser monter le dink — une balle au-dessus du filet est attaquée.",
+        "id-ID": "Membiarkan dink naik.",
+        "ms-MY": "Membiarkan dink naik.",
+        "th-TH": "ดิ้งก์ลอย",
+        "vi-VN": "Bỏ nhỏ bị nổi."
       },
       "board": {
         "sportType": 5,
@@ -1304,6 +1402,20 @@
         "th-TH": "ทั้งคู่ต้องลึก แต่ด้วยเหตุผลต่างกัน",
         "vi-VN": "Cả hai đều sâu, vì lý do khác nhau."
       },
+      "mistake": {
+        "en": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "en-GB": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "zh-CN": "发球或接发太浅——深度才能把对方挡在厨房外。",
+        "zh-TW": "發球或接發太淺——深度才能把對方擋在廚房外。",
+        "ja-JP": "浅いサーブやリターン——深さが相手を前に来させない。",
+        "ko-KR": "얕은 서브나 리턴 — 깊이가 상대를 막는다.",
+        "es-ES": "Un saque o resto corto: la profundidad los aleja de la cocina.",
+        "fr-FR": "Un service ou retour court — la profondeur les tient loin de la cuisine.",
+        "id-ID": "Servis atau pengembalian pendek.",
+        "ms-MY": "Servis atau pulangan pendek.",
+        "th-TH": "เสิร์ฟหรือรับตื้น",
+        "vi-VN": "Giao hay trả nông."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -1458,6 +1570,20 @@
         "th-TH": "ทั้งคู่ต้องลึก แต่ด้วยเหตุผลต่างกัน",
         "vi-VN": "Cả hai đều sâu, vì lý do khác nhau."
       },
+      "mistake": {
+        "en": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "en-GB": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "zh-CN": "发球或接发太浅——深度才能把对方挡在厨房外。",
+        "zh-TW": "發球或接發太淺——深度才能把對方擋在廚房外。",
+        "ja-JP": "浅いサーブやリターン——深さが相手を前に来させない。",
+        "ko-KR": "얕은 서브나 리턴 — 깊이가 상대를 막는다.",
+        "es-ES": "Un saque o resto corto: la profundidad los aleja de la cocina.",
+        "fr-FR": "Un service ou retour court — la profondeur les tient loin de la cuisine.",
+        "id-ID": "Servis atau pengembalian pendek.",
+        "ms-MY": "Servis atau pulangan pendek.",
+        "th-TH": "เสิร์ฟหรือรับตื้น",
+        "vi-VN": "Giao hay trả nông."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -1611,6 +1737,20 @@
         "ms-MY": "Kedua-duanya dalam, atas sebab berbeza.",
         "th-TH": "ทั้งคู่ต้องลึก แต่ด้วยเหตุผลต่างกัน",
         "vi-VN": "Cả hai đều sâu, vì lý do khác nhau."
+      },
+      "mistake": {
+        "en": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "en-GB": "A shallow serve or return — depth is what keeps them off the kitchen.",
+        "zh-CN": "发球或接发太浅——深度才能把对方挡在厨房外。",
+        "zh-TW": "發球或接發太淺——深度才能把對方擋在廚房外。",
+        "ja-JP": "浅いサーブやリターン——深さが相手を前に来させない。",
+        "ko-KR": "얕은 서브나 리턴 — 깊이가 상대를 막는다.",
+        "es-ES": "Un saque o resto corto: la profundidad los aleja de la cocina.",
+        "fr-FR": "Un service ou retour court — la profondeur les tient loin de la cuisine.",
+        "id-ID": "Servis atau pengembalian pendek.",
+        "ms-MY": "Servis atau pulangan pendek.",
+        "th-TH": "เสิร์ฟหรือรับตื้น",
+        "vi-VN": "Giao hay trả nông."
       },
       "board": {
         "sportType": 5,
@@ -1770,6 +1910,20 @@
         "ms-MY": "Pukulan ketiga wujud untuk membeli langkah anda ke kitchen. Pukul dan maju.",
         "th-TH": "ลูกที่สามมีไว้ซื้อเวลาเดินขึ้นไปหน้าเน็ต ตีแล้วขึ้นเลย",
         "vi-VN": "Cú thứ ba tồn tại để mua bước tiến lên lưới. Đánh rồi tiến."
+      },
+      "mistake": {
+        "en": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "en-GB": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "zh-CN": "站底线欣赏自己的落球——第三拍换的是上网的步子，快上。",
+        "zh-TW": "站底線欣賞自己的落球——第三拍換的是上網的步子，快上。",
+        "ja-JP": "ベースラインでドロップに見とれる——3球目は前進を買う球。",
+        "ko-KR": "베이스라인에서 감상한다 — 서드샷은 전진을 산다.",
+        "es-ES": "Admirar el drop desde el fondo: el tercer golpe compra la subida.",
+        "fr-FR": "Admirer le drop du fond — la troisième frappe paie la montée.",
+        "id-ID": "Mengagumi drop dari garis belakang.",
+        "ms-MY": "Mengagumi drop dari garisan belakang.",
+        "th-TH": "ยืนชมดรอปจากเส้นหลัง",
+        "vi-VN": "Đứng ngắm cú thả từ cuối sân."
       },
       "board": {
         "sportType": 5,
@@ -2002,6 +2156,20 @@
         "th-TH": "ลูกที่สามมีไว้ซื้อเวลาเดินขึ้นไปหน้าเน็ต ตีแล้วขึ้นเลย",
         "vi-VN": "Cú thứ ba tồn tại để mua bước tiến lên lưới. Đánh rồi tiến."
       },
+      "mistake": {
+        "en": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "en-GB": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "zh-CN": "站底线欣赏自己的落球——第三拍换的是上网的步子，快上。",
+        "zh-TW": "站底線欣賞自己的落球——第三拍換的是上網的步子，快上。",
+        "ja-JP": "ベースラインでドロップに見とれる——3球目は前進を買う球。",
+        "ko-KR": "베이스라인에서 감상한다 — 서드샷은 전진을 산다.",
+        "es-ES": "Admirar el drop desde el fondo: el tercer golpe compra la subida.",
+        "fr-FR": "Admirer le drop du fond — la troisième frappe paie la montée.",
+        "id-ID": "Mengagumi drop dari garis belakang.",
+        "ms-MY": "Mengagumi drop dari garisan belakang.",
+        "th-TH": "ยืนชมดรอปจากเส้นหลัง",
+        "vi-VN": "Đứng ngắm cú thả từ cuối sân."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -2233,6 +2401,20 @@
         "th-TH": "ลูกที่สามมีไว้ซื้อเวลาเดินขึ้นไปหน้าเน็ต ตีแล้วขึ้นเลย",
         "vi-VN": "Cú thứ ba tồn tại để mua bước tiến lên lưới. Đánh rồi tiến."
       },
+      "mistake": {
+        "en": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "en-GB": "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.",
+        "zh-CN": "站底线欣赏自己的落球——第三拍换的是上网的步子，快上。",
+        "zh-TW": "站底線欣賞自己的落球——第三拍換的是上網的步子，快上。",
+        "ja-JP": "ベースラインでドロップに見とれる——3球目は前進を買う球。",
+        "ko-KR": "베이스라인에서 감상한다 — 서드샷은 전진을 산다.",
+        "es-ES": "Admirar el drop desde el fondo: el tercer golpe compra la subida.",
+        "fr-FR": "Admirer le drop du fond — la troisième frappe paie la montée.",
+        "id-ID": "Mengagumi drop dari garis belakang.",
+        "ms-MY": "Mengagumi drop dari garisan belakang.",
+        "th-TH": "ยืนชมดรอปจากเส้นหลัง",
+        "vi-VN": "Đứng ngắm cú thả từ cuối sân."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -2421,7 +2603,7 @@
         "ja-JP": "スピードアップ",
         "ko-KR": "스피드업",
         "ms-MY": "Pecutan",
-        "th-TH": "การเร่งจังหวะ เ",
+        "th-TH": "การเร่งจังหวะ",
         "vi-VN": "Tăng tốc",
         "zh-CN": "突然加速",
         "zh-TW": "突然加速"
@@ -2458,6 +2640,20 @@
         "ms-MY": "Serang hanya bola di atas jaring, ke bahu yang tidak dapat mereka silang.",
         "th-TH": "เร่งเฉพาะลูกที่สูงกว่าเน็ต ไปที่ไหล่ที่เขาเอื้อมข้ามไม่ได้",
         "vi-VN": "Chỉ tấn công bóng cao hơn lưới, vào vai họ không với qua được."
+      },
+      "mistake": {
+        "en": "Speeding up a low ball — you start a firefight from underneath.",
+        "en-GB": "Speeding up a low ball — you start a firefight from underneath.",
+        "zh-CN": "把低球加速——从下风位置主动开打。",
+        "zh-TW": "把低球加速——從下風位置主動開打。",
+        "ja-JP": "低い球を速くする——不利な位置から撃ち合いを始める。",
+        "ko-KR": "낮은 공을 빠르게 — 불리하게 난타 시작.",
+        "es-ES": "Acelerar una bola baja: inicias un tiroteo en desventaja.",
+        "fr-FR": "Accélérer une balle basse — tu ouvres l'échange en dessous.",
+        "id-ID": "Mempercepat bola rendah.",
+        "ms-MY": "Mempercepat bola rendah.",
+        "th-TH": "เร่งลูกต่ำ",
+        "vi-VN": "Tăng tốc bóng thấp."
       },
       "board": {
         "sportType": 5,
@@ -2635,7 +2831,7 @@
         "ja-JP": "スピードアップ",
         "ko-KR": "스피드업",
         "ms-MY": "Pecutan",
-        "th-TH": "การเร่งจังหวะ เ",
+        "th-TH": "การเร่งจังหวะ",
         "vi-VN": "Tăng tốc",
         "zh-CN": "突然加速",
         "zh-TW": "突然加速"
@@ -2672,6 +2868,20 @@
         "ms-MY": "Serang hanya bola di atas jaring, ke bahu yang tidak dapat mereka silang.",
         "th-TH": "เร่งเฉพาะลูกที่สูงกว่าเน็ต ไปที่ไหล่ที่เขาเอื้อมข้ามไม่ได้",
         "vi-VN": "Chỉ tấn công bóng cao hơn lưới, vào vai họ không với qua được."
+      },
+      "mistake": {
+        "en": "Speeding up a low ball — you start a firefight from underneath.",
+        "en-GB": "Speeding up a low ball — you start a firefight from underneath.",
+        "zh-CN": "把低球加速——从下风位置主动开打。",
+        "zh-TW": "把低球加速——從下風位置主動開打。",
+        "ja-JP": "低い球を速くする——不利な位置から撃ち合いを始める。",
+        "ko-KR": "낮은 공을 빠르게 — 불리하게 난타 시작.",
+        "es-ES": "Acelerar una bola baja: inicias un tiroteo en desventaja.",
+        "fr-FR": "Accélérer une balle basse — tu ouvres l'échange en dessous.",
+        "id-ID": "Mempercepat bola rendah.",
+        "ms-MY": "Mempercepat bola rendah.",
+        "th-TH": "เร่งลูกต่ำ",
+        "vi-VN": "Tăng tốc bóng thấp."
       },
       "board": {
         "sportType": 5,
@@ -2849,7 +3059,7 @@
         "ja-JP": "スピードアップ",
         "ko-KR": "스피드업",
         "ms-MY": "Pecutan",
-        "th-TH": "การเร่งจังหวะ เ",
+        "th-TH": "การเร่งจังหวะ",
         "vi-VN": "Tăng tốc",
         "zh-CN": "突然加速",
         "zh-TW": "突然加速"
@@ -2886,6 +3096,20 @@
         "ms-MY": "Serang hanya bola di atas jaring, ke bahu yang tidak dapat mereka silang.",
         "th-TH": "เร่งเฉพาะลูกที่สูงกว่าเน็ต ไปที่ไหล่ที่เขาเอื้อมข้ามไม่ได้",
         "vi-VN": "Chỉ tấn công bóng cao hơn lưới, vào vai họ không với qua được."
+      },
+      "mistake": {
+        "en": "Speeding up a low ball — you start a firefight from underneath.",
+        "en-GB": "Speeding up a low ball — you start a firefight from underneath.",
+        "zh-CN": "把低球加速——从下风位置主动开打。",
+        "zh-TW": "把低球加速——從下風位置主動開打。",
+        "ja-JP": "低い球を速くする——不利な位置から撃ち合いを始める。",
+        "ko-KR": "낮은 공을 빠르게 — 불리하게 난타 시작.",
+        "es-ES": "Acelerar una bola baja: inicias un tiroteo en desventaja.",
+        "fr-FR": "Accélérer une balle basse — tu ouvres l'échange en dessous.",
+        "id-ID": "Mempercepat bola rendah.",
+        "ms-MY": "Mempercepat bola rendah.",
+        "th-TH": "เร่งลูกต่ำ",
+        "vi-VN": "Tăng tốc bóng thấp."
       },
       "board": {
         "sportType": 5,
@@ -3106,6 +3330,20 @@
         "th-TH": "ตบลงที่เท้าเขา ไม่ใช่ที่ช่องว่าง ที่เท้าไม่มีใครมีคำตอบดี ๆ",
         "vi-VN": "Đánh xuống chân họ, không phải vào khoảng trống."
       },
+      "mistake": {
+        "en": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "en-GB": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "zh-CN": "打空档不打脚——空档里藏着救球，脚下没有。",
+        "zh-TW": "打空檔不打腳——空檔裡藏著救球，腳下沒有。",
+        "ja-JP": "足元でなくオープンへ——空きには拾いが残る。",
+        "ko-KR": "발밑이 아니라 빈 코트로 — 빈 코트엔 수습이 남는다.",
+        "es-ES": "Apuntar al hueco, no a los pies: el hueco admite carrera.",
+        "fr-FR": "Viser l'espace libre, pas les pieds — l'espace laisse une course.",
+        "id-ID": "Membidik ruang kosong, bukan kaki.",
+        "ms-MY": "Membidik ruang kosong, bukan kaki.",
+        "th-TH": "เล็งช่องว่างไม่เล็งเท้า",
+        "vi-VN": "Nhắm khoảng trống thay vì chân."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -3299,6 +3537,20 @@
         "ms-MY": "Pukul ke bawah ke arah kaki mereka, bukan ke ruang kosong.",
         "th-TH": "ตบลงที่เท้าเขา ไม่ใช่ที่ช่องว่าง ที่เท้าไม่มีใครมีคำตอบดี ๆ",
         "vi-VN": "Đánh xuống chân họ, không phải vào khoảng trống."
+      },
+      "mistake": {
+        "en": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "en-GB": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "zh-CN": "打空档不打脚——空档里藏着救球，脚下没有。",
+        "zh-TW": "打空檔不打腳——空檔裡藏著救球，腳下沒有。",
+        "ja-JP": "足元でなくオープンへ——空きには拾いが残る。",
+        "ko-KR": "발밑이 아니라 빈 코트로 — 빈 코트엔 수습이 남는다.",
+        "es-ES": "Apuntar al hueco, no a los pies: el hueco admite carrera.",
+        "fr-FR": "Viser l'espace libre, pas les pieds — l'espace laisse une course.",
+        "id-ID": "Membidik ruang kosong, bukan kaki.",
+        "ms-MY": "Membidik ruang kosong, bukan kaki.",
+        "th-TH": "เล็งช่องว่างไม่เล็งเท้า",
+        "vi-VN": "Nhắm khoảng trống thay vì chân."
       },
       "board": {
         "sportType": 5,
@@ -3494,6 +3746,20 @@
         "th-TH": "ตบลงที่เท้าเขา ไม่ใช่ที่ช่องว่าง ที่เท้าไม่มีใครมีคำตอบดี ๆ",
         "vi-VN": "Đánh xuống chân họ, không phải vào khoảng trống."
       },
+      "mistake": {
+        "en": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "en-GB": "Aiming at open court, not their feet — the court has a scramble in it, the feet do not.",
+        "zh-CN": "打空档不打脚——空档里藏着救球，脚下没有。",
+        "zh-TW": "打空檔不打腳——空檔裡藏著救球，腳下沒有。",
+        "ja-JP": "足元でなくオープンへ——空きには拾いが残る。",
+        "ko-KR": "발밑이 아니라 빈 코트로 — 빈 코트엔 수습이 남는다.",
+        "es-ES": "Apuntar al hueco, no a los pies: el hueco admite carrera.",
+        "fr-FR": "Viser l'espace libre, pas les pieds — l'espace laisse une course.",
+        "id-ID": "Membidik ruang kosong, bukan kaki.",
+        "ms-MY": "Membidik ruang kosong, bukan kaki.",
+        "th-TH": "เล็งช่องว่างไม่เล็งเท้า",
+        "vi-VN": "Nhắm khoảng trống thay vì chân."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -3645,7 +3911,7 @@
         "en": "Defending",
         "en-GB": "Defending",
         "es-ES": "Defensa",
-        "fr-FR": "Défense l",
+        "fr-FR": "Défense",
         "id-ID": "Bertahan",
         "ja-JP": "ディフェンス",
         "ko-KR": "수비",
@@ -3687,6 +3953,20 @@
         "ms-MY": "Tangan lembut, pedal di hadapan, dan kembalikan bola ke kitchen.",
         "th-TH": "มือนุ่ม ไม้อยู่ข้างหน้า แล้วหย่อนบอลกลับลงหน้าเน็ต",
         "vi-VN": "Tay mềm, vợt phía trước, đưa bóng trở lại vùng bếp."
+      },
+      "mistake": {
+        "en": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "en-GB": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "zh-CN": "硬挡而不是软挡——每次硬回都送对方第二次进攻。",
+        "zh-TW": "硬擋而不是軟擋——每次硬回都送對方第二次進攻。",
+        "ja-JP": "柔らかくでなく硬くブロック——硬い返球は2度目の攻撃を渡す。",
+        "ko-KR": "부드럽게가 아니라 세게 막는다 — 두 번째 공격을 준다.",
+        "es-ES": "Bloquear duro en vez de blando: cada respuesta dura da otro ataque.",
+        "fr-FR": "Bloquer dur au lieu de doux — chaque réponse dure offre une 2e attaque.",
+        "id-ID": "Blok keras alih-alih lembut.",
+        "ms-MY": "Blok keras dan bukannya lembut.",
+        "th-TH": "บล็อกแข็งแทนที่จะนุ่ม",
+        "vi-VN": "Chắn mạnh thay vì mềm."
       },
       "board": {
         "sportType": 5,
@@ -3839,7 +4119,7 @@
         "en": "Defending",
         "en-GB": "Defending",
         "es-ES": "Defensa",
-        "fr-FR": "Défense l",
+        "fr-FR": "Défense",
         "id-ID": "Bertahan",
         "ja-JP": "ディフェンス",
         "ko-KR": "수비",
@@ -3881,6 +4161,20 @@
         "ms-MY": "Tangan lembut, pedal di hadapan, dan kembalikan bola ke kitchen.",
         "th-TH": "มือนุ่ม ไม้อยู่ข้างหน้า แล้วหย่อนบอลกลับลงหน้าเน็ต",
         "vi-VN": "Tay mềm, vợt phía trước, đưa bóng trở lại vùng bếp."
+      },
+      "mistake": {
+        "en": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "en-GB": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "zh-CN": "硬挡而不是软挡——每次硬回都送对方第二次进攻。",
+        "zh-TW": "硬擋而不是軟擋——每次硬回都送對方第二次進攻。",
+        "ja-JP": "柔らかくでなく硬くブロック——硬い返球は2度目の攻撃を渡す。",
+        "ko-KR": "부드럽게가 아니라 세게 막는다 — 두 번째 공격을 준다.",
+        "es-ES": "Bloquear duro en vez de blando: cada respuesta dura da otro ataque.",
+        "fr-FR": "Bloquer dur au lieu de doux — chaque réponse dure offre une 2e attaque.",
+        "id-ID": "Blok keras alih-alih lembut.",
+        "ms-MY": "Blok keras dan bukannya lembut.",
+        "th-TH": "บล็อกแข็งแทนที่จะนุ่ม",
+        "vi-VN": "Chắn mạnh thay vì mềm."
       },
       "board": {
         "sportType": 5,
@@ -4033,7 +4327,7 @@
         "en": "Defending",
         "en-GB": "Defending",
         "es-ES": "Defensa",
-        "fr-FR": "Défense l",
+        "fr-FR": "Défense",
         "id-ID": "Bertahan",
         "ja-JP": "ディフェンス",
         "ko-KR": "수비",
@@ -4075,6 +4369,20 @@
         "ms-MY": "Tangan lembut, pedal di hadapan, dan kembalikan bola ke kitchen.",
         "th-TH": "มือนุ่ม ไม้อยู่ข้างหน้า แล้วหย่อนบอลกลับลงหน้าเน็ต",
         "vi-VN": "Tay mềm, vợt phía trước, đưa bóng trở lại vùng bếp."
+      },
+      "mistake": {
+        "en": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "en-GB": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "zh-CN": "硬挡而不是软挡——每次硬回都送对方第二次进攻。",
+        "zh-TW": "硬擋而不是軟擋——每次硬回都送對方第二次進攻。",
+        "ja-JP": "柔らかくでなく硬くブロック——硬い返球は2度目の攻撃を渡す。",
+        "ko-KR": "부드럽게가 아니라 세게 막는다 — 두 번째 공격을 준다.",
+        "es-ES": "Bloquear duro en vez de blando: cada respuesta dura da otro ataque.",
+        "fr-FR": "Bloquer dur au lieu de doux — chaque réponse dure offre une 2e attaque.",
+        "id-ID": "Blok keras alih-alih lembut.",
+        "ms-MY": "Blok keras dan bukannya lembut.",
+        "th-TH": "บล็อกแข็งแทนที่จะนุ่ม",
+        "vi-VN": "Chắn mạnh thay vì mềm."
       },
       "board": {
         "sportType": 5,
@@ -4227,7 +4535,7 @@
         "en": "Defending",
         "en-GB": "Defending",
         "es-ES": "Defensa",
-        "fr-FR": "Défense l",
+        "fr-FR": "Défense",
         "id-ID": "Bertahan",
         "ja-JP": "ディフェンス",
         "ko-KR": "수비",
@@ -4269,6 +4577,20 @@
         "ms-MY": "Tangan lembut, pedal di hadapan, dan kembalikan bola ke kitchen.",
         "th-TH": "มือนุ่ม ไม้อยู่ข้างหน้า แล้วหย่อนบอลกลับลงหน้าเน็ต",
         "vi-VN": "Tay mềm, vợt phía trước, đưa bóng trở lại vùng bếp."
+      },
+      "mistake": {
+        "en": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "en-GB": "Blocking hard instead of soft — every hard reply hands them a second attack.",
+        "zh-CN": "硬挡而不是软挡——每次硬回都送对方第二次进攻。",
+        "zh-TW": "硬擋而不是軟擋——每次硬回都送對方第二次進攻。",
+        "ja-JP": "柔らかくでなく硬くブロック——硬い返球は2度目の攻撃を渡す。",
+        "ko-KR": "부드럽게가 아니라 세게 막는다 — 두 번째 공격을 준다.",
+        "es-ES": "Bloquear duro en vez de blando: cada respuesta dura da otro ataque.",
+        "fr-FR": "Bloquer dur au lieu de doux — chaque réponse dure offre une 2e attaque.",
+        "id-ID": "Blok keras alih-alih lembut.",
+        "ms-MY": "Blok keras dan bukannya lembut.",
+        "th-TH": "บล็อกแข็งแทนที่จะนุ่ม",
+        "vi-VN": "Chắn mạnh thay vì mềm."
       },
       "board": {
         "sportType": 5,
@@ -4463,6 +4785,20 @@
         "ms-MY": "Pasangan bergerak sebagai satu garisan dan kekal berhubung.",
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวและไม่ขาดจากกัน",
         "vi-VN": "Cặp đôi di chuyển như một đường và luôn liền mạch."
+      },
+      "mistake": {
+        "en": "Breaking the two-man line — the gap between you is the shot they want.",
+        "en-GB": "Breaking the two-man line — the gap between you is the shot they want.",
+        "zh-CN": "破坏两人一线——你们之间的空当正是对手想打的。",
+        "zh-TW": "破壞兩人一線——你們之間的空當正是對手想打的。",
+        "ja-JP": "2人の線を崩す——間の隙間こそ相手の狙い。",
+        "ko-KR": "두 명의 선이 깨진다 — 그 틈이 상대의 노림수.",
+        "es-ES": "Romper la línea de dos: el hueco entre vosotros es su golpe.",
+        "fr-FR": "Casser la ligne à deux — le trou entre vous est leur coup.",
+        "id-ID": "Memecah garis dua orang.",
+        "ms-MY": "Memecahkan garisan dua orang.",
+        "th-TH": "แนวสองคนขาด",
+        "vi-VN": "Đứt tuyến hai người."
       },
       "board": {
         "sportType": 5,
@@ -4670,6 +5006,20 @@
         "ms-MY": "Pasangan bergerak sebagai satu garisan dan kekal berhubung.",
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวและไม่ขาดจากกัน",
         "vi-VN": "Cặp đôi di chuyển như một đường và luôn liền mạch."
+      },
+      "mistake": {
+        "en": "Breaking the two-man line — the gap between you is the shot they want.",
+        "en-GB": "Breaking the two-man line — the gap between you is the shot they want.",
+        "zh-CN": "破坏两人一线——你们之间的空当正是对手想打的。",
+        "zh-TW": "破壞兩人一線——你們之間的空當正是對手想打的。",
+        "ja-JP": "2人の線を崩す——間の隙間こそ相手の狙い。",
+        "ko-KR": "두 명의 선이 깨진다 — 그 틈이 상대의 노림수.",
+        "es-ES": "Romper la línea de dos: el hueco entre vosotros es su golpe.",
+        "fr-FR": "Casser la ligne à deux — le trou entre vous est leur coup.",
+        "id-ID": "Memecah garis dua orang.",
+        "ms-MY": "Memecahkan garisan dua orang.",
+        "th-TH": "แนวสองคนขาด",
+        "vi-VN": "Đứt tuyến hai người."
       },
       "board": {
         "sportType": 5,
@@ -4892,6 +5242,20 @@
         "th-TH": "คู่ต้องขยับเป็นเส้นเดียวและไม่ขาดจากกัน",
         "vi-VN": "Cặp đôi di chuyển như một đường và luôn liền mạch."
       },
+      "mistake": {
+        "en": "Breaking the two-man line — the gap between you is the shot they want.",
+        "en-GB": "Breaking the two-man line — the gap between you is the shot they want.",
+        "zh-CN": "破坏两人一线——你们之间的空当正是对手想打的。",
+        "zh-TW": "破壞兩人一線——你們之間的空當正是對手想打的。",
+        "ja-JP": "2人の線を崩す——間の隙間こそ相手の狙い。",
+        "ko-KR": "두 명의 선이 깨진다 — 그 틈이 상대의 노림수.",
+        "es-ES": "Romper la línea de dos: el hueco entre vosotros es su golpe.",
+        "fr-FR": "Casser la ligne à deux — le trou entre vous est leur coup.",
+        "id-ID": "Memecah garis dua orang.",
+        "ms-MY": "Memecahkan garisan dua orang.",
+        "th-TH": "แนวสองคนขาด",
+        "vi-VN": "Đứt tuyến hai người."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -5112,6 +5476,20 @@
         "ms-MY": "Haramkan pukulan yang terlebih guna, selebihnya pasti bertambah baik.",
         "th-TH": "ห้ามลูกที่เขาใช้บ่อยเกินไป ส่วนที่เหลือจะดีขึ้นเอง",
         "vi-VN": "Cấm cú họ lạm dụng, phần còn lại buộc phải tốt lên."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 5,
@@ -5341,6 +5719,20 @@
         "th-TH": "ห้ามลูกที่เขาใช้บ่อยเกินไป ส่วนที่เหลือจะดีขึ้นเอง",
         "vi-VN": "Cấm cú họ lạm dụng, phần còn lại buộc phải tốt lên."
       },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
       "board": {
         "sportType": 5,
         "players": [
@@ -5514,6 +5906,20 @@
         "ms-MY": "Haramkan pukulan yang terlebih guna, selebihnya pasti bertambah baik.",
         "th-TH": "ห้ามลูกที่เขาใช้บ่อยเกินไป ส่วนที่เหลือจะดีขึ้นเอง",
         "vi-VN": "Cấm cú họ lạm dụng, phần còn lại buộc phải tốt lên."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 5,
@@ -5742,6 +6148,20 @@
         "ms-MY": "Haramkan pukulan yang terlebih guna, selebihnya pasti bertambah baik.",
         "th-TH": "ห้ามลูกที่เขาใช้บ่อยเกินไป ส่วนที่เหลือจะดีขึ้นเอง",
         "vi-VN": "Cấm cú họ lạm dụng, phần còn lại buộc phải tốt lên."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 5,
