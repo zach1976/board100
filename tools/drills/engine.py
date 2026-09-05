@@ -12,6 +12,7 @@ and give coordinates inside the playing surface (0..1) instead — court_rect
 maps them, which is the only way to be sure nobody is standing in the margin.
 """
 import math
+import re as _re
 from dataclasses import dataclass, field
 
 from .vocab import NEUTRAL, V
@@ -187,6 +188,24 @@ def _ball(idx, sport: str, x: float, y: float, attached_to: str | None) -> dict:
     }
 
 
+def prune_degenerate_moves(drill: Drill) -> None:
+    """Drop movement segments that go nowhere.
+
+    A waypoint under 8 canvas px from the previous point draws a dead arrow
+    and burns a playback step on nothing. They creep in when a family computes
+    an endpoint that happens to equal the start — a relay whose target is the
+    base the runner is already on — so they are pruned here rather than fixed
+    fifteen separate times.
+    """
+    for p in drill.home + drill.away:
+        pruned, prev = [], (p.x, p.y)
+        for (x, y, ph) in p.moves:
+            if abs(x - prev[0]) + abs(y - prev[1]) >= 8:
+                pruned.append((x, y, ph))
+                prev = (x, y)
+        p.moves = pruned
+
+
 def normalise_phases(drill: Drill) -> None:
     """Renumber phases to 0,1,2… across the whole drill.
 
@@ -221,8 +240,9 @@ def to_canvas(drill: Drill, sport: str) -> None:
 
 
 def build_board(drill: Drill, sport: str) -> dict:
-    normalise_phases(drill)
     to_canvas(drill, sport)
+    prune_degenerate_moves(drill)
+    normalise_phases(drill)
     players, i, color = [], 0, 0
     home_ids = []
     for p in drill.home:
@@ -292,8 +312,22 @@ def suffixed(base: dict, suffix) -> dict:
             raise KeyError(
                 f"drill variant {suffix!r} has no translation — add it to "
                 f"tools/drills/vocab.py") from None
-    return {loc: f"{text} {parts.get(loc, parts.get('en', suffix))}"
-            for loc, text in base.items()}
+    out = {}
+    for loc, text in base.items():
+        variant = parts.get(loc, parts.get('en', suffix))
+        # De-duplicate the seam. A variant's translation often carries the
+        # category noun the family name already ends with — "Saque" + "saque
+        # alto de individual", "Depan net" + "net berputar" — and the glued
+        # name read as a stutter in 72 places across the library.
+        def core(w):
+            # French elision: "l'échange" ends in the same noun "échange".
+            return w.lower().split("'")[-1]
+        tw = text.split(" ")
+        vw = variant.split(" ")
+        while vw and tw and core(vw[0]) == core(tw[-1]):
+            vw = vw[1:]
+        out[loc] = f"{text} {' '.join(vw)}".rstrip() if vw else text
+    return out
 
 
 def ring(n: int, cx: float, cy: float, rx: float, ry: float,
@@ -385,7 +419,10 @@ def assign_families(drills: list[Drill], sport: str) -> dict:
         # Only group where the names really are "<family> <variant>": a couple
         # of hand-written drills share a note by coincidence, and forcing them
         # under a made-up heading would be worse than leaving them apart.
-        locales = set().union(*(set(d.name) for d in group))
+        # sorted: a set's iteration order changes with the hash seed, and an
+        # unordered dict here made the generated JSON differ byte-for-byte
+        # between two runs of the same code.
+        locales = sorted(set().union(*(set(d.name) for d in group)))
         family_name = {}
         for loc in locales:
             names = [d.name.get(loc, d.name["en"]) for d in group]
@@ -398,6 +435,54 @@ def assign_families(drills: list[Drill], sport: str) -> dict:
         for d in group:
             out[d.id] = (fid, family_name)
     return out
+
+
+_NVM = _re.compile(r"\b(\d+)v(\d+)\b")
+_STUTTER = _re.compile(r"\b(\w+) \1\b", _re.IGNORECASE)
+
+
+def audit(sport: str, drill: Drill, board: dict) -> None:
+    """Refuse to ship a board the review pass already caught once.
+
+    Every rule here found real defects on 2026-09-05: 13 pairs of players
+    standing on the same point, 15 dead movement arrows, 72 names reading
+    "Servis servis tinggi", and — the one that held everywhere — "4v2" in a
+    name always matching the bodies on the board. Cheap to keep, expensive
+    to relearn.
+    """
+    people = [p for p in board["players"]
+              if p["markerShape"] == 0 and p.get("sportType") is None]
+
+    for i in range(len(people)):
+        for j in range(i + 1, len(people)):
+            d = math.hypot(people[i]["position"][0] - people[j]["position"][0],
+                           people[i]["position"][1] - people[j]["position"][1])
+            assert d >= 20, (
+                f"{sport}/{drill.id}: {people[i]['label']!r} and "
+                f"{people[j]['label']!r} start {d:.0f}px apart — stacked dots")
+
+    for p in people:
+        prev = p["position"]
+        for mv in p["moves"]:
+            step = math.hypot(mv[0] - prev[0], mv[1] - prev[1])
+            assert step >= 8, (
+                f"{sport}/{drill.id}/{p['label']}: {step:.0f}px move — "
+                f"a dead arrow (prune_degenerate_moves should have eaten it)")
+            prev = mv
+
+    for loc, name in drill.name.items():
+        assert not _STUTTER.search(name) and "  " not in name, (
+            f"{sport}/{drill.id} [{loc}]: {name!r} reads as a stutter")
+
+    m = _NVM.search(drill.name["en"])
+    if m:
+        n1, n2 = int(m.group(1)), int(m.group(2))
+        h = sum(1 for p in people if p["team"] == 0)
+        a = sum(1 for p in people if p["team"] == 1)
+        ok = {(h, a), (a, h)} & {(n1, n2), (n1 + 1, n2), (n1, n2 + 1),
+                                 (n1 + 1, n2 + 1)}
+        assert ok, (f"{sport}/{drill.id}: name says {n1}v{n2}, "
+                    f"board has {h} home vs {a} away")
 
 
 def build(sport: str, library) -> dict:
@@ -424,7 +509,8 @@ def build(sport: str, library) -> dict:
                 "offSurface": d.off_surface,
                 "name": d.name,
                 "note": d.note,
-                "board": build_board(d, sport),
+                "board": (lambda b, dd=d: (audit(sport, dd, b), b)[1])(
+                    build_board(d, sport)),
             }
             for d in drills
         ],

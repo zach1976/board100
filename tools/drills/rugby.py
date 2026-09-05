@@ -11,7 +11,11 @@ OWN_22, OWN_TRY = 0.694, 0.847
 
 
 def line_of(n, y, x0=0.16, x1=0.84):
-    return [(x0 + (x1 - x0) * i / max(n - 1, 1), y) for i in range(n)]
+    # A line of one stands in the middle of its span, not at its left edge —
+    # at the edge it lands exactly on the last player of the pod next door.
+    if n == 1:
+        return [((x0 + x1) / 2, y)]
+    return [(x0 + (x1 - x0) * i / (n - 1), y) for i in range(n)]
 
 
 HANDLE_NAME = {
@@ -92,7 +96,7 @@ def phase_family() -> list[Drill]:
     for key, label, pods in specs:
         home = []
         for n, x_frac in pods:
-            for j, (x, y) in enumerate(line_of(n, 0.60, x_frac - 0.09, x_frac + 0.09)):
+            for j, (x, y) in enumerate(line_of(n, 0.60, x_frac - 0.07, x_frac + 0.07)):
                 home.append(P(x, y, f"{len(home) + 1}",
                               moves=[(x, 0.50, 0), (x + 0.03, 0.42, 1)]))
         out.append(Drill(

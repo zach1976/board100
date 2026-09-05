@@ -3492,18 +3492,18 @@
       "id": "bb_screen_top",
       "family": "basketball_family_17",
       "familyName": {
-        "fr-FR": "Écran sur porteur",
+        "en": "Ball screen",
         "en-GB": "Ball screen",
+        "es-ES": "Bloqueo directo desde",
+        "fr-FR": "Écran sur porteur",
+        "id-ID": "Screen bola",
+        "ja-JP": "オンボールスクリーン",
         "ko-KR": "온볼 스크린",
         "ms-MY": "Screen bola",
-        "ja-JP": "オンボールスクリーン",
         "th-TH": "สกรีนบอลจาก",
-        "zh-TW": "擋拆起手",
-        "en": "Ball screen",
         "vi-VN": "Che chắn bóng",
         "zh-CN": "挡拆起手",
-        "id-ID": "Screen bola",
-        "es-ES": "Bloqueo directo desde"
+        "zh-TW": "擋拆起手"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3749,18 +3749,18 @@
       "id": "bb_screen_left_wing",
       "family": "basketball_family_17",
       "familyName": {
-        "fr-FR": "Écran sur porteur",
+        "en": "Ball screen",
         "en-GB": "Ball screen",
+        "es-ES": "Bloqueo directo desde",
+        "fr-FR": "Écran sur porteur",
+        "id-ID": "Screen bola",
+        "ja-JP": "オンボールスクリーン",
         "ko-KR": "온볼 스크린",
         "ms-MY": "Screen bola",
-        "ja-JP": "オンボールスクリーン",
         "th-TH": "สกรีนบอลจาก",
-        "zh-TW": "擋拆起手",
-        "en": "Ball screen",
         "vi-VN": "Che chắn bóng",
         "zh-CN": "挡拆起手",
-        "id-ID": "Screen bola",
-        "es-ES": "Bloqueo directo desde"
+        "zh-TW": "擋拆起手"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4006,18 +4006,18 @@
       "id": "bb_screen_right_wing",
       "family": "basketball_family_17",
       "familyName": {
-        "fr-FR": "Écran sur porteur",
+        "en": "Ball screen",
         "en-GB": "Ball screen",
+        "es-ES": "Bloqueo directo desde",
+        "fr-FR": "Écran sur porteur",
+        "id-ID": "Screen bola",
+        "ja-JP": "オンボールスクリーン",
         "ko-KR": "온볼 스크린",
         "ms-MY": "Screen bola",
-        "ja-JP": "オンボールスクリーン",
         "th-TH": "สกรีนบอลจาก",
-        "zh-TW": "擋拆起手",
-        "en": "Ball screen",
         "vi-VN": "Che chắn bóng",
         "zh-CN": "挡拆起手",
-        "id-ID": "Screen bola",
-        "es-ES": "Bloqueo directo desde"
+        "zh-TW": "擋拆起手"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4263,18 +4263,18 @@
       "id": "bb_screen_left_halfspace",
       "family": "basketball_family_17",
       "familyName": {
-        "fr-FR": "Écran sur porteur",
+        "en": "Ball screen",
         "en-GB": "Ball screen",
+        "es-ES": "Bloqueo directo desde",
+        "fr-FR": "Écran sur porteur",
+        "id-ID": "Screen bola",
+        "ja-JP": "オンボールスクリーン",
         "ko-KR": "온볼 스크린",
         "ms-MY": "Screen bola",
-        "ja-JP": "オンボールスクリーン",
         "th-TH": "สกรีนบอลจาก",
-        "zh-TW": "擋拆起手",
-        "en": "Ball screen",
         "vi-VN": "Che chắn bóng",
         "zh-CN": "挡拆起手",
-        "id-ID": "Screen bola",
-        "es-ES": "Bloqueo directo desde"
+        "zh-TW": "擋拆起手"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4520,18 +4520,18 @@
       "id": "bb_screen_right_halfspace",
       "family": "basketball_family_17",
       "familyName": {
-        "fr-FR": "Écran sur porteur",
+        "en": "Ball screen",
         "en-GB": "Ball screen",
+        "es-ES": "Bloqueo directo desde",
+        "fr-FR": "Écran sur porteur",
+        "id-ID": "Screen bola",
+        "ja-JP": "オンボールスクリーン",
         "ko-KR": "온볼 스크린",
         "ms-MY": "Screen bola",
-        "ja-JP": "オンボールスクリーン",
         "th-TH": "สกรีนบอลจาก",
-        "zh-TW": "擋拆起手",
-        "en": "Ball screen",
         "vi-VN": "Che chắn bóng",
         "zh-CN": "挡拆起手",
-        "id-ID": "Screen bola",
-        "es-ES": "Bloqueo directo desde"
+        "zh-TW": "擋拆起手"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4777,18 +4777,18 @@
       "id": "bb_cut_give_and_go",
       "family": "basketball_family_1",
       "familyName": {
-        "fr-FR": "Coupes",
+        "en": "Cutting",
         "en-GB": "Cutting",
+        "es-ES": "Cortes",
+        "fr-FR": "Coupes",
+        "id-ID": "Cutting",
+        "ja-JP": "カット",
         "ko-KR": "컷",
         "ms-MY": "Cutting",
-        "ja-JP": "カット",
         "th-TH": "การตัดเข้า",
-        "zh-TW": "空切",
-        "en": "Cutting",
         "vi-VN": "Cắt",
         "zh-CN": "空切",
-        "id-ID": "Cutting",
-        "es-ES": "Cortes"
+        "zh-TW": "空切"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5002,18 +5002,18 @@
       "id": "bb_cut_backdoor",
       "family": "basketball_family_1",
       "familyName": {
-        "fr-FR": "Coupes",
+        "en": "Cutting",
         "en-GB": "Cutting",
+        "es-ES": "Cortes",
+        "fr-FR": "Coupes",
+        "id-ID": "Cutting",
+        "ja-JP": "カット",
         "ko-KR": "컷",
         "ms-MY": "Cutting",
-        "ja-JP": "カット",
         "th-TH": "การตัดเข้า",
-        "zh-TW": "空切",
-        "en": "Cutting",
         "vi-VN": "Cắt",
         "zh-CN": "空切",
-        "id-ID": "Cutting",
-        "es-ES": "Cortes"
+        "zh-TW": "空切"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5227,18 +5227,18 @@
       "id": "bb_cut_flare",
       "family": "basketball_family_1",
       "familyName": {
-        "fr-FR": "Coupes",
+        "en": "Cutting",
         "en-GB": "Cutting",
+        "es-ES": "Cortes",
+        "fr-FR": "Coupes",
+        "id-ID": "Cutting",
+        "ja-JP": "カット",
         "ko-KR": "컷",
         "ms-MY": "Cutting",
-        "ja-JP": "カット",
         "th-TH": "การตัดเข้า",
-        "zh-TW": "空切",
-        "en": "Cutting",
         "vi-VN": "Cắt",
         "zh-CN": "空切",
-        "id-ID": "Cutting",
-        "es-ES": "Cortes"
+        "zh-TW": "空切"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5452,18 +5452,18 @@
       "id": "bb_cut_baseline",
       "family": "basketball_family_1",
       "familyName": {
-        "fr-FR": "Coupes",
+        "en": "Cutting",
         "en-GB": "Cutting",
+        "es-ES": "Cortes",
+        "fr-FR": "Coupes",
+        "id-ID": "Cutting",
+        "ja-JP": "カット",
         "ko-KR": "컷",
         "ms-MY": "Cutting",
-        "ja-JP": "カット",
         "th-TH": "การตัดเข้า",
-        "zh-TW": "空切",
-        "en": "Cutting",
         "vi-VN": "Cắt",
         "zh-CN": "空切",
-        "id-ID": "Cutting",
-        "es-ES": "Cortes"
+        "zh-TW": "空切"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5677,18 +5677,18 @@
       "id": "bb_shot_the_corner",
       "family": "basketball_family_4",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Tiro",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิง",
-        "zh-TW": "投籃",
-        "en": "Shooting",
         "vi-VN": "Ném rổ",
         "zh-CN": "投篮",
-        "id-ID": "Tembakan",
-        "es-ES": "Tiro"
+        "zh-TW": "投籃"
       },
       "category": "finishing",
       "minutes": 8,
@@ -5857,18 +5857,18 @@
       "id": "bb_shot_left_wing",
       "family": "basketball_family_4",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Tiro",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิง",
-        "zh-TW": "投籃",
-        "en": "Shooting",
         "vi-VN": "Ném rổ",
         "zh-CN": "投篮",
-        "id-ID": "Tembakan",
-        "es-ES": "Tiro"
+        "zh-TW": "投籃"
       },
       "category": "finishing",
       "minutes": 8,
@@ -6037,18 +6037,18 @@
       "id": "bb_shot_top",
       "family": "basketball_family_4",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Tiro",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิง",
-        "zh-TW": "投籃",
-        "en": "Shooting",
         "vi-VN": "Ném rổ",
         "zh-CN": "投篮",
-        "id-ID": "Tembakan",
-        "es-ES": "Tiro"
+        "zh-TW": "投籃"
       },
       "category": "finishing",
       "minutes": 8,
@@ -6217,18 +6217,18 @@
       "id": "bb_shot_right_wing",
       "family": "basketball_family_4",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Tiro",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิง",
-        "zh-TW": "投籃",
-        "en": "Shooting",
         "vi-VN": "Ném rổ",
         "zh-CN": "投篮",
-        "id-ID": "Tembakan",
-        "es-ES": "Tiro"
+        "zh-TW": "投籃"
       },
       "category": "finishing",
       "minutes": 8,
@@ -6397,18 +6397,18 @@
       "id": "bb_shot_the_elbow",
       "family": "basketball_family_4",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Tiro",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิง",
-        "zh-TW": "投籃",
-        "en": "Shooting",
         "vi-VN": "Ném rổ",
         "zh-CN": "投篮",
-        "id-ID": "Tembakan",
-        "es-ES": "Tiro"
+        "zh-TW": "投籃"
       },
       "category": "finishing",
       "minutes": 8,
@@ -6577,18 +6577,18 @@
       "id": "bb_post_drop_step",
       "family": "basketball_family_15",
       "familyName": {
-        "fr-FR": "Jeu au poste",
+        "en": "Post play",
         "en-GB": "Post play",
+        "es-ES": "Juego de poste",
+        "fr-FR": "Jeu au poste",
+        "id-ID": "Permainan post",
+        "ja-JP": "ポストプレー",
         "ko-KR": "포스트 플레이",
         "ms-MY": "Permainan post",
-        "ja-JP": "ポストプレー",
         "th-TH": "การเล่นในโพสต์",
-        "zh-TW": "低位單打",
-        "en": "Post play",
         "vi-VN": "Chơi trụ",
         "zh-CN": "低位单打",
-        "id-ID": "Permainan post",
-        "es-ES": "Juego de poste"
+        "zh-TW": "低位單打"
       },
       "category": "attacking",
       "minutes": 10,
@@ -6804,18 +6804,18 @@
       "id": "bb_post_face_up",
       "family": "basketball_family_15",
       "familyName": {
-        "fr-FR": "Jeu au poste",
+        "en": "Post play",
         "en-GB": "Post play",
+        "es-ES": "Juego de poste",
+        "fr-FR": "Jeu au poste",
+        "id-ID": "Permainan post",
+        "ja-JP": "ポストプレー",
         "ko-KR": "포스트 플레이",
         "ms-MY": "Permainan post",
-        "ja-JP": "ポストプレー",
         "th-TH": "การเล่นในโพสต์",
-        "zh-TW": "低位單打",
-        "en": "Post play",
         "vi-VN": "Chơi trụ",
         "zh-CN": "低位单打",
-        "id-ID": "Permainan post",
-        "es-ES": "Juego de poste"
+        "zh-TW": "低位單打"
       },
       "category": "attacking",
       "minutes": 10,
@@ -7031,18 +7031,18 @@
       "id": "bb_post_kick_out",
       "family": "basketball_family_15",
       "familyName": {
-        "fr-FR": "Jeu au poste",
+        "en": "Post play",
         "en-GB": "Post play",
+        "es-ES": "Juego de poste",
+        "fr-FR": "Jeu au poste",
+        "id-ID": "Permainan post",
+        "ja-JP": "ポストプレー",
         "ko-KR": "포스트 플레이",
         "ms-MY": "Permainan post",
-        "ja-JP": "ポストプレー",
         "th-TH": "การเล่นในโพสต์",
-        "zh-TW": "低位單打",
-        "en": "Post play",
         "vi-VN": "Chơi trụ",
         "zh-CN": "低位单打",
-        "id-ID": "Permainan post",
-        "es-ES": "Juego de poste"
+        "zh-TW": "低位單打"
       },
       "category": "attacking",
       "minutes": 10,
@@ -7258,18 +7258,18 @@
       "id": "bb_post_short_roll",
       "family": "basketball_family_15",
       "familyName": {
-        "fr-FR": "Jeu au poste",
+        "en": "Post play",
         "en-GB": "Post play",
+        "es-ES": "Juego de poste",
+        "fr-FR": "Jeu au poste",
+        "id-ID": "Permainan post",
+        "ja-JP": "ポストプレー",
         "ko-KR": "포스트 플레이",
         "ms-MY": "Permainan post",
-        "ja-JP": "ポストプレー",
         "th-TH": "การเล่นในโพสต์",
-        "zh-TW": "低位單打",
-        "en": "Post play",
         "vi-VN": "Chơi trụ",
         "zh-CN": "低位单打",
-        "id-ID": "Permainan post",
-        "es-ES": "Juego de poste"
+        "zh-TW": "低位單打"
       },
       "category": "attacking",
       "minutes": 10,
@@ -7485,18 +7485,18 @@
       "id": "bb_defence_drop",
       "family": "basketball_family_2",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -7747,18 +7747,18 @@
       "id": "bb_defence_hedge",
       "family": "basketball_family_2",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -8009,18 +8009,18 @@
       "id": "bb_defence_switch",
       "family": "basketball_family_2",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -8271,18 +8271,18 @@
       "id": "bb_defence_ice",
       "family": "basketball_family_2",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -8533,18 +8533,18 @@
       "id": "bb_transition_3v2",
       "family": "basketball_family_13",
       "familyName": {
-        "fr-FR": "Transition",
+        "en": "Transition",
         "en-GB": "Transition",
+        "es-ES": "Transición",
+        "fr-FR": "Transition",
+        "id-ID": "Transisi",
+        "ja-JP": "トランジション",
         "ko-KR": "트랜지션",
         "ms-MY": "Peralihan",
-        "ja-JP": "トランジション",
         "th-TH": "การเปลี่ยนเกม",
-        "zh-TW": "轉換進攻",
-        "en": "Transition",
         "vi-VN": "Chuyển đổi",
         "zh-CN": "转换进攻",
-        "id-ID": "Transisi",
-        "es-ES": "Transición"
+        "zh-TW": "轉換進攻"
       },
       "category": "ssg",
       "minutes": 12,
@@ -8762,18 +8762,18 @@
       "id": "bb_transition_4v3",
       "family": "basketball_family_13",
       "familyName": {
-        "fr-FR": "Transition",
+        "en": "Transition",
         "en-GB": "Transition",
+        "es-ES": "Transición",
+        "fr-FR": "Transition",
+        "id-ID": "Transisi",
+        "ja-JP": "トランジション",
         "ko-KR": "트랜지션",
         "ms-MY": "Peralihan",
-        "ja-JP": "トランジション",
         "th-TH": "การเปลี่ยนเกม",
-        "zh-TW": "轉換進攻",
-        "en": "Transition",
         "vi-VN": "Chuyển đổi",
         "zh-CN": "转换进攻",
-        "id-ID": "Transisi",
-        "es-ES": "Transición"
+        "zh-TW": "轉換進攻"
       },
       "category": "ssg",
       "minutes": 12,
@@ -9050,18 +9050,18 @@
       "id": "bb_transition_5v4",
       "family": "basketball_family_13",
       "familyName": {
-        "fr-FR": "Transition",
+        "en": "Transition",
         "en-GB": "Transition",
+        "es-ES": "Transición",
+        "fr-FR": "Transition",
+        "id-ID": "Transisi",
+        "ja-JP": "トランジション",
         "ko-KR": "트랜지션",
         "ms-MY": "Peralihan",
-        "ja-JP": "トランジション",
         "th-TH": "การเปลี่ยนเกม",
-        "zh-TW": "轉換進攻",
-        "en": "Transition",
         "vi-VN": "Chuyển đổi",
         "zh-CN": "转换进攻",
-        "id-ID": "Transisi",
-        "es-ES": "Transición"
+        "zh-TW": "轉換進攻"
       },
       "category": "ssg",
       "minutes": 12,
@@ -9397,18 +9397,18 @@
       "id": "bb_inbounds_stack",
       "family": "basketball_family_22",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Inbounds",
         "en-GB": "Inbounds",
+        "es-ES": "Saque",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Bola masuk",
+        "ja-JP": "スローイン",
         "ko-KR": "인바운드",
         "ms-MY": "Bola masuk",
-        "ja-JP": "スローイン",
         "th-TH": "การส่งบอลเข้าเล่น",
-        "zh-TW": "發球戰術",
-        "en": "Inbounds",
         "vi-VN": "Ném biên",
         "zh-CN": "发球战术",
-        "id-ID": "Bola masuk",
-        "es-ES": "Saque"
+        "zh-TW": "發球戰術"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -9575,13 +9575,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              183.0
+              550.625,
+              210.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                514.4642857142858,
                 277.5
               ]
             ],
@@ -9602,13 +9602,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              237.0
+              550.625,
+              264.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                514.4642857142858,
                 331.5
               ]
             ],
@@ -9653,18 +9653,18 @@
       "id": "bb_inbounds_the_box",
       "family": "basketball_family_22",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Inbounds",
         "en-GB": "Inbounds",
+        "es-ES": "Saque",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Bola masuk",
+        "ja-JP": "スローイン",
         "ko-KR": "인바운드",
         "ms-MY": "Bola masuk",
-        "ja-JP": "スローイン",
         "th-TH": "การส่งบอลเข้าเล่น",
-        "zh-TW": "發球戰術",
-        "en": "Inbounds",
         "vi-VN": "Ném biên",
         "zh-CN": "发球战术",
-        "id-ID": "Bola masuk",
-        "es-ES": "Saque"
+        "zh-TW": "發球戰術"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -9863,13 +9863,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              377.05357142857144,
-              277.5
+              427.67857142857144,
+              304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                377.05357142857144,
+                391.51785714285717,
                 372.0
               ]
             ],
@@ -9890,13 +9890,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              622.9464285714287,
-              277.5
+              673.5714285714284,
+              304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                622.9464285714287,
+                637.4107142857143,
                 372.0
               ]
             ],
@@ -9941,18 +9941,18 @@
       "id": "bb_inbounds_the_zipper",
       "family": "basketball_family_22",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Inbounds",
         "en-GB": "Inbounds",
+        "es-ES": "Saque",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Bola masuk",
+        "ja-JP": "スローイン",
         "ko-KR": "인바운드",
         "ms-MY": "Bola masuk",
-        "ja-JP": "スローイン",
         "th-TH": "การส่งบอลเข้าเล่น",
-        "zh-TW": "發球戰術",
-        "en": "Inbounds",
         "vi-VN": "Ném biên",
         "zh-CN": "发球战术",
-        "id-ID": "Bola masuk",
-        "es-ES": "Saque"
+        "zh-TW": "發球戰術"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -10119,13 +10119,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              413.2142857142857,
-              156.0
+              463.8392857142857,
+              183.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                413.2142857142857,
+                427.67857142857144,
                 250.5
               ]
             ],
@@ -10146,13 +10146,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              377.05357142857144,
-              277.5
+              427.67857142857144,
+              304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                377.05357142857144,
+                391.51785714285717,
                 372.0
               ]
             ],
@@ -10197,18 +10197,18 @@
       "id": "bb_inbounds_sideline",
       "family": "basketball_family_22",
       "familyName": {
-        "fr-FR": "Remise en jeu",
+        "en": "Inbounds",
         "en-GB": "Inbounds",
+        "es-ES": "Saque",
+        "fr-FR": "Remise en jeu",
+        "id-ID": "Bola masuk",
+        "ja-JP": "スローイン",
         "ko-KR": "인바운드",
         "ms-MY": "Bola masuk",
-        "ja-JP": "スローイン",
         "th-TH": "การส่งบอลเข้าเล่น",
-        "zh-TW": "發球戰術",
-        "en": "Inbounds",
         "vi-VN": "Ném biên",
         "zh-CN": "发球战术",
-        "id-ID": "Bola masuk",
-        "es-ES": "Saque"
+        "zh-TW": "發球戰術"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -10375,13 +10375,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              246.875,
-              372.0
+              297.5,
+              399.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                246.875,
+                261.3392857142857,
                 466.50000000000006
               ]
             ],
@@ -10402,13 +10402,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              426.0
+              550.625,
+              452.99999999999994
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                514.4642857142858,
                 520.5
               ]
             ],

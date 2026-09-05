@@ -6,18 +6,18 @@
       "id": "rg_handling_grid",
       "family": "rugby_family_6",
       "familyName": {
-        "fr-FR": "Maniement du ballon",
+        "en": "Handling",
         "en-GB": "Handling",
+        "es-ES": "Manejo de balón",
+        "fr-FR": "Maniement du ballon",
+        "id-ID": "Penguasaan bola",
+        "ja-JP": "ハンドリング",
         "ko-KR": "핸들링",
         "ms-MY": "Pengendalian bola",
-        "ja-JP": "ハンドリング",
         "th-TH": "การรับส่งบอล",
-        "zh-TW": "傳接球",
-        "en": "Handling",
         "vi-VN": "Xử lý bóng",
         "zh-CN": "传接球",
-        "id-ID": "Penguasaan bola",
-        "es-ES": "Manejo de balón"
+        "zh-TW": "傳接球"
       },
       "category": "warmup",
       "minutes": 8,
@@ -293,18 +293,18 @@
       "id": "rg_handling_threes",
       "family": "rugby_family_6",
       "familyName": {
-        "fr-FR": "Maniement du ballon",
+        "en": "Handling",
         "en-GB": "Handling",
+        "es-ES": "Manejo de balón",
+        "fr-FR": "Maniement du ballon",
+        "id-ID": "Penguasaan bola",
+        "ja-JP": "ハンドリング",
         "ko-KR": "핸들링",
         "ms-MY": "Pengendalian bola",
-        "ja-JP": "ハンドリング",
         "th-TH": "การรับส่งบอล",
-        "zh-TW": "傳接球",
-        "en": "Handling",
         "vi-VN": "Xử lý bóng",
         "zh-CN": "传接球",
-        "id-ID": "Penguasaan bola",
-        "es-ES": "Manejo de balón"
+        "zh-TW": "傳接球"
       },
       "category": "warmup",
       "minutes": 8,
@@ -528,18 +528,18 @@
       "id": "rg_handling_wide",
       "family": "rugby_family_6",
       "familyName": {
-        "fr-FR": "Maniement du ballon",
+        "en": "Handling",
         "en-GB": "Handling",
+        "es-ES": "Manejo de balón",
+        "fr-FR": "Maniement du ballon",
+        "id-ID": "Penguasaan bola",
+        "ja-JP": "ハンドリング",
         "ko-KR": "핸들링",
         "ms-MY": "Pengendalian bola",
-        "ja-JP": "ハンドリング",
         "th-TH": "การรับส่งบอล",
-        "zh-TW": "傳接球",
-        "en": "Handling",
         "vi-VN": "Xử lý bóng",
         "zh-CN": "传接球",
-        "id-ID": "Penguasaan bola",
-        "es-ES": "Manejo de balón"
+        "zh-TW": "傳接球"
       },
       "category": "warmup",
       "minutes": 8,
@@ -919,18 +919,18 @@
       "id": "rg_phase_one_three_three_one",
       "family": "rugby_family_4",
       "familyName": {
-        "fr-FR": "Jeu au sol enchaîné",
+        "en": "Phase play",
         "en-GB": "Phase play",
+        "es-ES": "Juego por fases",
+        "fr-FR": "Jeu au sol enchaîné",
+        "id-ID": "Permainan berfase",
+        "ja-JP": "フェーズ攻撃",
         "ko-KR": "페이즈 플레이",
         "ms-MY": "Permainan berfasa",
-        "ja-JP": "フェーズ攻撃",
         "th-TH": "การบุกต่อเนื่อง",
-        "zh-TW": "多波次進攻",
-        "en": "Phase play",
         "vi-VN": "Tấn công nhiều đợt",
         "zh-CN": "多波次进攻",
-        "id-ID": "Permainan berfase",
-        "es-ES": "Juego por fases"
+        "zh-TW": "多波次進攻"
       },
       "category": "possession",
       "minutes": 14,
@@ -974,17 +974,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              265.2083333333333,
+              325.5833333333333,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                265.2083333333333,
+                325.5833333333333,
                 750.0
               ],
               [
-                285.3333333333333,
+                345.70833333333337,
                 639.6
               ]
             ],
@@ -1006,17 +1006,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5416666666667,
+              385.95833333333337,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5416666666667,
+                385.95833333333337,
                 750.0
               ],
               [
-                392.66666666666674,
+                406.0833333333333,
                 639.6
               ]
             ],
@@ -1070,514 +1070,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              493.2916666666667,
+              479.875,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                493.2916666666667,
+                479.875,
                 750.0
               ],
               [
-                513.4166666666667,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4294956864,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d4",
-            "label": "5",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              520.125,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                520.125,
-                750.0
-              ],
-              [
-                540.25,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4293558524,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d5",
-            "label": "6",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              580.5,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                580.5,
-                750.0
-              ],
-              [
-                600.625,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4286906367,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d6",
-            "label": "7",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              640.875,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                640.875,
-                750.0
-              ],
-              [
-                661.0,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4294942336,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d7",
-            "label": "8",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              640.875,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                640.875,
-                750.0
-              ],
-              [
-                661.0,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4289058471,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d8",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              271.91666666666663,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                271.91666666666663,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4282434815,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d9",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              363.15,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                363.15,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4294929773,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d10",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              454.38333333333327,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                454.38333333333327,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4285132974,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d11",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              545.6166666666668,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                545.6166666666668,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4294956864,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d12",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              636.8499999999999,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                636.8499999999999,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4293558524,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d13",
-            "label": "D",
-            "team": 1,
-            "sportType": null,
-            "position": [
-              728.0833333333333,
-              667.2
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                728.0833333333333,
-                750.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
-            "moveColor": 4286906367,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "b0",
-            "label": "",
-            "team": 2,
-            "sportType": 8,
-            "position": [
-              265.2083333333333,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
-            "moveColor": 4282434815,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": "d0"
-          }
-        ],
-        "strokes": [],
-        "canvasWidth": 1000.0,
-        "canvasHeight": 1500.0
-      }
-    },
-    {
-      "id": "rg_phase_two_four_two",
-      "family": "rugby_family_4",
-      "familyName": {
-        "fr-FR": "Jeu au sol enchaîné",
-        "en-GB": "Phase play",
-        "ko-KR": "페이즈 플레이",
-        "ms-MY": "Permainan berfasa",
-        "ja-JP": "フェーズ攻撃",
-        "th-TH": "การบุกต่อเนื่อง",
-        "zh-TW": "多波次進攻",
-        "en": "Phase play",
-        "vi-VN": "Tấn công nhiều đợt",
-        "zh-CN": "多波次进攻",
-        "id-ID": "Permainan berfase",
-        "es-ES": "Juego por fases"
-      },
-      "category": "possession",
-      "minutes": 14,
-      "players": 14,
-      "free": false,
-      "offSurface": false,
-      "name": {
-        "en": "Phase play 2-4-2",
-        "en-GB": "Phase play 2-4-2",
-        "zh-CN": "多波次进攻 2-4-2",
-        "zh-TW": "多波次進攻 2-4-2",
-        "ja-JP": "フェーズ攻撃 2-4-2",
-        "ko-KR": "페이즈 플레이 2-4-2",
-        "es-ES": "Juego por fases 2-4-2",
-        "fr-FR": "Jeu au sol enchaîné 2-4-2",
-        "id-ID": "Permainan berfase 2-4-2",
-        "ms-MY": "Permainan berfasa 2-4-2",
-        "th-TH": "การบุกต่อเนื่อง 2-4-2",
-        "vi-VN": "Tấn công nhiều đợt 2-4-2"
-      },
-      "note": {
-        "en": "Get the shape set before the ball arrives, not while it is coming. A pod still forming when the nine looks up is a pod that isn't there.",
-        "en-GB": "Get the shape set before the ball arrives, not while it is coming. A pod still forming when the nine looks up is a pod that isn't there.",
-        "zh-CN": "球到之前站好位，不是球在路上才站。传球手抬头时还在集结的那一组，就等于不存在。",
-        "zh-TW": "球到之前站好位，不是球在路上才站。傳球手抬頭時還在集結的那一組，就等於不存在。",
-        "ja-JP": "ボールが来る前に形を作る。9番が顔を上げた時にまだ組んでいるポッドは、いないのと同じ。",
-        "ko-KR": "공이 오기 전에 형태를 잡아라. 9번이 고개를 들 때 아직 모이고 있는 포드는 없는 포드다.",
-        "es-ES": "Formad antes de que llegue el balón: un pod que aún se arma cuando el 9 levanta la cabeza es un pod que no existe.",
-        "fr-FR": "Mets la structure en place avant l'arrivée du ballon : un pod qui se forme encore quand le 9 lève la tête n'existe pas.",
-        "id-ID": "Bentuk formasi sebelum bola datang, bukan sambil menunggu.",
-        "ms-MY": "Bentuk formasi sebelum bola tiba.",
-        "th-TH": "จัดรูปให้เสร็จก่อนบอลมาถึง",
-        "vi-VN": "Sắp đội hình xong trước khi bóng tới."
-      },
-      "board": {
-        "sportType": 8,
-        "players": [
-          {
-            "id": "d0",
-            "label": "1",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              305.4583333333333,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                305.4583333333333,
-                750.0
-              ],
-              [
-                325.5833333333333,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4282434815,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d1",
-            "label": "2",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              426.2083333333333,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                426.2083333333333,
-                750.0
-              ],
-              [
-                446.33333333333337,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4294929773,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d2",
-            "label": "3",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              453.0416666666667,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                453.0416666666667,
-                750.0
-              ],
-              [
-                473.16666666666674,
-                639.6
-              ]
-            ],
-            "movePhases": [
-              0,
-              1
-            ],
-            "moveColor": 4285132974,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d3",
-            "label": "4",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              493.2916666666667,
-              888.0
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                493.2916666666667,
-                750.0
-              ],
-              [
-                513.4166666666667,
+                500.0,
                 639.6
               ]
             ],
@@ -1631,17 +1134,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              573.7916666666667,
+              580.5,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                573.7916666666667,
+                580.5,
                 750.0
               ],
               [
-                593.9166666666667,
+                600.625,
                 639.6
               ]
             ],
@@ -1663,17 +1166,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              600.625,
+              627.4583333333333,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                600.625,
+                627.4583333333333,
                 750.0
               ],
               [
-                620.75,
+                647.5833333333333,
                 639.6
               ]
             ],
@@ -1695,17 +1198,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              721.375,
+              701.25,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                721.375,
+                701.25,
                 750.0
               ],
               [
-                741.5,
+                721.375,
                 639.6
               ]
             ],
@@ -1889,7 +1392,504 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              305.4583333333333,
+              325.5833333333333,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "rg_phase_two_four_two",
+      "family": "rugby_family_4",
+      "familyName": {
+        "en": "Phase play",
+        "en-GB": "Phase play",
+        "es-ES": "Juego por fases",
+        "fr-FR": "Jeu au sol enchaîné",
+        "id-ID": "Permainan berfase",
+        "ja-JP": "フェーズ攻撃",
+        "ko-KR": "페이즈 플레이",
+        "ms-MY": "Permainan berfasa",
+        "th-TH": "การบุกต่อเนื่อง",
+        "vi-VN": "Tấn công nhiều đợt",
+        "zh-CN": "多波次进攻",
+        "zh-TW": "多波次進攻"
+      },
+      "category": "possession",
+      "minutes": 14,
+      "players": 14,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Phase play 2-4-2",
+        "en-GB": "Phase play 2-4-2",
+        "zh-CN": "多波次进攻 2-4-2",
+        "zh-TW": "多波次進攻 2-4-2",
+        "ja-JP": "フェーズ攻撃 2-4-2",
+        "ko-KR": "페이즈 플레이 2-4-2",
+        "es-ES": "Juego por fases 2-4-2",
+        "fr-FR": "Jeu au sol enchaîné 2-4-2",
+        "id-ID": "Permainan berfase 2-4-2",
+        "ms-MY": "Permainan berfasa 2-4-2",
+        "th-TH": "การบุกต่อเนื่อง 2-4-2",
+        "vi-VN": "Tấn công nhiều đợt 2-4-2"
+      },
+      "note": {
+        "en": "Get the shape set before the ball arrives, not while it is coming. A pod still forming when the nine looks up is a pod that isn't there.",
+        "en-GB": "Get the shape set before the ball arrives, not while it is coming. A pod still forming when the nine looks up is a pod that isn't there.",
+        "zh-CN": "球到之前站好位，不是球在路上才站。传球手抬头时还在集结的那一组，就等于不存在。",
+        "zh-TW": "球到之前站好位，不是球在路上才站。傳球手抬頭時還在集結的那一組，就等於不存在。",
+        "ja-JP": "ボールが来る前に形を作る。9番が顔を上げた時にまだ組んでいるポッドは、いないのと同じ。",
+        "ko-KR": "공이 오기 전에 형태를 잡아라. 9번이 고개를 들 때 아직 모이고 있는 포드는 없는 포드다.",
+        "es-ES": "Formad antes de que llegue el balón: un pod que aún se arma cuando el 9 levanta la cabeza es un pod que no existe.",
+        "fr-FR": "Mets la structure en place avant l'arrivée du ballon : un pod qui se forme encore quand le 9 lève la tête n'existe pas.",
+        "id-ID": "Bentuk formasi sebelum bola datang, bukan sambil menunggu.",
+        "ms-MY": "Bentuk formasi sebelum bola tiba.",
+        "th-TH": "จัดรูปให้เสร็จก่อนบอลมาถึง",
+        "vi-VN": "Sắp đội hình xong trước khi bóng tới."
+      },
+      "board": {
+        "sportType": 8,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              318.875,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                318.875,
+                750.0
+              ],
+              [
+                339.0,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              412.79166666666663,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                412.79166666666663,
+                750.0
+              ],
+              [
+                432.9166666666667,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              466.4583333333333,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                466.4583333333333,
+                750.0
+              ],
+              [
+                486.5833333333333,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              497.7638888888889,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                497.7638888888889,
+                750.0
+              ],
+              [
+                517.8888888888889,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              529.0694444444446,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                529.0694444444446,
+                750.0
+              ],
+              [
+                549.1944444444446,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              560.375,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                560.375,
+                750.0
+              ],
+              [
+                580.5,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "7",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              614.0416666666666,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.0416666666666,
+                750.0
+              ],
+              [
+                634.1666666666666,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              707.9583333333335,
+              888.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                707.9583333333335,
+                750.0
+              ],
+              [
+                728.0833333333335,
+                639.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d8",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              271.91666666666663,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                271.91666666666663,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              363.15,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                363.15,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              454.38333333333327,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                454.38333333333327,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              545.6166666666668,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                545.6166666666668,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              636.8499999999999,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                636.8499999999999,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d13",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              728.0833333333333,
+              667.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                728.0833333333333,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 8,
+            "position": [
+              318.875,
               888.0
             ],
             "scale": 1.0,
@@ -1913,18 +1913,18 @@
       "id": "rg_phase_left_to_right",
       "family": "rugby_family_4",
       "familyName": {
-        "fr-FR": "Jeu au sol enchaîné",
+        "en": "Phase play",
         "en-GB": "Phase play",
+        "es-ES": "Juego por fases",
+        "fr-FR": "Jeu au sol enchaîné",
+        "id-ID": "Permainan berfase",
+        "ja-JP": "フェーズ攻撃",
         "ko-KR": "페이즈 플레이",
         "ms-MY": "Permainan berfasa",
-        "ja-JP": "フェーズ攻撃",
         "th-TH": "การบุกต่อเนื่อง",
-        "zh-TW": "多波次進攻",
-        "en": "Phase play",
         "vi-VN": "Tấn công nhiều đợt",
         "zh-CN": "多波次进攻",
-        "id-ID": "Permainan berfase",
-        "es-ES": "Juego por fases"
+        "zh-TW": "多波次進攻"
       },
       "category": "possession",
       "minutes": 14,
@@ -1968,17 +1968,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              399.375,
+              412.79166666666663,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                399.375,
+                412.79166666666663,
                 750.0
               ],
               [
-                419.5,
+                432.9166666666667,
                 639.6
               ]
             ],
@@ -2032,17 +2032,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              520.125,
+              506.7083333333333,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                520.125,
+                506.7083333333333,
                 750.0
               ],
               [
-                540.25,
+                526.8333333333334,
                 639.6
               ]
             ],
@@ -2064,17 +2064,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              520.125,
+              533.5416666666667,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                520.125,
+                533.5416666666667,
                 750.0
               ],
               [
-                540.25,
+                553.6666666666667,
                 639.6
               ]
             ],
@@ -2128,17 +2128,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              640.875,
+              627.4583333333333,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.875,
+                627.4583333333333,
                 750.0
               ],
               [
-                661.0,
+                647.5833333333333,
                 639.6
               ]
             ],
@@ -2322,7 +2322,7 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              399.375,
+              412.79166666666663,
               888.0
             ],
             "scale": 1.0,
@@ -2346,18 +2346,18 @@
       "id": "rg_breakdown_quick_ball",
       "family": "rugby_family_3",
       "familyName": {
-        "fr-FR": "Le regroupement",
+        "en": "Breakdown",
         "en-GB": "Breakdown",
+        "es-ES": "Ruck",
+        "fr-FR": "Le regroupement",
+        "id-ID": "Ruck",
+        "ja-JP": "ブレイクダウン",
         "ko-KR": "브레이크다운",
         "ms-MY": "Ruck",
-        "ja-JP": "ブレイクダウン",
         "th-TH": "จุดปะทะ",
-        "zh-TW": "爭球點",
-        "en": "Breakdown",
         "vi-VN": "Điểm tranh chấp",
         "zh-CN": "争球点",
-        "id-ID": "Ruck",
-        "es-ES": "Ruck"
+        "zh-TW": "爭球點"
       },
       "category": "possession",
       "minutes": 10,
@@ -2570,18 +2570,18 @@
       "id": "rg_breakdown_jackal",
       "family": "rugby_family_3",
       "familyName": {
-        "fr-FR": "Le regroupement",
+        "en": "Breakdown",
         "en-GB": "Breakdown",
+        "es-ES": "Ruck",
+        "fr-FR": "Le regroupement",
+        "id-ID": "Ruck",
+        "ja-JP": "ブレイクダウン",
         "ko-KR": "브레이크다운",
         "ms-MY": "Ruck",
-        "ja-JP": "ブレイクダウン",
         "th-TH": "จุดปะทะ",
-        "zh-TW": "爭球點",
-        "en": "Breakdown",
         "vi-VN": "Điểm tranh chấp",
         "zh-CN": "争球点",
-        "id-ID": "Ruck",
-        "es-ES": "Ruck"
+        "zh-TW": "爭球點"
       },
       "category": "possession",
       "minutes": 10,
@@ -2762,18 +2762,18 @@
       "id": "rg_breakdown_counter_ruck",
       "family": "rugby_family_3",
       "familyName": {
-        "fr-FR": "Le regroupement",
+        "en": "Breakdown",
         "en-GB": "Breakdown",
+        "es-ES": "Ruck",
+        "fr-FR": "Le regroupement",
+        "id-ID": "Ruck",
+        "ja-JP": "ブレイクダウン",
         "ko-KR": "브레이크다운",
         "ms-MY": "Ruck",
-        "ja-JP": "ブレイクダウン",
         "th-TH": "จุดปะทะ",
-        "zh-TW": "爭球點",
-        "en": "Breakdown",
         "vi-VN": "Điểm tranh chấp",
         "zh-CN": "争球点",
-        "id-ID": "Ruck",
-        "es-ES": "Ruck"
+        "zh-TW": "爭球點"
       },
       "category": "possession",
       "minutes": 10,
@@ -3018,18 +3018,18 @@
       "id": "rg_move_miss_pass",
       "family": "rugby_family_2",
       "familyName": {
-        "fr-FR": "Combinaison de trois-quarts",
+        "en": "Backline move",
         "en-GB": "Backline move",
+        "es-ES": "Jugada de tres cuartos",
+        "fr-FR": "Combinaison de trois-quarts",
+        "id-ID": "Pola barisan belakang",
+        "ja-JP": "バックスのサインプレー",
         "ko-KR": "백스 사인 플레이",
         "ms-MY": "Pergerakan barisan belakang",
-        "ja-JP": "バックスのサインプレー",
         "th-TH": "แผนแนวหลัง",
-        "zh-TW": "後衛線配合",
-        "en": "Backline move",
         "vi-VN": "Bài phối hợp tuyến sau",
         "zh-CN": "后卫线配合",
-        "id-ID": "Pola barisan belakang",
-        "es-ES": "Jugada de tres cuartos"
+        "zh-TW": "後衛線配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3417,18 +3417,18 @@
       "id": "rg_move_switch",
       "family": "rugby_family_2",
       "familyName": {
-        "fr-FR": "Combinaison de trois-quarts",
+        "en": "Backline move",
         "en-GB": "Backline move",
+        "es-ES": "Jugada de tres cuartos",
+        "fr-FR": "Combinaison de trois-quarts",
+        "id-ID": "Pola barisan belakang",
+        "ja-JP": "バックスのサインプレー",
         "ko-KR": "백스 사인 플레이",
         "ms-MY": "Pergerakan barisan belakang",
-        "ja-JP": "バックスのサインプレー",
         "th-TH": "แผนแนวหลัง",
-        "zh-TW": "後衛線配合",
-        "en": "Backline move",
         "vi-VN": "Bài phối hợp tuyến sau",
         "zh-CN": "后卫线配合",
-        "id-ID": "Pola barisan belakang",
-        "es-ES": "Jugada de tres cuartos"
+        "zh-TW": "後衛線配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3816,18 +3816,18 @@
       "id": "rg_move_loop",
       "family": "rugby_family_2",
       "familyName": {
-        "fr-FR": "Combinaison de trois-quarts",
+        "en": "Backline move",
         "en-GB": "Backline move",
+        "es-ES": "Jugada de tres cuartos",
+        "fr-FR": "Combinaison de trois-quarts",
+        "id-ID": "Pola barisan belakang",
+        "ja-JP": "バックスのサインプレー",
         "ko-KR": "백스 사인 플레이",
         "ms-MY": "Pergerakan barisan belakang",
-        "ja-JP": "バックスのサインプレー",
         "th-TH": "แผนแนวหลัง",
-        "zh-TW": "後衛線配合",
-        "en": "Backline move",
         "vi-VN": "Bài phối hợp tuyến sau",
         "zh-CN": "后卫线配合",
-        "id-ID": "Pola barisan belakang",
-        "es-ES": "Jugada de tres cuartos"
+        "zh-TW": "後衛線配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4215,18 +4215,18 @@
       "id": "rg_move_cut_out",
       "family": "rugby_family_2",
       "familyName": {
-        "fr-FR": "Combinaison de trois-quarts",
+        "en": "Backline move",
         "en-GB": "Backline move",
+        "es-ES": "Jugada de tres cuartos",
+        "fr-FR": "Combinaison de trois-quarts",
+        "id-ID": "Pola barisan belakang",
+        "ja-JP": "バックスのサインプレー",
         "ko-KR": "백스 사인 플레이",
         "ms-MY": "Pergerakan barisan belakang",
-        "ja-JP": "バックスのサインプレー",
         "th-TH": "แผนแนวหลัง",
-        "zh-TW": "後衛線配合",
-        "en": "Backline move",
         "vi-VN": "Bài phối hợp tuyến sau",
         "zh-CN": "后卫线配合",
-        "id-ID": "Pola barisan belakang",
-        "es-ES": "Jugada de tres cuartos"
+        "zh-TW": "後衛線配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -4614,18 +4614,18 @@
       "id": "rg_move_dummy_runner",
       "family": "rugby_family_2",
       "familyName": {
-        "fr-FR": "Combinaison de trois-quarts",
+        "en": "Backline move",
         "en-GB": "Backline move",
+        "es-ES": "Jugada de tres cuartos",
+        "fr-FR": "Combinaison de trois-quarts",
+        "id-ID": "Pola barisan belakang",
+        "ja-JP": "バックスのサインプレー",
         "ko-KR": "백스 사인 플레이",
         "ms-MY": "Pergerakan barisan belakang",
-        "ja-JP": "バックスのサインプレー",
         "th-TH": "แผนแนวหลัง",
-        "zh-TW": "後衛線配合",
-        "en": "Backline move",
         "vi-VN": "Bài phối hợp tuyến sau",
         "zh-CN": "后卫线配合",
-        "id-ID": "Pola barisan belakang",
-        "es-ES": "Jugada de tres cuartos"
+        "zh-TW": "後衛線配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -5013,18 +5013,18 @@
       "id": "rg_kick_box",
       "family": "rugby_family_0",
       "familyName": {
-        "fr-FR": "Jeu au pied",
+        "en": "Kicking",
         "en-GB": "Kicking",
+        "es-ES": "Juego al pie",
+        "fr-FR": "Jeu au pied",
+        "id-ID": "Tendangan",
+        "ja-JP": "キック",
         "ko-KR": "킥",
         "ms-MY": "Sepakan",
-        "ja-JP": "キック",
         "th-TH": "การเตะ",
-        "zh-TW": "踢球戰術",
-        "en": "Kicking",
         "vi-VN": "Đá bóng đ",
         "zh-CN": "踢球战术",
-        "id-ID": "Tendangan",
-        "es-ES": "Juego al pie"
+        "zh-TW": "踢球戰術"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5220,18 +5220,18 @@
       "id": "rg_kick_cross_field",
       "family": "rugby_family_0",
       "familyName": {
-        "fr-FR": "Jeu au pied",
+        "en": "Kicking",
         "en-GB": "Kicking",
+        "es-ES": "Juego al pie",
+        "fr-FR": "Jeu au pied",
+        "id-ID": "Tendangan",
+        "ja-JP": "キック",
         "ko-KR": "킥",
         "ms-MY": "Sepakan",
-        "ja-JP": "キック",
         "th-TH": "การเตะ",
-        "zh-TW": "踢球戰術",
-        "en": "Kicking",
         "vi-VN": "Đá bóng đ",
         "zh-CN": "踢球战术",
-        "id-ID": "Tendangan",
-        "es-ES": "Juego al pie"
+        "zh-TW": "踢球戰術"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5247,8 +5247,8 @@
         "ko-KR": "킥 크로스필드 킥",
         "es-ES": "Juego al pie la patada cruzada",
         "fr-FR": "Jeu au pied le coup de pied croisé",
-        "id-ID": "Tendangan tendangan menyilang",
-        "ms-MY": "Sepakan sepakan menyilang",
+        "id-ID": "Tendangan menyilang",
+        "ms-MY": "Sepakan menyilang",
         "th-TH": "การเตะ เตะข้ามสนาม",
         "vi-VN": "Đá bóng đá chéo sân"
       },
@@ -5427,18 +5427,18 @@
       "id": "rg_kick_territory",
       "family": "rugby_family_0",
       "familyName": {
-        "fr-FR": "Jeu au pied",
+        "en": "Kicking",
         "en-GB": "Kicking",
+        "es-ES": "Juego al pie",
+        "fr-FR": "Jeu au pied",
+        "id-ID": "Tendangan",
+        "ja-JP": "キック",
         "ko-KR": "킥",
         "ms-MY": "Sepakan",
-        "ja-JP": "キック",
         "th-TH": "การเตะ",
-        "zh-TW": "踢球戰術",
-        "en": "Kicking",
         "vi-VN": "Đá bóng đ",
         "zh-CN": "踢球战术",
-        "id-ID": "Tendangan",
-        "es-ES": "Juego al pie"
+        "zh-TW": "踢球戰術"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5634,18 +5634,18 @@
       "id": "rg_kick_grubber",
       "family": "rugby_family_0",
       "familyName": {
-        "fr-FR": "Jeu au pied",
+        "en": "Kicking",
         "en-GB": "Kicking",
+        "es-ES": "Juego al pie",
+        "fr-FR": "Jeu au pied",
+        "id-ID": "Tendangan",
+        "ja-JP": "キック",
         "ko-KR": "킥",
         "ms-MY": "Sepakan",
-        "ja-JP": "キック",
         "th-TH": "การเตะ",
-        "zh-TW": "踢球戰術",
-        "en": "Kicking",
         "vi-VN": "Đá bóng đ",
         "zh-CN": "踢球战术",
-        "id-ID": "Tendangan",
-        "es-ES": "Juego al pie"
+        "zh-TW": "踢球戰術"
       },
       "category": "attacking",
       "minutes": 10,
@@ -5841,18 +5841,18 @@
       "id": "rg_finish_pick_and_go",
       "family": "rugby_family_7",
       "familyName": {
-        "fr-FR": "Finition",
+        "en": "Finishing",
         "en-GB": "Finishing",
+        "es-ES": "Finalización",
+        "fr-FR": "Finition",
+        "id-ID": "Penyelesaian",
+        "ja-JP": "フィニッシュ",
         "ko-KR": "마무리",
         "ms-MY": "Penamat",
-        "ja-JP": "フィニッシュ",
         "th-TH": "การจบสกอร์",
-        "zh-TW": "達陣終結",
-        "en": "Finishing",
         "vi-VN": "Kết thúc",
         "zh-CN": "达阵终结",
-        "id-ID": "Penyelesaian",
-        "es-ES": "Finalización"
+        "zh-TW": "達陣終結"
       },
       "category": "finishing",
       "minutes": 10,
@@ -6041,18 +6041,18 @@
       "id": "rg_finish_wide_finish",
       "family": "rugby_family_7",
       "familyName": {
-        "fr-FR": "Finition",
+        "en": "Finishing",
         "en-GB": "Finishing",
+        "es-ES": "Finalización",
+        "fr-FR": "Finition",
+        "id-ID": "Penyelesaian",
+        "ja-JP": "フィニッシュ",
         "ko-KR": "마무리",
         "ms-MY": "Penamat",
-        "ja-JP": "フィニッシュ",
         "th-TH": "การจบสกอร์",
-        "zh-TW": "達陣終結",
-        "en": "Finishing",
         "vi-VN": "Kết thúc",
         "zh-CN": "达阵终结",
-        "id-ID": "Penyelesaian",
-        "es-ES": "Finalización"
+        "zh-TW": "達陣終結"
       },
       "category": "finishing",
       "minutes": 10,
@@ -6241,18 +6241,18 @@
       "id": "rg_finish_kick_chase",
       "family": "rugby_family_7",
       "familyName": {
-        "fr-FR": "Finition",
+        "en": "Finishing",
         "en-GB": "Finishing",
+        "es-ES": "Finalización",
+        "fr-FR": "Finition",
+        "id-ID": "Penyelesaian",
+        "ja-JP": "フィニッシュ",
         "ko-KR": "마무리",
         "ms-MY": "Penamat",
-        "ja-JP": "フィニッシュ",
         "th-TH": "การจบสกอร์",
-        "zh-TW": "達陣終結",
-        "en": "Finishing",
         "vi-VN": "Kết thúc",
         "zh-CN": "达阵终结",
-        "id-ID": "Penyelesaian",
-        "es-ES": "Finalización"
+        "zh-TW": "達陣終結"
       },
       "category": "finishing",
       "minutes": 10,
@@ -6441,18 +6441,18 @@
       "id": "rg_defence_drift",
       "family": "rugby_family_1",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -6847,18 +6847,18 @@
       "id": "rg_defence_blitz",
       "family": "rugby_family_1",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -7253,18 +7253,18 @@
       "id": "rg_defence_scramble",
       "family": "rugby_family_1",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンス",
         "ko-KR": "수비",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンス",
         "th-TH": "การรับ",
-        "zh-TW": "防守",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守"
       },
       "category": "defending",
       "minutes": 12,
@@ -7659,18 +7659,18 @@
       "id": "rg_set_lineout_five",
       "family": "rugby_family_8",
       "familyName": {
-        "fr-FR": "Phase statique",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase statique",
+        "id-ID": "Bola mati",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트피스",
         "ms-MY": "Bola mati",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 12,
@@ -7973,18 +7973,18 @@
       "id": "rg_set_lineout_seven",
       "family": "rugby_family_8",
       "familyName": {
-        "fr-FR": "Phase statique",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase statique",
+        "id-ID": "Bola mati",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트피스",
         "ms-MY": "Bola mati",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 12,
@@ -8381,18 +8381,18 @@
       "id": "rg_set_scrum",
       "family": "rugby_family_8",
       "familyName": {
-        "fr-FR": "Phase statique",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase statique",
+        "id-ID": "Bola mati",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트피스",
         "ms-MY": "Bola mati",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 12,
@@ -8836,18 +8836,18 @@
       "id": "rg_set_kick_off",
       "family": "rugby_family_8",
       "familyName": {
-        "fr-FR": "Phase statique",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase statique",
+        "id-ID": "Bola mati",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트피스",
         "ms-MY": "Bola mati",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 12,
@@ -9269,18 +9269,18 @@
       "id": "rg_game_5v5",
       "family": "rugby_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -9618,18 +9618,18 @@
       "id": "rg_game_7v7",
       "family": "rugby_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -10075,18 +10075,18 @@
       "id": "rg_game_8v8",
       "family": "rugby_family_5",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,

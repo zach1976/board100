@@ -878,7 +878,10 @@ def inbounds_family() -> list[Drill]:
                          (x + (x - 0.5) * 0.4, y + 0.04, 1)])
                 for i, (x, y) in enumerate(spots)
             ],
-            away=[P(x, y - 0.04, "X", moves=[(x, y + 0.03, 1)]) for x, y in spots[:2]],
+            # Beside the cutter, not on the next player in the stack — the
+            # stack spots are 0.04 apart vertically, exactly this offset.
+            away=[P(x + 0.07, y - 0.02, "X", moves=[(x + 0.02, y + 0.03, 1)])
+                  for x, y in spots[:2]],
             ball=0,
         ))
     return out

@@ -6,18 +6,18 @@
       "id": "hb_warm_star_passing",
       "family": "handball_family_1",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -65,15 +65,8 @@
               439.5
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                500.0,
-                439.5
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -220,18 +213,18 @@
       "id": "hb_warm_three_lane",
       "family": "handball_family_1",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -395,18 +388,18 @@
       "id": "hb_warm_keeper",
       "family": "handball_family_1",
       "familyName": {
-        "fr-FR": "Échauffement",
+        "en": "Warm-up",
         "en-GB": "Warm-up",
+        "es-ES": "Calentamiento",
+        "fr-FR": "Échauffement",
+        "id-ID": "Pemanasan",
+        "ja-JP": "ウォームアップ",
         "ko-KR": "웜업",
         "ms-MY": "Memanaskan badan",
-        "ja-JP": "ウォームアップ",
         "th-TH": "วอร์มอัพ",
-        "zh-TW": "熱身",
-        "en": "Warm-up",
         "vi-VN": "Khởi động",
         "zh-CN": "热身",
-        "id-ID": "Pemanasan",
-        "es-ES": "Calentamiento"
+        "zh-TW": "熱身"
       },
       "category": "warmup",
       "minutes": 8,
@@ -555,18 +548,18 @@
       "id": "hb_circulation_wide",
       "family": "handball_family_4",
       "familyName": {
-        "fr-FR": "Circulation",
+        "en": "Circulation",
         "en-GB": "Circulation",
+        "es-ES": "Circulación",
+        "fr-FR": "Circulation",
+        "id-ID": "Sirkulasi bola",
+        "ja-JP": "ボール回し",
         "ko-KR": "볼 순환",
         "ms-MY": "Peredaran bola",
-        "ja-JP": "ボール回し",
         "th-TH": "การหมุนบอล",
-        "zh-TW": "球的轉移",
-        "en": "Circulation",
         "vi-VN": "Luân chuyển bóng",
         "zh-CN": "球的转移",
-        "id-ID": "Sirkulasi bola",
-        "es-ES": "Circulación"
+        "zh-TW": "球的轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -895,18 +888,18 @@
       "id": "hb_circulation_with_pivot",
       "family": "handball_family_4",
       "familyName": {
-        "fr-FR": "Circulation",
+        "en": "Circulation",
         "en-GB": "Circulation",
+        "es-ES": "Circulación",
+        "fr-FR": "Circulation",
+        "id-ID": "Sirkulasi bola",
+        "ja-JP": "ボール回し",
         "ko-KR": "볼 순환",
         "ms-MY": "Peredaran bola",
-        "ja-JP": "ボール回し",
         "th-TH": "การหมุนบอล",
-        "zh-TW": "球的轉移",
-        "en": "Circulation",
         "vi-VN": "Luân chuyển bóng",
         "zh-CN": "球的转移",
-        "id-ID": "Sirkulasi bola",
-        "es-ES": "Circulación"
+        "zh-TW": "球的轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -1071,8 +1064,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
@@ -1262,18 +1255,18 @@
       "id": "hb_circulation_second_wave",
       "family": "handball_family_4",
       "familyName": {
-        "fr-FR": "Circulation",
+        "en": "Circulation",
         "en-GB": "Circulation",
+        "es-ES": "Circulación",
+        "fr-FR": "Circulation",
+        "id-ID": "Sirkulasi bola",
+        "ja-JP": "ボール回し",
         "ko-KR": "볼 순환",
         "ms-MY": "Peredaran bola",
-        "ja-JP": "ボール回し",
         "th-TH": "การหมุนบอล",
-        "zh-TW": "球的轉移",
-        "en": "Circulation",
         "vi-VN": "Luân chuyển bóng",
         "zh-CN": "球的转移",
-        "id-ID": "Sirkulasi bola",
-        "es-ES": "Circulación"
+        "zh-TW": "球的轉移"
       },
       "category": "possession",
       "minutes": 12,
@@ -1438,8 +1431,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
@@ -1656,18 +1649,18 @@
       "id": "hb_attack_cross_backs",
       "family": "handball_family_0",
       "familyName": {
-        "fr-FR": "Attaque",
+        "en": "Attack",
         "en-GB": "Attack",
+        "es-ES": "Ataque",
+        "fr-FR": "Attaque",
+        "id-ID": "Serangan",
+        "ja-JP": "攻撃",
         "ko-KR": "공격",
         "ms-MY": "Serangan",
-        "ja-JP": "攻撃",
         "th-TH": "การบุก",
-        "zh-TW": "進攻配合",
-        "en": "Attack",
         "vi-VN": "Tấn công",
         "zh-CN": "进攻配合",
-        "id-ID": "Serangan",
-        "es-ES": "Ataque"
+        "zh-TW": "進攻配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -1835,8 +1828,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -2019,18 +2012,18 @@
       "id": "hb_attack_wing_break",
       "family": "handball_family_0",
       "familyName": {
-        "fr-FR": "Attaque",
+        "en": "Attack",
         "en-GB": "Attack",
+        "es-ES": "Ataque",
+        "fr-FR": "Attaque",
+        "id-ID": "Serangan",
+        "ja-JP": "攻撃",
         "ko-KR": "공격",
         "ms-MY": "Serangan",
-        "ja-JP": "攻撃",
         "th-TH": "การบุก",
-        "zh-TW": "進攻配合",
-        "en": "Attack",
         "vi-VN": "Tấn công",
         "zh-CN": "进攻配合",
-        "id-ID": "Serangan",
-        "es-ES": "Ataque"
+        "zh-TW": "進攻配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -2178,8 +2171,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -2362,18 +2355,18 @@
       "id": "hb_attack_pivot_screen",
       "family": "handball_family_0",
       "familyName": {
-        "fr-FR": "Attaque",
+        "en": "Attack",
         "en-GB": "Attack",
+        "es-ES": "Ataque",
+        "fr-FR": "Attaque",
+        "id-ID": "Serangan",
+        "ja-JP": "攻撃",
         "ko-KR": "공격",
         "ms-MY": "Serangan",
-        "ja-JP": "攻撃",
         "th-TH": "การบุก",
-        "zh-TW": "進攻配合",
-        "en": "Attack",
         "vi-VN": "Tấn công",
         "zh-CN": "进攻配合",
-        "id-ID": "Serangan",
-        "es-ES": "Ataque"
+        "zh-TW": "進攻配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -2423,11 +2416,11 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                533.0749999999999,
                 351.75
               ],
               [
-                500.0,
+                547.25,
                 311.25
               ]
             ],
@@ -2449,14 +2442,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                243.74999999999997
+                264.0
               ],
               [
                 500.0,
@@ -2685,18 +2678,18 @@
       "id": "hb_attack_overload_left",
       "family": "handball_family_0",
       "familyName": {
-        "fr-FR": "Attaque",
+        "en": "Attack",
         "en-GB": "Attack",
+        "es-ES": "Ataque",
+        "fr-FR": "Attaque",
+        "id-ID": "Serangan",
+        "ja-JP": "攻撃",
         "ko-KR": "공격",
         "ms-MY": "Serangan",
-        "ja-JP": "攻撃",
         "th-TH": "การบุก",
-        "zh-TW": "進攻配合",
-        "en": "Attack",
         "vi-VN": "Tấn công",
         "zh-CN": "进攻配合",
-        "id-ID": "Serangan",
-        "es-ES": "Ataque"
+        "zh-TW": "進攻配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -2844,8 +2837,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -3028,18 +3021,18 @@
       "id": "hb_attack_empty_goal",
       "family": "handball_family_0",
       "familyName": {
-        "fr-FR": "Attaque",
+        "en": "Attack",
         "en-GB": "Attack",
+        "es-ES": "Ataque",
+        "fr-FR": "Attaque",
+        "id-ID": "Serangan",
+        "ja-JP": "攻撃",
         "ko-KR": "공격",
         "ms-MY": "Serangan",
-        "ja-JP": "攻撃",
         "th-TH": "การบุก",
-        "zh-TW": "進攻配合",
-        "en": "Attack",
         "vi-VN": "Tấn công",
         "zh-CN": "进攻配合",
-        "id-ID": "Serangan",
-        "es-ES": "Ataque"
+        "zh-TW": "進攻配合"
       },
       "category": "attacking",
       "minutes": 12,
@@ -3187,8 +3180,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -3398,18 +3391,18 @@
       "id": "hb_break_first_wave",
       "family": "handball_family_7",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Fast break",
         "en-GB": "Fast break",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik gelombang",
+        "ja-JP": "速攻 第",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "ja-JP": "速攻 第",
         "th-TH": "การสวนกลับเร็ว คลื่น",
-        "zh-TW": "快攻 第",
-        "en": "Fast break",
         "vi-VN": "Phản công nhanh đợt",
         "zh-CN": "快攻 第",
-        "id-ID": "Serangan balik gelombang",
-        "es-ES": "Contraataque"
+        "zh-TW": "快攻 第"
       },
       "category": "attacking",
       "minutes": 10,
@@ -3576,18 +3569,18 @@
       "id": "hb_break_second_wave",
       "family": "handball_family_7",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Fast break",
         "en-GB": "Fast break",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik gelombang",
+        "ja-JP": "速攻 第",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "ja-JP": "速攻 第",
         "th-TH": "การสวนกลับเร็ว คลื่น",
-        "zh-TW": "快攻 第",
-        "en": "Fast break",
         "vi-VN": "Phản công nhanh đợt",
         "zh-CN": "快攻 第",
-        "id-ID": "Serangan balik gelombang",
-        "es-ES": "Contraataque"
+        "zh-TW": "快攻 第"
       },
       "category": "attacking",
       "minutes": 10,
@@ -3818,18 +3811,18 @@
       "id": "hb_break_third_wave",
       "family": "handball_family_7",
       "familyName": {
-        "fr-FR": "Contre-attaque",
+        "en": "Fast break",
         "en-GB": "Fast break",
+        "es-ES": "Contraataque",
+        "fr-FR": "Contre-attaque",
+        "id-ID": "Serangan balik gelombang",
+        "ja-JP": "速攻 第",
         "ko-KR": "속공",
         "ms-MY": "Serangan balas gelombang",
-        "ja-JP": "速攻 第",
         "th-TH": "การสวนกลับเร็ว คลื่น",
-        "zh-TW": "快攻 第",
-        "en": "Fast break",
         "vi-VN": "Phản công nhanh đợt",
         "zh-CN": "快攻 第",
-        "id-ID": "Serangan balik gelombang",
-        "es-ES": "Contraataque"
+        "zh-TW": "快攻 第"
       },
       "category": "attacking",
       "minutes": 10,
@@ -4124,18 +4117,18 @@
       "id": "hb_shot_jump_nine",
       "family": "handball_family_3",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Lanzamiento",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิงประตู",
-        "zh-TW": "射門",
-        "en": "Shooting",
         "vi-VN": "Dứt điểm",
         "zh-CN": "射门",
-        "id-ID": "Tembakan",
-        "es-ES": "Lanzamiento"
+        "zh-TW": "射門"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4151,8 +4144,8 @@
         "ko-KR": "슛 9m 점프슛",
         "es-ES": "Lanzamiento el lanzamiento en salto desde 9 m",
         "fr-FR": "Tir le tir en suspension à 9 m",
-        "id-ID": "Tembakan tembakan lompat dari 9 m",
-        "ms-MY": "Tembakan tembakan lompat dari 9 m",
+        "id-ID": "Tembakan lompat dari 9 m",
+        "ms-MY": "Tembakan lompat dari 9 m",
         "th-TH": "การยิงประตู ยิงกระโดดจากเก้าเมตร",
         "vi-VN": "Dứt điểm ném nhảy từ 9 m"
       },
@@ -4233,14 +4226,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              452.75,
+              297.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                351.75
+                479.75,
+                338.25
               ]
             ],
             "movePhases": [
@@ -4304,18 +4297,18 @@
       "id": "hb_shot_wing_angle",
       "family": "handball_family_3",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Lanzamiento",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิงประตู",
-        "zh-TW": "射門",
-        "en": "Shooting",
         "vi-VN": "Dứt điểm",
         "zh-CN": "射门",
-        "id-ID": "Tembakan",
-        "es-ES": "Lanzamiento"
+        "zh-TW": "射門"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4413,14 +4406,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              230.0,
-              311.25
+              182.75,
+              297.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                230.0,
-                351.75
+                209.75,
+                338.25
               ]
             ],
             "movePhases": [
@@ -4484,18 +4477,18 @@
       "id": "hb_shot_pivot_turn",
       "family": "handball_family_3",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Lanzamiento",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิงประตู",
-        "zh-TW": "射門",
-        "en": "Shooting",
         "vi-VN": "Dứt điểm",
         "zh-CN": "射门",
-        "id-ID": "Tembakan",
-        "es-ES": "Lanzamiento"
+        "zh-TW": "射門"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4539,13 +4532,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                533.0749999999999,
                 324.75
               ]
             ],
@@ -4593,14 +4586,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              499.99999999999994,
+              297.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                351.75
+                527.0,
+                338.25
               ]
             ],
             "movePhases": [
@@ -4640,8 +4633,8 @@
             "team": 2,
             "sportType": 10,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -4664,18 +4657,18 @@
       "id": "hb_shot_break_through",
       "family": "handball_family_3",
       "familyName": {
-        "fr-FR": "Tir",
+        "en": "Shooting",
         "en-GB": "Shooting",
+        "es-ES": "Lanzamiento",
+        "fr-FR": "Tir",
+        "id-ID": "Tembakan",
+        "ja-JP": "シュート",
         "ko-KR": "슛",
         "ms-MY": "Tembakan",
-        "ja-JP": "シュート",
         "th-TH": "การยิงประตู",
-        "zh-TW": "射門",
-        "en": "Shooting",
         "vi-VN": "Dứt điểm",
         "zh-CN": "射门",
-        "id-ID": "Tembakan",
-        "es-ES": "Lanzamiento"
+        "zh-TW": "射門"
       },
       "category": "finishing",
       "minutes": 10,
@@ -4773,14 +4766,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              338.0,
-              311.25
+              290.75,
+              297.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                338.0,
-                351.75
+                317.75,
+                338.25
               ]
             ],
             "movePhases": [
@@ -4844,18 +4837,18 @@
       "id": "hb_defence_six_zero",
       "family": "handball_family_6",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンスシステム",
         "ko-KR": "수비 시스템",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンスシステム",
         "th-TH": "ระบบรับ",
-        "zh-TW": "防守陣型",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守阵型",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守陣型"
       },
       "category": "defending",
       "minutes": 12,
@@ -5034,14 +5027,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                257.25
+                547.25,
+                277.5
               ]
             ],
             "movePhases": [
@@ -5297,18 +5290,18 @@
       "id": "hb_defence_five_one",
       "family": "handball_family_6",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンスシステム",
         "ko-KR": "수비 시스템",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンスシステム",
         "th-TH": "ระบบรับ",
-        "zh-TW": "防守陣型",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守阵型",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守陣型"
       },
       "category": "defending",
       "minutes": 12,
@@ -5487,14 +5480,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                257.25
+                547.25,
+                277.5
               ]
             ],
             "movePhases": [
@@ -5750,18 +5743,18 @@
       "id": "hb_defence_three_two_one",
       "family": "handball_family_6",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンスシステム",
         "ko-KR": "수비 시스템",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンスシステム",
         "th-TH": "ระบบรับ",
-        "zh-TW": "防守陣型",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守阵型",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守陣型"
       },
       "category": "defending",
       "minutes": 12,
@@ -5940,14 +5933,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                257.25
+                547.25,
+                277.5
               ]
             ],
             "movePhases": [
@@ -6203,18 +6196,18 @@
       "id": "hb_defence_four_two",
       "family": "handball_family_6",
       "familyName": {
-        "fr-FR": "Défense",
+        "en": "Defence",
         "en-GB": "Defence",
+        "es-ES": "Defensa",
+        "fr-FR": "Défense",
+        "id-ID": "Pertahanan",
+        "ja-JP": "ディフェンスシステム",
         "ko-KR": "수비 시스템",
         "ms-MY": "Pertahanan",
-        "ja-JP": "ディフェンスシステム",
         "th-TH": "ระบบรับ",
-        "zh-TW": "防守陣型",
-        "en": "Defence",
         "vi-VN": "Phòng thủ",
         "zh-CN": "防守阵型",
-        "id-ID": "Pertahanan",
-        "es-ES": "Defensa"
+        "zh-TW": "防守陣型"
       },
       "category": "defending",
       "minutes": 12,
@@ -6393,14 +6386,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                257.25
+                547.25,
+                277.5
               ]
             ],
             "movePhases": [
@@ -6656,18 +6649,18 @@
       "id": "hb_set_seven_metre",
       "family": "handball_family_5",
       "familyName": {
-        "fr-FR": "Phase arrêtée l",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase arrêtée l",
+        "id-ID": "Bola mati lemparan",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
         "ms-MY": "Bola mati lemparan",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định ném",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati lemparan",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 6,
@@ -6829,18 +6822,18 @@
       "id": "hb_set_nine_metre",
       "family": "handball_family_5",
       "familyName": {
-        "fr-FR": "Phase arrêtée l",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase arrêtée l",
+        "id-ID": "Bola mati lemparan",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
         "ms-MY": "Bola mati lemparan",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định ném",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati lemparan",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -6938,8 +6931,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
@@ -7129,18 +7122,18 @@
       "id": "hb_set_throw_off",
       "family": "handball_family_5",
       "familyName": {
-        "fr-FR": "Phase arrêtée l",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase arrêtée l",
+        "id-ID": "Bola mati lemparan",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
         "ms-MY": "Bola mati lemparan",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định ném",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati lemparan",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -7238,8 +7231,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
@@ -7429,18 +7422,18 @@
       "id": "hb_set_sideline",
       "family": "handball_family_5",
       "familyName": {
-        "fr-FR": "Phase arrêtée l",
+        "en": "Set piece",
         "en-GB": "Set piece",
+        "es-ES": "Jugada a balón parado",
+        "fr-FR": "Phase arrêtée l",
+        "id-ID": "Bola mati lemparan",
+        "ja-JP": "セットプレー",
         "ko-KR": "세트 플레이",
         "ms-MY": "Bola mati lemparan",
-        "ja-JP": "セットプレー",
         "th-TH": "ลูกตั้งเตะ",
-        "zh-TW": "定位球",
-        "en": "Set piece",
         "vi-VN": "Tình huống cố định ném",
         "zh-CN": "定位球",
-        "id-ID": "Bola mati lemparan",
-        "es-ES": "Jugada a balón parado"
+        "zh-TW": "定位球"
       },
       "category": "setpiece",
       "minutes": 8,
@@ -7538,8 +7531,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              311.25
+              547.25,
+              331.5
             ],
             "scale": 1.0,
             "moves": [
@@ -7729,18 +7722,18 @@
       "id": "hb_game_3v3",
       "family": "handball_family_2",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -7866,13 +7859,13 @@
             "sportType": null,
             "position": [
               500.0,
-              520.5
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                466.50000000000006
+                493.5
               ]
             ],
             "movePhases": [
@@ -7892,14 +7885,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              675.3701442663488,
-              702.75
+              640.2961154130791,
+              743.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                675.3701442663488,
-                648.75
+                640.2961154130791,
+                675.75
               ]
             ],
             "movePhases": [
@@ -7919,14 +7912,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              324.62985573365114,
-              702.75
+              359.70388458692094,
+              743.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                324.62985573365114,
-                648.75
+                359.70388458692094,
+                675.75
               ]
             ],
             "movePhases": [
@@ -7990,18 +7983,18 @@
       "id": "hb_game_4v4",
       "family": "handball_family_2",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -8154,13 +8147,13 @@
             "sportType": null,
             "position": [
               500.0,
-              520.5
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                466.50000000000006
+                493.5
               ]
             ],
             "movePhases": [
@@ -8180,14 +8173,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              702.5,
-              642.0
+              662.0,
+              682.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                702.5,
-                588.0
+                662.0,
+                615.0
               ]
             ],
             "movePhases": [
@@ -8208,13 +8201,13 @@
             "sportType": null,
             "position": [
               500.0,
-              763.5
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                709.5
+                736.5000000000001
               ]
             ],
             "movePhases": [
@@ -8234,14 +8227,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              297.5,
-              642.0
+              338.0,
+              682.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                297.5,
-                588.0
+                338.0,
+                615.0
               ]
             ],
             "movePhases": [
@@ -8305,18 +8298,18 @@
       "id": "hb_game_5v5",
       "family": "handball_family_2",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -8496,13 +8489,13 @@
             "sportType": null,
             "position": [
               500.0,
-              520.5
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                466.50000000000006
+                493.5
               ]
             ],
             "movePhases": [
@@ -8522,14 +8515,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              692.5889445497686,
-              604.4544351834438
+              654.0711556398148,
+              644.9544351834439
             ],
             "scale": 1.0,
             "moves": [
               [
-                692.5889445497686,
-                550.4544351834438
+                654.0711556398148,
+                577.4544351834439
               ]
             ],
             "movePhases": [
@@ -8549,14 +8542,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              619.0265135892258,
-              740.2955648165562
+              595.2212108713807,
+              780.7955648165561
             ],
             "scale": 1.0,
             "moves": [
               [
-                619.0265135892258,
-                686.2955648165561
+                595.2212108713807,
+                713.2955648165561
               ]
             ],
             "movePhases": [
@@ -8576,14 +8569,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              380.97348641077417,
-              740.2955648165562
+              404.77878912861934,
+              780.7955648165561
             ],
             "scale": 1.0,
             "moves": [
               [
-                380.97348641077417,
-                686.2955648165561
+                404.77878912861934,
+                713.2955648165561
               ]
             ],
             "movePhases": [
@@ -8603,14 +8596,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              307.4110554502314,
-              604.4544351834438
+              345.92884436018517,
+              644.9544351834439
             ],
             "scale": 1.0,
             "moves": [
               [
-                307.4110554502314,
-                550.4544351834438
+                345.92884436018517,
+                577.4544351834439
               ]
             ],
             "movePhases": [
@@ -8674,18 +8667,18 @@
       "id": "hb_game_6v6",
       "family": "handball_family_2",
       "familyName": {
-        "fr-FR": "Jeu",
+        "en": "Game",
         "en-GB": "Game",
+        "es-ES": "Juego",
+        "fr-FR": "Jeu",
+        "id-ID": "Permainan",
+        "ja-JP": "ゲーム",
         "ko-KR": "게임",
         "ms-MY": "Permainan",
-        "ja-JP": "ゲーム",
         "th-TH": "เกม",
-        "zh-TW": "對抗",
-        "en": "Game",
         "vi-VN": "Trận đấu",
         "zh-CN": "对抗",
-        "id-ID": "Permainan",
-        "es-ES": "Juego"
+        "zh-TW": "對抗"
       },
       "category": "ssg",
       "minutes": 15,
@@ -8892,13 +8885,13 @@
             "sportType": null,
             "position": [
               500.0,
-              520.5
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                466.50000000000006
+                493.5
               ]
             ],
             "movePhases": [
@@ -8918,14 +8911,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              675.3701442663488,
-              581.25
+              640.2961154130791,
+              621.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                675.3701442663488,
-                527.25
+                640.2961154130791,
+                554.25
               ]
             ],
             "movePhases": [
@@ -8945,14 +8938,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              675.3701442663488,
-              702.75
+              640.2961154130791,
+              743.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                675.3701442663488,
-                648.75
+                640.2961154130791,
+                675.75
               ]
             ],
             "movePhases": [
@@ -8973,13 +8966,13 @@
             "sportType": null,
             "position": [
               500.0,
-              763.5
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                709.5
+                736.5000000000001
               ]
             ],
             "movePhases": [
@@ -8999,14 +8992,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              324.62985573365114,
-              702.75
+              359.70388458692094,
+              743.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                324.62985573365114,
-                648.75
+                359.70388458692094,
+                675.75
               ]
             ],
             "movePhases": [
@@ -9026,14 +9019,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              324.6298557336512,
-              581.25
+              359.70388458692094,
+              621.75
             ],
             "scale": 1.0,
             "moves": [
               [
-                324.6298557336512,
-                527.25
+                359.70388458692094,
+                554.25
               ]
             ],
             "movePhases": [

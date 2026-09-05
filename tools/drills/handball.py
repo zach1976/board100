@@ -11,7 +11,9 @@ SIX, NINE, SEVEN_M = 0.155, 0.235, 0.175
 # The six attacking positions, in the order a coach names them.
 LW, LB, CB, RB, RW = ((0.10, 0.22), (0.26, 0.31), (0.50, 0.34),
                       (0.74, 0.31), (0.90, 0.22))
-PIVOT = (0.50, 0.175)
+# Just off-centre: dead centre is where the middle defender of
+# every wall stands, and the two rendered as one stacked dot.
+PIVOT = (0.57, 0.19)
 BACKCOURT = (LB, CB, RB)
 
 
@@ -225,7 +227,10 @@ def shooting_family() -> list[Drill]:
             home=[P(*frm, "S", moves=[(frm[0] + (0.5 - frm[0]) * 0.3,
                                        SIX + 0.03, 0)])],
             away=[P(*GOAL, "GK", role="GK", moves=[(target[0] * 0.5 + 0.25, 0.05, 1)]),
-                  P(frm[0], SIX + 0.02, "D", moves=[(frm[0], SIX + 0.05, 0)])],
+                  # goal-side of the shooter, not on top of them — for the
+                  # pivot the two used to share a point exactly
+                  P(frm[0] - 0.07, SIX + 0.01, "D",
+                    moves=[(frm[0] - 0.03, SIX + 0.04, 0)])],
             markers=[M(*target, "zone", "")],
             ball=0,
         ))
@@ -422,7 +427,8 @@ def game_family() -> list[Drill]:
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.2, y - 0.04, 0)])
                   for i, (x, y) in enumerate(spots)],
-            away=[P(x, y + 0.10, "D", moves=[(x, y + 0.06, 0)]) for x, y in spots]
+            away=[P(0.5 + (x - 0.5) * 0.8, y + 0.13, "D",
+                    moves=[(0.5 + (x - 0.5) * 0.8, y + 0.08, 0)]) for x, y in spots]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
         ))

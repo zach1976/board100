@@ -1107,3 +1107,46 @@ add("the zipper", "拉链跑位", "拉鏈跑位", "ジッパー", "지퍼 컷",
 add("from the sideline", "边线发球", "邊線發球", "サイドラインから", "사이드라인에서",
     "desde la banda", "depuis la ligne de touche", "dari garis samping",
     "dari garisan tepi", "จากเส้นข้าง", "từ đường biên dọc")
+
+# ── Seam repairs (2026-09-05 review) ─────────────────────────────────────────
+# A family name composes as "<family> <variant>", and in these entries one
+# locale's variant carried the family's own noun — "Spike the roll spike",
+# "Passe haute passe avant". Only the broken locale is overridden; the key
+# stays the full English term so the call sites read naturally.
+def fix(key, **locs):
+    for loc, text in locs.items():
+        V[key][loc.replace('_', '-')] = text
+
+
+fix("front set", fr_FR="vers l'avant")
+fix("back set", fr_FR="vers l'arrière")
+fix("jump set", fr_FR="en suspension")
+fix("high block", fr_FR="haut")
+fix("mid block", fr_FR="médian")
+fix("low block", fr_FR="bas")
+fix("spinning net", en="with spin", **{"en_GB": "with spin"})
+fix("the shark attack", es_ES="el tiburón")
+fix("half-long push rally", en="half-long pushes", en_GB="half-long pushes")
+fix("counter-loop", en="countering", en_GB="countering")
+fix("the short touch", en="the touch", en_GB="the touch")
+fix("full match", en="a whole match", en_GB="a whole match")
+fix("scoring from second", en="from second", en_GB="from second")
+fix("third shot game", en="third shots only", en_GB="third shots only")
+fix("chest control", en="with the chest", en_GB="with the chest")
+fix("receiving the serve", en="off the serve", en_GB="off the serve")
+fix("the high feed", en="high", en_GB="high")
+fix("the quick feed", en="fast", en_GB="fast")
+fix("the roll spike", en="the roll", en_GB="the roll",
+    ja_JP="ローリング", ko_KR="롤", id_ID="gulung", ms_MY="gulung",
+    es_ES="en giro", fr_FR="roulée", vi_VN="xoay người")
+fix("the sunback spike", en="the sunback", en_GB="the sunback",
+    ja_JP="サンバック", ko_KR="선백", id_ID="sunback", ms_MY="sunback",
+    es_ES="de espaldas", fr_FR="dos au filet")
+fix("the high feed", fr_FR="haute")
+fix("the quick feed", fr_FR="rapide")
+fix("receiving the serve", fr_FR="sur réception")
+fix("scoring from second", fr_FR="depuis le deuxième but")
+fix("front set", en="to the front", en_GB="to the front")
+fix("back set", en="behind the head", en_GB="behind the head")
+fix("jump set", en="off the jump", en_GB="off the jump")
+fix("full match", en="a full game", en_GB="a full game")
