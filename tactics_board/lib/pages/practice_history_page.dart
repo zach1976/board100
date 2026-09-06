@@ -127,6 +127,15 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                       const SizedBox(height: 16),
                       Text('practice_history_empty'.tr(),
                           style: const TextStyle(color: Colors.white54)),
+                      const SizedBox(height: 8),
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 32),
+                        child: Text('practice_history_empty_hint'.tr(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.white38, fontSize: 12.5)),
+                      ),
                     ],
                   ),
                 )
