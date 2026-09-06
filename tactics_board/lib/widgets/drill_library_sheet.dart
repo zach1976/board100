@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../config_constants.dart';
 
 import '../models/drill.dart';
 import '../models/tactic_meta.dart';
@@ -301,10 +302,20 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     )
                   else if (shown.isEmpty)
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 34),
+                      padding: const EdgeInsets.symmetric(vertical: 26),
                       child: Center(
-                        child: Text('drills_no_match'.tr(args: [_query.trim()]),
-                            style: const TextStyle(color: Colors.white38, fontSize: 13)),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                                packageAsset('assets/icon/empty_search.png'),
+                                width: 96),
+                            const SizedBox(height: 10),
+                            Text('drills_no_match'.tr(args: [_query.trim()]),
+                                style: const TextStyle(
+                                    color: Colors.white38, fontSize: 13)),
+                          ],
+                        ),
                       ),
                     )
                   else
