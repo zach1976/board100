@@ -77,7 +77,11 @@ p.write_text(s)
 PY
   mkdir -p integration_test test_driver
   # If the app already ships its own driver, keep it and put ours aside.
-  [ -f test_driver/integration_test.dart ] && touch .drive_kept_driver \
+  # A copy identical to ours is a leftover from a run that died before its
+  # cleanup, not the app's own — keeping it would strand it here forever.
+  [ -f test_driver/integration_test.dart ] \
+    && ! cmp -s test_driver/integration_test.dart "$REPO/tools/drive/driver.dart" \
+    && touch .drive_kept_driver \
     && cp test_driver/integration_test.dart test_driver/.driver_backup
   cp "$REPO/tools/drive/driver.dart" test_driver/integration_test.dart
   sed "s/__PACKAGE__/$pkg/" "$REPO/tools/drive/ui_walk.dart" > integration_test/ui_walk.dart
