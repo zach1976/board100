@@ -461,7 +461,7 @@ class _DrillRow extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               if (!grouped)
-                Icon(allLocked ? Icons.lock_outline : Icons.play_circle_outline,
+                Icon(allLocked ? Icons.lock_outline : Icons.add_circle_outline,
                     color: allLocked ? Colors.white38 : kAccent, size: 26),
             ],
           ),
@@ -544,7 +544,7 @@ class _VariantChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(locked ? Icons.lock_outline : Icons.play_arrow_rounded,
+            Icon(locked ? Icons.lock_outline : Icons.add_rounded,
                 size: 14, color: locked ? Colors.white38 : kAccent),
             const SizedBox(width: 5),
             // Flexible, not bare: a Wrap gives each chip the full row width,
@@ -609,7 +609,7 @@ class _MineRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            const Icon(Icons.play_circle_outline, color: kAccent, size: 26),
+            const Icon(Icons.add_circle_outline, color: kAccent, size: 26),
           ],
         ),
       ),

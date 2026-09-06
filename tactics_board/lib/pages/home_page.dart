@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/player_role.dart';
@@ -128,6 +129,9 @@ class TacticsBoardHomePage extends StatelessWidget {
             return Stack(
               fit: StackFit.expand,
               children: [
+        // The first-run coach mark sits under the corner chrome and gets out
+        // of the way for good once the coach selects or draws anything.
+        if (!editPanelOpen) const _FirstRunHint(),
         if (!isSingleSportApp)
           Positioned(
             top: _chromeTop(topPad), left: 12,
@@ -2823,6 +2827,80 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       onTap: () => launchUrl(url, mode: LaunchMode.externalApplication),
       child: Text(label,
           style: const TextStyle(color: Colors.white38, fontSize: 12)),
+    );
+  }
+}
+
+/// One-time coach mark on a fresh install. The board opens empty, and nothing
+/// on it says where players come from — this bubble does, once, and never
+/// again after it is tapped away.
+class _FirstRunHint extends StatefulWidget {
+  const _FirstRunHint();
+
+  @override
+  State<_FirstRunHint> createState() => _FirstRunHintState();
+}
+
+class _FirstRunHintState extends State<_FirstRunHint> {
+  static const _prefKey = 'board_hint_seen';
+  bool _visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      if (!mounted) return;
+      if (prefs.getBool(_prefKey) != true) setState(() => _visible = true);
+    });
+  }
+
+  void _dismiss() {
+    setState(() => _visible = false);
+    SharedPreferences.getInstance().then((p) => p.setBool(_prefKey, true));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!_visible) return const SizedBox.shrink();
+    return Positioned(
+      left: 16,
+      right: 16,
+      bottom: 14,
+      child: Center(
+        child: GestureDetector(
+          onTap: _dismiss,
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 360),
+            padding: const EdgeInsets.fromLTRB(14, 10, 10, 10),
+            decoration: BoxDecoration(
+              color: const Color(0xF0142B33),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.white12),
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.black45,
+                    blurRadius: 12,
+                    offset: Offset(0, 4)),
+              ],
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    'first_run_hint'
+                        .tr(args: ['add_label'.tr(), 'mode_draw'.tr()]),
+                    style: const TextStyle(
+                        color: Colors.white, fontSize: 13, height: 1.35),
+                  ),
+                ),
+                const SizedBox(width: 6),
+                const Icon(Icons.close, color: Colors.white54, size: 16),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
