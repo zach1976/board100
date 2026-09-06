@@ -2862,9 +2862,21 @@ class _FirstRunHintState extends State<_FirstRunHint> {
   @override
   Widget build(BuildContext context) {
     if (!_visible) return const SizedBox.shrink();
+    // Anything on the board means the coach no longer needs telling how to
+    // put something on it — a loaded drill counts as much as a manual add.
+    final boardInUse = context.select<TacticsState, bool>(
+        (s) => s.players.isNotEmpty || s.strokes.isNotEmpty);
+    if (boardInUse) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _visible) _dismiss();
+      });
+      return const SizedBox.shrink();
+    }
+    // right: 88 keeps the bubble clear of the zoom/fullscreen column that
+    // lives in the board's bottom-right corner.
     return Positioned(
       left: 16,
-      right: 16,
+      right: 88,
       bottom: 14,
       child: Center(
         child: GestureDetector(
