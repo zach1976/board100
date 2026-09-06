@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // __PACKAGE__ is replaced with the app's own package name by tools/drive_app.sh,
 // so this walks the shell's real main() — the part that picks the sport.
 import 'package:__PACKAGE__/main.dart' as app;
@@ -16,6 +17,11 @@ void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('open the board and the drill library', (tester) async {
+    // Suppress ads for the walk from inside the installed app, before main()
+    // reads it — flutter drive reinstalls and wipes any plist written from
+    // the shell, but a pref set here lives in the same process it launches.
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('remove_ads_pro', true);
     app.main();
     // The splash and any app-open ad need real time to clear, and
     // pumpAndSettle gives up on a spinner, so settle by the clock.
