@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../config_constants.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -337,7 +338,7 @@ class _EmptyState extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.event_note_outlined, color: Colors.white24, size: 64),
+          Image.asset(packageAsset('assets/icon/empty_mine.png'), width: 130),
           const SizedBox(height: 16),
           Text('practice_empty'.tr(), style: const TextStyle(color: Colors.white54, fontSize: 15)),
           const SizedBox(height: 16),

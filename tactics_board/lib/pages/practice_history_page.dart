@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../config_constants.dart';
 import '../models/practice_session.dart';
 import '../models/sport_type.dart';
 import '../models/player_photo.dart';
@@ -122,8 +123,9 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.history,
-                          color: Colors.white24, size: 64),
+                      Image.asset(
+                          packageAsset('assets/icon/empty_history.png'),
+                          width: 130),
                       const SizedBox(height: 16),
                       Text('practice_history_empty'.tr(),
                           style: const TextStyle(color: Colors.white54)),

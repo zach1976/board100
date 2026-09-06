@@ -30,16 +30,40 @@ abstract class BallPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-/// Sports whose on-board ball ships as an image asset instead of the
-/// procedural painter. Others return null and fall back to [BallPainter].
+/// Every sport's on-board ball now ships as a photographic asset; the
+/// procedural painters below remain as the fallback for anything unmapped.
 String? ballImageAsset(SportType sport) {
   switch (sport) {
     case SportType.soccer:
       return packageAsset('assets/icon/ball_soccer.png');
     case SportType.basketball:
       return packageAsset('assets/icon/ball_basketball.png');
-    default:
-      return null;
+    case SportType.badminton:
+      return packageAsset('assets/icon/ball_badminton.png');
+    case SportType.tennis:
+      return packageAsset('assets/icon/ball_tennis.png');
+    case SportType.tableTennis:
+      return packageAsset('assets/icon/ball_tableTennis.png');
+    case SportType.volleyball:
+      return packageAsset('assets/icon/ball_volleyball.png');
+    case SportType.pickleball:
+      return packageAsset('assets/icon/ball_pickleball.png');
+    case SportType.fieldHockey:
+      return packageAsset('assets/icon/ball_fieldHockey.png');
+    case SportType.rugby:
+      return packageAsset('assets/icon/ball_rugby.png');
+    case SportType.baseball:
+      return packageAsset('assets/icon/ball_baseball.png');
+    case SportType.handball:
+      return packageAsset('assets/icon/ball_handball.png');
+    case SportType.waterPolo:
+      return packageAsset('assets/icon/ball_waterPolo.png');
+    case SportType.sepakTakraw:
+      return packageAsset('assets/icon/ball_sepakTakraw.png');
+    case SportType.beachTennis:
+      return packageAsset('assets/icon/ball_beachTennis.png');
+    case SportType.footvolley:
+      return packageAsset('assets/icon/ball_footvolley.png');
   }
 }
 

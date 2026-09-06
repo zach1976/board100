@@ -834,7 +834,10 @@ class _BallWidgetState extends State<_BallWidget>
   void initState() {
     super.initState();
     if (_isShuttlecock) {
-      _ticker = createTicker(_onTick)..start();
+      // Created idle: a ticker that runs while the shuttle is standing still
+      // burns a frame per vsync for nothing — and keeps pumpAndSettle (and
+      // the drive walk built on it) from ever settling on a badminton board.
+      _ticker = createTicker(_onTick);
     }
   }
 
@@ -843,6 +846,7 @@ class _BallWidgetState extends State<_BallWidget>
     _lastElapsed = elapsed;
     if (_velocity.abs() < _minVelocity) {
       _velocity = 0;
+      _ticker?.stop();
       return;
     }
     setState(() {
@@ -853,6 +857,11 @@ class _BallWidgetState extends State<_BallWidget>
 
   void flick(double dxPixels) {
     _velocity += dxPixels * 0.25;
+    if (!(_ticker?.isActive ?? true)) {
+      // start() counts elapsed from zero again, so the dt baseline must too.
+      _lastElapsed = Duration.zero;
+      _ticker?.start();
+    }
   }
 
   @override

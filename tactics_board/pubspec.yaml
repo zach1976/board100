@@ -86,6 +86,23 @@ flutter:
     - assets/drills/
     - assets/icon/ball_soccer.png
     - assets/icon/ball_basketball.png
+    - assets/icon/ball_badminton.png
+    - assets/icon/ball_tennis.png
+    - assets/icon/ball_tableTennis.png
+    - assets/icon/ball_volleyball.png
+    - assets/icon/ball_pickleball.png
+    - assets/icon/ball_fieldHockey.png
+    - assets/icon/ball_rugby.png
+    - assets/icon/ball_baseball.png
+    - assets/icon/ball_handball.png
+    - assets/icon/ball_waterPolo.png
+    - assets/icon/ball_sepakTakraw.png
+    - assets/icon/ball_beachTennis.png
+    - assets/icon/ball_footvolley.png
+    - assets/icon/empty_history.png
+    - assets/icon/empty_mine.png
+    - assets/icon/empty_search.png
+    - assets/icon/paywall_banner.jpg
     - assets/preview/
 
   # To add assets to your application, add an assets section, like this:

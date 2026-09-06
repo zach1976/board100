@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../config_constants.dart';
 import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/player_role.dart';
@@ -2468,8 +2469,25 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Center(child: _badge()),
-                const SizedBox(height: 16),
+                // The banner carries the premium mood; the badge anchors it.
+                Center(
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Image.asset(
+                          packageAsset('assets/icon/paywall_banner.jpg'),
+                          height: 110,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Positioned(bottom: -18, child: _badge()),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 34),
                 Text('pro_title'.tr(),
                     textAlign: TextAlign.center,
                     style: const TextStyle(
