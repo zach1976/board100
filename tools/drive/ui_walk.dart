@@ -66,8 +66,13 @@ void main() {
 
     // Load the first drill and look at it on the board. A family card offers
     // a chip per variant; a drill that stands alone offers the round button.
-    var play = find.byIcon(Icons.add_rounded);
-    if (play.evaluate().isEmpty) play = find.byIcon(Icons.add_circle_outline);
+    // hitTestable: after the scroll the first icon in the tree can be above
+    // the viewport, and tapping it silently misses — which is how this step
+    // once produced a byte-identical copy of the previous screenshot.
+    var play = find.byIcon(Icons.add_rounded).hitTestable();
+    if (play.evaluate().isEmpty) {
+      play = find.byIcon(Icons.add_circle_outline).hitTestable();
+    }
     if (play.evaluate().isNotEmpty) {
       await tester.tap(play.first);
       await tester.pumpAndSettle();
