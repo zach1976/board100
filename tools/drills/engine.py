@@ -559,6 +559,9 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # basketball: the technique boards, and the shell every team teaches
+    "bb_catch_and_shoot", "bb_layup_lines", "bb_closeout", "bb_box_out",
+    "bb_shot_the_corner", "bb_shot_top",
     # baseball: the technique boards a session starts with
     "bb_run_tag_up", "bb_pick_first", "bb_warm_long_toss",
     # volleyball: technique and the receive patterns a beginner starts on
@@ -592,6 +595,9 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # basketball: the five-man structures
+    "bb_shell_4v4", "bb_zone_zone_offence", "bb_transition_5v4",
+    "bb_inbounds_sideline", "bb_offball_stagger",
     # baseball: the plays that need nine people agreeing beforehand
     "bb_dp_four_six_three", "bb_defence_first_and_third", "bb_pick_rundown",
     "bb_relay_gap_ball", "bb_score_squeeze",
@@ -608,7 +614,7 @@ ADVANCED = {
     "hb_defence_four_two", "hb_defence_three_two_one", "hb_attack_empty_goal",
     "hb_break_third_wave", "hb_game_6v6", "hb_set_nine_metre",
     # basketball
-    "bb_horns_set", "bb_press_break", "bb_defence_ice",
+    "bb_press_break", "bb_defence_ice",
     # volleyball
     "vb_serve_jump",
     # badminton
