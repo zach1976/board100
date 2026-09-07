@@ -120,6 +120,11 @@ class Drill:
     # session on it — warm-up through small-sided game — because a starter
     # library that can't start anything is an advert, not a starter library.
     free: bool = False
+    # Some formations really are shoulder to shoulder — a free-kick wall, a
+    # scrum, a screen. Those may sit closer than one icon apart, but never
+    # closer than the labels can be told apart. Everything else must not
+    # overlap at all: see SPACING_* below for why the numbers are in points.
+    tight: bool = False
     # foundation | development | advanced. Left None, it is derived from what
     # the drill demands (see derive_level); set it only where the rule is
     # wrong — a banana flick needs two players and years of table time.
@@ -502,6 +507,30 @@ def derive_level(drill: Drill) -> str:
     return "development"
 
 
+# Two players are dots 44pt across (kPlayerIconSize) on a phone, and the
+# 1000x1500 board is rescaled to the canvas — about 400x700pt — when it
+# loads. So a gap has to be measured in points, not in board units: the old
+# rule asked for 20 board units, which is 8pt, and let a four-man free-kick
+# wall ship as one unreadable blob.
+CANVAS_PT = (400.0, 700.0)      # the app's own default canvas
+BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
+SPACING_APART = 44.0            # one icon: no overlap at all
+SPACING_TIGHT = 30.0            # shoulder to shoulder, labels still readable
+
+# Sports whose boards predate the rule. Shrink this list, never grow it.
+SPACING_UNCHECKED = {
+    "baseball", "basketball", "beachTennis", "fieldHockey", "handball",
+    "rugby", "sepakTakraw", "volleyball", "waterPolo",
+}
+
+
+def _screen_gap(a, b) -> float:
+    """Distance between two board points as the coach's phone shows it."""
+    sx = CANVAS_PT[0] / BOARD_UNITS[0]
+    sy = CANVAS_PT[1] / BOARD_UNITS[1]
+    return math.hypot((a[0] - b[0]) * sx, (a[1] - b[1]) * sy)
+
+
 _NVM = _re.compile(r"\b(\d+)v(\d+)\b")
 _STUTTER = _re.compile(r"\b(\w+) \1\b", _re.IGNORECASE)
 
@@ -518,13 +547,16 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     people = [p for p in board["players"]
               if p["markerShape"] == 0 and p.get("sportType") is None]
 
-    for i in range(len(people)):
-        for j in range(i + 1, len(people)):
-            d = math.hypot(people[i]["position"][0] - people[j]["position"][0],
-                           people[i]["position"][1] - people[j]["position"][1])
-            assert d >= 20, (
-                f"{sport}/{drill.id}: {people[i]['label']!r} and "
-                f"{people[j]['label']!r} start {d:.0f}px apart — stacked dots")
+    if sport not in SPACING_UNCHECKED:
+        floor = SPACING_TIGHT if drill.tight else SPACING_APART
+        for i in range(len(people)):
+            for j in range(i + 1, len(people)):
+                d = _screen_gap(people[i]["position"], people[j]["position"])
+                assert d >= floor, (
+                    f"{sport}/{drill.id}: {people[i]['label']!r} and "
+                    f"{people[j]['label']!r} are {d:.0f}pt apart on a phone — "
+                    f"{'labels collide' if drill.tight else 'icons overlap'} "
+                    f"(need {floor:.0f}pt)")
 
     for p in people:
         prev = p["position"]

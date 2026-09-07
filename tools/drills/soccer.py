@@ -251,7 +251,9 @@ def soccer_drills() -> list[Drill]:
                 P(500, 700, "10", moves=[(500, 330, 1)]),                 # penalty spot
                 P(420, 800, "8", moves=[(460, 430, 1)]),                  # edge of the box
             ],
-            away=[P(560, 300, "D"), P(480, 260, "E")],
+            # A finishing drill with no keeper teaches the wrong picture.
+            away=[P(580, 300, "D"), P(420, 250, "E"),
+                  P(500, 170, "GK", role="GK")],
             markers=[M(500, 120, "square", "")],
             ball=0,
             free=True,
@@ -364,21 +366,21 @@ def soccer_drills() -> list[Drill]:
                   "en-GB": "Two decoys pull the markers back, the near-post runner attacks the ball in front of them."},
             home=[
                 P(940, 140, "7", moves=[]),                       # corner taker
-                P(620, 400, "9", moves=[(620, 300, 0), (700, 210, 1)]),   # near post run
-                P(500, 420, "5", moves=[(430, 300, 0)]),          # decoy
-                P(420, 400, "6", moves=[(360, 320, 0)]),          # decoy
+                P(660, 400, "9", moves=[(650, 300, 0), (700, 210, 1)]),   # near post run
+                P(500, 440, "5", moves=[(430, 320, 0)]),          # decoy
+                P(350, 410, "6", moves=[(320, 320, 0)]),          # decoy
                 P(560, 560, "8", moves=[(540, 420, 1)]),          # edge of the box
             ],
             away=[
-                P(700, 250, "A"), P(560, 260, "B"), P(460, 260, "C"),
-                P(500, 180, "GK", role="GK"),
+                P(700, 250, "A"), P(560, 265, "B"), P(410, 255, "C"),
+                P(500, 175, "GK", role="GK"),
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
             free=True,
         ),
         Drill(
-            id="free_kick_edge", category="setpiece", minutes=10,
+            id="free_kick_edge", category="setpiece", minutes=10, tight=True,
             name={"en": "Free kick: edge of the box", "zh-CN": "禁区前任意球", "zh-TW": "禁區前任意球",
                   "ja-JP": "FK：ボックス手前", "ko-KR": "프리킥: 박스 외곽", "es-ES": "Falta al borde del área",
                   "fr-FR": "Coup franc à l'entrée", "id-ID": "Tendangan bebas tepi kotak", "ms-MY": "Sepakan percuma tepi kotak",
@@ -396,11 +398,13 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Hai người đứng bóng. Người chạy cắt qua hàng rào mới là người dứt điểm.",
                   "en-GB": "Two over the ball. The runner across the wall is the shot; the strike is the decoy as often as not."},
             home=[
-                P(470, 520, "10"), P(530, 520, "7", moves=[(560, 470, 0)]),
+                P(455, 520, "10"), P(545, 520, "7", moves=[(560, 470, 0)]),
                 P(700, 560, "8", moves=[(560, 400, 0), (500, 300, 1)]),
             ],
             away=[
-                P(440, 380, "W1"), P(480, 380, "W2"), P(520, 380, "W3"), P(560, 380, "W4"),
+                # See fk_*: spaced so the four dots read as four players.
+                P(384, 380, "W1"), P(461, 380, "W2"),
+                P(539, 380, "W3"), P(616, 380, "W4"),
                 P(500, 180, "GK", role="GK"),
             ],
             markers=[M(500, 120, "square", "")],
@@ -588,8 +592,8 @@ def soccer_drills() -> list[Drill]:
                 P(820, 900, "2", role="RB", moves=[(840, 780, 1)]),
             ],
             away=[
-                P(430, 1120, "9", moves=[(330, 1120, 0)]),
-                P(570, 1000, "10", moves=[(520, 1040, 1)]),
+                P(400, 1120, "9", moves=[(320, 1130, 0)]),
+                P(620, 970, "10", moves=[(560, 1020, 1)]),
             ],
             ball=0,
         ),
@@ -676,7 +680,7 @@ def soccer_drills() -> list[Drill]:
                 P(680, 780, "8", moves=[(720, 560, 0), (700, 340, 1)]),
             ],
             away=[
-                P(820, 620, "3", moves=[(830, 560, 0)]),
+                P(800, 580, "3", moves=[(820, 520, 0)]),
                 P(640, 500, "4", moves=[(690, 460, 1)]),
             ],
             markers=[M(500, 120, "square", "")],
@@ -736,7 +740,7 @@ def soccer_drills() -> list[Drill]:
                 P(500, 620, "9", moves=[(560, 560, 0), (540, 380, 1)]),
             ],
             away=[
-                P(520, 540, "4", moves=[(560, 500, 0)]),
+                P(530, 490, "4", moves=[(570, 450, 0)]),
                 P(500, 200, "GK", role="GK"),
             ],
             markers=[M(500, 120, "square", "")],
@@ -829,14 +833,14 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Hai người đá ngắn kéo một hậu vệ ra; góc tạt tốt hơn, trong vòng cấm bớt một người."},
             home=[
                 P(940, 140, "7", moves=[(880, 240, 0)]),
-                P(860, 300, "8", moves=[(900, 200, 0)]),
-                P(620, 380, "9", moves=[(660, 260, 1)]),
-                P(480, 400, "5", moves=[(520, 280, 1)]),
-                P(520, 560, "6", moves=[(560, 440, 1)]),
+                P(880, 280, "8", moves=[(910, 190, 0)]),
+                P(650, 390, "9", moves=[(660, 260, 1)]),
+                P(520, 440, "5", moves=[(520, 280, 1)]),
+                P(380, 400, "6", moves=[(420, 300, 1)]),
             ],
             away=[
-                P(800, 320, "A", moves=[(860, 280, 0)]),
-                P(620, 260, "B"), P(500, 250, "C"),
+                P(760, 325, "A", moves=[(830, 285, 0)]),
+                P(580, 265, "B"), P(430, 255, "C"),
                 P(500, 180, "GK", role="GK"),
             ],
             markers=[M(500, 120, "square", "")],
@@ -868,8 +872,8 @@ def soccer_drills() -> list[Drill]:
                 P(600, 620, "10", moves=[(650, 500, 1)]),
             ],
             away=[
-                P(800, 640, "A", moves=[(850, 660, 0)]),
-                P(720, 420, "B", moves=[(780, 380, 1)]),
+                P(770, 610, "A", moves=[(840, 650, 0)]),
+                P(690, 380, "B", moves=[(760, 350, 1)]),
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
@@ -984,14 +988,14 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ดึงคนไปฝั่งหนึ่งจนคู่แข่งเอียง แล้วปีกอีกฝั่งจะได้ 1v1 ทั้งริมเส้น",
                   "vi-VN": "Dồn quân một bên đến khi đối thủ nghiêng, cánh còn lại được 1v1."},
             home=[
-                P(250, 800, "6"), P(350, 650, "8", moves=[(300, 720, 0)]),
+                P(250, 800, "6"), P(390, 590, "8", moves=[(330, 690, 0)]),
                 P(200, 620, "3", moves=[(200, 520, 0)]),
                 P(500, 750, "10", moves=[(560, 700, 1)]),
                 P(850, 700, "7", moves=[(850, 520, 2)]),
             ],
             away=[
                 P(330, 720, "A", moves=[(270, 700, 0)]),
-                P(450, 640, "B", moves=[(380, 640, 0)]),
+                P(500, 600, "B", moves=[(420, 620, 0)]),
                 P(620, 700, "C", moves=[(520, 720, 1)]),
             ],
             ball=1,
@@ -1022,9 +1026,9 @@ def soccer_drills() -> list[Drill]:
                 P(600, 600, "9"),
             ],
             away=[
-                P(330, 660, "A", moves=[(270, 640, 0)]),
+                P(350, 620, "A", moves=[(280, 600, 0)]),
                 P(480, 700, "B", moves=[(430, 720, 0)]),
-                P(700, 620, "C", moves=[(760, 600, 1)]),
+                P(730, 570, "C", moves=[(780, 550, 1)]),
             ],
             ball=0,
         ),
@@ -1113,7 +1117,7 @@ def soccer_drills() -> list[Drill]:
             ball=None,
         ),
         Drill(
-            id="setpiece_defend_corner", category="setpiece", minutes=10,
+            id="setpiece_defend_corner", category="setpiece", minutes=10, tight=True,
             name={"en": "Defending a corner", "en-GB": "Defending a corner", "zh-CN": "角球防守",
                   "zh-TW": "角球防守", "ja-JP": "CKの守備", "ko-KR": "코너킥 수비",
                   "es-ES": "Defender el córner", "fr-FR": "Défendre le corner",
@@ -1132,15 +1136,15 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "สองคนยืนเสา หนึ่งคนสกัดบอลเสาแรก ที่เหลือคุมโซนและออกตัวเมื่อบอลถูกเตะ",
                   "vi-VN": "Hai người đứng cột, một người cắt bóng cột gần, còn lại kèm khu vực."},
             home=[
-                P(430, 190, "2"), P(570, 190, "3"),
+                P(420, 205, "2"), P(580, 205, "3"),
                 P(640, 300, "4", moves=[(700, 250, 0)]),
                 P(500, 320, "5", moves=[(520, 260, 0)]),
                 P(380, 330, "6", moves=[(400, 280, 0)]),
-                P(500, 180, "GK", role="GK", moves=[(540, 230, 0)]),
+                P(500, 175, "GK", role="GK", moves=[(540, 240, 0)]),
             ],
             away=[
                 P(940, 140, "7"),
-                P(700, 380, "9", moves=[(720, 260, 0)]),
+                P(720, 390, "9", moves=[(730, 265, 0)]),
                 P(560, 420, "10", moves=[(560, 300, 0)]),
             ],
             markers=[M(500, 120, "square", "")],
@@ -1376,8 +1380,8 @@ def counter_family() -> list[Drill]:
     """Transition overloads, 2v1 up to 5v4."""
     out = []
     for att, dfn, minutes in [(2, 1, 10), (3, 2, 12), (4, 3, 12), (5, 4, 15)]:
-        xs = [0.5 + (i - (att - 1) / 2) * (0.62 / max(att, 2)) for i in range(att)]
-        dxs = [0.5 + (i - (dfn - 1) / 2) * (0.5 / max(dfn, 2)) for i in range(dfn)]
+        xs = [0.5 + (i - (att - 1) / 2) * (0.68 / max(att, 2)) for i in range(att)]
+        dxs = [0.5 + (i - (dfn - 1) / 2) * (0.56 / max(dfn, 2)) for i in range(dfn)]
         out.append(Drill(
             id=f"counter_{att}v{dfn}", category="attacking", minutes=minutes,
             rel=True, free=(att == 3),
@@ -1477,6 +1481,9 @@ def finishing_family() -> list[Drill]:
     out = []
     for key, sx, sy, fx, minutes in specs:
         label = key.replace("_", " ")
+        ten_x = 0.5 + (0.5 - sx) * 0.6
+        if abs(ten_x - 0.5) < 0.12:
+            ten_x = 0.36
         out.append(Drill(
             id=f"finish_{key}", category="finishing", minutes=minutes, rel=True,
             free=(key == "central"),
@@ -1484,8 +1491,10 @@ def finishing_family() -> list[Drill]:
             note=FINISH_NOTE,
             home=[
                 P(sx, sy, "7", moves=[(sx + (0.5 - sx) * 0.25, sy - 0.14, 0)]),
-                P(0.5, 0.55, "9", moves=[(fx, 0.30, 0), (fx + (0.5 - fx) * 0.4, 0.18, 1)]),
-                P(0.5 + (0.5 - sx) * 0.6, 0.52, "10",
+                P(0.5, 0.58, "9", moves=[(fx, 0.30, 0), (fx + (0.5 - fx) * 0.4, 0.18, 1)]),
+                # Mirrored off the crosser — but the central pattern mirrors
+                # onto the 9's own spot, so it takes the left half-space.
+                P(ten_x, 0.52, "10",
                   moves=[(0.5 + (0.5 - fx) * 0.7, 0.26, 1)]),
             ],
             away=[P(0.5, 0.10, "GK", role="GK", moves=[(fx * 0.4 + 0.3, 0.14, 1)])],
@@ -1585,9 +1594,9 @@ def corner_family() -> list[Drill]:
             home=[
                 P(0.96, 0.06, "7"),
                 P(start[0], start[1], "9", moves=[(target[0], target[1], 0), (target[0], target[1] - 0.08, 1)]),
-                P(0.40, 0.34, "5", moves=[(0.34, 0.24, 0)]),
-                P(0.60, 0.36, "6", moves=[(0.68, 0.26, 0)]),
-                P(0.50, 0.52, "8", moves=[(0.50, 0.40, 1)]),
+                P(0.36, 0.36, "5", moves=[(0.34, 0.24, 0)]),
+                P(0.64, 0.34, "6", moves=[(0.68, 0.26, 0)]),
+                P(0.50, 0.56, "8", moves=[(0.50, 0.40, 1)]),
             ],
             away=[
                 P(0.44, 0.22, "A"), P(0.58, 0.22, "B"), P(0.50, 0.30, "C"),
@@ -1918,13 +1927,13 @@ def switch_family() -> list[Drill]:
             name=suffixed(SWITCH_NAME, label), note=SWITCH_NOTE,
             home=[
                 P(0.14, y + 0.06, "3", moves=[(0.14, y - 0.04, 0)]),
-                P(0.36, y, "6", moves=[(0.42, y - 0.02, 0)]),
+                P(0.38, y + 0.02, "6", moves=[(0.42, y - 0.02, 0)]),
                 P(0.62, y - 0.02, "8", moves=[(0.70, y - 0.06, 1)]),
                 P(0.88, y + 0.04, "2", moves=[(0.88, y - 0.10, 1)]),
                 P(0.50, y - 0.16, "9"),
             ],
             away=[
-                P(0.26, y - 0.02, "A", moves=[(0.20, y, 0)]),
+                P(0.24, y - 0.02, "A", moves=[(0.20, y, 0)]),
                 P(0.44, y - 0.06, "B", moves=[(0.36, y - 0.02, 0), (0.56, y - 0.04, 1)]),
                 P(0.66, y - 0.10, "C", moves=[(0.58, y - 0.06, 0), (0.76, y - 0.08, 1)]),
             ],
@@ -1974,7 +1983,7 @@ def combination_family() -> list[Drill]:
                   moves=[(x + (x - 0.5) * 0.12, 0.48, 0), (x, 0.26, 1)]),
             ],
             away=[
-                P(x + (0.5 - x) * 0.25, 0.46, "A", moves=[(x + (0.5 - x) * 0.18, 0.40, 1)]),
+                P(x + (0.5 - x) * 0.25, 0.42, "A", moves=[(x + (0.5 - x) * 0.18, 0.36, 1)]),
             ],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
@@ -2013,18 +2022,21 @@ def free_kick_family() -> list[Drill]:
     for key, label, bx, by in specs:
         out.append(Drill(
             id=f"fk_{key}", category="setpiece", minutes=8, rel=True,
-            free=(key == "direct_central"),
+            free=(key == "direct_central"), tight=True,
             name=suffixed(FK_NAME, label), note=FK_NOTE,
             home=[
-                P(bx - 0.04, by, "10"),
-                P(bx + 0.04, by, "7", moves=[(bx + 0.08, by - 0.06, 0)]),
+                P(bx - 0.05, by, "10"),
+                P(bx + 0.05, by, "7", moves=[(bx + 0.08, by - 0.06, 0)]),
                 P(0.5 + (bx - 0.5) * 1.4, by + 0.08, "8",
                   moves=[(0.5 + (bx - 0.5) * 0.4, by - 0.16, 0), (0.5, 0.16, 1)]),
-                P(0.36, 0.24, "9", moves=[(0.44, 0.16, 1)]),
+                P(0.28, 0.20, "9", moves=[(0.44, 0.16, 1)]),
             ],
             away=[
-                P(0.44, 0.28, "W1"), P(0.48, 0.28, "W2"),
-                P(0.52, 0.28, "W3"), P(0.56, 0.28, "W4"),
+                # A wall is shoulder to shoulder, but four 44pt dots 14pt
+                # apart render as one unreadable blob. Spread to where the
+                # circles still touch and the labels can be told apart.
+                P(0.365, 0.28, "W1"), P(0.455, 0.28, "W2"),
+                P(0.545, 0.28, "W3"), P(0.635, 0.28, "W4"),
                 P(0.50, 0.10, "GK", role="GK"),
             ],
             markers=[M(0.5, 0.04, "square", "")],
@@ -2104,7 +2116,7 @@ def first_touch_family() -> list[Drill]:
     specs = [("from_behind", "pressed from behind", 0.50, 0.34),
              ("side_on", "pressed side on", 0.34, 0.44),
              ("open_body", "open body", 0.66, 0.44),
-             ("in_traffic", "in traffic", 0.50, 0.46)]
+             ("in_traffic", "in traffic", 0.38, 0.40)]
     out = []
     for key, label, px, py in specs:
         out.append(Drill(
@@ -2115,7 +2127,11 @@ def first_touch_family() -> list[Drill]:
                 P(0.50, 0.72, "1", moves=[(0.50, 0.64, 0)]),
                 P(0.50, 0.48, "2", moves=[(px, py - 0.10, 0), (0.5, 0.30, 1)]),
             ],
-            away=[P(px, py, "A", moves=[(px + (0.5 - px) * 0.4, py - 0.06, 0)])],
+            # Traffic means more than one body; with a single presser the
+            # variant was just "side on" again, drawn on top of the receiver.
+            away=[P(px, py, "A", moves=[(px + (0.5 - px) * 0.4, py - 0.06, 0)])]
+                 + ([P(0.62, 0.40, "B", moves=[(0.56, 0.46, 0)])]
+                    if key == "in_traffic" else []),
             markers=[M(0.30, 0.62), M(0.70, 0.62), M(0.30, 0.34), M(0.70, 0.34)],
             ball=0,
         ))
@@ -2190,7 +2206,7 @@ GOALKICK_NOTE = {
 
 def goal_kick_family() -> list[Drill]:
     """Goal kicks: short to the centre-backs, out to the full-back, long."""
-    specs = [("short", "short", [(0.22, 0.86), (0.78, 0.86)], 0.50, 0.72),
+    specs = [("short", "short", [(0.22, 0.86), (0.78, 0.86)], 0.68, 0.64),
              ("full_back", "to the full-back", [(0.10, 0.74), (0.90, 0.74)], 0.10, 0.62),
              ("long", "long", [(0.36, 0.60), (0.64, 0.60)], 0.50, 0.40)]
     out = []
@@ -2207,8 +2223,8 @@ def goal_kick_family() -> list[Drill]:
                 P(tx, ty, "8", moves=[(tx + (0.5 - tx) * 0.3, ty - 0.10, 1)]),
             ],
             away=[
-                P(0.42, 0.80, "9", moves=[(0.30, 0.82, 0)]),
-                P(0.58, 0.70, "10", moves=[(0.52, 0.74, 0)]),
+                P(0.38, 0.82, "9", moves=[(0.30, 0.86, 0)]),
+                P(0.64, 0.80, "10", moves=[(0.56, 0.76, 0)]),
             ],
             ball=0,
         ))
