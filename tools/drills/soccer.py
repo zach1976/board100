@@ -1433,9 +1433,13 @@ def buildup_family() -> list[Drill]:
             id=f"buildup_v{pressers}", category="possession", minutes=minutes,
             rel=True, free=(pressers == 2),
             name=suffixed(BUILDUP_NAME, f"+{pressers}"), note=BUILDUP_NOTE,
+            # Defensive shirts, not a counting sequence: numbering the back
+            # line 2,3,4,5,6 put a second 6 on a board that already had one.
             home=[P(0.5, 0.94, "GK", role="GK")] + [
-                P(x, 0.80, f"{i + 2}", moves=[(x + (x - 0.5) * 0.35, 0.72, 0)])
-                for i, x in enumerate(xs)
+                P(x, 0.80, shirt, moves=[(x + (x - 0.5) * 0.35, 0.72, 0)])
+                for x, shirt in zip(xs, {3: ["5", "4", "2"],
+                                         4: ["3", "5", "4", "2"],
+                                         5: ["3", "5", "4", "2", "7"]}[defenders])
             ] + [P(0.5, 0.62, "6", moves=[(0.5, 0.54, 1)])],
             away=[
                 P(x, 0.70, chr(65 + i), moves=[(x + (0.5 - x) * 0.5, 0.78, 0)])
@@ -1526,12 +1530,35 @@ PRESS_NOTE = {
 
 
 def press_family() -> list[Drill]:
-    """Pressing shapes: the same trigger from the four common structures."""
+    """Pressing shapes: the same trigger from the four common structures.
+
+    Every one of these has to *be* the formation it names. The first version
+    drew six dots for all four — a "4-4-2" with no midfield four and a
+    "4-3-3" with no back four, which is the one thing a coach who filters by
+    formation is looking for. Each shape is now the full outfield ten, in
+    its own lines, wearing the numbers those positions wear.
+    """
     shapes = {
-        "442": [(0.38, 0.44), (0.62, 0.44), (0.18, 0.60), (0.40, 0.62), (0.60, 0.62), (0.82, 0.60)],
-        "433": [(0.50, 0.40), (0.24, 0.46), (0.76, 0.46), (0.36, 0.62), (0.64, 0.62), (0.50, 0.70)],
-        "4231": [(0.50, 0.40), (0.24, 0.52), (0.76, 0.52), (0.50, 0.56), (0.38, 0.70), (0.62, 0.70)],
-        "352": [(0.42, 0.42), (0.58, 0.42), (0.20, 0.58), (0.50, 0.60), (0.80, 0.58), (0.50, 0.72)],
+        # (x, y, shirt) from the front line back. The opponent plays out at
+        # the top, so a smaller y is further up the pitch.
+        "442": [(0.40, 0.38, "10"), (0.60, 0.38, "9"),
+                (0.16, 0.54, "11"), (0.39, 0.56, "8"),
+                (0.61, 0.56, "6"), (0.84, 0.54, "7"),
+                (0.20, 0.74, "3"), (0.40, 0.76, "5"),
+                (0.60, 0.76, "4"), (0.80, 0.74, "2")],
+        "433": [(0.22, 0.36, "11"), (0.50, 0.34, "9"), (0.78, 0.36, "7"),
+                (0.32, 0.56, "8"), (0.50, 0.62, "6"), (0.68, 0.56, "10"),
+                (0.20, 0.78, "3"), (0.40, 0.80, "5"),
+                (0.60, 0.80, "4"), (0.80, 0.78, "2")],
+        "4231": [(0.50, 0.32, "9"),
+                 (0.24, 0.46, "11"), (0.50, 0.48, "10"), (0.76, 0.46, "7"),
+                 (0.38, 0.64, "6"), (0.62, 0.64, "8"),
+                 (0.20, 0.80, "3"), (0.40, 0.82, "5"),
+                 (0.60, 0.82, "4"), (0.80, 0.80, "2")],
+        "352": [(0.40, 0.36, "11"), (0.60, 0.36, "9"),
+                (0.12, 0.54, "3"), (0.34, 0.58, "8"), (0.50, 0.62, "6"),
+                (0.66, 0.58, "10"), (0.88, 0.54, "7"),
+                (0.30, 0.80, "5"), (0.50, 0.82, "4"), (0.70, 0.80, "2")],
     }
     out = []
     for shape, spots in shapes.items():
@@ -1543,12 +1570,14 @@ def press_family() -> list[Drill]:
                           .replace("352", "3-5-2")),
             note=PRESS_NOTE,
             home=[
-                P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.25, y - 0.10, 0)])
-                for i, (x, y) in enumerate(spots)
+                P(x, y, shirt, moves=[(x + (0.5 - x) * 0.22, y - 0.09, 0)])
+                for x, y, shirt in spots
             ],
+            # Letters, not numbers: the opponents used to wear 4, 5 and 6 —
+            # the same shirts as three of the pressing side, on one board.
             away=[
-                P(0.50, 0.28, "6", moves=[(0.50, 0.22, 0)]),
-                P(0.26, 0.24, "5"), P(0.74, 0.24, "4"),
+                P(0.50, 0.16, "A", moves=[(0.50, 0.22, 0)]),
+                P(0.26, 0.14, "B"), P(0.74, 0.14, "C"),
             ],
             ball=None,
         ))
