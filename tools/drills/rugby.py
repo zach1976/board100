@@ -101,6 +101,9 @@ def phase_family() -> list[Drill]:
                               moves=[(x, 0.50, 0), (x + 0.03, 0.42, 1)]))
         out.append(Drill(
             id=f"rg_phase_{key}", category="possession", minutes=14, rel=True,
+            # Fourteen bodies in pods: they are packed by design, so the
+            # floor is "labels readable", not "icons never touch".
+            tight=True,
             free=(key == "one_three_three_one"),
             name=suffixed(PHASE_NAME, label), note=PHASE_NOTE,
             home=home,
@@ -440,6 +443,9 @@ def game_family() -> list[Drill]:
         spots = line_of(n, 0.62, 0.20, 0.86)
         out.append(Drill(
             id=f"rg_game_{n}v{n}", category="ssg", minutes=15, rel=True,
+            # Fourteen to sixteen players do not fit a phone at one icon
+            # apart; readable labels is the honest bar for a game board.
+            tight=True,
             free=(n == 5),
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.08, 0)])

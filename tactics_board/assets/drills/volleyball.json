@@ -4534,7 +4534,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              297.125,
               686.25
             ],
             "scale": 1.0,
@@ -4561,7 +4561,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              385.25,
+              409.625,
               686.25
             ],
             "scale": 1.0,
@@ -4815,7 +4815,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              474.5,
+              450.125,
               699.0
             ],
             "scale": 1.0,
@@ -4842,7 +4842,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              538.25,
+              562.625,
               699.0
             ],
             "scale": 1.0,
@@ -5096,7 +5096,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              603.125,
               686.25
             ],
             "scale": 1.0,
@@ -5123,7 +5123,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              691.25,
+              715.625,
               686.25
             ],
             "scale": 1.0,
@@ -5377,7 +5377,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              474.5,
+              450.125,
               622.5
             ],
             "scale": 1.0,
@@ -5404,7 +5404,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              538.25,
+              562.625,
               622.5
             ],
             "scale": 1.0,
@@ -5799,7 +5799,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              302.375,
+              278.0,
               807.375
             ],
             "scale": 1.0,
@@ -5826,7 +5826,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              366.125,
+              390.5,
               807.375
             ],
             "scale": 1.0,
@@ -6053,7 +6053,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              468.125,
+              443.75,
               807.375
             ],
             "scale": 1.0,
@@ -6080,7 +6080,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              531.875,
+              556.25,
               807.375
             ],
             "scale": 1.0,
@@ -6307,7 +6307,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              436.25,
+              389.0234375,
               807.375
             ],
             "scale": 1.0,
@@ -6334,7 +6334,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
+              499.23828125,
               807.375
             ],
             "scale": 1.0,
@@ -6361,7 +6361,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              563.75,
+              611.73828125,
               807.375
             ],
             "scale": 1.0,
@@ -6588,7 +6588,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              329.0,
               807.375
             ],
             "scale": 1.0,
@@ -6615,7 +6615,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              423.5,
+              441.5,
               807.375
             ],
             "scale": 1.0,
@@ -6891,7 +6891,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              329.0,
               807.375
             ],
             "scale": 1.0,
@@ -6918,7 +6918,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              423.5,
+              441.5,
               807.375
             ],
             "scale": 1.0,
@@ -7194,7 +7194,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              329.0,
               807.375
             ],
             "scale": 1.0,
@@ -7221,7 +7221,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              423.5,
+              441.5,
               807.375
             ],
             "scale": 1.0,
