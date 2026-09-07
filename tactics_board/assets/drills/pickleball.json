@@ -5,7 +5,7 @@
     {
       "id": "pb_warm_dink_warm",
       "level": "foundation",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -198,7 +198,7 @@
     {
       "id": "pb_warm_hands",
       "level": "foundation",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -391,7 +391,7 @@
     {
       "id": "pb_warm_transition",
       "level": "foundation",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -588,8 +588,8 @@
     },
     {
       "id": "pb_dink_straight",
-      "level": "development",
-      "family": "pickleball_family_4",
+      "level": "foundation",
+      "family": "pickleball_family_6",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -775,7 +775,7 @@
     {
       "id": "pb_dink_cross",
       "level": "development",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_6",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -968,7 +968,7 @@
     {
       "id": "pb_dink_to_backhand",
       "level": "development",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_6",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -1161,7 +1161,7 @@
     {
       "id": "pb_dink_pull",
       "level": "development",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_6",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -1453,13 +1453,13 @@
             "sportType": null,
             "position": [
               367.90156599552574,
-              222.0
+              261.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                355.89261744966444,
-                248.4
+                439.95525727069355,
+                274.8
               ]
             ],
             "movePhases": [
@@ -1479,8 +1479,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              355.89261744966444,
-              169.2
+              439.95525727069355,
+              182.4
             ],
             "scale": 1.0,
             "moves": [],
@@ -1621,13 +1621,13 @@
             "sportType": null,
             "position": [
               367.90156599552574,
-              222.0
+              261.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                644.1073825503356,
-                248.4
+                295.84787472035794,
+                288.0
               ]
             ],
             "movePhases": [
@@ -1647,8 +1647,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              644.1073825503356,
-              169.2
+              295.84787472035794,
+              195.60000000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -1794,13 +1794,13 @@
             "sportType": null,
             "position": [
               367.90156599552574,
-              222.0
+              261.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                274.8
+                403.92841163310965,
+                288.0
               ]
             ],
             "movePhases": [
@@ -1820,7 +1820,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              500.0,
+              403.92841163310965,
               195.60000000000002
             ],
             "scale": 1.0,
@@ -1862,8 +1862,8 @@
     },
     {
       "id": "pb_third_drop",
-      "level": "development",
-      "family": "pickleball_family_8",
+      "level": "foundation",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -2108,7 +2108,7 @@
     {
       "id": "pb_third_drive",
       "level": "development",
-      "family": "pickleball_family_8",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -2353,7 +2353,7 @@
     {
       "id": "pb_third_fifth",
       "level": "development",
-      "family": "pickleball_family_8",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -3049,26 +3049,13 @@
     {
       "id": "pb_speedup_ernie",
       "level": "advanced",
-      "family": "pickleball_family_0",
-      "familyName": {
-        "en": "Speed-up",
-        "en-GB": "Speed-up",
-        "es-ES": "Aceleración",
-        "fr-FR": "Accélération",
-        "id-ID": "Percepatan",
-        "ja-JP": "スピードアップ",
-        "ko-KR": "스피드업",
-        "ms-MY": "Pecutan",
-        "th-TH": "การเร่งจังหวะ",
-        "vi-VN": "Tăng tốc",
-        "zh-CN": "突然加速",
-        "zh-TW": "突然加速"
-      },
+      "family": null,
+      "familyName": null,
       "category": "attacking",
       "minutes": 10,
       "players": 4,
       "free": false,
-      "offSurface": false,
+      "offSurface": true,
       "name": {
         "en": "Speed-up the Ernie",
         "en-GB": "Speed-up the Ernie",
@@ -3084,32 +3071,32 @@
         "vi-VN": "Tăng tốc cú Ernie"
       },
       "note": {
-        "en": "Attack the ball that is above the net, at the shoulder they can't reach across. Speeding up a low ball starts a fight you're losing.",
-        "en-GB": "Attack the ball that is above the net, at the shoulder they can't reach across. Speeding up a low ball starts a fight you're losing.",
-        "zh-CN": "只打高过网的球，打向对手够不到的那侧肩膀。把低球加速，等于主动开启一场你处于下风的对轰。",
-        "zh-TW": "只打高過網的球，打向對手夠不到的那側肩膀。把低球加速，等於主動開啟一場你處於下風的對轟。",
-        "ja-JP": "ネットより高い球だけを、相手が回り込めない側の肩へ。低い球を速くするのは、負けている打ち合いを自分から始めることだ。",
-        "ko-KR": "네트보다 높은 공만, 상대가 넘어올 수 없는 어깨 쪽으로 공격하라.",
-        "es-ES": "Ataca solo la bola por encima de la red, al hombro que no pueden cruzar: acelerar una bola baja es iniciar un duelo que pierdes.",
-        "fr-FR": "N'attaque que la balle au-dessus du filet, vers l'épaule qu'ils ne peuvent pas croiser : accélérer une balle basse, c'est perdre l'échange.",
-        "id-ID": "Serang hanya bola di atas net, ke bahu yang tak bisa mereka silang.",
-        "ms-MY": "Serang hanya bola di atas jaring, ke bahu yang tidak dapat mereka silang.",
-        "th-TH": "เร่งเฉพาะลูกที่สูงกว่าเน็ต ไปที่ไหล่ที่เขาเอื้อมข้ามไม่ได้",
-        "vi-VN": "Chỉ tấn công bóng cao hơn lưới, vào vai họ không với qua được."
+        "en": "Go around the post, not through the kitchen, and go before he can see you: an Ernie the dinker has spotted is a lob into the space you just left.",
+        "en-GB": "Go around the post, not through the kitchen, and go before he can see you: an Ernie the dinker has spotted is a lob into the space you just left.",
+        "zh-CN": "从边线外绕过去，不能踩进非截击区，而且要在对方看见你之前动：被对手看见的 Ernie，换来的是一记挑向你刚让开那块空当的高球。",
+        "zh-TW": "從邊線外繞過去，不能踩進非截擊區，而且要在對方看見你之前動：被對手看見的 Ernie，換來的是一記挑向你剛讓開那塊空檔的高球。",
+        "ja-JP": "キッチンを通らずポストの外を回り、相手に見られる前に動く。読まれたアーニーは、空けたばかりのスペースへのロブになる。",
+        "ko-KR": "키친을 밟지 말고 포스트 바깥으로 돌아가고, 상대가 보기 전에 움직여라. 들킨 어니는 방금 비운 공간으로 오는 로브다.",
+        "es-ES": "Rodea el poste, no pises la cocina, y sal antes de que te vea: un Ernie cantado es un globo al hueco que acabas de dejar.",
+        "fr-FR": "Contourne le poteau, ne traverse pas la cuisine, et pars avant qu'il te voie : un Ernie repéré devient un lob dans l'espace que tu viens de quitter.",
+        "id-ID": "Putari tiang, jangan lewat kitchen, dan bergeraklah sebelum dia melihatmu.",
+        "ms-MY": "Pusing di luar tiang, jangan masuk kitchen, dan bergerak sebelum dia nampak.",
+        "th-TH": "อ้อมนอกเสา ห้ามเหยียบเขตห้ามวอลเลย์ และออกตัวก่อนที่เขาจะเห็น",
+        "vi-VN": "Vòng ra ngoài cột lưới, không giẫm vào vùng cấm vô-lê, và đi trước khi anh ta thấy bạn."
       },
       "mistake": {
-        "en": "Speeding up a low ball — you start a firefight from underneath.",
-        "en-GB": "Speeding up a low ball — you start a firefight from underneath.",
-        "zh-CN": "把低球加速——从下风位置主动开打。",
-        "zh-TW": "把低球加速——從下風位置主動開打。",
-        "ja-JP": "低い球を速くする——不利な位置から撃ち合いを始める。",
-        "ko-KR": "낮은 공을 빠르게 — 불리하게 난타 시작.",
-        "es-ES": "Acelerar una bola baja: inicias un tiroteo en desventaja.",
-        "fr-FR": "Accélérer une balle basse — tu ouvres l'échange en dessous.",
-        "id-ID": "Mempercepat bola rendah.",
-        "ms-MY": "Mempercepat bola rendah.",
-        "th-TH": "เร่งลูกต่ำ",
-        "vi-VN": "Tăng tốc bóng thấp."
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
       },
       "board": {
         "sportType": 5,
@@ -3126,12 +3113,12 @@
             "scale": 1.0,
             "moves": [
               [
-                259.8210290827741,
-                961.2
+                217.78970917225953,
+                1014.0000000000001
               ],
               [
-                223.79418344519019,
-                776.4
+                169.75391498881433,
+                697.2
               ]
             ],
             "movePhases": [
@@ -3282,7 +3269,7 @@
     {
       "id": "pb_putaway_overhead",
       "level": "development",
-      "family": "pickleball_family_3",
+      "family": "pickleball_family_4",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -3490,7 +3477,7 @@
     {
       "id": "pb_putaway_roll_volley",
       "level": "development",
-      "family": "pickleball_family_3",
+      "family": "pickleball_family_4",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -3698,7 +3685,7 @@
     {
       "id": "pb_putaway_atp",
       "level": "advanced",
-      "family": "pickleball_family_3",
+      "family": "pickleball_family_4",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -3906,7 +3893,7 @@
     {
       "id": "pb_defend_block",
       "level": "development",
-      "family": "pickleball_family_5",
+      "family": "pickleball_family_7",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4114,7 +4101,7 @@
     {
       "id": "pb_defend_reset",
       "level": "development",
-      "family": "pickleball_family_5",
+      "family": "pickleball_family_7",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4322,7 +4309,7 @@
     {
       "id": "pb_defend_lob",
       "level": "development",
-      "family": "pickleball_family_5",
+      "family": "pickleball_family_7",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4530,7 +4517,7 @@
     {
       "id": "pb_defend_counter",
       "level": "development",
-      "family": "pickleball_family_5",
+      "family": "pickleball_family_7",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4738,7 +4725,7 @@
     {
       "id": "pb_shape_both_up",
       "level": "development",
-      "family": "pickleball_family_7",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -4753,7 +4740,7 @@
         "zh-CN": "站位配合",
         "zh-TW": "站位配合"
       },
-      "category": "defending",
+      "category": "attacking",
       "minutes": 10,
       "players": 4,
       "free": true,
@@ -4958,8 +4945,8 @@
     },
     {
       "id": "pb_shape_stacking",
-      "level": "development",
-      "family": "pickleball_family_7",
+      "level": "advanced",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -4974,11 +4961,11 @@
         "zh-CN": "站位配合",
         "zh-TW": "站位配合"
       },
-      "category": "defending",
+      "category": "attacking",
       "minutes": 10,
       "players": 4,
       "free": false,
-      "offSurface": false,
+      "offSurface": true,
       "name": {
         "en": "Team shape stacking",
         "en-GB": "Team shape stacking",
@@ -5030,13 +5017,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              451.9642058165548,
-              1370.3999999999999
+              379.910514541387,
+              1436.4
             ],
             "scale": 1.0,
             "moves": [
               [
-                632.0984340044743,
+                596.0715883668904,
                 1146.0
               ]
             ],
@@ -5057,13 +5044,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              512.0089485458614,
+              415.93736017897095,
               961.2
             ],
             "scale": 1.0,
             "moves": [
               [
-                379.910514541387,
+                403.92841163310965,
                 961.2
               ]
             ],
@@ -5193,8 +5180,8 @@
     },
     {
       "id": "pb_shape_switch_on_lob",
-      "level": "development",
-      "family": "pickleball_family_7",
+      "level": "advanced",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -5209,7 +5196,7 @@
         "zh-CN": "站位配合",
         "zh-TW": "站位配合"
       },
-      "category": "defending",
+      "category": "attacking",
       "minutes": 10,
       "players": 4,
       "free": false,
@@ -6333,6 +6320,522 @@
             "photoId": null,
             "role": null,
             "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "pb_two_bounce_rule",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "possession",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": true,
+      "name": {
+        "en": "Team shape the two-bounce sequence",
+        "en-GB": "Team shape the two-bounce sequence",
+        "zh-CN": "站位配合 两次落地规则",
+        "zh-TW": "站位配合 兩次落地規則",
+        "ja-JP": "ペアの陣形 ツーバウンドの流れ",
+        "ko-KR": "팀 포메이션 투 바운스 규칙",
+        "es-ES": "Posicionamiento la secuencia de los dos botes",
+        "fr-FR": "Placement de l'équipe la séquence des deux rebonds",
+        "id-ID": "Formasi tim urutan dua pantulan",
+        "ms-MY": "Formasi pasukan urutan dua lantunan",
+        "th-TH": "การยืนของทีม ลำดับสองจังหวะเด้ง",
+        "vi-VN": "Đội hình trình tự hai lần nảy"
+      },
+      "note": {
+        "en": "The serve bounces, the return bounces, and only then may anyone volley. Every third shot in this sport exists because of that rule — so drill the sequence, not the shots.",
+        "en-GB": "The serve bounces, the return bounces, and only then may anyone volley. Every third shot in this sport exists because of that rule — so drill the sequence, not the shots.",
+        "zh-CN": "发球要落地，接发球也要落地，之后才允许截击。这项运动的第三拍之所以存在，全是因为这条规则——所以要练这个顺序，不是练单个球。",
+        "zh-TW": "發球要落地，接發球也要落地，之後才允許截擊。這項運動的第三拍之所以存在，全是因為這條規則——所以要練這個順序，不是練單個球。",
+        "ja-JP": "サーブはワンバウンド、リターンもワンバウンド、そこで初めてボレーが許される。この競技のサードショットはすべてこのルールから生まれる。だから一球ずつではなく順番を練習する。",
+        "ko-KR": "서브도 한 번 튀고 리턴도 한 번 튄 뒤에야 발리가 허용된다. 이 종목의 서드샷은 전부 그 규칙에서 나온다.",
+        "es-ES": "El saque bota, el resto bota, y solo entonces se puede volear. El tercer golpe de este deporte existe por esa regla: entrena la secuencia, no los golpes.",
+        "fr-FR": "Le service rebondit, le retour rebondit, et seulement ensuite la volée est permise. Le troisième coup de ce sport existe à cause de cette règle.",
+        "id-ID": "Servis memantul, pengembalian memantul, baru setelah itu boleh voli.",
+        "ms-MY": "Servis melantun, kembalian melantun, barulah voli dibenarkan.",
+        "th-TH": "ลูกเสิร์ฟต้องเด้ง ลูกรับต้องเด้ง จากนั้นจึงวอลเลย์ได้",
+        "vi-VN": "Quả giao phải nảy, quả đỡ phải nảy, sau đó mới được vô-lê."
+      },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
+      "board": {
+        "sportType": 5,
+        "players": [
+          {
+            "id": "d0",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              632.0984340044743,
+              1449.6000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                632.0984340044743,
+                1357.2
+              ],
+              [
+                596.0715883668904,
+                1146.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              379.910514541387,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              367.90156599552574,
+              261.6
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                379.910514541387,
+                380.4
+              ],
+              [
+                391.91946308724835,
+                538.8
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              620.0894854586129,
+              538.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              403.92841163310965,
+              222.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              596.0715883668904,
+              1225.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              538.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 5,
+            "position": [
+              592.0984340044743,
+              1379.6000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                403.92841163310965,
+                222.0
+              ],
+              [
+                596.0715883668904,
+                1225.2
+              ],
+              [
+                439.95525727069355,
+                618.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "pb_attack_lob",
+      "level": "advanced",
+      "family": null,
+      "familyName": null,
+      "category": "attacking",
+      "minutes": 8,
+      "players": 4,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Team shape the offensive lob",
+        "en-GB": "Team shape the offensive lob",
+        "zh-CN": "站位配合 进攻性高球",
+        "zh-TW": "站位配合 進攻性高球",
+        "ja-JP": "ペアの陣形 攻撃的ロブ",
+        "ko-KR": "팀 포메이션 공격적 로브",
+        "es-ES": "Posicionamiento el globo ofensivo",
+        "fr-FR": "Placement de l'équipe le lob offensif",
+        "id-ID": "Formasi tim lob menyerang",
+        "ms-MY": "Formasi pasukan lob menyerang",
+        "th-TH": "การยืนของทีม ลูกโยนเชิงรุก",
+        "vi-VN": "Đội hình quả bổng tấn công"
+      },
+      "note": {
+        "en": "Lob over the shoulder they cannot reach across, and go with it. An offensive lob that leaves you at the kitchen is a point you gave back on the reply.",
+        "en-GB": "Lob over the shoulder they cannot reach across, and go with it. An offensive lob that leaves you at the kitchen is a point you gave back on the reply.",
+        "zh-CN": "挑向对方够不着的那侧肩膀，然后自己跟着上。挑完还站在网前不动的进攻性高球，回球时就把这一分还回去了。",
+        "zh-TW": "挑向對方夠不著的那側肩膀，然後自己跟著上。挑完還站在網前不動的進攻性高球，回球時就把這一分還回去了。",
+        "ja-JP": "相手が横に手を伸ばせない側の肩越しへ上げ、自分もついていく。上げたままキッチンに残る攻撃的ロブは、返球で失う1点だ。",
+        "ko-KR": "상대가 가로질러 닿을 수 없는 어깨 너머로 띄우고 함께 따라가라.",
+        "es-ES": "Globo por encima del hombro al que no llegan cruzados, y acompáñalo. Un globo ofensivo que te deja en la cocina es un punto devuelto.",
+        "fr-FR": "Lobe par-dessus l'épaule qu'il ne peut pas atteindre en travers, et suis-le. Un lob offensif qui te laisse à la cuisine est un point rendu.",
+        "id-ID": "Lob melewati bahu yang tak bisa dijangkau menyilang, lalu ikuti.",
+        "ms-MY": "Lob melepasi bahu yang tidak dapat dicapai secara silang, kemudian ikut.",
+        "th-TH": "โยนข้ามไหล่ข้างที่เขาเอื้อมไขว้ไม่ถึง แล้วตามขึ้นไป",
+        "vi-VN": "Bỏ bóng bổng qua vai mà họ không với chéo tới được, rồi theo lên."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
+      "board": {
+        "sportType": 5,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              620.0894854586129,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                608.0805369127518,
+                921.6
+              ],
+              [
+                596.0715883668904,
+                776.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              379.910514541387,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                391.91946308724835,
+                802.8000000000001
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              620.0894854586129,
+              538.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                367.90156599552574,
+                380.4
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              379.910514541387,
+              538.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              343.88366890380314,
+              274.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 5,
+            "position": [
+              580.0894854586129,
+              1031.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                343.88366890380314,
+                274.8
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],

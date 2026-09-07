@@ -1300,3 +1300,6 @@ add('the drop shot and the pass', '放小球与穿越', '放小球與穿越', '�
 add('the poach', '网前拦截', '網前攔截', 'ポーチ', '포치', 'la intercepción en la red', 'l interception au filet', 'poach di depan net', 'pintasan di depan jaring', 'การตัดบอลหน้าเน็ต', 'pha cắt bóng trên lưới')
 
 add('in and out', '近台与退台', '近台與退台', '前後の出入り', '앞뒤 스텝', 'dentro y fuera de la mesa', 'avancer et reculer', 'maju mundur dari meja', 'maju mundur dari meja', 'เข้าออกจากโต๊ะ', 'tiến lùi khỏi bàn')
+
+add('the two-bounce sequence', '两次落地规则', '兩次落地規則', 'ツーバウンドの流れ', '투 바운스 규칙', 'la secuencia de los dos botes', 'la séquence des deux rebonds', 'urutan dua pantulan', 'urutan dua lantunan', 'ลำดับสองจังหวะเด้ง', 'trình tự hai lần nảy')
+add('the offensive lob', '进攻性高球', '進攻性高球', '攻撃的ロブ', '공격적 로브', 'el globo ofensivo', 'le lob offensif', 'lob menyerang', 'lob menyerang', 'ลูกโยนเชิงรุก', 'quả bổng tấn công')
