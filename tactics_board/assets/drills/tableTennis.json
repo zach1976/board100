@@ -5,7 +5,7 @@
     {
       "id": "tt_warm_forehand",
       "level": "foundation",
-      "family": "tableTennis_family_2",
+      "family": "tableTennis_family_3",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -183,7 +183,7 @@
     {
       "id": "tt_warm_backhand",
       "level": "foundation",
-      "family": "tableTennis_family_2",
+      "family": "tableTennis_family_3",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -361,7 +361,7 @@
     {
       "id": "tt_warm_middle",
       "level": "foundation",
-      "family": "tableTennis_family_2",
+      "family": "tableTennis_family_3",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -729,7 +729,7 @@
     {
       "id": "tt_footwork_two_one",
       "level": "foundation",
-      "family": "tableTennis_family_3",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -750,18 +750,18 @@
       "free": true,
       "offSurface": true,
       "name": {
-        "en": "Footwork two-one",
-        "en-GB": "Footwork two-one",
-        "zh-CN": "步法 两点对一点",
-        "zh-TW": "步法 兩點對一點",
-        "ja-JP": "フットワーク 2対1",
-        "ko-KR": "풋워크 2대1",
-        "es-ES": "Juego de pies dos-uno",
-        "fr-FR": "Jeu de jambes deux-un",
-        "id-ID": "Footwork dua-satu",
-        "ms-MY": "Kerja kaki dua-satu",
-        "th-TH": "ฟุตเวิร์ก สองต่อหนึ่ง",
-        "vi-VN": "Di chuyển chân hai-một"
+        "en": "Footwork in and out",
+        "en-GB": "Footwork in and out",
+        "zh-CN": "步法 近台与退台",
+        "zh-TW": "步法 近台與退台",
+        "ja-JP": "フットワーク 前後の出入り",
+        "ko-KR": "풋워크 앞뒤 스텝",
+        "es-ES": "Juego de pies dentro y fuera de la mesa",
+        "fr-FR": "Jeu de jambes avancer et reculer",
+        "id-ID": "Footwork maju mundur dari meja",
+        "ms-MY": "Kerja kaki maju mundur dari meja",
+        "th-TH": "ฟุตเวิร์ก เข้าออกจากโต๊ะ",
+        "vi-VN": "Di chuyển chân tiến lùi khỏi bàn"
       },
       "note": {
         "en": "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.",
@@ -806,16 +806,16 @@
             "scale": 1.0,
             "moves": [
               [
-                371.43248175182475,
-                1278.0
+                472.44981751824815,
+                1179.0
               ],
               [
                 500.0,
-                1245.0000000000002
+                1294.5
               ],
               [
                 628.5675182481752,
-                1278.0
+                1360.5
               ],
               [
                 500.0,
@@ -848,12 +848,17 @@
             "scale": 1.0,
             "moves": [
               [
-                454.08302919708024,
-                238.49999999999994
+                472.44981751824815,
+                254.99999999999994
+              ],
+              [
+                555.1003649635036,
+                221.99999999999991
               ]
             ],
             "movePhases": [
-              1
+              0,
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -869,8 +874,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              371.43248175182475,
-              1096.5
+              472.44981751824815,
+              849.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -931,8 +936,8 @@
     },
     {
       "id": "tt_footwork_falkenberg",
-      "level": "foundation",
-      "family": "tableTennis_family_3",
+      "level": "advanced",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -1155,7 +1160,7 @@
     {
       "id": "tt_footwork_side_to_side",
       "level": "foundation",
-      "family": "tableTennis_family_3",
+      "family": "tableTennis_family_5",
       "familyName": {
         "en": "Footwork",
         "en-GB": "Footwork",
@@ -1313,7 +1318,7 @@
     {
       "id": "tt_rally_block_drive",
       "level": "development",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1486,7 +1491,7 @@
     {
       "id": "tt_rally_counter_drive",
       "level": "development",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1659,7 +1664,7 @@
     {
       "id": "tt_rally_push_rally",
       "level": "development",
-      "family": "tableTennis_family_6",
+      "family": "tableTennis_family_8",
       "familyName": {
         "en": "Rally control",
         "en-GB": "Rally control",
@@ -1832,7 +1837,7 @@
     {
       "id": "tt_short_touch",
       "level": "development",
-      "family": "tableTennis_family_9",
+      "family": "tableTennis_family_12",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2025,7 +2030,7 @@
     {
       "id": "tt_short_flick",
       "level": "development",
-      "family": "tableTennis_family_9",
+      "family": "tableTennis_family_12",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2218,7 +2223,7 @@
     {
       "id": "tt_short_banana",
       "level": "advanced",
-      "family": "tableTennis_family_9",
+      "family": "tableTennis_family_12",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2411,7 +2416,7 @@
     {
       "id": "tt_short_long_push",
       "level": "development",
-      "family": "tableTennis_family_9",
+      "family": "tableTennis_family_12",
       "familyName": {
         "en": "Short game",
         "en-GB": "Short game",
@@ -2604,21 +2609,8 @@
     {
       "id": "tt_loop_vs_backspin",
       "level": "development",
-      "family": "tableTennis_family_0",
-      "familyName": {
-        "en": "Loop",
-        "en-GB": "Loop",
-        "es-ES": "Top spin",
-        "fr-FR": "Top spin",
-        "id-ID": "Loop",
-        "ja-JP": "ループドライブ",
-        "ko-KR": "루프 드라이브",
-        "ms-MY": "Loop",
-        "th-TH": "ลูปไดรฟ์",
-        "vi-VN": "Giật bóng",
-        "zh-CN": "拉弧圈",
-        "zh-TW": "拉弧圈"
-      },
+      "family": null,
+      "familyName": null,
       "category": "attacking",
       "minutes": 10,
       "players": 2,
@@ -2653,18 +2645,18 @@
         "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
       },
       "mistake": {
-        "en": "Hitting through the ball instead of brushing — against backspin, brush up and over.",
-        "en-GB": "Hitting through the ball instead of brushing — against backspin, brush up and over.",
-        "zh-CN": "撞击而不是摩擦——对下旋要向上包裹摩擦。",
-        "zh-TW": "撞擊而不是摩擦——對下旋要向上包裹摩擦。",
-        "ja-JP": "こすらず押し抜く——下回転には薄くこすり上げる。",
-        "ko-KR": "때리고 감지 않는다 — 백스핀엔 위로 감아라.",
-        "es-ES": "Golpear de lleno en vez de rozar.",
-        "fr-FR": "Percuter au lieu de frotter.",
-        "id-ID": "Memukul tembus, bukan menggesek.",
-        "ms-MY": "Memukul tembus, bukan menggosok.",
-        "th-TH": "กระแทกแทนปัด",
-        "vi-VN": "Đánh xuyên thay vì cọ."
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
       },
       "board": {
         "sportType": 1,
@@ -2812,18 +2804,18 @@
         "vi-VN": "Giật bóng chống bóng chắn"
       },
       "note": {
-        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
-        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
-        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
-        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
-        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
-        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
-        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
-        "ms-MY": "Gosok bola, jangan pukul tembus.",
-        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
-        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+        "en": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "en-GB": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "zh-CN": "对上旋球，拍子从球的后面出发，不是从球的下面；手臂向前送，不是向上兜。对着本来就往前转的球往上刷，只会下网。",
+        "zh-TW": "對上旋球，拍子從球的後面出發，不是從球的下面；手臂向前送，不是向上兜。對著本來就往前轉的球往上刷，只會下網。",
+        "ja-JP": "上回転に対してはラケットをボールの後ろから出す。下からではない。腕は上ではなく前へ。前進回転の球を下から擦れば必ずネットだ。",
+        "ko-KR": "톱스핀 상대로는 라켓이 공 아래가 아니라 뒤에서 출발하고, 팔은 위가 아니라 앞으로 민다.",
+        "es-ES": "Contra el topspin la pala sale por detrás de la bola, no por debajo, y el brazo empuja hacia delante, no hacia arriba.",
+        "fr-FR": "Contre le lift, la raquette part derrière la balle et non dessous, et le bras pousse vers l'avant plutôt que vers le haut.",
+        "id-ID": "Melawan topspin, bet mulai dari belakang bola, bukan dari bawah, dan lengan mendorong ke depan.",
+        "ms-MY": "Menentang topspin, bet bermula dari belakang bola, bukan dari bawah.",
+        "th-TH": "เจอลูกท็อปสปิน ไม้เริ่มจากด้านหลังลูก ไม่ใช่ด้านล่าง และแขนดันไปข้างหน้า",
+        "vi-VN": "Trước bóng xoáy lên, vợt xuất phát từ phía sau bóng chứ không phải bên dưới, và tay đẩy tới trước."
       },
       "mistake": {
         "en": "Hitting through the ball instead of brushing — against backspin, brush up and over.",
@@ -2985,18 +2977,18 @@
         "vi-VN": "Giật bóng từ góc trái tay"
       },
       "note": {
-        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
-        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
-        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
-        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
-        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
-        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
-        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
-        "ms-MY": "Gosok bola, jangan pukul tembus.",
-        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
-        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+        "en": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "en-GB": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "zh-CN": "对上旋球，拍子从球的后面出发，不是从球的下面；手臂向前送，不是向上兜。对着本来就往前转的球往上刷，只会下网。",
+        "zh-TW": "對上旋球，拍子從球的後面出發，不是從球的下面；手臂向前送，不是向上兜。對著本來就往前轉的球往上刷，只會下網。",
+        "ja-JP": "上回転に対してはラケットをボールの後ろから出す。下からではない。腕は上ではなく前へ。前進回転の球を下から擦れば必ずネットだ。",
+        "ko-KR": "톱스핀 상대로는 라켓이 공 아래가 아니라 뒤에서 출발하고, 팔은 위가 아니라 앞으로 민다.",
+        "es-ES": "Contra el topspin la pala sale por detrás de la bola, no por debajo, y el brazo empuja hacia delante, no hacia arriba.",
+        "fr-FR": "Contre le lift, la raquette part derrière la balle et non dessous, et le bras pousse vers l'avant plutôt que vers le haut.",
+        "id-ID": "Melawan topspin, bet mulai dari belakang bola, bukan dari bawah, dan lengan mendorong ke depan.",
+        "ms-MY": "Menentang topspin, bet bermula dari belakang bola, bukan dari bawah.",
+        "th-TH": "เจอลูกท็อปสปิน ไม้เริ่มจากด้านหลังลูก ไม่ใช่ด้านล่าง และแขนดันไปข้างหน้า",
+        "vi-VN": "Trước bóng xoáy lên, vợt xuất phát từ phía sau bóng chứ không phải bên dưới, và tay đẩy tới trước."
       },
       "mistake": {
         "en": "Hitting through the ball instead of brushing — against backspin, brush up and over.",
@@ -3158,18 +3150,18 @@
         "vi-VN": "Giật bóng giật đối giật"
       },
       "note": {
-        "en": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "en-GB": "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.",
-        "zh-CN": "要摩擦，不要撞击。对付下旋，拍子从球下面出发，收在自己头顶上方。",
-        "zh-TW": "要摩擦，不要撞擊。對付下旋，拍子從球下面出發，收在自己頭頂上方。",
-        "ja-JP": "こすって薄く捉える、押し抜かない。下回転に対してはラケットを球の下から出し、頭の上で振り終える。",
-        "ko-KR": "때리지 말고 감아라. 백스핀에는 라켓이 공 아래에서 출발해 머리 위에서 끝난다.",
-        "es-ES": "Roza la bola, no la golpees de lleno: contra el cortado la pala sale por debajo y termina por encima de tu cabeza.",
-        "fr-FR": "Frotte la balle, ne la percute pas : contre le coupé, la raquette part sous la balle et finit au-dessus de la tête.",
-        "id-ID": "Gesek bolanya, jangan dipukul tembus.",
-        "ms-MY": "Gosok bola, jangan pukul tembus.",
-        "th-TH": "ปัดเฉี่ยวลูก อย่ากระแทกทะลุ ถ้าเจอลูกหลังหมุนให้เริ่มใต้ลูกและจบเหนือหัว",
-        "vi-VN": "Cọ vào bóng, đừng đánh xuyên qua."
+        "en": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "en-GB": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+        "zh-CN": "对上旋球，拍子从球的后面出发，不是从球的下面；手臂向前送，不是向上兜。对着本来就往前转的球往上刷，只会下网。",
+        "zh-TW": "對上旋球，拍子從球的後面出發，不是從球的下面；手臂向前送，不是向上兜。對著本來就往前轉的球往上刷，只會下網。",
+        "ja-JP": "上回転に対してはラケットをボールの後ろから出す。下からではない。腕は上ではなく前へ。前進回転の球を下から擦れば必ずネットだ。",
+        "ko-KR": "톱스핀 상대로는 라켓이 공 아래가 아니라 뒤에서 출발하고, 팔은 위가 아니라 앞으로 민다.",
+        "es-ES": "Contra el topspin la pala sale por detrás de la bola, no por debajo, y el brazo empuja hacia delante, no hacia arriba.",
+        "fr-FR": "Contre le lift, la raquette part derrière la balle et non dessous, et le bras pousse vers l'avant plutôt que vers le haut.",
+        "id-ID": "Melawan topspin, bet mulai dari belakang bola, bukan dari bawah, dan lengan mendorong ke depan.",
+        "ms-MY": "Menentang topspin, bet bermula dari belakang bola, bukan dari bawah.",
+        "th-TH": "เจอลูกท็อปสปิน ไม้เริ่มจากด้านหลังลูก ไม่ใช่ด้านล่าง และแขนดันไปข้างหน้า",
+        "vi-VN": "Trước bóng xoáy lên, vợt xuất phát từ phía sau bóng chứ không phải bên dưới, và tay đẩy tới trước."
       },
       "mistake": {
         "en": "Hitting through the ball instead of brushing — against backspin, brush up and over.",
@@ -3296,7 +3288,7 @@
     {
       "id": "tt_kill_smash",
       "level": "development",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3469,7 +3461,7 @@
     {
       "id": "tt_kill_wide_forehand",
       "level": "development",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3642,7 +3634,7 @@
     {
       "id": "tt_kill_into_the_body",
       "level": "development",
-      "family": "tableTennis_family_5",
+      "family": "tableTennis_family_7",
       "familyName": {
         "en": "Finishing",
         "en-GB": "Finishing",
@@ -3815,7 +3807,7 @@
     {
       "id": "tt_defence_chop_block",
       "level": "development",
-      "family": "tableTennis_family_1",
+      "family": "tableTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -3887,27 +3879,22 @@
             "sportType": null,
             "position": [
               500.0,
-              1228.5000000000002
+              1195.5
             ],
             "scale": 1.0,
             "moves": [
               [
                 371.43248175182475,
-                1228.5000000000002
-              ],
-              [
-                628.5675182481752,
-                1228.5000000000002
+                1179.0
               ],
               [
                 500.0,
-                1228.5000000000002
+                1212.0
               ]
             ],
             "movePhases": [
               0,
-              1,
-              2
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3934,7 +3921,7 @@
               ],
               [
                 628.5675182481752,
-                238.49999999999994
+                254.99999999999994
               ]
             ],
             "movePhases": [
@@ -3955,8 +3942,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              500.0,
-              1096.5
+              435.7162408759124,
+              353.99999999999994
             ],
             "scale": 1.0,
             "moves": [],
@@ -3998,7 +3985,7 @@
     {
       "id": "tt_defence_deep_chop",
       "level": "advanced",
-      "family": "tableTennis_family_1",
+      "family": "tableTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4070,21 +4057,21 @@
             "sportType": null,
             "position": [
               500.0,
-              1443.0000000000002
+              1410.0000000000002
             ],
             "scale": 1.0,
             "moves": [
               [
                 371.43248175182475,
-                1443.0000000000002
+                1426.5000000000002
               ],
               [
                 628.5675182481752,
-                1443.0000000000002
+                1410.0000000000002
               ],
               [
                 500.0,
-                1443.0000000000002
+                1393.5000000000002
               ]
             ],
             "movePhases": [
@@ -4117,7 +4104,7 @@
               ],
               [
                 628.5675182481752,
-                238.49999999999994
+                254.99999999999994
               ]
             ],
             "movePhases": [
@@ -4139,7 +4126,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1096.5
+              386.99999999999994
             ],
             "scale": 1.0,
             "moves": [],
@@ -4180,8 +4167,8 @@
     },
     {
       "id": "tt_defence_lob",
-      "level": "development",
-      "family": "tableTennis_family_1",
+      "level": "advanced",
+      "family": "tableTennis_family_2",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4253,26 +4240,21 @@
             "sportType": null,
             "position": [
               500.0,
-              1410.0000000000002
+              1476.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                371.43248175182475,
-                1410.0000000000002
-              ],
-              [
-                628.5675182481752,
-                1410.0000000000002
+                656.117700729927,
+                1492.5
               ],
               [
                 500.0,
-                1410.0000000000002
+                1443.0000000000002
               ]
             ],
             "movePhases": [
               0,
-              1,
               2
             ],
             "moveColor": 4282434815,
@@ -4300,7 +4282,7 @@
               ],
               [
                 628.5675182481752,
-                238.49999999999994
+                254.99999999999994
               ]
             ],
             "movePhases": [
@@ -4322,7 +4304,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1096.5
+              419.99999999999994
             ],
             "scale": 1.0,
             "moves": [],
@@ -4364,7 +4346,7 @@
     {
       "id": "tt_serve_short_backspin",
       "level": "development",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_11",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4532,7 +4514,7 @@
     {
       "id": "tt_serve_long_fast",
       "level": "development",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_11",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4700,7 +4682,7 @@
     {
       "id": "tt_serve_sidespin_wide",
       "level": "development",
-      "family": "tableTennis_family_8",
+      "family": "tableTennis_family_11",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4867,8 +4849,8 @@
     },
     {
       "id": "tt_serve_third_ball",
-      "level": "development",
-      "family": "tableTennis_family_8",
+      "level": "advanced",
+      "family": "tableTennis_family_11",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -5041,21 +5023,8 @@
     {
       "id": "tt_game_half_table",
       "level": "development",
-      "family": "tableTennis_family_7",
-      "familyName": {
-        "en": "Match play",
-        "en-GB": "Match play",
-        "es-ES": "Juego de partido",
-        "fr-FR": "Jeu en match",
-        "id-ID": "Permainan pertandingan",
-        "ja-JP": "ゲーム練習",
-        "ko-KR": "실전 게임",
-        "ms-MY": "Permainan perlawanan",
-        "th-TH": "เล่นแบบแข่งขัน",
-        "vi-VN": "Đánh như thi đấu",
-        "zh-CN": "实战对抗",
-        "zh-TW": "實戰對抗"
-      },
+      "family": null,
+      "familyName": null,
       "category": "ssg",
       "minutes": 15,
       "players": 2,
@@ -5090,18 +5059,18 @@
         "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
       },
       "mistake": {
-        "en": "Trying to win by hitting harder — half-table games expose exactly that player.",
-        "en-GB": "Trying to win by hitting harder — half-table games expose exactly that player.",
-        "zh-CN": "只想靠打得更重赢——半台对抗专治这种人。",
-        "zh-TW": "只想靠打得更重贏——半台對抗專治這種人。",
-        "ja-JP": "強打だけで勝とうとする——ハーフ台がそれを暴く。",
-        "ko-KR": "세게만 쳐서 이기려 한다 — 하프테이블이 드러낸다.",
-        "es-ES": "Querer ganar pegando más fuerte: la media mesa lo desnuda.",
-        "fr-FR": "Vouloir gagner en frappant plus fort — la demi-table le démasque.",
-        "id-ID": "Ingin menang dengan pukulan lebih keras.",
-        "ms-MY": "Mahu menang dengan pukulan lebih kuat.",
-        "th-TH": "หวังชนะด้วยแรงตบ",
-        "vi-VN": "Chỉ muốn thắng bằng lực."
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 1,
@@ -5229,7 +5198,7 @@
     {
       "id": "tt_game_serve_receive",
       "level": "development",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",
@@ -5264,18 +5233,18 @@
         "vi-VN": "Đánh như thi đấu chỉ giao và đỡ"
       },
       "note": {
-        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
-        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
-        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
-        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
-        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
-        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
-        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
-        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
-        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
-        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+        "en": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+        "en-GB": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+        "zh-CN": "打眼前这一分，不是打你练过的那一分。多数回合在第五板之前就结束了，所以战术必须能挺过前两板，否则它根本不算战术。",
+        "zh-TW": "打眼前這一分，不是打你練過的那一分。多數回合在第五板之前就結束了，所以戰術必須能挺過前兩板，否則它根本不算戰術。",
+        "ja-JP": "練習した点ではなく、目の前の点を打つ。多くのラリーは5球目までに終わるので、戦術は最初の2球を生き延びなければ戦術ではない。",
+        "ko-KR": "연습한 포인트가 아니라 지금 있는 포인트를 쳐라. 대부분의 랠리는 다섯 번째 공 안에 끝난다.",
+        "es-ES": "Juega el punto que tienes, no el que ensayaste: casi todos los peloteos acaban en la quinta bola.",
+        "fr-FR": "Joue le point que tu as, pas celui que tu as répété : la plupart des échanges finissent à la cinquième balle.",
+        "id-ID": "Mainkan poin yang ada, bukan yang kamu latih. Kebanyakan reli selesai pada bola kelima.",
+        "ms-MY": "Mainkan mata yang ada, bukan yang anda latih.",
+        "th-TH": "เล่นแต้มที่อยู่ตรงหน้า ไม่ใช่แต้มที่ซ้อมมา แรลลี่ส่วนใหญ่จบภายในลูกที่ห้า",
+        "vi-VN": "Chơi điểm đang có, không phải điểm đã tập. Phần lớn các pha bóng kết thúc trước quả thứ năm."
       },
       "mistake": {
         "en": "Trying to win by hitting harder — half-table games expose exactly that player.",
@@ -5301,17 +5270,22 @@
             "sportType": null,
             "position": [
               500.0,
-              1294.5
+              1278.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                1228.5000000000002
+                472.44981751824815,
+                1212.0
+              ],
+              [
+                527.5501824817518,
+                1294.5
               ]
             ],
             "movePhases": [
-              0
+              0,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5327,23 +5301,43 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              205.49999999999991
+              472.44981751824815,
+              221.99999999999991
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                271.49999999999994
+                287.99999999999994
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              472.44981751824815,
+              386.99999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
             "photoId": null,
             "role": null,
             "attachedTo": null
@@ -5355,7 +5349,7 @@
             "sportType": 1,
             "position": [
               460.0,
-              1224.5
+              1208.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -5377,7 +5371,7 @@
     {
       "id": "tt_game_full_match",
       "level": "development",
-      "family": "tableTennis_family_7",
+      "family": "tableTennis_family_9",
       "familyName": {
         "en": "Match play",
         "en-GB": "Match play",
@@ -5412,18 +5406,18 @@
         "vi-VN": "Đánh như thi đấu trận đấu đầy đủ"
       },
       "note": {
-        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
-        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
-        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
-        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
-        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
-        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
-        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
-        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
-        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
-        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+        "en": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+        "en-GB": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+        "zh-CN": "打眼前这一分，不是打你练过的那一分。多数回合在第五板之前就结束了，所以战术必须能挺过前两板，否则它根本不算战术。",
+        "zh-TW": "打眼前這一分，不是打你練過的那一分。多數回合在第五板之前就結束了，所以戰術必須能挺過前兩板，否則它根本不算戰術。",
+        "ja-JP": "練習した点ではなく、目の前の点を打つ。多くのラリーは5球目までに終わるので、戦術は最初の2球を生き延びなければ戦術ではない。",
+        "ko-KR": "연습한 포인트가 아니라 지금 있는 포인트를 쳐라. 대부분의 랠리는 다섯 번째 공 안에 끝난다.",
+        "es-ES": "Juega el punto que tienes, no el que ensayaste: casi todos los peloteos acaban en la quinta bola.",
+        "fr-FR": "Joue le point que tu as, pas celui que tu as répété : la plupart des échanges finissent à la cinquième balle.",
+        "id-ID": "Mainkan poin yang ada, bukan yang kamu latih. Kebanyakan reli selesai pada bola kelima.",
+        "ms-MY": "Mainkan mata yang ada, bukan yang anda latih.",
+        "th-TH": "เล่นแต้มที่อยู่ตรงหน้า ไม่ใช่แต้มที่ซ้อมมา แรลลี่ส่วนใหญ่จบภายในลูกที่ห้า",
+        "vi-VN": "Chơi điểm đang có, không phải điểm đã tập. Phần lớn các pha bóng kết thúc trước quả thứ năm."
       },
       "mistake": {
         "en": "Trying to win by hitting harder — half-table games expose exactly that player.",
@@ -5524,22 +5518,9 @@
     },
     {
       "id": "tt_game_doubles",
-      "level": "development",
-      "family": "tableTennis_family_7",
-      "familyName": {
-        "en": "Match play",
-        "en-GB": "Match play",
-        "es-ES": "Juego de partido",
-        "fr-FR": "Jeu en match",
-        "id-ID": "Permainan pertandingan",
-        "ja-JP": "ゲーム練習",
-        "ko-KR": "실전 게임",
-        "ms-MY": "Permainan perlawanan",
-        "th-TH": "เล่นแบบแข่งขัน",
-        "vi-VN": "Đánh như thi đấu",
-        "zh-CN": "实战对抗",
-        "zh-TW": "實戰對抗"
-      },
+      "level": "advanced",
+      "family": null,
+      "familyName": null,
       "category": "ssg",
       "minutes": 15,
       "players": 4,
@@ -5560,32 +5541,32 @@
         "vi-VN": "Đánh như thi đấu xoay vòng đôi"
       },
       "note": {
-        "en": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "en-GB": "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.",
-        "zh-CN": "把台面限制住，战术就无处可藏。半台对抗会立刻暴露那种只会靠打得更重赢球的人。",
-        "zh-TW": "把台面限制住，戰術就無處可藏。半台對抗會立刻暴露那種只會靠打得更重贏球的人。",
-        "ja-JP": "台を制限すれば戦術は隠れられない。ハーフ台のゲームは、強く打つだけの選手をすぐ暴く。",
-        "ko-KR": "테이블을 제한하면 전술은 숨을 곳이 없다. 하프 테이블 게임은 세게만 치는 선수를 드러낸다.",
-        "es-ES": "Restringe la mesa y la táctica no tiene dónde esconderse: media mesa desnuda al que solo gana pegando más fuerte.",
-        "fr-FR": "Restreins la table et la tactique n'a plus où se cacher : la demi-table démasque celui qui ne gagne qu'en frappant fort.",
-        "id-ID": "Batasi mejanya dan taktik tak punya tempat sembunyi.",
-        "ms-MY": "Hadkan meja dan taktik tiada tempat untuk bersembunyi.",
-        "th-TH": "จำกัดพื้นที่โต๊ะ แล้วแท็กติกจะไม่มีที่ซ่อน",
-        "vi-VN": "Giới hạn mặt bàn, chiến thuật hết chỗ trốn."
+        "en": "Every serve goes right half to right half, and you must alternate every ball — so the rotation is the drill: hit, and get out of your partner's way on the same movement.",
+        "en-GB": "Every serve goes right half to right half, and you must alternate every ball — so the rotation is the drill: hit, and get out of your partner's way on the same movement.",
+        "zh-CN": "发球必须右半台发到对方右半台，而且每球轮换——所以轮转本身就是训练内容：击完球的同一个动作里就让开搭档的位置。",
+        "zh-TW": "發球必須右半台發到對方右半台，而且每球輪換——所以輪轉本身就是訓練內容：擊完球的同一個動作裡就讓開搭檔的位置。",
+        "ja-JP": "サーブは必ず右半面から右半面へ、そして一球ごとに交互に打つ。だからローテーションこそが練習だ。打つ動作のまま相手の進路を空ける。",
+        "ko-KR": "서브는 오른쪽 반면에서 오른쪽 반면으로, 그리고 매 공마다 교대한다. 그래서 로테이션 자체가 훈련이다.",
+        "es-ES": "El saque va siempre de media derecha a media derecha y hay que alternar cada bola: la rotación es el ejercicio.",
+        "fr-FR": "Le service va toujours de demi-table droite à demi-table droite et il faut alterner à chaque balle : la rotation est l'exercice.",
+        "id-ID": "Servis selalu dari separuh kanan ke separuh kanan, dan harus bergantian setiap bola.",
+        "ms-MY": "Servis sentiasa dari separuh kanan ke separuh kanan, dan mesti berselang-seli setiap bola.",
+        "th-TH": "เสิร์ฟจากครึ่งขวาไปครึ่งขวาเสมอ และต้องสลับตีทุกลูก",
+        "vi-VN": "Giao bóng luôn từ nửa phải sang nửa phải, và phải luân phiên mỗi quả."
       },
       "mistake": {
-        "en": "Trying to win by hitting harder — half-table games expose exactly that player.",
-        "en-GB": "Trying to win by hitting harder — half-table games expose exactly that player.",
-        "zh-CN": "只想靠打得更重赢——半台对抗专治这种人。",
-        "zh-TW": "只想靠打得更重贏——半台對抗專治這種人。",
-        "ja-JP": "強打だけで勝とうとする——ハーフ台がそれを暴く。",
-        "ko-KR": "세게만 쳐서 이기려 한다 — 하프테이블이 드러낸다.",
-        "es-ES": "Querer ganar pegando más fuerte: la media mesa lo desnuda.",
-        "fr-FR": "Vouloir gagner en frappant plus fort — la demi-table le démasque.",
-        "id-ID": "Ingin menang dengan pukulan lebih keras.",
-        "ms-MY": "Mahu menang dengan pukulan lebih kuat.",
-        "th-TH": "หวังชนะด้วยแรงตบ",
-        "vi-VN": "Chỉ muốn thắng bằng lực."
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
       },
       "board": {
         "sportType": 1,
