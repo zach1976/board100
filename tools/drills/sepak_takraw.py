@@ -7,7 +7,15 @@ their part of the same three touches.
 """
 from .engine import Drill, M, P, suffixed
 
-TEKONG = (0.50, 0.86)
+# The service circle's centre is 2.45 m from the back line of a 13.4 m
+# court, which is y = 0.8172 — not 0.86. Drawn 0.57 m behind it, the tekong
+# stood outside the circle on every board, and the serve drills painted
+# their own circle marker at the wrong spot too, so in the app it sat half
+# a metre off the one the court painter draws.
+TEKONG = (0.50, 0.8172)
+# The quarter circles are 0.9 m radius at the centre line, and both inside
+# players must have a foot in one at the moment of service.
+QUARTER_L, QUARTER_R = (0.075, 0.555), (0.925, 0.555)
 LEFT_INSIDE, RIGHT_INSIDE = (0.28, 0.64), (0.72, 0.64)
 FEED_POINT = (0.50, 0.58)
 NET = 0.5
@@ -54,6 +62,12 @@ def warmup_family() -> list[Drill]:
             home = [P(0.30, 0.70, "1", moves=[(0.40, 0.64, 0)]),
                     P(0.50, 0.80, "2", moves=[(0.50, 0.70, 1)]),
                     P(0.70, 0.70, "3", moves=[(0.60, 0.64, 2)])]
+        elif key == "all_surfaces":
+            # Four legal surfaces, four stations: it used to be the same
+            # two dots as the pairs juggling.
+            home = [P(0.26, 0.76, "1", moves=[(0.34, 0.68, 0)]),
+                    P(0.50, 0.66, "2", moves=[(0.50, 0.60, 1)]),
+                    P(0.74, 0.76, "3", moves=[(0.66, 0.68, 2)])]
         else:
             home = [P(0.34, 0.72, "1", moves=[(0.38, 0.66, 0)]),
                     P(0.66, 0.72, "2", moves=[(0.62, 0.66, 0)])]
@@ -120,9 +134,9 @@ SPIKE_NAME = {
     "th-TH": "การฟาด", "vi-VN": "Đá tấn công",
 }
 SPIKE_NOTE = {
-    "en": "Get the hips above the ball before the foot swings. Height comes "
+    "en": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes "
           "from the jump, not from kicking harder at the top.",
-    "en-GB": "Get the hips above the ball before the foot swings. Height comes "
+    "en-GB": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes "
              "from the jump, not from kicking harder at the top.",
     "zh-CN": "起脚之前先把胯送到球上方。高度来自起跳，不是来自到了顶点再用力踢。",
     "zh-TW": "起腳之前先把胯送到球上方。高度來自起跳，不是來自到了頂點再用力踢。",
@@ -139,22 +153,58 @@ SPIKE_NOTE = {
 }
 
 
+SUNBACK_NOTE = {
+    "en": "Back to the net, and the strike goes over your own shoulder — so the set has to be behind you, not in front. Turning to look for it is how the block gets there first.",
+    "en-GB": "Back to the net, and the strike goes over your own shoulder — so the set has to be behind you, not in front. Turning to look for it is how the block gets there first.",
+    "zh-CN": "背对球网，从自己肩上把球踢出去——所以二传要送到你身后，不是身前。回头去找球的那一下，就是拦网先到的原因。",
+    "zh-TW": "背對球網，從自己肩上把球踢出去——所以二傳要送到你身後，不是身前。回頭去找球的那一下，就是攔網先到的原因。",
+    "ja-JP": "ネットに背を向け、自分の肩越しに蹴る。だからトスは前ではなく背後へ。振り返って探した瞬間にブロックが先に着く。",
+    "ko-KR": "네트에 등을 지고 자기 어깨 너머로 찬다. 그래서 토스는 앞이 아니라 뒤로 와야 한다.",
+    "es-ES": "De espaldas a la red, el golpe sale por encima del propio hombro: el pase debe llegar detrás de ti, no delante.",
+    "fr-FR": "Dos au filet, la frappe part par-dessus ta propre épaule : la passe doit arriver derrière toi, pas devant.",
+    "id-ID": "Punggung menghadap net, tendangan melewati bahu sendiri, jadi umpan harus di belakangmu.",
+    "ms-MY": "Belakang menghadap jaring, tendangan melepasi bahu sendiri.",
+    "th-TH": "หันหลังให้ตาข่าย เตะข้ามไหล่ตัวเอง ดังนั้นลูกเซ็ตต้องมาด้านหลัง",
+    "vi-VN": "Lưng quay về lưới, cú đá đi qua vai mình, nên quả nâng phải ở phía sau bạn.",
+}
+
+
 def spike_family() -> list[Drill]:
-    specs = [("roll", "the roll spike", (0.30, 0.24)),
-             ("scissor", "the scissor kick", (0.70, 0.22)),
-             ("sunback", "the sunback spike", (0.50, 0.16))]
+    # Three different actions, drawn as three different pictures. They used
+    # to share one board with the target cone moved, which cannot tell a
+    # roll spike from a scissor kick from a sunback — so the boards say
+    # what a board can: the approach angle, where the set is put, where the
+    # spiker takes off relative to the net, and which way the blocker goes.
+    # (key, label, approach start, take-off, the set, target, blocker)
+    specs = [
+        # The roll: approach from wide, turn side-on, strike across.
+        ("roll", "the roll spike", (0.80, 0.66), (0.68, 0.545),
+         (0.62, 0.58), (0.30, 0.24), (0.60, 0.455)),
+        # The scissor: a straight run, both legs through the ball.
+        ("scissor", "the scissor kick", (0.62, 0.72), (0.60, 0.535),
+         (0.56, 0.60), (0.70, 0.22), (0.56, 0.455)),
+        # The sunback: back to the net, struck over the shoulder.
+        ("sunback", "the sunback spike", (0.36, 0.70), (0.44, 0.545),
+         (0.46, 0.62), (0.50, 0.16), (0.46, 0.455)),
+    ]
     out = []
-    for key, label, land in specs:
+    for key, label, start, jump, set_at, land, blocker in specs:
         out.append(Drill(
             id=f"st_spike_{key}", category="finishing", minutes=12, rel=True,
             free=(key == "roll"),
-            name=suffixed(SPIKE_NAME, label), note=SPIKE_NOTE,
-            home=[P(*RIGHT_INSIDE, "S", moves=[(0.58, 0.54, 1)]),
-                  P(*LEFT_INSIDE, "F", moves=[FEED_POINT + (0,)])],
-            away=[P(0.56, 0.46, "B", moves=[(0.58, 0.455, 1)]),
+            name=suffixed(SPIKE_NAME, label),
+            # The sunback is struck with the back to the net, over the
+            # shoulder, so the family's turning cue does not describe it.
+            note=SUNBACK_NOTE if key == "sunback" else SPIKE_NOTE,
+            home=[P(*start, "S", moves=[jump + (1,)]),
+                  P(*LEFT_INSIDE, "F", moves=[set_at + (0,)])],
+            away=[P(*blocker, "B", moves=[(blocker[0] + (0.5 - blocker[0]) * 0.2,
+                                           0.45, 1)]),
                   P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 2)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=1,
+            ball_moves=[set_at + (0,), (jump[0], jump[1] - 0.02, 1),
+                        land + (2,)],
         ))
     return out
 
@@ -289,9 +339,9 @@ def serve_family() -> list[Drill]:
             # The inside players start in the quarter circles at the net —
             # that is where the rules put them for the serve; mid-court is
             # where they drop to once it is away.
-            home=[P(*TEKONG, "T", moves=[(0.50, 0.80, 1)]),
-                  P(0.12, 0.54, "L", moves=[(0.34, 0.60, 0)]),
-                  P(0.88, 0.54, "R", moves=[(0.66, 0.60, 0)])],
+            home=[P(*TEKONG, "T", moves=[(0.50, 0.775, 1)]),
+                  P(*QUARTER_L, "L", moves=[(0.32, 0.61, 0)]),
+                  P(*QUARTER_R, "R", moves=[(0.68, 0.61, 0)])],
             away=[P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 1)])],
             markers=[M(*TEKONG, "circle", ""), M(*land, "zone", "")],
             ball=0,
@@ -327,7 +377,10 @@ GAME_NOTE = {
 def game_family() -> list[Drill]:
     specs = [("2v2", "2v2", [(0.34, 0.68), (0.66, 0.68)]),
              ("3v3", "3v3", [LEFT_INSIDE, RIGHT_INSIDE, TEKONG]),
-             ("no_block", "with no block", [LEFT_INSIDE, RIGHT_INSIDE, TEKONG])]
+             # No block means there is no blocker at the net — the point of
+             # the constraint. It used to be the 3v3 board unchanged.
+             ("no_block", "with no block",
+              [(0.30, 0.72), (0.70, 0.72), TEKONG])]
     out = []
     for key, label, spots in specs:
         out.append(Drill(
@@ -338,16 +391,80 @@ def game_family() -> list[Drill]:
                   for i, (x, y) in enumerate(spots)],
             away=[P(*mirror((x, y)), chr(65 + i), moves=[(x, 1 - y + 0.04, 0)])
                   for i, (x, y) in enumerate(spots)],
+            markers=([M(0.5, NET, "cone", "")] if key == "no_block" else []),
             ball=0,
         ))
     return out
+
+
+BLOCK_NOTE = {
+    "en": "Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+    "en-GB": "Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+    "zh-CN": "转身用肩或背去挡，不要用胸——胸挡会把球直接砸回自己半场。看他的髋起跳，不是看球起跳。",
+    "zh-TW": "轉身用肩或背去擋，不要用胸——胸擋會把球直接砸回自己半場。看他的髖起跳，不是看球起跳。",
+    "ja-JP": "背を向けて肩か背中で受ける。胸は自陣に真下へ落ちるので使わない。跳ぶのはボールではなく相手の腰に対して。",
+    "ko-KR": "등을 돌려 어깨나 등으로 막아라. 가슴은 자기 코트로 그대로 떨어뜨린다. 공이 아니라 상대의 허리를 보고 뛰어라.",
+    "es-ES": "Gira la espalda y bloquea con el hombro o la espalda, no con el pecho, que la manda abajo en tu propio campo.",
+    "fr-FR": "Tourne le dos et bloque de l'épaule ou du dos, pas de la poitrine, qui la renvoie au sol dans ton camp.",
+    "id-ID": "Putar punggung dan blok dengan bahu atau punggung, bukan dada.",
+    "ms-MY": "Pusing belakang dan sekat dengan bahu atau belakang, bukan dada.",
+    "th-TH": "หันหลังแล้วบล็อกด้วยไหล่หรือหลัง ไม่ใช่หน้าอก",
+    "vi-VN": "Xoay lưng và chắn bằng vai hoặc lưng, không phải bằng ngực.",
+}
+HEAD_NOTE = {
+    "en": "The head is one of the four surfaces, and the only one that can take a hard serve cleanly at chest height. Meet it with the forehead, moving forward, not with the top of the skull.",
+    "en-GB": "The head is one of the four surfaces, and the only one that can take a hard serve cleanly at chest height. Meet it with the forehead, moving forward, not with the top of the skull.",
+    "zh-CN": "头是四个合法触球部位之一，也是唯一能在胸高干净地接住重发球的那个。要用前额、身体往前迎，不是用头顶。",
+    "zh-TW": "頭是四個合法觸球部位之一，也是唯一能在胸高乾淨地接住重發球的那個。要用前額、身體往前迎，不是用頭頂。",
+    "ja-JP": "頭は4つの接触面のひとつで、胸の高さの強いサーブをきれいに処理できる唯一の面だ。前へ出ながら額で当てる。頭頂ではない。",
+    "ko-KR": "머리는 네 개의 접촉면 중 하나이며, 가슴 높이의 강한 서브를 깔끔히 받을 수 있는 유일한 면이다. 이마로, 앞으로 나가며 맞춰라.",
+    "es-ES": "La cabeza es una de las cuatro superficies y la única que recibe limpio un saque fuerte a la altura del pecho: con la frente y avanzando.",
+    "fr-FR": "La tête est l'une des quatre surfaces et la seule qui reprend proprement un service fort à hauteur de poitrine : avec le front, en avançant.",
+    "id-ID": "Kepala adalah satu dari empat permukaan sah, dan satu-satunya yang bisa menerima servis keras setinggi dada dengan bersih.",
+    "ms-MY": "Kepala ialah satu daripada empat permukaan sah untuk menyambut servis keras separas dada.",
+    "th-TH": "ศีรษะเป็นหนึ่งในสี่ส่วนที่ใช้ได้ และเป็นส่วนเดียวที่รับลูกเสิร์ฟแรงระดับอกได้สะอาด",
+    "vi-VN": "Đầu là một trong bốn bề mặt hợp lệ, và là bề mặt duy nhất đỡ gọn quả giao mạnh ngang ngực.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """Blocking and heading, neither of which had a board.
+
+    The block appeared only as an opposition dummy inside the defending
+    family; 'header' appeared nowhere at all, in a sport whose own warm-up
+    lists the head as one of the four legal surfaces.
+    """
+    return [
+        Drill(
+            id="st_block_at_the_net", category="defending", minutes=10, rel=True,
+            level="foundation", free=True,
+            name=suffixed(DEF_NAME, "blocking at the net"), note=BLOCK_NOTE,
+            home=[P(0.46, 0.545, "B", moves=[(0.50, 0.525, 1)]),
+                  P(0.72, 0.66, "C", moves=[(0.62, 0.62, 2)])],
+            away=[P(0.54, 0.455, "S", moves=[(0.50, 0.475, 1)]),
+                  P(0.26, 0.34, "F", moves=[(0.34, 0.40, 0)])],
+            markers=[M(0.68, 0.72, "zone", "")],
+            ball=None,
+        ),
+        Drill(
+            id="st_receive_header", category="possession", minutes=10, rel=True,
+            level="foundation",
+            name=suffixed(RECEIVE2_NAME, "with the head"), note=HEAD_NOTE,
+            home=[P(0.34, 0.68, "R", moves=[(0.40, 0.62, 1)]),
+                  P(0.62, 0.62, "F", moves=[(0.54, 0.58, 2)])],
+            away=[P(0.50, 0.8172, "T", moves=[(0.50, 0.775, 0)])],
+            markers=[M(0.50, 0.8172, "circle", ""), M(0.54, 0.58, "zone", "")],
+            ball=(0.50, 0.80),
+            ball_moves=[(0.40, 0.62, 1), (0.54, 0.58, 2)],
+        ),
+    ]
 
 
 def sepak_takraw_library() -> list[Drill]:
     return (warmup_family() + receive2_family() + feed_family()
             + attack_family() + spike_family() + defence_family()
             + cover_family() + serve_family() + tekong_family()
-            + game_family())
+            + game_family() + gaps_family())
 
 TEKONG_NAME = {
     "en": "Tekong serve", "en-GB": "Tekong serve", "zh-CN": "发球手发球",
@@ -378,18 +495,22 @@ TEKONG_NOTE = {
 
 def tekong_family() -> list[Drill]:
     """The serve from the server's side: the toss-kick partnership."""
-    specs = [("high_toss", "off the high toss", (0.44, 0.80)),
-             ("low_drive", "driven low", (0.56, 0.82))]
+    # The tosser must have a foot in his quarter circle when he throws; he
+    # used to stand beside the tekong, four metres outside it.
+    specs = [("high_toss", "off the high toss", QUARTER_L),
+             ("low_drive", "driven low", QUARTER_R)]
     out = []
     for key, label, thrower in specs:
         out.append(Drill(
             id=f"st_tekong_{key}", category="setpiece", minutes=10, rel=True,
             free=(key == "high_toss"),
             name=suffixed(TEKONG_NAME, label), note=TEKONG_NOTE,
-            home=[P(*TEKONG, "T", moves=[(0.50, 0.82, 1)]),
-                  P(*thrower, "L", moves=[(thrower[0], thrower[1] - 0.06, 0),
-                                          (0.30, 0.60, 2)]),
-                  P(0.88, 0.54, "R", moves=[(0.66, 0.60, 2)])],
+            home=[P(*TEKONG, "T", moves=[(0.50, 0.775, 1)]),
+                  P(*thrower, "L",
+                    moves=[(thrower[0] + (0.5 - thrower[0]) * 0.25, 0.60, 0),
+                           (0.5 + (thrower[0] - 0.5) * 0.55, 0.63, 2)]),
+                  P(*(QUARTER_R if thrower is QUARTER_L else QUARTER_L), "R",
+                    moves=[(0.5 + (0.5 - thrower[0]) * 0.55, 0.63, 2)])],
             away=[P(0.50, 0.24, "D", moves=[(0.44, 0.16 if key == "high_toss"
                                              else 0.30, 1)])],
             markers=[M(*TEKONG, "circle", "")],
