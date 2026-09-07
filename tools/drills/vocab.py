@@ -1288,3 +1288,8 @@ add('front on and from the side', '正面与侧面', '正面與側面', '正面�
 add('the contest and the counter', '争顶与反击', '爭頂與反擊', '競り合いとカウンター', '경합과 역습', 'la disputa y el contraataque', 'la contestation et la relance', 'perebutan dan serangan balik', 'perebutan dan serangan balas', 'การแย่งบอลและการสวนกลับ', 'tranh chấp và phản công')
 add('the routine', '固定流程', '固定流程', 'ルーティン', '루틴', 'la rutina', 'la routine', 'rutinitas', 'rutin', 'รูทีน', 'quy trình cố định')
 add('two phases and the kick', '两波次后开踢', '兩波次後開踢', '2フェーズ後にキック', '두 페이즈 뒤 킥', 'dos fases y la patada', 'deux temps puis le coup de pied', 'dua fase lalu tendangan', 'dua fasa kemudian sepakan', 'สองเฟสแล้วเตะ', 'hai đợt rồi đá')
+
+add('against the short serve', '接短发球', '接短發球', 'ショートサーブに対して', '숏 서브에 대해', 'contra el saque corto', 'contre le service court', 'melawan servis pendek', 'menentang servis pendek', 'รับเสิร์ฟสั้น', 'đỡ giao cầu ngắn')
+add('against the flick', '接后场发球', '接後場發球', 'フリックサーブに対して', '플릭 서브에 대해', 'contra el saque flick', 'contre le service flick', 'melawan servis flick', 'menentang servis flick', 'รับเสิร์ฟงัด', 'đỡ giao cầu lật')
+add('round the head', '头顶球', '頭頂球', 'ラウンド・ザ・ヘッド', '라운드 더 헤드', 'por encima de la cabeza', 'au-dessus de la tête', 'round the head', 'round the head', 'ตีรอบศีรษะ', 'đánh vòng qua đầu')
+add('the battle at the tape', '网前搏杀', '網前搏殺', 'ネット前の攻防', '네트 앞 싸움', 'la batalla en la red', 'la bataille au filet', 'duel di depan net', 'pertarungan di depan jaring', 'การปะทะหน้าตาข่าย', 'cuộc đấu trước lưới')
