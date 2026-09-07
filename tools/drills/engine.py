@@ -545,6 +545,9 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # handball: technique and the two-player shots
+    "hb_shot_wing_angle", "hb_shot_pivot_turn", "hb_gk_seven_metre",
+    "hb_set_seven_metre", "hb_break_first_wave",
     # soccer: technique with a server, and the rondo every squad starts on
     "rondo_4v2", "wall_pass_wide", "one_v_one_gk", "defend_1v1_channel",
     "finish_first_time", "finish_turn_shoot", "finish_volley_side",
@@ -565,6 +568,9 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # handball: systems and the games that need a squad organised
+    "hb_defence_four_two", "hb_defence_three_two_one", "hb_attack_empty_goal",
+    "hb_break_third_wave", "hb_game_6v6", "hb_set_nine_metre",
     # basketball
     "bb_horns_set", "bb_press_break", "bb_defence_ice",
     # volleyball

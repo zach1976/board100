@@ -609,6 +609,11 @@ add("wide to wide", "边到边", "邊到邊", "サイドからサイドへ", "�
 add("through the pivot", "通过中锋", "通過中鋒", "ピボット経由", "피벗을 통해",
     "por el pivote", "par le pivot", "lewat pivot", "melalui pivot",
     "ผ่านพิวอต", "qua trung phong")
+add("with a late runner", "带后排插上", "帶後排插上", "後方からの飛び込みを伴って",
+    "후방 침투와 함께", "con un jugador que llega desde atrás",
+    "avec un joueur qui arrive de derrière", "dengan pelari dari belakang",
+    "dengan pelari dari belakang", "พร้อมผู้เล่นสอดขึ้นจากด้านหลัง",
+    "với một người sộc lên từ tuyến sau")
 add("with a second wave", "带第二波", "帶第二波", "第2波を伴って", "2차 파도와 함께",
     "con segunda oleada", "avec la deuxième vague", "dengan gelombang kedua",
     "dengan gelombang kedua", "พร้อมคลื่นที่สอง", "kèm đợt hai")
@@ -1227,3 +1232,12 @@ add("behind your own attack", "攻手身后", "攻手身後", "自軍アタッ�
 add("full regu", "整队对抗", "整隊對抗", "レグ戦", "레구 경기",
     "regu completo", "regu complet", "regu penuh", "regu penuh",
     "เรกูเต็มทีม", "regu đầy đủ")
+
+add('one against one', '一对一', '一對一', '1対1', '1대1', 'uno contra uno', 'un contre un', 'satu lawan satu', 'satu lawan satu', 'ตัวต่อตัว', 'một đối một')
+add('saving the 7 m', '扑七米球', '撲七米球', '7mを止める', '7미터 방어', 'parar el penalti de 7 m', 'arrêter le jet de 7 m', 'menepis lemparan 7 m', 'menepis lemparan 7 m', 'เซฟลูก 7 เมตร', 'cản quả 7 mét')
+add('the outlet pass', '一传发动', '一傳發動', 'アウトレットパス', '아웃렛 패스', 'el pase de salida', 'la relance', 'umpan pembuka', 'hantaran pembuka', 'การจ่ายเปิดเกม', 'đường chuyền phát động')
+
+add('man to man', '盯人', '盯人', 'マンツーマン', '맨투맨', 'al hombre', 'individuelle', 'satu lawan satu penuh', 'satu lawan satu penuh', 'ประกบตัวต่อตัว', 'kèm người')
+add('getting back', '回防', '回防', '戻り', '복귀 수비', 'en repliegue', 'au repli', 'kembali bertahan', 'kembali bertahan', 'การถอยกลับตั้งรับ', 'lùi về phòng ngự')
+add('blocking the shot', '封挡射门', '封擋射門', 'シュートブロック', '슛 블로킹', 'al bloqueo del lanzamiento', 'au contre', 'memblok tembakan', 'memblok tembakan', 'การบล็อกลูกยิง', 'chắn cú sút')
+add('end to end', '全场攻防', '全場攻防', 'エンドツーエンド', '전면 코트', 'de area a area', 'd un but a l autre', 'bolak-balik lapangan', 'bolak-balik gelanggang', 'เต็มสนามสองฝั่ง', 'toàn sân hai chiều')
