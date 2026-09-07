@@ -4694,7 +4694,7 @@
       },
       "category": "ssg",
       "minutes": 15,
-      "players": 4,
+      "players": 8,
       "free": false,
       "offSurface": false,
       "name": {
@@ -4798,6 +4798,60 @@
           },
           {
             "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              270.5,
+              1336.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                270.5,
+                1272.75
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              729.5,
+              1336.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                729.5,
+                1272.75
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
             "label": "A",
             "team": 1,
             "sportType": null,
@@ -4815,7 +4869,7 @@
             "movePhases": [
               0
             ],
-            "moveColor": 4285132974,
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -4824,7 +4878,7 @@
             "attachedTo": null
           },
           {
-            "id": "d3",
+            "id": "d5",
             "label": "B",
             "team": 1,
             "sportType": null,
@@ -4842,7 +4896,61 @@
             "movePhases": [
               0
             ],
-            "moveColor": 4294956864,
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              270.5,
+              163.50000000000006
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                270.5,
+                227.25000000000006
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              729.5,
+              163.50000000000006
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                729.5,
+                227.25000000000006
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,

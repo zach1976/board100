@@ -313,7 +313,10 @@ GAME_NOTE = {
 
 def game_family() -> list[Drill]:
     specs = [("half_court", "half-court singles", [(0.30, 0.74)]),
-             ("king_of_the_court", "king of the court", [LEFT, RIGHT]),
+             # King of the court has a queue waiting to challenge; without
+             # it the board was the full-doubles game with a new title.
+             ("king_of_the_court", "king of the court",
+              [LEFT, RIGHT, (0.14, 0.96), (0.86, 0.96)]),
              ("full_doubles", "full doubles", [LEFT, RIGHT])]
     out = []
     for key, label, spots in specs:
