@@ -271,9 +271,67 @@ def reserve_keeper_number(drill: Drill, sport: str) -> None:
                 p.label = str(int(p.label) + 1)
 
 
+def space_out(drill: Drill, sport: str) -> None:
+    """Push overlapping people apart until their icons stop covering each other.
+
+    Authoring is in court-relative units, which are not square — 0.01 across
+    is under 4pt while 0.01 down is about 6pt — so a defender written 0.05
+    "goal-side of" his man ended up standing on him at 44pt icon size. Rather
+    than re-guess 154 boards' coordinates, this restores legibility without
+    touching intent: each overlapping pair is pushed apart *along the line it
+    already sits on*, by the smallest amount that clears the icons, so who is
+    in front of whom never changes. Positions are kept inside the playing
+    surface, and audit() still runs afterwards — a board too crowded for this
+    to fix fails, as it should.
+
+    Drills that declare tight=True (a scrum, a wall, a double block) keep
+    their formation and are only opened to where the labels can be read.
+    """
+    if sport in SPACING_UNCHECKED:
+        return
+    floor = SPACING_TIGHT if drill.tight else SPACING_APART
+    left, top, w, h = court_rect(sport)
+    sx = CANVAS_PT[0] / BOARD_UNITS[0]
+    sy = CANVAS_PT[1] / BOARD_UNITS[1]
+    people = drill.home + drill.away
+    # A thrower at a lineout or a throw-in stands outside the touchline by
+    # the rules (that is what off_surface exempts). Clamping him to the
+    # court would delete the very thing the drill is about, so anyone who
+    # starts outside is kept outside and only held on the canvas.
+    outside = {id(p) for p in people
+               if not (left - 12 <= p.x <= left + w + 12
+                       and top - 12 <= p.y <= top + h + 12)}
+    for _ in range(60):
+        moved = False
+        for i in range(len(people)):
+            for j in range(i + 1, len(people)):
+                a, b = people[i], people[j]
+                dx, dy = (b.x - a.x) * sx, (b.y - a.y) * sy
+                d = math.hypot(dx, dy)
+                if d >= floor:
+                    continue
+                if d < 1e-6:                    # exactly stacked: split sideways
+                    dx, dy, d = 1.0, 0.0, 1.0
+                push = (floor - d) / 2 + 0.5
+                ux, uy = dx / d, dy / d
+                a.x -= ux * push / sx; a.y -= uy * push / sy
+                b.x += ux * push / sx; b.y += uy * push / sy
+                for p in (a, b):
+                    if id(p) in outside:
+                        p.x = min(max(p.x, 12), BOARD_UNITS[0] - 12)
+                        p.y = min(max(p.y, 12), BOARD_UNITS[1] - 12)
+                    else:
+                        p.x = min(max(p.x, left + 8), left + w - 8)
+                        p.y = min(max(p.y, top + 8), top + h - 8)
+                moved = True
+        if not moved:
+            return
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
+    space_out(drill, sport)
     prune_degenerate_moves(drill)
     normalise_phases(drill)
     players, i, color = [], 0, 0
@@ -565,11 +623,9 @@ BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
 SPACING_APART = 44.0            # one icon: no overlap at all
 SPACING_TIGHT = 30.0            # shoulder to shoulder, labels still readable
 
-# Sports whose boards predate the rule. Shrink this list, never grow it.
-SPACING_UNCHECKED = {
-    "baseball", "basketball", "beachTennis", "fieldHockey", "handball",
-    "rugby", "sepakTakraw", "volleyball", "waterPolo",
-}
+# Was a list of sports whose boards predated the rule. Empty since
+# 2026-09-07: space_out() applies the rule to every sport.
+SPACING_UNCHECKED: set[str] = set()
 
 
 def at_the_feet_of(x: float, y: float, sport: str) -> tuple[float, float]:
@@ -585,6 +641,21 @@ def at_the_feet_of(x: float, y: float, sport: str) -> tuple[float, float]:
     dx = 40.0 if x < left + w / 2 else -40.0
     dy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
     return x + dx, y + dy
+
+
+def apart(sport: str, dx_pt: float = 0.0, dy_pt: float = 0.0) -> tuple[float, float]:
+    """An offset in court-relative units worth the given distance in points.
+
+    Relative units are not square: these courts are tall and narrow, so 0.01
+    across is 2.6-3.8pt while 0.01 down is about 6pt. Every module was
+    written as though they matched, which is why a defender authored 0.05
+    "away" from his man stood on top of him on a phone. Ask for the distance
+    you mean and let the court do the conversion.
+    """
+    _, _, w, h = court_rect(sport)
+    sx = CANVAS_PT[0] / BOARD_UNITS[0]
+    sy = CANVAS_PT[1] / BOARD_UNITS[1]
+    return (dx_pt / (w * sx), dy_pt / (h * sy))
 
 
 def _screen_gap(a, b) -> float:
