@@ -390,6 +390,32 @@ add("fieldHockey", "Goalkeeping",
     "ล้มตัวลงเร็วเกินไป พอลงไปแล้วคนยิงก็ได้ประตูส่วนบนทั้งหมดและมีเวลาเหลือเฟือ",
     "Nga nguoi qua som — mot khi da nam xuong, nguoi sut co ca nua tren khung thanh va bao nhieu thoi gian tuy y.")
 
+add("waterPolo", "Goalkeeping",
+    "Dropping in the water as the arm comes back — you cannot rise again in time, and the shooter is aiming at where you were.",
+    "对方引臂时自己反而沉下去——再想升起来已经来不及，而射门瞄的正是你刚才在的位置。",
+    "對方引臂時自己反而沉下去——再想升起來已經來不及，而射門瞄的正是你剛才在的位置。",
+    "相手が腕を引く瞬間に沈んでしまう——もう上がり直せないし、シュートは今いた場所を狙っている。",
+    "상대가 팔을 당길 때 오히려 가라앉는다 — 다시 뜰 시간이 없고, 슛은 방금 있던 자리를 노린다.",
+    "Hundirse justo cuando el brazo va atras: ya no subes a tiempo y el tiro apunta a donde estabas.",
+    "S enfoncer au moment ou le bras part en arriere : impossible de remonter a temps, et le tir vise l endroit ou tu etais.",
+    "Tenggelam saat lengan penembak ditarik ke belakang — tak sempat naik lagi, dan tembakan menuju tempatmu tadi.",
+    "Tenggelam ketika lengan penembak ditarik ke belakang; tiada masa untuk naik semula.",
+    "จมลงตอนที่คู่แข่งเหวี่ยงแขนถอยหลัง ขึ้นไม่ทันแล้ว และลูกยิงเล็งไปที่เดิมที่คุณเพิ่งอยู่",
+    "Chim xuong dung luc doi thu keo tay ra sau — khong kip nhoi len, va cu sut nham dung cho ban vua o.")
+
+add("waterPolo", "Perimeter shot",
+    "Winding up from a flat body, so the block reads the shot a full second before it leaves.",
+    "身体平躺着就开始引臂，封挡整整提前一秒就读出了这脚射门。",
+    "身體平躺著就開始引臂，封擋整整提前一秒就讀出了這腳射門。",
+    "体が水平のまま振りかぶる。ブロックは1秒前にコースを読み切っている。",
+    "몸이 누운 채로 팔을 감는다 — 블록은 1초 먼저 코스를 읽는다.",
+    "Armar el brazo con el cuerpo plano: el bloqueo lee el tiro un segundo antes de que salga.",
+    "Armer le bras corps a plat : le contre lit le tir une seconde avant qu il parte.",
+    "Menarik lengan dengan badan mendatar, sehingga blok membaca tembakan satu detik lebih awal.",
+    "Menarik lengan dengan badan mendatar, blok membaca tembakan sesaat lebih awal.",
+    "เหวี่ยงแขนทั้งที่ตัวยังราบกับน้ำ ทำให้ฝ่ายบล็อกอ่านทางล่วงหน้าเป็นวินาที",
+    "Vung tay khi than nguoi con nam ngang, khien hang chan doc duoc cu sut truoc ca giay.")
+
 # ══ basketball ═══════════════════════════════════════════════════════════════
 add("basketball", "Ball screen",
     "Refusing the screen and dribbling away from it — the screener stood there for nothing.",
