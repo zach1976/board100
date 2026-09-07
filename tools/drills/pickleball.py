@@ -140,18 +140,41 @@ SPEEDUP_NOTE = {
 }
 
 
+ERNIE_NOTE = {
+    "en": "Go around the post, not through the kitchen, and go before he can see you: an Ernie the dinker has spotted is a lob into the space you just left.",
+    "en-GB": "Go around the post, not through the kitchen, and go before he can see you: an Ernie the dinker has spotted is a lob into the space you just left.",
+    "zh-CN": "从边线外绕过去，不能踩进非截击区，而且要在对方看见你之前动：被对手看见的 Ernie，换来的是一记挑向你刚让开那块空当的高球。",
+    "zh-TW": "從邊線外繞過去，不能踩進非截擊區，而且要在對方看見你之前動：被對手看見的 Ernie，換來的是一記挑向你剛讓開那塊空檔的高球。",
+    "ja-JP": "キッチンを通らずポストの外を回り、相手に見られる前に動く。読まれたアーニーは、空けたばかりのスペースへのロブになる。",
+    "ko-KR": "키친을 밟지 말고 포스트 바깥으로 돌아가고, 상대가 보기 전에 움직여라. 들킨 어니는 방금 비운 공간으로 오는 로브다.",
+    "es-ES": "Rodea el poste, no pises la cocina, y sal antes de que te vea: un Ernie cantado es un globo al hueco que acabas de dejar.",
+    "fr-FR": "Contourne le poteau, ne traverse pas la cuisine, et pars avant qu'il te voie : un Ernie repéré devient un lob dans l'espace que tu viens de quitter.",
+    "id-ID": "Putari tiang, jangan lewat kitchen, dan bergeraklah sebelum dia melihatmu.",
+    "ms-MY": "Pusing di luar tiang, jangan masuk kitchen, dan bergerak sebelum dia nampak.",
+    "th-TH": "อ้อมนอกเสา ห้ามเหยียบเขตห้ามวอลเลย์ และออกตัวก่อนที่เขาจะเห็น",
+    "vi-VN": "Vòng ra ngoài cột lưới, không giẫm vào vùng cấm vô-lê, và đi trước khi anh ta thấy bạn.",
+}
+
+
 def speedup_family() -> list[Drill]:
     specs = [("shoulder", "at the shoulder", (0.34, 0.40)),
              ("hip", "at the hip", (0.42, 0.42)),
              ("ernie", "the Ernie", (0.06, 0.44))]
     out = []
     for key, label, land in specs:
+        # The Ernie is run around the *outside* of the sideline and the
+        # player may not touch the non-volley zone. It used to finish at
+        # x 0.06 inside the line and 0.27 m from the net, inside the
+        # kitchen — a fault, on the board teaching the shot.
         run = [(0.66, KITCHEN - 0.02, 1)] if key != "ernie" else [
-            (0.10, KITCHEN, 1), (0.04, 0.52, 2)]
+            (0.03, KITCHEN + 0.04, 1), (-0.05, 0.46, 2)]
         out.append(Drill(
             id=f"pb_speedup_{key}", category="attacking", minutes=10, rel=True,
-            free=(key == "shoulder"),
-            name=suffixed(SPEEDUP_NAME, label), note=SPEEDUP_NOTE,
+            free=(key == "shoulder"), off_surface=(key == "ernie"),
+            # The Ernie is a poach at the sideline, not a speed-up off a
+            # dink, so it does not share the family's coaching point.
+            name=suffixed(SPEEDUP_NAME, label),
+            note=ERNIE_NOTE if key == "ernie" else SPEEDUP_NOTE,
             home=[P(*K_R, "1", moves=run), P(*K_L, "2")],
             away=[P(*mirror(K_R), "A", moves=[(land[0], land[1] - 0.04, 2)]),
                   P(*mirror(K_L), "B")],
@@ -284,9 +307,14 @@ SERVE_NOTE = {
 
 
 def serve_family() -> list[Drill]:
-    specs = [("deep_backhand", "deep to the backhand", (0.26, 0.06)),
-             ("deep_forehand", "deep to the forehand", (0.74, 0.06)),
-             ("return_and_in", "return and come in", (0.50, 0.08))]
+    # A pickleball serve must be diagonal. Serving from the right court at
+    # x 0.72, the ball has to land in the far LEFT box (x < 0.5) — the
+    # "deep to the forehand" target sat at 0.74, straight ahead, which is a
+    # fault. And for a right-handed receiver on the far side the forehand
+    # is screen-left, so the two targets were mirrored the wrong way round.
+    specs = [("deep_backhand", "deep to the backhand", (0.40, 0.07)),
+             ("deep_forehand", "deep to the forehand", (0.16, 0.08)),
+             ("return_and_in", "return and come in", (0.34, 0.08))]
     out = []
     for key, label, land in specs:
         home = [P(0.72, 1.03, "S", moves=[(0.72, BASELINE, 1)])]
@@ -298,7 +326,8 @@ def serve_family() -> list[Drill]:
             free=(key == "deep_backhand"), off_surface=(key != "return_and_in"),
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
             home=home,
-            away=[P(0.28, 0.10, "R", moves=[(land[0], land[1] + 0.06, 1)])],
+            # The receiver stands in the diagonal box he must return from.
+            away=[P(0.28, 0.13, "R", moves=[(land[0], land[1] + 0.07, 1)])],
             markers=[M(*land, "zone", "")],
             ball=0,
         ))
@@ -335,15 +364,24 @@ SHAPE_NOTE = {
 def shape_family() -> list[Drill]:
     specs = [
         ("both_up", "both at the kitchen", [K_L, K_R], [K_L, K_R]),
-        ("stacking", "stacking", [(0.42, BASELINE), (0.52, KITCHEN)],
-         [(0.72, TRANSITION), (0.30, KITCHEN)]),
+        # Stacking means both partners on the SAME side of the centreline
+        # before the ball is struck, then one crosses. They used to straddle
+        # it at 0.42 and 0.52, which is just standard positioning. The
+        # server is also behind his baseline now, not 0.4 m inside it.
+        ("stacking", "stacking", [(0.30, 1.02), (0.36, KITCHEN)],
+         [(0.66, TRANSITION), (0.34, KITCHEN)]),
         ("switch_on_lob", "switching on the lob", [K_L, K_R],
          [(0.66, TRANSITION), (0.30, KITCHEN)]),
     ]
     out = []
     for key, label, start, end in specs:
         out.append(Drill(
-            id=f"pb_shape_{key}", category="defending", minutes=10, rel=True,
+            # Both at the kitchen is the attacking position in pickleball
+            # and stacking is a serve/return tactic; neither is defending.
+            id=f"pb_shape_{key}", category="attacking", minutes=10, rel=True,
+            # The stacking server stands behind his own baseline, which is
+            # where the rules put him.
+            off_surface=(key == "stacking"),
             free=(key == "both_up"),
             name=suffixed(SHAPE_NAME, label), note=SHAPE_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[end[i] + (0,)])
@@ -450,7 +488,74 @@ def game_family() -> list[Drill]:
     return out
 
 
+TWO_BOUNCE_NOTE = {
+    "en": "The serve bounces, the return bounces, and only then may anyone volley. Every third shot in this sport exists because of that rule — so drill the sequence, not the shots.",
+    "en-GB": "The serve bounces, the return bounces, and only then may anyone volley. Every third shot in this sport exists because of that rule — so drill the sequence, not the shots.",
+    "zh-CN": "发球要落地，接发球也要落地，之后才允许截击。这项运动的第三拍之所以存在，全是因为这条规则——所以要练这个顺序，不是练单个球。",
+    "zh-TW": "發球要落地，接發球也要落地，之後才允許截擊。這項運動的第三拍之所以存在，全是因為這條規則——所以要練這個順序，不是練單個球。",
+    "ja-JP": "サーブはワンバウンド、リターンもワンバウンド、そこで初めてボレーが許される。この競技のサードショットはすべてこのルールから生まれる。だから一球ずつではなく順番を練習する。",
+    "ko-KR": "서브도 한 번 튀고 리턴도 한 번 튄 뒤에야 발리가 허용된다. 이 종목의 서드샷은 전부 그 규칙에서 나온다.",
+    "es-ES": "El saque bota, el resto bota, y solo entonces se puede volear. El tercer golpe de este deporte existe por esa regla: entrena la secuencia, no los golpes.",
+    "fr-FR": "Le service rebondit, le retour rebondit, et seulement ensuite la volée est permise. Le troisième coup de ce sport existe à cause de cette règle.",
+    "id-ID": "Servis memantul, pengembalian memantul, baru setelah itu boleh voli.",
+    "ms-MY": "Servis melantun, kembalian melantun, barulah voli dibenarkan.",
+    "th-TH": "ลูกเสิร์ฟต้องเด้ง ลูกรับต้องเด้ง จากนั้นจึงวอลเลย์ได้",
+    "vi-VN": "Quả giao phải nảy, quả đỡ phải nảy, sau đó mới được vô-lê.",
+}
+LOB_NOTE = {
+    "en": "Lob over the shoulder they cannot reach across, and go with it. An offensive lob that leaves you at the kitchen is a point you gave back on the reply.",
+    "en-GB": "Lob over the shoulder they cannot reach across, and go with it. An offensive lob that leaves you at the kitchen is a point you gave back on the reply.",
+    "zh-CN": "挑向对方够不着的那侧肩膀，然后自己跟着上。挑完还站在网前不动的进攻性高球，回球时就把这一分还回去了。",
+    "zh-TW": "挑向對方夠不著的那側肩膀，然後自己跟著上。挑完還站在網前不動的進攻性高球，回球時就把這一分還回去了。",
+    "ja-JP": "相手が横に手を伸ばせない側の肩越しへ上げ、自分もついていく。上げたままキッチンに残る攻撃的ロブは、返球で失う1点だ。",
+    "ko-KR": "상대가 가로질러 닿을 수 없는 어깨 너머로 띄우고 함께 따라가라.",
+    "es-ES": "Globo por encima del hombro al que no llegan cruzados, y acompáñalo. Un globo ofensivo que te deja en la cocina es un punto devuelto.",
+    "fr-FR": "Lobe par-dessus l'épaule qu'il ne peut pas atteindre en travers, et suis-le. Un lob offensif qui te laisse à la cuisine est un point rendu.",
+    "id-ID": "Lob melewati bahu yang tak bisa dijangkau menyilang, lalu ikuti.",
+    "ms-MY": "Lob melepasi bahu yang tidak dapat dicapai secara silang, kemudian ikut.",
+    "th-TH": "โยนข้ามไหล่ข้างที่เขาเอื้อมไขว้ไม่ถึง แล้วตามขึ้นไป",
+    "vi-VN": "Bỏ bóng bổng qua vai mà họ không với chéo tới được, rồi theo lên.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """The two-bounce rule and the offensive lob.
+
+    The rule that dictates the whole serve-return-third-shot sequence the
+    library is built around had no drill, and only the defensive lob
+    existed. Both verified absent from every name and note.
+    """
+    return [
+        Drill(
+            id="pb_two_bounce_rule", category="possession", minutes=10, rel=True,
+            level="foundation", free=True, off_surface=True,
+            name=suffixed(SHAPE_NAME, "the two-bounce sequence"),
+            note=TWO_BOUNCE_NOTE,
+            home=[P(0.72, 1.03, "S", moves=[(0.72, 0.96, 1), (0.66, TRANSITION, 3)]),
+                  P(0.30, KITCHEN, "P")],
+            away=[P(0.28, 0.13, "R", moves=[(0.30, 0.22, 2), (0.32, KITCHEN_AWAY, 3)]),
+                  P(0.70, KITCHEN_AWAY, "B")],
+            markers=[M(0.34, 0.10, "zone", ""), M(0.66, 0.86, "zone", ""),
+                     M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
+            ball=0,
+            ball_moves=[(0.34, 0.10, 1), (0.66, 0.86, 2), (0.40, 0.40, 3)],
+        ),
+        Drill(
+            id="pb_attack_lob", category="attacking", minutes=8, rel=True,
+            name=suffixed(SHAPE_NAME, "the offensive lob"), note=LOB_NOTE,
+            home=[P(*K_R, "1", moves=[(0.68, KITCHEN - 0.03, 0),
+                                      (0.66, 0.52, 2)]),
+                  P(*K_L, "2", moves=[(0.32, 0.54, 2)])],
+            away=[P(*mirror(K_R), "A", moves=[(0.28, 0.22, 2)]),
+                  P(*mirror(K_L), "B")],
+            markers=[M(0.24, 0.14, "zone", ""), M(0.5, KITCHEN, "cone", "")],
+            ball=0,
+            ball_moves=[(0.24, 0.14, 1)],
+        ),
+    ]
+
+
 def pickleball_library() -> list[Drill]:
     return (warmup_family() + dink_family() + serve_family()
             + third_shot_family() + speedup_family() + putaway_family()
-            + defend_family() + shape_family() + game_family())
+            + defend_family() + shape_family() + game_family() + gaps_family())
