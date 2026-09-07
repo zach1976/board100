@@ -297,7 +297,8 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
             holder = drill.home[drill.ball]
-            players.append(_ball(0, sport, holder.x, holder.y, home_ids[drill.ball]))
+            bx, by = at_the_feet_of(holder.x, holder.y, sport)
+            players.append(_ball(0, sport, bx, by, home_ids[drill.ball]))
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None))
 
@@ -569,6 +570,21 @@ SPACING_UNCHECKED = {
     "baseball", "basketball", "beachTennis", "fieldHockey", "handball",
     "rugby", "sepakTakraw", "volleyball", "waterPolo",
 }
+
+
+def at_the_feet_of(x: float, y: float, sport: str) -> tuple[float, float]:
+    """Where a carried ball sits: at the holder's feet, not on his number.
+
+    Placed on the holder's own point, the ball icon is the same 44pt as the
+    player circle and covers it completely — every board in the library drew
+    a ball with nobody visibly carrying it. Offset toward the middle of the
+    pitch and down, far enough to clear the digit and close enough to still
+    read as his. The app keeps this offset through the animation.
+    """
+    left, top, w, h = court_rect(sport)
+    dx = 40.0 if x < left + w / 2 else -40.0
+    dy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
+    return x + dx, y + dy
 
 
 def _screen_gap(a, b) -> float:
