@@ -829,7 +829,7 @@ add("eggbeater and pass", "踩水传球", "踩水傳球", "巻き足とパス", 
 add("swim and catch", "游动接球", "游動接球", "泳いでキャッチ", "헤엄쳐 받기",
     "nadar y recibir", "nager et attraper", "berenang dan menangkap",
     "berenang dan menangkap", "ว่ายและรับบอล", "bơi và bắt bóng")
-add("wet passing", "湿手传球", "濕手傳球", "ウェットパス", "웨트 패스",
+add("wet passing", "落水传球", "落水傳球", "ウェットパス", "웨트 패스",
     "pase mojado", "passe mouillée", "umpan basah", "hantaran basah",
     "การส่งบอลเปียก", "chuyền bóng ướt")
 add("through the centre", "通过中锋", "通過中鋒", "センター経由", "센터를 통해",
@@ -854,7 +854,7 @@ add("drawing the exclusion", "造罚出", "造罰出", "退水を誘う", "퇴�
     "provocando la expulsión", "provoquer l'exclusion",
     "memancing pengeluaran", "memancing pengusiran",
     "การล่อให้โดนไล่", "câu lỗi loại tạm")
-add("five against six", "五打六", "五打六", "5対6", "5대6",
+add("five against six", "少防多", "少防多", "5人で6人を守る", "5명이 6명 수비",
     "cinco contra seis", "cinq contre six", "lima lawan enam",
     "lima lawan enam", "ห้าต่อหก", "năm chống sáu")
 add("fronting the centre", "绕前防中锋", "繞前防中鋒", "センターのフロント",
@@ -1250,3 +1250,11 @@ add('the long corner', '长角球', '長角球', 'ロングコーナー', '롱 �
 add('on the counter', '打反击', '打反擊', 'カウンターで', '역습으로', 'al contraataque', 'en contre-attaque', 'saat serangan balik', 'ketika serangan balas', 'ในจังหวะสวนกลับ', 'trong pha phản công')
 add('the first save and the rebound', '第一次扑救与补射', '第一次撲救與補射', 'ファーストセーブとこぼれ球', '첫 선방과 세컨드 볼', 'la primera parada y el rechace', 'le premier arret et le rebond', 'penyelamatan pertama dan bola muntah', 'penyelamatan pertama dan bola muntah', 'การเซฟแรกและลูกกระดอน', 'pha cản phá đầu và bóng bật ra')
 add('clearing the circle', '解围出圈', '解圍出圈', 'サークルからのクリア', '서클 밖으로 걷어내기', 'despejar el area', 'degager le cercle', 'membuang bola keluar lingkaran', 'membuang bola keluar bulatan', 'การเคลียร์บอลออกจากวงกลม', 'phá bóng ra khỏi vòng cấm')
+
+add('dropping off', '收缩防守', '收縮防守', 'ドロップ（下がる守備）', '드롭 수비', 'defensa replegada', 'défense en repli', 'pertahanan menarik mundur', 'pertahanan berundur', 'การถอยตั้งรับ', 'phòng ngự lùi sâu')
+
+add('the skip shot', '击水射门', '擊水射門', 'スキップシュート', '스킵 슛', 'el tiro rasante con bote', 'le tir à ricochet', 'tembakan pantul air', 'tembakan lantun air', 'การยิงกระดอนน้ำ', 'cú sút nảy nước')
+add('the power shot from the point', '中路强攻射门', '中路強攻射門', 'センターからのパワーシュート', '중앙에서의 파워 슛', 'el tiro potente desde el centro', 'le tir puissant depuis la pointe', 'tembakan keras dari titik tengah', 'tembakan kuat dari tengah', 'การยิงแรงจากกลางวง', 'cú sút mạnh từ chính diện')
+add('catch and shoot', '接球即射', '接球即射', 'キャッチ＆シュート', '캐치 앤 슛', 'recibir y tirar', 'recevoir et tirer', 'tangkap dan tembak', 'tangkap dan tembak', 'รับแล้วยิงทันที', 'bắt bóng sút ngay')
+add('the two-metre shot', '两米线射门', '兩米線射門', '2mからのシュート', '2미터 슛', 'el tiro desde dos metros', 'le tir à deux mètres', 'tembakan dari dua meter', 'tembakan dari dua meter', 'การยิงจากระยะสองเมตร', 'cú sút từ vạch hai mét')
+add('the outlet that starts the counter', '发动反击的第一传', '發動反擊的第一傳', 'カウンターを始めるアウトレット', '역습을 여는 아웃렛 패스', 'el pase de salida que inicia el contraataque', 'la relance qui lance la contre-attaque', 'umpan pembuka yang memulai serangan balik', 'hantaran pembuka yang memulakan serangan balas', 'การจ่ายเปิดเกมสวนกลับ', 'đường chuyền phát động phản công')
