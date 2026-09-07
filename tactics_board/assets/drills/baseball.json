@@ -5490,7 +5490,7 @@
               ]
             ],
             "movePhases": [
-              1
+              0
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -11439,7 +11439,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4289058471,
             "customColor": null,
