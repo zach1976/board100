@@ -559,6 +559,8 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # sepak takraw: the technique boards
+    "st_block_at_the_net", "st_receive_header", "st_feed_the_high_set",
     # pickleball: the technique boards and the rule everything rests on
     "pb_dink_straight", "pb_two_bounce_rule", "pb_third_drop",
     # table tennis: the technique boards
@@ -607,6 +609,8 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # sepak takraw: the feint and the serves that decide points
+    "st_attack_the_feint", "st_tekong_low_drive", "st_serve_at_the_seam",
     # pickleball: the doubles tactics
     "pb_shape_stacking", "pb_shape_switch_on_lob", "pb_attack_lob",
     # table tennis: the patterns that need a reading of spin first

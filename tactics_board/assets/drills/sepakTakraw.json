@@ -5,7 +5,7 @@
     {
       "id": "st_warm_juggling",
       "level": "foundation",
-      "family": "sepakTakraw_family_9",
+      "family": "sepakTakraw_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -153,7 +153,7 @@
     {
       "id": "st_warm_all_surfaces",
       "level": "foundation",
-      "family": "sepakTakraw_family_9",
+      "family": "sepakTakraw_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -170,7 +170,7 @@
       },
       "category": "warmup",
       "minutes": 8,
-      "players": 2,
+      "players": 3,
       "free": false,
       "offSurface": false,
       "name": {
@@ -224,14 +224,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              403.85671641791043,
-              1040.4
+              355.7850746268657,
+              1093.2
             ],
             "scale": 1.0,
             "moves": [
               [
-                427.89253731343285,
-                961.2
+                403.85671641791043,
+                987.6
               ]
             ],
             "movePhases": [
@@ -251,20 +251,47 @@
             "team": 0,
             "sportType": null,
             "position": [
-              596.1432835820896,
-              1040.4
+              500.0,
+              961.2
             ],
             "scale": 1.0,
             "moves": [
               [
-                572.1074626865671,
-                961.2
+                500.0,
+                882.0
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              644.2149253731343,
+              1093.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                596.1432835820896,
+                987.6
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -278,8 +305,8 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              443.85671641791043,
-              1110.4
+              395.7850746268657,
+              1163.2
             ],
             "scale": 1.0,
             "moves": [],
@@ -301,7 +328,7 @@
     {
       "id": "st_warm_keep_up",
       "level": "foundation",
-      "family": "sepakTakraw_family_9",
+      "family": "sepakTakraw_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -476,7 +503,7 @@
     {
       "id": "st_receive_left",
       "level": "development",
-      "family": "sepakTakraw_family_3",
+      "family": "sepakTakraw_family_4",
       "familyName": {
         "en": "Serve receive",
         "en-GB": "Serve receive",
@@ -607,7 +634,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -703,7 +730,7 @@
     {
       "id": "st_receive_right",
       "level": "development",
-      "family": "sepakTakraw_family_3",
+      "family": "sepakTakraw_family_4",
       "familyName": {
         "en": "Serve receive",
         "en-GB": "Serve receive",
@@ -834,7 +861,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -930,7 +957,7 @@
     {
       "id": "st_feed_receiving_the_serve",
       "level": "development",
-      "family": "sepakTakraw_family_0",
+      "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Feeding",
         "en-GB": "Feeding",
@@ -1002,13 +1029,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1146.0
+                1089.5040000000001
               ]
             ],
             "movePhases": [
@@ -1152,7 +1179,7 @@
     {
       "id": "st_feed_the_high_feed",
       "level": "development",
-      "family": "sepakTakraw_family_0",
+      "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Feeding",
         "en-GB": "Feeding",
@@ -1374,7 +1401,7 @@
     {
       "id": "st_feed_the_quick_feed",
       "level": "development",
-      "family": "sepakTakraw_family_0",
+      "family": "sepakTakraw_family_1",
       "familyName": {
         "en": "Feeding",
         "en-GB": "Feeding",
@@ -1596,7 +1623,7 @@
     {
       "id": "st_attack_straight",
       "level": "development",
-      "family": "sepakTakraw_family_2",
+      "family": "sepakTakraw_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -1722,7 +1749,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -1838,7 +1865,7 @@
     {
       "id": "st_attack_cross_court",
       "level": "development",
-      "family": "sepakTakraw_family_2",
+      "family": "sepakTakraw_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -1964,7 +1991,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -2079,8 +2106,8 @@
     },
     {
       "id": "st_attack_the_feint",
-      "level": "development",
-      "family": "sepakTakraw_family_2",
+      "level": "advanced",
+      "family": "sepakTakraw_family_3",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -2206,7 +2233,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -2322,7 +2349,7 @@
     {
       "id": "st_spike_roll",
       "level": "advanced",
-      "family": "sepakTakraw_family_1",
+      "family": "sepakTakraw_family_2",
       "familyName": {
         "en": "Spiking",
         "en-GB": "Spiking",
@@ -2357,8 +2384,8 @@
         "vi-VN": "Đá tấn công xoay người"
       },
       "note": {
-        "en": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
-        "en-GB": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
+        "en": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes from the jump, not from kicking harder at the top.",
+        "en-GB": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes from the jump, not from kicking harder at the top.",
         "zh-CN": "起脚之前先把胯送到球上方。高度来自起跳，不是来自到了顶点再用力踢。",
         "zh-TW": "起腳之前先把胯送到球上方。高度來自起跳，不是來自到了頂點再用力踢。",
         "ja-JP": "足を振る前に腰をボールの上へ。高さは跳躍から来る。頂点で強く蹴っても上がらない。",
@@ -2393,14 +2420,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              632.1970149253732,
-              934.8000000000001
+              680.2686567164179,
+              961.2
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.0716417910447,
-                802.8000000000001
+                608.1611940298508,
+                809.4000000000001
               ]
             ],
             "movePhases": [
@@ -2426,7 +2453,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                572.1074626865671,
                 855.5999999999999
               ]
             ],
@@ -2447,14 +2474,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              536.0537313432836,
-              697.2
+              560.0895522388059,
+              690.6
             ],
             "scale": 1.0,
             "moves": [
               [
                 548.0716417910447,
-                690.6
+                684.0
               ]
             ],
             "movePhases": [
@@ -2521,19 +2548,36 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              592.1970149253732,
+              407.8029850746269,
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                572.1074626865671,
+                855.5999999999999
+              ],
+              [
+                608.1611940298508,
+                783.0
+              ],
+              [
+                379.820895522388,
+                406.8
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2544,7 +2588,7 @@
     {
       "id": "st_spike_scissor",
       "level": "advanced",
-      "family": "sepakTakraw_family_1",
+      "family": "sepakTakraw_family_2",
       "familyName": {
         "en": "Spiking",
         "en-GB": "Spiking",
@@ -2579,8 +2623,8 @@
         "vi-VN": "Đá tấn công đá kéo"
       },
       "note": {
-        "en": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
-        "en-GB": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
+        "en": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes from the jump, not from kicking harder at the top.",
+        "en-GB": "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes from the jump, not from kicking harder at the top.",
         "zh-CN": "起脚之前先把胯送到球上方。高度来自起跳，不是来自到了顶点再用力踢。",
         "zh-TW": "起腳之前先把胯送到球上方。高度來自起跳，不是來自到了頂點再用力踢。",
         "ja-JP": "足を振る前に腰をボールの上へ。高さは跳躍から来る。頂点で強く蹴っても上がらない。",
@@ -2615,14 +2659,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              632.1970149253732,
-              934.8000000000001
+              572.1074626865671,
+              1040.4
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.0716417910447,
-                802.8000000000001
+                560.0895522388059,
+                796.2
               ]
             ],
             "movePhases": [
@@ -2648,8 +2692,8 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                855.5999999999999
+                536.0537313432836,
+                882.0
               ]
             ],
             "movePhases": [
@@ -2670,13 +2714,13 @@
             "sportType": null,
             "position": [
               536.0537313432836,
-              697.2
+              690.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.0716417910447,
-                690.6
+                528.8429850746269,
+                684.0
               ]
             ],
             "movePhases": [
@@ -2743,19 +2787,36 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              592.1970149253732,
+              407.8029850746269,
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                536.0537313432836,
+                882.0
+              ],
+              [
+                560.0895522388059,
+                769.8000000000001
+              ],
+              [
+                620.1791044776119,
+                380.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2766,21 +2827,8 @@
     {
       "id": "st_spike_sunback",
       "level": "advanced",
-      "family": "sepakTakraw_family_1",
-      "familyName": {
-        "en": "Spiking",
-        "en-GB": "Spiking",
-        "es-ES": "Remate",
-        "fr-FR": "Attaque",
-        "id-ID": "Smes",
-        "ja-JP": "アタック",
-        "ko-KR": "스파이크",
-        "ms-MY": "Rejaman",
-        "th-TH": "การฟาด",
-        "vi-VN": "Đá tấn công",
-        "zh-CN": "扣球",
-        "zh-TW": "扣球"
-      },
+      "family": null,
+      "familyName": null,
       "category": "finishing",
       "minutes": 12,
       "players": 4,
@@ -2801,32 +2849,32 @@
         "vi-VN": "Đá tấn công đá lộn người"
       },
       "note": {
-        "en": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
-        "en-GB": "Get the hips above the ball before the foot swings. Height comes from the jump, not from kicking harder at the top.",
-        "zh-CN": "起脚之前先把胯送到球上方。高度来自起跳，不是来自到了顶点再用力踢。",
-        "zh-TW": "起腳之前先把胯送到球上方。高度來自起跳，不是來自到了頂點再用力踢。",
-        "ja-JP": "足を振る前に腰をボールの上へ。高さは跳躍から来る。頂点で強く蹴っても上がらない。",
-        "ko-KR": "발을 휘두르기 전에 골반을 공 위로 올려라. 높이는 점프에서 나온다.",
-        "es-ES": "Lleva la cadera por encima de la bola antes de golpear: la altura viene del salto, no de patear más fuerte arriba.",
-        "fr-FR": "Amène les hanches au-dessus de la balle avant de frapper : la hauteur vient du saut, pas d'un coup de pied plus fort.",
-        "id-ID": "Bawa pinggul di atas bola sebelum kaki mengayun.",
-        "ms-MY": "Bawa pinggul di atas bola sebelum kaki menghayun.",
-        "th-TH": "เอาสะโพกขึ้นเหนือบอลก่อนเหวี่ยงเท้า ความสูงมาจากการกระโดด",
-        "vi-VN": "Đưa hông lên trên bóng trước khi vung chân."
+        "en": "Back to the net, and the strike goes over your own shoulder — so the set has to be behind you, not in front. Turning to look for it is how the block gets there first.",
+        "en-GB": "Back to the net, and the strike goes over your own shoulder — so the set has to be behind you, not in front. Turning to look for it is how the block gets there first.",
+        "zh-CN": "背对球网，从自己肩上把球踢出去——所以二传要送到你身后，不是身前。回头去找球的那一下，就是拦网先到的原因。",
+        "zh-TW": "背對球網，從自己肩上把球踢出去——所以二傳要送到你身後，不是身前。回頭去找球的那一下，就是攔網先到的原因。",
+        "ja-JP": "ネットに背を向け、自分の肩越しに蹴る。だからトスは前ではなく背後へ。振り返って探した瞬間にブロックが先に着く。",
+        "ko-KR": "네트에 등을 지고 자기 어깨 너머로 찬다. 그래서 토스는 앞이 아니라 뒤로 와야 한다.",
+        "es-ES": "De espaldas a la red, el golpe sale por encima del propio hombro: el pase debe llegar detrás de ti, no delante.",
+        "fr-FR": "Dos au filet, la frappe part par-dessus ta propre épaule : la passe doit arriver derrière toi, pas devant.",
+        "id-ID": "Punggung menghadap net, tendangan melewati bahu sendiri, jadi umpan harus di belakangmu.",
+        "ms-MY": "Belakang menghadap jaring, tendangan melepasi bahu sendiri.",
+        "th-TH": "หันหลังให้ตาข่าย เตะข้ามไหล่ตัวเอง ดังนั้นลูกเซ็ตต้องมาด้านหลัง",
+        "vi-VN": "Lưng quay về lưới, cú đá đi qua vai mình, nên quả nâng phải ở phía sau bạn."
       },
       "mistake": {
-        "en": "Kicking from below the ball — get the hips above it before the foot swings.",
-        "en-GB": "Kicking from below the ball — get the hips above it before the foot swings.",
-        "zh-CN": "在球下方起脚——起脚前先把胯送到球上方。",
-        "zh-TW": "在球下方起腳——起腳前先把胯送到球上方。",
-        "ja-JP": "ボールの下から蹴る——足を振る前に腰を上へ。",
-        "ko-KR": "공 아래에서 찬다 — 발 휘두르기 전 골반을 위로.",
-        "es-ES": "Golpear desde debajo: lleva la cadera por encima antes de golpear.",
-        "fr-FR": "Frapper sous la balle — hisse les hanches au-dessus d'abord.",
-        "id-ID": "Menendang dari bawah bola.",
-        "ms-MY": "Menyepak dari bawah bola.",
-        "th-TH": "เตะจากใต้ลูก",
-        "vi-VN": "Đá từ dưới bóng."
+        "en": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "en-GB": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "zh-CN": "决定得太晚——终结在球到之前就该定好。",
+        "zh-TW": "決定得太晚——終結在球到之前就該定好。",
+        "ja-JP": "決断が遅い——フィニッシュは球が来る前に決める。",
+        "ko-KR": "늦게 정한다 — 마무리는 공 오기 전에.",
+        "es-ES": "Decidir tarde: la definición se elige antes de que llegue el balón.",
+        "fr-FR": "Décider tard — la finition se choisit avant l'arrivée du ballon.",
+        "id-ID": "Memutuskan terlambat.",
+        "ms-MY": "Membuat keputusan lewat.",
+        "th-TH": "ตัดสินใจช้า",
+        "vi-VN": "Quyết định muộn."
       },
       "board": {
         "sportType": 12,
@@ -2837,14 +2885,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              632.1970149253732,
-              934.8000000000001
+              417.7999470802235,
+              1017.1720439600402
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.0716417910447,
-                802.8000000000001
+                463.9462686567164,
+                809.4000000000001
               ]
             ],
             "movePhases": [
@@ -2864,14 +2912,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              367.8029850746269,
-              934.8000000000001
+              365.8776648600751,
+              931.6279560399597
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                855.5999999999999
+                475.96417910447764,
+                908.4
               ]
             ],
             "movePhases": [
@@ -2891,14 +2939,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              536.0537313432836,
-              697.2
+              475.96417910447764,
+              690.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.0716417910447,
-                690.6
+                480.7713432835821,
+                684.0
               ]
             ],
             "movePhases": [
@@ -2965,19 +3013,36 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              592.1970149253732,
-              1004.8000000000001
+              405.8776648600751,
+              1001.6279560399597
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                475.96417910447764,
+                908.4
+              ],
+              [
+                463.9462686567164,
+                783.0
+              ],
+              [
+                500.0,
+                301.20000000000005
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2988,7 +3053,7 @@
     {
       "id": "st_defence_at_the_net",
       "level": "development",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -3114,7 +3179,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -3217,7 +3282,7 @@
     {
       "id": "st_defence_behind_the_block",
       "level": "development",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -3343,7 +3408,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -3446,7 +3511,7 @@
     {
       "id": "st_defence_covering_the_block",
       "level": "development",
-      "family": "sepakTakraw_family_5",
+      "family": "sepakTakraw_family_6",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -3572,7 +3637,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -3788,7 +3853,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -3857,7 +3922,7 @@
     {
       "id": "st_game_regu",
       "level": "development",
-      "family": "sepakTakraw_family_8",
+      "family": "sepakTakraw_family_10",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -3969,7 +4034,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
@@ -4063,7 +4128,7 @@
             "sportType": 12,
             "position": [
               460.0,
-              1295.2
+              1238.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4085,7 +4150,7 @@
     {
       "id": "st_serve_deep",
       "level": "development",
-      "family": "sepakTakraw_family_6",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4157,13 +4222,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1146.0
+                1113.0
               ]
             ],
             "movePhases": [
@@ -4183,14 +4248,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              271.6597014925373,
-              802.8000000000001
+              244.61940298507463,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                403.85671641791043,
-                882.0
+                391.8388059701492,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4210,14 +4275,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              728.3402985074626,
-              802.8000000000001
+              755.3805970149253,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                596.1432835820896,
-                882.0
+                608.1611940298508,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4265,7 +4330,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4305,7 +4370,7 @@
             "sportType": 12,
             "position": [
               460.0,
-              1295.2
+              1238.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4326,8 +4391,8 @@
     },
     {
       "id": "st_serve_at_the_seam",
-      "level": "development",
-      "family": "sepakTakraw_family_6",
+      "level": "advanced",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4399,13 +4464,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1146.0
+                1113.0
               ]
             ],
             "movePhases": [
@@ -4425,14 +4490,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              271.6597014925373,
-              802.8000000000001
+              244.61940298507463,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                403.85671641791043,
-                882.0
+                391.8388059701492,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4452,14 +4517,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              728.3402985074626,
-              802.8000000000001
+              755.3805970149253,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                596.1432835820896,
-                882.0
+                608.1611940298508,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4507,7 +4572,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4547,7 +4612,7 @@
             "sportType": 12,
             "position": [
               460.0,
-              1295.2
+              1238.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4569,7 +4634,7 @@
     {
       "id": "st_serve_short",
       "level": "development",
-      "family": "sepakTakraw_family_6",
+      "family": "sepakTakraw_family_8",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4641,13 +4706,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1146.0
+                1113.0
               ]
             ],
             "movePhases": [
@@ -4667,14 +4732,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              271.6597014925373,
-              802.8000000000001
+              244.61940298507463,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                403.85671641791043,
-                882.0
+                391.8388059701492,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4694,14 +4759,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              728.3402985074626,
-              802.8000000000001
+              755.3805970149253,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                596.1432835820896,
-                882.0
+                608.1611940298508,
+                895.1999999999999
               ]
             ],
             "movePhases": [
@@ -4749,7 +4814,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4789,7 +4854,7 @@
             "sportType": 12,
             "position": [
               460.0,
-              1295.2
+              1238.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -4811,7 +4876,7 @@
     {
       "id": "st_tekong_high_toss",
       "level": "development",
-      "family": "sepakTakraw_family_7",
+      "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Tekong serve",
         "en-GB": "Tekong serve",
@@ -4882,14 +4947,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              502.42003412838255,
-              1230.5161405443157
+              500.0,
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1172.3999999999999
+                1113.0
               ]
             ],
             "movePhases": [
@@ -4909,18 +4974,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              461.5262345283339,
-              1140.6838594556843
+              244.61940298507463,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                463.9462686567164,
-                1066.8
+                308.46455223880594,
+                882.0
               ],
               [
-                379.820895522388,
-                882.0
+                359.54067164179105,
+                921.6
               ]
             ],
             "movePhases": [
@@ -4941,14 +5006,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              728.3402985074626,
-              802.8000000000001
+              755.3805970149253,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                596.1432835820896,
-                882.0
+                640.459328358209,
+                921.6
               ]
             ],
             "movePhases": [
@@ -4996,7 +5061,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -5015,8 +5080,8 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              501.5262345283339,
-              1210.6838594556843
+              284.61940298507466,
+              892.6
             ],
             "scale": 1.0,
             "moves": [],
@@ -5037,8 +5102,8 @@
     },
     {
       "id": "st_tekong_low_drive",
-      "level": "development",
-      "family": "sepakTakraw_family_7",
+      "level": "advanced",
+      "family": "sepakTakraw_family_9",
       "familyName": {
         "en": "Tekong serve",
         "en-GB": "Tekong serve",
@@ -5109,14 +5174,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              489.61335613124504,
-              1240.411041294133
+              500.0,
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1172.3999999999999
+                1113.0
               ]
             ],
             "movePhases": [
@@ -5136,18 +5201,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              546.4403752120386,
-              1157.188958705867
+              755.3805970149253,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.0537313432836,
-                1093.2
+                691.5354477611941,
+                882.0
               ],
               [
-                379.820895522388,
-                882.0
+                640.459328358209,
+                921.6
               ]
             ],
             "movePhases": [
@@ -5168,14 +5233,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              728.3402985074626,
-              802.8000000000001
+              244.61940298507463,
+              822.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                596.1432835820896,
-                882.0
+                359.54067164179105,
+                921.6
               ]
             ],
             "movePhases": [
@@ -5223,7 +5288,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [],
@@ -5242,8 +5307,8 @@
             "team": 2,
             "sportType": 12,
             "position": [
-              506.4403752120386,
-              1227.188958705867
+              715.3805970149253,
+              892.6
             ],
             "scale": 1.0,
             "moves": [],
@@ -5265,7 +5330,7 @@
     {
       "id": "st_game_2v2",
       "level": "development",
-      "family": "sepakTakraw_family_8",
+      "family": "sepakTakraw_family_10",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -5467,7 +5532,7 @@
     {
       "id": "st_game_3v3",
       "level": "development",
-      "family": "sepakTakraw_family_8",
+      "family": "sepakTakraw_family_10",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -5593,13 +5658,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1172.3999999999999
+                1115.904
               ]
             ],
             "movePhases": [
@@ -5674,13 +5739,13 @@
             "sportType": null,
             "position": [
               500.0,
-              274.8
+              331.29599999999994
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                327.6
+                384.09599999999995
               ]
             ],
             "movePhases": [
@@ -5723,7 +5788,7 @@
     {
       "id": "st_game_no_block",
       "level": "development",
-      "family": "sepakTakraw_family_8",
+      "family": "sepakTakraw_family_10",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -5794,14 +5859,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              367.8029850746269,
-              934.8000000000001
+              379.820895522388,
+              1040.4
             ],
             "scale": 1.0,
             "moves": [
               [
-                367.8029850746269,
-                882.0
+                379.820895522388,
+                987.5999999999999
               ]
             ],
             "movePhases": [
@@ -5821,14 +5886,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              632.1970149253732,
-              934.8000000000001
+              620.1791044776119,
+              1040.4
             ],
             "scale": 1.0,
             "moves": [
               [
-                632.1970149253732,
-                882.0
+                620.1791044776119,
+                987.5999999999999
               ]
             ],
             "movePhases": [
@@ -5849,13 +5914,13 @@
             "sportType": null,
             "position": [
               500.0,
-              1225.2
+              1168.704
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                1172.3999999999999
+                1115.904
               ]
             ],
             "movePhases": [
@@ -5875,14 +5940,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              367.8029850746269,
-              565.2
+              379.820895522388,
+              459.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                367.8029850746269,
-                618.0
+                379.820895522388,
+                512.4000000000001
               ]
             ],
             "movePhases": [
@@ -5902,14 +5967,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              632.1970149253732,
-              565.2
+              620.1791044776119,
+              459.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                632.1970149253732,
-                618.0
+                620.1791044776119,
+                512.4000000000001
               ]
             ],
             "movePhases": [
@@ -5930,13 +5995,13 @@
             "sportType": null,
             "position": [
               500.0,
-              274.8
+              331.29599999999994
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                327.6
+                384.09599999999995
               ]
             ],
             "movePhases": [
@@ -5951,13 +6016,33 @@
             "attachedTo": null
           },
           {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              750.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
             "id": "b0",
             "label": "",
             "team": 2,
             "sportType": 12,
             "position": [
-              407.8029850746269,
-              1004.8000000000001
+              419.820895522388,
+              1110.4
             ],
             "scale": 1.0,
             "moves": [],
@@ -5969,6 +6054,409 @@
             "photoId": null,
             "role": null,
             "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_block_at_the_net",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "defending",
+      "minutes": 10,
+      "players": 4,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Defending blocking at the net",
+        "en-GB": "Defending blocking at the net",
+        "zh-CN": "防守 网前拦网",
+        "zh-TW": "防守 網前攔網",
+        "ja-JP": "ディフェンス ネット前のブロック",
+        "ko-KR": "수비 네트 앞 블로킹",
+        "es-ES": "Defensa el bloqueo en la red",
+        "fr-FR": "Défense le contre au filet",
+        "id-ID": "Bertahan blok di depan net",
+        "ms-MY": "Pertahanan sekatan di depan jaring",
+        "th-TH": "การรับ การบล็อกหน้าตาข่าย",
+        "vi-VN": "Phòng thủ chắn bóng trước lưới"
+      },
+      "note": {
+        "en": "Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+        "en-GB": "Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+        "zh-CN": "转身用肩或背去挡，不要用胸——胸挡会把球直接砸回自己半场。看他的髋起跳，不是看球起跳。",
+        "zh-TW": "轉身用肩或背去擋，不要用胸——胸擋會把球直接砸回自己半場。看他的髖起跳，不是看球起跳。",
+        "ja-JP": "背を向けて肩か背中で受ける。胸は自陣に真下へ落ちるので使わない。跳ぶのはボールではなく相手の腰に対して。",
+        "ko-KR": "등을 돌려 어깨나 등으로 막아라. 가슴은 자기 코트로 그대로 떨어뜨린다. 공이 아니라 상대의 허리를 보고 뛰어라.",
+        "es-ES": "Gira la espalda y bloquea con el hombro o la espalda, no con el pecho, que la manda abajo en tu propio campo.",
+        "fr-FR": "Tourne le dos et bloque de l'épaule ou du dos, pas de la poitrine, qui la renvoie au sol dans ton camp.",
+        "id-ID": "Putar punggung dan blok dengan bahu atau punggung, bukan dada.",
+        "ms-MY": "Pusing belakang dan sekat dengan bahu atau belakang, bukan dada.",
+        "th-TH": "หันหลังแล้วบล็อกด้วยไหล่หรือหลัง ไม่ใช่หน้าอก",
+        "vi-VN": "Xoay lưng và chắn bằng vai hoặc lưng, không phải bằng ngực."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              475.96417910447764,
+              809.4000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                783.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              632.1970149253732,
+              961.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                572.1074626865671,
+                908.4
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "S",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              524.0358208955224,
+              690.6
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                717.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "F",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              355.7850746268657,
+              538.8
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                403.85671641791043,
+                618.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              608.1611940298508,
+              1040.4
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "st_receive_header",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "possession",
+      "minutes": 10,
+      "players": 3,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Serve receive with the head",
+        "en-GB": "Serve receive with the head",
+        "zh-CN": "接发球 用头处理",
+        "zh-TW": "接發球 用頭處理",
+        "ja-JP": "サーブレシーブ ヘディングで",
+        "ko-KR": "서브 리시브 헤딩으로",
+        "es-ES": "Recepción de saque con la cabeza",
+        "fr-FR": "Réception de service de la tête",
+        "id-ID": "Terima servis dengan kepala",
+        "ms-MY": "Terima servis dengan kepala",
+        "th-TH": "การรับเสิร์ฟ ด้วยศีรษะ",
+        "vi-VN": "Đỡ giao cầu bằng đầu"
+      },
+      "note": {
+        "en": "The head is one of the four surfaces, and the only one that can take a hard serve cleanly at chest height. Meet it with the forehead, moving forward, not with the top of the skull.",
+        "en-GB": "The head is one of the four surfaces, and the only one that can take a hard serve cleanly at chest height. Meet it with the forehead, moving forward, not with the top of the skull.",
+        "zh-CN": "头是四个合法触球部位之一，也是唯一能在胸高干净地接住重发球的那个。要用前额、身体往前迎，不是用头顶。",
+        "zh-TW": "頭是四個合法觸球部位之一，也是唯一能在胸高乾淨地接住重發球的那個。要用前額、身體往前迎，不是用頭頂。",
+        "ja-JP": "頭は4つの接触面のひとつで、胸の高さの強いサーブをきれいに処理できる唯一の面だ。前へ出ながら額で当てる。頭頂ではない。",
+        "ko-KR": "머리는 네 개의 접촉면 중 하나이며, 가슴 높이의 강한 서브를 깔끔히 받을 수 있는 유일한 면이다. 이마로, 앞으로 나가며 맞춰라.",
+        "es-ES": "La cabeza es una de las cuatro superficies y la única que recibe limpio un saque fuerte a la altura del pecho: con la frente y avanzando.",
+        "fr-FR": "La tête est l'une des quatre surfaces et la seule qui reprend proprement un service fort à hauteur de poitrine : avec le front, en avançant.",
+        "id-ID": "Kepala adalah satu dari empat permukaan sah, dan satu-satunya yang bisa menerima servis keras setinggi dada dengan bersih.",
+        "ms-MY": "Kepala ialah satu daripada empat permukaan sah untuk menyambut servis keras separas dada.",
+        "th-TH": "ศีรษะเป็นหนึ่งในสี่ส่วนที่ใช้ได้ และเป็นส่วนเดียวที่รับลูกเสิร์ฟแรงระดับอกได้สะอาด",
+        "vi-VN": "Đầu là một trong bốn bề mặt hợp lệ, và là bề mặt duy nhất đỡ gọn quả giao mạnh ngang ngực."
+      },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
+      "board": {
+        "sportType": 12,
+        "players": [
+          {
+            "id": "d0",
+            "label": "R",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              403.85671641791043,
+              987.6
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                439.91044776119406,
+                908.4
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              572.1074626865671,
+              908.4
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                524.0358208955224,
+                855.5999999999999
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "T",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              1168.704
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1113.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1168.704
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 1,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              524.0358208955224,
+              855.5999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              500.0,
+              1146.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                439.91044776119406,
+                908.4
+              ],
+              [
+                524.0358208955224,
+                855.5999999999999
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],

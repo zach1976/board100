@@ -1303,3 +1303,6 @@ add('in and out', '近台与退台', '近台與退台', '前後の出入り', '�
 
 add('the two-bounce sequence', '两次落地规则', '兩次落地規則', 'ツーバウンドの流れ', '투 바운스 규칙', 'la secuencia de los dos botes', 'la séquence des deux rebonds', 'urutan dua pantulan', 'urutan dua lantunan', 'ลำดับสองจังหวะเด้ง', 'trình tự hai lần nảy')
 add('the offensive lob', '进攻性高球', '進攻性高球', '攻撃的ロブ', '공격적 로브', 'el globo ofensivo', 'le lob offensif', 'lob menyerang', 'lob menyerang', 'ลูกโยนเชิงรุก', 'quả bổng tấn công')
+
+add('blocking at the net', '网前拦网', '網前攔網', 'ネット前のブロック', '네트 앞 블로킹', 'el bloqueo en la red', 'le contre au filet', 'blok di depan net', 'sekatan di depan jaring', 'การบล็อกหน้าตาข่าย', 'chắn bóng trước lưới')
+add('with the head', '用头处理', '用頭處理', 'ヘディングで', '헤딩으로', 'con la cabeza', 'de la tête', 'dengan kepala', 'dengan kepala', 'ด้วยศีรษะ', 'bằng đầu')
