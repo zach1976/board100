@@ -273,20 +273,26 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("block", "block return", (0.72, 0.545)),
-             ("drive", "drive return", (0.68, 0.62)),
-             ("lift", "lift return", (0.50, 0.30))]
+    # Where the *shuttle* goes, and it has to cross the net: a block and a
+    # drive used to be drawn landing on the defender's own side, and the
+    # lift was encoded as the defender's own run, so his arrow crossed the
+    # net and finished in the opponent's midcourt — the short lift this
+    # drill's mistake text warns about.
+    specs = [("block", "block return", (0.30, 0.44)),
+             ("drive", "drive return", (0.30, 0.375)),
+             ("lift", "lift return", (0.50, 0.075))]
     out = []
     for key, label, to in specs:
         out.append(Drill(
             id=f"bd_defence_{key}", category="defending", minutes=8, rel=True,
             free=(key == "block"),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(0.66, 0.76, "1",
-                    moves=[(0.70, 0.72, 0), (to[0], min(to[1], 0.76), 1)])],
+            home=[P(0.66, 0.76, "1", moves=[(0.70, 0.70, 0), (0.62, 0.74, 1)])],
             away=[P(*mirror(RR), "2", moves=[(0.80, 0.16, 0)])],
             markers=[M(*to, "zone", "")],
             ball=mirror(RR),            # the smasher has it
+            # The reply itself, over the net into the target.
+            ball_moves=[(0.70, 0.70, 0), to + (1,)],
         ))
     return out
 
@@ -317,17 +323,31 @@ SERVE_NOTE = {
 
 
 def serve_family() -> list[Drill]:
-    specs = [("short", "short", (0.36, 0.42)), ("flick", "flick", (0.34, 0.10)),
-             ("high", "high singles", (0.32, 0.06)), ("drive", "drive", (0.66, 0.34))]
+    # The short service line is 1.98 m either side of the net, at y 0.648
+    # and 0.352 on this board. The server used to stand at 0.60 — in front
+    # of his own line — and the short serve landed at 0.42, inside the
+    # receiver's non-valid area. Both are faults, on the four boards whose
+    # whole subject is the serve.
+    SHORT_LINE_NEAR, SHORT_LINE_FAR = 0.648, 0.352
+    specs = [("short", "short", (0.36, 0.325), 0.685),
+             ("flick", "flick", (0.34, 0.085), 0.685),
+             ("high", "high singles", (0.32, 0.025), 0.80),
+             ("drive", "drive", (0.66, 0.295), 0.685)]
     out = []
-    for key, label, land in specs:
+    for key, label, land, from_y in specs:
         out.append(Drill(
             id=f"bd_serve_{key}", category="setpiece", minutes=6, rel=True,
             free=(key == "short"),
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(0.62, 0.60, "S", moves=[(0.60, 0.64, 1)])],
-            away=[P(0.34, 0.36, "R", moves=[(land[0], land[1] + 0.05, 1)])],
-            markers=[M(*land, "zone", "")],
+            home=[P(0.62, from_y, "S",
+                    moves=[(0.60, min(from_y + 0.04, 0.94), 1)])],
+            # Behind his own short service line, which is where a receiver
+            # must stand.
+            away=[P(0.36, SHORT_LINE_FAR - 0.06, "R",
+                    moves=[(land[0], land[1] + 0.05, 1)])],
+            markers=[M(*land, "zone", ""),
+                     M(0.50, SHORT_LINE_NEAR, "cone", ""),
+                     M(0.50, SHORT_LINE_FAR, "cone", "")],
             ball=0,
         ))
     return out
@@ -363,10 +383,14 @@ def doubles_family() -> list[Drill]:
     specs = [
         ("attack", "attacking shape", [(0.50, 0.60), (0.50, 0.88)],
          [(0.50, 0.66), (0.50, 0.92)]),
+        # Defending shape only exists against an attacking pair: the
+        # opponents were drawn side-by-side too, so there was nothing to
+        # defend. And "rotating on the lift" started front-back and slid
+        # sideways — the rotation is side-by-side turning INTO front-back.
         ("defence", "defending shape", [(0.26, 0.78), (0.74, 0.78)],
          [(0.30, 0.74), (0.70, 0.74)]),
-        ("rotation", "rotating on the lift", [(0.34, 0.60), (0.62, 0.86)],
-         [(0.66, 0.62), (0.36, 0.88)]),
+        ("rotation", "rotating on the lift", [(0.28, 0.78), (0.72, 0.78)],
+         [(0.50, 0.60), (0.50, 0.90)]),
     ]
     out = []
     for key, label, start, end in specs:
@@ -377,7 +401,12 @@ def doubles_family() -> list[Drill]:
             name=suffixed(DOUBLES_NAME, label), note=DOUBLES_NOTE,
             home=[P(sx, sy, f"{i + 1}", moves=[end[i] + (0,)])
                   for i, (sx, sy) in enumerate(start)],
-            away=[P(0.34, 0.28, "A", moves=[(0.34, 0.22, 0)]), P(0.68, 0.28, "B")],
+            # Front-back when they are attacking, which is the only shape a
+            # defending pair has anything to defend against.
+            away=([P(0.50, 0.40, "A", moves=[(0.46, 0.36, 0)]),
+                   P(0.50, 0.14, "B")] if key in ("defence", "rotation")
+                  else [P(0.34, 0.28, "A", moves=[(0.34, 0.22, 0)]),
+                        P(0.68, 0.28, "B")]),
         ))
     return out
 
@@ -520,11 +549,114 @@ def game_family() -> list[Drill]:
     return out
 
 
+RETURN_NAME = {"en": "Return of serve", "en-GB": "Return of serve",
+               "zh-CN": "接发球", "zh-TW": "接發球", "ja-JP": "レシーブ",
+               "ko-KR": "서브 리턴", "es-ES": "Resto del saque",
+               "fr-FR": "Retour de service", "id-ID": "Pengembalian servis",
+               "ms-MY": "Kembalian servis", "th-TH": "การรับเสิร์ฟ",
+               "vi-VN": "Đỡ giao cầu"}
+RETURN_NOTE = {
+    "en": "Racket up at tape height before the serve is struck, weight forward, and take it early enough that the reply goes downward. A shuttle met below the tape has already lost you the rally.",
+    "en-GB": "Racket up at tape height before the serve is struck, weight forward, and take it early enough that the reply goes downward. A shuttle met below the tape has already lost you the rally.",
+    "zh-CN": "发球出手前拍头就举到网带高度，重心前压，早点碰到球，让回球往下走。在网带以下才碰到的球，这一分已经输了一半。",
+    "zh-TW": "發球出手前拍頭就舉到網帶高度，重心前壓，早點碰到球，讓回球往下走。在網帶以下才碰到的球，這一分已經輸了一半。",
+    "ja-JP": "サーブが打たれる前にラケットをネット高に上げ、重心を前に、早い打点で返して下向きにする。ネットより下で触った時点でラリーは負けている。",
+    "ko-KR": "서브가 맞기 전에 라켓을 네트 높이로 들고 체중은 앞으로, 리턴이 아래로 향할 만큼 빠르게 잡아라.",
+    "es-ES": "Raqueta arriba a la altura de la cinta antes del saque, peso adelante, y tómalo pronto para que la respuesta baje.",
+    "fr-FR": "Raquette haute au niveau de la bande avant la frappe, appui avant, et prends-le assez tôt pour que la réponse descende.",
+    "id-ID": "Raket diangkat setinggi net sebelum servis dipukul, berat badan ke depan, dan ambil cukup awal agar pengembalian menukik.",
+    "ms-MY": "Raket diangkat setinggi jaring sebelum servis dipukul, berat badan ke hadapan.",
+    "th-TH": "ยกไม้ให้สูงระดับขอบตาข่ายก่อนลูกเสิร์ฟถูกตี ถ่ายน้ำหนักไปข้างหน้า และรับให้เร็วพอที่จะตีลง",
+    "vi-VN": "Nâng vợt ngang mép lưới trước khi quả giao được đánh, trọng tâm dồn trước, và đón sớm để trả cầu đi xuống.",
+}
+OVERHEAD_NOTE = {
+    "en": "Take it round the head rather than turning your back: the moment you turn, the straight reply is gone and the opponent only has to cover one side.",
+    "en-GB": "Take it round the head rather than turning your back: the moment you turn, the straight reply is gone and the opponent only has to cover one side.",
+    "zh-CN": "用头顶球处理，不要转身背对：一转身，直线回球就没有了，对手只需要守一边。",
+    "zh-TW": "用頭頂球處理，不要轉身背對：一轉身，直線回球就沒有了，對手只需要守一邊。",
+    "ja-JP": "背中を向けずラウンド・ザ・ヘッドで処理する。背を向けた瞬間にストレートは消え、相手は片側だけ守ればよくなる。",
+    "ko-KR": "등을 돌리지 말고 라운드 더 헤드로 처리하라. 돌아서는 순간 스트레이트가 사라지고 상대는 한쪽만 지키면 된다.",
+    "es-ES": "Juégalo por encima de la cabeza en vez de girar la espalda: al girar pierdes la paralela y el rival solo cubre un lado.",
+    "fr-FR": "Joue-le au-dessus de la tête plutôt que de tourner le dos : dès que tu tournes, la parallèle disparaît et l'adversaire ne couvre qu'un côté.",
+    "id-ID": "Ambil dengan round-the-head, jangan memutar punggung: begitu berbalik, pengembalian lurus hilang.",
+    "ms-MY": "Ambil secara round-the-head, jangan pusingkan belakang.",
+    "th-TH": "ตีแบบรอบศีรษะแทนการหันหลัง พอหันหลังลูกตรงก็หายไป",
+    "vi-VN": "Đánh vòng qua đầu thay vì xoay lưng: vừa xoay là mất đường cầu thẳng.",
+}
+NETBATTLE_NOTE = {
+    "en": "Whoever gets the racket above the tape first wins it. Two players fighting at the net is one decision — go up, or lift — and hesitating makes it for you.",
+    "en-GB": "Whoever gets the racket above the tape first wins it. Two players fighting at the net is one decision — go up, or lift — and hesitating makes it for you.",
+    "zh-CN": "谁先把拍子举到网带以上，谁就赢这一分。网前搏杀只有一个决定：上手，还是挑起来——犹豫本身就替你做了决定。",
+    "zh-TW": "誰先把拍子舉到網帶以上，誰就贏這一分。網前搏殺只有一個決定：上手，還是挑起來——猶豫本身就替你做了決定。",
+    "ja-JP": "先にラケットをネットの上に出した方が勝つ。前での競り合いは「上から入るか、上げるか」の一択で、迷いはその選択を勝手に決めてしまう。",
+    "ko-KR": "라켓을 네트 위로 먼저 올린 쪽이 이긴다. 네트 앞 싸움은 위로 갈지 띄울지 하나의 선택이고, 망설임이 대신 결정해 버린다.",
+    "es-ES": "Gana quien sube antes la raqueta por encima de la cinta. En la red solo hay una decisión: entrar arriba o levantar; dudar la toma por ti.",
+    "fr-FR": "Celui qui monte la raquette au-dessus de la bande en premier gagne. Au filet il n'y a qu'une décision : monter ou lever ; hésiter la prend pour toi.",
+    "id-ID": "Siapa yang lebih dulu mengangkat raket di atas net, dia yang menang.",
+    "ms-MY": "Siapa lebih dahulu mengangkat raket di atas jaring, dia menang.",
+    "th-TH": "ใครยกไม้ขึ้นเหนือขอบตาข่ายก่อน คนนั้นชนะ",
+    "vi-VN": "Ai đưa vợt lên trên mép lưới trước thì người đó thắng.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """The return of serve, the round-the-head and the net battle.
+
+    Thirty-five drills and no return of serve anywhere — in doubles the
+    most decisive shot in the game. No round-the-head either, and no
+    front-court battle between two players. All verified absent.
+    """
+    return [
+        Drill(
+            id="bd_return_short_serve", category="setpiece", minutes=8, rel=True,
+            level="foundation", free=True,
+            name=suffixed(RETURN_NAME, "against the short serve"),
+            note=RETURN_NOTE,
+            home=[P(0.36, 0.29, "R", moves=[(0.40, 0.375, 0), (0.38, 0.32, 1)])],
+            away=[P(0.62, 0.685, "S", moves=[(0.60, 0.72, 1)])],
+            markers=[M(0.66, 0.60, "zone", ""), M(0.50, 0.352, "cone", ""),
+                     M(0.50, 0.648, "cone", "")],
+            ball=(0.615, 0.665),
+            ball_moves=[(0.40, 0.375, 0), (0.66, 0.60, 1)],
+        ),
+        Drill(
+            id="bd_return_flick_serve", category="setpiece", minutes=8, rel=True,
+            name=suffixed(RETURN_NAME, "against the flick"), note=RETURN_NOTE,
+            home=[P(0.36, 0.29, "R", moves=[(0.34, 0.16, 0), (0.40, 0.30, 2)])],
+            away=[P(0.62, 0.685, "S", moves=[(0.58, 0.74, 1)])],
+            markers=[M(0.70, 0.76, "zone", ""), M(0.50, 0.352, "cone", ""),
+                     M(0.50, 0.648, "cone", "")],
+            ball=(0.615, 0.665),
+            ball_moves=[(0.34, 0.14, 0), (0.70, 0.76, 1)],
+        ),
+        Drill(
+            id="bd_clear_round_the_head", category="possession", minutes=8, rel=True,
+            name=suffixed(CLEAR_NAME, "round the head"), note=OVERHEAD_NOTE,
+            home=[P(*BASE, "1", moves=[(0.30, 0.84, 0), BASE + (2,)])],
+            away=[P(*mirror(BASE), "F", moves=[(0.34, 0.30, 1)])],
+            markers=[M(0.30, 0.86, "cone", ""), M(0.72, 0.14, "zone", "")],
+            ball=mirror(BASE),
+            ball_moves=[(0.30, 0.84, 0), (0.72, 0.14, 2)],
+        ),
+        Drill(
+            id="bd_net_battle", category="attacking", minutes=8, rel=True,
+            level="advanced",
+            name=suffixed(NETPLAY_NAME, "the battle at the tape"),
+            note=NETBATTLE_NOTE,
+            home=[P(0.42, 0.60, "1", moves=[(0.44, 0.565, 0), (0.40, 0.60, 2)])],
+            away=[P(0.44, 0.42, "2", moves=[(0.44, 0.475, 1)])],
+            markers=[M(0.30, 0.30, "zone", "")],
+            ball=(0.435, 0.575),
+            ball_moves=[(0.44, 0.475, 1), (0.30, 0.30, 2)],
+        ),
+    ]
+
+
 def badminton_library() -> list[Drill]:
     return (footwork_family() + multi_shuttle() + clear_family() + drive_family()
             + drop_family() + net_family() + deception_family()
             + doubles_family() + smash_family() + defence_family()
-            + serve_family() + game_family())
+            + serve_family() + game_family() + gaps_family())
 
 def multi_shuttle() -> list[Drill]:
     """Multi-shuttle feeding — the staple of Asian badminton training, and a
