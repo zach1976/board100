@@ -1241,3 +1241,12 @@ add('man to man', '盯人', '盯人', 'マンツーマン', '맨투맨', 'al hom
 add('getting back', '回防', '回防', '戻り', '복귀 수비', 'en repliegue', 'au repli', 'kembali bertahan', 'kembali bertahan', 'การถอยกลับตั้งรับ', 'lùi về phòng ngự')
 add('blocking the shot', '封挡射门', '封擋射門', 'シュートブロック', '슛 블로킹', 'al bloqueo del lanzamiento', 'au contre', 'memblok tembakan', 'memblok tembakan', 'การบล็อกลูกยิง', 'chắn cú sút')
 add('end to end', '全场攻防', '全場攻防', 'エンドツーエンド', '전면 코트', 'de area a area', 'd un but a l autre', 'bolak-balik lapangan', 'bolak-balik gelanggang', 'เต็มสนามสองฝั่ง', 'toàn sân hai chiều')
+
+add('falling back to the 23', '退守 23 米区', '退守 23 公尺區', '23mまで下がる', '23m 라인까지 후퇴', 'replegando hasta la 23', 'en repli jusqu aux 23 m', 'mundur ke garis 23 m', 'berundur ke garisan 23 m', 'ถอยกลับมาที่เส้น 23 เมตร', 'lùi về vạch 23 m')
+
+add('the jab and the block tackle', '点抢与封堵抢断', '點搶與封堵搶斷', 'ジャブとブロックタックル', '잽 태클과 블록 태클', 'el pinchazo y la entrada de bloqueo', 'le jab et le tacle bloque', 'tekel jab dan tekel blok', 'rampasan jab dan rampasan blok', 'การจิ้มบอลและการบล็อกแย่งบอล', 'cú chạm nhanh và vào bóng chắn')
+add('with the aerial', '用高球转移', '用高球轉移', 'エアリアルを使って', '에어리얼 패스로', 'con el aereo', 'avec le jeu aerien', 'dengan umpan lambung', 'dengan hantaran lambung', 'ด้วยลูกโด่ง', 'bằng đường chuyền bổng')
+add('the long corner', '长角球', '長角球', 'ロングコーナー', '롱 코너', 'el corner largo', 'le corner long', 'sudut panjang', 'penjuru panjang', 'ลูกมุมยาว', 'quả phạt góc dài')
+add('on the counter', '打反击', '打反擊', 'カウンターで', '역습으로', 'al contraataque', 'en contre-attaque', 'saat serangan balik', 'ketika serangan balas', 'ในจังหวะสวนกลับ', 'trong pha phản công')
+add('the first save and the rebound', '第一次扑救与补射', '第一次撲救與補射', 'ファーストセーブとこぼれ球', '첫 선방과 세컨드 볼', 'la primera parada y el rechace', 'le premier arret et le rebond', 'penyelamatan pertama dan bola muntah', 'penyelamatan pertama dan bola muntah', 'การเซฟแรกและลูกกระดอน', 'pha cản phá đầu và bóng bật ra')
+add('clearing the circle', '解围出圈', '解圍出圈', 'サークルからのクリア', '서클 밖으로 걷어내기', 'despejar el area', 'degager le cercle', 'membuang bola keluar lingkaran', 'membuang bola keluar bulatan', 'การเคลียร์บอลออกจากวงกลม', 'phá bóng ra khỏi vòng cấm')

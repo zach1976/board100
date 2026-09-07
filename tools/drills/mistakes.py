@@ -377,6 +377,19 @@ add("handball", "Goalkeeping",
     "ทิ้งตัวไปข้างหนึ่งก่อนแขนจะเหวี่ยงออกมา ผู้รักษาประตูที่ขยับก่อนคือคนที่โดนยิงผ่านไปแล้ว",
     "Do nguoi sang mot ben truoc khi tay vung ra — thu mon da di chuyen la thu mon da bi danh bai.")
 
+add("fieldHockey", "Goalkeeping",
+    "Going to ground early — once you are down the shooter has the whole top of the goal and all the time he wants.",
+    "过早倒地——一旦你躺下，整个上半门和所有时间都归射门的人了。",
+    "過早倒地——一旦你躺下，整個上半門和所有時間都歸射門的人了。",
+    "早く倒れすぎる——寝てしまえばゴール上半分と時間のすべては相手のものだ。",
+    "너무 일찍 넘어진다 — 눕는 순간 골문 위쪽 전부와 시간이 슈터의 것이 된다.",
+    "Irse al suelo pronto: una vez abajo, el tirador tiene toda la parte alta de la porteria y todo el tiempo.",
+    "Se coucher trop tot : une fois au sol, le tireur a tout le haut du but et tout le temps qu il veut.",
+    "Terlalu cepat menjatuhkan diri — begitu tergeletak, penembak punya seluruh bagian atas gawang.",
+    "Terlalu awal menjatuhkan diri; setelah rebah, penembak memiliki seluruh bahagian atas gol.",
+    "ล้มตัวลงเร็วเกินไป พอลงไปแล้วคนยิงก็ได้ประตูส่วนบนทั้งหมดและมีเวลาเหลือเฟือ",
+    "Nga nguoi qua som — mot khi da nam xuong, nguoi sut co ca nua tren khung thanh va bao nhieu thoi gian tuy y.")
+
 # ══ basketball ═══════════════════════════════════════════════════════════════
 add("basketball", "Ball screen",
     "Refusing the screen and dribbling away from it — the screener stood there for nothing.",
