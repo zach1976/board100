@@ -1223,7 +1223,7 @@
       "familyName": null,
       "category": "attacking",
       "minutes": 12,
-      "players": 6,
+      "players": 7,
       "free": true,
       "offSurface": false,
       "name": {
@@ -1429,6 +1429,26 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500,
+              180
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
@@ -20514,7 +20534,7 @@
       },
       "category": "attacking",
       "minutes": 10,
-      "players": 2,
+      "players": 4,
       "free": false,
       "offSurface": false,
       "name": {
@@ -20596,6 +20616,33 @@
           },
           {
             "id": "d1",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              202.74285714285713,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                247.33142857142855,
+                1047.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
             "label": "2",
             "team": 1,
             "sportType": null,
@@ -20618,12 +20665,39 @@
               0,
               1
             ],
-            "moveColor": 4294929773,
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                395.96,
+                277.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
@@ -20692,7 +20766,7 @@
       },
       "category": "attacking",
       "minutes": 10,
-      "players": 2,
+      "players": 4,
       "free": false,
       "offSurface": false,
       "name": {
@@ -20774,6 +20848,33 @@
           },
           {
             "id": "d1",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              797.2571428571428,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                752.6685714285713,
+                1047.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
             "label": "2",
             "team": 1,
             "sportType": null,
@@ -20796,12 +20897,39 @@
               0,
               1
             ],
-            "moveColor": 4294929773,
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                604.04,
+                277.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
@@ -20870,7 +20998,7 @@
       },
       "category": "attacking",
       "minutes": 10,
-      "players": 2,
+      "players": 4,
       "free": true,
       "offSurface": false,
       "name": {
@@ -20952,6 +21080,33 @@
           },
           {
             "id": "d1",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1047.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
             "label": "2",
             "team": 1,
             "sportType": null,
@@ -20974,12 +21129,39 @@
               0,
               1
             ],
-            "moveColor": 4294929773,
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                277.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
@@ -21048,7 +21230,7 @@
       },
       "category": "attacking",
       "minutes": 10,
-      "players": 2,
+      "players": 4,
       "free": false,
       "offSurface": false,
       "name": {
@@ -21130,6 +21312,33 @@
           },
           {
             "id": "d1",
+            "label": "8",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              342.62857142857143,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                366.23428571428576,
+                1047.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
             "label": "2",
             "team": 1,
             "sportType": null,
@@ -21152,12 +21361,39 @@
               0,
               1
             ],
-            "moveColor": 4294929773,
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                444.92,
+                277.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
             "attachedTo": null
           },
           {

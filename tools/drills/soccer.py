@@ -163,6 +163,8 @@ def soccer_drills() -> list[Drill]:
             away=[
                 P(760, 700, "D", moves=[(800, 560, 1)]),
                 P(560, 480, "C"),
+                # The cross has to be going somewhere a keeper is standing.
+                P(500, 180, "GK", role="GK"),
             ],
             ball=0,
             free=True,
@@ -1667,9 +1669,14 @@ def duel_family() -> list[Drill]:
             id=f"duel_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "central"),
             name=suffixed(DUEL_NAME, label), note=DUEL_NOTE,
+            # Two dots and two lines is a diagram, not a drill. A 1v1 starts
+            # with the ball arriving and ends at a goal somebody is keeping.
             home=[P(x, 0.62, "11", moves=[(x + (0.5 - x) * 0.3, 0.44, 0),
-                                          (0.5 + (x - 0.5) * 0.4, 0.24, 1)])],
-            away=[P(x, 0.44, "2", moves=[(x, 0.38, 0), (0.5 + (x - 0.5) * 0.7, 0.30, 1)])],
+                                          (0.5 + (x - 0.5) * 0.4, 0.24, 1)]),
+                  P(x, 0.80, "8", moves=[(x + (0.5 - x) * 0.15, 0.72, 0)])],
+            away=[P(x, 0.44, "2", moves=[(x, 0.38, 0), (0.5 + (x - 0.5) * 0.7, 0.30, 1)]),
+                  P(0.50, 0.10, "GK", role="GK",
+                    moves=[(0.5 + (x - 0.5) * 0.35, 0.15, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
         ))
