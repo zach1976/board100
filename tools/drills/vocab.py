@@ -1298,3 +1298,5 @@ add('the kicking second serve', '上旋二发', '上旋二發', 'キックの効
 add('serve and volley', '发球上网', '發球上網', 'サーブ＆ボレー', '서브 앤 발리', 'saque y volea', 'service-volée', 'servis dan voli', 'servis dan voli', 'เสิร์ฟแล้วขึ้นวอลเลย์', 'giao bóng lên lưới')
 add('the drop shot and the pass', '放小球与穿越', '放小球與穿越', 'ドロップとパッシング', '드롭샷과 패싱', 'la dejada y el passing', 'l amorti et le passing', 'drop shot dan passing', 'drop shot dan passing', 'ลูกหยอดและลูกผ่าน', 'bỏ nhỏ và cú vượt')
 add('the poach', '网前拦截', '網前攔截', 'ポーチ', '포치', 'la intercepción en la red', 'l interception au filet', 'poach di depan net', 'pintasan di depan jaring', 'การตัดบอลหน้าเน็ต', 'pha cắt bóng trên lưới')
+
+add('in and out', '近台与退台', '近台與退台', '前後の出入り', '앞뒤 스텝', 'dentro y fuera de la mesa', 'avancer et reculer', 'maju mundur dari meja', 'maju mundur dari meja', 'เข้าออกจากโต๊ะ', 'tiến lùi khỏi bàn')

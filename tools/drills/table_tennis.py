@@ -98,13 +98,17 @@ FOOT_NOTE = {
 def footwork_family() -> list[Drill]:
     """The three classic patterns: two-one, Falkenberg, side to side."""
     out = []
+    # "Two-one" IS the Falkenberg, and the board drew a third side-to-side
+    # pattern anyway — three boards for one and a half drills. Replaced with
+    # the pattern that was genuinely missing: the short ball at the table
+    # and the step back to loop the next one.
     out.append(tt(
         "tt_footwork_two_one", "warmup", 10,
-        suffixed(FOOT_NAME, "two-one"), FOOT_NOTE,
-        home=[P(*HOME_READY, "1", moves=[(BH, 1.14, 0), (0.50, 1.10, 1),
-                                        (FH, 1.14, 2), (0.50, 1.16, 3)])],
-        away=[P(*AWAY_READY, "2", moves=[(0.40, -0.12, 1)])],
-        markers=[M(BH, DEEP, "cone", ""), M(FH, DEEP, "cone", "")],
+        suffixed(FOOT_NAME, "in and out"), FOOT_NOTE,
+        home=[P(*HOME_READY, "1", moves=[(0.44, 1.02, 0), (0.50, 1.16, 1),
+                                        (FH, 1.24, 2), (0.50, 1.16, 3)])],
+        away=[P(*AWAY_READY, "2", moves=[(0.44, -0.10, 0), (0.62, -0.14, 2)])],
+        markers=[M(0.44, NEAR, "cone", ""), M(FH, DEEP, "cone", "")],
         ball=AWAY_READY, free=True,
     ))
     out.append(tt(
@@ -197,6 +201,22 @@ LOOP_NOTE = {
 }
 
 
+LOOP_FLAT_NOTE = {
+    "en": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+    "en-GB": "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.",
+    "zh-CN": "对上旋球，拍子从球的后面出发，不是从球的下面；手臂向前送，不是向上兜。对着本来就往前转的球往上刷，只会下网。",
+    "zh-TW": "對上旋球，拍子從球的後面出發，不是從球的下面；手臂向前送，不是向上兜。對著本來就往前轉的球往上刷，只會下網。",
+    "ja-JP": "上回転に対してはラケットをボールの後ろから出す。下からではない。腕は上ではなく前へ。前進回転の球を下から擦れば必ずネットだ。",
+    "ko-KR": "톱스핀 상대로는 라켓이 공 아래가 아니라 뒤에서 출발하고, 팔은 위가 아니라 앞으로 민다.",
+    "es-ES": "Contra el topspin la pala sale por detrás de la bola, no por debajo, y el brazo empuja hacia delante, no hacia arriba.",
+    "fr-FR": "Contre le lift, la raquette part derrière la balle et non dessous, et le bras pousse vers l'avant plutôt que vers le haut.",
+    "id-ID": "Melawan topspin, bet mulai dari belakang bola, bukan dari bawah, dan lengan mendorong ke depan.",
+    "ms-MY": "Menentang topspin, bet bermula dari belakang bola, bukan dari bawah.",
+    "th-TH": "เจอลูกท็อปสปิน ไม้เริ่มจากด้านหลังลูก ไม่ใช่ด้านล่าง และแขนดันไปข้างหน้า",
+    "vi-VN": "Trước bóng xoáy lên, vợt xuất phát từ phía sau bóng chứ không phải bên dưới, và tay đẩy tới trước.",
+}
+
+
 def loop_family() -> list[Drill]:
     specs = [("vs_backspin", "against backspin", 1.24, FH),
              ("vs_block", "against the block", 1.14, FH),
@@ -206,7 +226,12 @@ def loop_family() -> list[Drill]:
     for key, label, depth, x in specs:
         out.append(tt(
             f"tt_loop_{key}", "attacking", 10,
-            suffixed(LOOP_NAME, label), LOOP_NOTE,
+            suffixed(LOOP_NAME, label),
+            # Looping a block or counterlooping starts behind the ball and
+            # drives forward; the family note is about looping backspin,
+            # where the racket starts below. Taught the other way round it
+            # puts every ball into the net.
+            LOOP_NOTE if key == "vs_backspin" else LOOP_FLAT_NOTE,
             home=[P(x, depth, "1", moves=[(x, depth - 0.10, 0), (0.50, 1.18, 1)])],
             away=[P(1 - x, -0.18, "2", moves=[(1 - x, -0.10, 1)])],
             markers=[M(1 - x, 1 - DEEP, "zone", "")],
@@ -329,17 +354,26 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("chop_block", "the chop block", 1.08), ("deep_chop", "the deep chop", 1.34),
-             ("lob", "the lob and recover", 1.30)]
+    # Three different strokes at three different distances: a chop block is
+    # played *at* the table with a short sideways action, a deep chop from
+    # two to four metres, a lob from four to five. They used to be one board
+    # at three depths, with the same shuffle and the same incoming ball.
+    specs = [("chop_block", "the chop block", 1.04, (0.36, 0.02),
+              [(BH, 1.02, 0), (0.50, 1.06, 1)]),
+             ("deep_chop", "the deep chop", 1.30, (0.50, 0.06),
+              [(BH, 1.32, 0), (FH, 1.30, 1), (0.50, 1.28, 2)]),
+             # 1.40 is as far back as the board goes; a lob is played from
+             # further still, and the board says "deep" as clearly as it can.
+             ("lob", "the lob and recover", 1.38, (0.50, 0.10),
+              [(FH + 0.06, 1.40, 0), (0.50, 1.34, 2)])]
     out = []
-    for key, label, depth in specs:
+    for key, label, depth, target, path in specs:
         out.append(tt(
             f"tt_defence_{key}", "defending", 10,
             suffixed(DEF_NAME, label), DEF_NOTE,
-            home=[P(0.50, depth, "1",
-                    moves=[(BH, depth, 0), (FH, depth, 1), (0.50, depth, 2)])],
-            away=[P(*AWAY_READY, "2", moves=[(BH, -0.12, 0), (FH, -0.12, 1)])],
-            markers=[M(0.50, DEEP, "zone", "")],
+            home=[P(0.50, depth, "1", moves=path)],
+            away=[P(*AWAY_READY, "2", moves=[(BH, -0.12, 0), (FH, -0.10, 1)])],
+            markers=[M(*target, "zone", "")],
             ball=AWAY_READY, free=(key == "chop_block"),
         ))
     return out
@@ -419,6 +453,36 @@ GAME_NOTE = {
 }
 
 
+OPEN_GAME_NOTE = {
+    "en": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+    "en-GB": "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.",
+    "zh-CN": "打眼前这一分，不是打你练过的那一分。多数回合在第五板之前就结束了，所以战术必须能挺过前两板，否则它根本不算战术。",
+    "zh-TW": "打眼前這一分，不是打你練過的那一分。多數回合在第五板之前就結束了，所以戰術必須能挺過前兩板，否則它根本不算戰術。",
+    "ja-JP": "練習した点ではなく、目の前の点を打つ。多くのラリーは5球目までに終わるので、戦術は最初の2球を生き延びなければ戦術ではない。",
+    "ko-KR": "연습한 포인트가 아니라 지금 있는 포인트를 쳐라. 대부분의 랠리는 다섯 번째 공 안에 끝난다.",
+    "es-ES": "Juega el punto que tienes, no el que ensayaste: casi todos los peloteos acaban en la quinta bola.",
+    "fr-FR": "Joue le point que tu as, pas celui que tu as répété : la plupart des échanges finissent à la cinquième balle.",
+    "id-ID": "Mainkan poin yang ada, bukan yang kamu latih. Kebanyakan reli selesai pada bola kelima.",
+    "ms-MY": "Mainkan mata yang ada, bukan yang anda latih.",
+    "th-TH": "เล่นแต้มที่อยู่ตรงหน้า ไม่ใช่แต้มที่ซ้อมมา แรลลี่ส่วนใหญ่จบภายในลูกที่ห้า",
+    "vi-VN": "Chơi điểm đang có, không phải điểm đã tập. Phần lớn các pha bóng kết thúc trước quả thứ năm.",
+}
+DOUBLES_GAME_NOTE = {
+    "en": "Every serve goes right half to right half, and you must alternate every ball — so the rotation is the drill: hit, and get out of your partner's way on the same movement.",
+    "en-GB": "Every serve goes right half to right half, and you must alternate every ball — so the rotation is the drill: hit, and get out of your partner's way on the same movement.",
+    "zh-CN": "发球必须右半台发到对方右半台，而且每球轮换——所以轮转本身就是训练内容：击完球的同一个动作里就让开搭档的位置。",
+    "zh-TW": "發球必須右半台發到對方右半台，而且每球輪換——所以輪轉本身就是訓練內容：擊完球的同一個動作裡就讓開搭檔的位置。",
+    "ja-JP": "サーブは必ず右半面から右半面へ、そして一球ごとに交互に打つ。だからローテーションこそが練習だ。打つ動作のまま相手の進路を空ける。",
+    "ko-KR": "서브는 오른쪽 반면에서 오른쪽 반면으로, 그리고 매 공마다 교대한다. 그래서 로테이션 자체가 훈련이다.",
+    "es-ES": "El saque va siempre de media derecha a media derecha y hay que alternar cada bola: la rotación es el ejercicio.",
+    "fr-FR": "Le service va toujours de demi-table droite à demi-table droite et il faut alterner à chaque balle : la rotation est l'exercice.",
+    "id-ID": "Servis selalu dari separuh kanan ke separuh kanan, dan harus bergantian setiap bola.",
+    "ms-MY": "Servis sentiasa dari separuh kanan ke separuh kanan, dan mesti berselang-seli setiap bola.",
+    "th-TH": "เสิร์ฟจากครึ่งขวาไปครึ่งขวาเสมอ และต้องสลับตีทุกลูก",
+    "vi-VN": "Giao bóng luôn từ nửa phải sang nửa phải, và phải luân phiên mỗi quả.",
+}
+
+
 def game_family() -> list[Drill]:
     specs = [("half_table", "half table", BH), ("serve_receive", "serve and receive only", 0.50),
              ("full_match", "full match", 0.50), ("doubles", "doubles rotation", FH)]
@@ -426,6 +490,12 @@ def game_family() -> list[Drill]:
     for key, label, x in specs:
         home = [P(x, 1.16, "1", moves=[(x, 1.08, 0)])]
         away = [P(1 - x, -0.16, "A", moves=[(1 - x, -0.08, 0)])]
+        if key == "serve_receive":
+            # A serve-and-receive game is two balls and stop: the server
+            # short to the middle, the receiver's third-ball answer. It was
+            # byte-identical to the full match.
+            home = [P(0.50, 1.14, "1", moves=[(0.44, 1.06, 0), (0.56, 1.16, 2)])]
+            away = [P(0.44, -0.14, "A", moves=[(0.50, -0.06, 1)])]
         if key == "doubles":
             home = [P(BH, 1.14, "1", moves=[(BH - 0.14, 1.24, 1)]),
                     P(BH - 0.16, 1.26, "2", moves=[(FH, 1.14, 1)])]
@@ -433,10 +503,16 @@ def game_family() -> list[Drill]:
                     P(FH + 0.16, -0.26, "B", moves=[(BH, -0.14, 1)])]
         out.append(tt(
             f"tt_game_{key}", "ssg", 15,
-            suffixed(GAME_NAME, label), GAME_NOTE,
+            suffixed(GAME_NAME, label),
+            # "Restrict the table and the tactic has nowhere to hide" is
+            # about the half-table game only; it said nothing on the other
+            # three, and nothing at all about doubles rotation.
+            GAME_NOTE if key == "half_table" else
+            (DOUBLES_GAME_NOTE if key == "doubles" else OPEN_GAME_NOTE),
             home=home, away=away,
             markers=([M(0.50, DEEP, "cone", ""), M(0.50, 1 - DEEP, "cone", "")]
-                     if key == "half_table" else []),
+                     if key == "half_table" else
+                     ([M(0.44, 0.06, "zone", "")] if key == "serve_receive" else [])),
             ball=0, free=(key in ("full_match", "half_table")),
         ))
     return out

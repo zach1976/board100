@@ -559,6 +559,8 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # table tennis: the technique boards
+    "tt_warm_forehand", "tt_warm_backhand", "tt_push_long",
     # tennis: the technique boards
     "tn_rally_crosscourt_fh", "tn_serve_second", "tn_net_volley",
     "tn_warm_mini_tennis",
@@ -603,6 +605,8 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # table tennis: the patterns that need a reading of spin first
+    "tt_footwork_falkenberg", "tt_game_doubles", "tt_serve_third_ball",
     # tennis: the doubles patterns and the attacking transitions
     "tn_doubles_poach", "tn_doubles_i_formation", "tn_attack_drop_shot",
     "tn_rally_figure_eight",
@@ -640,6 +644,7 @@ ADVANCED = {
     "tn_doubles_australian", "tn_inside_out",
     # table tennis
     "tt_short_banana", "tt_loop_counter_loop", "tt_defence_deep_chop",
+    "tt_defence_lob",
     # handball
     "hb_defence_three_two_one", "hb_attack_empty_goal",
     # rugby
