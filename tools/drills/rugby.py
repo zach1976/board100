@@ -150,7 +150,10 @@ def move_family() -> list[Drill]:
         home = []
         for i, (x, y) in enumerate(line):
             end_x = target_x if i == receiver else x + (target_x - x) * 0.25
-            home.append(P(x, y, f"{10 + i}",
+            # A backline from first receiver outward is 10, 12, 13, 15, 14 —
+            # not 10, 11, 12, 13, 14, which puts the left wing at inside
+            # centre, a position 11 never stands in.
+            home.append(P(x, y, ("10", "12", "13", "15", "14")[i],
                           moves=[(x + (end_x - x) * 0.4, 0.50, 0), (end_x, 0.38, 1)]))
         out.append(Drill(
             id=f"rg_move_{key}", category="attacking", minutes=12, rel=True,
@@ -203,9 +206,13 @@ def finishing_family() -> list[Drill]:
                                          TRY_LINE - 0.05, 1)]),
                   P(start[0] - 0.14, start[1] + 0.06, "2",
                     moves=[(start[0] - 0.06, TRY_LINE + 0.02, 1)])],
+            # The second defender used to stand at TRY_LINE - 0.04, which
+            # is 5.7 m *behind* the try line, in the in-goal — a goalkeeper
+            # from another sport's template. He covers across instead.
             away=[P(start[0] + 0.04, TRY_LINE + 0.02, "D",
                     moves=[(start[0] + 0.02, TRY_LINE + 0.05, 0)]),
-                  P(0.50, TRY_LINE - 0.04, "D")],
+                  P(0.5 + (0.5 - start[0]) * 0.55, TRY_LINE + 0.075, "D",
+                    moves=[(start[0] * 0.4 + 0.30, TRY_LINE + 0.045, 1)])],
             markers=[M(0.50, TRY_LINE, "zone", "")],
             ball=0,
         ))
@@ -283,38 +290,81 @@ SET_NOTE = {
 
 
 def setpiece_family() -> list[Drill]:
+    """Scrum, lineouts and the kick-off, each with its own law-shaped setup.
+
+    The scrum used to be a 3/3/2 grid, which makes 6 a lock and packs 7
+    where the number 8 goes; a scrum is 3-2-3 with the flankers bound on
+    the *sides* of the second row. The lineouts picked their jumpers by
+    counting from 3, which put the tighthead in a five-man and the
+    scrum-half — who never stands in the line — in a seven. And the
+    kick-off had no kicker, no ball in the air and no catch pod.
+    """
     out = []
-    for key, label, n, y in [("lineout_five", "the five-man lineout", 5, 0.46),
-                             ("lineout_seven", "the seven-man lineout", 7, 0.46),
-                             ("scrum", "the scrum", 8, 0.54),
-                             ("kick_off", "receiving the kick-off", 6, 0.62)]:
-        if key.startswith("lineout"):
-            # The hooker throws from outside the touchline — a lineout with
-            # no thrower is not a lineout, and they are why off_surface is set.
-            home = [P(-0.02, y + 0.02 * (n // 2), "2",
-                      moves=[(0.01, y + 0.02 * (n // 2), 1)])] + [
-                P(0.14, y + 0.02 * i, f"{i + 3}",
-                  moves=[(0.16, y - 0.03 + 0.02 * i, 0)]) for i in range(n)]
-            away = [P(0.22, y + 0.02 * i, "D") for i in range(n)]
-        elif key == "scrum":
-            home = [P(0.44 + 0.03 * (i % 3), y + 0.02 * (i // 3), f"{i + 1}",
-                      moves=[(0.44 + 0.03 * (i % 3), y - 0.03 + 0.02 * (i // 3), 0)])
-                    for i in range(n)]
-            away = [P(0.44 + 0.03 * (i % 3), y - 0.06 + 0.02 * (i // 3), "D")
-                    for i in range(n)]
-        else:
-            home = [P(x, y, f"{i + 1}", moves=[(x, y - 0.10, 0), (x, y - 0.04, 1)])
-                    for i, (x, y) in enumerate(line_of(n, y))]
-            away = [P(x, 0.40, "D", moves=[(x, 0.50, 0)]) for x, _ in line_of(n, 0.40)]
+
+    # ── the scrum: front row, locks behind them, flankers on the flanks,
+    # 8 at the back, and a 9 to feed and clear ─────────────────────────
+    y = 0.54
+    front = [(0.455, y, "1"), (0.50, y, "2"), (0.545, y, "3")]
+    locks = [(0.478, y + 0.045, "4"), (0.522, y + 0.045, "5")]
+    flanks = [(0.425, y + 0.045, "6"), (0.575, y + 0.045, "7")]
+    eight = [(0.50, y + 0.09, "8")]
+    out.append(Drill(
+        id="rg_set_scrum", category="setpiece", minutes=12, rel=True,
+        tight=True, name=suffixed(SET_NAME, "the scrum"), note=SET_NOTE,
+        home=[P(x, yy, lbl, moves=[(x, yy - 0.025, 0)])
+              for x, yy, lbl in front + locks + flanks + eight]
+             + [P(0.60, y + 0.10, "9", moves=[(0.56, y + 0.095, 1),
+                                              (0.66, y + 0.045, 2)])],
+        away=[P(0.455 + 0.045 * i, y - 0.05, "D") for i in range(3)]
+             + [P(0.478 + 0.044 * i, y - 0.095, "D") for i in range(2)]
+             + [P(0.425, y - 0.095, "D"), P(0.575, y - 0.095, "D"),
+                P(0.50, y - 0.14, "D")],
+        ball=8,
+    ))
+
+    # ── the lineouts: the jumpers a team actually lifts ────────────────
+    for key, label, jumpers, y in [
+            ("lineout_five", "the five-man lineout", ["4", "5", "6", "7", "8"], 0.46),
+            ("lineout_seven", "the seven-man lineout",
+             ["1", "3", "4", "5", "6", "7", "8"], 0.46)]:
+        n = len(jumpers)
         out.append(Drill(
             id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
-            # A scrum, a lineout and a restart line are bound or spaced by law — opening them out would draw a different set piece.
-            tight=True,
-            free=(key in ("lineout_five", "kick_off")),
-            off_surface=key.startswith("lineout"),
+            tight=True, free=(key == "lineout_five"), off_surface=True,
             name=suffixed(SET_NAME, label), note=SET_NOTE,
-            home=home, away=away, ball=0,
+            # The hooker throws from outside the touchline; the jumper in
+            # the middle rises while his two lifters close on him.
+            home=[P(-0.02, y + 0.02 * (n // 2), "2",
+                    moves=[(0.01, y + 0.02 * (n // 2), 1)])] + [
+                P(0.14, y + 0.024 * i, lbl,
+                  moves=[(0.145, y + 0.024 * i - (0.02 if i == n // 2 else 0.0)
+                          + (0.012 if abs(i - n // 2) == 1 else 0.0), 1)])
+                for i, lbl in enumerate(jumpers)
+            ] + [P(0.26, y + 0.024 * (n // 2) + 0.05, "9",
+                   moves=[(0.24, y + 0.024 * (n // 2) + 0.02, 2)])],
+            away=[P(0.225, y + 0.024 * i, "D") for i in range(n)],
+            ball=0,
         ))
+
+    # ── the kick-off: a kicker, a ball in the air, a catch pod ─────────
+    out.append(Drill(
+        id="rg_set_kick_off", category="setpiece", minutes=12, rel=True,
+        tight=True, free=True,
+        name=suffixed(SET_NAME, "receiving the kick-off"), note=SET_NOTE,
+        # The receiving team: a pod of three under the ball with lifters,
+        # and the full-back behind for anything long.
+        home=[P(0.26, 0.60, "4", moves=[(0.30, 0.545, 1)]),
+              P(0.34, 0.585, "5", moves=[(0.345, 0.525, 1)]),
+              P(0.42, 0.60, "6", moves=[(0.39, 0.545, 1)]),
+              P(0.62, 0.62, "8", moves=[(0.52, 0.585, 2)]),
+              P(0.50, 0.76, "15", moves=[(0.44, 0.66, 2)])],
+        away=[P(0.50, 0.44, "10", moves=[(0.47, 0.475, 0)]),
+              P(0.30, 0.455, "D", moves=[(0.32, 0.52, 1)]),
+              P(0.70, 0.455, "D", moves=[(0.62, 0.52, 1)])],
+        markers=[M(0.345, 0.525, "zone", "")],
+        ball=(0.50, 0.455),
+        ball_moves=[(0.345, 0.525, 1)],
+    ))
     return out
 
 
@@ -461,11 +511,152 @@ def game_family() -> list[Drill]:
     return out
 
 
+TACKLE_NAME = {"en": "Tackling", "en-GB": "Tackling", "zh-CN": "擒抱",
+               "zh-TW": "擒抱", "ja-JP": "タックル", "ko-KR": "태클",
+               "es-ES": "El placaje", "fr-FR": "Le plaquage",
+               "id-ID": "Tekel", "ms-MY": "Tekel", "th-TH": "การเข้าปะทะ",
+               "vi-VN": "Truy cản"}
+TACKLE_NOTE = {
+    "en": "Cheek to cheek, shoulder into the thigh, and squeeze on contact. A tackler who reaches with his arms first has already given up his own shoulder.",
+    "en-GB": "Cheek to cheek, shoulder into the thigh, and squeeze on contact. A tackler who reaches with his arms first has already given up his own shoulder.",
+    "zh-CN": "头贴在对手臀侧，肩顶大腿，接触瞬间抱紧。先用手去够的擒抱者，等于已经把自己的肩膀让出去了。",
+    "zh-TW": "頭貼在對手臀側，肩頂大腿，接觸瞬間抱緊。先用手去夠的擒抱者，等於已經把自己的肩膀讓出去了。",
+    "ja-JP": "頬を相手の尻に付け、肩を太腿に入れ、当たった瞬間に絞る。先に腕から行くタックラーは、自分の肩をすでに捨てている。",
+    "ko-KR": "볼을 상대 엉덩이에 붙이고 어깨를 허벅지에 넣은 뒤 접촉 순간 조여라. 팔부터 뻗는 태클러는 이미 자기 어깨를 버린 것이다.",
+    "es-ES": "Mejilla contra cadera, hombro en el muslo y aprieta en el contacto. Quien llega con los brazos primero ya ha regalado su propio hombro.",
+    "fr-FR": "Joue contre hanche, épaule dans la cuisse, et serre à l'impact. Le plaqueur qui tend d'abord les bras a déjà abandonné son épaule.",
+    "id-ID": "Pipi menempel di pinggul lawan, bahu masuk ke paha, dan kunci saat kontak.",
+    "ms-MY": "Pipi rapat ke pinggul lawan, bahu masuk ke peha, dan kunci ketika kontak.",
+    "th-TH": "แก้มแนบสะโพกคู่ต่อสู้ ไหล่เข้าที่ต้นขา และรัดทันทีที่ปะทะ",
+    "vi-VN": "Má áp hông đối thủ, vai thúc vào đùi, và siết ngay khi tiếp xúc.",
+}
+HIGHBALL_NAME = {"en": "The high ball", "en-GB": "The high ball",
+                 "zh-CN": "高球争顶", "zh-TW": "高球爭頂", "ja-JP": "ハイボール",
+                 "ko-KR": "하이볼 경합", "es-ES": "El balón alto",
+                 "fr-FR": "Le ballon haut", "id-ID": "Bola tinggi",
+                 "ms-MY": "Bola tinggi", "th-TH": "ลูกโด่ง", "vi-VN": "Bóng bổng"}
+HIGHBALL_NOTE = {
+    "en": "Call it early, jump off one foot with the knee up, and catch it above the head rather than at the chest. The chest catch is the one the chaser knocks loose.",
+    "en-GB": "Call it early, jump off one foot with the knee up, and catch it above the head rather than at the chest. The chest catch is the one the chaser knocks loose.",
+    "zh-CN": "早喊，单脚起跳、抬起护膝，把球接在头顶上方而不是胸前。胸前接的那个球，就是被追防的人撞掉的那个。",
+    "zh-TW": "早喊，單腳起跳、抬起護膝，把球接在頭頂上方而不是胸前。胸前接的那個球，就是被追防的人撞掉的那個。",
+    "ja-JP": "早くコールし、片足で膝を上げて跳び、胸ではなく頭上で捕る。胸で捕った球はチェイサーに弾かれる。",
+    "ko-KR": "일찍 콜하고 한 발로 무릎을 올려 뛰어 가슴이 아니라 머리 위에서 잡아라. 가슴으로 잡은 공이 떨어지는 공이다.",
+    "es-ES": "Cántala pronto, salta con una pierna y la rodilla arriba, y atrápala por encima de la cabeza, no en el pecho.",
+    "fr-FR": "Annonce tôt, saute sur un pied genou levé, et capte au-dessus de la tête plutôt qu'à la poitrine.",
+    "id-ID": "Serukan lebih awal, lompat satu kaki dengan lutut terangkat, dan tangkap di atas kepala.",
+    "ms-MY": "Seru awal, lompat sebelah kaki dengan lutut terangkat, dan tangkap di atas kepala.",
+    "th-TH": "ขานเรียกแต่เนิ่น กระโดดขาเดียวยกเข่า และรับเหนือศีรษะไม่ใช่ที่อก",
+    "vi-VN": "Gọi sớm, bật một chân với đầu gối nâng lên, và bắt bóng trên đầu chứ không phải trước ngực.",
+}
+GOALKICK_NAME = {"en": "Place kicking", "en-GB": "Place kicking",
+                 "zh-CN": "定位球射门", "zh-TW": "定位球射門",
+                 "ja-JP": "プレースキック", "ko-KR": "플레이스 킥",
+                 "es-ES": "Patada a palos", "fr-FR": "Le coup de pied placé",
+                 "id-ID": "Tendangan penalti tiang", "ms-MY": "Sepakan tempat",
+                 "th-TH": "การเตะเข้าเสา", "vi-VN": "Đá cố định"}
+GOALKICK_NOTE = {
+    "en": "The routine is the skill: same steps back, same steps across, same time over the ball whether it is the first minute or the last kick of the match.",
+    "en-GB": "The routine is the skill: same steps back, same steps across, same time over the ball whether it is the first minute or the last kick of the match.",
+    "zh-CN": "流程本身就是技术：后退几步、横移几步、在球前停留多久，第一分钟和最后一脚都必须一模一样。",
+    "zh-TW": "流程本身就是技術：後退幾步、橫移幾步、在球前停留多久，第一分鐘和最後一腳都必須一模一樣。",
+    "ja-JP": "ルーティンこそが技術だ。下がる歩数、横に動く歩数、ボールの前で費やす時間——開始1分でも最後の一蹴りでも同じにする。",
+    "ko-KR": "루틴이 곧 기술이다. 뒤로 몇 걸음, 옆으로 몇 걸음, 공 앞에서 머무는 시간까지 언제나 똑같이.",
+    "es-ES": "La rutina es la técnica: los mismos pasos atrás, los mismos de lado, el mismo tiempo sobre el balón, sea el minuto uno o la última patada.",
+    "fr-FR": "La routine est la technique : mêmes pas en arrière, mêmes pas de côté, même temps au-dessus du ballon, à la première minute comme au dernier coup de pied.",
+    "id-ID": "Rutinitas itulah keterampilannya: langkah mundur yang sama, langkah samping yang sama, waktu yang sama di atas bola.",
+    "ms-MY": "Rutin itulah kemahirannya: langkah undur yang sama, langkah sisi yang sama.",
+    "th-TH": "รูทีนคือทักษะ ถอยหลังกี่ก้าว ก้าวข้างกี่ก้าว ใช้เวลาเหนือบอลเท่าไร ต้องเหมือนเดิมเสมอ",
+    "vi-VN": "Quy trình chính là kỹ thuật: cùng số bước lùi, cùng số bước ngang, cùng khoảng thời gian đứng trước bóng.",
+}
+EXIT_NAME = {"en": "Exit from your own 22", "en-GB": "Exit from your own 22",
+             "zh-CN": "本方 22 米区出球", "zh-TW": "本方 22 公尺區出球",
+             "ja-JP": "自陣22mからの脱出", "ko-KR": "자기 진영 22m 탈출",
+             "es-ES": "Salida desde tus 22", "fr-FR": "Sortie de ses 22 mètres",
+             "id-ID": "Keluar dari 22 m sendiri", "ms-MY": "Keluar dari 22 m sendiri",
+             "th-TH": "การออกจากแดน 22 เมตรของตัวเอง", "vi-VN": "Thoát khỏi vạch 22 của mình"}
+EXIT_NOTE = {
+    "en": "Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
+    "en-GB": "Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
+    "zh-CN": "打两个波次再踢，踢出界或踢到空当，绝不要正对着对方后三人踢。仓促出球，就是两分钟后丢的那个达阵。",
+    "zh-TW": "打兩個波次再踢，踢出界或踢到空檔，絕不要正對著對方後三人踢。倉促出球，就是兩分鐘後丟的那個達陣。",
+    "ja-JP": "2フェーズ回してから蹴る。蹴り先はタッチか空きスペースで、相手バックスリーの正面には絶対に蹴らない。急いだ脱出は2分後の失トライだ。",
+    "ko-KR": "두 페이즈를 돌린 뒤 차고, 차는 곳은 터치라인 밖이나 빈 공간이지 상대 백3의 정면이 아니다.",
+    "es-ES": "Dos fases y luego el patadón, y ese patadón va a touch o a hierba libre, nunca a la garganta de los tres de atrás.",
+    "fr-FR": "Deux temps de jeu puis le coup de pied, et ce coup de pied part en touche ou dans l'herbe, jamais dans les bras des trois arrières.",
+    "id-ID": "Dua fase lalu tendangan, dan tendangan itu ke luar lapangan atau ke ruang kosong.",
+    "ms-MY": "Dua fasa kemudian sepakan, dan sepakan itu ke luar padang atau ke ruang kosong.",
+    "th-TH": "เล่นสองเฟสแล้วค่อยเตะ และเตะออกข้างสนามหรือลงพื้นที่ว่าง",
+    "vi-VN": "Hai đợt tấn công rồi mới đá, và cú đá ra biên hoặc vào khoảng trống.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """No tackling in a thirty-three-drill contact sport.
+
+    'Tackle' appeared only inside a shared defence note. Also absent from
+    every name and note: the high ball and the back-three counter, place
+    kicking, and the exit from your own 22.
+    """
+    return [
+        Drill(
+            id="rg_defence_tackle", category="defending", minutes=12, rel=True,
+            level="foundation", free=True,
+            name=suffixed(TACKLE_NAME, "front on and from the side"),
+            note=TACKLE_NOTE,
+            home=[P(0.38, 0.56, "D", moves=[(0.40, 0.50, 0), (0.44, 0.455, 1)]),
+                  P(0.62, 0.56, "D", moves=[(0.60, 0.50, 0), (0.555, 0.455, 1)])],
+            away=[P(0.42, 0.40, "A", moves=[(0.44, 0.455, 1)]),
+                  P(0.58, 0.40, "A", moves=[(0.555, 0.455, 1)])],
+            markers=[M(0.30, 0.46), M(0.70, 0.46)],
+            ball=None,
+        ),
+        Drill(
+            id="rg_kick_high_ball", category="defending", minutes=12, rel=True,
+            name=suffixed(HIGHBALL_NAME, "the contest and the counter"),
+            note=HIGHBALL_NOTE,
+            home=[P(0.50, 0.66, "15", moves=[(0.46, 0.56, 1), (0.34, 0.46, 2)]),
+                  P(0.24, 0.62, "11", moves=[(0.28, 0.50, 2)]),
+                  P(0.76, 0.62, "14", moves=[(0.66, 0.50, 2)])],
+            away=[P(0.50, 0.36, "10", moves=[(0.50, 0.42, 0)]),
+                  P(0.40, 0.40, "C", moves=[(0.44, 0.52, 1)]),
+                  P(0.60, 0.40, "C", moves=[(0.56, 0.52, 1)])],
+            markers=[M(0.46, 0.56, "zone", "")],
+            ball=(0.50, 0.375),
+            ball_moves=[(0.46, 0.56, 1)],
+        ),
+        Drill(
+            id="rg_kick_at_goal", category="finishing", minutes=10, rel=True,
+            level="foundation",
+            name=suffixed(GOALKICK_NAME, "the routine"), note=GOALKICK_NOTE,
+            home=[P(0.42, 0.34, "10", moves=[(0.375, 0.365, 0), (0.405, 0.345, 1)])],
+            markers=[M(0.42, 0.32, "square", ""), M(0.50, TRY_LINE - 0.02, "zone", "")],
+            ball=(0.42, 0.325),
+            ball_moves=[(0.50, TRY_LINE - 0.02, 2)],
+        ),
+        Drill(
+            id="rg_kick_exit", category="possession", minutes=14, rel=True,
+            level="advanced",
+            name=suffixed(EXIT_NAME, "two phases and the kick"), note=EXIT_NOTE,
+            home=[P(0.34, 0.78, "9", moves=[(0.42, 0.755, 0), (0.50, 0.735, 1)]),
+                  P(0.50, 0.82, "1", moves=[(0.44, 0.775, 0)]),
+                  P(0.64, 0.80, "4", moves=[(0.58, 0.755, 1)]),
+                  P(0.78, 0.76, "10", moves=[(0.70, 0.725, 2)])],
+            away=[P(0.40, 0.68, "D", moves=[(0.42, 0.72, 1)]),
+                  P(0.60, 0.68, "D", moves=[(0.58, 0.72, 1)]),
+                  P(0.80, 0.50, "15", moves=[(0.86, 0.42, 2)])],
+            markers=[M(0.92, 0.44, "zone", "")],
+            ball=0,
+            ball_moves=[(0.92, 0.44, 2)],
+        ),
+    ]
+
+
 def rugby_library() -> list[Drill]:
     return (handling_family() + phase_family() + breakdown_family()
             + move_family() + kicking_family() + finishing_family()
             + defence_family() + setpiece_family() + maul_family()
-            + game_family())
+            + game_family() + gaps_family())
 
 MAUL_NAME = {
     "en": "Maul", "en-GB": "Maul", "zh-CN": "冒尔推进", "zh-TW": "冒爾推進",

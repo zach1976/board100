@@ -559,6 +559,8 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # rugby: the technique boards
+    "rg_handling_threes", "rg_kick_at_goal", "rg_move_switch",
     # basketball: the technique boards, and the shell every team teaches
     "bb_catch_and_shoot", "bb_layup_lines", "bb_closeout", "bb_box_out",
     "bb_shot_the_corner", "bb_shot_top",
@@ -595,6 +597,9 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # rugby: the structures and the set pieces that need a pack
+    "rg_phase_one_three_three_one", "rg_phase_two_four_two",
+    "rg_set_scrum", "rg_defence_blitz", "rg_game_8v8",
     # basketball: the five-man structures
     "bb_shell_4v4", "bb_zone_zone_offence", "bb_transition_5v4",
     "bb_inbounds_sideline", "bb_offball_stagger",
@@ -626,7 +631,6 @@ ADVANCED = {
     # handball
     "hb_defence_three_two_one", "hb_attack_empty_goal",
     # rugby
-    "rg_phase_one_three_three_one", "rg_set_lineout_seven", "rg_maul_defend",
     # field hockey
     "fh_corner_drag_flick", "fh_shot_tomahawk",
     # water polo

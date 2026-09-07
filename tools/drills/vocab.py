@@ -1283,3 +1283,8 @@ add('attacking the zone', '破联防', '破聯防', 'ゾーンアタック', '�
 add('the pin-down', '下顺掩护', '下順掩護', 'ピンダウン', '핀 다운', 'el bloqueo abajo', 'l écran descendant', 'pin down', 'pin down', 'พินดาวน์', 'màn chắn xuống')
 add('the stagger', '连续双掩护', '連續雙掩護', 'スタガードスクリーン', '스태거 스크린', 'el doble bloqueo escalonado', 'le double écran décalé', 'screen ganda bertingkat', 'skrin ganda berperingkat', 'สกรีนซ้อนสองชั้น', 'màn chắn đôi so le')
 add('the flex cut', '底线交叉切', '底線交叉切', 'フレックスカット', '플렉스 컷', 'el corte flex', 'la coupe flex', 'flex cut', 'flex cut', 'การตัดไขว้ริมเส้นหลัง', 'pha cắt chéo cuối sân')
+
+add('front on and from the side', '正面与侧面', '正面與側面', '正面と横から', '정면과 측면에서', 'de frente y de lado', 'de face et de côté', 'dari depan dan dari samping', 'dari hadapan dan dari sisi', 'จากด้านหน้าและด้านข้าง', 'trực diện và từ bên hông')
+add('the contest and the counter', '争顶与反击', '爭頂與反擊', '競り合いとカウンター', '경합과 역습', 'la disputa y el contraataque', 'la contestation et la relance', 'perebutan dan serangan balik', 'perebutan dan serangan balas', 'การแย่งบอลและการสวนกลับ', 'tranh chấp và phản công')
+add('the routine', '固定流程', '固定流程', 'ルーティン', '루틴', 'la rutina', 'la routine', 'rutinitas', 'rutin', 'รูทีน', 'quy trình cố định')
+add('two phases and the kick', '两波次后开踢', '兩波次後開踢', '2フェーズ後にキック', '두 페이즈 뒤 킥', 'dos fases y la patada', 'deux temps puis le coup de pied', 'dua fase lalu tendangan', 'dua fasa kemudian sepakan', 'สองเฟสแล้วเตะ', 'hai đợt rồi đá')
