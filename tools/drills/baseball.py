@@ -123,6 +123,8 @@ def double_play_family() -> list[Drill]:
     for key, label, starter, pivot in specs:
         out.append(Drill(
             id=f"bb_dp_{key}", category="possession", minutes=12, rel=True,
+# A runner stands on the bag the fielder is covering.
+tight=True,
             free=(key in ("six_four_three", "four_six_three")),
             name=suffixed(DP_NAME, label), note=DP_NOTE,
             home=defence(shifted={starter: (D[starter][0] + 0.03, D[starter][1] + 0.03),
@@ -220,6 +222,8 @@ def baserunning_family() -> list[Drill]:
         mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
         out.append(Drill(
             id=f"bb_run_{key}", category="attacking", minutes=10, rel=True,
+# A runner stands on the bag the fielder is covering.
+tight=True,
             free=(key in ("steal_read", "hit_and_run")),
             name=suffixed(RUN_NAME, label), note=RUN_NOTE,
             home=[P(*start, "R", moves=[(start[0] + (end[0] - start[0]) * 0.2,
@@ -270,6 +274,8 @@ def scoring_family() -> list[Drill]:
         start = THIRD if key != "from_second" else SECOND
         out.append(Drill(
             id=f"bb_score_{key}", category="finishing", minutes=10, rel=True,
+# A runner stands on the bag the fielder is covering.
+tight=True,
             free=(key == "contact_play"),
             name=suffixed(SCORE_NAME, label), note=SCORE_NOTE,
             home=[P(*start, "R", moves=[(start[0] + (0.5 - start[0]) * 0.4,
@@ -370,6 +376,8 @@ def pickoff_family() -> list[Drill]:
     for key, label, spot, cover in specs:
         out.append(Drill(
             id=f"bb_pick_{key}", category="setpiece", minutes=8, rel=True,
+# A runner stands on the bag the fielder is covering.
+tight=True,
             free=(key in ("first", "rundown")),
             name=suffixed(PICK_NAME, label), note=PICK_NOTE,
             home=defence(shifted={cover: spot}),

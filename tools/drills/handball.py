@@ -120,6 +120,8 @@ def circulation_family() -> list[Drill]:
             home.append(P(0.50, 0.52, "6", moves=[(0.44, 0.34, 2)]))
         out.append(Drill(
             id=f"hb_circulation_{key}", category="possession", minutes=12,
+# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
+tight=True,
             rel=True, free=(key == "with_pivot"),
             name=suffixed(CIRC_NAME, label), note=CIRC_NOTE,
             home=home,
@@ -177,6 +179,8 @@ def attack_family() -> list[Drill]:
             rest.append(P(0.50, 0.52, "7", moves=[(0.44, 0.36, 1)]))
         out.append(Drill(
             id=f"hb_attack_{key}", category="attacking", minutes=12, rel=True,
+# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
+tight=True,
             free=(key in ("cross_backs", "wing_break")),
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
             home=runners + rest,
@@ -279,6 +283,8 @@ def defence_family() -> list[Drill]:
         away.append(P(*GOAL, "GK", role="GK"))
         out.append(Drill(
             id=f"hb_defence_{key}", category="defending", minutes=12, rel=True,
+# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
+tight=True,
             free=(key in ("six_zero", "five_one")),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
             home=[P(*p, lbl, moves=[(p[0], p[1] - 0.04, 0)]) for p, lbl in
@@ -381,6 +387,8 @@ def setpiece_family() -> list[Drill]:
     for key, label, thrower, runner in routines:
         out.append(Drill(
             id=f"hb_set_{key}", category="setpiece", minutes=8, rel=True,
+# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
+tight=True,
             free=(key == "nine_metre"), off_surface=(key == "sideline"),
             name=suffixed(SET_NAME, label), note=SET_NOTE,
             home=[P(*thrower, "1", moves=[(thrower[0], thrower[1] - 0.03, 1)]),

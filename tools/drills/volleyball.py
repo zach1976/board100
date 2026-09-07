@@ -207,6 +207,8 @@ def block_family() -> list[Drill]:
                     for i in range(n)]
         out.append(Drill(
             id=f"vb_block_{key}", category="defending", minutes=10, rel=True,
+# Blockers press shoulder to shoulder — a gap between them is a seam.
+tight=True,
             free=(key == "double_outside"),
             name=suffixed(BLOCK_NAME, label), note=BLOCK_NOTE,
             home=blockers + [
