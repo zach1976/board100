@@ -133,7 +133,12 @@ tight=True,
                   P(*FIRST, "R", moves=[SECOND + (1,)])],
             markers=[M(*HOME, "square", ""), M(*FIRST, "square", ""),
                      M(*SECOND, "square", ""), M(*THIRD, "square", "")],
-            ball=0,
+            # The feed and the turn. Four double plays used to be conveyed
+            # by fielders drifting toward bags, with no ball in flight
+            # anywhere in the library.
+            ball=(D[starter][0] + 0.05, D[starter][1] + 0.05),
+            ball_moves=[(SECOND[0] + 0.02, SECOND[1] + 0.02, 1),
+                        (FIRST[0] + 0.02, FIRST[1] - 0.02, 2)],
         ))
     return out
 
@@ -166,20 +171,34 @@ CUT_NOTE = {
 
 
 def relay_family() -> list[Drill]:
-    specs = [("to_home", "to home", "LF", (0.30, 0.50), HOME),
-             ("to_third", "to third", "CF", (0.44, 0.44), THIRD),
-             ("gap_ball", "on the gap ball", "RF", (0.66, 0.48), SECOND)]
+    # Who goes out for the relay depends on which way the ball went: the
+    # shortstop on a ball to left, the second baseman on a ball to right,
+    # and the other one covers second. The gap ball had the shortstop
+    # crossing the whole diamond while the second baseman stood still.
+    specs = [("to_home", "to home", "LF", (0.30, 0.50), HOME, "SS", "2B"),
+             ("to_third", "to third", "CF", (0.44, 0.44), THIRD, "SS", "2B"),
+             ("gap_ball", "on the gap ball", "RF", (0.66, 0.48), THIRD, "2B", "SS")]
     out = []
-    for key, label, fielder, relay, target in specs:
+    for key, label, fielder, relay, target, relay_man, cover in specs:
+        chase = (D[fielder][0] - 0.06, D[fielder][1] - 0.08)
         out.append(Drill(
             id=f"bb_relay_{key}", category="possession", minutes=10, rel=True,
             free=(key == "to_home"),
             name=suffixed(CUT_NAME, label), note=CUT_NOTE,
-            home=defence(shifted={fielder: (D[fielder][0] - 0.06, D[fielder][1] - 0.08),
-                                  "SS": relay}),
-            away=[P(*SECOND, "R", moves=[THIRD + (1,), target + (2,)])],
-            markers=[M(*target, "zone", "")],
-            ball=0,
+            home=defence(shifted={fielder: chase, relay_man: relay,
+                                  cover: SECOND}),
+            away=[P(*SECOND, "R", moves=[
+                ((SECOND[0] + THIRD[0]) / 2 - 0.03, (SECOND[1] + THIRD[1]) / 2, 1),
+                THIRD + (2,)]
+                if target is not HOME else [
+                ((SECOND[0] + THIRD[0]) / 2 - 0.03, (SECOND[1] + THIRD[1]) / 2, 1),
+                THIRD + (2,), HOME + (3,)])],
+            markers=[M(*target, "zone", ""), M(*SECOND, "square", ""),
+                     M(*THIRD, "square", "")],
+            ball=(chase[0], chase[1] - 0.02),
+            # Outfielder to the relay man to the base: the throw the whole
+            # drill is about, and it was never on the board.
+            ball_moves=[relay + (1,), target + (2,)],
         ))
     return out
 
@@ -212,28 +231,73 @@ RUN_NOTE = {
 
 
 def baserunning_family() -> list[Drill]:
-    specs = [("steal_read", "reading the steal", FIRST, SECOND),
-             ("hit_and_run", "the hit and run", FIRST, SECOND),
-             ("tag_up", "tagging up", THIRD, HOME),
-             ("first_to_third", "first to third", FIRST, THIRD),
-             ("secondary_lead", "the secondary lead", SECOND, THIRD)]
+    """Five situations, each with the runner touching the bases he must.
+
+    They used to interpolate a straight line from start to end, so first-
+    to-third crossed the middle of the diamond without touching second and
+    scoring from second ran over the pitcher's mound without touching
+    third — both runners out for missing a base. The steal read and the
+    hit-and-run were also byte-identical boards, and the secondary lead
+    drew a steal of third.
+    """
+    # key, label, the runner's route (bases in order), what the rest does
+    specs = [
+        ("steal_read", "reading the steal", [FIRST, SECOND], "steal"),
+        ("hit_and_run", "the hit and run", [FIRST, SECOND], "hit_and_run"),
+        ("tag_up", "tagging up", [THIRD, HOME], "tag"),
+        ("first_to_third", "first to third", [FIRST, SECOND, THIRD], "read"),
+        ("secondary_lead", "the secondary lead", [SECOND], "lead"),
+    ]
     out = []
-    for key, label, start, end in specs:
-        mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
+    for key, label, route, kind in specs:
+        start = route[0]
+        moves, phase = [], 0
+        # The lead comes first in every one of them.
+        lead = (start[0] + (route[-1][0] - start[0]) * 0.14,
+                start[1] + (route[-1][1] - start[1]) * 0.14)
+        moves.append(lead + (phase,))
+        phase += 1
+        if kind == "lead":
+            # Two shuffles as the ball crosses the plate, then back — not a
+            # sprint to the next bag, which is a steal.
+            moves.append(((lead[0] + start[0]) / 2 - 0.03,
+                          (lead[1] + start[1]) / 2 + 0.02, phase))
+            moves.append(start + (phase + 1,))
+        else:
+            for base in route[1:]:
+                # Round the bag from the outside, then touch it.
+                prev = moves[-1][:2]
+                moves.append(((prev[0] + base[0]) / 2 + (base[0] - 0.5) * 0.06,
+                              (prev[1] + base[1]) / 2 + 0.02, phase))
+                moves.append(base + (phase + 1,))
+                phase += 2
+        batter = {
+            "steal": [(0.545, 0.90, 1)],
+            # The batter has to swing at whatever comes: that is the play.
+            "hit_and_run": [(0.545, 0.90, 0), (0.60, 0.86, 1)],
+            "tag": [(0.545, 0.90, 0)],
+            "read": [(0.60, 0.87, 0), (0.655, 0.755, 1)],
+            "lead": [(0.545, 0.90, 1)],
+        }[kind]
+        # On a hit-and-run the middle infielder breaks to cover, which is
+        # the hole the batter is hitting into.
+        shifted = {"2B": (0.62, 0.60)} if kind == "hit_and_run" else None
         out.append(Drill(
             id=f"bb_run_{key}", category="attacking", minutes=10, rel=True,
-# A runner stands on the bag the fielder is covering.
-tight=True,
+            # A runner stands on the bag the fielder is covering.
+            tight=True,
             free=(key in ("steal_read", "hit_and_run")),
             name=suffixed(RUN_NAME, label), note=RUN_NOTE,
-            home=[P(*start, "R", moves=[(start[0] + (end[0] - start[0]) * 0.2,
-                                         start[1] + (end[1] - start[1]) * 0.2, 0),
-                                        mid + (1,), end + (2,)]),
-                  P(*HOME, "B", moves=[(0.56, 0.88, 1)])],
-            away=defence(without=("LF", "CF", "RF")),
+            # The defence is the home side on every other board in the
+            # library; it used to flip to red for these five and the five
+            # scoring boards, so the nine fielders changed colour halfway
+            # through the sport.
+            home=defence(without=("LF", "CF", "RF"), shifted=shifted),
+            away=[P(*start, "R", moves=moves), P(*HOME, "B", moves=batter)],
             markers=[M(*HOME, "square", ""), M(*FIRST, "square", ""),
                      M(*SECOND, "square", ""), M(*THIRD, "square", "")],
-            ball=MOUND,                 # in the pitcher's hand
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(HOME[0], HOME[1] - 0.02, 1)],
         ))
     return out
 
@@ -317,11 +381,19 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("bunt", "against the bunt", {"1B": (0.60, 0.84), "3B": (0.40, 0.84)}),
+    # Sacrifice-bunt defence with a runner on first: the pitcher breaks off
+    # the mound, the corners charge, the second baseman covers first and
+    # the shortstop covers second. Nobody covered anything, under a note
+    # about two players covering the same base.
+    specs = [("bunt", "against the bunt",
+              {"1B": (0.60, 0.84), "3B": (0.40, 0.84),
+               "P": (0.50, 0.86), "2B": FIRST, "SS": SECOND}),
              ("first_and_third", "first and third", {"2B": SECOND, "SS": (0.46, 0.68)}),
              ("infield_in", "with the infield in", {"1B": (0.62, 0.78), "2B": (0.58, 0.72),
                                                     "SS": (0.42, 0.72), "3B": (0.38, 0.78)}),
-             ("pop_up", "the pop-up priority", {"SS": (0.46, 0.72), "CF": (0.50, 0.40)})]
+             # Priority means both go to the same ball and the outfielder
+             # calls the infielder off it; they used to drift 300 units apart.
+             ("pop_up", "the pop-up priority", {"SS": (0.48, 0.46), "CF": (0.50, 0.42)})]
     out = []
     for key, label, shifted in specs:
         out.append(Drill(
@@ -368,24 +440,40 @@ PICK_NOTE = {
 
 
 def pickoff_family() -> list[Drill]:
-    specs = [("first", "the pick-off at first", FIRST, "1B"),
-             ("second", "the pick-off at second", SECOND, "SS"),
-             ("rundown", "the rundown", (0.59, 0.65), "2B"),
-             ("pitchout", "the pitch-out", HOME, "C")]
+    # The rundown needs a fielder at each end with the runner trapped
+    # between them, and the pitch-out is for catching a runner stealing —
+    # so his runner leads off first, not stands on home plate.
+    specs = [("first", "the pick-off at first", FIRST, {"1B": FIRST}, FIRST, None),
+             ("second", "the pick-off at second", SECOND, {"SS": SECOND}, SECOND, None),
+             ("rundown", "the rundown", (0.59, 0.65),
+              {"1B": FIRST, "2B": SECOND}, FIRST, SECOND),
+             ("pitchout", "the pitch-out", FIRST,
+              {"2B": SECOND, "SS": (0.46, 0.60)}, FIRST, SECOND)]
     out = []
-    for key, label, spot, cover in specs:
+    for key, label, spot, shifted, from_base, to_base in specs:
+        if key == "rundown":
+            runner = P(*spot, "R", moves=[(0.635, 0.695, 1), (0.555, 0.615, 2)])
+            ball = (FIRST[0] + 0.02, FIRST[1] - 0.02)
+            ball_moves = [(SECOND[0] + 0.02, SECOND[1] + 0.02, 1),
+                          (FIRST[0] + 0.02, FIRST[1] - 0.02, 2)]
+        else:
+            runner = P(spot[0] - 0.05, spot[1] + 0.03, "R",
+                       moves=[(spot[0] - 0.02, spot[1] + 0.01, 1), spot + (2,)])
+            ball = (MOUND[0], MOUND[1] - 0.01) if key != "pitchout" \
+                else (HOME[0] + 0.03, HOME[1] - 0.02)
+            ball_moves = ([(spot[0] + 0.02, spot[1] - 0.02, 2)] if key != "pitchout"
+                          else [(SECOND[0] + 0.02, SECOND[1] + 0.02, 2)])
         out.append(Drill(
             id=f"bb_pick_{key}", category="setpiece", minutes=8, rel=True,
-# A runner stands on the bag the fielder is covering.
-tight=True,
+            # A runner stands on the bag the fielder is covering.
+            tight=True,
             free=(key in ("first", "rundown")),
             name=suffixed(PICK_NAME, label), note=PICK_NOTE,
-            home=defence(shifted={cover: spot}),
-            away=[P(spot[0] - 0.05, spot[1] + 0.03, "R",
-                    moves=[(spot[0] - 0.02, spot[1] + 0.01, 1), spot + (2,)])],
+            home=defence(shifted=shifted),
+            away=[runner],
             markers=[M(*FIRST, "square", ""), M(*SECOND, "square", ""),
                      M(*THIRD, "square", "")],
-            ball=0,
+            ball=ball, ball_moves=ball_moves,
         ))
     return out
 
@@ -440,7 +528,168 @@ def game_family() -> list[Drill]:
     return out
 
 
+HIT_NAME = {"en": "Hitting", "en-GB": "Hitting", "zh-CN": "打击",
+            "zh-TW": "打擊", "ja-JP": "打撃", "ko-KR": "타격",
+            "es-ES": "Bateo", "fr-FR": "Frappe", "id-ID": "Memukul",
+            "ms-MY": "Memukul", "th-TH": "การตี", "vi-VN": "Đánh bóng"}
+HIT_NOTE = {
+    "en": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+    "en-GB": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+    "zh-CN": "无论来球是什么，引拍和跨步都一样。因为球变了才改变起手动作的挥棒，已经晚了。",
+    "zh-TW": "無論來球是什麼，引拍和跨步都一樣。因為球變了才改變起手動作的揮棒，已經晚了。",
+    "ja-JP": "どんな球でも、テイクバックとステップは同じ。球種に合わせて始動を変えるスイングは、その時点で振り遅れている。",
+    "ko-KR": "어떤 공이 와도 로드와 스트라이드는 같다. 공에 따라 시작을 바꾸는 스윙은 이미 늦은 스윙이다.",
+    "es-ES": "La misma carga y el mismo paso, venga lo que venga. Un swing que cambia su inicio porque cambió la bola ya llega tarde.",
+    "fr-FR": "Même armé, même appui, quel que soit le lancer. Un swing qui modifie son départ parce que la balle a changé est déjà en retard.",
+    "id-ID": "Muatan dan langkah yang sama, apa pun lemparannya.",
+    "ms-MY": "Muatan dan langkah yang sama, apa pun balingannya.",
+    "th-TH": "โหลดเหมือนเดิม ก้าวเหมือนเดิม ไม่ว่าลูกจะมาแบบไหน",
+    "vi-VN": "Cùng một nhịp lấy đà, cùng một bước chân, dù bóng thế nào.",
+}
+CATCH_NAME = {"en": "Catching", "en-GB": "Catching", "zh-CN": "捕手训练",
+              "zh-TW": "捕手訓練", "ja-JP": "捕手練習", "ko-KR": "포수 훈련",
+              "es-ES": "Receptor", "fr-FR": "Receveur", "id-ID": "Latihan catcher",
+              "ms-MY": "Latihan penangkap", "th-TH": "ฝึกแคตเชอร์",
+              "vi-VN": "Tập bắt bóng"}
+CATCH_NOTE = {
+    "en": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+    "en-GB": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+    "zh-CN": "球到之前先把身体挡到球后面、下巴收下去。挡球是把球留在身前，不是把球接住。",
+    "zh-TW": "球到之前先把身體擋到球後面、下巴收下去。擋球是把球留在身前，不是把球接住。",
+    "ja-JP": "ボールが来る前に体を後ろに入れ、顎を引く。ブロッキングは前に落とすことで、捕ることではない。",
+    "ko-KR": "공이 오기 전에 몸을 뒤에 두고 턱을 당겨라. 블로킹은 앞에 떨어뜨리는 것이지 잡는 것이 아니다.",
+    "es-ES": "Pon el cuerpo detrás y la barbilla abajo antes de que llegue. Bloquear es dejarla delante de ti, no atraparla.",
+    "fr-FR": "Mets le corps derrière et le menton bas avant l'arrivée. Bloquer, c'est garder la balle devant soi, pas l'attraper.",
+    "id-ID": "Tempatkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+    "ms-MY": "Letakkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+    "th-TH": "เอาลำตัวไปอยู่หลังบอลและเก็บคางลงก่อนบอลมาถึง",
+    "vi-VN": "Đưa thân người ra sau bóng và cúi cằm trước khi bóng tới.",
+}
+FIELD_NAME = {"en": "Fielding fundamentals", "en-GB": "Fielding fundamentals",
+              "zh-CN": "守备基本功", "zh-TW": "守備基本功",
+              "ja-JP": "守備の基本", "ko-KR": "수비 기본기",
+              "es-ES": "Fundamentos de defensa", "fr-FR": "Bases de la défense",
+              "id-ID": "Dasar bertahan", "ms-MY": "Asas pertahanan",
+              "th-TH": "พื้นฐานการรับลูก", "vi-VN": "Kỹ thuật bắt bóng cơ bản"}
+FIELD_NOTE = {
+    "en": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+    "en-GB": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+    "zh-CN": "要穿过球去接，不是跑到球那儿停住。原地站定接的滚地球，会把一个常规出局变成一次你来不及的长传。",
+    "zh-TW": "要穿過球去接，不是跑到球那兒停住。原地站定接的滾地球，會把一個常規出局變成一次你來不及的長傳。",
+    "ja-JP": "ボールへ行くのではなく、ボールを通り抜ける。棒立ちで捕れば、平凡なゴロが間に合わない遠投になる。",
+    "ko-KR": "공으로 가는 게 아니라 공을 통과해 움직여라. 멈춰 서서 잡으면 평범한 땅볼이 시간 없는 긴 송구가 된다.",
+    "es-ES": "Atraviesa la bola, no vayas hacia ella. Fildear parado convierte un rodado de rutina en un tiro largo sin tiempo.",
+    "fr-FR": "Traverse la balle, ne va pas seulement jusqu'à elle. Cueillir à l'arrêt transforme un roulant facile en un long lancer sans temps.",
+    "id-ID": "Bergeraklah menembus bola, bukan sekadar menuju bola.",
+    "ms-MY": "Bergerak menembusi bola, bukan sekadar menuju bola.",
+    "th-TH": "เคลื่อนผ่านบอล ไม่ใช่แค่วิ่งไปหาบอล",
+    "vi-VN": "Di chuyển xuyên qua bóng, không phải chỉ chạy tới bóng.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """Half a baseball library was missing.
+
+    Twenty-nine drills and not one on hitting, bunt technique, catching,
+    pitching or fielding fundamentals — all verified absent from every
+    name and note. These are the boards a coach starts a session with.
+    """
+    plate = (HOME[0] + 0.03, HOME[1] - 0.03)
+    return [
+        Drill(
+            id="bb_hit_tee_and_toss", category="warmup", minutes=12, rel=True,
+            level="foundation", free=True,
+            name=suffixed(HIT_NAME, "off the tee and the front toss"),
+            note=HIT_NOTE,
+            home=[P(*plate, "B", moves=[(plate[0] + 0.04, plate[1] - 0.02, 1)]),
+                  P(0.36, 0.86, "F", moves=[(0.40, 0.855, 0)])],
+            markers=[M(*HOME, "square", ""), M(0.62, 0.62, "zone", "")],
+            ball=(0.40, 0.855), ball_moves=[(plate[0] + 0.02, plate[1] - 0.01, 1),
+                                            (0.62, 0.62, 2)],
+        ),
+        Drill(
+            id="bb_hit_two_strike", category="attacking", minutes=12, rel=True,
+            name=suffixed(HIT_NAME, "the two-strike approach"), note=HIT_NOTE,
+            home=defence(without=("LF", "RF")),
+            away=[P(*plate, "B", moves=[(plate[0] + 0.04, plate[1] - 0.02, 1)])],
+            markers=[M(*HOME, "square", ""), M(0.70, 0.56, "zone", ""),
+                     M(0.30, 0.56, "zone", "")],
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(plate[0], plate[1] - 0.02, 0), (0.70, 0.56, 2)],
+        ),
+        Drill(
+            id="bb_hit_bunt_technique", category="attacking", minutes=10, rel=True,
+            level="foundation",
+            name=suffixed(HIT_NAME, "laying down the bunt"), note=HIT_NOTE,
+            home=defence(without=("LF", "CF", "RF"),
+                         shifted={"1B": (0.60, 0.84), "3B": (0.40, 0.84)}),
+            away=[P(*plate, "B", moves=[(plate[0] - 0.02, plate[1] - 0.02, 1),
+                                        FIRST + (2,)])],
+            markers=[M(*HOME, "square", ""), M(0.38, 0.86, "zone", ""),
+                     M(0.62, 0.86, "zone", "")],
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(plate[0], plate[1] - 0.02, 0), (0.38, 0.86, 1)],
+        ),
+        Drill(
+            id="bb_catch_blocking", category="defending", minutes=10, rel=True,
+            level="foundation", free=True,
+            name=suffixed(CATCH_NAME, "blocking the ball in the dirt"),
+            note=CATCH_NOTE,
+            home=[P(*D["C"], "C", moves=[(D["C"][0] - 0.03, D["C"][1] - 0.03, 1)]),
+                  P(*MOUND, "P", role="GK", moves=[(0.50, 0.82, 0)])],
+            markers=[M(*HOME, "square", "")],
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(0.47, 0.93, 1)],
+        ),
+        Drill(
+            id="bb_catch_throw_down", category="defending", minutes=10, rel=True,
+            name=suffixed(CATCH_NAME, "the throw down to second"), note=CATCH_NOTE,
+            home=defence(without=("LF", "CF", "RF"), shifted={"SS": SECOND}),
+            away=[P(FIRST[0] - 0.05, FIRST[1] + 0.02, "R",
+                    moves=[(0.62, 0.68, 1), SECOND + (2,)])],
+            markers=[M(*FIRST, "square", ""), M(*SECOND, "square", "")],
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(HOME[0] + 0.02, HOME[1] - 0.02, 0),
+                        (SECOND[0] + 0.02, SECOND[1] + 0.02, 2)],
+        ),
+        Drill(
+            id="bb_field_ground_ball", category="defending", minutes=12, rel=True,
+            level="foundation",
+            name=suffixed(FIELD_NAME, "the ground ball and the backhand"),
+            note=FIELD_NOTE,
+            home=[P(*D["SS"], "SS", moves=[(0.36, 0.665, 0), (0.44, 0.70, 1)]),
+                  P(*FIRST, "1B"), P(*plate, "F")],
+            markers=[M(*FIRST, "square", ""), M(*HOME, "square", "")],
+            ball=(plate[0], plate[1] - 0.02),
+            ball_moves=[(0.36, 0.665, 0), (FIRST[0] + 0.02, FIRST[1] - 0.02, 2)],
+        ),
+        Drill(
+            id="bb_field_fly_ball", category="defending", minutes=12, rel=True,
+            name=suffixed(FIELD_NAME, "the drop step and the fly ball"),
+            note=FIELD_NOTE,
+            home=[P(*D["CF"], "CF", moves=[(0.56, 0.20, 0), (0.54, 0.26, 1)]),
+                  P(*D["2B"], "2B", moves=[(0.54, 0.50, 1)]),
+                  P(*plate, "F")],
+            markers=[M(*SECOND, "square", "")],
+            ball=(plate[0], plate[1] - 0.02),
+            ball_moves=[(0.56, 0.20, 0), (SECOND[0] + 0.02, SECOND[1] + 0.02, 2)],
+        ),
+        Drill(
+            id="bb_pitch_bullpen", category="setpiece", minutes=12, rel=True,
+            level="foundation",
+            name=suffixed(FIELD_NAME, "the bullpen and the sequence"),
+            note=FIELD_NOTE,
+            home=[P(*MOUND, "P", role="GK", moves=[(0.50, 0.83, 0)]),
+                  P(*D["C"], "C", moves=[(0.53, 0.955, 1)])],
+            markers=[M(*HOME, "square", ""), M(0.545, 0.935, "zone", ""),
+                     M(0.455, 0.935, "zone", "")],
+            ball=(MOUND[0], MOUND[1] - 0.01),
+            ball_moves=[(0.545, 0.935, 1)],
+        ),
+    ]
+
+
 def baseball_library() -> list[Drill]:
     return (warmup_family() + double_play_family() + relay_family()
             + baserunning_family() + scoring_family() + defence_family()
-            + pickoff_family() + game_family())
+            + pickoff_family() + game_family() + gaps_family())

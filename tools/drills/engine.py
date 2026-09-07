@@ -122,6 +122,11 @@ class Drill:
     # session on it — warm-up through small-sided game — because a starter
     # library that can't start anything is an advert, not a starter library.
     free: bool = False
+    # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
+    # its holder, which is right for a dribble and useless for a throw:
+    # baseball drew four double plays and two relays without a single ball
+    # in flight, because the ball could not move on its own.
+    ball_moves: list = field(default_factory=list)
     # Some formations really are shoulder to shoulder — a free-kick wall, a
     # scrum, a screen. Those may sit closer than one icon apart, but never
     # closer than the labels can be told apart. Everything else must not
@@ -179,7 +184,8 @@ def _marker(idx, m: M) -> dict:
     }
 
 
-def _ball(idx, sport: str, x: float, y: float, attached_to: str | None) -> dict:
+def _ball(idx, sport: str, x: float, y: float, attached_to: str | None,
+          moves: list | None = None) -> dict:
     return {
         "id": f"b{idx}",
         "label": "",
@@ -187,15 +193,16 @@ def _ball(idx, sport: str, x: float, y: float, attached_to: str | None) -> dict:
         "sportType": SPORT_INDEX[sport],   # a ball is neutral WITH a sport
         "position": [x, y],
         "scale": 1.0,
-        "moves": [],
-        "movePhases": [],
+        "moves": [[m[0], m[1]] for m in (moves or [])],
+        "movePhases": [m[2] for m in (moves or [])],
         "moveColor": MOVE_COLORS[0],
         "customColor": None,
         "gender": 2,
         "markerShape": MARKER["none"],
         "photoId": None,
         "role": None,
-        "attachedTo": attached_to,
+        # A thrown ball is not carried: it leaves the hand.
+        "attachedTo": None if moves else attached_to,
     }
 
 
@@ -247,6 +254,7 @@ def to_canvas(drill: Drill, sport: str) -> None:
         m.x, m.y = fx(m.x), fy(m.y)
     if isinstance(drill.ball, tuple):
         drill.ball = (fx(drill.ball[0]), fy(drill.ball[1]))
+    drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
     drill.rel = False
 
 
@@ -356,9 +364,11 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"the ball is given as an (x, y) instead")
             holder = drill.home[drill.ball]
             bx, by = at_the_feet_of(holder.x, holder.y, sport)
-            players.append(_ball(0, sport, bx, by, home_ids[drill.ball]))
+            players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
+                                 drill.ball_moves))
         else:
-            players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None))
+            players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
+                                 drill.ball_moves))
 
     return {
         "sportType": SPORT_INDEX[sport],
@@ -545,6 +555,8 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # baseball: the technique boards a session starts with
+    "bb_run_tag_up", "bb_pick_first", "bb_warm_long_toss",
     # volleyball: technique and the receive patterns a beginner starts on
     "vb_receive_r1", "vb_set_front", "vb_serve_float_deep", "vb_block_solo",
     # water polo: technique and the two-player boards
@@ -576,6 +588,9 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # baseball: the plays that need nine people agreeing beforehand
+    "bb_dp_four_six_three", "bb_defence_first_and_third", "bb_pick_rundown",
+    "bb_relay_gap_ball", "bb_score_squeeze",
     # volleyball: the systems and tempos that need a full six organised
     "vb_defense_rotation", "vb_attack_pipe", "vb_block_triple",
     "vb_game_6v6", "vb_setter_z5",
@@ -607,7 +622,6 @@ ADVANCED = {
     # water polo
     "wp_manup_umbrella", "wp_defence_five_on_six",
     # baseball
-    "bb_dp_one_six_three", "bb_score_squeeze", "bb_defence_first_and_third",
     # pickleball
     "pb_speedup_ernie", "pb_putaway_atp",
     # sepak takraw — the acrobatic spikes ARE the advanced tier
