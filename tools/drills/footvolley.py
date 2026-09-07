@@ -53,8 +53,14 @@ def warmup_family() -> list[Drill]:
             id=f"fv_warm_{key.replace(' ', '_')}", category="warmup", minutes=8,
             rel=True, free=True,
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
-            home=[P(0.34, 0.76, "1", moves=[(0.38, 0.70, 0)]),
-                  P(0.66, 0.76, "2", moves=[(0.62, 0.70, 0)])],
+            # Four legal surfaces, four stations — it used to be the same
+            # two dots as the pairs juggling.
+            home=([P(0.24, 0.80, "1", moves=[(0.32, 0.72, 0)]),
+                   P(0.50, 0.70, "2", moves=[(0.50, 0.64, 1)]),
+                   P(0.76, 0.80, "3", moves=[(0.68, 0.72, 2)])]
+                  if key == "on every surface" else
+                  [P(0.34, 0.76, "1", moves=[(0.38, 0.70, 0)]),
+                   P(0.66, 0.76, "2", moves=[(0.62, 0.70, 0)])]),
             ball=0,
         ))
     return out
@@ -177,22 +183,33 @@ ATTACK_NOTE = {
 
 
 def attack_family() -> list[Drill]:
-    specs = [("the shark attack", "the shark attack", (0.28, 0.30)),
-             ("the sombrero", "the sombrero", (0.68, 0.40)),
-             ("cross-court", "cross-court", (0.74, 0.24))]
+    # A shark attack is smashed at the tape and a sombrero is lobbed softly
+    # over a committed blocker: the same picture with the cone moved could
+    # not tell them apart. The attacker's height relative to the net and
+    # what the blocker does now differ on each board.
+    # (key, label, target, where the attacker strikes from, blocker's move)
+    specs = [("the shark attack", "the shark attack", (0.28, 0.30),
+              (0.52, 0.525), (0.50, 0.475)),
+             ("the sombrero", "the sombrero", (0.50, 0.30),
+              (0.50, 0.575), (0.50, 0.455)),
+             ("cross-court", "cross-court", (0.74, 0.24),
+              (0.40, 0.545), (0.44, 0.465))]
     out = []
-    for key, label, land in specs:
+    for key, label, land, strike, block_to in specs:
         out.append(Drill(
             id=f"fv_attack_{key.replace(' ', '_').replace('-', '_')}",
             category="attacking", minutes=12, rel=True,
             free=(key == "the shark attack"),
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
             home=[P(*LEFT, "1", moves=[SET_POINT + (0,)]),
-                  P(*RIGHT, "2", moves=[(0.56, 0.62, 0), (0.50, 0.54, 1)])],
-            away=[P(0.50, 0.46, "B", moves=[(0.52, 0.455, 1)]),
+                  P(*RIGHT, "2", moves=[(strike[0] + 0.06, strike[1] + 0.08, 0),
+                                        strike + (1,)])],
+            away=[P(0.50, 0.46, "B", moves=[block_to + (1,)]),
                   P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 2)])],
             markers=[M(*land, "zone", "")],
             ball=0,
+            ball_moves=[SET_POINT + (0,), (strike[0], strike[1] - 0.01, 1),
+                        land + (2,)],
         ))
     return out
 
@@ -373,12 +390,14 @@ def receive_family() -> list[Drill]:
     for key, label, x in specs:
         out.append(Drill(
             id=f"fv_receive_{key}", category="possession", minutes=10, rel=True,
-            free=(key == "chest"),
+            off_surface=True, free=(key == "chest"),
             name=suffixed(RECEIVE_NAME, label), note=RECEIVE_NOTE,
             home=[P(x, 0.74, "1", moves=[(x, 0.70, 0), (SET_POINT[0] + 0.10,
                                           SET_POINT[1] + 0.10, 1)]),
                   P(1 - x, 0.70, "2", moves=[SET_POINT + (1,)])],
-            away=[P(0.50, 0.04, "S", moves=[(0.50, 0.12, 0)])],
+            # Behind the baseline, which is where the serve family already
+            # puts him — these two boards drew a foot fault.
+            away=[P(0.50, -0.025, "S", moves=[(0.50, 0.10, 0)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=(0.50, 0.04),
         ))
@@ -462,11 +481,13 @@ BLOCKTIME_NOTE = {
 def block_timing() -> list[Drill]:
     return [Drill(
         id="fv_block_timing", category="defending", minutes=10, rel=True,
-        name=suffixed(BLOCKTIME_NAME, "1v1 at the net"), note=BLOCKTIME_NOTE,
-        home=[P(0.44, 0.56, "B", moves=[(0.44, 0.53, 1)]),
-              P(0.70, 0.80, "D", moves=[(0.60, 0.72, 1)])],
+        # It was named 1v1 and drawn 2v2. Blocker against attacker, with
+        # the feeder off the board's own side where a feeder stands.
+        name=suffixed(BLOCKTIME_NAME, "one against one at the net"),
+        note=BLOCKTIME_NOTE,
+        home=[P(0.44, 0.56, "B", moves=[(0.44, 0.53, 1)])],
         away=[P(0.44, 0.34, "A", moves=[(0.44, 0.44, 1)]),
-              P(0.64, 0.28, "F", moves=[(0.54, 0.36, 0)])],
+              P(0.68, 0.24, "F", moves=[(0.58, 0.30, 0)])],
         ball=(0.64, 0.28),
     )]
 

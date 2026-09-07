@@ -170,7 +170,7 @@
       },
       "category": "warmup",
       "minutes": 8,
-      "players": 2,
+      "players": 3,
       "free": true,
       "offSurface": false,
       "name": {
@@ -224,14 +224,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
-              1081.5
+              334.25,
+              1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                423.5,
-                1005.0
+                385.25,
+                1030.5
               ]
             ],
             "movePhases": [
@@ -251,20 +251,47 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
-              1081.5
+              500.0,
+              1005.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
-                1005.0
+                500.0,
+                928.5
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              665.75,
+              1132.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.75,
+                1030.5
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -278,8 +305,8 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              438.0,
-              1151.5
+              374.25,
+              1202.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -885,7 +912,7 @@
     },
     {
       "id": "fv_receive_chest",
-      "level": "development",
+      "level": "foundation",
       "family": "footvolley_family_6",
       "familyName": {
         "en": "Receiving",
@@ -905,7 +932,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
-      "offSurface": false,
+      "offSurface": true,
       "name": {
         "en": "Receiving with the chest",
         "en-GB": "Receiving with the chest",
@@ -1017,13 +1044,13 @@
             "sportType": null,
             "position": [
               500.0,
-              163.5
+              80.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                265.5
+                240.0
               ]
             ],
             "movePhases": [
@@ -1105,7 +1132,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
-      "offSurface": false,
+      "offSurface": true,
       "name": {
         "en": "Receiving with the thigh",
         "en-GB": "Receiving with the thigh",
@@ -1217,13 +1244,13 @@
             "sportType": null,
             "position": [
               500.0,
-              163.5
+              80.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                265.5
+                240.0
               ]
             ],
             "movePhases": [
@@ -1969,12 +1996,12 @@
             "scale": 1.0,
             "moves": [
               [
-                538.25,
-                903.0
+                551.0,
+                883.875
               ],
               [
-                500.0,
-                801.0
+                512.75,
+                781.875
               ]
             ],
             "movePhases": [
@@ -2001,8 +2028,8 @@
             "scale": 1.0,
             "moves": [
               [
-                512.75,
-                692.625
+                500.0,
+                718.125
               ]
             ],
             "movePhases": [
@@ -2073,15 +2100,32 @@
               1126.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                461.75,
+                877.5
+              ],
+              [
+                512.75,
+                769.125
+              ],
+              [
+                359.75,
+                495.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2197,11 +2241,11 @@
             "moves": [
               [
                 538.25,
-                903.0
+                947.6249999999999
               ],
               [
                 500.0,
-                801.0
+                845.625
               ]
             ],
             "movePhases": [
@@ -2226,15 +2270,8 @@
               699.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                512.75,
-                692.625
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
@@ -2249,14 +2286,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              614.75,
-              546.0
+              500.0,
+              418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
-                622.5
+                500.0,
+                495.0
               ]
             ],
             "movePhases": [
@@ -2276,8 +2313,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              614.75,
-              622.5
+              500.0,
+              495.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -2300,15 +2337,32 @@
               1126.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                461.75,
+                877.5
+              ],
+              [
+                500.0,
+                832.8749999999999
+              ],
+              [
+                500.0,
+                495.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2423,12 +2477,12 @@
             "scale": 1.0,
             "moves": [
               [
-                538.25,
-                903.0
+                474.5,
+                909.375
               ],
               [
-                500.0,
-                801.0
+                436.25,
+                807.375
               ]
             ],
             "movePhases": [
@@ -2455,8 +2509,8 @@
             "scale": 1.0,
             "moves": [
               [
-                512.75,
-                692.625
+                461.75,
+                705.375
               ]
             ],
             "movePhases": [
@@ -2527,15 +2581,32 @@
               1126.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                461.75,
+                877.5
+              ],
+              [
+                436.25,
+                794.625
+              ],
+              [
+                653.0,
+                418.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4477,27 +4548,27 @@
     },
     {
       "id": "fv_block_timing",
-      "level": "development",
+      "level": "advanced",
       "family": null,
       "familyName": null,
       "category": "defending",
       "minutes": 10,
-      "players": 4,
+      "players": 3,
       "free": false,
       "offSurface": false,
       "name": {
-        "en": "Block timing 1v1 at the net",
-        "en-GB": "Block timing 1v1 at the net",
-        "zh-CN": "拦网时机 网前 1v1",
-        "zh-TW": "攔網時機 網前 1v1",
+        "en": "Block timing one against one at the net",
+        "en-GB": "Block timing one against one at the net",
+        "zh-CN": "拦网时机 网前一对一",
+        "zh-TW": "攔網時機 網前一對一",
         "ja-JP": "ブロックのタイミング ネット際の1対1",
-        "ko-KR": "블로킹 타이밍 네트 1대1",
-        "es-ES": "Tiempo de bloqueo 1c1 en la red",
-        "fr-FR": "Timing du contre 1c1 au filet",
-        "id-ID": "Waktu blok 1v1 di net",
-        "ms-MY": "Masa sekatan 1v1 di jaring",
-        "th-TH": "จังหวะบล็อก 1v1 หน้าเน็ต",
-        "vi-VN": "Thời điểm chắn 1v1 trên lưới"
+        "ko-KR": "블로킹 타이밍 네트 앞 1대1",
+        "es-ES": "Tiempo de bloqueo uno contra uno en la red",
+        "fr-FR": "Timing du contre un contre un au filet",
+        "id-ID": "Waktu blok satu lawan satu di depan net",
+        "ms-MY": "Masa sekatan satu lawan satu di depan jaring",
+        "th-TH": "จังหวะบล็อก ตัวต่อตัวหน้าตาข่าย",
+        "vi-VN": "Thời điểm chắn một đối một trước lưới"
       },
       "note": {
         "en": "Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.",
@@ -4559,33 +4630,6 @@
           },
           {
             "id": "d1",
-            "label": "D",
-            "team": 0,
-            "sportType": null,
-            "position": [
-              627.5,
-              1132.5
-            ],
-            "scale": 1.0,
-            "moves": [
-              [
-                563.75,
-                1030.5
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
-            "moveColor": 4294929773,
-            "customColor": null,
-            "gender": 2,
-            "markerShape": 0,
-            "photoId": null,
-            "role": null,
-            "attachedTo": null
-          },
-          {
-            "id": "d2",
             "label": "A",
             "team": 1,
             "sportType": null,
@@ -4603,7 +4647,7 @@
             "movePhases": [
               1
             ],
-            "moveColor": 4285132974,
+            "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -4612,25 +4656,25 @@
             "attachedTo": null
           },
           {
-            "id": "d3",
+            "id": "d2",
             "label": "F",
             "team": 1,
             "sportType": null,
             "position": [
-              589.25,
-              469.50000000000006
+              614.75,
+              418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                525.5,
-                571.5
+                551.0,
+                495.0
               ]
             ],
             "movePhases": [
               0
             ],
-            "moveColor": 4294956864,
+            "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,

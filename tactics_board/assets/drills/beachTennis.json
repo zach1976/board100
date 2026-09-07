@@ -320,7 +320,7 @@
     },
     {
       "id": "bt_rally_straight",
-      "level": "development",
+      "level": "foundation",
       "family": "beachTennis_family_9",
       "familyName": {
         "en": "Volley rally",
@@ -1092,18 +1092,18 @@
         "vi-VN": "Giao bóng đôi công phẳng"
       },
       "note": {
-        "en": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "en-GB": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "zh-CN": "发低球、打脚下。没有第二跳能救他们，所以低于网带的球本身就是个麻烦。",
-        "zh-TW": "發低球、打腳下。沒有第二跳能救他們，所以低於網帶的球本身就是個麻煩。",
-        "ja-JP": "低く、足元へ。救ってくれる2バウンド目はない。ネットの白帯より低い球はそれだけで難題だ。",
-        "ko-KR": "낮게, 발밑으로 서브하라. 구해줄 두 번째 바운드는 없다.",
-        "es-ES": "Saca bajo y a los pies: no hay segundo bote que los salve, una bola por debajo de la cinta ya es un problema.",
-        "fr-FR": "Sers bas, dans les pieds : aucun second rebond ne les sauvera, une balle sous la bande est déjà un problème.",
-        "id-ID": "Servis rendah ke arah kaki mereka.",
-        "ms-MY": "Servis rendah ke arah kaki mereka.",
-        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า ไม่มีการกระดอนครั้งที่สองมาช่วยเขา",
-        "vi-VN": "Giao thấp và vào chân họ."
+        "en": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1161,7 +1161,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -1312,18 +1312,18 @@
         "vi-VN": "Giao bóng cắt bóng"
       },
       "note": {
-        "en": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "en-GB": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "zh-CN": "发低球、打脚下。没有第二跳能救他们，所以低于网带的球本身就是个麻烦。",
-        "zh-TW": "發低球、打腳下。沒有第二跳能救他們，所以低於網帶的球本身就是個麻煩。",
-        "ja-JP": "低く、足元へ。救ってくれる2バウンド目はない。ネットの白帯より低い球はそれだけで難題だ。",
-        "ko-KR": "낮게, 발밑으로 서브하라. 구해줄 두 번째 바운드는 없다.",
-        "es-ES": "Saca bajo y a los pies: no hay segundo bote que los salve, una bola por debajo de la cinta ya es un problema.",
-        "fr-FR": "Sers bas, dans les pieds : aucun second rebond ne les sauvera, une balle sous la bande est déjà un problème.",
-        "id-ID": "Servis rendah ke arah kaki mereka.",
-        "ms-MY": "Servis rendah ke arah kaki mereka.",
-        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า ไม่มีการกระดอนครั้งที่สองมาช่วยเขา",
-        "vi-VN": "Giao thấp và vào chân họ."
+        "en": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1381,7 +1381,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -1532,18 +1532,18 @@
         "vi-VN": "Giao bóng nhảy phát bóng"
       },
       "note": {
-        "en": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "en-GB": "Serve low and at their feet. There is no second bounce to save them, so a ball below the net tape is already a problem.",
-        "zh-CN": "发低球、打脚下。没有第二跳能救他们，所以低于网带的球本身就是个麻烦。",
-        "zh-TW": "發低球、打腳下。沒有第二跳能救他們，所以低於網帶的球本身就是個麻煩。",
-        "ja-JP": "低く、足元へ。救ってくれる2バウンド目はない。ネットの白帯より低い球はそれだけで難題だ。",
-        "ko-KR": "낮게, 발밑으로 서브하라. 구해줄 두 번째 바운드는 없다.",
-        "es-ES": "Saca bajo y a los pies: no hay segundo bote que los salve, una bola por debajo de la cinta ya es un problema.",
-        "fr-FR": "Sers bas, dans les pieds : aucun second rebond ne les sauvera, une balle sous la bande est déjà un problème.",
-        "id-ID": "Servis rendah ke arah kaki mereka.",
-        "ms-MY": "Servis rendah ke arah kaki mereka.",
-        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า ไม่มีการกระดอนครั้งที่สองมาช่วยเขา",
-        "vi-VN": "Giao thấp và vào chân họ."
+        "en": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1601,7 +1601,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -1789,7 +1789,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -1816,7 +1816,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -1910,7 +1910,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -2004,7 +2004,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -2031,7 +2031,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -2125,7 +2125,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -2219,7 +2219,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -2246,7 +2246,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -2340,7 +2340,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -2851,7 +2851,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -2878,7 +2878,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -2965,7 +2965,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -3059,7 +3059,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -3086,7 +3086,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -3173,7 +3173,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -3267,7 +3267,7 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
@@ -3294,7 +3294,7 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -3381,7 +3381,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -3475,17 +3475,22 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.75,
-                1081.5
+                398.0,
+                979.5000000000001
+              ],
+              [
+                423.5,
+                903.0
               ]
             ],
             "movePhases": [
-              1
+              0,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3502,17 +3507,17 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
-                1005.0
+                602.0,
+                928.5
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -3599,8 +3604,20 @@
               495.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                398.0,
+                979.5000000000001
+              ],
+              [
+                410.75,
+                699.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3690,17 +3707,22 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
-                597.0
+                398.0,
+                979.5000000000001
+              ],
+              [
+                423.5,
+                903.0
               ]
             ],
             "movePhases": [
-              1
+              0,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3717,17 +3739,17 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
-                1005.0
+                602.0,
+                928.5
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -3814,8 +3836,20 @@
               495.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                398.0,
+                979.5000000000001
+              ],
+              [
+                461.75,
+                214.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3905,17 +3939,22 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
-                1056.0
+                398.0,
+                979.5000000000001
+              ],
+              [
+                423.5,
+                903.0
               ]
             ],
             "movePhases": [
-              1
+              0,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3932,17 +3971,17 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
-                1005.0
+                602.0,
+                928.5
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -4029,8 +4068,20 @@
               495.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                398.0,
+                979.5000000000001
+              ],
+              [
+                576.5,
+                673.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4242,7 +4293,7 @@
     },
     {
       "id": "bt_cover_switching",
-      "level": "development",
+      "level": "advanced",
       "family": "beachTennis_family_7",
       "familyName": {
         "en": "Court coverage",
@@ -4698,13 +4749,13 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
                 359.75,
-                992.2499999999999
+                896.625
               ]
             ],
             "movePhases": [
@@ -4725,13 +4776,13 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.25,
-                992.2499999999999
+                896.625
               ]
             ],
             "movePhases": [
@@ -4752,13 +4803,13 @@
             "sportType": null,
             "position": [
               359.75,
-              444.0
+              539.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 359.75,
-                507.75
+                603.375
               ]
             ],
             "movePhases": [
@@ -4779,13 +4830,13 @@
             "sportType": null,
             "position": [
               640.25,
-              444.0
+              539.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.25,
-                507.75
+                603.375
               ]
             ],
             "movePhases": [
@@ -4806,7 +4857,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],
@@ -4900,13 +4951,13 @@
             "sportType": null,
             "position": [
               359.75,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
                 359.75,
-                992.2499999999999
+                896.625
               ]
             ],
             "movePhases": [
@@ -4927,13 +4978,13 @@
             "sportType": null,
             "position": [
               640.25,
-              1056.0
+              960.375
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.25,
-                992.2499999999999
+                896.625
               ]
             ],
             "movePhases": [
@@ -4954,13 +5005,13 @@
             "sportType": null,
             "position": [
               359.75,
-              444.0
+              539.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 359.75,
-                507.75
+                603.375
               ]
             ],
             "movePhases": [
@@ -4981,13 +5032,13 @@
             "sportType": null,
             "position": [
               640.25,
-              444.0
+              539.625
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.25,
-                507.75
+                603.375
               ]
             ],
             "movePhases": [
@@ -5008,7 +5059,7 @@
             "sportType": 13,
             "position": [
               399.75,
-              1126.0
+              1030.375
             ],
             "scale": 1.0,
             "moves": [],

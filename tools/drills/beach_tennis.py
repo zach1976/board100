@@ -7,7 +7,10 @@ y=0.5, and the two players cover the width between them.
 from .engine import Drill, M, P, suffixed
 
 BASE = (0.50, 0.90)
-LEFT, RIGHT = (0.28, 0.74), (0.72, 0.74)
+# Base position is 1.5-2 m off the net, not 3.5: the library's own
+# approach note says the pair standing closer to the net wins the
+# exchange more often than not, and only one board moved them up.
+LEFT, RIGHT = (0.28, 0.665), (0.72, 0.665)
 NET_L, NET_R = (0.30, 0.60), (0.70, 0.60)
 
 
@@ -105,22 +108,25 @@ SERVE_NAME = {
     "id-ID": "Servis", "ms-MY": "Servis", "th-TH": "การเสิร์ฟ", "vi-VN": "Giao bóng",
 }
 SERVE_NOTE = {
-    "en": "Serve low and at their feet. There is no second bounce to save "
-          "them, so a ball below the net tape is already a problem.",
-    "en-GB": "Serve low and at their feet. There is no second bounce to save "
-             "them, so a ball below the net tape is already a problem.",
-    "zh-CN": "发低球、打脚下。没有第二跳能救他们，所以低于网带的球本身就是个麻烦。",
-    "zh-TW": "發低球、打腳下。沒有第二跳能救他們，所以低於網帶的球本身就是個麻煩。",
-    "ja-JP": "低く、足元へ。救ってくれる2バウンド目はない。ネットの白帯より低い球はそれだけで難題だ。",
-    "ko-KR": "낮게, 발밑으로 서브하라. 구해줄 두 번째 바운드는 없다.",
-    "es-ES": "Saca bajo y a los pies: no hay segundo bote que los salve, una "
-             "bola por debajo de la cinta ya es un problema.",
-    "fr-FR": "Sers bas, dans les pieds : aucun second rebond ne les sauvera, "
-             "une balle sous la bande est déjà un problème.",
-    "id-ID": "Servis rendah ke arah kaki mereka.",
-    "ms-MY": "Servis rendah ke arah kaki mereka.",
-    "th-TH": "เสิร์ฟต่ำเข้าที่เท้า ไม่มีการกระดอนครั้งที่สองมาช่วยเขา",
-    "vi-VN": "Giao thấp và vào chân họ.",
+    # There is no bounce at all in beach tennis — a ball that touches the
+    # sand is dead. The note used to say "no second bounce", which implies
+    # a first one is legal, and contradicted the library's own rally note.
+    "en": "Serve low and at their feet. Nothing bounces here, so a ball below "
+          "the tape has to be lifted, and everything lifted gets hit back down.",
+    "en-GB": "Serve low and at their feet. Nothing bounces here, so a ball below "
+             "the tape has to be lifted, and everything lifted gets hit back down.",
+    "zh-CN": "发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+    "zh-TW": "發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+    "ja-JP": "低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+    "ko-KR": "낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+    "es-ES": "Saca bajo y a los pies. Aquí nada bota: una bola por debajo de "
+             "la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+    "fr-FR": "Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous "
+             "la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+    "id-ID": "Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+    "ms-MY": "Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+    "th-TH": "เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+    "vi-VN": "Giao thấp và vào chân họ. Ở đây bóng không nảy.",
 }
 
 
@@ -267,8 +273,12 @@ def defence_family() -> list[Drill]:
             id=f"bt_defence_{key.replace(' ', '_')}", category="defending",
             minutes=10, rel=True, free=(key == "the block"),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(*LEFT, "1", moves=[(to[0], min(to[1] + 0.30, 0.94), 1)]),
-                  P(*RIGHT, "2", moves=[(0.68, 0.70, 1)])],
+            ball_moves=[(0.34, 0.68, 0), to + (1,)],
+            # Where the BALL goes, not where the player runs: the lob used
+            # to send its defender 1.9 m into the opponents' court, because
+            # the target was encoded as his own movement.
+            home=[P(*LEFT, "1", moves=[(0.34, 0.68, 0), (0.38, 0.62, 2)]),
+                  P(*RIGHT, "2", moves=[(0.66, 0.64, 2)])],
             away=[P(0.34, 0.30, "A", moves=[(0.34, 0.40, 0)]), P(0.68, 0.32, "B")],
             markers=[M(*to, "zone", "")],
             ball=(0.34, 0.30),
