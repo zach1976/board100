@@ -545,6 +545,8 @@ LEVELS = ("foundation", "development", "advanced")
 # technical work that happens with a server and a keeper — a coach reading
 # "Development" on first-time finishing does not believe the filter.
 FOUNDATION = {
+    # volleyball: technique and the receive patterns a beginner starts on
+    "vb_receive_r1", "vb_set_front", "vb_serve_float_deep", "vb_block_solo",
     # water polo: technique and the two-player boards
     "wp_centre_entry", "wp_counter_2v1", "wp_gk_two_metre",
     "wp_set_penalty",
@@ -574,6 +576,9 @@ ADVANCED = {
     "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
     "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
     "fk_runner", "gk_sweeper",
+    # volleyball: the systems and tempos that need a full six organised
+    "vb_defense_rotation", "vb_attack_pipe", "vb_block_triple",
+    "vb_game_6v6", "vb_setter_z5",
     # water polo: the systems that need six swimmers organised
     "wp_defence_front_the_centre", "wp_manup_umbrella", "wp_game_6v6",
     "wp_shot_lob",
@@ -586,7 +591,7 @@ ADVANCED = {
     # basketball
     "bb_horns_set", "bb_press_break", "bb_defence_ice",
     # volleyball
-    "vb_serve_jump", "vb_attack_pipe", "vb_defense_man_up",
+    "vb_serve_jump",
     # badminton
     "bd_deception_hold_flick", "bd_deception_double_motion", "bd_net_spin",
     # tennis

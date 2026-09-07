@@ -5,7 +5,7 @@
     {
       "id": "vb_warm_pepper",
       "level": "foundation",
-      "family": "volleyball_family_3",
+      "family": "volleyball_family_4",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -163,7 +163,7 @@
     {
       "id": "vb_warm_butterfly",
       "level": "foundation",
-      "family": "volleyball_family_3",
+      "family": "volleyball_family_4",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -365,7 +365,7 @@
     {
       "id": "vb_warm_dig_shuffle",
       "level": "foundation",
-      "family": "volleyball_family_3",
+      "family": "volleyball_family_4",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -549,8 +549,8 @@
     },
     {
       "id": "vb_receive_r1",
-      "level": "development",
-      "family": "volleyball_family_9",
+      "level": "foundation",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -863,7 +863,7 @@
     {
       "id": "vb_receive_r2",
       "level": "development",
-      "family": "volleyball_family_9",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -1176,7 +1176,7 @@
     {
       "id": "vb_receive_r3",
       "level": "development",
-      "family": "volleyball_family_9",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -1489,7 +1489,7 @@
     {
       "id": "vb_receive_r4",
       "level": "development",
-      "family": "volleyball_family_9",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -1802,7 +1802,7 @@
     {
       "id": "vb_receive_r5",
       "level": "development",
-      "family": "volleyball_family_9",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -2115,7 +2115,7 @@
     {
       "id": "vb_receive_r6",
       "level": "development",
-      "family": "volleyball_family_9",
+      "family": "volleyball_family_13",
       "familyName": {
         "en": "Serve receive rotation",
         "en-GB": "Serve receive rotation",
@@ -2428,7 +2428,7 @@
     {
       "id": "vb_set_front",
       "level": "foundation",
-      "family": "volleyball_family_7",
+      "family": "volleyball_family_8",
       "familyName": {
         "en": "Setting",
         "en-GB": "Setting",
@@ -2623,7 +2623,7 @@
     {
       "id": "vb_set_back",
       "level": "foundation",
-      "family": "volleyball_family_7",
+      "family": "volleyball_family_8",
       "familyName": {
         "en": "Setting",
         "en-GB": "Setting",
@@ -2818,7 +2818,7 @@
     {
       "id": "vb_set_jump",
       "level": "foundation",
-      "family": "volleyball_family_7",
+      "family": "volleyball_family_8",
       "familyName": {
         "en": "Setting",
         "en-GB": "Setting",
@@ -3013,7 +3013,7 @@
     {
       "id": "vb_setter_z1",
       "level": "development",
-      "family": "volleyball_family_4",
+      "family": "volleyball_family_5",
       "familyName": {
         "en": "Setter release from zone",
         "en-GB": "Setter release from zone",
@@ -3277,7 +3277,7 @@
     {
       "id": "vb_setter_z6",
       "level": "development",
-      "family": "volleyball_family_4",
+      "family": "volleyball_family_5",
       "familyName": {
         "en": "Setter release from zone",
         "en-GB": "Setter release from zone",
@@ -3540,8 +3540,8 @@
     },
     {
       "id": "vb_setter_z5",
-      "level": "development",
-      "family": "volleyball_family_4",
+      "level": "advanced",
+      "family": "volleyball_family_5",
       "familyName": {
         "en": "Setter release from zone",
         "en-GB": "Setter release from zone",
@@ -4377,7 +4377,7 @@
     {
       "id": "vb_attack_outside",
       "level": "development",
-      "family": "volleyball_family_8",
+      "family": "volleyball_family_9",
       "familyName": {
         "en": "Attack",
         "en-GB": "Attack",
@@ -4658,7 +4658,7 @@
     {
       "id": "vb_attack_middle",
       "level": "development",
-      "family": "volleyball_family_8",
+      "family": "volleyball_family_9",
       "familyName": {
         "en": "Attack",
         "en-GB": "Attack",
@@ -4939,7 +4939,7 @@
     {
       "id": "vb_attack_opposite",
       "level": "development",
-      "family": "volleyball_family_8",
+      "family": "volleyball_family_9",
       "familyName": {
         "en": "Attack",
         "en-GB": "Attack",
@@ -5220,7 +5220,7 @@
     {
       "id": "vb_attack_pipe",
       "level": "advanced",
-      "family": "volleyball_family_8",
+      "family": "volleyball_family_9",
       "familyName": {
         "en": "Attack",
         "en-GB": "Attack",
@@ -5352,11 +5352,11 @@
             "moves": [
               [
                 500.0,
-                1209.0
+                1132.5
               ],
               [
                 500.0,
-                852.0
+                985.8750000000001
               ]
             ],
             "movePhases": [
@@ -5378,7 +5378,7 @@
             "sportType": null,
             "position": [
               450.125,
-              622.5
+              488.6249999999999
             ],
             "scale": 1.0,
             "moves": [
@@ -5405,7 +5405,7 @@
             "sportType": null,
             "position": [
               562.625,
-              622.5
+              488.6249999999999
             ],
             "scale": 1.0,
             "moves": [
@@ -5500,22 +5500,9 @@
     },
     {
       "id": "vb_block_solo",
-      "level": "development",
-      "family": "volleyball_family_2",
-      "familyName": {
-        "en": "Block",
-        "en-GB": "Block",
-        "es-ES": "Bloqueo",
-        "fr-FR": "Contre",
-        "id-ID": "Blok",
-        "ja-JP": "ブロック",
-        "ko-KR": "블로킹",
-        "ms-MY": "Sekatan",
-        "th-TH": "การบล็อก",
-        "vi-VN": "Chắn bóng",
-        "zh-CN": "拦网",
-        "zh-TW": "攔網"
-      },
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
       "category": "defending",
       "minutes": 10,
       "players": 5,
@@ -5536,32 +5523,32 @@
         "vi-VN": "Chắn bóng một người"
       },
       "note": {
-        "en": "Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
-        "en-GB": "Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
-        "zh-CN": "先并手，再靠人。中间漏光的双人拦网，等于白白站了两个人。",
-        "zh-TW": "先併手，再靠人。中間漏光的雙人攔網，等於白白站了兩個人。",
-        "ja-JP": "人に寄る前に手を閉じる。隙間の空いた2枚ブロックは2人の無駄遣い。",
-        "ko-KR": "붙기 전에 손부터 모아라. 사이가 벌어진 2인 블로킹은 두 명을 버리는 것이다.",
-        "es-ES": "Cierra el hueco entre manos antes que el hueco con el atacante: un bloqueo doble con luz son dos jugadoras desperdiciadas.",
-        "fr-FR": "Ferme l'écart entre les mains avant l'écart avec l'attaquant : un double contre ajouré, ce sont deux joueuses gaspillées.",
-        "id-ID": "Rapatkan tangan sebelum merapat ke penyerang. Blok ganda yang bercelah adalah dua pemain yang terbuang.",
-        "ms-MY": "Rapatkan tangan sebelum merapat kepada penyerang.",
-        "th-TH": "ปิดช่องระหว่างมือก่อนปิดช่องกับตัวตบ บล็อกคู่ที่มีแสงลอดคือเสียผู้เล่นสองคนเปล่า ๆ",
-        "vi-VN": "Khép tay trước khi khép khoảng cách với chủ công. Hàng chắn đôi hở sáng là lãng phí hai người."
+        "en": "Take the line or take the angle and let the diggers have the rest. Reaching for both gives the hitter the seam between your own hands.",
+        "en-GB": "Take the line or take the angle and let the diggers have the rest. Reaching for both gives the hitter the seam between your own hands.",
+        "zh-CN": "要么封直线，要么封斜线，剩下的交给后排。两边都想够，等于把自己两手之间的缝送给了对方。",
+        "zh-TW": "要麼封直線，要麼封斜線，剩下的交給後排。兩邊都想夠，等於把自己兩手之間的縫送給了對方。",
+        "ja-JP": "ストレートか、クロスか、どちらかを止めて残りはレシーブに任せる。両方に手を伸ばせば、自分の両手の間のコースを与える。",
+        "ko-KR": "라인이든 크로스든 하나를 막고 나머지는 수비에 맡겨라. 둘 다 잡으려 뻗으면 자기 두 손 사이를 내준다.",
+        "es-ES": "Cierra la paralela o la diagonal y deja el resto a la defensa: intentar las dos regala la costura entre tus propias manos.",
+        "fr-FR": "Prends la ligne ou la diagonale et laisse le reste aux défenseurs : vouloir les deux offre la fente entre tes propres mains.",
+        "id-ID": "Tutup garis atau tutup diagonal, sisanya serahkan ke penggali bola. Mengejar keduanya memberi celah di antara tanganmu sendiri.",
+        "ms-MY": "Tutup garisan atau tutup pepenjuru, selebihnya serahkan kepada pertahanan.",
+        "th-TH": "ปิดเส้นหรือปิดทแยงอย่างใดอย่างหนึ่ง ที่เหลือปล่อยให้แนวรับ ถ้าเอื้อมทั้งสองทางคือยกช่องระหว่างมือตัวเองให้เขา",
+        "vi-VN": "Chắn đường thẳng hoặc chắn đường chéo rồi để phần còn lại cho hàng dưới. Với cả hai là tự mở khe giữa hai bàn tay mình."
       },
       "mistake": {
-        "en": "A double block with daylight in it — two players wasted on one gap.",
-        "en-GB": "A double block with daylight in it — two players wasted on one gap.",
-        "zh-CN": "中间漏光的双人拦网——两个人白站。",
-        "zh-TW": "中間漏光的雙人攔網——兩個人白站。",
-        "ja-JP": "隙間の空いた2枚ブロック——2人の無駄。",
-        "ko-KR": "사이가 벌어진 2인 블록 — 두 명 낭비.",
-        "es-ES": "Un bloqueo doble con luz: dos jugadoras desperdiciadas.",
-        "fr-FR": "Un double contre ajouré — deux joueuses gaspillées.",
-        "id-ID": "Blok ganda bercelah.",
-        "ms-MY": "Blok ganda bercelah.",
-        "th-TH": "บล็อกคู่มีช่องโหว่",
-        "vi-VN": "Chắn đôi hở sáng."
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
       },
       "board": {
         "sportType": 4,
@@ -5653,7 +5640,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -5705,7 +5692,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -5907,7 +5894,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -5959,7 +5946,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6161,7 +6148,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6213,7 +6200,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6235,7 +6222,7 @@
     },
     {
       "id": "vb_block_triple",
-      "level": "development",
+      "level": "advanced",
       "family": "volleyball_family_2",
       "familyName": {
         "en": "Block",
@@ -6307,13 +6294,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              422.9296875,
+              295.4296875,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                445.8125,
+                318.3125,
                 788.25
               ]
             ],
@@ -6334,13 +6321,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.4296875,
+              372.9296875,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                372.5,
                 788.25
               ]
             ],
@@ -6361,13 +6348,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              576.640625,
+              449.140625,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                554.1875,
+                426.6875,
                 788.25
               ]
             ],
@@ -6442,7 +6429,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6462,17 +6449,17 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
+              372.5,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                372.5,
                 495.0
               ],
               [
-                500.0,
+                372.5,
                 692.625
               ]
             ],
@@ -6494,7 +6481,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6723,14 +6710,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
-              1005.0
+              627.5,
+              979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.8,
-                941.2499999999999
+                612.1999999999999,
+                915.75
               ]
             ],
             "movePhases": [
@@ -6750,7 +6737,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6797,7 +6784,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -6819,7 +6806,7 @@
     },
     {
       "id": "vb_defense_rotation",
-      "level": "development",
+      "level": "advanced",
       "family": "volleyball_family_1",
       "familyName": {
         "en": "Defence",
@@ -7026,14 +7013,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              563.75,
-              1005.0
+              602.0,
+              979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                556.0999999999999,
-                941.2499999999999
+                589.76,
+                915.75
               ]
             ],
             "movePhases": [
@@ -7053,7 +7040,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -7100,7 +7087,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -7122,7 +7109,7 @@
     },
     {
       "id": "vb_defense_man_up",
-      "level": "advanced",
+      "level": "development",
       "family": "volleyball_family_1",
       "familyName": {
         "en": "Defence",
@@ -7248,13 +7235,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              436.25,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.24,
+                443.90000000000003,
                 839.2499999999999
               ]
             ],
@@ -7275,13 +7262,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              296.0,
+              283.25,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                320.48,
+                309.26,
                 1145.25
               ]
             ],
@@ -7302,14 +7289,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              512.75,
-              1285.5
+              729.5,
+              1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                511.22,
-                1221.75
+                701.96,
+                1119.75
               ]
             ],
             "movePhases": [
@@ -7329,14 +7316,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              716.75,
-              1183.5
+              627.5,
+              979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                690.74,
-                1119.75
+                612.1999999999999,
+                915.75
               ]
             ],
             "movePhases": [
@@ -7356,7 +7343,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -7403,7 +7390,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              602.0,
+              398.0,
               692.625
             ],
             "scale": 1.0,
@@ -7425,8 +7412,8 @@
     },
     {
       "id": "vb_serve_float_deep",
-      "level": "development",
-      "family": "volleyball_family_6",
+      "level": "foundation",
+      "family": "volleyball_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -7653,7 +7640,7 @@
     {
       "id": "vb_serve_jump",
       "level": "advanced",
-      "family": "volleyball_family_6",
+      "family": "volleyball_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -7880,7 +7867,7 @@
     {
       "id": "vb_serve_short",
       "level": "development",
-      "family": "volleyball_family_6",
+      "family": "volleyball_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -8107,7 +8094,7 @@
     {
       "id": "vb_serve_seam",
       "level": "development",
-      "family": "volleyball_family_6",
+      "family": "volleyball_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -8334,7 +8321,7 @@
     {
       "id": "vb_game_2v2",
       "level": "development",
-      "family": "volleyball_family_5",
+      "family": "volleyball_family_6",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -8459,7 +8446,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              385.25,
+              614.75,
               495.00000000000006
             ],
             "scale": 1.0,
@@ -8486,7 +8473,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              398.0,
               265.5
             ],
             "scale": 1.0,
@@ -8536,7 +8523,7 @@
     {
       "id": "vb_game_3v3",
       "level": "development",
-      "family": "volleyball_family_5",
+      "family": "volleyball_family_6",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -8688,7 +8675,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              653.0,
               546.0
             ],
             "scale": 1.0,
@@ -8715,7 +8702,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              640.25,
+              359.75,
               520.5
             ],
             "scale": 1.0,
@@ -8792,7 +8779,7 @@
     {
       "id": "vb_game_4v4",
       "level": "development",
-      "family": "volleyball_family_5",
+      "family": "volleyball_family_6",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -8971,7 +8958,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              334.25,
+              665.75,
               571.5
             ],
             "scale": 1.0,
@@ -8998,7 +8985,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              372.5,
               571.5
             ],
             "scale": 1.0,
@@ -9025,7 +9012,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              602.0,
               265.5
             ],
             "scale": 1.0,
@@ -9052,7 +9039,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              653.0,
+              347.0,
               265.5
             ],
             "scale": 1.0,
@@ -9101,8 +9088,8 @@
     },
     {
       "id": "vb_game_6v6",
-      "level": "development",
-      "family": "volleyball_family_5",
+      "level": "advanced",
+      "family": "volleyball_family_6",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -9335,7 +9322,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              678.5,
               597.0
             ],
             "scale": 1.0,
@@ -9389,7 +9376,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              678.5,
+              321.5,
               597.0
             ],
             "scale": 1.0,
@@ -9416,7 +9403,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              308.75,
+              691.25,
               265.5
             ],
             "scale": 1.0,
@@ -9470,7 +9457,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              691.25,
+              308.75,
               265.5
             ],
             "scale": 1.0,
@@ -9499,6 +9486,1306 @@
             "position": [
               361.5,
               973.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "vb_cover_hitter",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "defending",
+      "minutes": 10,
+      "players": 7,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Hitter coverage around the outside hitter",
+        "en-GB": "Hitter coverage around the outside hitter",
+        "zh-CN": "扣球掩护 主攻扣球时的掩护",
+        "zh-TW": "扣球掩護 主攻扣球時的掩護",
+        "ja-JP": "スパイクカバー アウトサイドのカバー",
+        "ko-KR": "공격 커버 아웃사이드 공격 커버",
+        "es-ES": "Cobertura del atacante alrededor del atacante de punta",
+        "fr-FR": "Couverture de l'attaquant autour du pointu réceptionneur",
+        "id-ID": "Cover pemukul di sekitar pemukul luar",
+        "ms-MY": "Perlindungan pemukul di sekeliling pemukul luar",
+        "th-TH": "การคุ้มกันตัวตบ รอบตัวตบหัวเสา",
+        "vi-VN": "Bọc lót cho chủ công quanh chủ công biên"
+      },
+      "note": {
+        "en": "Three low and close around your own hitter before he lands. The ball off the block falls inside three metres, and nobody digs it standing up.",
+        "en-GB": "Three low and close around your own hitter before he lands. The ball off the block falls inside three metres, and nobody digs it standing up.",
+        "zh-CN": "在自己扣球手落地之前，三个人压低重心围到他身边。被拦回来的球落点都在三米以内，站着的人一个也救不起来。",
+        "zh-TW": "在自己扣球手落地之前，三個人壓低重心圍到他身邊。被攔回來的球落點都在三米以內，站著的人一個也救不起來。",
+        "ja-JP": "スパイカーが着地する前に3人が低く近く囲む。ブロックに当たった球は3m以内に落ち、棒立ちでは誰も上げられない。",
+        "ko-KR": "공격수가 착지하기 전에 세 명이 낮게 가까이 붙어라. 블로킹에 맞은 공은 3미터 안에 떨어지고, 서 있는 사람은 못 올린다.",
+        "es-ES": "Tres bajos y cerca del propio atacante antes de que caiga. El balón del bloqueo cae dentro de tres metros y nadie lo levanta de pie.",
+        "fr-FR": "Trois joueurs bas et proches de votre attaquant avant qu'il retombe. Le ballon repoussé tombe à moins de trois mètres, et personne ne le relève debout.",
+        "id-ID": "Tiga orang rendah dan dekat di sekitar pemukul sendiri sebelum ia mendarat. Bola dari blok jatuh dalam tiga meter.",
+        "ms-MY": "Tiga orang rendah dan rapat di sekeliling pemukul sendiri sebelum dia mendarat.",
+        "th-TH": "สามคนย่อตัวต่ำและเข้าใกล้ตัวตบของเราก่อนเขาลงพื้น บอลที่กระดอนจากบล็อกตกในระยะสามเมตร",
+        "vi-VN": "Ba người hạ thấp và áp sát chủ công của mình trước khi anh ta tiếp đất. Bóng bật chắn rơi trong ba mét."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 4,
+        "players": [
+          {
+            "id": "d0",
+            "label": "A",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              321.5,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                296.0,
+                845.625
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                461.75,
+                903.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              398.0,
+              1005.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                359.75,
+                947.625
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              308.75,
+              1209.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                331.0625,
+                1049.625
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              512.75,
+              1285.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                449.0,
+                1119.75
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              290.75,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              403.25,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              347.0,
+              1005.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 4,
+            "position": [
+              361.5,
+              973.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "vb_attack_quick",
+      "level": "development",
+      "family": "volleyball_family_11",
+      "familyName": {
+        "en": "First tempo",
+        "en-GB": "First tempo",
+        "es-ES": "Primer tiempo",
+        "fr-FR": "Premier temps",
+        "id-ID": "Bola cepat",
+        "ja-JP": "速攻",
+        "ko-KR": "속공",
+        "ms-MY": "Bola pantas",
+        "th-TH": "บอลเร็ว",
+        "vi-VN": "Bóng nhanh",
+        "zh-CN": "快球",
+        "zh-TW": "快球"
+      },
+      "category": "finishing",
+      "minutes": 12,
+      "players": 5,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "First tempo the quick in front",
+        "en-GB": "First tempo the quick in front",
+        "zh-CN": "快球 近体快",
+        "zh-TW": "快球 近體快",
+        "ja-JP": "速攻 A クイック",
+        "ko-KR": "속공 A퀵",
+        "es-ES": "Primer tiempo el primer tiempo delante",
+        "fr-FR": "Premier temps le premier temps devant",
+        "id-ID": "Bola cepat bola cepat depan",
+        "ms-MY": "Bola pantas bola pantas hadapan",
+        "th-TH": "บอลเร็ว บอลเร็วหน้าตัวเซ็ต",
+        "vi-VN": "Bóng nhanh bóng nhanh trước mặt"
+      },
+      "note": {
+        "en": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+        "en-GB": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+        "zh-CN": "副攻在传球之前起跳，不是之后。二传要等他，说明对方拦网已经把整套球都读完了。",
+        "zh-TW": "副攻在傳球之前起跳，不是之後。二傳要等他，說明對方攔網已經把整套球都讀完了。",
+        "ja-JP": "ミドルはトスの前に跳ぶ、後ではない。セッターが待たされる時点で、ブロックは全部読み終えている。",
+        "ko-KR": "미들은 토스 전에 뛴다, 후가 아니라. 세터가 기다려야 한다면 블로킹은 이미 다 읽었다.",
+        "es-ES": "El central salta antes del pase, no después. Si el colocador tiene que esperarlo, el bloqueo ya ha leído toda la jugada.",
+        "fr-FR": "Le central saute avant la passe, pas après. Si le passeur doit l'attendre, le contre a déjà tout lu.",
+        "id-ID": "Middle melompat sebelum umpan, bukan sesudah. Jika tosser harus menunggunya, blok sudah membaca seluruh permainan.",
+        "ms-MY": "Pemain tengah melompat sebelum umpan, bukan selepas.",
+        "th-TH": "ตัวกลางกระโดดก่อนเซ็ต ไม่ใช่หลังเซ็ต ถ้าตัวเซ็ตต้องรอ แปลว่าบล็อกอ่านเกมออกหมดแล้ว",
+        "vi-VN": "Phụ công bật trước khi chuyền hai, không phải sau. Nếu chuyền hai phải chờ thì hàng chắn đã đọc hết bài."
+      },
+      "mistake": {
+        "en": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "en-GB": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "zh-CN": "决定得太晚——终结在球到之前就该定好。",
+        "zh-TW": "決定得太晚——終結在球到之前就該定好。",
+        "ja-JP": "決断が遅い——フィニッシュは球が来る前に決める。",
+        "ko-KR": "늦게 정한다 — 마무리는 공 오기 전에.",
+        "es-ES": "Decidir tarde: la definición se elige antes de que llegue el balón.",
+        "fr-FR": "Décider tard — la finition se choisit avant l'arrivée du ballon.",
+        "id-ID": "Memutuskan terlambat.",
+        "ms-MY": "Membuat keputusan lewat.",
+        "th-TH": "ตัดสินใจช้า",
+        "vi-VN": "Quyết định muộn."
+      },
+      "board": {
+        "sportType": 4,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              691.25,
+              1234.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                640.25,
+                1132.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                576.5,
+                807.375
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "M",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                538.25,
+                845.625
+              ],
+              [
+                551.0,
+                807.375
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              525.5,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                551.0,
+                711.75
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              214.49999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 4,
+            "position": [
+              651.25,
+              1304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "vb_attack_slide",
+      "level": "advanced",
+      "family": "volleyball_family_11",
+      "familyName": {
+        "en": "First tempo",
+        "en-GB": "First tempo",
+        "es-ES": "Primer tiempo",
+        "fr-FR": "Premier temps",
+        "id-ID": "Bola cepat",
+        "ja-JP": "速攻",
+        "ko-KR": "속공",
+        "ms-MY": "Bola pantas",
+        "th-TH": "บอลเร็ว",
+        "vi-VN": "Bóng nhanh",
+        "zh-CN": "快球",
+        "zh-TW": "快球"
+      },
+      "category": "finishing",
+      "minutes": 12,
+      "players": 5,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "First tempo the slide behind the setter",
+        "en-GB": "First tempo the slide behind the setter",
+        "zh-CN": "快球 背飞",
+        "zh-TW": "快球 背飛",
+        "ja-JP": "速攻 バックスライド",
+        "ko-KR": "속공 백 슬라이드",
+        "es-ES": "Primer tiempo la slide por detrás del colocador",
+        "fr-FR": "Premier temps la slide derrière le passeur",
+        "id-ID": "Bola cepat slide di belakang tosser",
+        "ms-MY": "Bola pantas slide di belakang pengumpan",
+        "th-TH": "บอลเร็ว สไลด์ด้านหลังตัวเซ็ต",
+        "vi-VN": "Bóng nhanh pha slide sau lưng chuyền hai"
+      },
+      "note": {
+        "en": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+        "en-GB": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+        "zh-CN": "副攻在传球之前起跳，不是之后。二传要等他，说明对方拦网已经把整套球都读完了。",
+        "zh-TW": "副攻在傳球之前起跳，不是之後。二傳要等他，說明對方攔網已經把整套球都讀完了。",
+        "ja-JP": "ミドルはトスの前に跳ぶ、後ではない。セッターが待たされる時点で、ブロックは全部読み終えている。",
+        "ko-KR": "미들은 토스 전에 뛴다, 후가 아니라. 세터가 기다려야 한다면 블로킹은 이미 다 읽었다.",
+        "es-ES": "El central salta antes del pase, no después. Si el colocador tiene que esperarlo, el bloqueo ya ha leído toda la jugada.",
+        "fr-FR": "Le central saute avant la passe, pas après. Si le passeur doit l'attendre, le contre a déjà tout lu.",
+        "id-ID": "Middle melompat sebelum umpan, bukan sesudah. Jika tosser harus menunggunya, blok sudah membaca seluruh permainan.",
+        "ms-MY": "Pemain tengah melompat sebelum umpan, bukan selepas.",
+        "th-TH": "ตัวกลางกระโดดก่อนเซ็ต ไม่ใช่หลังเซ็ต ถ้าตัวเซ็ตต้องรอ แปลว่าบล็อกอ่านเกมออกหมดแล้ว",
+        "vi-VN": "Phụ công bật trước khi chuyền hai, không phải sau. Nếu chuyền hai phải chờ thì hàng chắn đã đọc hết bài."
+      },
+      "mistake": {
+        "en": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "en-GB": "Deciding late — the finish is chosen before the ball arrives, not after.",
+        "zh-CN": "决定得太晚——终结在球到之前就该定好。",
+        "zh-TW": "決定得太晚——終結在球到之前就該定好。",
+        "ja-JP": "決断が遅い——フィニッシュは球が来る前に決める。",
+        "ko-KR": "늦게 정한다 — 마무리는 공 오기 전에.",
+        "es-ES": "Decidir tarde: la definición se elige antes de que llegue el balón.",
+        "fr-FR": "Décider tard — la finition se choisit avant l'arrivée du ballon.",
+        "id-ID": "Memutuskan terlambat.",
+        "ms-MY": "Membuat keputusan lewat.",
+        "th-TH": "ตัดสินใจช้า",
+        "vi-VN": "Quyết định muộn."
+      },
+      "board": {
+        "sportType": 4,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              691.25,
+              1234.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                640.25,
+                1132.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                576.5,
+                807.375
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "M",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              474.5,
+              928.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                576.5,
+                877.5
+              ],
+              [
+                691.25,
+                820.1250000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              334.25,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                296.0,
+                711.75
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              214.49999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 4,
+            "position": [
+              651.25,
+              1304.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "vb_receive_two_passer",
+      "level": "advanced",
+      "family": null,
+      "familyName": null,
+      "category": "possession",
+      "minutes": 12,
+      "players": 7,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Libero in a two-passer receive",
+        "en-GB": "Libero in a two-passer receive",
+        "zh-CN": "自由人 两人接发阵型",
+        "zh-TW": "自由人 兩人接發陣型",
+        "ja-JP": "リベロ 2人レセプションで",
+        "ko-KR": "리베로 2인 리시브에서",
+        "es-ES": "Líbero en recepción con dos",
+        "fr-FR": "Libéro en réception à deux",
+        "id-ID": "Libero dalam terima servis dua orang",
+        "ms-MY": "Libero dalam terima servis dua orang",
+        "th-TH": "ลิเบโร ในระบบรับสองคน",
+        "vi-VN": "Libero trong đội hình đỡ hai người"
+      },
+      "note": {
+        "en": "Two passers means the libero owns everything to his left and calls the seam early. Silence in a two-passer system is a service ace waiting to happen.",
+        "en-GB": "Two passers means the libero owns everything to his left and calls the seam early. Silence in a two-passer system is a service ace waiting to happen.",
+        "zh-CN": "两人接发意味着自由人负责他左边的全部区域，并且要早喊结合部。两人接发里的沉默，就是一个还没发生的发球得分。",
+        "zh-TW": "兩人接發意味著自由人負責他左邊的全部區域，並且要早喊結合部。兩人接發裡的沉默，就是一個還沒發生的發球得分。",
+        "ja-JP": "2人レセプションではリベロが自分の左側すべてを持ち、継ぎ目は早くコールする。2人でだまっているのは、これから起きるサービスエースだ。",
+        "ko-KR": "2인 리시브는 리베로가 자기 왼쪽 전부를 맡고 이음새를 미리 콜한다는 뜻이다. 침묵은 곧 서브 에이스다.",
+        "es-ES": "Con dos receptores el líbero se hace cargo de todo lo que tiene a su izquierda y canta la costura pronto. El silencio es un ace en camino.",
+        "fr-FR": "À deux réceptionneurs, le libéro prend tout ce qui est à sa gauche et annonce la fente tôt. Le silence est un ace en préparation.",
+        "id-ID": "Dua penerima berarti libero menguasai semua yang ada di kirinya dan menyerukan celah lebih awal.",
+        "ms-MY": "Dua penerima bermakna libero menguasai semua di sebelah kirinya dan menyeru celah lebih awal.",
+        "th-TH": "รับสองคนหมายความว่าลิเบโรดูแลทุกอย่างทางซ้ายของเขา และต้องขานรอยต่อแต่เนิ่น",
+        "vi-VN": "Đỡ hai người nghĩa là libero ôm toàn bộ phía bên trái và gọi khe sớm."
+      },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
+      "board": {
+        "sportType": 4,
+        "players": [
+          {
+            "id": "d0",
+            "label": "L",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              398.0,
+              1183.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                449.0,
+                1107.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              653.0,
+              1158.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.75,
+                1081.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                563.75,
+                820.1250000000001
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "H",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              321.5,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "M",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              877.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "H",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              678.5,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "SV",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              189.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                474.5,
+                259.125
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 4,
+            "position": [
+              361.5,
+              973.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": "d3"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "vb_setter_dump",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "attacking",
+      "minutes": 8,
+      "players": 6,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Setter release from the second-ball dump",
+        "en-GB": "Setter release from the second-ball dump",
+        "zh-CN": "二传插上 二次球偷吊",
+        "zh-TW": "二傳插上 二次球偷吊",
+        "ja-JP": "セッター アップ ツーアタック",
+        "ko-KR": "세터 침투 세터 다이렉트",
+        "es-ES": "Penetración del colocador desde la finta en el segundo toque",
+        "fr-FR": "Pénétration du passeur depuis la feinte au deuxième ballon",
+        "id-ID": "Penetrasi tosser dari dump bola kedua",
+        "ms-MY": "Penetrasi pengangkat dari dump bola kedua",
+        "th-TH": "เซตเตอร์วิ่งขึ้นจาก การหยอดลูกที่สอง",
+        "vi-VN": "Chuyền hai lên từ pha bỏ nhỏ nhịp hai"
+      },
+      "note": {
+        "en": "Dump on the second ball only when the block is already moving with your hands. A dump telegraphed by a look is the easiest point the other side will get.",
+        "en-GB": "Dump on the second ball only when the block is already moving with your hands. A dump telegraphed by a look is the easiest point the other side will get.",
+        "zh-CN": "只有在对方拦网已经跟着你的手动了的时候才二次球偷吊。用眼神暴露出来的偷吊，是对方拿分最轻松的一次。",
+        "zh-TW": "只有在對方攔網已經跟著你的手動了的時候才二次球偷吊。用眼神暴露出來的偷吊，是對方拿分最輕鬆的一次。",
+        "ja-JP": "ツーは、ブロックが自分の手に反応して動いている時だけ。目線で読まれたツーは相手にとって一番簡単な1点だ。",
+        "ko-KR": "블로킹이 이미 내 손을 따라 움직일 때만 세터 다이렉트를 쓴다. 눈빛으로 들킨 다이렉트는 가장 쉬운 실점이다.",
+        "es-ES": "Finta en el segundo toque solo cuando el bloqueo ya se mueve con tus manos. Una finta anunciada con la mirada es el punto más fácil del rival.",
+        "fr-FR": "Ne feinte au deuxième ballon que si le contre suit déjà tes mains. Une feinte annoncée par le regard est le point le plus facile pour l'adversaire.",
+        "id-ID": "Dump di bola kedua hanya ketika blok sudah bergerak mengikuti tanganmu.",
+        "ms-MY": "Dump pada bola kedua hanya apabila blok sudah bergerak mengikut tangan anda.",
+        "th-TH": "หยอดลูกที่สองเฉพาะตอนที่บล็อกขยับตามมือคุณแล้วเท่านั้น",
+        "vi-VN": "Chỉ bỏ nhỏ ở nhịp hai khi hàng chắn đã di chuyển theo tay bạn."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
+      "board": {
+        "sportType": 4,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              308.75,
+              1183.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                359.75,
+                1081.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "S",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              602.0,
+              807.375
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                576.5,
+                807.375
+              ],
+              [
+                538.25,
+                781.875
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "H",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              321.5,
+              903.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                296.0,
+                845.625
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              341.75,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                308.75,
+                711.75
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              454.25,
+              692.625
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                410.75,
+                711.75
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              500.0,
+              214.49999999999994
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              576.5,
+              622.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 4,
+            "position": [
+              348.75,
+              1253.5
             ],
             "scale": 1.0,
             "moves": [],
