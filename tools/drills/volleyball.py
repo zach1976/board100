@@ -22,8 +22,14 @@ SET_POINT = (0.66, 0.545)
 
 
 def mirror(pt):
-    """Reflect a home-side point through the net onto the away side."""
-    return (pt[0], 1.0 - pt[1])
+    """The same court position for the team on the other side.
+
+    A half turn, not a flip. Reflecting only y kept the x of the home
+    team's frame, so the away setter — right of middle from her own side —
+    was drawn in her zone 4, setting from one antenna to the other, and
+    every away zone number landed on the wrong side of her court.
+    """
+    return (1.0 - pt[0], 1.0 - pt[1])
 
 
 def zone(n, side="home"):
@@ -141,7 +147,9 @@ def attack_family() -> list[Drill]:
         ("outside", "zone 4", (0.22, 0.62), (0.16, 0.80), (0.26, 0.53)),
         ("middle", "zone 3", (0.50, 0.60), (0.44, 0.72), (0.50, 0.52)),
         ("opposite", "zone 2", (0.78, 0.62), (0.86, 0.80), (0.74, 0.53)),
-        ("pipe", "the pipe", (0.50, 0.92), (0.50, 0.86), (0.50, 0.58)),
+        # A back-row attacker takes off behind the attack line at y=0.667.
+        # Drawn at 0.58 the arrow visibly crossed it — an illegal attack.
+        ("pipe", "the pipe", (0.50, 0.92), (0.50, 0.80), (0.50, 0.685)),
     ]
     out = []
     for key, label, start, wind, hit in specs:
@@ -197,9 +205,28 @@ BLOCK_NOTE = {
 }
 
 
+SOLO_NOTE = {
+    "en": "Take the line or take the angle and let the diggers have the rest. Reaching for both gives the hitter the seam between your own hands.",
+    "en-GB": "Take the line or take the angle and let the diggers have the rest. Reaching for both gives the hitter the seam between your own hands.",
+    "zh-CN": "要么封直线，要么封斜线，剩下的交给后排。两边都想够，等于把自己两手之间的缝送给了对方。",
+    "zh-TW": "要麼封直線，要麼封斜線，剩下的交給後排。兩邊都想夠，等於把自己兩手之間的縫送給了對方。",
+    "ja-JP": "ストレートか、クロスか、どちらかを止めて残りはレシーブに任せる。両方に手を伸ばせば、自分の両手の間のコースを与える。",
+    "ko-KR": "라인이든 크로스든 하나를 막고 나머지는 수비에 맡겨라. 둘 다 잡으려 뻗으면 자기 두 손 사이를 내준다.",
+    "es-ES": "Cierra la paralela o la diagonal y deja el resto a la defensa: intentar las dos regala la costura entre tus propias manos.",
+    "fr-FR": "Prends la ligne ou la diagonale et laisse le reste aux défenseurs : vouloir les deux offre la fente entre tes propres mains.",
+    "id-ID": "Tutup garis atau tutup diagonal, sisanya serahkan ke penggali bola. Mengejar keduanya memberi celah di antara tanganmu sendiri.",
+    "ms-MY": "Tutup garisan atau tutup pepenjuru, selebihnya serahkan kepada pertahanan.",
+    "th-TH": "ปิดเส้นหรือปิดทแยงอย่างใดอย่างหนึ่ง ที่เหลือปล่อยให้แนวรับ ถ้าเอื้อมทั้งสองทางคือยกช่องระหว่างมือตัวเองให้เขา",
+    "vi-VN": "Chắn đường thẳng hoặc chắn đường chéo rồi để phần còn lại cho hàng dưới. Với cả hai là tự mở khe giữa hai bàn tay mình.",
+}
+
+
 def block_family() -> list[Drill]:
+    # Nobody triple-blocks a first-tempo middle: there is no time to close
+    # three, and committing the front row leaves two diggers for the court.
+    # A triple goes up against a high ball at a pin.
     specs = [("solo", "solo", 1, 0.22), ("double_outside", "double outside", 2, 0.24),
-             ("double_middle", "double middle", 2, 0.50), ("triple", "triple", 3, 0.50)]
+             ("double_middle", "double middle", 2, 0.50), ("triple", "triple", 3, 0.30)]
     out = []
     for key, label, n, x in specs:
         blockers = [P(x + (i - (n - 1) / 2) * 0.10, 0.545, "B",
@@ -210,7 +237,11 @@ def block_family() -> list[Drill]:
 # Blockers press shoulder to shoulder — a gap between them is a seam.
 tight=True,
             free=(key == "double_outside"),
-            name=suffixed(BLOCK_NAME, label), note=BLOCK_NOTE,
+            name=suffixed(BLOCK_NAME, label),
+            # A solo block has no gap and no second blocker, so the family's
+            # "close the gap between hands before the gap to the hitter" was
+            # advice about a board it was not on.
+            note=SOLO_NOTE if key == "solo" else BLOCK_NOTE,
             home=blockers + [
                 P(0.5, 0.92, "D", moves=[(0.5, 0.84, 1)]),
                 P(0.82, 0.84, "D", moves=[(0.86, 0.78, 1)]),
@@ -256,12 +287,17 @@ DEFENSE_NOTE = {
 def defense_family() -> list[Drill]:
     """Perimeter, rotation and man-up — where the tip falls decides which."""
     specs = [
+        # The fourth defender in each is the off-blocker — the front-row
+        # player who did not go up — and he plays the open side. Perimeter
+        # had him tucked behind his own double block, where nothing arrives,
+        # and man-up had a fourth deep defender instead of him, leaving the
+        # whole cross-court angle unmanned.
         ("perimeter", "perimeter",
-         [(0.16, 0.86), (0.50, 0.94), (0.84, 0.86), (0.30, 0.70)]),
+         [(0.16, 0.86), (0.50, 0.94), (0.84, 0.86), (0.70, 0.68)]),
         ("rotation", "rotation",
-         [(0.14, 0.74), (0.42, 0.92), (0.80, 0.88), (0.60, 0.70)]),
+         [(0.14, 0.74), (0.42, 0.92), (0.80, 0.88), (0.66, 0.68)]),
         ("man_up", "man-up",
-         [(0.34, 0.62), (0.18, 0.86), (0.52, 0.92), (0.84, 0.84)]),
+         [(0.40, 0.62), (0.16, 0.86), (0.86, 0.84), (0.70, 0.68)]),
     ]
     out = []
     for key, label, spots in specs:
@@ -593,8 +629,156 @@ def game_family() -> list[Drill]:
     return out
 
 
+COVER_NAME = {"en": "Hitter coverage", "en-GB": "Hitter coverage",
+              "zh-CN": "扣球掩护", "zh-TW": "扣球掩護", "ja-JP": "スパイクカバー",
+              "ko-KR": "공격 커버", "es-ES": "Cobertura del atacante",
+              "fr-FR": "Couverture de l'attaquant", "id-ID": "Cover pemukul",
+              "ms-MY": "Perlindungan pemukul", "th-TH": "การคุ้มกันตัวตบ",
+              "vi-VN": "Bọc lót cho chủ công"}
+COVER_NOTE = {
+    "en": "Three low and close around your own hitter before he lands. The ball off the block falls inside three metres, and nobody digs it standing up.",
+    "en-GB": "Three low and close around your own hitter before he lands. The ball off the block falls inside three metres, and nobody digs it standing up.",
+    "zh-CN": "在自己扣球手落地之前，三个人压低重心围到他身边。被拦回来的球落点都在三米以内，站着的人一个也救不起来。",
+    "zh-TW": "在自己扣球手落地之前，三個人壓低重心圍到他身邊。被攔回來的球落點都在三米以內，站著的人一個也救不起來。",
+    "ja-JP": "スパイカーが着地する前に3人が低く近く囲む。ブロックに当たった球は3m以内に落ち、棒立ちでは誰も上げられない。",
+    "ko-KR": "공격수가 착지하기 전에 세 명이 낮게 가까이 붙어라. 블로킹에 맞은 공은 3미터 안에 떨어지고, 서 있는 사람은 못 올린다.",
+    "es-ES": "Tres bajos y cerca del propio atacante antes de que caiga. El balón del bloqueo cae dentro de tres metros y nadie lo levanta de pie.",
+    "fr-FR": "Trois joueurs bas et proches de votre attaquant avant qu'il retombe. Le ballon repoussé tombe à moins de trois mètres, et personne ne le relève debout.",
+    "id-ID": "Tiga orang rendah dan dekat di sekitar pemukul sendiri sebelum ia mendarat. Bola dari blok jatuh dalam tiga meter.",
+    "ms-MY": "Tiga orang rendah dan rapat di sekeliling pemukul sendiri sebelum dia mendarat.",
+    "th-TH": "สามคนย่อตัวต่ำและเข้าใกล้ตัวตบของเราก่อนเขาลงพื้น บอลที่กระดอนจากบล็อกตกในระยะสามเมตร",
+    "vi-VN": "Ba người hạ thấp và áp sát chủ công của mình trước khi anh ta tiếp đất. Bóng bật chắn rơi trong ba mét.",
+}
+TEMPO_NAME = {"en": "First tempo", "en-GB": "First tempo", "zh-CN": "快球",
+              "zh-TW": "快球", "ja-JP": "速攻", "ko-KR": "속공",
+              "es-ES": "Primer tiempo", "fr-FR": "Premier temps",
+              "id-ID": "Bola cepat", "ms-MY": "Bola pantas",
+              "th-TH": "บอลเร็ว", "vi-VN": "Bóng nhanh"}
+TEMPO_NOTE = {
+    "en": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+    "en-GB": "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.",
+    "zh-CN": "副攻在传球之前起跳，不是之后。二传要等他，说明对方拦网已经把整套球都读完了。",
+    "zh-TW": "副攻在傳球之前起跳，不是之後。二傳要等他，說明對方攔網已經把整套球都讀完了。",
+    "ja-JP": "ミドルはトスの前に跳ぶ、後ではない。セッターが待たされる時点で、ブロックは全部読み終えている。",
+    "ko-KR": "미들은 토스 전에 뛴다, 후가 아니라. 세터가 기다려야 한다면 블로킹은 이미 다 읽었다.",
+    "es-ES": "El central salta antes del pase, no después. Si el colocador tiene que esperarlo, el bloqueo ya ha leído toda la jugada.",
+    "fr-FR": "Le central saute avant la passe, pas après. Si le passeur doit l'attendre, le contre a déjà tout lu.",
+    "id-ID": "Middle melompat sebelum umpan, bukan sesudah. Jika tosser harus menunggunya, blok sudah membaca seluruh permainan.",
+    "ms-MY": "Pemain tengah melompat sebelum umpan, bukan selepas.",
+    "th-TH": "ตัวกลางกระโดดก่อนเซ็ต ไม่ใช่หลังเซ็ต ถ้าตัวเซ็ตต้องรอ แปลว่าบล็อกอ่านเกมออกหมดแล้ว",
+    "vi-VN": "Phụ công bật trước khi chuyền hai, không phải sau. Nếu chuyền hai phải chờ thì hàng chắn đã đọc hết bài.",
+}
+LIBERO_NAME = {"en": "Libero", "en-GB": "Libero", "zh-CN": "自由人",
+               "zh-TW": "自由人", "ja-JP": "リベロ", "ko-KR": "리베로",
+               "es-ES": "Líbero", "fr-FR": "Libéro", "id-ID": "Libero",
+               "ms-MY": "Libero", "th-TH": "ลิเบโร", "vi-VN": "Libero"}
+LIBERO_NOTE = {
+    "en": "Two passers means the libero owns everything to his left and calls the seam early. Silence in a two-passer system is a service ace waiting to happen.",
+    "en-GB": "Two passers means the libero owns everything to his left and calls the seam early. Silence in a two-passer system is a service ace waiting to happen.",
+    "zh-CN": "两人接发意味着自由人负责他左边的全部区域，并且要早喊结合部。两人接发里的沉默，就是一个还没发生的发球得分。",
+    "zh-TW": "兩人接發意味著自由人負責他左邊的全部區域，並且要早喊結合部。兩人接發裡的沉默，就是一個還沒發生的發球得分。",
+    "ja-JP": "2人レセプションではリベロが自分の左側すべてを持ち、継ぎ目は早くコールする。2人でだまっているのは、これから起きるサービスエースだ。",
+    "ko-KR": "2인 리시브는 리베로가 자기 왼쪽 전부를 맡고 이음새를 미리 콜한다는 뜻이다. 침묵은 곧 서브 에이스다.",
+    "es-ES": "Con dos receptores el líbero se hace cargo de todo lo que tiene a su izquierda y canta la costura pronto. El silencio es un ace en camino.",
+    "fr-FR": "À deux réceptionneurs, le libéro prend tout ce qui est à sa gauche et annonce la fente tôt. Le silence est un ace en préparation.",
+    "id-ID": "Dua penerima berarti libero menguasai semua yang ada di kirinya dan menyerukan celah lebih awal.",
+    "ms-MY": "Dua penerima bermakna libero menguasai semua di sebelah kirinya dan menyeru celah lebih awal.",
+    "th-TH": "รับสองคนหมายความว่าลิเบโรดูแลทุกอย่างทางซ้ายของเขา และต้องขานรอยต่อแต่เนิ่น",
+    "vi-VN": "Đỡ hai người nghĩa là libero ôm toàn bộ phía bên trái và gọi khe sớm.",
+}
+DUMP_NOTE = {
+    "en": "Dump on the second ball only when the block is already moving with your hands. A dump telegraphed by a look is the easiest point the other side will get.",
+    "en-GB": "Dump on the second ball only when the block is already moving with your hands. A dump telegraphed by a look is the easiest point the other side will get.",
+    "zh-CN": "只有在对方拦网已经跟着你的手动了的时候才二次球偷吊。用眼神暴露出来的偷吊，是对方拿分最轻松的一次。",
+    "zh-TW": "只有在對方攔網已經跟著你的手動了的時候才二次球偷吊。用眼神暴露出來的偷吊，是對方拿分最輕鬆的一次。",
+    "ja-JP": "ツーは、ブロックが自分の手に反応して動いている時だけ。目線で読まれたツーは相手にとって一番簡単な1点だ。",
+    "ko-KR": "블로킹이 이미 내 손을 따라 움직일 때만 세터 다이렉트를 쓴다. 눈빛으로 들킨 다이렉트는 가장 쉬운 실점이다.",
+    "es-ES": "Finta en el segundo toque solo cuando el bloqueo ya se mueve con tus manos. Una finta anunciada con la mirada es el punto más fácil del rival.",
+    "fr-FR": "Ne feinte au deuxième ballon que si le contre suit déjà tes mains. Une feinte annoncée par le regard est le point le plus facile pour l'adversaire.",
+    "id-ID": "Dump di bola kedua hanya ketika blok sudah bergerak mengikuti tanganmu.",
+    "ms-MY": "Dump pada bola kedua hanya apabila blok sudah bergerak mengikut tangan anda.",
+    "th-TH": "หยอดลูกที่สองเฉพาะตอนที่บล็อกขยับตามมือคุณแล้วเท่านั้น",
+    "vi-VN": "Chỉ bỏ nhỏ ở nhịp hai khi hàng chắn đã di chuyển theo tay bạn.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """Coverage, tempo, the libero and the setter dump.
+
+    Seven blocking and defence boards and not one on covering your own
+    hitter; six serve-receive rotations and no libero, no two-passer
+    pattern; four attacks and no first tempo, no slide, no second-ball
+    attack. All verified absent from every name and note.
+    """
+    return [
+        Drill(
+            id="vb_cover_hitter", category="defending", minutes=10, rel=True,
+            free=True, level="foundation",
+            name=suffixed(COVER_NAME, "around the outside hitter"),
+            note=COVER_NOTE,
+            home=[P(0.22, 0.62, "A", moves=[(0.18, 0.575, 1)]),
+                  P(*SET_POINT, "S", moves=[(0.44, 0.62, 1)]),
+                  P(0.34, 0.70, "C", moves=[(0.28, 0.655, 1)]),
+                  P(0.20, 0.86, "C", moves=[(0.235, 0.735, 1)]),
+                  P(0.52, 0.92, "C", moves=[(0.42, 0.79, 1)])],
+            away=[P(0.20, 0.455, "B"), P(0.32, 0.455, "B")],
+            markers=[M(0.26, 0.70, "zone", "")],
+            ball=0,
+        ),
+        Drill(
+            id="vb_attack_quick", category="finishing", minutes=12, rel=True,
+            name=suffixed(TEMPO_NAME, "the quick in front"), note=TEMPO_NOTE,
+            home=[P(*zone(1), "P", moves=[(0.72, 0.80, 0)]),
+                  P(*SET_POINT, "S", moves=[(0.62, 0.545, 1)]),
+                  P(0.50, 0.62, "M", moves=[(0.56, 0.575, 0), (0.58, 0.545, 1)])],
+            away=[P(0.54, 0.455, "B", moves=[(0.58, 0.47, 2)]),
+                  P(*mirror(zone(6)), "D")],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=0,
+        ),
+        Drill(
+            id="vb_attack_slide", category="finishing", minutes=12, rel=True,
+            level="advanced",
+            name=suffixed(TEMPO_NAME, "the slide behind the setter"),
+            note=TEMPO_NOTE,
+            home=[P(*zone(1), "P", moves=[(0.72, 0.80, 0)]),
+                  P(*SET_POINT, "S", moves=[(0.62, 0.545, 1)]),
+                  P(0.46, 0.64, "M", moves=[(0.62, 0.60, 0), (0.80, 0.555, 1)])],
+            away=[P(0.24, 0.455, "B", moves=[(0.18, 0.47, 2)]),
+                  P(*mirror(zone(6)), "D")],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=0,
+        ),
+        Drill(
+            id="vb_receive_two_passer", category="possession", minutes=12, rel=True,
+            free=True, level="advanced",
+            name=suffixed(LIBERO_NAME, "in a two-passer receive"), note=LIBERO_NOTE,
+            home=[P(0.34, 0.84, "L", moves=[(0.42, 0.78, 1)]),
+                  P(0.74, 0.82, "P", moves=[(0.68, 0.76, 1)]),
+                  P(*SET_POINT, "S", moves=[(0.60, 0.555, 1)]),
+                  P(0.22, 0.62, "H"), P(0.50, 0.60, "M"), P(0.78, 0.62, "H")],
+            away=[P(0.50, 0.06, "SV", moves=[(0.46, 0.115, 0)])],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=3,
+        ),
+        Drill(
+            id="vb_setter_dump", category="attacking", minutes=8, rel=True,
+            level="foundation",
+            name=suffixed(SETTER_NAME, "the second-ball dump"), note=DUMP_NOTE,
+            home=[P(0.20, 0.84, "P", moves=[(0.28, 0.76, 0)]),
+                  P(*SET_POINT, "S", moves=[(0.62, 0.545, 1), (0.56, 0.525, 2)]),
+                  P(0.22, 0.62, "H", moves=[(0.18, 0.575, 2)])],
+            away=[P(0.26, 0.455, "B", moves=[(0.20, 0.47, 2)]),
+                  P(0.42, 0.455, "B", moves=[(0.36, 0.47, 2)]),
+                  P(*mirror(zone(6)), "D")],
+            markers=[M(0.62, 0.40, "zone", "")],
+            ball=0,
+        ),
+    ]
+
+
 def volleyball_library() -> list[Drill]:
     return (warmup_family() + receive_family() + setting_family()
             + setter_family() + freeball_family() + attack_family()
             + block_family() + defense_family() + serve_family()
-            + game_family())
+            + game_family() + gaps_family())
