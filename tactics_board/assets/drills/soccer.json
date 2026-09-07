@@ -59,7 +59,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -86,7 +86,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -113,7 +113,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -140,7 +140,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -392,7 +392,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -419,7 +419,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -446,7 +446,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -473,7 +473,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -661,7 +661,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -864,7 +864,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -884,7 +884,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -904,7 +904,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -931,7 +931,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -951,7 +951,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -971,7 +971,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -991,7 +991,7 @@
           },
           {
             "id": "d6",
-            "label": "7",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3422,7 +3422,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3449,7 +3449,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3469,7 +3469,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3489,7 +3489,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3844,7 +3844,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3871,7 +3871,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3898,7 +3898,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -3925,7 +3925,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4113,7 +4113,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4150,7 +4150,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4371,7 +4371,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4398,7 +4398,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4418,7 +4418,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4445,7 +4445,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4465,7 +4465,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4720,7 +4720,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4747,7 +4747,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4767,7 +4767,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4799,7 +4799,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -4819,7 +4819,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7482,7 +7482,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7509,7 +7509,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7529,7 +7529,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7556,7 +7556,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7576,7 +7576,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7603,7 +7603,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7871,7 +7871,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7898,7 +7898,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7925,7 +7925,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -7952,7 +7952,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -8140,7 +8140,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -8167,7 +8167,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -8194,7 +8194,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -8221,7 +8221,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -9873,7 +9873,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -9900,7 +9900,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -9920,7 +9920,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -9947,7 +9947,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -9967,7 +9967,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -10716,7 +10716,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -10743,7 +10743,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -10770,7 +10770,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -10797,7 +10797,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -10824,7 +10824,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11079,7 +11079,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11106,7 +11106,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11133,7 +11133,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11160,7 +11160,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11187,7 +11187,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11214,7 +11214,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11496,7 +11496,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11523,7 +11523,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11550,7 +11550,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11577,7 +11577,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11604,7 +11604,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11631,7 +11631,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11658,7 +11658,7 @@
           },
           {
             "id": "d6",
-            "label": "7",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11940,7 +11940,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11967,7 +11967,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -11994,7 +11994,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12021,7 +12021,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12048,7 +12048,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12075,7 +12075,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12102,7 +12102,7 @@
           },
           {
             "id": "d6",
-            "label": "7",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12129,7 +12129,7 @@
           },
           {
             "id": "d7",
-            "label": "8",
+            "label": "9",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12438,7 +12438,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12465,7 +12465,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12492,7 +12492,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12774,7 +12774,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12801,7 +12801,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12828,7 +12828,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -12855,7 +12855,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13164,7 +13164,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13191,7 +13191,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13218,7 +13218,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13245,7 +13245,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13272,7 +13272,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13608,7 +13608,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13635,7 +13635,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13662,7 +13662,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13689,7 +13689,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13716,7 +13716,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -13743,7 +13743,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14106,7 +14106,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14133,7 +14133,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14160,7 +14160,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14187,7 +14187,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14214,7 +14214,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14241,7 +14241,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14268,7 +14268,7 @@
           },
           {
             "id": "d6",
-            "label": "7",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14658,7 +14658,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14690,7 +14690,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14863,7 +14863,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14895,7 +14895,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14927,7 +14927,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -14959,7 +14959,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15186,7 +15186,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15218,7 +15218,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15250,7 +15250,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15282,7 +15282,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15314,7 +15314,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15588,7 +15588,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15615,7 +15615,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15642,7 +15642,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15837,7 +15837,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15864,7 +15864,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -15918,7 +15918,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -16140,7 +16140,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -16167,7 +16167,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -16221,7 +16221,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -16248,7 +16248,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -17562,7 +17562,7 @@
       },
       "category": "defending",
       "minutes": 12,
-      "players": 9,
+      "players": 13,
       "free": true,
       "offSurface": false,
       "name": {
@@ -17612,18 +17612,18 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "10",
             "team": 0,
             "sportType": null,
             "position": [
-              395.0857142857143,
-              669.0
+              412.5714285714286,
+              588.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                421.31428571428575,
-                534.0
+                431.8057142857143,
+                466.50000000000006
               ]
             ],
             "movePhases": [
@@ -17639,18 +17639,18 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "9",
             "team": 0,
             "sportType": null,
             "position": [
-              604.9142857142858,
-              669.0
+              587.4285714285713,
+              588.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                578.6857142857143,
-                534.0
+                568.1942857142857,
+                466.50000000000006
               ]
             ],
             "movePhases": [
@@ -17666,18 +17666,18 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "11",
             "team": 0,
             "sportType": null,
             "position": [
-              220.2285714285714,
-              885.0
+              202.74285714285713,
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                290.1714285714286,
-                750.0
+                268.13942857142854,
+                682.5000000000001
               ]
             ],
             "movePhases": [
@@ -17693,18 +17693,18 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
-              412.5714285714286,
-              912.0
+              403.8285714285714,
+              831.0000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                434.42857142857144,
-                777.0
+                424.9862857142857,
+                709.5000000000001
               ]
             ],
             "movePhases": [
@@ -17720,18 +17720,18 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
-              587.4285714285713,
-              912.0
+              596.1714285714286,
+              831.0000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                565.5714285714286,
-                777.0
+                575.0137142857143,
+                709.5000000000001
               ]
             ],
             "movePhases": [
@@ -17747,18 +17747,18 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
-              779.7714285714285,
-              885.0
+              797.2571428571428,
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                709.8285714285714,
-                750.0
+                731.8605714285713,
+                682.5000000000001
               ]
             ],
             "movePhases": [
@@ -17774,18 +17774,18 @@
           },
           {
             "id": "d6",
-            "label": "6",
-            "team": 1,
+            "label": "3",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              453.00000000000006
+              237.71428571428572,
+              1074.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                372.0
+                295.41714285714284,
+                952.5
               ]
             ],
             "movePhases": [
@@ -17802,15 +17802,22 @@
           {
             "id": "d7",
             "label": "5",
-            "team": 1,
+            "team": 0,
             "sportType": null,
             "position": [
-              290.1714285714286,
-              399.0
+              412.5714285714286,
+              1101.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                431.8057142857143,
+                979.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -17822,16 +17829,117 @@
           {
             "id": "d8",
             "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              587.4285714285713,
+              1101.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                568.1942857142857,
+                979.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              762.2857142857144,
+              1074.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                704.5828571428572,
+                952.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "A",
             "team": 1,
             "sportType": null,
             "position": [
-              709.8285714285714,
-              399.0
+              500.0,
+              291.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                372.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              290.1714285714286,
+              264.0
             ],
             "scale": 1.0,
             "moves": [],
             "movePhases": [],
-            "moveColor": 4282434815,
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              709.8285714285714,
+              264.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -17865,7 +17973,7 @@
       },
       "category": "defending",
       "minutes": 12,
-      "players": 9,
+      "players": 13,
       "free": false,
       "offSurface": false,
       "name": {
@@ -17915,18 +18023,18 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "11",
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              615.0
+              255.2,
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                480.00000000000006
+                309.05600000000004,
+                439.5
               ]
             ],
             "movePhases": [
@@ -17942,18 +18050,18 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "9",
             "team": 0,
             "sportType": null,
             "position": [
-              272.68571428571425,
-              696.0
+              500.0,
+              534.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                329.5142857142857,
-                561.0
+                500.0,
+                412.5
               ]
             ],
             "movePhases": [
@@ -17969,18 +18077,18 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
-              727.3142857142857,
-              696.0
+              744.8,
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                670.4857142857143,
-                561.0
+                690.944,
+                439.5
               ]
             ],
             "movePhases": [
@@ -17996,18 +18104,18 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
-              377.59999999999997,
-              912.0
+              342.62857142857143,
+              831.0000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                408.2,
-                777.0
+                377.2502857142857,
+                709.5000000000001
               ]
             ],
             "movePhases": [
@@ -18023,18 +18131,18 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
-              622.4000000000001,
+              500.0,
               912.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                591.8,
-                777.0
+                500.0,
+                790.5
               ]
             ],
             "movePhases": [
@@ -18050,18 +18158,18 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "10",
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1019.9999999999999
+              657.3714285714286,
+              831.0000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                885.0
+                622.7497142857144,
+                709.5000000000001
               ]
             ],
             "movePhases": [
@@ -18077,18 +18185,18 @@
           },
           {
             "id": "d6",
-            "label": "6",
-            "team": 1,
+            "label": "3",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              453.00000000000006
+              237.71428571428572,
+              1128.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                372.0
+                295.41714285714284,
+                1006.5000000000001
               ]
             ],
             "movePhases": [
@@ -18105,15 +18213,22 @@
           {
             "id": "d7",
             "label": "5",
-            "team": 1,
+            "team": 0,
             "sportType": null,
             "position": [
-              290.1714285714286,
-              399.0
+              412.5714285714286,
+              1155.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                431.8057142857143,
+                1033.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -18125,16 +18240,117 @@
           {
             "id": "d8",
             "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              587.4285714285713,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                568.1942857142857,
+                1033.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              762.2857142857144,
+              1128.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                704.5828571428572,
+                1006.5000000000001
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "A",
             "team": 1,
             "sportType": null,
             "position": [
-              709.8285714285714,
-              399.0
+              500.0,
+              291.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                372.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              290.1714285714286,
+              264.0
             ],
             "scale": 1.0,
             "moves": [],
             "movePhases": [],
-            "moveColor": 4282434815,
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              709.8285714285714,
+              264.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -18168,7 +18384,7 @@
       },
       "category": "defending",
       "minutes": 12,
-      "players": 9,
+      "players": 13,
       "free": false,
       "offSurface": false,
       "name": {
@@ -18218,18 +18434,18 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "9",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              615.0
+              507.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                480.00000000000006
+                385.5
               ]
             ],
             "movePhases": [
@@ -18245,18 +18461,18 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "11",
             "team": 0,
             "sportType": null,
             "position": [
               272.68571428571425,
-              777.0
+              696.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                329.5142857142857,
-                642.0
+                322.69485714285713,
+                574.5
               ]
             ],
             "movePhases": [
@@ -18272,18 +18488,18 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "10",
             "team": 0,
             "sportType": null,
             "position": [
-              727.3142857142857,
-              777.0
+              500.0,
+              723.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                670.4857142857143,
-                642.0
+                500.0,
+                601.5
               ]
             ],
             "movePhases": [
@@ -18299,18 +18515,18 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              831.0000000000001
+              727.3142857142857,
+              696.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                696.0000000000001
+                677.3051428571428,
+                574.5
               ]
             ],
             "movePhases": [
@@ -18326,18 +18542,18 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
               395.0857142857143,
-              1019.9999999999999
+              939.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                421.31428571428575,
-                885.0
+                418.1668571428571,
+                817.5000000000001
               ]
             ],
             "movePhases": [
@@ -18353,18 +18569,18 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
               604.9142857142858,
-              1019.9999999999999
+              939.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                578.6857142857143,
-                885.0
+                581.8331428571428,
+                817.5000000000001
               ]
             ],
             "movePhases": [
@@ -18380,18 +18596,18 @@
           },
           {
             "id": "d6",
-            "label": "6",
-            "team": 1,
+            "label": "3",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              453.00000000000006
+              237.71428571428572,
+              1155.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                372.0
+                295.41714285714284,
+                1033.5
               ]
             ],
             "movePhases": [
@@ -18408,15 +18624,22 @@
           {
             "id": "d7",
             "label": "5",
-            "team": 1,
+            "team": 0,
             "sportType": null,
             "position": [
-              290.1714285714286,
-              399.0
+              412.5714285714286,
+              1182.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                431.8057142857143,
+                1060.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -18428,16 +18651,117 @@
           {
             "id": "d8",
             "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              587.4285714285713,
+              1182.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                568.1942857142857,
+                1060.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              762.2857142857144,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                704.5828571428572,
+                1033.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "A",
             "team": 1,
             "sportType": null,
             "position": [
-              709.8285714285714,
-              399.0
+              500.0,
+              291.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                372.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              290.1714285714286,
+              264.0
             ],
             "scale": 1.0,
             "moves": [],
             "movePhases": [],
-            "moveColor": 4282434815,
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              709.8285714285714,
+              264.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -18471,7 +18795,7 @@
       },
       "category": "defending",
       "minutes": 12,
-      "players": 9,
+      "players": 13,
       "free": false,
       "offSurface": false,
       "name": {
@@ -18521,18 +18845,18 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "11",
             "team": 0,
             "sportType": null,
             "position": [
-              430.0571428571428,
-              642.0
+              412.5714285714286,
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                447.54285714285714,
-                506.99999999999994
+                431.8057142857143,
+                439.5
               ]
             ],
             "movePhases": [
@@ -18548,18 +18872,18 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "9",
             "team": 0,
             "sportType": null,
             "position": [
-              569.9428571428571,
-              642.0
+              587.4285714285713,
+              561.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                552.4571428571428,
-                506.99999999999994
+                568.1942857142857,
+                439.5
               ]
             ],
             "movePhases": [
@@ -18579,14 +18903,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              237.71428571428572,
-              858.0
+              167.77142857142854,
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                303.28571428571433,
-                723.0
+                240.86171428571427,
+                682.5000000000001
               ]
             ],
             "movePhases": [
@@ -18602,18 +18926,18 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "8",
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              885.0
+              360.1142857142857,
+              858.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                750.0
+                390.8891428571429,
+                736.5
               ]
             ],
             "movePhases": [
@@ -18629,18 +18953,18 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
-              762.2857142857144,
-              858.0
+              500.0,
+              912.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                696.7142857142858,
-                723.0
+                500.0,
+                790.5
               ]
             ],
             "movePhases": [
@@ -18656,18 +18980,18 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "10",
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1047.0
+              639.8857142857144,
+              858.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                912.0
+                609.1108571428572,
+                736.5
               ]
             ],
             "movePhases": [
@@ -18683,18 +19007,18 @@
           },
           {
             "id": "d6",
-            "label": "6",
-            "team": 1,
+            "label": "7",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              453.00000000000006
+              832.2285714285715,
+              804.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                372.0
+                759.1382857142858,
+                682.5000000000001
               ]
             ],
             "movePhases": [
@@ -18711,15 +19035,22 @@
           {
             "id": "d7",
             "label": "5",
-            "team": 1,
+            "team": 0,
             "sportType": null,
             "position": [
-              290.1714285714286,
-              399.0
+              325.1428571428571,
+              1155.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                363.6114285714285,
+                1033.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -18731,16 +19062,117 @@
           {
             "id": "d8",
             "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1182.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1060.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              674.8571428571429,
+              1155.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                636.3885714285714,
+                1033.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d10",
+            "label": "A",
             "team": 1,
             "sportType": null,
             "position": [
-              709.8285714285714,
-              399.0
+              500.0,
+              291.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                372.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              290.1714285714286,
+              264.0
             ],
             "scale": 1.0,
             "moves": [],
             "movePhases": [],
-            "moveColor": 4282434815,
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d12",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              709.8285714285714,
+              264.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -20844,7 +21276,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -20871,7 +21303,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -20898,7 +21330,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21079,7 +21511,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21106,7 +21538,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21133,7 +21565,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21160,7 +21592,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21187,7 +21619,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21408,7 +21840,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21435,7 +21867,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21462,7 +21894,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21489,7 +21921,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21516,7 +21948,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -21543,7 +21975,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -23923,7 +24355,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -23950,7 +24382,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -23977,7 +24409,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24130,7 +24562,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24157,7 +24589,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24184,7 +24616,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24337,7 +24769,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24364,7 +24796,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24517,7 +24949,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24544,7 +24976,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24697,7 +25129,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24850,7 +25282,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -24877,7 +25309,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -25030,7 +25462,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -25057,7 +25489,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -25210,7 +25642,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -25446,7 +25878,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -25687,7 +26119,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -29617,7 +30049,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -29644,7 +30076,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -29671,7 +30103,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -29698,7 +30130,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30007,7 +30439,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30034,7 +30466,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30061,7 +30493,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30088,7 +30520,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30115,7 +30547,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30451,7 +30883,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30478,7 +30910,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30505,7 +30937,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30532,7 +30964,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30559,7 +30991,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30586,7 +31018,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30949,7 +31381,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -30976,7 +31408,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31209,7 +31641,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31236,7 +31668,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31469,7 +31901,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31496,7 +31928,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31729,7 +32161,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -31756,7 +32188,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33274,7 +33706,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33301,7 +33733,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33328,7 +33760,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33583,7 +34015,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33610,7 +34042,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33637,7 +34069,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33664,7 +34096,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33946,7 +34378,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -33973,7 +34405,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34000,7 +34432,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34027,7 +34459,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34054,7 +34486,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34363,7 +34795,7 @@
         "players": [
           {
             "id": "d0",
-            "label": "1",
+            "label": "2",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34390,7 +34822,7 @@
           },
           {
             "id": "d1",
-            "label": "2",
+            "label": "3",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34417,7 +34849,7 @@
           },
           {
             "id": "d2",
-            "label": "3",
+            "label": "4",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34444,7 +34876,7 @@
           },
           {
             "id": "d3",
-            "label": "4",
+            "label": "5",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34471,7 +34903,7 @@
           },
           {
             "id": "d4",
-            "label": "5",
+            "label": "6",
             "team": 0,
             "sportType": null,
             "position": [
@@ -34498,7 +34930,7 @@
           },
           {
             "id": "d5",
-            "label": "6",
+            "label": "7",
             "team": 0,
             "sportType": null,
             "position": [

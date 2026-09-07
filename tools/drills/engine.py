@@ -248,7 +248,29 @@ def to_canvas(drill: Drill, sport: str) -> None:
     drill.rel = False
 
 
+def reserve_keeper_number(drill: Drill, sport: str) -> None:
+    """In football, 1 is the goalkeeper — nobody else may wear it.
+
+    Generic drills number their players 1, 2, 3... as a sequence, which on a
+    football pitch reads as "the keeper is in this rondo". Where a side's
+    numbers are a plain run starting at 1, shift the whole run up so it
+    starts at 2; anything else is left for a person, and audit() will say so.
+    """
+    if sport != "soccer":
+        return
+    for side in (drill.home, drill.away):
+        nums = sorted(int(p.label) for p in side if p.label.isdigit())
+        if not nums or nums[0] != 1:
+            continue
+        if nums != list(range(1, len(nums) + 1)):
+            continue           # not a plain run — audit() will flag it
+        for p in side:
+            if p.label.isdigit():
+                p.label = str(int(p.label) + 1)
+
+
 def build_board(drill: Drill, sport: str) -> dict:
+    reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
     prune_degenerate_moves(drill)
     normalise_phases(drill)
@@ -566,6 +588,21 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                 f"{sport}/{drill.id}/{p['label']}: {step:.0f}px move — "
                 f"a dead arrow (prune_degenerate_moves should have eaten it)")
             prev = mv
+
+    if sport == "soccer":
+        for p in people:
+            assert p["label"] != "1" or p.get("role") == "GK", (
+                f"{sport}/{drill.id}: an outfield player wears 1 — that is "
+                f"the goalkeeper's shirt (see reserve_keeper_number)")
+        seen = {}
+        for p in people:
+            if not p["label"]:
+                continue
+            other = seen.get(p["label"])
+            assert other is None or other == p["team"], (
+                f"{sport}/{drill.id}: both sides field a {p['label']!r} — "
+                f"two players in the same shirt on one board")
+            seen[p["label"]] = p["team"]
 
     for loc, name in drill.name.items():
         assert not _STUTTER.search(name) and "  " not in name, (
