@@ -20,6 +20,8 @@ import '../services/cloud_sync_service.dart';
 import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import '../painters/ball_painter.dart';
 import '../widgets/player_icon_widget.dart';
 import '../widgets/tactics_canvas.dart';
@@ -490,59 +492,91 @@ class _MenuButton extends StatelessWidget {
     final s = uiScale(context);
     return PopupMenuButton<String>(
       onSelected: (value) => _onSelected(context, value),
-      color: const Color(0xFF20424C),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      offset: const Offset(0, 40),
+      // A compact anchored popover, grouped: it used to be a full-width
+      // slab where every entry carried the same weight, so "Language" read
+      // as loudly as "Presentation".
+      color: T.surface,
+      surfaceTintColor: Colors.transparent,
+      elevation: 10,
+      shadowColor: const Color(0x73000000),
+      constraints: const BoxConstraints(minWidth: 250, maxWidth: 280),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: const BorderSide(color: T.border),
+      ),
+      // Anchored under the ellipsis it came from.
+      offset: const Offset(0, 46),
+      padding: EdgeInsets.zero,
       child: _GlassCircle(
         size: (32 * s).clamp(44.0, 60.0).toDouble(),
         child: Icon(Icons.more_horiz, color: Colors.white, size: 18 * s),
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
+        final showPro = PurchaseService.instance.isStoreEnabled &&
+            AdService.instance.servesAds &&
+            !PurchaseService.instance.hasPro;
         return [
-          _menuItem(context, 'present', Icons.co_present_outlined, 'present_mode'.tr()),
+          // Working with the board
+          _menuItem('present', Icons.co_present_outlined, 'present_mode'.tr()),
           if (sport == SportType.soccer)
-            _menuItem(context, 'field', Icons.grass_outlined, 'menu_field'.tr()),
+            _menuItem('field', Icons.grass_outlined, 'menu_field'.tr()),
           if (sport.hasCourtPicker)
-            _menuItem(context, 'court', Icons.dashboard_outlined, 'menu_court'.tr()),
-          _menuItem(context, 'share', Icons.ios_share, 'share'.tr()),
-          _menuItem(context, 'drills', Icons.menu_book_outlined, 'drills_title'.tr()),
-          _menuItem(context, 'practice', Icons.event_note_outlined, 'practice_plan'.tr()),
+            _menuItem('court', Icons.dashboard_outlined, 'menu_court'.tr()),
+          _menuItem('drills', Icons.menu_book_outlined, 'drills_title'.tr()),
+          // Also here, not only on the toolbar: the toolbar drops this
+          // button on a narrow phone, and the boards have to stay reachable.
+          _menuItem('boards', Icons.folder_outlined, 'boards'.tr()),
+          _menuItem('practice', Icons.event_note_outlined, 'practice_plan'.tr()),
+          _divider(),
+          // Getting it out of the app
+          _menuItem('share', Icons.ios_share_rounded, 'share'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
-            _menuItem(context, 'scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
-          _menuItem(context, 'language', Icons.language, 'menu_language'.tr()),
-          _menuItem(context, 'contact', Icons.mail_outline, 'menu_contact'.tr()),
-          if (PurchaseService.instance.isStoreEnabled &&
-              AdService.instance.servesAds &&
-              !PurchaseService.instance.hasPro)
-            _menuItem(context, 'pro', Icons.workspace_premium_outlined,
-                'menu_remove_ads'.tr()),
-          _menuItem(context, 'login', Icons.person_outline, 'menu_login'.tr()),
+            _menuItem('scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
+          _divider(),
+          // The app itself
+          _menuItem('language', Icons.language_rounded, 'menu_language'.tr()),
+          _menuItem('contact', Icons.mail_outline_rounded, 'menu_contact'.tr()),
+          if (showPro)
+            _menuItem('pro', Icons.workspace_premium_outlined,
+                'menu_remove_ads'.tr(), tint: T.accent),
+          _menuItem('login', Icons.person_outline_rounded, 'menu_login'.tr()),
+          _divider(),
+          // Destructive, and rare: it used to sit a thumb's width from Undo
+          // on the toolbar, where the two are easy to confuse.
+          _menuItem('clear', Icons.delete_sweep_outlined,
+              'clear_board_title'.tr(), tint: T.danger),
         ];
       },
     );
   }
 
-  PopupMenuItem<String> _menuItem(BuildContext context, String value, IconData icon, String label) {
-    final s = uiScale(context);
+  PopupMenuEntry<String> _divider() => const PopupMenuItem<String>(
+        enabled: false,
+        height: 9,
+        padding: EdgeInsets.zero,
+        child: TacticalDivider(),
+      );
+
+  PopupMenuItem<String> _menuItem(String value, IconData icon, String label,
+      {Color? tint}) {
     return PopupMenuItem(
       value: value,
-      height: 44 * s,
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: T.s16),
       child: Row(
         children: [
-          Icon(icon, color: Colors.white70, size: 20 * s),
-          SizedBox(width: 12 * s),
-          // Expanded, and allowed a second line: the menu is as wide as the
-          // phone lets it be, and several of these labels are long in French,
-          // Vietnamese and Thai — "Remove ads" and "Practice plan" ran 65px
-          // past the edge on a 320pt screen. `height` above is a minimum, so
-          // an item that needs two lines simply gets taller.
+          Icon(icon, color: tint ?? T.textDim, size: 19),
+          const SizedBox(width: T.s12),
+          // Two lines allowed: several of these labels are long in French,
+          // Vietnamese and Thai, and the popover is deliberately narrow.
           Expanded(
             child: Text(
               label,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: Colors.white, fontSize: 14 * s),
+              style: TextStyle(
+                  color: tint ?? T.text, fontSize: 15, height: 1.25),
             ),
           ),
         ],
@@ -554,6 +588,10 @@ class _MenuButton extends StatelessWidget {
     switch (value) {
       case 'present':
         context.read<TacticsState>().togglePresentationMode();
+      case 'clear':
+        confirmClearAll(context, context.read<TacticsState>());
+      case 'boards':
+        showSaveLoadSheet(context, context.read<TacticsState>());
       case 'field':
         showFieldSettingsSheet(context, context.read<TacticsState>());
       case 'court':
@@ -2890,43 +2928,44 @@ class _FirstRunHintState extends State<_FirstRunHint> {
       });
       return const SizedBox.shrink();
     }
-    // right: 88 keeps the bubble clear of the zoom/fullscreen column that
-    // lives in the board's bottom-right corner.
+    // A light coach mark above the toolbar, not a paragraph across the
+    // board. It says the one thing a coach needs on an empty pitch, points
+    // at the control that does it, and goes away for good.
     return Positioned(
-      left: 16,
-      right: 88,
-      bottom: 14,
+      left: T.s16,
+      right: T.s16,
+      bottom: 8,
       child: Center(
-        child: GestureDetector(
-          onTap: _dismiss,
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: 360),
-            padding: const EdgeInsets.fromLTRB(14, 10, 10, 10),
-            decoration: BoxDecoration(
-              color: const Color(0xF0142B33),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.white12),
-              boxShadow: const [
-                BoxShadow(
-                    color: Colors.black45,
-                    blurRadius: 12,
-                    offset: Offset(0, 4)),
-              ],
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Flexible(
-                  child: Text(
-                    'first_run_hint'
-                        .tr(args: ['add_label'.tr(), 'mode_draw'.tr()]),
-                    style: const TextStyle(
-                        color: Colors.white, fontSize: 13, height: 1.35),
+        child: Semantics(
+          button: true,
+          child: GestureDetector(
+            onTap: _dismiss,
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 320),
+              padding: const EdgeInsets.fromLTRB(T.s16, T.s12, T.s8, T.s12),
+              decoration: BoxDecoration(
+                color: T.surface,
+                borderRadius: BorderRadius.circular(T.rMd),
+                border: Border.all(color: T.border),
+                boxShadow: T.shadowFloat,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.add_rounded, size: 18, color: T.accent),
+                  const SizedBox(width: T.s8),
+                  Flexible(
+                    child: Text(
+                      'first_run_hint'.tr(args: ['add_label'.tr()]),
+                      maxLines: 2,
+                      style: const TextStyle(
+                          fontSize: 14, color: T.text, height: 1.3),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 6),
-                const Icon(Icons.close, color: Colors.white54, size: 16),
-              ],
+                  const SizedBox(width: T.s4),
+                  const Icon(Icons.close_rounded, color: T.textOff, size: 17),
+                ],
+              ),
             ),
           ),
         ),

@@ -42,6 +42,8 @@ import '../services/share_link_service.dart';
 import '../services/video_export_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import 'element_import_flow.dart';
 import 'line_style_sheet.dart';
 import 'marker_shape_clipper.dart';
@@ -909,86 +911,197 @@ class TacticsToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Subscribe to locale so toolbar rebuilds on language change
+    // Subscribe to locale so the toolbar rebuilds on a language change.
     final _ = EasyLocalization.of(context)?.currentLocale;
     return Consumer<TacticsState>(
-      builder: (context, state, _) {
-        return Container(
-          color: state.sportType.theme.panelColor,
-          child: _MainRow(state: state),
-        );
-      },
+      builder: (context, state, _) => _PrimaryToolbar(state: state),
     );
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Main Row — always visible, single row
+// Primary toolbar — one docked capsule
+//
+// It used to be a full-width bar painted the panel colour, carrying a
+// segmented control, a pill-shaped Add button, a clear-all, undo, redo and a
+// floppy disk, each with its own fill and shadow. Stacked above the play
+// controls it read as two navigation bars sitting on the pitch.
+//
+// Now: one capsule that floats over the board, four tools on the left and
+// the two history controls trailing. Clear-all moved into the ⋯ menu — it is
+// destructive, rare, and does not belong a thumb's width from Undo.
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _MainRow extends StatelessWidget {
+class _PrimaryToolbar extends StatelessWidget {
   final TacticsState state;
-  const _MainRow({required this.state});
+  const _PrimaryToolbar({required this.state});
 
   @override
   Widget build(BuildContext context) {
-    final hasContent = state.players.isNotEmpty || state.strokes.isNotEmpty;
-
+    final drawing = state.isDrawingMode;
+    final selecting = state.multiSelectMode;
+    // Four labelled tools plus undo, redo and boards do not fit 320pt once
+    // the labels are German, French or Vietnamese. Below the threshold the
+    // tools keep their icons and drop their words — the icons are the same
+    // ones, in the same order, so nothing moves.
+    // Also at a large accessibility text size: at 200% the four labels need
+    // roughly twice the room, so the same icon-only fallback applies however
+    // wide the phone is.
+    final mq = MediaQuery.of(context);
+    final wide = mq.size.width >= 380 && mq.textScaler.scale(13) <= 17;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-      child: centeredPanel(Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Row: Mode + Add + Clear on the left, Save + Share on the right.
-          // The left group sits in a FittedBox(scaleDown) so it shrinks to
-          // fit instead of triggering a RenderFlex overflow when the Clear
-          // button appears — a single row keeps the toolbar from reflowing
-          // onto a second line, and avoids the yellow/black overflow stripes
-          // that Apple App Preview reviewers reject.
-          Row(
+      padding: const EdgeInsets.symmetric(horizontal: T.s16),
+      child: centeredPanel(
+        Container(
+          height: 60,
+          padding: const EdgeInsets.symmetric(horizontal: T.s8),
+          decoration: BoxDecoration(
+            color: T.surface,
+            borderRadius: BorderRadius.circular(T.rLg),
+            border: Border.all(color: T.border),
+            boxShadow: T.shadowFloat,
+          ),
+          child: Row(
             children: [
               Expanded(
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _ModeSegment(state: state),
-                      const SizedBox(width: 6),
-                      _AddPlayerBtn(state: state),
-                      if (hasContent) ...[
-                        const SizedBox(width: 6),
-                        _IconBtn(icon: Icons.delete_sweep, onTap: () => confirmClearAll(context, state), color: kDanger),
-                      ],
-                    ],
-                  ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _Tool(
+                      showLabel: wide,
+                      icon: Icons.open_with_rounded,
+                      label: 'mode_move'.tr(),
+                      selected: !drawing && !selecting,
+                      onTap: state.isAnimating
+                          ? null
+                          : () {
+                              state.setMultiSelectMode(false);
+                              state.setDrawingMode(false);
+                            },
+                    ),
+                    _Tool(
+                      showLabel: wide,
+                      icon: Icons.gesture_rounded,
+                      label: 'mode_draw'.tr(),
+                      selected: drawing,
+                      onTap: state.isAnimating
+                          ? null
+                          : () => state.setDrawingMode(true),
+                    ),
+                    _Tool(
+                      showLabel: wide,
+                      icon: Icons.highlight_alt_rounded,
+                      label: 'mode_select'.tr(),
+                      selected: selecting,
+                      onTap: state.isAnimating
+                          ? null
+                          : () => state.setMultiSelectMode(!selecting),
+                    ),
+                    _Tool(
+                      showLabel: wide,
+                      icon: Icons.add_rounded,
+                      label: 'add_label'.tr(),
+                      selected: false,
+                      onTap: () => _AddPlayerBtn.showAddSheet(context, state),
+                    ),
+                  ],
                 ),
               ),
-              // Undo / Redo — always reachable, even while only placing
-              // players (before any move/stroke exists). Previously these
-              // lived in the play-controls bar, which is hidden during setup.
-              _IconBtn(
-                icon: Icons.undo,
-                onTap: state.canUndo ? state.undo : () {},
-                color: state.canUndo ? Colors.white : Colors.white24,
+              // History, trailing, in its own group.
+              TacticalIconButton(
+                icon: Icons.undo_rounded,
+                onTap: state.canUndo ? state.undo : null,
+                semanticLabel: 'undo'.tr(),
               ),
-              _IconBtn(
-                icon: Icons.redo,
-                onTap: state.canRedo ? state.redo : () {},
-                color: state.canRedo ? Colors.white : Colors.white24,
+              TacticalIconButton(
+                icon: Icons.redo_rounded,
+                onTap: state.canRedo ? state.redo : null,
+                semanticLabel: 'redo'.tr(),
               ),
-              _IconBtn(icon: Icons.save_outlined, onTap: () => _showSaveLoad(context), color: kAccent),
-              // Share moved to the ⋯ menu — keeps this row from over-packing.
+              // Not a floppy disk: this opens the saved boards, and nothing
+              // in the app autosaves, so it is a library rather than a save.
+              // On a narrow phone it steps aside — undo and redo are used far
+              // more often, and the board list is one tap away in the menu.
+              if (wide)
+                TacticalIconButton(
+                  icon: Icons.folder_outlined,
+                  onTap: () => showSaveLoadSheet(context, state),
+                  color: T.accent,
+                  semanticLabel: 'boards'.tr(),
+                ),
             ],
           ),
-        ],
-      )),
+        ),
+      ),
     );
   }
+}
 
-  void _showSaveLoad(BuildContext context) {
-    showSaveLoadSheet(context, state);
+/// One tool in the primary capsule. Active is a teal tint behind a teal
+/// icon and label — clear without being a solid block of accent.
+class _Tool extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool selected;
+  final VoidCallback? onTap;
+  final bool showLabel;
+
+  const _Tool({
+    required this.icon,
+    required this.label,
+    required this.selected,
+    this.onTap,
+    this.showLabel = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final tint = onTap == null
+        ? T.textOff
+        : selected
+            ? T.accent
+            : T.textDim;
+    return Semantics(
+      button: true,
+      selected: selected,
+      label: label,
+      child: Material(
+        color: selected ? T.accentFill : Colors.transparent,
+        borderRadius: T.brSm,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: T.brSm,
+          child: Container(
+            height: 46,
+            constraints: const BoxConstraints(minWidth: T.tap),
+            padding: EdgeInsets.symmetric(horizontal: showLabel ? 9 : 0),
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, size: 20, color: tint),
+                if (showLabel) ...[
+                  const SizedBox(width: 5),
+                  Flexible(
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight:
+                            selected ? FontWeight.w600 : FontWeight.w500,
+                        color: tint,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -1295,97 +1408,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Mode Segment — compact pill with 移动 / 画线
-// ─────────────────────────────────────────────────────────────────────────────
-
-class _ModeSegment extends StatelessWidget {
-  final TacticsState state;
-  const _ModeSegment({required this.state});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.10),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.20),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _SegTab(
-            icon: Icons.open_with,
-            label: 'mode_move'.tr(),
-            selected: !state.isDrawingMode && !state.multiSelectMode,
-            onTap: state.isAnimating
-                ? null
-                : () {
-                    state.setMultiSelectMode(false);
-                    state.setDrawingMode(false);
-                  },
-          ),
-          _SegTab(
-            icon: Icons.edit,
-            label: 'mode_draw'.tr(),
-            selected: state.isDrawingMode,
-            onTap: state.isAnimating ? null : () => state.setDrawingMode(true),
-          ),
-          _SegTab(
-            icon: Icons.select_all,
-            label: 'mode_select'.tr(),
-            selected: state.multiSelectMode,
-            onTap: state.isAnimating
-                ? null
-                : () => state.setMultiSelectMode(!state.multiSelectMode),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SegTab extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool selected;
-  final VoidCallback? onTap;
-
-  const _SegTab({required this.icon, required this.label, required this.selected, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = uiScale(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
-        decoration: BoxDecoration(
-          color: selected ? kAccent : Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Opacity(
-          opacity: onTap == null ? 0.4 : 1.0,
-          child: Row(
-            children: [
-              Icon(icon, color: Colors.white, size: 15 * s),
-              SizedBox(width: 4 * s),
-              Text(label, style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Add Player Button — opens bottom sheet
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _AddPlayerBtn extends StatelessWidget {
@@ -4655,131 +4677,141 @@ class _PlayerDot extends StatelessWidget {
 
 class DrawingOptionsBar extends StatelessWidget {
   final TacticsState state;
-  /// When false, hides the colour swatches + width slider row (default).
-  /// Toggled by the outer collapsible panel's More/Less header.
+
+  /// Kept for the callers that still pass it; the palette now shows its
+  /// colours and thickness always, because hiding them behind a More/Less
+  /// header meant the two controls a coach reaches for most were two taps
+  /// away on every single line.
   final bool showOptions;
-  const DrawingOptionsBar({super.key, required this.state, this.showOptions = false});
+
+  const DrawingOptionsBar(
+      {super.key, required this.state, this.showOptions = true});
 
   @override
   Widget build(BuildContext context) {
     final sel = state.selectedStroke;
-    final s = uiScale(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // Selected stroke actions
-        if (sel != null)
-          Padding(
-            padding: EdgeInsets.fromLTRB(12 * s, 6 * s, 12 * s, 2 * s),
-            child: Row(
+    return Container(
+      padding: const EdgeInsets.fromLTRB(T.s12, T.s12, T.s12, T.s12),
+      decoration: BoxDecoration(
+        color: T.surface,
+        borderRadius: BorderRadius.circular(T.rLg),
+        border: Border.all(color: T.border),
+        boxShadow: T.shadowFloat,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // A selected stroke's actions ride above the palette rather than
+          // pushing a second bar onto the board.
+          if (sel != null) ...[
+            Row(
               children: [
-                Icon(Icons.gesture, color: sel.color, size: 16 * s),
-                SizedBox(width: 6 * s),
-                Text('Line ${state.strokes.indexOf(sel) + 1}', style: TextStyle(color: sel.color, fontSize: 12 * s, fontWeight: FontWeight.bold)),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () { state.deleteStroke(sel.id); },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10 * s, vertical: 4 * s),
-                    decoration: BoxDecoration(color: Colors.red.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(8)),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.delete, color: Colors.redAccent, size: 14 * s),
-                        SizedBox(width: 4 * s),
-                        Text('remove'.tr(), style: TextStyle(color: Colors.redAccent, fontSize: 12 * s)),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(width: 8 * s),
-                GestureDetector(
-                  onTap: () => state.selectStroke(null),
-                  child: Icon(Icons.close, color: Colors.white54, size: 18 * s),
-                ),
-              ],
-            ),
-          ),
-        // Row 1: line style picker + eraser
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                // Opens the full grid of body × dash × terminator combinations.
-                GestureDetector(
-                  onTap: () => showLineStyleSheet(context, state),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8 * s, vertical: 4 * s),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.08),
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.white24),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text('line_label'.tr(),
-                            style: TextStyle(color: Colors.white70, fontSize: 12 * s)),
-                        SizedBox(width: 6 * s),
-                        CustomPaint(
-                          size: Size(56 * s, 22 * s),
-                          painter: LineStylePreviewPainter(
-                            shape: state.lineShape,
-                            dash: state.strokeStyle,
-                            arrow: state.arrowStyle,
-                            color: state.strokeColor,
-                          ),
-                        ),
-                        SizedBox(width: 4 * s),
-                        Icon(Icons.expand_more, color: Colors.white54, size: 16 * s),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 14),
-                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
-                const SizedBox(width: 14),
-                // Eraser sub-mode — drag/tap over a stroke to delete it.
-                _ToggleChip(
-                  label: '⌫ ${'eraser'.tr()}',
-                  selected: state.eraserMode,
-                  onTap: () => state.setEraserMode(!state.eraserMode),
-                ),
-              ],
-            ),
-          ),
-        ),
-        // Row 2: color dots + width slider — hidden by default; appears
-        // only when the user expands the More panel.
-        if (showOptions)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-            child: Row(
-              children: [
-                ...kStrokeColors.map((c) => _ColorDot(
-                      color: c,
-                      selected: state.strokeColor == c,
-                      onTap: () => state.setStrokeColor(c),
-                    )),
-                const SizedBox(width: 8),
-                const SizedBox(height: 18, child: VerticalDivider(color: Colors.white24, width: 1)),
+                Icon(Icons.gesture_rounded, color: sel.color, size: 16),
+                const SizedBox(width: T.s8),
                 Expanded(
+                  child: Text('line_label'.tr(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: T.secondary),
+                ),
+                TacticalIconButton(
+                  icon: Icons.delete_outline_rounded,
+                  color: T.danger,
+                  size: 20,
+                  onTap: () => state.deleteStroke(sel.id),
+                  semanticLabel: 'remove'.tr(),
+                ),
+                TacticalIconButton(
+                  icon: Icons.close_rounded,
+                  size: 20,
+                  onTap: () => state.selectStroke(null),
+                ),
+              ],
+            ),
+            const SizedBox(height: T.s4),
+          ],
+          // Line style + eraser.
+          Row(
+            children: [
+              Expanded(
+                child: Material(
+                  color: T.surfaceHi,
+                  borderRadius: T.brSm,
+                  child: InkWell(
+                    onTap: () => showLineStyleSheet(context, state),
+                    borderRadius: T.brSm,
+                    child: Container(
+                      height: T.tap,
+                      padding: const EdgeInsets.symmetric(horizontal: T.s12),
+                      child: Row(
+                        children: [
+                          Text('line_label'.tr(), style: T.secondary),
+                          const SizedBox(width: T.s8),
+                          Expanded(
+                            child: CustomPaint(
+                              size: const Size(56, 20),
+                              painter: LineStylePreviewPainter(
+                                shape: state.lineShape,
+                                dash: state.strokeStyle,
+                                arrow: state.arrowStyle,
+                                color: state.strokeColor,
+                              ),
+                            ),
+                          ),
+                          const Icon(Icons.expand_more_rounded,
+                              color: T.textOff, size: 18),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: T.s8),
+              TacticalChip(
+                label: 'eraser'.tr(),
+                icon: Icons.backspace_outlined,
+                selected: state.eraserMode,
+                onTap: () => state.setEraserMode(!state.eraserMode),
+              ),
+            ],
+          ),
+          const SizedBox(height: T.s12),
+          // Colours and thickness on one line.
+          Row(
+            children: [
+              ...kStrokeColors.map((c) => _ColorDot(
+                    color: c,
+                    selected: state.strokeColor == c,
+                    onTap: () => state.setStrokeColor(c),
+                  )),
+              const SizedBox(width: T.s8),
+              Expanded(
+                child: SliderTheme(
+                  data: SliderThemeData(
+                    trackHeight: 3,
+                    activeTrackColor: T.accent,
+                    inactiveTrackColor: T.surfaceHi,
+                    thumbColor: T.accent,
+                    overlayColor: T.accentFill,
+                    thumbShape:
+                        const RoundSliderThumbShape(enabledThumbRadius: 8),
+                    overlayShape:
+                        const RoundSliderOverlayShape(overlayRadius: 18),
+                    tickMarkShape: SliderTickMarkShape.noTickMark,
+                  ),
                   child: Slider(
                     value: state.strokeWidth,
                     min: 1,
                     max: 8,
                     divisions: 7,
-                    activeColor: Colors.blue,
-                    inactiveColor: Colors.white24,
-                    onChanged: (v) => state.setStrokeWidth(v),
+                    onChanged: state.setStrokeWidth,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -4792,23 +4824,40 @@ class _ColorDot extends StatelessWidget {
   final Color color;
   final bool selected;
   final VoidCallback onTap;
-  const _ColorDot({required this.color, required this.selected, required this.onTap});
+  const _ColorDot(
+      {required this.color, required this.selected, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: EdgeInsets.only(right: 6 * s),
-        width: 24 * s,
-        height: 24 * s,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color,
-          border: Border.all(
-            color: selected ? Colors.white : Colors.white24,
-            width: selected ? 2.5 : 1,
+    // A ring around the swatch, not a thicker border on it: the swatch has
+    // to stay the colour it is.
+    return Semantics(
+      button: true,
+      selected: selected,
+      child: GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: SizedBox(
+          width: 34,
+          height: T.tap,
+          child: Center(
+            child: Container(
+              width: 26,
+              height: 26,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: selected
+                    ? Border.all(color: T.accent, width: 2)
+                    : Border.all(color: T.border),
+              ),
+              child: Center(
+                child: Container(
+                  width: selected ? 16 : 20,
+                  height: selected ? 16 : 20,
+                  decoration: BoxDecoration(shape: BoxShape.circle, color: color),
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -4906,6 +4955,61 @@ class _FormationTile extends StatelessWidget {
 // Play / Stop button
 // ─────────────────────────────────────────────────────────────────────────────
 
+/// One shape for every playback control. The bar used to carry six accent
+/// colours — orange reset, blue steps, teal glyphs, red stop, green play,
+/// purple timeline — so nothing in it read as the primary action.
+class _PlayCircle extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onTap;
+  final bool primary;
+  final bool danger;
+  final bool active;
+  final String? semanticLabel;
+
+  const _PlayCircle({
+    required this.icon,
+    this.onTap,
+    this.primary = false,
+    this.danger = false,
+    this.active = false,
+    this.semanticLabel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final Color fg = onTap == null
+        ? T.textOff
+        : danger
+            ? T.danger
+            : primary
+                ? const Color(0xFF16240A)
+                : active
+                    ? T.accent
+                    : T.text;
+    final Color bg = primary
+        ? T.lime
+        : active
+            ? T.accentFill
+            : Colors.transparent;
+    return Semantics(
+      button: true,
+      enabled: onTap != null,
+      label: semanticLabel,
+      child: InkResponse(
+        onTap: onTap,
+        radius: 26,
+        child: Container(
+          width: T.tap,
+          height: T.tap,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+          child: Icon(icon, color: fg, size: primary ? 26 : 22),
+        ),
+      ),
+    );
+  }
+}
+
 class _PlayButton extends StatelessWidget {
   final TacticsState state;
   const _PlayButton({required this.state});
@@ -4914,23 +5018,14 @@ class _PlayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final isPlaying = state.isAnimating;
     final canPlay = state.hasMoves && !isPlaying;
-
-    final s = uiScale(context);
-    return GestureDetector(
-      onTap: isPlaying ? state.stopAnimation : canPlay ? state.startAnimation : null,
-      child: Opacity(
-        opacity: (!isPlaying && !canPlay) ? 0.35 : 1.0,
-        child: Container(
-          width: 38 * s, height: 38 * s,
-          decoration: BoxDecoration(
-            color: isPlaying ? Colors.red.withValues(alpha: 0.2) : Colors.green.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-            border: Border.all(color: isPlaying ? Colors.red : Colors.lightGreenAccent, width: 1.5),
-          ),
-          child: Icon(isPlaying ? Icons.stop : Icons.play_arrow,
-              color: isPlaying ? Colors.red : Colors.lightGreenAccent, size: 24 * s),
-        ),
-      ),
+    return _PlayCircle(
+      icon: isPlaying ? Icons.stop_rounded : Icons.play_arrow_rounded,
+      primary: true,
+      onTap: isPlaying
+          ? state.stopAnimation
+          : canPlay
+              ? state.startAnimation
+              : null,
     );
   }
 }
@@ -5005,21 +5100,10 @@ class _ResetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
     final canReset = !state.isAnimating && state.atStep > 0;
-    return GestureDetector(
+    return _PlayCircle(
+      icon: Icons.replay_rounded,
       onTap: canReset ? state.clearAnimatedPositions : null,
-      child: Opacity(
-        opacity: canReset ? 1.0 : 0.35,
-        child: Container(
-          width: 36 * s, height: 36 * s,
-          decoration: BoxDecoration(
-            color: Colors.orange.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(Icons.replay, color: Colors.orange, size: 22 * s),
-        ),
-      ),
     );
   }
 }
@@ -5030,21 +5114,10 @@ class _StepBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
     final canStep = !state.isAnimating && state.atStep > 0;
-    return GestureDetector(
+    return _PlayCircle(
+      icon: Icons.skip_previous_rounded,
       onTap: canStep ? state.stepBackward : null,
-      child: Opacity(
-        opacity: canStep ? 1.0 : 0.35,
-        child: Container(
-          width: 36 * s, height: 36 * s,
-          decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(Icons.skip_previous, color: const Color(0xFF00C2B2), size: 22 * s),
-        ),
-      ),
     );
   }
 }
@@ -5069,21 +5142,10 @@ class _StepForwardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
     final canStep = !state.isAnimating && state.atStep < state.maxMoveSteps;
-    return GestureDetector(
+    return _PlayCircle(
+      icon: Icons.skip_next_rounded,
       onTap: canStep ? state.stepForward : null,
-      child: Opacity(
-        opacity: canStep ? 1.0 : 0.35,
-        child: Container(
-          width: 36 * s, height: 36 * s,
-          decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(Icons.skip_next, color: const Color(0xFF00C2B2), size: 22 * s),
-        ),
-      ),
     );
   }
 }
