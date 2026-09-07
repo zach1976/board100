@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import '../config_constants.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -260,17 +262,23 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     return Scaffold(
       backgroundColor: _kBg,
       appBar: AppBar(
-        backgroundColor: _kCard,
-        title: Text('practice_plan'.tr(), style: const TextStyle(color: Colors.white)),
-        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: T.bg1,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        title: Text('practice_plan'.tr(), style: T.section),
+        iconTheme: const IconThemeData(color: T.text, size: 22),
         actions: [
+          // One stroke weight, one size, one colour: these were a mix of
+          // filled and outlined glyphs all painted accent, so nothing in the
+          // bar read as more important than anything else.
           IconButton(
-            icon: const Icon(Icons.history, color: _kAccent),
+            icon: const Icon(Icons.history_rounded, color: T.textDim),
             onPressed: _openHistory,
             tooltip: 'practice_history'.tr(),
           ),
           IconButton(
-            icon: const Icon(Icons.file_download_outlined, color: _kAccent),
+            icon: const Icon(Icons.file_download_outlined, color: T.textDim),
             onPressed: _importFromPaste,
             tooltip: 'practice_import'.tr(),
           ),
@@ -333,28 +341,16 @@ class _EmptyState extends StatelessWidget {
   const _EmptyState({required this.onCreate});
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(packageAsset('assets/icon/empty_mine.png'), width: 130),
-          const SizedBox(height: 16),
-          Text('practice_empty'.tr(), style: const TextStyle(color: Colors.white54, fontSize: 15)),
-          const SizedBox(height: 16),
-          ElevatedButton.icon(
-            onPressed: onCreate,
-            icon: const Icon(Icons.add),
-            label: Text('practice_new'.tr()),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: _kAccent,
-              foregroundColor: Colors.black,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => TacticalEmptyState(
+        image: packageAsset('assets/icon/empty_mine.png'),
+        title: 'practice_empty'.tr(),
+        message: 'practice_empty_hint'.tr(),
+        action: TacticalButton(
+          label: 'practice_new'.tr(),
+          icon: Icons.add_rounded,
+          onTap: onCreate,
+        ),
+      );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

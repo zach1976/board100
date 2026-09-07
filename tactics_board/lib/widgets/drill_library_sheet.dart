@@ -9,6 +9,8 @@ import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import 'toolbar.dart' show sheetConstraints, scaledSheet;
 
 /// The drill library: pick a session piece and put it on the board.
@@ -27,14 +29,8 @@ class DrillLibrarySheet extends StatefulWidget {
 
   static Future<void> show(BuildContext context, TacticsState state,
       {VoidCallback? onUpgrade}) {
-    return showModalBottomSheet<void>(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: kSurface,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
+    return TacticalSheet.show<void>(
+      context,
       builder: (ctx) =>
           scaledSheet(ctx, DrillLibrarySheet(state: state, onUpgrade: onUpgrade)),
     );
@@ -107,7 +103,11 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    // The sheet's shape, drag handle and padding come from the shared
+    // container now — this widget only says what is inside it.
+    return TacticalSheet(
+      maxHeightFraction: 0.82,
+      padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s8),
       child: FutureBuilder<List<Drill>>(
         future: _drills,
         builder: (context, snap) {
@@ -143,32 +143,16 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
             ..sort((a, b) => a.index.compareTo(b.index));
 
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
-            child: Column(
+          // Padding now lives on TacticalSheet, so this is only the column.
+          return Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    const Icon(Icons.menu_book_outlined, color: kAccent),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        'drills_title'.tr(),
-                        style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: const Icon(Icons.close, color: Colors.white54),
-                    ),
-                  ],
+                // Title, subtitle and close, in the shape every sheet uses.
+                TacticalSheetHeader(
+                  title: 'drills_title'.tr(),
+                  subtitle: 'drills_hint'.tr(),
                 ),
-                const SizedBox(height: 4),
-                Text('drills_hint'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 12)),
                 // Say what's free up front. A lock the user only meets by
                 // tapping reads as a trap; a count reads as an offer.
                 if (all.any((d) => !_unlocked(d))) ...[
@@ -334,7 +318,6 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     ),
                 ],
               ],
-            ),
           );
         },
       ),
@@ -342,34 +325,19 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   }
 }
 
+/// The sheet's filter chip is the app's filter chip. It used to be a solid
+/// accent block with a white border when selected, so a row of them read as
+/// a row of buttons rather than a state.
 class _CategoryChip extends StatelessWidget {
   final String label;
   final bool selected;
   final VoidCallback onTap;
-  const _CategoryChip({required this.label, required this.selected, required this.onTap});
+  const _CategoryChip(
+      {required this.label, required this.selected, required this.onTap});
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-        decoration: BoxDecoration(
-          color: selected ? kAccent : Colors.white.withValues(alpha: 0.08),
-          borderRadius: BorderRadius.circular(9),
-          border: Border.all(color: selected ? kAccent : Colors.white24),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: selected ? Colors.white : Colors.white70,
-            fontSize: 12.5,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) =>
+      TacticalChip(label: label, selected: selected, onTap: onTap);
 }
 
 /// One card. A family shows its heading, its coaching point once, and a chip
@@ -396,11 +364,12 @@ class _DrillRow extends StatelessWidget {
     final allLocked = variants.every(isLocked);
 
     final card = Container(
-      padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(11),
-        border: Border.all(color: Colors.white12),
+      padding: const EdgeInsets.fromLTRB(T.panelPad, T.s16, T.s12, T.s16),
+      decoration: const BoxDecoration(
+        // Surface contrast, no outline: a list of bordered rectangles is a
+        // list of boxes, and the drill is what the coach is reading.
+        color: T.surfaceHi,
+        borderRadius: T.brMd,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -417,15 +386,18 @@ class _DrillRow extends StatelessWidget {
                           ? first.localizedFamilyName(locale)
                           : first.localizedName(locale),
                       style: TextStyle(
-                          color: allLocked ? Colors.white70 : Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600),
+                          color: allLocked ? T.textDim : T.text,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          height: 1.25),
                     ),
                     const SizedBox(height: 3),
                     Text(
                       first.localizedNote(locale),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          color: Colors.white54, fontSize: 12, height: 1.35),
+                          color: T.textDim, fontSize: 13.5, height: 1.4),
                     ),
                     if (first.localizedMistake(locale) != null) ...[
                       const SizedBox(height: 6),
@@ -435,17 +407,21 @@ class _DrillRow extends StatelessWidget {
                           const Padding(
                             padding: EdgeInsets.only(top: 1),
                             child: Icon(Icons.warning_amber_rounded,
-                                size: 13, color: Color(0xFFE0A030)),
+                                size: 14, color: T.warning),
                           ),
                           const SizedBox(width: 5),
                           Expanded(
                             child: Text(
                               first.localizedMistake(locale)!,
-                              style: const TextStyle(
-                                  color: Color(0xFFC79A4B),
-                                  fontSize: 11.5,
-                                  height: 1.3,
-                                  fontStyle: FontStyle.italic),
+                              // Two lines, upright, muted amber. It used to
+                              // be an italic paragraph that shouted louder
+                              // than the coaching point above it.
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: T.warning.withValues(alpha: 0.85),
+                                  fontSize: 12.5,
+                                  height: 1.35),
                             ),
                           ),
                         ],
@@ -473,7 +449,7 @@ class _DrillRow extends StatelessWidget {
               const SizedBox(width: 8),
               if (!grouped)
                 Icon(allLocked ? Icons.lock_outline : Icons.add_circle_outline,
-                    color: allLocked ? Colors.white38 : kAccent, size: 26),
+                    color: allLocked ? T.textOff : T.accent, size: 26),
             ],
           ),
           if (grouped) ...[

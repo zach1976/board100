@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import 'toolbar.dart' show scaledSheet;
-import 'toolbar.dart';
 
 class LanguagePicker {
   static const _languages = [
@@ -21,64 +22,79 @@ class LanguagePicker {
 
   static void show(BuildContext context) {
     final current = context.locale;
-    showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => scaledSheet(ctx, SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(20, 16, 20, 8),
-              child: Text(
-                'Language / 语言',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
+    TacticalSheet.show(
+      context,
+      builder: (ctx) => scaledSheet(
+        ctx,
+        TacticalSheet(
+          maxHeightFraction: 0.78,
+          padding: const EdgeInsets.fromLTRB(T.s12, T.s12, T.s12, T.s8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: T.s12),
+                child: TacticalSheetHeader(title: 'Language / 语言'),
               ),
-            ),
-            Flexible(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ..._languages.map((lang) {
-                      final selected = current == lang.locale;
-                      return ListTile(
-                        title: Text(
-                          lang.name,
-                          style: TextStyle(
-                            color: selected ? Colors.blue : Colors.white,
-                            fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-                            fontSize: 16,
+              Flexible(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: _languages.length,
+                  itemBuilder: (_, i) {
+                    final lang = _languages[i];
+                    final selected = current == lang.locale;
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 2),
+                      child: Material(
+                        // Teal, like every other selection in the app. This
+                        // row used to be the one place that went bright blue.
+                        color: selected ? T.accentFill : Colors.transparent,
+                        borderRadius: T.brSm,
+                        child: InkWell(
+                          borderRadius: T.brSm,
+                          onTap: () {
+                            Navigator.pop(ctx);
+                            Future.microtask(
+                                () => context.setLocale(lang.locale));
+                          },
+                          child: Container(
+                            height: 56,
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: T.s12),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    lang.name,
+                                    style: TextStyle(
+                                      color: selected ? T.accent : T.text,
+                                      fontWeight: selected
+                                          ? FontWeight.w600
+                                          : FontWeight.w400,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                // Selection is a tint AND a mark, never
+                                // colour alone.
+                                if (selected)
+                                  const Icon(Icons.check_rounded,
+                                      color: T.accent, size: 20),
+                              ],
+                            ),
                           ),
                         ),
-                        trailing: selected
-                            ? const Icon(Icons.check, color: Colors.blue, size: 20)
-                            : null,
-                        selectedTileColor: Colors.blue.withValues(alpha: 0.08),
-                        selected: selected,
-                        onTap: () {
-                          Navigator.pop(ctx);
-                          // Use the outer context (with EasyLocalization) to set locale
-                          Future.microtask(() => context.setLocale(lang.locale));
-                        },
-                      );
-                    }),
-                    const SizedBox(height: 8),
-                  ],
+                      ),
+                    );
+                  },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
