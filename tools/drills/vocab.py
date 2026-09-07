@@ -1306,3 +1306,5 @@ add('the offensive lob', '进攻性高球', '進攻性高球', '攻撃的ロブ'
 
 add('blocking at the net', '网前拦网', '網前攔網', 'ネット前のブロック', '네트 앞 블로킹', 'el bloqueo en la red', 'le contre au filet', 'blok di depan net', 'sekatan di depan jaring', 'การบล็อกหน้าตาข่าย', 'chắn bóng trước lưới')
 add('with the head', '用头处理', '用頭處理', 'ヘディングで', '헤딩으로', 'con la cabeza', 'de la tête', 'dengan kepala', 'dengan kepala', 'ด้วยศีรษะ', 'bằng đầu')
+
+add('one against one at the net', '网前一对一', '網前一對一', 'ネット際の1対1', '네트 앞 1대1', 'uno contra uno en la red', 'un contre un au filet', 'satu lawan satu di depan net', 'satu lawan satu di depan jaring', 'ตัวต่อตัวหน้าตาข่าย', 'một đối một trước lưới')
