@@ -5,7 +5,7 @@
     {
       "id": "bb_warm_long_toss",
       "level": "foundation",
-      "family": "baseball_family_6",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -173,7 +173,7 @@
     {
       "id": "bb_warm_infield_outfield",
       "level": "foundation",
-      "family": "baseball_family_6",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -503,7 +503,7 @@
     {
       "id": "bb_warm_pitchers_fielding",
       "level": "foundation",
-      "family": "baseball_family_6",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -676,7 +676,7 @@
     {
       "id": "bb_dp_six_four_three",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -1087,19 +1087,31 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              471.5,
+              921.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1109,8 +1121,8 @@
     },
     {
       "id": "bb_dp_four_six_three",
-      "level": "development",
-      "family": "baseball_family_5",
+      "level": "advanced",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -1521,19 +1533,31 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              623.5,
+              921.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1544,7 +1568,7 @@
     {
       "id": "bb_dp_five_four_three",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -1955,19 +1979,31 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              395.5,
+              987.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1977,8 +2013,8 @@
     },
     {
       "id": "bb_dp_one_six_three",
-      "level": "advanced",
-      "family": "baseball_family_5",
+      "level": "development",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -2389,19 +2425,31 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              547.5,
+              1063.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2412,7 +2460,7 @@
     {
       "id": "bb_relay_to_home",
       "level": "development",
-      "family": "baseball_family_1",
+      "family": "baseball_family_2",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -2547,8 +2595,15 @@
               873.201927813782
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -2683,6 +2738,10 @@
             "scale": 1.0,
             "moves": [
               [
+                386.0,
+                892.5
+              ],
+              [
                 329.0,
                 978.0
               ],
@@ -2693,7 +2752,8 @@
             ],
             "movePhases": [
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -2724,13 +2784,13 @@
             "attachedTo": null
           },
           {
-            "id": "b0",
+            "id": "m1",
             "label": "",
             "team": 2,
-            "sportType": 9,
+            "sportType": null,
             "position": [
-              460.0,
-              1086.0
+              500.0,
+              807.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -2738,10 +2798,62 @@
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              329.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              177.0,
+              522.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                310.0,
+                750.0
+              ],
+              [
+                500.0,
+                1149.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2752,7 +2864,7 @@
     {
       "id": "bb_relay_to_third",
       "level": "development",
-      "family": "baseball_family_1",
+      "family": "baseball_family_2",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -2887,8 +2999,15 @@
               873.201927813782
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -3023,12 +3142,17 @@
             "scale": 1.0,
             "moves": [
               [
+                386.0,
+                892.5
+              ],
+              [
                 329.0,
                 978.0
               ]
             ],
             "movePhases": [
-              1
+              1,
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -3059,13 +3183,13 @@
             "attachedTo": null
           },
           {
-            "id": "b0",
+            "id": "m1",
             "label": "",
             "team": 2,
-            "sportType": 9,
+            "sportType": null,
             "position": [
-              460.0,
-              1086.0
+              500.0,
+              807.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -3073,10 +3197,62 @@
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              329.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              443.0,
+              446.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                443.0,
+                693.0
+              ],
+              [
+                329.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3086,8 +3262,8 @@
     },
     {
       "id": "bb_relay_gap_ball",
-      "level": "development",
-      "family": "baseball_family_1",
+      "level": "advanced",
+      "family": "baseball_family_2",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -3222,8 +3398,15 @@
               873.201927813782
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                652.0,
+                731.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -3244,8 +3427,8 @@
             "scale": 1.0,
             "moves": [
               [
-                652.0,
-                731.0
+                500.0,
+                807.0
               ]
             ],
             "movePhases": [
@@ -3358,12 +3541,12 @@
             "scale": 1.0,
             "moves": [
               [
-                329.0,
-                978.0
+                386.0,
+                892.5
               ],
               [
-                500.0,
-                807.0
+                329.0,
+                978.0
               ]
             ],
             "movePhases": [
@@ -3384,8 +3567,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              500.0,
-              807.0
+              329.0,
+              978.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -3399,13 +3582,13 @@
             "attachedTo": null
           },
           {
-            "id": "b0",
+            "id": "m1",
             "label": "",
             "team": 2,
-            "sportType": 9,
+            "sportType": null,
             "position": [
-              460.0,
-              1086.0
+              500.0,
+              807.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -3413,10 +3596,62 @@
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              329.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              709.0,
+              522.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                652.0,
+                731.0
+              ],
+              [
+                329.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3427,7 +3662,7 @@
     {
       "id": "bb_run_steal_read",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -3494,60 +3729,36 @@
         "players": [
           {
             "id": "d0",
-            "label": "R",
+            "label": "P",
             "team": 0,
             "sportType": null,
             "position": [
-              676.7643728199428,
-              989.5287456398855
+              500.0,
+              1016.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                636.8000000000001,
-                943.8
-              ],
-              [
-                585.5000000000001,
-                892.5
-              ],
-              [
-                500.0,
-                807.0
-              ]
-            ],
-            "movePhases": [
-              0,
-              1,
-              2
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
             "id": "d1",
-            "label": "B",
+            "label": "C",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              1139.5357142857142
+              1205.9642857142858
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                557.0,
-                1111.0
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -3558,12 +3769,12 @@
           },
           {
             "id": "d2",
-            "label": "P",
-            "team": 1,
+            "label": "1B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1016.0
+              646.2356271800572,
+              928.4712543601145
             ],
             "scale": 1.0,
             "moves": [],
@@ -3573,17 +3784,17 @@
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": "GK",
+            "role": null,
             "attachedTo": null
           },
           {
             "id": "d3",
-            "label": "C",
-            "team": 1,
+            "label": "2B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1205.9642857142858
+              576.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -3598,12 +3809,12 @@
           },
           {
             "id": "d4",
-            "label": "1B",
-            "team": 1,
+            "label": "SS",
+            "team": 0,
             "sportType": null,
             "position": [
-              646.2356271800572,
-              928.4712543601145
+              424.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -3618,12 +3829,12 @@
           },
           {
             "id": "d5",
-            "label": "2B",
-            "team": 1,
+            "label": "3B",
+            "team": 0,
             "sportType": null,
             "position": [
-              576.0,
-              873.5
+              348.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -3638,16 +3849,33 @@
           },
           {
             "id": "d6",
-            "label": "SS",
+            "label": "R",
             "team": 1,
             "sportType": null,
             "position": [
-              424.0,
-              873.5
+              676.7643728199428,
+              989.5287456398855
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                647.0600000000001,
+                954.06
+              ],
+              [
+                573.53,
+                899.53
+              ],
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4294942336,
             "customColor": null,
             "gender": 2,
@@ -3658,16 +3886,23 @@
           },
           {
             "id": "d7",
-            "label": "3B",
+            "label": "B",
             "team": 1,
             "sportType": null,
             "position": [
-              348.0,
-              940.0
+              500.0,
+              1139.5357142857142
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                542.75,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -3763,11 +3998,18 @@
             "sportType": 9,
             "position": [
               500.0,
-              1016.0
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3785,7 +4027,7 @@
     {
       "id": "bb_run_hit_and_run",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -3852,60 +4094,36 @@
         "players": [
           {
             "id": "d0",
-            "label": "R",
+            "label": "P",
             "team": 0,
             "sportType": null,
             "position": [
-              676.7643728199428,
-              989.5287456398855
+              500.0,
+              1016.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                636.8000000000001,
-                943.8
-              ],
-              [
-                585.5000000000001,
-                892.5
-              ],
-              [
-                500.0,
-                807.0
-              ]
-            ],
-            "movePhases": [
-              0,
-              1,
-              2
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
             "id": "d1",
-            "label": "B",
+            "label": "C",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              1139.5357142857142
+              1205.9642857142858
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                557.0,
-                1111.0
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -3916,12 +4134,12 @@
           },
           {
             "id": "d2",
-            "label": "P",
-            "team": 1,
+            "label": "1B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1016.0
+              646.2356271800572,
+              928.4712543601145
             ],
             "scale": 1.0,
             "moves": [],
@@ -3931,21 +4149,28 @@
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": "GK",
+            "role": null,
             "attachedTo": null
           },
           {
             "id": "d3",
-            "label": "C",
-            "team": 1,
+            "label": "2B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1205.9642857142858
+              576.0,
+              873.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                614.0,
+                845.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -3956,12 +4181,12 @@
           },
           {
             "id": "d4",
-            "label": "1B",
-            "team": 1,
+            "label": "SS",
+            "team": 0,
             "sportType": null,
             "position": [
-              646.2356271800572,
-              928.4712543601145
+              424.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -3976,12 +4201,12 @@
           },
           {
             "id": "d5",
-            "label": "2B",
-            "team": 1,
+            "label": "3B",
+            "team": 0,
             "sportType": null,
             "position": [
-              576.0,
-              873.5
+              348.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -3996,16 +4221,33 @@
           },
           {
             "id": "d6",
-            "label": "SS",
+            "label": "R",
             "team": 1,
             "sportType": null,
             "position": [
-              424.0,
-              873.5
+              676.7643728199428,
+              989.5287456398855
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                647.0600000000001,
+                954.06
+              ],
+              [
+                573.53,
+                899.53
+              ],
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4294942336,
             "customColor": null,
             "gender": 2,
@@ -4016,16 +4258,28 @@
           },
           {
             "id": "d7",
-            "label": "3B",
+            "label": "B",
             "team": 1,
             "sportType": null,
             "position": [
-              348.0,
-              940.0
+              500.0,
+              1139.5357142857142
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                542.75,
+                1130.0
+              ],
+              [
+                595.0,
+                1092.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -4121,11 +4375,18 @@
             "sportType": 9,
             "position": [
               500.0,
-              1016.0
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4142,8 +4403,8 @@
     },
     {
       "id": "bb_run_tag_up",
-      "level": "development",
-      "family": "baseball_family_2",
+      "level": "foundation",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4210,60 +4471,36 @@
         "players": [
           {
             "id": "d0",
-            "label": "R",
+            "label": "P",
             "team": 0,
             "sportType": null,
             "position": [
-              323.23562718005724,
-              989.5287456398855
+              500.0,
+              1016.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                363.2,
-                1012.2
-              ],
-              [
-                414.50000000000006,
-                1063.5
-              ],
-              [
-                500.0,
-                1149.0
-              ]
-            ],
-            "movePhases": [
-              0,
-              1,
-              2
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
             "id": "d1",
-            "label": "B",
+            "label": "C",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              1139.5357142857142
+              1205.9642857142858
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                557.0,
-                1111.0
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -4274,12 +4511,12 @@
           },
           {
             "id": "d2",
-            "label": "P",
-            "team": 1,
+            "label": "1B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1016.0
+              652.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -4289,17 +4526,17 @@
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": "GK",
+            "role": null,
             "attachedTo": null
           },
           {
             "id": "d3",
-            "label": "C",
-            "team": 1,
+            "label": "2B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1205.9642857142858
+              576.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -4314,12 +4551,12 @@
           },
           {
             "id": "d4",
-            "label": "1B",
-            "team": 1,
+            "label": "SS",
+            "team": 0,
             "sportType": null,
             "position": [
-              652.0,
-              940.0
+              424.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -4334,12 +4571,12 @@
           },
           {
             "id": "d5",
-            "label": "2B",
-            "team": 1,
+            "label": "3B",
+            "team": 0,
             "sportType": null,
             "position": [
-              576.0,
-              873.5
+              353.76437281994276,
+              928.4712543601145
             ],
             "scale": 1.0,
             "moves": [],
@@ -4354,16 +4591,33 @@
           },
           {
             "id": "d6",
-            "label": "SS",
+            "label": "R",
             "team": 1,
             "sportType": null,
             "position": [
-              424.0,
-              873.5
+              323.23562718005724,
+              989.5287456398855
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                352.94,
+                1001.9399999999999
+              ],
+              [
+                426.46999999999997,
+                1094.47
+              ],
+              [
+                500.0,
+                1149.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
             "moveColor": 4294942336,
             "customColor": null,
             "gender": 2,
@@ -4374,16 +4628,23 @@
           },
           {
             "id": "d7",
-            "label": "3B",
+            "label": "B",
             "team": 1,
             "sportType": null,
             "position": [
-              353.76437281994276,
-              928.4712543601145
+              500.0,
+              1139.5357142857142
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                542.75,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -4479,11 +4740,18 @@
             "sportType": 9,
             "position": [
               500.0,
-              1016.0
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4501,7 +4769,7 @@
     {
       "id": "bb_run_first_to_third",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4568,60 +4836,36 @@
         "players": [
           {
             "id": "d0",
-            "label": "R",
+            "label": "P",
             "team": 0,
             "sportType": null,
             "position": [
-              676.7643728199428,
-              989.5287456398855
+              500.0,
+              1016.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                602.6000000000001,
-                978.0
-              ],
-              [
-                500.0,
-                978.0
-              ],
-              [
-                329.0,
-                978.0
-              ]
-            ],
-            "movePhases": [
-              0,
-              1,
-              2
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
             "id": "d1",
-            "label": "B",
+            "label": "C",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              1139.5357142857142
+              1205.9642857142858
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                557.0,
-                1111.0
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -4632,12 +4876,12 @@
           },
           {
             "id": "d2",
-            "label": "P",
-            "team": 1,
+            "label": "1B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1016.0
+              646.2356271800572,
+              928.4712543601145
             ],
             "scale": 1.0,
             "moves": [],
@@ -4647,17 +4891,17 @@
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": "GK",
+            "role": null,
             "attachedTo": null
           },
           {
             "id": "d3",
-            "label": "C",
-            "team": 1,
+            "label": "2B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1205.9642857142858
+              576.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -4672,12 +4916,12 @@
           },
           {
             "id": "d4",
-            "label": "1B",
-            "team": 1,
+            "label": "SS",
+            "team": 0,
             "sportType": null,
             "position": [
-              646.2356271800572,
-              928.4712543601145
+              424.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -4692,12 +4936,12 @@
           },
           {
             "id": "d5",
-            "label": "2B",
-            "team": 1,
+            "label": "3B",
+            "team": 0,
             "sportType": null,
             "position": [
-              576.0,
-              873.5
+              348.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -4712,16 +4956,43 @@
           },
           {
             "id": "d6",
-            "label": "SS",
+            "label": "R",
             "team": 1,
             "sportType": null,
             "position": [
-              424.0,
-              873.5
+              676.7643728199428,
+              989.5287456398855
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                623.12,
+                978.0
+              ],
+              [
+                561.56,
+                911.5
+              ],
+              [
+                500.0,
+                807.0
+              ],
+              [
+                404.24000000000007,
+                911.5
+              ],
+              [
+                329.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
             "moveColor": 4294942336,
             "customColor": null,
             "gender": 2,
@@ -4732,16 +5003,28 @@
           },
           {
             "id": "d7",
-            "label": "3B",
+            "label": "B",
             "team": 1,
             "sportType": null,
             "position": [
-              348.0,
-              940.0
+              500.0,
+              1139.5357142857142
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                595.0,
+                1101.5
+              ],
+              [
+                647.25,
+                992.25
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -4837,11 +5120,18 @@
             "sportType": 9,
             "position": [
               500.0,
-              1016.0
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4859,7 +5149,7 @@
     {
       "id": "bb_run_secondary_lead",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4926,60 +5216,36 @@
         "players": [
           {
             "id": "d0",
-            "label": "R",
+            "label": "P",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              807.0
+              1016.0
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                465.8,
-                841.2
-              ],
-              [
-                414.50000000000006,
-                892.5
-              ],
-              [
-                329.0,
-                978.0
-              ]
-            ],
-            "movePhases": [
-              0,
-              1,
-              2
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": null,
+            "role": "GK",
             "attachedTo": null
           },
           {
             "id": "d1",
-            "label": "B",
+            "label": "C",
             "team": 0,
             "sportType": null,
             "position": [
               500.0,
-              1139.5357142857142
+              1205.9642857142858
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                557.0,
-                1111.0
-              ]
-            ],
-            "movePhases": [
-              1
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -4990,12 +5256,12 @@
           },
           {
             "id": "d2",
-            "label": "P",
-            "team": 1,
+            "label": "1B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1016.0
+              652.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -5005,17 +5271,17 @@
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
-            "role": "GK",
+            "role": null,
             "attachedTo": null
           },
           {
             "id": "d3",
-            "label": "C",
-            "team": 1,
+            "label": "2B",
+            "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              1205.9642857142858
+              576.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -5030,12 +5296,12 @@
           },
           {
             "id": "d4",
-            "label": "1B",
-            "team": 1,
+            "label": "SS",
+            "team": 0,
             "sportType": null,
             "position": [
-              652.0,
-              940.0
+              424.0,
+              873.5
             ],
             "scale": 1.0,
             "moves": [],
@@ -5050,12 +5316,12 @@
           },
           {
             "id": "d5",
-            "label": "2B",
-            "team": 1,
+            "label": "3B",
+            "team": 0,
             "sportType": null,
             "position": [
-              576.0,
-              873.5
+              348.0,
+              940.0
             ],
             "scale": 1.0,
             "moves": [],
@@ -5070,16 +5336,28 @@
           },
           {
             "id": "d6",
-            "label": "SS",
+            "label": "R",
             "team": 1,
             "sportType": null,
             "position": [
-              424.0,
-              873.5
+              500.0,
+              807.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                471.5,
+                826.0000000000001
+              ],
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4294942336,
             "customColor": null,
             "gender": 2,
@@ -5090,16 +5368,23 @@
           },
           {
             "id": "d7",
-            "label": "3B",
+            "label": "B",
             "team": 1,
             "sportType": null,
             "position": [
-              348.0,
-              940.0
+              500.0,
+              1139.5357142857142
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                542.75,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4289058471,
             "customColor": null,
             "gender": 2,
@@ -5195,11 +5480,18 @@
             "sportType": 9,
             "position": [
               500.0,
-              1016.0
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1130.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6171,7 +6463,7 @@
     {
       "id": "bb_defence_bunt",
       "level": "development",
-      "family": "baseball_family_3",
+      "family": "baseball_family_8",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -6246,8 +6538,15 @@
               1016.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                1092.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6313,8 +6612,15 @@
               863.4168848162927
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                671.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -6333,8 +6639,15 @@
               872.3077112551282
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
@@ -6593,7 +6906,7 @@
     {
       "id": "bb_defence_first_and_third",
       "level": "advanced",
-      "family": "baseball_family_3",
+      "family": "baseball_family_8",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7042,7 +7355,7 @@
     {
       "id": "bb_defence_infield_in",
       "level": "development",
-      "family": "baseball_family_3",
+      "family": "baseball_family_8",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7478,7 +7791,7 @@
     {
       "id": "bb_defence_pop_up",
       "level": "development",
-      "family": "baseball_family_3",
+      "family": "baseball_family_8",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7635,8 +7948,8 @@
             "scale": 1.0,
             "moves": [
               [
-                462.0,
-                959.0
+                481.0,
+                712.0
               ]
             ],
             "movePhases": [
@@ -7703,7 +8016,7 @@
             "moves": [
               [
                 500.0,
-                655.0
+                674.0
               ]
             ],
             "movePhases": [
@@ -7899,8 +8212,8 @@
     },
     {
       "id": "bb_pick_first",
-      "level": "development",
-      "family": "baseball_family_7",
+      "level": "foundation",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -8250,19 +8563,26 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              500.0,
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -8273,7 +8593,7 @@
     {
       "id": "bb_pick_second",
       "level": "development",
-      "family": "baseball_family_7",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -8623,19 +8943,26 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              500.0,
+              1006.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                788.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -8645,8 +8972,8 @@
     },
     {
       "id": "bb_pick_rundown",
-      "level": "development",
-      "family": "baseball_family_7",
+      "level": "advanced",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -8757,12 +9084,19 @@
             "team": 0,
             "sportType": null,
             "position": [
-              652.0,
-              940.0
+              657.9372293487104,
+              942.8072545794403
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                671.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4285132974,
             "customColor": null,
             "gender": 2,
@@ -8777,14 +9111,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              578.9142237776217,
-              869.8572202779729
+              564.5960187290361,
+              850.3640275332274
             ],
             "scale": 1.0,
             "moves": [
               [
-                585.5,
-                892.5
+                500.0,
+                807.0
               ]
             ],
             "movePhases": [
@@ -8904,18 +9238,18 @@
             "team": 1,
             "sportType": null,
             "position": [
-              535.0857762223782,
-              924.6427797220271
+              590.9667519222535,
+              912.8287178873323
             ],
             "scale": 1.0,
             "moves": [
               [
-                566.5,
-                902.0
+                628.25,
+                935.25
               ],
               [
-                585.5,
-                892.5
+                552.25,
+                859.25
               ]
             ],
             "movePhases": [
@@ -8996,19 +9330,31 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              690.0000000000001,
+              959.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -9019,7 +9365,7 @@
     {
       "id": "bb_pick_pitchout",
       "level": "development",
-      "family": "baseball_family_7",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -9110,19 +9456,12 @@
             "team": 0,
             "sportType": null,
             "position": [
-              511.36459667481654,
-              1201.0458386699265
+              500.0,
+              1196.5
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                500.0,
-                1149.0
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294929773,
             "customColor": null,
             "gender": 2,
@@ -9161,8 +9500,15 @@
               873.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -9181,8 +9527,15 @@
               873.5
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                462.0,
+                845.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
@@ -9277,18 +9630,18 @@
             "team": 1,
             "sportType": null,
             "position": [
-              441.13540332518346,
-              1172.9541613300735
+              623.5,
+              1006.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                481.0,
-                1158.5
+                652.0,
+                987.5
               ],
               [
-                500.0,
-                1149.0
+                671.0,
+                978.0
               ]
             ],
             "movePhases": [
@@ -9369,19 +9722,26 @@
             "team": 2,
             "sportType": 9,
             "position": [
-              460.0,
-              1086.0
+              528.5,
+              1130.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                519.0,
+                826.0000000000001
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -9392,7 +9752,7 @@
     {
       "id": "bb_game_two_outs",
       "level": "development",
-      "family": "baseball_family_4",
+      "family": "baseball_family_9",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -9800,7 +10160,7 @@
     {
       "id": "bb_game_bases_loaded",
       "level": "development",
-      "family": "baseball_family_4",
+      "family": "baseball_family_9",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -10262,7 +10622,7 @@
     {
       "id": "bb_game_baserunning_game",
       "level": "development",
-      "family": "baseball_family_4",
+      "family": "baseball_family_9",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -10660,6 +11020,1963 @@
             "photoId": null,
             "role": null,
             "attachedTo": "d0"
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_hit_tee_and_toss",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "warmup",
+      "minutes": 12,
+      "players": 2,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Hitting off the tee and the front toss",
+        "en-GB": "Hitting off the tee and the front toss",
+        "zh-CN": "打击 打击架与前抛喂球",
+        "zh-TW": "打擊 打擊架與前拋餵球",
+        "ja-JP": "打撃 ティーとフロントトス",
+        "ko-KR": "타격 티 배팅과 프론트 토스",
+        "es-ES": "Bateo del tee y el toss frontal",
+        "fr-FR": "Frappe sur tee et toss de face",
+        "id-ID": "Memukul dari tee dan lemparan depan",
+        "ms-MY": "Memukul dari tee dan lambungan depan",
+        "th-TH": "การตี จากที่ตั้งบอลและการโยนด้านหน้า",
+        "vi-VN": "Đánh bóng từ giá đỡ và bóng tung phía trước"
+      },
+      "note": {
+        "en": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "en-GB": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "zh-CN": "无论来球是什么，引拍和跨步都一样。因为球变了才改变起手动作的挥棒，已经晚了。",
+        "zh-TW": "無論來球是什麼，引拍和跨步都一樣。因為球變了才改變起手動作的揮棒，已經晚了。",
+        "ja-JP": "どんな球でも、テイクバックとステップは同じ。球種に合わせて始動を変えるスイングは、その時点で振り遅れている。",
+        "ko-KR": "어떤 공이 와도 로드와 스트라이드는 같다. 공에 따라 시작을 바꾸는 스윙은 이미 늦은 스윙이다.",
+        "es-ES": "La misma carga y el mismo paso, venga lo que venga. Un swing que cambia su inicio porque cambió la bola ya llega tarde.",
+        "fr-FR": "Même armé, même appui, quel que soit le lancer. Un swing qui modifie son départ parce que la balle a changé est déjà en retard.",
+        "id-ID": "Muatan dan langkah yang sama, apa pun lemparannya.",
+        "ms-MY": "Muatan dan langkah yang sama, apa pun balingannya.",
+        "th-TH": "โหลดเหมือนเดิม ก้าวเหมือนเดิม ไม่ว่าลูกจะมาแบบไหน",
+        "vi-VN": "Cùng một nhịp lấy đà, cùng một bước chân, dù bóng thế nào."
+      },
+      "mistake": {
+        "en": "Going through the motions cold.",
+        "en-GB": "Going through the motions cold.",
+        "zh-CN": "冷着身子走过场。",
+        "zh-TW": "冷著身子走過場。",
+        "ja-JP": "冷えたまま流す。",
+        "ko-KR": "몸이 식은 채 대충.",
+        "es-ES": "Hacerlo en frío, de trámite.",
+        "fr-FR": "Le faire à froid, machinalement.",
+        "id-ID": "Sekadar formalitas saat dingin.",
+        "ms-MY": "Sekadar melepas batuk.",
+        "th-TH": "ทำขอไปทีตอนตัวเย็น",
+        "vi-VN": "Làm cho có khi còn nguội."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              528.5,
+              1120.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                566.5000000000001,
+                1101.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              367.0,
+              1092.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                405.0,
+                1087.25
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              614.0,
+              864.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              405.0,
+              1087.25
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                547.5,
+                1111.0
+              ],
+              [
+                614.0,
+                864.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_hit_two_strike",
+      "level": "development",
+      "family": "baseball_family_7",
+      "familyName": {
+        "en": "Hitting",
+        "en-GB": "Hitting",
+        "es-ES": "Bateo",
+        "fr-FR": "Frappe",
+        "id-ID": "Memukul",
+        "ja-JP": "打撃",
+        "ko-KR": "타격",
+        "ms-MY": "Memukul",
+        "th-TH": "การตี",
+        "vi-VN": "Đánh bóng",
+        "zh-CN": "打击",
+        "zh-TW": "打擊"
+      },
+      "category": "attacking",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Hitting the two-strike approach",
+        "en-GB": "Hitting the two-strike approach",
+        "zh-CN": "打击 两好球后的应对",
+        "zh-TW": "打擊 兩好球後的應對",
+        "ja-JP": "打撃 2ストライクからの打撃",
+        "ko-KR": "타격 투 스트라이크 대응",
+        "es-ES": "Bateo el enfoque con dos strikes",
+        "fr-FR": "Frappe l approche à deux prises",
+        "id-ID": "Memukul pendekatan dua strike",
+        "ms-MY": "Memukul pendekatan dua strike",
+        "th-TH": "การตี แนวทางเมื่อสองสไตรก์",
+        "vi-VN": "Đánh bóng cách xử lý khi hai strike"
+      },
+      "note": {
+        "en": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "en-GB": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "zh-CN": "无论来球是什么，引拍和跨步都一样。因为球变了才改变起手动作的挥棒，已经晚了。",
+        "zh-TW": "無論來球是什麼，引拍和跨步都一樣。因為球變了才改變起手動作的揮棒，已經晚了。",
+        "ja-JP": "どんな球でも、テイクバックとステップは同じ。球種に合わせて始動を変えるスイングは、その時点で振り遅れている。",
+        "ko-KR": "어떤 공이 와도 로드와 스트라이드는 같다. 공에 따라 시작을 바꾸는 스윙은 이미 늦은 스윙이다.",
+        "es-ES": "La misma carga y el mismo paso, venga lo que venga. Un swing que cambia su inicio porque cambió la bola ya llega tarde.",
+        "fr-FR": "Même armé, même appui, quel que soit le lancer. Un swing qui modifie son départ parce que la balle a changé est déjà en retard.",
+        "id-ID": "Muatan dan langkah yang sama, apa pun lemparannya.",
+        "ms-MY": "Muatan dan langkah yang sama, apa pun balingannya.",
+        "th-TH": "โหลดเหมือนเดิม ก้าวเหมือนเดิม ไม่ว่าลูกจะมาแบบไหน",
+        "vi-VN": "Cùng một nhịp lấy đà, cùng một bước chân, dù bóng thế nào."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1016.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              497.03698360176196,
+              1204.401377061968
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "1B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              653.3626157084249,
+              941.1922887448718
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "2B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              574.6373842915751,
+              872.3077112551282
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "SS",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              425.3626157084249,
+              872.3077112551282
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "3B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              346.6373842915751,
+              941.1922887448718
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "CF",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              541.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d7",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              531.463016398238,
+              1112.598622938032
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                566.5000000000001,
+                1101.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              690.0,
+              807.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              310.0,
+              807.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              500.0,
+              1006.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                528.5,
+                1101.5
+              ],
+              [
+                690.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_hit_bunt_technique",
+      "level": "foundation",
+      "family": "baseball_family_7",
+      "familyName": {
+        "en": "Hitting",
+        "en-GB": "Hitting",
+        "es-ES": "Bateo",
+        "fr-FR": "Frappe",
+        "id-ID": "Memukul",
+        "ja-JP": "打撃",
+        "ko-KR": "타격",
+        "ms-MY": "Memukul",
+        "th-TH": "การตี",
+        "vi-VN": "Đánh bóng",
+        "zh-CN": "打击",
+        "zh-TW": "打擊"
+      },
+      "category": "attacking",
+      "minutes": 10,
+      "players": 7,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Hitting laying down the bunt",
+        "en-GB": "Hitting laying down the bunt",
+        "zh-CN": "打击 触击技术",
+        "zh-TW": "打擊 觸擊技術",
+        "ja-JP": "打撃 バントの技術",
+        "ko-KR": "타격 번트 대는 기술",
+        "es-ES": "Bateo la ejecución del toque",
+        "fr-FR": "Frappe poser l amorti",
+        "id-ID": "Memukul teknik bunt",
+        "ms-MY": "Memukul teknik bunt",
+        "th-TH": "การตี เทคนิคการบันต์",
+        "vi-VN": "Đánh bóng kỹ thuật chạm bóng"
+      },
+      "note": {
+        "en": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "en-GB": "Same load, same stride, whatever the pitch is. A swing that changes its start because the ball changed is already late.",
+        "zh-CN": "无论来球是什么，引拍和跨步都一样。因为球变了才改变起手动作的挥棒，已经晚了。",
+        "zh-TW": "無論來球是什麼，引拍和跨步都一樣。因為球變了才改變起手動作的揮棒，已經晚了。",
+        "ja-JP": "どんな球でも、テイクバックとステップは同じ。球種に合わせて始動を変えるスイングは、その時点で振り遅れている。",
+        "ko-KR": "어떤 공이 와도 로드와 스트라이드는 같다. 공에 따라 시작을 바꾸는 스윙은 이미 늦은 스윙이다.",
+        "es-ES": "La misma carga y el mismo paso, venga lo que venga. Un swing que cambia su inicio porque cambió la bola ya llega tarde.",
+        "fr-FR": "Même armé, même appui, quel que soit le lancer. Un swing qui modifie son départ parce que la balle a changé est déjà en retard.",
+        "id-ID": "Muatan dan langkah yang sama, apa pun lemparannya.",
+        "ms-MY": "Muatan dan langkah yang sama, apa pun balingannya.",
+        "th-TH": "โหลดเหมือนเดิม ก้าวเหมือนเดิม ไม่ว่าลูกจะมาแบบไหน",
+        "vi-VN": "Cùng một nhịp lấy đà, cùng một bước chân, dù bóng thế nào."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1016.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              497.03698360176196,
+              1204.401377061968
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "1B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              653.3626157084249,
+              941.1922887448718
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                595.0,
+                1073.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "2B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              574.6373842915751,
+              872.3077112551282
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "SS",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              425.3626157084249,
+              872.3077112551282
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "3B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              346.6373842915751,
+              941.1922887448718
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                405.0,
+                1073.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              531.463016398238,
+              1112.598622938032
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                509.5,
+                1101.5
+              ],
+              [
+                671.0,
+                978.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              386.0,
+              1092.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              614.0,
+              1092.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              500.0,
+              1006.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                528.5,
+                1101.5
+              ],
+              [
+                386.0,
+                1092.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_catch_blocking",
+      "level": "foundation",
+      "family": "baseball_family_1",
+      "familyName": {
+        "en": "Catching",
+        "en-GB": "Catching",
+        "es-ES": "Receptor",
+        "fr-FR": "Receveur",
+        "id-ID": "Latihan catcher",
+        "ja-JP": "捕手練習",
+        "ko-KR": "포수 훈련",
+        "ms-MY": "Latihan penangkap",
+        "th-TH": "ฝึกแคตเชอร์",
+        "vi-VN": "Tập bắt bóng",
+        "zh-CN": "捕手训练",
+        "zh-TW": "捕手訓練"
+      },
+      "category": "defending",
+      "minutes": 10,
+      "players": 2,
+      "free": true,
+      "offSurface": false,
+      "name": {
+        "en": "Catching blocking the ball in the dirt",
+        "en-GB": "Catching blocking the ball in the dirt",
+        "zh-CN": "捕手训练 挡住落地球",
+        "zh-TW": "捕手訓練 擋住落地球",
+        "ja-JP": "捕手練習 ワンバウンドのブロッキング",
+        "ko-KR": "포수 훈련 원바운드 블로킹",
+        "es-ES": "Receptor bloquear la bola en tierra",
+        "fr-FR": "Receveur bloquer la balle au sol",
+        "id-ID": "Latihan catcher memblok bola yang memantul tanah",
+        "ms-MY": "Latihan penangkap memblok bola melantun tanah",
+        "th-TH": "ฝึกแคตเชอร์ การบล็อกลูกที่เด้งพื้น",
+        "vi-VN": "Tập bắt bóng chắn bóng nảy đất"
+      },
+      "note": {
+        "en": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+        "en-GB": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+        "zh-CN": "球到之前先把身体挡到球后面、下巴收下去。挡球是把球留在身前，不是把球接住。",
+        "zh-TW": "球到之前先把身體擋到球後面、下巴收下去。擋球是把球留在身前，不是把球接住。",
+        "ja-JP": "ボールが来る前に体を後ろに入れ、顎を引く。ブロッキングは前に落とすことで、捕ることではない。",
+        "ko-KR": "공이 오기 전에 몸을 뒤에 두고 턱을 당겨라. 블로킹은 앞에 떨어뜨리는 것이지 잡는 것이 아니다.",
+        "es-ES": "Pon el cuerpo detrás y la barbilla abajo antes de que llegue. Bloquear es dejarla delante de ti, no atraparla.",
+        "fr-FR": "Mets le corps derrière et le menton bas avant l'arrivée. Bloquer, c'est garder la balle devant soi, pas l'attraper.",
+        "id-ID": "Tempatkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+        "ms-MY": "Letakkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+        "th-TH": "เอาลำตัวไปอยู่หลังบอลและเก็บคางลงก่อนบอลมาถึง",
+        "vi-VN": "Đưa thân người ra sau bóng và cúi cằm trước khi bóng tới."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1196.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                471.5,
+                1168.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1016.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1054.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              500.0,
+              1006.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                471.5,
+                1158.5
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_catch_throw_down",
+      "level": "development",
+      "family": "baseball_family_1",
+      "familyName": {
+        "en": "Catching",
+        "en-GB": "Catching",
+        "es-ES": "Receptor",
+        "fr-FR": "Receveur",
+        "id-ID": "Latihan catcher",
+        "ja-JP": "捕手練習",
+        "ko-KR": "포수 훈련",
+        "ms-MY": "Latihan penangkap",
+        "th-TH": "ฝึกแคตเชอร์",
+        "vi-VN": "Tập bắt bóng",
+        "zh-CN": "捕手训练",
+        "zh-TW": "捕手訓練"
+      },
+      "category": "defending",
+      "minutes": 10,
+      "players": 7,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Catching the throw down to second",
+        "en-GB": "Catching the throw down to second",
+        "zh-CN": "捕手训练 传杀二垒",
+        "zh-TW": "捕手訓練 傳殺二壘",
+        "ja-JP": "捕手練習 二塁への送球",
+        "ko-KR": "포수 훈련 2루 송구",
+        "es-ES": "Receptor el tiro a segunda",
+        "fr-FR": "Receveur le lancer en deuxième",
+        "id-ID": "Latihan catcher lemparan ke base kedua",
+        "ms-MY": "Latihan penangkap balingan ke base kedua",
+        "th-TH": "ฝึกแคตเชอร์ การขว้างไปเบสสอง",
+        "vi-VN": "Tập bắt bóng ném xuống chốt hai"
+      },
+      "note": {
+        "en": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+        "en-GB": "Get the body behind it and the chin down before the ball arrives. A block is a ball you keep in front of you, not a ball you catch.",
+        "zh-CN": "球到之前先把身体挡到球后面、下巴收下去。挡球是把球留在身前，不是把球接住。",
+        "zh-TW": "球到之前先把身體擋到球後面、下巴收下去。擋球是把球留在身前，不是把球接住。",
+        "ja-JP": "ボールが来る前に体を後ろに入れ、顎を引く。ブロッキングは前に落とすことで、捕ることではない。",
+        "ko-KR": "공이 오기 전에 몸을 뒤에 두고 턱을 당겨라. 블로킹은 앞에 떨어뜨리는 것이지 잡는 것이 아니다.",
+        "es-ES": "Pon el cuerpo detrás y la barbilla abajo antes de que llegue. Bloquear es dejarla delante de ti, no atraparla.",
+        "fr-FR": "Mets le corps derrière et le menton bas avant l'arrivée. Bloquer, c'est garder la balle devant soi, pas l'attraper.",
+        "id-ID": "Tempatkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+        "ms-MY": "Letakkan badan di belakang bola dan dagu turun sebelum bola tiba.",
+        "th-TH": "เอาลำตัวไปอยู่หลังบอลและเก็บคางลงก่อนบอลมาถึง",
+        "vi-VN": "Đưa thân người ra sau bóng và cúi cằm trước khi bóng tới."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1016.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1196.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "1B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              664.1626626666706,
+              926.6562671595474
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "2B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              572.3564791408942,
+              870.9230308235849
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "SS",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              425.3626157084249,
+              872.3077112551282
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d5",
+            "label": "3B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              346.6373842915751,
+              941.1922887448718
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d6",
+            "label": "R",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              614.9808581924352,
+              1012.9207020168677
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                614.0,
+                921.0
+              ],
+              [
+                500.0,
+                807.0
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              671.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              807.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              500.0,
+              1006.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                519.0,
+                1130.0
+              ],
+              [
+                519.0,
+                826.0000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_field_ground_ball",
+      "level": "foundation",
+      "family": "baseball_family_3",
+      "familyName": {
+        "en": "Fielding fundamentals",
+        "en-GB": "Fielding fundamentals",
+        "es-ES": "Fundamentos de defensa",
+        "fr-FR": "Bases de la défense",
+        "id-ID": "Dasar bertahan",
+        "ja-JP": "守備の基本",
+        "ko-KR": "수비 기본기",
+        "ms-MY": "Asas pertahanan",
+        "th-TH": "พื้นฐานการรับลูก",
+        "vi-VN": "Kỹ thuật bắt bóng cơ bản",
+        "zh-CN": "守备基本功",
+        "zh-TW": "守備基本功"
+      },
+      "category": "defending",
+      "minutes": 12,
+      "players": 3,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Fielding fundamentals the ground ball and the backhand",
+        "en-GB": "Fielding fundamentals the ground ball and the backhand",
+        "zh-CN": "守备基本功 滚地球与反手接",
+        "zh-TW": "守備基本功 滾地球與反手接",
+        "ja-JP": "守備の基本 ゴロと逆シングル",
+        "ko-KR": "수비 기본기 땅볼과 백핸드",
+        "es-ES": "Fundamentos de defensa el rodado y el revés",
+        "fr-FR": "Bases de la défense le roulant et le revers",
+        "id-ID": "Dasar bertahan bola bergulir dan backhand",
+        "ms-MY": "Asas pertahanan bola bergolek dan backhand",
+        "th-TH": "พื้นฐานการรับลูก ลูกกลิ้งและการรับมือกลับ",
+        "vi-VN": "Kỹ thuật bắt bóng cơ bản bóng lăn và cú bắt trái tay"
+      },
+      "note": {
+        "en": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "en-GB": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "zh-CN": "要穿过球去接，不是跑到球那儿停住。原地站定接的滚地球，会把一个常规出局变成一次你来不及的长传。",
+        "zh-TW": "要穿過球去接，不是跑到球那兒停住。原地站定接的滾地球，會把一個常規出局變成一次你來不及的長傳。",
+        "ja-JP": "ボールへ行くのではなく、ボールを通り抜ける。棒立ちで捕れば、平凡なゴロが間に合わない遠投になる。",
+        "ko-KR": "공으로 가는 게 아니라 공을 통과해 움직여라. 멈춰 서서 잡으면 평범한 땅볼이 시간 없는 긴 송구가 된다.",
+        "es-ES": "Atraviesa la bola, no vayas hacia ella. Fildear parado convierte un rodado de rutina en un tiro largo sin tiempo.",
+        "fr-FR": "Traverse la balle, ne va pas seulement jusqu'à elle. Cueillir à l'arrêt transforme un roulant facile en un long lancer sans temps.",
+        "id-ID": "Bergeraklah menembus bola, bukan sekadar menuju bola.",
+        "ms-MY": "Bergerak menembusi bola, bukan sekadar menuju bola.",
+        "th-TH": "เคลื่อนผ่านบอล ไม่ใช่แค่วิ่งไปหาบอล",
+        "vi-VN": "Di chuyển xuyên qua bóng, không phải chỉ chạy tới bóng."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "SS",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              424.0,
+              873.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                367.0,
+                906.75
+              ],
+              [
+                443.0,
+                940.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "1B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              671.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              528.5,
+              1120.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              671.0,
+              978.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              528.5,
+              1101.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                367.0,
+                906.75
+              ],
+              [
+                690.0000000000001,
+                959.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_field_fly_ball",
+      "level": "foundation",
+      "family": "baseball_family_3",
+      "familyName": {
+        "en": "Fielding fundamentals",
+        "en-GB": "Fielding fundamentals",
+        "es-ES": "Fundamentos de defensa",
+        "fr-FR": "Bases de la défense",
+        "id-ID": "Dasar bertahan",
+        "ja-JP": "守備の基本",
+        "ko-KR": "수비 기본기",
+        "ms-MY": "Asas pertahanan",
+        "th-TH": "พื้นฐานการรับลูก",
+        "vi-VN": "Kỹ thuật bắt bóng cơ bản",
+        "zh-CN": "守备基本功",
+        "zh-TW": "守備基本功"
+      },
+      "category": "defending",
+      "minutes": 12,
+      "players": 3,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Fielding fundamentals the drop step and the fly ball",
+        "en-GB": "Fielding fundamentals the drop step and the fly ball",
+        "zh-CN": "守备基本功 后撤步与高飞球",
+        "zh-TW": "守備基本功 後撤步與高飛球",
+        "ja-JP": "守備の基本 ドロップステップとフライ",
+        "ko-KR": "수비 기본기 드롭 스텝과 뜬공",
+        "es-ES": "Fundamentos de defensa el paso atrás y el elevado",
+        "fr-FR": "Bases de la défense le pas de recul et la chandelle",
+        "id-ID": "Dasar bertahan langkah mundur dan bola lambung",
+        "ms-MY": "Asas pertahanan langkah undur dan bola lambung",
+        "th-TH": "พื้นฐานการรับลูก การก้าวถอยและลูกลอย",
+        "vi-VN": "Kỹ thuật bắt bóng cơ bản bước lùi và bóng bổng"
+      },
+      "note": {
+        "en": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "en-GB": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "zh-CN": "要穿过球去接，不是跑到球那儿停住。原地站定接的滚地球，会把一个常规出局变成一次你来不及的长传。",
+        "zh-TW": "要穿過球去接，不是跑到球那兒停住。原地站定接的滾地球，會把一個常規出局變成一次你來不及的長傳。",
+        "ja-JP": "ボールへ行くのではなく、ボールを通り抜ける。棒立ちで捕れば、平凡なゴロが間に合わない遠投になる。",
+        "ko-KR": "공으로 가는 게 아니라 공을 통과해 움직여라. 멈춰 서서 잡으면 평범한 땅볼이 시간 없는 긴 송구가 된다.",
+        "es-ES": "Atraviesa la bola, no vayas hacia ella. Fildear parado convierte un rodado de rutina en un tiro largo sin tiempo.",
+        "fr-FR": "Traverse la balle, ne va pas seulement jusqu'à elle. Cueillir à l'arrêt transforme un roulant facile en un long lancer sans temps.",
+        "id-ID": "Bergeraklah menembus bola, bukan sekadar menuju bola.",
+        "ms-MY": "Bergerak menembusi bola, bukan sekadar menuju bola.",
+        "th-TH": "เคลื่อนผ่านบอล ไม่ใช่แค่วิ่งไปหาบอล",
+        "vi-VN": "Di chuyển xuyên qua bóng, không phải chỉ chạy tới bóng."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "CF",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              541.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                557.0,
+                465.0
+              ],
+              [
+                538.0,
+                522.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2B",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              576.0,
+              873.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                538.0,
+                750.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              528.5,
+              1120.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              807.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              528.5,
+              1101.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                557.0,
+                465.0
+              ],
+              [
+                519.0,
+                826.0000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bb_pitch_bullpen",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 2,
+      "free": false,
+      "offSurface": false,
+      "name": {
+        "en": "Fielding fundamentals the bullpen and the sequence",
+        "en-GB": "Fielding fundamentals the bullpen and the sequence",
+        "zh-CN": "守备基本功 牛棚投球与配球",
+        "zh-TW": "守備基本功 牛棚投球與配球",
+        "ja-JP": "守備の基本 ブルペンと配球",
+        "ko-KR": "수비 기본기 불펜과 볼 배합",
+        "es-ES": "Fundamentos de defensa el bullpen y la secuencia",
+        "fr-FR": "Bases de la défense le bullpen et la séquence",
+        "id-ID": "Dasar bertahan bullpen dan urutan lemparan",
+        "ms-MY": "Asas pertahanan bullpen dan urutan balingan",
+        "th-TH": "พื้นฐานการรับลูก การซ้อมขว้างและลำดับลูก",
+        "vi-VN": "Kỹ thuật bắt bóng cơ bản tập ném và trình tự bóng"
+      },
+      "note": {
+        "en": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "en-GB": "Move through the ball, not to it. Fielding flat-footed turns a routine grounder into a long throw you have no time for.",
+        "zh-CN": "要穿过球去接，不是跑到球那儿停住。原地站定接的滚地球，会把一个常规出局变成一次你来不及的长传。",
+        "zh-TW": "要穿過球去接，不是跑到球那兒停住。原地站定接的滾地球，會把一個常規出局變成一次你來不及的長傳。",
+        "ja-JP": "ボールへ行くのではなく、ボールを通り抜ける。棒立ちで捕れば、平凡なゴロが間に合わない遠投になる。",
+        "ko-KR": "공으로 가는 게 아니라 공을 통과해 움직여라. 멈춰 서서 잡으면 평범한 땅볼이 시간 없는 긴 송구가 된다.",
+        "es-ES": "Atraviesa la bola, no vayas hacia ella. Fildear parado convierte un rodado de rutina en un tiro largo sin tiempo.",
+        "fr-FR": "Traverse la balle, ne va pas seulement jusqu'à elle. Cueillir à l'arrêt transforme un roulant facile en un long lancer sans temps.",
+        "id-ID": "Bergeraklah menembus bola, bukan sekadar menuju bola.",
+        "ms-MY": "Bergerak menembusi bola, bukan sekadar menuju bola.",
+        "th-TH": "เคลื่อนผ่านบอล ไม่ใช่แค่วิ่งไปหาบอล",
+        "vi-VN": "Di chuyển xuyên qua bóng, không phải chỉ chạy tới bóng."
+      },
+      "mistake": {
+        "en": "Improvising a moment whose value was that it was rehearsed.",
+        "en-GB": "Improvising a moment whose value was that it was rehearsed.",
+        "zh-CN": "把价值在于排练的时刻临场发挥。",
+        "zh-TW": "把價值在於排練的時刻臨場發揮。",
+        "ja-JP": "仕込みが価値の場面を即興でやる。",
+        "ko-KR": "연습이 가치인 순간을 즉흥으로.",
+        "es-ES": "Improvisar un momento cuyo valor era estar ensayado.",
+        "fr-FR": "Improviser un moment dont la valeur était d'être répété.",
+        "id-ID": "Berimprovisasi di momen yang mestinya terlatih.",
+        "ms-MY": "Berimprovisasi pada saat yang sepatutnya terlatih.",
+        "th-TH": "ด้นสดในจังหวะที่ควรซ้อม",
+        "vi-VN": "Ứng biến ở tình huống lẽ ra đã tập."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "P",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1016.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1063.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "C",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1196.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                528.5,
+                1182.25
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1149.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              542.75,
+              1163.25
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              457.25,
+              1163.25
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 9,
+            "position": [
+              500.0,
+              1006.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                542.75,
+                1163.25
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
