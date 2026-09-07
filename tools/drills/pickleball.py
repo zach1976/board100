@@ -467,7 +467,10 @@ GAME_NOTE = {
 
 def game_family() -> list[Drill]:
     specs = [
-        ("dink_only", "dinks only", [K_L, K_R]),
+        # Dinks only is played inside the kitchen line, which is what makes
+        # it a different game; it was the full-doubles board unchanged.
+        ("dink_only", "dinks only",
+         [(K_L[0] + 0.06, KITCHEN - 0.01), (K_R[0] - 0.06, KITCHEN - 0.01)]),
         ("skinny_singles", "skinny singles", [(0.72, BASELINE)]),
         ("third_shot", "third shot game", [(0.30, BASELINE), (0.70, BASELINE)]),
         ("full_doubles", "full doubles", [K_L, K_R]),
