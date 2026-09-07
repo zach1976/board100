@@ -232,12 +232,16 @@ def normalise_phases(drill: Drill) -> None:
     is a dead press of the button. Authors think in "this happens after that",
     not in dense integers — so fix it here instead of in every spec.
     """
-    used = sorted({m[2] for p in drill.home + drill.away for m in p.moves})
+    # The ball's own flight counts: a throw on phase 2 with nothing on
+    # phase 1 is the same dead press of the button as a player's would be.
+    used = sorted({m[2] for p in drill.home + drill.away for m in p.moves}
+                  | {m[2] for m in drill.ball_moves})
     if not used or used == list(range(len(used))):
         return
     remap = {old: new for new, old in enumerate(used)}
     for p in drill.home + drill.away:
         p.moves = [(x, y, remap[ph]) for (x, y, ph) in p.moves]
+    drill.ball_moves = [(x, y, remap[ph]) for (x, y, ph) in drill.ball_moves]
 
 
 def to_canvas(drill: Drill, sport: str) -> None:
