@@ -153,6 +153,8 @@ def man_up_family() -> list[Drill]:
     for key, label, spots in specs:
         out.append(Drill(
             id=f"wp_manup_{key}", category="attacking", minutes=12, rel=True,
+# The man-up shapes are lines; opening them draws a different formation.
+tight=True,
             free=(key in ("four_two", "three_three")),
             name=suffixed(MAN_UP_NAME, label), note=MAN_UP_NOTE,
             home=[P(x, y, str(i + 1),
@@ -202,6 +204,8 @@ def centre_family() -> list[Drill]:
     for key, label, spot in specs:
         out.append(Drill(
             id=f"wp_centre_{key}", category="finishing", minutes=10, rel=True,
+# The man-up shapes are lines; opening them draws a different formation.
+tight=True,
             free=(key in ("entry", "backhand")),
             name=suffixed(CENTRE_NAME, label), note=CENTRE_NOTE,
             home=[P(0.50, 0.34, "1", moves=[(0.46, 0.30, 0)]),

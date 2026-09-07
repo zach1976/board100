@@ -308,6 +308,8 @@ def setpiece_family() -> list[Drill]:
             away = [P(x, 0.40, "D", moves=[(x, 0.50, 0)]) for x, _ in line_of(n, 0.40)]
         out.append(Drill(
             id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
+            # A scrum, a lineout and a restart line are bound or spaced by law — opening them out would draw a different set piece.
+            tight=True,
             free=(key in ("lineout_five", "kick_off")),
             off_surface=key.startswith("lineout"),
             name=suffixed(SET_NAME, label), note=SET_NOTE,
@@ -398,6 +400,8 @@ def breakdown_family() -> list[Drill]:
     for key, label, n in specs:
         out.append(Drill(
             id=f"rg_breakdown_{key}", category="possession", minutes=10, rel=True,
+            # Bodies over the ball at a breakdown are touching.
+            tight=True,
             free=(key == "quick_ball"),
             name=suffixed(BREAKDOWN_NAME, label), note=BREAKDOWN_NOTE,
             home=[P(0.50, 0.56, "1", moves=[(0.50, 0.50, 0)])] + [
@@ -502,6 +506,8 @@ def maul_family() -> list[Drill]:
                for i in range(6)]
         out.append(Drill(
             id=f"rg_maul_{key}", category="setpiece", minutes=12, rel=True,
+            # A maul is players bound to each other; spread apart it is not a maul.
+            tight=True,
             free=(key == "drive"), off_surface=True,
             name=suffixed(MAUL_NAME, label), note=MAUL_NOTE,
             home=pod,

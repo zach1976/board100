@@ -296,6 +296,8 @@ def setpiece_family() -> list[Drill]:
         defending = key == "defending_it"
         out.append(Drill(
             id=f"fh_corner_{key}", category="setpiece", minutes=12, rel=True,
+# A penalty corner packs the circle by design.
+tight=True,
             free=(key in ("drag_flick", "defending_it")), off_surface=True,
             name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
             home=[P(0.94, -0.01, "I", moves=[(0.80, 0.06, 0)]),
