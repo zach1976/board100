@@ -15,7 +15,13 @@ NET_D, NET_A = (0.68, 0.58), (0.32, 0.58)
 
 
 def mirror(pt):
-    return (pt[0], 1.0 - pt[1])
+    """The same court position for the player on the other side.
+
+    A half turn, not a flip. Reflecting only y kept the near player's x, so
+    "cross-court forehand" put both players in the same column — which is
+    down the line — and "down the line" drew the diagonal.
+    """
+    return (1.0 - pt[0], 1.0 - pt[1])
 
 
 RALLY_NAME = {
@@ -91,11 +97,15 @@ SERVE_NOTE = {
 
 
 def serve_family() -> list[Drill]:
-    specs = [("deuce_wide", "deuce wide", BASE_D, (0.05, 0.40)),
-             ("deuce_t", "deuce down the T", BASE_D, (0.44, 0.40)),
-             ("deuce_body", "deuce at the body", BASE_D, (0.24, 0.38)),
-             ("ad_wide", "ad wide", BASE_A, (0.95, 0.40)),
-             ("ad_t", "ad down the T", BASE_A, (0.56, 0.40))]
+    # Singles sidelines are at x 0.125 and 0.875, so the wide targets used
+    # to be 0.8 m outside the court — a fault. And every target sat 2.4 m
+    # past the net in a 6.4 m box; a serve target belongs on the service
+    # line, at y 0.25.
+    specs = [("deuce_wide", "deuce wide", BASE_D, (0.165, 0.255)),
+             ("deuce_t", "deuce down the T", BASE_D, (0.435, 0.25)),
+             ("deuce_body", "deuce at the body", BASE_D, (0.285, 0.27)),
+             ("ad_wide", "ad wide", BASE_A, (0.835, 0.255)),
+             ("ad_t", "ad down the T", BASE_A, (0.565, 0.25))]
     out = []
     for key, label, stand, target in specs:
         out.append(Drill(
@@ -241,12 +251,21 @@ def defend_family() -> list[Drill]:
         out.append(Drill(
             id=f"tn_defend_{key}", category="defending", minutes=8, rel=True,
             free=(key == "slice"),
+            off_surface=(key == "block_return"),
             name=suffixed(DEFEND_NAME, label), note=DEFEND_NOTE,
             home=[P(*BASE_C, "1", moves=[pulled + (0,), BASE_C + (2,)])],
-            away=[P(*mirror(BASE_C), "2",
-                    moves=[(mirror(pulled)[0], 0.10, 0), (target[0], target[1], 1)])],
+            # A lob answers a player at the net, and a block return answers
+            # a serve; both used to be drawn against a second baseliner, so
+            # neither had the premise it is named for.
+            away=[P(*({"lob": (0.48, 0.30), "block_return": (0.44, -0.03)}
+                      .get(key, mirror(BASE_C))), "2",
+                    moves=[(mirror(pulled)[0], 0.10 if key == "slice" else 0.24, 0),
+                           (target[0], target[1], 1)])],
             markers=[M(*target, "zone", "")],
-            ball=mirror(BASE_C),        # the attacker starts with it
+            ball=({"lob": (0.48, 0.32), "block_return": (0.44, 0.0)}
+                  .get(key, mirror(BASE_C))),
+            # The ball crosses the net; on the lob it goes over the net man.
+            ball_moves=[(pulled[0], pulled[1] - 0.03, 0), target + (1,)],
         ))
     return out
 
@@ -396,7 +415,124 @@ def game_family() -> list[Drill]:
     return out
 
 
+SECOND_NOTE = {
+    "en": "Spin first, speed second: a second serve that clears the net by a metre and kicks is worth two that clip the tape. Nobody ever lost a match to a kick serve that went in.",
+    "en-GB": "Spin first, speed second: a second serve that clears the net by a metre and kicks is worth two that clip the tape. Nobody ever lost a match to a kick serve that went in.",
+    "zh-CN": "先要旋转，再谈速度：过网一米、落地窜起的二发，胜过两个擦网而过的。没人因为一个进了的上旋二发输掉比赛。",
+    "zh-TW": "先要旋轉，再談速度：過網一米、落地竄起的二發，勝過兩個擦網而過的。沒人因為一個進了的上旋二發輸掉比賽。",
+    "ja-JP": "まず回転、速度は二の次。ネットを1m越えて跳ねるセカンドは、テープをかすめる2本に勝る。入ったキックサーブで試合を落とした者はいない。",
+    "ko-KR": "회전이 먼저, 속도는 그다음. 네트를 1미터 넘겨 튀어 오르는 세컨드가 네트를 스치는 두 개보다 낫다.",
+    "es-ES": "Primero el efecto, después la velocidad: un segundo saque que pasa un metro sobre la red y salta vale por dos que rozan la cinta.",
+    "fr-FR": "L'effet d'abord, la vitesse ensuite : une deuxième balle qui passe à un mètre du filet et rebondit haut en vaut deux qui frôlent la bande.",
+    "id-ID": "Spin dulu, kecepatan kemudian: servis kedua yang melewati net satu meter dan memantul tinggi setara dua yang menyerempet net.",
+    "ms-MY": "Putaran dahulu, kelajuan kemudian.",
+    "th-TH": "สปินมาก่อน ความเร็วทีหลัง เสิร์ฟสองที่ข้ามตาข่ายหนึ่งเมตรและกระดอนสูงคุ้มกว่าสองลูกที่เฉียดเน็ต",
+    "vi-VN": "Xoáy trước, tốc độ sau: quả giao hai qua lưới một mét và nảy cao đáng giá bằng hai quả sượt mép lưới.",
+}
+SV_NOTE = {
+    "en": "Split step where you land, not where you meant to get to. A serve-volleyer still running when the return is struck is volleying from his shoelaces.",
+    "en-GB": "Split step where you land, not where you meant to get to. A serve-volleyer still running when the return is struck is volleying from his shoelaces.",
+    "zh-CN": "在你落地的位置做分腿垫步，而不是在你原本想到达的位置。接发球击出时人还在跑，那一拍截击就只能从鞋带上打。",
+    "zh-TW": "在你落地的位置做分腿墊步，而不是在你原本想到達的位置。接發球擊出時人還在跑，那一拍截擊就只能從鞋帶上打。",
+    "ja-JP": "着地したその場でスプリットステップを踏む。狙った位置ではない。リターンが打たれた時にまだ走っていれば、靴紐の高さでボレーすることになる。",
+    "ko-KR": "도착하려던 곳이 아니라 착지한 곳에서 스플릿 스텝을 밟아라. 리턴이 맞을 때까지 뛰고 있으면 발목 높이에서 발리하게 된다.",
+    "es-ES": "Split step donde caes, no donde pretendías llegar: quien sigue corriendo cuando golpean el resto volea desde los cordones.",
+    "fr-FR": "Split step là où tu atterris, pas là où tu voulais arriver : celui qui court encore au moment du retour volleye dans ses lacets.",
+    "id-ID": "Split step di tempat kamu mendarat, bukan di tempat yang kamu tuju.",
+    "ms-MY": "Split step di tempat anda mendarat, bukan di tempat yang anda tuju.",
+    "th-TH": "สปลิตสเต็ปตรงที่คุณลงเท้า ไม่ใช่ตรงที่ตั้งใจจะไปถึง",
+    "vi-VN": "Bước tách ở nơi bạn tiếp đất, không phải nơi bạn định tới.",
+}
+DROP_NOTE = {
+    "en": "Play it from inside the baseline off a short ball, and follow it in. A drop shot hit from behind the baseline gives the other player the two extra steps he needs.",
+    "en-GB": "Play it from inside the baseline off a short ball, and follow it in. A drop shot hit from behind the baseline gives the other player the two extra steps he needs.",
+    "zh-CN": "接短球时在底线内打出，然后跟上网。站在底线后面打的放小球，正好给了对手他需要的那两步。",
+    "zh-TW": "接短球時在底線內打出，然後跟上網。站在底線後面打的放小球，正好給了對手他需要的那兩步。",
+    "ja-JP": "短い球をベースライン内側から打ち、そのまま前へ出る。ベースラインの後ろから打つドロップは、相手に必要な2歩を与えるだけだ。",
+    "ko-KR": "짧은 공을 베이스라인 안쪽에서 치고 그대로 전진하라. 베이스라인 뒤에서 친 드롭샷은 상대에게 두 걸음을 그냥 준다.",
+    "es-ES": "Juégala desde dentro de la línea de fondo sobre una bola corta y sube detrás. Una dejada desde atrás regala dos pasos al rival.",
+    "fr-FR": "Joue-la depuis l'intérieur du court sur une balle courte, et monte derrière. Un amorti frappé derrière la ligne offre deux pas à l'adversaire.",
+    "id-ID": "Mainkan dari dalam garis belakang pada bola pendek, lalu ikuti maju.",
+    "ms-MY": "Mainkan dari dalam garisan belakang pada bola pendek, kemudian ikut ke depan.",
+    "th-TH": "เล่นจากในเส้นหลังเมื่อได้ลูกสั้น แล้วตามขึ้นหน้า",
+    "vi-VN": "Đánh từ trong vạch cuối sân khi có bóng ngắn, rồi theo lên lưới.",
+}
+POACH_NOTE = {
+    "en": "Move on the returner's contact, straight across and forward — never back. A poach that starts early is a signal, and a poach that starts late is a spectator.",
+    "en-GB": "Move on the returner's contact, straight across and forward — never back. A poach that starts early is a signal, and a poach that starts late is a spectator.",
+    "zh-CN": "在接发球的人击球那一刻启动，横向并向前，绝不能后退。启动太早就是把意图告诉对方，启动太晚就只是个观众。",
+    "zh-TW": "在接發球的人擊球那一刻啟動，橫向並向前，絕不能後退。啟動太早就是把意圖告訴對方，啟動太晚就只是個觀眾。",
+    "ja-JP": "リターナーのインパクトで動く。横かつ前へ、決して後ろへは動かない。早すぎるポーチは合図であり、遅すぎるポーチは観客だ。",
+    "ko-KR": "리터너가 공을 맞히는 순간 움직여라. 옆으로 그리고 앞으로, 절대 뒤로는 아니다.",
+    "es-ES": "Sal en el impacto del restador, en diagonal hacia delante, nunca hacia atrás. Salir pronto es avisar; salir tarde es mirar.",
+    "fr-FR": "Pars à l'impact du relanceur, en travers et vers l'avant, jamais en arrière. Partir tôt, c'est prévenir ; partir tard, c'est regarder.",
+    "id-ID": "Bergeraklah saat pengembali menyentuh bola, menyilang dan ke depan, tidak pernah mundur.",
+    "ms-MY": "Bergerak ketika pemulang menyentuh bola, melintang dan ke hadapan.",
+    "th-TH": "ออกตัวตอนคนรับเสิร์ฟกระทบบอล ตัดข้างและไปข้างหน้า ห้ามถอยหลัง",
+    "vi-VN": "Di chuyển khi người đỡ chạm bóng, cắt ngang và tiến lên, không bao giờ lùi.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """The second serve, serve-and-volley, the drop shot and the poach.
+
+    All four verified absent from every name and note in the library, along
+    with the passing shot the drop shot sets up.
+    """
+    return [
+        Drill(
+            id="tn_serve_second", category="setpiece", minutes=8, rel=True,
+            level="foundation", free=True, off_surface=True,
+            name=suffixed(SERVE_NAME, "the kicking second serve"),
+            note=SECOND_NOTE,
+            home=[P(BASE_D[0], 1.03, "S", moves=[(BASE_D[0], 0.94, 0), (0.5, 0.99, 2)])],
+            away=[P(0.28, -0.03, "R", moves=[(0.22, 0.16, 2)])],
+            markers=[M(0.20, 0.26, "zone", "")],
+            ball=0, ball_moves=[(0.20, 0.26, 1), (0.16, 0.10, 2)],
+        ),
+        Drill(
+            id="tn_serve_and_volley", category="attacking", minutes=10, rel=True,
+            level="advanced",
+            name={"en": "Serve and volley", "en-GB": "Serve and volley",
+                  "zh-CN": "发球上网", "zh-TW": "發球上網",
+                  "ja-JP": "サーブ＆ボレー", "ko-KR": "서브 앤 발리",
+                  "es-ES": "Saque y volea", "fr-FR": "Service-volée",
+                  "id-ID": "Servis dan voli", "ms-MY": "Servis dan voli",
+                  "th-TH": "เสิร์ฟแล้วขึ้นวอลเลย์", "vi-VN": "Giao bóng lên lưới"},
+            note=SV_NOTE,
+            home=[P(BASE_D[0], 1.03, "S",
+                    moves=[(BASE_D[0], 0.94, 0), (0.62, 0.74, 1), (0.60, 0.60, 2)])],
+            away=[P(0.28, -0.03, "R", moves=[(0.26, 0.14, 1)])],
+            markers=[M(0.435, 0.25, "zone", ""), M(0.30, 0.30, "zone", "")],
+            ball=0, off_surface=True,
+            ball_moves=[(0.435, 0.25, 1), (0.60, 0.60, 2), (0.30, 0.30, 3)],
+        ),
+        Drill(
+            id="tn_attack_drop_shot", category="attacking", minutes=8, rel=True,
+            name=suffixed(RALLY_NAME, "the drop shot and the pass"), note=DROP_NOTE,
+            home=[P(*BASE_C, "1", moves=[(0.56, 0.80, 0), (0.54, 0.66, 1),
+                                         (0.58, 0.80, 3)])],
+            away=[P(*mirror(BASE_C), "2",
+                    moves=[(0.44, 0.26, 0), (0.46, 0.40, 2)])],
+            markers=[M(0.42, 0.42, "zone", ""), M(0.86, 0.72, "zone", "")],
+            ball=mirror(BASE_C),
+            ball_moves=[(0.56, 0.80, 0), (0.42, 0.42, 1), (0.86, 0.72, 3)],
+        ),
+        Drill(
+            id="tn_doubles_poach", category="attacking", minutes=10, rel=True,
+            name=suffixed(DOUBLES_NAME, "the poach"), note=POACH_NOTE,
+            home=[P(BASE_D[0], 1.03, "S", moves=[(BASE_D[0], 0.94, 0), (0.66, 0.86, 2)]),
+                  P(0.30, 0.66, "N", moves=[(0.44, 0.60, 1), (0.56, 0.56, 2)])],
+            away=[P(0.28, -0.03, "R", moves=[(0.30, 0.16, 1)]),
+                  P(0.70, 0.34, "P", moves=[(0.72, 0.28, 2)])],
+            markers=[M(0.435, 0.25, "zone", ""), M(0.78, 0.20, "zone", "")],
+            ball=0, off_surface=True,
+            ball_moves=[(0.435, 0.25, 1), (0.44, 0.60, 2), (0.78, 0.20, 3)],
+        ),
+    ]
+
+
 def tennis_library() -> list[Drill]:
     return (warmup_family() + rally_family() + plus_one_family()
             + doubles_family() + net_family() + defend_family()
-            + serve_family() + game_family())
+            + serve_family() + game_family() + gaps_family())

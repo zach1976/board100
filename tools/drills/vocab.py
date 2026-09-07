@@ -1293,3 +1293,8 @@ add('against the short serve', '接短发球', '接短發球', 'ショートサ�
 add('against the flick', '接后场发球', '接後場發球', 'フリックサーブに対して', '플릭 서브에 대해', 'contra el saque flick', 'contre le service flick', 'melawan servis flick', 'menentang servis flick', 'รับเสิร์ฟงัด', 'đỡ giao cầu lật')
 add('round the head', '头顶球', '頭頂球', 'ラウンド・ザ・ヘッド', '라운드 더 헤드', 'por encima de la cabeza', 'au-dessus de la tête', 'round the head', 'round the head', 'ตีรอบศีรษะ', 'đánh vòng qua đầu')
 add('the battle at the tape', '网前搏杀', '網前搏殺', 'ネット前の攻防', '네트 앞 싸움', 'la batalla en la red', 'la bataille au filet', 'duel di depan net', 'pertarungan di depan jaring', 'การปะทะหน้าตาข่าย', 'cuộc đấu trước lưới')
+
+add('the kicking second serve', '上旋二发', '上旋二發', 'キックの効いたセカンドサーブ', '킥이 걸린 세컨드 서브', 'el segundo saque con efecto', 'la deuxième balle liftée', 'servis kedua dengan spin', 'servis kedua berputar', 'เสิร์ฟสองแบบสปิน', 'quả giao hai xoáy nảy')
+add('serve and volley', '发球上网', '發球上網', 'サーブ＆ボレー', '서브 앤 발리', 'saque y volea', 'service-volée', 'servis dan voli', 'servis dan voli', 'เสิร์ฟแล้วขึ้นวอลเลย์', 'giao bóng lên lưới')
+add('the drop shot and the pass', '放小球与穿越', '放小球與穿越', 'ドロップとパッシング', '드롭샷과 패싱', 'la dejada y el passing', 'l amorti et le passing', 'drop shot dan passing', 'drop shot dan passing', 'ลูกหยอดและลูกผ่าน', 'bỏ nhỏ và cú vượt')
+add('the poach', '网前拦截', '網前攔截', 'ポーチ', '포치', 'la intercepción en la red', 'l interception au filet', 'poach di depan net', 'pintasan di depan jaring', 'การตัดบอลหน้าเน็ต', 'pha cắt bóng trên lưới')
