@@ -1273,3 +1273,13 @@ add('the throw down to second', '传杀二垒', '傳殺二壘', '二塁への送
 add('the ground ball and the backhand', '滚地球与反手接', '滾地球與反手接', 'ゴロと逆シングル', '땅볼과 백핸드', 'el rodado y el revés', 'le roulant et le revers', 'bola bergulir dan backhand', 'bola bergolek dan backhand', 'ลูกกลิ้งและการรับมือกลับ', 'bóng lăn và cú bắt trái tay')
 add('the drop step and the fly ball', '后撤步与高飞球', '後撤步與高飛球', 'ドロップステップとフライ', '드롭 스텝과 뜬공', 'el paso atrás y el elevado', 'le pas de recul et la chandelle', 'langkah mundur dan bola lambung', 'langkah undur dan bola lambung', 'การก้าวถอยและลูกลอย', 'bước lùi và bóng bổng')
 add('the bullpen and the sequence', '牛棚投球与配球', '牛棚投球與配球', 'ブルペンと配球', '불펜과 볼 배합', 'el bullpen y la secuencia', 'le bullpen et la séquence', 'bullpen dan urutan lemparan', 'bullpen dan urutan balingan', 'การซ้อมขว้างและลำดับลูก', 'tập ném và trình tự bóng')
+
+add('left slot', '左侧 45 度', '左側 45 度', '左スロット', '왼쪽 슬롯', 'slot izquierdo', 'slot gauche', 'slot kiri', 'slot kiri', 'สล็อตซ้าย', 'vị trí chếch trái')
+add('right slot', '右侧 45 度', '右側 45 度', '右スロット', '오른쪽 슬롯', 'slot derecho', 'slot droit', 'slot kanan', 'slot kanan', 'สล็อตขวา', 'vị trí chếch phải')
+
+add('the 2-3', '2-3 联防', '2-3 聯防', '2-3ゾーン', '2-3 지역방어', 'la 2-3', 'la 2-3', 'zona 2-3', 'zon 2-3', 'โซน 2-3', 'khu vực 2-3')
+add('the 1-3-1', '1-3-1 联防', '1-3-1 聯防', '1-3-1ゾーン', '1-3-1 지역방어', 'la 1-3-1', 'la 1-3-1', 'zona 1-3-1', 'zon 1-3-1', 'โซน 1-3-1', 'khu vực 1-3-1')
+add('attacking the zone', '破联防', '破聯防', 'ゾーンアタック', '지역방어 공략', 'atacar la zona', 'attaquer la zone', 'menyerang zona', 'menyerang zon', 'การเจาะโซน', 'tấn công khu vực')
+add('the pin-down', '下顺掩护', '下順掩護', 'ピンダウン', '핀 다운', 'el bloqueo abajo', 'l écran descendant', 'pin down', 'pin down', 'พินดาวน์', 'màn chắn xuống')
+add('the stagger', '连续双掩护', '連續雙掩護', 'スタガードスクリーン', '스태거 스크린', 'el doble bloqueo escalonado', 'le double écran décalé', 'screen ganda bertingkat', 'skrin ganda berperingkat', 'สกรีนซ้อนสองชั้น', 'màn chắn đôi so le')
+add('the flex cut', '底线交叉切', '底線交叉切', 'フレックスカット', '플렉스 컷', 'el corte flex', 'la coupe flex', 'flex cut', 'flex cut', 'การตัดไขว้ริมเส้นหลัง', 'pha cắt chéo cuối sân')

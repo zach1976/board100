@@ -547,7 +547,9 @@ HALF = 0.50
 
 BALLHANDLER_SPOTS = {
     "top": TOP, "left wing": WING_L, "right wing": WING_R,
-    "left halfspace": SLOT_L, "right halfspace": SLOT_R,
+    # "Halfspace" is the football channel between centre and wing; a
+    # basketball coach calls these ball-screen spots the slots.
+    "left slot": SLOT_L, "right slot": SLOT_R,
 }
 
 
@@ -629,23 +631,45 @@ CUT_NOTE = {
 
 
 def cut_family() -> list[Drill]:
-    specs = [("give_and_go", "give and go", WING_R, (0.60, 0.10)),
-             ("backdoor", "the backdoor cut", WING_L, (0.34, 0.09)),
-             ("flare", "the flare", SLOT_L, (0.10, 0.30)),
-             ("baseline", "along the baseline", CORNER_L, (0.86, 0.09))]
+    """Four cuts, each with the right player cutting.
+
+    Every one of them used to move the receiver while the passer nudged
+    0.7 m backwards — but a give-and-go is the *passer* cutting off his own
+    pass, and a flare is read off a screen that was not on the board at all.
+    """
+    # key, label, who starts where, and what each of the two does
+    specs = [
+        ("give_and_go", "give and go", WING_R, True, None),
+        ("backdoor", "the backdoor cut", WING_L, False, None),
+        # A flare needs a screener; without one it is a player drifting.
+        ("flare", "the flare", SLOT_L, False, ELBOW_L),
+        ("baseline", "along the baseline", CORNER_L, False, None),
+    ]
+    ends = {"give_and_go": (0.62, 0.10), "backdoor": (0.34, 0.09),
+            "flare": (0.10, 0.30), "baseline": (0.86, 0.09)}
     out = []
-    for key, label, start, end in specs:
+    for key, label, start, passer_cuts, screen_at in specs:
+        end = ends[key]
+        cutter_moves = [(start[0] + (end[0] - start[0]) * 0.5,
+                         (start[1] + end[1]) / 2, 1), end + (2,)]
+        if passer_cuts:
+            # The passer goes; the receiver holds the ball on the wing.
+            home = [P(*TOP, "1", moves=[(0.545, 0.235, 1), (0.585, 0.115, 2)]),
+                    P(*start, "2", moves=[(start[0] + 0.02, start[1] - 0.02, 1)])]
+        else:
+            home = [P(*TOP, "1", moves=[(0.50, 0.34, 1)]),
+                    P(*start, "2", moves=cutter_moves)]
+        home += [P(*CORNER_R, "3")]
+        home += ([P(*screen_at, "5", moves=[(screen_at[0] - 0.05, screen_at[1] + 0.05, 0)])]
+                 if screen_at else [P(*ELBOW_L, "5")])
         out.append(Drill(
             id=f"bb_cut_{key}", category="attacking", minutes=10, rel=True,
             free=(key in ("give_and_go", "backdoor")),
             name=suffixed(CUT_NAME, label), note=CUT_NOTE,
-            home=[P(*TOP, "1", moves=[(0.50, 0.34, 1)]),
-                  P(*start, "2", moves=[(start[0] + (end[0] - start[0]) * 0.5,
-                                         (start[1] + end[1]) / 2, 1), end + (2,)]),
-                  P(*CORNER_R, "3"), P(*ELBOW_L, "5")],
+            home=home,
             away=[P(start[0], start[1] - 0.04, "X2",
                     moves=[(start[0] + 0.03, start[1] - 0.02, 1)]),
-                  P(0.50, 0.26, "X1")],
+                  P(0.50, 0.22, "X1", moves=[(0.52, 0.19, 1)])],
             ball=0,
         ))
     return out
@@ -769,22 +793,51 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("drop", "in drop coverage", (0.50, 0.16)),
-             ("hedge", "hedging", (0.56, 0.28)),
-             ("switch", "switching", (0.58, 0.30)),
-             ("ice", "icing the side screen", (0.78, 0.26))]
+    """Four ball-screen coverages, each doing what it is called.
+
+    They used to be one board: X1 chased over the screen to the same point
+    in all four, so "switching" was a blitz with the roller free, and
+    "icing" — which only exists on a *side* screen, where the on-ball
+    defender jumps above it to force the ball down the line — was drawn as
+    a chase over a screen at the top of the key.
+    """
+    specs = [
+        # key, label, where the screen is, X1's path, X5's path, the roll
+        ("drop", "in drop coverage", (0.60, 0.31),
+         [(0.575, 0.285, 1), (0.63, 0.235, 2)], [(0.53, 0.175, 1)],
+         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
+        ("hedge", "hedging", (0.60, 0.31),
+         [(0.575, 0.285, 1), (0.63, 0.235, 2)], [(0.645, 0.315, 1), (0.55, 0.20, 2)],
+         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
+        # The switch: the big picks up the ball and the guard peels back
+        # onto the roller, who used to roll to the rim with nobody on him.
+        ("switch", "switching", (0.60, 0.31),
+         [(0.60, 0.255, 1), (0.545, 0.155, 2)], [(0.665, 0.275, 1), (0.71, 0.225, 2)],
+         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
+        # ICE is a side screen, and X1 jumps above it to send the ball down
+        # the sideline instead of chasing over the top.
+        ("ice", "icing the side screen", (0.845, 0.35),
+         [(0.815, 0.395, 1), (0.87, 0.30, 2)], [(0.80, 0.245, 1)],
+         [(0.845, 0.37, 0), (0.79, 0.13, 2)]),
+    ]
     out = []
-    for key, label, big_end in specs:
+    for key, label, screen, x1_path, x5_path, roll in specs:
+        ball_x = 0.50 if key != "ice" else 0.80
+        handler = (ball_x, 0.30) if key != "ice" else (0.80, 0.42)
         out.append(Drill(
             id=f"bb_defence_{key}", category="defending", minutes=12, rel=True,
             free=(key in ("drop", "switch")),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(0.50, 0.26, "X1", moves=[(0.58, 0.28, 1), (0.62, 0.22, 2)]),
-                  P(0.59, 0.29, "X5", moves=[big_end + (1,)]),
+            home=[P(handler[0], handler[1] - 0.05, "X1", moves=x1_path),
+                  P(screen[0], screen[1] - 0.05, "X5", moves=x5_path),
                   P(*CORNER_L, "X2"), P(*CORNER_R, "X3"), P(*ELBOW_L, "X4")],
-            away=[P(*TOP, "1", moves=[(0.62, 0.30, 1), (0.68, 0.20, 2)]),
-                  P(0.60, 0.31, "5", moves=[(0.60, 0.33, 0), (0.52, 0.10, 2)])],
-            ball=TOP,                   # the attack starts with it
+            away=[P(*handler, "1",
+                    moves=[(handler[0] + (0.08 if key != "ice" else 0.02),
+                            handler[1] + 0.02, 1),
+                           (handler[0] + (0.16 if key != "ice" else 0.05),
+                            handler[1] - 0.12, 2)]),
+                  P(*screen, "5", moves=roll)],
+            ball=(handler[0] - 0.03, handler[1] + 0.03),
         ))
     return out
 
@@ -861,21 +914,32 @@ SET_NOTE = {
 
 
 def inbounds_family() -> list[Drill]:
-    specs = [("stack", "stack", [(0.50, 0.12), (0.50, 0.16), (0.50, 0.20)]),
-             ("the box", "the box", [ELBOW_L, ELBOW_R, BLOCK_L, BLOCK_R]),
-             ("the zipper", "the zipper", [BLOCK_L, ELBOW_L, WING_R]),
-             ("sideline", "from the sideline", [WING_L, TOP, CORNER_R])]
+    # A sideline out-of-bounds is taken from outside the *sideline*, near
+    # half court — not from behind the endline at mid-width, which is where
+    # it stood, identical to the three baseline sets. And the zipper is a
+    # player rising from the block up the lane line, not the box with two
+    # players deleted.
+    specs = [("stack", "stack", [(0.50, 0.12), (0.50, 0.16), (0.50, 0.20)], None),
+             ("the box", "the box", [ELBOW_L, ELBOW_R, BLOCK_L, BLOCK_R], None),
+             ("the zipper", "the zipper",
+              [BLOCK_L, (0.34, 0.30), CORNER_R], None),
+             ("sideline", "from the sideline",
+              [(0.30, 0.34), (0.62, 0.30), CORNER_R], (1.03, 0.38))]
     out = []
-    for key, label, spots in specs:
+    for key, label, spots, inbounder in specs:
         out.append(Drill(
             id=f"bb_inbounds_{key.replace(' ', '_')}", category="setpiece",
             minutes=8, rel=True, free=(key in ("stack", "the box")),
             off_surface=True,
             name=suffixed(SET_NAME, label), note=SET_NOTE,
-            home=[P(0.50, -0.03, "1", moves=[(0.50, 0.04, 2)])] + [
+            home=[P(*(inbounder or (0.50, -0.03)), "1",
+                    moves=[(0.50, 0.10, 2) if inbounder is None
+                           else (0.94, 0.34, 2)])] + [
+                # Clamped inside the floor: a cutter used to finish two
+                # metres outside a fifteen-metre-wide court.
                 P(x, y, str(i + 2),
-                  moves=[(x + (0.5 - x) * 0.4, y + 0.10, 0),
-                         (x + (x - 0.5) * 0.4, y + 0.04, 1)])
+                  moves=[(min(max(x + (0.5 - x) * 0.4, 0.06), 0.94), y + 0.10, 0),
+                         (min(max(x + (x - 0.5) * 0.4, 0.06), 0.94), y + 0.04, 1)])
                 for i, (x, y) in enumerate(spots)
             ],
             # Beside the cutter, not on the next player in the stack — the
@@ -887,11 +951,149 @@ def inbounds_family() -> list[Drill]:
     return out
 
 
+ZONE_NAME = {"en": "Zone defence", "en-GB": "Zone defence", "zh-CN": "区域联防",
+             "zh-TW": "區域聯防", "ja-JP": "ゾーンディフェンス", "ko-KR": "지역 방어",
+             "es-ES": "Defensa en zona", "fr-FR": "Défense de zone",
+             "id-ID": "Pertahanan zona", "ms-MY": "Pertahanan zon",
+             "th-TH": "การป้องกันแบบโซน", "vi-VN": "Phòng ngự khu vực"}
+ZONE_NOTE = {
+    "en": "Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
+    "en-GB": "Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
+    "zh-CN": "在传球飞行途中就移动，不是等接到球才动。等球到了才转移的联防，就是五个人永远慢一传。",
+    "zh-TW": "在傳球飛行途中就移動，不是等接到球才動。等球到了才轉移的聯防，就是五個人永遠慢一傳。",
+    "ja-JP": "パスが飛んでいる間に動く。キャッチしてから動くゾーンは、5人が永久に1本遅れている。",
+    "ko-KR": "패스가 날아가는 동안 움직여라. 잡은 뒤에 움직이는 지역방어는 다섯이 영원히 한 패스 늦는다.",
+    "es-ES": "Muévete con el vuelo del pase, no con la recepción: una zona que se desplaza cuando llega el balón va siempre un pase por detrás.",
+    "fr-FR": "Bouge pendant le vol de la passe, pas à la réception : une zone qui glisse à l'arrivée du ballon a toujours une passe de retard.",
+    "id-ID": "Bergeraklah saat bola melayang, bukan saat ditangkap.",
+    "ms-MY": "Bergerak semasa bola melayang, bukan semasa disambut.",
+    "th-TH": "ขยับตอนบอลกำลังลอย ไม่ใช่ตอนรับบอล",
+    "vi-VN": "Di chuyển khi bóng đang bay, không phải khi bắt bóng.",
+}
+OFFBALL_NAME = {"en": "Off-ball screen", "en-GB": "Off-ball screen",
+                "zh-CN": "无球掩护", "zh-TW": "無球掩護", "ja-JP": "オフボールスクリーン",
+                "ko-KR": "오프볼 스크린", "es-ES": "Bloqueo indirecto",
+                "fr-FR": "Écran sans ballon", "id-ID": "Screen tanpa bola",
+                "ms-MY": "Skrin tanpa bola", "th-TH": "การสกรีนนอกบอล",
+                "vi-VN": "Màn chắn không bóng"}
+OFFBALL_NOTE = {
+    "en": "The cutter sets up his own screen: two steps the wrong way first, so the defender is on the wrong hip when the screen arrives.",
+    "en-GB": "The cutter sets up his own screen: two steps the wrong way first, so the defender is on the wrong hip when the screen arrives.",
+    "zh-CN": "跑位的人自己制造掩护效果：先朝反方向走两步，等掩护到位时防守人已经贴错了一侧。",
+    "zh-TW": "跑位的人自己製造掩護效果：先朝反方向走兩步，等掩護到位時防守人已經貼錯了一側。",
+    "ja-JP": "カッターが自分でスクリーンを活かす。まず逆へ2歩、スクリーンが来た時に守備が逆側の腰についている状態を作る。",
+    "ko-KR": "커터가 스스로 스크린을 살린다. 먼저 반대로 두 걸음, 스크린이 올 때 수비가 반대쪽 허리에 붙어 있게 만든다.",
+    "es-ES": "El cortador se prepara el bloqueo: dos pasos al lado contrario primero, para que el defensor esté en la cadera equivocada.",
+    "fr-FR": "Le coupeur prépare son propre écran : deux pas dans le mauvais sens d'abord, pour que le défenseur soit sur la mauvaise hanche.",
+    "id-ID": "Pemotong menyiapkan screen-nya sendiri: dua langkah ke arah salah dulu.",
+    "ms-MY": "Pemotong menyediakan skrinnya sendiri: dua langkah ke arah salah dahulu.",
+    "th-TH": "คนตัดเข้าต้องจัดสกรีนให้ตัวเอง ก้าวผิดทางสองก้าวก่อน",
+    "vi-VN": "Người cắt tự tạo màn chắn: bước sai hướng hai bước trước đã.",
+}
+FT_NOTE = {
+    "en": "Same routine, same number of dribbles, same breath — every time, in practice as well. A free throw is the only shot nobody is guarding, so nothing about it should ever change.",
+    "en-GB": "Same routine, same number of dribbles, same breath — every time, in practice as well. A free throw is the only shot nobody is guarding, so nothing about it should ever change.",
+    "zh-CN": "同一套动作、同样次数的运球、同一次呼吸——每一次都一样，训练时也一样。罚球是全场唯一没人防的球，所以它不该有任何变化。",
+    "zh-TW": "同一套動作、同樣次數的運球、同一次呼吸——每一次都一樣，訓練時也一樣。罰球是全場唯一沒人防的球，所以它不該有任何變化。",
+    "ja-JP": "同じルーティン、同じドリブル数、同じ呼吸。練習でも毎回同じに。フリースローは誰も守っていない唯一のシュートで、だからこそ何も変えてはいけない。",
+    "ko-KR": "같은 루틴, 같은 드리블 횟수, 같은 호흡 — 연습에서도 매번. 자유투는 아무도 막지 않는 유일한 슛이다.",
+    "es-ES": "La misma rutina, los mismos botes, la misma respiración, también en el entrenamiento. El tiro libre es el único que nadie defiende.",
+    "fr-FR": "Même routine, même nombre de dribbles, même respiration — à l'entraînement aussi. Le lancer franc est le seul tir que personne ne défend.",
+    "id-ID": "Rutinitas sama, jumlah dribel sama, napas sama — setiap kali, termasuk saat latihan.",
+    "ms-MY": "Rutin sama, bilangan dribel sama, nafas sama — setiap kali.",
+    "th-TH": "รูทีนเดิม จำนวนเลี้ยงบอลเท่าเดิม ลมหายใจเดิม ทุกครั้ง แม้ในการซ้อม",
+    "vi-VN": "Cùng một quy trình, cùng số nhịp dẫn bóng, cùng một hơi thở — mọi lần, kể cả khi tập.",
+}
+
+
+def gaps_family() -> list[Drill]:
+    """Zone defence, off-ball screening and free throws.
+
+    Forty-eight drills with no 2-3, no 1-3-1, no zone offence; one flare
+    and nothing else off the ball — no pin-down, no stagger, no floppy;
+    and not a single free throw. All verified absent from every name and
+    note.
+    """
+    out = []
+    zones = [("two_three", "the 2-3", "foundation",
+              [(0.34, 0.24), (0.66, 0.24), (0.16, 0.11), (0.50, 0.09), (0.84, 0.11)]),
+             ("one_three_one", "the 1-3-1", "advanced",
+              [(0.50, 0.30), (0.22, 0.19), (0.50, 0.17), (0.78, 0.19), (0.50, 0.07)]),
+             ("zone_offence", "attacking the zone", "development", None)]
+    for key, label, lvl, spots in zones:
+        if spots is None:
+            # The offence: two guards up top to move the ball, a high post
+            # in the middle of the zone, and a baseline runner behind it.
+            home = [P(0.36, 0.34, "1", moves=[(0.30, 0.31, 0)]),
+                    P(0.64, 0.34, "2", moves=[(0.72, 0.31, 1)]),
+                    P(0.50, 0.20, "5", moves=[(0.50, 0.175, 1)]),
+                    P(*CORNER_L, "3", moves=[(0.16, 0.09, 2)]),
+                    P(*CORNER_R, "4", moves=[(0.84, 0.09, 2)])]
+            away = [P(x, y, f"X{i + 1}",
+                      moves=[(x + (0.5 - x) * 0.18, y + 0.02, 1)])
+                    for i, (x, y) in enumerate(
+                        [(0.34, 0.24), (0.66, 0.24), (0.16, 0.11),
+                         (0.50, 0.09), (0.84, 0.11)])]
+        else:
+            home = [P(*TOP, "1", moves=[(0.62, 0.33, 1)]),
+                    P(*CORNER_R, "2", moves=[(0.84, 0.14, 2)]),
+                    P(*CORNER_L, "3"), P(*ELBOW_L, "5")]
+            away = [P(x, y, f"X{i + 1}",
+                      moves=[(x + (0.62 - x) * 0.22, y + 0.03, 1)])
+                    for i, (x, y) in enumerate(spots)]
+        out.append(Drill(
+            id=f"bb_zone_{key}", category="defending", minutes=12, rel=True,
+            level=lvl, free=(key == "two_three"),
+            name=suffixed(ZONE_NAME, label), note=ZONE_NOTE,
+            home=home, away=away, ball=0,
+        ))
+    screens = [("pin_down", "the pin-down", BLOCK_L, (0.22, 0.30), "foundation"),
+               ("stagger", "the stagger", BLOCK_R, (0.78, 0.31), "development"),
+               ("flex", "the flex cut", CORNER_L, (0.62, 0.10), "development")]
+    for key, label, start, end, lvl in screens:
+        mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
+        out.append(Drill(
+            id=f"bb_offball_{key}", category="attacking", minutes=10, rel=True,
+            level=lvl, free=(key == "pin_down"),
+            name=suffixed(OFFBALL_NAME, label), note=OFFBALL_NOTE,
+            home=[P(*TOP, "1", moves=[(0.50, 0.32, 2)]),
+                  P(*start, "2", moves=[(start[0] + (start[0] - end[0]) * 0.12,
+                                         start[1] - 0.02, 0),
+                                        mid + (1,), end + (2,)]),
+                  P(mid[0] + 0.05, mid[1] - 0.03, "5",
+                    moves=[(mid[0] + 0.02, mid[1] - 0.01, 0)]),
+                  P(*CORNER_R, "3")],
+            away=[P(start[0], start[1] - 0.04, "X2",
+                    moves=[(mid[0] + 0.05, mid[1] - 0.05, 1),
+                           (end[0] + 0.03, end[1] - 0.03, 2)]),
+                  P(0.50, 0.22, "X1")],
+            ball=0,
+        ))
+    out.append(Drill(
+        id="bb_free_throw", category="finishing", minutes=8, rel=True,
+        level="foundation", free=True,
+        name={"en": "Free throws", "en-GB": "Free throws", "zh-CN": "罚球",
+              "zh-TW": "罰球", "ja-JP": "フリースロー", "ko-KR": "자유투",
+              "es-ES": "Tiros libres", "fr-FR": "Lancers francs",
+              "id-ID": "Lemparan bebas", "ms-MY": "Lontaran percuma",
+              "th-TH": "การยิงลูกโทษ", "vi-VN": "Ném phạt"},
+        note=FT_NOTE,
+        home=[P(0.50, 0.235, "1", moves=[(0.50, 0.215, 0)]),
+              P(0.375, 0.135, "2", moves=[(0.42, 0.09, 1)]),
+              P(0.625, 0.135, "3", moves=[(0.58, 0.09, 1)])],
+        away=[P(0.375, 0.175, "X2", moves=[(0.40, 0.115, 1)]),
+              P(0.625, 0.175, "X3", moves=[(0.60, 0.115, 1)])],
+        markers=[M(0.50, 0.06, "square", "")],
+        ball=0,
+    ))
+    return out
+
+
 def basketball_library() -> list[Drill]:
     from .engine import merge
     return merge(basketball_drills(), ball_screen_family(), cut_family(),
                  shooting_family(), post_family(), defence_family(),
-                 shell_drill(), transition_family(), inbounds_family())
+                 shell_drill(), transition_family(), inbounds_family(), gaps_family())
 
 def shell_drill() -> list[Drill]:
     """4v4 shell — the one defensive drill every programme runs. Its absence
