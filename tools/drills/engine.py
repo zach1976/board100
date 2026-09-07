@@ -481,10 +481,31 @@ LEVELS = ("foundation", "development", "advanced")
 # a banana flick needs two players and years of table time, while a 6-4-3 is
 # nine bodies doing something every little-league team drills. So advanced is
 # never derived; it is named here, drill by drill, where a coach would name it.
+# The other end of the scale. derive_level calls a drill foundation when it
+# is a warm-up or needs three people and no opposition, which misses the
+# technical work that happens with a server and a keeper — a coach reading
+# "Development" on first-time finishing does not believe the filter.
+FOUNDATION = {
+    # soccer: technique with a server, and the rondo every squad starts on
+    "rondo_4v2", "wall_pass_wide", "one_v_one_gk", "defend_1v1_channel",
+    "finish_first_time", "finish_turn_shoot", "finish_volley_side",
+    "finish_penalty_routine", "header_attacking", "header_defensive",
+    "counter_2v1", "duel_wide_left", "duel_wide_right", "duel_central",
+    "duel_half_left", "gk_handling", "gk_angles", "gk_set_position",
+    "gk_distribution", "gk_one_v_one",
+}
+
 ADVANCED = {
-    # soccer: pressing by formation, block heights, the empty-goal gamble
+    # soccer: pressing by formation, block heights, and the rest of the work
+    # that needs a squad organised rather than a skill practised
     "press_442", "press_433", "press_4231", "press_352",
     "shape_high", "shape_mid", "shape_low",
+    "build_from_gk", "buildup_v3", "defend_counter_press",
+    "defend_shape_shift", "possession_3_zone",
+    "possession_overload_4v2_plus", "attack_double_pivot_switch",
+    "rondo_8v4", "ssg_6v6_transition", "transition_6v6", "switch_final",
+    "setpiece_defend_corner", "corner_decoy_stack", "corner_second_ball",
+    "fk_runner", "gk_sweeper",
     # basketball
     "bb_horns_set", "bb_press_break", "bb_defence_ice",
     # volleyball
@@ -526,7 +547,9 @@ def derive_level(drill: Drill) -> str:
         return drill.level
     if drill.id in ADVANCED:
         return "advanced"
-    if drill.category == "warmup" or (drill.player_count <= 3 and not drill.away):
+    if (drill.id in FOUNDATION
+            or drill.category in ("warmup", "conditioning")
+            or (drill.player_count <= 3 and not drill.away)):
         return "foundation"
     return "development"
 
