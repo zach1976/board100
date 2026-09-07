@@ -97,7 +97,9 @@ class M:
 @dataclass
 class Drill:
     id: str
-    category: str          # warmup | possession | attacking | finishing | defending | setpiece | ssg
+    category: str          # warmup | possession | attacking | finishing |
+                           # defending | setpiece | ssg | goalkeeping |
+                           # conditioning
     minutes: int
     name: dict             # locale -> str  (en required)
     note: dict             # locale -> str  (en required; the coaching point)

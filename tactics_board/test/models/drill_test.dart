@@ -196,7 +196,10 @@ void _libraryTests(String sport) {
       final free = drills.where((d) => d.free).toList();
       expect(free.length, greaterThanOrEqualTo(10));
       final freeCategories = free.map((d) => d.category).toSet();
-      for (final needed in DrillCategory.values) {
+      // The categories this library actually has, not every category that
+      // exists: goalkeeping and conditioning belong to the sports that have
+      // them, and a net sport is not missing anything by having neither.
+      for (final needed in drills.map((d) => d.category).toSet()) {
         expect(freeCategories, contains(needed),
             reason: 'nothing free in $needed — the free session has a hole');
       }

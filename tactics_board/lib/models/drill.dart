@@ -148,7 +148,11 @@ enum DrillCategory {
   finishing,
   defending,
   setpiece,
-  ssg;
+  ssg,
+  // Only the sports that have them: the chip row is built from the
+  // categories a library actually uses, so a net sport never sees these.
+  goalkeeping,
+  conditioning;
 
   static DrillCategory parse(String? raw) => DrillCategory.values.firstWhere(
         (c) => c.name == raw,

@@ -10486,7 +10486,7 @@
       "level": "development",
       "family": null,
       "familyName": null,
-      "category": "finishing",
+      "category": "setpiece",
       "minutes": 8,
       "players": 2,
       "free": false,
@@ -10520,18 +10520,18 @@
         "vi-VN": "Chạy nước rút trước rồi mới sút. Chọn góc trước khi bước lên và đừng đổi ý."
       },
       "mistake": {
-        "en": "Placing when power was on, blasting when placement was — the finish reads the keeper, not the coach.",
-        "en-GB": "Placing when power was on, blasting when placement was — the finish reads the keeper, not the coach.",
-        "zh-CN": "该发力时求角度，该求角度时猛轰——终结要读门将，不是读教练。",
-        "zh-TW": "該發力時求角度，該求角度時猛轟——終結要讀門將，不是讀教練。",
-        "ja-JP": "力むべき時に狙い、狙うべき時に力む——フィニッシュはGKを読むもの。",
-        "ko-KR": "힘 쓸 때 각을 노리고, 각 볼 때 세게 찬다 — 마무리는 코치가 아니라 키퍼를 읽는다.",
-        "es-ES": "Colocar cuando tocaba potencia y reventarla cuando tocaba colocar: define leyendo al portero.",
-        "fr-FR": "Placer quand il fallait frapper, écraser quand il fallait placer.",
-        "id-ID": "Menempatkan saat harus keras, dan sebaliknya.",
-        "ms-MY": "Meletak bila patut kuat, dan sebaliknya.",
-        "th-TH": "จะยิงแรงก็เล็งมุม จะเล็งมุมก็ซัด",
-        "vi-VN": "Cần lực thì đặt, cần đặt thì phang."
+        "en": "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.",
+        "en-GB": "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.",
+        "zh-CN": "把排练好的时刻临场发挥——定位球的全部价值，就在于它是事先定好的。",
+        "zh-TW": "把排練好的時刻臨場發揮——定位球的全部價值，就在於它是事先定好的。",
+        "ja-JP": "仕込んだ場面を即興でやる——セットプレーの価値は事前に決めてあること。",
+        "ko-KR": "연습한 순간을 즉흥으로 — 세트피스의 가치는 미리 정했다는 데 있다.",
+        "es-ES": "Improvisar un momento ensayado: el valor de una jugada a balón parado es haberla decidido antes.",
+        "fr-FR": "Improviser un moment répété — tout l'intérêt d'un coup de pied arrêté est d'être décidé d'avance.",
+        "id-ID": "Berimprovisasi di momen yang sudah dilatih.",
+        "ms-MY": "Berimprovisasi pada saat yang telah dilatih.",
+        "th-TH": "ด้นสดในจังหวะที่ซ้อมมาแล้ว",
+        "vi-VN": "Ứng biến ở tình huống đã tập."
       },
       "board": {
         "sportType": 6,
@@ -10649,7 +10649,7 @@
     {
       "id": "rondo_5v2",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_23",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -11012,7 +11012,7 @@
     {
       "id": "rondo_6v3",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_23",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -11429,7 +11429,7 @@
     {
       "id": "rondo_7v3",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_23",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -11873,7 +11873,7 @@
     {
       "id": "rondo_8v4",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_23",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -12371,7 +12371,7 @@
     {
       "id": "ssg_3v3",
       "level": "development",
-      "family": "soccer_family_35",
+      "family": "soccer_family_36",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -12707,7 +12707,7 @@
     {
       "id": "ssg_4v4",
       "level": "development",
-      "family": "soccer_family_35",
+      "family": "soccer_family_36",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -13097,7 +13097,7 @@
     {
       "id": "ssg_5v5",
       "level": "development",
-      "family": "soccer_family_35",
+      "family": "soccer_family_36",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -13541,7 +13541,7 @@
     {
       "id": "ssg_6v6",
       "level": "development",
-      "family": "soccer_family_35",
+      "family": "soccer_family_36",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -14039,7 +14039,7 @@
     {
       "id": "ssg_7v7",
       "level": "development",
-      "family": "soccer_family_35",
+      "family": "soccer_family_36",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -14591,7 +14591,7 @@
     {
       "id": "counter_2v1",
       "level": "development",
-      "family": "soccer_family_8",
+      "family": "soccer_family_9",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -14796,7 +14796,7 @@
     {
       "id": "counter_4v3",
       "level": "development",
-      "family": "soccer_family_8",
+      "family": "soccer_family_9",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -15119,7 +15119,7 @@
     {
       "id": "counter_5v4",
       "level": "development",
-      "family": "soccer_family_8",
+      "family": "soccer_family_9",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -15501,7 +15501,7 @@
     {
       "id": "buildup_v1",
       "level": "development",
-      "family": "soccer_family_23",
+      "family": "soccer_family_24",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -15750,7 +15750,7 @@
     {
       "id": "buildup_v2",
       "level": "development",
-      "family": "soccer_family_23",
+      "family": "soccer_family_24",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -16053,7 +16053,7 @@
     {
       "id": "buildup_v3",
       "level": "development",
-      "family": "soccer_family_23",
+      "family": "soccer_family_24",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -16410,7 +16410,7 @@
     {
       "id": "finish_left_wing",
       "level": "development",
-      "family": "soccer_family_32",
+      "family": "soccer_family_33",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -16637,7 +16637,7 @@
     {
       "id": "finish_right_wing",
       "level": "development",
-      "family": "soccer_family_32",
+      "family": "soccer_family_33",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -16864,7 +16864,7 @@
     {
       "id": "finish_left_halfspace",
       "level": "development",
-      "family": "soccer_family_32",
+      "family": "soccer_family_33",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -17091,7 +17091,7 @@
     {
       "id": "finish_right_halfspace",
       "level": "development",
-      "family": "soccer_family_32",
+      "family": "soccer_family_33",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -17318,7 +17318,7 @@
     {
       "id": "finish_central",
       "level": "development",
-      "family": "soccer_family_32",
+      "family": "soccer_family_33",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -17545,7 +17545,7 @@
     {
       "id": "press_442",
       "level": "advanced",
-      "family": "soccer_family_46",
+      "family": "soccer_family_47",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -17956,7 +17956,7 @@
     {
       "id": "press_433",
       "level": "advanced",
-      "family": "soccer_family_46",
+      "family": "soccer_family_47",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -18367,7 +18367,7 @@
     {
       "id": "press_4231",
       "level": "advanced",
-      "family": "soccer_family_46",
+      "family": "soccer_family_47",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -18778,7 +18778,7 @@
     {
       "id": "press_352",
       "level": "advanced",
-      "family": "soccer_family_46",
+      "family": "soccer_family_47",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -21209,7 +21209,7 @@
     {
       "id": "passing_triangle",
       "level": "foundation",
-      "family": "soccer_family_15",
+      "family": "soccer_family_16",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -21444,7 +21444,7 @@
     {
       "id": "passing_pentagon",
       "level": "foundation",
-      "family": "soccer_family_15",
+      "family": "soccer_family_16",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -21773,7 +21773,7 @@
     {
       "id": "passing_hexagon",
       "level": "foundation",
-      "family": "soccer_family_15",
+      "family": "soccer_family_16",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -22149,7 +22149,7 @@
     {
       "id": "cross_left_near_post",
       "level": "development",
-      "family": "soccer_family_20",
+      "family": "soccer_family_21",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -22431,7 +22431,7 @@
     {
       "id": "cross_left_far_post",
       "level": "development",
-      "family": "soccer_family_20",
+      "family": "soccer_family_21",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -22713,7 +22713,7 @@
     {
       "id": "cross_right_near_post",
       "level": "development",
-      "family": "soccer_family_20",
+      "family": "soccer_family_21",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -22995,7 +22995,7 @@
     {
       "id": "cross_right_far_post",
       "level": "development",
-      "family": "soccer_family_20",
+      "family": "soccer_family_21",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -23277,7 +23277,7 @@
     {
       "id": "shape_high",
       "level": "advanced",
-      "family": "soccer_family_21",
+      "family": "soccer_family_22",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -23614,7 +23614,7 @@
     {
       "id": "shape_mid",
       "level": "advanced",
-      "family": "soccer_family_21",
+      "family": "soccer_family_22",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -23951,7 +23951,7 @@
     {
       "id": "shape_low",
       "level": "advanced",
-      "family": "soccer_family_21",
+      "family": "soccer_family_22",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -24288,7 +24288,7 @@
     {
       "id": "gk_handling",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -24303,7 +24303,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 4,
       "free": true,
@@ -24495,7 +24495,7 @@
     {
       "id": "gk_angles",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -24510,7 +24510,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 4,
       "free": false,
@@ -24702,7 +24702,7 @@
     {
       "id": "gk_crosses",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -24717,7 +24717,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 3,
       "free": false,
@@ -24882,7 +24882,7 @@
     {
       "id": "gk_distribution",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -24897,7 +24897,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 3,
       "free": false,
@@ -25062,7 +25062,7 @@
     {
       "id": "gk_one_v_one",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -25077,7 +25077,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 2,
       "free": false,
@@ -25215,7 +25215,7 @@
     {
       "id": "gk_set_position",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -25230,7 +25230,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 3,
       "free": false,
@@ -25395,7 +25395,7 @@
     {
       "id": "gk_sweeper",
       "level": "development",
-      "family": "soccer_family_30",
+      "family": "soccer_family_31",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -25410,7 +25410,7 @@
         "zh-CN": "门将训练",
         "zh-TW": "門將訓練"
       },
-      "category": "finishing",
+      "category": "goalkeeping",
       "minutes": 10,
       "players": 3,
       "free": false,
@@ -25575,7 +25575,7 @@
     {
       "id": "cond_shuttle_finish",
       "level": "foundation",
-      "family": "soccer_family_43",
+      "family": "soccer_family_44",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -25590,7 +25590,7 @@
         "zh-CN": "带球体能",
         "zh-TW": "帶球體能"
       },
-      "category": "warmup",
+      "category": "conditioning",
       "minutes": 12,
       "players": 1,
       "free": true,
@@ -25811,7 +25811,7 @@
     {
       "id": "cond_repeat_sprint",
       "level": "foundation",
-      "family": "soccer_family_43",
+      "family": "soccer_family_44",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -25826,7 +25826,7 @@
         "zh-CN": "带球体能",
         "zh-TW": "帶球體能"
       },
-      "category": "warmup",
+      "category": "conditioning",
       "minutes": 12,
       "players": 1,
       "free": false,
@@ -26052,7 +26052,7 @@
     {
       "id": "cond_box_to_box",
       "level": "foundation",
-      "family": "soccer_family_43",
+      "family": "soccer_family_44",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -26067,7 +26067,7 @@
         "zh-CN": "带球体能",
         "zh-TW": "帶球體能"
       },
-      "category": "warmup",
+      "category": "conditioning",
       "minutes": 12,
       "players": 1,
       "free": false,
@@ -26283,7 +26283,7 @@
     {
       "id": "switch_back",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -26596,7 +26596,7 @@
     {
       "id": "switch_middle",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -26909,7 +26909,7 @@
     {
       "id": "switch_final",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -27222,7 +27222,7 @@
     {
       "id": "combo_wall_left",
       "level": "development",
-      "family": "soccer_family_50",
+      "family": "soccer_family_51",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -27454,7 +27454,7 @@
     {
       "id": "combo_wall_right",
       "level": "development",
-      "family": "soccer_family_50",
+      "family": "soccer_family_51",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -27686,7 +27686,7 @@
     {
       "id": "combo_overlap_left",
       "level": "development",
-      "family": "soccer_family_50",
+      "family": "soccer_family_51",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -27918,7 +27918,7 @@
     {
       "id": "combo_overlap_right",
       "level": "development",
-      "family": "soccer_family_50",
+      "family": "soccer_family_51",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -28150,7 +28150,7 @@
     {
       "id": "combo_underlap",
       "level": "development",
-      "family": "soccer_family_50",
+      "family": "soccer_family_51",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -28382,7 +28382,7 @@
     {
       "id": "fk_direct_central",
       "level": "development",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -28702,7 +28702,7 @@
     {
       "id": "fk_layoff",
       "level": "development",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -29022,7 +29022,7 @@
     {
       "id": "fk_runner",
       "level": "development",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -29342,7 +29342,7 @@
     {
       "id": "fk_wide_left",
       "level": "development",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -29662,7 +29662,7 @@
     {
       "id": "fk_wide_right",
       "level": "development",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -29982,7 +29982,7 @@
     {
       "id": "transition_4v4",
       "level": "development",
-      "family": "soccer_family_42",
+      "family": "soccer_family_43",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -30372,7 +30372,7 @@
     {
       "id": "transition_5v5",
       "level": "development",
-      "family": "soccer_family_42",
+      "family": "soccer_family_43",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -30816,7 +30816,7 @@
     {
       "id": "transition_6v6",
       "level": "development",
-      "family": "soccer_family_42",
+      "family": "soccer_family_43",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -31314,7 +31314,7 @@
     {
       "id": "touch_from_behind",
       "level": "foundation",
-      "family": "soccer_family_41",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -31574,7 +31574,7 @@
     {
       "id": "touch_side_on",
       "level": "foundation",
-      "family": "soccer_family_41",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -31834,7 +31834,7 @@
     {
       "id": "touch_open_body",
       "level": "foundation",
-      "family": "soccer_family_41",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -32094,7 +32094,7 @@
     {
       "id": "touch_in_traffic",
       "level": "foundation",
-      "family": "soccer_family_41",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -32381,21 +32381,8 @@
     {
       "id": "header_attacking",
       "level": "development",
-      "family": "soccer_family_3",
-      "familyName": {
-        "en": "Heading",
-        "en-GB": "Heading",
-        "es-ES": "Juego aéreo",
-        "fr-FR": "Jeu de tête",
-        "id-ID": "Sundulan",
-        "ja-JP": "ヘディング",
-        "ko-KR": "헤딩",
-        "ms-MY": "Tandukan",
-        "th-TH": "ลูกโหม่ง",
-        "vi-VN": "Đánh đầu",
-        "zh-CN": "头球",
-        "zh-TW": "頭球"
-      },
+      "family": null,
+      "familyName": null,
       "category": "finishing",
       "minutes": 8,
       "players": 4,
@@ -32430,18 +32417,18 @@
         "vi-VN": "Lao vào bóng, đừng chờ. Ai đang di chuyển khi chạm bóng sẽ thắng."
       },
       "mistake": {
-        "en": "Closing the eyes at contact — the header goes where the forehead points, and nobody aims blind.",
-        "en-GB": "Closing the eyes at contact — the header goes where the forehead points, and nobody aims blind.",
-        "zh-CN": "触球瞬间闭眼——头球飞向前额指的方向，闭着眼没人能瞄准。",
-        "zh-TW": "觸球瞬間閉眼——頭球飛向前額指的方向，閉著眼沒人能瞄準。",
-        "ja-JP": "当たる瞬間に目を閉じる——ヘディングは額の向きに飛ぶ。目を閉じて狙える者はいない。",
-        "ko-KR": "맞는 순간 눈을 감는다 — 헤딩은 이마가 향한 곳으로 간다.",
-        "es-ES": "Cerrar los ojos en el contacto: el cabezazo va donde apunta la frente y nadie apunta a ciegas.",
-        "fr-FR": "Fermer les yeux au contact — la tête part où pointe le front.",
-        "id-ID": "Menutup mata saat kontak.",
-        "ms-MY": "Memejam mata ketika kontak.",
-        "th-TH": "หลับตาตอนโหม่ง ลูกไปตามหน้าผาก หลับตาเล็งไม่ได้",
-        "vi-VN": "Nhắm mắt lúc chạm bóng."
+        "en": "Placing when power was on, blasting when placement was — the finish reads the keeper, not the coach.",
+        "en-GB": "Placing when power was on, blasting when placement was — the finish reads the keeper, not the coach.",
+        "zh-CN": "该发力时求角度，该求角度时猛轰——终结要读门将，不是读教练。",
+        "zh-TW": "該發力時求角度，該求角度時猛轟——終結要讀門將，不是讀教練。",
+        "ja-JP": "力むべき時に狙い、狙うべき時に力む——フィニッシュはGKを読むもの。",
+        "ko-KR": "힘 쓸 때 각을 노리고, 각 볼 때 세게 찬다 — 마무리는 코치가 아니라 키퍼를 읽는다.",
+        "es-ES": "Colocar cuando tocaba potencia y reventarla cuando tocaba colocar: define leyendo al portero.",
+        "fr-FR": "Placer quand il fallait frapper, écraser quand il fallait placer.",
+        "id-ID": "Menempatkan saat harus keras, dan sebaliknya.",
+        "ms-MY": "Meletak bila patut kuat, dan sebaliknya.",
+        "th-TH": "จะยิงแรงก็เล็งมุม จะเล็งมุมก็ซัด",
+        "vi-VN": "Cần lực thì đặt, cần đặt thì phang."
       },
       "board": {
         "sportType": 6,
@@ -32596,22 +32583,9 @@
     {
       "id": "header_defensive",
       "level": "development",
-      "family": "soccer_family_3",
-      "familyName": {
-        "en": "Heading",
-        "en-GB": "Heading",
-        "es-ES": "Juego aéreo",
-        "fr-FR": "Jeu de tête",
-        "id-ID": "Sundulan",
-        "ja-JP": "ヘディング",
-        "ko-KR": "헤딩",
-        "ms-MY": "Tandukan",
-        "th-TH": "ลูกโหม่ง",
-        "vi-VN": "Đánh đầu",
-        "zh-CN": "头球",
-        "zh-TW": "頭球"
-      },
-      "category": "finishing",
+      "family": null,
+      "familyName": null,
+      "category": "defending",
       "minutes": 8,
       "players": 4,
       "free": false,
@@ -32645,18 +32619,18 @@
         "vi-VN": "Lao vào bóng, đừng chờ. Ai đang di chuyển khi chạm bóng sẽ thắng."
       },
       "mistake": {
-        "en": "Closing the eyes at contact — the header goes where the forehead points, and nobody aims blind.",
-        "en-GB": "Closing the eyes at contact — the header goes where the forehead points, and nobody aims blind.",
-        "zh-CN": "触球瞬间闭眼——头球飞向前额指的方向，闭着眼没人能瞄准。",
-        "zh-TW": "觸球瞬間閉眼——頭球飛向前額指的方向，閉著眼沒人能瞄準。",
-        "ja-JP": "当たる瞬間に目を閉じる——ヘディングは額の向きに飛ぶ。目を閉じて狙える者はいない。",
-        "ko-KR": "맞는 순간 눈을 감는다 — 헤딩은 이마가 향한 곳으로 간다.",
-        "es-ES": "Cerrar los ojos en el contacto: el cabezazo va donde apunta la frente y nadie apunta a ciegas.",
-        "fr-FR": "Fermer les yeux au contact — la tête part où pointe le front.",
-        "id-ID": "Menutup mata saat kontak.",
-        "ms-MY": "Memejam mata ketika kontak.",
-        "th-TH": "หลับตาตอนโหม่ง ลูกไปตามหน้าผาก หลับตาเล็งไม่ได้",
-        "vi-VN": "Nhắm mắt lúc chạm bóng."
+        "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
+        "en-GB": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
+        "zh-CN": "用腿去够而不是挪脚——扑出去抢的那一下，正是你抢不到的那一下。",
+        "zh-TW": "用腿去夠而不是挪腳——撲出去搶的那一下，正是你搶不到的那一下。",
+        "ja-JP": "足を運ばず脚を伸ばす——飛び込むタックルこそ外すタックルだ。",
+        "ko-KR": "발을 옮기지 않고 다리를 뻗는다 — 달려드는 태클이 놓치는 태클이다.",
+        "es-ES": "Estirar la pierna en vez de mover los pies: la entrada a la que te lanzas es la que fallas.",
+        "fr-FR": "Tendre la jambe au lieu de bouger les pieds — le tacle plongé est le tacle raté.",
+        "id-ID": "Menjulurkan kaki alih-alih menggerakkannya.",
+        "ms-MY": "Menghulur kaki dan bukannya menggerakkannya.",
+        "th-TH": "เอื้อมขาแทนที่จะขยับเท้า",
+        "vi-VN": "Với chân thay vì di chuyển chân."
       },
       "board": {
         "sportType": 6,
@@ -32811,7 +32785,7 @@
     {
       "id": "goalkick_short",
       "level": "development",
-      "family": "soccer_family_12",
+      "family": "soccer_family_13",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -33087,7 +33061,7 @@
     {
       "id": "goalkick_full_back",
       "level": "development",
-      "family": "soccer_family_12",
+      "family": "soccer_family_13",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -33363,7 +33337,7 @@
     {
       "id": "goalkick_long",
       "level": "development",
-      "family": "soccer_family_12",
+      "family": "soccer_family_13",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -33639,7 +33613,7 @@
     {
       "id": "overload_3v2",
       "level": "development",
-      "family": "soccer_family_39",
+      "family": "soccer_family_40",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -33948,7 +33922,7 @@
     {
       "id": "overload_4v3",
       "level": "development",
-      "family": "soccer_family_39",
+      "family": "soccer_family_40",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -34311,7 +34285,7 @@
     {
       "id": "overload_5v4",
       "level": "development",
-      "family": "soccer_family_39",
+      "family": "soccer_family_40",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -34728,7 +34702,7 @@
     {
       "id": "overload_6v4",
       "level": "development",
-      "family": "soccer_family_39",
+      "family": "soccer_family_40",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",

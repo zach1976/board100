@@ -1216,7 +1216,7 @@ def soccer_drills() -> list[Drill]:
             ball=0,
         ),
         Drill(
-            id="finish_penalty_routine", category="finishing", minutes=8,
+            id="finish_penalty_routine", category="setpiece", minutes=8,
             name={"en": "Penalties under fatigue", "en-GB": "Penalties under fatigue",
                   "zh-CN": "疲劳状态罚点球", "zh-TW": "疲勞狀態罰點球",
                   "ja-JP": "疲労下のPK", "ko-KR": "지친 상태의 페널티킥",
@@ -1860,7 +1860,7 @@ def gk_family() -> list[Drill]:
     out = []
     for key, label, servers in specs:
         out.append(Drill(
-            id=f"gk_{key}", category="finishing", minutes=10, rel=True,
+            id=f"gk_{key}", category="goalkeeping", minutes=10, rel=True,
             free=(key == "handling"),
             name=suffixed(GK_NAME, label), note=GK_NOTE,
             home=[
@@ -1911,7 +1911,7 @@ def conditioning_family() -> list[Drill]:
             legs.append((0.5 + (0.16 if r % 2 else -0.16), y, r))
             y -= 0.16
         out.append(Drill(
-            id=f"cond_{key}", category="warmup", minutes=12, rel=True,
+            id=f"cond_{key}", category="conditioning", minutes=12, rel=True,
             free=(key == "shuttle_finish"),
             name=suffixed(COND_NAME, label), note=COND_NOTE,
             home=[P(0.5, 0.86, "1", moves=legs + [(0.5, 0.20, reps)])],
@@ -2195,7 +2195,9 @@ def heading_family() -> list[Drill]:
     out = []
     for key, label, sx, sy, tx, ty in specs:
         out.append(Drill(
-            id=f"header_{key}", category="finishing", minutes=8, rel=True,
+            id=f"header_{key}",
+            category="finishing" if key == "attacking" else "defending",
+            minutes=8, rel=True,
             free=(key == "attacking"),
             name=suffixed(HEADER_NAME, label), note=HEADER_NOTE,
             home=[
