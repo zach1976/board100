@@ -364,6 +364,19 @@ add("soccer", 'Kick-off routine',
     'ด้นสดในจังหวะเดียวที่ซ้อมมา แล้วคืนบอลให้เขาทันที',
     'Ứng biến ở đúng tình huống duy nhất đã tập, rồi trả bóng lại ngay.')
 
+add("handball", "Goalkeeping",
+    "Committing to a side before the arm comes through — a keeper already moving is a keeper already beaten.",
+    "手还没挥出来就先倒向一边——提前动的门将，等于已经被打穿了。",
+    "手還沒揮出來就先倒向一邊——提前動的門將，等於已經被打穿了。",
+    "腕が振り出される前に片側へ跳ぶ——先に動いたGKは、すでに破られている。",
+    "팔이 나오기 전에 한쪽으로 먼저 움직인다 — 미리 움직인 골키퍼는 이미 뚫린 골키퍼다.",
+    "Tirarse a un lado antes de que salga el brazo: un portero que ya se movio es un portero ya batido.",
+    "Partir d'un cote avant que le bras ne parte : un gardien deja lance est un gardien deja battu.",
+    "Menjatuhkan diri ke satu sisi sebelum lengan diayun — kiper yang sudah bergerak adalah kiper yang sudah dikalahkan.",
+    "Melompat ke satu sisi sebelum lengan dihayun; penjaga gol yang sudah bergerak sudah kalah.",
+    "ทิ้งตัวไปข้างหนึ่งก่อนแขนจะเหวี่ยงออกมา ผู้รักษาประตูที่ขยับก่อนคือคนที่โดนยิงผ่านไปแล้ว",
+    "Do nguoi sang mot ben truoc khi tay vung ra — thu mon da di chuyen la thu mon da bi danh bai.")
+
 # ══ basketball ═══════════════════════════════════════════════════════════════
 add("basketball", "Ball screen",
     "Refusing the screen and dribbling away from it — the screener stood there for nothing.",
