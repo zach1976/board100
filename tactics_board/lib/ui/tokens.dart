@@ -43,6 +43,11 @@ class T {
 
   /// Playback only: play, and the running animation. Never navigation.
   static const lime = Color(0xFFA8F05A);
+
+  /// Foreground on [lime]. Lime is bright enough that white text on it is
+  /// unreadable and pure black is harsh, so the play glyph gets a very dark
+  /// green instead. Two screens had this value written out by hand.
+  static const onLime = Color(0xFF16240A);
   static const limeFill = Color(0x24A8F05A);
 
   // ── Semantic ────────────────────────────────────────────────────────────

@@ -948,8 +948,8 @@ class _LoginPageState extends State<_LoginPage> {
                 style: const TextStyle(
                     fontSize: 16, fontWeight: FontWeight.bold)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF2A65A5),
-              foregroundColor: Colors.white,
+              backgroundColor: T.accent,
+              foregroundColor: T.bg0,
               disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
               disabledForegroundColor: Colors.white38,
               padding: const EdgeInsets.symmetric(vertical: 14),
@@ -1009,7 +1009,7 @@ class _LoginPageState extends State<_LoginPage> {
     String primary;
     if (syncing) {
       icon = Icons.sync;
-      color = const Color(0xFF7FC8FF);
+      color = T.textDim;
       primary = 'sync_status_syncing'.tr();
     } else if (local && remote) {
       icon = Icons.sync_problem;
@@ -1025,11 +1025,11 @@ class _LoginPageState extends State<_LoginPage> {
       primary = 'sync_status_remote_dirty'.tr();
     } else if (last == null) {
       icon = Icons.cloud_off;
-      color = Colors.white54;
+      color = T.textOff;
       primary = 'sync_status_never'.tr();
     } else {
       icon = Icons.cloud_done;
-      color = const Color(0xFF80D88A);
+      color = T.accent;
       primary = 'sync_status_synced'.tr();
     }
 
@@ -2353,7 +2353,7 @@ class _BigPlayControls extends StatelessWidget {
               color: onTap == null
                   ? T.textOff
                   : primary
-                      ? const Color(0xFF16240A)
+                      ? T.onLime
                       : T.text,
               size: primary ? 34 : 28),
         ),
@@ -2623,18 +2623,8 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       height: 74,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [kAccentFill, Color(0x142B8AE0)],
-        ),
-        border: Border.all(color: kAccent.withValues(alpha: 0.5), width: 1),
-        boxShadow: [
-          BoxShadow(
-              color: kAccent.withValues(alpha: 0.25),
-              blurRadius: 22,
-              spreadRadius: -4),
-        ],
+        color: T.accentFill,
+        border: Border.all(color: T.accent.withValues(alpha: 0.5), width: 1),
       ),
       child: Stack(
         alignment: Alignment.center,
@@ -2831,17 +2821,8 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       opacity: enabled ? 1 : 0.6,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF2B8AE0), kAccent],
-          ),
-          borderRadius: BorderRadius.circular(14),
-          boxShadow: [
-            BoxShadow(
-                color: kAccent.withValues(alpha: 0.30),
-                blurRadius: 18,
-                spreadRadius: -6,
-                offset: const Offset(0, 6)),
-          ],
+          color: T.accent,
+          borderRadius: T.brMd,
         ),
         child: Material(
           color: Colors.transparent,
@@ -2941,7 +2922,13 @@ class _FirstRunHintState extends State<_FirstRunHint> {
         child: Semantics(
           button: true,
           child: GestureDetector(
-            onTap: _dismiss,
+            // Tapping the card does what the card says. It used to only
+            // dismiss, which made its + a button that looked exactly like the
+            // toolbar's Add and did the opposite of it.
+            onTap: () {
+              _dismiss();
+              showAddElementSheet(context, context.read<TacticsState>());
+            },
             child: Container(
               constraints: const BoxConstraints(maxWidth: 320),
               padding: const EdgeInsets.fromLTRB(T.s16, T.s12, T.s8, T.s12),
@@ -2965,7 +2952,15 @@ class _FirstRunHintState extends State<_FirstRunHint> {
                     ),
                   ),
                   const SizedBox(width: T.s4),
-                  const Icon(Icons.close_rounded, color: T.textOff, size: 17),
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: _dismiss,
+                    child: const Padding(
+                      padding: EdgeInsets.all(T.s4),
+                      child:
+                          Icon(Icons.close_rounded, color: T.textOff, size: 17),
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -4960,7 +4960,7 @@ class _PlayCircle extends StatelessWidget {
     final Color fg = onTap == null
         ? T.textOff
         : primary
-            ? const Color(0xFF16240A)
+            ? T.onLime
             : active
                 ? T.accent
                 : T.text;
@@ -5130,16 +5130,15 @@ class PlayControlsBar extends StatelessWidget {
       listenable: state,
       builder: (context, _) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.45),
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.30),
-              blurRadius: 10,
-              offset: const Offset(0, 3),
-            ),
-          ],
+        // The same capsule as the tool bar below it. These were two different
+        // dark treatments — translucent black here, T.surface there — stacked
+        // one above the other, which read as two unrelated pieces of chrome
+        // rather than one bar that had swapped its contents.
+        decoration: const BoxDecoration(
+          color: T.surface,
+          borderRadius: T.brLg,
+          border: Border.fromBorderSide(BorderSide(color: T.border)),
+          boxShadow: T.shadowFloat,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
