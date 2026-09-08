@@ -248,11 +248,16 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     final total = items.length;
     return Scaffold(
       backgroundColor: _kBg,
+      // Third of the three practice screens, and the last one still on a
+      // raised bar with a centred title.
       appBar: AppBar(
-        backgroundColor: _kCard,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: Text(widget.practice.name,
-            style: const TextStyle(color: Colors.white)),
+        backgroundColor: T.bg1,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        centerTitle: false,
+        iconTheme: const IconThemeData(color: T.text, size: 22),
+        title: Text(widget.practice.name, style: T.section),
       ),
       body: SafeArea(
         // Fill the screen when it fits, scroll when it does not. The timer is
