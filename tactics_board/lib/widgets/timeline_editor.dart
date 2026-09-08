@@ -77,7 +77,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
               child: Row(
                 children: [
-                  const Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20),
+                  const Icon(Icons.view_timeline_outlined, color: Colors.purpleAccent, size: 20),
                   const SizedBox(width: 8),
                   Text('timeline'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
                   const Spacer(),
@@ -419,7 +419,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                     const SizedBox(width: 2),
                     GestureDetector(
                       onTap: onDelete,
-                      child: const Icon(Icons.close, color: Colors.redAccent, size: 14),
+                      child: const Icon(Icons.close_rounded, color: Colors.redAccent, size: 14),
                     ),
                   ],
                 )
@@ -436,7 +436,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         ),
                 )
           : (canDrop || isDropHover)
-              ? Center(child: Icon(Icons.add, color: isDropHover ? color : Colors.amber, size: 16))
+              ? Center(child: Icon(Icons.add_rounded, color: isDropHover ? color : Colors.amber, size: 16))
               : null,
     );
 

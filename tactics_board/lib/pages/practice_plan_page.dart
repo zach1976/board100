@@ -280,7 +280,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
             tooltip: 'practice_import'.tr(),
           ),
           IconButton(
-            icon: const Icon(Icons.add, color: _kAccent),
+            icon: const Icon(Icons.add_rounded, color: _kAccent),
             onPressed: _createNew,
             tooltip: 'practice_new'.tr(),
           ),
@@ -317,7 +317,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                                 onPressed: () => _share(name),
                               ),
                               IconButton(
-                                icon: const Icon(Icons.delete_outline,
+                                icon: const Icon(Icons.delete_outline_rounded,
                                     color: Colors.redAccent),
                                 onPressed: () => _confirmDelete(name),
                               ),
@@ -696,7 +696,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
             const SizedBox(height: 12),
             ElevatedButton.icon(
               onPressed: _addItem,
-              icon: const Icon(Icons.add),
+              icon: const Icon(Icons.add_rounded),
               label: Text('practice_add_tactic'.tr()),
               style: ElevatedButton.styleFrom(
                 backgroundColor: _kAccent,
@@ -806,7 +806,7 @@ class _ItemCardState extends State<_ItemCard> {
                 onChanged: widget.onDurationChange,
               ),
               IconButton(
-                icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+                icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
                 onPressed: widget.onDelete,
               ),
             ],

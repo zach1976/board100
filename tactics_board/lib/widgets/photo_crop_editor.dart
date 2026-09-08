@@ -164,7 +164,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.close, color: Colors.white54),
+                  child: const Icon(Icons.close_rounded, color: Colors.white54),
                 ),
               ],
             ),
