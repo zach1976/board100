@@ -263,6 +263,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         titleSpacing: 0,
+        centerTitle: false,
         title: Text('practice_plan'.tr(), style: T.section),
         iconTheme: const IconThemeData(color: T.text, size: 22),
         actions: [

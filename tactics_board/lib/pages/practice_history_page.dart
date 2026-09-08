@@ -112,6 +112,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         titleSpacing: 0,
+        centerTitle: false,
         iconTheme: const IconThemeData(color: T.text, size: 22),
         title: Text('practice_history'.tr(), style: T.section),
         actions: [
