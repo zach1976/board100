@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# WALK=<name> picks tools/drive/<name>.dart instead of the default ui_walk.
 # Drive one app's UI on a simulator and save a screenshot per step.
 #
 # Local inspection only: the taps happen inside the app, so nothing touches
@@ -84,7 +85,7 @@ PY
     && touch .drive_kept_driver \
     && cp test_driver/integration_test.dart test_driver/.driver_backup
   cp "$REPO/tools/drive/driver.dart" test_driver/integration_test.dart
-  sed "s/__PACKAGE__/$pkg/" "$REPO/tools/drive/ui_walk.dart" > integration_test/ui_walk.dart
+  sed "s/__PACKAGE__/$pkg/" "$REPO/tools/drive/${WALK:-ui_walk}.dart" > integration_test/ui_walk.dart
   flutter pub get >/dev/null
 
   # The cold-start app-open ad covers the screen and a driven run cannot tap a

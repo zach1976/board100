@@ -28,7 +28,14 @@ import '../test/widgets/overflow_test.dart' show kLocales;
 /// than test/ because it is a build step, not a check — a @Tags annotation
 /// does not exclude a file from a bare `flutter test`, and this one adds 79
 /// seconds to every run of the suite.
-const double kW = 320, kH = 480;
+/// The board area on the phone the walk photographs: a 402x874 screen with
+/// the toolbar and the safe areas taken off leaves 402x730 of pitch. Measured
+/// off SoccerBoard/screenshots/01-board.png rather than guessed — the first
+/// version rendered 320x480, and since a token is a fixed 44pt while the pitch
+/// scales to its box, that made every player a third too big for the pitch
+/// they stood on. The review page has to be the same shape as the phone or it
+/// is reviewing a different board.
+const double kW = 402, kH = 730;
 
 Future<void> _loadRoboto() async {
   final root = Platform.environment['FLUTTER_ROOT'] ??
