@@ -77,7 +77,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       style: const TextStyle(color: Colors.white54, fontSize: 13)),
                 ),
                 ..._names.map((n) => ListTile(
-                      leading: const Icon(Icons.copy, color: Colors.white54),
+                      leading: const Icon(Icons.content_copy_outlined, color: Colors.white54),
                       title: Text(n, style: const TextStyle(color: Colors.white)),
                       onTap: () => Navigator.pop(ctx, n),
                     )),
@@ -304,14 +304,14 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                             ? ''
                             : '${p.items.length} · ${p.totalMinutes} ${'practice_minutes'.tr()}';
                         return ListTile(
-                          leading: const Icon(Icons.event_note, color: _kAccent),
+                          leading: const Icon(Icons.event_note_outlined, color: _kAccent),
                           title: Text(name, style: const TextStyle(color: Colors.white)),
                           subtitle: Text(subtitle, style: const TextStyle(color: Colors.white54)),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: const Icon(Icons.ios_share,
+                                icon: const Icon(Icons.ios_share_rounded,
                                     color: Colors.white54),
                                 tooltip: 'practice_share'.tr(),
                                 onPressed: () => _share(name),
@@ -443,7 +443,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                       style: const TextStyle(color: Colors.white54, fontSize: 13)),
                 ),
                 ...existing.map((n) => ListTile(
-                      leading: const Icon(Icons.copy, color: Colors.white54),
+                      leading: const Icon(Icons.content_copy_outlined, color: Colors.white54),
                       title: Text(n, style: const TextStyle(color: Colors.white)),
                       onTap: () => Navigator.pop(ctx, n),
                     )),
@@ -509,7 +509,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               ),
               if (names.isNotEmpty) const Divider(color: Colors.white12, height: 1),
               ...names.map((n) => ListTile(
-                    leading: const Icon(Icons.description, color: Colors.white54),
+                    leading: const Icon(Icons.description_outlined, color: Colors.white54),
                     title: Text(n, style: const TextStyle(color: Colors.white)),
                     onTap: () => Navigator.pop(ctx, n),
                   )),
@@ -599,7 +599,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
           actions: [
             if (_p.items.isNotEmpty)
               IconButton(
-                icon: const Icon(Icons.play_circle_fill, color: _kAccent),
+                icon: const Icon(Icons.play_circle_outline, color: _kAccent),
                 tooltip: 'practice_start'.tr(),
                 onPressed: _startRun,
               ),
@@ -783,7 +783,7 @@ class _ItemCardState extends State<_ItemCard> {
                   onTap: widget.onLoad,
                   child: Row(
                     children: [
-                      const Icon(Icons.description, color: _kAccent, size: 18),
+                      const Icon(Icons.description_outlined, color: _kAccent, size: 18),
                       const SizedBox(width: 6),
                       Flexible(
                         child: Text(

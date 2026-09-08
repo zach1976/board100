@@ -850,7 +850,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
           children: [
             if (hasStrokes)
               ListTile(
-                leading: const Icon(Icons.gesture, color: kAccent),
+                leading: const Icon(Icons.gesture_rounded, color: kAccent),
                 title: Text('clear_lines'.tr(),
                     style: const TextStyle(color: Colors.white)),
                 onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
@@ -1332,7 +1332,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final name = meta.name;
     return ListTile(
       dense: true,
-      leading: const Icon(Icons.description, color: Colors.white38, size: 20),
+      leading: const Icon(Icons.description_outlined, color: Colors.white38, size: 20),
       title: Text(name, style: const TextStyle(color: Colors.white, fontSize: 14)),
       subtitle: meta.description.isEmpty
           ? null
@@ -3638,7 +3638,7 @@ class _AddAllTile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.group_add,
+            const Icon(Icons.group_add_outlined,
                 color: T.accent, size: 22),
             const SizedBox(height: 1),
             Text(
@@ -4154,7 +4154,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                 // lands at the drop point.
                 _DraggableMarkerCard(
                   label: 'confirm'.tr(),
-                  child: const Icon(Icons.groups,
+                  child: const Icon(Icons.groups_outlined,
                       color: Color(0xFF4ADE80), size: 26),
                   onTap: _apply,
                   onDropAt: _applyAtDrop,
