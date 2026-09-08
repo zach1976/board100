@@ -367,7 +367,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                             child: player.photoId != null && !player.isMarker && !player.isBall
                                 ? PhotoPlayerShape(player: player, isSelected: false)
                                 : player.isBall
-                                ? ballWidget(player.sportType!)
+                                ? Center(
+                                    child: FractionallySizedBox(
+                                      widthFactor: kBallDrawFactor,
+                                      heightFactor: kBallDrawFactor,
+                                      child: ballWidget(player.sportType!),
+                                    ),
+                                  )
                                 : CustomPaint(
                               painter: player.isMarker
                                   ? MarkerPainter(shape: player.markerShape, color: player.color)
@@ -746,7 +752,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       }
                       final atStartTime =
                           state.atStep == 0 && state.targetStep == 0;
-                      return visibleMoves.asMap().entries.map((entry) {
+                      // A ball riding along with the players keeps only its
+                      // final dot — that one IS the ball at its current spot.
+                      // The intermediate numbered badges marked stops the
+                      // players' own chains already mark, one more disc on
+                      // every cone.
+                      final ballEscorted = player.isBall &&
+                          ballTravelsWithPlayers(player, players);
+                      return visibleMoves.asMap().entries.where((entry) {
+                        if (!ballEscorted) return true;
+                        return entry.key == visibleMoves.length - 1;
+                      }).map((entry) {
                         final isLast = entry.key == visibleMoves.length - 1;
                         final chainSelected = state.selectedPlayerId == player.id;
                         return _WaypointDot(
@@ -1375,7 +1391,17 @@ class _WaypointDotState extends State<_WaypointDot> {
                 ),
               )
             else if (widget.player.isBall)
-              ballWidget(widget.player.sportType!)
+              // The same fraction of the cell the ball's own icon uses.
+              // Filling it edge to edge made the ball grow a third the
+              // moment it reached its first waypoint — travelling resized
+              // it.
+              Center(
+                child: FractionallySizedBox(
+                  widthFactor: kBallDrawFactor,
+                  heightFactor: kBallDrawFactor,
+                  child: ballWidget(widget.player.sportType!),
+                ),
+              )
             else
               CustomPaint(
                 painter: widget.player.isMarker
