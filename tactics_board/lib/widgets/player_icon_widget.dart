@@ -105,7 +105,13 @@ class TopDownPlayerPainter extends CustomPainter {
   /// shadow, because nothing is standing there yet. The arrow says which
   /// player it belongs to; the ring no longer has to.
   void _paintGhost(Canvas canvas, double w, double h, Offset headCenter, double headRadius, Rect bodyRect) {
-    final fillPaint = Paint()..color = color.withValues(alpha: 0.45);
+    // Two coats, not one. A single translucent coat lets the turf through,
+    // and green under red comes out brown — the away team's ghosts lost their
+    // colour entirely. The white base makes the ghost's ground the same
+    // whatever pitch it stands on, so red stays red and blue stays blue, just
+    // washed out.
+    final basePaint = Paint()..color = Colors.white.withValues(alpha: 0.4);
+    final fillPaint = Paint()..color = color.withValues(alpha: 0.6);
     final outlinePaint = Paint()
       ..color = Colors.white.withValues(alpha: 0.55)
       ..style = PaintingStyle.stroke
@@ -120,12 +126,15 @@ class TopDownPlayerPainter extends CustomPainter {
         ..lineTo(w * 0.5 + w * 0.36, skirtBottom)
         ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
         ..close();
+      canvas.drawPath(skirtPath, basePaint);
       canvas.drawPath(skirtPath, fillPaint);
       canvas.drawPath(skirtPath, outlinePaint);
     } else {
+      canvas.drawOval(bodyRect, basePaint);
       canvas.drawOval(bodyRect, fillPaint);
       canvas.drawOval(bodyRect, outlinePaint);
     }
+    canvas.drawCircle(headCenter, headRadius, basePaint);
     canvas.drawCircle(headCenter, headRadius, fillPaint);
     canvas.drawCircle(headCenter, headRadius, outlinePaint);
   }
