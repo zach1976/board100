@@ -126,8 +126,12 @@ def audit(drill, sport):
         out.append({"id": "no_tags", "level": "info", "text": "没有标签"})
 
     for step in range(max_step(board) + 1):
+        # People only. A ball 40 units from a player is at their feet — that
+        # is possession, placed there on purpose by at_the_feet_of — and
+        # equipment under a player is the arrangement the drill means. The
+        # board's own fan-out draws the same line.
         at = [(p, position_at(p, step)) for p in board["players"]
-              if kind(p) != "marker"]
+              if kind(p) == "player"]
         for i in range(len(at)):
             for j in range(i + 1, len(at)):
                 (a, pa), (b, pb) = at[i], at[j]

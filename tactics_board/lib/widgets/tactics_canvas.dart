@@ -324,6 +324,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                             isSelected: false,
                             isGhost: true,
                           )
+                        : player.isBall
+                        ? Opacity(
+                            opacity: 0.45,
+                            child: Center(
+                              child: FractionallySizedBox(
+                                widthFactor: kBallDrawFactor,
+                                heightFactor: kBallDrawFactor,
+                                child: ballWidget(
+                                    player.sportType ?? _state.sportType),
+                              ),
+                            ),
+                          )
                         : CustomPaint(
                             painter: TopDownPlayerPainter(
                               color: player.color,
@@ -776,6 +788,23 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                   player: player,
                                   isSelected: false,
                                   isGhost: true,
+                                )
+                              // A moving ball leaves a ghost too, and until
+                              // the ball could move nothing exercised this
+                              // branch for one — the person-shaped ghost
+                              // painter drew a small grey figure where the
+                              // pass starts.
+                              : player.isBall
+                              ? Opacity(
+                                  opacity: 0.45,
+                                  child: Center(
+                                    child: FractionallySizedBox(
+                                      widthFactor: kBallDrawFactor,
+                                      heightFactor: kBallDrawFactor,
+                                      child: ballWidget(
+                                          player.sportType ?? state.sportType),
+                                    ),
+                                  ),
                                 )
                               : Stack(
                                   children: [
