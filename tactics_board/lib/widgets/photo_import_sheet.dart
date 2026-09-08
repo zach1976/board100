@@ -67,21 +67,21 @@ class PhotoImportSheet extends StatefulWidget {
             children: [
               const SizedBox(height: 8),
               ListTile(
-                leading: const Icon(Icons.camera_alt_outlined, color: Colors.white),
+                leading: const Icon(Icons.camera_alt_outlined, color: T.text),
                 title: Text('photo_take'.tr(),
-                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    style: const TextStyle(color: T.text, fontSize: 15)),
                 onTap: () => Navigator.of(ctx).pop(PhotoImportSource.camera),
               ),
               ListTile(
-                leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
+                leading: const Icon(Icons.photo_library_outlined, color: T.text),
                 title: Text('photo_from_gallery'.tr(),
-                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    style: const TextStyle(color: T.text, fontSize: 15)),
                 onTap: () => Navigator.of(ctx).pop(PhotoImportSource.gallery),
               ),
               const SizedBox(height: 8),
               ListTile(
                 title: Text('cancel'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 14),
+                    style: const TextStyle(color: T.textDim, fontSize: 14),
                     textAlign: TextAlign.center),
                 onTap: () => Navigator.of(ctx).pop(),
               ),
@@ -247,16 +247,16 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 24),
-          const Icon(Icons.face_retouching_off, color: Colors.white30, size: 48),
+          const Icon(Icons.face_retouching_off, color: T.textOff, size: 48),
           const SizedBox(height: 12),
           Text(
             'photo_no_faces'.tr(),
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
+            style: const TextStyle(color: T.textDim, fontSize: 14),
           ),
           const SizedBox(height: 16),
           TextButton(
             onPressed: () => Navigator.of(context).maybePop(),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            child: Text('cancel'.tr(), style: const TextStyle(color: T.textDim)),
           ),
         ],
       );
@@ -273,7 +273,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
               child: Text(
                 'photo_review_count'.tr(args: ['${_crops.length}']),
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: T.text,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -281,14 +281,14 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
             ),
             GestureDetector(
               onTap: () => Navigator.of(context).maybePop(),
-              child: const Icon(Icons.close_rounded, color: Colors.white54),
+              child: const Icon(Icons.close_rounded, color: T.textDim),
             ),
           ],
         ),
         const SizedBox(height: 4),
         Text(
           'photo_review_hint'.tr(),
-          style: const TextStyle(color: Colors.white54, fontSize: 12),
+          style: const TextStyle(color: T.textDim, fontSize: 12),
         ),
         if (_droppedDuplicates > 0)
           Padding(
@@ -326,7 +326,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                           color: Colors.redAccent,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.close_rounded, color: Colors.white, size: 14),
+                        child: const Icon(Icons.close_rounded, color: T.text, size: 14),
                       ),
                     ),
                   ),
@@ -349,7 +349,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                   ),
                   child: Center(
                     child: Text('cancel'.tr(),
-                        style: const TextStyle(color: Colors.white70)),
+                        style: const TextStyle(color: T.textDim)),
                   ),
                 ),
               ),
@@ -367,7 +367,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                   child: Center(
                     child: Text(
                       'photo_confirm_save'.tr(args: ['${_crops.length}']),
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color: T.text, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -397,7 +397,7 @@ class _Loading extends StatelessWidget {
           ),
           if (label != null && label!.isNotEmpty) ...[
             const SizedBox(height: 16),
-            Text(label!, style: const TextStyle(color: Colors.white70)),
+            Text(label!, style: const TextStyle(color: T.textDim)),
           ],
         ],
       ),
