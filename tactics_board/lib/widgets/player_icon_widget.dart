@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../config_constants.dart';
 import '../ui/tokens.dart';
 import 'package:flutter/scheduler.dart';
 import '../models/player_icon.dart';
@@ -600,6 +601,27 @@ class _ShapedMarkerOutlinePainter extends CustomPainter {
 // ─────────────────────────────────────────────────────────────────────────────
 // Marker shapes — circle, square, triangle, diamond
 // ─────────────────────────────────────────────────────────────────────────────
+/// The shipped artwork for a marker, when there is any.
+///
+/// Five of the markers are real objects a coach puts on the grass, and the
+/// code drawings of them were geometry standing in for a photograph: the cone
+/// was a side-on triangle among top-down tokens, the ladder a bordered
+/// rectangle, the hurdle four thin lines that vanished against turf. Those
+/// five ship as sprites. Everything else stays drawn, and deliberately: the
+/// flat spot markers take their colour from the coach — marking four zones in
+/// four colours is the whole point of them — and an image cannot be recoloured.
+/// packageAsset, not a hardcoded packages/ prefix: the same path has to
+/// resolve both in the hub, where these assets are local, and in the fifteen
+/// sport shells, where tactics_board is a dependency.
+String? markerImageAsset(MarkerShape shape) => switch (shape) {
+      MarkerShape.cone => packageAsset('assets/icon/marker_cone.png'),
+      MarkerShape.ladder => packageAsset('assets/icon/marker_ladder.png'),
+      MarkerShape.hurdle => packageAsset('assets/icon/marker_hurdle.png'),
+      MarkerShape.referee => packageAsset('assets/icon/marker_referee.png'),
+      MarkerShape.coach => packageAsset('assets/icon/marker_coach.png'),
+      _ => null,
+    };
+
 class _MarkerWidget extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
@@ -607,16 +629,37 @@ class _MarkerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final art = markerImageAsset(player.markerShape);
     return Stack(
       children: [
-        CustomPaint(
-          painter: MarkerPainter(
-            shape: player.markerShape,
-            color: player.color,
-            isSelected: isSelected,
+        if (art != null)
+          // The sprite carries its own contact shadow, so the painter's is
+          // not wanted here; the selection ring is drawn over the top instead
+          // of around a shape the image no longer matches.
+          Positioned.fill(
+            child: Image.asset(art,
+                fit: BoxFit.contain, filterQuality: FilterQuality.medium),
+          )
+        else
+          CustomPaint(
+            painter: MarkerPainter(
+              shape: player.markerShape,
+              color: player.color,
+              isSelected: isSelected,
+            ),
+            size: Size.infinite,
           ),
-          size: Size.infinite,
-        ),
+        if (art != null && isSelected)
+          Positioned.fill(
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: T.accent, width: 2.5),
+                ),
+              ),
+            ),
+          ),
         if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
             alignment: Alignment.center,

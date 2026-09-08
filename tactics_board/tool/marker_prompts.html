@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>标记物素材提示词</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    --bg0:#071A1D; --bg1:#0B2328; --surface:#12333B; --surfaceHi:#173E47;
+    --border:rgba(180,205,210,0.18); --text:#F3F7F6; --dim:#9AAEB1; --off:#60777B;
+    --accent:#18C7BC; --warning:#E6A93D; --danger:#EF5B62;
+    --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --body:'Source Sans 3','PingFang SC','Helvetica Neue',Arial,sans-serif;
+    --mono:'JetBrains Mono','SFMono-Regular',Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg0);color:var(--text);font-family:var(--body);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:64px 0 32px;border-bottom:1px solid var(--border)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);
+     line-height:1.08;letter-spacing:-.02em;margin:0 0 16px}
+  .lede{font-size:18px;color:var(--dim);margin:0;max-width:62ch}
+
+  h2{font-family:var(--display);font-weight:600;font-size:23px;margin:48px 0 6px}
+  h2 + .sub{color:var(--off);font-size:14.5px;margin:0 0 18px}
+
+  .spec{border:1px solid var(--border);border-radius:14px;background:var(--bg1);
+        padding:20px 22px;margin:28px 0}
+  .spec dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 20px;margin:0}
+  .spec dt{font-family:var(--mono);font-size:12.5px;color:var(--off);white-space:nowrap}
+  .spec dd{margin:0;font-size:15px}
+
+  .card{border:1px solid var(--border);border-radius:16px;background:var(--bg1);
+        margin:0 0 20px;overflow:hidden}
+  .card > header{padding:16px 20px 14px;border-bottom:1px solid var(--border);
+                 display:flex;align-items:flex-start;gap:14px}
+  .file{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:500}
+  .why{font-size:14.5px;color:var(--dim);margin:4px 0 0}
+  .rank{margin-left:auto;flex:none;font-family:var(--mono);font-size:11px;
+        letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;
+        border:1px solid var(--border);color:var(--off);white-space:nowrap}
+  .rank.must{color:var(--accent);border-color:rgba(24,199,188,.45)}
+  .file .ok{display:block;font-family:var(--body);font-size:13px;font-weight:400;
+            color:var(--accent);margin-top:3px}
+  .now.redo{color:var(--warning);background:rgba(230,169,61,.07)}
+  .now.redo b{color:var(--warning)}
+  .rank.opt{color:var(--warning);border-color:rgba(230,169,61,.4)}
+
+  .now{padding:12px 20px;font-size:14px;color:var(--off);
+       border-bottom:1px solid var(--border);background:rgba(0,0,0,.16)}
+  .now b{color:var(--dim);font-weight:600}
+
+  pre{margin:0;padding:20px;font-family:var(--mono);font-size:12.5px;line-height:1.62;
+      color:var(--text);white-space:pre-wrap;word-break:break-word;
+      max-height:340px;overflow:auto}
+  .bar{display:flex;align-items:center;gap:12px;padding:12px 20px;
+       border-top:1px solid var(--border)}
+  button{font-family:var(--body);font-size:14px;font-weight:600;color:#04191B;
+         background:var(--accent);border:0;border-radius:9px;padding:9px 18px;
+         cursor:pointer}
+  button:hover{filter:brightness(1.08)}
+  button:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+  button.done{background:var(--surfaceHi);color:var(--accent)}
+  .hint{font-size:13px;color:var(--off)}
+
+  .note{border:1px solid var(--border);border-left:3px solid var(--warning);
+        border-radius:0 12px 12px 0;background:var(--bg1);padding:16px 20px;margin:26px 0}
+  .note p{margin:0 0 10px;font-size:15px;color:var(--dim)}
+  .note p:last-child{margin:0}
+  .note strong{color:var(--text)}
+  a{color:var(--accent)}
+  code{font-family:var(--mono);font-size:.88em;color:var(--dim)}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--border);
+         color:var(--off);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">board100 · tactics_board · 标记物素材</p>
+  <h1>标记物素材</h1>
+  <p class="lede">五张里四张已通过，只有 <a href="#hurdle">跨栏架</a> 要重做 ——
+  第一版的提示词把它写成了又宽又扁的一道横杆。每条仍是完整独立的提示词，
+  文件名在开头，整段复制给 ChatGPT 即可。</p>
+</header>
+
+<div class="spec">
+  <dl>
+    <dt>输出尺寸</dt><dd>1024×1024 PNG，我这边缩到 512×512 入库</dd>
+    <dt>透明通道</dt><dd>必须是真 alpha —— 每条提示词末尾都堵了假棋盘格</dd>
+    <dt>实际显示</dt><dd>44×44 pt，绿色草皮背景，<code>BoxFit.contain</code></dd>
+    <dt>视角</dt><dd>俯视 55° 左右，和球员俯视棋子对齐</dd>
+    <dt>入库路径</dt><dd><code>assets/icon/&lt;文件名&gt;</code></dd>
+  </dl>
+</div>
+
+<div class="note">
+  <p><strong>先说一个取舍。</strong>标记物的颜色现在是用户可改的（选中后编辑栏有色板）。
+  换成固定 PNG 就丢掉这个能力。</p>
+  <p>下面这五个是有天然颜色的实物——橙色锥桶、裁判——丢掉改色是划算的。
+  但 <code>circle</code> / <code>square</code> / <code>triangle</code> /
+  <code>diamond</code> 四个平面标志碟<strong>不在这份清单里</strong>：
+  用不同颜色标不同区域正是它们存在的意义，做成图片就废了，保持代码绘制。</p>
+  <p>如果你希望锥桶也能有多种颜色，告诉我要哪几色，我把提示词复制成对应的几份。</p>
+</div>
+
+<h2>提示词</h2>
+<p class="sub">四张已通过，保留在这里备查；需要动的是第三张。</p>
+
+<article class="card">
+  <header>
+    <div>
+      <div class="file">marker_cone.png<span class="ok">已通过 · 视角、分量、辨识度都对</span></div>
+      <p class="why">训练锥桶 / 标志桶</p>
+    </div>
+    <span class="rank">已生成</span>
+  </header>
+  <div class="now"><b>现在：</b>一个侧视三角形加一道白杠。板上其他东西都是俯视，
+  它读起来像立在场边的路障牌，不像躺在草地上的器材。</div>
+  <pre>marker_cone.png
+
+A single orange training cone for a soccer coaching app, rendered as a
+game-ready sprite on a fully transparent background.
+
+Camera: elevated three-quarter view looking down at roughly 55 degrees — high
+enough that the round base is clearly visible as an ellipse, low enough that
+the cone still reads as a cone and not as a flat circle. This must sit
+convincingly among player tokens drawn from directly above.
+
+Subject: a standard soft rubber training marker cone, about 20cm tall, of the
+kind laid out on a grass pitch. Wide flat square base with softly rounded
+corners, tapering body, blunt rounded tip. One horizontal white band around
+the upper third. Matte vinyl surface — no gloss, no specular highlights, no
+reflections.
+
+Colour: saturated safety orange, roughly #F5701A through #E65100, with the
+white band clean and slightly warm. Soft ambient occlusion where the base
+meets the ground. One gentle directional light from the upper left.
+
+Shadow: a soft elliptical contact shadow directly beneath the base, pure black
+at about 25 percent opacity, blurred, fading completely to transparent within
+half a cone-width. No long cast shadow stretching away from the object.
+
+Composition: the cone centred in a square frame, occupying about 80 percent of
+the frame height, with even empty margin on all four sides. Nothing cropped.
+
+Style: clean semi-realistic 3D product render with slightly simplified forms,
+in the spirit of a modern sports app icon. Bold readable silhouette that still
+reads clearly at 44 by 44 points. No text, no numbers, no logos, no branding,
+no ground plane, no grass, no field lines, no background scenery, no other
+objects.
+
+Output: 1024x1024 PNG with a genuine alpha channel. The area around the cone
+and its shadow must be actually transparent — do not paint a white, grey,
+green or checkerboard background, and do not draw a fake checkerboard pattern
+to represent transparency.</pre>
+  <div class="bar"><button>复制提示词</button><span class="hint">生成后放 Downloads</span></div>
+</article>
+
+<article class="card">
+  <header>
+    <div>
+      <div class="file">marker_ladder.png<span class="ok">已通过 · 缩到 44pt 后内部噪点被平均掉，读得很清楚</span></div>
+      <p class="why">敏捷梯</p>
+    </div>
+    <span class="rank">已生成</span>
+  </header>
+  <div class="now"><b>现在：</b>一个带三道横线的半透明方框。在 44pt 下几乎认不出是什么，
+  和 <code>zone</code> 区域标记长得像。</div>
+  <pre>marker_ladder.png
+
+A single agility ladder for a soccer coaching app, rendered as a game-ready
+sprite on a fully transparent background.
+
+Camera: elevated three-quarter view looking down at roughly 55 degrees, so the
+ladder lies flat on the ground and recedes slightly away from the viewer. It
+must sit convincingly among player tokens drawn from directly above.
+
+Subject: a standard flat speed and agility training ladder as used on a grass
+pitch — two yellow nylon side straps with six evenly spaced flat plastic rungs
+between them, lying completely flat on the ground. The rungs are slightly
+thicker than the straps and cast almost no height. Slight natural irregularity
+in how the straps lie, so it does not look mechanically perfect. Matte woven
+nylon and matte plastic — no gloss, no specular highlights.
+
+Colour: bright training yellow, roughly #F2C300 through #D9A400, with the rungs
+a touch lighter than the straps.
+
+Shadow: a very soft, very low contact shadow directly under the ladder, pure
+black at about 20 percent opacity, blurred, fading completely to transparent
+within a rung-width. The ladder is flat on the ground, so there is almost no
+shadow. No long cast shadow.
+
+Composition: the ladder centred in a square frame, running from lower-left to
+upper-right along the diagonal, occupying about 85 percent of the frame, with
+even empty margin on all four sides. Nothing cropped.
+
+Style: clean semi-realistic 3D product render with slightly simplified forms,
+in the spirit of a modern sports app icon. Bold readable silhouette that still
+reads clearly at 44 by 44 points — the rungs must stay separable at that size,
+so keep them few and chunky rather than many and fine. No text, no numbers, no
+logos, no branding, no ground plane, no grass, no field lines, no background
+scenery, no other objects.
+
+Output: 1024x1024 PNG with a genuine alpha channel. The area around the ladder
+and its shadow must be actually transparent — do not paint a white, grey,
+green or checkerboard background, and do not draw a fake checkerboard pattern
+to represent transparency.</pre>
+  <div class="bar"><button>复制提示词</button><span class="hint">生成后放 Downloads</span></div>
+</article>
+
+<article class="card">
+  <header>
+    <div>
+      <div class="file">marker_hurdle.png</div>
+      <p class="why">跨栏架 / 敏捷栏</p>
+    </div>
+    <span class="rank opt" id="hurdle">重做这张</span>
+  </header>
+  <div class="now redo"><b>第一版做出来了，但要重做。</b>提示词里同时写了
+  “low hurdle” 和 “chunky tubing”，模型选了前者 —— 出来的是又宽又扁的一道横杆，
+  塞进 44pt 方框后只剩一条细蓝线，在草皮上分量不够。下面这版把物体压成接近正方形、
+  管子加粗到宽度的十分之一，并改成接近正面的视角。</div>
+  <pre>marker_hurdle.png
+
+A single agility hurdle for a soccer coaching app, rendered as a game-ready
+sprite on a fully transparent background.
+
+Camera: seen close to head-on from slightly above, at roughly 25 degrees off
+the horizontal — high enough to read as an object standing on the ground, low
+enough that the hurdle faces the viewer and fills a square frame rather than
+receding away into a long low bar.
+
+Subject: a standard speed-training hurdle of the kind used on a grass pitch —
+a horizontal top bar carried by two side legs that splay outward to flat feet
+resting on the ground. It is only slightly wider than it is tall, roughly four
+units wide to three units tall; it is NOT a long low bar. Thick chunky moulded
+plastic tubing: the bar and the legs are each about one tenth as thick as the
+hurdle is wide, so they stay solid rather than hairline at small sizes.
+Rounded tube ends. Matte plastic surface, no gloss, no specular highlights.
+
+Colour: saturated training blue, roughly #2F7BD6 through #1B5FAE, evenly
+coloured throughout, slightly darker where the legs meet the ground. One
+gentle directional light from the upper left.
+
+Shadow: a soft contact shadow directly beneath the two feet, pure black at
+about 25 percent opacity, blurred, fading completely to transparent within
+half a hurdle-width. No long cast shadow stretching away from the object.
+
+Composition: the hurdle centred in a square frame, occupying about 80 percent
+of the frame width AND about 80 percent of the frame height, with even empty
+margin on all four sides. The opening under the bar must read clearly as a
+gap. Nothing cropped.
+
+Style: clean semi-realistic 3D product render with slightly simplified forms,
+in the spirit of a modern sports app icon. Bold readable silhouette that still
+reads clearly at 44 by 44 points — thin bars disappear at that size, which is
+why the tubing has to be thick and the whole object close to square. No text,
+no numbers, no logos, no branding, no ground plane, no grass, no field lines,
+no background scenery, no other objects.
+
+Output: 1024x1024 PNG with a genuine alpha channel. The area around the hurdle
+and its shadow must be actually transparent — do not paint a white, grey,
+green or checkerboard background, and do not draw a fake checkerboard pattern
+to represent transparency.</pre>
+  <div class="bar"><button>复制提示词</button><span class="hint">生成后放 Downloads</span></div>
+</article>
+
+<article class="card">
+  <header>
+    <div>
+      <div class="file">marker_referee.png<span class="ok">已通过 · 胸口黄红牌是有效的识别点</span></div>
+      <p class="why">裁判</p>
+    </div>
+    <span class="rank">已生成</span>
+  </header>
+  <div class="now"><b>现在：</b>黑色圆圈里一个青色 “R”。其实已经够清楚了——
+  换成人形会更好认，但也会和抽象的球员棋子（圆圈+号码）在风格上拉开距离。你定。</div>
+  <pre>marker_referee.png
+
+A single football referee figure for a soccer coaching app, rendered as a
+game-ready sprite on a fully transparent background.
+
+Camera: top-down view looking almost straight down at roughly 70 degrees, so
+the figure is seen mostly from above — head and shoulders dominant, arms
+visible, legs foreshortened. It must match player tokens on the same board
+which are seen from directly above.
+
+Subject: a referee standing on a pitch, simplified to a clean stylised figure
+with no facial features. Black referee jersey with short sleeves, black shorts,
+black socks. A yellow card and a red card are tucked visibly in the chest
+pocket area as two small coloured rectangles — this is the one detail that
+identifies the figure as a referee rather than a player. Neutral standing pose,
+arms slightly out from the body.
+
+Colour: near-black kit, roughly #1A1A1A through #2E2E2E, so the figure reads as
+clearly non-team against blue and red player tokens. The two cards in saturated
+yellow #F2C300 and red #E03A3A. Neutral mid-tone skin. One gentle directional
+light from the upper left.
+
+Shadow: a soft elliptical contact shadow directly beneath the feet, pure black
+at about 25 percent opacity, blurred, fading completely to transparent within
+half a figure-width. No long cast shadow.
+
+Composition: the figure centred in a square frame, occupying about 80 percent of
+the frame height, with even empty margin on all four sides. Nothing cropped.
+
+Style: clean semi-realistic 3D render with simplified, slightly toy-like forms
+and no facial detail, in the spirit of a modern sports app icon. Bold readable
+silhouette that still reads clearly at 44 by 44 points. No text, no numbers, no
+logos, no branding, no ground plane, no grass, no field lines, no background
+scenery, no other objects, no ball.
+
+Output: 1024x1024 PNG with a genuine alpha channel. The area around the figure
+and its shadow must be actually transparent — do not paint a white, grey,
+green or checkerboard background, and do not draw a fake checkerboard pattern
+to represent transparency.</pre>
+  <div class="bar"><button>复制提示词</button><span class="hint">生成后放 Downloads</span></div>
+</article>
+
+<article class="card">
+  <header>
+    <div>
+      <div class="file">marker_coach.png<span class="ok">已通过 · 帽子加浅色写字板，能和裁判区分开</span></div>
+      <p class="why">教练</p>
+    </div>
+    <span class="rank">已生成</span>
+  </header>
+  <div class="now"><b>现在：</b>深蓝灰圆圈里一个白色 “C”。同上——
+  和 referee 一起换才有意义，只换一个会两种风格并存。</div>
+  <pre>marker_coach.png
+
+A single football coach figure for a soccer coaching app, rendered as a
+game-ready sprite on a fully transparent background.
+
+Camera: top-down view looking almost straight down at roughly 70 degrees, so
+the figure is seen mostly from above — head and shoulders dominant, arms
+visible, legs foreshortened. It must match player tokens on the same board
+which are seen from directly above, and must match the referee sprite in the
+same set.
+
+Subject: a coach standing at the side of a pitch, simplified to a clean
+stylised figure with no facial features. Dark tracksuit top over tracksuit
+trousers, a flat cap on the head, and a clipboard held at chest height — the
+clipboard is the one detail that identifies the figure as a coach rather than
+a player or referee. Neutral standing pose.
+
+Colour: dark slate tracksuit, roughly #37474F through #263238, so the figure
+reads as clearly non-team against blue and red player tokens. The clipboard a
+pale warm off-white, roughly #E8E2D4, with a thin darker clip at its top.
+Neutral mid-tone skin. One gentle directional light from the upper left.
+
+Shadow: a soft elliptical contact shadow directly beneath the feet, pure black
+at about 25 percent opacity, blurred, fading completely to transparent within
+half a figure-width. No long cast shadow.
+
+Composition: the figure centred in a square frame, occupying about 80 percent of
+the frame height, with even empty margin on all four sides. Nothing cropped.
+
+Style: clean semi-realistic 3D render with simplified, slightly toy-like forms
+and no facial detail, in the spirit of a modern sports app icon. Bold readable
+silhouette that still reads clearly at 44 by 44 points — the clipboard must
+stay legible as a light rectangle at that size. No text, no numbers, no logos,
+no branding, no ground plane, no grass, no field lines, no background scenery,
+no other objects, no ball.
+
+Output: 1024x1024 PNG with a genuine alpha channel. The area around the figure
+and its shadow must be actually transparent — do not paint a white, grey,
+green or checkerboard background, and do not draw a fake checkerboard pattern
+to represent transparency.</pre>
+  <div class="bar"><button>复制提示词</button><span class="hint">生成后放 Downloads</span></div>
+</article>
+
+<div class="note">
+  <p><strong>为什么每条都要写那段“不要画假棋盘格”。</strong>
+  之前生成的那批素材里有三张把“透明”理解成了画一层棋盘格纹理——
+  RGB 图，根本没有 alpha 通道。我当时得写脚本从边缘洪水填充把背景抠掉、
+  腐蚀 1 像素、再对 alpha 做高斯模糊才能用。这次在提示词里直接堵住。</p>
+</div>
+
+<h2>你生成完之后</h2>
+<p class="sub">图放进 Downloads，我来做剩下的。</p>
+<div class="spec">
+  <dl>
+    <dt>1</dt><dd>检查 alpha 通道是不是真的（不是画出来的棋盘格）—— 这批五张都过了</dd>
+    <dt>1b</dt><dd>吃掉抠图残留的黑边：五张的半透明边缘都还带着原背景的深色，
+      亮度只有主体的 0.15–0.53，在绿草皮上是一圈黑边。1px 腐蚀 + 0.6 高斯柔化即可；
+      不要用「除以 alpha 反推边缘颜色」——教练那张会过冲成灰白描边</dd>
+    <dt>2</dt><dd>裁掉多余空白、缩到 512×512</dd>
+    <dt>3</dt><dd>落到 <code>assets/icon/</code>，在 <code>pubspec.yaml</code> 声明</dd>
+    <dt>4</dt><dd><code>MarkerPainter</code> 对应分支换成图片，代码绘制保留作兜底 —— 和球的做法一致</dd>
+    <dt>5</dt><dd>装到模拟器实拍确认 44pt 下认得出</dd>
+  </dl>
+</div>
+
+<footer>board100 · 素材落到 tactics_board 就是 16 个 app 一起生效。</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.card').forEach(function (card) {
+    var btn = card.querySelector('button');
+    var text = card.querySelector('pre').textContent;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(text).then(function () {
+        var was = btn.textContent;
+        btn.textContent = '已复制';
+        btn.classList.add('done');
+        setTimeout(function () {
+          btn.textContent = was;
+          btn.classList.remove('done');
+        }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>

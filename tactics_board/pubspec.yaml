@@ -99,6 +99,11 @@ flutter:
     - assets/icon/ball_sepakTakraw.png
     - assets/icon/ball_beachTennis.png
     - assets/icon/ball_footvolley.png
+    - assets/icon/marker_cone.png
+    - assets/icon/marker_ladder.png
+    - assets/icon/marker_hurdle.png
+    - assets/icon/marker_referee.png
+    - assets/icon/marker_coach.png
     - assets/icon/empty_history.png
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png
