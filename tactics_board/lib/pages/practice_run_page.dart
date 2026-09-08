@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import 'package:flutter/services.dart';
 import '../models/practice.dart';
 import '../models/practice_session.dart';
@@ -10,9 +11,9 @@ import '../widgets/attendance_sheet.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
 
-const _kBg = Color(0xFF0E1C22);
-const _kCard = Color(0xFF15303A);
-const _kAccent = Color(0xFF00C2B2);
+const _kBg = T.bg1;
+const _kCard = T.surface;
+const _kAccent = T.accent;
 
 class PracticeRunPage extends StatefulWidget {
   final TacticsState state;

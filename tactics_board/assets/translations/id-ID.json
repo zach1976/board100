@@ -168,6 +168,8 @@
   "trainer_footwork_name": "Footwork Bulutangkis",
   "trainer_footwork_desc": "Footwork 6 titik",
   "add_label": "Tambah",
+  "players": "Pemain",
+  "objects": "Objek",
   "first_run_hint": "Mulai dengan {} untuk menempatkan pemain",
   "more": "Lainnya",
   "less": "Tutup",

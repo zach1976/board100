@@ -168,6 +168,8 @@
   "trainer_footwork_name": "バドミントン フットワーク",
   "trainer_footwork_desc": "6点フットワーク",
   "add_label": "追加",
+  "players": "選手",
+  "objects": "用具",
   "first_run_hint": "まず「{}」で選手を配置",
   "more": "もっと",
   "less": "閉じる",

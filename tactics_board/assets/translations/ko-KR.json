@@ -168,6 +168,8 @@
   "trainer_footwork_name": "배드민턴 풋워크",
   "trainer_footwork_desc": "6점 풋워크",
   "add_label": "추가",
+  "players": "선수",
+  "objects": "용품",
   "first_run_hint": "먼저 「{}」로 선수를 배치하세요",
   "more": "더보기",
   "less": "접기",

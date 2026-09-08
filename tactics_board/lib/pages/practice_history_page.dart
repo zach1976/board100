@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import '../config_constants.dart';
 import '../models/practice_session.dart';
 import '../models/sport_type.dart';
@@ -7,9 +8,9 @@ import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
 import '../services/practice_history_service.dart';
 
-const _kBg = Color(0xFF0E1C22);
-const _kCard = Color(0xFF15303A);
-const _kAccent = Color(0xFF00C2B2);
+const _kBg = T.bg1;
+const _kCard = T.surface;
+const _kAccent = T.accent;
 
 class PracticeHistoryPage extends StatefulWidget {
   final SportType sport;
@@ -304,7 +305,7 @@ class _AttendanceRow extends StatelessWidget {
     // Red below half, amber below three quarters: the point of the row is to
     // be scannable, not precise.
     final color = ratio < 0.5
-        ? const Color(0xFFFF5A5F)
+        ? T.away
         : ratio < 0.75
             ? const Color(0xFFFFB020)
             : _kAccent;

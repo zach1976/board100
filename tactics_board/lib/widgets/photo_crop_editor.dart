@@ -2,6 +2,8 @@ import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import 'package:flutter/rendering.dart';
 import 'package:image_picker/image_picker.dart';
 import '../services/ad_service.dart';
@@ -57,41 +59,39 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
   /// existing photo id is kept, so every player already using this avatar
   /// picks up the new picture once [_save] writes it.
   Future<void> _replace() async {
-    final fromCamera = await showModalBottomSheet<bool>(
-      context: context,
-      backgroundColor: const Color(0xFF15303A),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 8),
-            ListTile(
-              leading: const Icon(Icons.photo_camera_outlined, color: Colors.white),
-              title: Text('photo_take'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-              onTap: () => Navigator.of(ctx).pop(true),
-            ),
-            ListTile(
-              leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
-              title: Text('photo_from_gallery'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-              onTap: () => Navigator.of(ctx).pop(false),
-            ),
-            const SizedBox(height: 8),
-            ListTile(
-              title: Text('cancel'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 14),
-                  textAlign: TextAlign.center),
-              onTap: () => Navigator.of(ctx).pop(),
-            ),
-            const SizedBox(height: 8),
-          ],
+    final fromCamera = await TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 8),
+              ListTile(
+                leading: const Icon(Icons.photo_camera_outlined, color: Colors.white),
+                title: Text('photo_take'.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                onTap: () => Navigator.of(ctx).pop(true),
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
+                title: Text('photo_from_gallery'.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                onTap: () => Navigator.of(ctx).pop(false),
+              ),
+              const SizedBox(height: 8),
+              ListTile(
+                title: Text('cancel'.tr(),
+                    style: const TextStyle(color: Colors.white54, fontSize: 14),
+                    textAlign: TextAlign.center),
+                onTap: () => Navigator.of(ctx).pop(),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
         ),
-      ),
-    );
+      ));
     if (fromCamera == null || !mounted) return;
     AdService.instance.suppressNextAppOpen(); // picker/camera backgrounds the app
     XFile? shot;
@@ -140,7 +140,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
     final viewport = (media.size.width - 64).clamp(180.0, 320.0);
 
     return Dialog(
-      backgroundColor: const Color(0xFF20424C),
+      backgroundColor: T.surfaceHi,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       insetPadding: const EdgeInsets.all(20),
       child: Padding(
@@ -150,7 +150,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
           children: [
             Row(
               children: [
-                const Icon(Icons.crop, color: Color(0xFF00C2B2)),
+                const Icon(Icons.crop, color: T.accent),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -185,7 +185,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                   child: _path == null
                       ? const Center(
                           child: CircularProgressIndicator(
-                            color: Color(0xFF00C2B2),
+                            color: T.accent,
                             strokeWidth: 3,
                           ),
                         )
@@ -228,12 +228,12 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.swap_horiz, color: Color(0xFF00C2B2), size: 18),
+                    const Icon(Icons.swap_horiz, color: T.accent, size: 18),
                     const SizedBox(width: 6),
                     Text(
                       'photo_replace'.tr(),
                       style: const TextStyle(
-                        color: Color(0xFF00C2B2),
+                        color: T.accent,
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
@@ -273,7 +273,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF00C2B2).withValues(
+                        color: T.accent.withValues(
                           alpha: (_saving || _path == null) ? 0.4 : 1.0,
                         ),
                         borderRadius: BorderRadius.circular(10),

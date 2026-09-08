@@ -168,6 +168,8 @@
   "trainer_footwork_name": "ฟุตเวิร์กแบดมินตัน",
   "trainer_footwork_desc": "ฟุตเวิร์ก 6 จุด",
   "add_label": "เพิ่ม",
+  "players": "ผู้เล่น",
+  "objects": "อุปกรณ์",
   "first_run_hint": "เริ่มด้วยการแตะ {} เพื่อวางผู้เล่น",
   "more": "เพิ่มเติม",
   "less": "ย่อ",

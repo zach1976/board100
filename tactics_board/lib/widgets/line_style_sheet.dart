@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 
 import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
@@ -31,15 +33,12 @@ const _kSections = [
 /// the next stroke, plus its colour and width. Selections apply to strokes
 /// drawn afterwards; they do not retro-edit the board.
 void showLineStyleSheet(BuildContext context, TacticsState state) {
-  showModalBottomSheet(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: kSurface,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder: (ctx) => _LineStyleSheet(state: state),
-  );
+  TacticalSheet.show(
+      context,
+    builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: _LineStyleSheet(state: state),
+      ));
 }
 
 class _LineStyleSheet extends StatefulWidget {
@@ -169,7 +168,7 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
                 width: double.infinity,
                 child: FilledButton(
                   style: FilledButton.styleFrom(
-                    backgroundColor: const Color(0xFF00C2B2),
+                    backgroundColor: T.accent,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
