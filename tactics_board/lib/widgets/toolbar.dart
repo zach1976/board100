@@ -1608,10 +1608,13 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     }
 
     return [
-      shapeEntry('marker_circle', '○', MarkerShape.circle, Colors.amber, 0),
-      shapeEntry('marker_square', '□', MarkerShape.square, Colors.teal, 1),
-      shapeEntry('marker_triangle', '△', MarkerShape.triangle, Colors.orange, 2),
-      shapeEntry('marker_diamond', '◇', MarkerShape.diamond, Colors.purple, 3),
+      // Named, like every other marker. These four were captioned with the
+      // glyph they already draw — a teal square labelled "□" — so the four
+      // most-used markers were the only ones a coach could not read.
+      shapeEntry('marker_circle', 'marker_circle'.tr(), MarkerShape.circle, Colors.amber, 0),
+      shapeEntry('marker_square', 'marker_square'.tr(), MarkerShape.square, Colors.teal, 1),
+      shapeEntry('marker_triangle', 'marker_triangle'.tr(), MarkerShape.triangle, Colors.orange, 2),
+      shapeEntry('marker_diamond', 'marker_diamond'.tr(), MarkerShape.diamond, Colors.purple, 3),
       genderEntry('neutral_male', 'neutral_male'.tr(), PlayerGender.male, 4),
       genderEntry('neutral_female', 'neutral_female'.tr(), PlayerGender.female, 5),
       shapeEntry('marker_cone', 'marker_cone'.tr(), MarkerShape.cone, Colors.orange, 6),
@@ -4047,12 +4050,12 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Row 1: Player count
+          // Row 1: Player count. No label of its own — the sheet's PLAYERS
+          // section header sits directly above it and says the same word, so
+          // the sheet opened reading "PLAYERS / Players / 11v11 7v7 5v5".
           // (Quick +1 home/away has moved to the markers row, next to the
           //  ball, so it's reachable without scrolling past the formation
           //  picker.)
-          Text('player_count'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
-          const SizedBox(height: 6),
           Row(
             children: _distinctCounts.map((count) {
               final selected = _selectedCount == count;
