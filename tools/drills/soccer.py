@@ -74,6 +74,15 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 380), M(800, 700), M(500, 1020), M(200, 700)],
             ball=0,
+            # The ball is the drill: it goes round the diamond one edge per
+            # beat, each pass one phase ahead of the runner chasing it. It sat
+            # at the first player's feet through all four phases — a passing
+            # drill in which the ball was never passed. Each stop is offset
+            # toward the receiver's feet the same way the starting ball is
+            # (at_the_feet_of), so it reads as received, not as standing on
+            # the receiver's number.
+            ball_moves=[(740, 700, 0), (460, 1000, 1),
+                        (260, 700, 2), (460, 470, 3)],
             free=True,
         ),
         Drill(
