@@ -1383,9 +1383,26 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     Color(0xFFF9A825),
   ];
 
+  Widget _scaleSlider(PlayerIcon p) => Slider(
+        value: p.scale,
+        min: 0.5,
+        max: 3.0,
+        divisions: 10,
+        activeColor: kAccent,
+        inactiveColor: Colors.white24,
+        onChanged: (v) => widget.state.updatePlayer(p.id, scale: v),
+      );
+
   @override
   Widget build(BuildContext context) {
     final p = widget.player;
+    // A custom graphic is its own picture: the colour swatches do nothing to
+    // it, so size is the only thing the tune panel can change. Show that row
+    // straight away rather than making a coach find a ⚙ to reach the one
+    // control that applies — and give the slider the whole width once the
+    // swatches are gone.
+    final isPhoto = p.photoId != null;
+    final expanded = _expanded || isPhoto;
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
       child: Column(
@@ -1438,13 +1455,15 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               // Explicit add-run toggle — while on, taps on the board lay
               // this player's movement path (so a stray tap never can).
               _MoveToggle(state: widget.state, compact: p.label.length > 2),
-              const SizedBox(width: 6),
-              // Colour + size — collapsed by default; this reveals Row 2.
-              _editAction(
-                Icons.tune,
-                _expanded ? kAccent : Colors.white60,
-                () => setState(() => _expanded = !_expanded),
-              ),
+              if (!isPhoto) ...[
+                const SizedBox(width: 6),
+                // Colour + size — collapsed by default; this reveals Row 2.
+                _editAction(
+                  Icons.tune,
+                  _expanded ? kAccent : Colors.white60,
+                  () => setState(() => _expanded = !_expanded),
+                ),
+              ],
               const SizedBox(width: 6),
               // Delete
               _editAction(Icons.delete_outline_rounded, kDanger, () {
@@ -1463,11 +1482,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
             ],
           ),
           // Row 2 — colour swatches + size slider, revealed on demand.
-          if (_expanded) ...[
+          if (expanded) ...[
             const SizedBox(height: 8),
             Row(
               children: [
-                ..._colors.map((c) => GestureDetector(
+                if (!isPhoto)
+                  ..._colors.map((c) => GestureDetector(
                   onTap: () {
                     widget.state.updatePlayer(p.id, customColor: c);
                   },
@@ -1484,23 +1504,16 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     ),
                   ),
                 )),
-                const Spacer(),
-                // Size slider compact
+                if (!isPhoto) const Spacer(),
                 const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
-                SizedBox(
-                  width: 100,
-                  child: Slider(
-                    value: p.scale,
-                    min: 0.5,
-                    max: 3.0,
-                    divisions: 10,
-                    activeColor: kAccent,
-                    inactiveColor: Colors.white24,
-                    onChanged: (v) {
-                      widget.state.updatePlayer(p.id, scale: v);
-                    },
-                  ),
-                ),
+                // Beside six swatches the slider gets a fixed 100pt, which is
+                // coarse for a 0.5x–3x range but all the row can spare. With
+                // the swatches gone it takes the whole row — the same widget
+                // either way, so a photo and a player scale identically.
+                if (isPhoto)
+                  Expanded(child: _scaleSlider(p))
+                else
+                  SizedBox(width: 100, child: _scaleSlider(p)),
               ],
             ),
           ],
