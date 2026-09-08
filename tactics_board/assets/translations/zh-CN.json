@@ -134,6 +134,7 @@
   "load": "加载",
   "people_count": "人",
   "timeline": "时间线",
+  "move_lines": "跑动线",
   "timeline_reset": "重置",
   "login_cancelled": "登录已取消",
   "login_not_available": "此设备不支持该登录方式",

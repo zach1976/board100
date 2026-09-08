@@ -52,6 +52,15 @@ void main() {
         if (find.byIcon(Icons.more_horiz).hitTestable().evaluate().isNotEmpty) {
           return;
         }
+        // Presentation mode hides the ⋯ button and has no back button; its
+        // only way out is its own pill. Without this the walk stayed in
+        // presentation for the rest of the run and shot it twice.
+        final exit = find.text('Exit Presentation').hitTestable();
+        if (exit.evaluate().isNotEmpty) {
+          await tester.tap(exit.first, warnIfMissed: false);
+          await settle(8);
+          continue;
+        }
         final back = find.byType(BackButton).hitTestable();
         if (back.evaluate().isNotEmpty) {
           await tester.tap(back.first, warnIfMissed: false);
@@ -94,13 +103,13 @@ void main() {
     // bottom bar becomes the playback controls and the mode tabs are gone
     // for the rest of the walk.
     await home();
-    if (await tapIcon(Icons.add)) {
+    if (await tapIcon(Icons.add_rounded)) {
       await binding.takeScreenshot('03-add-element');
       await home();
     }
-    if (await tapIcon(Icons.edit)) {
+    if (await tapIcon(Icons.gesture_rounded)) {
       await binding.takeScreenshot('04-draw-tools');
-      await tapIcon(Icons.open_with);          // back to move mode
+      await tapIcon(Icons.open_with_rounded);          // back to move mode
     }
 
     // ── the drill library ────────────────────────────────────────────────
@@ -115,9 +124,11 @@ void main() {
 
       // Load a drill onto the board. A family card offers a chip per
       // variant; a drill that stands alone offers the round button.
-      var play = find.byIcon(Icons.add_rounded).hitTestable();
+      // The circled + is the drill card's own button; plain add_rounded is
+      // the toolbar's add tool, so look for the card's first.
+      var play = find.byIcon(Icons.add_circle_outline).hitTestable();
       if (play.evaluate().isEmpty) {
-        play = find.byIcon(Icons.add_circle_outline).hitTestable();
+        play = find.byIcon(Icons.add_rounded).hitTestable();
       }
       if (play.evaluate().isNotEmpty) {
         await tester.tap(play.first, warnIfMissed: false);
@@ -134,12 +145,12 @@ void main() {
       await settle(10);
       await binding.takeScreenshot('09-practice-plan');
       // History lives on the plan page's own bar.
-      if (await tapIcon(Icons.history)) {
+      if (await tapIcon(Icons.history_rounded)) {
         await settle(10);
         await binding.takeScreenshot('10-practice-history');
       }
     }
-    if (await viaMenu(Icons.language)) {
+    if (await viaMenu(Icons.language_rounded)) {
       await binding.takeScreenshot('11-language');
     }
     if (await viaMenu(Icons.co_present_outlined)) {

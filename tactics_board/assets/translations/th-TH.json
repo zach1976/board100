@@ -132,6 +132,7 @@
   "load": "Load",
   "people_count": "",
   "timeline": "Timeline",
+  "move_lines": "เส้นวิ่ง",
   "timeline_reset": "Reset",
   "login_cancelled": "Sign in cancelled",
   "login_not_available": "Sign in not available",

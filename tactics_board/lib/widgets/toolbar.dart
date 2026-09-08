@@ -4944,7 +4944,6 @@ class _PlayCircle extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;
   final bool primary;
-  final bool danger;
   final bool active;
   final String? semanticLabel;
 
@@ -4952,7 +4951,6 @@ class _PlayCircle extends StatelessWidget {
     required this.icon,
     this.onTap,
     this.primary = false,
-    this.danger = false,
     this.active = false,
     this.semanticLabel,
   });
@@ -4961,13 +4959,11 @@ class _PlayCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color fg = onTap == null
         ? T.textOff
-        : danger
-            ? T.danger
-            : primary
-                ? const Color(0xFF16240A)
-                : active
-                    ? T.accent
-                    : T.text;
+        : primary
+            ? const Color(0xFF16240A)
+            : active
+                ? T.accent
+                : T.text;
     final Color bg = primary
         ? T.lime
         : active
@@ -5022,22 +5018,15 @@ class _LinesToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
     final show = state.showMoveLines;
-    return GestureDetector(
+    // Hiding the run lines is a temporary view state, not a destructive one:
+    // it used to be flagged in danger red, which put the loudest colour in
+    // the app on a button that only cleans up the board for a screenshot.
+    return _PlayCircle(
+      icon: show ? Icons.timeline_rounded : Icons.visibility_off_outlined,
       onTap: state.toggleShowMoveLines,
-      child: Container(
-        width: 36 * s, height: 36 * s,
-        decoration: BoxDecoration(
-          color: show ? Colors.white10 : Colors.red.withValues(alpha: 0.2),
-          shape: BoxShape.circle,
-        ),
-        child: Icon(
-          show ? Icons.timeline_rounded : Icons.visibility_off,
-          color: show ? Colors.white54 : Colors.redAccent,
-          size: 20 * s,
-        ),
-      ),
+      active: !show,
+      semanticLabel: 'move_lines'.tr(),
     );
   }
 }
@@ -5048,17 +5037,12 @@ class _TimelineBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = uiScale(context);
-    return GestureDetector(
+    // This was the one purple control in the app, on a 36pt target inside a
+    // bar where everything else is 44 and either lime or neutral.
+    return _PlayCircle(
+      icon: Icons.view_timeline_outlined,
       onTap: () => _showTimeline(context),
-      child: Container(
-        width: 36 * s, height: 36 * s,
-        decoration: BoxDecoration(
-          color: Colors.purple.withValues(alpha: 0.2),
-          shape: BoxShape.circle,
-        ),
-        child: Icon(Icons.view_timeline_outlined, color: Colors.purpleAccent, size: 20 * s),
-      ),
+      semanticLabel: 'timeline'.tr(),
     );
   }
 

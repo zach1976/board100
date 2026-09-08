@@ -60,7 +60,7 @@ class TopDownPlayerPainter extends CustomPainter {
 
     // Drop shadow
     final shadowPaint = Paint()
-      ..color = Colors.black.withValues(alpha: 0.4)
+      ..color = Colors.black.withValues(alpha: 0.32)
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
     const shadowOffset = Offset(2, 2);
     canvas.drawOval(bodyRect.shift(shadowOffset), shadowPaint);
@@ -95,23 +95,21 @@ class TopDownPlayerPainter extends CustomPainter {
     canvas.drawCircle(headCenter, headRadius, borderPaint);
   }
 
-  /// Ghost mode — same solid fill as the normal icon, but with a dashed
-  /// border instead of a solid one, so "not current" positions stay clearly
-  /// visible while still reading as ghost/past/future state.
+  /// Ghost mode — where the player ends up, not where they are.
+  ///
+  /// This used to be the solid icon plus a dashed ring in the move's colour,
+  /// and on a board with six runs it was the loudest thing on the pitch: six
+  /// extra tokens, each ringed in a different colour, each casting the same
+  /// drop shadow as a real player. A ghost is a destination, so it now reads
+  /// as one — the same shape at half strength, one thin white outline, and no
+  /// shadow, because nothing is standing there yet. The arrow says which
+  /// player it belongs to; the ring no longer has to.
   void _paintGhost(Canvas canvas, double w, double h, Offset headCenter, double headRadius, Rect bodyRect) {
-    // Drop shadow — same as solid path so the ghost sits on the board.
-    final shadowPaint = Paint()
-      ..color = Colors.black.withValues(alpha: 0.4)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
-    const shadowOffset = Offset(2, 2);
-    canvas.drawOval(bodyRect.shift(shadowOffset), shadowPaint);
-    canvas.drawCircle(headCenter + shadowOffset, headRadius, shadowPaint);
-
-    final fillPaint = Paint()..color = color;
-    final dashPaint = Paint()
-      ..color = borderColor
+    final fillPaint = Paint()..color = color.withValues(alpha: 0.45);
+    final outlinePaint = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = (borderWidth * 0.6).clamp(1.0, 2.0);
+      ..strokeWidth = 1.2;
 
     if (gender == PlayerGender.female) {
       final skirtTop = headCenter.dy + headRadius * 0.6;
@@ -123,44 +121,13 @@ class TopDownPlayerPainter extends CustomPainter {
         ..lineTo(w * 0.5 - w * 0.36, skirtBottom)
         ..close();
       canvas.drawPath(skirtPath, fillPaint);
-      _drawDashedPath(canvas, skirtPath, dashPaint);
+      canvas.drawPath(skirtPath, outlinePaint);
     } else {
       canvas.drawOval(bodyRect, fillPaint);
-      _drawDashedOval(canvas, bodyRect, dashPaint);
+      canvas.drawOval(bodyRect, outlinePaint);
     }
     canvas.drawCircle(headCenter, headRadius, fillPaint);
-    _drawDashedCircle(canvas, headCenter, headRadius, dashPaint);
-  }
-
-  void _drawDashedCircle(Canvas canvas, Offset center, double radius, Paint paint) {
-    const dashLen = 2.5;
-    const gapLen = 3.0;
-    final circumference = 2 * pi * radius;
-    final steps = (circumference / (dashLen + gapLen)).floor();
-    for (int i = 0; i < steps; i++) {
-      final startAngle = (i * (dashLen + gapLen)) / radius;
-      final sweepAngle = dashLen / radius;
-      canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false, paint);
-    }
-  }
-
-  void _drawDashedOval(Canvas canvas, Rect rect, Paint paint) {
-    final path = Path()..addOval(rect);
-    _drawDashedPath(canvas, path, paint);
-  }
-
-  void _drawDashedPath(Canvas canvas, Path path, Paint paint) {
-    const dashLen = 2.5;
-    const gapLen = 3.0;
-    for (final metric in path.computeMetrics()) {
-      double distance = 0;
-      while (distance < metric.length) {
-        final end = (distance + dashLen).clamp(0.0, metric.length);
-        final segment = metric.extractPath(distance, end);
-        canvas.drawPath(segment, paint);
-        distance += dashLen + gapLen;
-      }
-    }
+    canvas.drawCircle(headCenter, headRadius, outlinePaint);
   }
 
   @override
@@ -397,13 +364,12 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                         blurRadius: 10,
                         spreadRadius: 2,
                       ),
+                    // One shadow, not two. Every token used to emit a halo in
+                    // its own shirt colour on top of the ground shadow, so a
+                    // full team put eleven coloured glows on the turf and the
+                    // board read as lit from inside.
                     BoxShadow(
-                      color: p.color.withValues(alpha: 0.55),
-                      blurRadius: 6,
-                      spreadRadius: 1,
-                    ),
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.4),
+                      color: Colors.black.withValues(alpha: 0.32),
                       blurRadius: 4,
                       offset: const Offset(1, 2),
                     ),
@@ -425,11 +391,20 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
             ),
           ),
         ),
+        // Same one thin outline the drawn tokens use for a ghost — the photo
+        // tokens carried their own dashed painter, which made the two kinds of
+        // ghost look like two different states.
         if (ghost)
           Positioned.fill(
             child: IgnorePointer(
-              child: CustomPaint(
-                painter: _DashedCircleBorderPainter(color: Colors.white),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.55),
+                    width: 1.2,
+                  ),
+                ),
               ),
             ),
           ),
@@ -463,39 +438,6 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
   }
 }
 
-class _DashedCircleBorderPainter extends CustomPainter {
-  final Color color;
-  const _DashedCircleBorderPainter({required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.6;
-    final radius = (min(size.width, size.height) - paint.strokeWidth) / 2;
-    final center = Offset(size.width / 2, size.height / 2);
-    const dashLen = 4.0;
-    const gapLen = 4.0;
-    final circumference = 2 * pi * radius;
-    final steps = (circumference / (dashLen + gapLen)).floor();
-    for (int i = 0; i < steps; i++) {
-      final startAngle = (i * (dashLen + gapLen)) / radius;
-      final sweepAngle = dashLen / radius;
-      canvas.drawArc(
-        Rect.fromCircle(center: center, radius: radius),
-        startAngle,
-        sweepAngle,
-        false,
-        paint,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _DashedCircleBorderPainter old) =>
-      old.color != color;
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Custom-element marker — user-uploaded photo clipped to a chosen shape
@@ -691,9 +633,9 @@ class MarkerPainter extends CustomPainter {
 
     // Shadow
     final shadow = Paint()
-      ..color = Colors.black.withValues(alpha: 0.4)
+      ..color = Colors.black.withValues(alpha: 0.32)
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
-    canvas.drawCircle(Offset(cx + 2, cy + 2), r, shadow);
+    canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
 
     final fill = Paint()..color = color;
     final border = Paint()
@@ -888,9 +830,9 @@ class _BallWidgetState extends State<_BallWidget>
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.45),
-                blurRadius: 6,
-                offset: const Offset(2, 2),
+                color: Colors.black.withValues(alpha: 0.28),
+                blurRadius: 4,
+                offset: const Offset(1, 2),
               ),
               if (widget.isSelected)
                 BoxShadow(
