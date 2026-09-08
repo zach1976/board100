@@ -28,3 +28,4 @@ __pycache__/
 # own committed screenshots/, which the script no longer touches).
 *Board/screenshots/
 tactics_board/screenshots/0[0-9]-*.png
+board_png/
