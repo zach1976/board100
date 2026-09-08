@@ -311,19 +311,19 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _RoundBtn(
-                    icon: Icons.skip_previous,
+                    icon: Icons.skip_previous_rounded,
                     enabled: _idx > 0,
                     onTap: _prev,
                   ),
                   _RoundBtn(
-                    icon: _running ? Icons.pause : Icons.play_arrow,
+                    icon: _running ? Icons.pause : Icons.play_arrow_rounded,
                     size: 72,
                     enabled: _secLeft > 0,
                     primary: true,
                     onTap: _togglePlay,
                   ),
                   _RoundBtn(
-                    icon: Icons.skip_next,
+                    icon: Icons.skip_next_rounded,
                     enabled: _idx + 1 < total,
                     onTap: _next,
                   ),

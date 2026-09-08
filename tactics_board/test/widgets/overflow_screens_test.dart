@@ -12,6 +12,11 @@ import 'package:tactics_board/state/tactics_state.dart';
 
 import 'overflow_test.dart' show kLocales, kNarrow;
 
+/// The phone most people actually hold. The narrow sweep runs at 320pt,
+/// where the toolbar drops its labels — so the labelled layout was never
+/// tested until a real device overflowed it by 87 pixels.
+const kTypical = Size(402, 874);
+
 /// The overflow sweep across the screens a coach actually opens.
 ///
 /// overflow_test.dart builds the drill library sheet directly. This one
@@ -34,6 +39,7 @@ void main() {
 
   testWidgets('the board and its menus survive every locale on a small phone',
       (tester) async {
+    const screen = kNarrow;
     SharedPreferences.setMockInitialValues({});
     // See overflow_test.dart: the default test platform picks the Android
     // billing plugin, which opens a connection that fails asynchronously.
@@ -49,7 +55,7 @@ void main() {
     // underneath it, so every one of these sweeps was silently running at
     // tablet size — and the mismatch produced a 122-pixel "overflow" in the
     // player edit bar that does not exist at any real size.
-    tester.view.physicalSize = Size(kNarrow.width * 3, kNarrow.height * 3);
+    tester.view.physicalSize = Size(screen.width * 3, screen.height * 3);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(tester.view.reset);
 
@@ -200,6 +206,26 @@ void main() {
       for (var i = 0; i < 15; i++) {
         await tester.pump(const Duration(milliseconds: 100));
       }
+    }
+
+    // Then the same board at the size most people hold. One pumpWidget per
+    // file is the rule here — only the first EasyLocalization renders — so
+    // the view is resized in place rather than started again. The toolbar
+    // lays out differently at each: icons at 320pt, labels at 402pt, and
+    // the labelled layout went untested until a real device overflowed it
+    // by 87 pixels.
+    tester.view.physicalSize = Size(kTypical.width * 3, kTypical.height * 3);
+    for (final locale in kLocales) {
+      await ctx.setLocale(locale);
+      for (var i = 0; i < 6; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      final menu = find.byIcon(Icons.more_horiz);
+      if (menu.evaluate().isEmpty) {
+        unopened.add('${locale.languageCode} @402pt: no board');
+        continue;
+      }
+      opened.add('${locale.languageCode} @402pt toolbar');
     }
 
     debugDefaultTargetPlatformOverride = null;

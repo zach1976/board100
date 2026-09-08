@@ -202,7 +202,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                       decoration: InputDecoration(
                         hintText: 'drills_search'.tr(),
                         hintStyle: const TextStyle(color: Colors.white30, fontSize: 13.5),
-                        prefixIcon: const Icon(Icons.search, color: Colors.white38, size: 18),
+                        prefixIcon: const Icon(Icons.search_rounded, color: Colors.white38, size: 18),
                         prefixIconConstraints:
                             const BoxConstraints(minWidth: 34, minHeight: 34),
                         isDense: true,

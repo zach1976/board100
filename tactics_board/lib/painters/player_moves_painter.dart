@@ -75,7 +75,7 @@ class PlayerMovesPainter extends CustomPainter {
     canvas.drawCircle(
       center,
       r + 2,
-      Paint()..color = Colors.black.withValues(alpha: 0.5),
+      Paint()..color = const Color(0x47000000),
     );
     // Filled circle
     canvas.drawCircle(center, r, Paint()..color = color);
@@ -99,10 +99,13 @@ class PlayerMovesPainter extends CustomPainter {
   }
 
   void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to) {
-    // Dark outline for contrast (uniform).
+    // A darker edge, not a shadow. Every path used to carry a black halo
+    // at 50%, which on a deeper pitch reads as a second thicker line beside
+    // the first; 28% is enough to hold the arrow against grass and white
+    // pitch markings both.
     final outlinePaint = Paint()
-      ..color = Colors.black.withValues(alpha: 0.5)
-      ..strokeWidth = _strokeWidth + 2.5
+      ..color = const Color(0x47000000)
+      ..strokeWidth = _strokeWidth + 1.6
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -147,7 +150,7 @@ class PlayerMovesPainter extends CustomPainter {
     canvas.drawPath(
       outlinePath,
       Paint()
-        ..color = Colors.black.withValues(alpha: 0.5)
+        ..color = const Color(0x47000000)
         ..style = PaintingStyle.fill,
     );
 

@@ -856,7 +856,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
                 onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
               ),
             ListTile(
-              leading: const Icon(Icons.delete_sweep, color: kDanger),
+              leading: const Icon(Icons.delete_sweep_outlined, color: kDanger),
               title: Text('clear_all'.tr(),
                   style: const TextStyle(color: Colors.white)),
               subtitle: Text('clear_board_message'.tr(),
@@ -916,11 +916,12 @@ class _PrimaryToolbar extends StatelessWidget {
     // the labels are German, French or Vietnamese. Below the threshold the
     // tools keep their icons and drop their words — the icons are the same
     // ones, in the same order, so nothing moves.
-    // Also at a large accessibility text size: at 200% the four labels need
-    // roughly twice the room, so the same icon-only fallback applies however
-    // wide the phone is.
+    // Whether the labels fit is decided by the room the tools actually get,
+    // not by how wide the phone is: on a 402pt phone the four trailing
+    // buttons leave 220px for four labelled tools, and guessing from the
+    // screen width overflowed it by 87 pixels on a real device.
     final mq = MediaQuery.of(context);
-    final wide = mq.size.width >= 380 && mq.textScaler.scale(13) <= 17;
+    final roomy = mq.textScaler.scale(13) <= 17;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: T.s16),
       child: centeredPanel(
@@ -936,47 +937,53 @@ class _PrimaryToolbar extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _Tool(
-                      showLabel: wide,
-                      icon: Icons.open_with_rounded,
-                      label: 'mode_move'.tr(),
-                      selected: !drawing && !selecting,
-                      onTap: state.isAnimating
-                          ? null
-                          : () {
-                              state.setMultiSelectMode(false);
-                              state.setDrawingMode(false);
-                            },
-                    ),
-                    _Tool(
-                      showLabel: wide,
-                      icon: Icons.gesture_rounded,
-                      label: 'mode_draw'.tr(),
-                      selected: drawing,
-                      onTap: state.isAnimating
-                          ? null
-                          : () => state.setDrawingMode(true),
-                    ),
-                    _Tool(
-                      showLabel: wide,
-                      icon: Icons.highlight_alt_rounded,
-                      label: 'mode_select'.tr(),
-                      selected: selecting,
-                      onTap: state.isAnimating
-                          ? null
-                          : () => state.setMultiSelectMode(!selecting),
-                    ),
-                    _Tool(
-                      showLabel: wide,
-                      icon: Icons.add_rounded,
-                      label: 'add_label'.tr(),
-                      selected: false,
-                      onTap: () => _AddPlayerBtn.showAddSheet(context, state),
-                    ),
-                  ],
+                child: LayoutBuilder(
+                  builder: (context, box) {
+                    // Four labelled tools need about 88pt each.
+                    final wide = roomy && box.maxWidth >= 348;
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        _Tool(
+                          showLabel: wide,
+                          icon: Icons.open_with_rounded,
+                          label: 'mode_move'.tr(),
+                          selected: !drawing && !selecting,
+                          onTap: state.isAnimating
+                              ? null
+                              : () {
+                                  state.setMultiSelectMode(false);
+                                  state.setDrawingMode(false);
+                                },
+                        ),
+                        _Tool(
+                          showLabel: wide,
+                          icon: Icons.gesture_rounded,
+                          label: 'mode_draw'.tr(),
+                          selected: drawing,
+                          onTap: state.isAnimating
+                              ? null
+                              : () => state.setDrawingMode(true),
+                        ),
+                        _Tool(
+                          showLabel: wide,
+                          icon: Icons.highlight_alt_rounded,
+                          label: 'mode_select'.tr(),
+                          selected: selecting,
+                          onTap: state.isAnimating
+                              ? null
+                              : () => state.setMultiSelectMode(!selecting),
+                        ),
+                        _Tool(
+                          showLabel: wide,
+                          icon: Icons.add_rounded,
+                          label: 'add_label'.tr(),
+                          selected: false,
+                          onTap: () => _AddPlayerBtn.showAddSheet(context, state),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
               // History, trailing, in its own group.
@@ -994,7 +1001,7 @@ class _PrimaryToolbar extends StatelessWidget {
               // in the app autosaves, so it is a library rather than a save.
               // On a narrow phone it steps aside — undo and redo are used far
               // more often, and the board list is one tap away in the menu.
-              if (wide)
+              if (mq.size.width >= 380)
                 TacticalIconButton(
                   icon: Icons.folder_outlined,
                   onTap: () => showSaveLoadSheet(context, state),
@@ -1268,7 +1275,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.add, color: Colors.white, size: 18),
+                      const Icon(Icons.add_rounded, color: Colors.white, size: 18),
                       const SizedBox(width: 6),
                       Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
                     ],
@@ -1366,7 +1373,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+            icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
             onPressed: () async {
               await widget.state.deleteTactics(name);
               await _loadList();
@@ -1407,7 +1414,7 @@ class _AddPlayerBtn extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.add, color: Colors.white, size: 15 * s),
+            Icon(Icons.add_rounded, color: Colors.white, size: 15 * s),
             SizedBox(width: 4 * s),
             Text('add_label'.tr(),
                 style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
@@ -1883,7 +1890,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(_showMore ? Icons.expand_less : Icons.more_horiz, color: Colors.white54, size: 18 * s),
+                              Icon(_showMore ? Icons.expand_less_rounded : Icons.more_horiz, color: Colors.white54, size: 18 * s),
                               Text(_showMore ? 'less'.tr() : 'more'.tr(),
                                   style: const TextStyle(color: Colors.white54, fontSize: 9)),
                             ],
@@ -1940,7 +1947,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                               fontWeight: FontWeight.w600,
                               fontSize: 14)),
                     ),
-                    Icon(_showPhotos ? Icons.expand_less : Icons.expand_more,
+                    Icon(_showPhotos ? Icons.expand_less_rounded : Icons.expand_more_rounded,
                         color: Colors.white54),
                   ],
                 ),
@@ -2387,7 +2394,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
               onTap: () => Navigator.of(ctx).pop('rename'),
             ),
             ListTile(
-              leading: const Icon(Icons.delete_outline, color: Colors.redAccent),
+              leading: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent),
               title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.redAccent)),
               onTap: () => Navigator.of(ctx).pop('delete'),
             ),
@@ -2808,7 +2815,7 @@ class _PhotoTileState extends State<_PhotoTile> {
                   ),
                 ],
               ),
-              child: const Icon(Icons.close, color: Colors.white, size: 14),
+              child: const Icon(Icons.close_rounded, color: Colors.white, size: 14),
             ),
           ),
         ),
@@ -3262,7 +3269,7 @@ class _PhotosManageDialog extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
-                    child: const Icon(Icons.close, color: Colors.white54),
+                    child: const Icon(Icons.close_rounded, color: Colors.white54),
                   ),
                 ],
               ),
@@ -3462,7 +3469,7 @@ class _ManageTileState extends State<_ManageTile> {
               onTap: widget.onAdjust,
             ),
             _ManageAction(
-              icon: Icons.delete_outline,
+              icon: Icons.delete_outline_rounded,
               color: Colors.redAccent,
               onTap: widget.onDelete,
             ),
@@ -3545,7 +3552,7 @@ class _EditModeTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              editing ? Icons.check_circle : Icons.edit_outlined,
+              editing ? Icons.check_circle_outline_rounded : Icons.edit_outlined,
               color: accent,
               size: 18 * s,
             ),
@@ -3911,7 +3918,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
               height: 16,
               decoration: BoxDecoration(color: color, shape: BoxShape.circle),
               alignment: Alignment.center,
-              child: const Icon(Icons.add, color: Colors.white, size: 12),
+              child: const Icon(Icons.add_rounded, color: Colors.white, size: 12),
             ),
             const SizedBox(width: 6),
             Text(
@@ -5026,7 +5033,7 @@ class _LinesToggle extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: Icon(
-          show ? Icons.timeline : Icons.visibility_off,
+          show ? Icons.timeline_rounded : Icons.visibility_off,
           color: show ? Colors.white54 : Colors.redAccent,
           size: 20 * s,
         ),
@@ -5050,7 +5057,7 @@ class _TimelineBtn extends StatelessWidget {
           color: Colors.purple.withValues(alpha: 0.2),
           shape: BoxShape.circle,
         ),
-        child: Icon(Icons.view_timeline, color: Colors.purpleAccent, size: 20 * s),
+        child: Icon(Icons.view_timeline_outlined, color: Colors.purpleAccent, size: 20 * s),
       ),
     );
   }

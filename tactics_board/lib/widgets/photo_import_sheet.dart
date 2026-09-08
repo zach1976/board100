@@ -281,7 +281,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
             ),
             GestureDetector(
               onTap: () => Navigator.of(context).maybePop(),
-              child: const Icon(Icons.close, color: Colors.white54),
+              child: const Icon(Icons.close_rounded, color: Colors.white54),
             ),
           ],
         ),
@@ -326,7 +326,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                           color: Colors.redAccent,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.close, color: Colors.white, size: 14),
+                        child: const Icon(Icons.close_rounded, color: Colors.white, size: 14),
                       ),
                     ),
                   ),

@@ -325,14 +325,14 @@ class TacticsBoardHomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _lCircleBtn(Icons.undo, kAccent, state.canUndo ? state.undo : null),
+                _lCircleBtn(Icons.undo_rounded, kAccent, state.canUndo ? state.undo : null),
                 const SizedBox(width: 12),
-                _lCircleBtn(Icons.redo, kAccent, state.canRedo ? state.redo : null),
+                _lCircleBtn(Icons.redo_rounded, kAccent, state.canRedo ? state.redo : null),
               ],
             ),
             const SizedBox(height: 10),
             // Action buttons
-            _lWideBtn(Icons.add, 'add_label', () => showAddElementSheet(context, state)),
+            _lWideBtn(Icons.add_rounded, 'add_label', () => showAddElementSheet(context, state)),
             const SizedBox(height: 6),
             Row(
               children: [
@@ -343,7 +343,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
             if (state.players.isNotEmpty || state.strokes.isNotEmpty) ...[
               const SizedBox(height: 6),
-              _lWideBtn(Icons.delete_sweep, 'clear', () => confirmClearAll(context, state), color: Colors.redAccent),
+              _lWideBtn(Icons.delete_sweep_outlined, 'clear', () => confirmClearAll(context, state), color: Colors.redAccent),
             ],
             const Spacer(),
             // Play controls
@@ -354,12 +354,12 @@ class TacticsBoardHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _lCircleBtn(Icons.skip_previous, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
+                  _lCircleBtn(Icons.skip_previous_rounded, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: Text('${state.atStep}/${state.maxMoveSteps}', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
                   ),
-                  _lCircleBtn(Icons.skip_next, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
+                  _lCircleBtn(Icons.skip_next_rounded, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
                 ],
               ),
               const SizedBox(height: 6),
@@ -368,11 +368,11 @@ class TacticsBoardHomePage extends StatelessWidget {
                 children: [
                   _lCircleBtn(Icons.replay, Colors.orange, state.atStep > 0 ? state.clearAnimatedPositions : null),
                   const SizedBox(width: 6),
-                  _lCircleBtn(state.isAnimating ? Icons.stop : Icons.play_arrow, Colors.green, !state.isAnimating ? state.startAnimation : state.stopAnimation),
+                  _lCircleBtn(state.isAnimating ? Icons.stop_rounded : Icons.play_arrow_rounded, Colors.green, !state.isAnimating ? state.startAnimation : state.stopAnimation),
                   const SizedBox(width: 6),
                   _lCircleBtn(Icons.show_chart, state.showMoveLines ? Colors.white54 : Colors.redAccent, state.toggleShowMoveLines),
                   const SizedBox(width: 6),
-                  _lCircleBtn(Icons.view_timeline, Colors.purpleAccent, () {
+                  _lCircleBtn(Icons.view_timeline_outlined, Colors.purpleAccent, () {
                     showModalBottomSheet(
                       context: context,
                       constraints: sheetConstraints(context),
@@ -927,7 +927,7 @@ class _LoginPageState extends State<_LoginPage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.check_circle, color: Colors.green, size: 80),
+        const Icon(Icons.check_circle_outline_rounded, color: Colors.green, size: 80),
         const SizedBox(height: 16),
         Text(_auth.userName ?? 'User', style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
         if (_auth.userEmail != null)
@@ -1229,7 +1229,7 @@ class _ScorerPromoSheet extends StatelessWidget {
                 const SizedBox(width: 8),
                 _featureChip(Icons.timer, 'scorer_feature_timer'.tr()),
                 const SizedBox(width: 8),
-                _featureChip(Icons.history, 'scorer_feature_history'.tr()),
+                _featureChip(Icons.history_rounded, 'scorer_feature_history'.tr()),
               ],
             ),
             const SizedBox(height: 20),
@@ -1445,7 +1445,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               ),
               const SizedBox(width: 6),
               // Delete
-              _editAction(Icons.delete, kDanger, () {
+              _editAction(Icons.delete_outline_rounded, kDanger, () {
                 widget.state.removePlayer(p.id);
                 widget.onClose?.call();
               }),
@@ -1456,7 +1456,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   widget.state.selectPlayer(null);
                   widget.onClose?.call();
                 },
-                child: const Icon(Icons.close, color: Colors.white54, size: 20),
+                child: const Icon(Icons.close_rounded, color: Colors.white54, size: 20),
               ),
             ],
           ),
@@ -1998,7 +1998,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.close, color: Colors.white54),
+                  child: const Icon(Icons.close_rounded, color: Colors.white54),
                 ),
               ],
             ),
@@ -2116,7 +2116,7 @@ class _MoveToggle extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(on ? Icons.check : Icons.directions_run,
+            Icon(on ? Icons.check_rounded : Icons.directions_run,
                 size: 14, color: on ? Colors.white : kAccent),
             if (!compact) ...[
               const SizedBox(width: 4),
@@ -2282,11 +2282,11 @@ class _BigPlayControls extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _bigBtn(Icons.skip_previous,
+          _bigBtn(Icons.skip_previous_rounded,
               (!animating && !atStart) ? state.stepBackward : null),
           const SizedBox(width: 10),
           _bigBtn(
-            animating ? Icons.stop : Icons.play_arrow,
+            animating ? Icons.stop_rounded : Icons.play_arrow_rounded,
             animating ? state.stopAnimation : state.startAnimation,
             primary: true,
           ),
@@ -2298,7 +2298,7 @@ class _BigPlayControls extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontFeatures: [FontFeature.tabularFigures()])),
           const SizedBox(width: 12),
-          _bigBtn(Icons.skip_next,
+          _bigBtn(Icons.skip_next_rounded,
               (!animating && !atEnd) ? state.stepForward : null),
           const SizedBox(width: 10),
           // Toggle the move-arrow overlay while presenting — show the end
@@ -2606,7 +2606,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
             top: 6,
             right: 4,
             child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white54, size: 22),
+              icon: const Icon(Icons.close_rounded, color: Colors.white54, size: 22),
               onPressed: () => Navigator.of(context).maybePop(),
             ),
           ),

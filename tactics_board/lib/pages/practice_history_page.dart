@@ -111,7 +111,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
         actions: [
           if (_sessions.isNotEmpty)
             IconButton(
-              icon: const Icon(Icons.delete_sweep, color: Colors.redAccent),
+              icon: const Icon(Icons.delete_sweep_outlined, color: Colors.redAccent),
               tooltip: 'practice_history_clear_title'.tr(),
               onPressed: _confirmClear,
             ),
@@ -184,7 +184,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                           return ListTile(
                             leading: Icon(
                               s.completed
-                                  ? Icons.check_circle
+                                  ? Icons.check_circle_outline_rounded
                                   : Icons.radio_button_unchecked,
                               color: s.completed
                                   ? _kAccent
