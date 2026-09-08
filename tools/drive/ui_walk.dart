@@ -103,6 +103,14 @@ void main() {
     // bottom bar becomes the playback controls and the mode tabs are gone
     // for the rest of the walk.
     await home();
+    // Send the first-run card away first. It carries the same + as the
+    // toolbar's Add and comes earlier in the tree, so tapIcon found the card
+    // rather than the tool — and shot the board instead of the Add sheet.
+    final hint = find.byIcon(Icons.close_rounded).hitTestable();
+    if (hint.evaluate().isNotEmpty) {
+      await tester.tap(hint.first, warnIfMissed: false);
+      await settle(6);
+    }
     if (await tapIcon(Icons.add_rounded)) {
       await binding.takeScreenshot('03-add-element');
       await home();
