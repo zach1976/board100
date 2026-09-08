@@ -11,6 +11,17 @@ import 'marker_shape_clipper.dart';
 
 const double kPlayerIconSize = 44.0;
 
+/// How much of its 44pt cell a ball actually fills.
+///
+/// A player token draws a circle of radius 0.38w — about three quarters of the
+/// cell — while a ball filled the whole of it, so the ball came out a third
+/// wider than the players around it and read as the biggest thing on the
+/// pitch. Top-down, a ball is smaller than the person next to it. The cell
+/// itself is unchanged, so the tap target stays 44pt and nothing about
+/// positioning moves; only the drawing shrinks. Scale it up per-ball from the
+/// edit bar if a drill wants the ball emphasised.
+const double kBallDrawFactor = 0.72;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Top-down person painter (shared between board and toolbar preview)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -196,7 +207,14 @@ class PlayerIconWidget extends StatelessWidget {
                   : player.isMarker
                   ? _MarkerWidget(player: player, isSelected: isSelected)
                   : player.isBall
-                  ? _BallWidget(player: player, isSelected: isSelected)
+                  ? Center(
+                      child: FractionallySizedBox(
+                        widthFactor: kBallDrawFactor,
+                        heightFactor: kBallDrawFactor,
+                        child: _BallWidget(
+                            player: player, isSelected: isSelected),
+                      ),
+                    )
                   : (player.photoId != null
                       ? PhotoPlayerShape(player: player, isSelected: isSelected)
                       : _PlayerShape(player: player, isSelected: isSelected)),
