@@ -68,10 +68,16 @@ def kind(p):
 
 
 def position_at(p, step):
-    """Where an element stands once phases up to and including [step] have run."""
+    """Where an element stands at [step], matching the board exactly.
+
+    The canvas advances a move when `phase < phaseLimit`, so at step 0 nothing
+    has run yet and at step N phases 0..N-1 have. Using `<=` here — which is
+    the reading the field names invite — put every overlap one step early in
+    the report and made the last state unreachable.
+    """
     pos = p["position"]
     for dest, phase in zip(p.get("moves", []), p.get("movePhases", [])):
-        if phase <= step:
+        if phase < step:
             pos = dest
     return pos
 
@@ -89,7 +95,7 @@ def audit(drill, sport):
             "id": "ball_static",
             "level": "error",
             "text": f"球从头到尾不动：{len(movers)} 名球员走了 "
-                    f"{max_phase(board) + 1} 步，球停在 "
+                    f"{max_step(board)} 步，球停在 "
                     f"({balls[0]['position'][0]:.0f}, {balls[0]['position'][1]:.0f})",
         })
     if movers and not balls:
@@ -119,8 +125,7 @@ def audit(drill, sport):
     if not drill.get("tags"):
         out.append({"id": "no_tags", "level": "info", "text": "没有标签"})
 
-    steps = max_phase(board) + 1
-    for step in range(steps):
+    for step in range(max_step(board) + 1):
         at = [(p, position_at(p, step)) for p in board["players"]
               if kind(p) != "marker"]
         for i in range(len(at)):
@@ -141,7 +146,16 @@ def audit(drill, sport):
 
 def max_phase(board):
     phases = [ph for p in board["players"] for ph in p.get("movePhases", [])]
-    return max(phases) if phases else 0
+    return max(phases) if phases else -1
+
+
+def max_step(board):
+    """TacticsState.maxMoveSteps — the number the app's indicator counts to.
+
+    Phases 0..maxPhase inclusive, so a board with phases {0,1,2,3} has four
+    beats and five states: the start, then one after each beat.
+    """
+    return max_phase(board) + 1
 
 
 def collect(only=None):
@@ -168,7 +182,7 @@ def collect(only=None):
                 "players": d.get("players"),
                 "family": d.get("familyName") or "",
                 "tags": d.get("tags", []),
-                "steps": max_phase(board) + 1,
+                "maxStep": max_step(board),
                 "els": [{
                     "id": p["id"],
                     "k": kind(p),
@@ -408,7 +422,7 @@ function renderList() {
 const src = (d, step) => `board_png/${d.sport}/${d.id}-${step}.png`;
 
 function preload(d) {
-  for (let i = 0; i < d.steps; i++) new Image().src = src(d, i);
+  for (let i = 0; i <= d.maxStep; i++) new Image().src = src(d, i);
 }
 
 // ── detail ─────────────────────────────────────────────────────────────────
@@ -439,7 +453,7 @@ function renderPane() {
     <p class="meta">
       <span>${d.sport}</span><span>${d.category}</span><span>${d.level}</span>
       <span>${d.minutes} 分钟</span><span>${d.players} 人</span>
-      <span>${d.steps} 步</span>${d.family ? `<span>${d.family}</span>` : ''}
+      <span>${d.maxStep} 步</span>${d.family ? `<span>${d.family}</span>` : ''}
       <span>${d.id}</span>
     </p>
 
@@ -448,7 +462,7 @@ function renderPane() {
         <img class="board" id="svg" src="${src(d, step)}" alt="第 ${step} 步">
         <div class="steps">
           <button class="ghost" id="prev">‹</button>
-          <span class="n" id="stepn">${step} / ${d.steps - 1}</span>
+          <span class="n" id="stepn">${step} / ${d.maxStep}</span>
           <button class="ghost" id="next">›</button>
           <button class="ghost" id="play">播放</button>
         </div>
@@ -506,11 +520,11 @@ function renderPane() {
   en.addEventListener('input', () => count(en, wc, 45));
 
   document.getElementById('prev').onclick = () => { step = Math.max(0, step-1); redrawBoard(); };
-  document.getElementById('next').onclick = () => { step = Math.min(d.steps-1, step+1); redrawBoard(); };
+  document.getElementById('next').onclick = () => { step = Math.min(d.maxStep, step+1); redrawBoard(); };
   document.getElementById('play').onclick = () => {
     step = 0; redrawBoard();
     const t = setInterval(() => {
-      if (step >= d.steps - 1) return clearInterval(t);
+      if (step >= d.maxStep) return clearInterval(t);
       step++; redrawBoard();
     }, 700);
   };
@@ -522,7 +536,7 @@ function redrawBoard() {
   const img = document.getElementById('svg');
   img.src = src(current, step);
   img.alt = `第 ${step} 步`;
-  document.getElementById('stepn').textContent = `${step} / ${current.steps - 1}`;
+  document.getElementById('stepn').textContent = `${step} / ${current.maxStep}`;
 }
 
 function doSave(advance) {
