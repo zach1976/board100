@@ -27,6 +27,35 @@ import '../painters/footvolley_court_painter.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
 
+/// Paint order for everything standing on the board.
+///
+/// The list is in the order things were added, so a cone dropped after a
+/// player was drawn on top of them — four hurdles hid the numbers of the four
+/// players they belonged to. Equipment is context, a player is the subject and
+/// a ball is what the eye follows, so they layer in that order. Stack order is
+/// also hit-test order, so this additionally means a tap where a player and a
+/// cone overlap selects the player.
+int _paintRank(PlayerIcon p) {
+  if (p.isMarker) return 0;
+  if (p.isBall) return 2;
+  return 1;
+}
+
+/// Grouped by [_paintRank]. Buckets rather than a sort because List.sort is
+/// not stable in Dart: within one kind the added order has to survive, or two
+/// overlapping cones would swap places on an unrelated rebuild.
+@visibleForTesting
+List<PlayerIcon> inPaintOrderForTest(List<PlayerIcon> players) =>
+    _inPaintOrder(players);
+
+List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players) {
+  final ranked = <List<PlayerIcon>>[[], [], []];
+  for (final p in players) {
+    ranked[_paintRank(p)].add(p);
+  }
+  return [...ranked[0], ...ranked[1], ...ranked[2]];
+}
+
 class TacticsCanvas extends StatefulWidget {
   const TacticsCanvas({super.key});
 
@@ -125,7 +154,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     final sh = _state.canvasSize.height;
     if (sw <= 0 || sh <= 0) return const SizedBox(width: 960, height: 540);
     Offset sc(Offset p) => Offset(p.dx / sw * pw, p.dy / sh * ph);
-    final players = _state.players.toList();
+    final players = _inPaintOrder(_state.players);
     final sPlayers = players.map((p) => p.copyWith(
       position: sc(p.position),
       moves: p.moves.map(sc).toList(),
@@ -310,7 +339,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               state.setCanvasSizeSilent(newSize);
             }
 
-            final players = state.players.toList();
+            final players = _inPaintOrder(state.players);
 
             final eraser = state.isDrawingMode && state.eraserMode;
             final draggingStroke = state.isDrawingMode &&
