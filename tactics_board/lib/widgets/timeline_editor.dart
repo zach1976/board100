@@ -114,7 +114,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                   _selected.length > 1
                       ? 'Tap an empty slot to shift the group · drag to move'
                       : 'Tap an empty slot to move · tap another block to add',
-                  style: const TextStyle(color: Colors.amber, fontSize: 11),
+                  style: const TextStyle(color: T.accent, fontSize: 11),
                 ),
               ),
             // Playback controls — speed / loop / sequential.
@@ -384,22 +384,22 @@ class _TimelineEditorState extends State<TimelineEditor> {
     ({String id, int moveIdx, bool isStroke})? dragData,
   }) {
     final slotColor = isSelected
-        ? Colors.amber.withValues(alpha: 0.4)
+        ? T.accent.withValues(alpha: 0.4)
         : isDropHover
             ? color.withValues(alpha: 0.35)
             : hasContent
                 ? color.withValues(alpha: 0.5)
                 : canDrop
-                    ? Colors.amber.withValues(alpha: 0.12)
+                    ? T.accent.withValues(alpha: 0.12)
                     : Colors.white.withValues(alpha: 0.03);
     final borderColor = isSelected
-        ? Colors.amber
+        ? T.accent
         : isDropHover
             ? color
             : hasContent
                 ? color
                 : canDrop
-                    ? Colors.amber.withValues(alpha: 0.4)
+                    ? T.accent.withValues(alpha: 0.4)
                     : Colors.transparent;
 
     final blockWidget = Container(
@@ -415,7 +415,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(label ?? '', style: const TextStyle(color: Colors.amber, fontSize: 11, fontWeight: FontWeight.bold)),
+                    Text(label ?? '', style: const TextStyle(color: T.accent, fontSize: 11, fontWeight: FontWeight.bold)),
                     const SizedBox(width: 2),
                     GestureDetector(
                       onTap: onDelete,
@@ -425,18 +425,18 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 )
               : Center(
                   child: icon != null
-                      ? Icon(icon, color: isSelected ? Colors.amber : Colors.white, size: 14)
+                      ? Icon(icon, color: isSelected ? T.accent : Colors.white, size: 14)
                       : Text(
                           label ?? '',
                           style: TextStyle(
-                            color: isSelected ? Colors.amber : Colors.white,
+                            color: isSelected ? T.accent : Colors.white,
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                 )
           : (canDrop || isDropHover)
-              ? Center(child: Icon(Icons.add_rounded, color: isDropHover ? color : Colors.amber, size: 16))
+              ? Center(child: Icon(Icons.add_rounded, color: isDropHover ? color : T.accent, size: 16))
               : null,
     );
 

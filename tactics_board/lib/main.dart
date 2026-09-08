@@ -144,6 +144,12 @@ class TacticsBoardApp extends StatelessWidget {
               contentTextStyle: T.body,
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(borderRadius: T.brMd),
+              // A floating SnackBar defaults to sitting 8pt off the bottom,
+              // which on the board puts it under the home indicator and on
+              // top of the toolbar capsule — a drill's name arrived half cut
+              // off, covering the controls it was telling you to use. Lift it
+              // clear of the capsule (60 tall, 12 up) instead.
+              insetPadding: EdgeInsets.fromLTRB(T.s16, T.s8, T.s16, 96),
             ),
           ),
           home: fs != null

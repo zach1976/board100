@@ -546,7 +546,9 @@ class _MenuButton extends StatelessWidget {
           // Destructive, and rare: it used to sit a thumb's width from Undo
           // on the toolbar, where the two are easy to confuse.
           _menuItem('clear', Icons.delete_sweep_outlined,
-              'clear_board_title'.tr(), tint: T.danger),
+              // The menu item asks for the action; the confirm dialog is what
+              // asks the question. Both were reading 'Clear Board?'.
+              'clear_all'.tr(), tint: T.danger),
         ];
       },
     );
@@ -2928,9 +2930,12 @@ class _FirstRunHintState extends State<_FirstRunHint> {
     // A light coach mark above the toolbar, not a paragraph across the
     // board. It says the one thing a coach needs on an empty pitch, points
     // at the control that does it, and goes away for good.
+    // The right rail (zoom / fullscreen) sits at right: 12 and is up to 60
+    // wide, so the card has to stop short of it — centred across the full
+    // width, it slid under the fullscreen button and hid its own dismiss X.
     return Positioned(
       left: T.s16,
-      right: T.s16,
+      right: 68,
       bottom: 8,
       child: Center(
         child: Semantics(
