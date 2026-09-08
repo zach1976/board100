@@ -69,21 +69,21 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
             children: [
               const SizedBox(height: 8),
               ListTile(
-                leading: const Icon(Icons.photo_camera_outlined, color: Colors.white),
+                leading: const Icon(Icons.photo_camera_outlined, color: T.text),
                 title: Text('photo_take'.tr(),
-                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    style: const TextStyle(color: T.text, fontSize: 15)),
                 onTap: () => Navigator.of(ctx).pop(true),
               ),
               ListTile(
-                leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
+                leading: const Icon(Icons.photo_library_outlined, color: T.text),
                 title: Text('photo_from_gallery'.tr(),
-                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    style: const TextStyle(color: T.text, fontSize: 15)),
                 onTap: () => Navigator.of(ctx).pop(false),
               ),
               const SizedBox(height: 8),
               ListTile(
                 title: Text('cancel'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 14),
+                    style: const TextStyle(color: T.textDim, fontSize: 14),
                     textAlign: TextAlign.center),
                 onTap: () => Navigator.of(ctx).pop(),
               ),
@@ -156,7 +156,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                   child: Text(
                     'photo_crop_title'.tr(),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: T.text,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
@@ -164,14 +164,14 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.close_rounded, color: Colors.white54),
+                  child: const Icon(Icons.close_rounded, color: T.textDim),
                 ),
               ],
             ),
             const SizedBox(height: 6),
             Text(
               'photo_crop_hint'.tr(),
-              style: const TextStyle(color: Colors.white54, fontSize: 12),
+              style: const TextStyle(color: T.textDim, fontSize: 12),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -260,7 +260,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                       child: Center(
                         child: Text(
                           'photo_crop_reset'.tr(),
-                          style: const TextStyle(color: Colors.white70),
+                          style: const TextStyle(color: T.textDim),
                         ),
                       ),
                     ),
