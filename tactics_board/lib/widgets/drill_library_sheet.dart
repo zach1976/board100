@@ -432,7 +432,7 @@ class _DrillRow extends StatelessWidget {
                       children: [
                         Flexible(
                           child: _Fact(
-                              icon: Icons.schedule,
+                              icon: Icons.schedule_outlined,
                               text: 'drills_minutes'.tr(args: [_span((d) => d.minutes)])),
                         ),
                         const SizedBox(width: 12),

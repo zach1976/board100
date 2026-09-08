@@ -943,7 +943,7 @@ class _LoginPageState extends State<_LoginPage> {
             onPressed: (_loading || CloudSyncService.isSyncing)
                 ? null
                 : _manualSync,
-            icon: const Icon(Icons.cloud_sync),
+            icon: const Icon(Icons.cloud_sync_outlined),
             label: Text('sync_now'.tr(),
                 style: const TextStyle(
                     fontSize: 16, fontWeight: FontWeight.bold)),
@@ -1012,23 +1012,23 @@ class _LoginPageState extends State<_LoginPage> {
       color = T.textDim;
       primary = 'sync_status_syncing'.tr();
     } else if (local && remote) {
-      icon = Icons.sync_problem;
+      icon = Icons.sync_problem_outlined;
       color = T.warning;
       primary = 'sync_status_both_dirty'.tr();
     } else if (local) {
-      icon = Icons.cloud_upload;
+      icon = Icons.cloud_upload_outlined;
       color = T.warning;
       primary = 'sync_status_local_dirty'.tr();
     } else if (remote) {
-      icon = Icons.cloud_download;
+      icon = Icons.cloud_download_outlined;
       color = T.warning;
       primary = 'sync_status_remote_dirty'.tr();
     } else if (last == null) {
-      icon = Icons.cloud_off;
+      icon = Icons.cloud_off_outlined;
       color = T.textOff;
       primary = 'sync_status_never'.tr();
     } else {
-      icon = Icons.cloud_done;
+      icon = Icons.cloud_done_outlined;
       color = T.accent;
       primary = 'sync_status_synced'.tr();
     }
@@ -1227,9 +1227,9 @@ class _ScorerPromoSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _featureChip(Icons.scoreboard, 'scorer_feature_score'.tr()),
+                _featureChip(Icons.scoreboard_outlined, 'scorer_feature_score'.tr()),
                 const SizedBox(width: 8),
-                _featureChip(Icons.timer, 'scorer_feature_timer'.tr()),
+                _featureChip(Icons.timer_outlined, 'scorer_feature_timer'.tr()),
                 const SizedBox(width: 8),
                 _featureChip(Icons.history_rounded, 'scorer_feature_history'.tr()),
               ],
@@ -2629,7 +2629,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       child: Stack(
         alignment: Alignment.center,
         children: const [
-          Icon(Icons.shield, color: kAccent, size: 44),
+          Icon(Icons.shield_outlined, color: kAccent, size: 44),
           Padding(
             padding: EdgeInsets.only(bottom: 4),
             child: Icon(Icons.star_rounded, color: T.bg0, size: 20),

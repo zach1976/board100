@@ -103,15 +103,21 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
 
     return Scaffold(
       backgroundColor: _kBg,
+      // The same bar as the plan page this is opened from. It used to be a
+      // raised _kCard strip with a centred title while its parent had a flat
+      // left-aligned one, so stepping between the two looked like stepping
+      // between two apps.
       appBar: AppBar(
-        backgroundColor: _kCard,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: Text('practice_history'.tr(),
-            style: const TextStyle(color: Colors.white)),
+        backgroundColor: T.bg1,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        iconTheme: const IconThemeData(color: T.text, size: 22),
+        title: Text('practice_history'.tr(), style: T.section),
         actions: [
           if (_sessions.isNotEmpty)
             IconButton(
-              icon: const Icon(Icons.delete_sweep_outlined, color: Colors.redAccent),
+              icon: const Icon(Icons.delete_sweep_outlined, color: T.danger),
               tooltip: 'practice_history_clear_title'.tr(),
               onPressed: _confirmClear,
             ),

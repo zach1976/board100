@@ -267,7 +267,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
       children: [
         Row(
           children: [
-            const Icon(Icons.face, color: T.accent, size: 20),
+            const Icon(Icons.face_outlined, color: T.accent, size: 20),
             const SizedBox(width: 8),
             Expanded(
               child: Text(

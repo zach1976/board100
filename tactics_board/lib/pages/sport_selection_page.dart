@@ -119,7 +119,7 @@ class SportSelectionPage extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.language, color: Colors.white60, size: 18),
+                      icon: const Icon(Icons.language_rounded, color: Colors.white60, size: 18),
                       onPressed: () => LanguagePicker.show(context),
                       padding: EdgeInsets.zero,
                     ),

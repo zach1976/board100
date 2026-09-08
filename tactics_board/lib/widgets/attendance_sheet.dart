@@ -185,7 +185,7 @@ class _MemberToggleState extends State<_MemberToggle> {
                 if (!present)
                   const Positioned(
                     right: 0, bottom: 0,
-                    child: Icon(Icons.remove_circle, color: Colors.white38, size: 18),
+                    child: Icon(Icons.remove_circle_outline, color: Colors.white38, size: 18),
                   ),
               ],
             ),

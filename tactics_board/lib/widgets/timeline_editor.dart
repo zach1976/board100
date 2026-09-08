@@ -177,7 +177,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         padding: const EdgeInsets.fromLTRB(16, 8, 16, 2),
                         child: Row(
                           children: [
-                            Icon(Icons.draw, color: Colors.white38, size: 14),
+                            Icon(Icons.draw_outlined, color: Colors.white38, size: 14),
                             const SizedBox(width: 4),
                             Text('mode_draw'.tr(), style: const TextStyle(color: Colors.white38, fontSize: 11)),
                           ],
@@ -300,7 +300,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
             width: 40,
             child: Row(
               children: [
-                Icon(Icons.gesture, color: c, size: 14),
+                Icon(Icons.gesture_rounded, color: c, size: 14),
                 const SizedBox(width: 4),
                 Text('${index + 1}', style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600)),
               ],
@@ -357,7 +357,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                                     )
                                   : (stroke.isFullSpan && i == phaseCount ~/ 2)
                                       ? Text('ALL', style: TextStyle(color: c, fontSize: 9, fontWeight: FontWeight.bold))
-                                      : Icon(Icons.draw, color: c.withValues(alpha: 0.5), size: 10),
+                                      : Icon(Icons.draw_outlined, color: c.withValues(alpha: 0.5), size: 10),
                             )
                           : null,
                     ),
