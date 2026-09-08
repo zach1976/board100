@@ -1740,7 +1740,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     // be an unbounded scroll view that read as a settings screen, with a
     // full-width Divider slab between every group.
     return TacticalSheet(
-      maxHeightFraction: 0.62,
+      // Tall enough to open showing everything. The sheet takes its content's
+      // height and only scrolls past this cap, so a low one did not make a
+      // compact sheet — it made a sheet that hid its last section behind a
+      // swipe. With My Teams expanded there are four groups to show, and a
+      // coach adding players should see all of them without scrolling.
+      maxHeightFraction: 0.9,
       padding: const EdgeInsets.fromLTRB(0, T.s12, 0, T.s8),
       child: SingleChildScrollView(
         controller: _scrollController,
