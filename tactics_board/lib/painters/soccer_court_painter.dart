@@ -20,12 +20,14 @@ class SoccerTurf {
       {required this.swatch, required this.stripeA, required this.stripeB});
 }
 
-/// Reproduces the original hard-coded colours exactly, so the default pitch is
-/// visually unchanged. Also the painter's const default turf.
+/// The default pitch. Deeper and a little less saturated than the original
+/// #2D8A2D: the players, the ball and the tactical paths have to be the
+/// brightest things on the board, and against the old grass they were not.
+/// See T.turf / T.turfHi — these are the same two values.
 const SoccerTurf kDefaultSoccerTurf = SoccerTurf(
-    swatch: Color(0xFF2D8A2D),
-    stripeA: Color(0xFF2E7B30),
-    stripeB: Color(0xFF2A7430));
+    swatch: Color(0xFF1E783C),
+    stripeA: Color(0xFF1E783C),
+    stripeB: Color(0xFF176B35));
 
 const List<SoccerTurf> kSoccerTurfs = [
   kDefaultSoccerTurf, // Classic green
@@ -102,7 +104,9 @@ Offset? soccerHalfBoardPos(
 
 class SoccerCourtPainter extends CourtPainterBase {
   // Softer off-white reduces glare while staying high-contrast on grass.
-  static const Color _softLine = Color(0xE6F1F4F0);
+  // 78% white. At 90% the lines were as bright as a player's number, so the
+  // markings competed with the people standing on them.
+  static const Color _softLine = Color(0xC7FFFFFF);
 
   final SoccerFieldType fieldType;
   final SoccerTurf turf;

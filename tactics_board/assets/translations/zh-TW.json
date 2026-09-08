@@ -168,6 +168,8 @@
   "trainer_footwork_name": "羽毛球六點步伐",
   "trainer_footwork_desc": "六點米字步伐",
   "add_label": "添加",
+  "players": "球員",
+  "objects": "器材",
   "first_run_hint": "先點「{}」把球員放上場",
   "more": "更多",
   "less": "收起",

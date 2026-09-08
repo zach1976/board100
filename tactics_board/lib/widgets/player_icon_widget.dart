@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import 'package:flutter/scheduler.dart';
 import '../models/player_icon.dart';
 import '../models/sport_type.dart';
@@ -51,7 +52,7 @@ class TopDownPlayerPainter extends CustomPainter {
     // Selection glow
     if (isSelected) {
       final glowPaint = Paint()
-        ..color = Colors.yellow.withValues(alpha: 0.65)
+        ..color = T.accent.withValues(alpha: 0.65)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
       canvas.drawOval(bodyRect.inflate(5), glowPaint);
       canvas.drawCircle(headCenter, headRadius + 5, glowPaint);
@@ -268,7 +269,7 @@ class _PlayerShape extends StatelessWidget {
         CustomPaint(
           painter: TopDownPlayerPainter(
             color: player.color,
-            borderColor: isSelected ? Colors.yellow : Colors.white,
+            borderColor: isSelected ? T.accent : Colors.white,
             borderWidth: isSelected ? 3 : 2,
             isSelected: isSelected,
             gender: player.gender,
@@ -384,7 +385,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
             border: ghost
                 ? null
                 : Border.all(
-                    color: isSelected ? const Color(0xFFFFD166) : Colors.white,
+                    color: isSelected ? T.accent : Colors.white,
                     width: isSelected ? 2.4 : 1.5,
                   ),
             boxShadow: ghost
@@ -392,7 +393,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                 : [
                     if (isSelected)
                       BoxShadow(
-                        color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+                        color: T.accent.withValues(alpha: 0.55),
                         blurRadius: 10,
                         spreadRadius: 2,
                       ),
@@ -572,7 +573,7 @@ class _ShapedPhotoMarkerState extends State<ShapedPhotoMarker> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFFFFD166).withValues(alpha: 0.6),
+                      color: T.accent.withValues(alpha: 0.6),
                       blurRadius: 12,
                       spreadRadius: 3,
                     ),
@@ -616,7 +617,7 @@ class _ShapedMarkerOutlinePainter extends CustomPainter {
     final clipper = MarkerShapeClipper(shape);
     final path = clipper.getClip(size);
     final ring = Paint()
-      ..color = isSelected ? const Color(0xFFFFD166) : Colors.white
+      ..color = isSelected ? T.accent : Colors.white
       ..style = PaintingStyle.stroke
       ..strokeWidth = isSelected ? 2.6 : 1.6;
     canvas.drawPath(path, ring);
@@ -683,7 +684,7 @@ class MarkerPainter extends CustomPainter {
 
     if (isSelected) {
       final glow = Paint()
-        ..color = Colors.yellow.withValues(alpha: 0.6)
+        ..color = T.accent.withValues(alpha: 0.6)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
       canvas.drawCircle(Offset(cx, cy), r + 5, glow);
     }
@@ -696,7 +697,7 @@ class MarkerPainter extends CustomPainter {
 
     final fill = Paint()..color = color;
     final border = Paint()
-      ..color = isSelected ? Colors.yellow : Colors.white
+      ..color = isSelected ? T.accent : Colors.white
       ..style = PaintingStyle.stroke
       ..strokeWidth = isSelected ? 2.5 : 2;
 
@@ -758,7 +759,7 @@ class MarkerPainter extends CustomPainter {
         canvas.drawCircle(Offset(cx, cy), r, Paint()..color = Colors.black87);
         canvas.drawCircle(Offset(cx, cy), r, border);
         final tp = TextPainter(
-          text: TextSpan(text: 'R', style: TextStyle(color: Colors.yellow, fontSize: r * 1.1, fontWeight: FontWeight.bold)),
+          text: TextSpan(text: 'R', style: TextStyle(color: T.accent, fontSize: r * 1.1, fontWeight: FontWeight.bold)),
           textDirection: TextDirection.ltr,
         )..layout();
         tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
@@ -893,7 +894,7 @@ class _BallWidgetState extends State<_BallWidget>
               ),
               if (widget.isSelected)
                 BoxShadow(
-                  color: Colors.yellow.withValues(alpha: 0.7),
+                  color: T.accent.withValues(alpha: 0.7),
                   blurRadius: 12,
                   spreadRadius: 3,
                 ),

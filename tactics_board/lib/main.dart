@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'ui/tokens.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'config_constants.dart';
@@ -100,17 +101,49 @@ class TacticsBoardApp extends StatelessWidget {
           locale: context.locale,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF00C2B2), // teal/emerald
+              seedColor: T.accent, // teal/emerald
               brightness: Brightness.dark,
             ),
-            scaffoldBackgroundColor: const Color(0xFF1A3A4A),
+            scaffoldBackgroundColor: T.surfaceHi,
             appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle.light,
             ),
             sliderTheme: const SliderThemeData(
-              thumbColor: Color(0xFF00C2B2),
-              activeTrackColor: Color(0xFF00C2B2),
-              inactiveTrackColor: Colors.white24,
+              thumbColor: T.accent,
+              activeTrackColor: T.accent,
+              inactiveTrackColor: T.surfaceHi,
+              overlayColor: T.accentFill,
+            ),
+            // One shape and one type scale for all twenty-three dialogs.
+            // They each used to set their own background, corner radius and
+            // title style, so a confirm looked different depending on which
+            // screen raised it.
+            dialogTheme: const DialogThemeData(
+              backgroundColor: T.surface,
+              surfaceTintColor: Colors.transparent,
+              elevation: 16,
+              shape: RoundedRectangleBorder(borderRadius: T.brLg),
+              titleTextStyle: T.section,
+              contentTextStyle: T.body,
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                foregroundColor: T.accent,
+                minimumSize: const Size(64, T.tap),
+                textStyle: const TextStyle(
+                    fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+            ),
+            bottomSheetTheme: const BottomSheetThemeData(
+              backgroundColor: Colors.transparent,
+              surfaceTintColor: Colors.transparent,
+              elevation: 0,
+            ),
+            snackBarTheme: const SnackBarThemeData(
+              backgroundColor: T.surfaceHi,
+              contentTextStyle: T.body,
+              behavior: SnackBarBehavior.floating,
+              shape: RoundedRectangleBorder(borderRadius: T.brMd),
             ),
           ),
           home: fs != null

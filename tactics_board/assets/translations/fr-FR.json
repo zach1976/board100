@@ -168,6 +168,8 @@
   "trainer_footwork_name": "Jeu de Jambes",
   "trainer_footwork_desc": "Déplacement 6 points",
   "add_label": "Ajouter",
+  "players": "Joueurs",
+  "objects": "Objets",
   "first_run_hint": "Commencez par {} pour placer les joueurs",
   "more": "Plus",
   "less": "Moins",

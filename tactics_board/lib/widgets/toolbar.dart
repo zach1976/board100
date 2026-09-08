@@ -77,7 +77,7 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
   final ok = await showDialog<bool>(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: const Color(0xFF15303A),
+      backgroundColor: T.surface,
       title: Text('photo_duplicate_title'.tr(),
           style: const TextStyle(color: Colors.white)),
       content: Text(
@@ -93,7 +93,7 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(true),
           child: Text('photo_add_another'.tr(),
-              style: const TextStyle(color: Color(0xFF00C2B2))),
+              style: const TextStyle(color: T.accent)),
         ),
       ],
     ),
@@ -138,7 +138,7 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
   showModalBottomSheet(
     context: context,
     constraints: sheetConstraints(context),
-    backgroundColor: const Color(0xFF15303A),
+    backgroundColor: T.surface,
     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)),
   );
@@ -147,12 +147,8 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
 /// Public function to show the soccer pitch appearance sheet (layout + grass
 /// colour). Only meaningful for the soccer board.
 void showFieldSettingsSheet(BuildContext context, TacticsState state) {
-  showModalBottomSheet(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: kSurface,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+  TacticalSheet.show(
+    context,
     builder: (ctx) => scaledSheet(ctx, _FieldSettingsSheet(state: state)),
   );
 }
@@ -189,35 +185,17 @@ class _FieldSettingsSheet extends StatelessWidget {
     // Rebuild on selection so highlights and the live previews stay in sync.
     return Consumer<TacticsState>(
       builder: (context, state, _) {
-        return SafeArea(
-          // Scrollable, because the sheet is taller than a small phone once a
-          // language needs two lines for a heading — it overflowed its own
-          // bottom by 17px on an iPhone SE.
+        // Handle, background, radius and height cap come from the shared
+        // sheet; this is the two choices it offers.
+        return TacticalSheet(
+          maxHeightFraction: 0.6,
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Container(
-                    width: 36,
-                    height: 4,
-                    margin: const EdgeInsets.only(bottom: 14),
-                    decoration: BoxDecoration(
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                // ── Field colour ──────────────────────────────────────────
-                Text('field_color'.tr(),
-                    style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600)),
-                const SizedBox(height: 10),
+                TacticalSheetHeader(title: 'menu_field'.tr()),
+                TacticalSectionHeader(label: 'field_color'.tr()),
                 Row(
                   children: [
                     for (int i = 0; i < kSoccerTurfs.length; i++) ...[
@@ -231,14 +209,8 @@ class _FieldSettingsSheet extends StatelessWidget {
                     ],
                   ],
                 ),
-                const SizedBox(height: 22),
-                // ── Field type ────────────────────────────────────────────
-                Text('field_type'.tr(),
-                    style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600)),
-                const SizedBox(height: 10),
+                const SizedBox(height: T.s24),
+                TacticalSectionHeader(label: 'field_type'.tr()),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -262,7 +234,6 @@ class _FieldSettingsSheet extends StatelessWidget {
               ],
             ),
           ),
-          ),
         );
       },
     );
@@ -280,20 +251,32 @@ class _TurfDot extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color,
-          border: Border.all(
-            color: selected ? kAccent : Colors.white24,
-            width: selected ? 3 : 1,
+      // A ring outside the swatch and a check inside it: the swatch used to
+      // get a 3px accent border that changed the colour it was showing.
+      child: SizedBox(
+        width: T.tap,
+        height: T.tap,
+        child: Center(
+          child: Container(
+            width: selected ? 40 : 34,
+            height: selected ? 40 : 34,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: selected ? Border.all(color: T.accent, width: 2) : null,
+            ),
+            child: Center(
+              child: Container(
+                width: selected ? 30 : 34,
+                height: selected ? 30 : 34,
+                decoration: BoxDecoration(shape: BoxShape.circle, color: color),
+                child: selected
+                    ? const Icon(Icons.check_rounded,
+                        color: Colors.white, size: 18)
+                    : null,
+              ),
+            ),
           ),
         ),
-        child: selected
-            ? const Icon(Icons.check, color: Colors.white, size: 20)
-            : null,
       ),
     );
   }
@@ -324,10 +307,13 @@ class _FieldTypeTile extends StatelessWidget {
             aspectRatio: 0.72,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: T.brSm,
+                // 2px teal when chosen, one hairline otherwise — the 3px
+                // accent frame was thick enough to change the thumbnail's
+                // apparent size as you tapped along the row.
                 border: Border.all(
-                  color: selected ? kAccent : Colors.white24,
-                  width: selected ? 3 : 1,
+                  color: selected ? T.accent : T.border,
+                  width: selected ? 2 : 1,
                 ),
               ),
               child: ClipRRect(
@@ -342,7 +328,9 @@ class _FieldTypeTile extends StatelessWidget {
           const SizedBox(height: 6),
           Text(label,
               style: TextStyle(
-                  color: selected ? kAccent : Colors.white70, fontSize: 12)),
+                  color: selected ? T.accent : T.textDim,
+                  fontSize: 12.5,
+                  fontWeight: selected ? FontWeight.w600 : FontWeight.w400)),
         ],
       ),
     );
@@ -352,14 +340,12 @@ class _FieldTypeTile extends StatelessWidget {
 /// Public: show the generic court appearance sheet (surface colour + layout)
 /// for non-soccer sports. Soccer keeps its richer [showFieldSettingsSheet].
 void showCourtSettingsSheet(BuildContext context, TacticsState state) {
-  showModalBottomSheet(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: kSurface,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder: (ctx) => scaledSheet(ctx, _CourtSettingsSheet(state: state)),
-  );
+  TacticalSheet.show(
+      context,
+    builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: scaledSheet(ctx, _CourtSettingsSheet(state: state)),
+      ));
 }
 
 String _courtLayoutLabel(CourtLayout l) {
@@ -740,52 +726,49 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
 }
 
 Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
-  return showModalBottomSheet<String>(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: const Color(0xFF15303A),
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-    ),
-    builder: (ctx) => scaledSheet(ctx, SafeArea(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            leading: const Icon(Icons.image_outlined, color: Color(0xFF00C2B2)),
-            title: const Text('PNG', style: TextStyle(color: Colors.white)),
-            onTap: () => Navigator.pop(ctx, 'png'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.picture_as_pdf_outlined, color: Colors.amberAccent),
-            title: const Text('PDF', style: TextStyle(color: Colors.white)),
-            onTap: () => Navigator.pop(ctx, 'pdf'),
-          ),
-          // Video export animates the play; only meaningful when moves exist.
-          if (showVideo)
+  return TacticalSheet.show(
+      context,
+    builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: scaledSheet(ctx, SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
             ListTile(
-              leading: const Icon(Icons.videocam_outlined, color: Colors.lightBlueAccent),
-              title: Text('share_video'.tr(), style: const TextStyle(color: Colors.white)),
-              subtitle: Text('share_video_hint'.tr(),
-                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
-              onTap: () => Navigator.pop(ctx, 'video'),
+              leading: const Icon(Icons.image_outlined, color: T.accent),
+              title: const Text('PNG', style: TextStyle(color: Colors.white)),
+              onTap: () => Navigator.pop(ctx, 'png'),
             ),
-          const Divider(color: Colors.white12, height: 12),
-          // A link opens in any browser — the receiver needs neither the app
-          // nor an account, which a PNG in a group chat can't say for a play
-          // that moves.
-          ListTile(
-            leading: const Icon(Icons.link, color: kAccent),
-            title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
-            subtitle: Text('share_link_hint'.tr(),
-                style: const TextStyle(color: Colors.white38, fontSize: 12)),
-            onTap: () => Navigator.pop(ctx, 'link'),
-          ),
-          const SizedBox(height: 8),
-        ],
-      ),
-    )),
-  );
+            ListTile(
+              leading: const Icon(Icons.picture_as_pdf_outlined, color: Colors.amberAccent),
+              title: const Text('PDF', style: TextStyle(color: Colors.white)),
+              onTap: () => Navigator.pop(ctx, 'pdf'),
+            ),
+            // Video export animates the play; only meaningful when moves exist.
+            if (showVideo)
+              ListTile(
+                leading: const Icon(Icons.videocam_outlined, color: Colors.lightBlueAccent),
+                title: Text('share_video'.tr(), style: const TextStyle(color: Colors.white)),
+                subtitle: Text('share_video_hint'.tr(),
+                    style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                onTap: () => Navigator.pop(ctx, 'video'),
+              ),
+            const Divider(color: Colors.white12, height: 12),
+            // A link opens in any browser — the receiver needs neither the app
+            // nor an account, which a PNG in a group chat can't say for a play
+            // that moves.
+            ListTile(
+              leading: const Icon(Icons.link, color: kAccent),
+              title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
+              subtitle: Text('share_link_hint'.tr(),
+                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
+              onTap: () => Navigator.pop(ctx, 'link'),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      )),
+      ));
 }
 
 String _friendlyFileStem(TacticsState state) {
@@ -857,51 +840,40 @@ Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
 /// single most common between-plays workflow.
 void confirmClearAll(BuildContext context, TacticsState state) {
   final hasStrokes = state.strokes.isNotEmpty;
-  showModalBottomSheet(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: kSurface,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-    ),
-    builder: (ctx) => scaledSheet(ctx, SafeArea(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (hasStrokes)
+  TacticalSheet.show(
+      context,
+    builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: scaledSheet(ctx, SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (hasStrokes)
+              ListTile(
+                leading: const Icon(Icons.gesture, color: kAccent),
+                title: Text('clear_lines'.tr(),
+                    style: const TextStyle(color: Colors.white)),
+                onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
+              ),
             ListTile(
-              leading: const Icon(Icons.gesture, color: kAccent),
-              title: Text('clear_lines'.tr(),
+              leading: const Icon(Icons.delete_sweep, color: kDanger),
+              title: Text('clear_all'.tr(),
                   style: const TextStyle(color: Colors.white)),
-              onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
+              subtitle: Text('clear_board_message'.tr(),
+                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
+              onTap: () { Navigator.pop(ctx); state.clearAll(); },
             ),
-          ListTile(
-            leading: const Icon(Icons.delete_sweep, color: kDanger),
-            title: Text('clear_all'.tr(),
-                style: const TextStyle(color: Colors.white)),
-            subtitle: Text('clear_board_message'.tr(),
-                style: const TextStyle(color: Colors.white54, fontSize: 12)),
-            onTap: () { Navigator.pop(ctx); state.clearAll(); },
-          ),
-          const SizedBox(height: 8),
-        ],
-      ),
-    )),
-  );
+            const SizedBox(height: 8),
+          ],
+        ),
+      )),
+      ));
 }
 
 /// Public function to show the add element bottom sheet
 void showAddElementSheet(BuildContext context, TacticsState state) {
-  showModalBottomSheet(
-    context: context,
-    constraints: sheetConstraints(context),
-    backgroundColor: const Color(0xFF15303A),
-    // Scroll-controlled so the sheet sizes to its content — which varies by
-    // sport — instead of being capped at ~50% and forcing an inner scroll.
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-    ),
+  TacticalSheet.show(
+      context,
     builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
   );
 }
@@ -1179,7 +1151,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text('confirm'.tr(),
-                  style: const TextStyle(color: Color(0xFF00C2B2))),
+                  style: const TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -1206,7 +1178,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final newName = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: const Text('Rename', style: TextStyle(color: Colors.white)),
         content: TextField(
           controller: ctrl,
@@ -1221,7 +1193,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1243,14 +1215,14 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text(name, style: const TextStyle(color: Colors.white70)),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1277,7 +1249,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
             child: Row(
               children: [
-                const Icon(Icons.save_outlined, color: const Color(0xFF00C2B2), size: 20),
+                const Icon(Icons.save_outlined, color: T.accent, size: 20),
                 const SizedBox(width: 8),
                 Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
@@ -1374,7 +1346,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.save_as_outlined, color: Color(0xFF00C2B2), size: 20),
+            icon: const Icon(Icons.save_as_outlined, color: T.accent, size: 20),
             onPressed: () => _overwriteTactic(name),
             tooltip: 'Update',
           ),
@@ -1450,17 +1422,10 @@ class _AddPlayerBtn extends StatelessWidget {
   }
 
   static void showAddSheet(BuildContext context, TacticsState state) {
-    showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      // Scroll-controlled so the sheet sizes to its content — which varies by
-      // sport — instead of being capped at ~50% and forcing an inner scroll.
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
+    TacticalSheet.show(
+      context,
+      builder: (ctx) =>
+          scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
     );
   }
 }
@@ -1760,7 +1725,13 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   @override
   Widget build(BuildContext context) {
     final isTeamSport = !state.sportType.hasDoubles;
-    return SafeArea(
+    // The sheet's own chrome — background, radius, handle, height cap —
+    // comes from TacticalSheet; this builds only what is in it. It used to
+    // be an unbounded scroll view that read as a settings screen, with a
+    // full-width Divider slab between every group.
+    return TacticalSheet(
+      maxHeightFraction: 0.62,
+      padding: const EdgeInsets.fromLTRB(0, T.s12, 0, T.s8),
       child: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
@@ -1768,27 +1739,31 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-              child: Text(
-                'add_label'.tr(),
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: T.screenX),
+              child: TacticalSheetHeader(title: 'add_label'.tr()),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: T.screenX),
+              child: TacticalSectionHeader(label: 'players'.tr()),
             ),
             if (isTeamSport) ...[
               _TeamSportSetup(state: state, sheetCtx: sheetCtx),
             ] else ...[
               _QuickFormationRow(state: state, sheetCtx: sheetCtx),
-              const Divider(color: Colors.white12),
-              _SectionHeader(label: 'team_home'.tr(), color: const Color(0xFF3A7DFF)),
+              const SizedBox(height: T.s8),
+              _SectionHeader(label: 'team_home'.tr(), color: T.home),
               _PlayerAddRow(state: state, team: PlayerTeam.home, sheetCtx: sheetCtx),
-              const SizedBox(height: 4),
-              _SectionHeader(label: 'team_away'.tr(), color: const Color(0xFFFF5A5F)),
+              const SizedBox(height: T.s4),
+              _SectionHeader(label: 'team_away'.tr(), color: T.away),
               _PlayerAddRow(state: state, team: PlayerTeam.away, sheetCtx: sheetCtx),
             ],
-            // Ball + basic shapes + More button inline
-            const Divider(color: Colors.white12),
+            const SizedBox(height: T.s16),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+              padding: const EdgeInsets.symmetric(horizontal: T.screenX),
+              child: TacticalSectionHeader(label: 'objects'.tr()),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(T.panelPad, 0, T.panelPad, T.s4),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -1942,7 +1917,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   ),
                 ),
               ),
-            const Divider(color: Colors.white12),
+            const SizedBox(height: T.s12),
             // Collapsible "My Teams" — expanded only on demand.
             GestureDetector(
               onTap: () => setState(() => _showPhotos = !_showPhotos),
@@ -2193,7 +2168,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: const Color(0xFF15303A),
+          backgroundColor: T.surface,
           title: Text('photo_duplicate_title'.tr(),
               style: const TextStyle(color: Colors.white)),
           content: Text(
@@ -2208,7 +2183,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('photo_add_another'.tr(),
-                  style: const TextStyle(color: Color(0xFF00C2B2))),
+                  style: const TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -2338,7 +2313,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -2367,7 +2342,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final box = await showDialog<List<String>>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
         content: TextField(
           controller: controller,
@@ -2377,7 +2352,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             hintText: 'photo_group_name'.tr(),
             hintStyle: const TextStyle(color: Colors.white38),
             enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
-            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Color(0xFF00C2B2))),
+            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
           ),
         ),
         actions: [
@@ -2387,7 +2362,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop([controller.text]),
-            child: Text('confirm'.tr(), style: const TextStyle(color: Color(0xFF00C2B2))),
+            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -2400,7 +2375,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final action = await showModalBottomSheet<String>(
       context: context,
       constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
+      backgroundColor: T.surface,
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       builder: (ctx) => SafeArea(
         child: Column(
@@ -2433,7 +2408,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: const Color(0xFF15303A),
+          backgroundColor: T.surface,
           title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -2631,12 +2606,12 @@ class _GroupTab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
           color: selected
-              ? const Color(0xFF00C2B2).withValues(alpha: 0.18)
+              ? T.accent.withValues(alpha: 0.18)
               : Colors.white.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: selected
-                ? const Color(0xFF00C2B2)
+                ? T.accent
                 : Colors.transparent,
             width: 1,
           ),
@@ -2644,7 +2619,7 @@ class _GroupTab extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? const Color(0xFF00C2B2) : Colors.white70,
+            color: selected ? T.accent : Colors.white70,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),
@@ -3016,7 +2991,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xFFFFD166),
+                        color: T.accent,
                         blurRadius: 12,
                         spreadRadius: 2,
                       ),
@@ -3123,7 +3098,7 @@ class _PhotosManageDialog extends StatelessWidget {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setSheet) => AlertDialog(
-          backgroundColor: const Color(0xFF213E48),
+          backgroundColor: T.surfaceHi,
           title: Text('squad_member_title'.tr(),
               style: const TextStyle(color: Colors.white)),
           content: SingleChildScrollView(
@@ -3243,7 +3218,7 @@ class _PhotosManageDialog extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -3265,7 +3240,7 @@ class _PhotosManageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: const Color(0xFF20424C),
+      backgroundColor: T.surfaceHi,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       insetPadding: const EdgeInsets.all(20),
       child: ConstrainedBox(
@@ -3277,7 +3252,7 @@ class _PhotosManageDialog extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.edit_outlined, color: Color(0xFFFFD166)),
+                  const Icon(Icons.edit_outlined, color: T.accent),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
@@ -3483,7 +3458,7 @@ class _ManageTileState extends State<_ManageTile> {
             ),
             _ManageAction(
               icon: Icons.crop,
-              color: const Color(0xFF00C2B2),
+              color: T.accent,
               onTap: widget.onAdjust,
             ),
             _ManageAction(
@@ -3554,7 +3529,7 @@ class _EditModeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
-    final accent = editing ? const Color(0xFFFFD166) : Colors.white54;
+    final accent = editing ? T.accent : Colors.white54;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -3562,7 +3537,7 @@ class _EditModeTile extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: editing
-              ? const Color(0xFFFFD166).withValues(alpha: 0.18)
+              ? T.accent.withValues(alpha: 0.18)
               : Colors.white.withValues(alpha: 0.06),
           border: Border.all(color: accent.withValues(alpha: 0.5), width: 1),
         ),
@@ -3609,19 +3584,19 @@ class _AddAllTile extends StatelessWidget {
         width: 52 * s, height: 52 * s,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: const Color(0xFF00C2B2).withValues(alpha: 0.16),
-          border: Border.all(color: const Color(0xFF00C2B2), width: 1.2),
+          color: T.accent.withValues(alpha: 0.16),
+          border: Border.all(color: T.accent, width: 1.2),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.group_add_outlined,
-                color: const Color(0xFF00C2B2), size: 18 * s),
+                color: T.accent, size: 18 * s),
             SizedBox(height: 1 * s),
             Text(
               '+$count',
               style: TextStyle(
-                color: const Color(0xFF00C2B2),
+                color: T.accent,
                 fontSize: 9 * s,
                 fontWeight: FontWeight.bold,
               ),
@@ -3637,11 +3612,11 @@ class _AddAllTile extends StatelessWidget {
         width: 60, height: 60,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: const Color(0xFF00C2B2).withValues(alpha: 0.25),
-          border: Border.all(color: const Color(0xFF00C2B2), width: 1.4),
+          color: T.accent.withValues(alpha: 0.25),
+          border: Border.all(color: T.accent, width: 1.4),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+              color: T.accent.withValues(alpha: 0.55),
               blurRadius: 14, spreadRadius: 2,
             ),
             BoxShadow(
@@ -3654,12 +3629,12 @@ class _AddAllTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(Icons.group_add,
-                color: Color(0xFF00C2B2), size: 22),
+                color: T.accent, size: 22),
             const SizedBox(height: 1),
             Text(
               '+$count',
               style: const TextStyle(
-                color: Color(0xFF00C2B2),
+                color: T.accent,
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
               ),
@@ -4159,9 +4134,9 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                   _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
                   const SizedBox(width: 8),
                 ],
-                _buildTeamChip('team_home'.tr(), _TeamOption.home, const Color(0xFF3A7DFF)),
+                _buildTeamChip('team_home'.tr(), _TeamOption.home, T.home),
                 const SizedBox(width: 8),
-                _buildTeamChip('team_away'.tr(), _TeamOption.away, const Color(0xFFFF5A5F)),
+                _buildTeamChip('team_away'.tr(), _TeamOption.away, T.away),
                 const Spacer(),
                 // Apply tile — same drag UX as the +1 home / +1 away marker
                 // cards: tap to apply at the formation's default coordinates,
@@ -4414,7 +4389,7 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          backgroundColor: const Color(0xFF15303A),
+          backgroundColor: T.surface,
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -4533,7 +4508,7 @@ class _DraggableMarkerCard extends StatelessWidget {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFFFFD166).withValues(alpha: 0.55),
+              color: T.accent.withValues(alpha: 0.55),
               blurRadius: 14,
               spreadRadius: 2,
             ),
@@ -5081,16 +5056,12 @@ class _TimelineBtn extends StatelessWidget {
   }
 
   void _showTimeline(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
-    );
+    TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: scaledSheet(ctx, TimelineEditor(state: state)),
+      ));
   }
 }
 

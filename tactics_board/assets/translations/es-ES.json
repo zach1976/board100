@@ -168,6 +168,8 @@
   "trainer_footwork_name": "Juego de Pies",
   "trainer_footwork_desc": "Pies de 6 puntos",
   "add_label": "Añadir",
+  "players": "Jugadores",
+  "objects": "Objetos",
   "first_run_hint": "Empieza tocando {} para colocar jugadores",
   "more": "Más",
   "less": "Menos",

@@ -170,6 +170,8 @@
   "trainer_footwork_name": "Badminton Footwork",
   "trainer_footwork_desc": "Six-point footwork",
   "add_label": "Add",
+  "players": "Players",
+  "objects": "Objects",
   "first_run_hint": "Start by tapping {} to place players",
   "more": "More",
   "less": "Less",

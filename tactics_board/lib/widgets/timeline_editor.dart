@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import '../models/player_icon.dart';
 import '../models/drawing_stroke.dart';
 import '../services/photo_library_service.dart';
@@ -133,7 +134,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         Text(
                           '${i + 1}',
                           style: TextStyle(
-                            color: isCurrent ? const Color(0xFF00C2B2) : Colors.white38,
+                            color: isCurrent ? T.accent : Colors.white38,
                             fontSize: 11,
                             fontWeight: isCurrent ? FontWeight.bold : FontWeight.w600,
                           ),
@@ -144,11 +145,11 @@ class _TimelineEditorState extends State<TimelineEditor> {
                             height: 2,
                             width: 16,
                             decoration: BoxDecoration(
-                              color: const Color(0xFF00C2B2),
+                              color: T.accent,
                               borderRadius: BorderRadius.circular(1),
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFF00C2B2).withValues(alpha: 0.6),
+                                  color: T.accent.withValues(alpha: 0.6),
                                   blurRadius: 4,
                                 ),
                               ],

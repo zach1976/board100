@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import 'package:provider/provider.dart';
 import '../models/sport_type.dart';
 import '../painters/badminton_court_painter.dart';
@@ -75,7 +76,7 @@ class SportSelectionPage extends StatelessWidget {
     final topPad = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A3A4A),
+      backgroundColor: T.surfaceHi,
       body: CustomScrollView(
         slivers: [
           // ── Header ──
@@ -208,7 +209,7 @@ class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMi
               colors: [
                 widget.accent.withValues(alpha: 0.22),
                 const Color(0xFF1E4250),
-                const Color(0xFF1A3A4A),
+                T.surfaceHi,
               ],
               stops: const [0.0, 0.6, 1.0],
             ),

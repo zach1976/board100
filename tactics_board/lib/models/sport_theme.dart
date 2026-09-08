@@ -15,15 +15,20 @@ class SportTheme {
   final Color softLine;
 
   // Shared accents
-  static const Color teamBlue = Color(0xFF3A7DFF);
-  static const Color teamRed = Color(0xFFFF5A5F);
-  static const Color accentSelect = Color(0xFFFFD166);
+  // The semantic team colours, shared with T.home / T.away.
+  static const Color teamBlue = Color(0xFF3E8EF7);
+  static const Color teamRed = Color(0xFFFF5964);
+  // Selection is teal everywhere, like every other selected state in
+  // the app. Amber was a third accent with no meaning of its own.
+  static const Color accentSelect = Color(0xFF18C7BC);
   static const Color accentTimeline = Color(0xFF00C2B2);
 
   const SportTheme({
     required this.pageGradient,
     required this.panelColor,
-    this.softLine = const Color(0xCCFFFFFF), // white @ 80%
+    // 78% white, matching T.turfLine: bright enough to read, dim
+    // enough that a player token is always the stronger mark.
+    this.softLine = const Color(0xC7FFFFFF),
   });
 }
 

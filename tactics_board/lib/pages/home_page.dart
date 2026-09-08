@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' show FontFeature;
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -193,11 +194,11 @@ class TacticsBoardHomePage extends StatelessWidget {
                   child: _GlassCircle(
                     size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
                     border: inPlanMode
-                        ? Border.all(color: const Color(0xFF00C2B2), width: 1.5)
+                        ? Border.all(color: T.accent, width: 1.5)
                         : null,
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: inPlanMode ? const Color(0xFF00C2B2) : Colors.white,
+                      color: inPlanMode ? T.accent : Colors.white,
                       size: 16 * uiScale(context),
                     ),
                   ),
@@ -375,7 +376,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       constraints: sheetConstraints(context),
-                      backgroundColor: const Color(0xFF15303A),
+                      backgroundColor: T.surface,
                       isScrollControlled: true,
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                       builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
@@ -620,14 +621,8 @@ class _MenuButton extends StatelessWidget {
   }
 
   void _showPaywall(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
+    TacticalSheet.show(
+      context,
       builder: (_) => const _PaywallSheet(),
     );
   }
@@ -646,15 +641,12 @@ class _MenuButton extends StatelessWidget {
     final appleId = sport.scorerAppleId;
     if (appleId.isEmpty) return; // not yet on App Store
     final url = Uri.parse('https://apps.apple.com/app/id$appleId');
-    showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => scaledSheet(ctx, _ScorerPromoSheet(sport: sport, appName: appName, url: url)),
-    );
+    TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: scaledSheet(ctx, _ScorerPromoSheet(sport: sport, appName: appName, url: url)),
+      ));
   }
 
   void _showContact(BuildContext context) {
@@ -753,10 +745,10 @@ class _ContactPageState extends State<_ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A3A4A),
+      backgroundColor: T.surfaceHi,
       appBar: AppBar(
         title: Text('contact_title'.tr()),
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -917,10 +909,10 @@ class _LoginPageState extends State<_LoginPage> {
     final loggedIn = _auth.isLoggedIn;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A3A4A),
+      backgroundColor: T.surfaceHi,
       appBar: AppBar(
         title: Text('login_title'.tr()),
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
       ),
       body: Center(
         child: Padding(
@@ -1019,15 +1011,15 @@ class _LoginPageState extends State<_LoginPage> {
       primary = 'sync_status_syncing'.tr();
     } else if (local && remote) {
       icon = Icons.sync_problem;
-      color = const Color(0xFFFFB74D);
+      color = T.warning;
       primary = 'sync_status_both_dirty'.tr();
     } else if (local) {
       icon = Icons.cloud_upload;
-      color = const Color(0xFFFFB74D);
+      color = T.warning;
       primary = 'sync_status_local_dirty'.tr();
     } else if (remote) {
       icon = Icons.cloud_download;
-      color = const Color(0xFFFFB74D);
+      color = T.warning;
       primary = 'sync_status_remote_dirty'.tr();
     } else if (last == null) {
       icon = Icons.cloud_off;
@@ -1092,7 +1084,7 @@ class _LoginPageState extends State<_LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF15303A),
+        backgroundColor: T.surface,
         title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -1379,8 +1371,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   bool _expanded = false;
 
   static const _colors = <Color>[
-    Color(0xFF3A7DFF),
-    Color(0xFFFF5A5F),
+    T.home,
+    T.away,
     Color(0xFF2E7D32),
     Color(0xFFE65100),
     Color(0xFF6A1B9A),
@@ -1539,7 +1531,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDialogState) => AlertDialog(
-        backgroundColor: const Color(0xFF213E48),
+        backgroundColor: T.surfaceHi,
         title: Text(_titleKey().tr(), style: const TextStyle(color: Colors.white)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -1718,16 +1710,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   /// the current one, or drop it. Returns the chosen photo id, `''` to mean
   /// "no avatar", or null when the sheet was dismissed without a choice.
   Future<String?> _pickAvatar(String? current) async {
-    return showModalBottomSheet<String>(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => _AvatarPickerSheet(currentPhotoId: current),
-    );
+    return TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: _AvatarPickerSheet(currentPhotoId: current),
+      ));
   }
 
   /// Miniature of the selected element, drawn with the very same painters the
@@ -1839,39 +1827,37 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     final state = widget.state;
     final roles = PlayerRoles.forSport(state.sportType);
     if (roles.isEmpty) return null;
-    return showModalBottomSheet<String>(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: kSurface,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-      builder: (ctx) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('role_title'.tr(),
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(height: 12),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  _roleOption(ctx, 'role_none'.tr(), current == null, ''),
-                  for (final r in roles)
-                    _roleOption(ctx, r, current == r, r),
-                ],
-              ),
-            ],
+    return TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('role_title'.tr(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold)),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    _roleOption(ctx, 'role_none'.tr(), current == null, ''),
+                    for (final r in roles)
+                      _roleOption(ctx, r, current == r, r),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      ));
   }
 
   Widget _roleOption(
@@ -2240,18 +2226,20 @@ class _PresentationOverlay extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.55),
+                  // A quiet pill, not an accent-outlined button: nothing in
+                  // presentation mode should compete with the board.
+                  color: const Color(0xD1050F12),
                   borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: kAccent.withValues(alpha: 0.6)),
+                  border: Border.all(color: T.border),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.close, color: kAccent, size: 18),
+                    const Icon(Icons.close_rounded, color: T.textDim, size: 18),
                     const SizedBox(width: 6),
                     Text('present_exit'.tr(),
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: T.text,
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
                   ],
@@ -2281,18 +2269,15 @@ class _BigPlayControls extends StatelessWidget {
     final animating = state.isAnimating;
     final atStart = state.atStep <= 0;
     final atEnd = state.atStep >= state.maxMoveSteps;
+    // A translucent near-black capsule: it sits on the pitch, and the pitch
+    // is what the players are looking at.
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: T.s16, vertical: T.s8),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.55),
+        color: const Color(0xD1050F12),
         borderRadius: BorderRadius.circular(36),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.35),
-            blurRadius: 14,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        border: Border.all(color: T.border),
+        boxShadow: T.shadowFloat,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -2308,9 +2293,10 @@ class _BigPlayControls extends StatelessWidget {
           const SizedBox(width: 12),
           Text('${state.atStep}/${state.maxMoveSteps}',
               style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
+                  color: T.text,
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                  fontFeatures: [FontFeature.tabularFigures()])),
           const SizedBox(width: 12),
           _bigBtn(Icons.skip_next,
               (!animating && !atEnd) ? state.stepForward : null),
@@ -2322,19 +2308,22 @@ class _BigPlayControls extends StatelessWidget {
               state.toggleShowMoveLines();
               HapticFeedback.selectionClick();
             },
+            // Neutral until it is off, and then it is only dimmed — it used
+            // to go danger-red, which put a fifth colour in a control group
+            // that should carry one.
             child: Container(
               width: 48,
               height: 48,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: state.showMoveLines
-                    ? Colors.white.withValues(alpha: 0.14)
-                    : kDanger.withValues(alpha: 0.25),
+                color: state.showMoveLines ? T.accentFill : Colors.transparent,
               ),
               child: Icon(
-                state.showMoveLines ? Icons.timeline : Icons.visibility_off,
-                color: state.showMoveLines ? Colors.white : kDanger,
-                size: 26,
+                state.showMoveLines
+                    ? Icons.timeline_rounded
+                    : Icons.visibility_off_outlined,
+                color: state.showMoveLines ? T.accent : T.textDim,
+                size: 25,
               ),
             ),
           ),
@@ -2354,9 +2343,17 @@ class _BigPlayControls extends StatelessWidget {
           height: size,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: primary ? kAccent : Colors.white.withValues(alpha: 0.14),
+            // Lime is the play button and nothing else; the rest of the
+            // group is neutral so the eye lands on the one action.
+            color: primary ? T.lime : Colors.transparent,
           ),
-          child: Icon(icon, color: Colors.white, size: primary ? 34 : 28),
+          child: Icon(icon,
+              color: onTap == null
+                  ? T.textOff
+                  : primary
+                      ? const Color(0xFF16240A)
+                      : T.text,
+              size: primary ? 34 : 28),
         ),
       ),
     );
@@ -2643,7 +2640,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
           Icon(Icons.shield, color: kAccent, size: 44),
           Padding(
             padding: EdgeInsets.only(bottom: 4),
-            child: Icon(Icons.star_rounded, color: Color(0xFF06262B), size: 20),
+            child: Icon(Icons.star_rounded, color: T.bg0, size: 20),
           ),
         ],
       ),
@@ -2804,7 +2801,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               ),
               child: Text(badge,
                   style: const TextStyle(
-                      color: Color(0xFF06262B),
+                      color: T.bg0,
                       fontSize: 10.5,
                       fontWeight: FontWeight.w800)),
             ),

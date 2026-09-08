@@ -168,6 +168,8 @@
   "trainer_footwork_name": "Footwork Badminton",
   "trainer_footwork_desc": "Footwork 6 titik",
   "add_label": "Tambah",
+  "players": "Pemain",
+  "objects": "Objek",
   "first_run_hint": "Mulakan dengan {} untuk meletakkan pemain",
   "more": "Lagi",
   "less": "Tutup",

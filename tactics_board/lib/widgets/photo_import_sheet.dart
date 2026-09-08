@@ -2,6 +2,8 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
+import '../ui/tokens.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -44,14 +46,8 @@ class PhotoImportSheet extends StatefulWidget {
     // `asset:assets/...` paths (loaded from bundle) or absolute file paths.
     const previewPath = String.fromEnvironment('PREVIEW_PHOTO_PATH');
     if (previewPath.isNotEmpty) {
-      await showModalBottomSheet(
-        context: context,
-        constraints: sheetConstraints(context),
-        backgroundColor: const Color(0xFF15303A),
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
+      await TacticalSheet.show(
+      context,
         builder: (_) => PhotoImportSheet(
           source: PhotoImportSource.gallery,
           groupId: groupId,
@@ -61,52 +57,43 @@ class PhotoImportSheet extends StatefulWidget {
       return;
     }
 
-    final source = await showModalBottomSheet<PhotoImportSource>(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 8),
-            ListTile(
-              leading: const Icon(Icons.camera_alt_outlined, color: Colors.white),
-              title: Text('photo_take'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-              onTap: () => Navigator.of(ctx).pop(PhotoImportSource.camera),
-            ),
-            ListTile(
-              leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
-              title: Text('photo_from_gallery'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-              onTap: () => Navigator.of(ctx).pop(PhotoImportSource.gallery),
-            ),
-            const SizedBox(height: 8),
-            ListTile(
-              title: Text('cancel'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 14),
-                  textAlign: TextAlign.center),
-              onTap: () => Navigator.of(ctx).pop(),
-            ),
-            const SizedBox(height: 8),
-          ],
+    final source = await TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 8),
+              ListTile(
+                leading: const Icon(Icons.camera_alt_outlined, color: Colors.white),
+                title: Text('photo_take'.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                onTap: () => Navigator.of(ctx).pop(PhotoImportSource.camera),
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library_outlined, color: Colors.white),
+                title: Text('photo_from_gallery'.tr(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                onTap: () => Navigator.of(ctx).pop(PhotoImportSource.gallery),
+              ),
+              const SizedBox(height: 8),
+              ListTile(
+                title: Text('cancel'.tr(),
+                    style: const TextStyle(color: Colors.white54, fontSize: 14),
+                    textAlign: TextAlign.center),
+                onTap: () => Navigator.of(ctx).pop(),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
         ),
-      ),
-    );
+      ));
     if (source == null) return;
     if (!context.mounted) return;
-    await showModalBottomSheet(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: const Color(0xFF15303A),
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
+    await TacticalSheet.show(
+      context,
       builder: (_) => PhotoImportSheet(source: source, groupId: groupId),
     );
   }
@@ -280,7 +267,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
       children: [
         Row(
           children: [
-            const Icon(Icons.face, color: Color(0xFF00C2B2), size: 20),
+            const Icon(Icons.face, color: T.accent, size: 20),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -308,7 +295,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
             padding: const EdgeInsets.only(top: 4),
             child: Text(
               'photo_dedup_msg'.tr(args: ['$_droppedDuplicates']),
-              style: const TextStyle(color: Color(0xFF00C2B2), fontSize: 12),
+              style: const TextStyle(color: T.accent, fontSize: 12),
             ),
           ),
         const SizedBox(height: 12),
@@ -374,7 +361,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF3A7DFF),
+                    color: T.home,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -406,7 +393,7 @@ class _Loading extends StatelessWidget {
         children: [
           const SizedBox(
             width: 32, height: 32,
-            child: CircularProgressIndicator(strokeWidth: 3, color: Color(0xFF00C2B2)),
+            child: CircularProgressIndicator(strokeWidth: 3, color: T.accent),
           ),
           if (label != null && label!.isNotEmpty) ...[
             const SizedBox(height: 16),

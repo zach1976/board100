@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../ui/tokens.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../models/sport_type.dart';
@@ -280,7 +281,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   @override
   Widget build(BuildContext context) {
     if (_stateOrNull == null) {
-      return Container(color: const Color(0xFF15303A));
+      return Container(color: T.surface);
     }
     final state = _state;
 
@@ -1080,7 +1081,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // position is implied by the glowing waypoints/end of the chain.
     final BoxShadow? glow = widget.isPrimary
         ? BoxShadow(
-            color: const Color(0xFF00C2B2).withValues(alpha: 0.85),
+            color: T.accent.withValues(alpha: 0.85),
             blurRadius: 16,
             spreadRadius: 3,
           )
@@ -1195,7 +1196,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                     : TopDownPlayerPainter(
                         color: widget.player.color,
                         borderColor: widget.isPrimary
-                            ? const Color(0xFF00C2B2)
+                            ? T.accent
                             : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
                         borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
                         isSelected: widget.isSelected && !fadeEnd,
@@ -1259,14 +1260,14 @@ class _WaypointDotState extends State<_WaypointDot> {
                 color: widget.player.moveColor,
                 border: Border.all(
                   color: widget.isPrimary
-                      ? const Color(0xFF00C2B2)
+                      ? T.accent
                       : (widget.isSelected ? Colors.yellow : Colors.white),
                   width: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2),
                 ),
                 boxShadow: [
                   if (widget.isPrimary)
                     BoxShadow(
-                      color: const Color(0xFF00C2B2).withValues(alpha: 0.85),
+                      color: T.accent.withValues(alpha: 0.85),
                       blurRadius: 14,
                       spreadRadius: 2,
                     )
@@ -1308,13 +1309,13 @@ class _LassoRectPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final fill = Paint()
       ..style = PaintingStyle.fill
-      ..color = const Color(0xFF00C2B2).withValues(alpha: 0.10);
+      ..color = T.accent.withValues(alpha: 0.10);
     canvas.drawRect(rect, fill);
 
     final stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
-      ..color = const Color(0xFF00C2B2);
+      ..color = T.accent;
 
     // Manual dashed outline.
     const dashOn = 6.0;

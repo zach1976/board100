@@ -16,9 +16,9 @@ import 'practice_history_page.dart';
 import 'practice_run_page.dart';
 import '../widgets/toolbar.dart';
 
-const _kBg = Color(0xFF0E1C22);
-const _kCard = Color(0xFF15303A);
-const _kAccent = Color(0xFF00C2B2);
+const _kBg = T.bg1;
+const _kCard = T.surface;
+const _kAccent = T.accent;
 
 class PracticePlanPage extends StatefulWidget {
   final TacticsState state;
@@ -51,43 +51,40 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     const blankSentinel = '__blank__';
     String? copyFrom;
     if (_names.isNotEmpty) {
-      copyFrom = await showModalBottomSheet<String>(
-        context: context,
-        constraints: sheetConstraints(context),
-        backgroundColor: _kCard,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        builder: (ctx) => SafeArea(
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text('practice_new'.tr(),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              ),
-              ListTile(
-                leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-                title: Text('practice_new_blank'.tr(),
-                    style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
-                onTap: () => Navigator.pop(ctx, blankSentinel),
-              ),
-              const Divider(color: Colors.white12, height: 1),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-                child: Text('practice_copy_from'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 13)),
-              ),
-              ..._names.map((n) => ListTile(
-                    leading: const Icon(Icons.copy, color: Colors.white54),
-                    title: Text(n, style: const TextStyle(color: Colors.white)),
-                    onTap: () => Navigator.pop(ctx, n),
-                  )),
-            ],
+      copyFrom = await TacticalSheet.show(
+      context,
+        builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text('practice_new'.tr(),
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.add_circle_outline, color: _kAccent),
+                  title: Text('practice_new_blank'.tr(),
+                      style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                  onTap: () => Navigator.pop(ctx, blankSentinel),
+                ),
+                const Divider(color: Colors.white12, height: 1),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+                  child: Text('practice_copy_from'.tr(),
+                      style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                ),
+                ..._names.map((n) => ListTile(
+                      leading: const Icon(Icons.copy, color: Colors.white54),
+                      title: Text(n, style: const TextStyle(color: Colors.white)),
+                      onTap: () => Navigator.pop(ctx, n),
+                    )),
+              ],
+            ),
           ),
-        ),
-      );
+      ));
       if (copyFrom == null) return;
       if (!mounted) return;
     }
@@ -420,43 +417,40 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     if (existing.isEmpty) {
       base = blankSentinel;
     } else {
-      base = await showModalBottomSheet<String>(
-        context: context,
-        constraints: sheetConstraints(context),
-        backgroundColor: _kCard,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        builder: (ctx) => SafeArea(
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text('practice_add_tactic'.tr(),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              ),
-              ListTile(
-                leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-                title: Text('tactic_new_blank'.tr(),
-                    style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
-                onTap: () => Navigator.pop(ctx, blankSentinel),
-              ),
-              const Divider(color: Colors.white12, height: 1),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-                child: Text('tactic_copy_from'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 13)),
-              ),
-              ...existing.map((n) => ListTile(
-                    leading: const Icon(Icons.copy, color: Colors.white54),
-                    title: Text(n, style: const TextStyle(color: Colors.white)),
-                    onTap: () => Navigator.pop(ctx, n),
-                  )),
-            ],
+      base = await TacticalSheet.show(
+      context,
+        builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text('practice_add_tactic'.tr(),
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.add_circle_outline, color: _kAccent),
+                  title: Text('tactic_new_blank'.tr(),
+                      style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                  onTap: () => Navigator.pop(ctx, blankSentinel),
+                ),
+                const Divider(color: Colors.white12, height: 1),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+                  child: Text('tactic_copy_from'.tr(),
+                      style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                ),
+                ...existing.map((n) => ListTile(
+                      leading: const Icon(Icons.copy, color: Colors.white54),
+                      title: Text(n, style: const TextStyle(color: Colors.white)),
+                      onTap: () => Navigator.pop(ctx, n),
+                    )),
+              ],
+            ),
           ),
-        ),
-      );
+      ));
       if (base == null) return;
       if (!mounted) return;
     }
@@ -493,39 +487,36 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     final names = await widget.state.listSavedTactics();
     if (!mounted) return;
     const _newSentinel = '__save_current__';
-    final picked = await showModalBottomSheet<String>(
-      context: context,
-      constraints: sheetConstraints(context),
-      backgroundColor: _kCard,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                'practice_pick_tactic'.tr(),
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    final picked = await TacticalSheet.show(
+      context,
+      builder: (ctx) => TacticalSheet(
+        padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+        child: SafeArea(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(
+                  'practice_pick_tactic'.tr(),
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-              title: Text('practice_add_tactic'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
-              onTap: () => Navigator.pop(ctx, _newSentinel),
-            ),
-            if (names.isNotEmpty) const Divider(color: Colors.white12, height: 1),
-            ...names.map((n) => ListTile(
-                  leading: const Icon(Icons.description, color: Colors.white54),
-                  title: Text(n, style: const TextStyle(color: Colors.white)),
-                  onTap: () => Navigator.pop(ctx, n),
-                )),
-          ],
+              ListTile(
+                leading: const Icon(Icons.add_circle_outline, color: _kAccent),
+                title: Text('practice_add_tactic'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                onTap: () => Navigator.pop(ctx, _newSentinel),
+              ),
+              if (names.isNotEmpty) const Divider(color: Colors.white12, height: 1),
+              ...names.map((n) => ListTile(
+                    leading: const Icon(Icons.description, color: Colors.white54),
+                    title: Text(n, style: const TextStyle(color: Colors.white)),
+                    onTap: () => Navigator.pop(ctx, n),
+                  )),
+            ],
+          ),
         ),
-      ),
-    );
+      ));
     if (picked == null) return;
     if (picked == _newSentinel) {
       await _saveCurrentAsNew();
