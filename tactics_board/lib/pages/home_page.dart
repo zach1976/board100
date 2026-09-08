@@ -2926,8 +2926,13 @@ class _FirstRunHintState extends State<_FirstRunHint> {
             // dismiss, which made its + a button that looked exactly like the
             // toolbar's Add and did the opposite of it.
             onTap: () {
-              _dismiss();
+              // Open first, dismiss after. _dismiss() takes this card out of
+              // the tree, and showModalBottomSheet resolves its Navigator
+              // from the context it is handed — hand it a context that is
+              // being unmounted in the same frame and the sheet never
+              // arrives, which hung the simulator walk indefinitely.
               showAddElementSheet(context, context.read<TacticsState>());
+              _dismiss();
             },
             child: Container(
               constraints: const BoxConstraints(maxWidth: 320),
