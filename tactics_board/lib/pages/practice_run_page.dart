@@ -316,7 +316,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _RoundBtn(
-                    icon: Icons.skip_previous_rounded,
+                    icon: Icons.chevron_left_rounded,
                     enabled: _idx > 0,
                     onTap: _prev,
                   ),
@@ -328,7 +328,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                     onTap: _togglePlay,
                   ),
                   _RoundBtn(
-                    icon: Icons.skip_next_rounded,
+                    icon: Icons.chevron_right_rounded,
                     enabled: _idx + 1 < total,
                     onTap: _next,
                   ),

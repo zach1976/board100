@@ -354,12 +354,12 @@ class TacticsBoardHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _lCircleBtn(Icons.skip_previous_rounded, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
+                  _lCircleBtn(Icons.chevron_left_rounded, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: Text('${state.atStep}/${state.maxMoveSteps}', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
                   ),
-                  _lCircleBtn(Icons.skip_next_rounded, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
+                  _lCircleBtn(Icons.chevron_right_rounded, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
                 ],
               ),
               const SizedBox(height: 6),
@@ -2297,7 +2297,7 @@ class _BigPlayControls extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _bigBtn(Icons.skip_previous_rounded,
+          _bigBtn(Icons.chevron_left_rounded,
               (!animating && !atStart) ? state.stepBackward : null),
           const SizedBox(width: 10),
           _bigBtn(
@@ -2313,7 +2313,7 @@ class _BigPlayControls extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontFeatures: [FontFeature.tabularFigures()])),
           const SizedBox(width: 12),
-          _bigBtn(Icons.skip_next_rounded,
+          _bigBtn(Icons.chevron_right_rounded,
               (!animating && !atEnd) ? state.stepForward : null),
           const SizedBox(width: 10),
           // Toggle the move-arrow overlay while presenting — show the end

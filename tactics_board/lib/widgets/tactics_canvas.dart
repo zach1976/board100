@@ -147,6 +147,33 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
   }
 
+  /// One element in the exported image. Two passes use it — equipment before
+  /// the ghosts, everyone else after — so the PNG layers the way the screen
+  /// does.
+  Widget _externalIcon(PlayerIcon player) {
+    Offset pos = player.position;
+    final animSrc = _state.animatedPositions[player.id];
+    final sw = _state.canvasSize.width;
+    final sh = _state.canvasSize.height;
+    // _buildExternalContent bails before it can call this when the canvas has
+    // no size, but the check is cheap and an Infinity here would be silent.
+    if (animSrc != null && sw > 0 && sh > 0) {
+      pos = Offset(animSrc.dx / sw * 540.0, animSrc.dy / sh * 960.0);
+    }
+    final size = kPlayerIconSize * player.scale;
+    return Positioned(
+      left: pos.dx - size / 2,
+      top: pos.dy - size / 2,
+      child: IgnorePointer(
+        child: RotatedBox(
+          // counter-rotate: canvas is 90° CCW, so icons need 90° CW
+          quarterTurns: 1,
+          child: PlayerIconWidget(player: player),
+        ),
+      ),
+    );
+  }
+
   Widget _buildExternalContent() {
     const pw = 540.0;
     const ph = 960.0;
@@ -183,6 +210,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               ),
               size: const Size(pw, ph),
             ),
+            // Equipment under the ghosts, same as on screen.
+            ...sPlayers.where((p) => p.isMarker).map(_externalIcon),
             // Ghost icons at starting positions
             if (_state.showMoveLines)
               ...sPlayers.where((p) => p.moves.isNotEmpty).map((player) {
@@ -276,22 +305,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   );
                 });
               }),
-            ...sPlayers.map((player) {
-              Offset pos = player.position;
-              final animSrc = _state.animatedPositions[player.id];
-              if (animSrc != null) pos = sc(animSrc);
-              final size = kPlayerIconSize * player.scale;
-              return Positioned(
-                left: pos.dx - size / 2,
-                top: pos.dy - size / 2,
-                child: IgnorePointer(
-                  child: RotatedBox(
-                    quarterTurns: 1, // counter-rotate: canvas is 90° CCW, so icons need 90° CW
-                    child: PlayerIconWidget(player: player),
-                  ),
-                ),
-              );
-            }),
+            ...sPlayers.where((p) => !p.isMarker).map(_externalIcon),
             if (_state.showMoveLines)
               CustomPaint(
                 painter: PlayerMovesPainter(
@@ -517,6 +531,65 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   }
 
   Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
+    /// One element on the board. Shared by the two passes below so a
+    /// marker and a player are built exactly the same way — only when
+    /// they are painted differs.
+    Widget playerIcon(PlayerIcon player) {
+      final animPos = state.animatedPositions[player.id];
+      final inMulti =
+          state.multiSelectMode &&
+          state.multiSelectIds.contains(player.id);
+      final selected =
+          state.selectedPlayerId == player.id || inMulti;
+      final atStartTime =
+          state.atStep == 0 && state.targetStep == 0;
+      // A player whose phases start AFTER the current step
+      // hasn't moved yet — their start position is still their
+      // current position, so don't hide the icon as a "past
+      // ghost". Without this, players whose first phase is
+      // later than atStep silently disappear from the board.
+      bool hasStartedMoving = false;
+      final phaseLimit = state.atStep > 0
+          ? state.atStep
+          : (state.targetStep > 0 ? state.targetStep : 0);
+      if (phaseLimit > 0 && player.moves.isNotEmpty) {
+        player.syncPhases();
+        for (int i = 0; i < player.moves.length; i++) {
+          final ph = i < player.movePhases.length
+              ? player.movePhases[i]
+              : i;
+          if (ph < phaseLimit) {
+            hasStartedMoving = true;
+            break;
+          }
+        }
+      }
+      return _PlayerOnBoard(
+        key: ValueKey(player.id),
+        player: player,
+        renderPosition: animPos,
+        isSelected: selected,
+        isPrimary: selected &&
+            !state.multiSelectMode &&
+            state.selectedWaypointIndex == null,
+        isAtCurrentStep: atStartTime || !hasStartedMoving,
+        isDrawingMode: state.isDrawingMode || state.isAnimating,
+        isMultiSelectMode: state.multiSelectMode,
+        isInMultiSelect: inMulti,
+        onTap: () {
+          if (state.multiSelectMode) {
+            state.toggleMultiSelectId(player.id);
+          } else {
+            state.selectPlayer(selected ? null : player.id);
+          }
+        },
+        // Tapping a player selects it — the floating edit bar
+        // then appears, so a separate long-press dialog is no
+        // longer needed (one unified edit surface).
+        onLongPress: null,
+      );
+    }
+
     return Stack(
                 children: [
                   // Court background
@@ -577,6 +650,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         );
                       });
                     }),
+                  // Equipment first — under the ghosts as well as under
+                  // the live tokens. Reordering only the icon pass left a
+                  // hurdle on top of the faint start-position marker of the
+                  // player it belongs to.
+                  ...players.where((p) => p.isMarker).map(playerIcon),
                   // Ghost icons at initial positions for players with moves
                   if (state.showMoveLines)
                     ...players.where((p) => p.moves.isNotEmpty).map((player) {
@@ -634,62 +712,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         ),
                       );
                     }),
-                  // Player icons
-                  ...players.map((player) {
-                    final animPos = state.animatedPositions[player.id];
-                    final inMulti =
-                        state.multiSelectMode &&
-                        state.multiSelectIds.contains(player.id);
-                    final selected =
-                        state.selectedPlayerId == player.id || inMulti;
-                    final atStartTime =
-                        state.atStep == 0 && state.targetStep == 0;
-                    // A player whose phases start AFTER the current step
-                    // hasn't moved yet — their start position is still their
-                    // current position, so don't hide the icon as a "past
-                    // ghost". Without this, players whose first phase is
-                    // later than atStep silently disappear from the board.
-                    bool hasStartedMoving = false;
-                    final phaseLimit = state.atStep > 0
-                        ? state.atStep
-                        : (state.targetStep > 0 ? state.targetStep : 0);
-                    if (phaseLimit > 0 && player.moves.isNotEmpty) {
-                      player.syncPhases();
-                      for (int i = 0; i < player.moves.length; i++) {
-                        final ph = i < player.movePhases.length
-                            ? player.movePhases[i]
-                            : i;
-                        if (ph < phaseLimit) {
-                          hasStartedMoving = true;
-                          break;
-                        }
-                      }
-                    }
-                    return _PlayerOnBoard(
-                      key: ValueKey(player.id),
-                      player: player,
-                      renderPosition: animPos,
-                      isSelected: selected,
-                      isPrimary: selected &&
-                          !state.multiSelectMode &&
-                          state.selectedWaypointIndex == null,
-                      isAtCurrentStep: atStartTime || !hasStartedMoving,
-                      isDrawingMode: state.isDrawingMode || state.isAnimating,
-                      isMultiSelectMode: state.multiSelectMode,
-                      isInMultiSelect: inMulti,
-                      onTap: () {
-                        if (state.multiSelectMode) {
-                          state.toggleMultiSelectId(player.id);
-                        } else {
-                          state.selectPlayer(selected ? null : player.id);
-                        }
-                      },
-                      // Tapping a player selects it — the floating edit bar
-                      // then appears, so a separate long-press dialog is no
-                      // longer needed (one unified edit surface).
-                      onLongPress: null,
-                    );
-                  }),
+                  // Players and the ball, over the ghosts.
+                  ...players.where((p) => !p.isMarker).map(playerIcon),
                   // Player move arrows — on top so arrowheads are never covered
                   if (state.showMoveLines)
                     IgnorePointer(
