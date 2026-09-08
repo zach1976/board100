@@ -5078,6 +5078,13 @@ class _ResetButton extends StatelessWidget {
   }
 }
 
+/// One phase back, one phase forward.
+///
+/// These were skip_previous / skip_next — the bar-and-triangle glyph that
+/// means "jump to the start" and "jump to the end" in every media player ever
+/// made, on buttons that move a single step. The reset arrow to their left is
+/// the control that really does go back to the beginning, so the pair read as
+/// two ways to do the same thing. Chevrons say one step.
 class _StepBackButton extends StatelessWidget {
   final TacticsState state;
   const _StepBackButton({required this.state});
@@ -5086,7 +5093,7 @@ class _StepBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final canStep = !state.isAnimating && state.atStep > 0;
     return _PlayCircle(
-      icon: Icons.skip_previous_rounded,
+      icon: Icons.chevron_left_rounded,
       onTap: canStep ? state.stepBackward : null,
     );
   }
@@ -5114,7 +5121,7 @@ class _StepForwardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final canStep = !state.isAnimating && state.atStep < state.maxMoveSteps;
     return _PlayCircle(
-      icon: Icons.skip_next_rounded,
+      icon: Icons.chevron_right_rounded,
       onTap: canStep ? state.stepForward : null,
     );
   }
