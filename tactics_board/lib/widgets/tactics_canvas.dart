@@ -56,6 +56,99 @@ List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players) {
   return [...ranked[0], ...ranked[1], ...ranked[2]];
 }
 
+/// How close two players have to be before the board fans them apart.
+const double _kFanThreshold = kPlayerIconSize * 0.9;
+
+/// How far each one moves when they are exactly on top of each other.
+const double _kFanRadius = kPlayerIconSize * 0.4;
+
+/// Draw-time separation for players standing in the same place.
+///
+/// A run that ends where another player is standing hid one of them
+/// completely — the arrow arrived at what looked like a single token. These
+/// offsets are added to the [Positioned] only: `player.position` is untouched,
+/// so the stored board, drag maths (which works off deltas) and the exported
+/// coordinates are all unchanged. Because the offset moves the whole widget,
+/// its gesture detector moves with it, so a tap still selects the token that
+/// is under the finger.
+///
+/// Markers and balls are deliberately left out. Equipment under a player and a
+/// ball at someone's feet are the arrangement a coach meant, not a collision.
+///
+/// The shift ramps with how close the players actually are — full at dead
+/// centre, nothing at [_kFanThreshold] — so nothing pops as they converge
+/// during playback or under a drag.
+Map<String, Offset> fanOutOffsets(
+  List<PlayerIcon> players,
+  Offset Function(PlayerIcon) positionOf,
+) {
+  final subjects =
+      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  if (subjects.length < 2) return const {};
+
+  // Connected components: A near B and B near C puts all three in one group,
+  // which is what keeps a three-player pile-up from being fanned as a pair
+  // plus a stray.
+  final seen = <int>{};
+  final result = <String, Offset>{};
+  for (var i = 0; i < subjects.length; i++) {
+    if (!seen.add(i)) continue;
+    final group = <int>[i];
+    for (var g = 0; g < group.length; g++) {
+      for (var j = 0; j < subjects.length; j++) {
+        if (seen.contains(j)) continue;
+        final d = (positionOf(subjects[group[g]]) - positionOf(subjects[j]))
+            .distance;
+        if (d < _kFanThreshold) {
+          seen.add(j);
+          group.add(j);
+        }
+      }
+    }
+    if (group.length < 2) continue;
+
+    // Stable order, so the arrangement cannot shuffle on an unrelated rebuild.
+    final members = group.map((k) => subjects[k]).toList()
+      ..sort((a, b) => a.id.compareTo(b.id));
+
+    var centre = Offset.zero;
+    var closest = double.infinity;
+    var biggest = 1.0;
+    for (var a = 0; a < members.length; a++) {
+      centre += positionOf(members[a]);
+      biggest = biggest > members[a].scale ? biggest : members[a].scale;
+      for (var b = a + 1; b < members.length; b++) {
+        final d = (positionOf(members[a]) - positionOf(members[b])).distance;
+        if (d < closest) closest = d;
+      }
+    }
+    centre = centre / members.length.toDouble();
+    final spread = (1 - closest / _kFanThreshold).clamp(0.0, 1.0);
+    if (spread == 0) continue;
+    // More tokens need more room: three in a line pushed only as far as a
+    // pair leaves the middle one still overlapping both its neighbours.
+    final crowd = 1 + 0.35 * (members.length - 2);
+    final push = _kFanRadius * biggest * spread * crowd;
+
+    for (var k = 0; k < members.length; k++) {
+      // Push outward from the group's centre, never re-place onto a ring.
+      // Ringing them re-centres the group, which pulled two players who were
+      // 20pt apart to 17pt apart — the fan made the overlap worse for every
+      // gap except dead centre. A pure outward push can only ever add
+      // separation.
+      final away = positionOf(members[k]) - centre;
+      final dir = away.distance < 0.5
+          // Exactly stacked: no direction to push along, so spread them
+          // evenly around the circle instead.
+          ? Offset(math.cos(2 * math.pi * k / members.length),
+              math.sin(2 * math.pi * k / members.length))
+          : away / away.distance;
+      result[members[k].id] = dir * push;
+    }
+  }
+  return result;
+}
+
 class TacticsCanvas extends StatefulWidget {
   const TacticsCanvas({super.key});
 
@@ -531,6 +624,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   }
 
   Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
+    // Players standing in the same place get nudged apart in the drawing.
+    // Computed from the positions actually on screen, so it follows the
+    // animation as tokens converge rather than only the stored board.
+    final fan = fanOutOffsets(
+      players,
+      (p) => state.animatedPositions[p.id] ?? p.position,
+    );
+
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
     /// they are painted differs.
@@ -568,6 +669,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         key: ValueKey(player.id),
         player: player,
         renderPosition: animPos,
+        drawOffset: fan[player.id] ?? Offset.zero,
         isSelected: selected,
         isPrimary: selected &&
             !state.multiSelectMode &&
@@ -1030,6 +1132,11 @@ class _AnimationDriverState extends State<_AnimationDriver>
 class _PlayerOnBoard extends StatefulWidget {
   final PlayerIcon player;
   final Offset? renderPosition; // animated override
+
+  /// Draw-time nudge from [fanOutOffsets]. Added to the Positioned only —
+  /// never to player.position — so the board's data, the drag deltas and the
+  /// exported coordinates all stay on the real point.
+  final Offset drawOffset;
   final bool isSelected;
   final bool isPrimary;
   final bool isAtCurrentStep; // start position is the current timeline step
@@ -1048,6 +1155,7 @@ class _PlayerOnBoard extends StatefulWidget {
     super.key,
     required this.player,
     this.renderPosition,
+    this.drawOffset = Offset.zero,
     required this.isSelected,
     this.isPrimary = false,
     this.isAtCurrentStep = true,
@@ -1068,7 +1176,8 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
   @override
   Widget build(BuildContext context) {
     final player = widget.player;
-    final pos = widget.renderPosition ?? player.position;
+    final pos =
+        (widget.renderPosition ?? player.position) + widget.drawOffset;
     final size = kPlayerIconSize * player.scale;
     // Start-of-chain icons (player has moves, not animating) render as a
     // faded ghost when the timeline is past step 0 — because the player's

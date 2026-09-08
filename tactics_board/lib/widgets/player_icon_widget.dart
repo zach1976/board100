@@ -20,7 +20,7 @@ const double kPlayerIconSize = 44.0;
 /// itself is unchanged, so the tap target stays 44pt and nothing about
 /// positioning moves; only the drawing shrinks. Scale it up per-ball from the
 /// edit bar if a drill wants the ball emphasised.
-const double kBallDrawFactor = 0.72;
+const double kBallDrawFactor = 0.58;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Top-down person painter (shared between board and toolbar preview)
