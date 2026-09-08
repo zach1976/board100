@@ -4,6 +4,48 @@ import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../widgets/player_icon_widget.dart';
 
+/// Whether every leg of this ball's route rides along with somebody.
+///
+/// A pass-and-follow drill gives the ball and the runner the same route one
+/// beat apart at most, and drawing both meant every edge of the diamond
+/// carried two parallel dashed arrows plus the ball's own waypoint badges.
+/// When each of the ball's segments starts and ends within an arm's reach of
+/// some player's segment in the same phase, the players' arrows already tell
+/// the whole story and the ball's are only noise — its line and its waypoint
+/// dots are both suppressed. A ball that ever travels alone (a switch, a
+/// shot, a cross to space) keeps them, because there they ARE the story.
+bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
+  // At the receiver's feet the ball sits ~38pt from the receiver's point;
+  // one and a half icons covers that with room, while the next cone is
+  // hundreds of points away.
+  const near = kPlayerIconSize * 1.5;
+  if (ball.moves.isEmpty) return false;
+  ball.syncPhases();
+  for (int i = 0; i < ball.moves.length; i++) {
+    final from = i == 0 ? ball.position : ball.moves[i - 1];
+    final to = ball.moves[i];
+    final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
+    var escorted = false;
+    for (final p in players) {
+      if (p.isBall || p.isMarker || p.moves.isEmpty) continue;
+      p.syncPhases();
+      for (int j = 0; j < p.moves.length; j++) {
+        final pph = j < p.movePhases.length ? p.movePhases[j] : j;
+        if (pph != ph) continue;
+        final pFrom = j == 0 ? p.position : p.moves[j - 1];
+        final pTo = p.moves[j];
+        if ((pFrom - from).distance < near && (pTo - to).distance < near) {
+          escorted = true;
+          break;
+        }
+      }
+      if (escorted) break;
+    }
+    if (!escorted) return false;
+  }
+  return true;
+}
+
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all; used when not animating
@@ -19,6 +61,7 @@ class PlayerMovesPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     for (final player in players) {
       if (player.moves.isEmpty) continue;
+      if (player.isBall && ballTravelsWithPlayers(player, players)) continue;
       _paintMoves(canvas, player);
     }
   }
