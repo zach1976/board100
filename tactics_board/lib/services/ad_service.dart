@@ -221,7 +221,6 @@ class AdService {
   static const int _maxAppOpenPerDay = 3;
   static const int _maxInterstitialsPerDay = 6;
 
-  static const String _kFirstLaunchSeen = 'ad_first_launch_seen';
   static const String _kCountersDate = 'ad_counters_date';
   static const String _kAppOpenCount = 'ad_app_open_count';
   static const String _kInterstitialCount = 'ad_interstitial_count';
@@ -235,7 +234,6 @@ class AdService {
   int _interstitialToday = 0;
   // True for the whole of the very first session after install — a brand-new
   // user should meet the app, not an ad.
-  bool _isFirstLaunch = false;
 
   InterstitialAd? _interstitial;
   bool _interstitialLoading = false;
@@ -382,8 +380,6 @@ class AdService {
     try {
       final prefs = await SharedPreferences.getInstance();
       _prefs = prefs;
-      _isFirstLaunch = !(prefs.getBool(_kFirstLaunchSeen) ?? false);
-      if (_isFirstLaunch) await prefs.setBool(_kFirstLaunchSeen, true);
       final today = _todayStr();
       _countersDate = prefs.getString(_kCountersDate) ?? '';
       if (_countersDate == today) {
@@ -594,11 +590,9 @@ class AdService {
       _trace('app open skipped: disabled/showing/suppressed');
       return;
     }
-    // Gate: brand-new install — the first session stays ad-free.
-    if (_isFirstLaunch) {
-      _trace('app open gated: first launch');
-      return;
-    }
+    // ⚠️ 2026-09-09 Apple 5.6：新装首会话免广告的门已删除 —— 审核员的会话
+    // 就是首会话，这个门等于把广告藏过审核（宋词三百首/字母系列同因被拒）。
+    // 频次规则（每日上限、间隔、后台停留）对所有人一致，保持不变。
     // Gate: daily ceiling.
     if (!_appOpenUnderDailyCap) {
       _trace('app open gated: daily cap $_appOpenToday/$_maxAppOpenPerDay');
