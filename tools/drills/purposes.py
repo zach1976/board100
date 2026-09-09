@@ -35,8 +35,8 @@ DEFAULT = {
     "warmup": _P(
         "Raise the heart rate and sharpen touch before the load comes; it "
         "sets the standard the session keeps.",
-        "在负荷到来前提升心率、找回球感；它定下整堂课的标准。",
-        "在負荷到來前提升心率、找回球感；它定下整堂課的標準。",
+        "热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。",
+        "熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。",
         "負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。",
         "본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.",
         "Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.",
@@ -48,8 +48,8 @@ DEFAULT = {
     "possession": _P(
         "Keep the ball under pressure — support angles, first touch and the "
         "pass that beats a line rather than just the nearest man.",
-        "在压迫下保住球——支应角度、第一脚触球，以及能穿透防线而不只是传给最近人的那一脚。",
-        "在壓迫下保住球——支應角度、第一腳觸球，以及能穿透防線而不只是傳給最近人的那一腳。",
+        "控球：在有人抢的情况下把球留住。练接应跑位、第一脚停球，以及敢往前穿防线，而不是只往安全的方向传。",
+        "控球：在有人搶的情況下把球留住。練接應跑位、第一腳停球，以及敢往前穿防線，而不是只往安全的方向傳。",
         "プレッシャー下でボールを保持する。サポートの角度、ファーストタッチ、そして最も近い味方ではなくラインを破るパス。",
         "압박 속에서 공을 지킨다. 지원 각도, 첫 터치, 그리고 가까운 동료가 아니라 수비 라인을 깨는 패스.",
         "Conservar el balón bajo presión: ángulos de apoyo, control y el pase que rompe una línea, no solo al más cercano.",
@@ -61,8 +61,8 @@ DEFAULT = {
     "attacking": _P(
         "Break a set defence: create and use an overload, commit a defender, "
         "and play the pass his movement opens.",
-        "破解站好位的防守：制造并利用局部人数优势，逼防守人做决定，再打他移动让出的那条传球线。",
-        "破解站好位的防守：製造並利用局部人數優勢，逼防守人做決定，再打他移動讓出的那條傳球線。",
+        "进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。",
+        "進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。",
         "整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。",
         "정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.",
         "Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.",
@@ -74,8 +74,8 @@ DEFAULT = {
     "defending": _P(
         "Deny space as a unit — the whole line shifts with the ball, closes "
         "the pass on either side of the presser, and covers behind.",
-        "作为整体压缩空间——整条线随球移动，封住上抢者两侧的传球线，并在身后补位。",
-        "作為整體壓縮空間——整條線隨球移動，封住上搶者兩側的傳球線，並在身後補位。",
+        "防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。",
+        "防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。",
         "組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。",
         "조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.",
         "Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.",
@@ -87,8 +87,8 @@ DEFAULT = {
     "finishing": _P(
         "Turn a chance into a goal: arrive with the feet set, strike early "
         "and low, and hit the space rather than the shirt.",
-        "把机会转化为进球：到位时脚步站好，早出脚、打低平球，瞄准空当而不是人。",
-        "把機會轉化為進球：到位時腳步站好，早出腳、打低平球，瞄準空檔而不是人。",
+        "射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。",
+        "射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。",
         "チャンスを得点に変える。足を作って到達し、早く低く打ち、人ではなくスペースを狙う。",
         "기회를 골로 바꾼다. 발을 갖춰 도착하고, 빠르고 낮게 슛하며, 사람이 아니라 공간을 노린다.",
         "Convertir la ocasión en gol: llegar con los apoyos puestos, rematar pronto y raso, y buscar el espacio, no la camiseta.",
@@ -101,8 +101,8 @@ DEFAULT = {
         "Rehearse a restart until it runs without a word — everyone knows the "
         "movement before the whistle, so the delivery, not the decision, is the "
         "hard part.",
-        "把定位球演练到不用说话就能跑——哨响前每个人都知道跑位，难的只是传球质量，而不是临场决定。",
-        "把定位球演練到不用說話就能跑——哨響前每個人都知道跑位，難的只是傳球質量，而不是臨場決定。",
+        "定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。",
+        "定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。",
         "セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。",
         "세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.",
         "Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.",
@@ -114,8 +114,8 @@ DEFAULT = {
     "ssg": _P(
         "A small-sided game: fewer players, so the ball and every decision "
         "arrive faster and nobody can hide from the play.",
-        "小场比赛：人少，球和每个决定都来得更快，谁也躲不开比赛。",
-        "小場比賽：人少，球和每個決定都來得更快，誰也躲不開比賽。",
+        "小场比赛：人少场地小，球来得快、决定也快，每个人都得参与，没法躲。",
+        "小場比賽：人少場地小，球來得快、決定也快，每個人都得參與，沒法躲。",
         "ミニゲーム。人数が少ない分、ボールも判断も速く来て、誰もプレーから隠れられない。",
         "미니 게임: 인원이 적어 공과 모든 결정이 더 빨리 오고, 누구도 플레이에서 숨을 수 없다.",
         "Juego reducido: menos jugadores, así el balón y cada decisión llegan antes y nadie se esconde.",
@@ -127,8 +127,8 @@ DEFAULT = {
     "goalkeeping": _P(
         "Train the keeper's craft — set before the strike, take the angle, "
         "and start the next attack with the first pass out.",
-        "训练门将的基本功——出脚前先站定、封好角度，并用第一脚出球发动下一次进攻。",
-        "訓練門將的基本功——出腳前先站定、封好角度，並用第一腳出球發動下一次進攻。",
+        "门将：练站位和封角度。对方出脚前先站稳，扑到球后用第一脚传球发动进攻。",
+        "門將：練站位和封角度。對方出腳前先站穩，撲到球後用第一腳傳球發動進攻。",
         "GKの技術を鍛える。シュート前に構え、角度を切り、最初のパスで次の攻撃を始める。",
         "골키퍼의 기술을 훈련한다. 슛 전에 자세를 잡고 각을 좁히며, 첫 패스로 다음 공격을 시작한다.",
         "Entrenar el oficio del portero: colocado antes del disparo, cerrar el ángulo y empezar el ataque con la primera salida.",
@@ -140,8 +140,8 @@ DEFAULT = {
     "conditioning": _P(
         "Build match fitness with the ball, so technique holds when the legs "
         "are tired — which is when the game is decided.",
-        "带球练体能，让腿累了技术动作也不散——而比赛正是在那时候被决定的。",
-        "帶球練體能，讓腿累了技術動作也不散——而比賽正是在那時候被決定的。",
+        "体能：带着球跑，练的是累了以后动作还能做到位——比赛往往就在最后那几分钟决定。",
+        "體能：帶著球跑，練的是累了以後動作還能做到位——比賽往往就在最後那幾分鐘決定。",
         "ボールを使って試合の体力を作る。脚が疲れても技術が崩れないように。試合はそこで決まる。",
         "공을 가지고 경기 체력을 기른다. 다리가 지쳐도 기술이 무너지지 않도록 — 경기는 그때 결정된다.",
         "Construir fondo con balón para que la técnica aguante con las piernas cansadas, que es cuando se decide el partido.",
@@ -157,8 +157,8 @@ NET = {
     "attacking": _P(
         "Take control of the rally — move the opponent, open the court, and "
         "force the ball you want to attack.",
-        "掌控回合——调动对手、拉开场地，制造出你想进攻的那个球。",
-        "掌控回合——調動對手、拉開場地，製造出你想進攻的那個球。",
+        "进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。",
+        "進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。",
         "ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。",
         "랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.",
         "Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.",
@@ -170,8 +170,8 @@ NET = {
     "defending": _P(
         "Stay in the rally under pressure — reset from defence, buy time, and "
         "turn the point back to neutral before you attack again.",
-        "在压力下保住回合——从被动中稳住、争取时间，把球势拉回均势再重新进攻。",
-        "在壓力下保住回合——從被動中穩住、爭取時間，把球勢拉回均勢再重新進攻。",
+        "防守：练被动时怎么把球接回来。先稳住、拖住时间，把这一分打回平手，再想进攻。",
+        "防守：練被動時怎麼把球接回來。先穩住、拖住時間，把這一分打回平手，再想進攻。",
         "プレッシャー下でラリーに残る。守備から立て直し、時間を作り、再び攻める前に五分に戻す。",
         "압박 속에서 랠리를 이어간다. 수비에서 재정비하고 시간을 벌어, 다시 공격하기 전에 균형으로 되돌린다.",
         "Sostener el peloteo bajo presión: recomponer desde la defensa, ganar tiempo y devolver el punto a igualdad antes de atacar.",
@@ -183,8 +183,8 @@ NET = {
     "finishing": _P(
         "End the point cleanly — take the ball early, hit into the open space, "
         "and finish rather than give the rally back.",
-        "干净利落地终结一分——早点击球、打向空当，把球拍死而不是把回合还给对手。",
-        "乾淨俐落地終結一分——早點擊球、打向空檔，把球拍死而不是把回合還給對手。",
+        "得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。",
+        "得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。",
         "ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。",
         "포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.",
         "Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.",
@@ -196,8 +196,8 @@ NET = {
     "possession": _P(
         "Control the ball on your own side — clean contacts and a set-up touch "
         "so the attacking ball is there when you want it.",
-        "在本方半场把球控好——干净的触球加一次做球，让你想进攻时那个球就在。",
-        "在本方半場把球控好——乾淨的觸球加一次做球，讓你想進攻時那個球就在。",
+        "控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。",
+        "控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。",
         "自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。",
         "자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.",
         "Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.",
@@ -209,8 +209,8 @@ NET = {
     "setpiece": _P(
         "Rehearse the serve and its patterns — the one ball you start with full "
         "control of, placed to set up the point you want.",
-        "演练发球及其套路——这是你唯一能完全掌控的开球，落到你想打的那个位置上。",
-        "演練發球及其套路——這是你唯一能完全掌控的開球，落到你想打的那個位置上。",
+        "发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。",
+        "發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。",
         "サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。",
         "서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.",
         "Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.",
@@ -226,8 +226,8 @@ BASE = {
     "attacking": _P(
         "Hitting and baserunning — put the ball in play and take the extra base "
         "the defence gives you.",
-        "击球与跑垒——把球击进场内，抓住防守让出的那个额外垒。",
-        "擊球與跑壘——把球擊進場內，抓住防守讓出的那個額外壘。",
+        "进攻：练击球和跑垒。把球打进场内，抓住防守的漏洞多推进一个垒。",
+        "進攻：練擊球和跑壘。把球打進場內，抓住防守的漏洞多推進一個壘。",
         "打撃と走塁。ボールをフェアに運び、守備が与える次の塁を奪う。",
         "타격과 주루 — 공을 인플레이로 만들고 수비가 주는 추가 베이스를 차지한다.",
         "Bateo y corrido de bases: pon la bola en juego y toma la base extra que te da la defensa.",
@@ -239,8 +239,8 @@ BASE = {
     "defending": _P(
         "Fielding and the throw — get to the ball on balance and turn it into an "
         "out where the play is.",
-        "守备与传杀——平衡地接到球，在有出局机会的地方把它变成一个出局。",
-        "守備與傳殺——平衡地接到球，在有出局機會的地方把它變成一個出局。",
+        "守备：练接球和传杀。稳稳接住球，在有出局机会的垒把它变成一个出局。",
+        "守備：練接球和傳殺。穩穩接住球，在有出局機會的壘把它變成一個出局。",
         "守備と送球。バランスよく打球に入り、プレーのある塁でアウトにする。",
         "수비와 송구 — 균형 잡고 타구에 접근해, 플레이가 있는 곳에서 아웃으로 만든다.",
         "Fildeo y tiro: llega a la bola en equilibrio y conviértela en out donde está la jugada.",
@@ -252,8 +252,8 @@ BASE = {
     "finishing": _P(
         "Situational hitting — the swing the count and the runners call for, not "
         "the one you feel like taking.",
-        "情境击球——根据球数和垒上跑者该打的那一棒，而不是你想打的那一棒。",
-        "情境擊球——根據球數和壘上跑者該打的那一棒，而不是你想打的那一棒。",
+        "击球选择：练根据球数和垒上跑者，该打哪种球就打哪种，不是想打什么打什么。",
+        "擊球選擇：練根據球數和壘上跑者，該打哪種球就打哪種，不是想打什麼打什麼。",
         "状況に応じた打撃。カウントと走者が求めるスイングで、気分で振るのではない。",
         "상황 타격 — 볼카운트와 주자가 요구하는 스윙이지, 내키는 스윙이 아니다.",
         "Bateo situacional: el swing que piden la cuenta y los corredores, no el que te apetece.",
@@ -265,8 +265,8 @@ BASE = {
     "possession": _P(
         "Battery and infield work — the pitch, the receive and the throws that "
         "hold runners and turn the ball around cleanly.",
-        "投捕与内野配合——投球、接球，以及牵制跑者、干净转移球的传接。",
-        "投捕與內野配合——投球、接球，以及牽制跑者、乾淨轉移球的傳接。",
+        "投捕内野：练投球、接球，以及牵制跑者、干净地把球转移出去。",
+        "投捕內野：練投球、接球，以及牽制跑者、乾淨地把球轉移出去。",
         "バッテリーと内野の連携。投球、捕球、そして走者を抑え、ボールをきれいに回す送球。",
         "배터리와 내야 연계 — 투구, 포구, 그리고 주자를 묶고 공을 깔끔하게 돌리는 송구.",
         "Trabajo de batería e infield: el lanzamiento, la recepción y los tiros que sujetan corredores y giran la bola limpia.",
@@ -278,8 +278,8 @@ BASE = {
     "setpiece": _P(
         "A dead-ball routine — the bunt, the pick, the first-and-third: a play "
         "run the same way every time so it works under pressure.",
-        "死球战术——触击、牵制、一三垒配合：每次都用同一套跑法，才能在压力下奏效。",
-        "死球戰術——觸擊、牽制、一三壘配合：每次都用同一套跑法，才能在壓力下奏效。",
+        "固定战术：练触击、牵制、一三垒这些配合。每次都用同一套跑法，关键时刻才靠得住。",
+        "固定戰術：練觸擊、牽制、一三壘這些配合。每次都用同一套跑法，關鍵時刻才靠得住。",
         "デッドボールの型。バント、牽制、一三塁の連携。毎回同じ形で回すからこそ、重圧下でも決まる。",
         "정지 상황 루틴 — 번트, 견제, 1·3루 상황: 매번 같은 방식으로 돌려야 압박 속에서도 통한다.",
         "Jugada a balón parado: el toque, el pickoff, primera-y-tercera: una jugada igual siempre para que funcione bajo presión.",
@@ -291,8 +291,8 @@ BASE = {
     "ssg": _P(
         "A situational game — read the count and the runners and make the right "
         "baseball play, over and over.",
-        "情境对抗——读球数和跑者，反复做出正确的棒球选择。",
-        "情境對抗——讀球數和跑者，反覆做出正確的棒球選擇。",
+        "情境对抗：练读球数和垒上跑者，反复做出正确的棒球判断。",
+        "情境對抗：練讀球數和壘上跑者，反覆做出正確的棒球判斷。",
         "状況ゲーム。カウントと走者を読み、正しい野球のプレーを繰り返す。",
         "상황 게임 — 볼카운트와 주자를 읽고 올바른 야구 플레이를 반복한다.",
         "Juego situacional: lee la cuenta y los corredores y haz la jugada correcta, una y otra vez.",
