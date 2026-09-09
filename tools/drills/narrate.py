@@ -30,6 +30,14 @@ LOCALES = ["en", "en-GB", "zh-CN", "zh-TW", "ja-JP", "ko-KR", "es-ES",
 
 # ── section labels ──────────────────────────────────────────────────────────
 SECTION = {
+    "purpose": {
+        "en": "Purpose: ", "en-GB": "Purpose: ",
+        "zh-CN": "【目的】", "zh-TW": "【目的】",
+        "ja-JP": "【目的】", "ko-KR": "【목적】",
+        "es-ES": "Objetivo: ", "fr-FR": "Objectif : ",
+        "id-ID": "Tujuan: ", "ms-MY": "Tujuan: ",
+        "th-TH": "จุดประสงค์: ", "vi-VN": "Mục đích: ",
+    },
     "setup": {
         "en": "Setup: ", "en-GB": "Setup: ",
         "zh-CN": "【组织】", "zh-TW": "【組織】",
@@ -543,18 +551,26 @@ def compose_note(drill, sport: str) -> None:
     note. Runs once per drill at the end of build_board, after phases are
     final. A drill with no movement keeps its plain note untouched.
     """
+    from .purposes import purpose_texts
     seq = sequence_texts(drill, sport)
-    if seq is None:
+    purpose = purpose_texts(sport, drill.category)
+    # A drill with no movement (shadow footwork) still gets a purpose and a
+    # setup; only the sequence line is skipped when there is nothing to walk.
+    if seq is None and purpose is None:
         return
     setup = setup_texts(drill, sport)
     route = route_texts(drill, sport)
     new = {}
     for loc in LOCALES:
         point = drill.note.get(loc) or drill.note["en"]
-        parts = [SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip()]
+        parts = []
+        if purpose:
+            parts.append(SECTION["purpose"][loc] + purpose[loc])
+        parts.append(SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip())
         if route:
             parts.append(SECTION["route"][loc] + route[loc])
-        parts.append(SECTION["seq"][loc] + seq[loc])
+        if seq is not None:
+            parts.append(SECTION["seq"][loc] + seq[loc])
         parts.append(SECTION["point"][loc] + point)
         # One section per line: as a single run-on paragraph the note made
         # the reader find the section markers themselves.
