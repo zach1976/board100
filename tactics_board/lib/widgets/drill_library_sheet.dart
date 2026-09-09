@@ -341,6 +341,55 @@ class _CategoryChip extends StatelessWidget {
 }
 
 /// One card. A family shows its heading, its coaching point once, and a chip
+/// The drill's note, three lines until tapped.
+///
+/// Notes grew from one coaching sentence into setup / ball path / steps /
+/// point, and the card's three-line clamp cut everything after the setup —
+/// the full instruction existed nowhere in the app a coach could read it.
+/// The card stays a card; the note opens under a tap and closes under
+/// another.
+class _ExpandableNote extends StatefulWidget {
+  final String text;
+  const _ExpandableNote({required this.text});
+
+  @override
+  State<_ExpandableNote> createState() => _ExpandableNoteState();
+}
+
+class _ExpandableNoteState extends State<_ExpandableNote> {
+  bool _open = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => setState(() => _open = !_open),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Text(
+              widget.text,
+              maxLines: _open ? null : 3,
+              overflow: _open ? null : TextOverflow.ellipsis,
+              style: const TextStyle(
+                  color: T.textDim, fontSize: 13.5, height: 1.4),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 4, top: 2),
+            child: Icon(
+              _open ? Icons.expand_less_rounded : Icons.expand_more_rounded,
+              size: 16,
+              color: T.textOff,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /// per variant; a drill that stands alone shows its own name and note and is
 /// tappable as a whole.
 class _DrillRow extends StatelessWidget {
@@ -392,13 +441,7 @@ class _DrillRow extends StatelessWidget {
                           height: 1.25),
                     ),
                     const SizedBox(height: 3),
-                    Text(
-                      first.localizedNote(locale),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          color: T.textDim, fontSize: 13.5, height: 1.4),
-                    ),
+                    _ExpandableNote(text: first.localizedNote(locale)),
                     if (first.localizedMistake(locale) != null) ...[
                       const SizedBox(height: 6),
                       Row(

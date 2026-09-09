@@ -46,6 +46,14 @@ SECTION = {
         "id-ID": "Urutan: ", "ms-MY": "Urutan: ",
         "th-TH": "ลำดับ: ", "vi-VN": "Trình tự: ",
     },
+    "route": {
+        "en": "Ball path: ", "en-GB": "Ball path: ",
+        "zh-CN": "【球路】", "zh-TW": "【球路】",
+        "ja-JP": "【ボールの道筋】", "ko-KR": "【볼 경로】",
+        "es-ES": "Recorrido del balón: ", "fr-FR": "Trajet du ballon : ",
+        "id-ID": "Jalur bola: ", "ms-MY": "Laluan bola: ",
+        "th-TH": "เส้นทางบอล: ", "vi-VN": "Đường bóng: ",
+    },
     "point": {
         "en": "Coaching point: ", "en-GB": "Coaching point: ",
         "zh-CN": "【要点】", "zh-TW": "【要點】",
@@ -57,13 +65,15 @@ SECTION = {
 }
 
 # ── beats ───────────────────────────────────────────────────────────────────
+# Named the way the playback indicator counts ("0/4", stepped in 步), so a
+# coach can hold the note against the stepper and follow beat for beat.
 BEAT = {
-    "en": "Beat {n}: ", "en-GB": "Beat {n}: ",
-    "zh-CN": "第{n}拍：", "zh-TW": "第{n}拍：",
-    "ja-JP": "{n}拍目：", "ko-KR": "{n}박: ",
-    "es-ES": "Tiempo {n}: ", "fr-FR": "Temps {n} : ",
-    "id-ID": "Ketukan {n}: ", "ms-MY": "Rentak {n}: ",
-    "th-TH": "จังหวะ {n}: ", "vi-VN": "Nhịp {n}: ",
+    "en": "Step {n}: ", "en-GB": "Step {n}: ",
+    "zh-CN": "第{n}步：", "zh-TW": "第{n}步：",
+    "ja-JP": "ステップ{n}：", "ko-KR": "{n}단계: ",
+    "es-ES": "Paso {n}: ", "fr-FR": "Étape {n} : ",
+    "id-ID": "Langkah {n}: ", "ms-MY": "Langkah {n}: ",
+    "th-TH": "ขั้นที่ {n}: ", "vi-VN": "Bước {n}: ",
 }
 
 # separators: inside a beat / between beats / end of section
@@ -140,6 +150,26 @@ PASS_IN = {
     "es-ES": "el balón llega a {b}", "fr-FR": "le ballon arrive sur {b}",
     "id-ID": "bola dimainkan ke {b}", "ms-MY": "bola dimainkan kepada {b}",
     "th-TH": "บอลถูกส่งมาที่ {b}", "vi-VN": "bóng được đưa tới {b}",
+}
+GOAL_WORD = {
+    "en": "goal", "en-GB": "goal", "zh-CN": "球门", "zh-TW": "球門",
+    "ja-JP": "ゴール", "ko-KR": "골문", "es-ES": "portería", "fr-FR": "but",
+    "id-ID": "gawang", "ms-MY": "gol", "th-TH": "ประตู", "vi-VN": "khung thành",
+}
+BACK_TO_START = {
+    "en": "back to the start", "en-GB": "back to the start",
+    "zh-CN": "回到起点", "zh-TW": "回到起點",
+    "ja-JP": "スタート位置へ戻る", "ko-KR": "시작 지점으로",
+    "es-ES": "de vuelta al inicio", "fr-FR": "retour au départ",
+    "id-ID": "kembali ke awal", "ms-MY": "kembali ke permulaan",
+    "th-TH": "กลับจุดเริ่ม", "vi-VN": "về điểm xuất phát",
+}
+SPOT_WORD = {
+    "en": "the open spot", "en-GB": "the open spot", "zh-CN": "空位",
+    "zh-TW": "空位", "ja-JP": "スペース", "ko-KR": "빈 자리",
+    "es-ES": "el espacio libre", "fr-FR": "l'espace libre",
+    "id-ID": "titik kosong", "ms-MY": "ruang kosong",
+    "th-TH": "จุดว่าง", "vi-VN": "vị trí trống",
 }
 SHOOT = {
     "en": "{a} shoots", "en-GB": "{a} shoots",
@@ -358,6 +388,45 @@ def sequence_texts(drill, sport: str) -> dict | None:
     return out
 
 
+def route_texts(drill, sport: str) -> dict | None:
+    """One line: where the ball goes, start to finish — 2 → 3 → 4 → goal.
+
+    The step-by-step below it is precise but sequential; this is the shape of
+    the whole drill in a glance, and it is what makes the steps scannable.
+    """
+    if not drill.ball_to:
+        return None
+    from .engine import court_rect
+    _, top, _, ch = court_rect(sport)
+    stops_by_loc = {loc: [] for loc in LOCALES}
+    start = (_label(drill.home[drill.ball])
+             if isinstance(drill.ball, int) else None)
+    for loc in LOCALES:
+        stops = [start] if start else []
+        for (t, ph) in drill.ball_to:
+            if isinstance(t, tuple):
+                shooty = (t[1] < top + ch * 0.085 or t[1] > top + ch * 0.915)
+                sx, sy = ((drill.home[drill.ball].x, drill.home[drill.ball].y)
+                          if isinstance(drill.ball, int) else
+                          (drill.ball if isinstance(drill.ball, tuple)
+                           else (None, None)))
+                if shooty:
+                    stops.append(GOAL_WORD[loc])
+                elif sx is not None and abs(t[0]-sx) + abs(t[1]-sy) < 120:
+                    stops.append(BACK_TO_START[loc])
+                else:
+                    stops.append(SPOT_WORD[loc])
+            elif isinstance(t, str):
+                stops.append(_label(drill.away[int(t[1:])]))
+            else:
+                stops.append(_label(drill.home[t]))
+        # A carry leg repeats the holder; collapse runs of the same stop so
+        # the path reads 9 → 11 → goal, not 9 → 9 → 9 → 11 → goal.
+        clean = [x for i, x in enumerate(stops) if i == 0 or x != stops[i-1]]
+        stops_by_loc[loc] = " → ".join(clean)
+    return stops_by_loc
+
+
 def setup_texts(drill, sport: str) -> dict:
     """The 组织 census — overridden by a hand-written drill.setup when given."""
     hand = getattr(drill, "setup", None)
@@ -392,12 +461,16 @@ def compose_note(drill, sport: str) -> None:
     if seq is None:
         return
     setup = setup_texts(drill, sport)
+    route = route_texts(drill, sport)
     new = {}
-    cjk = ("zh-CN", "zh-TW", "ja-JP")
     for loc in LOCALES:
         point = drill.note.get(loc) or drill.note["en"]
-        gap = "" if loc in cjk else " "
-        new[loc] = (SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip()
-                    + gap + SECTION["seq"][loc] + seq[loc]
-                    + gap + SECTION["point"][loc] + point)
+        parts = [SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip()]
+        if route:
+            parts.append(SECTION["route"][loc] + route[loc])
+        parts.append(SECTION["seq"][loc] + seq[loc])
+        parts.append(SECTION["point"][loc] + point)
+        # One section per line: as a single run-on paragraph the note made
+        # the reader find the section markers themselves.
+        new[loc] = "\n".join(parts)
     drill.note = new

@@ -318,7 +318,8 @@ TEMPLATE = r"""<!doctype html>
   h3{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.06em;
      text-transform:uppercase;color:var(--off);margin:22px 0 8px}
   .cur{background:var(--bg1);border:1px solid var(--border);border-radius:10px;
-       padding:12px 14px;font-size:14.5px;color:var(--dim);margin:0 0 6px}
+       padding:12px 14px;font-size:14.5px;color:var(--dim);margin:0 0 6px;
+       white-space:pre-line}
   .cur.zh{font-size:14px}
   textarea{width:100%;font-family:var(--body);font-size:14.5px;line-height:1.6;color:var(--text);
            background:var(--surface);border:1px solid var(--border);border-radius:10px;
