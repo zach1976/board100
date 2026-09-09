@@ -38,6 +38,22 @@ SECTION = {
         "id-ID": "Tujuan: ", "ms-MY": "Tujuan: ",
         "th-TH": "จุดประสงค์: ", "vi-VN": "Mục đích: ",
     },
+    "freq": {
+        "en": "Frequency: ", "en-GB": "Frequency: ",
+        "zh-CN": "【频度】", "zh-TW": "【頻度】",
+        "ja-JP": "【頻度】", "ko-KR": "【빈도】",
+        "es-ES": "Frecuencia: ", "fr-FR": "Fréquence : ",
+        "id-ID": "Frekuensi: ", "ms-MY": "Kekerapan: ",
+        "th-TH": "ความถี่: ", "vi-VN": "Tần suất: ",
+    },
+    "origin": {
+        "en": "Origin: ", "en-GB": "Origin: ",
+        "zh-CN": "【来历】", "zh-TW": "【來歷】",
+        "ja-JP": "【由来】", "ko-KR": "【유래】",
+        "es-ES": "Origen: ", "fr-FR": "Origine : ",
+        "id-ID": "Asal: ", "ms-MY": "Asal: ",
+        "th-TH": "ที่มา: ", "vi-VN": "Nguồn gốc: ",
+    },
     "setup": {
         "en": "Setup: ", "en-GB": "Setup: ",
         "zh-CN": "【组织】", "zh-TW": "【組織】",
@@ -553,8 +569,10 @@ def compose_note(drill, sport: str) -> None:
     final. A drill with no movement keeps its plain note untouched.
     """
     from .purposes import purpose_texts
+    from .background import background_texts
     seq = sequence_texts(drill, sport)
     purpose = purpose_texts(sport, drill.category)
+    freq, origin = background_texts(sport, drill.category, drill.id)
     # A drill with no movement (shadow footwork) still gets a purpose and a
     # setup; only the sequence line is skipped when there is nothing to walk.
     if seq is None and purpose is None:
@@ -567,6 +585,10 @@ def compose_note(drill, sport: str) -> None:
         parts = []
         if purpose:
             parts.append(SECTION["purpose"][loc] + purpose[loc])
+        if freq:
+            parts.append(SECTION["freq"][loc] + freq[loc])
+        if origin:
+            parts.append(SECTION["origin"][loc] + origin[loc])
         parts.append(SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip())
         if route:
             parts.append(SECTION["route"][loc] + route[loc])
