@@ -409,12 +409,16 @@ def resolve_ball(drill: Drill, sport: str) -> None:
 
 
 def build_board(drill: Drill, sport: str) -> dict:
+    from .narrate import compose_note
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
     space_out(drill, sport)
     prune_degenerate_moves(drill)
     resolve_ball(drill, sport)
     normalise_phases(drill)
+    # The note's sequence section comes from the beats as finally numbered —
+    # any earlier and the text counts phases the stepper never shows.
+    compose_note(drill, sport)
     players, i, color = [], 0, 0
     home_ids = []
     for p in drill.home:
@@ -918,11 +922,15 @@ def build(sport: str, library) -> dict:
         f"{sport}: no common-mistake for: {missing}\n"
         f"    add a family entry, or a category floor via cat() in mistakes.py")
 
-    return {
-        "sport": sport,
-        "version": 1,
-        "drills": [
-            {
+    records = []
+    for d in drills:
+        # The board first: build_board rewrites the note (compose_note) and
+        # the labels (reserve_keeper_number), and a dict literal evaluates in
+        # source order — "note": d.note above the board exported the note as
+        # it was before narration ever ran.
+        board = build_board(d, sport)
+        audit(sport, d, board)
+        records.append({
                 "id": d.id,
                 "level": derive_level(d),
                 # Set when this drill is one variant of a generated family, so
@@ -944,9 +952,6 @@ def build(sport: str, library) -> dict:
                     families[d.id][1].get("en", "") if d.id in families
                     else d.name["en"],
                     d.category),
-                "board": (lambda b, dd=d: (audit(sport, dd, b), b)[1])(
-                    build_board(d, sport)),
-            }
-            for d in drills
-        ],
-    }
+                "board": board,
+        })
+    return {"sport": sport, "version": 1, "drills": records}
