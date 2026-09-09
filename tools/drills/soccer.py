@@ -83,11 +83,17 @@ def soccer_drills() -> list[Drill]:
             # follower joins the queue behind the receiver, he does not stand
             # on him. Ending exactly on the receiver's point stacked the two
             # tokens dead centre the moment the follower arrived.
+            # Four cones, four players, ball round three sides — it ends
+            # when 4 receives. It used to play a fourth pass back to the top
+            # cone, but 1 had left it on beat 1 to follow his own pass, so the
+            # ball went to an empty corner with nobody to receive. With one
+            # player per cone the loop cannot close in a single turn; the
+            # pattern is shown 1→2→3→4 and restarts.
             home=[
                 P(500, 400, "1", moves=[(725, 641, 1)]),
                 P(780, 700, "2", moves=[(555, 941, 2)]),
                 P(500, 1000, "3", moves=[(275, 759, 3)]),
-                P(220, 700, "4", moves=[(445, 459, 4)]),
+                P(220, 700, "4"),
             ],
             markers=[M(500, 380), M(800, 700), M(500, 1020), M(200, 700)],
             ball=0,
@@ -95,7 +101,7 @@ def soccer_drills() -> list[Drill]:
             # with exactly four players the top spot is empty until 5 arrives
             # behind his own pass — referencing player 2 sent the ball to the
             # right cone he had rotated to.
-            ball_to=[(1, 0), (2, 1), (3, 2), ((500, 400), 3)],
+            ball_to=[(1, 0), (2, 1), (3, 2)],
             free=True,
         ),
         Drill(
@@ -1886,7 +1892,11 @@ def passing_family() -> list[Drill]:
             free=(label == "triangle"),
             name=suffixed(PASSING_NAME, label), note=PASSING_NOTE,
             home=[
-                P(x, y, f"{i + 1}", moves=[(*queue_spot(i), i + 1)])
+                # Everyone but the last player follows his pass; the last one
+                # receives and the pattern restarts. Following him too would
+                # send the ball on to a cone nobody has reached yet.
+                P(x, y, f"{i + 1}",
+                  moves=([(*queue_spot(i), i + 1)] if i < n - 1 else []))
                 for i, (x, y) in enumerate(spots)
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
@@ -1897,9 +1907,8 @@ def passing_family() -> list[Drill]:
                          "间距 8–10 米，一人一锥，一颗球",
             },
             ball=0,
-            # The last pass goes back to spot 0 as a point: its owner left on
-            # beat 1 and nobody re-occupies it until the final follower does.
-            ball_to=[(i + 1, i) for i in range(n - 1)] + [(spots[0], n - 1)],
+            # Round the ring, ending when the last player receives.
+            ball_to=[(i + 1, i) for i in range(n - 1)],
         ))
     return out
 
