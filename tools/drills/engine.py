@@ -281,6 +281,10 @@ def to_canvas(drill: Drill, sport: str) -> None:
     if isinstance(drill.ball, tuple):
         drill.ball = (fx(drill.ball[0]), fy(drill.ball[1]))
     drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
+    # ball_to point targets are author coordinates too; the player references
+    # need nothing, they resolve to positions that are already transformed.
+    drill.ball_to = [(((fx(t[0]), fy(t[1])) if isinstance(t, tuple) else t), ph)
+                     for (t, ph) in drill.ball_to]
     drill.rel = False
 
 
@@ -389,8 +393,11 @@ def resolve_ball(drill: Drill, sport: str) -> None:
         return _pos_at(pl, phase)
 
     if drill.ball_follow is not None:
-        assert not drill.ball_to and not drill.ball_moves, (
-            f"{drill.id}: ball_follow together with an explicit route")
+        # ball_to may follow a carry — a shuttle run that ends in a strike —
+        # its legs are appended after the carrier's; only hand-written
+        # ball_moves cannot mix with a follow, one would overwrite the other.
+        assert not drill.ball_moves, (
+            f"{drill.id}: ball_follow together with hand-written ball_moves")
         holder = drill.home[drill.ball_follow]
         assert holder.moves, (
             f"{drill.id}: ball_follow on a player who never moves — "
@@ -401,9 +408,8 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             (*at_the_feet_of(mx, my, sport), ph) for (mx, my, ph) in holder.moves]
 
     if drill.ball_to:
-        assert not drill.ball_moves or drill.ball_follow is None, (
-            f"{drill.id}: ball_to together with another route")
-        drill.ball_moves = [
+        follow_legs = drill.ball_moves if drill.ball_follow is not None else []
+        drill.ball_moves = follow_legs + [
             (*at_the_feet_of(*target_pos(t, ph), sport), ph)
             for (t, ph) in drill.ball_to]
 

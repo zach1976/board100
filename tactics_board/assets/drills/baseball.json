@@ -208,18 +208,18 @@
         "vi-VN": "Khởi động trong sân và ngoài sân"
       },
       "note": {
-        "en": "Setup: 8 players, ball with P. Sequence: Beat 1: P, 1B, 2B, SS, 3B, LF, CF, RF moves back. Coaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "en-GB": "Setup: 8 players, ball with P. Sequence: Beat 1: P, 1B, 2B, SS, 3B, LF, CF, RF moves back. Coaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "zh-CN": "【组织】8 人，球在 P 脚下。【流程】第1拍：P、1B、2B、SS、3B、LF、CF、RF 回撤移动。【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
-        "zh-TW": "【組織】8 人，球在 P 腳下。【流程】第1拍：P、1B、2B、SS、3B、LF、CF、RF 回撤移動。【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
-        "ja-JP": "【準備】8人、ボールはP。【流れ】1拍目：P・1B・2B・SS・3B・LF・CF・RFが後方へ移動。【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
-        "ko-KR": "【준비】8명, 공은 P. 【진행】1박: P, 1B, 2B, SS, 3B, LF, CF, RF는 뒤로 이동. 【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
-        "es-ES": "Montaje: 8 jugadores, balón con P. Secuencia: Tiempo 1: P, 1B, 2B, SS, 3B, LF, CF, RF se desplaza hacia atrás. Punto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
-        "fr-FR": "Mise en place : 8 joueurs, ballon avec P. Déroulé : Temps 1 : P, 1B, 2B, SS, 3B, LF, CF, RF se déplace vers l'arrière. Point clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
-        "id-ID": "Persiapan: 8 pemain, bola pada P. Urutan: Ketukan 1: P, 1B, 2B, SS, 3B, LF, CF, RF bergerak ke belakang. Poin utama: Lempar ke target, lurus, setiap kali.",
-        "ms-MY": "Persediaan: 8 pemain, bola dengan P. Urutan: Rentak 1: P, 1B, 2B, SS, 3B, LF, CF, RF bergerak ke belakang. Poin utama: Baling ke sasaran, lurus, setiap kali.",
-        "th-TH": "การจัด: ผู้เล่น 8 คน บอลอยู่ที่ P ลำดับ: จังหวะ 1: P, 1B, 2B, SS, 3B, LF, CF, RF ขยับถอยหลัง จุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
-        "vi-VN": "Bố trí: 8 cầu thủ, bóng ở chỗ P. Trình tự: Nhịp 1: P, 1B, 2B, SS, 3B, LF, CF, RF di chuyển lùi lại. Điểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
+        "en": "Setup: 8 players, ball with P. Sequence: Beat 1: the whole team moves back. Coaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "en-GB": "Setup: 8 players, ball with P. Sequence: Beat 1: the whole team moves back. Coaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "zh-CN": "【组织】8 人，球在 P 脚下。【流程】第1拍：全队回撤压上。【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
+        "zh-TW": "【組織】8 人，球在 P 腳下。【流程】第1拍：全隊回撤壓上。【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
+        "ja-JP": "【準備】8人、ボールはP。【流れ】1拍目：チーム全体が後方へスライド。【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
+        "ko-KR": "【준비】8명, 공은 P. 【진행】1박: 팀 전체가 뒤로 이동. 【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
+        "es-ES": "Montaje: 8 jugadores, balón con P. Secuencia: Tiempo 1: todo el equipo bascula hacia atrás. Punto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
+        "fr-FR": "Mise en place : 8 joueurs, ballon avec P. Déroulé : Temps 1 : tout le bloc coulisse vers l'arrière. Point clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
+        "id-ID": "Persiapan: 8 pemain, bola pada P. Urutan: Ketukan 1: seluruh tim bergerak ke belakang. Poin utama: Lempar ke target, lurus, setiap kali.",
+        "ms-MY": "Persediaan: 8 pemain, bola dengan P. Urutan: Rentak 1: seluruh pasukan bergerak ke belakang. Poin utama: Baling ke sasaran, lurus, setiap kali.",
+        "th-TH": "การจัด: ผู้เล่น 8 คน บอลอยู่ที่ P ลำดับ: จังหวะ 1: ทั้งทีมขยับถอยหลัง จุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
+        "vi-VN": "Bố trí: 8 cầu thủ, bóng ở chỗ P. Trình tự: Nhịp 1: cả đội di chuyển lùi lại. Điểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
       "mistake": {
         "en": "Going through the motions cold.",

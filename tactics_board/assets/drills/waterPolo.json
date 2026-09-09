@@ -7930,18 +7930,18 @@
         "vi-VN": "Trận đấu 6v6"
       },
       "note": {
-        "en": "Setup: 6 v 7, ball with 1. Sequence: Beat 1: 1, 2, 3, 4, 5, 6 moves up the board, A, B, C, D, E, F moves back. Coaching point: Put a shot clock on it. Water polo punishes indecision more than any other team sport, and only a clock teaches that.",
-        "en-GB": "Setup: 6 v 7, ball with 1. Sequence: Beat 1: 1, 2, 3, 4, 5, 6 moves up the board, A, B, C, D, E, F moves back. Coaching point: Put a shot clock on it. Water polo punishes indecision more than any other team sport, and only a clock teaches that.",
-        "zh-CN": "【组织】6 对 7，球在 1 脚下。【流程】第1拍：1、2、3、4、5、6 向前移动，A、B、C、D、E、F 回撤移动。【要点】加上进攻时限。水球对犹豫的惩罚比任何团队项目都重，而只有计时器教得会这一点。",
-        "zh-TW": "【組織】6 對 7，球在 1 腳下。【流程】第1拍：1、2、3、4、5、6 向前移動，A、B、C、D、E、F 回撤移動。【要點】加上進攻時限。水球對猶豫的懲罰比任何團隊項目都重，而只有計時器教得會這一點。",
-        "ja-JP": "【準備】6対7、ボールは1。【流れ】1拍目：1・2・3・4・5・6が前方へ移動、A・B・C・D・E・Fが後方へ移動。【ポイント】ショットクロックをつける。水球は他のどの団体競技より迷いを罰する。それを教えられるのは時計だけだ。",
-        "ko-KR": "【준비】6대7, 공은 1. 【진행】1박: 1, 2, 3, 4, 5, 6는 앞으로 이동, A, B, C, D, E, F는 뒤로 이동. 【포인트】샷 클락을 걸어라. 수구는 어떤 종목보다 망설임을 벌하며, 그것을 가르치는 건 시계뿐이다.",
-        "es-ES": "Montaje: 6 contra 7, balón con 1. Secuencia: Tiempo 1: 1, 2, 3, 4, 5, 6 se desplaza hacia delante, A, B, C, D, E, F se desplaza hacia atrás. Punto clave: Ponle reloj de posesión: el waterpolo castiga la indecisión más que ningún deporte de equipo, y eso solo lo enseña un reloj.",
-        "fr-FR": "Mise en place : 6 contre 7, ballon avec 1. Déroulé : Temps 1 : 1, 2, 3, 4, 5, 6 se déplace vers l'avant, A, B, C, D, E, F se déplace vers l'arrière. Point clé : Mets un chrono de possession : le water-polo punit l'hésitation plus que tout autre sport collectif.",
-        "id-ID": "Persiapan: 6 lawan 7, bola pada 1. Urutan: Ketukan 1: 1, 2, 3, 4, 5, 6 bergerak ke depan, A, B, C, D, E, F bergerak ke belakang. Poin utama: Pasang shot clock.",
-        "ms-MY": "Persediaan: 6 lawan 7, bola dengan 1. Urutan: Rentak 1: 1, 2, 3, 4, 5, 6 bergerak ke hadapan, A, B, C, D, E, F bergerak ke belakang. Poin utama: Pasang jam tembakan.",
-        "th-TH": "การจัด: 6 ต่อ 7 บอลอยู่ที่ 1 ลำดับ: จังหวะ 1: 1, 2, 3, 4, 5, 6 ขยับไปข้างหน้า A, B, C, D, E, F ขยับถอยหลัง จุดเน้น: ใส่เวลาจับการครองบอล",
-        "vi-VN": "Bố trí: 6 đấu 7, bóng ở chỗ 1. Trình tự: Nhịp 1: 1, 2, 3, 4, 5, 6 di chuyển lên phía trước, A, B, C, D, E, F di chuyển lùi lại. Điểm chính: Đặt đồng hồ tấn công."
+        "en": "Setup: 6 v 7, ball with 1. Sequence: Beat 1: the whole team moves up the board, the whole team moves back. Coaching point: Put a shot clock on it. Water polo punishes indecision more than any other team sport, and only a clock teaches that.",
+        "en-GB": "Setup: 6 v 7, ball with 1. Sequence: Beat 1: the whole team moves up the board, the whole team moves back. Coaching point: Put a shot clock on it. Water polo punishes indecision more than any other team sport, and only a clock teaches that.",
+        "zh-CN": "【组织】6 对 7，球在 1 脚下。【流程】第1拍：全队向前压上，全队回撤压上。【要点】加上进攻时限。水球对犹豫的惩罚比任何团队项目都重，而只有计时器教得会这一点。",
+        "zh-TW": "【組織】6 對 7，球在 1 腳下。【流程】第1拍：全隊向前壓上，全隊回撤壓上。【要點】加上進攻時限。水球對猶豫的懲罰比任何團隊項目都重，而只有計時器教得會這一點。",
+        "ja-JP": "【準備】6対7、ボールは1。【流れ】1拍目：チーム全体が前方へスライド、チーム全体が後方へスライド。【ポイント】ショットクロックをつける。水球は他のどの団体競技より迷いを罰する。それを教えられるのは時計だけだ。",
+        "ko-KR": "【준비】6대7, 공은 1. 【진행】1박: 팀 전체가 앞으로 이동, 팀 전체가 뒤로 이동. 【포인트】샷 클락을 걸어라. 수구는 어떤 종목보다 망설임을 벌하며, 그것을 가르치는 건 시계뿐이다.",
+        "es-ES": "Montaje: 6 contra 7, balón con 1. Secuencia: Tiempo 1: todo el equipo bascula hacia delante, todo el equipo bascula hacia atrás. Punto clave: Ponle reloj de posesión: el waterpolo castiga la indecisión más que ningún deporte de equipo, y eso solo lo enseña un reloj.",
+        "fr-FR": "Mise en place : 6 contre 7, ballon avec 1. Déroulé : Temps 1 : tout le bloc coulisse vers l'avant, tout le bloc coulisse vers l'arrière. Point clé : Mets un chrono de possession : le water-polo punit l'hésitation plus que tout autre sport collectif.",
+        "id-ID": "Persiapan: 6 lawan 7, bola pada 1. Urutan: Ketukan 1: seluruh tim bergerak ke depan, seluruh tim bergerak ke belakang. Poin utama: Pasang shot clock.",
+        "ms-MY": "Persediaan: 6 lawan 7, bola dengan 1. Urutan: Rentak 1: seluruh pasukan bergerak ke hadapan, seluruh pasukan bergerak ke belakang. Poin utama: Pasang jam tembakan.",
+        "th-TH": "การจัด: 6 ต่อ 7 บอลอยู่ที่ 1 ลำดับ: จังหวะ 1: ทั้งทีมขยับไปข้างหน้า ทั้งทีมขยับถอยหลัง จุดเน้น: ใส่เวลาจับการครองบอล",
+        "vi-VN": "Bố trí: 6 đấu 7, bóng ở chỗ 1. Trình tự: Nhịp 1: cả đội di chuyển lên phía trước, cả đội di chuyển lùi lại. Điểm chính: Đặt đồng hồ tấn công."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
