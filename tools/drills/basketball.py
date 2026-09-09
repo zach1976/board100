@@ -37,6 +37,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.18, 0.58, "3"), P(0.82, 0.58, "4"),
             ],
             ball=0,
+            # passed to the far lane, finished off the glass
+            ball_to=[(1, 0), ((0.50, 0.05), 1)],
         ),
         Drill(
             id="bb_two_ball_dribble", category="warmup", minutes=6, rel=True, free=True,
@@ -60,6 +62,8 @@ def basketball_drills() -> list[Drill]:
             home=[P(0.5, 0.80, "1", moves=[(0.5, 0.55, 0), (0.5, 0.30, 1)])],
             markers=[M(0.35, 0.70), M(0.65, 0.70), M(0.35, 0.45), M(0.65, 0.45)],
             ball=0,
+            # dribbled the length, never leaving his hands
+            ball_follow=0,
         ),
         Drill(
             id="bb_star_passing", category="warmup", minutes=8, rel=True,
@@ -88,6 +92,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.15, 0.26, "5", moves=[(0.50, 0.30, 4)]),
             ],
             ball=0,
+            # the star: every pass one point across, passer follows
+            ball_to=[(1, 0), (2, 1), (3, 2), (4, 3), (0, 4)],
         ),
 
         # ── offense / ball movement ──────────────────────────────────────────
@@ -118,6 +124,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.95, 0.11, "5"),
             ],
             ball=0,
+            # swung as the spots refill
+            ball_to=[(1, 0), (3, 1)],
         ),
         Drill(
             id="bb_pick_and_roll", category="attacking", minutes=15, rel=True, free=True,
@@ -148,6 +156,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.40, 0.20, "x5", moves=[(0.42, 0.26, 1), (0.44, 0.20, 2)]),
             ],
             ball=0,
+            # off the screen, pocket pass to the roll
+            ball_to=[(0, 1), (1, 2)],
         ),
         Drill(
             id="bb_pick_and_pop", category="attacking", minutes=12, rel=True,
@@ -178,6 +188,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.40, 0.20, "x4", moves=[(0.44, 0.26, 1)]),
             ],
             ball=0,
+            # off the screen, then back to the 4 popping
+            ball_to=[(0, 1), (1, 2)],
         ),
         Drill(
             id="bb_backdoor_cut", category="attacking", minutes=10, rel=True, free=True,
@@ -205,6 +217,8 @@ def basketball_drills() -> list[Drill]:
             ],
             away=[P(0.80, 0.28, "x2", moves=[(0.86, 0.32, 0)])],
             ball=0,
+            # the fake to the wing, then the bounce pass behind X2
+            ball_to=[(1, 1)],
         ),
         Drill(
             id="bb_dho", category="attacking", minutes=12, rel=True,
@@ -232,6 +246,8 @@ def basketball_drills() -> list[Drill]:
             ],
             away=[P(0.68, 0.26, "x2", moves=[(0.56, 0.26, 1)])],
             ball=0,
+            # dribbled at the 2, handed off, downhill
+            ball_to=[(0, 0), (1, 1), (1, 2)],
         ),
         Drill(
             id="bb_horns_set", category="possession", minutes=12, rel=True,
@@ -259,6 +275,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.05, 0.11, "2"), P(0.95, 0.11, "3"),
             ],
             ball=0,
+            # off the double screen, pocket pass to the 5 diving
+            ball_to=[(0, 1), (2, 2)],
         ),
 
         # ── finishing / shooting ─────────────────────────────────────────────
@@ -287,6 +305,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.85, 0.26, "3", moves=[(0.90, 0.20, 1)]),
             ],
             ball=0,
+            # kicked corner to corner, up on the catch
+            ball_to=[(1, 0), (2, 1), ((0.50, 0.05), 2)],
         ),
         Drill(
             id="bb_post_finish", category="finishing", minutes=10, rel=True,
@@ -316,6 +336,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.62, 0.12, "x4", moves=[(0.52, 0.10, 1)]),
             ],
             ball=1,
+            # entered to the 5; he finishes through contact
+            ball_to=[(0, 0), ((0.50, 0.05), 1)],
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -436,6 +458,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.42, 0.14, "x2"), P(0.58, 0.14, "x3"), P(0.50, 0.20, "x4"),
             ],
             ball=0,
+            # inbounded to the 4 curling off the box, laid in
+            ball_to=[(3, 0), ((0.50, 0.05), 1)],
         ),
         Drill(
             id="bb_press_break", category="setpiece", minutes=12, rel=True,
@@ -469,6 +493,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.50, 0.74, "x3", moves=[(0.44, 0.66, 1)]),
             ],
             ball=0,
+            # in to the 1, middle to the 3, over the top to the 4
+            ball_to=[(1, 0), (3, 1), (4, 2)],
         ),
 
         # ── small-sided ──────────────────────────────────────────────────────
@@ -502,6 +528,8 @@ def basketball_drills() -> list[Drill]:
                 P(0.80, 0.22, "x3"),
             ],
             ball=0,
+            # no dribble: two passes beat the deny
+            ball_to=[(1, 0), (0, 1)],
         ),
         Drill(
             id="bb_transition_2v1", category="ssg", minutes=10, rel=True,
@@ -528,6 +556,8 @@ def basketball_drills() -> list[Drill]:
             ],
             away=[P(0.50, 0.22, "x1", moves=[(0.46, 0.20, 1)])],
             ball=0,
+            # 2v1: carried at the defender, dished for the layup
+            ball_to=[(0, 0), (1, 1), ((0.50, 0.05), 1)],
         ),
     ]
 
@@ -601,6 +631,8 @@ def ball_screen_family() -> list[Drill]:
             away=[P(spot[0], spot[1] - 0.04, "X1", moves=[(screen[0], screen[1] - 0.04, 1)]),
                   P(screen[0], screen[1] - 0.05, "X5", moves=[(screen[0], screen[1] - 0.02, 1)])],
             ball=0,
+            # Dribbled off the screen, then the pocket pass to the roller.
+            ball_to=[(0, 1), (1, 2)],
         ))
     return out
 
@@ -671,6 +703,10 @@ def cut_family() -> list[Drill]:
                     moves=[(start[0] + 0.03, start[1] - 0.02, 1)]),
                   P(0.50, 0.22, "X1", moves=[(0.52, 0.19, 1)])],
             ball=0,
+            # Give and go: pass, cut, get it back at the rim. The cutting
+            # variants: a live dribble first, then the pass into the cut.
+            ball_to=([(1, 0), (0, 2)] if passer_cuts
+                     else [(0, 1), (1, 2)]),
         ))
     return out
 
@@ -716,6 +752,8 @@ def shooting_family() -> list[Drill]:
                     moves=[(spot[0], spot[1] - 0.02, 1)])],
             markers=[M(*spot, "square", "")],
             ball=1,
+            # Delivered on the relocation, up on the catch.
+            ball_to=[(0, 1), ((0.50, 0.05), 2)],
         ))
     return out
 
@@ -762,6 +800,10 @@ def post_family() -> list[Drill]:
                     moves=[(spot[0], spot[1] - 0.02, 1)]),
                   P(0.68, 0.16, "X4", moves=[(0.58, 0.12, 2)])],
             ball=0,
+            # Entered to the 5; he finishes at the rim, or kicks it back
+            # out to the corner when the drill is the kick-out.
+            ball_to=([(1, 0), (2, 2)] if key == "kick_out"
+                     else [(1, 0), ((0.50, 0.05), 2)]),
         ))
     return out
 
@@ -838,6 +880,9 @@ def defence_family() -> list[Drill]:
                             handler[1] - 0.12, 2)]),
                   P(*screen, "5", moves=roll)],
             ball=(handler[0] - 0.03, handler[1] + 0.03),
+            # Their 1 dribbles off the screen and attacks — the action every
+            # coverage in this family exists to answer.
+            ball_to=[("a0", 1), ("a0", 2)],
         ))
     return out
 
@@ -883,6 +928,8 @@ def transition_family() -> list[Drill]:
                     moves=[(0.5 + (i - (d - 1) / 2) * 0.16, 0.14, 1)])
                   for i in range(d)],
             ball=0,
+            # Pushed ahead to the middle lane, finished at the rim.
+            ball_to=[(2 % n, 0), ((0.50, 0.05), 1)],
         ))
     return out
 
@@ -947,6 +994,8 @@ def inbounds_family() -> list[Drill]:
             away=[P(x + 0.07, y - 0.02, "X", moves=[(x + 0.02, y + 0.03, 1)])
                   for x, y in spots[:2]],
             ball=0,
+            # In to the first cutter as he clears, then finished.
+            ball_to=[(1, 0), ((0.50, 0.05), 2)],
         ))
     return out
 
@@ -1046,6 +1095,10 @@ def gaps_family() -> list[Drill]:
             level=lvl, free=(key == "two_three"),
             name=suffixed(ZONE_NAME, label), note=ZONE_NOTE,
             home=home, away=away, ball=0,
+            # Swung across the top and into the baseline runner — the two
+            # passes that make a zone shift and the shift that opens it.
+            ball_to=[(1, 0), (3, 2)] if key == "two_three"
+                    else [(1, 1), ((0.50, 0.05), 2)],
         ))
     screens = [("pin_down", "the pin-down", BLOCK_L, (0.22, 0.30), "foundation"),
                ("stagger", "the stagger", BLOCK_R, (0.78, 0.31), "development"),
@@ -1068,6 +1121,9 @@ def gaps_family() -> list[Drill]:
                            (end[0] + 0.03, end[1] - 0.03, 2)]),
                   P(0.50, 0.22, "X1")],
             ball=0,
+            # Held up top while the 2 fights off the screen, delivered the
+            # moment he clears — the pass the whole screen exists to earn.
+            ball_to=[(1, 2)],
         ))
     out.append(Drill(
         id="bb_free_throw", category="finishing", minutes=8, rel=True,
@@ -1085,6 +1141,8 @@ def gaps_family() -> list[Drill]:
               P(0.625, 0.175, "X3", moves=[(0.60, 0.115, 1)])],
         markers=[M(0.50, 0.06, "square", "")],
         ball=0,
+            # the shot goes up; the rebound is the drill
+            ball_to=[((0.50, 0.05), 0), (1, 1)],
     ))
     return out
 
@@ -1132,6 +1190,7 @@ def shell_drill() -> list[Drill]:
         away=[P(x, y, f"{i + 1}",
                 moves=[(x, y + 0.02, i % 3)]) for i, (x, y) in enumerate(o)],
         ball=CORNER_L,              # the swing starts from the corner
+        ball_to=[("a1", 0), ("a2", 1), ("a3", 2)],
     )]
 
 
