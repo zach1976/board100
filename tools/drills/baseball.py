@@ -618,6 +618,8 @@ def gaps_family() -> list[Drill]:
         Drill(
             id="bb_hit_two_strike", category="attacking", minutes=12, rel=True,
             name=suffixed(HIT_NAME, "the two-strike approach"), note=HIT_NOTE,
+            setup={"en": "a full infield behind a live pitcher; the hitter works from the plate with two strikes on him",
+                   "zh-CN": "内场守全员，投手投球；打者两好球后从本垒继续应对"},
             home=defence(without=("LF", "RF")),
             away=[P(*plate, "B", moves=[(plate[0] + 0.04, plate[1] - 0.02, 1)])],
             markers=[M(*HOME, "square", ""), M(0.70, 0.56, "zone", ""),
@@ -665,6 +667,8 @@ def gaps_family() -> list[Drill]:
             level="foundation",
             name=suffixed(FIELD_NAME, "the ground ball and the backhand"),
             note=FIELD_NOTE,
+            setup={"en": "a shortstop, a first baseman and a fungo hitter; balls are hit to the shortstop's left and backhand",
+                   "zh-CN": "游击、一垒手、击球手三人；球打向游击手左侧和反手位"},
             home=[P(*D["SS"], "SS", moves=[(0.36, 0.665, 0), (0.44, 0.70, 1)]),
                   P(*FIRST, "1B"), P(*plate, "F")],
             markers=[M(*FIRST, "square", ""), M(*HOME, "square", "")],

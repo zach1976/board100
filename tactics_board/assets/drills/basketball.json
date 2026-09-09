@@ -429,18 +429,18 @@
         "vi-VN": "Chuyền hình sao"
       },
       "note": {
-        "en": "Setup: 5 players, ball with 1.\nBall path: 1 → 2 → 3 → 4 → 5 → 1\nSequence: Step 1: 1 throws to 2, 1 moves right; Step 2: 2 throws to 3, 2 moves back; Step 3: 3 throws to 4, 3 moves left; Step 4: 4 throws to 5, 4 moves up the board; Step 5: 5 throws to 1, 5 follows the pass.\nCoaching point: Pass and go — behind the player you passed to. A pass without movement is a stop.",
-        "en-GB": "Setup: 5 players, ball with 1.\nBall path: 1 → 2 → 3 → 4 → 5 → 1\nSequence: Step 1: 1 throws to 2, 1 moves right; Step 2: 2 throws to 3, 2 moves back; Step 3: 3 throws to 4, 3 moves left; Step 4: 4 throws to 5, 4 moves up the board; Step 5: 5 throws to 1, 5 follows the pass.\nCoaching point: Pass and go — behind the player you passed to. A pass without movement is a stop.",
-        "zh-CN": "【组织】5 人，球在 1 脚下。\n【球路】1 → 2 → 3 → 4 → 5 → 1\n【流程】第1步：1 传给 2，1 向右移动；第2步：2 传给 3，2 回撤移动；第3步：3 传给 4，3 向左移动；第4步：4 传给 5，4 向前移动；第5步：5 传给 1，5 跟进。\n【要点】传完就跑，跑到你传球对象身后。不带跑动的传球等于停球。",
-        "zh-TW": "【組織】5 人，球在 1 腳下。\n【球路】1 → 2 → 3 → 4 → 5 → 1\n【流程】第1步：1 傳給 2，1 向右移動；第2步：2 傳給 3，2 回撤移動；第3步：3 傳給 4，3 向左移動；第4步：4 傳給 5，4 向前移動；第5步：5 傳給 1，5 跟進。\n【要點】傳完就跑，跑到你傳球對象身後。不帶跑動的傳球等於停球。",
-        "ja-JP": "【準備】5人、ボールは1。\n【ボールの道筋】1 → 2 → 3 → 4 → 5 → 1\n【流れ】ステップ1：1が2へ送球、1が右へ移動。ステップ2：2が3へ送球、2が後方へ移動。ステップ3：3が4へ送球、3が左へ移動。ステップ4：4が5へ送球、4が前方へ移動。ステップ5：5が1へ送球、5がパスを追って移動。\n【ポイント】パスしたら走る、渡した相手の後ろへ。動きのないパスは停滞。",
-        "ko-KR": "【준비】5명, 공은 1.\n【볼 경로】1 → 2 → 3 → 4 → 5 → 1\n【진행】1단계: 1가 2에게 송구, 1는 오른쪽으로 이동; 2단계: 2가 3에게 송구, 2는 뒤로 이동; 3단계: 3가 4에게 송구, 3는 왼쪽으로 이동; 4단계: 4가 5에게 송구, 4는 앞으로 이동; 5단계: 5가 1에게 송구, 5는 패스를 따라간다.\n【포인트】패스하고 달려라, 준 사람 뒤로. 움직임 없는 패스는 정지다.",
-        "es-ES": "Montaje: 5 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 3 → 4 → 5 → 1\nSecuencia: Paso 1: 1 lanza a 2, 1 se desplaza a la derecha; Paso 2: 2 lanza a 3, 2 se desplaza hacia atrás; Paso 3: 3 lanza a 4, 3 se desplaza a la izquierda; Paso 4: 4 lanza a 5, 4 se desplaza hacia delante; Paso 5: 5 lanza a 1, 5 sigue su pase.\nPunto clave: Pasa y corre detrás de quien recibió. Un pase sin movimiento es una parada.",
-        "fr-FR": "Mise en place : 5 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3 → 4 → 5 → 1\nDéroulé : Étape 1 : 1 lance à 2, 1 se déplace à droite ; Étape 2 : 2 lance à 3, 2 se déplace vers l'arrière ; Étape 3 : 3 lance à 4, 3 se déplace à gauche ; Étape 4 : 4 lance à 5, 4 se déplace vers l'avant ; Étape 5 : 5 lance à 1, 5 suit sa passe.\nPoint clé : Passe et cours derrière celui qui reçoit. Une passe sans mouvement est un arrêt.",
-        "id-ID": "Persiapan: 5 pemain, bola pada 1.\nJalur bola: 1 → 2 → 3 → 4 → 5 → 1\nUrutan: Langkah 1: 1 melempar ke 2, 1 bergerak ke kanan; Langkah 2: 2 melempar ke 3, 2 bergerak ke belakang; Langkah 3: 3 melempar ke 4, 3 bergerak ke kiri; Langkah 4: 4 melempar ke 5, 4 bergerak ke depan; Langkah 5: 5 melempar ke 1, 5 mengikuti operannya.\nPoin utama: Umpan lalu berlari di belakang penerima.",
-        "ms-MY": "Persediaan: 5 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 3 → 4 → 5 → 1\nUrutan: Langkah 1: 1 membaling kepada 2, 1 bergerak ke kanan; Langkah 2: 2 membaling kepada 3, 2 bergerak ke belakang; Langkah 3: 3 membaling kepada 4, 3 bergerak ke kiri; Langkah 4: 4 membaling kepada 5, 4 bergerak ke hadapan; Langkah 5: 5 membaling kepada 1, 5 mengikut hantarannya.\nPoin utama: Hantar dan berlari di belakang penerima.",
-        "th-TH": "การจัด: ผู้เล่น 5 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3 → 4 → 5 → 1\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 1 ขยับไปทางขวา • ขั้นที่ 2: 2 ขว้างให้ 3 2 ขยับถอยหลัง • ขั้นที่ 3: 3 ขว้างให้ 4 3 ขยับไปทางซ้าย • ขั้นที่ 4: 4 ขว้างให้ 5 4 ขยับไปข้างหน้า • ขั้นที่ 5: 5 ขว้างให้ 1 5 วิ่งตามบอล\nจุดเน้น: ส่งแล้ววิ่งไปด้านหลังคนที่รับ การส่งที่ไม่มีการเคลื่อนที่คือการหยุด",
-        "vi-VN": "Bố trí: 5 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3 → 4 → 5 → 1\nTrình tự: Bước 1: 1 ném cho 2, 1 di chuyển sang phải; Bước 2: 2 ném cho 3, 2 di chuyển lùi lại; Bước 3: 3 ném cho 4, 3 di chuyển sang trái; Bước 4: 4 ném cho 5, 4 di chuyển lên phía trước; Bước 5: 5 ném cho 1, 5 chạy theo đường chuyền.\nĐiểm chính: Chuyền rồi chạy ra sau người nhận."
+        "en": "Setup: 5 players, ball with 1.\nBall path: 1 → 2 → 3 → 4 → 5 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 2 throws to 3, 1 follows the pass; Step 3: 3 throws to 4, 2 follows the pass; Step 4: 4 throws to 5, 3 follows the pass; Step 5: 5 throws to 1, 4 follows the pass; Step 6: 5 moves right.\nCoaching point: Pass and go — behind the player you passed to. A pass without movement is a stop.",
+        "en-GB": "Setup: 5 players, ball with 1.\nBall path: 1 → 2 → 3 → 4 → 5 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 2 throws to 3, 1 follows the pass; Step 3: 3 throws to 4, 2 follows the pass; Step 4: 4 throws to 5, 3 follows the pass; Step 5: 5 throws to 1, 4 follows the pass; Step 6: 5 moves right.\nCoaching point: Pass and go — behind the player you passed to. A pass without movement is a stop.",
+        "zh-CN": "【组织】5 人，球在 1 脚下。\n【球路】1 → 2 → 3 → 4 → 5 → 1\n【流程】第1步：1 传给 2；第2步：2 传给 3，1 跟进；第3步：3 传给 4，2 跟进；第4步：4 传给 5，3 跟进；第5步：5 传给 1，4 跟进；第6步：5 向右移动。\n【要点】传完就跑，跑到你传球对象身后。不带跑动的传球等于停球。",
+        "zh-TW": "【組織】5 人，球在 1 腳下。\n【球路】1 → 2 → 3 → 4 → 5 → 1\n【流程】第1步：1 傳給 2；第2步：2 傳給 3，1 跟進；第3步：3 傳給 4，2 跟進；第4步：4 傳給 5，3 跟進；第5步：5 傳給 1，4 跟進；第6步：5 向右移動。\n【要點】傳完就跑，跑到你傳球對象身後。不帶跑動的傳球等於停球。",
+        "ja-JP": "【準備】5人、ボールは1。\n【ボールの道筋】1 → 2 → 3 → 4 → 5 → 1\n【流れ】ステップ1：1が2へ送球。ステップ2：2が3へ送球、1がパスを追って移動。ステップ3：3が4へ送球、2がパスを追って移動。ステップ4：4が5へ送球、3がパスを追って移動。ステップ5：5が1へ送球、4がパスを追って移動。ステップ6：5が右へ移動。\n【ポイント】パスしたら走る、渡した相手の後ろへ。動きのないパスは停滞。",
+        "ko-KR": "【준비】5명, 공은 1.\n【볼 경로】1 → 2 → 3 → 4 → 5 → 1\n【진행】1단계: 1가 2에게 송구; 2단계: 2가 3에게 송구, 1는 패스를 따라간다; 3단계: 3가 4에게 송구, 2는 패스를 따라간다; 4단계: 4가 5에게 송구, 3는 패스를 따라간다; 5단계: 5가 1에게 송구, 4는 패스를 따라간다; 6단계: 5는 오른쪽으로 이동.\n【포인트】패스하고 달려라, 준 사람 뒤로. 움직임 없는 패스는 정지다.",
+        "es-ES": "Montaje: 5 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 3 → 4 → 5 → 1\nSecuencia: Paso 1: 1 lanza a 2; Paso 2: 2 lanza a 3, 1 sigue su pase; Paso 3: 3 lanza a 4, 2 sigue su pase; Paso 4: 4 lanza a 5, 3 sigue su pase; Paso 5: 5 lanza a 1, 4 sigue su pase; Paso 6: 5 se desplaza a la derecha.\nPunto clave: Pasa y corre detrás de quien recibió. Un pase sin movimiento es una parada.",
+        "fr-FR": "Mise en place : 5 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3 → 4 → 5 → 1\nDéroulé : Étape 1 : 1 lance à 2 ; Étape 2 : 2 lance à 3, 1 suit sa passe ; Étape 3 : 3 lance à 4, 2 suit sa passe ; Étape 4 : 4 lance à 5, 3 suit sa passe ; Étape 5 : 5 lance à 1, 4 suit sa passe ; Étape 6 : 5 se déplace à droite.\nPoint clé : Passe et cours derrière celui qui reçoit. Une passe sans mouvement est un arrêt.",
+        "id-ID": "Persiapan: 5 pemain, bola pada 1.\nJalur bola: 1 → 2 → 3 → 4 → 5 → 1\nUrutan: Langkah 1: 1 melempar ke 2; Langkah 2: 2 melempar ke 3, 1 mengikuti operannya; Langkah 3: 3 melempar ke 4, 2 mengikuti operannya; Langkah 4: 4 melempar ke 5, 3 mengikuti operannya; Langkah 5: 5 melempar ke 1, 4 mengikuti operannya; Langkah 6: 5 bergerak ke kanan.\nPoin utama: Umpan lalu berlari di belakang penerima.",
+        "ms-MY": "Persediaan: 5 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 3 → 4 → 5 → 1\nUrutan: Langkah 1: 1 membaling kepada 2; Langkah 2: 2 membaling kepada 3, 1 mengikut hantarannya; Langkah 3: 3 membaling kepada 4, 2 mengikut hantarannya; Langkah 4: 4 membaling kepada 5, 3 mengikut hantarannya; Langkah 5: 5 membaling kepada 1, 4 mengikut hantarannya; Langkah 6: 5 bergerak ke kanan.\nPoin utama: Hantar dan berlari di belakang penerima.",
+        "th-TH": "การจัด: ผู้เล่น 5 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3 → 4 → 5 → 1\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 • ขั้นที่ 2: 2 ขว้างให้ 3 1 วิ่งตามบอล • ขั้นที่ 3: 3 ขว้างให้ 4 2 วิ่งตามบอล • ขั้นที่ 4: 4 ขว้างให้ 5 3 วิ่งตามบอล • ขั้นที่ 5: 5 ขว้างให้ 1 4 วิ่งตามบอล • ขั้นที่ 6: 5 ขยับไปทางขวา\nจุดเน้น: ส่งแล้ววิ่งไปด้านหลังคนที่รับ การส่งที่ไม่มีการเคลื่อนที่คือการหยุด",
+        "vi-VN": "Bố trí: 5 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3 → 4 → 5 → 1\nTrình tự: Bước 1: 1 ném cho 2; Bước 2: 2 ném cho 3, 1 chạy theo đường chuyền; Bước 3: 3 ném cho 4, 2 chạy theo đường chuyền; Bước 4: 4 ném cho 5, 3 chạy theo đường chuyền; Bước 5: 5 ném cho 1, 4 chạy theo đường chuyền; Bước 6: 5 di chuyển sang phải.\nĐiểm chính: Chuyền rồi chạy ra sau người nhận."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -471,12 +471,12 @@
             "scale": 1.0,
             "moves": [
               [
-                753.125,
-                426.0
+                709.7321428571429,
+                439.5
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -498,12 +498,12 @@
             "scale": 1.0,
             "moves": [
               [
-                644.6428571428571,
-                912.0
+                666.3392857142858,
+                831.0000000000001
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -525,12 +525,12 @@
             "scale": 1.0,
             "moves": [
               [
-                355.3571428571429,
+                405.98214285714283,
                 912.0
               ]
             ],
             "movePhases": [
-              2
+              3
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -552,12 +552,12 @@
             "scale": 1.0,
             "moves": [
               [
-                246.875,
-                426.0
+                268.57142857142856,
+                507.0
               ]
             ],
             "movePhases": [
-              3
+              4
             ],
             "moveColor": 4294956864,
             "customColor": null,
@@ -579,12 +579,12 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                480.0
+                456.6071428571429,
+                466.5
               ]
             ],
             "movePhases": [
-              4
+              5
             ],
             "moveColor": 4293558524,
             "customColor": null,
@@ -622,8 +622,8 @@
                 496.0
               ],
               [
-                713.125,
-                496.0
+                669.7321428571429,
+                509.5
               ]
             ],
             "movePhases": [
