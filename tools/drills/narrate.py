@@ -180,6 +180,34 @@ GOAL_WORD = {
     "ja-JP": "ゴール", "ko-KR": "골문", "es-ES": "portería", "fr-FR": "but",
     "id-ID": "gawang", "ms-MY": "gol", "th-TH": "ประตู", "vi-VN": "khung thành",
 }
+# What the far end of the board is called in each sport. "goal" is right for
+# four of the fifteen; a basketball coach shoots at the basket, a rugby kicker
+# at the posts, a pitcher throws to the plate, and in every net sport a ball
+# played to the far baseline is simply played deep.
+BASKET_WORD = {
+    "en": "basket", "en-GB": "basket", "zh-CN": "篮筐", "zh-TW": "籃框",
+    "ja-JP": "リング", "ko-KR": "림", "es-ES": "canasta", "fr-FR": "panier",
+    "id-ID": "ring", "ms-MY": "jaring", "th-TH": "ห่วง", "vi-VN": "rổ",
+}
+POSTS_WORD = {
+    "en": "the posts", "en-GB": "the posts", "zh-CN": "门柱", "zh-TW": "門柱",
+    "ja-JP": "ポスト", "ko-KR": "골포스트", "es-ES": "los palos",
+    "fr-FR": "les poteaux", "id-ID": "tiang gawang", "ms-MY": "tiang gol",
+    "th-TH": "เสาประตู", "vi-VN": "cột gôn",
+}
+PLATE_WORD = {
+    "en": "the plate", "en-GB": "the plate", "zh-CN": "本垒", "zh-TW": "本壘",
+    "ja-JP": "ホームベース", "ko-KR": "홈플레이트", "es-ES": "el plato",
+    "fr-FR": "le marbre", "id-ID": "home plate", "ms-MY": "home plate",
+    "th-TH": "โฮมเพลต", "vi-VN": "gôn nhà",
+}
+DEEP_WORD = {
+    "en": "deep court", "en-GB": "deep court", "zh-CN": "后场深区",
+    "zh-TW": "後場深區", "ja-JP": "コート奥", "ko-KR": "코트 깊숙한 곳",
+    "es-ES": "el fondo de la pista", "fr-FR": "le fond du court",
+    "id-ID": "lapangan belakang", "ms-MY": "bahagian belakang gelanggang",
+    "th-TH": "ท้ายคอร์ต", "vi-VN": "cuối sân",
+}
 BACK_TO_START = {
     "en": "back to the start", "en-GB": "back to the start",
     "zh-CN": "回到起点", "zh-TW": "回到起點",
@@ -213,6 +241,94 @@ SHOOT_HOOP = {
     "es-ES": "{a} lanza a canasta", "fr-FR": "{a} tire au panier",
     "id-ID": "{a} melepaskan tembakan", "ms-MY": "{a} melepaskan jaringan",
     "th-TH": "{a} ยิงเข้าห่วง", "vi-VN": "{a} ném rổ",
+}
+KICK_POSTS = {
+    "en": "{a} kicks at the posts", "en-GB": "{a} kicks at the posts",
+    "zh-CN": "{a}踢门", "zh-TW": "{a}踢門",
+    "ja-JP": "{a}がゴールキック", "ko-KR": "{a} 골킥",
+    "es-ES": "{a} patea a los palos", "fr-FR": "{a} tente les poteaux",
+    "id-ID": "{a} menendang ke tiang", "ms-MY": "{a} menendang ke tiang gol",
+    "th-TH": "{a} เตะเข้าเสา", "vi-VN": "{a} đá vào cột gôn",
+}
+PITCH = {
+    "en": "{a} pitches", "en-GB": "{a} pitches",
+    "zh-CN": "{a}投球", "zh-TW": "{a}投球",
+    "ja-JP": "{a}が投球", "ko-KR": "{a} 투구",
+    "es-ES": "{a} lanza", "fr-FR": "{a} lance",
+    "id-ID": "{a} melempar", "ms-MY": "{a} membaling",
+    "th-TH": "{a} ขว้าง", "vi-VN": "{a} ném bóng",
+}
+# Net sports: a ball played to a point is hit there, deep or to a spot.
+HIT_DEEP = {
+    "en": "{a} plays it deep", "en-GB": "{a} plays it deep",
+    "zh-CN": "{a}把球打到后场深区", "zh-TW": "{a}把球打到後場深區",
+    "ja-JP": "{a}がコート奥へ打つ", "ko-KR": "{a}가 깊게 친다",
+    "es-ES": "{a} la juega al fondo", "fr-FR": "{a} joue long",
+    "id-ID": "{a} memukul ke belakang", "ms-MY": "{a} memukul ke belakang",
+    "th-TH": "{a} ตีลึก", "vi-VN": "{a} đánh sâu",
+}
+HIT_SPOT = {
+    "en": "{a} plays it to the spot", "en-GB": "{a} plays it to the spot",
+    "zh-CN": "{a}把球打到落点", "zh-TW": "{a}把球打到落點",
+    "ja-JP": "{a}が狙った位置へ打つ", "ko-KR": "{a}가 목표 지점으로 친다",
+    "es-ES": "{a} la coloca en el punto", "fr-FR": "{a} la place sur la zone",
+    "id-ID": "{a} memukul ke titik sasaran", "ms-MY": "{a} memukul ke titik sasaran",
+    "th-TH": "{a} ตีไปที่จุดเป้า", "vi-VN": "{a} đánh vào điểm rơi",
+}
+# A loose ball in a net sport is on its way over the net, not "passed".
+PASS_IN_NET = {
+    "en": "the ball comes over to {b}", "en-GB": "the ball comes over to {b}",
+    "zh-CN": "球过网来到{b}这边", "zh-TW": "球過網來到{b}這邊",
+    "ja-JP": "ボールが{b}側へ来る", "ko-KR": "공이 {b} 쪽으로 넘어온다",
+    "es-ES": "la bola pasa al lado de {b}", "fr-FR": "la balle arrive côté {b}",
+    "id-ID": "bola menyeberang ke {b}", "ms-MY": "bola menyeberang ke {b}",
+    "th-TH": "ลูกข้ามมาฝั่ง {b}", "vi-VN": "bóng sang phần sân {b}",
+}
+# The ball going to the OTHER side in an invasion sport is never a pass: it
+# is a shot the keeper deals with, a kick downfield, a feed into the
+# attacker, or a turnover. The text claims only what the board shows.
+SHOT_AT_KEEPER = {
+    "en": "{a} shoots, {b} saves", "en-GB": "{a} shoots, {b} saves",
+    "zh-CN": "{a}射门，{b}扑救", "zh-TW": "{a}射門，{b}撲救",
+    "ja-JP": "{a}がシュート、{b}がセーブ", "ko-KR": "{a} 슛, {b} 선방",
+    "es-ES": "{a} remata, {b} para", "fr-FR": "{a} frappe, {b} arrête",
+    "id-ID": "{a} menembak, {b} menyelamatkan",
+    "ms-MY": "{a} menembak, {b} menyelamat",
+    "th-TH": "{a} ยิง {b} เซฟ", "vi-VN": "{a} sút, {b} cản phá",
+}
+KEEPER_OUT = {
+    "en": "{a} distributes to {b}", "en-GB": "{a} distributes to {b}",
+    "zh-CN": "{a}把球分给{b}", "zh-TW": "{a}把球分給{b}",
+    "ja-JP": "{a}が{b}へ配球", "ko-KR": "{a}가 {b}에게 배급",
+    "es-ES": "{a} saca para {b}", "fr-FR": "{a} relance sur {b}",
+    "id-ID": "{a} mendistribusikan ke {b}", "ms-MY": "{a} mengagihkan kepada {b}",
+    "th-TH": "{a} จ่ายออกให้ {b}", "vi-VN": "{a} phát bóng cho {b}",
+}
+KICK_TO = {
+    "en": "{a} kicks to {b}", "en-GB": "{a} kicks to {b}",
+    "zh-CN": "{a}踢给{b}", "zh-TW": "{a}踢給{b}",
+    "ja-JP": "{a}が{b}へキック", "ko-KR": "{a}가 {b}에게 킥",
+    "es-ES": "{a} patea hacia {b}", "fr-FR": "{a} tape vers {b}",
+    "id-ID": "{a} menendang ke {b}", "ms-MY": "{a} menendang ke {b}",
+    "th-TH": "{a} เตะไปหา {b}", "vi-VN": "{a} đá về phía {b}",
+}
+CHANGES_HANDS = {
+    "en": "the ball goes from {a} to {b}",
+    "en-GB": "the ball goes from {a} to {b}",
+    "zh-CN": "球从{a}转到{b}", "zh-TW": "球從{a}轉到{b}",
+    "ja-JP": "ボールが{a}から{b}へ渡る", "ko-KR": "공이 {a}에서 {b}에게 넘어간다",
+    "es-ES": "el balón pasa de {a} a {b}", "fr-FR": "le ballon passe de {a} à {b}",
+    "id-ID": "bola berpindah dari {a} ke {b}",
+    "ms-MY": "bola berpindah dari {a} kepada {b}",
+    "th-TH": "บอลเปลี่ยนจาก {a} ไป {b}", "vi-VN": "bóng chuyển từ {a} sang {b}",
+}
+# Several players wearing the same letter doing the same thing: "3 Ds move
+# back", not "D, D, D moves back".
+COUNTED = {
+    "en": "{n} {a}s", "en-GB": "{n} {a}s", "zh-CN": "{n} 名 {a}",
+    "zh-TW": "{n} 名 {a}", "ja-JP": "{a}{n}人", "ko-KR": "{a} {n}명",
+    "es-ES": "{n} {a}", "fr-FR": "{n} {a}", "id-ID": "{n} {a}",
+    "ms-MY": "{n} {a}", "th-TH": "{a} {n} คน", "vi-VN": "{n} {a}",
 }
 # The whole side moving the same way is one idea, not ten subjects.
 ALL_MOVE = {
@@ -311,6 +427,22 @@ SETUP_BALL_AT = {
     "id-ID": "bola pada {a}", "ms-MY": "bola dengan {a}",
     "th-TH": "บอลอยู่ที่ {a}", "vi-VN": "bóng ở chỗ {a}",
 }
+# "At his feet" is a football phrase. Chinese names where the ball is, so a
+# setter, a pitcher or a server has it 手中 and a hockey player 杆下; the
+# other locales' "ball with {a}" is already neutral.
+_BALL_AT_ZH = {
+    "hand": {"zh-CN": "球在 {a} 手中", "zh-TW": "球在 {a} 手中"},
+    "stick": {"zh-CN": "球在 {a} 杆下", "zh-TW": "球在 {a} 桿下"},
+}
+FOOT_SPORTS = {"soccer", "footvolley", "sepakTakraw"}
+STICK_SPORTS = {"fieldHockey"}
+
+
+def _ball_at(sport: str, loc: str) -> str:
+    if loc in ("zh-CN", "zh-TW") and sport not in FOOT_SPORTS:
+        fam = "stick" if sport in STICK_SPORTS else "hand"
+        return _BALL_AT_ZH[fam][loc]
+    return SETUP_BALL_AT[loc]
 
 # Sports where a ball_to leg reads as a throw / a hit rather than a kick-pass.
 THROW_SPORTS = {"baseball", "handball", "waterPolo", "rugby", "basketball"}
@@ -352,6 +484,88 @@ def _pass_verb(sport: str) -> dict:
     return PASS
 
 
+def _pass_in(sport: str) -> dict:
+    return PASS_IN_NET if sport in HIT_SPORTS else PASS_IN
+
+
+def _far_end(sport: str) -> tuple[dict, dict]:
+    """(verb, place) for a ball played to the last twelfth of the board."""
+    if sport == "basketball":
+        return SHOOT_HOOP, BASKET_WORD
+    if sport == "rugby":
+        return KICK_POSTS, POSTS_WORD
+    if sport == "baseball":
+        return PITCH, PLATE_WORD
+    if sport in HIT_SPORTS:
+        return HIT_DEEP, DEEP_WORD
+    return SHOOT, GOAL_WORD
+
+
+def _is_far_end(sport: str, target) -> bool:
+    """A point in the last twelfth of the board — past the try line in
+    rugby, whose court drawing includes the in-goal areas."""
+    from .engine import court_rect
+    _, top, _, ch = court_rect(sport)
+    frac = 0.16 if sport == "rugby" else 0.085
+    return target[1] < top + ch * frac or target[1] > top + ch * (1 - frac)
+
+
+def _spot_leg(sport: str) -> tuple[dict, dict]:
+    """(verb, place) for a ball played to a point short of the far end."""
+    if sport in HIT_SPORTS:
+        return HIT_SPOT, SPOT_WORD
+    return PASS_SPOT, SPOT_WORD
+
+
+def _holder(drill):
+    """Who has the ball at the start, for the text.
+
+    ball=<index> names him. A ball placed as a point (a kicker's tee, a
+    fielder's glove written as coordinates) is his if he stands within
+    reach of it — otherwise the first leg had no subject and a goal-kick
+    drill narrated only the kicker's steps back, never the kick.
+    """
+    if isinstance(drill.ball, int):
+        return drill.home[drill.ball]
+    if isinstance(drill.ball, tuple):
+        x, y = drill.ball
+        best, who = 160.0, None
+        for pl in drill.home:
+            d = abs(pl.x - x) + abs(pl.y - y)
+            if d < best:
+                best, who = d, pl
+        return who
+    return None
+
+
+def _narration_route(drill) -> list:
+    """The ball's legs as (target, phase), for the text.
+
+    ball_to when the author wrote one. A drill with hand-written ball_moves
+    (a double play, a served shuttle) used to get no 球路 and no ball in its
+    流程 at all — the legs are turned back into targets here: whichever
+    player is standing where the ball stops on that beat, else the point.
+    """
+    if drill.ball_to or drill.ball_follow is not None:
+        return drill.ball_to
+    from .engine import _pos_at
+    out = []
+    for (x, y, ph) in drill.ball_moves:
+        best, who = 160.0, None
+        for i, pl in enumerate(drill.home):
+            px, py = _pos_at(pl, ph)
+            d = abs(px - x) + abs(py - y)
+            if d < best:
+                best, who = d, i
+        for i, pl in enumerate(drill.away):
+            px, py = _pos_at(pl, ph)
+            d = abs(px - x) + abs(py - y)
+            if d < best:
+                best, who = d, f"a{i}"
+        out.append((who if who is not None else (x, y), ph))
+    return out
+
+
 def sequence_texts(drill, sport: str) -> dict | None:
     """The 流程 section, one string per locale, from the resolved drill.
 
@@ -369,33 +583,41 @@ def sequence_texts(drill, sport: str) -> dict | None:
         carrier = drill.home[drill.ball_follow]
         for (_, _, ph) in carrier.moves[:1]:
             add(ph, CARRY, a=_label(carrier))
-    if drill.ball_to:
-        holder = (drill.home[drill.ball]
-                  if isinstance(drill.ball, int) else None)
+    route = _narration_route(drill)
+    if route:
+        holder = _holder(drill)
         prev = holder
-        for (target, ph) in drill.ball_to:
+        for (target, ph) in route:
             if isinstance(target, tuple):
-                # A point in the last twelfth of the pitch is the goal — that
-                # leg is a shot, not "the ball played on".
-                from .engine import court_rect
-                _, top, _, ch = court_rect(sport)
-                shooty = (target[1] < top + ch * 0.085
-                          or target[1] > top + ch * 0.915)
-                shot_tbl = SHOOT_HOOP if sport == "basketball" else SHOOT
-                add(ph, shot_tbl if shooty else PASS_SPOT,
-                    a=_label(prev) if prev else "?")
+                # A point at the far end of the board is a shot, a pitch, a
+                # ball hit deep — not "the ball played on".
+                shooty = _is_far_end(sport, target)
+                tbl = (_far_end(sport) if shooty else _spot_leg(sport))[0]
+                if prev:
+                    add(ph, tbl, a=_label(prev))
                 prev = None
             else:
                 t = (drill.away[int(target[1:])] if isinstance(target, str)
                      else drill.home[target])
                 if prev is None:
-                    add(ph, PASS_IN, b=_label(t))
+                    add(ph, _pass_in(sport), b=_label(t))
                 elif t is prev:
                     # A leg whose target is the holder himself is a carry —
                     # the ball rides that player's run for this beat. The
                     # board draws it the same way (the escorted rule), and
                     # "2 passes to 2" is not a sentence.
                     add(ph, CARRY, a=_label(t))
+                elif (sport not in HIT_SPORTS
+                      and (prev in drill.away) != (t in drill.away)):
+                    if _label(t).upper() in ("GK", "G", "K"):
+                        tbl = SHOT_AT_KEEPER
+                    elif _label(prev).upper() in ("GK", "G", "K"):
+                        tbl = KEEPER_OUT
+                    elif sport == "rugby":
+                        tbl = KICK_TO
+                    else:
+                        tbl = CHANGES_HANDS
+                    add(ph, tbl, a=_label(prev), b=_label(t))
                 else:
                     add(ph, _pass_verb(sport), a=_label(prev), b=_label(t))
                 prev = t
@@ -403,11 +625,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
     # The player who played the ball on each beat — a follow is that player
     # chasing his own pass, nobody else drifting near the ball.
     passer_on = {}
-    if drill.ball_to:
-        holder2 = (drill.home[drill.ball]
-                   if isinstance(drill.ball, int) else None)
-        prev2 = holder2
-        for (target, ph) in drill.ball_to:
+    if route:
+        prev2 = _holder(drill)
+        for (target, ph) in route:
             if prev2 is not None:
                 passer_on[ph] = prev2
             if isinstance(target, tuple):
@@ -418,10 +638,14 @@ def sequence_texts(drill, sport: str) -> dict | None:
 
     # Where the ball stops per phase, for follow detection.
     stops = {ph: (x, y) for (x, y, ph) in drill.ball_moves}
+    carrier = (drill.home[drill.ball_follow]
+               if drill.ball_follow is not None else None)
     for p in people:
         for i, (x, y, ph) in enumerate(p.moves):
             if i > 0:
                 continue  # narrate a player's first leg; chains stay terse
+            if p is carrier:
+                continue  # "1 carries the ball on" already said this leg
             prev_stop = stops.get(ph - 1)
             is_follow = (prev_stop is not None
                          and passer_on.get(ph - 1) is p
@@ -434,7 +658,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 dest = None
                 best = 1e9
                 for q in people:
-                    if q is p:
+                    # A team-mate: nobody follows up behind an opponent.
+                    if q is p or (q in drill.away) != (p in drill.away):
                         continue
                     dq = abs(q.x - prev_stop[0]) + abs(q.y - prev_stop[1])
                     if dq < best:
@@ -448,6 +673,20 @@ def sequence_texts(drill, sport: str) -> dict | None:
             d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
                 ("down" if dy > 0 else "up")
             add(ph, RUN, a=_label(p), dir_key=d)
+
+    # A chain's later legs are not narrated — until they are all a beat has.
+    # A kicker who steps back (beat 1), steps in (beat 2) and kicks (beat 3)
+    # read "第1步 … 第3步", and a reader takes a missing step for a mistake.
+    if beats:
+        for p in people:
+            for i, (x, y, ph) in enumerate(p.moves):
+                if i == 0 or ph in beats:
+                    continue
+                px, py = p.moves[i - 1][:2]
+                dx, dy = x - px, y - py
+                d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) \
+                    else ("down" if dy > 0 else "up")
+                add(ph, RUN, a=_label(p), dir_key=d)
 
     if not beats:
         return None
@@ -478,17 +717,29 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 rendered.append(table[loc].format(**fmt))
             for (tid, dir_key), subjects in grouped.items():
                 table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, PASS_SPOT,
-                                         SHOOT, SHOOT_HOOP, PASS_IN)
+                                         HIT_SPOT, HIT_DEEP, KICK_POSTS, PITCH,
+                                         SHOOT, SHOOT_HOOP, PASS_IN, PASS_IN_NET)
                              if id(t) == tid)
+                # Same letter several times over ("D, D, D") is a count.
+                names, counts = [], {}
+                for x in subjects:
+                    if x not in counts:
+                        names.append(x)
+                    counts[x] = counts.get(x, 0) + 1
                 joined = LIST.get(loc, ", ").join(
-                    _subj(x, loc) for x in subjects)
+                    COUNTED[loc].format(n=counts[x], a=_subj(x, loc))
+                    if counts[x] > 1 else _subj(x, loc)
+                    for x in names)
                 if dir_key:
                     if len(subjects) >= 6 and \
                             len(subjects) == len(drill.home):
                         rendered.append(ALL_MOVE[loc].format(
                             dir=DIR[dir_key][loc]))
                         continue
-                    rendered.append(RUN[loc].format(
+                    tmpl = RUN[loc]
+                    if loc in ("en", "en-GB") and len(subjects) > 1:
+                        tmpl = tmpl.replace(" moves ", " move ")
+                    rendered.append(tmpl.format(
                         a=joined, dir=DIR[dir_key][loc]))
                 else:
                     rendered.append(table[loc].format(a=joined))
@@ -505,28 +756,27 @@ def route_texts(drill, sport: str) -> dict | None:
     The step-by-step below it is precise but sequential; this is the shape of
     the whole drill in a glance, and it is what makes the steps scannable.
     """
-    if not drill.ball_to:
+    route = _narration_route(drill)
+    if not route:
         return None
-    from .engine import court_rect
-    _, top, _, ch = court_rect(sport)
     stops_by_loc = {loc: [] for loc in LOCALES}
-    start = (_label(drill.home[drill.ball])
-             if isinstance(drill.ball, int) else None)
+    holder = _holder(drill)
+    start = _label(holder) if holder is not None else None
     for loc in LOCALES:
         stops = [start] if start else []
-        for (t, ph) in drill.ball_to:
+        for (t, ph) in route:
             if isinstance(t, tuple):
-                shooty = (t[1] < top + ch * 0.085 or t[1] > top + ch * 0.915)
+                shooty = _is_far_end(sport, t)
                 sx, sy = ((drill.home[drill.ball].x, drill.home[drill.ball].y)
                           if isinstance(drill.ball, int) else
                           (drill.ball if isinstance(drill.ball, tuple)
                            else (None, None)))
                 if shooty:
-                    stops.append(GOAL_WORD[loc])
+                    stops.append(_far_end(sport)[1][loc])
                 elif sx is not None and abs(t[0]-sx) + abs(t[1]-sy) < 120:
                     stops.append(BACK_TO_START[loc])
                 else:
-                    stops.append(SPOT_WORD[loc])
+                    stops.append(_spot_leg(sport)[1][loc])
             elif isinstance(t, str):
                 stops.append(_label(drill.away[int(t[1:])]))
             else:
@@ -534,6 +784,8 @@ def route_texts(drill, sport: str) -> dict | None:
         # A carry leg repeats the holder; collapse runs of the same stop so
         # the path reads 9 → 11 → goal, not 9 → 9 → 9 → 11 → goal.
         clean = [x for i, x in enumerate(stops) if i == 0 or x != stops[i-1]]
+        if len(clean) < 2:
+            return None
         stops_by_loc[loc] = " → ".join(clean)
     return stops_by_loc
 
@@ -555,7 +807,7 @@ def setup_texts(drill, sport: str) -> dict:
         if cones:
             bits.append(SETUP_CONES[loc].format(n=cones))
         if isinstance(drill.ball, int):
-            bits.append(SETUP_BALL_AT[loc].format(
+            bits.append(_ball_at(sport, loc).format(
                 a=_label(drill.home[drill.ball])))
         out[loc] = AND[loc].join(bits)
     return out
