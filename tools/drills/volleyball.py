@@ -105,6 +105,9 @@ def receive_family() -> list[Drill]:
             away=[P(0.5, -0.04, "S", moves=[(0.5, 0.02, 0)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=(0.5, -0.04),          # in the server's hand, behind the line
+            # Serve, pass, set: over the net to P1, up to the setter
+            # releasing to the net, delivered to the hitter stepping in.
+            ball_to=[(1, 0), (0, 1), (len(home) - 1, 2)],
         ))
     return out
 
@@ -171,6 +174,9 @@ def attack_family() -> list[Drill]:
             ],
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
+            # Pass to the setter, ball up to the point of attack, spiked at
+            # their deep defender.
+            ball_to=[(1, 0), (2, 1), ("a2", 2)],
         ))
     return out
 
@@ -251,6 +257,9 @@ tight=True,
                 P(x, 1 - 0.62, "A", moves=[(x, 0.30, 0), (x, 0.455, 1)]),
             ],
             ball=mirror(SET_POINT),
+            # Their set, their approach, the swing into our floor defence —
+            # the ball the block is timed against.
+            ball_to=[("a1", 0), (n, 1)],
         ))
     return out
 
@@ -315,6 +324,9 @@ def defense_family() -> list[Drill]:
                 P(0.26, 0.38, "A", moves=[(0.26, 0.455, 1)]),
             ],
             ball=mirror(SET_POINT),
+            # Set, swing, and the dig in the deep corner — where every one
+            # of these systems says the ball must be kept off the floor.
+            ball_to=[("a1", 0), (4, 1)],
         ))
     return out
 
@@ -367,6 +379,11 @@ def serve_family() -> list[Drill]:
             markers=[M(target[0], 1 - target[1] if target[1] > 0.5 else target[1],
                        "zone", "")],
             ball=0,
+            # Over the net into the marked zone — the receiver nearest it
+            # takes it on the second beat.
+            ball_to=[((target[0],
+                       1 - target[1] if target[1] > 0.5 else target[1]), 0),
+                     ("a1", 1)],
         ))
     return out
 
@@ -419,6 +436,9 @@ def setter_family() -> list[Drill]:
             away=[P(0.30, 0.455, "B", moves=[(0.26, 0.47, 2)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=1,
+            # The pass climbs as the setter releases; he delivers the pin
+            # attack as the middle holds the blocker.
+            ball_to=[(0, 0), (2, 2)],
         ))
     return out
 
@@ -474,6 +494,9 @@ def warmup_family() -> list[Drill]:
             free=(key == "pepper"),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, ball=0,
+            # Back and forth — the ball is the metronome of every warm-up.
+            ball_to=([(1, 0), (0, 1)] if not away
+                     else [("a0", 0), (1, 1)]),
         ))
     return out
 
@@ -525,6 +548,9 @@ def freeball_family() -> list[Drill]:
             away=[P(0.50, ay, "A", moves=[(0.50, ay + 0.06, 0)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=(0.50, ay),
+            # The gift comes over slow; pass, set, and the swing puts it
+            # back on their floor — the whole point of a free ball.
+            ball_to=[(4, 0), (2, 1), ("a0", 2)],
         ))
     return out
 
@@ -574,6 +600,9 @@ def setting_family() -> list[Drill]:
             ],
             markers=[M(*target, "square", "")],
             ball=0,
+            # Pass up to the setter, delivered to the target window, put away.
+            ball_to=[(1, 0), (2, 1),
+                     ((target[0], 0.30), 2)],
         ))
     return out
 
@@ -625,6 +654,8 @@ def game_family() -> list[Drill]:
                     moves=[(x + (0.5 - x) * 0.14, 1 - y + 0.05, 0)])
                   for i, (x, y) in enumerate(spots)],
             ball=0,
+            # One exchange of the rally — over to their A, back to our 2.
+            ball_to=[("a0", 0), (1 % n, 0)],
         ))
     return out
 
@@ -724,6 +755,8 @@ def gaps_family() -> list[Drill]:
             away=[P(0.20, 0.455, "B"), P(0.32, 0.455, "B")],
             markers=[M(0.26, 0.70, "zone", "")],
             ball=0,
+            # the swing comes back off the block into the cover
+            ball_to=[(0, 0), (2, 1)],
         ),
         Drill(
             id="vb_attack_quick", category="finishing", minutes=12, rel=True,
@@ -735,6 +768,8 @@ def gaps_family() -> list[Drill]:
                   P(*mirror(zone(6)), "D")],
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
+            # pass, one-beat set, the quick dies before the block closes
+            ball_to=[(1, 0), (2, 1), ((0.56, 0.30), 2)],
         ),
         Drill(
             id="vb_attack_slide", category="finishing", minutes=12, rel=True,
@@ -748,6 +783,8 @@ def gaps_family() -> list[Drill]:
                   P(*mirror(zone(6)), "D")],
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
+            # pass, set chasing the slide, hit from behind the setter
+            ball_to=[(1, 0), (2, 1), ((0.82, 0.30), 2)],
         ),
         Drill(
             id="vb_receive_two_passer", category="possession", minutes=12, rel=True,
@@ -760,6 +797,8 @@ def gaps_family() -> list[Drill]:
             away=[P(0.50, 0.06, "SV", moves=[(0.46, 0.115, 0)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=3,
+            # their serve into the seam; the libero takes it to the setter
+            ball_to=[(0, 0), (2, 1)],
         ),
         Drill(
             id="vb_setter_dump", category="attacking", minutes=8, rel=True,
@@ -773,6 +812,8 @@ def gaps_family() -> list[Drill]:
                   P(*mirror(zone(6)), "D")],
             markers=[M(0.62, 0.40, "zone", "")],
             ball=0,
+            # pass up — and the setter drops it over on two
+            ball_to=[(1, 0), ((0.44, 0.44), 2)],
         ),
     ]
 
