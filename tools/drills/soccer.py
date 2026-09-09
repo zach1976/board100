@@ -1375,6 +1375,13 @@ def rondo_family() -> list[Drill]:
             ],
             markers=[M(x, y) for x, y in
                      ring(4, 0.5, 0.5, radius * 1.35, radius * 1.85, -45)],
+            setup={
+                "en": f"a circle about {int(radius * 60)} m across marked by "
+                      f"four cones; {attackers} on the outside keep it off "
+                      f"{defenders} inside",
+                "zh-CN": f"四个锥标围出直径约 {int(radius * 60)} 米的圈，"
+                         f"{attackers} 人在圈外传，{defenders} 人在圈内抢",
+            },
             ball=0,
             # Three passes round the ring while the defenders hunt. The ring
             # players' own moves are radial nudges, so every pass line is a
@@ -1483,6 +1490,12 @@ def counter_family() -> list[Drill]:
                 for i, x in enumerate(dxs)
             ],
             markers=[M(0.5, 0.03, "square", "")],
+            setup={
+                "en": f"half a pitch, one goal; {att} attackers on the "
+                      f"halfway line break at {dfn} recovering defenders",
+                "zh-CN": f"半场一个球门；{att} 名进攻者从中线启动，"
+                         f"冲击 {dfn} 名回追的防守者",
+            },
             ball=0,
             # Beat 0 the carrier drives with it (a self-target is a carry);
             # beat 1 he releases to the widest runner arriving in the box —
@@ -1598,6 +1611,15 @@ def finishing_family() -> list[Drill]:
             ],
             away=[P(0.5, 0.10, "GK", role="GK", moves=[(fx * 0.4 + 0.3, 0.14, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
+            setup={
+                "en": f"one goal with a keeper; the crosser starts {label}, "
+                      "the 9 and 10 on the edge of the box",
+                "zh-CN": "一个球门带门将；传中人从"
+                         + {"left wing": "左边路", "right wing": "右边路",
+                            "left halfspace": "左肋部", "right halfspace": "右肋部",
+                            "central": "中路"}[label]
+                         + "启动，9 号和 10 号在禁区前沿",
+            },
             ball=0,
             # The 7 carries to the byline with his run, then the cross meets
             # the 9 arriving at the far post on the next beat.
@@ -1677,6 +1699,12 @@ def press_family() -> list[Drill]:
                 P(0.50, 0.16, "A", moves=[(0.50, 0.22, 0)]),
                 P(0.26, 0.14, "B"), P(0.74, 0.14, "C"),
             ],
+            setup={
+                "en": "a full team in its own shape against three of their "
+                      "build-up players; play starts from their back line",
+                "zh-CN": "整队按阵型站位，对面三名出球队员；"
+                         "从对方后场开球",
+            },
             # The pass B plays infield to A is the press trigger — the whole
             # shape jumps on that beat. There was no ball on this board at
             # all, which made it a diagram of ten men chasing nothing.
@@ -1838,6 +1866,12 @@ def passing_family() -> list[Drill]:
                 for i, (x, y) in enumerate(spots)
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
+            setup={
+                "en": f"{n} cones in a {label}, 8–10 m apart, one player on "
+                      f"each, one ball",
+                "zh-CN": f"{n} 个锥标摆成{ {'triangle':'三角形','diamond':'菱形','pentagon':'五边形','hexagon':'六边形'}[label] }，"
+                         "间距 8–10 米，一人一锥，一颗球",
+            },
             ball=0,
             # The last pass goes back to spot 0 as a point: its owner left on
             # beat 1 and nobody re-occupies it until the final follower does.

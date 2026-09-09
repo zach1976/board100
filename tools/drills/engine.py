@@ -149,6 +149,11 @@ class Drill:
     # and the escorted rule will rightly treat it as a carry.
     ball_follow: object = None
     ball_to: list = field(default_factory=list)
+    # Hand-written setup for the note's 组织 section — how to lay the drill
+    # out on grass (shape, distances), which no census of the board can say.
+    # Localised like the note; families write it once. Left None, the note
+    # opens with the derived census instead.
+    setup: dict | None = None
     # Some formations really are shoulder to shoulder — a free-kick wall, a
     # scrum, a screen. Those may sit closer than one icon apart, but never
     # closer than the labels can be told apart. Everything else must not
