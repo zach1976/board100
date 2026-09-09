@@ -494,8 +494,8 @@ add("basketball", "Inbounds",
 # ── Category floors — the default when a curated one-off has no family ────────
 cat("soccer", "warmup",
     "Going through the motions cold — the warm-up sets the standard the session keeps.",
-    "冷着身子走过场——热身定的标准，整堂课都跟着走。",
-    "冷著身子走過場——熱身定的標準，整堂課都跟著走。",
+    "身体没热开就敷衍了事——热身是什么质量，整堂课就是什么质量。",
+    "身體沒熱開就敷衍了事——熱身是什麼質量，整堂課就是什麼質量。",
     "冷えたまま流す——ウォームアップが設けた基準を練習全体が引き継ぐ。",
     "몸이 식은 채 대충 — 웜업이 세운 기준을 세션 전체가 따른다.",
     "Hacerlo en frío y de trámite: el calentamiento fija el nivel de la sesión.",
@@ -581,7 +581,7 @@ add("badminton", "Defence", "Racket down until the smash — defence is a stance
 add("badminton", "Serve", "Treating the one shot nobody can rush as if it did not matter.", "把唯一没人能逼你的一拍打得随随便便。", "把唯一沒人能逼你的一拍打得隨隨便便。", "誰にも急かされない一打を雑に扱う。", "아무도 못 몰아붙이는 샷을 대충 친다.", "Tratar el único golpe que nadie apura como si diera igual.", "Traiter le seul coup où nul ne te presse comme s'il ne comptait pas.", "Menyepelekan satu-satunya pukulan tanpa tekanan.", "Memandang ringan satu-satunya pukulan tanpa tekanan.", "เล่นลูกที่ไม่มีใครเร่งแบบชุ่ย", "Xem nhẹ cú duy nhất không ai ép.")
 add("badminton", "Conditioned game", "Playing to win and forgetting the constraint that was the lesson.", "只想赢，忘了那条作为课题的限制。", "只想贏，忘了那條作為課題的限制。", "勝ちに行って課題の制約を忘れる。", "이기려다 과제인 제약을 잊는다.", "Jugar a ganar y olvidar la condición que era la lección.", "Jouer pour gagner et oublier la contrainte-leçon.", "Main untuk menang, lupa batasannya.", "Main untuk menang, lupa syaratnya.", "เล่นเอาชนะจนลืมกติกา", "Chơi để thắng mà quên điều kiện.")
 # ── Generic category floors (sport "*") for every remaining one-off ──
-cat("*", "warmup", "Going through the motions cold.", "冷着身子走过场。", "冷著身子走過場。", "冷えたまま流す。", "몸이 식은 채 대충.", "Hacerlo en frío, de trámite.", "Le faire à froid, machinalement.", "Sekadar formalitas saat dingin.", "Sekadar melepas batuk.", "ทำขอไปทีตอนตัวเย็น", "Làm cho có khi còn nguội.")
+cat("*", "warmup", "Going through the motions cold.", "身体没热开就敷衍了事。", "身體沒熱開就敷衍了事。", "冷えたまま流す。", "몸이 식은 채 대충.", "Hacerlo en frío, de trámite.", "Le faire à froid, machinalement.", "Sekadar formalitas saat dingin.", "Sekadar melepas batuk.", "ทำขอไปทีตอนตัวเย็น", "Làm cho có khi còn nguội.")
 cat("*", "possession", "Taking the safe touch when the sharp one was on.", "该处理得果断时选了保险的一下。", "該處理得果斷時選了保險的一下。", "鋭い選択があるのに安全なタッチを選ぶ。", "날카로운 선택이 있는데 안전하게.", "Elegir el toque seguro cuando había uno agudo.", "Choisir la touche sûre quand la tranchante était là.", "Memilih sentuhan aman padahal ada yang tajam.", "Memilih sentuhan selamat sedangkan ada yang tajam.", "เลือกเล่นปลอดภัยทั้งที่มีทางคม", "Chọn xử lý an toàn khi có phương án sắc bén.")
 cat("*", "attacking", "Forcing it early instead of waiting the half-second the opening needs.", "过早强行出手，不等空当需要的那半秒。", "過早強行出手，不等空當需要的那半秒。", "空きに必要な半秒を待たず早く仕掛ける。", "기회에 필요한 0.5초를 안 기다린다.", "Forzarla pronto en vez de esperar el medio segundo del hueco.", "Forcer trop tôt sans attendre la demi-seconde nécessaire.", "Memaksa terlalu dini.", "Memaksa terlalu awal.", "รีบทำเร็วเกินไป", "Ép quá sớm.")
 cat("*", "finishing", "Deciding late — the finish is chosen before the ball arrives, not after.", "决定得太晚——终结在球到之前就该定好。", "決定得太晚——終結在球到之前就該定好。", "決断が遅い——フィニッシュは球が来る前に決める。", "늦게 정한다 — 마무리는 공 오기 전에.", "Decidir tarde: la definición se elige antes de que llegue el balón.", "Décider tard — la finition se choisit avant l'arrivée du ballon.", "Memutuskan terlambat.", "Membuat keputusan lewat.", "ตัดสินใจช้า", "Quyết định muộn.")

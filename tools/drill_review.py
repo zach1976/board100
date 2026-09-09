@@ -125,6 +125,11 @@ def audit(drill, sport):
     if not drill.get("tags"):
         out.append({"id": "no_tags", "level": "info", "text": "没有标签"})
 
+    # One card for all the overlaps, not one per finding. Three cards each
+    # opening with 第 N 步 read as a step-by-step description of the drill —
+    # a four-beat drill with collisions on beats 1–3 was read as "only has
+    # three steps". And players are named by shirt number, not internal id.
+    hits = []
     for step in range(max_step(board) + 1):
         # People only. A ball 40 units from a player is at their feet — that
         # is possession, placed there on purpose by at_the_feet_of — and
@@ -137,12 +142,20 @@ def audit(drill, sport):
                 (a, pa), (b, pb) = at[i], at[j]
                 d = ((pa[0] - pb[0]) ** 2 + (pa[1] - pb[1]) ** 2) ** 0.5
                 if d < OVERLAP_UNITS * 0.55:
-                    out.append({
-                        "id": "overlap",
-                        "level": "warn",
-                        "text": f"第 {step} 步：{a['id']} 和 {b['id']} 重叠 "
-                                f"（相距 {d:.0f}）",
-                    })
+                    na = a.get("label") or a["id"]
+                    nb = b.get("label") or b["id"]
+                    hits.append((step, na, nb, d))
+    if hits:
+        parts = "；".join(
+            f"第 {step} 步 {na}+{nb}" + ("（完全重合）" if d < 1 else f"（相距 {d:.0f}）")
+            for step, na, nb, d in hits)
+        out.append({
+            "id": "overlap",
+            "level": "warn",
+            "text": f"{len(hits)} 处球员重叠：{parts}"
+                    + ("——后到者踩在还没让开的位置上"
+                       if all(d < 1 for *_x, d in hits) else ""),
+        })
     rank = {"error": 0, "warn": 1, "info": 2}
     out.sort(key=lambda i: rank[i["level"]])
     return out
@@ -494,7 +507,8 @@ function renderPane() {
         <textarea id="fix" placeholder="例如：球要跟着 2→3→4→5 走完四步；3 号起始位置往右挪 60。">${e.fix || ''}</textarea>
 
         <h3>现有常见错误</h3>
-        <p class="cur">${d.mistakeZh || d.mistake || '<i>空</i>'}</p>
+        <p class="cur">${d.mistake || '<i>空</i>'}</p>
+        <p class="cur zh">${d.mistakeZh || '<i>空</i>'}</p>
 
         <div class="actions">
           <button id="save">保存这一条</button>
