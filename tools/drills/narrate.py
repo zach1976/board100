@@ -98,7 +98,7 @@ DOT = {
 # library: everything here is a ball, a shuttle, or a stone-cold "ball").
 PASS = {
     "en": "{a} passes to {b}", "en-GB": "{a} passes to {b}",
-    "zh-CN": "{a} 传 {b}", "zh-TW": "{a} 傳 {b}",
+    "zh-CN": "{a}把球传给{b}", "zh-TW": "{a}把球傳給{b}",
     "ja-JP": "{a}が{b}へパス", "ko-KR": "{a}가 {b}에게 패스",
     "es-ES": "{a} pasa a {b}", "fr-FR": "{a} passe à {b}",
     "id-ID": "{a} mengoper ke {b}", "ms-MY": "{a} menghantar kepada {b}",
@@ -124,7 +124,7 @@ THROW = {
 }
 PASS_SPOT = {
     "en": "{a} plays the ball on", "en-GB": "{a} plays the ball on",
-    "zh-CN": "{a} 把球传到下一个点", "zh-TW": "{a} 把球傳到下一個點",
+    "zh-CN": "{a}把球传到下一个点", "zh-TW": "{a}把球傳到下一個點",
     "ja-JP": "{a}が次のポイントへ送る", "ko-KR": "{a}가 다음 지점으로 보낸다",
     "es-ES": "{a} envía el balón al siguiente punto",
     "fr-FR": "{a} envoie le ballon au point suivant",
@@ -135,7 +135,7 @@ PASS_SPOT = {
 CARRY = {
     "en": "{a} carries the ball on the move",
     "en-GB": "{a} carries the ball on the move",
-    "zh-CN": "{a} 带球移动", "zh-TW": "{a} 帶球移動",
+    "zh-CN": "{a}带球推进", "zh-TW": "{a}帶球推進",
     "ja-JP": "{a}がボールを運ぶ", "ko-KR": "{a}가 공을 몰고 이동",
     "es-ES": "{a} conduce el balón", "fr-FR": "{a} conduit le ballon",
     "id-ID": "{a} menggiring bola", "ms-MY": "{a} membawa bola",
@@ -145,7 +145,7 @@ CARRY = {
 # board): there is no holder to name, so the ball itself is the subject.
 PASS_IN = {
     "en": "the ball is played to {b}", "en-GB": "the ball is played to {b}",
-    "zh-CN": "球传到 {b}", "zh-TW": "球傳到 {b}",
+    "zh-CN": "球被传给{b}", "zh-TW": "球被傳給{b}",
     "ja-JP": "ボールが{b}へ入る", "ko-KR": "공이 {b}에게 온다",
     "es-ES": "el balón llega a {b}", "fr-FR": "le ballon arrive sur {b}",
     "id-ID": "bola dimainkan ke {b}", "ms-MY": "bola dimainkan kepada {b}",
@@ -173,7 +173,7 @@ SPOT_WORD = {
 }
 SHOOT = {
     "en": "{a} shoots", "en-GB": "{a} shoots",
-    "zh-CN": "{a} 射门", "zh-TW": "{a} 射門",
+    "zh-CN": "{a}起脚射门", "zh-TW": "{a}起腳射門",
     "ja-JP": "{a}がシュート", "ko-KR": "{a} 슛",
     "es-ES": "{a} remata", "fr-FR": "{a} frappe",
     "id-ID": "{a} menembak", "ms-MY": "{a} menjaring",
@@ -189,9 +189,25 @@ ALL_MOVE = {
     "th-TH": "ทั้งทีมขยับ{dir}", "vi-VN": "cả đội di chuyển {dir}",
 }
 
+# With a known destination (the spot the receiver vacates) the follow reads
+# "2号球员跑位到3号球员的位置". Without one it falls back to FOLLOW_PLAIN.
 FOLLOW = {
+    "en": "{a} follows the pass into {to}'s spot",
+    "en-GB": "{a} follows the pass into {to}'s spot",
+    "zh-CN": "{a}跟着传球跑位到{to}的位置",
+    "zh-TW": "{a}跟著傳球跑位到{to}的位置",
+    "ja-JP": "{a}がパスを追って{to}の位置へ",
+    "ko-KR": "{a}가 패스를 따라 {to}의 자리로",
+    "es-ES": "{a} sigue su pase hasta el sitio de {to}",
+    "fr-FR": "{a} suit sa passe jusqu'à la place de {to}",
+    "id-ID": "{a} mengikuti operan ke posisi {to}",
+    "ms-MY": "{a} mengikut hantaran ke kedudukan {to}",
+    "th-TH": "{a} วิ่งตามบอลไปยังตำแหน่งของ{to}",
+    "vi-VN": "{a} theo đường chuyền tới vị trí của {to}",
+}
+FOLLOW_PLAIN = {
     "en": "{a} follows the pass", "en-GB": "{a} follows the pass",
-    "zh-CN": "{a} 跟进", "zh-TW": "{a} 跟進",
+    "zh-CN": "{a}跟着传球跑上去", "zh-TW": "{a}跟著傳球跑上去",
     "ja-JP": "{a}がパスを追って移動", "ko-KR": "{a}는 패스를 따라간다",
     "es-ES": "{a} sigue su pase", "fr-FR": "{a} suit sa passe",
     "id-ID": "{a} mengikuti operannya", "ms-MY": "{a} mengikut hantarannya",
@@ -199,7 +215,7 @@ FOLLOW = {
 }
 RUN = {
     "en": "{a} moves {dir}", "en-GB": "{a} moves {dir}",
-    "zh-CN": "{a} {dir}移动", "zh-TW": "{a} {dir}移動",
+    "zh-CN": "{a}{dir}移动", "zh-TW": "{a}{dir}移動",
     "ja-JP": "{a}が{dir}へ移動", "ko-KR": "{a}는 {dir} 이동",
     "es-ES": "{a} se desplaza {dir}", "fr-FR": "{a} se déplace {dir}",
     "id-ID": "{a} bergerak {dir}", "ms-MY": "{a} bergerak {dir}",
@@ -271,6 +287,23 @@ def _label(p) -> str:
     return p.label or "?"
 
 
+# How a shirt label reads as a sentence subject, per locale. "3" alone is a
+# telegram; Chinese wants "3号球员". Letters (away A/B, GK, P) and non-CJK
+# locales keep the bare label — "A号球员" is not a word.
+_SUBJ = {
+    "zh-CN": "{n}号球员", "zh-TW": "{n}號球員",
+    "ja-JP": "{n}番", "ko-KR": "{n}번",
+}
+
+
+def _subj(label, loc):
+    label = str(label)
+    tmpl = _SUBJ.get(loc)
+    if tmpl and label.isdigit():
+        return tmpl.format(n=label)
+    return label
+
+
 def _pass_verb(sport: str) -> dict:
     if sport in THROW_SPORTS:
         return THROW
@@ -326,6 +359,22 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     add(ph, _pass_verb(sport), a=_label(prev), b=_label(t))
                 prev = t
 
+    # The player who played the ball on each beat — a follow is that player
+    # chasing his own pass, nobody else drifting near the ball.
+    passer_on = {}
+    if drill.ball_to:
+        holder2 = (drill.home[drill.ball]
+                   if isinstance(drill.ball, int) else None)
+        prev2 = holder2
+        for (target, ph) in drill.ball_to:
+            if prev2 is not None:
+                passer_on[ph] = prev2
+            if isinstance(target, tuple):
+                prev2 = None
+            else:
+                prev2 = (drill.away[int(target[1:])]
+                         if isinstance(target, str) else drill.home[target])
+
     # Where the ball stops per phase, for follow detection.
     stops = {ph: (x, y) for (x, y, ph) in drill.ball_moves}
     for p in people:
@@ -333,9 +382,26 @@ def sequence_texts(drill, sport: str) -> dict | None:
             if i > 0:
                 continue  # narrate a player's first leg; chains stay terse
             prev_stop = stops.get(ph - 1)
-            if prev_stop and (abs(x - prev_stop[0]) + abs(y - prev_stop[1])
-                              < FOLLOW_NEAR):
-                add(ph, FOLLOW, a=_label(p))
+            is_follow = (prev_stop is not None
+                         and passer_on.get(ph - 1) is p
+                         and abs(x - prev_stop[0]) + abs(y - prev_stop[1])
+                         < FOLLOW_NEAR)
+            if is_follow:
+                # Name the spot: whichever OTHER player started nearest where
+                # the ball stopped last beat is the receiver whose position
+                # the follower is running into.
+                dest = None
+                best = 1e9
+                for q in people:
+                    if q is p:
+                        continue
+                    dq = abs(q.x - prev_stop[0]) + abs(q.y - prev_stop[1])
+                    if dq < best:
+                        best, dest = dq, q
+                if dest is not None and best < FOLLOW_NEAR:
+                    add(ph, FOLLOW, a=_label(p), to=_label(dest))
+                else:
+                    add(ph, FOLLOW_PLAIN, a=_label(p))
                 continue
             dx, dy = x - p.x, y - p.y
             d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
@@ -356,7 +422,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
             # with five subjects.
             grouped: dict[tuple, list] = {}
             for table, params in beats[ph]:
-                if "b" in params:
+                if "b" in params or "to" in params:
                     acts.append((table, params))
                 elif "dir_key" in params or len(params) == 1:
                     grouped.setdefault(
@@ -366,11 +432,15 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     acts.append((table, params))
             rendered = []
             for table, params in acts:
-                rendered.append(table[loc].format(**params))
+                fmt = {k: (_subj(v, loc) if k in ("a", "b", "to") else v)
+                       for k, v in params.items()}
+                rendered.append(table[loc].format(**fmt))
             for (tid, dir_key), subjects in grouped.items():
-                table = next(t for t in (RUN, FOLLOW, CARRY, PASS_SPOT, SHOOT, PASS_IN)
+                table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, PASS_SPOT,
+                                         SHOOT, PASS_IN)
                              if id(t) == tid)
-                joined = LIST.get(loc, ", ").join(subjects)
+                joined = LIST.get(loc, ", ").join(
+                    _subj(x, loc) for x in subjects)
                 if dir_key:
                     if len(subjects) >= 6 and \
                             len(subjects) == len(drill.home):
