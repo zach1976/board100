@@ -74,34 +74,47 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "จ่ายแล้ววิ่งตามบอล เปิดลำตัวก่อนบอลมาถึง",
                   "vi-VN": "Chuyền rồi chạy theo. Mở người trước khi bóng đến.",
                   "en-GB": "Pass and follow your pass. Open your body before the ball arrives so the next pass is already on."},
-            # The ball leads and the runners chase one beat behind — beat 0
-            # is the ball's alone, so the first thing the drill shows IS a
-            # pass, a ball flying with nobody beside it. Sharing the beat and
-            # the edge with the follower (the first authoring) read as four
-            # players dribbling round a diamond.
-            # Runs end 80 short of the cone, along the line of the run: the
-            # follower joins the queue behind the receiver, he does not stand
-            # on him. Ending exactly on the receiver's point stacked the two
-            # tokens dead centre the moment the follower arrived.
-            # Four cones, four players, ball round three sides — it ends
-            # when 4 receives. It used to play a fourth pass back to the top
-            # cone, but 1 had left it on beat 1 to follow his own pass, so the
-            # ball went to an empty corner with nobody to receive. With one
-            # player per cone the loop cannot close in a single turn; the
-            # pattern is shown 1→2→3→4 and restarts.
+            # The standard passing diamond: a queue at every cone, so the
+            # loop stays alive. A front player passes to the front of the next
+            # cone and follows his pass to the BACK of that cone's line; the
+            # next player in the line steps up to receive. Every cone is a
+            # live station, which is the whole reason the cones are there.
+            #
+            #   front (on the cone, toward the middle) then back (queued out):
+            #   1/5 top · 2/6 right · 3/7 bottom · 4/8 left. Ball goes
+            #   1→2→3→4, and by the time it comes back round the stepped-up
+            #   5 and 6 are on their cones to receive it.
+            # Diamond kept tight so eight players and their queues sit well
+            # inside the pitch. Each cone: a front player on it (toward the
+            # middle) and a back player queued just outside.
             home=[
-                P(500, 400, "1", moves=[(725, 641, 1)]),
-                P(780, 700, "2", moves=[(555, 941, 2)]),
-                P(500, 1000, "3", moves=[(275, 759, 3)]),
-                P(220, 700, "4"),
+                # Each cone holds a front player (on it, toward the middle)
+                # and a back player queued behind. A passer follows to the
+                # queue's TAIL, ~120 behind the man who has stepped up, so
+                # the two never sit on the same spot.
+                # top  cone (500,520)
+                P(500, 580, "1", moves=[(840, 700, 1)]),   # pass, follow to R tail
+                P(500, 460, "5", moves=[(500, 580, 1)]),   # step up to receive
+                # right cone (720,700)
+                P(660, 700, "2", moves=[(500, 960, 2)]),   # follow to B tail
+                P(780, 700, "6", moves=[(660, 700, 2)]),   # step up
+                # bottom cone (500,880)
+                P(500, 820, "3", moves=[(160, 700, 3)]),   # follow to L tail
+                P(500, 940, "7", moves=[(500, 820, 3)]),   # step up
+                # left cone (280,700)
+                P(340, 700, "4", moves=[(500, 440, 4)]),   # follow to T tail
+                P(220, 700, "8", moves=[(340, 700, 4)]),   # step up
             ],
-            markers=[M(500, 380), M(800, 700), M(500, 1020), M(200, 700)],
+            markers=[M(500, 520), M(720, 700), M(500, 880), M(280, 700)],
             ball=0,
-            # The last pass goes to the top CONE, not to a player reference:
-            # with exactly four players the top spot is empty until 5 arrives
-            # behind his own pass — referencing player 2 sent the ball to the
-            # right cone he had rotated to.
-            ball_to=[(1, 0), (2, 1), (3, 2)],
+            # 1→2→3→4, then to the stepped-up 5 (top) and 6 (right): every
+            # pass has a receiver on the cone, the loop closes.
+            ball_to=[(2, 0), (4, 1), (6, 2), (1, 3), (3, 4)],
+            setup={
+                "en": "4 cones in a diamond 8–10 m apart, two players queued "
+                      "at each, one ball",
+                "zh-CN": "4 个锥标摆成菱形、间距 8–10 米，每个锥标后排 2 人，一颗球",
+            },
             free=True,
         ),
         Drill(
