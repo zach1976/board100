@@ -365,7 +365,9 @@ def basketball_drills() -> list[Drill]:
                 P(0.50, 0.09, "x2", moves=[(0.80, 0.24, 1)]),
             ],
             away=[P(0.15, 0.26, "2"), P(0.85, 0.26, "3")],
-            ball=None,
+                        # the kick-out passes the closeouts answer
+            ball=(0.50, 0.10),
+            ball_to=[("a0", 0), ("a1", 1)],
         ),
         Drill(
             id="bb_help_and_recover", category="defending", minutes=12, rel=True,
@@ -394,7 +396,9 @@ def basketball_drills() -> list[Drill]:
                 P(0.55, 0.30, "1", moves=[(0.50, 0.16, 0)]),
                 P(0.20, 0.24, "4", moves=[(0.14, 0.24, 1)]),
             ],
-            ball=None,
+                        # their 1 drives; help comes, the kick-out goes to 4
+            ball=(0.53, 0.32),
+            ball_to=[("a0", 0), ("a1", 1)],
         ),
         Drill(
             id="bb_box_out", category="defending", minutes=8, rel=True, free=True,
@@ -423,7 +427,9 @@ def basketball_drills() -> list[Drill]:
                 P(0.38, 0.22, "4", moves=[(0.38, 0.16, 0)]),
                 P(0.62, 0.22, "5", moves=[(0.62, 0.16, 0)]),
             ],
-            ball=None,
+                        # the shot goes up — the rebound is the contest
+            ball=(0.50, 0.30),
+            ball_to=[((0.50, 0.05), 0)],
         ),
 
         # ── inbounds / special situations ────────────────────────────────────

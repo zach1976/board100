@@ -19,12 +19,21 @@ def mirror(pt):
 
 
 def tt(drill_id, category, minutes, name, note, home, away, markers=(),
-       ball=None, free=False, rel=True) -> Drill:
+       ball=None, ball_to=None, free=False, rel=True) -> Drill:
     """A table tennis board — always off the table, because that is where the
-    player stands."""
+    player stands.
+
+    Every drill here is a rally: the ball crosses the table and comes back.
+    Unless a call site says otherwise, the route is exactly that — over to
+    the opponent on the first beat, returned on the second — which is what
+    all thirty-two of these boards were silently failing to show.
+    """
+    if ball_to is None and ball is not None and home and away:
+        ball_to = [("a0", 0), (0, 1)]
     return Drill(id=drill_id, category=category, minutes=minutes, rel=rel,
                  free=free, off_surface=True, name=name, note=note,
-                 home=home, away=away, markers=list(markers), ball=ball)
+                 home=home, away=away, markers=list(markers), ball=ball,
+                 ball_to=ball_to or [])
 
 
 WARM_NAME = {

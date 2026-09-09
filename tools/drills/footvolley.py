@@ -62,6 +62,8 @@ def warmup_family() -> list[Drill]:
                   [P(0.34, 0.76, "1", moves=[(0.38, 0.70, 0)]),
                    P(0.66, 0.76, "2", moves=[(0.62, 0.70, 0)])]),
             ball=0,
+            # kept alive between them — pairs, or round the triangle
+            ball_to=([(1, 0), (2, 1)] if key == "on every surface" else [(1, 0), (0, 1)]),
         ))
     return out
 

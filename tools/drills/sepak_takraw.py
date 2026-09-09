@@ -76,6 +76,8 @@ def warmup_family() -> list[Drill]:
             free=(key in ("juggling", "keep_up")),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, ball=0,
+            # kept alive between them — pairs, or round the circle
+            ball_to=([(1, 0), (0, 1)] if key == "juggling" else [(1, 0), (2, 1)]),
         ))
     return out
 
@@ -444,7 +446,9 @@ def gaps_family() -> list[Drill]:
             away=[P(0.54, 0.455, "S", moves=[(0.50, 0.475, 1)]),
                   P(0.26, 0.34, "F", moves=[(0.34, 0.40, 0)])],
             markers=[M(0.68, 0.72, "zone", "")],
-            ball=None,
+                        # fed to their striker; the kill meets the block
+            ball=(0.28, 0.36),
+            ball_to=[("a0", 0), (0, 1)],
         ),
         Drill(
             id="st_receive_header", category="possession", minutes=10, rel=True,

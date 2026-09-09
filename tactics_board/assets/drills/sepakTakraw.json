@@ -40,18 +40,18 @@
         "vi-VN": "Khởi động tâng bóng theo cặp"
       },
       "note": {
-        "en": "Setup: 2 players, ball with 1.\nSequence: Step 1: 1, 2 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "en-GB": "Setup: 2 players, ball with 1.\nSequence: Step 1: 1, 2 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "zh-CN": "【组织】2 人，球在 1 脚下。\n【流程】第1步：1、2 向前移动。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
-        "zh-TW": "【組織】2 人，球在 1 腳下。\n【流程】第1步：1、2 向前移動。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
-        "ja-JP": "【準備】2人、ボールは1。\n【流れ】ステップ1：1・2が前方へ移動。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
-        "ko-KR": "【준비】2명, 공은 1.\n【진행】1단계: 1, 2는 앞으로 이동.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
-        "es-ES": "Montaje: 2 jugadores, balón con 1.\nSecuencia: Paso 1: 1, 2 se desplaza hacia delante.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
-        "fr-FR": "Mise en place : 2 joueurs, ballon avec 1.\nDéroulé : Étape 1 : 1, 2 se déplace vers l'avant.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
-        "id-ID": "Persiapan: 2 pemain, bola pada 1.\nUrutan: Langkah 1: 1, 2 bergerak ke depan.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
-        "ms-MY": "Persediaan: 2 pemain, bola dengan 1.\nUrutan: Langkah 1: 1, 2 bergerak ke hadapan.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
-        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2 ขยับไปข้างหน้า\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
-        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2 di chuyển lên phía trước.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
+        "en": "Setup: 2 players, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1, 2 moves up the board; Step 2: 2 plays it to 1.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "en-GB": "Setup: 2 players, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1, 2 moves up the board; Step 2: 2 plays it to 1.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "zh-CN": "【组织】2 人，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1、2 向前移动；第2步：2 打向 1。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
+        "zh-TW": "【組織】2 人，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1、2 向前移動；第2步：2 打向 1。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
+        "ja-JP": "【準備】2人、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1・2が前方へ移動。ステップ2：2が1へ打つ。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
+        "ko-KR": "【준비】2명, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1, 2는 앞으로 이동; 2단계: 2가 1 쪽으로 친다.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
+        "es-ES": "Montaje: 2 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1, 2 se desplaza hacia delante; Paso 2: 2 la juega hacia 1.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
+        "fr-FR": "Mise en place : 2 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1, 2 se déplace vers l'avant ; Étape 2 : 2 joue vers 1.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
+        "id-ID": "Persiapan: 2 pemain, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1, 2 bergerak ke depan; Langkah 2: 2 memukul ke 1.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
+        "ms-MY": "Persediaan: 2 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1, 2 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
+        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
+        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1, 2 di chuyển lên phía trước; Bước 2: 2 đánh sang 1.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -134,15 +134,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                1031.2
+              ],
+              [
+                467.89253731343285,
+                1031.2
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -188,18 +200,18 @@
         "vi-VN": "Khởi động bằng mọi bộ phận"
       },
       "note": {
-        "en": "Setup: 3 players, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves up the board; Step 3: 3 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "en-GB": "Setup: 3 players, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves up the board; Step 3: 3 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "zh-CN": "【组织】3 人，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 向前移动；第3步：3 向前移动。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
-        "zh-TW": "【組織】3 人，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 向前移動；第3步：3 向前移動。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
-        "ja-JP": "【準備】3人、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が前方へ移動。ステップ3：3が前方へ移動。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
-        "ko-KR": "【준비】3명, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 앞으로 이동; 3단계: 3는 앞으로 이동.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
-        "es-ES": "Montaje: 3 jugadores, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza hacia delante; Paso 3: 3 se desplaza hacia delante.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
-        "fr-FR": "Mise en place : 3 joueurs, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace vers l'avant ; Étape 3 : 3 se déplace vers l'avant.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
-        "id-ID": "Persiapan: 3 pemain, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke depan; Langkah 3: 3 bergerak ke depan.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
-        "ms-MY": "Persediaan: 3 pemain, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke hadapan; Langkah 3: 3 bergerak ke hadapan.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
-        "th-TH": "การจัด: ผู้เล่น 3 คน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับไปข้างหน้า • ขั้นที่ 3: 3 ขยับไปข้างหน้า\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
-        "vi-VN": "Bố trí: 3 cầu thủ, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển lên phía trước; Bước 3: 3 di chuyển lên phía trước.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
+        "en": "Setup: 3 players, ball with 1.\nBall path: 1 → 2 → 3\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 3, 2 follows the pass; Step 3: 3 follows the pass.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "en-GB": "Setup: 3 players, ball with 1.\nBall path: 1 → 2 → 3\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 3, 2 follows the pass; Step 3: 3 follows the pass.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "zh-CN": "【组织】3 人，球在 1 脚下。\n【球路】1 → 2 → 3\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 3，2 跟进；第3步：3 跟进。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
+        "zh-TW": "【組織】3 人，球在 1 腳下。\n【球路】1 → 2 → 3\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 3，2 跟進；第3步：3 跟進。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
+        "ja-JP": "【準備】3人、ボールは1。\n【ボールの道筋】1 → 2 → 3\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が3へ打つ、2がパスを追って移動。ステップ3：3がパスを追って移動。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
+        "ko-KR": "【준비】3명, 공은 1.\n【볼 경로】1 → 2 → 3\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 3 쪽으로 친다, 2는 패스를 따라간다; 3단계: 3는 패스를 따라간다.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
+        "es-ES": "Montaje: 3 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 3\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 3, 2 sigue su pase; Paso 3: 3 sigue su pase.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
+        "fr-FR": "Mise en place : 3 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 3, 2 suit sa passe ; Étape 3 : 3 suit sa passe.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
+        "id-ID": "Persiapan: 3 pemain, bola pada 1.\nJalur bola: 1 → 2 → 3\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 3, 2 mengikuti operannya; Langkah 3: 3 mengikuti operannya.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
+        "ms-MY": "Persediaan: 3 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 3\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 3, 2 mengikut hantarannya; Langkah 3: 3 mengikut hantarannya.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
+        "th-TH": "การจัด: ผู้เล่น 3 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 3 2 วิ่งตามบอล • ขั้นที่ 3: 3 วิ่งตามบอล\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
+        "vi-VN": "Bố trí: 3 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 3, 2 chạy theo đường chuyền; Bước 3: 3 chạy theo đường chuyền.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -309,15 +321,27 @@
               1163.2
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1031.2
+              ],
+              [
+                604.2149253731343,
+                1163.2
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -363,18 +387,18 @@
         "vi-VN": "Khởi động ba người giữ bóng"
       },
       "note": {
-        "en": "Setup: 3 players, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves up the board; Step 3: 3 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "en-GB": "Setup: 3 players, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves up the board; Step 3: 3 moves up the board.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
-        "zh-CN": "【组织】3 人，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 向前移动；第3步：3 向前移动。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
-        "zh-TW": "【組織】3 人，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 向前移動；第3步：3 向前移動。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
-        "ja-JP": "【準備】3人、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が前方へ移動。ステップ3：3が前方へ移動。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
-        "ko-KR": "【준비】3명, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 앞으로 이동; 3단계: 3는 앞으로 이동.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
-        "es-ES": "Montaje: 3 jugadores, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza hacia delante; Paso 3: 3 se desplaza hacia delante.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
-        "fr-FR": "Mise en place : 3 joueurs, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace vers l'avant ; Étape 3 : 3 se déplace vers l'avant.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
-        "id-ID": "Persiapan: 3 pemain, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke depan; Langkah 3: 3 bergerak ke depan.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
-        "ms-MY": "Persediaan: 3 pemain, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke hadapan; Langkah 3: 3 bergerak ke hadapan.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
-        "th-TH": "การจัด: ผู้เล่น 3 คน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับไปข้างหน้า • ขั้นที่ 3: 3 ขยับไปข้างหน้า\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
-        "vi-VN": "Bố trí: 3 cầu thủ, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển lên phía trước; Bước 3: 3 di chuyển lên phía trước.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
+        "en": "Setup: 3 players, ball with 1.\nBall path: 1 → 2 → 3\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 3, 2 moves up the board; Step 3: 3 follows the pass.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "en-GB": "Setup: 3 players, ball with 1.\nBall path: 1 → 2 → 3\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 3, 2 moves up the board; Step 3: 3 follows the pass.\nCoaching point: Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.",
+        "zh-CN": "【组织】3 人，球在 1 脚下。\n【球路】1 → 2 → 3\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 3，2 向前移动；第3步：3 跟进。\n【要点】允许用的部位都要碰球——脚、膝、肩、头。真打起来的时候，由不得你挑。",
+        "zh-TW": "【組織】3 人，球在 1 腳下。\n【球路】1 → 2 → 3\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 3，2 向前移動；第3步：3 跟進。\n【要點】允許用的部位都要碰球——腳、膝、肩、頭。真打起來的時候，由不得你挑。",
+        "ja-JP": "【準備】3人、ボールは1。\n【ボールの道筋】1 → 2 → 3\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が3へ打つ、2が前方へ移動。ステップ3：3がパスを追って移動。\n【ポイント】使える部位すべてで触る。足、膝、肩、頭。ラリーの中では選んでいる余裕はない。",
+        "ko-KR": "【준비】3명, 공은 1.\n【볼 경로】1 → 2 → 3\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 3 쪽으로 친다, 2는 앞으로 이동; 3단계: 3는 패스를 따라간다.\n【포인트】허용된 모든 부위로 만져라 — 발, 무릎, 어깨, 머리. 랠리에선 고를 수 없다.",
+        "es-ES": "Montaje: 3 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 3\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 3, 2 se desplaza hacia delante; Paso 3: 3 sigue su pase.\nPunto clave: Toca la bola con cada superficie permitida — pie, rodilla, hombro, cabeza: en el punto no eliges cuál.",
+        "fr-FR": "Mise en place : 3 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 3, 2 se déplace vers l'avant ; Étape 3 : 3 suit sa passe.\nPoint clé : Touche la balle avec chaque surface autorisée — pied, genou, épaule, tête : en jeu, tu ne choisis pas.",
+        "id-ID": "Persiapan: 3 pemain, bola pada 1.\nJalur bola: 1 → 2 → 3\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 3, 2 bergerak ke depan; Langkah 3: 3 mengikuti operannya.\nPoin utama: Sentuh bola dengan semua bagian yang diizinkan — kaki, lutut, bahu, kepala. Dalam reli kamu tidak bisa memilih.",
+        "ms-MY": "Persediaan: 3 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 3\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 3, 2 bergerak ke hadapan; Langkah 3: 3 mengikut hantarannya.\nPoin utama: Sentuh bola dengan setiap bahagian yang dibenarkan — kaki, lutut, bahu, kepala. Dalam rali anda tidak boleh memilih.",
+        "th-TH": "การจัด: ผู้เล่น 3 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 3 2 ขยับไปข้างหน้า • ขั้นที่ 3: 3 วิ่งตามบอล\nจุดเน้น: สัมผัสบอลด้วยทุกส่วนที่ใช้ได้ — เท้า เข่า ไหล่ ศีรษะ ในเกมจริงคุณเลือกไม่ได้",
+        "vi-VN": "Bố trí: 3 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 3, 2 di chuyển lên phía trước; Bước 3: 3 chạy theo đường chuyền.\nĐiểm chính: Chạm bóng bằng mọi bộ phận được phép — chân, gối, vai, đầu."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -484,15 +508,27 @@
               1084.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1216.0
+              ],
+              [
+                580.1791044776119,
+                1084.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -538,18 +574,18 @@
         "vi-VN": "Đỡ giao cầu bên trái"
       },
       "note": {
-        "en": "Setup: 3 v 1.\nSequence: Step 1: 1 moves up the board, T moves back; Step 2: 2 moves left, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
-        "en-GB": "Setup: 3 v 1.\nSequence: Step 1: 1 moves up the board, T moves back; Step 2: 2 moves left, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
-        "zh-CN": "【组织】3 对 1。\n【流程】第1步：1 向前移动，T 回撤移动；第2步：2 向左移动，T 向前移动。\n【要点】用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
-        "zh-TW": "【組織】3 對 1。\n【流程】第1步：1 向前移動，T 回撤移動；第2步：2 向左移動，T 向前移動。\n【要點】用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
-        "ja-JP": "【準備】3対1。\n【流れ】ステップ1：1が前方へ移動、Tが後方へ移動。ステップ2：2が左へ移動、Tが前方へ移動。\n【ポイント】足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
-        "ko-KR": "【준비】3대1.\n【진행】1단계: 1는 앞으로 이동, T는 뒤로 이동; 2단계: 2는 왼쪽으로 이동, T는 앞으로 이동.\n【포인트】발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
-        "es-ES": "Montaje: 3 contra 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: 2 se desplaza a la izquierda, T se desplaza hacia delante.\nPunto clave: Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
-        "fr-FR": "Mise en place : 3 contre 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : 2 se déplace à gauche, T se déplace vers l'avant.\nPoint clé : Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
-        "id-ID": "Persiapan: 3 lawan 1.\nUrutan: Langkah 1: 1 bergerak ke depan, T bergerak ke belakang; Langkah 2: 2 bergerak ke kiri, T bergerak ke depan.\nPoin utama: Terima dengan kaki bagian dalam dan redam ke atas.",
-        "ms-MY": "Persediaan: 3 lawan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, T bergerak ke belakang; Langkah 2: 2 bergerak ke kiri, T bergerak ke hadapan.\nPoin utama: Terima dengan bahagian dalam kaki dan redam ke atas.",
-        "th-TH": "การจัด: 3 ต่อ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปทางซ้าย T ขยับไปข้างหน้า\nจุดเน้น: รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
-        "vi-VN": "Bố trí: 3 đấu 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: 2 di chuyển sang trái, T di chuyển lên phía trước.\nĐiểm chính: Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+        "en": "Setup: 3 v 1.\nBall path: T → 1\nSequence: Step 1: the ball is played to T, 1 moves up the board, T moves back; Step 2: T plays it to 1, 2 moves left, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "en-GB": "Setup: 3 v 1.\nBall path: T → 1\nSequence: Step 1: the ball is played to T, 1 moves up the board, T moves back; Step 2: T plays it to 1, 2 moves left, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "zh-CN": "【组织】3 对 1。\n【球路】T → 1\n【流程】第1步：球传到 T，1 向前移动，T 回撤移动；第2步：T 打向 1，2 向左移动，T 向前移动。\n【要点】用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
+        "zh-TW": "【組織】3 對 1。\n【球路】T → 1\n【流程】第1步：球傳到 T，1 向前移動，T 回撤移動；第2步：T 打向 1，2 向左移動，T 向前移動。\n【要點】用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
+        "ja-JP": "【準備】3対1。\n【ボールの道筋】T → 1\n【流れ】ステップ1：ボールがTへ入る、1が前方へ移動、Tが後方へ移動。ステップ2：Tが1へ打つ、2が左へ移動、Tが前方へ移動。\n【ポイント】足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
+        "ko-KR": "【준비】3대1.\n【볼 경로】T → 1\n【진행】1단계: 공이 T에게 온다, 1는 앞으로 이동, T는 뒤로 이동; 2단계: T가 1 쪽으로 친다, 2는 왼쪽으로 이동, T는 앞으로 이동.\n【포인트】발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
+        "es-ES": "Montaje: 3 contra 1.\nRecorrido del balón: T → 1\nSecuencia: Paso 1: el balón llega a T, 1 se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: T la juega hacia 1, 2 se desplaza a la izquierda, T se desplaza hacia delante.\nPunto clave: Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
+        "fr-FR": "Mise en place : 3 contre 1.\nTrajet du ballon : T → 1\nDéroulé : Étape 1 : le ballon arrive sur T, 1 se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : T joue vers 1, 2 se déplace à gauche, T se déplace vers l'avant.\nPoint clé : Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
+        "id-ID": "Persiapan: 3 lawan 1.\nJalur bola: T → 1\nUrutan: Langkah 1: bola dimainkan ke T, 1 bergerak ke depan, T bergerak ke belakang; Langkah 2: T memukul ke 1, 2 bergerak ke kiri, T bergerak ke depan.\nPoin utama: Terima dengan kaki bagian dalam dan redam ke atas.",
+        "ms-MY": "Persediaan: 3 lawan 1.\nLaluan bola: T → 1\nUrutan: Langkah 1: bola dimainkan kepada T, 1 bergerak ke hadapan, T bergerak ke belakang; Langkah 2: T memukul ke arah 1, 2 bergerak ke kiri, T bergerak ke hadapan.\nPoin utama: Terima dengan bahagian dalam kaki dan redam ke atas.",
+        "th-TH": "การจัด: 3 ต่อ 1\nเส้นทางบอล: T → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ T 1 ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: T ตีไปที่ 1 2 ขยับไปทางซ้าย T ขยับไปข้างหน้า\nจุดเน้น: รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
+        "vi-VN": "Bố trí: 3 đấu 1.\nĐường bóng: T → 1\nTrình tự: Bước 1: bóng được đưa tới T, 1 di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: T đánh sang 1, 2 di chuyển sang trái, T di chuyển lên phía trước.\nĐiểm chính: Đỡ bằng lòng bàn chân và hoãn lực lên cao."
       },
       "mistake": {
         "en": "A flat first touch — cushion upward so the feeder can reach it.",
@@ -711,8 +747,20 @@
               274.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                424.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -765,18 +813,18 @@
         "vi-VN": "Đỡ giao cầu bên phải"
       },
       "note": {
-        "en": "Setup: 3 v 1.\nSequence: Step 1: 1 moves up the board, T moves back; Step 2: 2 moves right, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
-        "en-GB": "Setup: 3 v 1.\nSequence: Step 1: 1 moves up the board, T moves back; Step 2: 2 moves right, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
-        "zh-CN": "【组织】3 对 1。\n【流程】第1步：1 向前移动，T 回撤移动；第2步：2 向右移动，T 向前移动。\n【要点】用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
-        "zh-TW": "【組織】3 對 1。\n【流程】第1步：1 向前移動，T 回撤移動；第2步：2 向右移動，T 向前移動。\n【要點】用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
-        "ja-JP": "【準備】3対1。\n【流れ】ステップ1：1が前方へ移動、Tが後方へ移動。ステップ2：2が右へ移動、Tが前方へ移動。\n【ポイント】足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
-        "ko-KR": "【준비】3대1.\n【진행】1단계: 1는 앞으로 이동, T는 뒤로 이동; 2단계: 2는 오른쪽으로 이동, T는 앞으로 이동.\n【포인트】발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
-        "es-ES": "Montaje: 3 contra 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: 2 se desplaza a la derecha, T se desplaza hacia delante.\nPunto clave: Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
-        "fr-FR": "Mise en place : 3 contre 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : 2 se déplace à droite, T se déplace vers l'avant.\nPoint clé : Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
-        "id-ID": "Persiapan: 3 lawan 1.\nUrutan: Langkah 1: 1 bergerak ke depan, T bergerak ke belakang; Langkah 2: 2 bergerak ke kanan, T bergerak ke depan.\nPoin utama: Terima dengan kaki bagian dalam dan redam ke atas.",
-        "ms-MY": "Persediaan: 3 lawan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, T bergerak ke belakang; Langkah 2: 2 bergerak ke kanan, T bergerak ke hadapan.\nPoin utama: Terima dengan bahagian dalam kaki dan redam ke atas.",
-        "th-TH": "การจัด: 3 ต่อ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปทางขวา T ขยับไปข้างหน้า\nจุดเน้น: รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
-        "vi-VN": "Bố trí: 3 đấu 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: 2 di chuyển sang phải, T di chuyển lên phía trước.\nĐiểm chính: Đỡ bằng lòng bàn chân và hoãn lực lên cao."
+        "en": "Setup: 3 v 1.\nBall path: T → 1\nSequence: Step 1: the ball is played to T, 1 moves up the board, T moves back; Step 2: T plays it to 1, 2 moves right, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "en-GB": "Setup: 3 v 1.\nBall path: T → 1\nSequence: Step 1: the ball is played to T, 1 moves up the board, T moves back; Step 2: T plays it to 1, 2 moves right, T moves up the board.\nCoaching point: Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.",
+        "zh-CN": "【组织】3 对 1。\n【球路】T → 1\n【流程】第1步：球传到 T，1 向前移动，T 回撤移动；第2步：T 打向 1，2 向右移动，T 向前移动。\n【要点】用脚内侧接，向上卸力——一传要在空中停留得够久，让二传的人来得及赶到。",
+        "zh-TW": "【組織】3 對 1。\n【球路】T → 1\n【流程】第1步：球傳到 T，1 向前移動，T 回撤移動；第2步：T 打向 1，2 向右移動，T 向前移動。\n【要點】用腳內側接，向上卸力——一傳要在空中停留得夠久，讓二傳的人來得及趕到。",
+        "ja-JP": "【準備】3対1。\n【ボールの道筋】T → 1\n【流れ】ステップ1：ボールがTへ入る、1が前方へ移動、Tが後方へ移動。ステップ2：Tが1へ打つ、2が右へ移動、Tが前方へ移動。\n【ポイント】足の内側で受けて上へ吸収する。1タッチ目はトサーが間に合う高さまで浮かせる。",
+        "ko-KR": "【준비】3대1.\n【볼 경로】T → 1\n【진행】1단계: 공이 T에게 온다, 1는 앞으로 이동, T는 뒤로 이동; 2단계: T가 1 쪽으로 친다, 2는 오른쪽으로 이동, T는 앞으로 이동.\n【포인트】발 안쪽으로 받아 위로 죽여라 — 첫 터치는 토서가 닿을 만큼 떠 있어야 한다.",
+        "es-ES": "Montaje: 3 contra 1.\nRecorrido del balón: T → 1\nSecuencia: Paso 1: el balón llega a T, 1 se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: T la juega hacia 1, 2 se desplaza a la derecha, T se desplaza hacia delante.\nPunto clave: Recibe con el interior del pie y amortigua hacia arriba: el primer toque debe flotar hasta que llegue el pasador.",
+        "fr-FR": "Mise en place : 3 contre 1.\nTrajet du ballon : T → 1\nDéroulé : Étape 1 : le ballon arrive sur T, 1 se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : T joue vers 1, 2 se déplace à droite, T se déplace vers l'avant.\nPoint clé : Reçois de l'intérieur du pied en amortissant vers le haut : la première touche doit flotter le temps que le passeur arrive.",
+        "id-ID": "Persiapan: 3 lawan 1.\nJalur bola: T → 1\nUrutan: Langkah 1: bola dimainkan ke T, 1 bergerak ke depan, T bergerak ke belakang; Langkah 2: T memukul ke 1, 2 bergerak ke kanan, T bergerak ke depan.\nPoin utama: Terima dengan kaki bagian dalam dan redam ke atas.",
+        "ms-MY": "Persediaan: 3 lawan 1.\nLaluan bola: T → 1\nUrutan: Langkah 1: bola dimainkan kepada T, 1 bergerak ke hadapan, T bergerak ke belakang; Langkah 2: T memukul ke arah 1, 2 bergerak ke kanan, T bergerak ke hadapan.\nPoin utama: Terima dengan bahagian dalam kaki dan redam ke atas.",
+        "th-TH": "การจัด: 3 ต่อ 1\nเส้นทางบอล: T → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ T 1 ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: T ตีไปที่ 1 2 ขยับไปทางขวา T ขยับไปข้างหน้า\nจุดเน้น: รับด้วยข้างเท้าด้านในและผ่อนขึ้นบน ลูกแรกต้องลอยนานพอให้คนชงมาถึง",
+        "vi-VN": "Bố trí: 3 đấu 1.\nĐường bóng: T → 1\nTrình tự: Bước 1: bóng được đưa tới T, 1 di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: T đánh sang 1, 2 di chuyển sang phải, T di chuyển lên phía trước.\nĐiểm chính: Đỡ bằng lòng bàn chân và hoãn lực lên cao."
       },
       "mistake": {
         "en": "A flat first touch — cushion upward so the feeder can reach it.",
@@ -938,8 +986,20 @@
               274.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                424.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -992,18 +1052,18 @@
         "vi-VN": "Đường chuyền đỡ giao cầu"
       },
       "note": {
-        "en": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "en-GB": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "zh-CN": "【组织】3 对 1。\n【流程】第1步：R 向前移动，T 回撤移动；第2步：F 向右移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
-        "zh-TW": "【組織】3 對 1。\n【流程】第1步：R 向前移動，T 回撤移動；第2步：F 向右移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
-        "ja-JP": "【準備】3対1。\n【流れ】ステップ1：Rが前方へ移動、Tが後方へ移動。ステップ2：Fが右へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
-        "ko-KR": "【준비】3대1.\n【진행】1단계: R는 앞으로 이동, T는 뒤로 이동; 2단계: F는 오른쪽으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
-        "es-ES": "Montaje: 3 contra 1.\nSecuencia: Paso 1: R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: F se desplaza a la derecha; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
-        "fr-FR": "Mise en place : 3 contre 1.\nDéroulé : Étape 1 : R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : F se déplace à droite ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
-        "id-ID": "Persiapan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke depan, T bergerak ke belakang; Langkah 2: F bergerak ke kanan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
-        "ms-MY": "Persediaan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: F bergerak ke kanan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
-        "th-TH": "การจัด: 3 ต่อ 1\nลำดับ: ขั้นที่ 1: R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: F ขยับไปทางขวา • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
-        "vi-VN": "Bố trí: 3 đấu 1.\nTrình tự: Bước 1: R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: F di chuyển sang phải; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+        "en": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "en-GB": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "zh-CN": "【组织】3 对 1。\n【球路】T → R\n【流程】第1步：球传到 T，R 向前移动，T 回撤移动；第2步：T 打向 R，F 向右移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
+        "zh-TW": "【組織】3 對 1。\n【球路】T → R\n【流程】第1步：球傳到 T，R 向前移動，T 回撤移動；第2步：T 打向 R，F 向右移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
+        "ja-JP": "【準備】3対1。\n【ボールの道筋】T → R\n【流れ】ステップ1：ボールがTへ入る、Rが前方へ移動、Tが後方へ移動。ステップ2：TがRへ打つ、Fが右へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
+        "ko-KR": "【준비】3대1.\n【볼 경로】T → R\n【진행】1단계: 공이 T에게 온다, R는 앞으로 이동, T는 뒤로 이동; 2단계: T가 R 쪽으로 친다, F는 오른쪽으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
+        "es-ES": "Montaje: 3 contra 1.\nRecorrido del balón: T → R\nSecuencia: Paso 1: el balón llega a T, R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: T la juega hacia R, F se desplaza a la derecha; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
+        "fr-FR": "Mise en place : 3 contre 1.\nTrajet du ballon : T → R\nDéroulé : Étape 1 : le ballon arrive sur T, R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : T joue vers R, F se déplace à droite ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
+        "id-ID": "Persiapan: 3 lawan 1.\nJalur bola: T → R\nUrutan: Langkah 1: bola dimainkan ke T, R bergerak ke depan, T bergerak ke belakang; Langkah 2: T memukul ke R, F bergerak ke kanan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
+        "ms-MY": "Persediaan: 3 lawan 1.\nLaluan bola: T → R\nUrutan: Langkah 1: bola dimainkan kepada T, R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: T memukul ke arah R, F bergerak ke kanan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
+        "th-TH": "การจัด: 3 ต่อ 1\nเส้นทางบอล: T → R\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ T R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: T ตีไปที่ R F ขยับไปทางขวา • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
+        "vi-VN": "Bố trí: 3 đấu 1.\nĐường bóng: T → R\nTrình tự: Bước 1: bóng được đưa tới T, R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: T đánh sang R, F di chuyển sang phải; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
       },
       "mistake": {
         "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
@@ -1160,8 +1220,20 @@
               274.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                450.4
+              ],
+              [
+                460.0,
+                1159.5040000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1214,18 +1286,18 @@
         "vi-VN": "Đường chuyền cao"
       },
       "note": {
-        "en": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves up the board; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "en-GB": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves up the board; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "zh-CN": "【组织】3 对 1。\n【流程】第1步：R 向前移动，T 回撤移动；第2步：F 向前移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
-        "zh-TW": "【組織】3 對 1。\n【流程】第1步：R 向前移動，T 回撤移動；第2步：F 向前移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
-        "ja-JP": "【準備】3対1。\n【流れ】ステップ1：Rが前方へ移動、Tが後方へ移動。ステップ2：Fが前方へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
-        "ko-KR": "【준비】3대1.\n【진행】1단계: R는 앞으로 이동, T는 뒤로 이동; 2단계: F는 앞으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
-        "es-ES": "Montaje: 3 contra 1.\nSecuencia: Paso 1: R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: F se desplaza hacia delante; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
-        "fr-FR": "Mise en place : 3 contre 1.\nDéroulé : Étape 1 : R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : F se déplace vers l'avant ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
-        "id-ID": "Persiapan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke depan, T bergerak ke belakang; Langkah 2: F bergerak ke depan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
-        "ms-MY": "Persediaan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: F bergerak ke hadapan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
-        "th-TH": "การจัด: 3 ต่อ 1\nลำดับ: ขั้นที่ 1: R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: F ขยับไปข้างหน้า • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
-        "vi-VN": "Bố trí: 3 đấu 1.\nTrình tự: Bước 1: R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: F di chuyển lên phía trước; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+        "en": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves up the board; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "en-GB": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves up the board; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "zh-CN": "【组织】3 对 1。\n【球路】T → R\n【流程】第1步：球传到 T，R 向前移动，T 回撤移动；第2步：T 打向 R，F 向前移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
+        "zh-TW": "【組織】3 對 1。\n【球路】T → R\n【流程】第1步：球傳到 T，R 向前移動，T 回撤移動；第2步：T 打向 R，F 向前移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
+        "ja-JP": "【準備】3対1。\n【ボールの道筋】T → R\n【流れ】ステップ1：ボールがTへ入る、Rが前方へ移動、Tが後方へ移動。ステップ2：TがRへ打つ、Fが前方へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
+        "ko-KR": "【준비】3대1.\n【볼 경로】T → R\n【진행】1단계: 공이 T에게 온다, R는 앞으로 이동, T는 뒤로 이동; 2단계: T가 R 쪽으로 친다, F는 앞으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
+        "es-ES": "Montaje: 3 contra 1.\nRecorrido del balón: T → R\nSecuencia: Paso 1: el balón llega a T, R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: T la juega hacia R, F se desplaza hacia delante; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
+        "fr-FR": "Mise en place : 3 contre 1.\nTrajet du ballon : T → R\nDéroulé : Étape 1 : le ballon arrive sur T, R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : T joue vers R, F se déplace vers l'avant ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
+        "id-ID": "Persiapan: 3 lawan 1.\nJalur bola: T → R\nUrutan: Langkah 1: bola dimainkan ke T, R bergerak ke depan, T bergerak ke belakang; Langkah 2: T memukul ke R, F bergerak ke depan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
+        "ms-MY": "Persediaan: 3 lawan 1.\nLaluan bola: T → R\nUrutan: Langkah 1: bola dimainkan kepada T, R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: T memukul ke arah R, F bergerak ke hadapan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
+        "th-TH": "การจัด: 3 ต่อ 1\nเส้นทางบอล: T → R\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ T R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: T ตีไปที่ R F ขยับไปข้างหน้า • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
+        "vi-VN": "Bố trí: 3 đấu 1.\nĐường bóng: T → R\nTrình tự: Bước 1: bóng được đưa tới T, R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: T đánh sang R, F di chuyển lên phía trước; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
       },
       "mistake": {
         "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
@@ -1382,8 +1454,20 @@
               274.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                450.4
+              ],
+              [
+                359.7313432835821,
+                1136.8
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1436,18 +1520,18 @@
         "vi-VN": "Đường chuyền nhanh"
       },
       "note": {
-        "en": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "en-GB": "Setup: 3 v 1.\nSequence: Step 1: R moves up the board, T moves back; Step 2: F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
-        "zh-CN": "【组织】3 对 1。\n【流程】第1步：R 向前移动，T 回撤移动；第2步：F 向右移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
-        "zh-TW": "【組織】3 對 1。\n【流程】第1步：R 向前移動，T 回撤移動；第2步：F 向右移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
-        "ja-JP": "【準備】3対1。\n【流れ】ステップ1：Rが前方へ移動、Tが後方へ移動。ステップ2：Fが右へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
-        "ko-KR": "【준비】3대1.\n【진행】1단계: R는 앞으로 이동, T는 뒤로 이동; 2단계: F는 오른쪽으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
-        "es-ES": "Montaje: 3 contra 1.\nSecuencia: Paso 1: R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: F se desplaza a la derecha; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
-        "fr-FR": "Mise en place : 3 contre 1.\nDéroulé : Étape 1 : R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : F se déplace à droite ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
-        "id-ID": "Persiapan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke depan, T bergerak ke belakang; Langkah 2: F bergerak ke kanan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
-        "ms-MY": "Persediaan: 3 lawan 1.\nUrutan: Langkah 1: R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: F bergerak ke kanan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
-        "th-TH": "การจัด: 3 ต่อ 1\nลำดับ: ขั้นที่ 1: R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: F ขยับไปทางขวา • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
-        "vi-VN": "Bố trí: 3 đấu 1.\nTrình tự: Bước 1: R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: F di chuyển sang phải; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
+        "en": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "en-GB": "Setup: 3 v 1.\nBall path: T → R\nSequence: Step 1: the ball is played to T, R moves up the board, T moves back; Step 2: T plays it to R, F moves right; Step 3: S moves up the board.\nCoaching point: Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.",
+        "zh-CN": "【组织】3 对 1。\n【球路】T → R\n【流程】第1步：球传到 T，R 向前移动，T 回撤移动；第2步：T 打向 R，F 向右移动；第3步：S 向前移动。\n【要点】把球传到扣球手的脚将要到的位置，不是他现在站的位置。高度再完美，位置不对，这一分照样浪费。",
+        "zh-TW": "【組織】3 對 1。\n【球路】T → R\n【流程】第1步：球傳到 T，R 向前移動，T 回撤移動；第2步：T 打向 R，F 向右移動；第3步：S 向前移動。\n【要點】把球傳到扣球手的腳將要到的位置，不是他現在站的位置。高度再完美，位置不對，這一分照樣浪費。",
+        "ja-JP": "【準備】3対1。\n【ボールの道筋】T → R\n【流れ】ステップ1：ボールがTへ入る、Rが前方へ移動、Tが後方へ移動。ステップ2：TがRへ打つ、Fが右へ移動。ステップ3：Sが前方へ移動。\n【ポイント】アタッカーの足がこれから来る場所へ上げる。今いる場所ではない。高さが完璧でも位置が違えば1点の無駄だ。",
+        "ko-KR": "【준비】3대1.\n【볼 경로】T → R\n【진행】1단계: 공이 T에게 온다, R는 앞으로 이동, T는 뒤로 이동; 2단계: T가 R 쪽으로 친다, F는 오른쪽으로 이동; 3단계: S는 앞으로 이동.\n【포인트】공격수의 발이 갈 자리로 올려라, 지금 있는 자리가 아니라.",
+        "es-ES": "Montaje: 3 contra 1.\nRecorrido del balón: T → R\nSecuencia: Paso 1: el balón llega a T, R se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: T la juega hacia R, F se desplaza a la derecha; Paso 3: S se desplaza hacia delante.\nPunto clave: Pasa a donde estará el pie del rematador, no a donde está: la altura perfecta en el sitio equivocado sigue siendo un punto perdido.",
+        "fr-FR": "Mise en place : 3 contre 1.\nTrajet du ballon : T → R\nDéroulé : Étape 1 : le ballon arrive sur T, R se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : T joue vers R, F se déplace à droite ; Étape 3 : S se déplace vers l'avant.\nPoint clé : Passe là où le pied de l'attaquant sera, pas où il est : une hauteur parfaite au mauvais endroit reste un point gâché.",
+        "id-ID": "Persiapan: 3 lawan 1.\nJalur bola: T → R\nUrutan: Langkah 1: bola dimainkan ke T, R bergerak ke depan, T bergerak ke belakang; Langkah 2: T memukul ke R, F bergerak ke kanan; Langkah 3: S bergerak ke depan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya sekarang.",
+        "ms-MY": "Persediaan: 3 lawan 1.\nLaluan bola: T → R\nUrutan: Langkah 1: bola dimainkan kepada T, R bergerak ke hadapan, T bergerak ke belakang; Langkah 2: T memukul ke arah R, F bergerak ke kanan; Langkah 3: S bergerak ke hadapan.\nPoin utama: Umpan ke tempat kaki penyerang akan berada, bukan tempatnya kini.",
+        "th-TH": "การจัด: 3 ต่อ 1\nเส้นทางบอล: T → R\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ T R ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: T ตีไปที่ R F ขยับไปทางขวา • ขั้นที่ 3: S ขยับไปข้างหน้า\nจุดเน้น: ชงไปยังจุดที่เท้าตัวฟาดจะไปถึง ไม่ใช่จุดที่เขายืนอยู่",
+        "vi-VN": "Bố trí: 3 đấu 1.\nĐường bóng: T → R\nTrình tự: Bước 1: bóng được đưa tới T, R di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: T đánh sang R, F di chuyển sang phải; Bước 3: S di chuyển lên phía trước.\nĐiểm chính: Chuyền tới nơi chân người tấn công sẽ tới, không phải nơi họ đang đứng."
       },
       "mistake": {
         "en": "Feeding where the striker is, not where his foot will be — perfect height, wrong place.",
@@ -1604,8 +1688,20 @@
               274.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                450.4
+              ],
+              [
+                640.2686567164179,
+                1136.8
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1658,18 +1754,18 @@
         "vi-VN": "Tấn công đường thẳng"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "en-GB": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【流程】第1步：F 向右移动；第2步：S、T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
-        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【流程】第1步：F 向右移動；第2步：S、T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
-        "ja-JP": "【準備】3対2、ボールはS。\n【流れ】ステップ1：Fが右へ移動。ステップ2：S・Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
-        "ko-KR": "【준비】3대2, 공은 S.\n【진행】1단계: F는 오른쪽으로 이동; 2단계: S, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
-        "es-ES": "Montaje: 3 contra 2, balón con S.\nSecuencia: Paso 1: F se desplaza a la derecha; Paso 2: S, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nDéroulé : Étape 1 : F se déplace à droite ; Étape 2 : S, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: F ขยับไปทางขวา • ขั้นที่ 2: S, T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nTrình tự: Bước 1: F di chuyển sang phải; Bước 2: S, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
+        "en": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "en-GB": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移动；第2步：B 打向 S，S 跟进，T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
+        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移動；第2步：B 打向 S，S 跟進，T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
+        "ja-JP": "【準備】3対2、ボールはS。\n【ボールの道筋】S → B → S\n【流れ】ステップ1：SがBへ打つ、Fが右へ移動。ステップ2：BがSへ打つ、Sがパスを追って移動、Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
+        "ko-KR": "【준비】3대2, 공은 S.\n【볼 경로】S → B → S\n【진행】1단계: S가 B 쪽으로 친다, F는 오른쪽으로 이동; 2단계: B가 S 쪽으로 친다, S는 패스를 따라간다, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
+        "es-ES": "Montaje: 3 contra 2, balón con S.\nRecorrido del balón: S → B → S\nSecuencia: Paso 1: S la juega hacia B, F se desplaza a la derecha; Paso 2: B la juega hacia S, S sigue su pase, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nTrajet du ballon : S → B → S\nDéroulé : Étape 1 : S joue vers B, F se déplace à droite ; Étape 2 : B joue vers S, S suit sa passe, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nJalur bola: S → B → S\nUrutan: Langkah 1: S memukul ke B, F bergerak ke kanan; Langkah 2: B memukul ke S, S mengikuti operannya, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nLaluan bola: S → B → S\nUrutan: Langkah 1: S memukul ke arah B, F bergerak ke kanan; Langkah 2: B memukul ke arah S, S mengikut hantarannya, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nเส้นทางบอล: S → B → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ B F ขยับไปทางขวา • ขั้นที่ 2: B ตีไปที่ S S วิ่งตามบอล T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nĐường bóng: S → B → S\nTrình tự: Bước 1: S đánh sang B, F di chuyển sang phải; Bước 2: B đánh sang S, S chạy theo đường chuyền, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
       },
       "mistake": {
         "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
@@ -1846,15 +1942,27 @@
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                767.2
+              ],
+              [
+                532.1074626865671,
+                872.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1900,18 +2008,18 @@
         "vi-VN": "Tấn công chéo sân"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "en-GB": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【流程】第1步：F 向右移动；第2步：S、T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
-        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【流程】第1步：F 向右移動；第2步：S、T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
-        "ja-JP": "【準備】3対2、ボールはS。\n【流れ】ステップ1：Fが右へ移動。ステップ2：S・Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
-        "ko-KR": "【준비】3대2, 공은 S.\n【진행】1단계: F는 오른쪽으로 이동; 2단계: S, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
-        "es-ES": "Montaje: 3 contra 2, balón con S.\nSecuencia: Paso 1: F se desplaza a la derecha; Paso 2: S, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nDéroulé : Étape 1 : F se déplace à droite ; Étape 2 : S, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: F ขยับไปทางขวา • ขั้นที่ 2: S, T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nTrình tự: Bước 1: F di chuyển sang phải; Bước 2: S, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
+        "en": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "en-GB": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移动；第2步：B 打向 S，S 跟进，T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
+        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移動；第2步：B 打向 S，S 跟進，T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
+        "ja-JP": "【準備】3対2、ボールはS。\n【ボールの道筋】S → B → S\n【流れ】ステップ1：SがBへ打つ、Fが右へ移動。ステップ2：BがSへ打つ、Sがパスを追って移動、Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
+        "ko-KR": "【준비】3대2, 공은 S.\n【볼 경로】S → B → S\n【진행】1단계: S가 B 쪽으로 친다, F는 오른쪽으로 이동; 2단계: B가 S 쪽으로 친다, S는 패스를 따라간다, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
+        "es-ES": "Montaje: 3 contra 2, balón con S.\nRecorrido del balón: S → B → S\nSecuencia: Paso 1: S la juega hacia B, F se desplaza a la derecha; Paso 2: B la juega hacia S, S sigue su pase, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nTrajet du ballon : S → B → S\nDéroulé : Étape 1 : S joue vers B, F se déplace à droite ; Étape 2 : B joue vers S, S suit sa passe, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nJalur bola: S → B → S\nUrutan: Langkah 1: S memukul ke B, F bergerak ke kanan; Langkah 2: B memukul ke S, S mengikuti operannya, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nLaluan bola: S → B → S\nUrutan: Langkah 1: S memukul ke arah B, F bergerak ke kanan; Langkah 2: B memukul ke arah S, S mengikut hantarannya, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nเส้นทางบอล: S → B → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ B F ขยับไปทางขวา • ขั้นที่ 2: B ตีไปที่ S S วิ่งตามบอล T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nĐường bóng: S → B → S\nTrình tự: Bước 1: S đánh sang B, F di chuyển sang phải; Bước 2: B đánh sang S, S chạy theo đường chuyền, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
       },
       "mistake": {
         "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
@@ -2088,15 +2196,27 @@
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                767.2
+              ],
+              [
+                532.1074626865671,
+                872.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2142,18 +2262,18 @@
         "vi-VN": "Tấn công động tác giả"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "en-GB": "Setup: 3 v 2, ball with S.\nSequence: Step 1: F moves right; Step 2: S, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
-        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【流程】第1步：F 向右移动；第2步：S、T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
-        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【流程】第1步：F 向右移動；第2步：S、T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
-        "ja-JP": "【準備】3対2、ボールはS。\n【流れ】ステップ1：Fが右へ移動。ステップ2：S・Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
-        "ko-KR": "【준비】3대2, 공은 S.\n【진행】1단계: F는 오른쪽으로 이동; 2단계: S, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
-        "es-ES": "Montaje: 3 contra 2, balón con S.\nSecuencia: Paso 1: F se desplaza a la derecha; Paso 2: S, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nDéroulé : Étape 1 : F se déplace à droite ; Étape 2 : S, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nUrutan: Langkah 1: F bergerak ke kanan; Langkah 2: S, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: F ขยับไปทางขวา • ขั้นที่ 2: S, T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nTrình tự: Bước 1: F di chuyển sang phải; Bước 2: S, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
+        "en": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "en-GB": "Setup: 3 v 2, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B, F moves right; Step 2: B plays it to S, S follows the pass, T moves up the board; Step 3: D moves back.\nCoaching point: Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.",
+        "zh-CN": "【组织】3 对 2，球在 S 脚下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移动；第2步：B 打向 S，S 跟进，T 向前移动；第3步：D 回撤移动。\n【要点】起跳过程中就要看拦网人的手。三次触球几乎没有时间，决定必须在空中做完。",
+        "zh-TW": "【組織】3 對 2，球在 S 腳下。\n【球路】S → B → S\n【流程】第1步：S 打向 B，F 向右移動；第2步：B 打向 S，S 跟進，T 向前移動；第3步：D 回撤移動。\n【要點】起跳過程中就要看攔網人的手。三次觸球幾乎沒有時間，決定必須在空中做完。",
+        "ja-JP": "【準備】3対2、ボールはS。\n【ボールの道筋】S → B → S\n【流れ】ステップ1：SがBへ打つ、Fが右へ移動。ステップ2：BがSへ打つ、Sがパスを追って移動、Tが前方へ移動。ステップ3：Dが後方へ移動。\n【ポイント】跳び上がる途中でブロッカーの手を見る。3タッチは時間がほぼない。判断は空中で終える。",
+        "ko-KR": "【준비】3대2, 공은 S.\n【볼 경로】S → B → S\n【진행】1단계: S가 B 쪽으로 친다, F는 오른쪽으로 이동; 2단계: B가 S 쪽으로 친다, S는 패스를 따라간다, T는 앞으로 이동; 3단계: D는 뒤로 이동.\n【포인트】떠오르면서 블로커의 손을 봐라. 세 번의 터치는 시간이 없다. 판단은 공중에서 끝난다.",
+        "es-ES": "Montaje: 3 contra 2, balón con S.\nRecorrido del balón: S → B → S\nSecuencia: Paso 1: S la juega hacia B, F se desplaza a la derecha; Paso 2: B la juega hacia S, S sigue su pase, T se desplaza hacia delante; Paso 3: D se desplaza hacia atrás.\nPunto clave: Mira las manos del bloqueador mientras subes: con tres toques no hay tiempo, la decisión se toma en el aire.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec S.\nTrajet du ballon : S → B → S\nDéroulé : Étape 1 : S joue vers B, F se déplace à droite ; Étape 2 : B joue vers S, S suit sa passe, T se déplace vers l'avant ; Étape 3 : D se déplace vers l'arrière.\nPoint clé : Regarde les mains du contreur en montant : trois touches, c'est presque aucun temps — la décision se prend en l'air.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada S.\nJalur bola: S → B → S\nUrutan: Langkah 1: S memukul ke B, F bergerak ke kanan; Langkah 2: B memukul ke S, S mengikuti operannya, T bergerak ke depan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok saat naik.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan S.\nLaluan bola: S → B → S\nUrutan: Langkah 1: S memukul ke arah B, F bergerak ke kanan; Langkah 2: B memukul ke arah S, S mengikut hantarannya, T bergerak ke hadapan; Langkah 3: D bergerak ke belakang.\nPoin utama: Lihat tangan pemblok ketika naik.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ S\nเส้นทางบอล: S → B → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ B F ขยับไปทางขวา • ขั้นที่ 2: B ตีไปที่ S S วิ่งตามบอล T ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับถอยหลัง\nจุดเน้น: มองมือคนบล็อกตอนลอยขึ้น สามสัมผัสแทบไม่มีเวลา ต้องตัดสินใจกลางอากาศ",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ S.\nĐường bóng: S → B → S\nTrình tự: Bước 1: S đánh sang B, F di chuyển sang phải; Bước 2: B đánh sang S, S chạy theo đường chuyền, T di chuyển lên phía trước; Bước 3: D di chuyển lùi lại.\nĐiểm chính: Nhìn tay người chắn khi bật lên."
       },
       "mistake": {
         "en": "Not reading the block on the way up — three touches leave no time to decide on the ground.",
@@ -2330,15 +2450,27 @@
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                767.2
+              ],
+              [
+                532.1074626865671,
+                872.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3088,18 +3220,18 @@
         "vi-VN": "Phòng thủ trên lưới"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves right, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "en-GB": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves right, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【流程】第1步：F 回撤移动；第2步：B 向右移动，D、S 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
-        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【流程】第1步：F 回撤移動；第2步：B 向右移動，D、S 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
-        "ja-JP": "【準備】3対2、ボールはD。\n【流れ】ステップ1：Fが後方へ移動。ステップ2：Bが右へ移動、D・Sが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
-        "ko-KR": "【준비】3대2, 공은 D.\n【진행】1단계: F는 뒤로 이동; 2단계: B는 오른쪽으로 이동, D, S는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
-        "es-ES": "Montaje: 3 contra 2, balón con D.\nSecuencia: Paso 1: F se desplaza hacia atrás; Paso 2: B se desplaza a la derecha, D, S se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nDéroulé : Étape 1 : F se déplace vers l'arrière ; Étape 2 : B se déplace à droite, D, S se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke kanan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke kanan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nลำดับ: ขั้นที่ 1: F ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปทางขวา D, S ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nTrình tự: Bước 1: F di chuyển lùi lại; Bước 2: B di chuyển sang phải, D, S di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
+        "en": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "en-GB": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移动；第2步：S 打向 B，B、S 跟进，D 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
+        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移動；第2步：S 打向 B，B、S 跟進，D 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
+        "ja-JP": "【準備】3対2、ボールはD。\n【ボールの道筋】D → S → B\n【流れ】ステップ1：DがSへ打つ、Fが後方へ移動。ステップ2：SがBへ打つ、B・Sがパスを追って移動、Dが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
+        "ko-KR": "【준비】3대2, 공은 D.\n【볼 경로】D → S → B\n【진행】1단계: D가 S 쪽으로 친다, F는 뒤로 이동; 2단계: S가 B 쪽으로 친다, B, S는 패스를 따라간다, D는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
+        "es-ES": "Montaje: 3 contra 2, balón con D.\nRecorrido del balón: D → S → B\nSecuencia: Paso 1: D la juega hacia S, F se desplaza hacia atrás; Paso 2: S la juega hacia B, B, S sigue su pase, D se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nTrajet du ballon : D → S → B\nDéroulé : Étape 1 : D joue vers S, F se déplace vers l'arrière ; Étape 2 : S joue vers B, B, S suit sa passe, D se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nJalur bola: D → S → B\nUrutan: Langkah 1: D memukul ke S, F bergerak ke belakang; Langkah 2: S memukul ke B, B, S mengikuti operannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nLaluan bola: D → S → B\nUrutan: Langkah 1: D memukul ke arah S, F bergerak ke belakang; Langkah 2: S memukul ke arah B, B, S mengikut hantarannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nเส้นทางบอล: D → S → B\nลำดับ: ขั้นที่ 1: D ตีไปที่ S F ขยับถอยหลัง • ขั้นที่ 2: S ตีไปที่ B B, S วิ่งตามบอล D ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nĐường bóng: D → S → B\nTrình tự: Bước 1: D đánh sang S, F di chuyển lùi lại; Bước 2: S đánh sang B, B, S chạy theo đường chuyền, D di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
       },
       "mistake": {
         "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
@@ -3263,15 +3395,27 @@
               908.7876834164286
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                520.0895522388059,
+                635.2
+              ],
+              [
+                508.0716417910447,
+                839.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d1"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3317,18 +3461,18 @@
         "vi-VN": "Phòng thủ sau hàng chắn"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves up the board, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "en-GB": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves up the board, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【流程】第1步：F 回撤移动；第2步：B 向前移动，D、S 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
-        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【流程】第1步：F 回撤移動；第2步：B 向前移動，D、S 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
-        "ja-JP": "【準備】3対2、ボールはD。\n【流れ】ステップ1：Fが後方へ移動。ステップ2：Bが前方へ移動、D・Sが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
-        "ko-KR": "【준비】3대2, 공은 D.\n【진행】1단계: F는 뒤로 이동; 2단계: B는 앞으로 이동, D, S는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
-        "es-ES": "Montaje: 3 contra 2, balón con D.\nSecuencia: Paso 1: F se desplaza hacia atrás; Paso 2: B se desplaza hacia delante, D, S se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nDéroulé : Étape 1 : F se déplace vers l'arrière ; Étape 2 : B se déplace vers l'avant, D, S se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke depan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke hadapan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nลำดับ: ขั้นที่ 1: F ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปข้างหน้า D, S ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nTrình tự: Bước 1: F di chuyển lùi lại; Bước 2: B di chuyển lên phía trước, D, S di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
+        "en": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "en-GB": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移动；第2步：S 打向 B，B、S 跟进，D 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
+        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移動；第2步：S 打向 B，B、S 跟進，D 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
+        "ja-JP": "【準備】3対2、ボールはD。\n【ボールの道筋】D → S → B\n【流れ】ステップ1：DがSへ打つ、Fが後方へ移動。ステップ2：SがBへ打つ、B・Sがパスを追って移動、Dが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
+        "ko-KR": "【준비】3대2, 공은 D.\n【볼 경로】D → S → B\n【진행】1단계: D가 S 쪽으로 친다, F는 뒤로 이동; 2단계: S가 B 쪽으로 친다, B, S는 패스를 따라간다, D는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
+        "es-ES": "Montaje: 3 contra 2, balón con D.\nRecorrido del balón: D → S → B\nSecuencia: Paso 1: D la juega hacia S, F se desplaza hacia atrás; Paso 2: S la juega hacia B, B, S sigue su pase, D se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nTrajet du ballon : D → S → B\nDéroulé : Étape 1 : D joue vers S, F se déplace vers l'arrière ; Étape 2 : S joue vers B, B, S suit sa passe, D se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nJalur bola: D → S → B\nUrutan: Langkah 1: D memukul ke S, F bergerak ke belakang; Langkah 2: S memukul ke B, B, S mengikuti operannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nLaluan bola: D → S → B\nUrutan: Langkah 1: D memukul ke arah S, F bergerak ke belakang; Langkah 2: S memukul ke arah B, B, S mengikut hantarannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nเส้นทางบอล: D → S → B\nลำดับ: ขั้นที่ 1: D ตีไปที่ S F ขยับถอยหลัง • ขั้นที่ 2: S ตีไปที่ B B, S วิ่งตามบอล D ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nĐường bóng: D → S → B\nTrình tự: Bước 1: D đánh sang S, F di chuyển lùi lại; Bước 2: S đánh sang B, B, S chạy theo đường chuyền, D di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
       },
       "mistake": {
         "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
@@ -3492,15 +3636,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                520.0895522388059,
+                635.2
+              ],
+              [
+                508.0716417910447,
+                839.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d1"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3546,18 +3702,18 @@
         "vi-VN": "Phòng thủ bọc lót hàng chắn"
       },
       "note": {
-        "en": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves up the board, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "en-GB": "Setup: 3 v 2, ball with D.\nSequence: Step 1: F moves back; Step 2: B moves up the board, D, S moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
-        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【流程】第1步：F 回撤移动；第2步：B 向前移动，D、S 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
-        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【流程】第1步：F 回撤移動；第2步：B 向前移動，D、S 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
-        "ja-JP": "【準備】3対2、ボールはD。\n【流れ】ステップ1：Fが後方へ移動。ステップ2：Bが前方へ移動、D・Sが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
-        "ko-KR": "【준비】3대2, 공은 D.\n【진행】1단계: F는 뒤로 이동; 2단계: B는 앞으로 이동, D, S는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
-        "es-ES": "Montaje: 3 contra 2, balón con D.\nSecuencia: Paso 1: F se desplaza hacia atrás; Paso 2: B se desplaza hacia delante, D, S se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
-        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nDéroulé : Étape 1 : F se déplace vers l'arrière ; Étape 2 : B se déplace vers l'avant, D, S se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
-        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke depan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
-        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke hadapan, D, S bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
-        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nลำดับ: ขั้นที่ 1: F ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปข้างหน้า D, S ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
-        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nTrình tự: Bước 1: F di chuyển lùi lại; Bước 2: B di chuyển lên phía trước, D, S di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
+        "en": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "en-GB": "Setup: 3 v 2, ball with D.\nBall path: D → S → B\nSequence: Step 1: D plays it to S, F moves back; Step 2: S plays it to B, B, S follows the pass, D moves back, T moves left.\nCoaching point: The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.",
+        "zh-CN": "【组织】3 对 2，球在 D 脚下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移动；第2步：S 打向 B，B、S 跟进，D 回撤移动，T 向左移动。\n【要点】拦网的人转身用背，后面两个人补拦网留下的空当。没有人是靠反应去防藤球扣杀的。",
+        "zh-TW": "【組織】3 對 2，球在 D 腳下。\n【球路】D → S → B\n【流程】第1步：D 打向 S，F 回撤移動；第2步：S 打向 B，B、S 跟進，D 回撤移動，T 向左移動。\n【要點】攔網的人轉身用背，後面兩個人補攔網留下的空檔。沒有人是靠反應去防藤球扣殺的。",
+        "ja-JP": "【準備】3対2、ボールはD。\n【ボールの道筋】D → S → B\n【流れ】ステップ1：DがSへ打つ、Fが後方へ移動。ステップ2：SがBへ打つ、B・Sがパスを追って移動、Dが後方へ移動、Tが左へ移動。\n【ポイント】ブロッカーは背中を向け、後ろの2人がブロックの残した所を埋める。反応で takraw のアタックは拾えない。",
+        "ko-KR": "【준비】3대2, 공은 D.\n【볼 경로】D → S → B\n【진행】1단계: D가 S 쪽으로 친다, F는 뒤로 이동; 2단계: S가 B 쪽으로 친다, B, S는 패스를 따라간다, D는 뒤로 이동, T는 왼쪽으로 이동.\n【포인트】블로커는 등을 돌리고, 뒤의 둘이 블록이 남긴 곳을 메운다. 반응만으로는 못 막는다.",
+        "es-ES": "Montaje: 3 contra 2, balón con D.\nRecorrido del balón: D → S → B\nSecuencia: Paso 1: D la juega hacia S, F se desplaza hacia atrás; Paso 2: S la juega hacia B, B, S sigue su pase, D se desplaza hacia atrás, T se desplaza a la izquierda.\nPunto clave: El bloqueador gira la espalda y los dos de atrás cubren lo que el bloqueo deja: nadie defiende un remate reaccionando.",
+        "fr-FR": "Mise en place : 3 contre 2, ballon avec D.\nTrajet du ballon : D → S → B\nDéroulé : Étape 1 : D joue vers S, F se déplace vers l'arrière ; Étape 2 : S joue vers B, B, S suit sa passe, D se déplace vers l'arrière, T se déplace à gauche.\nPoint clé : Le contreur tourne le dos et les deux derrière couvrent ce que le contre laisse : on ne défend pas une attaque en réagissant.",
+        "id-ID": "Persiapan: 3 lawan 2, bola pada D.\nJalur bola: D → S → B\nUrutan: Langkah 1: D memukul ke S, F bergerak ke belakang; Langkah 2: S memukul ke B, B, S mengikuti operannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok memunggungi dan dua di belakang menutup sisa blok.",
+        "ms-MY": "Persediaan: 3 lawan 2, bola dengan D.\nLaluan bola: D → S → B\nUrutan: Langkah 1: D memukul ke arah S, F bergerak ke belakang; Langkah 2: S memukul ke arah B, B, S mengikut hantarannya, D bergerak ke belakang, T bergerak ke kiri.\nPoin utama: Pemblok membelakangi dan dua di belakang menutup baki blok.",
+        "th-TH": "การจัด: 3 ต่อ 2 บอลอยู่ที่ D\nเส้นทางบอล: D → S → B\nลำดับ: ขั้นที่ 1: D ตีไปที่ S F ขยับถอยหลัง • ขั้นที่ 2: S ตีไปที่ B B, S วิ่งตามบอล D ขยับถอยหลัง T ขยับไปทางซ้าย\nจุดเน้น: คนบล็อกหันหลัง และอีกสองคนคุมช่องที่บล็อกเหลือไว้",
+        "vi-VN": "Bố trí: 3 đấu 2, bóng ở chỗ D.\nĐường bóng: D → S → B\nTrình tự: Bước 1: D đánh sang S, F di chuyển lùi lại; Bước 2: S đánh sang B, B, S chạy theo đường chuyền, D di chuyển lùi lại, T di chuyển sang trái.\nĐiểm chính: Người chắn quay lưng, hai người sau bọc phần hàng chắn bỏ lại."
       },
       "mistake": {
         "en": "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.",
@@ -3721,15 +3877,27 @@
               952.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                520.0895522388059,
+                635.2
+              ],
+              [
+                508.0716417910447,
+                839.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d1"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3762,18 +3930,18 @@
         "vi-VN": "Bọc lót cú đá sau chân đá của đội mình"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with S.\nSequence: Step 1: S, T moves up the board, F moves right.\nCoaching point: The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
-        "en-GB": "Setup: 3 v 1, ball with S.\nSequence: Step 1: S, T moves up the board, F moves right.\nCoaching point: The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
-        "zh-CN": "【组织】3 对 1，球在 S 脚下。\n【流程】第1步：S、T 向前移动，F 向右移动。\n【要点】被拦回来的球多数直坠在本方场内——每一次进攻，都要有两个人蹲在自己攻手身后。",
-        "zh-TW": "【組織】3 對 1，球在 S 腳下。\n【流程】第1步：S、T 向前移動，F 向右移動。\n【要點】被攔回來的球多數直墜在本方場內——每一次進攻，都要有兩個人蹲在自己攻手身後。",
-        "ja-JP": "【準備】3対1、ボールはS。\n【流れ】ステップ1：S・Tが前方へ移動、Fが右へ移動。\n【ポイント】ブロックされた球は越えるより自陣に真下に落ちることの方が多い。毎回、自分のアタッカーの下に2人が沈む。",
-        "ko-KR": "【준비】3대1, 공은 S.\n【진행】1단계: S, T는 앞으로 이동, F는 오른쪽으로 이동.\n【포인트】블록된 공은 넘어가기보다 자기 쪽에 수직으로 떨어진다. 매번 두 명이 자기 공격수 밑에 앉아라.",
-        "es-ES": "Montaje: 3 contra 1, balón con S.\nSecuencia: Paso 1: S, T se desplaza hacia delante, F se desplaza a la derecha.\nPunto clave: El bloqueo devuelve la bola en vertical a tu campo más veces de las que pasa: dos jugadores agachados bajo vuestro rematador, siempre.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec S.\nDéroulé : Étape 1 : S, T se déplace vers l'avant, F se déplace à droite.\nPoint clé : Le contre renvoie la balle à la verticale chez toi plus souvent qu'il ne passe : deux joueurs accroupis sous votre attaquant, à chaque fois.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada S.\nUrutan: Langkah 1: S, T bergerak ke depan, F bergerak ke kanan.\nPoin utama: Bola yang diblok lebih sering jatuh tegak di sisi sendiri.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan S.\nUrutan: Langkah 1: S, T bergerak ke hadapan, F bergerak ke kanan.\nPoin utama: Bola yang disekat lebih kerap jatuh tegak di pihak sendiri.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: S, T ขยับไปข้างหน้า F ขยับไปทางขวา\nจุดเน้น: ลูกที่โดนบล็อกมักตกดิ่งฝั่งตัวเอง ต้องมีสองคนย่อรอใต้ตัวฟาดทุกครั้ง",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ S.\nTrình tự: Bước 1: S, T di chuyển lên phía trước, F di chuyển sang phải.\nĐiểm chính: Bóng bị chắn thường rơi thẳng xuống sân mình — hai người phải chùng sẵn dưới chân đá."
+        "en": "Setup: 3 v 1, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B; Step 2: B plays it to S, S, F follows the pass, T moves up the board.\nCoaching point: The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
+        "en-GB": "Setup: 3 v 1, ball with S.\nBall path: S → B → S\nSequence: Step 1: S plays it to B; Step 2: B plays it to S, S, F follows the pass, T moves up the board.\nCoaching point: The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.",
+        "zh-CN": "【组织】3 对 1，球在 S 脚下。\n【球路】S → B → S\n【流程】第1步：S 打向 B；第2步：B 打向 S，S、F 跟进，T 向前移动。\n【要点】被拦回来的球多数直坠在本方场内——每一次进攻，都要有两个人蹲在自己攻手身后。",
+        "zh-TW": "【組織】3 對 1，球在 S 腳下。\n【球路】S → B → S\n【流程】第1步：S 打向 B；第2步：B 打向 S，S、F 跟進，T 向前移動。\n【要點】被攔回來的球多數直墜在本方場內——每一次進攻，都要有兩個人蹲在自己攻手身後。",
+        "ja-JP": "【準備】3対1、ボールはS。\n【ボールの道筋】S → B → S\n【流れ】ステップ1：SがBへ打つ。ステップ2：BがSへ打つ、S・Fがパスを追って移動、Tが前方へ移動。\n【ポイント】ブロックされた球は越えるより自陣に真下に落ちることの方が多い。毎回、自分のアタッカーの下に2人が沈む。",
+        "ko-KR": "【준비】3대1, 공은 S.\n【볼 경로】S → B → S\n【진행】1단계: S가 B 쪽으로 친다; 2단계: B가 S 쪽으로 친다, S, F는 패스를 따라간다, T는 앞으로 이동.\n【포인트】블록된 공은 넘어가기보다 자기 쪽에 수직으로 떨어진다. 매번 두 명이 자기 공격수 밑에 앉아라.",
+        "es-ES": "Montaje: 3 contra 1, balón con S.\nRecorrido del balón: S → B → S\nSecuencia: Paso 1: S la juega hacia B; Paso 2: B la juega hacia S, S, F sigue su pase, T se desplaza hacia delante.\nPunto clave: El bloqueo devuelve la bola en vertical a tu campo más veces de las que pasa: dos jugadores agachados bajo vuestro rematador, siempre.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec S.\nTrajet du ballon : S → B → S\nDéroulé : Étape 1 : S joue vers B ; Étape 2 : B joue vers S, S, F suit sa passe, T se déplace vers l'avant.\nPoint clé : Le contre renvoie la balle à la verticale chez toi plus souvent qu'il ne passe : deux joueurs accroupis sous votre attaquant, à chaque fois.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada S.\nJalur bola: S → B → S\nUrutan: Langkah 1: S memukul ke B; Langkah 2: B memukul ke S, S, F mengikuti operannya, T bergerak ke depan.\nPoin utama: Bola yang diblok lebih sering jatuh tegak di sisi sendiri.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan S.\nLaluan bola: S → B → S\nUrutan: Langkah 1: S memukul ke arah B; Langkah 2: B memukul ke arah S, S, F mengikut hantarannya, T bergerak ke hadapan.\nPoin utama: Bola yang disekat lebih kerap jatuh tegak di pihak sendiri.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ S\nเส้นทางบอล: S → B → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ B • ขั้นที่ 2: B ตีไปที่ S S, F วิ่งตามบอล T ขยับไปข้างหน้า\nจุดเน้น: ลูกที่โดนบล็อกมักตกดิ่งฝั่งตัวเอง ต้องมีสองคนย่อรอใต้ตัวฟาดทุกครั้ง",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ S.\nĐường bóng: S → B → S\nTrình tự: Bước 1: S đánh sang B; Bước 2: B đánh sang S, S, F chạy theo đường chuyền, T di chuyển lên phía trước.\nĐiểm chính: Bóng bị chắn thường rơi thẳng xuống sân mình — hai người phải chùng sẵn dưới chân đá."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -3809,7 +3977,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3836,7 +4004,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -3863,7 +4031,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -3903,15 +4071,27 @@
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                767.2
+              ],
+              [
+                532.1074626865671,
+                872.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3957,18 +4137,18 @@
         "vi-VN": "Trận đấu regu đầy đủ"
       },
       "note": {
-        "en": "Setup: 3 v 3, ball with T.\nSequence: Step 1: T moves up the board, T moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "en-GB": "Setup: 3 v 3, ball with T.\nSequence: Step 1: T moves up the board, T moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "zh-CN": "【组织】3 对 3，球在 T 脚下。\n【流程】第1步：T 向前移动，T 回撤移动。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
-        "zh-TW": "【組織】3 對 3，球在 T 腳下。\n【流程】第1步：T 向前移動，T 回撤移動。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
-        "ja-JP": "【準備】3対3、ボールはT。\n【流れ】ステップ1：Tが前方へ移動、Tが後方へ移動。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
-        "ko-KR": "【준비】3대3, 공은 T.\n【진행】1단계: T는 앞으로 이동, T는 뒤로 이동.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
-        "es-ES": "Montaje: 3 contra 3, balón con T.\nSecuencia: Paso 1: T se desplaza hacia delante, T se desplaza hacia atrás.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
-        "fr-FR": "Mise en place : 3 contre 3, ballon avec T.\nDéroulé : Étape 1 : T se déplace vers l'avant, T se déplace vers l'arrière.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
-        "id-ID": "Persiapan: 3 lawan 3, bola pada T.\nUrutan: Langkah 1: T bergerak ke depan, T bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
-        "ms-MY": "Persediaan: 3 lawan 3, bola dengan T.\nUrutan: Langkah 1: T bergerak ke hadapan, T bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
-        "th-TH": "การจัด: 3 ต่อ 3 บอลอยู่ที่ T\nลำดับ: ขั้นที่ 1: T ขยับไปข้างหน้า T ขยับถอยหลัง\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
-        "vi-VN": "Bố trí: 3 đấu 3, bóng ở chỗ T.\nTrình tự: Bước 1: T di chuyển lên phía trước, T di chuyển lùi lại.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
+        "en": "Setup: 3 v 3, ball with T.\nBall path: T → L\nSequence: Step 1: T plays it to L, T moves up the board, T moves back; Step 2: L plays it to L.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "en-GB": "Setup: 3 v 3, ball with T.\nBall path: T → L\nSequence: Step 1: T plays it to L, T moves up the board, T moves back; Step 2: L plays it to L.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "zh-CN": "【组织】3 对 3，球在 T 脚下。\n【球路】T → L\n【流程】第1步：T 打向 L，T 向前移动，T 回撤移动；第2步：L 打向 L。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
+        "zh-TW": "【組織】3 對 3，球在 T 腳下。\n【球路】T → L\n【流程】第1步：T 打向 L，T 向前移動，T 回撤移動；第2步：L 打向 L。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
+        "ja-JP": "【準備】3対3、ボールはT。\n【ボールの道筋】T → L\n【流れ】ステップ1：TがLへ打つ、Tが前方へ移動、Tが後方へ移動。ステップ2：LがLへ打つ。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
+        "ko-KR": "【준비】3대3, 공은 T.\n【볼 경로】T → L\n【진행】1단계: T가 L 쪽으로 친다, T는 앞으로 이동, T는 뒤로 이동; 2단계: L가 L 쪽으로 친다.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
+        "es-ES": "Montaje: 3 contra 3, balón con T.\nRecorrido del balón: T → L\nSecuencia: Paso 1: T la juega hacia L, T se desplaza hacia delante, T se desplaza hacia atrás; Paso 2: L la juega hacia L.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
+        "fr-FR": "Mise en place : 3 contre 3, ballon avec T.\nTrajet du ballon : T → L\nDéroulé : Étape 1 : T joue vers L, T se déplace vers l'avant, T se déplace vers l'arrière ; Étape 2 : L joue vers L.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
+        "id-ID": "Persiapan: 3 lawan 3, bola pada T.\nJalur bola: T → L\nUrutan: Langkah 1: T memukul ke L, T bergerak ke depan, T bergerak ke belakang; Langkah 2: L memukul ke L.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
+        "ms-MY": "Persediaan: 3 lawan 3, bola dengan T.\nLaluan bola: T → L\nUrutan: Langkah 1: T memukul ke arah L, T bergerak ke hadapan, T bergerak ke belakang; Langkah 2: L memukul ke arah L.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
+        "th-TH": "การจัด: 3 ต่อ 3 บอลอยู่ที่ T\nเส้นทางบอล: T → L\nลำดับ: ขั้นที่ 1: T ตีไปที่ L T ขยับไปข้างหน้า T ขยับถอยหลัง • ขั้นที่ 2: L ตีไปที่ L\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
+        "vi-VN": "Bố trí: 3 đấu 3, bóng ở chỗ T.\nĐường bóng: T → L\nTrình tự: Bước 1: T đánh sang L, T di chuyển lên phía trước, T di chuyển lùi lại; Bước 2: L đánh sang L.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -4131,15 +4311,27 @@
               1238.704
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                311.6597014925373,
+                767.2
+              ],
+              [
+                311.6597014925373,
+                872.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d2"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4185,18 +4377,18 @@
         "vi-VN": "Giao cầu sâu"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "en-GB": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【流程】第1步：L 向右移动，R 向左移动；第2步：T 向前移动，D 回撤移动。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
-        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【流程】第1步：L 向右移動，R 向左移動；第2步：T 向前移動，D 回撤移動。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
-        "ja-JP": "【準備】3対1、ボールはT。\n【流れ】ステップ1：Lが右へ移動、Rが左へ移動。ステップ2：Tが前方へ移動、Dが後方へ移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
-        "ko-KR": "【준비】3대1, 공은 T.\n【진행】1단계: L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: T는 앞으로 이동, D는 뒤로 이동.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
-        "es-ES": "Montaje: 3 contra 1, balón con T.\nSecuencia: Paso 1: L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: T se desplaza hacia delante, D se desplaza hacia atrás.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nDéroulé : Étape 1 : L se déplace à droite, R se déplace à gauche ; Étape 2 : T se déplace vers l'avant, D se déplace vers l'arrière.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke depan, D bergerak ke belakang.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke hadapan, D bergerak ke belakang.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nลำดับ: ขั้นที่ 1: L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: T ขยับไปข้างหน้า D ขยับถอยหลัง\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nTrình tự: Bước 1: L di chuyển sang phải, R di chuyển sang trái; Bước 2: T di chuyển lên phía trước, D di chuyển lùi lại.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
+        "en": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "en-GB": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移动，R 向左移动；第2步：D 打向 T，T 向前移动，D 跟进。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
+        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移動，R 向左移動；第2步：D 打向 T，T 向前移動，D 跟進。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
+        "ja-JP": "【準備】3対1、ボールはT。\n【ボールの道筋】T → D → T\n【流れ】ステップ1：TがDへ打つ、Lが右へ移動、Rが左へ移動。ステップ2：DがTへ打つ、Tが前方へ移動、Dがパスを追って移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
+        "ko-KR": "【준비】3대1, 공은 T.\n【볼 경로】T → D → T\n【진행】1단계: T가 D 쪽으로 친다, L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: D가 T 쪽으로 친다, T는 앞으로 이동, D는 패스를 따라간다.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
+        "es-ES": "Montaje: 3 contra 1, balón con T.\nRecorrido del balón: T → D → T\nSecuencia: Paso 1: T la juega hacia D, L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: D la juega hacia T, T se desplaza hacia delante, D sigue su pase.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nTrajet du ballon : T → D → T\nDéroulé : Étape 1 : T joue vers D, L se déplace à droite, R se déplace à gauche ; Étape 2 : D joue vers T, T se déplace vers l'avant, D suit sa passe.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nJalur bola: T → D → T\nUrutan: Langkah 1: T memukul ke D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke T, T bergerak ke depan, D mengikuti operannya.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nLaluan bola: T → D → T\nUrutan: Langkah 1: T memukul ke arah D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke arah T, T bergerak ke hadapan, D mengikut hantarannya.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nเส้นทางบอล: T → D → T\nลำดับ: ขั้นที่ 1: T ตีไปที่ D L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: D ตีไปที่ T T ขยับไปข้างหน้า D วิ่งตามบอล\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nĐường bóng: T → D → T\nTrình tự: Bước 1: T đánh sang D, L di chuyển sang phải, R di chuyển sang trái; Bước 2: D đánh sang T, T di chuyển lên phía trước, D chạy theo đường chuyền.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
       },
       "mistake": {
         "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
@@ -4373,15 +4565,27 @@
               1238.704
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                160.0
+              ],
+              [
+                460.0,
+                1183.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4427,18 +4631,18 @@
         "vi-VN": "Giao cầu vào khe"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "en-GB": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【流程】第1步：L 向右移动，R 向左移动；第2步：T 向前移动，D 回撤移动。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
-        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【流程】第1步：L 向右移動，R 向左移動；第2步：T 向前移動，D 回撤移動。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
-        "ja-JP": "【準備】3対1、ボールはT。\n【流れ】ステップ1：Lが右へ移動、Rが左へ移動。ステップ2：Tが前方へ移動、Dが後方へ移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
-        "ko-KR": "【준비】3대1, 공은 T.\n【진행】1단계: L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: T는 앞으로 이동, D는 뒤로 이동.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
-        "es-ES": "Montaje: 3 contra 1, balón con T.\nSecuencia: Paso 1: L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: T se desplaza hacia delante, D se desplaza hacia atrás.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nDéroulé : Étape 1 : L se déplace à droite, R se déplace à gauche ; Étape 2 : T se déplace vers l'avant, D se déplace vers l'arrière.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke depan, D bergerak ke belakang.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke hadapan, D bergerak ke belakang.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nลำดับ: ขั้นที่ 1: L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: T ขยับไปข้างหน้า D ขยับถอยหลัง\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nTrình tự: Bước 1: L di chuyển sang phải, R di chuyển sang trái; Bước 2: T di chuyển lên phía trước, D di chuyển lùi lại.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
+        "en": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "en-GB": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移动，R 向左移动；第2步：D 打向 T，T 向前移动，D 跟进。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
+        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移動，R 向左移動；第2步：D 打向 T，T 向前移動，D 跟進。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
+        "ja-JP": "【準備】3対1、ボールはT。\n【ボールの道筋】T → D → T\n【流れ】ステップ1：TがDへ打つ、Lが右へ移動、Rが左へ移動。ステップ2：DがTへ打つ、Tが前方へ移動、Dがパスを追って移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
+        "ko-KR": "【준비】3대1, 공은 T.\n【볼 경로】T → D → T\n【진행】1단계: T가 D 쪽으로 친다, L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: D가 T 쪽으로 친다, T는 앞으로 이동, D는 패스를 따라간다.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
+        "es-ES": "Montaje: 3 contra 1, balón con T.\nRecorrido del balón: T → D → T\nSecuencia: Paso 1: T la juega hacia D, L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: D la juega hacia T, T se desplaza hacia delante, D sigue su pase.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nTrajet du ballon : T → D → T\nDéroulé : Étape 1 : T joue vers D, L se déplace à droite, R se déplace à gauche ; Étape 2 : D joue vers T, T se déplace vers l'avant, D suit sa passe.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nJalur bola: T → D → T\nUrutan: Langkah 1: T memukul ke D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke T, T bergerak ke depan, D mengikuti operannya.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nLaluan bola: T → D → T\nUrutan: Langkah 1: T memukul ke arah D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke arah T, T bergerak ke hadapan, D mengikut hantarannya.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nเส้นทางบอล: T → D → T\nลำดับ: ขั้นที่ 1: T ตีไปที่ D L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: D ตีไปที่ T T ขยับไปข้างหน้า D วิ่งตามบอล\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nĐường bóng: T → D → T\nTrình tự: Bước 1: T đánh sang D, L di chuyển sang phải, R di chuyển sang trái; Bước 2: D đánh sang T, T di chuyển lên phía trước, D chạy theo đường chuyền.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
       },
       "mistake": {
         "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
@@ -4615,15 +4819,27 @@
               1238.704
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                455.87462686567164,
+                450.40000000000003
+              ],
+              [
+                460.0,
+                1183.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4669,18 +4885,18 @@
         "vi-VN": "Giao cầu ngắn"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "en-GB": "Setup: 3 v 1, ball with T.\nSequence: Step 1: L moves right, R moves left; Step 2: T moves up the board, D moves back.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
-        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【流程】第1步：L 向右移动，R 向左移动；第2步：T 向前移动，D 回撤移动。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
-        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【流程】第1步：L 向右移動，R 向左移動；第2步：T 向前移動，D 回撤移動。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
-        "ja-JP": "【準備】3対1、ボールはT。\n【流れ】ステップ1：Lが右へ移動、Rが左へ移動。ステップ2：Tが前方へ移動、Dが後方へ移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
-        "ko-KR": "【준비】3대1, 공은 T.\n【진행】1단계: L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: T는 앞으로 이동, D는 뒤로 이동.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
-        "es-ES": "Montaje: 3 contra 1, balón con T.\nSecuencia: Paso 1: L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: T se desplaza hacia delante, D se desplaza hacia atrás.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nDéroulé : Étape 1 : L se déplace à droite, R se déplace à gauche ; Étape 2 : T se déplace vers l'avant, D se déplace vers l'arrière.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke depan, D bergerak ke belakang.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nUrutan: Langkah 1: L bergerak ke kanan, R bergerak ke kiri; Langkah 2: T bergerak ke hadapan, D bergerak ke belakang.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nลำดับ: ขั้นที่ 1: L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: T ขยับไปข้างหน้า D ขยับถอยหลัง\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nTrình tự: Bước 1: L di chuyển sang phải, R di chuyển sang trái; Bước 2: T di chuyển lên phía trước, D di chuyển lùi lại.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
+        "en": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "en-GB": "Setup: 3 v 1, ball with T.\nBall path: T → D → T\nSequence: Step 1: T plays it to D, L moves right, R moves left; Step 2: D plays it to T, T moves up the board, D follows the pass.\nCoaching point: The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.",
+        "zh-CN": "【组织】3 对 1，球在 T 脚下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移动，R 向左移动；第2步：D 打向 T，T 向前移动，D 跟进。\n【要点】发球手的发球是唯一没人拦的进攻。要发向接球人不擅长的部位，不要发到中间——那里谁都接得到。",
+        "zh-TW": "【組織】3 對 1，球在 T 腳下。\n【球路】T → D → T\n【流程】第1步：T 打向 D，L 向右移動，R 向左移動；第2步：D 打向 T，T 向前移動，D 跟進。\n【要點】發球手的發球是唯一沒人攔的進攻。要發向接球人不擅長的部位，不要發到中間——那裡誰都接得到。",
+        "ja-JP": "【準備】3対1、ボールはT。\n【ボールの道筋】T → D → T\n【流れ】ステップ1：TがDへ打つ、Lが右へ移動、Rが左へ移動。ステップ2：DがTへ打つ、Tが前方へ移動、Dがパスを追って移動。\n【ポイント】テコンのサーブは誰にもブロックされない唯一の攻撃だ。相手の苦手な部位を狙う。真ん中は誰でも取れる。",
+        "ko-KR": "【준비】3대1, 공은 T.\n【볼 경로】T → D → T\n【진행】1단계: T가 D 쪽으로 친다, L는 오른쪽으로 이동, R는 왼쪽으로 이동; 2단계: D가 T 쪽으로 친다, T는 앞으로 이동, D는 패스를 따라간다.\n【포인트】테콩의 서브는 아무도 막지 않는 유일한 공격이다. 상대가 약한 부위를 노려라.",
+        "es-ES": "Montaje: 3 contra 1, balón con T.\nRecorrido del balón: T → D → T\nSecuencia: Paso 1: T la juega hacia D, L se desplaza a la derecha, R se desplaza a la izquierda; Paso 2: D la juega hacia T, T se desplaza hacia delante, D sigue su pase.\nPunto clave: El saque del tekong es el único ataque que nadie bloquea: busca la superficie débil del receptor, no el centro.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec T.\nTrajet du ballon : T → D → T\nDéroulé : Étape 1 : T joue vers D, L se déplace à droite, R se déplace à gauche ; Étape 2 : D joue vers T, T se déplace vers l'avant, D suit sa passe.\nPoint clé : Le service du tekong est la seule attaque que personne ne contre : vise la surface faible du receveur, pas le milieu.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada T.\nJalur bola: T → D → T\nUrutan: Langkah 1: T memukul ke D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke T, T bergerak ke depan, D mengikuti operannya.\nPoin utama: Servis tekong adalah satu-satunya serangan yang tak diblok.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan T.\nLaluan bola: T → D → T\nUrutan: Langkah 1: T memukul ke arah D, L bergerak ke kanan, R bergerak ke kiri; Langkah 2: D memukul ke arah T, T bergerak ke hadapan, D mengikut hantarannya.\nPoin utama: Servis tekong ialah satu-satunya serangan yang tidak diblok.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ T\nเส้นทางบอล: T → D → T\nลำดับ: ขั้นที่ 1: T ตีไปที่ D L ขยับไปทางขวา R ขยับไปทางซ้าย • ขั้นที่ 2: D ตีไปที่ T T ขยับไปข้างหน้า D วิ่งตามบอล\nจุดเน้น: ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ T.\nĐường bóng: T → D → T\nTrình tự: Bước 1: T đánh sang D, L di chuyển sang phải, R di chuyển sang trái; Bước 2: D đánh sang T, T di chuyển lên phía trước, D chạy theo đường chuyền.\nĐiểm chính: Cú giao của tekong là đòn tấn công duy nhất không ai chắn."
       },
       "mistake": {
         "en": "Serving to the middle where anyone reaches it — go at the weak surface.",
@@ -4857,15 +5073,27 @@
               1238.704
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                532.1074626865671,
+                635.2
+              ],
+              [
+                460.0,
+                1183.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4911,18 +5139,18 @@
         "vi-VN": "Giao cầu tekong từ cú tung cao"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with L.\nSequence: Step 1: L moves right; Step 2: T, D moves up the board; Step 3: R moves left.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
-        "en-GB": "Setup: 3 v 1, ball with L.\nSequence: Step 1: L moves right; Step 2: T, D moves up the board; Step 3: R moves left.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
-        "zh-CN": "【组织】3 对 1，球在 L 脚下。\n【流程】第1步：L 向右移动；第2步：T、D 向前移动；第3步：R 向左移动。\n【要点】抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
-        "zh-TW": "【組織】3 對 1，球在 L 腳下。\n【流程】第1步：L 向右移動；第2步：T、D 向前移動；第3步：R 向左移動。\n【要點】拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
-        "ja-JP": "【準備】3対1、ボールはL。\n【流れ】ステップ1：Lが右へ移動。ステップ2：T・Dが前方へ移動。ステップ3：Rが左へ移動。\n【ポイント】トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
-        "ko-KR": "【준비】3대1, 공은 L.\n【진행】1단계: L는 오른쪽으로 이동; 2단계: T, D는 앞으로 이동; 3단계: R는 왼쪽으로 이동.\n【포인트】토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
-        "es-ES": "Montaje: 3 contra 1, balón con L.\nSecuencia: Paso 1: L se desplaza a la derecha; Paso 2: T, D se desplaza hacia delante; Paso 3: R se desplaza a la izquierda.\nPunto clave: El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec L.\nDéroulé : Étape 1 : L se déplace à droite ; Étape 2 : T, D se déplace vers l'avant ; Étape 3 : R se déplace à gauche.\nPoint clé : Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada L.\nUrutan: Langkah 1: L bergerak ke kanan; Langkah 2: T, D bergerak ke depan; Langkah 3: R bergerak ke kiri.\nPoin utama: Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan L.\nUrutan: Langkah 1: L bergerak ke kanan; Langkah 2: T, D bergerak ke hadapan; Langkah 3: R bergerak ke kiri.\nPoin utama: Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ L\nลำดับ: ขั้นที่ 1: L ขยับไปทางขวา • ขั้นที่ 2: T, D ขยับไปข้างหน้า • ขั้นที่ 3: R ขยับไปทางซ้าย\nจุดเน้น: การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ L.\nTrình tự: Bước 1: L di chuyển sang phải; Bước 2: T, D di chuyển lên phía trước; Bước 3: R di chuyển sang trái.\nĐiểm chính: Cú tung chính là cú giao — người tung phải tung đúng một điểm."
+        "en": "Setup: 3 v 1, ball with L.\nBall path: L → D → T\nSequence: Step 1: L plays it to D, L moves right; Step 2: D plays it to T, T moves up the board, D follows the pass; Step 3: R moves left.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "en-GB": "Setup: 3 v 1, ball with L.\nBall path: L → D → T\nSequence: Step 1: L plays it to D, L moves right; Step 2: D plays it to T, T moves up the board, D follows the pass; Step 3: R moves left.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "zh-CN": "【组织】3 对 1，球在 L 脚下。\n【球路】L → D → T\n【流程】第1步：L 打向 D，L 向右移动；第2步：D 打向 T，T 向前移动，D 跟进；第3步：R 向左移动。\n【要点】抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
+        "zh-TW": "【組織】3 對 1，球在 L 腳下。\n【球路】L → D → T\n【流程】第1步：L 打向 D，L 向右移動；第2步：D 打向 T，T 向前移動，D 跟進；第3步：R 向左移動。\n【要點】拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
+        "ja-JP": "【準備】3対1、ボールはL。\n【ボールの道筋】L → D → T\n【流れ】ステップ1：LがDへ打つ、Lが右へ移動。ステップ2：DがTへ打つ、Tが前方へ移動、Dがパスを追って移動。ステップ3：Rが左へ移動。\n【ポイント】トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
+        "ko-KR": "【준비】3대1, 공은 L.\n【볼 경로】L → D → T\n【진행】1단계: L가 D 쪽으로 친다, L는 오른쪽으로 이동; 2단계: D가 T 쪽으로 친다, T는 앞으로 이동, D는 패스를 따라간다; 3단계: R는 왼쪽으로 이동.\n【포인트】토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
+        "es-ES": "Montaje: 3 contra 1, balón con L.\nRecorrido del balón: L → D → T\nSecuencia: Paso 1: L la juega hacia D, L se desplaza a la derecha; Paso 2: D la juega hacia T, T se desplaza hacia delante, D sigue su pase; Paso 3: R se desplaza a la izquierda.\nPunto clave: El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec L.\nTrajet du ballon : L → D → T\nDéroulé : Étape 1 : L joue vers D, L se déplace à droite ; Étape 2 : D joue vers T, T se déplace vers l'avant, D suit sa passe ; Étape 3 : R se déplace à gauche.\nPoint clé : Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada L.\nJalur bola: L → D → T\nUrutan: Langkah 1: L memukul ke D, L bergerak ke kanan; Langkah 2: D memukul ke T, T bergerak ke depan, D mengikuti operannya; Langkah 3: R bergerak ke kiri.\nPoin utama: Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan L.\nLaluan bola: L → D → T\nUrutan: Langkah 1: L memukul ke arah D, L bergerak ke kanan; Langkah 2: D memukul ke arah T, T bergerak ke hadapan, D mengikut hantarannya; Langkah 3: R bergerak ke kiri.\nPoin utama: Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ L\nเส้นทางบอล: L → D → T\nลำดับ: ขั้นที่ 1: L ตีไปที่ D L ขยับไปทางขวา • ขั้นที่ 2: D ตีไปที่ T T ขยับไปข้างหน้า D วิ่งตามบอล • ขั้นที่ 3: R ขยับไปทางซ้าย\nจุดเน้น: การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ L.\nĐường bóng: L → D → T\nTrình tự: Bước 1: L đánh sang D, L di chuyển sang phải; Bước 2: D đánh sang T, T di chuyển lên phía trước, D chạy theo đường chuyền; Bước 3: R di chuyển sang trái.\nĐiểm chính: Cú tung chính là cú giao — người tung phải tung đúng một điểm."
       },
       "mistake": {
         "en": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
@@ -5084,15 +5312,27 @@
               892.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                476.8
+              ],
+              [
+                460.0,
+                1183.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d1"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5138,18 +5378,18 @@
         "vi-VN": "Giao cầu tekong căng thấp"
       },
       "note": {
-        "en": "Setup: 3 v 1, ball with L.\nSequence: Step 1: L moves left; Step 2: T moves up the board, D moves back; Step 3: R moves right.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
-        "en-GB": "Setup: 3 v 1, ball with L.\nSequence: Step 1: L moves left; Step 2: T moves up the board, D moves back; Step 3: R moves right.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
-        "zh-CN": "【组织】3 对 1，球在 L 脚下。\n【流程】第1步：L 向左移动；第2步：T 向前移动，D 回撤移动；第3步：R 向右移动。\n【要点】抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
-        "zh-TW": "【組織】3 對 1，球在 L 腳下。\n【流程】第1步：L 向左移動；第2步：T 向前移動，D 回撤移動；第3步：R 向右移動。\n【要點】拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
-        "ja-JP": "【準備】3対1、ボールはL。\n【流れ】ステップ1：Lが左へ移動。ステップ2：Tが前方へ移動、Dが後方へ移動。ステップ3：Rが右へ移動。\n【ポイント】トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
-        "ko-KR": "【준비】3대1, 공은 L.\n【진행】1단계: L는 왼쪽으로 이동; 2단계: T는 앞으로 이동, D는 뒤로 이동; 3단계: R는 오른쪽으로 이동.\n【포인트】토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
-        "es-ES": "Montaje: 3 contra 1, balón con L.\nSecuencia: Paso 1: L se desplaza a la izquierda; Paso 2: T se desplaza hacia delante, D se desplaza hacia atrás; Paso 3: R se desplaza a la derecha.\nPunto clave: El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
-        "fr-FR": "Mise en place : 3 contre 1, ballon avec L.\nDéroulé : Étape 1 : L se déplace à gauche ; Étape 2 : T se déplace vers l'avant, D se déplace vers l'arrière ; Étape 3 : R se déplace à droite.\nPoint clé : Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
-        "id-ID": "Persiapan: 3 lawan 1, bola pada L.\nUrutan: Langkah 1: L bergerak ke kiri; Langkah 2: T bergerak ke depan, D bergerak ke belakang; Langkah 3: R bergerak ke kanan.\nPoin utama: Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
-        "ms-MY": "Persediaan: 3 lawan 1, bola dengan L.\nUrutan: Langkah 1: L bergerak ke kiri; Langkah 2: T bergerak ke hadapan, D bergerak ke belakang; Langkah 3: R bergerak ke kanan.\nPoin utama: Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
-        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ L\nลำดับ: ขั้นที่ 1: L ขยับไปทางซ้าย • ขั้นที่ 2: T ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 3: R ขยับไปทางขวา\nจุดเน้น: การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
-        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ L.\nTrình tự: Bước 1: L di chuyển sang trái; Bước 2: T di chuyển lên phía trước, D di chuyển lùi lại; Bước 3: R di chuyển sang phải.\nĐiểm chính: Cú tung chính là cú giao — người tung phải tung đúng một điểm."
+        "en": "Setup: 3 v 1, ball with L.\nBall path: L → D → T\nSequence: Step 1: L plays it to D, L moves left; Step 2: D plays it to T, T moves up the board, D follows the pass; Step 3: R moves right.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "en-GB": "Setup: 3 v 1, ball with L.\nBall path: L → D → T\nSequence: Step 1: L plays it to D, L moves left; Step 2: D plays it to T, T moves up the board, D follows the pass; Step 3: R moves right.\nCoaching point: The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.",
+        "zh-CN": "【组织】3 对 1，球在 L 脚下。\n【球路】L → D → T\n【流程】第1步：L 打向 D，L 向左移动；第2步：D 打向 T，T 向前移动，D 跟进；第3步：R 向右移动。\n【要点】抛球就是发球。内场球员每次抛到同一个点，剩下的交给发球手那只脚。",
+        "zh-TW": "【組織】3 對 1，球在 L 腳下。\n【球路】L → D → T\n【流程】第1步：L 打向 D，L 向左移動；第2步：D 打向 T，T 向前移動，D 跟進；第3步：R 向右移動。\n【要點】拋球就是發球。內場球員每次拋到同一個點，剩下的交給發球手那隻腳。",
+        "ja-JP": "【準備】3対1、ボールはL。\n【ボールの道筋】L → D → T\n【流れ】ステップ1：LがDへ打つ、Lが左へ移動。ステップ2：DがTへ打つ、Tが前方へ移動、Dがパスを追って移動。ステップ3：Rが右へ移動。\n【ポイント】トスがサーブそのものだ。インサイドは毎回同じ点へ投げる。あとはテコンの足がやってくれる。",
+        "ko-KR": "【준비】3대1, 공은 L.\n【볼 경로】L → D → T\n【진행】1단계: L가 D 쪽으로 친다, L는 왼쪽으로 이동; 2단계: D가 T 쪽으로 친다, T는 앞으로 이동, D는 패스를 따라간다; 3단계: R는 오른쪽으로 이동.\n【포인트】토스가 곧 서브다. 인사이드는 매번 같은 지점에 던지고, 나머지는 테콩의 발이 한다.",
+        "es-ES": "Montaje: 3 contra 1, balón con L.\nRecorrido del balón: L → D → T\nSecuencia: Paso 1: L la juega hacia D, L se desplaza a la izquierda; Paso 2: D la juega hacia T, T se desplaza hacia delante, D sigue su pase; Paso 3: R se desplaza a la derecha.\nPunto clave: El lanzamiento es el saque: el interior lo lanza siempre al mismo punto y el pie del tekong hace el resto.",
+        "fr-FR": "Mise en place : 3 contre 1, ballon avec L.\nTrajet du ballon : L → D → T\nDéroulé : Étape 1 : L joue vers D, L se déplace à gauche ; Étape 2 : D joue vers T, T se déplace vers l'avant, D suit sa passe ; Étape 3 : R se déplace à droite.\nPoint clé : Le lancer est le service : l'intérieur le lance toujours au même point, le pied du tekong fait le reste.",
+        "id-ID": "Persiapan: 3 lawan 1, bola pada L.\nJalur bola: L → D → T\nUrutan: Langkah 1: L memukul ke D, L bergerak ke kiri; Langkah 2: D memukul ke T, T bergerak ke depan, D mengikuti operannya; Langkah 3: R bergerak ke kanan.\nPoin utama: Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
+        "ms-MY": "Persediaan: 3 lawan 1, bola dengan L.\nLaluan bola: L → D → T\nUrutan: Langkah 1: L memukul ke arah D, L bergerak ke kiri; Langkah 2: D memukul ke arah T, T bergerak ke hadapan, D mengikut hantarannya; Langkah 3: R bergerak ke kanan.\nPoin utama: Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
+        "th-TH": "การจัด: 3 ต่อ 1 บอลอยู่ที่ L\nเส้นทางบอล: L → D → T\nลำดับ: ขั้นที่ 1: L ตีไปที่ D L ขยับไปทางซ้าย • ขั้นที่ 2: D ตีไปที่ T T ขยับไปข้างหน้า D วิ่งตามบอล • ขั้นที่ 3: R ขยับไปทางขวา\nจุดเน้น: การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+        "vi-VN": "Bố trí: 3 đấu 1, bóng ở chỗ L.\nĐường bóng: L → D → T\nTrình tự: Bước 1: L đánh sang D, L di chuyển sang trái; Bước 2: D đánh sang T, T di chuyển lên phía trước, D chạy theo đường chuyền; Bước 3: R di chuyển sang phải.\nĐiểm chính: Cú tung chính là cú giao — người tung phải tung đúng một điểm."
       },
       "mistake": {
         "en": "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.",
@@ -5311,15 +5551,27 @@
               892.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                476.8
+              ],
+              [
+                460.0,
+                1183.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d1"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5365,18 +5617,18 @@
         "vi-VN": "Trận đấu 2v2"
       },
       "note": {
-        "en": "Setup: 2 v 2, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A, B moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "en-GB": "Setup: 2 v 2, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A, B moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "zh-CN": "【组织】2 对 2，球在 1 脚下。\n【流程】第1步：1、2 向前移动，A、B 回撤移动。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
-        "zh-TW": "【組織】2 對 2，球在 1 腳下。\n【流程】第1步：1、2 向前移動，A、B 回撤移動。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
-        "ja-JP": "【準備】2対2、ボールは1。\n【流れ】ステップ1：1・2が前方へ移動、A・Bが後方へ移動。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
-        "ko-KR": "【준비】2대2, 공은 1.\n【진행】1단계: 1, 2는 앞으로 이동, A, B는 뒤로 이동.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
-        "es-ES": "Montaje: 2 contra 2, balón con 1.\nSecuencia: Paso 1: 1, 2 se desplaza hacia delante, A, B se desplaza hacia atrás.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
-        "fr-FR": "Mise en place : 2 contre 2, ballon avec 1.\nDéroulé : Étape 1 : 1, 2 se déplace vers l'avant, A, B se déplace vers l'arrière.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
-        "id-ID": "Persiapan: 2 lawan 2, bola pada 1.\nUrutan: Langkah 1: 1, 2 bergerak ke depan, A, B bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
-        "ms-MY": "Persediaan: 2 lawan 2, bola dengan 1.\nUrutan: Langkah 1: 1, 2 bergerak ke hadapan, A, B bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
-        "th-TH": "การจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2 ขยับไปข้างหน้า A, B ขยับถอยหลัง\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
-        "vi-VN": "Bố trí: 2 đấu 2, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2 di chuyển lên phía trước, A, B di chuyển lùi lại.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
+        "en": "Setup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A, B moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "en-GB": "Setup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A, B moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "zh-CN": "【组织】2 对 2，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移动，A、B 回撤移动；第2步：A 打向 1。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
+        "zh-TW": "【組織】2 對 2，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移動，A、B 回撤移動；第2步：A 打向 1。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
+        "ja-JP": "【準備】2対2、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1・2が前方へ移動、A・Bが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
+        "ko-KR": "【준비】2대2, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1, 2는 앞으로 이동, A, B는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
+        "es-ES": "Montaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1, 2 se desplaza hacia delante, A, B se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
+        "fr-FR": "Mise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1, 2 se déplace vers l'avant, A, B se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
+        "id-ID": "Persiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1, 2 bergerak ke depan, A, B bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
+        "ms-MY": "Persediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1, 2 bergerak ke hadapan, A, B bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
+        "th-TH": "การจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1, 2 ขยับไปข้างหน้า A, B ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
+        "vi-VN": "Bố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1, 2 di chuyển lên phía trước, A, B di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -5513,15 +5765,27 @@
               1057.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                443.85671641791043,
+                635.1999999999999
+              ],
+              [
+                443.85671641791043,
+                1004.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5567,18 +5831,18 @@
         "vi-VN": "Trận đấu 3v3"
       },
       "note": {
-        "en": "Setup: 3 v 3, ball with 1.\nSequence: Step 1: 1, 2, 3 moves up the board, A, B, C moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "en-GB": "Setup: 3 v 3, ball with 1.\nSequence: Step 1: 1, 2, 3 moves up the board, A, B, C moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "zh-CN": "【组织】3 对 3，球在 1 脚下。\n【流程】第1步：1、2、3 向前移动，A、B、C 回撤移动。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
-        "zh-TW": "【組織】3 對 3，球在 1 腳下。\n【流程】第1步：1、2、3 向前移動，A、B、C 回撤移動。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
-        "ja-JP": "【準備】3対3、ボールは1。\n【流れ】ステップ1：1・2・3が前方へ移動、A・B・Cが後方へ移動。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
-        "ko-KR": "【준비】3대3, 공은 1.\n【진행】1단계: 1, 2, 3는 앞으로 이동, A, B, C는 뒤로 이동.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
-        "es-ES": "Montaje: 3 contra 3, balón con 1.\nSecuencia: Paso 1: 1, 2, 3 se desplaza hacia delante, A, B, C se desplaza hacia atrás.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
-        "fr-FR": "Mise en place : 3 contre 3, ballon avec 1.\nDéroulé : Étape 1 : 1, 2, 3 se déplace vers l'avant, A, B, C se déplace vers l'arrière.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
-        "id-ID": "Persiapan: 3 lawan 3, bola pada 1.\nUrutan: Langkah 1: 1, 2, 3 bergerak ke depan, A, B, C bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
-        "ms-MY": "Persediaan: 3 lawan 3, bola dengan 1.\nUrutan: Langkah 1: 1, 2, 3 bergerak ke hadapan, A, B, C bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
-        "th-TH": "การจัด: 3 ต่อ 3 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2, 3 ขยับไปข้างหน้า A, B, C ขยับถอยหลัง\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
-        "vi-VN": "Bố trí: 3 đấu 3, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2, 3 di chuyển lên phía trước, A, B, C di chuyển lùi lại.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
+        "en": "Setup: 3 v 3, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2, 3 moves up the board, A, B, C moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "en-GB": "Setup: 3 v 3, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2, 3 moves up the board, A, B, C moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "zh-CN": "【组织】3 对 3，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2、3 向前移动，A、B、C 回撤移动；第2步：A 打向 1。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
+        "zh-TW": "【組織】3 對 3，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2、3 向前移動，A、B、C 回撤移動；第2步：A 打向 1。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
+        "ja-JP": "【準備】3対3、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1・2・3が前方へ移動、A・B・Cが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
+        "ko-KR": "【준비】3대3, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1, 2, 3는 앞으로 이동, A, B, C는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
+        "es-ES": "Montaje: 3 contra 3, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1, 2, 3 se desplaza hacia delante, A, B, C se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
+        "fr-FR": "Mise en place : 3 contre 3, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1, 2, 3 se déplace vers l'avant, A, B, C se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
+        "id-ID": "Persiapan: 3 lawan 3, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1, 2, 3 bergerak ke depan, A, B, C bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
+        "ms-MY": "Persediaan: 3 lawan 3, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1, 2, 3 bergerak ke hadapan, A, B, C bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
+        "th-TH": "การจัด: 3 ต่อ 3 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1, 2, 3 ขยับไปข้างหน้า A, B, C ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
+        "vi-VN": "Bố trí: 3 đấu 3, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1, 2, 3 di chuyển lên phía trước, A, B, C di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -5769,15 +6033,27 @@
               1004.8000000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                407.8029850746269,
+                688.0
+              ],
+              [
+                407.8029850746269,
+                952.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5823,18 +6099,18 @@
         "vi-VN": "Trận đấu không hàng chắn"
       },
       "note": {
-        "en": "Setup: 3 v 3, 1 cones, ball with 1.\nSequence: Step 1: 1, 2, 3 moves up the board, A, B, C moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "en-GB": "Setup: 3 v 3, 1 cones, ball with 1.\nSequence: Step 1: 1, 2, 3 moves up the board, A, B, C moves back.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
-        "zh-CN": "【组织】3 对 3，1 个锥标，球在 1 脚下。\n【流程】第1步：1、2、3 向前移动，A、B、C 回撤移动。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
-        "zh-TW": "【組織】3 對 3，1 個錐標，球在 1 腳下。\n【流程】第1步：1、2、3 向前移動，A、B、C 回撤移動。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
-        "ja-JP": "【準備】3対3、コーン1個、ボールは1。\n【流れ】ステップ1：1・2・3が前方へ移動、A・B・Cが後方へ移動。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
-        "ko-KR": "【준비】3대3, 콘 1개, 공은 1.\n【진행】1단계: 1, 2, 3는 앞으로 이동, A, B, C는 뒤로 이동.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
-        "es-ES": "Montaje: 3 contra 3, 1 conos, balón con 1.\nSecuencia: Paso 1: 1, 2, 3 se desplaza hacia delante, A, B, C se desplaza hacia atrás.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
-        "fr-FR": "Mise en place : 3 contre 3, 1 plots, ballon avec 1.\nDéroulé : Étape 1 : 1, 2, 3 se déplace vers l'avant, A, B, C se déplace vers l'arrière.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
-        "id-ID": "Persiapan: 3 lawan 3, 1 kerucut, bola pada 1.\nUrutan: Langkah 1: 1, 2, 3 bergerak ke depan, A, B, C bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
-        "ms-MY": "Persediaan: 3 lawan 3, 1 kon, bola dengan 1.\nUrutan: Langkah 1: 1, 2, 3 bergerak ke hadapan, A, B, C bergerak ke belakang.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
-        "th-TH": "การจัด: 3 ต่อ 3 กรวย 1 อัน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2, 3 ขยับไปข้างหน้า A, B, C ขยับถอยหลัง\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
-        "vi-VN": "Bố trí: 3 đấu 3, 1 cọc, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2, 3 di chuyển lên phía trước, A, B, C di chuyển lùi lại.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
+        "en": "Setup: 3 v 3, 1 cones, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2, 3 moves up the board, A, B, C moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "en-GB": "Setup: 3 v 3, 1 cones, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2, 3 moves up the board, A, B, C moves back; Step 2: A plays it to 1.\nCoaching point: Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.",
+        "zh-CN": "【组织】3 对 3，1 个锥标，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2、3 向前移动，A、B、C 回撤移动；第2步：A 打向 1。\n【要点】三次触球，三个人，一个回合。把拦网去掉，进攻手就必须学会把球放到位置，而不是一味砸。",
+        "zh-TW": "【組織】3 對 3，1 個錐標，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2、3 向前移動，A、B、C 回撤移動；第2步：A 打向 1。\n【要點】三次觸球，三個人，一個回合。把攔網去掉，進攻手就必須學會把球放到位置，而不是一味砸。",
+        "ja-JP": "【準備】3対3、コーン1個、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1・2・3が前方へ移動、A・B・Cが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】3タッチ、3人、1本のラリー。ブロックを外せば、アタッカーは強く蹴るのではなく置くことを覚える。",
+        "ko-KR": "【준비】3대3, 콘 1개, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1, 2, 3는 앞으로 이동, A, B, C는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】세 번의 터치, 세 명, 한 랠리. 블록을 없애면 공격수는 때리는 대신 놓는 법을 배운다.",
+        "es-ES": "Montaje: 3 contra 3, 1 conos, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1, 2, 3 se desplaza hacia delante, A, B, C se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Tres toques, tres jugadores, un punto. Quita el bloqueo y los atacantes tendrán que colocar en vez de pegar.",
+        "fr-FR": "Mise en place : 3 contre 3, 1 plots, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1, 2, 3 se déplace vers l'avant, A, B, C se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Trois touches, trois joueurs, un échange. Supprime le contre et les attaquants apprennent à placer plutôt qu'à frapper.",
+        "id-ID": "Persiapan: 3 lawan 3, 1 kerucut, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1, 2, 3 bergerak ke depan, A, B, C bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu reli.",
+        "ms-MY": "Persediaan: 3 lawan 3, 1 kon, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1, 2, 3 bergerak ke hadapan, A, B, C bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Tiga sentuhan, tiga pemain, satu rali.",
+        "th-TH": "การจัด: 3 ต่อ 3 กรวย 1 อัน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1, 2, 3 ขยับไปข้างหน้า A, B, C ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: สามสัมผัส สามคน หนึ่งการโต้",
+        "vi-VN": "Bố trí: 3 đấu 3, 1 cọc, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1, 2, 3 di chuyển lên phía trước, A, B, C di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Ba chạm, ba người, một pha bóng."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -6045,15 +6321,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                419.820895522388,
+                582.4000000000001
+              ],
+              [
+                419.820895522388,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6086,18 +6374,18 @@
         "vi-VN": "Phòng thủ chắn bóng trước lưới"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: F moves back; Step 2: B moves up the board, S moves back; Step 3: C moves left.\nCoaching point: Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: F moves back; Step 2: B moves up the board, S moves back; Step 3: C moves left.\nCoaching point: Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：F 回撤移动；第2步：B 向前移动，S 回撤移动；第3步：C 向左移动。\n【要点】转身用肩或背去挡，不要用胸——胸挡会把球直接砸回自己半场。看他的髋起跳，不是看球起跳。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：F 回撤移動；第2步：B 向前移動，S 回撤移動；第3步：C 向左移動。\n【要點】轉身用肩或背去擋，不要用胸——胸擋會把球直接砸回自己半場。看他的髖起跳，不是看球起跳。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：Fが後方へ移動。ステップ2：Bが前方へ移動、Sが後方へ移動。ステップ3：Cが左へ移動。\n【ポイント】背を向けて肩か背中で受ける。胸は自陣に真下へ落ちるので使わない。跳ぶのはボールではなく相手の腰に対して。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: F는 뒤로 이동; 2단계: B는 앞으로 이동, S는 뒤로 이동; 3단계: C는 왼쪽으로 이동.\n【포인트】등을 돌려 어깨나 등으로 막아라. 가슴은 자기 코트로 그대로 떨어뜨린다. 공이 아니라 상대의 허리를 보고 뛰어라.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: F se desplaza hacia atrás; Paso 2: B se desplaza hacia delante, S se desplaza hacia atrás; Paso 3: C se desplaza a la izquierda.\nPunto clave: Gira la espalda y bloquea con el hombro o la espalda, no con el pecho, que la manda abajo en tu propio campo.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : F se déplace vers l'arrière ; Étape 2 : B se déplace vers l'avant, S se déplace vers l'arrière ; Étape 3 : C se déplace à gauche.\nPoint clé : Tourne le dos et bloque de l'épaule ou du dos, pas de la poitrine, qui la renvoie au sol dans ton camp.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke depan, S bergerak ke belakang; Langkah 3: C bergerak ke kiri.\nPoin utama: Putar punggung dan blok dengan bahu atau punggung, bukan dada.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: F bergerak ke belakang; Langkah 2: B bergerak ke hadapan, S bergerak ke belakang; Langkah 3: C bergerak ke kiri.\nPoin utama: Pusing belakang dan sekat dengan bahu atau belakang, bukan dada.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: F ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปข้างหน้า S ขยับถอยหลัง • ขั้นที่ 3: C ขยับไปทางซ้าย\nจุดเน้น: หันหลังแล้วบล็อกด้วยไหล่หรือหลัง ไม่ใช่หน้าอก",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: F di chuyển lùi lại; Bước 2: B di chuyển lên phía trước, S di chuyển lùi lại; Bước 3: C di chuyển sang trái.\nĐiểm chính: Xoay lưng và chắn bằng vai hoặc lưng, không phải bằng ngực."
+        "en": "Setup: 2 v 2.\nBall path: S → B\nSequence: Step 1: the ball is played to S, F moves back; Step 2: S plays it to B, B, S follows the pass; Step 3: C follows the pass.\nCoaching point: Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+        "en-GB": "Setup: 2 v 2.\nBall path: S → B\nSequence: Step 1: the ball is played to S, F moves back; Step 2: S plays it to B, B, S follows the pass; Step 3: C follows the pass.\nCoaching point: Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.",
+        "zh-CN": "【组织】2 对 2。\n【球路】S → B\n【流程】第1步：球传到 S，F 回撤移动；第2步：S 打向 B，B、S 跟进；第3步：C 跟进。\n【要点】转身用肩或背去挡，不要用胸——胸挡会把球直接砸回自己半场。看他的髋起跳，不是看球起跳。",
+        "zh-TW": "【組織】2 對 2。\n【球路】S → B\n【流程】第1步：球傳到 S，F 回撤移動；第2步：S 打向 B，B、S 跟進；第3步：C 跟進。\n【要點】轉身用肩或背去擋，不要用胸——胸擋會把球直接砸回自己半場。看他的髖起跳，不是看球起跳。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】S → B\n【流れ】ステップ1：ボールがSへ入る、Fが後方へ移動。ステップ2：SがBへ打つ、B・Sがパスを追って移動。ステップ3：Cがパスを追って移動。\n【ポイント】背を向けて肩か背中で受ける。胸は自陣に真下へ落ちるので使わない。跳ぶのはボールではなく相手の腰に対して。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】S → B\n【진행】1단계: 공이 S에게 온다, F는 뒤로 이동; 2단계: S가 B 쪽으로 친다, B, S는 패스를 따라간다; 3단계: C는 패스를 따라간다.\n【포인트】등을 돌려 어깨나 등으로 막아라. 가슴은 자기 코트로 그대로 떨어뜨린다. 공이 아니라 상대의 허리를 보고 뛰어라.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: S → B\nSecuencia: Paso 1: el balón llega a S, F se desplaza hacia atrás; Paso 2: S la juega hacia B, B, S sigue su pase; Paso 3: C sigue su pase.\nPunto clave: Gira la espalda y bloquea con el hombro o la espalda, no con el pecho, que la manda abajo en tu propio campo.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : S → B\nDéroulé : Étape 1 : le ballon arrive sur S, F se déplace vers l'arrière ; Étape 2 : S joue vers B, B, S suit sa passe ; Étape 3 : C suit sa passe.\nPoint clé : Tourne le dos et bloque de l'épaule ou du dos, pas de la poitrine, qui la renvoie au sol dans ton camp.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: S → B\nUrutan: Langkah 1: bola dimainkan ke S, F bergerak ke belakang; Langkah 2: S memukul ke B, B, S mengikuti operannya; Langkah 3: C mengikuti operannya.\nPoin utama: Putar punggung dan blok dengan bahu atau punggung, bukan dada.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: S → B\nUrutan: Langkah 1: bola dimainkan kepada S, F bergerak ke belakang; Langkah 2: S memukul ke arah B, B, S mengikut hantarannya; Langkah 3: C mengikut hantarannya.\nPoin utama: Pusing belakang dan sekat dengan bahu atau belakang, bukan dada.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: S → B\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ S F ขยับถอยหลัง • ขั้นที่ 2: S ตีไปที่ B B, S วิ่งตามบอล • ขั้นที่ 3: C วิ่งตามบอล\nจุดเน้น: หันหลังแล้วบล็อกด้วยไหล่หรือหลัง ไม่ใช่หน้าอก",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: S → B\nTrình tự: Bước 1: bóng được đưa tới S, F di chuyển lùi lại; Bước 2: S đánh sang B, B, S chạy theo đường chuyền; Bước 3: C chạy theo đường chuyền.\nĐiểm chính: Xoay lưng và chắn bằng vai hoặc lưng, không phải bằng ngực."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -6240,6 +6528,38 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 12,
+            "position": [
+              367.8029850746269,
+              565.2
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                484.0358208955224,
+                760.6
+              ],
+              [
+                460.0,
+                853.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
             "photoId": null,
             "role": null,
             "attachedTo": null

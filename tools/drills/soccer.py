@@ -345,7 +345,9 @@ def soccer_drills() -> list[Drill]:
                 P(500, 420, "6", moves=[(500, 330, 0)]),
                 P(300, 350, "5"), P(700, 350, "4"),
             ],
-            ball=None,
+                        # the back pass — the trigger the whole press jumps on
+            ball=(520, 430),
+            ball_to=[("a0", 0)],
             free=True,
         ),
         Drill(
@@ -374,7 +376,9 @@ def soccer_drills() -> list[Drill]:
                 P(380, 900, "9", moves=[(400, 720, 0)]),
                 P(620, 900, "10", moves=[(600, 760, 1)]),
             ],
-            ball=None,
+                        # their 9 carries at the recovering pair
+            ball=(400, 920),
+            ball_to=[("a0", 0), ("a1", 1)],
             free=True,
         ),
 
@@ -836,7 +840,9 @@ def soccer_drills() -> list[Drill]:
                 P(250, 800, "11"), P(500, 760, "10", moves=[(700, 780, 0)]),
                 P(800, 800, "7", moves=[(880, 760, 0)]),
             ],
-            ball=None,
+                        # their switch — each slide of the four answers it
+            ball=(280, 820),
+            ball_to=[("a1", 0), ("a2", 0)],
         ),
         Drill(
             id="defend_counter_press", category="defending", minutes=12,
@@ -867,7 +873,9 @@ def soccer_drills() -> list[Drill]:
                 P(520, 600, "5", moves=[(520, 520, 1)]),
                 P(700, 560, "2"), P(320, 560, "3"),
             ],
-            ball=None,
+                        # lost here a second ago; their 5 tries to play out
+            ball=(540, 620),
+            ball_to=[("a0", 1)],
         ),
 
         # ── set pieces ───────────────────────────────────────────────────────
@@ -1191,7 +1199,9 @@ def soccer_drills() -> list[Drill]:
             home=[P(820, 640, "3", moves=[(830, 760, 0), (860, 860, 1)])],
             away=[P(830, 950, "11", moves=[(840, 820, 0), (880, 700, 1)])],
             markers=[M(960, 560), M(960, 1040)],
-            ball=None,
+                        # their 11 runs the channel with it
+            ball=(850, 970),
+            ball_to=[("a0", 0), ("a0", 1)],
         ),
         Drill(
             id="setpiece_defend_corner", category="setpiece", minutes=10, tight=True,
@@ -1225,7 +1235,9 @@ def soccer_drills() -> list[Drill]:
                 P(560, 420, "10", moves=[(560, 300, 0)]),
             ],
             markers=[M(500, 120, "square", "")],
-            ball=None,
+                        # the corner comes in; the zone attacks it first
+            ball=(936, 148),
+            ball_to=[(3, 0), ((500, 700), 1)],
         ),
         Drill(
             id="ssg_5v5_two_touch", category="ssg", minutes=18,
@@ -1319,7 +1331,9 @@ def soccer_drills() -> list[Drill]:
             home=[P(500, 900, "9", moves=[(500, 1200, 0), (500, 560, 1), (500, 480, 2)])],
             away=[P(500, 200, "GK", role="GK", moves=[(430, 240, 2)])],
             markers=[M(500, 120, "square", ""), M(500, 480, "circle", "")],
-            ball=None,
+                        # the shuttle, then the walk-up, then the strike
+            ball=(460, 570),
+            ball_to=[((460, 60), 2)],
         ),
     ]
 

@@ -40,18 +40,18 @@
         "vi-VN": "Khởi động ném xa"
       },
       "note": {
-        "en": "Setup: 2 players, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "en-GB": "Setup: 2 players, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "zh-CN": "【组织】2 人，球在 1 脚下。\n【流程】第1步：1 向前移动，2 回撤移动。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
-        "zh-TW": "【組織】2 人，球在 1 腳下。\n【流程】第1步：1 向前移動，2 回撤移動。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
-        "ja-JP": "【準備】2人、ボールは1。\n【流れ】ステップ1：1が前方へ移動、2が後方へ移動。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
-        "ko-KR": "【준비】2명, 공은 1.\n【진행】1단계: 1는 앞으로 이동, 2는 뒤로 이동.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
-        "es-ES": "Montaje: 2 jugadores, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, 2 se desplaza hacia atrás.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
-        "fr-FR": "Mise en place : 2 joueurs, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, 2 se déplace vers l'arrière.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
-        "id-ID": "Persiapan: 2 pemain, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan, 2 bergerak ke belakang.\nPoin utama: Lempar ke target, lurus, setiap kali.",
-        "ms-MY": "Persediaan: 2 pemain, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, 2 bergerak ke belakang.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
-        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
-        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, 2 di chuyển lùi lại.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
+        "en": "Setup: 2 players, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2, 1 moves up the board, 2 moves back; Step 2: 2 throws to 1.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "en-GB": "Setup: 2 players, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2, 1 moves up the board, 2 moves back; Step 2: 2 throws to 1.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "zh-CN": "【组织】2 人，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 传给 2，1 向前移动，2 回撤移动；第2步：2 传给 1。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
+        "zh-TW": "【組織】2 人，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 傳給 2，1 向前移動，2 回撤移動；第2步：2 傳給 1。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
+        "ja-JP": "【準備】2人、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ送球、1が前方へ移動、2が後方へ移動。ステップ2：2が1へ送球。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
+        "ko-KR": "【준비】2명, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2에게 송구, 1는 앞으로 이동, 2는 뒤로 이동; 2단계: 2가 1에게 송구.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
+        "es-ES": "Montaje: 2 jugadores, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 lanza a 2, 1 se desplaza hacia delante, 2 se desplaza hacia atrás; Paso 2: 2 lanza a 1.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
+        "fr-FR": "Mise en place : 2 joueurs, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 lance à 2, 1 se déplace vers l'avant, 2 se déplace vers l'arrière ; Étape 2 : 2 lance à 1.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
+        "id-ID": "Persiapan: 2 pemain, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 melempar ke 2, 1 bergerak ke depan, 2 bergerak ke belakang; Langkah 2: 2 melempar ke 1.\nPoin utama: Lempar ke target, lurus, setiap kali.",
+        "ms-MY": "Persediaan: 2 pemain, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 membaling kepada 2, 1 bergerak ke hadapan, 2 bergerak ke belakang; Langkah 2: 2 membaling kepada 1.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
+        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง • ขั้นที่ 2: 2 ขว้างให้ 1\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
+        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 ném cho 2, 1 di chuyển lên phía trước, 2 di chuyển lùi lại; Bước 2: 2 ném cho 1.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -154,15 +154,27 @@
               1162.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                350.0,
+                820.0
+              ],
+              [
+                350.0,
+                1086.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -208,18 +220,18 @@
         "vi-VN": "Khởi động trong sân và ngoài sân"
       },
       "note": {
-        "en": "Setup: 8 players, ball with P.\nSequence: Step 1: the whole team moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "en-GB": "Setup: 8 players, ball with P.\nSequence: Step 1: the whole team moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "zh-CN": "【组织】8 人，球在 P 脚下。\n【流程】第1步：全队回撤压上。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
-        "zh-TW": "【組織】8 人，球在 P 腳下。\n【流程】第1步：全隊回撤壓上。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
-        "ja-JP": "【準備】8人、ボールはP。\n【流れ】ステップ1：チーム全体が後方へスライド。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
-        "ko-KR": "【준비】8명, 공은 P.\n【진행】1단계: 팀 전체가 뒤로 이동.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
-        "es-ES": "Montaje: 8 jugadores, balón con P.\nSecuencia: Paso 1: todo el equipo bascula hacia atrás.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
-        "fr-FR": "Mise en place : 8 joueurs, ballon avec P.\nDéroulé : Étape 1 : tout le bloc coulisse vers l'arrière.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
-        "id-ID": "Persiapan: 8 pemain, bola pada P.\nUrutan: Langkah 1: seluruh tim bergerak ke belakang.\nPoin utama: Lempar ke target, lurus, setiap kali.",
-        "ms-MY": "Persediaan: 8 pemain, bola dengan P.\nUrutan: Langkah 1: seluruh pasukan bergerak ke belakang.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
-        "th-TH": "การจัด: ผู้เล่น 8 คน บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: ทั้งทีมขยับถอยหลัง\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
-        "vi-VN": "Bố trí: 8 cầu thủ, bóng ở chỗ P.\nTrình tự: Bước 1: cả đội di chuyển lùi lại.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
+        "en": "Setup: 8 players, ball with P.\nBall path: P → SS → 1B\nSequence: Step 1: P throws to SS, the whole team moves back; Step 2: SS throws to 1B.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "en-GB": "Setup: 8 players, ball with P.\nBall path: P → SS → 1B\nSequence: Step 1: P throws to SS, the whole team moves back; Step 2: SS throws to 1B.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "zh-CN": "【组织】8 人，球在 P 脚下。\n【球路】P → SS → 1B\n【流程】第1步：P 传给 SS，全队回撤压上；第2步：SS 传给 1B。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
+        "zh-TW": "【組織】8 人，球在 P 腳下。\n【球路】P → SS → 1B\n【流程】第1步：P 傳給 SS，全隊回撤壓上；第2步：SS 傳給 1B。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
+        "ja-JP": "【準備】8人、ボールはP。\n【ボールの道筋】P → SS → 1B\n【流れ】ステップ1：PがSSへ送球、チーム全体が後方へスライド。ステップ2：SSが1Bへ送球。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
+        "ko-KR": "【준비】8명, 공은 P.\n【볼 경로】P → SS → 1B\n【진행】1단계: P가 SS에게 송구, 팀 전체가 뒤로 이동; 2단계: SS가 1B에게 송구.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
+        "es-ES": "Montaje: 8 jugadores, balón con P.\nRecorrido del balón: P → SS → 1B\nSecuencia: Paso 1: P lanza a SS, todo el equipo bascula hacia atrás; Paso 2: SS lanza a 1B.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
+        "fr-FR": "Mise en place : 8 joueurs, ballon avec P.\nTrajet du ballon : P → SS → 1B\nDéroulé : Étape 1 : P lance à SS, tout le bloc coulisse vers l'arrière ; Étape 2 : SS lance à 1B.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
+        "id-ID": "Persiapan: 8 pemain, bola pada P.\nJalur bola: P → SS → 1B\nUrutan: Langkah 1: P melempar ke SS, seluruh tim bergerak ke belakang; Langkah 2: SS melempar ke 1B.\nPoin utama: Lempar ke target, lurus, setiap kali.",
+        "ms-MY": "Persediaan: 8 pemain, bola dengan P.\nLaluan bola: P → SS → 1B\nUrutan: Langkah 1: P membaling kepada SS, seluruh pasukan bergerak ke belakang; Langkah 2: SS membaling kepada 1B.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
+        "th-TH": "การจัด: ผู้เล่น 8 คน บอลอยู่ที่ P\nเส้นทางบอล: P → SS → 1B\nลำดับ: ขั้นที่ 1: P ขว้างให้ SS ทั้งทีมขยับถอยหลัง • ขั้นที่ 2: SS ขว้างให้ 1B\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
+        "vi-VN": "Bố trí: 8 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → SS → 1B\nTrình tự: Bước 1: P ném cho SS, cả đội di chuyển lùi lại; Bước 2: SS ném cho 1B.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -484,15 +496,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                473.12,
+                981.5
+              ],
+              [
+                593.76,
+                1048.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -538,18 +562,18 @@
         "vi-VN": "Khởi động tập phòng thủ cho người ném"
       },
       "note": {
-        "en": "Setup: 2 players, ball with P.\nSequence: Step 1: P moves back; Step 2: 1B moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "en-GB": "Setup: 2 players, ball with P.\nSequence: Step 1: P moves back; Step 2: 1B moves back.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
-        "zh-CN": "【组织】2 人，球在 P 脚下。\n【流程】第1步：P 回撤移动；第2步：1B 回撤移动。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
-        "zh-TW": "【組織】2 人，球在 P 腳下。\n【流程】第1步：P 回撤移動；第2步：1B 回撤移動。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
-        "ja-JP": "【準備】2人、ボールはP。\n【流れ】ステップ1：Pが後方へ移動。ステップ2：1Bが後方へ移動。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
-        "ko-KR": "【준비】2명, 공은 P.\n【진행】1단계: P는 뒤로 이동; 2단계: 1B는 뒤로 이동.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
-        "es-ES": "Montaje: 2 jugadores, balón con P.\nSecuencia: Paso 1: P se desplaza hacia atrás; Paso 2: 1B se desplaza hacia atrás.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
-        "fr-FR": "Mise en place : 2 joueurs, ballon avec P.\nDéroulé : Étape 1 : P se déplace vers l'arrière ; Étape 2 : 1B se déplace vers l'arrière.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
-        "id-ID": "Persiapan: 2 pemain, bola pada P.\nUrutan: Langkah 1: P bergerak ke belakang; Langkah 2: 1B bergerak ke belakang.\nPoin utama: Lempar ke target, lurus, setiap kali.",
-        "ms-MY": "Persediaan: 2 pemain, bola dengan P.\nUrutan: Langkah 1: P bergerak ke belakang; Langkah 2: 1B bergerak ke belakang.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
-        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: P ขยับถอยหลัง • ขั้นที่ 2: 1B ขยับถอยหลัง\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
-        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ P.\nTrình tự: Bước 1: P di chuyển lùi lại; Bước 2: 1B di chuyển lùi lại.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
+        "en": "Setup: 2 players, ball with P.\nBall path: P → 1B → P\nSequence: Step 1: P throws to 1B, P moves back; Step 2: 1B throws to P, 1B follows the pass.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "en-GB": "Setup: 2 players, ball with P.\nBall path: P → 1B → P\nSequence: Step 1: P throws to 1B, P moves back; Step 2: 1B throws to P, 1B follows the pass.\nCoaching point: Throw to a target, on a line, every time. Arms warm up fine on lazy throws; footwork and accuracy do not.",
+        "zh-CN": "【组织】2 人，球在 P 脚下。\n【球路】P → 1B → P\n【流程】第1步：P 传给 1B，P 回撤移动；第2步：1B 传给 P，1B 跟进。\n【要点】每一次都传向目标，走直线。随便甩几下手臂也能热开，但脚下和准头热不开。",
+        "zh-TW": "【組織】2 人，球在 P 腳下。\n【球路】P → 1B → P\n【流程】第1步：P 傳給 1B，P 回撤移動；第2步：1B 傳給 P，1B 跟進。\n【要點】每一次都傳向目標，走直線。隨便甩幾下手臂也能熱開，但腳下和準頭熱不開。",
+        "ja-JP": "【準備】2人、ボールはP。\n【ボールの道筋】P → 1B → P\n【流れ】ステップ1：Pが1Bへ送球、Pが後方へ移動。ステップ2：1BがPへ送球、1Bがパスを追って移動。\n【ポイント】毎回、的に向かって一直線に投げる。肩は雑な送球でも温まるが、足の運びと精度は温まらない。",
+        "ko-KR": "【준비】2명, 공은 P.\n【볼 경로】P → 1B → P\n【진행】1단계: P가 1B에게 송구, P는 뒤로 이동; 2단계: 1B가 P에게 송구, 1B는 패스를 따라간다.\n【포인트】매번 목표를 향해 일직선으로 던져라. 팔은 대충 던져도 풀리지만 발과 정확도는 안 풀린다.",
+        "es-ES": "Montaje: 2 jugadores, balón con P.\nRecorrido del balón: P → 1B → P\nSecuencia: Paso 1: P lanza a 1B, P se desplaza hacia atrás; Paso 2: 1B lanza a P, 1B sigue su pase.\nPunto clave: Tira a un objetivo, en línea, siempre: el brazo se calienta con tiros flojos, los pies y la puntería no.",
+        "fr-FR": "Mise en place : 2 joueurs, ballon avec P.\nTrajet du ballon : P → 1B → P\nDéroulé : Étape 1 : P lance à 1B, P se déplace vers l'arrière ; Étape 2 : 1B lance à P, 1B suit sa passe.\nPoint clé : Vise une cible, à plat, à chaque fois : le bras se chauffe sur des lancers mous, pas les appuis ni la précision.",
+        "id-ID": "Persiapan: 2 pemain, bola pada P.\nJalur bola: P → 1B → P\nUrutan: Langkah 1: P melempar ke 1B, P bergerak ke belakang; Langkah 2: 1B melempar ke P, 1B mengikuti operannya.\nPoin utama: Lempar ke target, lurus, setiap kali.",
+        "ms-MY": "Persediaan: 2 pemain, bola dengan P.\nLaluan bola: P → 1B → P\nUrutan: Langkah 1: P membaling kepada 1B, P bergerak ke belakang; Langkah 2: 1B membaling kepada P, 1B mengikut hantarannya.\nPoin utama: Baling ke sasaran, lurus, setiap kali.",
+        "th-TH": "การจัด: ผู้เล่น 2 คน บอลอยู่ที่ P\nเส้นทางบอล: P → 1B → P\nลำดับ: ขั้นที่ 1: P ขว้างให้ 1B P ขยับถอยหลัง • ขั้นที่ 2: 1B ขว้างให้ P 1B วิ่งตามบอล\nจุดเน้น: ขว้างไปที่เป้าเป็นเส้นตรงทุกครั้ง",
+        "vi-VN": "Bố trí: 2 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → 1B → P\nTrình tự: Bước 1: P ném cho 1B, P di chuyển lùi lại; Bước 2: 1B ném cho P, 1B chạy theo đường chuyền.\nĐiểm chính: Ném vào mục tiêu, theo đường thẳng, mọi lần."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -657,15 +681,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                612.0,
+                1010.0
+              ],
+              [
+                574.0,
+                1048.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5544,18 +5580,18 @@
         "vi-VN": "Ghi điểm chạy khi chạm bóng"
       },
       "note": {
-        "en": "Setup: 2 v 7.\nSequence: Step 1: R, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "en-GB": "Setup: 2 v 7.\nSequence: Step 1: R, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "zh-CN": "【组织】2 对 7。\n【流程】第1步：R、B 向右移动。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
-        "zh-TW": "【組織】2 對 7。\n【流程】第1步：R、B 向右移動。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
-        "ja-JP": "【準備】2対7。\n【流れ】ステップ1：R・Bが右へ移動。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
-        "ko-KR": "【준비】2대7.\n【진행】1단계: R, B는 오른쪽으로 이동.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
-        "es-ES": "Montaje: 2 contra 7.\nSecuencia: Paso 1: R, B se desplaza a la derecha.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
-        "fr-FR": "Mise en place : 2 contre 7.\nDéroulé : Étape 1 : R, B se déplace à droite.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
-        "id-ID": "Persiapan: 2 lawan 7.\nUrutan: Langkah 1: R, B bergerak ke kanan.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
-        "ms-MY": "Persediaan: 2 lawan 7.\nUrutan: Langkah 1: R, B bergerak ke kanan.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
-        "th-TH": "การจัด: 2 ต่อ 7\nลำดับ: ขั้นที่ 1: R, B ขยับไปทางขวา\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
-        "vi-VN": "Bố trí: 2 đấu 7.\nTrình tự: Bước 1: R, B di chuyển sang phải.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
+        "en": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "en-GB": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "zh-CN": "【组织】2 对 7。\n【球路】C\n【流程】第1步：R、B 向右移动；第2步：球传到 C。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
+        "zh-TW": "【組織】2 對 7。\n【球路】C\n【流程】第1步：R、B 向右移動；第2步：球傳到 C。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
+        "ja-JP": "【準備】2対7。\n【ボールの道筋】C\n【流れ】ステップ1：R・Bが右へ移動。ステップ2：ボールがCへ入る。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
+        "ko-KR": "【준비】2대7.\n【볼 경로】C\n【진행】1단계: R, B는 오른쪽으로 이동; 2단계: 공이 C에게 온다.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
+        "es-ES": "Montaje: 2 contra 7.\nRecorrido del balón: C\nSecuencia: Paso 1: R, B se desplaza a la derecha; Paso 2: el balón llega a C.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
+        "fr-FR": "Mise en place : 2 contre 7.\nTrajet du ballon : C\nDéroulé : Étape 1 : R, B se déplace à droite ; Étape 2 : le ballon arrive sur C.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
+        "id-ID": "Persiapan: 2 lawan 7.\nJalur bola: C\nUrutan: Langkah 1: R, B bergerak ke kanan; Langkah 2: bola dimainkan ke C.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
+        "ms-MY": "Persediaan: 2 lawan 7.\nLaluan bola: C\nUrutan: Langkah 1: R, B bergerak ke kanan; Langkah 2: bola dimainkan kepada C.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
+        "th-TH": "การจัด: 2 ต่อ 7\nเส้นทางบอล: C\nลำดับ: ขั้นที่ 1: R, B ขยับไปทางขวา • ขั้นที่ 2: บอลถูกส่งมาที่ C\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
+        "vi-VN": "Bố trí: 2 đấu 7.\nĐường bóng: C\nTrình tự: Bước 1: R, B di chuyển sang phải; Bước 2: bóng được đưa tới C.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
       },
       "mistake": {
         "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
@@ -5808,8 +5844,15 @@
               845.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1135.9642857142858
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5862,18 +5905,18 @@
         "vi-VN": "Ghi điểm đánh nhẹ ép điểm"
       },
       "note": {
-        "en": "Setup: 2 v 7.\nSequence: Step 1: R, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "en-GB": "Setup: 2 v 7.\nSequence: Step 1: R, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "zh-CN": "【组织】2 对 7。\n【流程】第1步：R、B 向右移动。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
-        "zh-TW": "【組織】2 對 7。\n【流程】第1步：R、B 向右移動。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
-        "ja-JP": "【準備】2対7。\n【流れ】ステップ1：R・Bが右へ移動。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
-        "ko-KR": "【준비】2대7.\n【진행】1단계: R, B는 오른쪽으로 이동.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
-        "es-ES": "Montaje: 2 contra 7.\nSecuencia: Paso 1: R, B se desplaza a la derecha.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
-        "fr-FR": "Mise en place : 2 contre 7.\nDéroulé : Étape 1 : R, B se déplace à droite.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
-        "id-ID": "Persiapan: 2 lawan 7.\nUrutan: Langkah 1: R, B bergerak ke kanan.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
-        "ms-MY": "Persediaan: 2 lawan 7.\nUrutan: Langkah 1: R, B bergerak ke kanan.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
-        "th-TH": "การจัด: 2 ต่อ 7\nลำดับ: ขั้นที่ 1: R, B ขยับไปทางขวา\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
-        "vi-VN": "Bố trí: 2 đấu 7.\nTrình tự: Bước 1: R, B di chuyển sang phải.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
+        "en": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "en-GB": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "zh-CN": "【组织】2 对 7。\n【球路】C\n【流程】第1步：R、B 向右移动；第2步：球传到 C。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
+        "zh-TW": "【組織】2 對 7。\n【球路】C\n【流程】第1步：R、B 向右移動；第2步：球傳到 C。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
+        "ja-JP": "【準備】2対7。\n【ボールの道筋】C\n【流れ】ステップ1：R・Bが右へ移動。ステップ2：ボールがCへ入る。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
+        "ko-KR": "【준비】2대7.\n【볼 경로】C\n【진행】1단계: R, B는 오른쪽으로 이동; 2단계: 공이 C에게 온다.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
+        "es-ES": "Montaje: 2 contra 7.\nRecorrido del balón: C\nSecuencia: Paso 1: R, B se desplaza a la derecha; Paso 2: el balón llega a C.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
+        "fr-FR": "Mise en place : 2 contre 7.\nTrajet du ballon : C\nDéroulé : Étape 1 : R, B se déplace à droite ; Étape 2 : le ballon arrive sur C.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
+        "id-ID": "Persiapan: 2 lawan 7.\nJalur bola: C\nUrutan: Langkah 1: R, B bergerak ke kanan; Langkah 2: bola dimainkan ke C.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
+        "ms-MY": "Persediaan: 2 lawan 7.\nLaluan bola: C\nUrutan: Langkah 1: R, B bergerak ke kanan; Langkah 2: bola dimainkan kepada C.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
+        "th-TH": "การจัด: 2 ต่อ 7\nเส้นทางบอล: C\nลำดับ: ขั้นที่ 1: R, B ขยับไปทางขวา • ขั้นที่ 2: บอลถูกส่งมาที่ C\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
+        "vi-VN": "Bố trí: 2 đấu 7.\nĐường bóng: C\nTrình tự: Bước 1: R, B di chuyển sang phải; Bước 2: bóng được đưa tới C.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
       },
       "mistake": {
         "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
@@ -6126,8 +6169,15 @@
               1092.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1135.9642857142858
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6180,18 +6230,18 @@
         "vi-VN": "Ghi điểm ghi điểm từ chốt hai"
       },
       "note": {
-        "en": "Setup: 2 v 7.\nSequence: Step 1: R moves back, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "en-GB": "Setup: 2 v 7.\nSequence: Step 1: R moves back, B moves right.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
-        "zh-CN": "【组织】2 对 7。\n【流程】第1步：R 回撤移动，B 向右移动。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
-        "zh-TW": "【組織】2 對 7。\n【流程】第1步：R 回撤移動，B 向右移動。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
-        "ja-JP": "【準備】2対7。\n【流れ】ステップ1：Rが後方へ移動、Bが右へ移動。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
-        "ko-KR": "【준비】2대7.\n【진행】1단계: R는 뒤로 이동, B는 오른쪽으로 이동.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
-        "es-ES": "Montaje: 2 contra 7.\nSecuencia: Paso 1: R se desplaza hacia atrás, B se desplaza a la derecha.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
-        "fr-FR": "Mise en place : 2 contre 7.\nDéroulé : Étape 1 : R se déplace vers l'arrière, B se déplace à droite.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
-        "id-ID": "Persiapan: 2 lawan 7.\nUrutan: Langkah 1: R bergerak ke belakang, B bergerak ke kanan.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
-        "ms-MY": "Persediaan: 2 lawan 7.\nUrutan: Langkah 1: R bergerak ke belakang, B bergerak ke kanan.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
-        "th-TH": "การจัด: 2 ต่อ 7\nลำดับ: ขั้นที่ 1: R ขยับถอยหลัง B ขยับไปทางขวา\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
-        "vi-VN": "Bố trí: 2 đấu 7.\nTrình tự: Bước 1: R di chuyển lùi lại, B di chuyển sang phải.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
+        "en": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R moves back, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "en-GB": "Setup: 2 v 7.\nBall path: C\nSequence: Step 1: R moves back, B moves right; Step 2: the ball is played to C.\nCoaching point: Decide before the pitch whether you are going on contact. A runner who decides at the plate is a runner thrown out at the plate.",
+        "zh-CN": "【组织】2 对 7。\n【球路】C\n【流程】第1步：R 回撤移动，B 向右移动；第2步：球传到 C。\n【要点】投球之前就决定是不是击中就跑。到了本垒前才做决定的跑者，就是在本垒被传杀的跑者。",
+        "zh-TW": "【組織】2 對 7。\n【球路】C\n【流程】第1步：R 回撤移動，B 向右移動；第2步：球傳到 C。\n【要點】投球之前就決定是不是擊中就跑。到了本壘前才做決定的跑者，就是在本壘被傳殺的跑者。",
+        "ja-JP": "【準備】2対7。\n【ボールの道筋】C\n【流れ】ステップ1：Rが後方へ移動、Bが右へ移動。ステップ2：ボールがCへ入る。\n【ポイント】投球前に、打った瞬間に走るかどうかを決めておく。本塁手前で迷う走者は、本塁で刺される走者だ。",
+        "ko-KR": "【준비】2대7.\n【볼 경로】C\n【진행】1단계: R는 뒤로 이동, B는 오른쪽으로 이동; 2단계: 공이 C에게 온다.\n【포인트】투구 전에 접촉 시 뛸지 정하라. 홈 앞에서 정하는 주자는 홈에서 잡히는 주자다.",
+        "es-ES": "Montaje: 2 contra 7.\nRecorrido del balón: C\nSecuencia: Paso 1: R se desplaza hacia atrás, B se desplaza a la derecha; Paso 2: el balón llega a C.\nPunto clave: Decide antes del lanzamiento si sales con el contacto: quien lo decide en el plato es quien muere en el plato.",
+        "fr-FR": "Mise en place : 2 contre 7.\nTrajet du ballon : C\nDéroulé : Étape 1 : R se déplace vers l'arrière, B se déplace à droite ; Étape 2 : le ballon arrive sur C.\nPoint clé : Décide avant le lancer si tu pars au contact : celui qui décide au marbre est celui qu'on retire au marbre.",
+        "id-ID": "Persiapan: 2 lawan 7.\nJalur bola: C\nUrutan: Langkah 1: R bergerak ke belakang, B bergerak ke kanan; Langkah 2: bola dimainkan ke C.\nPoin utama: Putuskan sebelum lemparan apakah kamu lari saat kontak.",
+        "ms-MY": "Persediaan: 2 lawan 7.\nLaluan bola: C\nUrutan: Langkah 1: R bergerak ke belakang, B bergerak ke kanan; Langkah 2: bola dimainkan kepada C.\nPoin utama: Tentukan sebelum balingan sama ada anda lari ketika kontak.",
+        "th-TH": "การจัด: 2 ต่อ 7\nเส้นทางบอล: C\nลำดับ: ขั้นที่ 1: R ขยับถอยหลัง B ขยับไปทางขวา • ขั้นที่ 2: บอลถูกส่งมาที่ C\nจุดเน้น: ตัดสินใจก่อนขว้างว่าจะออกวิ่งเมื่อโดนบอลหรือไม่",
+        "vi-VN": "Bố trí: 2 đấu 7.\nĐường bóng: C\nTrình tự: Bước 1: R di chuyển lùi lại, B di chuyển sang phải; Bước 2: bóng được đưa tới C.\nĐiểm chính: Quyết định trước khi ném xem có chạy khi chạm bóng không."
       },
       "mistake": {
         "en": "Deciding at the plate — a runner who decides late is thrown out at home.",
@@ -6444,8 +6494,15 @@
               693.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1135.9642857142858
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6498,18 +6555,18 @@
         "vi-VN": "Phòng thủ theo tình huống chống bóng chạm nhẹ"
       },
       "note": {
-        "en": "Setup: 9 v 2, ball with P.\nSequence: Step 1: P, 1B, 2B, 3B moves back, SS moves right; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "en-GB": "Setup: 9 v 2, ball with P.\nSequence: Step 1: P, 1B, 2B, 3B moves back, SS moves right; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【流程】第1步：P、1B、2B、3B 回撤移动，SS 向右移动；第2步：B 向右移动，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
-        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【流程】第1步：P、1B、2B、3B 回撤移動，SS 向右移動；第2步：B 向右移動，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
-        "ja-JP": "【準備】9対2、ボールはP。\n【流れ】ステップ1：P・1B・2B・3Bが後方へ移動、SSが右へ移動。ステップ2：Bが右へ移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
-        "ko-KR": "【준비】9대2, 공은 P.\n【진행】1단계: P, 1B, 2B, 3B는 뒤로 이동, SS는 오른쪽으로 이동; 2단계: B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
-        "es-ES": "Montaje: 9 contra 2, balón con P.\nSecuencia: Paso 1: P, 1B, 2B, 3B se desplaza hacia atrás, SS se desplaza a la derecha; Paso 2: B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
-        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nDéroulé : Étape 1 : P, 1B, 2B, 3B se déplace vers l'arrière, SS se déplace à droite ; Étape 2 : B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
-        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nUrutan: Langkah 1: P, 1B, 2B, 3B bergerak ke belakang, SS bergerak ke kanan; Langkah 2: B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nUrutan: Langkah 1: P, 1B, 2B, 3B bergerak ke belakang, SS bergerak ke kanan; Langkah 2: B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
-        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: P, 1B, 2B, 3B ขยับถอยหลัง SS ขยับไปทางขวา • ขั้นที่ 2: B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
-        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nTrình tự: Bước 1: P, 1B, 2B, 3B di chuyển lùi lại, SS di chuyển sang phải; Bước 2: B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
+        "en": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, P, 1B, 2B, 3B moves back, SS moves right; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "en-GB": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, P, 1B, 2B, 3B moves back, SS moves right; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【球路】P → C → 1B\n【流程】第1步：P 传给 C，P、1B、2B、3B 回撤移动，SS 向右移动；第2步：C 传给 1B，B 跟进，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
+        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【球路】P → C → 1B\n【流程】第1步：P 傳給 C，P、1B、2B、3B 回撤移動，SS 向右移動；第2步：C 傳給 1B，B 跟進，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
+        "ja-JP": "【準備】9対2、ボールはP。\n【ボールの道筋】P → C → 1B\n【流れ】ステップ1：PがCへ送球、P・1B・2B・3Bが後方へ移動、SSが右へ移動。ステップ2：Cが1Bへ送球、Bがパスを追って移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
+        "ko-KR": "【준비】9대2, 공은 P.\n【볼 경로】P → C → 1B\n【진행】1단계: P가 C에게 송구, P, 1B, 2B, 3B는 뒤로 이동, SS는 오른쪽으로 이동; 2단계: C가 1B에게 송구, B는 패스를 따라간다, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
+        "es-ES": "Montaje: 9 contra 2, balón con P.\nRecorrido del balón: P → C → 1B\nSecuencia: Paso 1: P lanza a C, P, 1B, 2B, 3B se desplaza hacia atrás, SS se desplaza a la derecha; Paso 2: C lanza a 1B, B sigue su pase, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
+        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nTrajet du ballon : P → C → 1B\nDéroulé : Étape 1 : P lance à C, P, 1B, 2B, 3B se déplace vers l'arrière, SS se déplace à droite ; Étape 2 : C lance à 1B, B suit sa passe, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
+        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nJalur bola: P → C → 1B\nUrutan: Langkah 1: P melempar ke C, P, 1B, 2B, 3B bergerak ke belakang, SS bergerak ke kanan; Langkah 2: C melempar ke 1B, B mengikuti operannya, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nLaluan bola: P → C → 1B\nUrutan: Langkah 1: P membaling kepada C, P, 1B, 2B, 3B bergerak ke belakang, SS bergerak ke kanan; Langkah 2: C membaling kepada 1B, B mengikut hantarannya, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
+        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nเส้นทางบอล: P → C → 1B\nลำดับ: ขั้นที่ 1: P ขว้างให้ C P, 1B, 2B, 3B ขยับถอยหลัง SS ขยับไปทางขวา • ขั้นที่ 2: C ขว้างให้ 1B B วิ่งตามบอล R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
+        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nĐường bóng: P → C → 1B\nTrình tự: Bước 1: P ném cho C, P, 1B, 2B, 3B di chuyển lùi lại, SS di chuyển sang phải; Bước 2: C ném cho 1B, B chạy theo đường chuyền, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
       },
       "mistake": {
         "en": "Silence before the pitch — two fielders end up covering the same base.",
@@ -6887,15 +6944,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1147.0
+              ],
+              [
+                555.0,
+                1143.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6941,18 +7010,18 @@
         "vi-VN": "Phòng thủ theo tình huống có người ở chốt một và ba"
       },
       "note": {
-        "en": "Setup: 9 v 3, ball with P.\nSequence: Step 1: 2B moves left, SS moves back; Step 2: B, R moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "en-GB": "Setup: 9 v 3, ball with P.\nSequence: Step 1: 2B moves left, SS moves back; Step 2: B, R moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "zh-CN": "【组织】9 对 3，球在 P 脚下。\n【流程】第1步：2B 向左移动，SS 回撤移动；第2步：B、R 向右移动，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
-        "zh-TW": "【組織】9 對 3，球在 P 腳下。\n【流程】第1步：2B 向左移動，SS 回撤移動；第2步：B、R 向右移動，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
-        "ja-JP": "【準備】9対3、ボールはP。\n【流れ】ステップ1：2Bが左へ移動、SSが後方へ移動。ステップ2：B・Rが右へ移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
-        "ko-KR": "【준비】9대3, 공은 P.\n【진행】1단계: 2B는 왼쪽으로 이동, SS는 뒤로 이동; 2단계: B, R는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
-        "es-ES": "Montaje: 9 contra 3, balón con P.\nSecuencia: Paso 1: 2B se desplaza a la izquierda, SS se desplaza hacia atrás; Paso 2: B, R se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
-        "fr-FR": "Mise en place : 9 contre 3, ballon avec P.\nDéroulé : Étape 1 : 2B se déplace à gauche, SS se déplace vers l'arrière ; Étape 2 : B, R se déplace à droite, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
-        "id-ID": "Persiapan: 9 lawan 3, bola pada P.\nUrutan: Langkah 1: 2B bergerak ke kiri, SS bergerak ke belakang; Langkah 2: B, R bergerak ke kanan, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 3, bola dengan P.\nUrutan: Langkah 1: 2B bergerak ke kiri, SS bergerak ke belakang; Langkah 2: B, R bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
-        "th-TH": "การจัด: 9 ต่อ 3 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: 2B ขยับไปทางซ้าย SS ขยับถอยหลัง • ขั้นที่ 2: B, R ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
-        "vi-VN": "Bố trí: 9 đấu 3, bóng ở chỗ P.\nTrình tự: Bước 1: 2B di chuyển sang trái, SS di chuyển lùi lại; Bước 2: B, R di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
+        "en": "Setup: 9 v 3, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, 2B moves left, SS moves back; Step 2: C throws to 1B, B, R follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "en-GB": "Setup: 9 v 3, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, 2B moves left, SS moves back; Step 2: C throws to 1B, B, R follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "zh-CN": "【组织】9 对 3，球在 P 脚下。\n【球路】P → C → 1B\n【流程】第1步：P 传给 C，2B 向左移动，SS 回撤移动；第2步：C 传给 1B，B、R 跟进，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
+        "zh-TW": "【組織】9 對 3，球在 P 腳下。\n【球路】P → C → 1B\n【流程】第1步：P 傳給 C，2B 向左移動，SS 回撤移動；第2步：C 傳給 1B，B、R 跟進，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
+        "ja-JP": "【準備】9対3、ボールはP。\n【ボールの道筋】P → C → 1B\n【流れ】ステップ1：PがCへ送球、2Bが左へ移動、SSが後方へ移動。ステップ2：Cが1Bへ送球、B・Rがパスを追って移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
+        "ko-KR": "【준비】9대3, 공은 P.\n【볼 경로】P → C → 1B\n【진행】1단계: P가 C에게 송구, 2B는 왼쪽으로 이동, SS는 뒤로 이동; 2단계: C가 1B에게 송구, B, R는 패스를 따라간다, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
+        "es-ES": "Montaje: 9 contra 3, balón con P.\nRecorrido del balón: P → C → 1B\nSecuencia: Paso 1: P lanza a C, 2B se desplaza a la izquierda, SS se desplaza hacia atrás; Paso 2: C lanza a 1B, B, R sigue su pase, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
+        "fr-FR": "Mise en place : 9 contre 3, ballon avec P.\nTrajet du ballon : P → C → 1B\nDéroulé : Étape 1 : P lance à C, 2B se déplace à gauche, SS se déplace vers l'arrière ; Étape 2 : C lance à 1B, B, R suit sa passe, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
+        "id-ID": "Persiapan: 9 lawan 3, bola pada P.\nJalur bola: P → C → 1B\nUrutan: Langkah 1: P melempar ke C, 2B bergerak ke kiri, SS bergerak ke belakang; Langkah 2: C melempar ke 1B, B, R mengikuti operannya, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 3, bola dengan P.\nLaluan bola: P → C → 1B\nUrutan: Langkah 1: P membaling kepada C, 2B bergerak ke kiri, SS bergerak ke belakang; Langkah 2: C membaling kepada 1B, B, R mengikut hantarannya, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
+        "th-TH": "การจัด: 9 ต่อ 3 บอลอยู่ที่ P\nเส้นทางบอล: P → C → 1B\nลำดับ: ขั้นที่ 1: P ขว้างให้ C 2B ขยับไปทางซ้าย SS ขยับถอยหลัง • ขั้นที่ 2: C ขว้างให้ 1B B, R วิ่งตามบอล R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
+        "vi-VN": "Bố trí: 9 đấu 3, bóng ở chỗ P.\nĐường bóng: P → C → 1B\nTrình tự: Bước 1: P ném cho C, 2B di chuyển sang trái, SS di chuyển lùi lại; Bước 2: C ném cho 1B, B, R chạy theo đường chuyền, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
       },
       "mistake": {
         "en": "Silence before the pitch — two fielders end up covering the same base.",
@@ -7336,15 +7405,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1147.0
+              ],
+              [
+                612.806635660404,
+                988.8040784044857
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -7390,18 +7471,18 @@
         "vi-VN": "Phòng thủ theo tình huống hàng trong dâng lên"
       },
       "note": {
-        "en": "Setup: 9 v 2, ball with P.\nSequence: Step 1: 1B, 2B, SS, 3B moves back; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "en-GB": "Setup: 9 v 2, ball with P.\nSequence: Step 1: 1B, 2B, SS, 3B moves back; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【流程】第1步：1B、2B、SS、3B 回撤移动；第2步：B 向右移动，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
-        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【流程】第1步：1B、2B、SS、3B 回撤移動；第2步：B 向右移動，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
-        "ja-JP": "【準備】9対2、ボールはP。\n【流れ】ステップ1：1B・2B・SS・3Bが後方へ移動。ステップ2：Bが右へ移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
-        "ko-KR": "【준비】9대2, 공은 P.\n【진행】1단계: 1B, 2B, SS, 3B는 뒤로 이동; 2단계: B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
-        "es-ES": "Montaje: 9 contra 2, balón con P.\nSecuencia: Paso 1: 1B, 2B, SS, 3B se desplaza hacia atrás; Paso 2: B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
-        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nDéroulé : Étape 1 : 1B, 2B, SS, 3B se déplace vers l'arrière ; Étape 2 : B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
-        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nUrutan: Langkah 1: 1B, 2B, SS, 3B bergerak ke belakang; Langkah 2: B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nUrutan: Langkah 1: 1B, 2B, SS, 3B bergerak ke belakang; Langkah 2: B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
-        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: 1B, 2B, SS, 3B ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
-        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nTrình tự: Bước 1: 1B, 2B, SS, 3B di chuyển lùi lại; Bước 2: B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
+        "en": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, 1B, 2B, SS, 3B moves back; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "en-GB": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, 1B, 2B, SS, 3B moves back; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【球路】P → C → 1B\n【流程】第1步：P 传给 C，1B、2B、SS、3B 回撤移动；第2步：C 传给 1B，B 跟进，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
+        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【球路】P → C → 1B\n【流程】第1步：P 傳給 C，1B、2B、SS、3B 回撤移動；第2步：C 傳給 1B，B 跟進，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
+        "ja-JP": "【準備】9対2、ボールはP。\n【ボールの道筋】P → C → 1B\n【流れ】ステップ1：PがCへ送球、1B・2B・SS・3Bが後方へ移動。ステップ2：Cが1Bへ送球、Bがパスを追って移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
+        "ko-KR": "【준비】9대2, 공은 P.\n【볼 경로】P → C → 1B\n【진행】1단계: P가 C에게 송구, 1B, 2B, SS, 3B는 뒤로 이동; 2단계: C가 1B에게 송구, B는 패스를 따라간다, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
+        "es-ES": "Montaje: 9 contra 2, balón con P.\nRecorrido del balón: P → C → 1B\nSecuencia: Paso 1: P lanza a C, 1B, 2B, SS, 3B se desplaza hacia atrás; Paso 2: C lanza a 1B, B sigue su pase, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
+        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nTrajet du ballon : P → C → 1B\nDéroulé : Étape 1 : P lance à C, 1B, 2B, SS, 3B se déplace vers l'arrière ; Étape 2 : C lance à 1B, B suit sa passe, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
+        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nJalur bola: P → C → 1B\nUrutan: Langkah 1: P melempar ke C, 1B, 2B, SS, 3B bergerak ke belakang; Langkah 2: C melempar ke 1B, B mengikuti operannya, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nLaluan bola: P → C → 1B\nUrutan: Langkah 1: P membaling kepada C, 1B, 2B, SS, 3B bergerak ke belakang; Langkah 2: C membaling kepada 1B, B mengikut hantarannya, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
+        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nเส้นทางบอล: P → C → 1B\nลำดับ: ขั้นที่ 1: P ขว้างให้ C 1B, 2B, SS, 3B ขยับถอยหลัง • ขั้นที่ 2: C ขว้างให้ 1B B วิ่งตามบอล R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
+        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nĐường bóng: P → C → 1B\nTrình tự: Bước 1: P ném cho C, 1B, 2B, SS, 3B di chuyển lùi lại; Bước 2: C ném cho 1B, B chạy theo đường chuyền, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
       },
       "mistake": {
         "en": "Silence before the pitch — two fielders end up covering the same base.",
@@ -7772,15 +7853,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1147.0
+              ],
+              [
+                574.0,
+                1086.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -7826,18 +7919,18 @@
         "vi-VN": "Phòng thủ theo tình huống quyền ưu tiên bóng bổng"
       },
       "note": {
-        "en": "Setup: 9 v 2, ball with P.\nSequence: Step 1: SS moves up the board, CF moves back; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "en-GB": "Setup: 9 v 2, ball with P.\nSequence: Step 1: SS moves up the board, CF moves back; Step 2: B moves right, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
-        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【流程】第1步：SS 向前移动，CF 回撤移动；第2步：B 向右移动，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
-        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【流程】第1步：SS 向前移動，CF 回撤移動；第2步：B 向右移動，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
-        "ja-JP": "【準備】9対2、ボールはP。\n【流れ】ステップ1：SSが前方へ移動、CFが後方へ移動。ステップ2：Bが右へ移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
-        "ko-KR": "【준비】9대2, 공은 P.\n【진행】1단계: SS는 앞으로 이동, CF는 뒤로 이동; 2단계: B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
-        "es-ES": "Montaje: 9 contra 2, balón con P.\nSecuencia: Paso 1: SS se desplaza hacia delante, CF se desplaza hacia atrás; Paso 2: B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
-        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nDéroulé : Étape 1 : SS se déplace vers l'avant, CF se déplace vers l'arrière ; Étape 2 : B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
-        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nUrutan: Langkah 1: SS bergerak ke depan, CF bergerak ke belakang; Langkah 2: B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nUrutan: Langkah 1: SS bergerak ke hadapan, CF bergerak ke belakang; Langkah 2: B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
-        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: SS ขยับไปข้างหน้า CF ขยับถอยหลัง • ขั้นที่ 2: B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
-        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nTrình tự: Bước 1: SS di chuyển lên phía trước, CF di chuyển lùi lại; Bước 2: B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
+        "en": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, SS moves up the board, CF moves back; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "en-GB": "Setup: 9 v 2, ball with P.\nBall path: P → C → 1B\nSequence: Step 1: P throws to C, SS moves up the board, CF moves back; Step 2: C throws to 1B, B follows the pass, R moves up the board.\nCoaching point: Say the play out loud before the pitch — every fielder, every time. Silence is how two players end up covering the same base.",
+        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【球路】P → C → 1B\n【流程】第1步：P 传给 C，SS 向前移动，CF 回撤移动；第2步：C 传给 1B，B 跟进，R 向前移动。\n【要点】投球之前把这一球怎么防说出来——每个野手，每一次。不说话，就会出现两个人守同一个垒。",
+        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【球路】P → C → 1B\n【流程】第1步：P 傳給 C，SS 向前移動，CF 回撤移動；第2步：C 傳給 1B，B 跟進，R 向前移動。\n【要點】投球之前把這一球怎麼防說出來——每個野手，每一次。不說話，就會出現兩個人守同一個壘。",
+        "ja-JP": "【準備】9対2、ボールはP。\n【ボールの道筋】P → C → 1B\n【流れ】ステップ1：PがCへ送球、SSが前方へ移動、CFが後方へ移動。ステップ2：Cが1Bへ送球、Bがパスを追って移動、Rが前方へ移動。\n【ポイント】投球前に、どう守るかを声に出す。全員、毎回。黙っているから二人が同じベースに入る。",
+        "ko-KR": "【준비】9대2, 공은 P.\n【볼 경로】P → C → 1B\n【진행】1단계: P가 C에게 송구, SS는 앞으로 이동, CF는 뒤로 이동; 2단계: C가 1B에게 송구, B는 패스를 따라간다, R는 앞으로 이동.\n【포인트】투구 전에 어떻게 수비할지 소리 내어 말하라. 침묵은 두 사람이 같은 베이스를 덮게 만든다.",
+        "es-ES": "Montaje: 9 contra 2, balón con P.\nRecorrido del balón: P → C → 1B\nSecuencia: Paso 1: P lanza a C, SS se desplaza hacia delante, CF se desplaza hacia atrás; Paso 2: C lanza a 1B, B sigue su pase, R se desplaza hacia delante.\nPunto clave: Di la jugada en voz alta antes del lanzamiento, todos y siempre: el silencio hace que dos cubran la misma base.",
+        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nTrajet du ballon : P → C → 1B\nDéroulé : Étape 1 : P lance à C, SS se déplace vers l'avant, CF se déplace vers l'arrière ; Étape 2 : C lance à 1B, B suit sa passe, R se déplace vers l'avant.\nPoint clé : Annonce l'action à voix haute avant le lancer, chacun, à chaque fois : le silence, c'est deux joueurs sur le même but.",
+        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nJalur bola: P → C → 1B\nUrutan: Langkah 1: P melempar ke C, SS bergerak ke depan, CF bergerak ke belakang; Langkah 2: C melempar ke 1B, B mengikuti operannya, R bergerak ke depan.\nPoin utama: Sebutkan rencananya dengan lantang sebelum lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nLaluan bola: P → C → 1B\nUrutan: Langkah 1: P membaling kepada C, SS bergerak ke hadapan, CF bergerak ke belakang; Langkah 2: C membaling kepada 1B, B mengikut hantarannya, R bergerak ke hadapan.\nPoin utama: Sebutkan rancangannya dengan kuat sebelum balingan.",
+        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nเส้นทางบอล: P → C → 1B\nลำดับ: ขั้นที่ 1: P ขว้างให้ C SS ขยับไปข้างหน้า CF ขยับถอยหลัง • ขั้นที่ 2: C ขว้างให้ 1B B วิ่งตามบอล R ขยับไปข้างหน้า\nจุดเน้น: พูดแผนออกมาดัง ๆ ก่อนขว้างทุกครั้ง",
+        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nĐường bóng: P → C → 1B\nTrình tự: Bước 1: P ném cho C, SS di chuyển lên phía trước, CF di chuyển lùi lại; Bước 2: C ném cho 1B, B chạy theo đường chuyền, R di chuyển lên phía trước.\nĐiểm chính: Nói to phương án trước mỗi quả ném."
       },
       "mistake": {
         "en": "Silence before the pitch — two fielders end up covering the same base.",
@@ -8194,15 +8287,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                1147.0
+              ],
+              [
+                612.806635660404,
+                988.8040784044857
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -9787,18 +9892,18 @@
         "vi-VN": "Đấu tập theo tình huống hai loại, người chạy ở chốt hai"
       },
       "note": {
-        "en": "Setup: 9 v 2, ball with P.\nSequence: Step 1: B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "en-GB": "Setup: 9 v 2, ball with P.\nSequence: Step 1: B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【流程】第1步：B 向右移动，R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
-        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【流程】第1步：B 向右移動，R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
-        "ja-JP": "【準備】9対2、ボールはP。\n【流れ】ステップ1：Bが右へ移動、Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
-        "ko-KR": "【준비】9대2, 공은 P.\n【진행】1단계: B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
-        "es-ES": "Montaje: 9 contra 2, balón con P.\nSecuencia: Paso 1: B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
-        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nDéroulé : Étape 1 : B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
-        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nUrutan: Langkah 1: B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nUrutan: Langkah 1: B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
-        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
-        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nTrình tự: Bước 1: B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
+        "en": "Setup: 9 v 2, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "en-GB": "Setup: 9 v 2, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【球路】P → 球门 → P\n【流程】第1步：P 射门；第2步：球传到 P，B 向右移动，R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
+        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【球路】P → 球門 → P\n【流程】第1步：P 射門；第2步：球傳到 P，B 向右移動，R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
+        "ja-JP": "【準備】9対2、ボールはP。\n【ボールの道筋】P → ゴール → P\n【流れ】ステップ1：Pがシュート。ステップ2：ボールがPへ入る、Bが右へ移動、Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
+        "ko-KR": "【준비】9대2, 공은 P.\n【볼 경로】P → 골문 → P\n【진행】1단계: P 슛; 2단계: 공이 P에게 온다, B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
+        "es-ES": "Montaje: 9 contra 2, balón con P.\nRecorrido del balón: P → portería → P\nSecuencia: Paso 1: P remata; Paso 2: el balón llega a P, B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
+        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nTrajet du ballon : P → but → P\nDéroulé : Étape 1 : P frappe ; Étape 2 : le ballon arrive sur P, B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
+        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nJalur bola: P → gawang → P\nUrutan: Langkah 1: P menembak; Langkah 2: bola dimainkan ke P, B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nLaluan bola: P → gol → P\nUrutan: Langkah 1: P menjaring; Langkah 2: bola dimainkan kepada P, B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
+        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nเส้นทางบอล: P → ประตู → P\nลำดับ: ขั้นที่ 1: P ยิงประตู • ขั้นที่ 2: บอลถูกส่งมาที่ P B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
+        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nĐường bóng: P → khung thành → P\nTrình tự: Bước 1: P dứt điểm; Bước 2: bóng được đưa tới P, B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
       },
       "mistake": {
         "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
@@ -10014,7 +10119,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -10041,7 +10146,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -10141,15 +10246,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                474985.0,
+                1121205.0
+              ],
+              [
+                460.0,
+                1086.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -10195,18 +10312,18 @@
         "vi-VN": "Đấu tập theo tình huống đầy chốt"
       },
       "note": {
-        "en": "Setup: 9 v 4, ball with P.\nSequence: Step 1: B moves right, R, R, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "en-GB": "Setup: 9 v 4, ball with P.\nSequence: Step 1: B moves right, R, R, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "zh-CN": "【组织】9 对 4，球在 P 脚下。\n【流程】第1步：B 向右移动，R、R、R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
-        "zh-TW": "【組織】9 對 4，球在 P 腳下。\n【流程】第1步：B 向右移動，R、R、R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
-        "ja-JP": "【準備】9対4、ボールはP。\n【流れ】ステップ1：Bが右へ移動、R・R・Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
-        "ko-KR": "【준비】9대4, 공은 P.\n【진행】1단계: B는 오른쪽으로 이동, R, R, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
-        "es-ES": "Montaje: 9 contra 4, balón con P.\nSecuencia: Paso 1: B se desplaza a la derecha, R, R, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
-        "fr-FR": "Mise en place : 9 contre 4, ballon avec P.\nDéroulé : Étape 1 : B se déplace à droite, R, R, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
-        "id-ID": "Persiapan: 9 lawan 4, bola pada P.\nUrutan: Langkah 1: B bergerak ke kanan, R, R, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 4, bola dengan P.\nUrutan: Langkah 1: B bergerak ke kanan, R, R, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
-        "th-TH": "การจัด: 9 ต่อ 4 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: B ขยับไปทางขวา R, R, R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
-        "vi-VN": "Bố trí: 9 đấu 4, bóng ở chỗ P.\nTrình tự: Bước 1: B di chuyển sang phải, R, R, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
+        "en": "Setup: 9 v 4, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R, R, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "en-GB": "Setup: 9 v 4, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R, R, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "zh-CN": "【组织】9 对 4，球在 P 脚下。\n【球路】P → 球门 → P\n【流程】第1步：P 射门；第2步：球传到 P，B 向右移动，R、R、R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
+        "zh-TW": "【組織】9 對 4，球在 P 腳下。\n【球路】P → 球門 → P\n【流程】第1步：P 射門；第2步：球傳到 P，B 向右移動，R、R、R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
+        "ja-JP": "【準備】9対4、ボールはP。\n【ボールの道筋】P → ゴール → P\n【流れ】ステップ1：Pがシュート。ステップ2：ボールがPへ入る、Bが右へ移動、R・R・Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
+        "ko-KR": "【준비】9대4, 공은 P.\n【볼 경로】P → 골문 → P\n【진행】1단계: P 슛; 2단계: 공이 P에게 온다, B는 오른쪽으로 이동, R, R, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
+        "es-ES": "Montaje: 9 contra 4, balón con P.\nRecorrido del balón: P → portería → P\nSecuencia: Paso 1: P remata; Paso 2: el balón llega a P, B se desplaza a la derecha, R, R, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
+        "fr-FR": "Mise en place : 9 contre 4, ballon avec P.\nTrajet du ballon : P → but → P\nDéroulé : Étape 1 : P frappe ; Étape 2 : le ballon arrive sur P, B se déplace à droite, R, R, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
+        "id-ID": "Persiapan: 9 lawan 4, bola pada P.\nJalur bola: P → gawang → P\nUrutan: Langkah 1: P menembak; Langkah 2: bola dimainkan ke P, B bergerak ke kanan, R, R, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 4, bola dengan P.\nLaluan bola: P → gol → P\nUrutan: Langkah 1: P menjaring; Langkah 2: bola dimainkan kepada P, B bergerak ke kanan, R, R, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
+        "th-TH": "การจัด: 9 ต่อ 4 บอลอยู่ที่ P\nเส้นทางบอล: P → ประตู → P\nลำดับ: ขั้นที่ 1: P ยิงประตู • ขั้นที่ 2: บอลถูกส่งมาที่ P B ขยับไปทางขวา R, R, R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
+        "vi-VN": "Bố trí: 9 đấu 4, bóng ở chỗ P.\nĐường bóng: P → khung thành → P\nTrình tự: Bước 1: P dứt điểm; Bước 2: bóng được đưa tới P, B di chuyển sang phải, R, R, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
       },
       "mistake": {
         "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
@@ -10422,7 +10539,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -10449,7 +10566,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -10476,7 +10593,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294956864,
             "customColor": null,
@@ -10503,7 +10620,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4293558524,
             "customColor": null,
@@ -10603,15 +10720,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                474985.0,
+                1121205.0
+              ],
+              [
+                460.0,
+                1086.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -10657,18 +10786,18 @@
         "vi-VN": "Đấu tập theo tình huống trò chơi chạy chốt"
       },
       "note": {
-        "en": "Setup: 9 v 2, ball with P.\nSequence: Step 1: B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "en-GB": "Setup: 9 v 2, ball with P.\nSequence: Step 1: B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
-        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【流程】第1步：B 向右移动，R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
-        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【流程】第1步：B 向右移動，R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
-        "ja-JP": "【準備】9対2、ボールはP。\n【流れ】ステップ1：Bが右へ移動、Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
-        "ko-KR": "【준비】9대2, 공은 P.\n【진행】1단계: B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
-        "es-ES": "Montaje: 9 contra 2, balón con P.\nSecuencia: Paso 1: B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
-        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nDéroulé : Étape 1 : B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
-        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nUrutan: Langkah 1: B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
-        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nUrutan: Langkah 1: B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
-        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nลำดับ: ขั้นที่ 1: B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
-        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nTrình tự: Bước 1: B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
+        "en": "Setup: 9 v 2, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "en-GB": "Setup: 9 v 2, ball with P.\nBall path: P → goal → P\nSequence: Step 1: P shoots; Step 2: the ball is played to P, B moves right, R moves up the board.\nCoaching point: Set the count and the outs before every pitch. Baseball practice without a situation is nine people watching one person hit.",
+        "zh-CN": "【组织】9 对 2，球在 P 脚下。\n【球路】P → 球门 → P\n【流程】第1步：P 射门；第2步：球传到 P，B 向右移动，R 向前移动。\n【要点】每一球之前先设定好球数和出局数。没有情境的棒球训练，就是九个人看一个人打击。",
+        "zh-TW": "【組織】9 對 2，球在 P 腳下。\n【球路】P → 球門 → P\n【流程】第1步：P 射門；第2步：球傳到 P，B 向右移動，R 向前移動。\n【要點】每一球之前先設定好球數和出局數。沒有情境的棒球訓練，就是九個人看一個人打擊。",
+        "ja-JP": "【準備】9対2、ボールはP。\n【ボールの道筋】P → ゴール → P\n【流れ】ステップ1：Pがシュート。ステップ2：ボールがPへ入る、Bが右へ移動、Rが前方へ移動。\n【ポイント】毎球、カウントとアウト数を設定する。状況のない練習は、9人が1人の打撃を眺めているだけだ。",
+        "ko-KR": "【준비】9대2, 공은 P.\n【볼 경로】P → 골문 → P\n【진행】1단계: P 슛; 2단계: 공이 P에게 온다, B는 오른쪽으로 이동, R는 앞으로 이동.\n【포인트】매 투구 전에 볼카운트와 아웃카운트를 정하라. 상황 없는 연습은 아홉 명이 한 명 치는 걸 구경하는 것이다.",
+        "es-ES": "Montaje: 9 contra 2, balón con P.\nRecorrido del balón: P → portería → P\nSecuencia: Paso 1: P remata; Paso 2: el balón llega a P, B se desplaza a la derecha, R se desplaza hacia delante.\nPunto clave: Fija la cuenta y los outs antes de cada lanzamiento: un entrenamiento sin situación son nueve mirando a uno batear.",
+        "fr-FR": "Mise en place : 9 contre 2, ballon avec P.\nTrajet du ballon : P → but → P\nDéroulé : Étape 1 : P frappe ; Étape 2 : le ballon arrive sur P, B se déplace à droite, R se déplace vers l'avant.\nPoint clé : Fixe le compte et les retraits avant chaque lancer : un entraînement sans situation, c'est neuf joueurs qui en regardent un frapper.",
+        "id-ID": "Persiapan: 9 lawan 2, bola pada P.\nJalur bola: P → gawang → P\nUrutan: Langkah 1: P menembak; Langkah 2: bola dimainkan ke P, B bergerak ke kanan, R bergerak ke depan.\nPoin utama: Tetapkan count dan out sebelum setiap lemparan.",
+        "ms-MY": "Persediaan: 9 lawan 2, bola dengan P.\nLaluan bola: P → gol → P\nUrutan: Langkah 1: P menjaring; Langkah 2: bola dimainkan kepada P, B bergerak ke kanan, R bergerak ke hadapan.\nPoin utama: Tetapkan count dan out sebelum setiap balingan.",
+        "th-TH": "การจัด: 9 ต่อ 2 บอลอยู่ที่ P\nเส้นทางบอล: P → ประตู → P\nลำดับ: ขั้นที่ 1: P ยิงประตู • ขั้นที่ 2: บอลถูกส่งมาที่ P B ขยับไปทางขวา R ขยับไปข้างหน้า\nจุดเน้น: กำหนดเคานต์และจำนวนเอาต์ก่อนทุกลูกขว้าง",
+        "vi-VN": "Bố trí: 9 đấu 2, bóng ở chỗ P.\nĐường bóng: P → khung thành → P\nTrình tự: Bước 1: P dứt điểm; Bước 2: bóng được đưa tới P, B di chuyển sang phải, R di chuyển lên phía trước.\nĐiểm chính: Đặt số bóng và số loại trước mỗi quả ném."
       },
       "mistake": {
         "en": "Playing with no count and no outs set — practice without a situation is nine watching one.",
@@ -10884,7 +11013,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -10911,7 +11040,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -11011,15 +11140,27 @@
               1086.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                474985.0,
+                1121205.0
+              ],
+              [
+                460.0,
+                1086.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
