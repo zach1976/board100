@@ -108,7 +108,7 @@ PASS = {
 # "pass" for a shuttle or a spiked ball.
 HIT = {
     "en": "{a} plays it to {b}", "en-GB": "{a} plays it to {b}",
-    "zh-CN": "{a} 打向 {b}", "zh-TW": "{a} 打向 {b}",
+    "zh-CN": "{a}把球击向{b}", "zh-TW": "{a}把球擊向{b}",
     "ja-JP": "{a}が{b}へ打つ", "ko-KR": "{a}가 {b} 쪽으로 친다",
     "es-ES": "{a} la juega hacia {b}", "fr-FR": "{a} joue vers {b}",
     "id-ID": "{a} memukul ke {b}", "ms-MY": "{a} memukul ke arah {b}",
@@ -116,7 +116,7 @@ HIT = {
 }
 THROW = {
     "en": "{a} throws to {b}", "en-GB": "{a} throws to {b}",
-    "zh-CN": "{a} 传给 {b}", "zh-TW": "{a} 傳給 {b}",
+    "zh-CN": "{a}传给{b}", "zh-TW": "{a}傳給{b}",
     "ja-JP": "{a}が{b}へ送球", "ko-KR": "{a}가 {b}에게 송구",
     "es-ES": "{a} lanza a {b}", "fr-FR": "{a} lance à {b}",
     "id-ID": "{a} melempar ke {b}", "ms-MY": "{a} membaling kepada {b}",
@@ -171,18 +171,29 @@ SPOT_WORD = {
     "id-ID": "titik kosong", "ms-MY": "ruang kosong",
     "th-TH": "จุดว่าง", "vi-VN": "vị trí trống",
 }
+# A shot at a goal — soccer/hockey/handball/water polo.
 SHOOT = {
     "en": "{a} shoots", "en-GB": "{a} shoots",
-    "zh-CN": "{a}起脚射门", "zh-TW": "{a}起腳射門",
+    "zh-CN": "{a}射门", "zh-TW": "{a}射門",
     "ja-JP": "{a}がシュート", "ko-KR": "{a} 슛",
     "es-ES": "{a} remata", "fr-FR": "{a} frappe",
     "id-ID": "{a} menembak", "ms-MY": "{a} menjaring",
     "th-TH": "{a} ยิงประตู", "vi-VN": "{a} dứt điểm",
 }
+# Basketball puts up a shot at the basket, not a 射门 at a goal — the word a
+# basketball coach uses is different in most languages.
+SHOOT_HOOP = {
+    "en": "{a} puts up the shot", "en-GB": "{a} puts up the shot",
+    "zh-CN": "{a}投篮", "zh-TW": "{a}投籃",
+    "ja-JP": "{a}がシュートを放つ", "ko-KR": "{a} 슛을 던진다",
+    "es-ES": "{a} lanza a canasta", "fr-FR": "{a} tire au panier",
+    "id-ID": "{a} melepaskan tembakan", "ms-MY": "{a} melepaskan jaringan",
+    "th-TH": "{a} ยิงเข้าห่วง", "vi-VN": "{a} ném rổ",
+}
 # The whole side moving the same way is one idea, not ten subjects.
 ALL_MOVE = {
     "en": "the whole team moves {dir}", "en-GB": "the whole team moves {dir}",
-    "zh-CN": "全队{dir}压上", "zh-TW": "全隊{dir}壓上",
+    "zh-CN": "全队整体{dir}移动", "zh-TW": "全隊整體{dir}移動",
     "ja-JP": "チーム全体が{dir}へスライド", "ko-KR": "팀 전체가 {dir} 이동",
     "es-ES": "todo el equipo bascula {dir}", "fr-FR": "tout le bloc coulisse {dir}",
     "id-ID": "seluruh tim bergerak {dir}", "ms-MY": "seluruh pasukan bergerak {dir}",
@@ -234,7 +245,7 @@ DIR = {
            "es-ES": "hacia delante", "fr-FR": "vers l'avant",
            "id-ID": "ke depan", "ms-MY": "ke hadapan", "th-TH": "ไปข้างหน้า",
            "vi-VN": "lên phía trước"},
-    "down": {"en": "back", "en-GB": "back", "zh-CN": "回撤", "zh-TW": "回撤",
+    "down": {"en": "back", "en-GB": "back", "zh-CN": "向后", "zh-TW": "向後",
              "ja-JP": "後方", "ko-KR": "뒤로", "es-ES": "hacia atrás",
              "fr-FR": "vers l'arrière", "id-ID": "ke belakang",
              "ms-MY": "ke belakang", "th-TH": "ถอยหลัง", "vi-VN": "lùi lại"},
@@ -345,7 +356,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 _, top, _, ch = court_rect(sport)
                 shooty = (target[1] < top + ch * 0.085
                           or target[1] > top + ch * 0.915)
-                add(ph, SHOOT if shooty else PASS_SPOT,
+                shot_tbl = SHOOT_HOOP if sport == "basketball" else SHOOT
+                add(ph, shot_tbl if shooty else PASS_SPOT,
                     a=_label(prev) if prev else "?")
                 prev = None
             else:
@@ -441,7 +453,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 rendered.append(table[loc].format(**fmt))
             for (tid, dir_key), subjects in grouped.items():
                 table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, PASS_SPOT,
-                                         SHOOT, PASS_IN)
+                                         SHOOT, SHOOT_HOOP, PASS_IN)
                              if id(t) == tid)
                 joined = LIST.get(loc, ", ").join(
                     _subj(x, loc) for x in subjects)
