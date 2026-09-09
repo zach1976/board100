@@ -70,6 +70,8 @@ def warmup_family() -> list[Drill]:
             free=(key in ("gates", "pairs")),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, markers=markers, ball=0,
+            # carried through the gates, or knocked between the pair
+            ball_to=([(0, 0), (0, 1)] if key not in ('pairs',) else [(1, 0), (0, 1)]),
         ))
     return out
 
@@ -127,6 +129,8 @@ def buildup_family() -> list[Drill]:
                   P(0.58, y - 0.16, "D", moves=[(0.54, y - 0.12, 1)]),
                   P(0.50, y - 0.32, "D")],
             ball=0,
+            # out of the back, one line at a time
+            ball_to=[(1, 0), (2, 1), (4, 2)],
         ))
     return out
 
@@ -175,6 +179,8 @@ def entry_family() -> list[Drill]:
                   P(*GOAL, "GK", role="GK")],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # into the runner at the circle's edge, squared for the 3
+            ball_to=[(0, 0), (1, 1), (2, 2)],
         ))
     return out
 
@@ -226,6 +232,8 @@ def shooting_family() -> list[Drill]:
                     moves=[(0.5 + (x - 0.5) * 0.45, 0.05, 1)])],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # carried into the D and struck low
+            ball_to=[(0, 0), ((0.50, 0.03), 1)],
         ))
     return out
 
@@ -274,6 +282,8 @@ def press_family() -> list[Drill]:
             away=[P(0.24, y + 0.12, "A", moves=[(0.14, y + 0.16, 1)]),
                   P(0.56, y + 0.14, "A"), P(0.80, y + 0.10, "A")],
             ball=(0.24, y + 0.12),      # the attack starts with it
+            # their A carries into the trap the press sets
+            ball_to=[("a0", 1)],
         ))
     return out
 
@@ -339,6 +349,8 @@ tight=True,
             ]) if defending else [P(*GOAL, "GK", role="GK", moves=[(0.46, 0.06, 2)])],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # injected, trapped at the top of the D, struck or slipped
+            ball_to=[(1, 0), (2, 2), ((0.50, 0.03), 2)],
         ))
     out.append(Drill(
         id="fh_set_free_hit", category="setpiece", minutes=8, rel=True,
@@ -377,6 +389,8 @@ tight=True,
         away=[P(0.32, 0.22, "D"), P(*GOAL, "GK", role="GK")],
         markers=[M(0.50, CIRCLE_Y, "zone", "")],
         ball=0,
+            # taken quickly through 2 into the 3's run at the circle
+            ball_to=[(1, 0), (2, 1)],
     ))
     return out
 
@@ -422,6 +436,8 @@ def game_family() -> list[Drill]:
                  + [P(*GOAL, "GK", role="GK")],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # two passes across the middle under pressure
+            ball_to=[(1 % n, 0), (2 % n, 0)],
         ))
     return out
 
@@ -520,7 +536,9 @@ def gaps_family() -> list[Drill]:
             home=[P(0.50, 0.36, "D", moves=[(0.48, 0.46, 0), (0.46, 0.52, 1)])],
             away=[P(0.46, 0.62, "A", moves=[(0.46, 0.52, 0), (0.40, 0.42, 1)])],
             markers=[M(0.34, 0.40), M(0.66, 0.40)],
-            ball=None,
+            # the carrier comes at the tackle; the ball is what changes hands
+            ball=(0.46, 0.64),
+            ball_to=[("a0", 0), (0, 1)],
         ),
         Drill(
             id="fh_build_aerial", category="possession", minutes=10, rel=True,
@@ -532,6 +550,8 @@ def gaps_family() -> list[Drill]:
                   P(0.60, 0.52, "D", moves=[(0.66, 0.46, 1)])],
             markers=[M(0.78, 0.40, "zone", "")],
             ball=0,
+            # the aerial over both lines, killed by the 7
+            ball_to=[(1, 1)],
         ),
         Drill(
             id="fh_set_long_corner", category="setpiece", minutes=8, rel=True,
@@ -549,6 +569,8 @@ def gaps_family() -> list[Drill]:
                   P(*GOAL, "GK", role="GK", moves=[(0.44, 0.06, 2)])],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # worked in off the baseline through the 9
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="fh_counter_attack", category="attacking", minutes=12, rel=True,
@@ -569,6 +591,8 @@ def gaps_family() -> list[Drill]:
                   P(*GOAL, "GK", role="GK", moves=[(0.54, 0.06, 2)])],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # won by the 5, sprung wide, carried in and squared
+            ball_to=[(2, 1), (2, 2), ((0.50, 0.03), 2)],
         ),
     ] + [
         Drill(
@@ -579,6 +603,8 @@ def gaps_family() -> list[Drill]:
             away=[P(*GOAL, "GK", role="GK", moves=[gk + (1,)])],
             markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
+            # the strike each keeper drill answers
+            ball_to=[((0.50, 0.03), 1)],
         )
         for key, label, lvl, home, gk in [
             ("angles", "angles", "foundation",
