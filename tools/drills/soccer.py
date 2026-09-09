@@ -84,28 +84,28 @@ def soccer_drills() -> list[Drill]:
             #   1/5 top · 2/6 right · 3/7 bottom · 4/8 left. Ball goes
             #   1→2→3→4, and by the time it comes back round the stepped-up
             #   5 and 6 are on their cones to receive it.
-            # Diamond kept tight so eight players and their queues sit well
-            # inside the pitch. Each cone: a front player on it (toward the
-            # middle) and a back player queued just outside.
+            # An elongated diamond (the pitch is taller than wide, and so is
+            # the drill in every coaching source): top/bottom cones far
+            # apart, side cones nearer. Each cone: a front player 60 inside
+            # it (toward the middle) and a back player 60 outside it, 120
+            # apart so the icons never touch. A passer runs to the back
+            # spot — the man there has stepped up at the same beat, so the
+            # spot is free when he arrives and the two never share it.
             home=[
-                # Each cone holds a front player (on it, toward the middle)
-                # and a back player queued behind. A passer follows to the
-                # queue's TAIL, ~120 behind the man who has stepped up, so
-                # the two never sit on the same spot.
-                # top  cone (500,520)
-                P(500, 580, "1", moves=[(840, 700, 1)]),   # pass, follow to R tail
-                P(500, 460, "5", moves=[(500, 580, 1)]),   # step up to receive
-                # right cone (720,700)
-                P(660, 700, "2", moves=[(500, 960, 2)]),   # follow to B tail
-                P(780, 700, "6", moves=[(660, 700, 2)]),   # step up
-                # bottom cone (500,880)
-                P(500, 820, "3", moves=[(160, 700, 3)]),   # follow to L tail
-                P(500, 940, "7", moves=[(500, 820, 3)]),   # step up
-                # left cone (280,700)
-                P(340, 700, "4", moves=[(500, 440, 4)]),   # follow to T tail
-                P(220, 700, "8", moves=[(340, 700, 4)]),   # step up
+                # top cone (500,330)
+                P(500, 390, "1", moves=[(820, 750, 1)]),    # pass, follow to R back
+                P(500, 270, "5", moves=[(500, 390, 1)]),    # step up to receive
+                # right cone (760,750)
+                P(700, 750, "2", moves=[(500, 1230, 2)]),   # follow to B back
+                P(820, 750, "6", moves=[(700, 750, 2)]),    # step up
+                # bottom cone (500,1170)
+                P(500, 1110, "3", moves=[(180, 750, 3)]),   # follow to L back
+                P(500, 1230, "7", moves=[(500, 1110, 3)]),  # step up
+                # left cone (240,750)
+                P(300, 750, "4", moves=[(500, 270, 4)]),    # follow to T back
+                P(180, 750, "8", moves=[(300, 750, 4)]),    # step up
             ],
-            markers=[M(500, 520), M(720, 700), M(500, 880), M(280, 700)],
+            markers=[M(500, 330), M(760, 750), M(500, 1170), M(240, 750)],
             ball=0,
             # 1→2→3→4, then to the stepped-up 5 (top) and 6 (right): every
             # pass has a receiver on the cone, the loop closes.
