@@ -530,8 +530,11 @@ def game_family() -> list[Drill]:
             markers=[M(*HOME, "square", ""), M(*FIRST, "square", ""),
                      M(*SECOND, "square", ""), M(*THIRD, "square", "")],
             ball=0,
-            # the pitch — everything else starts on its release
-            ball_to=[((500, 1180), 0), (0, 1)],
+            # The pitch to the plate — everything else starts on its release.
+            # A rel drill's point targets are court fractions like the rest
+            # of it; the old (500, 1180) went through to_canvas a second
+            # time and put the ball 470,000 units off the board.
+            ball_to=[(HOME, 0), (0, 1)],
         ))
     return out
 

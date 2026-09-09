@@ -304,10 +304,155 @@ BASE = {
 }
 
 
+# ── basketball ──────────────────────────────────────────────────────────────
+# The default vocabulary is a football coach's: first touch, strike low, the
+# feet set to shoot. A basketball coach shoots at a basket, screens, drives
+# and inbounds — and never "射门".
+BASKET = {
+    "possession": _P(
+        "Keep the ball under pressure — get open before the catch, land in "
+        "triple threat, and make the pass that attacks the basket rather than "
+        "the one round the perimeter.",
+        "控球：在防守压力下把球留住。练接球前的跑位、接球后的三威胁姿势，以及敢往篮下传的球，而不是只在外围倒手。",
+        "控球：在防守壓力下把球留住。練接球前的跑位、接球後的三威脅姿勢，以及敢往籃下傳的球，而不是只在外圍倒手。",
+        "プレッシャー下でボールを保持する。キャッチ前に動いてフリーになり、トリプルスレットで構え、外で回すだけでなくリングを攻めるパスを出す。",
+        "압박 속에서 공을 지킨다. 캐치 전에 움직여 열리고, 트리플 스렛으로 서고, 외곽에서 돌리기만 하지 말고 림을 공격하는 패스를 한다.",
+        "Conservar el balón bajo presión: desmarcarse antes de recibir, triple amenaza y el pase que ataca la canasta, no solo el que rodea el perímetro.",
+        "Conserver le ballon sous pression : se démarquer avant la réception, triple menace, et la passe qui attaque le panier plutôt que celle qui tourne autour.",
+        "Menjaga bola di bawah tekanan — lepas sebelum menangkap, sikap triple threat, dan umpan yang menyerang ring, bukan sekadar berputar di perimeter.",
+        "Mengekalkan bola di bawah tekanan — bebas sebelum menangkap, posisi triple threat, dan hantaran yang menyerang jaring, bukan sekadar berpusing di perimeter.",
+        "รักษาบอลภายใต้แรงกดดัน — เคลื่อนที่ให้ว่างก่อนรับ ตั้งท่า triple threat และจ่ายบอลที่โจมตีห่วง ไม่ใช่แค่วนรอบวง",
+        "Giữ bóng dưới áp lực — thoát người trước khi bắt, tư thế triple threat, và đường chuyền tấn công rổ thay vì chỉ chuyền quanh vòng ngoài."),
+    "attacking": _P(
+        "Break a set defence: use the screen or the drive to create an "
+        "advantage, draw the help, and make the pass the rotation opens.",
+        "进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。",
+        "進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。",
+        "セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。",
+        "세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.",
+        "Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.",
+        "Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.",
+        "Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.",
+        "Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.",
+        "เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้",
+        "Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ."),
+    "finishing": _P(
+        "Turn a chance into points: arrive with the feet set and shoot on the "
+        "catch; on the layup protect the ball with the body and use the glass.",
+        "投篮：练怎么把机会投进。跑到位时脚先站好、接球就出手；上篮用身体护球，看篮板方框。",
+        "投籃：練怎麼把機會投進。跑到位時腳先站好、接球就出手；上籃用身體護球，看籃板方框。",
+        "チャンスを得点に変える。足をセットして受け、キャッチと同時にシュート。レイアップは体でボールを守り、ボードを使う。",
+        "기회를 득점으로 바꾼다. 발을 세팅한 채 받아 캐치와 동시에 슛. 레이업은 몸으로 공을 보호하고 백보드를 쓴다.",
+        "Convertir la ocasión en puntos: llegar con los pies colocados y tirar al recibir; en la bandeja proteger el balón con el cuerpo y usar el tablero.",
+        "Transformer l'occasion en points : arriver pieds placés et tirer à la réception ; sur le lay-up protéger le ballon avec le corps et utiliser la planche.",
+        "Mengubah peluang menjadi poin: datang dengan kaki siap dan tembak saat menangkap; pada layup lindungi bola dengan badan dan gunakan papan.",
+        "Menukar peluang kepada mata: tiba dengan kaki tersedia dan jaring sebaik menangkap; pada layup lindungi bola dengan badan dan guna papan.",
+        "เปลี่ยนโอกาสเป็นคะแนน มาถึงพร้อมเท้าที่ตั้งแล้วและยิงทันทีที่รับ เลอัพให้ใช้ลำตัวกันบอลและใช้แป้น",
+        "Biến cơ hội thành điểm: đến với chân đã sẵn sàng và ném ngay khi bắt; khi lên rổ, che bóng bằng thân người và dùng bảng."),
+    "setpiece": _P(
+        "Rehearse an inbound or a set play until it runs without a word — "
+        "everyone knows the cuts, so the screen and the timing, not the "
+        "decision, are the hard part.",
+        "战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。",
+        "戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。",
+        "インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。",
+        "인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.",
+        "Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.",
+        "Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.",
+        "Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.",
+        "Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.",
+        "ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ",
+        "Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định."),
+}
+
+# ── rugby ───────────────────────────────────────────────────────────────────
+RUGBY = {
+    "possession": _P(
+        "Keep the ball through contact — support lines, body height before "
+        "the tackle, and quick recycled ball that gives the defence no time "
+        "to contest.",
+        "控球：在对抗中把球留住。练支援跑位、接触前的身体姿势，以及球出来后快速再打，不给对方争抢的时间。",
+        "控球：在對抗中把球留住。練支援跑位、接觸前的身體姿勢，以及球出來後快速再打，不給對方爭搶的時間。",
+        "コンタクトを通してボールを保持する。サポートライン、タックル前の姿勢、そして相手に争う時間を与えない速いリサイクル。",
+        "컨택 속에서도 공을 지킨다. 서포트 라인, 태클 전 몸 높이, 그리고 수비가 다툴 시간을 주지 않는 빠른 리사이클.",
+        "Conservar el balón en el contacto: líneas de apoyo, altura del cuerpo antes del placaje y balón reciclado rápido que no dé tiempo a la defensa.",
+        "Conserver le ballon dans le contact : lignes de soutien, hauteur du corps avant le plaquage et recyclage rapide qui ne laisse aucun temps à la défense.",
+        "Menjaga bola melalui kontak — jalur dukungan, tinggi badan sebelum tekel, dan bola daur ulang cepat yang tak memberi waktu pada pertahanan.",
+        "Mengekalkan bola melalui kontak — laluan sokongan, ketinggian badan sebelum tekel, dan bola kitar semula pantas yang tidak memberi masa kepada pertahanan.",
+        "รักษาบอลผ่านการปะทะ — แนววิ่งสนับสนุน ระดับลำตัวก่อนโดนแท็กเกิล และการรีไซเคิลบอลเร็วจนแนวรับไม่มีเวลาแย่ง",
+        "Giữ bóng qua va chạm — đường chạy hỗ trợ, độ thấp của thân người trước cú tackle, và tái sử dụng bóng nhanh không cho phòng ngự thời gian tranh chấp."),
+    "attacking": _P(
+        "Break a set line: create and use an overload, commit a defender, and "
+        "put the ball into the space he leaves.",
+        "进攻：练怎么打穿站好位的防线。做出以多打少，把防守人吸出来，再把球传到他让出的空当。",
+        "進攻：練怎麼打穿站好位的防線。做出以多打少，把防守人吸出來，再把球傳到他讓出的空當。",
+        "セットされたラインを崩す。数的優位を作って使い、ディフェンダーを引きつけ、空いたスペースへボールを運ぶ。",
+        "정렬된 수비 라인을 깬다. 수적 우위를 만들어 쓰고, 수비수를 끌어들인 뒤 그가 비운 공간으로 공을 보낸다.",
+        "Romper una línea colocada: crear y usar la superioridad, fijar a un defensor y llevar el balón al espacio que deja.",
+        "Casser une ligne en place : créer et exploiter le surnombre, fixer un défenseur et mettre le ballon dans l'espace qu'il laisse.",
+        "Membongkar garis pertahanan: ciptakan dan gunakan kelebihan jumlah, ikat seorang pemain bertahan, dan bawa bola ke ruang yang ditinggalkannya.",
+        "Memecahkan barisan pertahanan: cipta dan guna kelebihan bilangan, ikat seorang pemain pertahanan, dan bawa bola ke ruang yang ditinggalkannya.",
+        "เจาะแนวรับที่ตั้งหลัก สร้างและใช้ความได้เปรียบเชิงจำนวน ดึงผู้เล่นรับหนึ่งคน แล้วส่งบอลเข้าช่องว่างที่เขาทิ้งไว้",
+        "Phá tuyến phòng ngự đã đứng sẵn: tạo và dùng lợi thế quân số, kéo một hậu vệ ra, rồi đưa bóng vào khoảng trống anh ta để lại."),
+    "finishing": _P(
+        "Turn a chance into a try: keep hold of the ball and stay low near "
+        "the line, and make the final pass early and accurate.",
+        "得分：练怎么把机会变成达阵。到达阵线前保持球在手里、身体压低，最后一传要早、要准。",
+        "得分：練怎麼把機會變成達陣。到達陣線前保持球在手裡、身體壓低，最後一傳要早、要準。",
+        "チャンスをトライに変える。ライン際ではボールを離さず低い姿勢を保ち、最後のパスは早く正確に。",
+        "기회를 트라이로 바꾼다. 라인 근처에서는 공을 놓지 않고 몸을 낮추며, 마지막 패스는 빠르고 정확하게.",
+        "Convertir la ocasión en ensayo: no soltar el balón y mantenerse bajo cerca de la línea, y dar el último pase pronto y preciso.",
+        "Transformer l'occasion en essai : garder le ballon et rester bas près de la ligne, et donner la dernière passe tôt et précise.",
+        "Mengubah peluang menjadi try: pegang bola dan tetap rendah dekat garis, dan berikan umpan terakhir lebih awal dan akurat.",
+        "Menukar peluang kepada try: pegang bola dan kekal rendah dekat garisan, dan buat hantaran terakhir awal dan tepat.",
+        "เปลี่ยนโอกาสเป็นทรัย ถือบอลไว้และย่อตัวต่ำใกล้เส้น และจ่ายบอลสุดท้ายให้เร็วและแม่น",
+        "Biến cơ hội thành try: giữ chặt bóng và hạ thấp người gần vạch, đường chuyền cuối phải sớm và chính xác."),
+    "setpiece": _P(
+        "Rehearse the lineout, the scrum move and the kick routine until "
+        "they run without a word — everyone knows the movement, so the "
+        "throw and the kick, not the decision, are the hard part.",
+        "定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。",
+        "定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。",
+        "ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。",
+        "라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.",
+        "Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.",
+        "Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.",
+        "Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.",
+        "Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.",
+        "ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ",
+        "Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định."),
+}
+
+# ── hand goal sports (handball, water polo) ─────────────────────────────────
+# Only 控球 differs: "first touch" is a foot, the catch is a hand.
+HAND_GOAL = {
+    "possession": _P(
+        "Keep the ball under pressure — support angles, the first move after "
+        "the catch, and the pass that goes toward goal rather than just to "
+        "the nearest man.",
+        "控球：在有人抢的情况下把球留住。练接应跑位、接球后的第一个动作，以及敢往门前传的球，而不是只往安全的方向传。",
+        "控球：在有人搶的情況下把球留住。練接應跑位、接球後的第一個動作，以及敢往門前傳的球，而不是只往安全的方向傳。",
+        "プレッシャー下でボールを保持する。サポートの角度、キャッチ後の最初の動き、そして最も近い味方ではなくゴールへ向かうパス。",
+        "압박 속에서 공을 지킨다. 지원 각도, 캐치 후 첫 동작, 그리고 가까운 동료가 아니라 골을 향하는 패스.",
+        "Conservar el balón bajo presión: ángulos de apoyo, el primer movimiento tras recibir y el pase que va hacia portería, no solo al más cercano.",
+        "Conserver le ballon sous pression : angles de soutien, premier mouvement après la réception, et la passe qui va vers le but plutôt que vers le plus proche.",
+        "Menjaga bola di bawah tekanan — sudut dukungan, gerakan pertama setelah menangkap, dan umpan yang menuju gawang, bukan sekadar ke yang terdekat.",
+        "Mengekalkan bola di bawah tekanan — sudut sokongan, pergerakan pertama selepas menangkap, dan hantaran yang menuju gol, bukan sekadar kepada yang terdekat.",
+        "รักษาบอลภายใต้แรงกดดัน — มุมสนับสนุน การเคลื่อนไหวแรกหลังรับบอล และบอลที่มุ่งสู่ประตู ไม่ใช่แค่ส่งให้คนใกล้สุด",
+        "Giữ bóng dưới áp lực — góc hỗ trợ, động tác đầu tiên sau khi bắt, và đường chuyền hướng về khung thành thay vì chỉ chuyền cho người gần nhất."),
+}
+
+
 def purpose_texts(sport: str, category: str) -> dict | None:
     """The 目的 section for a drill, by sport family and category."""
     if sport in BASEBALL and category in BASE:
         return BASE[category]
     if sport in NET_SPORTS and category in NET:
         return NET[category]
+    if sport == "basketball" and category in BASKET:
+        return BASKET[category]
+    if sport == "rugby" and category in RUGBY:
+        return RUGBY[category]
+    if sport in ("handball", "waterPolo") and category in HAND_GOAL:
+        return HAND_GOAL[category]
     return DEFAULT.get(category)
