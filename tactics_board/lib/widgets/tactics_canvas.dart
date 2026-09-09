@@ -731,61 +731,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     ),
                     size: Size(canvasW, canvasH),
                   ),
-                  // Waypoint dots — stay visible through animation so each
-                  // step-forward tap doesn't flash every middle dot off and
-                  // back on. The phaseLimit filter (driven by atStep) still
-                  // hides phases that haven't started yet.
-                  if (state.showMoveLines)
-                    ...players.expand((player) {
-                      final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
-                      List<Offset> visibleMoves;
-                      if (phaseLimit > 0) {
-                        player.syncPhases();
-                        int count = 0;
-                        for (int i = 0; i < player.moves.length; i++) {
-                          final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-                          if (ph < phaseLimit) count = i + 1;
-                        }
-                        visibleMoves = player.moves.take(count).toList();
-                      } else {
-                        visibleMoves = player.moves;
-                      }
-                      final atStartTime =
-                          state.atStep == 0 && state.targetStep == 0;
-                      // A ball riding along with the players keeps only its
-                      // final dot — that one IS the ball at its current spot.
-                      // The intermediate numbered badges marked stops the
-                      // players' own chains already mark, one more disc on
-                      // every cone.
-                      final ballEscorted = player.isBall &&
-                          ballTravelsWithPlayers(player, players);
-                      return visibleMoves.asMap().entries.where((entry) {
-                        if (!ballEscorted) return true;
-                        return entry.key == visibleMoves.length - 1;
-                      }).map((entry) {
-                        final isLast = entry.key == visibleMoves.length - 1;
-                        final chainSelected = state.selectedPlayerId == player.id;
-                        return _WaypointDot(
-                          key: ValueKey('wp_${player.id}_${entry.key}'),
-                          player: player,
-                          index: entry.key,
-                          position: entry.value,
-                          isLast: isLast,
-                          isSelected: chainSelected,
-                          isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
-                          isAtCurrentStep: isLast ? !atStartTime : true,
-                          onLongPress: isLast
-                              ? () => state.selectPlayer(player.id)
-                              : null,
-                        );
-                      });
-                    }),
                   // Equipment first — under the ghosts as well as under
                   // the live tokens. Reordering only the icon pass left a
                   // hurdle on top of the faint start-position marker of the
                   // player it belongs to.
                   ...players.where((p) => p.isMarker).map(playerIcon),
-                  // Ghost icons at initial positions for players with moves
+                  // Ghost icons at initial positions for players with moves.
+                  // Under the waypoint layer: the dashed ghost is where a
+                  // player WAS, the end-of-run icon is where someone IS, and
+                  // when a runner takes the very spot another player just
+                  // left (every rotation drill) the ghost used to paint over
+                  // him, so the board showed the man who had gone instead of
+                  // the man who arrived.
                   if (state.showMoveLines)
                     ...players.where((p) => p.moves.isNotEmpty).map((player) {
                       final size = kPlayerIconSize * player.scale;
@@ -858,6 +815,55 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                 ),
                         ),
                       );
+                    }),
+                  // Waypoint dots — stay visible through animation so each
+                  // step-forward tap doesn't flash every middle dot off and
+                  // back on. The phaseLimit filter (driven by atStep) still
+                  // hides phases that haven't started yet.
+                  if (state.showMoveLines)
+                    ...players.expand((player) {
+                      final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
+                      List<Offset> visibleMoves;
+                      if (phaseLimit > 0) {
+                        player.syncPhases();
+                        int count = 0;
+                        for (int i = 0; i < player.moves.length; i++) {
+                          final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+                          if (ph < phaseLimit) count = i + 1;
+                        }
+                        visibleMoves = player.moves.take(count).toList();
+                      } else {
+                        visibleMoves = player.moves;
+                      }
+                      final atStartTime =
+                          state.atStep == 0 && state.targetStep == 0;
+                      // A ball riding along with the players keeps only its
+                      // final dot — that one IS the ball at its current spot.
+                      // The intermediate numbered badges marked stops the
+                      // players' own chains already mark, one more disc on
+                      // every cone.
+                      final ballEscorted = player.isBall &&
+                          ballTravelsWithPlayers(player, players);
+                      return visibleMoves.asMap().entries.where((entry) {
+                        if (!ballEscorted) return true;
+                        return entry.key == visibleMoves.length - 1;
+                      }).map((entry) {
+                        final isLast = entry.key == visibleMoves.length - 1;
+                        final chainSelected = state.selectedPlayerId == player.id;
+                        return _WaypointDot(
+                          key: ValueKey('wp_${player.id}_${entry.key}'),
+                          player: player,
+                          index: entry.key,
+                          position: entry.value,
+                          isLast: isLast,
+                          isSelected: chainSelected,
+                          isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
+                          isAtCurrentStep: isLast ? !atStartTime : true,
+                          onLongPress: isLast
+                              ? () => state.selectPlayer(player.id)
+                              : null,
+                        );
+                      });
                     }),
                   // Players and the ball, over the ghosts.
                   ...players.where((p) => !p.isMarker).map(playerIcon),

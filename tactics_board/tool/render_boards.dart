@@ -57,7 +57,10 @@ void main() {
     final repo = Directory.current.parent;
     final drillDir = Directory('${Directory.current.path}/assets/drills');
     final outRoot = Directory('${repo.path}/tools/board_png');
-    if (outRoot.existsSync()) outRoot.deleteSync(recursive: true);
+    // ONLY=soccer/passing_diamond re-renders one drill in place while a
+    // board is being tuned; the full run wipes and rebuilds everything.
+    final only = Platform.environment['ONLY'];
+    if (only == null && outRoot.existsSync()) outRoot.deleteSync(recursive: true);
 
     SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
     await EasyLocalization.ensureInitialized();
@@ -107,6 +110,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
 
     var boards = 0, shots = 0;
+    var warmed = false;
     final files = drillDir.listSync().whereType<File>().toList()
       ..sort((a, b) => a.path.compareTo(b.path));
     for (final f in files) {
@@ -117,9 +121,19 @@ void main() {
 
       for (final raw in data['drills'] as List) {
         final drill = raw as Map<String, dynamic>;
+        if (only != null && only != '$sport/${drill['id']}') continue;
         state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
         state.setCanvasSizeSilent(const Size(kW, kH));
         await tester.pump(const Duration(milliseconds: 60));
+        // The ball and marker sprites decode asynchronously, so the very
+        // first shot of a run came out without its cones and ball. Give the
+        // first board a real-time beat to load them before shooting.
+        if (!warmed) {
+          await tester.runAsync(
+              () => Future<void>.delayed(const Duration(milliseconds: 400)));
+          await tester.pump(const Duration(milliseconds: 60));
+          warmed = true;
+        }
         boards++;
 
         for (var step = 0; step <= state.maxMoveSteps; step++) {
