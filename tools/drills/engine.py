@@ -191,6 +191,15 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int) -> dict:
     }
 
 
+# The flat spot markers (a square on the set point, a zone the serve must
+# land in) are drawn in the neutral team colour — a dark grey which, at 30%
+# on grass, every reviewer read as a rendering bug ("an unlabelled black
+# box"). Flat markers on a real pitch are bright; amber is the app's own
+# fourth move colour, so it is already on the palette.
+FLAT_MARKERS = {"circle", "square", "triangle", "diamond", "zone"}
+FLAT_MARKER_COLOR = 0xFFFFD740
+
+
 def _marker(idx, m: M) -> dict:
     return {
         "id": f"m{idx}",
@@ -202,7 +211,7 @@ def _marker(idx, m: M) -> dict:
         "moves": [],
         "movePhases": [],
         "moveColor": MOVE_COLORS[0],
-        "customColor": None,
+        "customColor": FLAT_MARKER_COLOR if m.shape in FLAT_MARKERS else None,
         "gender": 2,
         "markerShape": MARKER[m.shape],
         "photoId": None,

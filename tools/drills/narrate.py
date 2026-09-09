@@ -275,6 +275,27 @@ HIT_SPOT = {
     "id-ID": "{a} memukul ke titik sasaran", "ms-MY": "{a} memukul ke titik sasaran",
     "th-TH": "{a} ตีไปที่จุดเป้า", "vi-VN": "{a} đánh vào điểm rơi",
 }
+# In a net sport nobody carries the ball; a leg that stays with the holder
+# is the player getting under it — the toss, the approach, the set-up step.
+HIT_MOVE = {
+    "en": "{a} moves into position to hit",
+    "en-GB": "{a} moves into position to hit",
+    "zh-CN": "{a}移动到击球位置", "zh-TW": "{a}移動到擊球位置",
+    "ja-JP": "{a}が打点に入る", "ko-KR": "{a}가 타점으로 들어간다",
+    "es-ES": "{a} se coloca para golpear", "fr-FR": "{a} se place pour frapper",
+    "id-ID": "{a} mengambil posisi memukul", "ms-MY": "{a} mengambil posisi memukul",
+    "th-TH": "{a} เข้าตำแหน่งตี", "vi-VN": "{a} vào vị trí đánh bóng",
+}
+# A loose ball fed from the player's own side of the net (a coach's toss,
+# a partner's throw) has not crossed anything.
+FEED = {
+    "en": "{b} takes the feed", "en-GB": "{b} takes the feed",
+    "zh-CN": "{b}接喂球", "zh-TW": "{b}接餵球",
+    "ja-JP": "{b}が球出しを受ける", "ko-KR": "{b}가 토스를 받는다",
+    "es-ES": "{b} recibe el envío", "fr-FR": "{b} reçoit l'envoi",
+    "id-ID": "{b} menerima umpan latihan", "ms-MY": "{b} menerima suapan",
+    "th-TH": "{b} รับลูกป้อน", "vi-VN": "{b} nhận bóng mớm",
+}
 # A loose ball in a net sport is on its way over the net, not "passed".
 PASS_IN_NET = {
     "en": "the ball comes over to {b}", "en-GB": "the ball comes over to {b}",
@@ -484,8 +505,16 @@ def _pass_verb(sport: str) -> dict:
     return PASS
 
 
-def _pass_in(sport: str) -> dict:
-    return PASS_IN_NET if sport in HIT_SPORTS else PASS_IN
+def _pass_in(sport: str, from_xy=None, to_xy=None) -> dict:
+    if sport not in HIT_SPORTS:
+        return PASS_IN
+    if from_xy is not None and to_xy is not None:
+        from .engine import court_rect
+        _, top, _, ch = court_rect(sport)
+        net = top + ch / 2
+        if (from_xy[1] < net) == (to_xy[1] < net):
+            return FEED
+    return PASS_IN_NET
 
 
 def _far_end(sport: str) -> tuple[dict, dict]:
@@ -515,6 +544,29 @@ def _spot_leg(sport: str) -> tuple[dict, dict]:
     if sport in HIT_SPORTS:
         return HIT_SPOT, SPOT_WORD
     return PASS_SPOT, SPOT_WORD
+
+
+def _facing(p, drill, d: str) -> str:
+    """"Forward" is toward the opponents.
+
+    The board has no fixed direction of play: one drill lines the home side
+    up at the bottom attacking upward, the next puts its defenders at the
+    top pressing down. So a team's forward is worked out from where the
+    other team stands, and a move toward them reads 向前 whichever way it
+    is drawn. With nobody to face, up the board stays forward.
+    """
+    if d not in ("up", "down") or not (drill.home and drill.away):
+        return d
+    home_cy = sum(q.y for q in drill.home) / len(drill.home)
+    away_cy = sum(q.y for q in drill.away) / len(drill.away)
+    mine = drill.away if p in drill.away else drill.home
+    theirs = drill.home if p in drill.away else drill.away
+    my_cy = away_cy if mine is drill.away else home_cy
+    their_cy = home_cy if theirs is drill.home else away_cy
+    forward_is_down = their_cy > my_cy
+    if forward_is_down:
+        return "down" if d == "up" else "up"
+    return d
 
 
 def _holder(drill):
@@ -585,9 +637,18 @@ def sequence_texts(drill, sport: str) -> dict | None:
             add(ph, CARRY, a=_label(carrier))
     route = _narration_route(drill)
     if route:
+        from .engine import _pos_at
         holder = _holder(drill)
         prev = holder
-        for (target, ph) in route:
+        # Where the ball is before each leg, for the crossed-the-net test.
+        legs = drill.ball_moves[len(drill.ball_moves) - len(route):]
+        if holder is not None:
+            from_xy = (holder.x, holder.y)
+        else:
+            from_xy = drill.ball if isinstance(drill.ball, tuple) else None
+        for k, (target, ph) in enumerate(route):
+            if k > 0 and k - 1 < len(legs):
+                from_xy = legs[k - 1][:2]
             if isinstance(target, tuple):
                 # A point at the far end of the board is a shot, a pitch, a
                 # ball hit deep — not "the ball played on".
@@ -600,13 +661,15 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 t = (drill.away[int(target[1:])] if isinstance(target, str)
                      else drill.home[target])
                 if prev is None:
-                    add(ph, _pass_in(sport), b=_label(t))
+                    add(ph, _pass_in(sport, from_xy, _pos_at(t, ph)),
+                        b=_label(t))
                 elif t is prev:
                     # A leg whose target is the holder himself is a carry —
                     # the ball rides that player's run for this beat. The
                     # board draws it the same way (the escorted rule), and
                     # "2 passes to 2" is not a sentence.
-                    add(ph, CARRY, a=_label(t))
+                    add(ph, HIT_MOVE if sport in HIT_SPORTS else CARRY,
+                        a=_label(t))
                 elif (sport not in HIT_SPORTS
                       and (prev in drill.away) != (t in drill.away)):
                     if _label(t).upper() in ("GK", "G", "K"):
@@ -640,11 +703,23 @@ def sequence_texts(drill, sport: str) -> dict | None:
     stops = {ph: (x, y) for (x, y, ph) in drill.ball_moves}
     carrier = (drill.home[drill.ball_follow]
                if drill.ball_follow is not None else None)
+    # Beats on which a player's run IS the ball's leg (a carry, a toss-and-
+    # hit): the ball clause already says he moved.
+    carried = set()
+    if route:
+        prev3 = _holder(drill)
+        for (target, ph) in route:
+            t3 = None if isinstance(target, tuple) else (
+                drill.away[int(target[1:])] if isinstance(target, str)
+                else drill.home[target])
+            if t3 is not None and t3 is prev3:
+                carried.add((id(t3), ph))
+            prev3 = t3
     for p in people:
         for i, (x, y, ph) in enumerate(p.moves):
             if i > 0:
                 continue  # narrate a player's first leg; chains stay terse
-            if p is carrier:
+            if p is carrier or (id(p), ph) in carried:
                 continue  # "1 carries the ball on" already said this leg
             prev_stop = stops.get(ph - 1)
             is_follow = (prev_stop is not None
@@ -672,7 +747,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
             dx, dy = x - p.x, y - p.y
             d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
                 ("down" if dy > 0 else "up")
-            add(ph, RUN, a=_label(p), dir_key=d)
+            add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d))
 
     # A chain's later legs are not narrated — until they are all a beat has.
     # A kicker who steps back (beat 1), steps in (beat 2) and kicks (beat 3)
@@ -686,7 +761,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 dx, dy = x - px, y - py
                 d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) \
                     else ("down" if dy > 0 else "up")
-                add(ph, RUN, a=_label(p), dir_key=d)
+                add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d))
 
     if not beats:
         return None
@@ -716,9 +791,10 @@ def sequence_texts(drill, sport: str) -> dict | None:
                        for k, v in params.items()}
                 rendered.append(table[loc].format(**fmt))
             for (tid, dir_key), subjects in grouped.items():
-                table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, PASS_SPOT,
-                                         HIT_SPOT, HIT_DEEP, KICK_POSTS, PITCH,
-                                         SHOOT, SHOOT_HOOP, PASS_IN, PASS_IN_NET)
+                table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, HIT_MOVE,
+                                         PASS_SPOT, HIT_SPOT, HIT_DEEP,
+                                         KICK_POSTS, PITCH, SHOOT, SHOOT_HOOP,
+                                         PASS_IN, PASS_IN_NET, FEED)
                              if id(t) == tid)
                 # Same letter several times over ("D, D, D") is a count.
                 names, counts = [], {}
@@ -731,10 +807,26 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     if counts[x] > 1 else _subj(x, loc)
                     for x in names)
                 if dir_key:
-                    if len(subjects) >= 6 and \
-                            len(subjects) == len(drill.home):
+                    home_labels = [_label(q) for q in drill.home]
+                    if len(drill.home) >= 6 and all(
+                            l in subjects for l in home_labels) and \
+                            len(subjects) == len(drill.home) + len(
+                                [x for x in subjects
+                                 if x not in home_labels]):
                         rendered.append(ALL_MOVE[loc].format(
                             dir=DIR[dir_key][loc]))
+                        rest = [x for x in names if x not in home_labels]
+                        if rest:
+                            joined = LIST.get(loc, ", ").join(
+                                COUNTED[loc].format(n=counts[x],
+                                                    a=_subj(x, loc))
+                                if counts[x] > 1 else _subj(x, loc)
+                                for x in rest)
+                            tmpl = RUN[loc]
+                            if loc in ("en", "en-GB") and len(rest) > 1:
+                                tmpl = tmpl.replace(" moves ", " move ")
+                            rendered.append(tmpl.format(
+                                a=joined, dir=DIR[dir_key][loc]))
                         continue
                     tmpl = RUN[loc]
                     if loc in ("en", "en-GB") and len(subjects) > 1:
