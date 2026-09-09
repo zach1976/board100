@@ -582,7 +582,10 @@ document.getElementById('clear').onclick = () => {
   document.getElementById(id).addEventListener('input', () => { renderList(); }));
 
 renderList();
-renderPane();
+// Open on the worked example rather than an empty pane: passing_diamond is
+// the drill every fix so far was proven on, so review starts where the
+// reference is. Falls back to the first visible drill for a filtered build.
+select(DRILLS.find(d => d.id === 'passing_diamond') || visible()[0] || null);
 </script>
 </body>
 </html>
