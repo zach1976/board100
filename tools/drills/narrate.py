@@ -210,23 +210,24 @@ ALL_MOVE = {
 
 # With a known destination (the spot the receiver vacates) the follow reads
 # "2号球员跑位到3号球员的位置". Without one it falls back to FOLLOW_PLAIN.
-# The passer follows his own pass FROM THE PREVIOUS BEAT into the spot the
-# receiver leaves — so narrated per-beat, "follows the pass" points at the
-# wrong ball (this beat's pass is someone else's). State it as the movement
-# it is: he runs up to take that position.
+# The passer follows his own pass and joins the queue BEHIND the receiver —
+# on the board he stops short of the cone, because the receiver has not moved
+# on yet. So the text says "behind {to}", matching where the token actually
+# ends up; "takes {to}'s position" claimed an arrival the drawing does not
+# show, and a coach noticed the gap.
 FOLLOW = {
-    "en": "{a} runs up to take {to}'s position",
-    "en-GB": "{a} runs up to take {to}'s position",
-    "zh-CN": "{a}跑位到{to}的位置",
-    "zh-TW": "{a}跑位到{to}的位置",
-    "ja-JP": "{a}が{to}の位置へ入る",
-    "ko-KR": "{a}가 {to}의 자리로 들어간다",
-    "es-ES": "{a} sube a ocupar el sitio de {to}",
-    "fr-FR": "{a} monte prendre la place de {to}",
-    "id-ID": "{a} maju mengisi posisi {to}",
-    "ms-MY": "{a} naik mengisi kedudukan {to}",
-    "th-TH": "{a} ขึ้นไปแทนตำแหน่งของ{to}",
-    "vi-VN": "{a} dâng lên chiếm vị trí của {to}",
+    "en": "{a} follows up behind {to}",
+    "en-GB": "{a} follows up behind {to}",
+    "zh-CN": "{a}跟上去，跑到{to}身后",
+    "zh-TW": "{a}跟上去，跑到{to}身後",
+    "ja-JP": "{a}が{to}の後ろへ入る",
+    "ko-KR": "{a}가 {to} 뒤로 따라 들어간다",
+    "es-ES": "{a} sube por detrás de {to}",
+    "fr-FR": "{a} monte derrière {to}",
+    "id-ID": "{a} maju di belakang {to}",
+    "ms-MY": "{a} naik di belakang {to}",
+    "th-TH": "{a} ตามขึ้นไปด้านหลัง{to}",
+    "vi-VN": "{a} theo lên phía sau {to}",
 }
 FOLLOW_PLAIN = {
     "en": "{a} runs up in support", "en-GB": "{a} runs up in support",
