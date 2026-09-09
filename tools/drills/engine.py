@@ -127,6 +127,28 @@ class Drill:
     # baseball drew four double plays and two relays without a single ball
     # in flight, because the ball could not move on its own.
     ball_moves: list = field(default_factory=list)
+    # The semantic forms, resolved into ball_moves by build_board once every
+    # position is final (after to_canvas and space_out), so authors write the
+    # story and never coordinates:
+    #
+    #   ball_follow = <home index>     the ball rides at this player's feet
+    #                                  through all their moves — a dribble or
+    #                                  a carry. Same phases as the carrier, so
+    #                                  the board's escorted-ball rule draws no
+    #                                  extra lines for it.
+    #
+    #   ball_to = [(target, phase), ...]   a pass/throw/shot sequence. target
+    #                                  is a home index, "aN" for away, or an
+    #                                  (x, y) point (a goal, a space). The
+    #                                  ball lands at the target's feet where
+    #                                  they stand at the END of that phase.
+    #
+    # A pass must be the ball's own beat. Give the pass a phase in which no
+    # player travels the same line — usually the runs are interleaved one
+    # beat behind the ball — or it reads as a dribble: same beat, same edge,
+    # and the escorted rule will rightly treat it as a carry.
+    ball_follow: object = None
+    ball_to: list = field(default_factory=list)
     # Some formations really are shoulder to shoulder — a free-kick wall, a
     # scrum, a screen. Those may sit closer than one icon apart, but never
     # closer than the labels can be told apart. Everything else must not
@@ -340,11 +362,58 @@ def space_out(drill: Drill, sport: str) -> None:
             return
 
 
+def _pos_at(p: P, phase: int) -> tuple[float, float]:
+    """Where this player stands once every phase up to [phase] has run."""
+    x, y = p.x, p.y
+    for (mx, my, ph) in p.moves:
+        if ph <= phase:
+            x, y = mx, my
+    return x, y
+
+
+def resolve_ball(drill: Drill, sport: str) -> None:
+    """Turn ball_follow / ball_to into concrete ball_moves.
+
+    Runs after to_canvas and space_out so every referenced position is the
+    one that will actually be drawn — resolving earlier baked in coordinates
+    that space_out then moved out from under the ball.
+    """
+    def target_pos(t, phase):
+        if isinstance(t, tuple):
+            return t
+        if isinstance(t, str):
+            assert t.startswith("a"), f"{drill.id}: ball target {t!r}"
+            pl = drill.away[int(t[1:])]
+        else:
+            pl = drill.home[t]
+        return _pos_at(pl, phase)
+
+    if drill.ball_follow is not None:
+        assert not drill.ball_to and not drill.ball_moves, (
+            f"{drill.id}: ball_follow together with an explicit route")
+        holder = drill.home[drill.ball_follow]
+        assert holder.moves, (
+            f"{drill.id}: ball_follow on a player who never moves — "
+            f"plain ball= already puts it at their feet")
+        if drill.ball is None:
+            drill.ball = drill.ball_follow
+        drill.ball_moves = [
+            (*at_the_feet_of(mx, my, sport), ph) for (mx, my, ph) in holder.moves]
+
+    if drill.ball_to:
+        assert not drill.ball_moves or drill.ball_follow is None, (
+            f"{drill.id}: ball_to together with another route")
+        drill.ball_moves = [
+            (*at_the_feet_of(*target_pos(t, ph), sport), ph)
+            for (t, ph) in drill.ball_to]
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
     space_out(drill, sport)
     prune_degenerate_moves(drill)
+    resolve_ball(drill, sport)
     normalise_phases(drill)
     players, i, color = [], 0, 0
     home_ids = []

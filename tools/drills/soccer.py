@@ -66,23 +66,28 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "จ่ายแล้ววิ่งตามบอล เปิดลำตัวก่อนบอลมาถึง",
                   "vi-VN": "Chuyền rồi chạy theo. Mở người trước khi bóng đến.",
                   "en-GB": "Pass and follow your pass. Open your body before the ball arrives so the next pass is already on."},
+            # The ball leads and the runners chase one beat behind — beat 0
+            # is the ball's alone, so the first thing the drill shows IS a
+            # pass, a ball flying with nobody beside it. Sharing the beat and
+            # the edge with the follower (the first authoring) read as four
+            # players dribbling round a diamond.
+            # Runs end 80 short of the cone, along the line of the run: the
+            # follower joins the queue behind the receiver, he does not stand
+            # on him. Ending exactly on the receiver's point stacked the two
+            # tokens dead centre the moment the follower arrived.
             home=[
-                P(500, 400, "1", moves=[(780, 700, 0)]),
-                P(780, 700, "2", moves=[(500, 1000, 1)]),
-                P(500, 1000, "3", moves=[(220, 700, 2)]),
-                P(220, 700, "4", moves=[(500, 400, 3)]),
+                P(500, 400, "1", moves=[(725, 641, 1)]),
+                P(780, 700, "2", moves=[(555, 941, 2)]),
+                P(500, 1000, "3", moves=[(275, 759, 3)]),
+                P(220, 700, "4", moves=[(445, 459, 4)]),
             ],
             markers=[M(500, 380), M(800, 700), M(500, 1020), M(200, 700)],
             ball=0,
-            # The ball is the drill: it goes round the diamond one edge per
-            # beat, each pass one phase ahead of the runner chasing it. It sat
-            # at the first player's feet through all four phases — a passing
-            # drill in which the ball was never passed. Each stop is offset
-            # toward the receiver's feet the same way the starting ball is
-            # (at_the_feet_of), so it reads as received, not as standing on
-            # the receiver's number.
-            ball_moves=[(740, 700, 0), (460, 1000, 1),
-                        (260, 700, 2), (460, 470, 3)],
+            # The last pass goes to the top CONE, not to a player reference:
+            # with exactly four players the top spot is empty until 5 arrives
+            # behind his own pass — referencing player 2 sent the ball to the
+            # right cone he had rotated to.
+            ball_to=[(1, 0), (2, 1), (3, 2), ((500, 400), 3)],
             free=True,
         ),
         Drill(
