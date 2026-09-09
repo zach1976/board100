@@ -2469,18 +2469,18 @@
         "vi-VN": "Áp sát"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: x1 moves left; Step 2: x2 moves back.\nCoaching point: Sprint two thirds, chop the last third with short steps and a high hand. Flying at a shooter is how you foul him.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: x1 moves left; Step 2: x2 moves back.\nCoaching point: Sprint two thirds, chop the last third with short steps and a high hand. Flying at a shooter is how you foul him.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：x1 向左移动；第2步：x2 回撤移动。\n【要点】前三分之二全速冲，最后三分之一碎步刹车、举手。冲太猛就是送犯规。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：x1 向左移動；第2步：x2 回撤移動。\n【要點】前三分之二全速衝，最後三分之一碎步剎車、舉手。衝太猛就是送犯規。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：x1が左へ移動。ステップ2：x2が後方へ移動。\n【ポイント】3分の2は全力、残りは細かいステップで減速し手を上げる。突っ込めばファウル。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: x1는 왼쪽으로 이동; 2단계: x2는 뒤로 이동.\n【포인트】3분의 2는 전력, 마지막은 잔발로 감속하고 손을 든다. 날아들면 파울이다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: x1 se desplaza a la izquierda; Paso 2: x2 se desplaza hacia atrás.\nPunto clave: Esprinta dos tercios, frena el último con pasos cortos y mano arriba. Volar es hacer falta.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : x1 se déplace à gauche ; Étape 2 : x2 se déplace vers l'arrière.\nPoint clé : Sprinte deux tiers, freine le dernier en petits pas, main haute. Foncer, c'est faire faute.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: x1 bergerak ke kiri; Langkah 2: x2 bergerak ke belakang.\nPoin utama: Sprint dua pertiga, rem sepertiga terakhir dengan langkah pendek dan tangan tinggi.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: x1 bergerak ke kiri; Langkah 2: x2 bergerak ke belakang.\nPoin utama: Pecut dua pertiga, brek sepertiga akhir dengan langkah pendek.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: x1 ขยับไปทางซ้าย • ขั้นที่ 2: x2 ขยับถอยหลัง\nจุดเน้น: วิ่งเต็มสองในสาม ที่เหลือย่อก้าวสั้นและยกมือ พุ่งใส่คือฟาวล์",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: x1 di chuyển sang trái; Bước 2: x2 di chuyển lùi lại.\nĐiểm chính: Chạy hai phần ba, phanh một phần ba cuối bằng bước ngắn và giơ tay cao."
+        "en": "Setup: 2 v 2.\nBall path: 2 → 3\nSequence: Step 1: the ball is played to 2, x1 moves left; Step 2: 2 throws to 3, x2 moves back.\nCoaching point: Sprint two thirds, chop the last third with short steps and a high hand. Flying at a shooter is how you foul him.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 2 → 3\nSequence: Step 1: the ball is played to 2, x1 moves left; Step 2: 2 throws to 3, x2 moves back.\nCoaching point: Sprint two thirds, chop the last third with short steps and a high hand. Flying at a shooter is how you foul him.",
+        "zh-CN": "【组织】2 对 2。\n【球路】2 → 3\n【流程】第1步：球传到 2，x1 向左移动；第2步：2 传给 3，x2 回撤移动。\n【要点】前三分之二全速冲，最后三分之一碎步刹车、举手。冲太猛就是送犯规。",
+        "zh-TW": "【組織】2 對 2。\n【球路】2 → 3\n【流程】第1步：球傳到 2，x1 向左移動；第2步：2 傳給 3，x2 回撤移動。\n【要點】前三分之二全速衝，最後三分之一碎步剎車、舉手。衝太猛就是送犯規。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】2 → 3\n【流れ】ステップ1：ボールが2へ入る、x1が左へ移動。ステップ2：2が3へ送球、x2が後方へ移動。\n【ポイント】3分の2は全力、残りは細かいステップで減速し手を上げる。突っ込めばファウル。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】2 → 3\n【진행】1단계: 공이 2에게 온다, x1는 왼쪽으로 이동; 2단계: 2가 3에게 송구, x2는 뒤로 이동.\n【포인트】3분의 2는 전력, 마지막은 잔발로 감속하고 손을 든다. 날아들면 파울이다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 2 → 3\nSecuencia: Paso 1: el balón llega a 2, x1 se desplaza a la izquierda; Paso 2: 2 lanza a 3, x2 se desplaza hacia atrás.\nPunto clave: Esprinta dos tercios, frena el último con pasos cortos y mano arriba. Volar es hacer falta.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 2 → 3\nDéroulé : Étape 1 : le ballon arrive sur 2, x1 se déplace à gauche ; Étape 2 : 2 lance à 3, x2 se déplace vers l'arrière.\nPoint clé : Sprinte deux tiers, freine le dernier en petits pas, main haute. Foncer, c'est faire faute.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 2 → 3\nUrutan: Langkah 1: bola dimainkan ke 2, x1 bergerak ke kiri; Langkah 2: 2 melempar ke 3, x2 bergerak ke belakang.\nPoin utama: Sprint dua pertiga, rem sepertiga terakhir dengan langkah pendek dan tangan tinggi.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 2 → 3\nUrutan: Langkah 1: bola dimainkan kepada 2, x1 bergerak ke kiri; Langkah 2: 2 membaling kepada 3, x2 bergerak ke belakang.\nPoin utama: Pecut dua pertiga, brek sepertiga akhir dengan langkah pendek.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 2 → 3\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 2 x1 ขยับไปทางซ้าย • ขั้นที่ 2: 2 ขว้างให้ 3 x2 ขยับถอยหลัง\nจุดเน้น: วิ่งเต็มสองในสาม ที่เหลือย่อก้าวสั้นและยกมือ พุ่งใส่คือฟาวล์",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 2 → 3\nTrình tự: Bước 1: bóng được đưa tới 2, x1 di chuyển sang trái; Bước 2: 2 ném cho 3, x2 di chuyển lùi lại.\nĐiểm chính: Chạy hai phần ba, phanh một phần ba cuối bằng bước ngắn và giơ tay cao."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -2592,6 +2592,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 3,
+            "position": [
+              500.0,
+              210.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                286.875,
+                496.0
+              ],
+              [
+                713.125,
+                496.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2624,18 +2656,18 @@
         "vi-VN": "Bọc lót và về vị trí"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: x4 moves right, x1, 1 moves up the board; Step 2: 4 moves left.\nCoaching point: Help early, recover on the pass — not on the catch. Recovering late is worse than never helping.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: x4 moves right, x1, 1 moves up the board; Step 2: 4 moves left.\nCoaching point: Help early, recover on the pass — not on the catch. Recovering late is worse than never helping.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：x4 向右移动，x1、1 向前移动；第2步：4 向左移动。\n【要点】协防要早，回位要在**传球出手时**，不是等对方接到球。回位慢比不协防更糟。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：x4 向右移動，x1、1 向前移動；第2步：4 向左移動。\n【要點】協防要早，回位要在傳球出手時，不是等對方接到球。回位慢比不協防更糟。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：x4が右へ移動、x1・1が前方へ移動。ステップ2：4が左へ移動。\n【ポイント】ヘルプは早く、リカバーはパスと同時に。キャッチ後では遅く、助けない方がまし。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: x4는 오른쪽으로 이동, x1, 1는 앞으로 이동; 2단계: 4는 왼쪽으로 이동.\n【포인트】헬프는 빨리, 복귀는 패스가 나가는 순간에. 늦은 복귀는 안 도운 것만 못하다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: x4 se desplaza a la derecha, x1, 1 se desplaza hacia delante; Paso 2: 4 se desplaza a la izquierda.\nPunto clave: Ayuda pronto y recupera con el pase, no con la recepción. Llegar tarde es peor que no ayudar.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : x4 se déplace à droite, x1, 1 se déplace vers l'avant ; Étape 2 : 4 se déplace à gauche.\nPoint clé : Aide tôt, récupère sur la passe, pas sur la réception. Trop tard vaut moins que rien.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: x4 bergerak ke kanan, x1, 1 bergerak ke depan; Langkah 2: 4 bergerak ke kiri.\nPoin utama: Bantu lebih awal, kembali saat bola diumpan, bukan saat ditangkap.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: x4 bergerak ke kanan, x1, 1 bergerak ke hadapan; Langkah 2: 4 bergerak ke kiri.\nPoin utama: Bantu awal, pulih ketika bola dihantar.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: x4 ขยับไปทางขวา x1, 1 ขยับไปข้างหน้า • ขั้นที่ 2: 4 ขยับไปทางซ้าย\nจุดเน้น: ช่วยเร็ว กลับตอนบอลถูกส่ง ไม่ใช่ตอนรับ กลับช้ายังแย่กว่าไม่ช่วย",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: x4 di chuyển sang phải, x1, 1 di chuyển lên phía trước; Bước 2: 4 di chuyển sang trái.\nĐiểm chính: Bọc lót sớm, về vị trí ngay khi bóng được chuyền, không phải khi đối thủ bắt bóng."
+        "en": "Setup: 2 v 2.\nBall path: 1 → 4\nSequence: Step 1: the ball is played to 1, x4 moves right, x1, 1 moves up the board; Step 2: 1 throws to 4, 4 moves left.\nCoaching point: Help early, recover on the pass — not on the catch. Recovering late is worse than never helping.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 1 → 4\nSequence: Step 1: the ball is played to 1, x4 moves right, x1, 1 moves up the board; Step 2: 1 throws to 4, 4 moves left.\nCoaching point: Help early, recover on the pass — not on the catch. Recovering late is worse than never helping.",
+        "zh-CN": "【组织】2 对 2。\n【球路】1 → 4\n【流程】第1步：球传到 1，x4 向右移动，x1、1 向前移动；第2步：1 传给 4，4 向左移动。\n【要点】协防要早，回位要在**传球出手时**，不是等对方接到球。回位慢比不协防更糟。",
+        "zh-TW": "【組織】2 對 2。\n【球路】1 → 4\n【流程】第1步：球傳到 1，x4 向右移動，x1、1 向前移動；第2步：1 傳給 4，4 向左移動。\n【要點】協防要早，回位要在傳球出手時，不是等對方接到球。回位慢比不協防更糟。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】1 → 4\n【流れ】ステップ1：ボールが1へ入る、x4が右へ移動、x1・1が前方へ移動。ステップ2：1が4へ送球、4が左へ移動。\n【ポイント】ヘルプは早く、リカバーはパスと同時に。キャッチ後では遅く、助けない方がまし。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】1 → 4\n【진행】1단계: 공이 1에게 온다, x4는 오른쪽으로 이동, x1, 1는 앞으로 이동; 2단계: 1가 4에게 송구, 4는 왼쪽으로 이동.\n【포인트】헬프는 빨리, 복귀는 패스가 나가는 순간에. 늦은 복귀는 안 도운 것만 못하다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 1 → 4\nSecuencia: Paso 1: el balón llega a 1, x4 se desplaza a la derecha, x1, 1 se desplaza hacia delante; Paso 2: 1 lanza a 4, 4 se desplaza a la izquierda.\nPunto clave: Ayuda pronto y recupera con el pase, no con la recepción. Llegar tarde es peor que no ayudar.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 1 → 4\nDéroulé : Étape 1 : le ballon arrive sur 1, x4 se déplace à droite, x1, 1 se déplace vers l'avant ; Étape 2 : 1 lance à 4, 4 se déplace à gauche.\nPoint clé : Aide tôt, récupère sur la passe, pas sur la réception. Trop tard vaut moins que rien.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 1 → 4\nUrutan: Langkah 1: bola dimainkan ke 1, x4 bergerak ke kanan, x1, 1 bergerak ke depan; Langkah 2: 1 melempar ke 4, 4 bergerak ke kiri.\nPoin utama: Bantu lebih awal, kembali saat bola diumpan, bukan saat ditangkap.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 1 → 4\nUrutan: Langkah 1: bola dimainkan kepada 1, x4 bergerak ke kanan, x1, 1 bergerak ke hadapan; Langkah 2: 1 membaling kepada 4, 4 bergerak ke kiri.\nPoin utama: Bantu awal, pulih ketika bola dihantar.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 1 → 4\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 1 x4 ขยับไปทางขวา x1, 1 ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 4 4 ขยับไปทางซ้าย\nจุดเน้น: ช่วยเร็ว กลับตอนบอลถูกส่ง ไม่ใช่ตอนรับ กลับช้ายังแย่กว่าไม่ช่วย",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 1 → 4\nTrình tự: Bước 1: bóng được đưa tới 1, x4 di chuyển sang phải, x1, 1 di chuyển lên phía trước; Bước 2: 1 ném cho 4, 4 di chuyển sang trái.\nĐiểm chính: Bọc lót sớm, về vị trí ngay khi bóng được chuyền, không phải khi đối thủ bắt bóng."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -2766,6 +2798,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 3,
+            "position": [
+              521.6964285714287,
+              507.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                460.0,
+                361.0
+              ],
+              [
+                279.64285714285717,
+                469.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2798,18 +2862,18 @@
         "vi-VN": "Chèn bắt bật"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: x4, x5 moves back, 4, 5 moves up the board.\nCoaching point: Find your man before you find the ball. Contact first, then go get it — every rebound is won a second before it comes off.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: x4, x5 moves back, 4, 5 moves up the board.\nCoaching point: Find your man before you find the ball. Contact first, then go get it — every rebound is won a second before it comes off.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：x4、x5 回撤移动，4、5 向前移动。\n【要点】先找人，再找球。先接触卡住，再去抢 —— 篮板是在球弹出来之前一秒决定的。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：x4、x5 回撤移動，4、5 向前移動。\n【要點】先找人，再找球。先接觸卡住，再去搶 —— 籃板是在球彈出來之前一秒決定的。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：x4・x5が後方へ移動、4・5が前方へ移動。\n【ポイント】ボールより先に人を見つける。当たってから取りに行く。リバウンドは落ちる1秒前に決まる。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: x4, x5는 뒤로 이동, 4, 5는 앞으로 이동.\n【포인트】공보다 사람을 먼저 찾아라. 접촉 먼저, 그다음 잡으러 간다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: x4, x5 se desplaza hacia atrás, 4, 5 se desplaza hacia delante.\nPunto clave: Encuentra a tu hombre antes que al balón. Contacto primero: el rebote se gana un segundo antes.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : x4, x5 se déplace vers l'arrière, 4, 5 se déplace vers l'avant.\nPoint clé : Trouve ton joueur avant le ballon. Contact d'abord : le rebond se gagne une seconde plus tôt.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: x4, x5 bergerak ke belakang, 4, 5 bergerak ke depan.\nPoin utama: Temukan lawanmu sebelum bola. Kontak dulu, baru ambil.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: x4, x5 bergerak ke belakang, 4, 5 bergerak ke hadapan.\nPoin utama: Cari lawan anda dahulu, bukan bola.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: x4, x5 ขยับถอยหลัง 4, 5 ขยับไปข้างหน้า\nจุดเน้น: หาคนก่อนหาบอล ปะทะก่อนแล้วค่อยไปเก็บ",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: x4, x5 di chuyển lùi lại, 4, 5 di chuyển lên phía trước.\nĐiểm chính: Tìm người trước khi tìm bóng. Tiếp xúc trước rồi mới bắt bóng."
+        "en": "Setup: 2 v 2.\nBall path: goal\nSequence: Step 1: ? shoots, x4, x5 moves back, 4, 5 moves up the board.\nCoaching point: Find your man before you find the ball. Contact first, then go get it — every rebound is won a second before it comes off.",
+        "en-GB": "Setup: 2 v 2.\nBall path: goal\nSequence: Step 1: ? shoots, x4, x5 moves back, 4, 5 moves up the board.\nCoaching point: Find your man before you find the ball. Contact first, then go get it — every rebound is won a second before it comes off.",
+        "zh-CN": "【组织】2 对 2。\n【球路】球门\n【流程】第1步：? 射门，x4、x5 回撤移动，4、5 向前移动。\n【要点】先找人，再找球。先接触卡住，再去抢 —— 篮板是在球弹出来之前一秒决定的。",
+        "zh-TW": "【組織】2 對 2。\n【球路】球門\n【流程】第1步：? 射門，x4、x5 回撤移動，4、5 向前移動。\n【要點】先找人，再找球。先接觸卡住，再去搶 —— 籃板是在球彈出來之前一秒決定的。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】ゴール\n【流れ】ステップ1：?がシュート、x4・x5が後方へ移動、4・5が前方へ移動。\n【ポイント】ボールより先に人を見つける。当たってから取りに行く。リバウンドは落ちる1秒前に決まる。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】골문\n【진행】1단계: ? 슛, x4, x5는 뒤로 이동, 4, 5는 앞으로 이동.\n【포인트】공보다 사람을 먼저 찾아라. 접촉 먼저, 그다음 잡으러 간다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: portería\nSecuencia: Paso 1: ? remata, x4, x5 se desplaza hacia atrás, 4, 5 se desplaza hacia delante.\nPunto clave: Encuentra a tu hombre antes que al balón. Contacto primero: el rebote se gana un segundo antes.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : but\nDéroulé : Étape 1 : ? frappe, x4, x5 se déplace vers l'arrière, 4, 5 se déplace vers l'avant.\nPoint clé : Trouve ton joueur avant le ballon. Contact d'abord : le rebond se gagne une seconde plus tôt.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: gawang\nUrutan: Langkah 1: ? menembak, x4, x5 bergerak ke belakang, 4, 5 bergerak ke depan.\nPoin utama: Temukan lawanmu sebelum bola. Kontak dulu, baru ambil.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: gol\nUrutan: Langkah 1: ? menjaring, x4, x5 bergerak ke belakang, 4, 5 bergerak ke hadapan.\nPoin utama: Cari lawan anda dahulu, bukan bola.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: ประตู\nลำดับ: ขั้นที่ 1: ? ยิงประตู x4, x5 ขยับถอยหลัง 4, 5 ขยับไปข้างหน้า\nจุดเน้น: หาคนก่อนหาบอล ปะทะก่อนแล้วค่อยไปเก็บ",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: khung thành\nTrình tự: Bước 1: ? dứt điểm, x4, x5 di chuyển lùi lại, 4, 5 di chuyển lên phía trước.\nĐiểm chính: Tìm người trước khi tìm bóng. Tiếp xúc trước rồi mới bắt bóng."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -2939,6 +3003,33 @@
               0
             ],
             "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 3,
+            "position": [
+              500.0,
+              480.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                460.0,
+                212.5
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,

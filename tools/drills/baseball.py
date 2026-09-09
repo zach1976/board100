@@ -83,6 +83,8 @@ def warmup_family() -> list[Drill]:
             home=home, away=away,
             markers=[M(*HOME, "square", "")],
             ball=0,
+            # thrown between the stations of the warm-up
+            ball_to=([(1, 0), (0, 1)] if len(home) == 2 else [(3, 0), (1, 1)]),
         ))
     return out
 
@@ -348,6 +350,8 @@ tight=True,
             away=defence(without=("LF", "RF")),
             markers=[M(*HOME, "zone", "")],
             ball=ball_at,               # where the batted ball goes
+            # the ball comes home as the runner does — the race the play is
+            ball_to=[("a1", 1)],
         ))
     return out
 
@@ -408,6 +412,8 @@ def defence_family() -> list[Drill]:
             markers=[M(*HOME, "square", ""), M(*FIRST, "square", ""),
                      M(*SECOND, "square", ""), M(*THIRD, "square", "")],
             ball=0,
+            # fielded where the play dictates, thrown to the out
+            ball_to=[(1, 0), (2, 1)],
         ))
     return out
 
@@ -524,6 +530,8 @@ def game_family() -> list[Drill]:
             markers=[M(*HOME, "square", ""), M(*FIRST, "square", ""),
                      M(*SECOND, "square", ""), M(*THIRD, "square", "")],
             ball=0,
+            # the pitch — everything else starts on its release
+            ball_to=[((500, 1180), 0), (0, 1)],
         ))
     return out
 

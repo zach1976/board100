@@ -2554,18 +2554,18 @@
         "en-GB": "Pressing trigger"
       },
       "note": {
-        "en": "Setup: 4 v 3.\nSequence: Step 1: 6 moves up the board; Step 2: 9, 11, 7, 8 moves up the board.\nCoaching point: The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes.",
-        "en-GB": "Setup: 4 v 3.\nSequence: Step 1: 6 moves up the board; Step 2: 9, 11, 7, 8 moves up the board.\nCoaching point: The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes.",
-        "zh-CN": "【组织】4 对 3。\n【流程】第1步：6 向前移动；第2步：9、11、7、8 向前移动。\n【要点】触发点是回传球或一次糟糕的停球。第一个人上抢球，其余人封传球路线。",
-        "zh-TW": "【組織】4 對 3。\n【流程】第1步：6 向前移動；第2步：9、11、7、8 向前移動。\n【要點】觸發點是回傳球或一次糟糕的停球。第一個人上搶球，其餘人封傳球路線。",
-        "ja-JP": "【準備】4対3。\n【流れ】ステップ1：6が前方へ移動。ステップ2：9・11・7・8が前方へ移動。\n【ポイント】スイッチはバックパスかトラップミス。1人目がボールへ、他はパスコースを消す。",
-        "ko-KR": "【준비】4대3.\n【진행】1단계: 6는 앞으로 이동; 2단계: 9, 11, 7, 8는 앞으로 이동.\n【포인트】트리거는 백패스나 나쁜 첫 터치. 첫 번째가 공을 압박하고 나머지는 패스 길을 막는다.",
-        "es-ES": "Montaje: 4 contra 3.\nSecuencia: Paso 1: 6 se desplaza hacia delante; Paso 2: 9, 11, 7, 8 se desplaza hacia delante.\nPunto clave: El gatillo es un pase atrás o un mal control. El primero va al balón, el resto tapa líneas.",
-        "fr-FR": "Mise en place : 4 contre 3.\nDéroulé : Étape 1 : 6 se déplace vers l'avant ; Étape 2 : 9, 11, 7, 8 se déplace vers l'avant.\nPoint clé : Le signal : passe en retrait ou mauvais contrôle. Le premier va au ballon, les autres ferment les lignes.",
-        "id-ID": "Persiapan: 4 lawan 3.\nUrutan: Langkah 1: 6 bergerak ke depan; Langkah 2: 9, 11, 7, 8 bergerak ke depan.\nPoin utama: Pemicunya umpan ke belakang atau kontrol buruk. Yang pertama menekan bola, lainnya menutup jalur.",
-        "ms-MY": "Persediaan: 4 lawan 3.\nUrutan: Langkah 1: 6 bergerak ke hadapan; Langkah 2: 9, 11, 7, 8 bergerak ke hadapan.\nPoin utama: Pencetusnya hantaran ke belakang atau kawalan lemah.",
-        "th-TH": "การจัด: 4 ต่อ 3\nลำดับ: ขั้นที่ 1: 6 ขยับไปข้างหน้า • ขั้นที่ 2: 9, 11, 7, 8 ขยับไปข้างหน้า\nจุดเน้น: ทริกเกอร์คือบอลย้อนหลังหรือการหยุดบอลพลาด คนแรกเข้าบอล คนอื่นปิดเส้นทางจ่าย",
-        "vi-VN": "Bố trí: 4 đấu 3.\nTrình tự: Bước 1: 6 di chuyển lên phía trước; Bước 2: 9, 11, 7, 8 di chuyển lên phía trước.\nĐiểm chính: Tín hiệu là đường chuyền về hoặc chạm bóng hỏng. Người đầu ép bóng, phần còn lại chặn hướng chuyền."
+        "en": "Setup: 4 v 3.\nBall path: 6\nSequence: Step 1: the ball is played to 6, 6 moves up the board; Step 2: 9 follows the pass, 11, 7, 8 moves up the board.\nCoaching point: The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes.",
+        "en-GB": "Setup: 4 v 3.\nBall path: 6\nSequence: Step 1: the ball is played to 6, 6 moves up the board; Step 2: 9 follows the pass, 11, 7, 8 moves up the board.\nCoaching point: The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes.",
+        "zh-CN": "【组织】4 对 3。\n【球路】6\n【流程】第1步：球传到 6，6 向前移动；第2步：9 跟进，11、7、8 向前移动。\n【要点】触发点是回传球或一次糟糕的停球。第一个人上抢球，其余人封传球路线。",
+        "zh-TW": "【組織】4 對 3。\n【球路】6\n【流程】第1步：球傳到 6，6 向前移動；第2步：9 跟進，11、7、8 向前移動。\n【要點】觸發點是回傳球或一次糟糕的停球。第一個人上搶球，其餘人封傳球路線。",
+        "ja-JP": "【準備】4対3。\n【ボールの道筋】6\n【流れ】ステップ1：ボールが6へ入る、6が前方へ移動。ステップ2：9がパスを追って移動、11・7・8が前方へ移動。\n【ポイント】スイッチはバックパスかトラップミス。1人目がボールへ、他はパスコースを消す。",
+        "ko-KR": "【준비】4대3.\n【볼 경로】6\n【진행】1단계: 공이 6에게 온다, 6는 앞으로 이동; 2단계: 9는 패스를 따라간다, 11, 7, 8는 앞으로 이동.\n【포인트】트리거는 백패스나 나쁜 첫 터치. 첫 번째가 공을 압박하고 나머지는 패스 길을 막는다.",
+        "es-ES": "Montaje: 4 contra 3.\nRecorrido del balón: 6\nSecuencia: Paso 1: el balón llega a 6, 6 se desplaza hacia delante; Paso 2: 9 sigue su pase, 11, 7, 8 se desplaza hacia delante.\nPunto clave: El gatillo es un pase atrás o un mal control. El primero va al balón, el resto tapa líneas.",
+        "fr-FR": "Mise en place : 4 contre 3.\nTrajet du ballon : 6\nDéroulé : Étape 1 : le ballon arrive sur 6, 6 se déplace vers l'avant ; Étape 2 : 9 suit sa passe, 11, 7, 8 se déplace vers l'avant.\nPoint clé : Le signal : passe en retrait ou mauvais contrôle. Le premier va au ballon, les autres ferment les lignes.",
+        "id-ID": "Persiapan: 4 lawan 3.\nJalur bola: 6\nUrutan: Langkah 1: bola dimainkan ke 6, 6 bergerak ke depan; Langkah 2: 9 mengikuti operannya, 11, 7, 8 bergerak ke depan.\nPoin utama: Pemicunya umpan ke belakang atau kontrol buruk. Yang pertama menekan bola, lainnya menutup jalur.",
+        "ms-MY": "Persediaan: 4 lawan 3.\nLaluan bola: 6\nUrutan: Langkah 1: bola dimainkan kepada 6, 6 bergerak ke hadapan; Langkah 2: 9 mengikut hantarannya, 11, 7, 8 bergerak ke hadapan.\nPoin utama: Pencetusnya hantaran ke belakang atau kawalan lemah.",
+        "th-TH": "การจัด: 4 ต่อ 3\nเส้นทางบอล: 6\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 6 6 ขยับไปข้างหน้า • ขั้นที่ 2: 9 วิ่งตามบอล 11, 7, 8 ขยับไปข้างหน้า\nจุดเน้น: ทริกเกอร์คือบอลย้อนหลังหรือการหยุดบอลพลาด คนแรกเข้าบอล คนอื่นปิดเส้นทางจ่าย",
+        "vi-VN": "Bố trí: 4 đấu 3.\nĐường bóng: 6\nTrình tự: Bước 1: bóng được đưa tới 6, 6 di chuyển lên phía trước; Bước 2: 9 chạy theo đường chuyền, 11, 7, 8 di chuyển lên phía trước.\nĐiểm chính: Tín hiệu là đường chuyền về hoặc chạm bóng hỏng. Người đầu ép bóng, phần còn lại chặn hướng chuyền."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -2758,6 +2758,33 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              520,
+              430
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                460.0,
+                400.0
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2790,18 +2817,18 @@
         "en-GB": "2v2 recovery"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: 4 moves back, 9 moves up the board; Step 2: 5 moves back, 10 moves up the board.\nCoaching point: First defender delays, second covers the inside. Never both at the ball.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: 4 moves back, 9 moves up the board; Step 2: 5 moves back, 10 moves up the board.\nCoaching point: First defender delays, second covers the inside. Never both at the ball.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：4 回撤移动，9 向前移动；第2步：5 回撤移动，10 向前移动。\n【要点】第一防守人延缓，第二人保护内侧。两个人不能同时扑球。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：4 回撤移動，9 向前移動；第2步：5 回撤移動，10 向前移動。\n【要點】第一防守人延緩，第二人保護內側。兩個人不能同時撲球。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：4が後方へ移動、9が前方へ移動。ステップ2：5が後方へ移動、10が前方へ移動。\n【ポイント】1人目は遅らせ、2人目は内側をカバー。二人同時にボールへ行かない。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: 4는 뒤로 이동, 9는 앞으로 이동; 2단계: 5는 뒤로 이동, 10는 앞으로 이동.\n【포인트】첫 수비는 지연, 두 번째는 안쪽 커버. 둘이 동시에 공에 가지 마라.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: 4 se desplaza hacia atrás, 9 se desplaza hacia delante; Paso 2: 5 se desplaza hacia atrás, 10 se desplaza hacia delante.\nPunto clave: El primer defensor retrasa, el segundo cubre por dentro. Nunca los dos al balón.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : 4 se déplace vers l'arrière, 9 se déplace vers l'avant ; Étape 2 : 5 se déplace vers l'arrière, 10 se déplace vers l'avant.\nPoint clé : Le premier temporise, le second couvre l'intérieur. Jamais les deux sur le ballon.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: 4 bergerak ke belakang, 9 bergerak ke depan; Langkah 2: 5 bergerak ke belakang, 10 bergerak ke depan.\nPoin utama: Bek pertama menunda, kedua menutup sisi dalam. Jangan keduanya ke bola.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: 4 bergerak ke belakang, 9 bergerak ke hadapan; Langkah 2: 5 bergerak ke belakang, 10 bergerak ke hadapan.\nPoin utama: Bek pertama melengahkan, kedua menutup dalam.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: 4 ขยับถอยหลัง 9 ขยับไปข้างหน้า • ขั้นที่ 2: 5 ขยับถอยหลัง 10 ขยับไปข้างหน้า\nจุดเน้น: คนแรกหน่วงเวลา คนที่สองคุมด้านใน อย่าเข้าบอลพร้อมกัน",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: 4 di chuyển lùi lại, 9 di chuyển lên phía trước; Bước 2: 5 di chuyển lùi lại, 10 di chuyển lên phía trước.\nĐiểm chính: Hậu vệ thứ nhất trì hoãn, thứ hai bọc lót bên trong. Không cùng lao vào bóng."
+        "en": "Setup: 2 v 2.\nBall path: 9 → 10\nSequence: Step 1: the ball is played to 9, 4 moves back, 9 moves up the board; Step 2: 9 passes to 10, 5, 10 follows the pass.\nCoaching point: First defender delays, second covers the inside. Never both at the ball.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 9 → 10\nSequence: Step 1: the ball is played to 9, 4 moves back, 9 moves up the board; Step 2: 9 passes to 10, 5, 10 follows the pass.\nCoaching point: First defender delays, second covers the inside. Never both at the ball.",
+        "zh-CN": "【组织】2 对 2。\n【球路】9 → 10\n【流程】第1步：球传到 9，4 回撤移动，9 向前移动；第2步：9 传 10，5、10 跟进。\n【要点】第一防守人延缓，第二人保护内侧。两个人不能同时扑球。",
+        "zh-TW": "【組織】2 對 2。\n【球路】9 → 10\n【流程】第1步：球傳到 9，4 回撤移動，9 向前移動；第2步：9 傳 10，5、10 跟進。\n【要點】第一防守人延緩，第二人保護內側。兩個人不能同時撲球。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】9 → 10\n【流れ】ステップ1：ボールが9へ入る、4が後方へ移動、9が前方へ移動。ステップ2：9が10へパス、5・10がパスを追って移動。\n【ポイント】1人目は遅らせ、2人目は内側をカバー。二人同時にボールへ行かない。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】9 → 10\n【진행】1단계: 공이 9에게 온다, 4는 뒤로 이동, 9는 앞으로 이동; 2단계: 9가 10에게 패스, 5, 10는 패스를 따라간다.\n【포인트】첫 수비는 지연, 두 번째는 안쪽 커버. 둘이 동시에 공에 가지 마라.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 9 → 10\nSecuencia: Paso 1: el balón llega a 9, 4 se desplaza hacia atrás, 9 se desplaza hacia delante; Paso 2: 9 pasa a 10, 5, 10 sigue su pase.\nPunto clave: El primer defensor retrasa, el segundo cubre por dentro. Nunca los dos al balón.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 9 → 10\nDéroulé : Étape 1 : le ballon arrive sur 9, 4 se déplace vers l'arrière, 9 se déplace vers l'avant ; Étape 2 : 9 passe à 10, 5, 10 suit sa passe.\nPoint clé : Le premier temporise, le second couvre l'intérieur. Jamais les deux sur le ballon.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 9 → 10\nUrutan: Langkah 1: bola dimainkan ke 9, 4 bergerak ke belakang, 9 bergerak ke depan; Langkah 2: 9 mengoper ke 10, 5, 10 mengikuti operannya.\nPoin utama: Bek pertama menunda, kedua menutup sisi dalam. Jangan keduanya ke bola.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 9 → 10\nUrutan: Langkah 1: bola dimainkan kepada 9, 4 bergerak ke belakang, 9 bergerak ke hadapan; Langkah 2: 9 menghantar kepada 10, 5, 10 mengikut hantarannya.\nPoin utama: Bek pertama melengahkan, kedua menutup dalam.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 9 → 10\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 9 4 ขยับถอยหลัง 9 ขยับไปข้างหน้า • ขั้นที่ 2: 9 จ่ายให้ 10 5, 10 วิ่งตามบอล\nจุดเน้น: คนแรกหน่วงเวลา คนที่สองคุมด้านใน อย่าเข้าบอลพร้อมกัน",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 9 → 10\nTrình tự: Bước 1: bóng được đưa tới 9, 4 di chuyển lùi lại, 9 di chuyển lên phía trước; Bước 2: 9 chuyền cho 10, 5, 10 chạy theo đường chuyền.\nĐiểm chính: Hậu vệ thứ nhất trì hoãn, thứ hai bọc lót bên trong. Không cùng lao vào bóng."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -2921,6 +2948,38 @@
               1
             ],
             "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              400,
+              920
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                440.0,
+                790.0
+              ],
+              [
+                560.0,
+                830.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -6726,18 +6785,18 @@
         "vi-VN": "Bộ tứ vệ: dịch chuyển và bọc lót"
       },
       "note": {
-        "en": "Setup: 4 v 3.\nSequence: Step 1: 3, 4, 5, 2, 10, 7 moves right.\nCoaching point: The far full-back tucks in as the ball travels. The line moves as one — a gap is one player being late.",
-        "en-GB": "Setup: 4 v 3.\nSequence: Step 1: 3, 4, 5, 2, 10, 7 moves right.\nCoaching point: The far full-back tucks in as the ball travels. The line moves as one — a gap is one player being late.",
-        "zh-CN": "【组织】4 对 3。\n【流程】第1步：3、4、5、2、10、7 向右移动。\n【要点】球在运行时，远端边后卫要收进来。整条线一起动 —— 出现空当，就是有人慢了半拍。",
-        "zh-TW": "【組織】4 對 3。\n【流程】第1步：3、4、5、2、10、7 向右移動。\n【要點】球在運行時，遠端邊後衛要收進來。整條線一起動 —— 出現空檔，就是有人慢了半拍。",
-        "ja-JP": "【準備】4対3。\n【流れ】ステップ1：3・4・5・2・10・7が右へ移動。\n【ポイント】ボール移動中に逆SBが絞る。ラインは一体で動く。空くのは誰かが遅れた証拠。",
-        "ko-KR": "【준비】4대3.\n【진행】1단계: 3, 4, 5, 2, 10, 7는 오른쪽으로 이동.\n【포인트】공이 이동하는 동안 반대편 풀백이 좁힌다. 라인은 하나로 움직인다.",
-        "es-ES": "Montaje: 4 contra 3.\nSecuencia: Paso 1: 3, 4, 5, 2, 10, 7 se desplaza a la derecha.\nPunto clave: El lateral lejano se cierra mientras viaja el balón. La línea se mueve como una.",
-        "fr-FR": "Mise en place : 4 contre 3.\nDéroulé : Étape 1 : 3, 4, 5, 2, 10, 7 se déplace à droite.\nPoint clé : Le latéral opposé rentre pendant le trajet du ballon. La ligne bouge d'un bloc.",
-        "id-ID": "Persiapan: 4 lawan 3.\nUrutan: Langkah 1: 3, 4, 5, 2, 10, 7 bergerak ke kanan.\nPoin utama: Bek sayap jauh masuk ke dalam saat bola bergerak. Lini bergerak sebagai satu.",
-        "ms-MY": "Persediaan: 4 lawan 3.\nUrutan: Langkah 1: 3, 4, 5, 2, 10, 7 bergerak ke kanan.\nPoin utama: Bek sayap jauh masuk ke dalam ketika bola bergerak.",
-        "th-TH": "การจัด: 4 ต่อ 3\nลำดับ: ขั้นที่ 1: 3, 4, 5, 2, 10, 7 ขยับไปทางขวา\nจุดเน้น: แบ็กฝั่งไกลต้องหุบเข้าในระหว่างบอลเดินทาง แนวรับต้องขยับพร้อมกัน",
-        "vi-VN": "Bố trí: 4 đấu 3.\nTrình tự: Bước 1: 3, 4, 5, 2, 10, 7 di chuyển sang phải.\nĐiểm chính: Hậu vệ biên xa co vào khi bóng di chuyển. Cả tuyến dịch như một."
+        "en": "Setup: 4 v 3.\nBall path: 10 → 7\nSequence: Step 1: the ball is played to 10, 10 passes to 7, 3, 4, 5, 2, 10, 7 moves right.\nCoaching point: The far full-back tucks in as the ball travels. The line moves as one — a gap is one player being late.",
+        "en-GB": "Setup: 4 v 3.\nBall path: 10 → 7\nSequence: Step 1: the ball is played to 10, 10 passes to 7, 3, 4, 5, 2, 10, 7 moves right.\nCoaching point: The far full-back tucks in as the ball travels. The line moves as one — a gap is one player being late.",
+        "zh-CN": "【组织】4 对 3。\n【球路】10 → 7\n【流程】第1步：球传到 10，10 传 7，3、4、5、2、10、7 向右移动。\n【要点】球在运行时，远端边后卫要收进来。整条线一起动 —— 出现空当，就是有人慢了半拍。",
+        "zh-TW": "【組織】4 對 3。\n【球路】10 → 7\n【流程】第1步：球傳到 10，10 傳 7，3、4、5、2、10、7 向右移動。\n【要點】球在運行時，遠端邊後衛要收進來。整條線一起動 —— 出現空檔，就是有人慢了半拍。",
+        "ja-JP": "【準備】4対3。\n【ボールの道筋】10 → 7\n【流れ】ステップ1：ボールが10へ入る、10が7へパス、3・4・5・2・10・7が右へ移動。\n【ポイント】ボール移動中に逆SBが絞る。ラインは一体で動く。空くのは誰かが遅れた証拠。",
+        "ko-KR": "【준비】4대3.\n【볼 경로】10 → 7\n【진행】1단계: 공이 10에게 온다, 10가 7에게 패스, 3, 4, 5, 2, 10, 7는 오른쪽으로 이동.\n【포인트】공이 이동하는 동안 반대편 풀백이 좁힌다. 라인은 하나로 움직인다.",
+        "es-ES": "Montaje: 4 contra 3.\nRecorrido del balón: 10 → 7\nSecuencia: Paso 1: el balón llega a 10, 10 pasa a 7, 3, 4, 5, 2, 10, 7 se desplaza a la derecha.\nPunto clave: El lateral lejano se cierra mientras viaja el balón. La línea se mueve como una.",
+        "fr-FR": "Mise en place : 4 contre 3.\nTrajet du ballon : 10 → 7\nDéroulé : Étape 1 : le ballon arrive sur 10, 10 passe à 7, 3, 4, 5, 2, 10, 7 se déplace à droite.\nPoint clé : Le latéral opposé rentre pendant le trajet du ballon. La ligne bouge d'un bloc.",
+        "id-ID": "Persiapan: 4 lawan 3.\nJalur bola: 10 → 7\nUrutan: Langkah 1: bola dimainkan ke 10, 10 mengoper ke 7, 3, 4, 5, 2, 10, 7 bergerak ke kanan.\nPoin utama: Bek sayap jauh masuk ke dalam saat bola bergerak. Lini bergerak sebagai satu.",
+        "ms-MY": "Persediaan: 4 lawan 3.\nLaluan bola: 10 → 7\nUrutan: Langkah 1: bola dimainkan kepada 10, 10 menghantar kepada 7, 3, 4, 5, 2, 10, 7 bergerak ke kanan.\nPoin utama: Bek sayap jauh masuk ke dalam ketika bola bergerak.",
+        "th-TH": "การจัด: 4 ต่อ 3\nเส้นทางบอล: 10 → 7\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 10 10 จ่ายให้ 7 3, 4, 5, 2, 10, 7 ขยับไปทางขวา\nจุดเน้น: แบ็กฝั่งไกลต้องหุบเข้าในระหว่างบอลเดินทาง แนวรับต้องขยับพร้อมกัน",
+        "vi-VN": "Bố trí: 4 đấu 3.\nĐường bóng: 10 → 7\nTrình tự: Bước 1: bóng được đưa tới 10, 10 chuyền cho 7, 3, 4, 5, 2, 10, 7 di chuyển sang phải.\nĐiểm chính: Hậu vệ biên xa co vào khi bóng di chuyển. Cả tuyến dịch như một."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -6937,6 +6996,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              280,
+              820
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                660.0,
+                850.0
+              ],
+              [
+                840.0,
+                830.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6969,18 +7060,18 @@
         "vi-VN": "Pressing ngay khi mất bóng"
       },
       "note": {
-        "en": "Setup: 4 v 3.\nSequence: Step 1: 8, 10, 7, 6 moves up the board; Step 2: 5 moves up the board.\nCoaching point: Five seconds. Closest player to the ball goes, the rest cut the forward pass — nobody runs home yet.",
-        "en-GB": "Setup: 4 v 3.\nSequence: Step 1: 8, 10, 7, 6 moves up the board; Step 2: 5 moves up the board.\nCoaching point: Five seconds. Closest player to the ball goes, the rest cut the forward pass — nobody runs home yet.",
-        "zh-CN": "【组织】4 对 3。\n【流程】第1步：8、10、7、6 向前移动；第2步：5 向前移动。\n【要点】五秒钟。离球最近的人上抢，其余人切断向前的传球线 —— 谁都先别回撤。",
-        "zh-TW": "【組織】4 對 3。\n【流程】第1步：8、10、7、6 向前移動；第2步：5 向前移動。\n【要點】五秒鐘。離球最近的人上搶，其餘人切斷向前的傳球線 —— 誰都先別回撤。",
-        "ja-JP": "【準備】4対3。\n【流れ】ステップ1：8・10・7・6が前方へ移動。ステップ2：5が前方へ移動。\n【ポイント】5秒。最も近い選手が奪いに行き、他は前へのパスを消す。まだ戻らない。",
-        "ko-KR": "【준비】4대3.\n【진행】1단계: 8, 10, 7, 6는 앞으로 이동; 2단계: 5는 앞으로 이동.\n【포인트】5초. 공에 가장 가까운 선수가 압박하고, 나머지는 전진 패스를 끊는다.",
-        "es-ES": "Montaje: 4 contra 3.\nSecuencia: Paso 1: 8, 10, 7, 6 se desplaza hacia delante; Paso 2: 5 se desplaza hacia delante.\nPunto clave: Cinco segundos. El más cercano va al balón; el resto corta el pase hacia delante.",
-        "fr-FR": "Mise en place : 4 contre 3.\nDéroulé : Étape 1 : 8, 10, 7, 6 se déplace vers l'avant ; Étape 2 : 5 se déplace vers l'avant.\nPoint clé : Cinq secondes. Le plus proche va au ballon, les autres coupent la passe vers l'avant.",
-        "id-ID": "Persiapan: 4 lawan 3.\nUrutan: Langkah 1: 8, 10, 7, 6 bergerak ke depan; Langkah 2: 5 bergerak ke depan.\nPoin utama: Lima detik. Yang terdekat menekan bola, sisanya memotong umpan ke depan.",
-        "ms-MY": "Persediaan: 4 lawan 3.\nUrutan: Langkah 1: 8, 10, 7, 6 bergerak ke hadapan; Langkah 2: 5 bergerak ke hadapan.\nPoin utama: Lima saat. Yang terdekat menekan bola, yang lain memotong hantaran ke depan.",
-        "th-TH": "การจัด: 4 ต่อ 3\nลำดับ: ขั้นที่ 1: 8, 10, 7, 6 ขยับไปข้างหน้า • ขั้นที่ 2: 5 ขยับไปข้างหน้า\nจุดเน้น: ห้าวินาที คนใกล้บอลที่สุดเข้าไล่ คนอื่นตัดบอลไปข้างหน้า ยังไม่ต้องถอย",
-        "vi-VN": "Bố trí: 4 đấu 3.\nTrình tự: Bước 1: 8, 10, 7, 6 di chuyển lên phía trước; Bước 2: 5 di chuyển lên phía trước.\nĐiểm chính: Năm giây. Người gần bóng nhất áp sát, phần còn lại cắt đường chuyền lên."
+        "en": "Setup: 4 v 3.\nBall path: 5\nSequence: Step 1: 8, 10, 7, 6 moves up the board; Step 2: the ball is played to 5, 5 moves up the board.\nCoaching point: Five seconds. Closest player to the ball goes, the rest cut the forward pass — nobody runs home yet.",
+        "en-GB": "Setup: 4 v 3.\nBall path: 5\nSequence: Step 1: 8, 10, 7, 6 moves up the board; Step 2: the ball is played to 5, 5 moves up the board.\nCoaching point: Five seconds. Closest player to the ball goes, the rest cut the forward pass — nobody runs home yet.",
+        "zh-CN": "【组织】4 对 3。\n【球路】5\n【流程】第1步：8、10、7、6 向前移动；第2步：球传到 5，5 向前移动。\n【要点】五秒钟。离球最近的人上抢，其余人切断向前的传球线 —— 谁都先别回撤。",
+        "zh-TW": "【組織】4 對 3。\n【球路】5\n【流程】第1步：8、10、7、6 向前移動；第2步：球傳到 5，5 向前移動。\n【要點】五秒鐘。離球最近的人上搶，其餘人切斷向前的傳球線 —— 誰都先別回撤。",
+        "ja-JP": "【準備】4対3。\n【ボールの道筋】5\n【流れ】ステップ1：8・10・7・6が前方へ移動。ステップ2：ボールが5へ入る、5が前方へ移動。\n【ポイント】5秒。最も近い選手が奪いに行き、他は前へのパスを消す。まだ戻らない。",
+        "ko-KR": "【준비】4대3.\n【볼 경로】5\n【진행】1단계: 8, 10, 7, 6는 앞으로 이동; 2단계: 공이 5에게 온다, 5는 앞으로 이동.\n【포인트】5초. 공에 가장 가까운 선수가 압박하고, 나머지는 전진 패스를 끊는다.",
+        "es-ES": "Montaje: 4 contra 3.\nRecorrido del balón: 5\nSecuencia: Paso 1: 8, 10, 7, 6 se desplaza hacia delante; Paso 2: el balón llega a 5, 5 se desplaza hacia delante.\nPunto clave: Cinco segundos. El más cercano va al balón; el resto corta el pase hacia delante.",
+        "fr-FR": "Mise en place : 4 contre 3.\nTrajet du ballon : 5\nDéroulé : Étape 1 : 8, 10, 7, 6 se déplace vers l'avant ; Étape 2 : le ballon arrive sur 5, 5 se déplace vers l'avant.\nPoint clé : Cinq secondes. Le plus proche va au ballon, les autres coupent la passe vers l'avant.",
+        "id-ID": "Persiapan: 4 lawan 3.\nJalur bola: 5\nUrutan: Langkah 1: 8, 10, 7, 6 bergerak ke depan; Langkah 2: bola dimainkan ke 5, 5 bergerak ke depan.\nPoin utama: Lima detik. Yang terdekat menekan bola, sisanya memotong umpan ke depan.",
+        "ms-MY": "Persediaan: 4 lawan 3.\nLaluan bola: 5\nUrutan: Langkah 1: 8, 10, 7, 6 bergerak ke hadapan; Langkah 2: bola dimainkan kepada 5, 5 bergerak ke hadapan.\nPoin utama: Lima saat. Yang terdekat menekan bola, yang lain memotong hantaran ke depan.",
+        "th-TH": "การจัด: 4 ต่อ 3\nเส้นทางบอล: 5\nลำดับ: ขั้นที่ 1: 8, 10, 7, 6 ขยับไปข้างหน้า • ขั้นที่ 2: บอลถูกส่งมาที่ 5 5 ขยับไปข้างหน้า\nจุดเน้น: ห้าวินาที คนใกล้บอลที่สุดเข้าไล่ คนอื่นตัดบอลไปข้างหน้า ยังไม่ต้องถอย",
+        "vi-VN": "Bố trí: 4 đấu 3.\nĐường bóng: 5\nTrình tự: Bước 1: 8, 10, 7, 6 di chuyển lên phía trước; Bước 2: bóng được đưa tới 5, 5 di chuyển lên phía trước.\nĐiểm chính: Năm giây. Người gần bóng nhất áp sát, phần còn lại cắt đường chuyền lên."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -7167,6 +7258,33 @@
             "moves": [],
             "movePhases": [],
             "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              540,
+              620
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                480.0,
+                590.0
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -9830,18 +9948,18 @@
         "vi-VN": "Phòng ngự 1v1 ở hành lang"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones.\nSequence: Step 1: 3 moves back, 11 moves up the board.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
-        "en-GB": "Setup: 1 v 1, 2 cones.\nSequence: Step 1: 3 moves back, 11 moves up the board.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
-        "zh-CN": "【组织】1 对 1，2 个锥标。\n【流程】第1步：3 回撤移动，11 向前移动。\n【要点】把他逼向边线，绝不放内切。快速接近、减速到位、重心在前脚掌。",
-        "zh-TW": "【組織】1 對 1，2 個錐標。\n【流程】第1步：3 回撤移動，11 向前移動。\n【要點】把他逼向邊線，絕不放內切。快速接近、減速到位、重心在前腳掌。",
-        "ja-JP": "【準備】1対1、コーン2個。\n【流れ】ステップ1：3が後方へ移動、11が前方へ移動。\n【ポイント】外へ誘導し、中を切る。速く寄せて、ゆっくり止まり、つま先で構える。",
-        "ko-KR": "【준비】1대1, 콘 2개.\n【진행】1단계: 3는 뒤로 이동, 11는 앞으로 이동.\n【포인트】라인 쪽으로 몰아라, 안쪽은 절대 금지. 빠르게 다가가 천천히 멈춰라.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos.\nSecuencia: Paso 1: 3 se desplaza hacia atrás, 11 se desplaza hacia delante.\nPunto clave: Muéstrale la línea, nunca por dentro. Llega rápido, frena antes, apoya en la punta.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots.\nDéroulé : Étape 1 : 3 se déplace vers l'arrière, 11 se déplace vers l'avant.\nPoint clé : Oriente-le vers la ligne, jamais à l'intérieur. Approche vite, arrive lentement.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut.\nUrutan: Langkah 1: 3 bergerak ke belakang, 11 bergerak ke depan.\nPoin utama: Arahkan ke garis, jangan ke dalam. Datang cepat, berhenti pelan.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon.\nUrutan: Langkah 1: 3 bergerak ke belakang, 11 bergerak ke hadapan.\nPoin utama: Halakan dia ke garisan, jangan ke dalam.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน\nลำดับ: ขั้นที่ 1: 3 ขยับถอยหลัง 11 ขยับไปข้างหน้า\nจุดเน้น: บีบให้ออกริมเส้น อย่าปล่อยตัดเข้าใน เข้าเร็วแต่หยุดช้า",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc.\nTrình tự: Bước 1: 3 di chuyển lùi lại, 11 di chuyển lên phía trước.\nĐiểm chính: Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."
+        "en": "Setup: 1 v 1, 2 cones.\nBall path: 11\nSequence: Step 1: the ball is played to 11, 3 moves back, 11 moves up the board; Step 2: 11 carries the ball on the move.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
+        "en-GB": "Setup: 1 v 1, 2 cones.\nBall path: 11\nSequence: Step 1: the ball is played to 11, 3 moves back, 11 moves up the board; Step 2: 11 carries the ball on the move.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
+        "zh-CN": "【组织】1 对 1，2 个锥标。\n【球路】11\n【流程】第1步：球传到 11，3 回撤移动，11 向前移动；第2步：11 带球移动。\n【要点】把他逼向边线，绝不放内切。快速接近、减速到位、重心在前脚掌。",
+        "zh-TW": "【組織】1 對 1，2 個錐標。\n【球路】11\n【流程】第1步：球傳到 11，3 回撤移動，11 向前移動；第2步：11 帶球移動。\n【要點】把他逼向邊線，絕不放內切。快速接近、減速到位、重心在前腳掌。",
+        "ja-JP": "【準備】1対1、コーン2個。\n【ボールの道筋】11\n【流れ】ステップ1：ボールが11へ入る、3が後方へ移動、11が前方へ移動。ステップ2：11がボールを運ぶ。\n【ポイント】外へ誘導し、中を切る。速く寄せて、ゆっくり止まり、つま先で構える。",
+        "ko-KR": "【준비】1대1, 콘 2개.\n【볼 경로】11\n【진행】1단계: 공이 11에게 온다, 3는 뒤로 이동, 11는 앞으로 이동; 2단계: 11가 공을 몰고 이동.\n【포인트】라인 쪽으로 몰아라, 안쪽은 절대 금지. 빠르게 다가가 천천히 멈춰라.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos.\nRecorrido del balón: 11\nSecuencia: Paso 1: el balón llega a 11, 3 se desplaza hacia atrás, 11 se desplaza hacia delante; Paso 2: 11 conduce el balón.\nPunto clave: Muéstrale la línea, nunca por dentro. Llega rápido, frena antes, apoya en la punta.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots.\nTrajet du ballon : 11\nDéroulé : Étape 1 : le ballon arrive sur 11, 3 se déplace vers l'arrière, 11 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon.\nPoint clé : Oriente-le vers la ligne, jamais à l'intérieur. Approche vite, arrive lentement.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut.\nJalur bola: 11\nUrutan: Langkah 1: bola dimainkan ke 11, 3 bergerak ke belakang, 11 bergerak ke depan; Langkah 2: 11 menggiring bola.\nPoin utama: Arahkan ke garis, jangan ke dalam. Datang cepat, berhenti pelan.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon.\nLaluan bola: 11\nUrutan: Langkah 1: bola dimainkan kepada 11, 3 bergerak ke belakang, 11 bergerak ke hadapan; Langkah 2: 11 membawa bola.\nPoin utama: Halakan dia ke garisan, jangan ke dalam.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน\nเส้นทางบอล: 11\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 11 3 ขยับถอยหลัง 11 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป\nจุดเน้น: บีบให้ออกริมเส้น อย่าปล่อยตัดเข้าใน เข้าเร็วแต่หยุดช้า",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc.\nĐường bóng: 11\nTrình tự: Bước 1: bóng được đưa tới 11, 3 di chuyển lùi lại, 11 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển.\nĐiểm chính: Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -9963,6 +10081,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              850,
+              970
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                800.0,
+                890.0
+              ],
+              [
+                840.0,
+                770.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -9995,18 +10145,18 @@
         "vi-VN": "Phòng ngự phạt góc"
       },
       "note": {
-        "en": "Setup: 6 v 3.\nSequence: Step 1: 4 moves right, 5, 6, 9, 10 moves up the board, GK moves back.\nCoaching point: Two on the posts, one attacks the near-post ball, the rest mark space and start moving as the ball is struck.",
-        "en-GB": "Setup: 6 v 3.\nSequence: Step 1: 4 moves right, 5, 6, 9, 10 moves up the board, GK moves back.\nCoaching point: Two on the posts, one attacks the near-post ball, the rest mark space and start moving as the ball is struck.",
-        "zh-CN": "【组织】6 对 3。\n【流程】第1步：4 向右移动，5、6、9、10 向前移动，GK 回撤移动。\n【要点】两人守门柱，一人前顶抢近点，其余人盯区域，球一开就动。",
-        "zh-TW": "【組織】6 對 3。\n【流程】第1步：4 向右移動，5、6、9、10 向前移動，GK 回撤移動。\n【要點】兩人守門柱，一人前頂搶近點，其餘人盯區域，球一開就動。",
-        "ja-JP": "【準備】6対3。\n【流れ】ステップ1：4が右へ移動、5・6・9・10が前方へ移動、GKが後方へ移動。\n【ポイント】2人がポスト、1人がニアを潰し、他はゾーンで蹴られた瞬間に動き出す。",
-        "ko-KR": "【준비】6대3.\n【진행】1단계: 4는 오른쪽으로 이동, 5, 6, 9, 10는 앞으로 이동, GK는 뒤로 이동.\n【포인트】두 명은 골포스트, 한 명은 니어 볼 차단, 나머지는 지역 방어로 차는 순간 움직인다.",
-        "es-ES": "Montaje: 6 contra 3.\nSecuencia: Paso 1: 4 se desplaza a la derecha, 5, 6, 9, 10 se desplaza hacia delante, GK se desplaza hacia atrás.\nPunto clave: Dos en los palos, uno ataca el primer palo, el resto marca zona y arranca al golpeo.",
-        "fr-FR": "Mise en place : 6 contre 3.\nDéroulé : Étape 1 : 4 se déplace à droite, 5, 6, 9, 10 se déplace vers l'avant, GK se déplace vers l'arrière.\nPoint clé : Deux aux poteaux, un attaque le premier poteau, les autres en zone et partent à la frappe.",
-        "id-ID": "Persiapan: 6 lawan 3.\nUrutan: Langkah 1: 4 bergerak ke kanan, 5, 6, 9, 10 bergerak ke depan, GK bergerak ke belakang.\nPoin utama: Dua di tiang, satu memotong tiang dekat, sisanya menjaga zona dan bergerak saat bola ditendang.",
-        "ms-MY": "Persediaan: 6 lawan 3.\nUrutan: Langkah 1: 4 bergerak ke kanan, 5, 6, 9, 10 bergerak ke hadapan, GK bergerak ke belakang.\nPoin utama: Dua di tiang, satu memotong tiang dekat, selebihnya menjaga zon.",
-        "th-TH": "การจัด: 6 ต่อ 3\nลำดับ: ขั้นที่ 1: 4 ขยับไปทางขวา 5, 6, 9, 10 ขยับไปข้างหน้า GK ขยับถอยหลัง\nจุดเน้น: สองคนยืนเสา หนึ่งคนสกัดบอลเสาแรก ที่เหลือคุมโซนและออกตัวเมื่อบอลถูกเตะ",
-        "vi-VN": "Bố trí: 6 đấu 3.\nTrình tự: Bước 1: 4 di chuyển sang phải, 5, 6, 9, 10 di chuyển lên phía trước, GK di chuyển lùi lại.\nĐiểm chính: Hai người đứng cột, một người cắt bóng cột gần, còn lại kèm khu vực."
+        "en": "Setup: 6 v 3.\nBall path: 5 → the open spot\nSequence: Step 1: the ball is played to 5, 4 moves right, 5, 6, 9, 10 moves up the board, GK moves back; Step 2: 5 plays the ball on.\nCoaching point: Two on the posts, one attacks the near-post ball, the rest mark space and start moving as the ball is struck.",
+        "en-GB": "Setup: 6 v 3.\nBall path: 5 → the open spot\nSequence: Step 1: the ball is played to 5, 4 moves right, 5, 6, 9, 10 moves up the board, GK moves back; Step 2: 5 plays the ball on.\nCoaching point: Two on the posts, one attacks the near-post ball, the rest mark space and start moving as the ball is struck.",
+        "zh-CN": "【组织】6 对 3。\n【球路】5 → 空位\n【流程】第1步：球传到 5，4 向右移动，5、6、9、10 向前移动，GK 回撤移动；第2步：5 把球传到下一个点。\n【要点】两人守门柱，一人前顶抢近点，其余人盯区域，球一开就动。",
+        "zh-TW": "【組織】6 對 3。\n【球路】5 → 空位\n【流程】第1步：球傳到 5，4 向右移動，5、6、9、10 向前移動，GK 回撤移動；第2步：5 把球傳到下一個點。\n【要點】兩人守門柱，一人前頂搶近點，其餘人盯區域，球一開就動。",
+        "ja-JP": "【準備】6対3。\n【ボールの道筋】5 → スペース\n【流れ】ステップ1：ボールが5へ入る、4が右へ移動、5・6・9・10が前方へ移動、GKが後方へ移動。ステップ2：5が次のポイントへ送る。\n【ポイント】2人がポスト、1人がニアを潰し、他はゾーンで蹴られた瞬間に動き出す。",
+        "ko-KR": "【준비】6대3.\n【볼 경로】5 → 빈 자리\n【진행】1단계: 공이 5에게 온다, 4는 오른쪽으로 이동, 5, 6, 9, 10는 앞으로 이동, GK는 뒤로 이동; 2단계: 5가 다음 지점으로 보낸다.\n【포인트】두 명은 골포스트, 한 명은 니어 볼 차단, 나머지는 지역 방어로 차는 순간 움직인다.",
+        "es-ES": "Montaje: 6 contra 3.\nRecorrido del balón: 5 → el espacio libre\nSecuencia: Paso 1: el balón llega a 5, 4 se desplaza a la derecha, 5, 6, 9, 10 se desplaza hacia delante, GK se desplaza hacia atrás; Paso 2: 5 envía el balón al siguiente punto.\nPunto clave: Dos en los palos, uno ataca el primer palo, el resto marca zona y arranca al golpeo.",
+        "fr-FR": "Mise en place : 6 contre 3.\nTrajet du ballon : 5 → l'espace libre\nDéroulé : Étape 1 : le ballon arrive sur 5, 4 se déplace à droite, 5, 6, 9, 10 se déplace vers l'avant, GK se déplace vers l'arrière ; Étape 2 : 5 envoie le ballon au point suivant.\nPoint clé : Deux aux poteaux, un attaque le premier poteau, les autres en zone et partent à la frappe.",
+        "id-ID": "Persiapan: 6 lawan 3.\nJalur bola: 5 → titik kosong\nUrutan: Langkah 1: bola dimainkan ke 5, 4 bergerak ke kanan, 5, 6, 9, 10 bergerak ke depan, GK bergerak ke belakang; Langkah 2: 5 memainkan bola ke titik berikutnya.\nPoin utama: Dua di tiang, satu memotong tiang dekat, sisanya menjaga zona dan bergerak saat bola ditendang.",
+        "ms-MY": "Persediaan: 6 lawan 3.\nLaluan bola: 5 → ruang kosong\nUrutan: Langkah 1: bola dimainkan kepada 5, 4 bergerak ke kanan, 5, 6, 9, 10 bergerak ke hadapan, GK bergerak ke belakang; Langkah 2: 5 memainkan bola ke titik seterusnya.\nPoin utama: Dua di tiang, satu memotong tiang dekat, selebihnya menjaga zon.",
+        "th-TH": "การจัด: 6 ต่อ 3\nเส้นทางบอล: 5 → จุดว่าง\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 5 4 ขยับไปทางขวา 5, 6, 9, 10 ขยับไปข้างหน้า GK ขยับถอยหลัง • ขั้นที่ 2: 5 ส่งบอลไปจุดถัดไป\nจุดเน้น: สองคนยืนเสา หนึ่งคนสกัดบอลเสาแรก ที่เหลือคุมโซนและออกตัวเมื่อบอลถูกเตะ",
+        "vi-VN": "Bố trí: 6 đấu 3.\nĐường bóng: 5 → vị trí trống\nTrình tự: Bước 1: bóng được đưa tới 5, 4 di chuyển sang phải, 5, 6, 9, 10 di chuyển lên phía trước, GK di chuyển lùi lại; Bước 2: 5 đưa bóng tới điểm kế tiếp.\nĐiểm chính: Hai người đứng cột, một người cắt bóng cột gần, còn lại kèm khu vực."
       },
       "mistake": {
         "en": "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.",
@@ -10263,6 +10413,38 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 2,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              936,
+              148
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                480.0,
+                330.0
+              ],
+              [
+                460.0,
+                770.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
             "photoId": null,
             "role": null,
             "attachedTo": null
@@ -10987,18 +11169,18 @@
         "vi-VN": "Phạt đền khi mệt"
       },
       "note": {
-        "en": "Setup: 1 v 1.\nSequence: Step 1: 9 moves back; Step 3: GK moves left.\nCoaching point: Sprint the length first, then place it. Pick the corner before you walk up and do not change your mind.",
-        "en-GB": "Setup: 1 v 1.\nSequence: Step 1: 9 moves back; Step 3: GK moves left.\nCoaching point: Sprint the length first, then place it. Pick the corner before you walk up and do not change your mind.",
-        "zh-CN": "【组织】1 对 1。\n【流程】第1步：9 回撤移动；第3步：GK 向左移动。\n【要点】先冲刺一趟再罚。上前之前就选好角度，然后绝不改主意。",
-        "zh-TW": "【組織】1 對 1。\n【流程】第1步：9 回撤移動；第3步：GK 向左移動。\n【要點】先衝刺一趟再罰。上前之前就選好角度，然後絕不改主意。",
-        "ja-JP": "【準備】1対1。\n【流れ】ステップ1：9が後方へ移動。ステップ3：GKが左へ移動。\n【ポイント】全力疾走してから蹴る。歩き出す前にコースを決め、変えない。",
-        "ko-KR": "【준비】1대1.\n【진행】1단계: 9는 뒤로 이동; 3단계: GK는 왼쪽으로 이동.\n【포인트】먼저 전력 질주한 뒤 찬다. 걸어가기 전에 코스를 정하고 바꾸지 마라.",
-        "es-ES": "Montaje: 1 contra 1.\nSecuencia: Paso 1: 9 se desplaza hacia atrás; Paso 3: GK se desplaza a la izquierda.\nPunto clave: Esprinta primero y luego colócalo. Elige el palo antes de caminar y no cambies.",
-        "fr-FR": "Mise en place : 1 contre 1.\nDéroulé : Étape 1 : 9 se déplace vers l'arrière ; Étape 3 : GK se déplace à gauche.\nPoint clé : Sprinte d'abord, puis place-le. Choisis ton côté avant de t'avancer, et n'en change pas.",
-        "id-ID": "Persiapan: 1 lawan 1.\nUrutan: Langkah 1: 9 bergerak ke belakang; Langkah 3: GK bergerak ke kiri.\nPoin utama: Lari sprint dulu baru tendang. Pilih sudut sebelum berjalan dan jangan berubah.",
-        "ms-MY": "Persediaan: 1 lawan 1.\nUrutan: Langkah 1: 9 bergerak ke belakang; Langkah 3: GK bergerak ke kiri.\nPoin utama: Pecut dahulu kemudian tendang. Pilih sudut sebelum melangkah.",
-        "th-TH": "การจัด: 1 ต่อ 1\nลำดับ: ขั้นที่ 1: 9 ขยับถอยหลัง • ขั้นที่ 3: GK ขยับไปทางซ้าย\nจุดเน้น: วิ่งเต็มสปีดก่อนแล้วค่อยยิง เลือกมุมก่อนเดินเข้าไปและอย่าเปลี่ยนใจ",
-        "vi-VN": "Bố trí: 1 đấu 1.\nTrình tự: Bước 1: 9 di chuyển lùi lại; Bước 3: GK di chuyển sang trái.\nĐiểm chính: Chạy nước rút trước rồi mới sút. Chọn góc trước khi bước lên và đừng đổi ý."
+        "en": "Setup: 1 v 1.\nBall path: goal\nSequence: Step 1: 9 moves back; Step 3: ? shoots, GK moves left.\nCoaching point: Sprint the length first, then place it. Pick the corner before you walk up and do not change your mind.",
+        "en-GB": "Setup: 1 v 1.\nBall path: goal\nSequence: Step 1: 9 moves back; Step 3: ? shoots, GK moves left.\nCoaching point: Sprint the length first, then place it. Pick the corner before you walk up and do not change your mind.",
+        "zh-CN": "【组织】1 对 1。\n【球路】球门\n【流程】第1步：9 回撤移动；第3步：? 射门，GK 向左移动。\n【要点】先冲刺一趟再罚。上前之前就选好角度，然后绝不改主意。",
+        "zh-TW": "【組織】1 對 1。\n【球路】球門\n【流程】第1步：9 回撤移動；第3步：? 射門，GK 向左移動。\n【要點】先衝刺一趟再罰。上前之前就選好角度，然後絕不改主意。",
+        "ja-JP": "【準備】1対1。\n【ボールの道筋】ゴール\n【流れ】ステップ1：9が後方へ移動。ステップ3：?がシュート、GKが左へ移動。\n【ポイント】全力疾走してから蹴る。歩き出す前にコースを決め、変えない。",
+        "ko-KR": "【준비】1대1.\n【볼 경로】골문\n【진행】1단계: 9는 뒤로 이동; 3단계: ? 슛, GK는 왼쪽으로 이동.\n【포인트】먼저 전력 질주한 뒤 찬다. 걸어가기 전에 코스를 정하고 바꾸지 마라.",
+        "es-ES": "Montaje: 1 contra 1.\nRecorrido del balón: portería\nSecuencia: Paso 1: 9 se desplaza hacia atrás; Paso 3: ? remata, GK se desplaza a la izquierda.\nPunto clave: Esprinta primero y luego colócalo. Elige el palo antes de caminar y no cambies.",
+        "fr-FR": "Mise en place : 1 contre 1.\nTrajet du ballon : but\nDéroulé : Étape 1 : 9 se déplace vers l'arrière ; Étape 3 : ? frappe, GK se déplace à gauche.\nPoint clé : Sprinte d'abord, puis place-le. Choisis ton côté avant de t'avancer, et n'en change pas.",
+        "id-ID": "Persiapan: 1 lawan 1.\nJalur bola: gawang\nUrutan: Langkah 1: 9 bergerak ke belakang; Langkah 3: ? menembak, GK bergerak ke kiri.\nPoin utama: Lari sprint dulu baru tendang. Pilih sudut sebelum berjalan dan jangan berubah.",
+        "ms-MY": "Persediaan: 1 lawan 1.\nLaluan bola: gol\nUrutan: Langkah 1: 9 bergerak ke belakang; Langkah 3: ? menjaring, GK bergerak ke kiri.\nPoin utama: Pecut dahulu kemudian tendang. Pilih sudut sebelum melangkah.",
+        "th-TH": "การจัด: 1 ต่อ 1\nเส้นทางบอล: ประตู\nลำดับ: ขั้นที่ 1: 9 ขยับถอยหลัง • ขั้นที่ 3: ? ยิงประตู GK ขยับไปทางซ้าย\nจุดเน้น: วิ่งเต็มสปีดก่อนแล้วค่อยยิง เลือกมุมก่อนเดินเข้าไปและอย่าเปลี่ยนใจ",
+        "vi-VN": "Bố trí: 1 đấu 1.\nĐường bóng: khung thành\nTrình tự: Bước 1: 9 di chuyển lùi lại; Bước 3: ? dứt điểm, GK di chuyển sang trái.\nĐiểm chính: Chạy nước rút trước rồi mới sút. Chọn góc trước khi bước lên và đừng đổi ý."
       },
       "mistake": {
         "en": "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.",
@@ -11117,6 +11299,33 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 1,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 6,
+            "position": [
+              460,
+              570
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                130.0
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
             "photoId": null,
             "role": null,
             "attachedTo": null

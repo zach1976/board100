@@ -399,6 +399,10 @@ def doubles_family() -> list[Drill]:
             category="defending" if key == "defence" else "attacking",
             minutes=10, rel=True, free=(key == "attack"),
             name=suffixed(DOUBLES_NAME, label), note=DOUBLES_NOTE,
+            # the shuttle that makes the shape mean something: theirs comes
+            # over, the pair answers it
+            ball=(0.50, 0.42),
+            ball_to=[(0, 0), ("a0", 1)],
             home=[P(sx, sy, f"{i + 1}", moves=[end[i] + (0,)])
                   for i, (sx, sy) in enumerate(start)],
             # Front-back when they are attacking, which is the only shape a

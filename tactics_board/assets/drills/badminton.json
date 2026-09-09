@@ -40,18 +40,18 @@
         "vi-VN": "Di chuyển tới trước lưới thuận tay"
       },
       "note": {
-        "en": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1, F moves right.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "en-GB": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1, F moves right.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "zh-CN": "【组织】1 对 1，4 个锥标。\n【流程】第1步：1、F 向右移动。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
-        "zh-TW": "【組織】1 對 1，4 個錐標。\n【流程】第1步：1、F 向右移動。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
-        "ja-JP": "【準備】1対1、コーン4個。\n【流れ】ステップ1：1・Fが右へ移動。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
-        "ko-KR": "【준비】1대1, 콘 4개.\n【진행】1단계: 1, F는 오른쪽으로 이동.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
-        "es-ES": "Montaje: 1 contra 1, 4 conos.\nSecuencia: Paso 1: 1, F se desplaza a la derecha.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
-        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nDéroulé : Étape 1 : 1, F se déplace à droite.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
-        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nUrutan: Langkah 1: 1, F bergerak ke kanan.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
-        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nUrutan: Langkah 1: 1, F bergerak ke kanan.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nลำดับ: ขั้นที่ 1: 1, F ขยับไปทางขวา\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
-        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nTrình tự: Bước 1: 1, F di chuyển sang phải.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
+        "en": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1, F moves right; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "en-GB": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1, F moves right; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "zh-CN": "【组织】1 对 1，4 个锥标。\n【球路】F → 1\n【流程】第1步：球传到 F，1、F 向右移动；第2步：F 打向 1。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
+        "zh-TW": "【組織】1 對 1，4 個錐標。\n【球路】F → 1\n【流程】第1步：球傳到 F，1、F 向右移動；第2步：F 打向 1。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
+        "ja-JP": "【準備】1対1、コーン4個。\n【ボールの道筋】F → 1\n【流れ】ステップ1：ボールがFへ入る、1・Fが右へ移動。ステップ2：Fが1へ打つ。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
+        "ko-KR": "【준비】1대1, 콘 4개.\n【볼 경로】F → 1\n【진행】1단계: 공이 F에게 온다, 1, F는 오른쪽으로 이동; 2단계: F가 1 쪽으로 친다.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
+        "es-ES": "Montaje: 1 contra 1, 4 conos.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: el balón llega a F, 1, F se desplaza a la derecha; Paso 2: F la juega hacia 1.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
+        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : le ballon arrive sur F, 1, F se déplace à droite ; Étape 2 : F joue vers 1.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
+        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nJalur bola: F → 1\nUrutan: Langkah 1: bola dimainkan ke F, 1, F bergerak ke kanan; Langkah 2: F memukul ke 1.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
+        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nLaluan bola: F → 1\nUrutan: Langkah 1: bola dimainkan kepada F, 1, F bergerak ke kanan; Langkah 2: F memukul ke arah 1.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ F 1, F ขยับไปทางขวา • ขั้นที่ 2: F ตีไปที่ 1\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
+        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nĐường bóng: F → 1\nTrình tự: Bước 1: bóng được đưa tới F, 1, F di chuyển sang phải; Bước 2: F đánh sang 1.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
       },
       "mistake": {
         "en": "Splitting after the opponent hits, not before — late split, late shuttle.",
@@ -219,8 +219,20 @@
               459.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                652.2865671641791,
+                688.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -273,18 +285,18 @@
         "vi-VN": "Di chuyển tới trước lưới trái tay"
       },
       "note": {
-        "en": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1, F moves left.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "en-GB": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1, F moves left.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "zh-CN": "【组织】1 对 1，4 个锥标。\n【流程】第1步：1、F 向左移动。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
-        "zh-TW": "【組織】1 對 1，4 個錐標。\n【流程】第1步：1、F 向左移動。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
-        "ja-JP": "【準備】1対1、コーン4個。\n【流れ】ステップ1：1・Fが左へ移動。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
-        "ko-KR": "【준비】1대1, 콘 4개.\n【진행】1단계: 1, F는 왼쪽으로 이동.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
-        "es-ES": "Montaje: 1 contra 1, 4 conos.\nSecuencia: Paso 1: 1, F se desplaza a la izquierda.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
-        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nDéroulé : Étape 1 : 1, F se déplace à gauche.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
-        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nUrutan: Langkah 1: 1, F bergerak ke kiri.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
-        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nUrutan: Langkah 1: 1, F bergerak ke kiri.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nลำดับ: ขั้นที่ 1: 1, F ขยับไปทางซ้าย\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
-        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nTrình tự: Bước 1: 1, F di chuyển sang trái.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
+        "en": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1, F moves left; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "en-GB": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1, F moves left; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "zh-CN": "【组织】1 对 1，4 个锥标。\n【球路】F → 1\n【流程】第1步：球传到 F，1、F 向左移动；第2步：F 打向 1。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
+        "zh-TW": "【組織】1 對 1，4 個錐標。\n【球路】F → 1\n【流程】第1步：球傳到 F，1、F 向左移動；第2步：F 打向 1。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
+        "ja-JP": "【準備】1対1、コーン4個。\n【ボールの道筋】F → 1\n【流れ】ステップ1：ボールがFへ入る、1・Fが左へ移動。ステップ2：Fが1へ打つ。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
+        "ko-KR": "【준비】1대1, 콘 4개.\n【볼 경로】F → 1\n【진행】1단계: 공이 F에게 온다, 1, F는 왼쪽으로 이동; 2단계: F가 1 쪽으로 친다.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
+        "es-ES": "Montaje: 1 contra 1, 4 conos.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: el balón llega a F, 1, F se desplaza a la izquierda; Paso 2: F la juega hacia 1.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
+        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : le ballon arrive sur F, 1, F se déplace à gauche ; Étape 2 : F joue vers 1.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
+        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nJalur bola: F → 1\nUrutan: Langkah 1: bola dimainkan ke F, 1, F bergerak ke kiri; Langkah 2: F memukul ke 1.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
+        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nLaluan bola: F → 1\nUrutan: Langkah 1: bola dimainkan kepada F, 1, F bergerak ke kiri; Langkah 2: F memukul ke arah 1.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ F 1, F ขยับไปทางซ้าย • ขั้นที่ 2: F ตีไปที่ 1\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
+        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nĐường bóng: F → 1\nTrình tự: Bước 1: bóng được đưa tới F, 1, F di chuyển sang trái; Bước 2: F đánh sang 1.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
       },
       "mistake": {
         "en": "Splitting after the opponent hits, not before — late split, late shuttle.",
@@ -452,8 +464,20 @@
               459.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                347.71343283582087,
+                688.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -506,18 +530,18 @@
         "vi-VN": "Di chuyển tới cuối sân thuận tay"
       },
       "note": {
-        "en": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1 moves back, F moves right.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "en-GB": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1 moves back, F moves right.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "zh-CN": "【组织】1 对 1，4 个锥标。\n【流程】第1步：1 回撤移动，F 向右移动。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
-        "zh-TW": "【組織】1 對 1，4 個錐標。\n【流程】第1步：1 回撤移動，F 向右移動。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
-        "ja-JP": "【準備】1対1、コーン4個。\n【流れ】ステップ1：1が後方へ移動、Fが右へ移動。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
-        "ko-KR": "【준비】1대1, 콘 4개.\n【진행】1단계: 1는 뒤로 이동, F는 오른쪽으로 이동.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
-        "es-ES": "Montaje: 1 contra 1, 4 conos.\nSecuencia: Paso 1: 1 se desplaza hacia atrás, F se desplaza a la derecha.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
-        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière, F se déplace à droite.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
-        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nUrutan: Langkah 1: 1 bergerak ke belakang, F bergerak ke kanan.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
-        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nUrutan: Langkah 1: 1 bergerak ke belakang, F bergerak ke kanan.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง F ขยับไปทางขวา\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
-        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nTrình tự: Bước 1: 1 di chuyển lùi lại, F di chuyển sang phải.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
+        "en": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1 moves back, F moves right; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "en-GB": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1 moves back, F moves right; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "zh-CN": "【组织】1 对 1，4 个锥标。\n【球路】F → 1\n【流程】第1步：球传到 F，1 回撤移动，F 向右移动；第2步：F 打向 1。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
+        "zh-TW": "【組織】1 對 1，4 個錐標。\n【球路】F → 1\n【流程】第1步：球傳到 F，1 回撤移動，F 向右移動；第2步：F 打向 1。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
+        "ja-JP": "【準備】1対1、コーン4個。\n【ボールの道筋】F → 1\n【流れ】ステップ1：ボールがFへ入る、1が後方へ移動、Fが右へ移動。ステップ2：Fが1へ打つ。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
+        "ko-KR": "【준비】1대1, 콘 4개.\n【볼 경로】F → 1\n【진행】1단계: 공이 F에게 온다, 1는 뒤로 이동, F는 오른쪽으로 이동; 2단계: F가 1 쪽으로 친다.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
+        "es-ES": "Montaje: 1 contra 1, 4 conos.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: el balón llega a F, 1 se desplaza hacia atrás, F se desplaza a la derecha; Paso 2: F la juega hacia 1.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
+        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : le ballon arrive sur F, 1 se déplace vers l'arrière, F se déplace à droite ; Étape 2 : F joue vers 1.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
+        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nJalur bola: F → 1\nUrutan: Langkah 1: bola dimainkan ke F, 1 bergerak ke belakang, F bergerak ke kanan; Langkah 2: F memukul ke 1.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
+        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nLaluan bola: F → 1\nUrutan: Langkah 1: bola dimainkan kepada F, 1 bergerak ke belakang, F bergerak ke kanan; Langkah 2: F memukul ke arah 1.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ F 1 ขยับถอยหลัง F ขยับไปทางขวา • ขั้นที่ 2: F ตีไปที่ 1\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
+        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nĐường bóng: F → 1\nTrình tự: Bước 1: bóng được đưa tới F, 1 di chuyển lùi lại, F di chuyển sang phải; Bước 2: F đánh sang 1.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
       },
       "mistake": {
         "en": "Splitting after the opponent hits, not before — late split, late shuttle.",
@@ -685,8 +709,20 @@
               459.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                676.3223880597016,
+                688.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -739,18 +775,18 @@
         "vi-VN": "Di chuyển tới cuối sân trái tay"
       },
       "note": {
-        "en": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1 moves back, F moves left.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "en-GB": "Setup: 1 v 1, 4 cones.\nSequence: Step 1: 1 moves back, F moves left.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
-        "zh-CN": "【组织】1 对 1，4 个锥标。\n【流程】第1步：1 回撤移动，F 向左移动。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
-        "zh-TW": "【組織】1 對 1，4 個錐標。\n【流程】第1步：1 回撤移動，F 向左移動。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
-        "ja-JP": "【準備】1対1、コーン4個。\n【流れ】ステップ1：1が後方へ移動、Fが左へ移動。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
-        "ko-KR": "【준비】1대1, 콘 4개.\n【진행】1단계: 1는 뒤로 이동, F는 왼쪽으로 이동.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
-        "es-ES": "Montaje: 1 contra 1, 4 conos.\nSecuencia: Paso 1: 1 se desplaza hacia atrás, F se desplaza a la izquierda.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
-        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière, F se déplace à gauche.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
-        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nUrutan: Langkah 1: 1 bergerak ke belakang, F bergerak ke kiri.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
-        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nUrutan: Langkah 1: 1 bergerak ke belakang, F bergerak ke kiri.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง F ขยับไปทางซ้าย\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
-        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nTrình tự: Bước 1: 1 di chuyển lùi lại, F di chuyển sang trái.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
+        "en": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1 moves back, F moves left; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "en-GB": "Setup: 1 v 1, 4 cones.\nBall path: F → 1\nSequence: Step 1: the ball is played to F, 1 moves back, F moves left; Step 2: F plays it to 1.\nCoaching point: The split step goes before the opponent hits, not after. Late split, late shuttle — no amount of speed afterwards buys that back.",
+        "zh-CN": "【组织】1 对 1，4 个锥标。\n【球路】F → 1\n【流程】第1步：球传到 F，1 回撤移动，F 向左移动；第2步：F 打向 1。\n【要点】分腿垫步要在对手击球之前，不是之后。垫步晚，接球就晚——后面跑得再快也补不回来。",
+        "zh-TW": "【組織】1 對 1，4 個錐標。\n【球路】F → 1\n【流程】第1步：球傳到 F，1 回撤移動，F 向左移動；第2步：F 打向 1。\n【要點】分腿墊步要在對手擊球之前，不是之後。墊步晚，接球就晚——後面跑得再快也補不回來。",
+        "ja-JP": "【準備】1対1、コーン4個。\n【ボールの道筋】F → 1\n【流れ】ステップ1：ボールがFへ入る、1が後方へ移動、Fが左へ移動。ステップ2：Fが1へ打つ。\n【ポイント】スプリットステップは相手が打つ前。遅れれば遅れたまま、後からいくら速く走っても取り戻せない。",
+        "ko-KR": "【준비】1대1, 콘 4개.\n【볼 경로】F → 1\n【진행】1단계: 공이 F에게 온다, 1는 뒤로 이동, F는 왼쪽으로 이동; 2단계: F가 1 쪽으로 친다.\n【포인트】스플릿 스텝은 상대가 치기 전에. 늦으면 늦은 채로, 이후 아무리 빨라도 되돌릴 수 없다.",
+        "es-ES": "Montaje: 1 contra 1, 4 conos.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: el balón llega a F, 1 se desplaza hacia atrás, F se desplaza a la izquierda; Paso 2: F la juega hacia 1.\nPunto clave: El split step va antes del golpe rival, no después: si llegas tarde ahí, ninguna velocidad posterior lo recupera.",
+        "fr-FR": "Mise en place : 1 contre 1, 4 plots.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : le ballon arrive sur F, 1 se déplace vers l'arrière, F se déplace à gauche ; Étape 2 : F joue vers 1.\nPoint clé : Le split step précède la frappe adverse. En retard là, aucune vitesse ensuite ne rattrape le volant.",
+        "id-ID": "Persiapan: 1 lawan 1, 4 kerucut.\nJalur bola: F → 1\nUrutan: Langkah 1: bola dimainkan ke F, 1 bergerak ke belakang, F bergerak ke kiri; Langkah 2: F memukul ke 1.\nPoin utama: Split step sebelum lawan memukul, bukan sesudah.",
+        "ms-MY": "Persediaan: 1 lawan 1, 4 kon.\nLaluan bola: F → 1\nUrutan: Langkah 1: bola dimainkan kepada F, 1 bergerak ke belakang, F bergerak ke kiri; Langkah 2: F memukul ke arah 1.\nPoin utama: Split step sebelum lawan memukul, bukan selepas.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 4 อัน\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ F 1 ขยับถอยหลัง F ขยับไปทางซ้าย • ขั้นที่ 2: F ตีไปที่ 1\nจุดเน้น: สปลิตสเต็ปต้องมาก่อนคู่แข่งตี ไม่ใช่หลัง ถ้าช้าตรงนี้ วิ่งเร็วแค่ไหนก็ไม่ทัน",
+        "vi-VN": "Bố trí: 1 đấu 1, 4 cọc.\nĐường bóng: F → 1\nTrình tự: Bước 1: bóng được đưa tới F, 1 di chuyển lùi lại, F di chuyển sang trái; Bước 2: F đánh sang 1.\nĐiểm chính: Bước tách phải trước khi đối thủ đánh, không phải sau."
       },
       "mistake": {
         "en": "Splitting after the opponent hits, not before — late split, late shuttle.",
@@ -918,8 +954,20 @@
               459.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                323.6776119402985,
+                688.0
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1175,18 +1223,18 @@
         "vi-VN": "Tập đa cầu"
       },
       "note": {
-        "en": "Setup: 1 v 1, 3 cones.\nSequence: Step 1: 1 moves right; Step 3: C moves left.\nCoaching point: The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
-        "en-GB": "Setup: 1 v 1, 3 cones.\nSequence: Step 1: 1 moves right; Step 3: C moves left.\nCoaching point: The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
-        "zh-CN": "【组织】1 对 1，3 个锥标。\n【流程】第1步：1 向右移动；第3步：C 向左移动。\n【要点】喂球节奏要比舒服再快一点。第十个球还不变形的技术，才是真正属于你的技术。",
-        "zh-TW": "【組織】1 對 1，3 個錐標。\n【流程】第1步：1 向右移動；第3步：C 向左移動。\n【要點】餵球節奏要比舒服再快一點。第十個球還不變形的技術，才是真正屬於你的技術。",
-        "ja-JP": "【準備】1対1、コーン3個。\n【流れ】ステップ1：1が右へ移動。ステップ3：Cが左へ移動。\n【ポイント】ノックのテンポは「余裕より少し速く」。10球目でも崩れない技術だけが本物の技術だ。",
-        "ko-KR": "【준비】1대1, 콘 3개.\n【진행】1단계: 1는 오른쪽으로 이동; 3단계: C는 왼쪽으로 이동.\n【포인트】피딩 템포는 편안함보다 살짝 빠르게. 열 번째 셔틀에도 무너지지 않는 기술이 진짜 네 기술이다.",
-        "es-ES": "Montaje: 1 contra 1, 3 conos.\nSecuencia: Paso 1: 1 se desplaza a la derecha; Paso 3: C se desplaza a la izquierda.\nPunto clave: El ritmo de alimentación va justo por encima de lo cómodo: la técnica que sobrevive al décimo volante es la tuya.",
-        "fr-FR": "Mise en place : 1 contre 1, 3 plots.\nDéroulé : Étape 1 : 1 se déplace à droite ; Étape 3 : C se déplace à gauche.\nPoint clé : La cadence dépasse juste le confortable : la technique qui tient au dixième volant est celle qui t'appartient.",
-        "id-ID": "Persiapan: 1 lawan 1, 3 kerucut.\nUrutan: Langkah 1: 1 bergerak ke kanan; Langkah 3: C bergerak ke kiri.\nPoin utama: Tempo umpan sedikit di atas nyaman.",
-        "ms-MY": "Persediaan: 1 lawan 1, 3 kon.\nUrutan: Langkah 1: 1 bergerak ke kanan; Langkah 3: C bergerak ke kiri.\nPoin utama: Tempo suapan sedikit melebihi selesa.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 3 อัน\nลำดับ: ขั้นที่ 1: 1 ขยับไปทางขวา • ขั้นที่ 3: C ขยับไปทางซ้าย\nจุดเน้น: จังหวะป้อนต้องเร็วกว่าที่สบายนิดหนึ่ง เทคนิคที่รอดถึงลูกที่สิบคือของจริง",
-        "vi-VN": "Bố trí: 1 đấu 1, 3 cọc.\nTrình tự: Bước 1: 1 di chuyển sang phải; Bước 3: C di chuyển sang trái.\nĐiểm chính: Nhịp cấp cầu nhanh hơn mức thoải mái một chút."
+        "en": "Setup: 1 v 1, 3 cones.\nBall path: C → 1\nSequence: Step 1: the ball is played to C, 1 moves right; Step 2: C plays it to 1; Step 3: C moves left.\nCoaching point: The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
+        "en-GB": "Setup: 1 v 1, 3 cones.\nBall path: C → 1\nSequence: Step 1: the ball is played to C, 1 moves right; Step 2: C plays it to 1; Step 3: C moves left.\nCoaching point: The feed sets the tempo just past comfortable. Technique that survives the tenth shuttle is technique you own.",
+        "zh-CN": "【组织】1 对 1，3 个锥标。\n【球路】C → 1\n【流程】第1步：球传到 C，1 向右移动；第2步：C 打向 1；第3步：C 向左移动。\n【要点】喂球节奏要比舒服再快一点。第十个球还不变形的技术，才是真正属于你的技术。",
+        "zh-TW": "【組織】1 對 1，3 個錐標。\n【球路】C → 1\n【流程】第1步：球傳到 C，1 向右移動；第2步：C 打向 1；第3步：C 向左移動。\n【要點】餵球節奏要比舒服再快一點。第十個球還不變形的技術，才是真正屬於你的技術。",
+        "ja-JP": "【準備】1対1、コーン3個。\n【ボールの道筋】C → 1\n【流れ】ステップ1：ボールがCへ入る、1が右へ移動。ステップ2：Cが1へ打つ。ステップ3：Cが左へ移動。\n【ポイント】ノックのテンポは「余裕より少し速く」。10球目でも崩れない技術だけが本物の技術だ。",
+        "ko-KR": "【준비】1대1, 콘 3개.\n【볼 경로】C → 1\n【진행】1단계: 공이 C에게 온다, 1는 오른쪽으로 이동; 2단계: C가 1 쪽으로 친다; 3단계: C는 왼쪽으로 이동.\n【포인트】피딩 템포는 편안함보다 살짝 빠르게. 열 번째 셔틀에도 무너지지 않는 기술이 진짜 네 기술이다.",
+        "es-ES": "Montaje: 1 contra 1, 3 conos.\nRecorrido del balón: C → 1\nSecuencia: Paso 1: el balón llega a C, 1 se desplaza a la derecha; Paso 2: C la juega hacia 1; Paso 3: C se desplaza a la izquierda.\nPunto clave: El ritmo de alimentación va justo por encima de lo cómodo: la técnica que sobrevive al décimo volante es la tuya.",
+        "fr-FR": "Mise en place : 1 contre 1, 3 plots.\nTrajet du ballon : C → 1\nDéroulé : Étape 1 : le ballon arrive sur C, 1 se déplace à droite ; Étape 2 : C joue vers 1 ; Étape 3 : C se déplace à gauche.\nPoint clé : La cadence dépasse juste le confortable : la technique qui tient au dixième volant est celle qui t'appartient.",
+        "id-ID": "Persiapan: 1 lawan 1, 3 kerucut.\nJalur bola: C → 1\nUrutan: Langkah 1: bola dimainkan ke C, 1 bergerak ke kanan; Langkah 2: C memukul ke 1; Langkah 3: C bergerak ke kiri.\nPoin utama: Tempo umpan sedikit di atas nyaman.",
+        "ms-MY": "Persediaan: 1 lawan 1, 3 kon.\nLaluan bola: C → 1\nUrutan: Langkah 1: bola dimainkan kepada C, 1 bergerak ke kanan; Langkah 2: C memukul ke arah 1; Langkah 3: C bergerak ke kiri.\nPoin utama: Tempo suapan sedikit melebihi selesa.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 3 อัน\nเส้นทางบอล: C → 1\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ C 1 ขยับไปทางขวา • ขั้นที่ 2: C ตีไปที่ 1 • ขั้นที่ 3: C ขยับไปทางซ้าย\nจุดเน้น: จังหวะป้อนต้องเร็วกว่าที่สบายนิดหนึ่ง เทคนิคที่รอดถึงลูกที่สิบคือของจริง",
+        "vi-VN": "Bố trí: 1 đấu 1, 3 cọc.\nĐường bóng: C → 1\nTrình tự: Bước 1: bóng được đưa tới C, 1 di chuyển sang phải; Bước 2: C đánh sang 1; Bước 3: C di chuyển sang trái.\nĐiểm chính: Nhịp cấp cầu nhanh hơn mức thoải mái một chút."
       },
       "mistake": {
         "en": "Going through the motions cold.",
@@ -1354,8 +1402,20 @@
               670.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                740.8
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1408,18 +1468,18 @@
         "vi-VN": "Cầu cao sâu đường thẳng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 向前移动。\n【要点】高远球只有到底线才买得到时间。差一点，买到的就是对手一记杀球。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 向前移動。\n【要點】高遠球只有到底線才買得到時間。差一點，買到的就是對手一記殺球。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が前方へ移動。\n【ポイント】クリアは後ろのラインまで飛んで初めて時間を稼げる。届かなければ相手にスマッシュを差し出すだけ。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 앞으로 이동.\n【포인트】클리어는 엔드라인까지 가야 시간을 번다. 못 가면 상대에게 스매시를 주는 것이다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia delante.\nPunto clave: Un lob solo da tiempo si cae en el fondo; corto, le regalas un remate al rival.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'avant.\nPoint clé : Un dégagement ne fait gagner du temps que s'il tombe sur la ligne de fond ; plus court, il offre un smash.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke depan.\nPoin utama: Lob hanya membeli waktu jika jatuh di garis belakang.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke hadapan.\nPoin utama: Lob hanya membeli masa jika jatuh di garisan belakang.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปข้างหน้า\nจุดเน้น: เคลียร์ซื้อเวลาได้ก็ต่อเมื่อลงเส้นหลัง ถ้าสั้นคือยกสแมชให้คู่แข่ง",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lên phía trước.\nĐiểm chính: Cầu cao chỉ mua được thời gian nếu rơi vào vạch cuối sân."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 向前移动。\n【要点】高远球只有到底线才买得到时间。差一点，买到的就是对手一记杀球。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 向前移動。\n【要點】高遠球只有到底線才買得到時間。差一點，買到的就是對手一記殺球。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が前方へ移動。\n【ポイント】クリアは後ろのラインまで飛んで初めて時間を稼げる。届かなければ相手にスマッシュを差し出すだけ。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 앞으로 이동.\n【포인트】클리어는 엔드라인까지 가야 시간을 번다. 못 가면 상대에게 스매시를 주는 것이다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia delante.\nPunto clave: Un lob solo da tiempo si cae en el fondo; corto, le regalas un remate al rival.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'avant.\nPoint clé : Un dégagement ne fait gagner du temps que s'il tombe sur la ligne de fond ; plus court, il offre un smash.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke depan.\nPoin utama: Lob hanya membeli waktu jika jatuh di garis belakang.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke hadapan.\nPoin utama: Lob hanya membeli masa jika jatuh di garisan belakang.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับไปข้างหน้า\nจุดเน้น: เคลียร์ซื้อเวลาได้ก็ต่อเมื่อลงเส้นหลัง ถ้าสั้นคือยกสแมชให้คู่แข่ง",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển lên phía trước.\nĐiểm chính: Cầu cao chỉ mua được thời gian nếu rơi vào vạch cuối sân."
       },
       "mistake": {
         "en": "Clearing short — anything off the back line buys the opponent a smash.",
@@ -1532,15 +1592,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1586,18 +1658,18 @@
         "vi-VN": "Cầu cao sâu chéo sân"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 向前移动。\n【要点】高远球只有到底线才买得到时间。差一点，买到的就是对手一记杀球。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 向前移動。\n【要點】高遠球只有到底線才買得到時間。差一點，買到的就是對手一記殺球。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が前方へ移動。\n【ポイント】クリアは後ろのラインまで飛んで初めて時間を稼げる。届かなければ相手にスマッシュを差し出すだけ。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 앞으로 이동.\n【포인트】클리어는 엔드라인까지 가야 시간을 번다. 못 가면 상대에게 스매시를 주는 것이다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia delante.\nPunto clave: Un lob solo da tiempo si cae en el fondo; corto, le regalas un remate al rival.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'avant.\nPoint clé : Un dégagement ne fait gagner du temps que s'il tombe sur la ligne de fond ; plus court, il offre un smash.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke depan.\nPoin utama: Lob hanya membeli waktu jika jatuh di garis belakang.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke hadapan.\nPoin utama: Lob hanya membeli masa jika jatuh di garisan belakang.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปข้างหน้า\nจุดเน้น: เคลียร์ซื้อเวลาได้ก็ต่อเมื่อลงเส้นหลัง ถ้าสั้นคือยกสแมชให้คู่แข่ง",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lên phía trước.\nĐiểm chính: Cầu cao chỉ mua được thời gian nếu rơi vào vạch cuối sân."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves up the board.\nCoaching point: A clear buys time only if it lands on the back line. Short of that it buys the opponent a smash.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 向前移动。\n【要点】高远球只有到底线才买得到时间。差一点，买到的就是对手一记杀球。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 向前移動。\n【要點】高遠球只有到底線才買得到時間。差一點，買到的就是對手一記殺球。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が前方へ移動。\n【ポイント】クリアは後ろのラインまで飛んで初めて時間を稼げる。届かなければ相手にスマッシュを差し出すだけ。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 앞으로 이동.\n【포인트】클리어는 엔드라인까지 가야 시간을 번다. 못 가면 상대에게 스매시를 주는 것이다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia delante.\nPunto clave: Un lob solo da tiempo si cae en el fondo; corto, le regalas un remate al rival.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'avant.\nPoint clé : Un dégagement ne fait gagner du temps que s'il tombe sur la ligne de fond ; plus court, il offre un smash.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke depan.\nPoin utama: Lob hanya membeli waktu jika jatuh di garis belakang.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke hadapan.\nPoin utama: Lob hanya membeli masa jika jatuh di garisan belakang.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับไปข้างหน้า\nจุดเน้น: เคลียร์ซื้อเวลาได้ก็ต่อเมื่อลงเส้นหลัง ถ้าสั้นคือยกสแมชให้คู่แข่ง",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển lên phía trước.\nĐiểm chính: Cầu cao chỉ mua được thời gian nếu rơi vào vạch cuối sân."
       },
       "mistake": {
         "en": "Clearing short — anything off the back line buys the opponent a smash.",
@@ -1710,15 +1782,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1764,18 +1848,18 @@
         "vi-VN": "Đôi công ngang đôi công phẳng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动，2 回撤移动。\n【要点】握短、挥短，打平且略微上扬。谁先抡大拍，谁就输掉这一轮对抽。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動，2 回撤移動。\n【要點】握短、揮短，打平且略微上揚。誰先掄大拍，誰就輸掉這一輪對抽。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動、2が後方へ移動。\n【ポイント】グリップ短く、スイング小さく、フラットにわずかに上向きへ。先に大振りした方が競り負ける。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동, 2는 뒤로 이동.\n【포인트】짧게 잡고 짧게 휘두르며 평평하게 살짝 올려 쳐라. 먼저 크게 휘두르는 쪽이 진다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, 2 se desplaza hacia atrás.\nPunto clave: Empuñadura corta, gesto corto, plano y algo ascendente: el primero que arma grande pierde el intercambio.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, 2 se déplace vers l'arrière.\nPoint clé : Prise courte, geste court, à plat et légèrement montant : le premier qui arme grand perd l'échange.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan, 2 bergerak ke belakang.\nPoin utama: Pegangan pendek, ayunan pendek, datar dan sedikit naik.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, 2 bergerak ke belakang.\nPoin utama: Pegangan pendek, hayunan pendek, rata dan sedikit menaik.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง\nจุดเน้น: จับสั้น สวิงสั้น ตีแบนและเชิดขึ้นนิด ใครเหวี่ยงใหญ่ก่อนคนนั้นแพ้",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, 2 di chuyển lùi lại.\nĐiểm chính: Cầm ngắn, vung ngắn, đánh phẳng và hơi lên."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board, 2 moves back; Step 2: 2 plays it to 1.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board, 2 moves back; Step 2: 2 plays it to 1.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动，2 回撤移动；第2步：2 打向 1。\n【要点】握短、挥短，打平且略微上扬。谁先抡大拍，谁就输掉这一轮对抽。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動，2 回撤移動；第2步：2 打向 1。\n【要點】握短、揮短，打平且略微上揚。誰先掄大拍，誰就輸掉這一輪對抽。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動、2が後方へ移動。ステップ2：2が1へ打つ。\n【ポイント】グリップ短く、スイング小さく、フラットにわずかに上向きへ。先に大振りした方が競り負ける。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동, 2는 뒤로 이동; 2단계: 2가 1 쪽으로 친다.\n【포인트】짧게 잡고 짧게 휘두르며 평평하게 살짝 올려 쳐라. 먼저 크게 휘두르는 쪽이 진다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante, 2 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1.\nPunto clave: Empuñadura corta, gesto corto, plano y algo ascendente: el primero que arma grande pierde el intercambio.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant, 2 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1.\nPoint clé : Prise courte, geste court, à plat et légèrement montant : le premier qui arme grand perd l'échange.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan, 2 bergerak ke belakang; Langkah 2: 2 memukul ke 1.\nPoin utama: Pegangan pendek, ayunan pendek, datar dan sedikit naik.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan, 2 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1.\nPoin utama: Pegangan pendek, hayunan pendek, rata dan sedikit menaik.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1\nจุดเน้น: จับสั้น สวิงสั้น ตีแบนและเชิดขึ้นนิด ใครเหวี่ยงใหญ่ก่อนคนนั้นแพ้",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước, 2 di chuyển lùi lại; Bước 2: 2 đánh sang 1.\nĐiểm chính: Cầm ngắn, vung ngắn, đánh phẳng và hơi lên."
       },
       "mistake": {
         "en": "Winding up big — the first big swing loses the exchange.",
@@ -1863,15 +1947,27 @@
               1057.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                556.1432835820896,
+                661.6
+              ],
+              [
+                556.1432835820896,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -1917,18 +2013,18 @@
         "vi-VN": "Đôi công ngang chéo sân"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, 2 moves back.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动，2 回撤移动。\n【要点】握短、挥短，打平且略微上扬。谁先抡大拍，谁就输掉这一轮对抽。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動，2 回撤移動。\n【要點】握短、揮短，打平且略微上揚。誰先掄大拍，誰就輸掉這一輪對抽。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動、2が後方へ移動。\n【ポイント】グリップ短く、スイング小さく、フラットにわずかに上向きへ。先に大振りした方が競り負ける。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동, 2는 뒤로 이동.\n【포인트】짧게 잡고 짧게 휘두르며 평평하게 살짝 올려 쳐라. 먼저 크게 휘두르는 쪽이 진다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, 2 se desplaza hacia atrás.\nPunto clave: Empuñadura corta, gesto corto, plano y algo ascendente: el primero que arma grande pierde el intercambio.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, 2 se déplace vers l'arrière.\nPoint clé : Prise courte, geste court, à plat et légèrement montant : le premier qui arme grand perd l'échange.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan, 2 bergerak ke belakang.\nPoin utama: Pegangan pendek, ayunan pendek, datar dan sedikit naik.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, 2 bergerak ke belakang.\nPoin utama: Pegangan pendek, hayunan pendek, rata dan sedikit menaik.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง\nจุดเน้น: จับสั้น สวิงสั้น ตีแบนและเชิดขึ้นนิด ใครเหวี่ยงใหญ่ก่อนคนนั้นแพ้",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, 2 di chuyển lùi lại.\nĐiểm chính: Cầm ngắn, vung ngắn, đánh phẳng và hơi lên."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board, 2 moves back; Step 2: 2 plays it to 1.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board, 2 moves back; Step 2: 2 plays it to 1.\nCoaching point: Short grip, short swing, hit flat and slightly rising. Whoever swings big first is the one who loses the exchange.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动，2 回撤移动；第2步：2 打向 1。\n【要点】握短、挥短，打平且略微上扬。谁先抡大拍，谁就输掉这一轮对抽。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動，2 回撤移動；第2步：2 打向 1。\n【要點】握短、揮短，打平且略微上揚。誰先掄大拍，誰就輸掉這一輪對抽。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動、2が後方へ移動。ステップ2：2が1へ打つ。\n【ポイント】グリップ短く、スイング小さく、フラットにわずかに上向きへ。先に大振りした方が競り負ける。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동, 2는 뒤로 이동; 2단계: 2가 1 쪽으로 친다.\n【포인트】짧게 잡고 짧게 휘두르며 평평하게 살짝 올려 쳐라. 먼저 크게 휘두르는 쪽이 진다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante, 2 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1.\nPunto clave: Empuñadura corta, gesto corto, plano y algo ascendente: el primero que arma grande pierde el intercambio.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant, 2 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1.\nPoint clé : Prise courte, geste court, à plat et légèrement montant : le premier qui arme grand perd l'échange.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan, 2 bergerak ke belakang; Langkah 2: 2 memukul ke 1.\nPoin utama: Pegangan pendek, ayunan pendek, datar dan sedikit naik.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan, 2 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1.\nPoin utama: Pegangan pendek, hayunan pendek, rata dan sedikit menaik.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า 2 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1\nจุดเน้น: จับสั้น สวิงสั้น ตีแบนและเชิดขึ้นนิด ใครเหวี่ยงใหญ่ก่อนคนนั้นแพ้",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước, 2 di chuyển lùi lại; Bước 2: 2 đánh sang 1.\nĐiểm chính: Cầm ngắn, vung ngắn, đánh phẳng và hơi lên."
       },
       "mistake": {
         "en": "Winding up big — the first big swing loses the exchange.",
@@ -2016,15 +2112,27 @@
               1057.6
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                556.1432835820895,
+                661.6
+              ],
+              [
+                443.85671641791043,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2070,18 +2178,18 @@
         "vi-VN": "Bỏ nhỏ đường thẳng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
       },
       "mistake": {
         "en": "A swing that reads different from the clear — telegraphed, it comes back as a lift.",
@@ -2189,15 +2297,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2243,18 +2363,18 @@
         "vi-VN": "Bỏ nhỏ chéo sân"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
       },
       "mistake": {
         "en": "A swing that reads different from the clear — telegraphed, it comes back as a lift.",
@@ -2362,15 +2482,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2416,18 +2548,18 @@
         "vi-VN": "Bỏ nhỏ cắt bóng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: The swing has to look like the clear you just played. A drop the opponent reads from your shoulder is a lift back at you.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 回撤移动。\n【要点】挥拍动作要和刚才的高远球一模一样。被对手从你肩膀就看出来的吊球，换回来的是一记挑球。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 回撤移動。\n【要點】揮拍動作要和剛才的高遠球一模一樣。被對手從你肩膀就看出來的吊球，換回來的是一記挑球。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】振りは直前のクリアと同じに見せる。肩で読まれるドロップは、そのままロブで返ってくる。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】스윙은 방금 친 클리어와 똑같아 보여야 한다. 어깨에서 읽히는 드롭은 그대로 리프트로 돌아온다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: El gesto debe parecerse al lob anterior: una dejada que se lee en tu hombro vuelve como globo.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : Le geste doit ressembler au dégagement précédent : un amorti lu sur ton épaule revient en lob.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Ayunan harus terlihat seperti lob sebelumnya.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Hayunan mesti kelihatan seperti lob sebelumnya.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: วงสวิงต้องเหมือนเคลียร์ที่เพิ่งตี ถ้าคู่แข่งอ่านออกจากไหล่ ก็จะโดนงัดกลับ",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Động tác vung vợt phải giống hệt quả cầu cao vừa đánh."
       },
       "mistake": {
         "en": "A swing that reads different from the clear — telegraphed, it comes back as a lift.",
@@ -2535,15 +2667,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1110.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2589,18 +2733,18 @@
         "vi-VN": "Trước lưới vụt kết"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 向右移动。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 向右移動。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が右へ移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 오른쪽으로 이동.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza a la derecha.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace à droite.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Ambil setinggi mungkin di bibir net.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับไปทางขวา\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển sang phải.\nĐiểm chính: Đón cầu cao ngang mép lưới."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 1，2 跟进。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 1，2 跟進。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が1へ打つ、2がパスを追って移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 1 쪽으로 친다, 2는 패스를 따라간다.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 1, 2 sigue su pase.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 1, 2 suit sa passe.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 1, 2 mengikuti operannya.\nPoin utama: Ambil setinggi mungkin di bibir net.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1, 2 mengikut hantarannya.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1 2 วิ่งตามบอล\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 1, 2 chạy theo đường chuyền.\nĐiểm chính: Đón cầu cao ngang mép lưới."
       },
       "mistake": {
         "en": "Letting the shuttle drop before you take it — every centimetre hands the point back.",
@@ -2708,15 +2852,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                520.0895522388059,
+                1004.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2762,18 +2918,18 @@
         "vi-VN": "Trước lưới nâng bóng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 向右移动。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 向右移動。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が右へ移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 오른쪽으로 이동.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza a la derecha.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace à droite.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Ambil setinggi mungkin di bibir net.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับไปทางขวา\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển sang phải.\nĐiểm chính: Đón cầu cao ngang mép lưới."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves right.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 1，2 向右移动。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 1，2 向右移動。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が1へ打つ、2が右へ移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 1 쪽으로 친다, 2는 오른쪽으로 이동.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 1, 2 se desplaza a la derecha.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 1, 2 se déplace à droite.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 1, 2 bergerak ke kanan.\nPoin utama: Ambil setinggi mungkin di bibir net.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke kanan.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับไปทางขวา\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 1, 2 di chuyển sang phải.\nĐiểm chính: Đón cầu cao ngang mép lưới."
       },
       "mistake": {
         "en": "Letting the shuttle drop before you take it — every centimetre hands the point back.",
@@ -2881,15 +3037,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                520.0895522388059,
+                1004.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -2935,18 +3103,18 @@
         "vi-VN": "Trước lưới bỏ nhỏ xoáy"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 回撤移动。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 回撤移動。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が後方へ移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 뒤로 이동.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Ambil setinggi mungkin di bibir net.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Đón cầu cao ngang mép lưới."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Take it as high as the tape allows. Every centimetre you let the shuttle drop hands the point back to the other end.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 1，2 回撤移动。\n【要点】尽量在网带高度就接。你让球每往下掉一厘米，就把这一分往回还给对面一点。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 1，2 回撤移動。\n【要點】盡量在網帶高度就接。你讓球每往下掉一釐米，就把這一分往回還給對面一點。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】ネットの白帯の高さで触る。落とした分だけ、その1点は相手側に戻っていく。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】네트 흰 테이프 높이에서 잡아라. 셔틀이 떨어지는 만큼 그 점수는 상대에게 돌아간다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: Tómalo tan alto como permita la cinta: cada centímetro que dejas caer el volante devuelve el punto al otro lado.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : Prends-le aussi haut que la bande le permet : chaque centimètre perdu rend le point à l'adversaire.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Ambil setinggi mungkin di bibir net.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Ambil setinggi yang dibenarkan oleh bibir jaring.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: รับให้สูงเท่าที่ขอบเน็ตยอมให้ ทุกเซนติเมตรที่ปล่อยให้ลูกตกคือการคืนแต้ม",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Đón cầu cao ngang mép lưới."
       },
       "mistake": {
         "en": "Letting the shuttle drop before you take it — every centimetre hands the point back.",
@@ -3054,15 +3222,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                520.0895522388059,
+                1004.8000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3108,18 +3288,18 @@
         "vi-VN": "Động tác giả giữ rồi lao cầu"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 回撤移动。\n【要点】假动作是一个停顿，不是多做一个动作。比对手预期多顶住一拍，角落自己就空出来了。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 回撤移動。\n【要點】假動作是一個停頓，不是多做一個動作。比對手預期多頂住一拍，角落自己就空出來了。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が後方へ移動。\n【ポイント】フェイントは余分な動作ではなく「間」だ。相手の予想より一拍長く持てば、コーナーは勝手に空く。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 뒤로 이동.\n【포인트】페인트는 여분의 동작이 아니라 멈춤이다. 상대 예상보다 한 박자 더 참으면 코너는 저절로 열린다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: El engaño es una pausa, no un gesto de más: retén el volante un tiempo más y la esquina se abre sola.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : La feinte est une pause, pas un geste en plus : retiens le volant un temps de plus et le coin s'ouvre tout seul.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Tipuan adalah jeda, bukan gerakan tambahan.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Tipuan ialah jeda, bukan pergerakan tambahan.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: การหลอกคือการหยุด ไม่ใช่การเพิ่มท่าทาง ถือลูกช้ากว่าที่เขาคาดหนึ่งจังหวะ มุมจะเปิดเอง",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Động tác giả là một khoảng dừng, không phải thêm động tác."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 1，2 回撤移动。\n【要点】假动作是一个停顿，不是多做一个动作。比对手预期多顶住一拍，角落自己就空出来了。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 1，2 回撤移動。\n【要點】假動作是一個停頓，不是多做一個動作。比對手預期多頂住一拍，角落自己就空出來了。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】フェイントは余分な動作ではなく「間」だ。相手の予想より一拍長く持てば、コーナーは勝手に空く。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】페인트는 여분의 동작이 아니라 멈춤이다. 상대 예상보다 한 박자 더 참으면 코너는 저절로 열린다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: El engaño es una pausa, no un gesto de más: retén el volante un tiempo más y la esquina se abre sola.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : La feinte est une pause, pas un geste en plus : retiens le volant un temps de plus et le coin s'ouvre tout seul.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Tipuan adalah jeda, bukan gerakan tambahan.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Tipuan ialah jeda, bukan pergerakan tambahan.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: การหลอกคือการหยุด ไม่ใช่การเพิ่มท่าทาง ถือลูกช้ากว่าที่เขาคาดหนึ่งจังหวะ มุมจะเปิดเอง",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Động tác giả là một khoảng dừng, không phải thêm động tác."
       },
       "mistake": {
         "en": "Adding a movement instead of a pause — deception is holding, not flourishing.",
@@ -3232,15 +3412,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                628.2507462686567,
+                879.4000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3286,18 +3478,18 @@
         "vi-VN": "Động tác giả động tác kép"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board; Step 2: 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动；第2步：2 回撤移动。\n【要点】假动作是一个停顿，不是多做一个动作。比对手预期多顶住一拍，角落自己就空出来了。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動；第2步：2 回撤移動。\n【要點】假動作是一個停頓，不是多做一個動作。比對手預期多頂住一拍，角落自己就空出來了。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動。ステップ2：2が後方へ移動。\n【ポイント】フェイントは余分な動作ではなく「間」だ。相手の予想より一拍長く持てば、コーナーは勝手に空く。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동; 2단계: 2는 뒤로 이동.\n【포인트】페인트는 여분의 동작이 아니라 멈춤이다. 상대 예상보다 한 박자 더 참으면 코너는 저절로 열린다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: El engaño es una pausa, no un gesto de más: retén el volante un tiempo más y la esquina se abre sola.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : La feinte est une pause, pas un geste en plus : retiens le volant un temps de plus et le coin s'ouvre tout seul.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Tipuan adalah jeda, bukan gerakan tambahan.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Tipuan ialah jeda, bukan pergerakan tambahan.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: การหลอกคือการหยุด ไม่ใช่การเพิ่มท่าทาง ถือลูกช้ากว่าที่เขาคาดหนึ่งจังหวะ มุมจะเปิดเอง",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Động tác giả là một khoảng dừng, không phải thêm động tác."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves up the board; Step 2: 2 plays it to 1, 2 moves back.\nCoaching point: Deception is a pause, not an extra movement. Hold the shuttle one beat longer than they expect and the corner opens by itself.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移动；第2步：2 打向 1，2 回撤移动。\n【要点】假动作是一个停顿，不是多做一个动作。比对手预期多顶住一拍，角落自己就空出来了。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 向前移動；第2步：2 打向 1，2 回撤移動。\n【要點】假動作是一個停頓，不是多做一個動作。比對手預期多頂住一拍，角落自己就空出來了。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が前方へ移動。ステップ2：2が1へ打つ、2が後方へ移動。\n【ポイント】フェイントは余分な動作ではなく「間」だ。相手の予想より一拍長く持てば、コーナーは勝手に空く。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 앞으로 이동; 2단계: 2가 1 쪽으로 친다, 2는 뒤로 이동.\n【포인트】페인트는 여분의 동작이 아니라 멈춤이다. 상대 예상보다 한 박자 더 참으면 코너는 저절로 열린다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia delante; Paso 2: 2 la juega hacia 1, 2 se desplaza hacia atrás.\nPunto clave: El engaño es una pausa, no un gesto de más: retén el volante un tiempo más y la esquina se abre sola.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'avant ; Étape 2 : 2 joue vers 1, 2 se déplace vers l'arrière.\nPoint clé : La feinte est une pause, pas un geste en plus : retiens le volant un temps de plus et le coin s'ouvre tout seul.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke depan; Langkah 2: 2 memukul ke 1, 2 bergerak ke belakang.\nPoin utama: Tipuan adalah jeda, bukan gerakan tambahan.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke hadapan; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke belakang.\nPoin utama: Tipuan ialah jeda, bukan pergerakan tambahan.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับถอยหลัง\nจุดเน้น: การหลอกคือการหยุด ไม่ใช่การเพิ่มท่าทาง ถือลูกช้ากว่าที่เขาคาดหนึ่งจังหวะ มุมจะเปิดเอง",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lên phía trước; Bước 2: 2 đánh sang 1, 2 di chuyển lùi lại.\nĐiểm chính: Động tác giả là một khoảng dừng, không phải thêm động tác."
       },
       "mistake": {
         "en": "Adding a movement instead of a pause — deception is holding, not flourishing.",
@@ -3410,15 +3602,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                371.7492537313433,
+                879.4000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3464,18 +3668,18 @@
         "vi-VN": "Đôi đội hình tấn công"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: 1, 2 moves back, A moves up the board.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: 1, 2 moves back, A moves up the board.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：1、2 回撤移动，A 向前移动。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：1、2 回撤移動，A 向前移動。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：1・2が後方へ移動、Aが前方へ移動。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: 1, 2는 뒤로 이동, A는 앞으로 이동.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: 1, 2 se desplaza hacia atrás, A se desplaza hacia delante.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : 1, 2 se déplace vers l'arrière, A se déplace vers l'avant.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: 1, 2 bergerak ke belakang, A bergerak ke depan.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: 1, 2 bergerak ke belakang, A bergerak ke hadapan.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: 1, 2 ขยับถอยหลัง A ขยับไปข้างหน้า\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: 1, 2 di chuyển lùi lại, A di chuyển lên phía trước.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
+        "en": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, 2 moves back, A moves up the board; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, 2 moves back, A moves up the board; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "zh-CN": "【组织】2 对 2。\n【球路】1 → A\n【流程】第1步：球传到 1，1、2 回撤移动，A 向前移动；第2步：1 打向 A。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
+        "zh-TW": "【組織】2 對 2。\n【球路】1 → A\n【流程】第1步：球傳到 1，1、2 回撤移動，A 向前移動；第2步：1 打向 A。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】1 → A\n【流れ】ステップ1：ボールが1へ入る、1・2が後方へ移動、Aが前方へ移動。ステップ2：1がAへ打つ。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】1 → A\n【진행】1단계: 공이 1에게 온다, 1, 2는 뒤로 이동, A는 앞으로 이동; 2단계: 1가 A 쪽으로 친다.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 1 → A\nSecuencia: Paso 1: el balón llega a 1, 1, 2 se desplaza hacia atrás, A se desplaza hacia delante; Paso 2: 1 la juega hacia A.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 1 → A\nDéroulé : Étape 1 : le ballon arrive sur 1, 1, 2 se déplace vers l'arrière, A se déplace vers l'avant ; Étape 2 : 1 joue vers A.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 1 → A\nUrutan: Langkah 1: bola dimainkan ke 1, 1, 2 bergerak ke belakang, A bergerak ke depan; Langkah 2: 1 memukul ke A.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 1 → A\nUrutan: Langkah 1: bola dimainkan kepada 1, 1, 2 bergerak ke belakang, A bergerak ke hadapan; Langkah 2: 1 memukul ke arah A.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 1 → A\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 1 1, 2 ขยับถอยหลัง A ขยับไปข้างหน้า • ขั้นที่ 2: 1 ตีไปที่ A\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 1 → A\nTrình tự: Bước 1: bóng được đưa tới 1, 1, 2 di chuyển lùi lại, A di chuyển lên phía trước; Bước 2: 1 đánh sang A.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
       },
       "mistake": {
         "en": "Rotating late — the pair that turns slowly covers four corners with two.",
@@ -3594,6 +3798,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 0,
+            "position": [
+              500.0,
+              644.4
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                460.0,
+                1031.2
+              ],
+              [
+                443.85671641791043,
+                450.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3626,18 +3862,18 @@
         "vi-VN": "Đôi đội hình phòng thủ"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: 1, 2, A moves up the board.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: 1, 2, A moves up the board.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：1、2、A 向前移动。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：1、2、A 向前移動。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：1・2・Aが前方へ移動。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: 1, 2, A는 앞으로 이동.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: 1, 2, A se desplaza hacia delante.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : 1, 2, A se déplace vers l'avant.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: 1, 2, A bergerak ke depan.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: 1, 2, A bergerak ke hadapan.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: 1, 2, A ขยับไปข้างหน้า\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: 1, 2, A di chuyển lên phía trước.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
+        "en": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, 2, A moves up the board; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, 2, A moves up the board; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "zh-CN": "【组织】2 对 2。\n【球路】1 → A\n【流程】第1步：球传到 1，1、2、A 向前移动；第2步：1 打向 A。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
+        "zh-TW": "【組織】2 對 2。\n【球路】1 → A\n【流程】第1步：球傳到 1，1、2、A 向前移動；第2步：1 打向 A。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】1 → A\n【流れ】ステップ1：ボールが1へ入る、1・2・Aが前方へ移動。ステップ2：1がAへ打つ。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】1 → A\n【진행】1단계: 공이 1에게 온다, 1, 2, A는 앞으로 이동; 2단계: 1가 A 쪽으로 친다.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 1 → A\nSecuencia: Paso 1: el balón llega a 1, 1, 2, A se desplaza hacia delante; Paso 2: 1 la juega hacia A.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 1 → A\nDéroulé : Étape 1 : le ballon arrive sur 1, 1, 2, A se déplace vers l'avant ; Étape 2 : 1 joue vers A.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 1 → A\nUrutan: Langkah 1: bola dimainkan ke 1, 1, 2, A bergerak ke depan; Langkah 2: 1 memukul ke A.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 1 → A\nUrutan: Langkah 1: bola dimainkan kepada 1, 1, 2, A bergerak ke hadapan; Langkah 2: 1 memukul ke arah A.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 1 → A\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 1 1, 2, A ขยับไปข้างหน้า • ขั้นที่ 2: 1 ตีไปที่ A\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 1 → A\nTrình tự: Bước 1: bóng được đưa tới 1, 1, 2, A di chuyển lên phía trước; Bước 2: 1 đánh sang A.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -3756,6 +3992,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 0,
+            "position": [
+              500.0,
+              644.4
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                419.820895522388,
+                1136.8
+              ],
+              [
+                515.9641791044776,
+                635.2
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3801,18 +4069,18 @@
         "vi-VN": "Đôi xoay vòng sau khi nâng bóng"
       },
       "note": {
-        "en": "Setup: 2 v 2.\nSequence: Step 1: 1, A moves up the board, 2 moves back.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "en-GB": "Setup: 2 v 2.\nSequence: Step 1: 1, A moves up the board, 2 moves back.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
-        "zh-CN": "【组织】2 对 2。\n【流程】第1步：1、A 向前移动，2 回撤移动。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
-        "zh-TW": "【組織】2 對 2。\n【流程】第1步：1、A 向前移動，2 回撤移動。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
-        "ja-JP": "【準備】2対2。\n【流れ】ステップ1：1・Aが前方へ移動、2が後方へ移動。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
-        "ko-KR": "【준비】2대2.\n【진행】1단계: 1, A는 앞으로 이동, 2는 뒤로 이동.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
-        "es-ES": "Montaje: 2 contra 2.\nSecuencia: Paso 1: 1, A se desplaza hacia delante, 2 se desplaza hacia atrás.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
-        "fr-FR": "Mise en place : 2 contre 2.\nDéroulé : Étape 1 : 1, A se déplace vers l'avant, 2 se déplace vers l'arrière.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
-        "id-ID": "Persiapan: 2 lawan 2.\nUrutan: Langkah 1: 1, A bergerak ke depan, 2 bergerak ke belakang.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
-        "ms-MY": "Persediaan: 2 lawan 2.\nUrutan: Langkah 1: 1, A bergerak ke hadapan, 2 bergerak ke belakang.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
-        "th-TH": "การจัด: 2 ต่อ 2\nลำดับ: ขั้นที่ 1: 1, A ขยับไปข้างหน้า 2 ขยับถอยหลัง\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
-        "vi-VN": "Bố trí: 2 đấu 2.\nTrình tự: Bước 1: 1, A di chuyển lên phía trước, 2 di chuyển lùi lại.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
+        "en": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, A moves up the board, 2 moves back; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "en-GB": "Setup: 2 v 2.\nBall path: 1 → A\nSequence: Step 1: the ball is played to 1, 1, A moves up the board, 2 moves back; Step 2: 1 plays it to A.\nCoaching point: Front-back when you attack, side-by-side when you defend. The pair that rotates late is the pair playing four corners with two players.",
+        "zh-CN": "【组织】2 对 2。\n【球路】1 → A\n【流程】第1步：球传到 1，1、A 向前移动，2 回撤移动；第2步：1 打向 A。\n【要点】进攻前后站，防守左右站。轮转慢的那一对，就是用两个人去防四个角。",
+        "zh-TW": "【組織】2 對 2。\n【球路】1 → A\n【流程】第1步：球傳到 1，1、A 向前移動，2 回撤移動；第2步：1 打向 A。\n【要點】進攻前後站，防守左右站。輪轉慢的那一對，就是用兩個人去防四個角。",
+        "ja-JP": "【準備】2対2。\n【ボールの道筋】1 → A\n【流れ】ステップ1：ボールが1へ入る、1・Aが前方へ移動、2が後方へ移動。ステップ2：1がAへ打つ。\n【ポイント】攻めるときはトップアンドバック、守るときはサイドバイサイド。ローテーションが遅いペアは2人で4隅を守るはめになる。",
+        "ko-KR": "【준비】2대2.\n【볼 경로】1 → A\n【진행】1단계: 공이 1에게 온다, 1, A는 앞으로 이동, 2는 뒤로 이동; 2단계: 1가 A 쪽으로 친다.\n【포인트】공격은 앞뒤, 수비는 좌우. 로테이션이 늦은 조는 두 명으로 네 구석을 지키게 된다.",
+        "es-ES": "Montaje: 2 contra 2.\nRecorrido del balón: 1 → A\nSecuencia: Paso 1: el balón llega a 1, 1, A se desplaza hacia delante, 2 se desplaza hacia atrás; Paso 2: 1 la juega hacia A.\nPunto clave: Delante-detrás al atacar, lado a lado al defender: la pareja que rota tarde acaba cubriendo cuatro esquinas con dos jugadores.",
+        "fr-FR": "Mise en place : 2 contre 2.\nTrajet du ballon : 1 → A\nDéroulé : Étape 1 : le ballon arrive sur 1, 1, A se déplace vers l'avant, 2 se déplace vers l'arrière ; Étape 2 : 1 joue vers A.\nPoint clé : Avant-arrière en attaque, côte à côte en défense : la paire qui tourne trop tard couvre quatre coins à deux.",
+        "id-ID": "Persiapan: 2 lawan 2.\nJalur bola: 1 → A\nUrutan: Langkah 1: bola dimainkan ke 1, 1, A bergerak ke depan, 2 bergerak ke belakang; Langkah 2: 1 memukul ke A.\nPoin utama: Depan-belakang saat menyerang, sejajar saat bertahan.",
+        "ms-MY": "Persediaan: 2 lawan 2.\nLaluan bola: 1 → A\nUrutan: Langkah 1: bola dimainkan kepada 1, 1, A bergerak ke hadapan, 2 bergerak ke belakang; Langkah 2: 1 memukul ke arah A.\nPoin utama: Depan-belakang ketika menyerang, sebelah-menyebelah ketika bertahan.",
+        "th-TH": "การจัด: 2 ต่อ 2\nเส้นทางบอล: 1 → A\nลำดับ: ขั้นที่ 1: บอลถูกส่งมาที่ 1 1, A ขยับไปข้างหน้า 2 ขยับถอยหลัง • ขั้นที่ 2: 1 ตีไปที่ A\nจุดเน้น: บุกยืนหน้า-หลัง รับยืนซ้าย-ขวา คู่ที่หมุนช้าคือคู่ที่ใช้สองคนคุมสี่มุม",
+        "vi-VN": "Bố trí: 2 đấu 2.\nĐường bóng: 1 → A\nTrình tự: Bước 1: bóng được đưa tới 1, 1, A di chuyển lên phía trước, 2 di chuyển lùi lại; Bước 2: 1 đánh sang A.\nĐiểm chính: Tấn công đứng trước-sau, phòng thủ đứng ngang."
       },
       "mistake": {
         "en": "Rotating late — the pair that turns slowly covers four corners with two.",
@@ -3931,6 +4199,38 @@
             "photoId": null,
             "role": null,
             "attachedTo": null
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 0,
+            "position": [
+              500.0,
+              644.4
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                460.0,
+                952.0
+              ],
+              [
+                515.9641791044776,
+                635.2
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -3976,18 +4276,18 @@
         "vi-VN": "Đập cầu đường thẳng"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves right.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves right.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 向右移动。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 向右移動。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が右へ移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 오른쪽으로 이동.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza a la derecha.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace à droite.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke kanan.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปทางขวา\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển sang phải.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves right.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 moves right.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 向右移动。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 向右移動。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2が右へ移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 오른쪽으로 이동.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 se desplaza a la derecha.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 se déplace à droite.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 bergerak ke kanan.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 bergerak ke kanan.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 ขยับไปทางขวา\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 di chuyển sang phải.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
       },
       "mistake": {
         "en": "Hitting from behind the body — the shuttle flattens and that is their wait.",
@@ -4095,15 +4395,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4149,18 +4461,18 @@
         "vi-VN": "Đập cầu chéo sân"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves left.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves left.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 向左移动。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 向左移動。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が左へ移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 왼쪽으로 이동.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza a la izquierda.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace à gauche.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke kiri.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke kiri.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับไปทางซ้าย\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển sang trái.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 跟进。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 跟進。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2がパスを追って移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 패스를 따라간다.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 sigue su pase.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 suit sa passe.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 mengikuti operannya.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 mengikut hantarannya.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 วิ่งตามบอล\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 chạy theo đường chuyền.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
       },
       "mistake": {
         "en": "Hitting from behind the body — the shuttle flattens and that is their wait.",
@@ -4268,15 +4580,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -4322,18 +4646,18 @@
         "vi-VN": "Đập cầu cắm xuống"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves back; Step 2: 2 moves back.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 回撤移动；第2步：2 回撤移动。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 回撤移動；第2步：2 回撤移動。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が後方へ移動。ステップ2：2が後方へ移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 뒤로 이동; 2단계: 2는 뒤로 이동.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia atrás; Paso 2: 2 se desplaza hacia atrás.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'arrière ; Étape 2 : 2 se déplace vers l'arrière.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke belakang; Langkah 2: 2 bergerak ke belakang.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ขยับถอยหลัง\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lùi lại; Bước 2: 2 di chuyển lùi lại.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 plays it to 2, 1 moves back; Step 2: 2 plays it to 1, 2 follows the pass.\nCoaching point: Hit it in front of you, not above you. Behind the body the shuttle goes flat, and flat is the shot they were waiting for.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移动；第2步：2 打向 1，2 跟进。\n【要点】在身体前面击球，不是头顶正上方。在身后打，球就变平了，而平球正是对手等的那一拍。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → 2 → 1\n【流程】第1步：1 打向 2，1 回撤移動；第2步：2 打向 1，2 跟進。\n【要點】在身體前面擊球，不是頭頂正上方。在身後打，球就變平了，而平球正是對手等的那一拍。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1が2へ打つ、1が後方へ移動。ステップ2：2が1へ打つ、2がパスを追って移動。\n【ポイント】体の前で打つ。後ろで打つと球が平らになり、それこそ相手の待ち球だ。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1가 2 쪽으로 친다, 1는 뒤로 이동; 2단계: 2가 1 쪽으로 친다, 2는 패스를 따라간다.\n【포인트】몸 앞에서 쳐라. 몸 뒤에서 치면 셔틀이 평평해지고, 그게 상대가 기다리던 공이다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 la juega hacia 2, 1 se desplaza hacia atrás; Paso 2: 2 la juega hacia 1, 2 sigue su pase.\nPunto clave: Golpea delante del cuerpo, no encima: por detrás el volante sale plano, y plano es justo lo que esperaban.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 joue vers 2, 1 se déplace vers l'arrière ; Étape 2 : 2 joue vers 1, 2 suit sa passe.\nPoint clé : Frappe devant toi, pas au-dessus : derrière le corps le volant part à plat, et le plat est le coup qu'ils attendaient.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke 1, 2 mengikuti operannya.\nPoin utama: Pukul di depan badan, bukan di atas kepala.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 memukul ke arah 2, 1 bergerak ke belakang; Langkah 2: 2 memukul ke arah 1, 2 mengikut hantarannya.\nPoin utama: Pukul di hadapan badan, bukan di atas kepala.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ 2 1 ขยับถอยหลัง • ขั้นที่ 2: 2 ตีไปที่ 1 2 วิ่งตามบอล\nจุดเน้น: ตีข้างหน้าตัว ไม่ใช่เหนือหัว ถ้าตีหลังตัวลูกจะแบน และลูกแบนคือสิ่งที่เขารออยู่",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 đánh sang 2, 1 di chuyển lùi lại; Bước 2: 2 đánh sang 1, 2 chạy theo đường chuyền.\nĐiểm chính: Đánh phía trước người, không phải trên đầu."
       },
       "mistake": {
         "en": "Hitting from behind the body — the shuttle flattens and that is their wait.",
@@ -4441,15 +4765,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                529.6
+              ],
+              [
+                460.0,
+                1057.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5050,18 +5386,18 @@
         "vi-VN": "Giao cầu ngắn"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S, R moves back.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S, R moves back.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【流程】第1步：S、R 回撤移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
-        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【流程】第1步：S、R 回撤移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
-        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【流れ】ステップ1：S・Rが後方へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
-        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【진행】1단계: S, R는 뒤로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nSecuencia: Paso 1: S, R se desplaza hacia atrás.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nDéroulé : Étape 1 : S, R se déplace vers l'arrière.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nUrutan: Langkah 1: S, R bergerak ke belakang.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nUrutan: Langkah 1: S, R bergerak ke belakang.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: S, R ขยับถอยหลัง\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nTrình tự: Bước 1: S, R di chuyển lùi lại.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
+        "en": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R follows the pass.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R follows the pass.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移动，R 跟进。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
+        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移動，R 跟進。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
+        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ。ステップ2：RがSへ打つ、Sが後方へ移動、Rがパスを追って移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
+        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다; 2단계: R가 S 쪽으로 친다, S는 뒤로 이동, R는 패스를 따라간다.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R; Paso 2: R la juega hacia S, S se desplaza hacia atrás, R sigue su pase.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R ; Étape 2 : R joue vers S, S se déplace vers l'arrière, R suit sa passe.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R; Langkah 2: R memukul ke S, S bergerak ke belakang, R mengikuti operannya.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R; Langkah 2: R memukul ke arah S, S bergerak ke belakang, R mengikut hantarannya.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R • ขั้นที่ 2: R ตีไปที่ S S ขยับถอยหลัง R วิ่งตามบอล\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R; Bước 2: R đánh sang S, S di chuyển lùi lại, R chạy theo đường chuyền.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
       },
       "mistake": {
         "en": "Treating the one shot nobody can rush as if it did not matter.",
@@ -5097,7 +5433,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5124,7 +5460,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -5204,15 +5540,27 @@
               1064.2
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                455.87462686567164,
+                545.44
+              ],
+              [
+                520.0895522388059,
+                1117.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5258,18 +5606,18 @@
         "vi-VN": "Giao cầu lao"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【流程】第1步：S 回撤移动，R 向前移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
-        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【流程】第1步：S 回撤移動，R 向前移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
-        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【流れ】ステップ1：Sが後方へ移動、Rが前方へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
-        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【진행】1단계: S는 뒤로 이동, R는 앞으로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nSecuencia: Paso 1: S se desplaza hacia atrás, R se desplaza hacia delante.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nDéroulé : Étape 1 : S se déplace vers l'arrière, R se déplace vers l'avant.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke depan.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke hadapan.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: S ขยับถอยหลัง R ขยับไปข้างหน้า\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nTrình tự: Bước 1: S di chuyển lùi lại, R di chuyển lên phía trước.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
+        "en": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移动，R 向前移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
+        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移動，R 向前移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
+        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ。ステップ2：RがSへ打つ、Sが後方へ移動、Rが前方へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
+        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다; 2단계: R가 S 쪽으로 친다, S는 뒤로 이동, R는 앞으로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R; Paso 2: R la juega hacia S, S se desplaza hacia atrás, R se desplaza hacia delante.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R ; Étape 2 : R joue vers S, S se déplace vers l'arrière, R se déplace vers l'avant.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R; Langkah 2: R memukul ke S, S bergerak ke belakang, R bergerak ke depan.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R; Langkah 2: R memukul ke arah S, S bergerak ke belakang, R bergerak ke hadapan.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R • ขั้นที่ 2: R ตีไปที่ S S ขยับถอยหลัง R ขยับไปข้างหน้า\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R; Bước 2: R đánh sang S, S di chuyển lùi lại, R di chuyển lên phía trước.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
       },
       "mistake": {
         "en": "Treating the one shot nobody can rush as if it did not matter.",
@@ -5305,7 +5653,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5332,7 +5680,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -5412,15 +5760,27 @@
               1064.2
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                455.87462686567164,
+                545.44
+              ],
+              [
+                520.0895522388059,
+                1117.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5466,18 +5826,18 @@
         "vi-VN": "Giao cầu giao cao đơn"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【流程】第1步：S 回撤移动，R 向前移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
-        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【流程】第1步：S 回撤移動，R 向前移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
-        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【流れ】ステップ1：Sが後方へ移動、Rが前方へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
-        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【진행】1단계: S는 뒤로 이동, R는 앞으로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nSecuencia: Paso 1: S se desplaza hacia atrás, R se desplaza hacia delante.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nDéroulé : Étape 1 : S se déplace vers l'arrière, R se déplace vers l'avant.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke depan.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke hadapan.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: S ขยับถอยหลัง R ขยับไปข้างหน้า\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nTrình tự: Bước 1: S di chuyển lùi lại, R di chuyển lên phía trước.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
+        "en": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R moves up the board.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移动，R 向前移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
+        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移動，R 向前移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
+        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ。ステップ2：RがSへ打つ、Sが後方へ移動、Rが前方へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
+        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다; 2단계: R가 S 쪽으로 친다, S는 뒤로 이동, R는 앞으로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R; Paso 2: R la juega hacia S, S se desplaza hacia atrás, R se desplaza hacia delante.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R ; Étape 2 : R joue vers S, S se déplace vers l'arrière, R se déplace vers l'avant.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R; Langkah 2: R memukul ke S, S bergerak ke belakang, R bergerak ke depan.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R; Langkah 2: R memukul ke arah S, S bergerak ke belakang, R bergerak ke hadapan.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R • ขั้นที่ 2: R ตีไปที่ S S ขยับถอยหลัง R ขยับไปข้างหน้า\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R; Bước 2: R đánh sang S, S di chuyển lùi lại, R di chuyển lên phía trước.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
       },
       "mistake": {
         "en": "Treating the one shot nobody can rush as if it did not matter.",
@@ -5513,7 +5873,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5540,7 +5900,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -5620,15 +5980,27 @@
               1216.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                455.87462686567164,
+                545.44
+              ],
+              [
+                520.0895522388059,
+                1268.8000000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5674,18 +6046,18 @@
         "vi-VN": "Giao cầu bóng ngang"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves right.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nSequence: Step 1: S moves back, R moves right.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
-        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【流程】第1步：S 回撤移动，R 向右移动。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
-        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【流程】第1步：S 回撤移動，R 向右移動。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
-        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【流れ】ステップ1：Sが後方へ移動、Rが右へ移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
-        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【진행】1단계: S는 뒤로 이동, R는 오른쪽으로 이동.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nSecuencia: Paso 1: S se desplaza hacia atrás, R se desplaza a la derecha.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nDéroulé : Étape 1 : S se déplace vers l'arrière, R se déplace à droite.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke kanan.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nUrutan: Langkah 1: S bergerak ke belakang, R bergerak ke kanan.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nลำดับ: ขั้นที่ 1: S ขยับถอยหลัง R ขยับไปทางขวา\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nTrình tự: Bước 1: S di chuyển lùi lại, R di chuyển sang phải.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
+        "en": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R follows the pass.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "en-GB": "Setup: 1 v 1, 2 cones, ball with S.\nBall path: S → R → S\nSequence: Step 1: S plays it to R; Step 2: R plays it to S, S moves back, R follows the pass.\nCoaching point: The serve is the only shot nobody can rush you on — so it is the only one with no excuse for being loose.",
+        "zh-CN": "【组织】1 对 1，2 个锥标，球在 S 脚下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移动，R 跟进。\n【要点】发球是唯一没人能逼你的一拍——所以也是唯一没有借口打随便的一拍。",
+        "zh-TW": "【組織】1 對 1，2 個錐標，球在 S 腳下。\n【球路】S → R → S\n【流程】第1步：S 打向 R；第2步：R 打向 S，S 回撤移動，R 跟進。\n【要點】發球是唯一沒人能逼你的一拍——所以也是唯一沒有藉口打隨便的一拍。",
+        "ja-JP": "【準備】1対1、コーン2個、ボールはS。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ。ステップ2：RがSへ打つ、Sが後方へ移動、Rがパスを追って移動。\n【ポイント】サーブは誰にも急かされない唯一の一打。だから雑に打つ言い訳が一切ない唯一の一打でもある。",
+        "ko-KR": "【준비】1대1, 콘 2개, 공은 S.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다; 2단계: R가 S 쪽으로 친다, S는 뒤로 이동, R는 패스를 따라간다.\n【포인트】서브는 아무도 몰아붙일 수 없는 유일한 샷이다. 그래서 대충 칠 핑계가 없는 유일한 샷이다.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con S.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R; Paso 2: R la juega hacia S, S se desplaza hacia atrás, R sigue su pase.\nPunto clave: El saque es el único golpe que nadie puede apurarte: por eso es el único sin excusa para ser flojo.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec S.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R ; Étape 2 : R joue vers S, S se déplace vers l'arrière, R suit sa passe.\nPoint clé : Le service est le seul coup où personne ne peut te presser — donc le seul sans excuse d'être approximatif.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada S.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R; Langkah 2: R memukul ke S, S bergerak ke belakang, R mengikuti operannya.\nPoin utama: Servis adalah satu-satunya pukulan yang tak bisa diburu-buru.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan S.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R; Langkah 2: R memukul ke arah S, S bergerak ke belakang, R mengikut hantarannya.\nPoin utama: Servis ialah satu-satunya pukulan yang tiada siapa boleh mendesak.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ S\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R • ขั้นที่ 2: R ตีไปที่ S S ขยับถอยหลัง R วิ่งตามบอล\nจุดเน้น: เสิร์ฟคือลูกเดียวที่ไม่มีใครเร่งคุณได้ จึงเป็นลูกเดียวที่ไม่มีข้ออ้างให้หลวม",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ S.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R; Bước 2: R đánh sang S, S di chuyển lùi lại, R chạy theo đường chuyền.\nĐiểm chính: Giao cầu là cú duy nhất không ai ép được bạn."
       },
       "mistake": {
         "en": "Treating the one shot nobody can rush as if it did not matter.",
@@ -5721,7 +6093,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5748,7 +6120,7 @@
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -5828,15 +6200,27 @@
               1064.2
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                455.87462686567164,
+                545.44
+              ],
+              [
+                520.0895522388059,
+                1117.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -5882,18 +6266,18 @@
         "vi-VN": "Trận đấu có điều kiện đơn nửa sân"
       },
       "note": {
-        "en": "Setup: 1 v 1, 2 cones, ball with 1.\nSequence: Step 1: 1 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "en-GB": "Setup: 1 v 1, 2 cones, ball with 1.\nSequence: Step 1: 1 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "zh-CN": "【组织】1 对 1，2 个锥标，球在 1 脚下。\n【流程】第1步：1 向前移动，A 回撤移动。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
-        "zh-TW": "【組織】1 對 1，2 個錐標，球在 1 腳下。\n【流程】第1步：1 向前移動，A 回撤移動。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
-        "ja-JP": "【準備】1対1、コーン2個、ボールは1。\n【流れ】ステップ1：1が前方へ移動、Aが後方へ移動。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
-        "ko-KR": "【준비】1대1, 콘 2개, 공은 1.\n【진행】1단계: 1는 앞으로 이동, A는 뒤로 이동.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
-        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, A se desplaza hacia atrás.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
-        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, A se déplace vers l'arrière.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
-        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan, A bergerak ke belakang.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
-        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, A bergerak ke belakang.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
-        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า A ขยับถอยหลัง\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
-        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, A di chuyển lùi lại.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
+        "en": "Setup: 1 v 1, 2 cones, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "en-GB": "Setup: 1 v 1, 2 cones, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "zh-CN": "【组织】1 对 1，2 个锥标，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1 向前移动，A 回撤移动；第2步：A 打向 1。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
+        "zh-TW": "【組織】1 對 1，2 個錐標，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1 向前移動，A 回撤移動；第2步：A 打向 1。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
+        "ja-JP": "【準備】1対1、コーン2個、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1が前方へ移動、Aが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
+        "ko-KR": "【준비】1대1, 콘 2개, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1는 앞으로 이동, A는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
+        "es-ES": "Montaje: 1 contra 1, 2 conos, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1 se desplaza hacia delante, A se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
+        "fr-FR": "Mise en place : 1 contre 1, 2 plots, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1 se déplace vers l'avant, A se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
+        "id-ID": "Persiapan: 1 lawan 1, 2 kerucut, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1 bergerak ke depan, A bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
+        "ms-MY": "Persediaan: 1 lawan 1, 2 kon, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1 bergerak ke hadapan, A bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
+        "th-TH": "การจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1 ขยับไปข้างหน้า A ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
+        "vi-VN": "Bố trí: 1 đấu 1, 2 cọc, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1 di chuyển lên phía trước, A di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -6016,15 +6400,27 @@
               1110.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                419.820895522388,
+                595.6
+              ],
+              [
+                419.820895522388,
+                1044.3999999999999
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6070,18 +6466,18 @@
         "vi-VN": "Trận đấu có điều kiện chỉ nửa trên"
       },
       "note": {
-        "en": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "en-GB": "Setup: 1 v 1, ball with 1.\nSequence: Step 1: 1 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【流程】第1步：1 向前移动，A 回撤移动。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
-        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【流程】第1步：1 向前移動，A 回撤移動。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
-        "ja-JP": "【準備】1対1、ボールは1。\n【流れ】ステップ1：1が前方へ移動、Aが後方へ移動。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
-        "ko-KR": "【준비】1대1, 공은 1.\n【진행】1단계: 1는 앞으로 이동, A는 뒤로 이동.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
-        "es-ES": "Montaje: 1 contra 1, balón con 1.\nSecuencia: Paso 1: 1 se desplaza hacia delante, A se desplaza hacia atrás.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
-        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1 se déplace vers l'avant, A se déplace vers l'arrière.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
-        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1 bergerak ke depan, A bergerak ke belakang.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
-        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1 bergerak ke hadapan, A bergerak ke belakang.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
-        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1 ขยับไปข้างหน้า A ขยับถอยหลัง\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
-        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1 di chuyển lên phía trước, A di chuyển lùi lại.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
+        "en": "Setup: 1 v 1, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "en-GB": "Setup: 1 v 1, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "zh-CN": "【组织】1 对 1，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1 向前移动，A 回撤移动；第2步：A 打向 1。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
+        "zh-TW": "【組織】1 對 1，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1 向前移動，A 回撤移動；第2步：A 打向 1。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
+        "ja-JP": "【準備】1対1、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1が前方へ移動、Aが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
+        "ko-KR": "【준비】1대1, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1는 앞으로 이동, A는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
+        "es-ES": "Montaje: 1 contra 1, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1 se desplaza hacia delante, A se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
+        "fr-FR": "Mise en place : 1 contre 1, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1 se déplace vers l'avant, A se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
+        "id-ID": "Persiapan: 1 lawan 1, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1 bergerak ke depan, A bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
+        "ms-MY": "Persediaan: 1 lawan 1, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1 bergerak ke hadapan, A bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
+        "th-TH": "การจัด: 1 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1 ขยับไปข้างหน้า A ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
+        "vi-VN": "Bố trí: 1 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1 di chuyển lên phía trước, A di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -6164,15 +6560,27 @@
               952.0
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                754.0
+              ],
+              [
+                460.0,
+                885.9999999999999
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6218,18 +6626,18 @@
         "vi-VN": "Trận đấu có điều kiện 2v1"
       },
       "note": {
-        "en": "Setup: 2 v 1, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "en-GB": "Setup: 2 v 1, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "zh-CN": "【组织】2 对 1，球在 1 脚下。\n【流程】第1步：1、2 向前移动，A 回撤移动。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
-        "zh-TW": "【組織】2 對 1，球在 1 腳下。\n【流程】第1步：1、2 向前移動，A 回撤移動。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
-        "ja-JP": "【準備】2対1、ボールは1。\n【流れ】ステップ1：1・2が前方へ移動、Aが後方へ移動。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
-        "ko-KR": "【준비】2대1, 공은 1.\n【진행】1단계: 1, 2는 앞으로 이동, A는 뒤로 이동.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
-        "es-ES": "Montaje: 2 contra 1, balón con 1.\nSecuencia: Paso 1: 1, 2 se desplaza hacia delante, A se desplaza hacia atrás.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
-        "fr-FR": "Mise en place : 2 contre 1, ballon avec 1.\nDéroulé : Étape 1 : 1, 2 se déplace vers l'avant, A se déplace vers l'arrière.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
-        "id-ID": "Persiapan: 2 lawan 1, bola pada 1.\nUrutan: Langkah 1: 1, 2 bergerak ke depan, A bergerak ke belakang.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
-        "ms-MY": "Persediaan: 2 lawan 1, bola dengan 1.\nUrutan: Langkah 1: 1, 2 bergerak ke hadapan, A bergerak ke belakang.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
-        "th-TH": "การจัด: 2 ต่อ 1 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2 ขยับไปข้างหน้า A ขยับถอยหลัง\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
-        "vi-VN": "Bố trí: 2 đấu 1, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2 di chuyển lên phía trước, A di chuyển lùi lại.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
+        "en": "Setup: 2 v 1, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "en-GB": "Setup: 2 v 1, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "zh-CN": "【组织】2 对 1，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移动，A 回撤移动；第2步：A 打向 1。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
+        "zh-TW": "【組織】2 對 1，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移動，A 回撤移動；第2步：A 打向 1。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
+        "ja-JP": "【準備】2対1、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1・2が前方へ移動、Aが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
+        "ko-KR": "【준비】2대1, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1, 2는 앞으로 이동, A는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
+        "es-ES": "Montaje: 2 contra 1, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1, 2 se desplaza hacia delante, A se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
+        "fr-FR": "Mise en place : 2 contre 1, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1, 2 se déplace vers l'avant, A se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
+        "id-ID": "Persiapan: 2 lawan 1, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1, 2 bergerak ke depan, A bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
+        "ms-MY": "Persediaan: 2 lawan 1, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1, 2 bergerak ke hadapan, A bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
+        "th-TH": "การจัด: 2 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1, 2 ขยับไปข้างหน้า A ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
+        "vi-VN": "Bố trí: 2 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1, 2 di chuyển lên phía trước, A di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -6339,15 +6747,27 @@
               1136.8
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                460.0,
+                622.0
+              ],
+              [
+                443.85671641791043,
+                1070.8
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],
@@ -6393,18 +6813,18 @@
         "vi-VN": "Trận đấu có điều kiện đôi đầy đủ"
       },
       "note": {
-        "en": "Setup: 2 v 2, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A, B moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "en-GB": "Setup: 2 v 2, ball with 1.\nSequence: Step 1: 1, 2 moves up the board, A, B moves back.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
-        "zh-CN": "【组织】2 对 2，球在 1 脚下。\n【流程】第1步：1、2 向前移动，A、B 回撤移动。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
-        "zh-TW": "【組織】2 對 2，球在 1 腳下。\n【流程】第1步：1、2 向前移動，A、B 回撤移動。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
-        "ja-JP": "【準備】2対2、ボールは1。\n【流れ】ステップ1：1・2が前方へ移動、A・Bが後方へ移動。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
-        "ko-KR": "【준비】2대2, 공은 1.\n【진행】1단계: 1, 2는 앞으로 이동, A, B는 뒤로 이동.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
-        "es-ES": "Montaje: 2 contra 2, balón con 1.\nSecuencia: Paso 1: 1, 2 se desplaza hacia delante, A, B se desplaza hacia atrás.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
-        "fr-FR": "Mise en place : 2 contre 2, ballon avec 1.\nDéroulé : Étape 1 : 1, 2 se déplace vers l'avant, A, B se déplace vers l'arrière.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
-        "id-ID": "Persiapan: 2 lawan 2, bola pada 1.\nUrutan: Langkah 1: 1, 2 bergerak ke depan, A, B bergerak ke belakang.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
-        "ms-MY": "Persediaan: 2 lawan 2, bola dengan 1.\nUrutan: Langkah 1: 1, 2 bergerak ke hadapan, A, B bergerak ke belakang.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
-        "th-TH": "การจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nลำดับ: ขั้นที่ 1: 1, 2 ขยับไปข้างหน้า A, B ขยับถอยหลัง\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
-        "vi-VN": "Bố trí: 2 đấu 2, bóng ở chỗ 1.\nTrình tự: Bước 1: 1, 2 di chuyển lên phía trước, A, B di chuyển lùi lại.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
+        "en": "Setup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A, B moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "en-GB": "Setup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A, 1, 2 moves up the board, A, B moves back; Step 2: A plays it to 1.\nCoaching point: Shrink the court and the tactic appears on its own — players stop hitting harder and start hitting somewhere.",
+        "zh-CN": "【组织】2 对 2，球在 1 脚下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移动，A、B 回撤移动；第2步：A 打向 1。\n【要点】把场地缩小，战术自己就出来了——球员不再一味打得更重，而是开始打到某个位置。",
+        "zh-TW": "【組織】2 對 2，球在 1 腳下。\n【球路】1 → A → 1\n【流程】第1步：1 打向 A，1、2 向前移動，A、B 回撤移動；第2步：A 打向 1。\n【要點】把場地縮小，戰術自己就出來了——球員不再一味打得更重，而是開始打到某個位置。",
+        "ja-JP": "【準備】2対2、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1がAへ打つ、1・2が前方へ移動、A・Bが後方へ移動。ステップ2：Aが1へ打つ。\n【ポイント】コートを狭めれば戦術は自然に現れる。強く打つのをやめ、どこかへ打ち始める。",
+        "ko-KR": "【준비】2대2, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1가 A 쪽으로 친다, 1, 2는 앞으로 이동, A, B는 뒤로 이동; 2단계: A가 1 쪽으로 친다.\n【포인트】코트를 좁히면 전술은 저절로 나온다. 더 세게가 아니라 어딘가로 치기 시작한다.",
+        "es-ES": "Montaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A, 1, 2 se desplaza hacia delante, A, B se desplaza hacia atrás; Paso 2: A la juega hacia 1.\nPunto clave: Reduce la pista y la táctica aparece sola: dejan de pegar más fuerte y empiezan a pegar a algún sitio.",
+        "fr-FR": "Mise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A, 1, 2 se déplace vers l'avant, A, B se déplace vers l'arrière ; Étape 2 : A joue vers 1.\nPoint clé : Réduis le terrain et la tactique apparaît d'elle-même : on cesse de frapper plus fort pour frapper quelque part.",
+        "id-ID": "Persiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A, 1, 2 bergerak ke depan, A, B bergerak ke belakang; Langkah 2: A memukul ke 1.\nPoin utama: Perkecil lapangan dan taktik muncul dengan sendirinya.",
+        "ms-MY": "Persediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A, 1, 2 bergerak ke hadapan, A, B bergerak ke belakang; Langkah 2: A memukul ke arah 1.\nPoin utama: Kecilkan gelanggang dan taktik akan muncul dengan sendirinya.",
+        "th-TH": "การจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A 1, 2 ขยับไปข้างหน้า A, B ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ 1\nจุดเน้น: ย่อคอร์ทลง แล้วแท็กติกจะโผล่มาเอง",
+        "vi-VN": "Bố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A, 1, 2 di chuyển lên phía trước, A, B di chuyển lùi lại; Bước 2: A đánh sang 1.\nĐiểm chính: Thu nhỏ sân, chiến thuật sẽ tự xuất hiện."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
@@ -6541,15 +6961,27 @@
               978.4
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                419.820895522388,
+                595.6
+              ],
+              [
+                460.0,
+                912.4
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": "d0"
+            "attachedTo": null
           }
         ],
         "strokes": [],

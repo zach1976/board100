@@ -380,6 +380,14 @@ def _pos_at(p: P, phase: int) -> tuple[float, float]:
     return x, y
 
 
+# Net sports where, absent an authored route, the ball's story is always the
+# same one: it crosses, it comes back. Every drill in these libraries is a
+# rally or a fed repeat of one — a smash drill loops to the next feed — so
+# the default is not a guess, it is the sport.
+NET_RALLY_SPORTS = {"tableTennis", "badminton", "tennis", "pickleball",
+                    "beachTennis", "footvolley", "sepakTakraw"}
+
+
 def resolve_ball(drill: Drill, sport: str) -> None:
     """Turn ball_follow / ball_to into concrete ball_moves.
 
@@ -396,6 +404,11 @@ def resolve_ball(drill: Drill, sport: str) -> None:
         else:
             pl = drill.home[t]
         return _pos_at(pl, phase)
+
+    if (sport in NET_RALLY_SPORTS and drill.ball is not None
+            and not drill.ball_to and not drill.ball_moves
+            and drill.ball_follow is None and drill.home and drill.away):
+        drill.ball_to = [("a0", 0), (0, 1)]
 
     if drill.ball_follow is not None:
         # ball_to may follow a carry — a shuttle run that ends in a strike —
