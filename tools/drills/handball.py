@@ -80,6 +80,8 @@ def warmup_family() -> list[Drill]:
             free=(key == "star_passing"),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, ball=0,
+            # round the ring, or fed and finished when a keeper stands
+            ball_to=([(1, 0), (2, 1)] if not away else [(1, 0), ((0.50, 0.04), 1)]),
         ))
     return out
 
@@ -141,6 +143,8 @@ tight=True,
             away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=1,
+            # swung along the back line and out to the flying wing
+            ball_to=[(2, 0), (3, 1), (4, 2)],
         ))
     return out
 
@@ -189,6 +193,8 @@ def attack_family() -> list[Drill]:
             away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # the entry pass, and the strike the move earns
+            ball_to=[(1, 0), ((0.50, 0.04), 2)],
         )
 
     return [
@@ -287,6 +293,8 @@ def shooting_family() -> list[Drill]:
                     moves=[(release[0] + dx * 0.6, SIX + 0.045, 0)])],
             markers=[M(*target, "zone", "")],
             ball=0,
+            # carried into the release point, struck at the marked corner
+            ball_to=[(0, 0), (target, 1)],
         ))
     return out
 
@@ -348,6 +356,8 @@ tight=True,
                   ((LW, "LW"), (LB, "LB"), (CB, "CB"), (RB, "RB"),
                    (RW, "RW"), (PIVOT, "PIV"))],
             away=away, ball=2,
+            # their swing — the ball the wall shifts against
+            ball_to=[(3, 0), (4, 1)],
         ))
     return out
 
@@ -403,6 +413,10 @@ def break_family() -> list[Drill]:
             away=[P(0.44, 0.30, "D", moves=[(0.46, 0.20, 1)]),
                   P(*GOAL, "GK", role="GK")],
             ball=1,
+            # outlet forward, finished before the wall is set. The first
+            # wave is one runner: he takes it the whole way himself.
+            ball_to=([(1, 1), ((0.50, 0.04), 2)] if len(starts) < 2
+                     else [(2, 1), ((0.50, 0.04), 2)]),
         ))
     return out
 
@@ -470,6 +484,8 @@ def setpiece_family() -> list[Drill]:
               P(0.70, NINE + 0.03, "D", moves=[(0.64, NINE - 0.01, 1)])],
         markers=[M(0.50, SEVEN_M, "square", ""), M(0.38, 0.03, "zone", "")],
         ball=0,
+            # seven metres: one strike at the marked corner
+            ball_to=[((0.38, 0.03), 1)],
     )]
     # The 9 m throw is taken on the 9 m line, not four metres behind it.
     routines = [("nine_metre", "the 9 m free throw", (0.50, NINE), (0.30, NINE + 0.02)),
@@ -491,6 +507,8 @@ tight=True,
             away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # thrown to the 2 cutting off the routine, struck at goal
+            ball_to=[(1, 1), ((0.50, 0.04), 2)],
         ))
     return out
 
@@ -538,6 +556,8 @@ def game_family() -> list[Drill]:
                   for x, y in spots]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # two passes round the arc against matched defence
+            ball_to=[(1 % n, 0), (2 % n, 1)],
         ))
     return out
 
@@ -647,6 +667,8 @@ def gaps_family() -> list[Drill]:
                   P(*GOAL, "GK", role="GK", moves=[(0.58, 0.05, 1)])],
             markers=[M(0.62, 0.03, "zone", "")],
             ball=0,
+            # carried at the defender both ways, finished
+            ball_to=[(0, 0), (0, 1), ((0.58, 0.04), 2)],
         ),
         Drill(
             id="hb_defence_man_to_man", category="defending", minutes=12, rel=True,
@@ -659,6 +681,8 @@ def gaps_family() -> list[Drill]:
                       moves=[(CB[0] + 0.02, CB[1] + 0.01, 0)]),
                     P(*GOAL, "GK", role="GK")],
             ball=2,
+            # their extra man plays it into the CB — the switch the marking must survive
+            ball_to=[("a5", 0), (2, 1)],
         ),
         Drill(
             id="hb_defence_return", category="defending", minutes=10, rel=True,
@@ -671,6 +695,8 @@ def gaps_family() -> list[Drill]:
                   P(0.78, 0.66, "D", moves=[(0.80, 0.34, 0), (0.78, SIX + 0.05, 1)]),
                   P(*GOAL, "GK", role="GK")],
             ball=1,
+            # lost up top; their D carries it back the whole length
+            ball_to=[("a1", 0), ("a1", 1)],
         ),
         Drill(
             id="hb_defence_block", category="defending", minutes=8, rel=True,
@@ -681,6 +707,8 @@ def gaps_family() -> list[Drill]:
                   P(0.58, SIX + 0.05, "D", moves=[(0.56, SIX + 0.075, 0)]),
                   P(*GOAL, "GK", role="GK", moves=[(0.44, 0.05, 1)])],
             ball=0,
+            # the CB winds up and the two hands go up in front of it
+            ball_to=[((0.50, 0.06), 1)],
         ),
         Drill(
             id="hb_game_transition", category="ssg", minutes=18, rel=True,
@@ -695,6 +723,8 @@ def gaps_family() -> list[Drill]:
                   P(0.70, 0.40, "D", moves=[(0.72, 0.66, 1)]),
                   P(*GOAL, "GK", role="GK")],
             ball=1,
+            # attack, turnover, and the ball comes back the other way
+            ball_to=[(1, 0), ("a1", 1)],
         ),
     ] + [
         Drill(
@@ -703,6 +733,8 @@ def gaps_family() -> list[Drill]:
             name=suffixed(GK_NAME, label), note=GK_NOTE,
             home=home, away=[P(*GOAL, "GK", role="GK", moves=[gk_end + (1,)])],
             markers=mk, ball=0,
+            # the serve each keeper drill answers, at the marked corner
+            ball_to=[(gk_end, 1)] if key != 'outlet' else [(1, 1)],
         )
         for key, label, lvl, home, gk_end, mk in [
             ("angles", "angles", "foundation",
