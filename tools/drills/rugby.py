@@ -57,6 +57,8 @@ def handling_family() -> list[Drill]:
                   for i, (x, y) in enumerate(spots)],
             markers=[M(x, 0.40, "cone", "") for x, _ in spots],
             ball=0,
+            # along the line as it runs onto the cones
+            ball_to=[(1 % n, 0), (2 % n, 1)],
         ))
     return out
 
@@ -109,6 +111,8 @@ def phase_family() -> list[Drill]:
             home=home,
             away=[P(x, y, "D", moves=[(x, y + 0.06, 0)]) for x, y in line_of(6, 0.44)],
             ball=0,
+            # recycled to the first pod, shipped on to the next
+            ball_to=[(1, 0), (4 % len(home), 1)],
         ))
     return out
 
@@ -163,6 +167,8 @@ def move_family() -> list[Drill]:
             away=[P(x, y, "D", moves=[(x, y + 0.05, 0), (x - 0.02, 0.44, 1)])
                   for x, y in line_of(5, 0.42, 0.24, 0.84)],
             ball=0,
+            # off the 10's hands into the move's strike runner
+            ball_to=[(1, 0), (receiver, 1)],
         ))
     return out
 
@@ -215,6 +221,8 @@ def finishing_family() -> list[Drill]:
                     moves=[(start[0] * 0.4 + 0.30, TRY_LINE + 0.045, 1)])],
             markers=[M(0.50, TRY_LINE, "zone", "")],
             ball=0,
+            # carried at the corner, and the offload sends 2 over
+            ball_to=[(0, 0), (1, 1)],
         ))
     return out
 
@@ -259,6 +267,8 @@ def defence_family() -> list[Drill]:
                   for x, y in line],
             away=[P(x, 0.60, "A", moves=[(x + 0.04, 0.52, 0)]) for x, _ in line_of(5, 0.60, 0.24, 0.84)],
             ball=(0.24, 0.60),          # the attack starts with it
+            # their winger starts it wide — the line moves with the ball
+            ball_to=[("a1", 0), ("a2", 1)],
         ))
     return out
 
@@ -320,6 +330,8 @@ def setpiece_family() -> list[Drill]:
              + [P(0.425, y - 0.095, "D"), P(0.575, y - 0.095, "D"),
                 P(0.50, y - 0.14, "D")],
         ball=8,
+            # hooked to the base; the 9 whips it away
+            ball_to=[(8, 1), ((0.72, 0.44), 2)],
     ))
 
     # ── the lineouts: the jumpers a team actually lifts ────────────────
@@ -344,6 +356,8 @@ def setpiece_family() -> list[Drill]:
                    moves=[(0.24, y + 0.024 * (n // 2) + 0.02, 2)])],
             away=[P(0.225, y + 0.024 * i, "D") for i in range(n)],
             ball=0,
+            # thrown to the jumper, down to the 9 sweeping
+            ball_to=[(2, 1), (6, 2)],
         ))
 
     # ── the kick-off: a kicker, a ball in the air, a catch pod ─────────
@@ -413,6 +427,8 @@ def kicking_family() -> list[Drill]:
             away=[P(land[0], land[1] - 0.04, "F", moves=[(land[0], land[1], 1)])],
             markers=[M(*land, "zone", "")],
             ball=0,
+            # kicked to the marked landing zone; the chase competes
+            ball_to=[(land, 1)],
         ))
     return out
 
@@ -462,6 +478,8 @@ def breakdown_family() -> list[Drill]:
             away=[P(0.50, 0.44, "D", moves=[(0.50, 0.50, 0)]),
                   P(0.58, 0.42, "D", moves=[(0.54, 0.49, 1)])],
             ball=0,
+            # presented at the base, swept away before the counter-ruck
+            ball_to=[(1, 0), (0, 1)],
         ))
     return out
 
@@ -507,6 +525,8 @@ def game_family() -> list[Drill]:
             away=[P(x, 0.38, chr(65 + i), moves=[(x, 0.46, 0)])
                   for i, (x, _) in enumerate(spots)],
             ball=0,
+            # two passes along the line as both sides move
+            ball_to=[(1 % n, 0), (2 % n, 0)],
         ))
     return out
 
@@ -609,7 +629,9 @@ def gaps_family() -> list[Drill]:
             away=[P(0.42, 0.40, "A", moves=[(0.44, 0.455, 1)]),
                   P(0.58, 0.40, "A", moves=[(0.555, 0.455, 1)])],
             markers=[M(0.30, 0.46), M(0.70, 0.46)],
-            ball=None,
+            # two carriers come at two tacklers — one ball between them
+            ball=(0.42, 0.42),
+            ball_to=[("a0", 0), ("a0", 1)],
         ),
         Drill(
             id="rg_kick_high_ball", category="defending", minutes=12, rel=True,
@@ -706,6 +728,8 @@ def maul_family() -> list[Drill]:
                     moves=[(0.18 + 0.03 * i, y - 0.05, 1)])
                   for i in range(defenders)],
             ball=0,
+            # won at the front and buried in the drive as it rumbles
+            ball_to=[(1, 0), (5, 1)],
         ))
     return out
 
