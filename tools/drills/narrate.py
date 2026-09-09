@@ -191,27 +191,31 @@ ALL_MOVE = {
 
 # With a known destination (the spot the receiver vacates) the follow reads
 # "2号球员跑位到3号球员的位置". Without one it falls back to FOLLOW_PLAIN.
+# The passer follows his own pass FROM THE PREVIOUS BEAT into the spot the
+# receiver leaves — so narrated per-beat, "follows the pass" points at the
+# wrong ball (this beat's pass is someone else's). State it as the movement
+# it is: he runs up to take that position.
 FOLLOW = {
-    "en": "{a} follows the pass into {to}'s spot",
-    "en-GB": "{a} follows the pass into {to}'s spot",
-    "zh-CN": "{a}跟着传球跑位到{to}的位置",
-    "zh-TW": "{a}跟著傳球跑位到{to}的位置",
-    "ja-JP": "{a}がパスを追って{to}の位置へ",
-    "ko-KR": "{a}가 패스를 따라 {to}의 자리로",
-    "es-ES": "{a} sigue su pase hasta el sitio de {to}",
-    "fr-FR": "{a} suit sa passe jusqu'à la place de {to}",
-    "id-ID": "{a} mengikuti operan ke posisi {to}",
-    "ms-MY": "{a} mengikut hantaran ke kedudukan {to}",
-    "th-TH": "{a} วิ่งตามบอลไปยังตำแหน่งของ{to}",
-    "vi-VN": "{a} theo đường chuyền tới vị trí của {to}",
+    "en": "{a} runs up to take {to}'s position",
+    "en-GB": "{a} runs up to take {to}'s position",
+    "zh-CN": "{a}跑位到{to}的位置",
+    "zh-TW": "{a}跑位到{to}的位置",
+    "ja-JP": "{a}が{to}の位置へ入る",
+    "ko-KR": "{a}가 {to}의 자리로 들어간다",
+    "es-ES": "{a} sube a ocupar el sitio de {to}",
+    "fr-FR": "{a} monte prendre la place de {to}",
+    "id-ID": "{a} maju mengisi posisi {to}",
+    "ms-MY": "{a} naik mengisi kedudukan {to}",
+    "th-TH": "{a} ขึ้นไปแทนตำแหน่งของ{to}",
+    "vi-VN": "{a} dâng lên chiếm vị trí của {to}",
 }
 FOLLOW_PLAIN = {
-    "en": "{a} follows the pass", "en-GB": "{a} follows the pass",
-    "zh-CN": "{a}跟着传球跑上去", "zh-TW": "{a}跟著傳球跑上去",
-    "ja-JP": "{a}がパスを追って移動", "ko-KR": "{a}는 패스를 따라간다",
-    "es-ES": "{a} sigue su pase", "fr-FR": "{a} suit sa passe",
-    "id-ID": "{a} mengikuti operannya", "ms-MY": "{a} mengikut hantarannya",
-    "th-TH": "{a} วิ่งตามบอล", "vi-VN": "{a} chạy theo đường chuyền",
+    "en": "{a} runs up in support", "en-GB": "{a} runs up in support",
+    "zh-CN": "{a}跑上去接应", "zh-TW": "{a}跑上去接應",
+    "ja-JP": "{a}がサポートに上がる", "ko-KR": "{a}가 지원하러 올라간다",
+    "es-ES": "{a} sube en apoyo", "fr-FR": "{a} monte en soutien",
+    "id-ID": "{a} maju mendukung", "ms-MY": "{a} naik menyokong",
+    "th-TH": "{a} ขึ้นไปสนับสนุน", "vi-VN": "{a} dâng lên hỗ trợ",
 }
 RUN = {
     "en": "{a} moves {dir}", "en-GB": "{a} moves {dir}",
