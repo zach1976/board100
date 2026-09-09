@@ -303,6 +303,17 @@ def reserve_keeper_number(drill: Drill, sport: str) -> None:
     """
     if sport != "soccer":
         return
+    # Only reserve the 1 when a goalkeeper is actually on the board: shirt 1
+    # is his, so an outfield 1 beside him reads as "the keeper is in this
+    # rondo". With no keeper present there is nothing to reserve — a 1v1 or a
+    # passing square numbered 1,2,3,4 is just a numbered group, and shifting
+    # it to 2,3,4,5 (dribble_slalom became a lone player wearing "2") only
+    # made the numbers strange. 49 keeperless drills were being shifted for
+    # nothing; they keep 1,2,3… now.
+    keeper_here = any(p.role == "GK" or p.label.upper() in ("GK", "K")
+                      for p in drill.home + drill.away)
+    if not keeper_here:
+        return
     for side in (drill.home, drill.away):
         nums = sorted(int(p.label) for p in side if p.label.isdigit())
         if not nums or nums[0] != 1:
@@ -881,10 +892,18 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
             prev = mv
 
     if sport == "soccer":
-        for p in people:
-            assert p["label"] != "1" or p.get("role") == "GK", (
-                f"{sport}/{drill.id}: an outfield player wears 1 — that is "
-                f"the goalkeeper's shirt (see reserve_keeper_number)")
+        # 1 is the keeper's shirt only when a keeper is on the board; a
+        # keeperless drill (a rondo, a passing square) may field a 1. This
+        # mirrors reserve_keeper_number, which now only reserves the 1 where
+        # a GK is present.
+        has_keeper = any(p.get("role") == "GK"
+                         or str(p.get("label", "")).upper() in ("GK", "K")
+                         for p in people)
+        if has_keeper:
+            for p in people:
+                assert p["label"] != "1" or p.get("role") == "GK", (
+                    f"{sport}/{drill.id}: an outfield player wears 1 with a "
+                    f"keeper on the board — that is the keeper's shirt")
         seen = {}
         for p in people:
             if not p["label"]:

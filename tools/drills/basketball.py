@@ -84,12 +84,17 @@ def basketball_drills() -> list[Drill]:
                   "ms-MY": "Hantar dan berlari di belakang penerima.",
                   "th-TH": "ส่งแล้ววิ่งไปด้านหลังคนที่รับ การส่งที่ไม่มีการเคลื่อนที่คือการหยุด",
                   "vi-VN": "Chuyền rồi chạy ra sau người nhận."},
+            # Follow the pass, one beat behind it, and stop 82% of the way —
+            # queue behind the receiver, do not stand on him. Ending on his
+            # exact point (and on the same beat as the pass) stacked every
+            # pair dead centre, the same rotation defect as the passing
+            # diamond.
             home=[
-                P(0.50, 0.30, "1", moves=[(0.85, 0.26, 0)]),
-                P(0.85, 0.26, "2", moves=[(0.70, 0.62, 1)]),
-                P(0.70, 0.62, "3", moves=[(0.30, 0.62, 2)]),
-                P(0.30, 0.62, "4", moves=[(0.15, 0.26, 3)]),
-                P(0.15, 0.26, "5", moves=[(0.50, 0.30, 4)]),
+                P(0.50, 0.30, "1", moves=[(0.79, 0.27, 1)]),
+                P(0.85, 0.26, "2", moves=[(0.73, 0.56, 2)]),
+                P(0.70, 0.62, "3", moves=[(0.37, 0.62, 3)]),
+                P(0.30, 0.62, "4", moves=[(0.18, 0.32, 4)]),
+                P(0.15, 0.26, "5", moves=[(0.44, 0.29, 5)]),
             ],
             ball=0,
             # the star: every pass one point across, passer follows

@@ -34,15 +34,21 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "แตะสองครั้ง บอลที่เจาะได้คือบอลทะลุกลาง มองหาก่อนจะวนออกข้าง",
                   "vi-VN": "Hai chạm. Đường chuyền xuyên tuyến đi qua giữa — tìm nó trước khi chuyền vòng.",
                   "en-GB": "Two touches. The pass that breaks the line is the one through the middle — look for it before playing round."},
+            # Each support shuffle ends at its own point on the perimeter,
+            # 80 apart down each edge. Sending 1 and 4 both to (300,700) —
+            # and 2 and 3 both to (700,700) — stacked the pairs dead centre.
             home=[
-                P(300, 500, "1", moves=[(300, 700, 0)]),
-                P(700, 500, "2", moves=[(700, 700, 1)]),
-                P(700, 900, "3", moves=[(700, 700, 2)]),
-                P(300, 900, "4", moves=[(300, 700, 3)]),
+                P(300, 500, "1", moves=[(280, 660, 0)]),
+                P(700, 500, "2", moves=[(720, 660, 1)]),
+                P(700, 900, "3", moves=[(720, 760, 2)]),
+                P(300, 900, "4", moves=[(280, 760, 3)]),
             ],
+            # The two defenders hunt on offset points — they were sent to
+            # the same two spots (450,800) and (600,650) a beat apart, so one
+            # arrived on the other before he had left.
             away=[
-                P(450, 650, "A", moves=[(600, 650, 0), (450, 800, 2)]),
-                P(550, 800, "B", moves=[(450, 800, 1), (600, 650, 3)]),
+                P(450, 650, "A", moves=[(600, 640, 0), (470, 790, 2)]),
+                P(550, 800, "B", moves=[(430, 810, 1), (620, 660, 3)]),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -1034,16 +1040,20 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Dua bola bergerak serentak. Angkat kepala antara sentuhan.",
                   "th-TH": "สองลูกเคลื่อนพร้อมกัน เงยหน้าระหว่างการแตะ",
                   "vi-VN": "Hai bóng cùng lúc. Ngẩng đầu giữa các chạm."},
+            # All four rotate on the same beat — musical chairs. Each
+            # corner is vacated exactly as the next player fills it, so
+            # nobody stacks. Split across two beats (3 and 4 a beat late) it
+            # put an arriving player on a corner not yet cleared.
             home=[
                 P(350, 600, "1", moves=[(350, 900, 0)]),
                 P(650, 600, "2", moves=[(350, 600, 0)]),
-                P(650, 900, "3", moves=[(650, 600, 1)]),
-                P(350, 900, "4", moves=[(650, 900, 1)]),
+                P(650, 900, "3", moves=[(650, 600, 0)]),
+                P(350, 900, "4", moves=[(650, 900, 0)]),
             ],
             markers=[M(330, 580), M(670, 580), M(670, 920), M(330, 920)],
             ball=0,
-            # passed into the rotation as the corners swap
-            ball_to=[(1, 0), (2, 1)],
+            # two balls live at once — one across the top, one up the side
+            ball_to=[(1, 0), (3, 0)],
         ),
         Drill(
             id="possession_overload_4v2_plus", category="possession", minutes=12,

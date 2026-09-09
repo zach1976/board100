@@ -56,7 +56,7 @@ MARKER_NAME = {
 # so two tokens closer than this in board units touch on the phone.
 OVERLAP_UNITS = 44 * (CANVAS_W / 400)
 
-NOTE_TARGET_WORDS = 45
+NOTE_TARGET_WORDS = 35
 
 
 def kind(p):
@@ -121,9 +121,6 @@ def audit(drill, sport):
             "level": "info",
             "text": f"说明只有 {words} 词，目标 {NOTE_TARGET_WORDS}+",
         })
-
-    if not drill.get("tags"):
-        out.append({"id": "no_tags", "level": "info", "text": "没有标签"})
 
     # One card for all the overlaps, not one per finding. Three cards each
     # opening with 第 N 步 read as a step-by-step description of the drill —
