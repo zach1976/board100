@@ -402,12 +402,12 @@
             "scale": 1.0,
             "moves": [
               [
-                780,
-                700
+                725,
+                641
               ]
             ],
             "movePhases": [
-              0
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -429,12 +429,12 @@
             "scale": 1.0,
             "moves": [
               [
-                500,
-                1000
+                555,
+                941
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -456,12 +456,12 @@
             "scale": 1.0,
             "moves": [
               [
-                220,
-                700
+                275,
+                759
               ]
             ],
             "movePhases": [
-              2
+              3
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -483,12 +483,12 @@
             "scale": 1.0,
             "moves": [
               [
-                500,
-                400
+                445,
+                459
               ]
             ],
             "movePhases": [
-              3
+              4
             ],
             "moveColor": 4294956864,
             "customColor": null,
@@ -590,20 +590,20 @@
             "scale": 1.0,
             "moves": [
               [
-                740,
-                700
+                740.0,
+                770.0
               ],
               [
-                460,
-                1000
+                460.0,
+                1070.0
               ],
               [
-                260,
-                700
+                260.0,
+                770.0
               ],
               [
-                460,
-                470
+                460.0,
+                470.0
               ]
             ],
             "movePhases": [
