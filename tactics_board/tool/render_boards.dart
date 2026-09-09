@@ -60,6 +60,11 @@ void main() {
     // ONLY=soccer/passing_diamond re-renders one drill in place while a
     // board is being tuned; the full run wipes and rebuilds everything.
     final only = Platform.environment['ONLY'];
+    // ONLY=soccer/ takes a whole sport; a comma list mixes either form.
+    final wanted = only?.split(',').map((e) => e.trim()).toList();
+    bool picked(String sport, String id) =>
+        wanted == null ||
+        wanted.any((w) => w == '$sport/$id' || w == '$sport/' || w == sport);
     if (only == null && outRoot.existsSync()) outRoot.deleteSync(recursive: true);
 
     SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
@@ -121,7 +126,7 @@ void main() {
 
       for (final raw in data['drills'] as List) {
         final drill = raw as Map<String, dynamic>;
-        if (only != null && only != '$sport/${drill['id']}') continue;
+        if (!picked(sport, drill['id'] as String)) continue;
         state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
         state.setCanvasSizeSilent(const Size(kW, kH));
         await tester.pump(const Duration(milliseconds: 60));
