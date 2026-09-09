@@ -63,6 +63,8 @@ def warmup_family() -> list[Drill]:
             free=(key in ("eggbeater", "wet_pass")),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, ball=0,
+            # wet passes back and forth, or fed to the swimmer's catch
+            ball_to=([(1, 0), (0, 1)] if key != 'swim_catch' else [(1, 1)]),
         ))
     return out
 
@@ -114,6 +116,8 @@ def perimeter_family() -> list[Drill]:
             away=[P(x, y - 0.05, "D", moves=[(x, y - 0.02, 0)]) for x, y in PERIMETER]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # round the arc, and inside to the centre when he holds position
+            ball_to=([(1, 0), (2, 1)] if key == 'circulation' else [(1, 0), (len(home) - 1, 1)]),
         ))
     return out
 
@@ -178,6 +182,8 @@ tight=True,
                   for i in range(5)]
                  + [P(*GOAL, "GK", role="GK", moves=[(0.44, 0.05, 2)])],
             ball=0,
+            # swung across the umbrella faster than the four can slide
+            ball_to=[(1, 0), (2, 1), (3, 2)],
         ))
     return out
 
@@ -241,6 +247,8 @@ tight=True,
             markers=[M(0.50, TWO_M, "cone", ""), M(0.50, FIVE_M, "cone", "")]
                     + ([] if target is None else [M(*target, "zone", "")]),
             ball=0,
+            # entered to the centre; he turns and finishes at the marked spot
+            ball_to=[(1, 0)] + ([] if target is None else [(1, 1), ((target[0], 0.03), 2)]),
         ))
     return out
 
@@ -308,6 +316,9 @@ def defence_family() -> list[Drill]:
             away=away,
             markers=[M(0.50, TWO_M, "cone", ""), M(0.50, FIVE_M, "cone", "")],
             ball=0,
+            # their swing into the hole set — the ball the system answers.
+            # Five on the perimeter, the CF is the sixth man (index 5).
+            ball_to=[(1, 0), (5, 1)],
         ))
     return out
 
@@ -354,6 +365,8 @@ def counter_family() -> list[Drill]:
                   for i in range(n - 1)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # carried up the pool, laid across, finished
+            ball_to=[(0, 0), (1 % n, 1), ((0.50, 0.04), 1)],
         ))
     return out
 
@@ -392,6 +405,8 @@ def setpiece_family() -> list[Drill]:
         away=[P(*GOAL, "GK", role="GK", moves=[(0.42, 0.05, 1)])],
         markers=[M(0.50, FIVE_M, "square", "")],
         ball=0,
+            # five metres: one strike
+            ball_to=[((0.42, 0.04), 1)],
     ), Drill(
         id="wp_set_free_throw", category="setpiece", minutes=8, rel=True,
         name=suffixed(SET_NAME, "the quick free throw"), note=SET_NOTE,
@@ -400,6 +415,8 @@ def setpiece_family() -> list[Drill]:
               P(0.68, 0.28, "3", moves=[(0.60, 0.16, 1)])],
         away=[P(0.34, 0.24, "D"), P(0.56, 0.14, "D"), P(*GOAL, "GK", role="GK")],
         ball=0,
+            # taken quickly to the 3 breaking before the defence sets
+            ball_to=[(2, 1), ((0.50, 0.04), 2)],
     ), Drill(
         id="wp_set_swim_off", category="setpiece", minutes=6, rel=True, free=True,
         name=suffixed(SET_NAME, "the swim-off"), note=SET_NOTE,
@@ -408,6 +425,8 @@ def setpiece_family() -> list[Drill]:
               P(0.78, 0.94, "3", moves=[(0.74, 0.62, 0)])],
         away=[P(0.50, 0.06, "A", moves=[(0.50, 0.46, 0)])],
         ball=(0.50, 0.50),
+            # the sprint decides it — first hand on the ball takes it forward
+            ball_to=[(0, 1)],
     )]
     return out
 
@@ -451,6 +470,8 @@ def game_family() -> list[Drill]:
                   for i, (x, y) in enumerate(spots)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
+            # two passes round the ring under pressure
+            ball_to=[(1 % n, 0), (2 % n, 0)],
         ))
     return out
 
@@ -522,6 +543,8 @@ def gaps_family() -> list[Drill]:
             markers=[M(0.50, TWO_M, "cone", ""), M(0.50, FIVE_M, "cone", ""),
                      M(*target, "zone", "")],
             ball=0,
+            # carried in, and the shot goes for the marked corner
+            ball_to=[(0, 0), ((target[0], 0.03), 1)],
         ))
     keepers = [("angles", "angles", "foundation",
                 [P(0.29, 0.215, "1", moves=[(0.325, 0.175, 0)]),
@@ -544,6 +567,8 @@ def gaps_family() -> list[Drill]:
             away=[P(0.50, 0.012, "GK", role="GK", moves=[gk + (1,)])],
             markers=[M(0.50, TWO_M, "cone", ""), M(0.50, FIVE_M, "cone", "")],
             ball=0,
+            # the shot or the outlet the keeper's move answers
+            ball_to=([((0.50, 0.03), 1)] if key != 'outlet' else [(0, 1)]),
         ))
     return out
 
