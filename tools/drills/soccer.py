@@ -46,6 +46,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
+            # three passes round the square while the two hunt
+            ball_to=[(1, 0), (2, 1), (3, 2)],
             free=True,
         ),
         Drill(
@@ -113,6 +115,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 1050), M(500, 900), M(500, 750), M(500, 620)],
             ball=0,
+            # the ball never leaves his feet through the slalom
+            ball_follow=0,
         ),
 
         # ── possession ───────────────────────────────────────────────────────
@@ -146,6 +150,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
             ball=0,
+            # bounced off the 7 and out the far side to the 3
+            ball_to=[(6, 0), (2, 1)],
             free=True,
         ),
 
@@ -181,6 +187,8 @@ def soccer_drills() -> list[Drill]:
                 P(500, 180, "GK", role="GK"),
             ],
             ball=0,
+            # fed outside the overlap, carried, crossed to the 9
+            ball_to=[(1, 0), (1, 2), (3, 3)],
             free=True,
         ),
         Drill(
@@ -208,6 +216,8 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[P(520, 560, "C", moves=[(470, 660, 0)])],
             ball=0,
+            # into the 10's feet, first time into the 8 beyond
+            ball_to=[(1, 0), (2, 1)],
             free=True,
         ),
         Drill(
@@ -240,6 +250,8 @@ def soccer_drills() -> list[Drill]:
                 P(600, 620, "C", moves=[(520, 640, 0), (700, 560, 1)]),
             ],
             ball=0,
+            # into the 6 and switched to the 7 in one
+            ball_to=[(2, 0), (3, 1)],
         ),
 
         # ── finishing ────────────────────────────────────────────────────────
@@ -272,6 +284,8 @@ def soccer_drills() -> list[Drill]:
                   P(500, 170, "GK", role="GK")],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # carried to the byline, cut back to the 10 arriving on the spot
+            ball_to=[(0, 0), (2, 1)],
             free=True,
         ),
         Drill(
@@ -296,6 +310,9 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(500, 330, 1)])],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # carried at the keeper the whole way, finished past him
+            ball_follow=0,
+            ball_to=[((500, 60), 2)],
             free=True,
         ),
 
@@ -393,6 +410,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # swung to the 9 attacking the near post, flicked on at goal
+            ball_to=[(1, 0), ((500, 60), 1)],
             free=True,
         ),
         Drill(
@@ -425,6 +444,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # rolled square into the 8's run, struck second beat
+            ball_to=[(2, 0), ((500, 60), 1)],
         ),
 
         # ── small-sided games ────────────────────────────────────────────────
@@ -460,6 +481,8 @@ def soccer_drills() -> list[Drill]:
                 M(200, 200), M(800, 200), M(200, 1200), M(800, 1200),
             ],
             ball=0,
+            # two passes across the four-goal box as 4 breaks
+            ball_to=[(1, 0), (3, 1)],
             free=True,
         ),
         # ── warm-up ──────────────────────────────────────────────────────────
@@ -489,6 +512,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 1120), M(500, 780), M(780, 620), M(220, 620)],
             ball=0,
+            # into the 2 checking short, laid wide to the 3
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="warmup_first_touch_gate", category="warmup", minutes=8,
@@ -514,6 +539,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(440, 880), M(560, 880), M(640, 730), M(760, 730), M(440, 550), M(560, 550)],
             ball=0,
+            # dribbled through the gates end to end
+            ball_follow=0,
             free=True,
         ),
 
@@ -548,6 +575,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(480, 460), M(800, 620), M(720, 920), M(280, 920), M(200, 620)],
             ball=0,
+            # the split pass through the middle, then round
+            ball_to=[(2, 0), (4, 1)],
         ),
         Drill(
             id="possession_3_zone", category="possession", minutes=15,
@@ -579,6 +608,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(120, 950, "zone"), M(880, 950, "zone"), M(120, 550, "zone"), M(880, 550, "zone")],
             ball=0,
+            # through the thirds: into 3, on to 5
+            ball_to=[(2, 0), (4, 1)],
         ),
         Drill(
             id="build_from_gk", category="possession", minutes=15,
@@ -612,6 +643,8 @@ def soccer_drills() -> list[Drill]:
                 P(620, 970, "10", moves=[(560, 1020, 1)]),
             ],
             ball=0,
+            # GK to the splitting 4, then down the line to the 3 pushing on
+            ball_to=[(1, 0), (4, 1)],
         ),
 
         # ── attacking ────────────────────────────────────────────────────────
@@ -640,6 +673,8 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[P(800, 780, "D", moves=[(780, 700, 0)])],
             ball=0,
+            # given to the wall, returned into the 7's run
+            ball_to=[(1, 0), (0, 1)],
         ),
         Drill(
             id="counter_3v2", category="attacking", minutes=12,
@@ -670,6 +705,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # 9 carries both beats — until a defender commits — then releases 11
+            ball_to=[(0, 0), (0, 1), (1, 2)],
         ),
         Drill(
             id="halfspace_run", category="attacking", minutes=12,
@@ -701,6 +738,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # into the half-space run, carried on, finished
+            ball_to=[(2, 0), (2, 1), ((500, 60), 2)],
         ),
 
         # ── finishing ────────────────────────────────────────────────────────
@@ -731,6 +770,8 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(430, 260, 1)])],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # laid into the 9's arrival, struck first time
+            ball_to=[(1, 0), ((500, 60), 1)],
         ),
         Drill(
             id="finish_turn_shoot", category="finishing", minutes=10,
@@ -761,6 +802,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # into the 9's feet as he checks, turned and struck
+            ball_to=[(1, 0), ((500, 60), 1)],
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -861,6 +904,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # played short to the overlapping 8, whose cross finds the 9
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="throw_in_third", category="setpiece", minutes=8, off_surface=True,
@@ -893,6 +938,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # thrown short to the 7, played down the line to the 9
+            ball_to=[(1, 0), (2, 1)],
         ),
 
         # ── small-sided ──────────────────────────────────────────────────────
@@ -926,6 +973,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 140, "square"), M(500, 1360, "square")],
             ball=0,
+            # the first two passes after the restart
+            ball_to=[(4, 0), (2, 1)],
         ),
         # ── batch 3 ──────────────────────────────────────────────────────────
         Drill(
@@ -948,13 +997,15 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ไปยืนแทนคนที่คุณจ่ายให้ พูดก่อนจ่าย ไม่ใช่หลังจ่าย",
                   "vi-VN": "Vào chỗ người bạn vừa chuyền. Gọi trước khi chuyền, không phải sau."},
             home=[
-                P(300, 600, "1", moves=[(700, 600, 0)]),
-                P(700, 600, "2", moves=[(700, 900, 1)]),
-                P(700, 900, "3", moves=[(300, 900, 2)]),
-                P(300, 900, "4", moves=[(300, 600, 3)]),
+                P(300, 600, "1", moves=[(620, 600, 1)]),
+                P(700, 600, "2", moves=[(700, 820, 2)]),
+                P(700, 900, "3", moves=[(380, 900, 3)]),
+                P(300, 900, "4", moves=[(300, 680, 4)]),
             ],
             markers=[M(280, 580), M(720, 580), M(720, 920), M(280, 920)],
             ball=0,
+            # the ball leads round the square, runners a beat behind
+            ball_to=[(1, 0), (2, 1), (3, 2), ((300, 600), 3)],
         ),
         Drill(
             id="warmup_two_ball", category="warmup", minutes=6,
@@ -983,6 +1034,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(330, 580), M(670, 580), M(670, 920), M(330, 920)],
             ball=0,
+            # passed into the rotation as the corners swap
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="possession_overload_4v2_plus", category="possession", minutes=12,
@@ -1015,6 +1068,8 @@ def soccer_drills() -> list[Drill]:
                 P(620, 700, "C", moves=[(520, 720, 1)]),
             ],
             ball=1,
+            # round the overload: 3, the free 10, out to the 7
+            ball_to=[(2, 0), (3, 1), (4, 2)],
         ),
         Drill(
             id="attack_double_pivot_switch", category="attacking", minutes=12,
@@ -1047,6 +1102,8 @@ def soccer_drills() -> list[Drill]:
                 P(730, 570, "C", moves=[(780, 550, 1)]),
             ],
             ball=0,
+            # into the pivot, and the 6 switches it to the 7 in one pass
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="attack_cross_far_post", category="attacking", minutes=10,
@@ -1078,6 +1135,8 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # 11 carries the line with his run, then the far-post cross meets the 7
+            ball_to=[(0, 0), (2, 1)],
         ),
         Drill(
             id="finish_volley_side", category="finishing", minutes=10,
@@ -1106,6 +1165,8 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(560, 250, 1)])],
             markers=[M(500, 120, "square", "")],
             ball=0,
+            # chipped to the 9's arrival and volleyed
+            ball_to=[(1, 0), ((500, 60), 1)],
         ),
         Drill(
             id="defend_1v1_channel", category="defending", minutes=10,
@@ -1198,6 +1259,8 @@ def soccer_drills() -> list[Drill]:
             markers=[M(500, 140, "square"), M(500, 1360, "square"),
                      M(180, 200), M(820, 200), M(180, 1300), M(820, 1300)],
             ball=0,
+            # two touches, two passes: into 3, on to 5
+            ball_to=[(2, 0), (4, 1)],
         ),
         Drill(
             id="possession_switch_two_touch", category="possession", minutes=12,
@@ -1230,6 +1293,8 @@ def soccer_drills() -> list[Drill]:
                 P(560, 700, "B", moves=[(520, 700, 0)]),
             ],
             ball=0,
+            # two touches: into the 6, switched to the 2
+            ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
             id="finish_penalty_routine", category="setpiece", minutes=8,
@@ -1311,6 +1376,10 @@ def rondo_family() -> list[Drill]:
             markers=[M(x, y) for x, y in
                      ring(4, 0.5, 0.5, radius * 1.35, radius * 1.85, -45)],
             ball=0,
+            # Three passes round the ring while the defenders hunt. The ring
+            # players' own moves are radial nudges, so every pass line is a
+            # chord no runner shares — each one reads as a ball in flight.
+            ball_to=[(1, 0), (2, 1), (3, 2)],
         ))
     return out
 
@@ -1367,6 +1436,9 @@ def ssg_family() -> list[Drill]:
             markers=[M(left, 0.12, "square"), M(right, 0.12, "square"),
                      M(left, 0.88, "square"), M(right, 0.88, "square")],
             ball=0,
+            # A game has no script; two passes along the attacking block are
+            # enough to say which way it flows and whose ball it is.
+            ball_to=[(1, 0), (2 % n, 1)],
         ))
     return out
 
@@ -1412,6 +1484,10 @@ def counter_family() -> list[Drill]:
             ],
             markers=[M(0.5, 0.03, "square", "")],
             ball=0,
+            # Beat 0 the carrier drives with it (a self-target is a carry);
+            # beat 1 he releases to the widest runner arriving in the box —
+            # the note's own words, performed by the ball.
+            ball_to=[(0, 0), (att - 1, 1)],
         ))
     return out
 
@@ -1462,6 +1538,9 @@ def buildup_family() -> list[Drill]:
                 for i, x in enumerate(pxs)
             ],
             ball=0,
+            # GK to the splitting centre-back, then through the press into
+            # the 6 stepping up — the free man the note says to find.
+            ball_to=[(1, 0), (defenders + 1, 1)],
         ))
     return out
 
@@ -1520,6 +1599,9 @@ def finishing_family() -> list[Drill]:
             away=[P(0.5, 0.10, "GK", role="GK", moves=[(fx * 0.4 + 0.3, 0.14, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # The 7 carries to the byline with his run, then the cross meets
+            # the 9 arriving at the far post on the next beat.
+            ball_to=[(0, 0), (1, 1)],
         ))
     return out
 
@@ -1595,7 +1677,11 @@ def press_family() -> list[Drill]:
                 P(0.50, 0.16, "A", moves=[(0.50, 0.22, 0)]),
                 P(0.26, 0.14, "B"), P(0.74, 0.14, "C"),
             ],
-            ball=None,
+            # The pass B plays infield to A is the press trigger — the whole
+            # shape jumps on that beat. There was no ball on this board at
+            # all, which made it a diagram of ten men chasing nothing.
+            ball=(0.29, 0.16),
+            ball_to=[("a0", 0)],
         ))
     return out
 
@@ -1649,6 +1735,8 @@ def corner_family() -> list[Drill]:
             ],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # Swung to where the 9 arrives, then attacked at goal.
+            ball_to=[(1, 0), ((0.5, 0.05), 1)],
         ))
     return out
 
@@ -1692,7 +1780,10 @@ def duel_family() -> list[Drill]:
                   P(0.50, 0.10, "GK", role="GK",
                     moves=[(0.5 + (x - 0.5) * 0.35, 0.15, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
-            ball=0,
+            # The 8 feeds it — the duel starts with the ball arriving, which
+            # is what makes it a duel and not a jog at a mannequin.
+            ball=1,
+            ball_to=[(0, 0), (0, 1), ((0.5, 0.05), 2)],
         ))
     return out
 
@@ -1727,17 +1818,30 @@ def passing_family() -> list[Drill]:
     out = []
     for label, n in shapes.items():
         spots = ring(n, 0.5, 0.5, 0.28, 0.20)
+
+        # The diamond pattern, at every size: the ball leads round the ring
+        # and each runner chases his own pass one beat behind, ending 18%
+        # short of the spot — he joins the queue behind the receiver rather
+        # than standing on him. Beat 0 is the ball's alone, so the drill
+        # opens with a pass, a ball flying with nobody beside it.
+        def queue_spot(i):
+            tx, ty = spots[(i + 1) % n]
+            fx, fy = spots[i]
+            return (fx + 0.82 * (tx - fx), fy + 0.82 * (ty - fy))
+
         out.append(Drill(
             id=f"passing_{label}", category="warmup", minutes=8, rel=True,
             free=(label == "triangle"),
             name=suffixed(PASSING_NAME, label), note=PASSING_NOTE,
             home=[
-                P(x, y, f"{i + 1}",
-                  moves=[(spots[(i + 1) % n][0], spots[(i + 1) % n][1], i)])
+                P(x, y, f"{i + 1}", moves=[(*queue_spot(i), i + 1)])
                 for i, (x, y) in enumerate(spots)
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
             ball=0,
+            # The last pass goes back to spot 0 as a point: its owner left on
+            # beat 1 and nobody re-occupies it until the final follower does.
+            ball_to=[(i + 1, i) for i in range(n - 1)] + [(spots[0], n - 1)],
         ))
     return out
 
@@ -1789,6 +1893,9 @@ def crossing_family() -> list[Drill]:
                 ],
                 markers=[M(0.5, 0.04, "square", "")],
                 ball=0,
+                # Carried down the line with the 7's own run, then delivered
+                # to the point the 9 is attacking.
+                ball_to=[(0, 0), (1, 1)],
             ))
     return out
 
@@ -1838,7 +1945,11 @@ def shape_family() -> list[Drill]:
                 P(0.22, base - 0.20, "10", moves=[(0.50, base - 0.18, 0)]),
                 P(0.62, base - 0.24, "9", moves=[(0.78, base - 0.20, 1)]),
             ],
-            ball=None,
+            # The block moves because the ball moves: their 10 carries it
+            # infield and switches to the 9 going wide — each slide of the
+            # lines answers one leg of it.
+            ball=(0.24, base - 0.22),
+            ball_to=[("a0", 0), ("a1", 1)],
         ))
     return out
 
@@ -1892,7 +2003,13 @@ def gk_family() -> list[Drill]:
                     moves=[(0.5 + (servers[0][0] - 0.5) * 0.35, 0.14, 0),
                            (0.5 + (servers[-1][0] - 0.5) * 0.35, 0.13, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
-            ball=None,
+            # Server 1 strikes on the first beat, the last server on the
+            # second — the two saves the keeper's own two moves answer.
+            ball=0,
+            ball_to=[("a0", 0),
+                     (len(servers) - 1, 1)] if len(servers) > 1 else
+                    [("a0", 0)],
+            ball_moves=[],
         ))
     return out
 
@@ -1938,7 +2055,10 @@ def conditioning_family() -> list[Drill]:
             home=[P(0.5, 0.86, "1", moves=legs + [(0.5, 0.20, reps)])],
             markers=[M(0.34, 0.78), M(0.66, 0.78), M(0.34, 0.50), M(0.66, 0.50),
                      M(0.5, 0.04, "square", "")],
-            ball=0,
+            # Ball at the feet the whole way — the point of the family is
+            # that the running is never without the ball — then a strike.
+            ball_follow=0,
+            ball_to=[((0.5, 0.05), reps + 1)],
         ))
     return out
 
@@ -1988,6 +2108,9 @@ def switch_family() -> list[Drill]:
                 P(0.66, y - 0.10, "C", moves=[(0.58, y - 0.06, 0), (0.76, y - 0.08, 1)]),
             ],
             ball=0,
+            # 3 draws them left through the 6, then ONE pass across to the 2
+            # arriving on the far side — the note's whole argument.
+            ball_to=[(1, 0), (3, 1)],
         ))
     return out
 
@@ -2037,6 +2160,9 @@ def combination_family() -> list[Drill]:
             ],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # 7 into the 10's feet, the 10 lays it into the runner's path —
+            # the third man beyond the ball the note demands.
+            ball_to=[(1, 0), (2, 1)],
         ))
     return out
 
@@ -2091,6 +2217,10 @@ def free_kick_family() -> list[Drill]:
             ],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # Direct strikes go at goal on the first beat; the worked
+            # routines go through the 8's run and finish on the second.
+            ball_to=([((0.5, 0.05), 0)] if key.startswith("direct")
+                     else [(2, 0), ((0.5, 0.05), 1)]),
         ))
     return out
 
@@ -2135,6 +2265,9 @@ def transition_family() -> list[Drill]:
             markers=[M(0.5, 0.06, "square"), M(0.5, 0.94, "square"),
                      M(0.14, 0.50), M(0.86, 0.50)],
             ball=0,
+            # The turnover's first two passes, played while both blocks are
+            # still moving — the five seconds the note is about.
+            ball_to=[(1, 0), (2 % n, 1)],
         ))
     return out
 
@@ -2184,6 +2317,9 @@ def first_touch_family() -> list[Drill]:
                     if key == "in_traffic" else []),
             markers=[M(0.30, 0.62), M(0.70, 0.62), M(0.30, 0.34), M(0.70, 0.34)],
             ball=0,
+            # Served into the receiver as the presser arrives; his touch
+            # takes it to space (his own second move) and back to the server.
+            ball_to=[(1, 0), (1, 1), (0, 1)],
         ))
     return out
 
@@ -2231,6 +2367,11 @@ def heading_family() -> list[Drill]:
             ],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # The 7 swings it to where the 9 attacks it; the header goes at
+            # goal (attacking) or is cleared long upfield (defensive).
+            ball_to=[(1, 0),
+                     (((0.5, 0.05), 1) if key == "attacking"
+                      else ((0.5, 0.62), 1))],
         ))
     return out
 
@@ -2274,6 +2415,9 @@ def goal_kick_family() -> list[Drill]:
                 P(0.50, 0.74, "6", moves=[(0.5, 0.66, 0)]),
                 P(tx, ty, "8", moves=[(tx + (0.5 - tx) * 0.3, ty - 0.10, 1)]),
             ],
+            # GK to the named outlet on the first beat — the route decided
+            # before the ball was placed — then inside to the 8 arriving.
+            ball_to=[(1 if key != "long" else 4, 0), (4, 1)],
             away=[
                 P(0.38, 0.82, "9", moves=[(0.30, 0.86, 0)]),
                 P(0.64, 0.80, "10", moves=[(0.56, 0.76, 0)]),
@@ -2322,6 +2466,9 @@ def overload_family() -> list[Drill]:
                   for i, (x, y) in enumerate(d)],
             markers=[M(x, y) for x, y in ring(4, 0.5, 0.55, 0.31, 0.23, -45)],
             ball=0,
+            # The extra man is only visible as passes: three round the ring
+            # while the short side chases.
+            ball_to=[(1, 0), (2 % att, 1), (3 % att, 0 if att < 4 else 2)],
         ))
     return out
 
@@ -2372,6 +2519,8 @@ def match_moments() -> list[Drill]:
                 P(0.50, 0.20, "10", moves=[(0.42, 0.26, 0)]),
             ],
             ball=(0.50, 0.20),
+            # the 10 plays the 9 running the line — the pass the trap must beat
+            ball_to=[("a0", 0)],
         ),
         Drill(
             id="defend_the_cross", category="defending", minutes=12, rel=True,
@@ -2406,6 +2555,8 @@ def match_moments() -> list[Drill]:
                 P(0.34, 0.60, "11", moves=[(0.40, 0.34, 0)]),
             ],
             ball=(0.88, 0.44),
+            # their 7 delivers to the 9 attacking the box
+            ball_to=[("a1", 0)],
             markers=[M(0.5, 0.04, "square", "")],
         ),
         Drill(
@@ -2441,6 +2592,8 @@ def match_moments() -> list[Drill]:
                 P(0.78, 0.66, "C", moves=[(0.84, 0.60, 0)]),
             ],
             ball=(1.02, 0.50),
+            # thrown down the line to B — the ball the trap closes on
+            ball_to=[("a1", 0)],
         ),
         Drill(
             id="defend_rest_defence", category="defending", minutes=12, rel=True,
@@ -2477,6 +2630,8 @@ def match_moments() -> list[Drill]:
                 P(0.76, 0.26, "C", moves=[(0.72, 0.46, 1)]),
             ],
             ball=4,
+            # the turnover: their A carries away on the second beat
+            ball_to=[("a0", 1)],
         ),
         Drill(
             id="press_trap_touchline", category="defending", minutes=12, rel=True,
@@ -2512,6 +2667,8 @@ def match_moments() -> list[Drill]:
                 P(0.28, 0.30, "C"),
             ],
             ball=(0.86, 0.24),
+            # their A carries down the line into the trap
+            ball_to=[("a0", 0)],
         ),
         Drill(
             id="finish_long_range", category="finishing", minutes=10, rel=True,
@@ -2542,6 +2699,8 @@ def match_moments() -> list[Drill]:
             away=[P(0.50, 0.10, "GK", role="GK", moves=[(0.44, 0.15, 0)])],
             markers=[M(0.5, 0.04, "square", ""), M(0.38, 0.44), M(0.62, 0.44)],
             ball=0,
+            # one touch out of the screen and the strike from range
+            ball_to=[((0.5, 0.05), 0)],
         ),
         Drill(
             id="finish_second_ball_box", category="finishing", minutes=10, rel=True,
@@ -2572,6 +2731,8 @@ def match_moments() -> list[Drill]:
             away=[P(0.50, 0.10, "GK", role="GK", moves=[(0.56, 0.16, 1)])],
             markers=[M(0.5, 0.04, "square", "")],
             ball=0,
+            # the shot is spilled, the 9 reacts to the second ball and buries it
+            ball_to=[((0.5, 0.18), 0), (3, 1), ((0.5, 0.05), 2)],
         ),
         Drill(
             id="setpiece_kickoff", category="setpiece", minutes=8, rel=True,
@@ -2607,6 +2768,8 @@ def match_moments() -> list[Drill]:
             ],
             markers=[M(0.5, 0.50, "circle", "")],
             ball=0,
+            # tapped back to the 6, then long into the 9's channel run
+            ball_to=[(4, 0), (1, 1)],
         ),
     ]
 

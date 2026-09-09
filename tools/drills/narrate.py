@@ -131,6 +131,34 @@ CARRY = {
     "id-ID": "{a} menggiring bola", "ms-MY": "{a} membawa bola",
     "th-TH": "{a} พาบอลไป", "vi-VN": "{a} dẫn bóng di chuyển",
 }
+# A ball that starts loose (a served ball, an opponent's pass into the
+# board): there is no holder to name, so the ball itself is the subject.
+PASS_IN = {
+    "en": "the ball is played to {b}", "en-GB": "the ball is played to {b}",
+    "zh-CN": "球传到 {b}", "zh-TW": "球傳到 {b}",
+    "ja-JP": "ボールが{b}へ入る", "ko-KR": "공이 {b}에게 온다",
+    "es-ES": "el balón llega a {b}", "fr-FR": "le ballon arrive sur {b}",
+    "id-ID": "bola dimainkan ke {b}", "ms-MY": "bola dimainkan kepada {b}",
+    "th-TH": "บอลถูกส่งมาที่ {b}", "vi-VN": "bóng được đưa tới {b}",
+}
+SHOOT = {
+    "en": "{a} shoots", "en-GB": "{a} shoots",
+    "zh-CN": "{a} 射门", "zh-TW": "{a} 射門",
+    "ja-JP": "{a}がシュート", "ko-KR": "{a} 슛",
+    "es-ES": "{a} remata", "fr-FR": "{a} frappe",
+    "id-ID": "{a} menembak", "ms-MY": "{a} menjaring",
+    "th-TH": "{a} ยิงประตู", "vi-VN": "{a} dứt điểm",
+}
+# The whole side moving the same way is one idea, not ten subjects.
+ALL_MOVE = {
+    "en": "the whole team moves {dir}", "en-GB": "the whole team moves {dir}",
+    "zh-CN": "全队{dir}压上", "zh-TW": "全隊{dir}壓上",
+    "ja-JP": "チーム全体が{dir}へスライド", "ko-KR": "팀 전체가 {dir} 이동",
+    "es-ES": "todo el equipo bascula {dir}", "fr-FR": "tout le bloc coulisse {dir}",
+    "id-ID": "seluruh tim bergerak {dir}", "ms-MY": "seluruh pasukan bergerak {dir}",
+    "th-TH": "ทั้งทีมขยับ{dir}", "vi-VN": "cả đội di chuyển {dir}",
+}
+
 FOLLOW = {
     "en": "{a} follows the pass", "en-GB": "{a} follows the pass",
     "zh-CN": "{a} 跟进", "zh-TW": "{a} 跟進",
@@ -243,14 +271,29 @@ def sequence_texts(drill, sport: str) -> dict | None:
                   if isinstance(drill.ball, int) else None)
         prev = holder
         for (target, ph) in drill.ball_to:
-            a = _label(prev) if prev is not None else "?"
             if isinstance(target, tuple):
-                add(ph, PASS_SPOT, a=a)
+                # A point in the last twelfth of the pitch is the goal — that
+                # leg is a shot, not "the ball played on".
+                from .engine import court_rect
+                _, top, _, ch = court_rect(sport)
+                shooty = (target[1] < top + ch * 0.085
+                          or target[1] > top + ch * 0.915)
+                add(ph, SHOOT if shooty else PASS_SPOT,
+                    a=_label(prev) if prev else "?")
                 prev = None
             else:
                 t = (drill.away[int(target[1:])] if isinstance(target, str)
                      else drill.home[target])
-                add(ph, _pass_verb(sport), a=a, b=_label(t))
+                if prev is None:
+                    add(ph, PASS_IN, b=_label(t))
+                elif t is prev:
+                    # A leg whose target is the holder himself is a carry —
+                    # the ball rides that player's run for this beat. The
+                    # board draws it the same way (the escorted rule), and
+                    # "2 passes to 2" is not a sentence.
+                    add(ph, CARRY, a=_label(t))
+                else:
+                    add(ph, _pass_verb(sport), a=_label(prev), b=_label(t))
                 prev = t
 
     # Where the ball stops per phase, for follow detection.
@@ -283,7 +326,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
             # with five subjects.
             grouped: dict[tuple, list] = {}
             for table, params in beats[ph]:
-                if "dir_key" in params or len(params) == 1:
+                if "b" in params:
+                    acts.append((table, params))
+                elif "dir_key" in params or len(params) == 1:
                     grouped.setdefault(
                         (id(table), params.get("dir_key")), []
                     ).append(params["a"])
@@ -293,10 +338,15 @@ def sequence_texts(drill, sport: str) -> dict | None:
             for table, params in acts:
                 rendered.append(table[loc].format(**params))
             for (tid, dir_key), subjects in grouped.items():
-                table = next(t for t in (RUN, FOLLOW, CARRY, PASS_SPOT)
+                table = next(t for t in (RUN, FOLLOW, CARRY, PASS_SPOT, SHOOT, PASS_IN)
                              if id(t) == tid)
                 joined = LIST.get(loc, ", ").join(subjects)
                 if dir_key:
+                    if len(subjects) >= 6 and \
+                            len(subjects) == len(drill.home):
+                        rendered.append(ALL_MOVE[loc].format(
+                            dir=DIR[dir_key][loc]))
+                        continue
                     rendered.append(RUN[loc].format(
                         a=joined, dir=DIR[dir_key][loc]))
                 else:

@@ -9124,18 +9124,18 @@
         "vi-VN": "Trận đấu 6v6"
       },
       "note": {
-        "en": "Setup: 6 v 6, ball with 1. Sequence: Beat 1: 1, 2, 3, 4, 5, 6 moves up the board, A, D moves left, B, E moves back, C, F moves right. Coaching point: Score it. A conditioned game without a score is a rally, and a rally teaches nobody to win the point that matters.",
-        "en-GB": "Setup: 6 v 6, ball with 1. Sequence: Beat 1: 1, 2, 3, 4, 5, 6 moves up the board, A, D moves left, B, E moves back, C, F moves right. Coaching point: Score it. A conditioned game without a score is a rally, and a rally teaches nobody to win the point that matters.",
-        "zh-CN": "【组织】6 对 6，球在 1 脚下。【流程】第1拍：1、2、3、4、5、6 向前移动，A、D 向左移动，B、E 回撤移动，C、F 向右移动。【要点】一定要计分。不计分的限制性比赛只是来回球，而来回球教不会任何人赢下关键分。",
-        "zh-TW": "【組織】6 對 6，球在 1 腳下。【流程】第1拍：1、2、3、4、5、6 向前移動，A、D 向左移動，B、E 回撤移動，C、F 向右移動。【要點】一定要計分。不計分的限制性比賽只是來回球，而來回球教不會任何人贏下關鍵分。",
-        "ja-JP": "【準備】6対6、ボールは1。【流れ】1拍目：1・2・3・4・5・6が前方へ移動、A・Dが左へ移動、B・Eが後方へ移動、C・Fが右へ移動。【ポイント】必ず点数をつける。得点のない条件付きゲームはただのラリーで、勝負どころは学べない。",
-        "ko-KR": "【준비】6대6, 공은 1. 【진행】1박: 1, 2, 3, 4, 5, 6는 앞으로 이동, A, D는 왼쪽으로 이동, B, E는 뒤로 이동, C, F는 오른쪽으로 이동. 【포인트】점수를 매겨라. 점수 없는 조건 게임은 그냥 랠리이고, 랠리로는 중요한 점수를 이기는 법을 못 배운다.",
-        "es-ES": "Montaje: 6 contra 6, balón con 1. Secuencia: Tiempo 1: 1, 2, 3, 4, 5, 6 se desplaza hacia delante, A, D se desplaza a la izquierda, B, E se desplaza hacia atrás, C, F se desplaza a la derecha. Punto clave: Ponle marcador: un juego condicionado sin puntos es un peloteo, y un peloteo no enseña a ganar el punto que importa.",
-        "fr-FR": "Mise en place : 6 contre 6, ballon avec 1. Déroulé : Temps 1 : 1, 2, 3, 4, 5, 6 se déplace vers l'avant, A, D se déplace à gauche, B, E se déplace vers l'arrière, C, F se déplace à droite. Point clé : Compte les points : un jeu à thème sans score n'est qu'un échange, et un échange n'apprend pas à gagner le point décisif.",
-        "id-ID": "Persiapan: 6 lawan 6, bola pada 1. Urutan: Ketukan 1: 1, 2, 3, 4, 5, 6 bergerak ke depan, A, D bergerak ke kiri, B, E bergerak ke belakang, C, F bergerak ke kanan. Poin utama: Beri skor. Permainan tanpa skor hanyalah reli.",
-        "ms-MY": "Persediaan: 6 lawan 6, bola dengan 1. Urutan: Rentak 1: 1, 2, 3, 4, 5, 6 bergerak ke hadapan, A, D bergerak ke kiri, B, E bergerak ke belakang, C, F bergerak ke kanan. Poin utama: Beri mata. Permainan tanpa mata hanyalah rali.",
-        "th-TH": "การจัด: 6 ต่อ 6 บอลอยู่ที่ 1 ลำดับ: จังหวะ 1: 1, 2, 3, 4, 5, 6 ขยับไปข้างหน้า A, D ขยับไปทางซ้าย B, E ขยับถอยหลัง C, F ขยับไปทางขวา จุดเน้น: ต้องนับแต้ม เกมมีเงื่อนไขที่ไม่นับแต้มก็แค่การโต้บอล",
-        "vi-VN": "Bố trí: 6 đấu 6, bóng ở chỗ 1. Trình tự: Nhịp 1: 1, 2, 3, 4, 5, 6 di chuyển lên phía trước, A, D di chuyển sang trái, B, E di chuyển lùi lại, C, F di chuyển sang phải. Điểm chính: Phải tính điểm. Trò chơi có điều kiện mà không tính điểm chỉ là đôi công."
+        "en": "Setup: 6 v 6, ball with 1. Sequence: Beat 1: the whole team moves up the board, A, D moves left, B, E moves back, C, F moves right. Coaching point: Score it. A conditioned game without a score is a rally, and a rally teaches nobody to win the point that matters.",
+        "en-GB": "Setup: 6 v 6, ball with 1. Sequence: Beat 1: the whole team moves up the board, A, D moves left, B, E moves back, C, F moves right. Coaching point: Score it. A conditioned game without a score is a rally, and a rally teaches nobody to win the point that matters.",
+        "zh-CN": "【组织】6 对 6，球在 1 脚下。【流程】第1拍：全队向前压上，A、D 向左移动，B、E 回撤移动，C、F 向右移动。【要点】一定要计分。不计分的限制性比赛只是来回球，而来回球教不会任何人赢下关键分。",
+        "zh-TW": "【組織】6 對 6，球在 1 腳下。【流程】第1拍：全隊向前壓上，A、D 向左移動，B、E 回撤移動，C、F 向右移動。【要點】一定要計分。不計分的限制性比賽只是來回球，而來回球教不會任何人贏下關鍵分。",
+        "ja-JP": "【準備】6対6、ボールは1。【流れ】1拍目：チーム全体が前方へスライド、A・Dが左へ移動、B・Eが後方へ移動、C・Fが右へ移動。【ポイント】必ず点数をつける。得点のない条件付きゲームはただのラリーで、勝負どころは学べない。",
+        "ko-KR": "【준비】6대6, 공은 1. 【진행】1박: 팀 전체가 앞으로 이동, A, D는 왼쪽으로 이동, B, E는 뒤로 이동, C, F는 오른쪽으로 이동. 【포인트】점수를 매겨라. 점수 없는 조건 게임은 그냥 랠리이고, 랠리로는 중요한 점수를 이기는 법을 못 배운다.",
+        "es-ES": "Montaje: 6 contra 6, balón con 1. Secuencia: Tiempo 1: todo el equipo bascula hacia delante, A, D se desplaza a la izquierda, B, E se desplaza hacia atrás, C, F se desplaza a la derecha. Punto clave: Ponle marcador: un juego condicionado sin puntos es un peloteo, y un peloteo no enseña a ganar el punto que importa.",
+        "fr-FR": "Mise en place : 6 contre 6, ballon avec 1. Déroulé : Temps 1 : tout le bloc coulisse vers l'avant, A, D se déplace à gauche, B, E se déplace vers l'arrière, C, F se déplace à droite. Point clé : Compte les points : un jeu à thème sans score n'est qu'un échange, et un échange n'apprend pas à gagner le point décisif.",
+        "id-ID": "Persiapan: 6 lawan 6, bola pada 1. Urutan: Ketukan 1: seluruh tim bergerak ke depan, A, D bergerak ke kiri, B, E bergerak ke belakang, C, F bergerak ke kanan. Poin utama: Beri skor. Permainan tanpa skor hanyalah reli.",
+        "ms-MY": "Persediaan: 6 lawan 6, bola dengan 1. Urutan: Rentak 1: seluruh pasukan bergerak ke hadapan, A, D bergerak ke kiri, B, E bergerak ke belakang, C, F bergerak ke kanan. Poin utama: Beri mata. Permainan tanpa mata hanyalah rali.",
+        "th-TH": "การจัด: 6 ต่อ 6 บอลอยู่ที่ 1 ลำดับ: จังหวะ 1: ทั้งทีมขยับไปข้างหน้า A, D ขยับไปทางซ้าย B, E ขยับถอยหลัง C, F ขยับไปทางขวา จุดเน้น: ต้องนับแต้ม เกมมีเงื่อนไขที่ไม่นับแต้มก็แค่การโต้บอล",
+        "vi-VN": "Bố trí: 6 đấu 6, bóng ở chỗ 1. Trình tự: Nhịp 1: cả đội di chuyển lên phía trước, A, D di chuyển sang trái, B, E di chuyển lùi lại, C, F di chuyển sang phải. Điểm chính: Phải tính điểm. Trò chơi có điều kiện mà không tính điểm chỉ là đôi công."
       },
       "mistake": {
         "en": "Playing to win and forgetting the constraint that was the lesson.",
