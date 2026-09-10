@@ -314,24 +314,6 @@ class _SportHomePageState extends State<SportHomePage> {
                   DrillPrimerPage.push(context, state.sportType),
               onLevel: (l) => _openLibraryLevel(l),
             ),
-            const SizedBox(height: T.s24),
-            // Account and help. Quiet, at the foot of the page — they were
-            // only in the board's overflow menu, which is a strange place to
-            // hide "sign in" and "contact us".
-            const TacticalDivider(),
-            const SizedBox(height: T.s8),
-            _FootRow(
-              icon: Icons.person_outline,
-              label: 'menu_login'.tr(),
-              onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => const LoginPage())),
-            ),
-            _FootRow(
-              icon: Icons.mail_outline,
-              label: 'contact_title'.tr(),
-              onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-            ),
           ],
         ),
       ),
@@ -443,9 +425,12 @@ class _SportHomePageState extends State<SportHomePage> {
             ),
           ),
         const SizedBox(width: T.s4),
-        TacticalIconButton(
-          icon: Icons.language,
-          onTap: () => LanguagePicker.show(context),
+        _HomeMenu(
+          onLanguage: () => LanguagePicker.show(context),
+          onContact: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const ContactPage())),
+          onLogin: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const LoginPage())),
         ),
       ],
     );
@@ -822,32 +807,78 @@ class _LearnBlock extends StatelessWidget {
   }
 }
 
-/// A quiet row at the foot of the page: sign in, contact us.
-class _FootRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final VoidCallback onTap;
-  const _FootRow(
-      {required this.icon, required this.label, required this.onTap});
+/// Account, help and language, behind the ellipsis in the header.
+///
+/// The same popover the board uses (lib/pages/home_page.dart), deliberately:
+/// these three live there too, and a coach who found them under an ellipsis
+/// on one screen should not have to hunt for a different shape on the other.
+class _HomeMenu extends StatelessWidget {
+  final VoidCallback onLanguage;
+  final VoidCallback onContact;
+  final VoidCallback onLogin;
+  const _HomeMenu({
+    required this.onLanguage,
+    required this.onContact,
+    required this.onLogin,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: T.s12),
-        child: Row(
-          children: [
-            Icon(icon, size: 17, color: T.textOff),
-            const SizedBox(width: T.s12),
-            Expanded(
-              child: Text(label,
-                  style: const TextStyle(color: T.textDim, fontSize: 14.5)),
-            ),
-            const Icon(Icons.chevron_right, size: 17, color: T.textOff),
-          ],
-        ),
+    return PopupMenuButton<String>(
+      onSelected: (v) {
+        switch (v) {
+          case 'language':
+            onLanguage();
+          case 'contact':
+            onContact();
+          case 'login':
+            onLogin();
+        }
+      },
+      color: T.surface,
+      surfaceTintColor: Colors.transparent,
+      elevation: 10,
+      shadowColor: const Color(0x73000000),
+      constraints: const BoxConstraints(minWidth: 220, maxWidth: 280),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: const BorderSide(color: T.border),
+      ),
+      offset: const Offset(0, 46),
+      padding: EdgeInsets.zero,
+      tooltip: '',
+      child: const SizedBox(
+        width: T.tap,
+        height: T.tap,
+        child: Icon(Icons.more_horiz, size: 22, color: T.textDim),
+      ),
+      itemBuilder: (_) => [
+        _item('language', Icons.language_rounded, 'menu_language'.tr()),
+        _item('contact', Icons.mail_outline_rounded, 'menu_contact'.tr()),
+        _item('login', Icons.person_outline_rounded, 'menu_login'.tr()),
+      ],
+    );
+  }
+
+  PopupMenuItem<String> _item(String value, IconData icon, String label) {
+    return PopupMenuItem(
+      value: value,
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: T.s16),
+      child: Row(
+        children: [
+          Icon(icon, color: T.textDim, size: 19),
+          const SizedBox(width: T.s12),
+          // Two lines allowed: these labels are long in French, Vietnamese
+          // and Thai, and the popover is deliberately narrow.
+          Expanded(
+            child: Text(label,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    color: T.text, fontSize: 15, height: 1.25)),
+          ),
+        ],
       ),
     );
   }
