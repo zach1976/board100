@@ -171,7 +171,13 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
         openedAt: DateTime.now(),
       ),
     );
-    Navigator.of(context).pop();
+    // Whether the library gets out of the way depends on where the board
+    // is. Opened FROM the board it is a layer on top of it, so it closes and
+    // the coach is back on the board they were looking at. Opened from the
+    // home page the board is pushed ON TOP of the library (onLoaded), so
+    // closing it here would drop the coach back to the home page — and going
+    // back from the board should return them to the list they were browsing.
+    if (widget.onLoaded == null) Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(drill.localizedName(_locale))),
     );
@@ -190,8 +196,8 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
       locale: _locale,
       onLoad: unlocked
           ? () {
-              // Out of the detail page, then out of the sheet, so the coach
-              // lands on the board the button just filled.
+              // Out of the drill's page, then onto the board. The library
+              // itself stays where it is — see _load.
               Navigator.of(context).pop();
               _load(drill);
             }
@@ -246,6 +252,32 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
           }
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
             ..sort((a, b) => a.index.compareTo(b.index));
+
+          // What each chip would give you if you tapped it: the search and
+          // the OTHER axis still apply, its own does not. A "热身 0" is worth
+          // reading; a count that ignored the level filter would lie.
+          bool matchesQuery(Drill d) =>
+              q.isEmpty ||
+              d.localizedName(_locale).toLowerCase().contains(q) ||
+              d.localizedNote(_locale).toLowerCase().contains(q);
+          bool starredOk(Drill d) =>
+              !_starred || (_marks[d.id]?.starred ?? false);
+          int countForCategory(DrillCategory? c) => all
+              .where(starredOk)
+              .where(matchesQuery)
+              .where((d) => _level == null || d.level == _level)
+              .where((d) => c == null || d.category == c)
+              .length;
+          int countForLevel(DrillLevel? l) => all
+              .where(starredOk)
+              .where(matchesQuery)
+              .where((d) => _filter == null || d.category == _filter)
+              .where((d) => l == null || d.level == l)
+              .length;
+          final starredCount = all
+              .where((d) => _marks[d.id]?.starred ?? false)
+              .where(matchesQuery)
+              .length;
 
           // Padding now lives on TacticalSheet, so this is only the column.
           return Column(
@@ -356,6 +388,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         // that makes the library theirs.
                         _CategoryChip(
                           label: 'drills_starred'.tr(),
+                          count: starredCount,
                           selected: _starred,
                           onTap: () => setState(() {
                             _starred = !_starred;
@@ -374,6 +407,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         ],
                         _CategoryChip(
                           label: 'drill_cat_all'.tr(),
+                          count: countForCategory(null),
                           selected: !_showMine && _filter == null,
                           onTap: () => setState(() {
                             _showMine = false;
@@ -385,6 +419,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                           const SizedBox(width: 6),
                           _CategoryChip(
                             label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
+                            count: countForCategory(c),
                             selected: _filter == c,
                             onTap: () => setState(() => _filter = c),
                           ),
@@ -400,6 +435,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                       children: [
                         _CategoryChip(
                           label: 'drill_cat_all'.tr(),
+                          count: countForLevel(null),
                           selected: _level == null,
                           onTap: () => setState(() => _level = null),
                         ),
@@ -407,6 +443,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                           const SizedBox(width: 6),
                           _CategoryChip(
                             label: l.labelKey.tr(),
+                            count: countForLevel(l),
                             selected: _level == l,
                             onTap: () => setState(() => _level = l),
                           ),
@@ -478,12 +515,16 @@ class _CategoryChip extends StatelessWidget {
   final String label;
   final bool selected;
   final VoidCallback onTap;
+  final int? count;
   const _CategoryChip(
-      {required this.label, required this.selected, required this.onTap});
+      {required this.label,
+      required this.selected,
+      required this.onTap,
+      this.count});
 
   @override
-  Widget build(BuildContext context) =>
-      TacticalChip(label: label, selected: selected, onTap: onTap);
+  Widget build(BuildContext context) => TacticalChip(
+      label: label, selected: selected, onTap: onTap, count: count);
 }
 
 /// One card. A family shows its heading, its coaching point once, and a chip

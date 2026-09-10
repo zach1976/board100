@@ -1,3 +1,4 @@
+import 'dart:ui' show FontFeature;
 import 'package:flutter/material.dart';
 
 import 'tokens.dart';
@@ -284,12 +285,18 @@ class TacticalChip extends StatelessWidget {
   final VoidCallback onTap;
   final IconData? icon;
 
+  /// How many things are behind this filter. A filter that says how much is
+  /// on the other side of it is a filter you can choose between; without it
+  /// a coach taps four chips to find out which one has anything in it.
+  final int? count;
+
   const TacticalChip({
     super.key,
     required this.label,
     required this.selected,
     required this.onTap,
     this.icon,
+    this.count,
   });
 
   @override
@@ -329,6 +336,22 @@ class TacticalChip extends StatelessWidget {
                     color: selected ? T.accent : T.textDim,
                   ),
                 ),
+                if (count != null) ...[
+                  const SizedBox(width: 5),
+                  Text(
+                    '$count',
+                    style: TextStyle(
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w600,
+                      fontFeatures: const [FontFeature.tabularFigures()],
+                      // Dimmer than the label: it is the size of the thing,
+                      // not its name.
+                      color: selected
+                          ? T.accent.withValues(alpha: 0.75)
+                          : T.textOff,
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
