@@ -400,5 +400,7 @@
   "learn_note_route": "球路 — 一行看完整個訓練。",
   "learn_note_seq": "流程 — 一拍一拍，對著步驟讀。",
   "learn_note_point": "要點 — 只說一句話的那一句。",
-  "learn_note_mistake": "常見錯誤 — 最先出問題的地方。"
+  "learn_note_mistake": "常見錯誤 — 最先出問題的地方。",
+  "text_add_title": "新增文字",
+  "text_add_hint": "例如：拖拉推射遠角"
 }

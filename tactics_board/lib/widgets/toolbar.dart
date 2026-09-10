@@ -1509,6 +1509,62 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     ));
   }
 
+  /// Ask for the words, then put them on the board.
+  ///
+  /// The text tool used to drop a marker labelled "T" and leave the coach to
+  /// discover that selecting it and tapping a small chip in the edit bar is
+  /// where you type — which nobody did: "it is just a round shape with T in
+  /// it, no easy way to actually type in text". Typing IS the tool, so it
+  /// asks first and adds nothing if you change your mind.
+  Future<void> _addTextMarker(MarkerShape shape, Color color,
+      {Offset? at}) async {
+    var text = '';
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: T.surfaceHi,
+        title: Text('text_add_title'.tr(),
+            style: const TextStyle(color: Colors.white)),
+        content: TextFormField(
+          autofocus: true,
+          maxLength: kTextElementMaxChars,
+          maxLines: 2,
+          textInputAction: TextInputAction.done,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: 'text_add_hint'.tr(),
+            hintStyle: const TextStyle(color: Colors.white30),
+            counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),
+            enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white30)),
+            focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: kAccent)),
+          ),
+          onChanged: (v) => text = v,
+          onFieldSubmitted: (_) => Navigator.pop(ctx, true),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text('cancel'.tr())),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text('confirm'.tr())),
+        ],
+      ),
+    );
+    if (ok != true || text.trim().isEmpty) return;
+    final c = state.canvasSize;
+    state.addPlayer(PlayerIcon(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      label: text.trim(),
+      team: PlayerTeam.neutral,
+      markerShape: shape,
+      customColor: color,
+      position: at ?? Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
+    ));
+  }
+
   void _addMarker(MarkerShape shape, Color color, {String label = ''}) {
     final c = state.canvasSize;
     state.addPlayer(PlayerIcon(
@@ -1559,10 +1615,20 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
         glyph: shapeGlyph(shape, color),
         defaultOrder: order,
         onTap: () {
-          _addMarker(shape, color, label: labelText);
+          if (shape == MarkerShape.text) {
+            Navigator.pop(sheetCtx);
+            _addTextMarker(shape, color);
+          } else {
+            _addMarker(shape, color, label: labelText);
+          }
           ElementUsageService.instance.recordUse(key);
         },
         onDropAt: (globalPos) => _placeAtDropPos(globalPos, (local) {
+          if (shape == MarkerShape.text) {
+            _addTextMarker(shape, color, at: local);
+            ElementUsageService.instance.recordUse(key);
+            return;
+          }
           state.addPlayer(PlayerIcon(
             id: DateTime.now().microsecondsSinceEpoch.toString(),
             label: labelText,
@@ -1618,7 +1684,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       genderEntry('neutral_male', 'neutral_male'.tr(), PlayerGender.male, 4),
       genderEntry('neutral_female', 'neutral_female'.tr(), PlayerGender.female, 5),
       shapeEntry('marker_cone', 'marker_cone'.tr(), MarkerShape.cone, Colors.orange, 6),
-      shapeEntry('marker_text', 'marker_text'.tr(), MarkerShape.text, Colors.blueGrey, 7, labelText: 'T'),
+      shapeEntry('marker_text', 'marker_text'.tr(), MarkerShape.text, Colors.blueGrey, 7),
       shapeEntry('marker_zone', 'marker_zone'.tr(), MarkerShape.zone, Colors.yellow, 8),
       shapeEntry('marker_referee', 'marker_referee'.tr(), MarkerShape.referee, Colors.black, 9),
       shapeEntry('marker_coach', 'marker_coach'.tr(), MarkerShape.coach, const Color(0xFF37474F), 10),

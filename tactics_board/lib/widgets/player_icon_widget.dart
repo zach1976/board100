@@ -186,6 +186,21 @@ class PlayerIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // A text element is its text. Everything else on the board is a token in
+    // a 44pt box with a label inside it; this one is the label, so it sizes
+    // to what was typed instead of cropping it to fit a circle. The "T in a
+    // circle" MarkerPainter still draws is right where it belongs — as the
+    // tool's own icon in the palette.
+    if (isTextElement(player)) {
+      return GestureDetector(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        onScaleStart: onScaleStart,
+        onScaleUpdate: onScaleUpdate,
+        onScaleEnd: onScaleEnd,
+        child: TextElementChip(player: player, isSelected: isSelected),
+      );
+    }
     final size = kPlayerIconSize * player.scale;
     return GestureDetector(
       onTap: onTap,
@@ -675,6 +690,65 @@ class _MarkerWidget extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+/// A text element: a marker whose whole job is the words on it.
+bool isTextElement(PlayerIcon p) =>
+    p.markerShape == MarkerShape.text && p.photoId == null;
+
+/// How wide a text element is allowed to get before it wraps. Wide enough
+/// for a short coaching phrase, narrow enough that three of them on a pitch
+/// do not overlap each other by default.
+const double kTextElementMaxWidth = 150.0;
+
+/// As much as three wrapped lines of the chip hold. The other elements cap
+/// at 12 because they are a name under a token; this one IS the sentence.
+const int kTextElementMaxChars = 40;
+
+/// The words, on a chip sized to them.
+class TextElementChip extends StatelessWidget {
+  final PlayerIcon player;
+  final bool isSelected;
+  const TextElementChip(
+      {super.key, required this.player, this.isSelected = false});
+
+  @override
+  Widget build(BuildContext context) {
+    final scale = player.scale;
+    // An empty one would be an invisible thing you cannot tap again, so it
+    // keeps the tool's own glyph until something is typed into it.
+    final empty = player.label.trim().isEmpty;
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: kTextElementMaxWidth * scale),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: 8 * scale, vertical: 4.5 * scale),
+        decoration: BoxDecoration(
+          color: player.color.withValues(alpha: 0.94),
+          borderRadius: BorderRadius.circular(6 * scale),
+          border: isSelected
+              ? Border.all(color: T.accent, width: 2)
+              : Border.all(color: Colors.white24, width: 1),
+          boxShadow: const [
+            BoxShadow(color: Colors.black45, blurRadius: 4, offset: Offset(1, 1)),
+          ],
+        ),
+        child: Text(
+          empty ? 'T' : player.label,
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 13 * scale,
+            height: 1.25,
+            fontWeight: FontWeight.w600,
+            shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
+          ),
+        ),
+      ),
     );
   }
 }
