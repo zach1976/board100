@@ -491,7 +491,10 @@ def soccer_drills() -> list[Drill]:
                 # See fk_*: spaced so the four dots read as four players.
                 P(384, 253, "W1"), P(461, 253, "W2"),
                 P(539, 253, "W3"), P(616, 253, "W4"),
-                P(500, 110, "GK", role="GK", moves=[(530, 130, 1)]),
+                # Set, not stepping: a token is 109 canvas units and the
+                # goal is 63, so a keeper who shuffles ends up behind a wall
+                # man. He is supposed to be still before the strike anyway.
+                P(500, 190, "GK", role="GK"),
             ],
             ball=0,
             # rolled square into the 8's run, struck second beat through the
@@ -1332,10 +1335,10 @@ def soccer_drills() -> list[Drill]:
                 # zone, which is what the note has always said.
                 P(620, 290, "6", moves=[(700, 230, 0)]),
                 P(780, 500, "8"),
-                P(500, 120, "GK", role="GK"),
+                P(500, 190, "GK", role="GK"),
             ],
             away=[
-                P(936, 100, "7"),
+                P(910, 210, "7"),
                 P(700, 430, "9", moves=[(760, 380, 0)]),
                 P(580, 450, "10", moves=[(560, 380, 0)]),
             ],
@@ -1439,7 +1442,7 @@ def soccer_drills() -> list[Drill]:
             # penalty board has to get right: it used to sit on the top of
             # the centre circle with no shot drawn at all.
             home=[P(500, 600, "9", moves=[(500, 900, 0), (500, 320, 1)])],
-            away=[P(500, 120, "GK", role="GK", moves=[(440, 150, 2)])],
+            away=[P(500, 190, "GK", role="GK", moves=[(440, 225, 2)])],
             markers=[M(500, 940)],
             # out to the cone and back, then the walk-up and the strike
             ball=(500, 216),
@@ -2134,14 +2137,15 @@ def passing_family() -> list[Drill]:
         spots = ring(n, 0.5, 0.5, 0.28, 0.20)
 
         # The diamond pattern, at every size: the ball leads round the ring
-        # and each runner chases his own pass one beat behind, ending 18%
-        # short of the spot — he joins the queue behind the receiver rather
-        # than standing on him. Beat 0 is the ball's alone, so the drill
-        # opens with a pass, a ball flying with nobody beside it.
+        # and each runner chases his own pass one beat behind. He joins the
+        # queue at the cone he passed to, which is OUTSIDE the ring — running
+        # 82% of the way along the edge instead put him 40 canvas units from
+        # the receiver, which is a third of a token: one player drawn on top
+        # of another. Beat 0 is the ball's alone, so the drill opens with a
+        # pass, a ball flying with nobody beside it.
         def queue_spot(i):
             tx, ty = spots[(i + 1) % n]
-            fx, fy = spots[i]
-            return (fx + 0.82 * (tx - fx), fy + 0.82 * (ty - fy))
+            return (0.5 + (tx - 0.5) * 1.46, 0.5 + (ty - 0.5) * 1.46)
 
         out.append(Drill(
             id=f"passing_{label}", category="warmup", minutes=8, rel=True,
