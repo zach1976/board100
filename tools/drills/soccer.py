@@ -41,14 +41,16 @@ def soccer_drills() -> list[Drill]:
                 P(300, 500, "1", moves=[(280, 660, 0)]),
                 P(700, 500, "2", moves=[(720, 660, 1)]),
                 P(700, 900, "3", moves=[(720, 760, 2)]),
-                P(300, 900, "4", moves=[(280, 760, 3)]),
+                P(300, 900, "4", moves=[(280, 760, 1)]),
             ],
             # The two defenders hunt on offset points — they were sent to
             # the same two spots (450,800) and (600,650) a beat apart, so one
             # arrived on the other before he had left.
+            # One leg each: a second drew a numbered waypoint disc in the
+            # middle of the ring that reads as a ball stop.
             away=[
-                P(450, 650, "A", moves=[(600, 640, 0), (470, 790, 2)]),
-                P(550, 800, "B", moves=[(430, 810, 1), (620, 660, 3)]),
+                P(450, 650, "A", moves=[(600, 640, 0)]),
+                P(550, 800, "B", moves=[(430, 810, 1)]),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -84,28 +86,29 @@ def soccer_drills() -> list[Drill]:
             #   1/5 top · 2/6 right · 3/7 bottom · 4/8 left. Ball goes
             #   1→2→3→4, and by the time it comes back round the stepped-up
             #   5 and 6 are on their cones to receive it.
-            # An elongated diamond (the pitch is taller than wide, and so is
-            # the drill in every coaching source): top/bottom cones far
-            # apart, side cones nearer. Each cone: a front player 60 inside
-            # it (toward the middle) and a back player 60 outside it, 120
-            # apart so the icons never touch. A passer runs to the back
-            # spot — the man there has stepped up at the same beat, so the
-            # spot is free when he arrives and the two never share it.
+            # An elongated diamond, and THREE places at every cone, not two:
+            # front (on the cone), back, and the tail an arriving runner
+            # joins. With only two, the follower landed on the back player a
+            # beat before that man stepped up — the two tokens sat on the
+            # same point and only the board's fan-out kept them apart. A real
+            # queue is three deep at the moment of the handover, which is
+            # exactly what this draws: the front leaves, the back takes his
+            # place, and the runner arrives at the tail, all on one beat.
             home=[
-                # top cone (500,330)
-                P(500, 390, "1", moves=[(820, 750, 1)]),    # pass, follow to R back
-                P(500, 270, "5", moves=[(500, 390, 1)]),    # step up to receive
-                # right cone (760,750)
-                P(700, 750, "2", moves=[(500, 1230, 2)]),   # follow to B back
-                P(820, 750, "6", moves=[(700, 750, 2)]),    # step up
-                # bottom cone (500,1170)
-                P(500, 1110, "3", moves=[(180, 750, 3)]),   # follow to L back
-                P(500, 1230, "7", moves=[(500, 1110, 3)]),  # step up
-                # left cone (240,750)
-                P(300, 750, "4", moves=[(500, 270, 4)]),    # follow to T back
-                P(180, 750, "8", moves=[(300, 750, 4)]),    # step up
+                # top cone (500,340): front 380 · back 260 · tail 140
+                P(500, 380, "1", moves=[(860, 750, 1)]),   # pass, run to R tail
+                P(500, 260, "5", moves=[(500, 380, 1)]),   # step up as 1 leaves
+                # right cone (660,750): front 620 · back 740 · tail 860
+                P(620, 750, "2", moves=[(500, 1360, 2)]),  # follow to B tail
+                P(740, 750, "6", moves=[(620, 750, 2)]),   # step up as 2 leaves
+                # bottom cone (1160): front 1120 · back 1240 · tail 1360
+                P(500, 1120, "3", moves=[(140, 750, 3)]),  # follow to L tail
+                P(500, 1240, "7", moves=[(500, 1120, 3)]), # step up
+                # left cone (340,750): front 380 · back 260 · tail 140
+                P(380, 750, "4", moves=[(500, 140, 4)]),   # follow to T tail
+                P(260, 750, "8", moves=[(380, 750, 4)]),   # step up
             ],
-            markers=[M(500, 330), M(760, 750), M(500, 1170), M(240, 750)],
+            markers=[M(500, 340), M(660, 750), M(500, 1160), M(340, 750)],
             ball=0,
             # 1→2→3→4, then to the stepped-up 5 (top) and 6 (right): every
             # pass has a receiver on the cone, the loop closes.
@@ -166,11 +169,11 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(200, 500, "1"), P(500, 420, "2"), P(800, 500, "3", moves=[(820, 700, 1)]),
                 P(200, 900, "4"), P(500, 980, "5"), P(800, 900, "6"),
-                P(500, 700, "7", moves=[(620, 640, 0)]),
+                P(500, 700, "7", moves=[(600, 660, 0)]),
             ],
             away=[
                 P(380, 620, "A", moves=[(500, 560, 0)]),
-                P(620, 620, "B", moves=[(700, 600, 1)]),
+                P(700, 580, "B", moves=[(760, 560, 1)]),
                 P(380, 800, "C"), P(620, 800, "D"),
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
@@ -200,20 +203,24 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Tiền vệ cánh giữ bóng đến khi hậu vệ biên vượt qua — hậu vệ không thể theo cả hai.",
                   "en-GB": "The winger holds until the full-back is past him — the defender can't watch both."},
             home=[
-                P(820, 800, "7", moves=[(820, 620, 1)]),            # winger holds, then inside
-                P(820, 1050, "2", moves=[(880, 700, 0), (880, 380, 2)]),  # overlapping full-back
-                P(500, 700, "10", moves=[(560, 400, 2)]),
-                P(560, 950, "9", moves=[(520, 300, 3)]),
+                P(820, 760, "7", moves=[(820, 600, 1)]),            # winger holds, then inside
+                # One run, not two: the intermediate waypoint disc on the
+                # touchline read as a red opponent standing there.
+                P(760, 900, "2", moves=[(880, 480, 0)]),           # overlapping full-back
+                P(480, 600, "10", moves=[(460, 470, 1)]),          # holds the penalty spot
+                P(600, 500, "9", moves=[(400, 250, 2)]),           # box edge to the far post
             ],
             away=[
-                P(760, 700, "D", moves=[(800, 560, 1)]),
-                P(560, 480, "C"),
+                P(740, 660, "D", moves=[(700, 560, 1)]),
+                P(620, 300, "C"),
                 # The cross has to be going somewhere a keeper is standing.
-                P(500, 180, "GK", role="GK"),
+                P(500, 150, "GK", role="GK"),
             ],
             ball=0,
-            # fed outside the overlap, carried, crossed to the 9
-            ball_to=[(1, 0), (1, 2), (3, 3)],
+            # fed into the overlap outside him, then crossed to the 9
+            # arriving at the far post — never to the space between two
+            # players with nobody's name on it
+            ball_to=[(1, 0), (3, 2)],
             free=True,
         ),
         Drill(
@@ -235,14 +242,16 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Người thứ ba chạy trước đường chuyền thứ hai, không phải sau.",
                   "en-GB": "The runner starts before the second pass, not after. If he waits, the space is already gone."},
             home=[
-                P(300, 900, "6"),
-                P(500, 700, "10", moves=[(430, 780, 0)]),          # drops to receive, lays off
-                P(700, 950, "8", moves=[(700, 500, 0), (620, 320, 1)]),  # third man
+                P(300, 900, "6", moves=[(340, 820, 1)]),
+                P(620, 700, "10", moves=[(560, 800, 0)]),         # drops in, sets it back
+                P(740, 940, "8", moves=[(720, 560, 1), (640, 360, 2)]),  # third man
             ],
-            away=[P(520, 560, "C", moves=[(470, 660, 0)])],
+            away=[P(600, 560, "C", moves=[(560, 660, 0)])],
             ball=0,
-            # into the 10's feet, first time into the 8 beyond
-            ball_to=[(1, 0), (2, 1)],
+            # 6 into the 10's feet, set back first time, and the third ball
+            # played into the 8 running beyond — two players is a wall pass,
+            # not a third-man run
+            ball_to=[(1, 0), (0, 1), (2, 2)],
             free=True,
         ),
         Drill(
@@ -272,7 +281,9 @@ def soccer_drills() -> list[Drill]:
             away=[
                 P(320, 760, "A", moves=[(250, 700, 0)]),
                 P(430, 640, "B", moves=[(360, 620, 0)]),
-                P(600, 620, "C", moves=[(520, 640, 0), (700, 560, 1)]),
+                # He slides with the ball but stays under the switch line:
+                # the pass used to be drawn straight through him.
+                P(600, 620, "C", moves=[(700, 680, 1)]),
             ],
             ball=0,
             # into the 6 and switched to the 7 in one
@@ -298,16 +309,18 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "สามคนวิ่ง: เสาแรก จุดโทษ ขอบกรอบ บอลตัดกลับไปหลังคนแรก",
                   "vi-VN": "Ba người chạy: cột gần, chấm phạt đền, rìa vòng cấm. Bóng chuyền ngược sau người thứ nhất.",
                   "en-GB": "Three runners: near post, penalty spot, edge of the box. The cutback goes behind the first."},
+            # The cut-back starts from the by-line where the 7 finishes his
+            # carry and ends at the 10's feet, with the 8 a clear four
+            # metres behind him.
             home=[
-                P(850, 500, "7", moves=[(850, 300, 0), (700, 330, 1)]),   # wide, to the byline, cutback
-                P(600, 620, "9", moves=[(560, 220, 1)]),                  # near post
-                P(500, 700, "10", moves=[(500, 330, 1)]),                 # penalty spot
-                P(420, 800, "8", moves=[(460, 430, 1)]),                  # edge of the box
+                P(850, 500, "7", moves=[(860, 260, 0)]),   # wide, to the byline
+                P(620, 640, "9", moves=[(560, 300, 1)]),   # near post
+                P(480, 720, "10", moves=[(460, 420, 1)]),  # penalty spot
+                P(380, 840, "8", moves=[(400, 560, 1)]),   # edge of the box
             ],
             # A finishing drill with no keeper teaches the wrong picture.
-            away=[P(580, 300, "D"), P(420, 250, "E"),
-                  P(500, 170, "GK", role="GK")],
-            markers=[M(500, 120, "square", "")],
+            away=[P(660, 220, "A"), P(380, 300, "B"),
+                  P(500, 150, "GK", role="GK")],
             ball=0,
             # carried to the byline, cut back to the 10 arriving on the spot
             ball_to=[(0, 0), (2, 1)],
@@ -331,13 +344,14 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ตัดสินใจเร็ว: ยิงตัดเสา หรือเขี่ยออกข้างเพื่อผ่านผู้รักษาประตู",
                   "vi-VN": "Quyết định sớm: sút chéo góc, hoặc đẩy bóng sang bên vượt qua thủ môn.",
                   "en-GB": "Decide early: shot across the keeper, or take him out of it with one touch wide."},
-            home=[P(500, 900, "9", moves=[(500, 600, 0), (560, 380, 1)])],
-            away=[P(500, 200, "GK", role="GK", moves=[(500, 330, 1)])],
-            markers=[M(500, 120, "square", "")],
+            home=[P(500, 900, "9", moves=[(500, 620, 0), (580, 420, 1)])],
+            # Off his line to narrow the angle, and clear of the spot the
+            # striker is running to.
+            away=[P(500, 140, "GK", role="GK", moves=[(500, 300, 1)])],
             ball=0,
             # carried at the keeper the whole way, finished past him
             ball_follow=0,
-            ball_to=[((500, 60), 2)],
+            ball_to=[((460, 60), 2)],
             free=True,
         ),
 
@@ -361,17 +375,18 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Tín hiệu là đường chuyền về hoặc chạm bóng hỏng. Người đầu ép bóng, phần còn lại chặn hướng chuyền.",
                   "en-GB": "The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes."},
             home=[
-                P(500, 620, "9", moves=[(500, 460, 1)]),
-                P(300, 700, "11", moves=[(360, 560, 1)]),
-                P(700, 700, "7", moves=[(640, 560, 1)]),
-                P(500, 850, "8", moves=[(500, 700, 1)]),
+                P(500, 620, "9", moves=[(500, 480, 1)]),
+                P(300, 700, "11", moves=[(360, 580, 1)]),
+                P(700, 700, "7", moves=[(640, 580, 1)]),
+                P(500, 850, "8", moves=[(500, 720, 1)]),
             ],
             away=[
-                P(500, 420, "6", moves=[(500, 330, 0)]),
+                P(500, 420, "6", moves=[(520, 340, 0)]),
                 P(300, 350, "5"), P(700, 350, "4"),
             ],
-                        # the back pass — the trigger the whole press jumps on
-            ball=(520, 430),
+            # The pass into the 6 IS the trigger, so it has to be drawn:
+            # the ball used to sit on top of him from the first frame.
+            ball=(340, 420),
             ball_to=[("a0", 0)],
             free=True,
         ),
@@ -393,23 +408,25 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "คนแรกหน่วงเวลา คนที่สองคุมด้านใน อย่าเข้าบอลพร้อมกัน",
                   "vi-VN": "Hậu vệ thứ nhất trì hoãn, thứ hai bọc lót bên trong. Không cùng lao vào bóng.",
                   "en-GB": "First defender delays, second covers the inside. Never both at the ball."},
+            # They start level with their men and sprint back goal-side:
+            # a recovery drill in which nobody recovers is a 2v2.
             home=[
-                P(400, 500, "4", moves=[(430, 640, 0)]),
-                P(600, 500, "5", moves=[(540, 700, 1)]),
+                P(380, 820, "4", moves=[(420, 600, 0)]),
+                P(620, 860, "5", moves=[(580, 660, 1)]),
             ],
             away=[
-                P(380, 900, "9", moves=[(400, 720, 0)]),
-                P(620, 900, "10", moves=[(600, 760, 1)]),
+                P(300, 940, "9", moves=[(360, 760, 0)]),
+                P(700, 980, "10", moves=[(660, 800, 1)]),
             ],
-                        # their 9 carries at the recovering pair
-            ball=(400, 920),
+            # their 9 carries at the recovering pair
+            ball=(340, 1010),
             ball_to=[("a0", 0), ("a1", 1)],
             free=True,
         ),
 
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
-            id="corner_near_post", category="setpiece", minutes=10,
+            id="corner_near_post", category="setpiece", minutes=10, rel=True,
             name={"en": "Corner: near post", "zh-CN": "角球：近门柱", "zh-TW": "角球：近門柱",
                   "ja-JP": "CK：ニアポスト", "ko-KR": "코너킥: 니어포스트", "es-ES": "Córner al primer palo",
                   "fr-FR": "Corner premier poteau", "id-ID": "Sepak pojok tiang dekat", "ms-MY": "Penjuru tiang dekat",
@@ -426,21 +443,23 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "สองคนล่อให้กองหลังถอย คนเสาแรกเข้าชิงบอลด้านหน้า",
                   "vi-VN": "Hai người nhử kéo hậu vệ lùi, người ở cột gần đón bóng phía trước.",
                   "en-GB": "Two decoys pull the markers back, the near-post runner attacks the ball in front of them."},
+            # The near post is the front corner of the six-yard box, not the
+            # corner of the penalty area: the delivery used to stop 18 m out
+            # while the 9 ran away from it.
             home=[
-                P(940, 140, "7", moves=[]),                       # corner taker
-                P(660, 400, "9", moves=[(650, 300, 0), (700, 210, 1)]),   # near post run
-                P(500, 440, "5", moves=[(430, 320, 0)]),          # decoy
-                P(350, 410, "6", moves=[(320, 320, 0)]),          # decoy
-                P(560, 560, "8", moves=[(540, 420, 1)]),          # edge of the box
+                P(0.96, 0.03, "7"),                              # corner taker
+                P(0.56, 0.40, "9", moves=[(0.62, 0.11, 0)]),     # near post run
+                P(0.44, 0.36, "5", moves=[(0.36, 0.20, 0)]),     # decoy, pulling back
+                P(0.30, 0.44, "6", moves=[(0.28, 0.28, 0)]),     # decoy, pulling back
+                P(0.30, 0.56, "8", moves=[(0.34, 0.40, 1)]),     # edge of the box
             ],
             away=[
-                P(700, 250, "A"), P(560, 265, "B"), P(410, 255, "C"),
-                P(500, 175, "GK", role="GK"),
+                P(0.70, 0.20, "A"), P(0.52, 0.16, "B"), P(0.58, 0.32, "C"),
+                P(0.50, 0.03, "GK", role="GK"),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
-            # swung to the 9 attacking the near post, flicked on at goal
-            ball_to=[(1, 0), ((500, 60), 1)],
+            # swung to the near post where the 9 arrives, flicked on at goal
+            ball_to=[(1, 0), ((0.5, 0.02), 1)],
             free=True,
         ),
         Drill(
@@ -461,19 +480,22 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "สองคนยืนที่บอล คนที่วิ่งตัดหน้ากำแพงคือคนยิงจริง",
                   "vi-VN": "Hai người đứng bóng. Người chạy cắt qua hàng rào mới là người dứt điểm.",
                   "en-GB": "Two over the ball. The runner across the wall is the shot; the strike is the decoy as often as not."},
+            # 23 m from goal with the wall at its nine metres — it used to
+            # be a 35 m free kick with the wall 11 m away, and the layoff
+            # was received standing inside the wall.
             home=[
-                P(455, 520, "10"), P(545, 520, "7", moves=[(560, 470, 0)]),
-                P(700, 560, "8", moves=[(560, 400, 0), (500, 300, 1)]),
+                P(455, 371, "10"), P(545, 371, "7", moves=[(560, 460, 0)]),
+                P(700, 430, "8", moves=[(640, 400, 0)]),
             ],
             away=[
                 # See fk_*: spaced so the four dots read as four players.
-                P(384, 380, "W1"), P(461, 380, "W2"),
-                P(539, 380, "W3"), P(616, 380, "W4"),
-                P(500, 180, "GK", role="GK"),
+                P(384, 253, "W1"), P(461, 253, "W2"),
+                P(539, 253, "W3"), P(616, 253, "W4"),
+                P(500, 110, "GK", role="GK", moves=[(530, 130, 1)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
-            # rolled square into the 8's run, struck second beat
+            # rolled square into the 8's run, struck second beat through the
+            # gap at the end of the wall
             ball_to=[(2, 0), ((500, 60), 1)],
         ),
 
@@ -496,13 +518,15 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ทีมละสองประตูบังคับให้เปลี่ยนข้าง โจมตีประตูที่เขาทิ้งว่าง",
                   "vi-VN": "Mỗi đội hai khung thành buộc phải chuyển hướng: tấn công nơi họ bỏ trống.",
                   "en-GB": "Two goals each forces a switch: attack the one they left open, not the one in front of you."},
+            # The two teams share the middle third instead of standing in
+            # their own halves, and nobody finishes his run on a marker.
             home=[
-                P(350, 850, "1", moves=[(300, 700, 0)]), P(650, 850, "2"),
-                P(350, 1050, "3"), P(650, 1050, "4", moves=[(760, 900, 1)]),
+                P(300, 880, "1", moves=[(320, 760, 0)]), P(700, 880, "2"),
+                P(350, 1080, "3"), P(680, 1040, "4", moves=[(820, 820, 1)]),
             ],
             away=[
-                P(350, 550, "A", moves=[(320, 680, 0)]), P(650, 550, "B"),
-                P(350, 350, "C"), P(650, 350, "D"),
+                P(480, 640, "A", moves=[(460, 760, 0)]), P(700, 640, "B"),
+                P(280, 420, "C"), P(640, 380, "D"),
             ],
             markers=[
                 M(250, 250, "square"), M(750, 250, "square"),
@@ -533,13 +557,15 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Sentuh, pulangkan, luaskan. Hantaran balik mesti satu sentuhan.",
                   "th-TH": "ชน วางกลับ แล้วเปิดออก บอลวางกลับต้องแตะเดียว",
                   "vi-VN": "Đệm, trả, mở biên. Đường trả phải một chạm."},
+            # The passer stays on his cone: he used to follow his pass onto
+            # the receiver's own spot, so the two ended on one token.
             home=[
-                P(500, 1100, "1", moves=[(500, 950, 0)]),
-                P(500, 800, "2", moves=[(500, 900, 0)]),
+                P(500, 1120, "1"),
+                P(500, 820, "2", moves=[(500, 940, 0)]),
                 P(760, 640, "3", moves=[(760, 500, 1)]),
                 P(240, 640, "4", moves=[(240, 500, 1)]),
             ],
-            markers=[M(500, 1120), M(500, 780), M(780, 620), M(220, 620)],
+            markers=[M(500, 1140), M(500, 800), M(780, 620), M(220, 620)],
             ball=0,
             # into the 2 checking short, laid wide to the 3
             ball_to=[(1, 0), (2, 1)],
@@ -562,14 +588,16 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Terima secara menyerong supaya sentuhan pertama menghadap pintu seterusnya.",
                   "th-TH": "รับบอลด้วยลำตัวเปิด ให้จังหวะแรกหันไปยังประตูถัดไป",
                   "vi-VN": "Nhận bóng mở người để chạm đầu đã hướng tới cổng kế tiếp."},
+            # A first-touch gate drill is a pass and a touch, not a slalom
+            # with the partner watching: 2 serves, 1's first touch carries
+            # the ball through the gate, 1 sets it back and 2 serves again.
             home=[
-                P(300, 1000, "1", moves=[(500, 850, 0), (700, 700, 1), (500, 520, 2)]),
-                P(700, 1000, "2"),
+                P(300, 1050, "1", moves=[(420, 900, 1), (560, 760, 3)]),
+                P(700, 1050, "2"),
             ],
-            markers=[M(440, 880), M(560, 880), M(640, 730), M(760, 730), M(440, 550), M(560, 550)],
-            ball=0,
-            # dribbled through the gates end to end
-            ball_follow=0,
+            markers=[M(370, 850), M(480, 950), M(510, 710), M(620, 810)],
+            ball=1,
+            ball_to=[(0, 0), (0, 1), (1, 2), (0, 3)],
             free=True,
         ),
 
@@ -598,9 +626,12 @@ def soccer_drills() -> list[Drill]:
                 P(780, 640, "2"), P(700, 900, "3", moves=[(640, 860, 1)]),
                 P(300, 900, "4"), P(220, 640, "5"),
             ],
+            # Either side of the 1→3 line with a lane between them: the
+            # split used to be drawn straight through both of them, which
+            # is not a split, it is a tackle.
             away=[
-                P(430, 680, "A", moves=[(500, 600, 0)]),
-                P(570, 780, "B", moves=[(560, 700, 1)]),
+                P(400, 700, "A", moves=[(450, 660, 0)]),
+                P(640, 640, "B", moves=[(680, 700, 1)]),
             ],
             markers=[M(480, 460), M(800, 620), M(720, 920), M(280, 920), M(200, 620)],
             ball=0,
@@ -626,18 +657,25 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Mata hanya sah jika bola melalui zon tengah.",
                   "th-TH": "ทำแต้มได้เฉพาะเมื่อบอลผ่านโซนกลาง ห้ามอ้อม",
                   "vi-VN": "Chỉ ghi điểm khi bóng đi qua khu giữa, không được vòng ngoài."},
+            # Three zones: 1, 2 and 3 in the bottom one against A; 4 and 5
+            # in the top one against B; the middle one is left empty, which
+            # is the whole point — the ball has to cross it.
             home=[
-                P(300, 1150, "1", moves=[(380, 1050, 0)]), P(700, 1150, "2"),
-                P(500, 750, "3", moves=[(560, 800, 0), (560, 600, 1)]),
-                P(300, 350, "4"), P(700, 350, "5", moves=[(640, 450, 1)]),
+                P(250, 1200, "1", moves=[(300, 1120, 0)]), P(500, 1290, "2"),
+                P(620, 1150, "3", moves=[(660, 1080, 0)]),
+                P(300, 340, "4"), P(700, 380, "5", moves=[(640, 460, 1)]),
             ],
             away=[
-                P(420, 950, "A", moves=[(440, 1030, 0)]),
-                P(580, 620, "B", moves=[(560, 700, 1)]),
+                P(430, 1050, "A", moves=[(470, 1140, 0)]),
+                P(520, 460, "B", moves=[(560, 380, 1)]),
             ],
-            markers=[M(120, 950, "zone"), M(880, 950, "zone"), M(120, 550, "zone"), M(880, 550, "zone")],
+            # Two lines of cones across the pitch, not four boxes on the
+            # touchlines: they are what makes the three zones visible.
+            markers=[M(150, 950), M(500, 950), M(850, 950),
+                     M(150, 560), M(500, 560), M(850, 560)],
             ball=0,
-            # through the thirds: into 3, on to 5
+            # through the thirds: into 3 in the bottom zone, then over the
+            # empty middle zone to 5
             ball_to=[(2, 0), (4, 1)],
         ),
         Drill(
@@ -697,10 +735,13 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "วิ่งแซงกองหลังก่อนจ่าย บอลคืนต้องไปที่พื้นที่ ไม่ใช่ที่เท้า",
                   "vi-VN": "Chạy vượt hậu vệ trước khi chuyền; bóng trả vào khoảng trống, không vào chân."},
             home=[
-                P(830, 900, "7", moves=[(830, 700, 0), (830, 480, 1)]),
-                P(640, 760, "10", moves=[(660, 700, 0)]),
+                # Round the outside of the defender, touchline side, with a
+                # token-width of daylight — the runner used to disappear
+                # into D on the way past.
+                P(830, 900, "7", moves=[(890, 720, 0), (890, 470, 1)]),
+                P(620, 780, "10", moves=[(640, 720, 0)]),
             ],
-            away=[P(800, 780, "D", moves=[(780, 700, 0)])],
+            away=[P(780, 760, "D", moves=[(800, 640, 0)])],
             ball=0,
             # given to the wall, returned into the 7's run
             ball_to=[(1, 0), (0, 1)],
@@ -723,19 +764,24 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Bawa bola sehingga bek maju, kemudian lepaskan.",
                   "th-TH": "เลี้ยงจนกองหลังออกมาแล้วค่อยจ่าย จ่ายเร็วไป 3v2 จะกลายเป็น 3v3",
                   "vi-VN": "Dẫn bóng đến khi hậu vệ lao ra rồi mới chuyền. Chuyền sớm biến 3v2 thành 3v3."},
+            # The carry stops 10 m short of the line, one defender steps to
+            # the ball and the other drops — they used to stand still while
+            # the 9 drove through them, and they wore shirt numbers the
+            # attacking side also wore.
             home=[
-                P(500, 950, "9", moves=[(500, 680, 0), (500, 520, 1)]),
-                P(260, 1000, "11", moves=[(300, 620, 0), (380, 420, 2)]),
-                P(740, 1000, "7", moves=[(700, 620, 0), (620, 420, 2)]),
+                P(500, 950, "9", moves=[(500, 800, 0), (500, 700, 1)]),
+                P(240, 980, "11", moves=[(300, 660, 0), (380, 420, 2)]),
+                P(760, 980, "7", moves=[(700, 660, 0), (660, 400, 2)]),
             ],
             away=[
-                P(420, 620, "4", moves=[(470, 600, 1)]),
-                P(580, 620, "5", moves=[(560, 520, 2)]),
+                P(420, 560, "A", moves=[(400, 620, 1)]),
+                P(600, 560, "B", moves=[(520, 430, 2)]),
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
-            # 9 carries both beats — until a defender commits — then releases 11
-            ball_to=[(0, 0), (0, 1), (1, 2)],
+            # 9 carries both beats — until A commits — then releases the 7
+            # arriving on the far side, away from the recovering pair
+            ball_to=[(0, 0), (0, 1), (2, 2)],
         ),
         Drill(
             id="halfspace_run", category="attacking", minutes=12,
@@ -757,13 +803,15 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ปีกตรึงแบ็กไว้ริมเส้น ส่วนคนวิ่งพุ่งด้านในหลังเซ็นเตอร์แบ็ก",
                   "vi-VN": "Tiền vệ cánh giữ hậu vệ biên ở ngoài; người chạy cắt vào trong, sau lưng trung vệ."},
             home=[
-                P(500, 850, "6", moves=[(520, 800, 0)]),
-                P(850, 700, "7"),
-                P(680, 780, "8", moves=[(720, 560, 0), (700, 340, 1)]),
+                P(460, 880, "6", moves=[(480, 820, 0)]),
+                # The winger holds width and then attacks the far post —
+                # he used to stand still for the whole drill.
+                P(900, 720, "7", moves=[(900, 520, 1)]),
+                P(660, 800, "8", moves=[(700, 560, 0), (620, 340, 1)]),
             ],
             away=[
-                P(800, 580, "3", moves=[(820, 520, 0)]),
-                P(640, 500, "4", moves=[(690, 460, 1)]),
+                P(760, 680, "3", moves=[(800, 600, 0)]),
+                P(560, 460, "4", moves=[(520, 400, 1)]),
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
@@ -821,18 +869,21 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Tengok belakang bahu sebelum bola tiba.",
                   "th-TH": "เหลียวมองก่อนบอลมา ถ้าโดนประกบติดให้หมุนออกด้านตรงข้าม",
                   "vi-VN": "Ngoái nhìn trước khi bóng đến. Nếu bị kèm sát, xoay ra hướng ngược lại."},
+            # Server, receiver, defender and keeper used to share one
+            # vertical line: the 9 received on the defender's token and the
+            # shot went straight through him.
             home=[
-                P(500, 900, "10", moves=[(520, 800, 0)]),
-                P(500, 620, "9", moves=[(560, 560, 0), (540, 380, 1)]),
+                P(420, 900, "10"),
+                P(620, 660, "9", moves=[(660, 600, 0), (540, 420, 1)]),
             ],
             away=[
-                P(530, 490, "4", moves=[(570, 450, 0)]),
-                P(500, 200, "GK", role="GK"),
+                P(640, 480, "A", moves=[(665, 490, 0)]),
+                P(500, 150, "GK", role="GK", moves=[(540, 180, 1)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
-            # into the 9's feet as he checks, turned and struck
-            ball_to=[(1, 0), ((500, 60), 1)],
+            # into the 9's feet as he checks away, taken across the
+            # defender on the turn, then struck from the D
+            ball_to=[(1, 0), (1, 1), ((470, 60), 2)],
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -855,19 +906,22 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Bek sayap jauh masuk ke dalam ketika bola bergerak.",
                   "th-TH": "แบ็กฝั่งไกลต้องหุบเข้าในระหว่างบอลเดินทาง แนวรับต้องขยับพร้อมกัน",
                   "vi-VN": "Hậu vệ biên xa co vào khi bóng di chuyển. Cả tuyến dịch như một."},
+            # The shift is a diagonal, not a flat slide: the 2 steps to the
+            # ball, the 5 covers behind him and the 4 and 3 tuck in and
+            # drop. Their forwards wear letters so no shirt appears twice.
             home=[
-                P(200, 1000, "3", moves=[(300, 980, 0)]),
-                P(400, 1030, "4", moves=[(500, 1010, 0)]),
-                P(600, 1030, "5", moves=[(700, 1010, 0)]),
-                P(800, 1000, "2", moves=[(860, 980, 0)]),
+                P(200, 1000, "3", moves=[(350, 1060, 1)]),
+                P(400, 1030, "4", moves=[(520, 1030, 1)]),
+                P(600, 1030, "5", moves=[(690, 960, 1)]),
+                P(800, 1000, "2", moves=[(870, 860, 1)]),
             ],
             away=[
-                P(250, 800, "11"), P(500, 760, "10", moves=[(700, 780, 0)]),
-                P(800, 800, "7", moves=[(880, 760, 0)]),
+                P(250, 800, "A"), P(500, 760, "B", moves=[(560, 720, 0)]),
+                P(820, 800, "C", moves=[(880, 740, 1)]),
             ],
-                        # their switch — each slide of the four answers it
-            ball=(280, 820),
-            ball_to=[("a1", 0), ("a2", 0)],
+            # their switch — each slide of the four answers one leg of it
+            ball=(290, 870),
+            ball_to=[("a1", 0), ("a2", 1)],
         ),
         Drill(
             id="defend_counter_press", category="defending", minutes=12,
@@ -888,24 +942,27 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Lima saat. Yang terdekat menekan bola, yang lain memotong hantaran ke depan.",
                   "th-TH": "ห้าวินาที คนใกล้บอลที่สุดเข้าไล่ คนอื่นตัดบอลไปข้างหน้า ยังไม่ต้องถอย",
                   "vi-VN": "Năm giây. Người gần bóng nhất áp sát, phần còn lại cắt đường chuyền lên."},
+            # The turnover is the first beat, not something that has
+            # already happened before the board opens: the ball is at the
+            # 8's feet, their 5 takes it off him, and the press follows.
             home=[
-                P(500, 700, "8", moves=[(520, 620, 0)]),
-                P(340, 780, "10", moves=[(420, 700, 0)]),
-                P(660, 780, "7", moves=[(600, 720, 0)]),
-                P(500, 900, "6", moves=[(500, 800, 0)]),
+                P(500, 720, "8", moves=[(480, 650, 1)]),
+                P(300, 800, "10", moves=[(340, 660, 1)]),
+                P(700, 800, "7", moves=[(620, 700, 1)]),
+                P(500, 920, "6", moves=[(500, 820, 1)]),
             ],
             away=[
-                P(520, 600, "5", moves=[(520, 520, 1)]),
-                P(700, 560, "2"), P(320, 560, "3"),
+                P(600, 560, "5", moves=[(640, 470, 1)]),
+                P(760, 520, "2"), P(280, 540, "3"),
             ],
-                        # lost here a second ago; their 5 tries to play out
-            ball=(540, 620),
-            ball_to=[("a0", 1)],
+            ball=0,
+            # lost right there: their 5 wins it and four blues jump on him
+            ball_to=[("a0", 0)],
         ),
 
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
-            id="corner_short", category="setpiece", minutes=8,
+            id="corner_short", category="setpiece", minutes=8, rel=True,
             name={"en": "Corner: short routine", "en-GB": "Corner: short routine", "zh-CN": "角球：短角球配合",
                   "zh-TW": "角球：短角球配合", "ja-JP": "CK：ショートコーナー", "ko-KR": "코너킥: 짧은 전개",
                   "es-ES": "Córner en corto", "fr-FR": "Corner joué court",
@@ -923,21 +980,23 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Dua orang pendek menarik seorang penjaga keluar.",
                   "th-TH": "เล่นสั้นสองคนดึงกองหลังออกมาหนึ่ง มุมครอสดีขึ้นและในกรอบเหลือน้อยลง",
                   "vi-VN": "Hai người đá ngắn kéo một hậu vệ ra; góc tạt tốt hơn, trong vòng cấm bớt một người."},
+            # The short man stands 10 m off the flag along the byline — all
+            # five used to be inside one corner arc, and the "short pass"
+            # was two metres long.
             home=[
-                P(940, 140, "7", moves=[(880, 240, 0)]),
-                P(880, 280, "8", moves=[(910, 190, 0)]),
-                P(650, 390, "9", moves=[(660, 260, 1)]),
-                P(520, 440, "5", moves=[(520, 280, 1)]),
-                P(380, 400, "6", moves=[(420, 300, 1)]),
+                P(0.96, 0.03, "7", moves=[(0.92, 0.10, 0)]),
+                P(0.80, 0.16, "8"),
+                P(0.56, 0.42, "9", moves=[(0.60, 0.12, 1)]),
+                P(0.40, 0.44, "5", moves=[(0.34, 0.22, 1)]),
+                P(0.28, 0.46, "6", moves=[(0.26, 0.34, 1)]),
             ],
             away=[
-                P(760, 325, "A", moves=[(830, 285, 0)]),
-                P(580, 265, "B"), P(430, 255, "C"),
-                P(500, 180, "GK", role="GK"),
+                P(0.68, 0.26, "A", moves=[(0.70, 0.24, 0)]),
+                P(0.46, 0.22, "B"), P(0.44, 0.34, "C"),
+                P(0.50, 0.03, "GK", role="GK"),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
-            # played short to the overlapping 8, whose cross finds the 9
+            # played short to the 8, whose cross finds the 9 arriving
             ball_to=[(1, 0), (2, 1)],
         ),
         Drill(
@@ -960,14 +1019,15 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "คนหนึ่งเข้ามารับเพื่อดึงคนประกบ อีกคนวิ่งลึก ทุ่มไปที่พื้นที่ว่าง",
                   "vi-VN": "Một người lùi kéo người kèm, người kia chạy sâu. Ném vào khoảng trống."},
             home=[
-                P(970, 620, "2"),
+                P(975, 560, "2"),
                 P(830, 700, "7", moves=[(870, 620, 0)]),
                 P(760, 480, "9", moves=[(840, 360, 1)]),
                 P(600, 620, "10", moves=[(650, 500, 1)]),
             ],
+            # Both markers arrive behind their man, not on his token.
             away=[
-                P(770, 610, "A", moves=[(840, 650, 0)]),
-                P(690, 380, "B", moves=[(760, 350, 1)]),
+                P(760, 760, "A", moves=[(790, 700, 0)]),
+                P(690, 380, "B", moves=[(720, 300, 1)]),
             ],
             markers=[M(500, 120, "square", "")],
             ball=0,
@@ -1029,16 +1089,18 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Ambil tempat pemain yang anda hantar. Bercakap sebelum hantaran.",
                   "th-TH": "ไปยืนแทนคนที่คุณจ่ายให้ พูดก่อนจ่าย ไม่ใช่หลังจ่าย",
                   "vi-VN": "Vào chỗ người bạn vừa chuyền. Gọi trước khi chuyền, không phải sau."},
+            # Three passes and three follows: the fourth used to be played
+            # to a cone its player had already left.
             home=[
-                P(300, 600, "1", moves=[(620, 600, 1)]),
-                P(700, 600, "2", moves=[(700, 820, 2)]),
-                P(700, 900, "3", moves=[(380, 900, 3)]),
-                P(300, 900, "4", moves=[(300, 680, 4)]),
+                P(300, 600, "1", moves=[(560, 620, 1)]),
+                P(700, 600, "2", moves=[(700, 780, 2)]),
+                P(700, 900, "3", moves=[(420, 900, 3)]),
+                P(300, 900, "4"),
             ],
             markers=[M(280, 580), M(720, 580), M(720, 920), M(280, 920)],
             ball=0,
             # the ball leads round the square, runners a beat behind
-            ball_to=[(1, 0), (2, 1), (3, 2), ((300, 600), 3)],
+            ball_to=[(1, 0), (2, 1), (3, 2)],
         ),
         Drill(
             id="warmup_two_ball", category="warmup", minutes=6,
@@ -1059,20 +1121,21 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Dua bola bergerak serentak. Angkat kepala antara sentuhan.",
                   "th-TH": "สองลูกเคลื่อนพร้อมกัน เงยหน้าระหว่างการแตะ",
                   "vi-VN": "Hai bóng cùng lúc. Ngẩng đầu giữa các chạm."},
-            # All four rotate on the same beat — musical chairs. Each
-            # corner is vacated exactly as the next player fills it, so
-            # nobody stacks. Split across two beats (3 and 4 a beat late) it
-            # put an arriving player on a corner not yet cleared.
+            # A board can draw one ball, so it follows one of the two: it
+            # goes round the square a beat at a time while each receiver
+            # opens his body to take it. Two legs on the same beat drew one
+            # diagonal line and called it two passes.
             home=[
-                P(350, 600, "1", moves=[(350, 900, 0)]),
-                P(650, 600, "2", moves=[(350, 600, 0)]),
-                P(650, 900, "3", moves=[(650, 600, 0)]),
-                P(350, 900, "4", moves=[(650, 900, 0)]),
+                P(330, 600, "1", moves=[(370, 650, 3)]),
+                P(670, 600, "2", moves=[(640, 650, 0)]),
+                P(670, 920, "3", moves=[(640, 880, 1)]),
+                P(330, 920, "4", moves=[(370, 880, 2)]),
             ],
-            markers=[M(330, 580), M(670, 580), M(670, 920), M(330, 920)],
+            markers=[M(300, 550), M(700, 550), M(700, 950), M(300, 950)],
             ball=0,
-            # two balls live at once — one across the top, one up the side
-            ball_to=[(1, 0), (3, 0)],
+            # round the square, one pass a beat — the second ball goes the
+            # other way at the same time
+            ball_to=[(1, 0), (2, 1), (3, 2), (0, 3)],
         ),
         Drill(
             id="possession_overload_4v2_plus", category="possession", minutes=12,
@@ -1093,16 +1156,19 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Kumpulkan satu sisi sehingga lawan beralih, sayap bertentangan jadi 1v1.",
                   "th-TH": "ดึงคนไปฝั่งหนึ่งจนคู่แข่งเอียง แล้วปีกอีกฝั่งจะได้ 1v1 ทั้งริมเส้น",
                   "vi-VN": "Dồn quân một bên đến khi đối thủ nghiêng, cánh còn lại được 1v1."},
+            # Eight things used to sit inside one hundred pixels in the
+            # middle of this board; every marker is a body-width off his man
+            # and the free 10 receives clear of C.
             home=[
-                P(250, 800, "6"), P(390, 590, "8", moves=[(330, 690, 0)]),
-                P(200, 620, "3", moves=[(200, 520, 0)]),
-                P(500, 750, "10", moves=[(560, 700, 1)]),
-                P(850, 700, "7", moves=[(850, 520, 2)]),
+                P(250, 860, "6"), P(390, 560, "8", moves=[(360, 700, 0)]),
+                P(180, 620, "3", moves=[(180, 500, 0)]),
+                P(560, 760, "10", moves=[(640, 700, 1)]),
+                P(850, 700, "7", moves=[(850, 500, 2)]),
             ],
             away=[
-                P(330, 720, "A", moves=[(270, 700, 0)]),
-                P(500, 600, "B", moves=[(420, 620, 0)]),
-                P(620, 700, "C", moves=[(520, 720, 1)]),
+                P(330, 760, "A", moves=[(250, 760, 0)]),
+                P(500, 600, "B", moves=[(460, 560, 0)]),
+                P(660, 620, "C", moves=[(600, 560, 1)]),
             ],
             ball=1,
             # round the overload: 3, the free 10, out to the 7
@@ -1127,20 +1193,23 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Pulangkan ke pivot kemudian keluar.",
                   "th-TH": "จ่ายกลับให้ตัวรับแล้วเปิดออก ถอยเพื่อไปข้างหน้าคือทางที่เร็วที่สุด",
                   "vi-VN": "Trả về tiền vệ trụ rồi mở biên. Lùi lại là cách tiến nhanh nhất."},
+            # A double pivot needs two of them on the board, and the 6's
+            # receiving spot has to be clear of his marker's arrow.
             home=[
                 P(250, 700, "11", moves=[(230, 640, 0)]),
-                P(450, 850, "6", moves=[(500, 820, 0)]),
-                P(820, 720, "7", moves=[(830, 540, 1)]),
+                P(450, 850, "6", moves=[(520, 800, 0)]),
+                P(620, 880, "8"),
+                P(850, 720, "7", moves=[(880, 500, 1)]),
                 P(600, 600, "9"),
             ],
             away=[
-                P(350, 620, "A", moves=[(280, 600, 0)]),
-                P(480, 700, "B", moves=[(430, 720, 0)]),
-                P(730, 570, "C", moves=[(780, 550, 1)]),
+                P(350, 620, "A", moves=[(330, 560, 0)]),
+                P(460, 700, "B", moves=[(400, 720, 0)]),
+                P(760, 570, "C", moves=[(700, 460, 1)]),
             ],
             ball=0,
             # into the pivot, and the 6 switches it to the 7 in one pass
-            ball_to=[(1, 0), (2, 1)],
+            ball_to=[(1, 0), (3, 1)],
         ),
         Drill(
             id="attack_cross_far_post", category="attacking", minutes=10,
@@ -1164,13 +1233,12 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(180, 520, "11", moves=[(180, 340, 0)]),
                 P(520, 620, "9", moves=[(520, 340, 1)]),
-                P(660, 700, "7", moves=[(720, 300, 1)]),
+                P(660, 700, "7", moves=[(760, 280, 1)]),
             ],
             away=[
-                P(300, 400, "A", moves=[(240, 340, 0)]),
-                P(560, 300, "B"), P(500, 180, "GK", role="GK", moves=[(430, 220, 1)]),
+                P(300, 400, "A", moves=[(300, 300, 0)]),
+                P(620, 280, "B"), P(500, 160, "GK", role="GK", moves=[(430, 220, 1)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # 11 carries the line with his run, then the far-post cross meets the 7
             ball_to=[(0, 0), (2, 1)],
@@ -1225,11 +1293,14 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Halakan dia ke garisan, jangan ke dalam.",
                   "th-TH": "บีบให้ออกริมเส้น อย่าปล่อยตัดเข้าใน เข้าเร็วแต่หยุดช้า",
                   "vi-VN": "Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."},
-            home=[P(820, 640, "3", moves=[(830, 760, 0), (860, 860, 1)])],
-            away=[P(830, 950, "11", moves=[(840, 820, 0), (880, 700, 1)])],
-            markers=[M(960, 560), M(960, 1040)],
-                        # their 11 runs the channel with it
-            ball=(850, 970),
+            # A marked channel inside the pitch, not a column of tokens on
+            # the touchline: the defender closes the distance first, then
+            # jockeys him toward the line.
+            home=[P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1)])],
+            away=[P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1)])],
+            markers=[M(640, 500), M(900, 500), M(640, 1060), M(900, 1060)],
+            # their 11 runs the channel with it
+            ball=(730, 1090),
             ball_to=[("a0", 0), ("a0", 1)],
         ),
         Drill(
@@ -1251,22 +1322,27 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Dua di tiang, satu memotong tiang dekat, selebihnya menjaga zon.",
                   "th-TH": "สองคนยืนเสา หนึ่งคนสกัดบอลเสาแรก ที่เหลือคุมโซนและออกตัวเมื่อบอลถูกเตะ",
                   "vi-VN": "Hai người đứng cột, một người cắt bóng cột gần, còn lại kèm khu vực."},
+            # Twelve tokens used to sit inside the six-yard box. The zonal
+            # line is spread along the edge of it, the keeper holds his
+            # line, and the clearance goes to a man who is actually there.
             home=[
-                P(420, 205, "2"), P(580, 205, "3"),
-                P(640, 300, "4", moves=[(700, 250, 0)]),
-                P(500, 320, "5", moves=[(520, 260, 0)]),
-                P(380, 330, "6", moves=[(400, 280, 0)]),
-                P(500, 175, "GK", role="GK", moves=[(540, 240, 0)]),
+                P(390, 140, "2"), P(610, 140, "3"),
+                P(380, 290, "4"), P(500, 290, "5"),
+                # One man attacks the near-post ball; the rest hold their
+                # zone, which is what the note has always said.
+                P(620, 290, "6", moves=[(700, 230, 0)]),
+                P(780, 500, "8"),
+                P(500, 120, "GK", role="GK"),
             ],
             away=[
-                P(940, 140, "7"),
-                P(720, 390, "9", moves=[(730, 265, 0)]),
-                P(560, 420, "10", moves=[(560, 300, 0)]),
+                P(936, 100, "7"),
+                P(700, 430, "9", moves=[(760, 380, 0)]),
+                P(580, 450, "10", moves=[(560, 380, 0)]),
             ],
-            markers=[M(500, 120, "square", "")],
-                        # the corner comes in; the zone attacks it first
-            ball=(936, 148),
-            ball_to=[(3, 0), ((500, 700), 1)],
+            # the corner comes in; the near-post zone attacks it first and
+            # heads it out to the outlet on the edge of the box
+            ball=(896, 170),
+            ball_to=[(4, 0), (5, 1)],
         ),
         Drill(
             id="ssg_5v5_two_touch", category="ssg", minutes=18,
@@ -1324,14 +1400,16 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "จังหวะแรกของคนรับตัดสินการเปลี่ยนข้าง เขี่ยออกจากแรงกดดันแล้วค่อยยิงยาว",
                   "vi-VN": "Chạm đầu của người nhận quyết định pha chuyển cánh."},
             home=[
-                P(220, 700, "3", moves=[(200, 620, 0)]),
-                P(500, 800, "6", moves=[(540, 740, 0)]),
+                P(220, 700, "3", moves=[(180, 600, 0)]),
+                P(500, 800, "6", moves=[(560, 740, 0)]),
                 P(820, 620, "2", moves=[(840, 520, 1)]),
                 P(700, 900, "8"),
             ],
+            # Both markers arrive a body-width short of their man: they
+            # used to be drawn standing on the two receivers.
             away=[
-                P(320, 640, "A", moves=[(260, 640, 0)]),
-                P(560, 700, "B", moves=[(520, 700, 0)]),
+                P(340, 660, "A", moves=[(300, 700, 0)]),
+                P(600, 580, "B", moves=[(560, 630, 0)]),
             ],
             ball=0,
             # two touches: into the 6, switched to the 2
@@ -1357,12 +1435,15 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Pecut dahulu kemudian tendang. Pilih sudut sebelum melangkah.",
                   "th-TH": "วิ่งเต็มสปีดก่อนแล้วค่อยยิง เลือกมุมก่อนเดินเข้าไปและอย่าเปลี่ยนใจ",
                   "vi-VN": "Chạy nước rút trước rồi mới sút. Chọn góc trước khi bước lên và đừng đổi ý."},
-            home=[P(500, 900, "9", moves=[(500, 1200, 0), (500, 560, 1), (500, 480, 2)])],
-            away=[P(500, 200, "GK", role="GK", moves=[(430, 240, 2)])],
-            markers=[M(500, 120, "square", ""), M(500, 480, "circle", "")],
-                        # the shuttle, then the walk-up, then the strike
-            ball=(460, 570),
-            ball_to=[((460, 60), 2)],
+            # The ball is on the penalty spot, which is the one thing a
+            # penalty board has to get right: it used to sit on the top of
+            # the centre circle with no shot drawn at all.
+            home=[P(500, 600, "9", moves=[(500, 900, 0), (500, 320, 1)])],
+            away=[P(500, 120, "GK", role="GK", moves=[(440, 150, 2)])],
+            markers=[M(500, 940)],
+            # out to the cone and back, then the walk-up and the strike
+            ball=(500, 216),
+            ball_to=[((460, 90), 2)],
         ),
     ]
 
@@ -1390,6 +1471,13 @@ RONDO_NOTE = {
 }
 
 
+# The pitch is 874 canvas units across and 1350 down, so a shape that is
+# round on the grass has to be drawn with a y radius 0.65 of its x radius.
+# Every ring in this module was authored with the two equal, which is why
+# the "10 m circle" of a rondo rendered as a tall corridor.
+ROUND = 874.3 / 1350.0
+
+
 def rondo_family() -> list[Drill]:
     """A rondo per size. Bigger ring, bigger pitch, more time on the ball —
     the same exercise asking a slightly different question each time."""
@@ -1398,8 +1486,14 @@ def rondo_family() -> list[Drill]:
         (4, 2, 0.16, 10), (5, 2, 0.18, 10), (6, 3, 0.21, 12),
         (7, 3, 0.24, 12), (8, 4, 0.27, 15),
     ]:
-        ring_pos = ring(attackers, 0.5, 0.5, radius * 1.05, radius * 1.5)
-        inner = ring(defenders, 0.5, 0.5, radius * 0.35, radius * 0.5)
+        rx = radius * 1.45
+        ry = rx * ROUND
+        ring_pos = ring(attackers, 0.5, 0.5, rx, ry)
+        # The defenders work in the middle, offset half a slot round from
+        # the players so they never stand on a passing lane.
+        half = 180.0 / defenders
+        inner = ring(defenders, 0.5, 0.5, rx * 0.30, ry * 0.30, -90 + half)
+        hunt = ring(defenders, 0.5, 0.5, rx * 0.40, ry * 0.40, -90 + half + 34)
         out.append(Drill(
             id=f"rondo_{attackers}v{defenders}", category="possession",
             minutes=minutes, rel=True, free=(attackers == 4),
@@ -1407,17 +1501,19 @@ def rondo_family() -> list[Drill]:
             note=RONDO_NOTE,
             home=[
                 P(x, y, f"{i + 1}",
-                  moves=[(x + (0.5 - x) * 0.18, y + (0.5 - y) * 0.18, i % 3)])
+                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)])
                 for i, (x, y) in enumerate(ring_pos)
             ],
+            # One move each: a second leg drew a numbered waypoint disc in
+            # the middle of the ring that every reviewer read as a ball.
             away=[
-                P(x, y, chr(65 + i),
-                  moves=[(0.5 + (ring_pos[i % attackers][0] - 0.5) * 0.55,
-                          0.5 + (ring_pos[i % attackers][1] - 0.5) * 0.55, i % 2)])
+                P(x, y, chr(65 + i), moves=[(*hunt[i], i % 2)])
                 for i, (x, y) in enumerate(inner)
             ],
-            markers=[M(x, y) for x, y in
-                     ring(4, 0.5, 0.5, radius * 1.35, radius * 1.85, -45)],
+            # A square of cones round the circle, which is how it is set up
+            # on grass and how the other passing shapes are drawn.
+            markers=[M(0.5 + sx * rx * 1.05, 0.5 + sy * ry * 1.05)
+                     for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))],
             setup={
                 "en": f"a circle about {int(radius * 60)} m across marked by "
                       f"four cones; {attackers} on the outside keep it off "
@@ -1455,40 +1551,95 @@ SSG_NOTE = {
 }
 
 
+# Each team's rows in a small-sided game, deepest first. The last row is
+# always the lone forward, so the same roles exist at every size.
+SSG_ROWS = {3: (2, 1), 4: (1, 2, 1), 5: (2, 2, 1), 6: (2, 3, 1), 7: (3, 3, 1)}
+
+
+def game_area(n: int):
+    """A coned area with both teams inside it — the way a small-sided game
+    is actually set up, and the shape both the SSG and transition families
+    are drawn on.
+
+    Returns (half width, half height, rows, home spots, away spots). The
+    defending team stands between the attackers, not opposite them: half a
+    slot across is what makes a board look like a game rather than a team
+    photo lined up on two goal lines.
+    """
+    hw = 0.16 + 0.032 * n              # half the area, across the pitch
+    hh = 0.16 + 0.030 * n              # half the area, up the pitch
+    rows = SSG_ROWS[n]
+
+    def shape(up: bool, shift: float = 0.0):
+        spots, r = [], len(rows)
+        for k, cnt in enumerate(rows):
+            fy = 0.80 - k * (0.65 / max(r - 1, 1))
+            y = 0.5 + hh * fy * (1 if up else -1)
+            for c in range(cnt):
+                fx = 0.0 if cnt == 1 else (c / (cnt - 1) - 0.5) * 1.6
+                spots.append((0.5 + hw * fx + shift, y))
+        return spots
+
+    return hw, hh, rows, shape(True), shape(False, hw * 0.28)
+
+
+def game_markers(hw: float, hh: float) -> list:
+    """Four corner cones and a mini-goal at each end."""
+    return [M(0.5 - hw, 0.5 - hh), M(0.5 + hw, 0.5 - hh),
+            M(0.5 - hw, 0.5 + hh), M(0.5 + hw, 0.5 + hh),
+            M(0.5, 0.5 - hh, "square", ""), M(0.5, 0.5 + hh, "square", "")]
+
+
 def ssg_family() -> list[Drill]:
-    """Small-sided games from 3v3 to 7v7. The pitch grows with the numbers so
-    the density — and therefore the problem — stays roughly constant."""
+    """Small-sided games from 3v3 to 7v7 — a coned area with a mini-goal at
+    each end, both teams inside it. The area grows with the numbers so the
+    density, and therefore the problem, stays roughly constant.
+
+    They used to be drawn as two teams lined up on the goal lines of a full
+    pitch, which is a team photo, not a game: nobody was within a pass of
+    anybody and the only ball played ran along the goal line.
+    """
     out = []
     for n, minutes in [(3, 15), (4, 18), (5, 18), (6, 20), (7, 20)]:
-        # Wider pitch for bigger games, but the touchline is the touchline:
-        # 7v7 gets its extra room lengthways, not by spilling off the grass.
-        span = min(0.18 + 0.05 * n, 0.45)
-        left, right = 0.5 - span, 0.5 + span
-        depth = 0.16 + 0.012 * n          # how deep each team's block starts
-        cols = min(n, 3)
-        rows = (n + cols - 1) // cols
-        home = grid(cols, rows, left + 0.05, 0.5 + depth + 0.16,
-                    right - 0.05, 0.5 + depth)[:n]
-        away = grid(cols, rows, left + 0.05, 0.5 - depth - 0.16,
-                    right - 0.05, 0.5 - depth)[:n]
+        hw, hh, rows, hs, aw = game_area(n)
+        fwd = n - 1                              # the lone forward
+        # The runner comes from the left, because the defenders are shaded
+        # to the right — he is running into the space they have left.
+        passer = 1 if n == 3 else 0
+        runner = 0 if n == 3 else rows[0]
+        # Both the drop and the tracking run are drawn long enough that
+        # the destination ring does not sit on the token it came from.
+        drop = (hs[fwd][0] - hw * 0.30, hs[fwd][1] + hh * 0.18)
+        mark = (aw[n - 1][0] - hw * 0.30, aw[n - 1][1] + hh * 0.18)
+        run = (hs[runner][0] + (0.5 - hs[runner][0]) * 0.28,
+               hs[fwd][1] - hh * 0.30)
         out.append(Drill(
             id=f"ssg_{n}v{n}", category="ssg", minutes=minutes, rel=True,
             free=(n == 4),
             name=suffixed(SSG_NAME, f"{n}v{n}"), note=SSG_NOTE,
             home=[
-                P(x, y, f"{i + 1}", moves=[(x, y - 0.09, i % 2)])
-                for i, (x, y) in enumerate(home)
+                P(x, y, f"{i + 1}",
+                  moves=([(*drop, 0)] if i == fwd else
+                         [(*run, 1)] if i == runner else []))
+                for i, (x, y) in enumerate(hs)
             ],
             away=[
-                P(x, y, chr(65 + i), moves=[(x, y + 0.07, i % 2)])
-                for i, (x, y) in enumerate(away)
+                P(x, y, chr(65 + i),
+                  moves=[(*mark, 0)] if i == n - 1 else [])
+                for i, (x, y) in enumerate(aw)
             ],
-            markers=[M(left, 0.12, "square"), M(right, 0.12, "square"),
-                     M(left, 0.88, "square"), M(right, 0.88, "square")],
-            ball=0,
-            # A game has no script; two passes along the attacking block are
-            # enough to say which way it flows and whose ball it is.
-            ball_to=[(1, 0), (2 % n, 1)],
+            markers=game_markers(hw, hh),
+            setup={
+                "en": f"a {6 * n}x{5 * n} m area with a mini-goal at each "
+                      f"end, {n} against {n} inside it",
+                "zh-CN": f"约 {6 * n}×{5 * n} 米的场地，两端各放一个小球门，"
+                         f"{n} 对 {n} 在里面比赛",
+            },
+            ball=passer,
+            # The forward drops in with a marker on him, takes it, and sets
+            # it into the runner coming past — one passage of the game, not
+            # a script for the whole thing.
+            ball_to=[(fwd, 0), (runner, 1)],
         ))
     return out
 
@@ -1515,37 +1666,57 @@ COUNTER_NOTE = {
 
 
 def counter_family() -> list[Drill]:
-    """Transition overloads, 2v1 up to 5v4."""
+    """Transition overloads, 2v1 up to 5v4.
+
+    Width and depth, not parallel lanes: the carrier drives at the nearest
+    defender while the rest run beyond him on the outside. The old boards
+    drew every attacker in his own vertical lane running straight through
+    the defensive line, and no defender ever went near the ball.
+    """
     out = []
     for att, dfn, minutes in [(2, 1, 10), (3, 2, 12), (4, 3, 12), (5, 4, 15)]:
-        xs = [0.5 + (i - (att - 1) / 2) * (0.68 / max(att, 2)) for i in range(att)]
-        dxs = [0.5 + (i - (dfn - 1) / 2) * (0.56 / max(dfn, 2)) for i in range(dfn)]
+        xs = [0.5 + (i - (att - 1) / 2) * (0.66 / max(att - 1, 1))
+              for i in range(att)]
+        ys = [0.70 + 0.04 * abs(i - (att - 1) / 2) for i in range(att)]
+        carrier = 0 if att == 2 else att // 2
+        dxs = [0.5 + (i - (dfn - 1) / 2) * (0.62 / max(dfn, 1)) for i in range(dfn)]
+        # The defender in the carrier's lane is the one who has to go; the
+        # rest drop and cover the runners.
+        engage = min(range(dfn), key=lambda i: abs(dxs[i] - xs[carrier]))
+        drive = (xs[carrier] + (0.5 - xs[carrier]) * 0.35, 0.62)
         out.append(Drill(
             id=f"counter_{att}v{dfn}", category="attacking", minutes=minutes,
             rel=True, free=(att == 3),
             name=suffixed(COUNTER_NAME, f"{att}v{dfn}"), note=COUNTER_NOTE,
             home=[
-                P(x, 0.70, f"{i + 1}", moves=[(x, 0.44, 0), (0.5 + (x - 0.5) * 0.55, 0.24, 1)])
+                P(x, ys[i], f"{i + 1}",
+                  moves=[(*drive, 0)] if i == carrier
+                  else [(0.5 + (x - 0.5) * 0.75, 0.30 if i % 2 == 0 else 0.26, 1)])
                 for i, x in enumerate(xs)
             ],
             away=[
-                P(x, 0.42, chr(65 + i), moves=[(x + (0.5 - x) * 0.3, 0.34, 1)])
+                P(x, 0.50, chr(65 + i),
+                  moves=[(x + (drive[0] - x) * 0.35, 0.52, 0)] if i == engage
+                  else [(x, 0.40, 1)])
                 for i, x in enumerate(dxs)
             ],
             markers=[M(0.5, 0.03, "square", "")],
             setup={
-                "en": f"half a pitch, one goal; {att} attackers on the "
-                      f"halfway line break at {dfn} recovering defenders",
-                "zh-CN": f"半场一个球门；{att} 名进攻者从中线启动，"
+                "en": f"half a pitch, one goal; {att} attackers break out of "
+                      f"their own half at {dfn} recovering defenders",
+                "zh-CN": f"半场一个球门；{att} 名进攻者从本方半场发起反击，"
                          f"冲击 {dfn} 名回追的防守者",
             },
-            ball=0,
+            # The ball starts at the carrier's feet, not at whoever
+            # happens to be first in the list.
+            ball=carrier,
             # Beat 0 the carrier drives with it (a self-target is a carry);
             # beat 1 he releases to the widest runner arriving in the box —
             # the note's own words, performed by the ball.
-            ball_to=[(0, 0), (att - 1, 1)],
+            ball_to=[(carrier, 0), (att - 1, 1)],
         ))
     return out
+
 
 
 BUILDUP_NAME = {"en": "Playing out under pressure", "en-GB": "Playing out under pressure",
@@ -1571,32 +1742,48 @@ BUILDUP_NOTE = {
 
 
 def buildup_family() -> list[Drill]:
-    """Playing out against one, two and three pressers."""
+    """Playing out against one, two and three pressers.
+
+    The back line splits wide and deep and the pressers step forward: they
+    used to swap places straight through each other, the centre-back
+    running up into the presser's spot as the presser ran down into his.
+    The 6 shows on the edge of the D, a 15 m ball away, not alone on the
+    centre circle 35 m from anybody.
+    """
     out = []
     for pressers, minutes in [(1, 10), (2, 12), (3, 15)]:
         defenders = pressers + 2
         xs = [0.5 + (i - (defenders - 1) / 2) * (0.66 / defenders) for i in range(defenders)]
         pxs = [0.5 + (i - (pressers - 1) / 2) * (0.42 / max(pressers, 1)) for i in range(pressers)]
+        recv = 1 if pressers == 1 else defenders - 2
         out.append(Drill(
             id=f"buildup_v{pressers}", category="possession", minutes=minutes,
             rel=True, free=(pressers == 2),
             name=suffixed(BUILDUP_NAME, f"+{pressers}"), note=BUILDUP_NOTE,
             # Defensive shirts, not a counting sequence: numbering the back
             # line 2,3,4,5,6 put a second 6 on a board that already had one.
-            home=[P(0.5, 0.94, "GK", role="GK")] + [
-                P(x, 0.80, shirt, moves=[(x + (x - 0.5) * 0.35, 0.72, 0)])
+            home=[P(0.5, 0.95, "GK", role="GK")] + [
+                P(x, 0.80, shirt, moves=[(x + (x - 0.5) * 0.30, 0.86, 0)])
                 for x, shirt in zip(xs, {3: ["5", "4", "2"],
                                          4: ["3", "5", "4", "2"],
                                          5: ["3", "5", "4", "2", "7"]}[defenders])
-            ] + [P(0.5, 0.62, "6", moves=[(0.5, 0.54, 1)])],
+            ] + [P(0.80, 0.70, "6", moves=[(0.74, 0.66, 1)])],
             away=[
-                P(x, 0.70, chr(65 + i), moves=[(x + (0.5 - x) * 0.5, 0.78, 0)])
+                P(x, 0.62, chr(65 + i),
+                  moves=[(x + (0.5 - x) * 0.10, 0.70, 0)])
                 for i, x in enumerate(pxs)
             ],
+            setup={
+                "en": f"a goalkeeper and a back {defenders} on the edge of "
+                      f"their own box with a 6 in front of them, against "
+                      f"{pressers} pressing",
+                "zh-CN": f"门将加 {defenders} 名后卫站在本方禁区线上，"
+                         f"身前一名后腰，对方 {pressers} 人上抢",
+            },
             ball=0,
-            # GK to the splitting centre-back, then through the press into
-            # the 6 stepping up — the free man the note says to find.
-            ball_to=[(1, 0), (defenders + 1, 1)],
+            # GK to the free centre-back, then past the press into the 6
+            # showing on the edge of the D.
+            ball_to=[(recv, 0), (defenders + 1, 1)],
         ))
     return out
 
@@ -1625,35 +1812,42 @@ FINISH_NOTE = {
 
 
 def finishing_family() -> list[Drill]:
-    """The same finish arrived at from every angle a game offers."""
+    """The same finish arrived at from every angle a game offers.
+
+    A finishing pattern has to end in a shot: these used to stop the ball at
+    the 9's feet with no strike drawn, start the 9 and the 10 on the centre
+    circle 60 m out, and send the keeper to the exact spot the 9 arrived at.
+    """
+    # key, the crosser's lane, the 9's run, the 10's run
     specs = [
-        ("left_wing", 0.16, 0.34, 0.30, 10),
-        ("right_wing", 0.84, 0.34, 0.70, 10),
-        ("left_halfspace", 0.30, 0.42, 0.40, 10),
-        ("right_halfspace", 0.70, 0.42, 0.60, 10),
-        ("central", 0.50, 0.48, 0.50, 10),
+        ("left_wing", (0.14, 0.46), (0.20, 0.20),
+         (0.54, 0.34), (0.60, 0.11), (0.34, 0.42), (0.40, 0.16)),
+        ("right_wing", (0.86, 0.46), (0.80, 0.20),
+         (0.46, 0.34), (0.40, 0.11), (0.66, 0.42), (0.60, 0.16)),
+        ("left_halfspace", (0.30, 0.46), (0.33, 0.24),
+         (0.58, 0.36), (0.60, 0.12), (0.46, 0.48), (0.42, 0.15)),
+        ("right_halfspace", (0.70, 0.46), (0.67, 0.24),
+         (0.42, 0.36), (0.40, 0.12), (0.54, 0.48), (0.58, 0.15)),
+        ("central", (0.50, 0.52), (0.50, 0.32),
+         (0.64, 0.40), (0.60, 0.13), (0.36, 0.40), (0.40, 0.16)),
     ]
     out = []
-    for key, sx, sy, fx, minutes in specs:
+    for key, s7, e7, s9, e9, s10, e10 in specs:
         label = key.replace("_", " ")
-        ten_x = 0.5 + (0.5 - sx) * 0.6
-        if abs(ten_x - 0.5) < 0.12:
-            ten_x = 0.36
         out.append(Drill(
-            id=f"finish_{key}", category="finishing", minutes=minutes, rel=True,
+            id=f"finish_{key}", category="finishing", minutes=10, rel=True,
             free=(key == "central"),
             name=suffixed(FINISH_NAME, label),
             note=FINISH_NOTE,
             home=[
-                P(sx, sy, "7", moves=[(sx + (0.5 - sx) * 0.25, sy - 0.14, 0)]),
-                P(0.5, 0.58, "9", moves=[(fx, 0.30, 0), (fx + (0.5 - fx) * 0.4, 0.18, 1)]),
-                # Mirrored off the crosser — but the central pattern mirrors
-                # onto the 9's own spot, so it takes the left half-space.
-                P(ten_x, 0.52, "10",
-                  moves=[(0.5 + (0.5 - fx) * 0.7, 0.26, 1)]),
+                P(*s7, "7", moves=[(*e7, 0)]),
+                P(*s9, "9", moves=[(*e9, 1)]),
+                P(*s10, "10", moves=[(*e10, 1)]),
             ],
-            away=[P(0.5, 0.10, "GK", role="GK", moves=[(fx * 0.4 + 0.3, 0.14, 1)])],
-            markers=[M(0.5, 0.04, "square", "")],
+            # On his line until the ball is delivered, then set across —
+            # never standing on the spot the striker is running to.
+            away=[P(0.5, 0.03, "GK", role="GK",
+                    moves=[(0.5 + (e9[0] - 0.5) * 0.25, 0.05, 1)])],
             setup={
                 "en": f"one goal with a keeper; the crosser starts {label}, "
                       "the 9 and 10 on the edge of the box",
@@ -1664,9 +1858,9 @@ def finishing_family() -> list[Drill]:
                          + "启动，9 号和 10 号在禁区前沿",
             },
             ball=0,
-            # The 7 carries to the byline with his run, then the cross meets
-            # the 9 arriving at the far post on the next beat.
-            ball_to=[(0, 0), (1, 1)],
+            # The 7 carries, the delivery meets the 9 arriving, and the 9
+            # finishes across the keeper — the beat the family was missing.
+            ball_to=[(0, 0), (1, 1), ((0.5 - (e9[0] - 0.5) * 0.30, 0.02), 2)],
         ))
     return out
 
@@ -1733,7 +1927,11 @@ def press_family() -> list[Drill]:
                           .replace("352", "3-5-2")),
             note=PRESS_NOTE,
             home=[
-                P(x, y, shirt, moves=[(x + (0.5 - x) * 0.22, y - 0.09, 0)])
+                # Nobody presses onto the ball carrier's own token: the jump
+                # stops a body-width short of him, which is also where a
+                # presser actually stops.
+                P(x, y, shirt, moves=[(x + (0.5 - x) * 0.22,
+                                       max(y - 0.09, 0.30), 0)])
                 for x, y, shirt in spots
             ],
             # Letters, not numbers: the opponents used to wear 4, 5 and 6 —
@@ -1778,36 +1976,65 @@ CORNER_NOTE = {
 
 
 def corner_family() -> list[Drill]:
-    """The corner routines a team actually needs on a Saturday."""
+    """The corner routines a team actually needs on a Saturday.
+
+    Taken from the right, so the near post is the right one and the far post
+    the left. Each routine has its own runs: they used to share one set, so
+    the "stack" was scattered exactly like the far-post ball and the "second
+    ball" was played 45 m backwards to the centre circle.
+    """
+    # key, label, the runs for 9 / 5 / 6 / 8 as (start, end, phase),
+    # then the ball's legs
     routines = [
-        ("far_post", "far post", (0.36, 0.20), (0.62, 0.42)),
-        # The pull-back runner starts wide of the 8, who holds the same
-        # edge-of-box spot in all four routines — they used to overlap.
-        ("back_post_pull", "pull back", (0.50, 0.34), (0.60, 0.49)),
-        ("decoy_stack", "stack", (0.44, 0.26), (0.56, 0.40)),
-        ("second_ball", "second ball", (0.50, 0.44), (0.36, 0.54)),
+        ("far_post", "far post",
+         ((0.58, 0.44), (0.38, 0.09), 0), ((0.74, 0.32), (0.62, 0.11), 0),
+         ((0.42, 0.36), (0.40, 0.24), 0), ((0.28, 0.46), (0.28, 0.34), 1),
+         [(1, 0), ((0.5, 0.02), 1)]),
+        ("back_post_pull", "pull back",
+         ((0.58, 0.44), (0.34, 0.10), 0), ((0.74, 0.32), (0.62, 0.11), 0),
+         ((0.42, 0.36), (0.46, 0.26), 0), ((0.28, 0.48), (0.30, 0.32), 1),
+         # Headed back across from the by-line for the man arriving late.
+         [(1, 0), (4, 1), ((0.5, 0.02), 2)]),
+        ("decoy_stack", "stack",
+         # All four line up at the penalty spot and peel off it — that is
+         # what makes it a stack.
+         ((0.40, 0.26), (0.34, 0.10), 0), ((0.40, 0.335), (0.64, 0.12), 0),
+         ((0.40, 0.41), None, 0), ((0.40, 0.485), (0.30, 0.46), 1),
+         [(1, 0), ((0.5, 0.02), 1)]),
+        ("second_ball", "second ball",
+         ((0.58, 0.44), (0.40, 0.12), 0), ((0.74, 0.32), (0.62, 0.11), 0),
+         ((0.42, 0.36), (0.34, 0.22), 0), ((0.30, 0.50), (0.38, 0.36), 1),
+         # Cleared to the edge of the box, and struck from 20 m by the man
+         # who never went in.
+         [(1, 0), ((0.40, 0.30), 1), ((0.5, 0.02), 2)]),
     ]
     out = []
-    for key, label, target, start in routines:
+    for key, label, nine, five, six, eight, legs in routines:
+        def runner(spec, shirt):
+            (sx, sy), end, phase = spec
+            return P(sx, sy, shirt, moves=[] if end is None else [(*end, phase)])
+
         out.append(Drill(
             id=f"corner_{key}", category="setpiece", minutes=10, rel=True,
             free=(key == "far_post"),
             name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
             home=[
-                P(0.96, 0.06, "7"),
-                P(start[0], start[1], "9", moves=[(target[0], target[1], 0), (target[0], target[1] - 0.08, 1)]),
-                P(0.36, 0.36, "5", moves=[(0.34, 0.24, 0)]),
-                P(0.64, 0.34, "6", moves=[(0.68, 0.26, 0)]),
-                P(0.50, 0.56, "8", moves=[(0.50, 0.40, 1)]),
+                P(0.96, 0.03, "7"),
+                runner(nine, "9"), runner(five, "5"),
+                runner(six, "6"), runner(eight, "8"),
             ],
             away=[
-                P(0.44, 0.22, "A"), P(0.58, 0.22, "B"), P(0.50, 0.30, "C"),
-                P(0.50, 0.10, "GK", role="GK"),
+                P(0.70, 0.20, "A"), P(0.52, 0.16, "B"), P(0.58, 0.32, "C"),
+                P(0.50, 0.03, "GK", role="GK"),
             ],
-            markers=[M(0.5, 0.04, "square", "")],
+            setup={
+                "en": "a corner from the right, four attackers in the box "
+                      "against three markers and a keeper on his line",
+                "zh-CN": "右侧角球，四名进攻者进禁区，"
+                         "对三名盯人和一名站在门线上的门将",
+            },
             ball=0,
-            # Swung to where the 9 arrives, then attacked at goal.
-            ball_to=[(1, 0), ((0.5, 0.05), 1)],
+            ball_to=legs,
         ))
     return out
 
@@ -1833,28 +2060,44 @@ DUEL_NOTE = {
 
 
 def duel_family() -> list[Drill]:
-    """1v1 from each lane — the attacker's problem changes with the angle."""
+    """1v1 from each lane — the attacker's problem changes with the angle.
+
+    Server, attacker, defender and keeper used to share one vertical line,
+    so the central version was a column of tokens and there was no way to
+    see how the defender was beaten. The defender now stands on one
+    shoulder and the carry goes past the other.
+    """
     lanes = [("wide_left", 0.16, "wide left"), ("wide_right", 0.84, "wide right"),
              ("central", 0.50, "central"), ("half_left", 0.32, "half-space")]
     out = []
     for key, x, label in lanes:
+        inw = -1.0 if x > 0.5 else 1.0       # toward the middle of the pitch
+        carry = (x + 0.22 * inw, 0.28)
         out.append(Drill(
             id=f"duel_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "central"),
             name=suffixed(DUEL_NAME, label), note=DUEL_NOTE,
             # Two dots and two lines is a diagram, not a drill. A 1v1 starts
             # with the ball arriving and ends at a goal somebody is keeping.
-            home=[P(x, 0.62, "11", moves=[(x + (0.5 - x) * 0.3, 0.44, 0),
-                                          (0.5 + (x - 0.5) * 0.4, 0.24, 1)]),
-                  P(x, 0.80, "8", moves=[(x + (0.5 - x) * 0.15, 0.72, 0)])],
-            away=[P(x, 0.44, "2", moves=[(x, 0.38, 0), (0.5 + (x - 0.5) * 0.7, 0.30, 1)]),
-                  P(0.50, 0.10, "GK", role="GK",
-                    moves=[(0.5 + (x - 0.5) * 0.35, 0.15, 1)])],
-            markers=[M(0.5, 0.04, "square", "")],
+            home=[P(x, 0.62, "11", moves=[(x, 0.48, 0), (*carry, 1)]),
+                  # He serves and stays: a server who jogs forward on the
+                  # same beat puts himself under his own pass.
+                  P(x + 0.20 * inw, 0.76, "8")],
+            away=[P(x + 0.10 * inw, 0.42, "A",
+                    moves=[(x + 0.08 * inw, 0.36, 1)]),
+                  P(0.50, 0.03, "GK", role="GK",
+                    moves=[(0.5 + (carry[0] - 0.5) * 0.25, 0.05, 2)])],
+            setup={
+                "en": "one goal with a keeper, a server 20 m out and a "
+                      "defender on the attacker's inside shoulder",
+                "zh-CN": "一个球门带门将，20 米外一名喂球人，"
+                         "防守者站在进攻者内侧肩位",
+            },
             # The 8 feeds it — the duel starts with the ball arriving, which
             # is what makes it a duel and not a jog at a mannequin.
             ball=1,
-            ball_to=[(0, 0), (0, 1), ((0.5, 0.05), 2)],
+            ball_to=[(0, 0), (0, 1),
+                     ((0.5 - (carry[0] - 0.5) * 0.30, 0.02), 2)],
         ))
     return out
 
@@ -1948,33 +2191,47 @@ CROSS_NOTE = {
 
 
 def crossing_family() -> list[Drill]:
-    """Where the cross is delivered from, and where it is attacked."""
-    specs = [("near_post", "near post", 0.40, 0.14),
-             ("far_post", "far post", 0.64, 0.16),
-             ("cutback", "cutback", 0.50, 0.26),
-             ("deep", "deep", 0.52, 0.34)]
+    """Where the cross is delivered from, and where it is attacked.
+
+    Near and far are relative to the crosser: from the LEFT the near post is
+    the left one. Both sides used to send the 9 to the same fixed spot, so
+    half the family had the striker attacking the wrong post.
+    """
     out = []
     for side, sx in [("left", 0.14), ("right", 0.86)]:
-        for key, label, tx, ty in specs[:2]:
+        sgn = 1.0 if sx > 0.5 else -1.0        # which side the cross comes from
+        near = (0.5 + sgn * 0.115, 0.10)       # front of the six-yard box
+        far = (0.5 - sgn * 0.115, 0.095)       # the back post
+        for key, label in [("near_post", "near post"), ("far_post", "far post")]:
+            target = near if key == "near_post" else far
+            second = (far[0] if key == "near_post" else near[0], 0.115)
             out.append(Drill(
                 id=f"cross_{side}_{key}", category="attacking", minutes=10, rel=True,
                 free=(side == "right" and key == "near_post"),
                 name=suffixed(CROSS_NAME, f"{side} · {label}"), note=CROSS_NOTE,
                 home=[
-                    P(sx, 0.44, "7", moves=[(sx + (0.5 - sx) * 0.12, 0.18, 0)]),
-                    P(0.5, 0.52, "9", moves=[(tx, ty, 1)]),
-                    P(0.5 + (0.5 - sx) * 0.5, 0.56, "10",
-                      moves=[(1.0 - tx, ty + 0.06, 1)]),
-                    P(0.5, 0.66, "8", moves=[(0.5, 0.34, 1)]),
+                    P(sx, 0.44, "7", moves=[(sx - sgn * 0.02, 0.14, 0)]),
+                    P(0.5 - sgn * 0.06, 0.44, "9", moves=[(*target, 1)]),
+                    P(0.5 - sgn * 0.20, 0.54, "10", moves=[(*second, 1)]),
+                    # The third runner holds his run and arrives late for
+                    # anything that is cut back or headed out.
+                    P(0.5 + sgn * 0.12, 0.62, "8", moves=[(0.5, 0.25, 1)]),
                 ],
                 away=[
-                    P(0.42, 0.18, "A"), P(0.58, 0.18, "B"),
-                    P(0.5, 0.09, "GK", role="GK"),
+                    P(0.425, 0.19, "A"), P(0.575, 0.19, "B"),
+                    P(0.5, 0.03, "GK", role="GK",
+                      moves=[(0.5 + (target[0] - 0.5) * 0.12, 0.045, 1)]),
                 ],
-                markers=[M(0.5, 0.04, "square", "")],
+                setup={
+                    "en": "one goal with a keeper, two centre-backs and a "
+                          "three-man box: near post, far post and the edge",
+                    "zh-CN": "一个球门带门将，两名中卫；进攻方三人包抄："
+                             "近门柱、远门柱和禁区前沿",
+                },
                 ball=0,
-                # Carried down the line with the 7's own run, then delivered
-                # to the point the 9 is attacking.
+                # Carried to the byline with the 7's own run, then delivered
+                # to the post the 9 is attacking — never to the shirt he
+                # started on.
                 ball_to=[(0, 0), (1, 1)],
             ))
     return out
@@ -2003,35 +2260,51 @@ SHAPE_NOTE = {
 
 
 def shape_family() -> list[Drill]:
-    """High, mid and low block — the same team, three heights."""
+    """High, mid and low block — the same team, three heights.
+
+    Compactness is the subject, so the numbers have to be the ones a coach
+    would say out loud: the back line, the midfield ten metres in front of
+    it, and their build-up ten metres in front of that. The low block used
+    to have its back four inside its own six-yard box with the midfield 20 m
+    away and the ball on the halfway line.
+    """
     blocks = [("high", 0.42, "high block"), ("mid", 0.56, "mid block"),
-              ("low", 0.72, "low block")]
+              ("low", 0.74, "low block")]
     out = []
     for key, base, label in blocks:
-        back = [(0.16, base + 0.14), (0.38, base + 0.16), (0.62, base + 0.16), (0.84, base + 0.14)]
-        mid = [(0.26, base - 0.02), (0.50, base), (0.74, base - 0.02)]
+        back = [(0.16, base + 0.10), (0.38, base + 0.12),
+                (0.62, base + 0.12), (0.84, base + 0.10)]
+        mid = [(0.26, base - 0.01), (0.50, base + 0.01), (0.74, base - 0.01)]
         out.append(Drill(
             id=f"shape_{key}", category="defending", minutes=12, rel=True,
             free=(key == "mid"),
             name=suffixed(SHAPE_NAME, label), note=SHAPE_NOTE,
+            # One slide each: two legs drew a numbered waypoint disc on
+            # every defender, and four of them read as four loose balls.
             home=[
-                P(x, y, f"{i + 2}", moves=[(x + 0.08, y - 0.02, 0), (x + 0.12, y, 1)])
+                P(x, y, f"{i + 2}", moves=[(x + 0.10, y - 0.01, 1)])
                 for i, (x, y) in enumerate(back)
             ] + [
-                P(x, y, f"{i + 6}", moves=[(x + 0.10, y - 0.03, 0)])
+                P(x, y, f"{i + 6}", moves=[(x + 0.09, y - 0.02, 0)])
                 for i, (x, y) in enumerate(mid)
             ],
             away=[
-                P(0.22, base - 0.20, "10", moves=[(0.50, base - 0.18, 0)]),
-                P(0.62, base - 0.24, "9", moves=[(0.78, base - 0.20, 1)]),
+                P(0.22, base - 0.11, "10", moves=[(0.50, base - 0.09, 0)]),
+                P(0.62, base - 0.13, "9", moves=[(0.78, base - 0.11, 1)]),
             ],
+            setup={
+                "en": "a back four with a midfield three ten metres in "
+                      "front of it, against two who move the ball across",
+                "zh-CN": "四后卫加身前十米的三中场，对方两人来回倒球",
+            },
             # The block moves because the ball moves: their 10 carries it
             # infield and switches to the 9 going wide — each slide of the
             # lines answers one leg of it.
-            ball=(0.24, base - 0.22),
+            ball=(0.24, base - 0.13),
             ball_to=[("a0", 0), ("a1", 1)],
         ))
     return out
+
 
 
 GK_NAME = {"en": "Goalkeeping", "en-GB": "Goalkeeping", "zh-CN": "门将训练",
@@ -2056,41 +2329,103 @@ GK_NOTE = {
 
 
 def gk_family() -> list[Drill]:
-    """Goalkeeping — the position every rival's library covers and ours didn't."""
+    """Goalkeeping — the position every rival's library covers and ours didn't.
+
+    The keeper starts ON HIS LINE. He used to be authored at 0.10 of the
+    pitch, which is the penalty spot: every save was drawn 11 m off the goal
+    line, every "shot" stopped where he was standing anyway, and the drill
+    read as a ball rolling to a stop in the six-yard box.
+
+    Each board is the same three beats — a serve the keeper deals with, his
+    distribution back out, and a second serve from the other side — laid out
+    for whichever part of the job the variant trains.
+    """
     specs = [
-        ("handling", "handling", [(0.34, 0.30), (0.66, 0.30), (0.50, 0.36)]),
-        ("angles", "angles", [(0.22, 0.24), (0.50, 0.30), (0.78, 0.24)]),
-        ("crosses", "crosses", [(0.10, 0.26), (0.90, 0.26)]),
-        ("distribution", "distribution", [(0.20, 0.52), (0.80, 0.52)]),
-        ("one_v_one", "1v1", [(0.50, 0.46)]),
+        # key, label, servers, their moves, the keeper's, the ball's legs
+        ("handling", "handling",
+         [(0.32, 0.19), (0.68, 0.19), (0.50, 0.27)],
+         {1: [(0.64, 0.22, 1)]},
+         [(0.42, 0.06, 0), (0.58, 0.055, 1)],
+         [("a0", 0), (1, 1), ("a0", 2)]),
+        ("angles", "angles",
+         [(0.18, 0.20), (0.50, 0.26), (0.82, 0.20)],
+         {2: [(0.80, 0.23, 1)]},
+         # Narrow the angle toward whoever is about to strike: that is the
+         # whole exercise, and it is a shuffle across the line, not a walk
+         # out to the penalty spot.
+         [(0.410, 0.055, 0), (0.590, 0.05, 1)],
+         [("a0", 0), (2, 1), ("a0", 2)]),
+        ("crosses", "crosses",
+         [(0.10, 0.12), (0.90, 0.12)],
+         {1: [(0.88, 0.16, 1)]},
+         # Off the line and across to take it at the highest point.
+         [(0.42, 0.065, 0), (0.58, 0.06, 1)],
+         [("a0", 0), (1, 1), ("a0", 2)]),
+        ("distribution", "distribution",
+         [(0.34, 0.24), (0.14, 0.46), (0.86, 0.46)],
+         {1: [(0.12, 0.38, 0)], 2: [(0.88, 0.38, 0), (0.84, 0.30, 1)]},
+         [(0.47, 0.07, 0)],
+         [("a0", 0), (2, 1)]),
+        ("one_v_one", "1v1",
+         [(0.50, 0.34)],
+         {0: [(0.50, 0.20, 0)]},
+         # Out to narrow it while the striker is still travelling, then set
+         # and spread as he strikes.
+         [(0.50, 0.085, 0), (0.47, 0.10, 1)],
+         [("a0", 1)]),
         # A save starts from being set: feet still before the strike.
-        ("set_position", "set position", [(0.36, 0.34), (0.64, 0.34)]),
-        # The modern half of the job — starting high and eating the ball
-        # played in behind.
-        ("sweeper", "sweeping behind the line", [(0.30, 0.60), (0.70, 0.60)]),
+        ("set_position", "set position",
+         [(0.36, 0.22), (0.64, 0.22)],
+         {1: [(0.62, 0.25, 1)]},
+         [(0.42, 0.06, 0), (0.58, 0.055, 1)],
+         [("a0", 0), (1, 1), ("a0", 2)]),
     ]
     out = []
-    for key, label, servers in specs:
+    for key, label, servers, smoves, gkmoves, legs in specs:
         out.append(Drill(
             id=f"gk_{key}", category="goalkeeping", minutes=10, rel=True,
             free=(key == "handling"),
             name=suffixed(GK_NAME, label), note=GK_NOTE,
             home=[
-                P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.2, y - 0.06, i % 2)])
+                P(x, y, f"{i + 1}", moves=smoves.get(i, []))
                 for i, (x, y) in enumerate(servers)
             ],
-            away=[P(0.5, 0.10, "GK", role="GK",
-                    moves=[(0.5 + (servers[0][0] - 0.5) * 0.35, 0.14, 0),
-                           (0.5 + (servers[-1][0] - 0.5) * 0.35, 0.13, 1)])],
-            markers=[M(0.5, 0.04, "square", "")],
-            # Server 1 strikes on the first beat, the last server on the
-            # second — the two saves the keeper's own two moves answer.
-            ball=0,
-            ball_to=[("a0", 0),
-                     (len(servers) - 1, 1)] if len(servers) > 1 else
-                    [("a0", 0)],
-            ball_moves=[],
+            away=[P(0.5, 0.03, "GK", role="GK", moves=gkmoves)],
+            setup={
+                "en": "one goal, a keeper on his line and two or three "
+                      "servers; every ball is dealt with and played back out",
+                "zh-CN": "一个球门，门将站门线上，另有 2–3 名喂球者；"
+                         "每一球都要处理干净再出球",
+            },
+            # The keeper is where the ball stops: a serve that dies on the
+            # penalty spot has taught nobody anything.
+            ball=0 if key != "one_v_one" else None,
+            ball_follow=0 if key == "one_v_one" else None,
+            ball_to=legs,
         ))
+    # The modern half of the job — starting high and eating the ball played
+    # in behind. It needs a back line to sweep behind, so it is its own
+    # board rather than another server drill.
+    out.append(Drill(
+        id="gk_sweeper", category="goalkeeping", minutes=10, rel=True,
+        name=suffixed(GK_NAME, "sweeping behind the line"), note=GK_NOTE,
+        home=[P(0.50, 0.62, "9", moves=[(0.36, 0.46, 0)])],
+        away=[
+            P(0.50, 0.03, "GK", role="GK", moves=[(0.50, 0.19, 0)]),
+            P(0.24, 0.42, "5", moves=[(0.26, 0.52, 1)]),
+            P(0.70, 0.42, "4", moves=[(0.68, 0.52, 1)]),
+            P(0.12, 0.50, "3", moves=[(0.14, 0.42, 1)]),
+        ],
+        setup={
+            "en": "a back four holding a high line 40 m out, one striker "
+                  "and a keeper starting on his line",
+            "zh-CN": "后防线压到离门 40 米处，一名前锋、一名门将站在门线上",
+        },
+        # The ball in behind, the keeper out to the edge of the box to eat
+        # it, then straight back out to the free full-back.
+        ball=0,
+        ball_to=[("a0", 0), ("a3", 1)],
+    ))
     return out
 
 
@@ -2117,30 +2452,43 @@ COND_NOTE = {
 
 
 def conditioning_family() -> list[Drill]:
-    """Running with a reason: every shuttle ends in a technical action."""
-    specs = [("shuttle_finish", "shuttle to finish", 3),
-             ("repeat_sprint", "repeat sprints", 4),
-             ("box_to_box", "box to box", 2)]
+    """Running with a reason: every shuttle ends in a technical action.
+
+    A shuttle is out and back on one lane, not a slalom — the "shuttle to
+    finish" board used to be the same zig-zag as the repeat-sprint one. The
+    cones sit a token-width off each turning point so the turn's own marker
+    does not hide them.
+    """
+    # key, label, the turning points, where the cones go
+    specs = [
+        ("shuttle_finish", "shuttle to finish",
+         [(0.50, 0.60), (0.50, 0.86), (0.50, 0.56), (0.50, 0.82)],
+         [(0.40, 0.60), (0.40, 0.86)]),
+        ("repeat_sprint", "repeat sprints",
+         [(0.34, 0.80), (0.66, 0.72), (0.34, 0.62), (0.66, 0.54)],
+         [(0.24, 0.80), (0.76, 0.72), (0.24, 0.62), (0.76, 0.54)]),
+        ("box_to_box", "box to box",
+         [(0.50, 0.84), (0.50, 0.50)],
+         [(0.40, 0.84), (0.40, 0.50)]),
+    ]
     out = []
-    for key, label, reps in specs:
-        legs = []
-        y = 0.78
-        for r in range(reps):
-            legs.append((0.5 + (0.16 if r % 2 else -0.16), y, r))
-            y -= 0.16
+    for key, label, legs, cones in specs:
+        reps = len(legs)
         out.append(Drill(
             id=f"cond_{key}", category="conditioning", minutes=12, rel=True,
             free=(key == "shuttle_finish"),
             name=suffixed(COND_NAME, label), note=COND_NOTE,
-            home=[P(0.5, 0.86, "1", moves=legs + [(0.5, 0.20, reps)])],
-            markers=[M(0.34, 0.78), M(0.66, 0.78), M(0.34, 0.50), M(0.66, 0.50),
-                     M(0.5, 0.04, "square", "")],
+            home=[P(0.50, 0.90, "1",
+                    moves=[(x, y, i) for i, (x, y) in enumerate(legs)]
+                          + [(0.50, 0.24, reps)])],
+            markers=[M(x, y) for x, y in cones],
             # Ball at the feet the whole way — the point of the family is
             # that the running is never without the ball — then a strike.
             ball_follow=0,
-            ball_to=[((0.5, 0.05), reps + 1)],
+            ball_to=[((0.5, 0.02), reps + 1)],
         ))
     return out
+
 
 
 
@@ -2166,7 +2514,13 @@ SWITCH_NOTE = {
 
 
 def switch_family() -> list[Drill]:
-    """Switching the point of attack, from each third."""
+    """Switching the point of attack, from each third.
+
+    Every receiver used to have his marker drawn on top of him and the
+    switch itself ran through the pile. The markers now arrive a body-width
+    short, and the ball travels over the top of the far-side midfielder into
+    the full-back breaking clear.
+    """
     thirds = [("back", 0.76, "own third"), ("middle", 0.56, "middle third"),
               ("final", 0.34, "final third")]
     out = []
@@ -2176,17 +2530,25 @@ def switch_family() -> list[Drill]:
             free=(key == "middle"),
             name=suffixed(SWITCH_NAME, label), note=SWITCH_NOTE,
             home=[
-                P(0.14, y + 0.06, "3", moves=[(0.14, y - 0.04, 0)]),
-                P(0.38, y + 0.02, "6", moves=[(0.42, y - 0.02, 0)]),
-                P(0.62, y - 0.02, "8", moves=[(0.70, y - 0.06, 1)]),
-                P(0.88, y + 0.04, "2", moves=[(0.88, y - 0.10, 1)]),
-                P(0.50, y - 0.16, "9"),
+                P(0.10, y + 0.08, "3", moves=[(0.10, y - 0.02, 0)]),
+                P(0.38, y + 0.04, "6", moves=[(0.44, y - 0.02, 0)]),
+                P(0.62, y - 0.18, "8"),
+                P(0.90, y + 0.02, "2", moves=[(0.90, y - 0.12, 1)]),
+                P(0.46, y - 0.22, "9"),
             ],
             away=[
-                P(0.24, y - 0.02, "A", moves=[(0.20, y, 0)]),
-                P(0.44, y - 0.06, "B", moves=[(0.36, y - 0.02, 0), (0.56, y - 0.04, 1)]),
-                P(0.66, y - 0.10, "C", moves=[(0.58, y - 0.06, 0), (0.76, y - 0.08, 1)]),
+                P(0.24, y + 0.02, "A", moves=[(0.26, y - 0.04, 0)]),
+                P(0.52, y - 0.02, "B", moves=[(0.40, y - 0.10, 0)]),
+                # He slides infield with the ball and is the man the switch
+                # is played over: he must be short of the far-side runner.
+                P(0.72, y - 0.06, "C", moves=[(0.58, y - 0.08, 1)]),
             ],
+            setup={
+                "en": "a full pitch width in one third: two full-backs, two "
+                      "midfielders and a forward against three who shift",
+                "zh-CN": "在一个区域内拉满整个球场宽度：两名边后卫、"
+                         "两名中场和一名前锋，对三名横移的防守者",
+            },
             ball=0,
             # 3 draws them left through the 6, then ONE pass across to the 2
             # arriving on the far side — the note's whole argument.
@@ -2218,31 +2580,72 @@ COMBO_NOTE = {
 
 
 def combination_family() -> list[Drill]:
-    """Three-player combinations by lane and by shape."""
-    specs = [("wall_left", "wall pass left", 0.22), ("wall_right", "wall pass right", 0.78),
-             ("overlap_left", "overlap left", 0.20), ("overlap_right", "overlap right", 0.80),
-             ("underlap", "underlap", 0.64)]
+    """Three-player combinations by lane and by shape.
+
+    A wall pass and an overlap are different patterns and used to be drawn
+    as the same board: 7 to 10 to the overlapping 2, five times. A wall pass
+    (1-2) goes 7 → 10 → back to 7 first-time while 7 sprints past his man;
+    an overlap gives the ball to the man coming round the OUTSIDE; an
+    underlap sends him through the half-space INSIDE.
+    """
+    # Authored down the left; the right-side variants are mirrored. Each
+    # entry: the 7, the 10, the third man, the defender, the ball's legs.
+    shapes = {
+        "wall": (
+            ((0.18, 0.62), [(0.22, 0.34, 1)]),          # 7 passes and goes
+            ((0.40, 0.50), []),                         # the wall: one touch, no run
+            ((0.10, 0.74), [(0.12, 0.50, 1)]),          # decoy width
+            ((0.26, 0.46), [(0.30, 0.62, 1)]),          # played round, left behind
+            [(1, 0), (0, 1)],
+        ),
+        "overlap": (
+            ((0.20, 0.58), [(0.28, 0.44, 0)]),
+            ((0.46, 0.44), [(0.52, 0.36, 0)]),           # opens up inside
+            ((0.30, 0.74), [(0.14, 0.56, 0), (0.16, 0.32, 1)]),   # round the outside
+            ((0.34, 0.36), [(0.38, 0.50, 1)]),
+            [(1, 0), (2, 1)],
+        ),
+        "underlap": (
+            ((0.14, 0.56), [(0.16, 0.38, 0)]),          # 7 holds the touchline
+            ((0.46, 0.46), []),                         # 10 inside him
+            ((0.16, 0.74), [(0.26, 0.64, 0), (0.36, 0.26, 1)]),   # inside, diagonal
+            ((0.30, 0.40), [(0.28, 0.46, 1)]),          # A between the two
+            [(1, 0), (2, 1)],
+        ),
+    }
+    specs = [("wall_left", "wall pass left", "wall", False),
+             ("wall_right", "wall pass right", "wall", True),
+             ("overlap_left", "overlap left", "overlap", False),
+             ("overlap_right", "overlap right", "overlap", True),
+             ("underlap", "underlap", "underlap", False)]
     out = []
-    for key, label, x in specs:
-        inside = 0.5 + (x - 0.5) * 0.45
+    for key, label, shape, flip in specs:
+        seven, ten, third, defender, legs = shapes[shape]
+
+        def mx(v):
+            return (1.0 - v[0], v[1]) if flip else (v[0], v[1])
+
+        def mv(moves):
+            return [(1.0 - m[0] if flip else m[0], m[1], m[2]) for m in moves]
+
         out.append(Drill(
             id=f"combo_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "wall_right"),
             name=suffixed(COMBO_NAME, label), note=COMBO_NOTE,
             home=[
-                P(x, 0.60, "7", moves=[(x, 0.44, 0), (inside, 0.28, 1)]),
-                P(inside, 0.52, "10", moves=[(inside + (0.5 - inside) * 0.4, 0.46, 0)]),
-                P(x + (0.5 - x) * 0.12, 0.72, "2",
-                  moves=[(x + (x - 0.5) * 0.12, 0.48, 0), (x, 0.26, 1)]),
+                P(*mx(seven[0]), "7", moves=mv(seven[1])),
+                P(*mx(ten[0]), "10", moves=mv(ten[1])),
+                P(*mx(third[0]), "2", moves=mv(third[1])),
             ],
-            away=[
-                P(x + (0.5 - x) * 0.25, 0.42, "A", moves=[(x + (0.5 - x) * 0.18, 0.36, 1)]),
-            ],
+            away=[P(*mx(defender[0]), "A", moves=mv(defender[1]))],
             markers=[M(0.5, 0.04, "square", "")],
+            setup={
+                "en": "a wide channel in the attacking half, three "
+                      "attackers against one defender, one ball",
+                "zh-CN": "进攻半场一条边路通道，三打一，一颗球",
+            },
             ball=0,
-            # 7 into the 10's feet, the 10 lays it into the runner's path —
-            # the third man beyond the ball the note demands.
-            ball_to=[(1, 0), (2, 1)],
+            ball_to=legs,
         ))
     return out
 
@@ -2268,39 +2671,77 @@ FK_NOTE = {
 
 
 def free_kick_family() -> list[Drill]:
-    """Free kicks by distance and angle — direct, layoff, runner, wide."""
-    specs = [("direct_central", "direct", 0.50, 0.42),
-             ("layoff", "layoff", 0.44, 0.46),
-             ("runner", "runner across", 0.56, 0.44),
-             ("wide_left", "wide left", 0.22, 0.36),
-             ("wide_right", "wide right", 0.78, 0.36)]
+    """Free kicks by distance and angle — direct, layoff, runner, wide.
+
+    They used to be taken from the top of the centre circle, 45 m out, with
+    the wall 20 m away on the edge of the box: nobody shoots from there and
+    no wall stands there. The ball is now 22-25 m from goal with the wall at
+    its nine metres, and every shot crosses the wall line in a gap.
+    """
+    specs = [
+        # key, label, the two over the ball, the routine man's run,
+        # the box man's run, wall centre + how many in it, the ball's legs
+        ("direct_central", "direct",
+         (0.445, 0.215), (0.555, 0.215), (0.600, 0.240),
+         (0.30, 0.32), (0.24, 0.10), (0.70, 0.32), (0.76, 0.10),
+         (0.50, 0.128), 4, [((0.5, 0.02), 0)]),
+        ("layoff", "layoff",
+         (0.440, 0.215), (0.550, 0.215), (0.600, 0.250),
+         # Rolled three metres square and struck through the gap at the end
+         # of the wall — not carried 30 m from the halfway line.
+         (0.26, 0.30), (0.33, 0.225), (0.70, 0.30), (0.78, 0.10),
+         (0.50, 0.128), 4, [(2, 0), ((0.5, 0.02), 1)]),
+        ("runner", "runner across",
+         (0.560, 0.215), (0.450, 0.215), (0.400, 0.250),
+         # He starts beside the wall and runs across its face to meet a
+         # rolled ball outside its end.
+         (0.30, 0.245), (0.78, 0.185), (0.20, 0.34), (0.22, 0.10),
+         (0.50, 0.128), 4, [(2, 0), ((0.5, 0.02), 1)]),
+        ("wide_left", "wide left",
+         (0.180, 0.220), (0.260, 0.270), (0.320, 0.300),
+         (0.72, 0.30), (0.50, 0.24), (0.56, 0.34), (0.66, 0.08),
+         # A wide kick's wall stands on the near-post line, three men, and
+         # the ball is whipped past its outside edge to the far post.
+         (0.263, 0.151), 3, [(3, 0), ((0.5, 0.02), 1)]),
+        ("wide_right", "wide right",
+         (0.820, 0.220), (0.740, 0.270), (0.680, 0.300),
+         (0.28, 0.30), (0.50, 0.24), (0.44, 0.34), (0.34, 0.08),
+         (0.737, 0.151), 3, [(3, 0), ((0.5, 0.02), 1)]),
+    ]
     out = []
-    for key, label, bx, by in specs:
+    for (key, label, ten, seven, seven_to, eight, eight_to, nine, nine_to,
+         wall, wall_n, legs) in specs:
+        xs = [wall[0] + (i - (wall_n - 1) / 2) * 0.09 for i in range(wall_n)]
         out.append(Drill(
             id=f"fk_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "direct_central"), tight=True,
             name=suffixed(FK_NAME, label), note=FK_NOTE,
             home=[
-                P(bx - 0.05, by, "10"),
-                P(bx + 0.05, by, "7", moves=[(bx + 0.08, by - 0.06, 0)]),
-                P(0.5 + (bx - 0.5) * 1.4, by + 0.08, "8",
-                  moves=[(0.5 + (bx - 0.5) * 0.4, by - 0.16, 0), (0.5, 0.16, 1)]),
-                P(0.28, 0.20, "9", moves=[(0.44, 0.16, 1)]),
+                P(*ten, "10"),
+                P(*seven, "7", moves=[(*seven_to, 0)]),
+                P(*eight, "8", moves=[(*eight_to, 0 if key != "direct_central" else 1)]),
+                P(*nine, "9", moves=[(*nine_to, 1)]),
             ],
             away=[
                 # A wall is shoulder to shoulder, but four 44pt dots 14pt
                 # apart render as one unreadable blob. Spread to where the
                 # circles still touch and the labels can be told apart.
-                P(0.365, 0.28, "W1"), P(0.455, 0.28, "W2"),
-                P(0.545, 0.28, "W3"), P(0.635, 0.28, "W4"),
-                P(0.50, 0.10, "GK", role="GK"),
-            ],
-            markers=[M(0.5, 0.04, "square", "")],
+                P(x, wall[1], f"W{i + 1}") for i, x in enumerate(xs)
+            ] + [P(0.50, 0.03, "GK", role="GK",
+                   moves=[(0.5 + (ten[0] - 0.5) * 0.10, 0.045, 0)])],
+            setup={
+                "en": "the ball 22-25 m from goal, a wall of "
+                      f"{wall_n} at its nine metres, a keeper, and two "
+                      "runners for the rebound",
+                "zh-CN": "球距门 22–25 米，"
+                         f"{wall_n} 人人墙站在 9.15 米处，一名门将，"
+                         "两名球员跟进抢第二点",
+            },
             ball=0,
             # Direct strikes go at goal on the first beat; the worked
-            # routines go through the 8's run and finish on the second.
-            ball_to=([((0.5, 0.05), 0)] if key.startswith("direct")
-                     else [(2, 0), ((0.5, 0.05), 1)]),
+            # routines go through the 8 (or, wide, the 9) and finish on the
+            # second.
+            ball_to=legs,
         ))
     return out
 
@@ -2327,27 +2768,54 @@ TRANSITION_NOTE = {
 
 
 def transition_family() -> list[Drill]:
-    """Transition games at three sizes, each with a target to attack."""
+    """Transition games at three sizes: the turnover, then the counter.
+
+    Drawn on the same coned area as the small-sided games — both teams
+    inside it, mixed — because a transition is a moment inside a game, not
+    two blocks standing in their own halves of a full pitch.
+    """
     out = []
     for n, minutes in [(4, 15), (5, 18), (6, 20)]:
-        cols = min(n, 3)
-        rows = (n + cols - 1) // cols
-        home = grid(cols, rows, 0.22, 0.74, 0.78, 0.60)[:n]
-        away = grid(cols, rows, 0.22, 0.26, 0.78, 0.40)[:n]
+        hw, hh, rows, hs, aw = game_area(n)
+        fwd = n - 1                              # home's most advanced man
+        runner = rows[0]                         # the mid-row's left-sided one
+        loser = aw[n - 1]                        # theirs, the one who loses it
+        # He steps across in front of the man on the ball, takes it off
+        # him and drives out with it.
+        steal = (hs[fwd][0] - hw * 0.22, hs[fwd][1] - hh * 0.20)
+        # And the man who lost it turns and chases back inside the area.
+        chase = (loser[0] + hw * 0.05, loser[1] + hh * 0.30)
+        run = (hs[runner][0] + (0.5 - hs[runner][0]) * 0.15,
+               hs[fwd][1] - hh * 0.30)
         out.append(Drill(
             id=f"transition_{n}v{n}", category="ssg", minutes=minutes, rel=True,
             free=(n == 5),
             name=suffixed(TRANSITION_NAME, f"{n}v{n}"), note=TRANSITION_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.12, i % 2)])
-                  for i, (x, y) in enumerate(home)],
-            away=[P(x, y, chr(65 + i), moves=[(x, y + 0.10, i % 2)])
-                  for i, (x, y) in enumerate(away)],
-            markers=[M(0.5, 0.06, "square"), M(0.5, 0.94, "square"),
-                     M(0.14, 0.50), M(0.86, 0.50)],
-            ball=0,
-            # The turnover's first two passes, played while both blocks are
-            # still moving — the five seconds the note is about.
-            ball_to=[(1, 0), (2 % n, 1)],
+            home=[
+                P(x, y, f"{i + 1}",
+                  moves=([(*steal, 0)] if i == fwd else
+                         [(*run, 1)] if i == runner else []))
+                for i, (x, y) in enumerate(hs)
+            ],
+            away=[
+                P(x, y, chr(65 + i),
+                  moves=[(*chase, 1)] if i == n - 1 else [])
+                for i, (x, y) in enumerate(aw)
+            ],
+            markers=game_markers(hw, hh),
+            setup={
+                "en": f"the same {6 * n}x{5 * n} m area, {n} v {n}; every "
+                      f"turnover is played out for five seconds before the "
+                      f"coach restarts it",
+                "zh-CN": f"同样约 {6 * n}×{5 * n} 米的场地，{n} 对 {n}；"
+                         f"每次转换都真打五秒，教练再重新发球",
+            },
+            # Their ball, at their forward's feet — the board starts a
+            # heartbeat before the turnover, which is the whole subject.
+            ball=(loser[0] + 0.046, loser[1] + 0.052),
+            # Won on the first beat, gone forward on the second: the five
+            # seconds the note is about, drawn.
+            ball_to=[(fwd, 0), (runner, 1)],
         ))
     return out
 
@@ -2375,31 +2843,52 @@ TOUCH_NOTE = {
 
 
 def first_touch_family() -> list[Drill]:
-    """Receiving under different pressure directions."""
-    specs = [("from_behind", "pressed from behind", 0.50, 0.34),
-             ("side_on", "pressed side on", 0.34, 0.44),
-             ("open_body", "open body", 0.66, 0.44),
-             ("in_traffic", "in traffic", 0.38, 0.40)]
+    """Receiving under different pressure directions.
+
+    Every one of these is the same picture: the receiver checks TOWARD the
+    server, takes it with a marker on him, and his first touch goes away
+    from wherever the pressure is. It used to send the receiver 30 m away
+    from the passer to a far cone, so the ball landed on the presser.
+    """
+    # key, label, presser start, presser end, where the first touch goes
+    specs = [
+        ("from_behind", "pressed from behind", (0.50, 0.38), (0.50, 0.45),
+         (0.62, 0.36)),
+        ("side_on", "pressed side on", (0.34, 0.46), (0.37, 0.52),
+         (0.68, 0.40)),
+        ("open_body", "open body", (0.66, 0.46), (0.63, 0.52),
+         (0.32, 0.40)),
+        ("in_traffic", "in traffic", (0.34, 0.44), (0.37, 0.52),
+         (0.50, 0.34)),
+    ]
     out = []
-    for key, label, px, py in specs:
+    for key, label, a0, a1, touch in specs:
         out.append(Drill(
             id=f"touch_{key}", category="warmup", minutes=8, rel=True,
             free=(key == "open_body"),
             name=suffixed(TOUCH_NAME, label), note=TOUCH_NOTE,
             home=[
-                P(0.50, 0.72, "1", moves=[(0.50, 0.64, 0)]),
-                P(0.50, 0.48, "2", moves=[(px, py - 0.10, 0), (0.5, 0.30, 1)]),
+                P(0.50, 0.76, "1"),
+                # Checks five metres toward the server — the movement that
+                # makes the pass arrive when the marker is still behind him.
+                P(0.50, 0.46, "2", moves=[(0.50, 0.56, 0), (*touch, 1)]),
             ],
             # Traffic means more than one body; with a single presser the
             # variant was just "side on" again, drawn on top of the receiver.
-            away=[P(px, py, "A", moves=[(px + (0.5 - px) * 0.4, py - 0.06, 0)])]
-                 + ([P(0.62, 0.40, "B", moves=[(0.56, 0.46, 0)])]
+            away=[P(*a0, "A", moves=[(*a1, 0)])]
+                 + ([P(0.66, 0.44, "B", moves=[(0.63, 0.52, 0)])]
                     if key == "in_traffic" else []),
-            markers=[M(0.30, 0.62), M(0.70, 0.62), M(0.30, 0.34), M(0.70, 0.34)],
+            markers=[M(0.30, 0.66), M(0.70, 0.66), M(0.30, 0.34), M(0.70, 0.34)],
+            setup={
+                "en": "two players 20 m apart inside a 20 m square of cones, "
+                      "one or two pressers, one ball",
+                "zh-CN": "20 米见方的锥标区，两名球员相距 20 米，"
+                         "另有 1–2 名施压者，一颗球",
+            },
             ball=0,
-            # Served into the receiver as the presser arrives; his touch
-            # takes it to space (his own second move) and back to the server.
-            ball_to=[(1, 0), (1, 1), (0, 1)],
+            # Served into the checking receiver, whose first touch takes it
+            # away from the pressure and out of the square.
+            ball_to=[(1, 0), (1, 1)],
         ))
     return out
 
@@ -2426,33 +2915,62 @@ HEADER_NOTE = {
 
 
 def heading_family() -> list[Drill]:
-    """Attacking and defensive heading, from a cross and from a clearance."""
-    specs = [("attacking", "attacking", 0.16, 0.30, 0.46, 0.16),
-             ("defensive", "defensive", 0.84, 0.30, 0.44, 0.22)]
+    """Attacking and defensive heading, from a cross and from a clearance.
+
+    The defensive one used to be headed by the attacking 9, 45 m backwards
+    to an empty spot near halfway, while the defender it is named after
+    never touched the ball. The defender attacks it now, and it goes high
+    and wide to the full-back — which is where a clearance goes.
+    """
     out = []
-    for key, label, sx, sy, tx, ty in specs:
-        out.append(Drill(
-            id=f"header_{key}",
-            category="finishing" if key == "attacking" else "defending",
-            minutes=8, rel=True,
-            free=(key == "attacking"),
-            name=suffixed(HEADER_NAME, label), note=HEADER_NOTE,
-            home=[
-                P(sx, sy, "7", moves=[(sx + (0.5 - sx) * 0.15, sy - 0.10, 0)]),
-                P(0.5, 0.46, "9", moves=[(tx, ty, 0)]),
-            ],
-            away=[
-                P(0.54, 0.30, "5", moves=[(tx + 0.06, ty + 0.03, 0)]),
-                P(0.50, 0.09, "GK", role="GK"),
-            ],
-            markers=[M(0.5, 0.04, "square", "")],
-            ball=0,
-            # The 7 swings it to where the 9 attacks it; the header goes at
-            # goal (attacking) or is cleared long upfield (defensive).
-            ball_to=[(1, 0),
-                     (((0.5, 0.05), 1) if key == "attacking"
-                      else ((0.5, 0.62), 1))],
-        ))
+    out.append(Drill(
+        id="header_attacking", category="finishing", minutes=8, rel=True,
+        free=True,
+        name=suffixed(HEADER_NAME, "attacking"), note=HEADER_NOTE,
+        home=[
+            P(0.14, 0.32, "7", moves=[(0.20, 0.18, 0)]),
+            # A short arced run to the near post, not a 40 m sprint from
+            # the centre spot.
+            P(0.50, 0.30, "9", moves=[(0.40, 0.13, 0)]),
+        ],
+        away=[
+            P(0.62, 0.26, "5", moves=[(0.52, 0.16, 0)]),
+            P(0.50, 0.03, "GK", role="GK"),
+        ],
+        setup={
+            "en": "a server on the wing, a striker on the penalty spot and "
+                  "a centre-back on him; one goal with a keeper",
+            "zh-CN": "边路一名传中人，一名前锋站点球点、一名中卫贴身，"
+                     "一个球门带门将",
+        },
+        ball=0,
+        ball_to=[(1, 0), ((0.5, 0.02), 1)],
+    ))
+    out.append(Drill(
+        id="header_defensive", category="defending", minutes=8, rel=True,
+        name=suffixed(HEADER_NAME, "defensive"), note=HEADER_NOTE,
+        home=[
+            P(0.86, 0.32, "7", moves=[(0.80, 0.18, 0)]),
+            P(0.50, 0.34, "9", moves=[(0.60, 0.14, 0)]),
+        ],
+        away=[
+            # The defender attacks the ball in front of his man and heads
+            # it away from goal, high and wide.
+            P(0.38, 0.28, "5", moves=[(0.46, 0.14, 0)]),
+            P(0.14, 0.44, "3"),
+            P(0.50, 0.03, "GK", role="GK"),
+        ],
+        setup={
+            "en": "a server crossing from the wing, a striker attacking it "
+                  "and a centre-back in front of him, with a full-back wide "
+                  "as the outlet",
+            "zh-CN": "边路一名传中人，一名前锋抢点、一名中卫抢在他身前，"
+                     "边路另有一名边后卫作为解围目标",
+        },
+        ball=0,
+        # Won in front of the striker and cleared to the full-back.
+        ball_to=[("a0", 0), ("a1", 1)],
+    ))
     return out
 
 
@@ -2478,31 +2996,52 @@ GOALKICK_NOTE = {
 
 
 def goal_kick_family() -> list[Drill]:
-    """Goal kicks: short to the centre-backs, out to the full-back, long."""
-    specs = [("short", "short", [(0.22, 0.86), (0.78, 0.86)], 0.68, 0.64),
-             ("full_back", "to the full-back", [(0.10, 0.74), (0.90, 0.74)], 0.10, 0.62),
-             ("long", "long", [(0.36, 0.60), (0.64, 0.60)], 0.50, 0.40)]
+    """Goal kicks: short to the centre-backs, out to the full-back, long.
+
+    Each route is a chain of real passes now. The short one used to finish
+    its second pass on the 6's token while claiming to find the 8, and the
+    long one sent the ball to the 8 twice, so the ball icon was left in
+    open grass between his two positions.
+    """
+    # key, label, the two backs, the 6, the 8, the ball's legs
+    specs = [
+        ("short", "short",
+         [(0.16, 0.88), (0.84, 0.88)], (0.34, 0.68), (0.66, 0.58),
+         [(1, 0), (3, 1), (4, 2)]),
+        ("full_back", "to the full-back",
+         [(0.10, 0.76), (0.90, 0.76)], (0.50, 0.70), (0.16, 0.52),
+         [(1, 0), (4, 1), (3, 2)]),
+        ("long", "long",
+         [(0.26, 0.86), (0.74, 0.86)], (0.34, 0.56), (0.62, 0.36),
+         # Straight over the top, then knocked down to the 6 breaking on.
+         [(4, 0), (3, 1)]),
+    ]
     out = []
-    for key, label, backs, tx, ty in specs:
+    for key, label, backs, six, eight, legs in specs:
         out.append(Drill(
             id=f"goalkick_{key}", category="setpiece", minutes=10, rel=True,
             free=(key == "short"),
             name=suffixed(GOALKICK_NAME, label), note=GOALKICK_NOTE,
             home=[P(0.50, 0.95, "GK", role="GK")] + [
-                P(x, y, f"{i + 4}", moves=[(x + (x - 0.5) * 0.25, y - 0.06, 0)])
-                for i, (x, y) in enumerate(backs)
+                P(x, y, shirt, moves=[(x + (x - 0.5) * 0.20, y - 0.06, 0)])
+                for (x, y), shirt in zip(backs, ("4", "5"))
             ] + [
-                P(0.50, 0.74, "6", moves=[(0.5, 0.66, 0)]),
-                P(tx, ty, "8", moves=[(tx + (0.5 - tx) * 0.3, ty - 0.10, 1)]),
+                P(*six, "6", moves=[(six[0] - 0.06, six[1] - 0.08, 1)]),
+                P(*eight, "8", moves=[(eight[0] + (0.5 - eight[0]) * 0.25,
+                                       eight[1] - 0.08, 1)]),
             ],
-            # GK to the named outlet on the first beat — the route decided
-            # before the ball was placed — then inside to the 8 arriving.
-            ball_to=[(1 if key != "long" else 4, 0), (4, 1)],
             away=[
-                P(0.38, 0.82, "9", moves=[(0.30, 0.86, 0)]),
-                P(0.64, 0.80, "10", moves=[(0.56, 0.76, 0)]),
+                P(0.44, 0.80, "9", moves=[(0.50, 0.86, 0)]),
+                P(0.72, 0.66, "10", moves=[(0.66, 0.72, 0)]),
             ],
+            setup={
+                "en": "a keeper, two centre-backs, a holding midfielder and "
+                      "one outlet up the pitch, against two who press",
+                "zh-CN": "门将、两名中卫、一名后腰，前场一名接应点，"
+                         "对方两人上抢",
+            },
             ball=0,
+            ball_to=legs,
         ))
     return out
 
@@ -2530,25 +3069,41 @@ OVERLOAD_NOTE = {
 
 
 def overload_family() -> list[Drill]:
-    """Possession with a numerical edge, three sizes."""
+    """Possession with a numerical edge, four sizes.
+
+    The ring is drawn round on the grass and the cones are the square it
+    sits in — the old version put the first attacker outside the top cones,
+    stacked on the first defender, and gave two of its three passes the same
+    beat so the ball never left him.
+    """
     out = []
     for att, dfn, minutes in [(3, 2, 10), (4, 3, 12), (5, 4, 15), (6, 4, 15)]:
-        a = ring(att, 0.5, 0.55, 0.26, 0.19)
-        d = ring(dfn, 0.5, 0.55, 0.11, 0.08)
+        rx, ry = 0.34, 0.34 * ROUND
+        a = ring(att, 0.5, 0.55, rx, ry)
+        half = 180.0 / dfn
+        d = ring(dfn, 0.5, 0.55, rx * 0.30, ry * 0.30, -90 + half)
+        hunt = ring(dfn, 0.5, 0.55, rx * 0.40, ry * 0.40, -90 + half + 34)
         out.append(Drill(
             id=f"overload_{att}v{dfn}", category="possession", minutes=minutes,
             rel=True, free=(att == 4),
             name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.16, y + (0.55 - y) * 0.16, i % 2)])
+            home=[P(x, y, f"{i + 1}",
+                    moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i % 2)])
                   for i, (x, y) in enumerate(a)],
-            away=[P(x, y, chr(65 + i), moves=[(0.5 + (a[i % att][0] - 0.5) * 0.6,
-                                               0.55 + (a[i % att][1] - 0.55) * 0.6, i % 2)])
+            away=[P(x, y, chr(65 + i), moves=[(*hunt[i], i % 2)])
                   for i, (x, y) in enumerate(d)],
-            markers=[M(x, y) for x, y in ring(4, 0.5, 0.55, 0.31, 0.23, -45)],
+            markers=[M(0.5 + sx * rx * 1.05, 0.55 + sy * ry * 1.05)
+                     for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))],
+            setup={
+                "en": f"a 25 m square of cones; {att} keep the ball from "
+                      f"{dfn}, and every player stays on the perimeter",
+                "zh-CN": f"25 米见方的锥标区；{att} 人围着边线传球，"
+                         f"{dfn} 人在里面抢",
+            },
             ball=0,
-            # The extra man is only visible as passes: three round the ring
-            # while the short side chases.
-            ball_to=[(1, 0), (2 % att, 1), (3 % att, 0 if att < 4 else 2)],
+            # One pass a beat, round the ring: the extra man is only visible
+            # as passes, and two of them sharing a beat is no pass at all.
+            ball_to=[((i + 1) % att, i) for i in range(3)],
         ))
     return out
 
@@ -2622,22 +3177,25 @@ def match_moments() -> list[Drill]:
                   "ms-MY": "Bek pertama menyerang bola, kedua menutup hantaran tarik. Jaga ruang di depan gol.",
                   "th-TH": "คนแรกพุ่งชนบอล คนที่สองปิดบอลตัดกลับ ป้องกันพื้นที่หน้าประตู ไม่ใช่คนที่อยู่ข้างหลัง",
                   "vi-VN": "Người thứ nhất lao vào bóng, người thứ hai bọc lót đường chuyền ngược. Giữ khoảng trống trước khung thành."},
+            # One token per spot: the keeper on his line, the 5 at the near
+            # post, the 4 on the 9 at the penalty spot — they used to be
+            # drawn on top of each other inside the goal area, and the
+            # "cross" came from the halfway line.
             home=[
-                P(0.50, 0.10, "GK", role="GK", moves=[(0.44, 0.16, 0)]),
-                P(0.42, 0.28, "5", moves=[(0.46, 0.20, 0)]),
-                P(0.60, 0.30, "4", moves=[(0.54, 0.22, 0)]),
-                P(0.24, 0.38, "3", moves=[(0.30, 0.28, 0)]),
-                P(0.50, 0.50, "6", moves=[(0.50, 0.38, 0)]),
+                P(0.50, 0.03, "GK", role="GK"),
+                P(0.60, 0.09, "5"),
+                P(0.44, 0.19, "4"),
+                P(0.24, 0.30, "3", moves=[(0.30, 0.24, 0)]),
+                P(0.50, 0.44, "6", moves=[(0.50, 0.34, 0)]),
             ],
             away=[
-                P(0.88, 0.44, "7", moves=[(0.88, 0.24, 0)]),
-                P(0.66, 0.58, "9", moves=[(0.58, 0.26, 0)]),
-                P(0.34, 0.60, "11", moves=[(0.40, 0.34, 0)]),
+                P(0.88, 0.30, "7", moves=[(0.88, 0.12, 0)]),
+                P(0.62, 0.42, "9", moves=[(0.56, 0.22, 0)]),
+                P(0.30, 0.50, "11", moves=[(0.36, 0.34, 0)]),
             ],
-            ball=(0.88, 0.44),
-            # their 7 delivers to the 9 attacking the box
+            ball=(0.834, 0.352),
+            # their 7 gets to the by-line and delivers to the 9
             ball_to=[("a1", 0)],
-            markers=[M(0.5, 0.04, "square", "")],
         ),
         Drill(
             id="defend_throw_in", category="defending", minutes=10, rel=True,
@@ -2660,16 +3218,19 @@ def match_moments() -> list[Drill]:
                   "ms-MY": "Tutup pilihan dekat dahulu. Lemparan yang anda mahu ialah yang boleh ditanduk.",
                   "th-TH": "ปิดตัวเลือกใกล้ก่อน ลูกทุ่มที่อยากให้เขาทำคือลูกที่เราโหม่งได้",
                   "vi-VN": "Cắt các phương án ngắn trước. Quả ném bạn muốn họ thực hiện là quả bạn đánh đầu được."},
+            # Somebody presses the thrower, and the man on B is goal-side
+            # of him rather than standing where the ball lands.
             home=[
-                P(0.86, 0.42, "2", moves=[(0.80, 0.38, 0)]),
-                P(0.62, 0.34, "6", moves=[(0.68, 0.30, 0)]),
-                P(0.66, 0.62, "5", moves=[(0.72, 0.56, 0)]),
+                P(0.80, 0.40, "2", moves=[(0.82, 0.38, 0)]),
+                P(0.60, 0.30, "6", moves=[(0.66, 0.28, 0)]),
+                P(0.62, 0.64, "5", moves=[(0.68, 0.58, 0)]),
                 P(0.40, 0.48, "4", moves=[(0.48, 0.44, 0)]),
+                P(0.90, 0.48, "3"),
             ],
             away=[
                 P(1.02, 0.50, "A"),
-                P(0.80, 0.28, "B", moves=[(0.86, 0.34, 0)]),
-                P(0.78, 0.66, "C", moves=[(0.84, 0.60, 0)]),
+                P(0.84, 0.22, "B", moves=[(0.88, 0.26, 0)]),
+                P(0.76, 0.64, "C", moves=[(0.82, 0.58, 0)]),
             ],
             ball=(1.02, 0.50),
             # thrown down the line to B — the ball the trap closes on
@@ -2701,15 +3262,18 @@ def match_moments() -> list[Drill]:
                 P(0.52, 0.76, "4", moves=[(0.52, 0.68, 0), (0.50, 0.56, 1)]),
                 P(0.74, 0.70, "6", moves=[(0.68, 0.64, 0), (0.58, 0.54, 1)]),
                 P(0.20, 0.44, "3", moves=[(0.24, 0.32, 0)]),
-                P(0.46, 0.36, "10", moves=[(0.50, 0.26, 0)]),
+                P(0.46, 0.36, "10", moves=[(0.50, 0.30, 0)]),
                 P(0.80, 0.42, "7", moves=[(0.84, 0.30, 0)]),
             ],
             away=[
-                P(0.52, 0.24, "A", moves=[(0.50, 0.44, 1)]),
-                P(0.28, 0.26, "B", moves=[(0.30, 0.46, 1)]),
-                P(0.76, 0.26, "C", moves=[(0.72, 0.46, 1)]),
+                P(0.52, 0.20, "A", moves=[(0.50, 0.44, 1)]),
+                P(0.28, 0.22, "B", moves=[(0.30, 0.46, 1)]),
+                P(0.76, 0.22, "C", moves=[(0.72, 0.46, 1)]),
             ],
-            ball=4,
+            # The ball is what is being lost, so it has to be on the 10 as he
+            # carries it in — a plain ball= left it standing in midfield while
+            # he ran off, and the turnover then came from open grass.
+            ball_follow=4,
             # the turnover: their A carries away on the second beat
             ball_to=[("a0", 1)],
         ),
@@ -2735,20 +3299,22 @@ def match_moments() -> list[Drill]:
                   "th-TH": "ต้อนเขาไปริมเส้นแล้วบีบ เส้นข้างคือกองหลังเพิ่มอีกหนึ่งคน กดจากนอกเข้าในจะเปิดช่องเปลี่ยนข้าง",
                   "vi-VN": "Ép anh ta ra biên rồi siết. Đường biên là hậu vệ thứ hai; ép từ ngoài vào trong sẽ mở ra đường chuyển cánh."},
             home=[
-                P(0.60, 0.36, "9", moves=[(0.74, 0.30, 0)]),
-                P(0.84, 0.44, "7", moves=[(0.88, 0.34, 1)]),
+                P(0.60, 0.36, "9", moves=[(0.72, 0.24, 0)]),
+                P(0.84, 0.44, "7", moves=[(0.88, 0.36, 1)]),
                 P(0.62, 0.54, "8", moves=[(0.76, 0.48, 1)]),
                 P(0.38, 0.50, "6", moves=[(0.50, 0.44, 1)]),
-                P(0.84, 0.66, "2", moves=[(0.86, 0.52, 1)]),
+                P(0.84, 0.66, "2", moves=[(0.86, 0.54, 1)]),
             ],
             away=[
-                P(0.86, 0.24, "A", moves=[(0.90, 0.36, 0)]),
+                P(0.86, 0.24, "A", moves=[(0.90, 0.36, 0), (0.90, 0.46, 1)]),
                 P(0.56, 0.18, "B"),
                 P(0.28, 0.30, "C"),
             ],
-            ball=(0.86, 0.24),
-            # their A carries down the line into the trap
-            ball_to=[("a0", 0)],
+            # At B's feet, not on top of A: the board starts before the
+            # pass that springs the trap.
+            ball=(0.606, 0.232),
+            # played out to A, who is shown down the line and squeezed
+            ball_to=[("a0", 0), ("a0", 1)],
         ),
         Drill(
             id="finish_long_range", category="finishing", minutes=10, rel=True,
@@ -2771,16 +3337,19 @@ def match_moments() -> list[Drill]:
                   "ms-MY": "Sorong bola ke sisi badan dahulu, kemudian tendang tepat di tengahnya.",
                   "th-TH": "ดันบอลออกข้างลำตัวก่อน แล้วยิงตรงกลางลูก เข้ากรอบจาก 25 หลาดีกว่าสวยแต่ข้ามคาน",
                   "vi-VN": "Đẩy bóng ra ngang thân trước rồi sút xuyên tâm bóng. Sút trúng đích từ 25 yard hơn cú sút đẹp vọt xà."},
+            # The gate is 25 m from goal, not on the halfway line: shooting
+            # from distance means 22-30 m, and the follow-in runners have to
+            # be inside the box when the ball is struck.
             home=[
-                P(0.50, 0.68, "8", moves=[(0.50, 0.56, 0)]),
-                P(0.26, 0.60, "10", moves=[(0.34, 0.52, 0)]),
-                P(0.74, 0.62, "6", moves=[(0.66, 0.54, 0)]),
+                P(0.50, 0.40, "8", moves=[(0.50, 0.25, 0)]),
+                P(0.28, 0.42, "10", moves=[(0.34, 0.22, 1)]),
+                P(0.72, 0.42, "6", moves=[(0.66, 0.22, 1)]),
             ],
-            away=[P(0.50, 0.10, "GK", role="GK", moves=[(0.44, 0.15, 0)])],
-            markers=[M(0.5, 0.04, "square", ""), M(0.38, 0.44), M(0.62, 0.44)],
-            ball=0,
-            # one touch out of the screen and the strike from range
-            ball_to=[((0.5, 0.05), 0)],
+            away=[P(0.50, 0.03, "GK", role="GK", moves=[(0.46, 0.06, 1)])],
+            markers=[M(0.42, 0.26), M(0.58, 0.26)],
+            ball_follow=0,
+            # one touch through the gate, then the strike from 25 m
+            ball_to=[((0.5, 0.02), 1)],
         ),
         Drill(
             id="finish_second_ball_box", category="finishing", minutes=10, rel=True,
@@ -2802,17 +3371,19 @@ def match_moments() -> list[Drill]:
                   "ms-MY": "Ikuti setiap tendangan. Setengah meter dari tepisan penjaga gol ialah gol termudah.",
                   "th-TH": "ตามทุกลูกยิง ครึ่งหลาหลังมือผู้รักษาประตูปัดคือประตูที่ง่ายที่สุด และมักไม่มีใครยืนอยู่ตรงนั้น",
                   "vi-VN": "Theo sát mọi cú sút. Nửa mét sau cú đẩy của thủ môn là bàn thắng dễ nhất, và thường chẳng ai đứng đó."},
+            # The strike comes from the D, not from inside his own half,
+            # and there is a keeper for it to be spilled by.
             home=[
-                P(0.50, 0.62, "8", moves=[(0.50, 0.50, 0)]),
-                P(0.30, 0.44, "11", moves=[(0.38, 0.26, 1)]),
-                P(0.70, 0.46, "7", moves=[(0.62, 0.26, 1)]),
-                P(0.50, 0.34, "9", moves=[(0.46, 0.20, 1)]),
+                P(0.50, 0.34, "8", moves=[(0.50, 0.28, 0)]),
+                P(0.26, 0.40, "11", moves=[(0.24, 0.20, 1)]),
+                P(0.74, 0.40, "7", moves=[(0.66, 0.16, 1)]),
+                P(0.50, 0.46, "9", moves=[(0.38, 0.17, 1)]),
             ],
-            away=[P(0.50, 0.10, "GK", role="GK", moves=[(0.56, 0.16, 1)])],
-            markers=[M(0.5, 0.04, "square", "")],
+            away=[P(0.50, 0.03, "GK", role="GK", moves=[(0.44, 0.07, 0)])],
             ball=0,
-            # the shot is spilled, the 9 reacts to the second ball and buries it
-            ball_to=[((0.5, 0.18), 0), (3, 1), ((0.5, 0.05), 2)],
+            # struck at the keeper, parried into the six-yard box, and the
+            # 9 arrives on the loose ball
+            ball_to=[("a0", 0), ((0.36, 0.14), 1), ((0.5, 0.02), 2)],
         ),
         Drill(
             id="setpiece_kickoff", category="setpiece", minutes=8, rel=True,
@@ -2838,7 +3409,7 @@ def match_moments() -> list[Drill]:
                   "vi-VN": "Quyết định hai đường chuyền trước tiếng còi: phát dài vào góc rồi pressing, hoặc giữ bóng và ổn định. Quyết định lúc đứng trước bóng là trả bóng lại."},
             home=[
                 P(0.46, 0.50, "10", moves=[(0.42, 0.54, 0)]),
-                P(0.56, 0.50, "9", moves=[(0.64, 0.42, 0), (0.86, 0.22, 1)]),
+                P(0.56, 0.50, "9", moves=[(0.60, 0.46, 0), (0.86, 0.22, 1)]),
                 P(0.24, 0.58, "11", moves=[(0.20, 0.42, 1)]),
                 P(0.76, 0.56, "7", moves=[(0.84, 0.40, 1)]),
                 P(0.50, 0.68, "6", moves=[(0.50, 0.60, 1)]),
@@ -2846,7 +3417,8 @@ def match_moments() -> list[Drill]:
             away=[
                 P(0.36, 0.38, "A"), P(0.64, 0.38, "B"), P(0.50, 0.26, "C"),
             ],
-            markers=[M(0.5, 0.50, "circle", "")],
+            # The pitch already draws its own centre circle and spot; the
+            # extra disc on top of them read as an unexplained zone.
             ball=0,
             # tapped back to the 6, then long into the 9's channel run
             ball_to=[(4, 0), (1, 1)],
