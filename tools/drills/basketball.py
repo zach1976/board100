@@ -90,15 +90,17 @@ def basketball_drills() -> list[Drill]:
             # pair dead centre, the same rotation defect as the passing
             # diamond.
             home=[
-                P(0.50, 0.30, "1", moves=[(0.79, 0.27, 1)]),
-                P(0.85, 0.26, "2", moves=[(0.73, 0.56, 2)]),
-                P(0.70, 0.62, "3", moves=[(0.37, 0.62, 3)]),
-                P(0.30, 0.62, "4", moves=[(0.18, 0.32, 4)]),
-                P(0.15, 0.26, "5", moves=[(0.44, 0.29, 5)]),
+                P(0.500, 0.340, "1", moves=[(0.344, 0.565, 1)]),
+                P(0.177, 0.451, "2", moves=[(0.585, 0.590, 4)]),
+                P(0.300, 0.629, "3", moves=[(0.708, 0.490, 2)]),
+                P(0.700, 0.629, "4"),
+                P(0.823, 0.451, "5", moves=[(0.319, 0.451, 3)]),
             ],
             ball=0,
-            # the star: every pass one point across, passer follows
-            ball_to=[(1, 0), (2, 1), (3, 2), (4, 3), (0, 4)],
+            # The star: every pass skips a corner, so the ball draws the
+            # five-pointed shape instead of running round the pentagon.
+            # The passer follows his own pass, one beat behind it.
+            ball_to=[(2, 0), (4, 1), (1, 2), (3, 3)],
         ),
 
         # ── offense / ball movement ──────────────────────────────────────────
@@ -122,15 +124,15 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "ห่างกัน 4-5 เมตร อย่าให้กองหลังคนเดียวคุมได้สองคน",
                   "vi-VN": "Cách nhau 4-5 mét. Một hậu vệ không được kèm cùng lúc hai người."},
             home=[
-                P(0.50, 0.32, "1", moves=[(0.30, 0.34, 0)]),
-                P(0.15, 0.26, "2", moves=[(0.06, 0.12, 1)]),
-                P(0.85, 0.26, "3"),
-                P(0.05, 0.11, "4", moves=[(0.16, 0.24, 1)]),
-                P(0.95, 0.11, "5"),
+                P(0.50, 0.34, "1", moves=[(0.58, 0.10, 1), (0.72, 0.33, 2)]),
+                P(0.14, 0.28, "2"),
+                P(0.86, 0.28, "3", moves=[(0.46, 0.35, 2)]),
+                P(0.06, 0.12, "4"),
+                P(0.94, 0.11, "5"),
             ],
             ball=0,
-            # swung as the spots refill
-            ball_to=[(1, 0), (3, 1)],
+            # pass, basket-cut, fill — and the ball really travels on
+            ball_to=[(1, 0), (3, 2)],
         ),
         Drill(
             id="bb_pick_and_roll", category="attacking", minutes=15, rel=True, free=True,
@@ -152,13 +154,13 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "ตั้งสกรีนแล้วอยู่นิ่ง คนเลี้ยงต้องเลี้ยวชิดจนกองหลังทั้งสองอยู่ข้างหลัง",
                   "vi-VN": "Dựng màn chắn và giữ yên. Người cầm bóng phải vòng sát để cả hai hậu vệ ở lại sau lưng."},
             home=[
-                P(0.50, 0.34, "1", moves=[(0.36, 0.28, 1), (0.40, 0.16, 2)]),
-                P(0.38, 0.24, "5", moves=[(0.44, 0.30, 0), (0.52, 0.10, 2)]),
-                P(0.85, 0.26, "2"), P(0.05, 0.11, "3"), P(0.95, 0.11, "4"),
+                P(0.50, 0.34, "1", moves=[(0.74, 0.28, 1), (0.68, 0.16, 2)]),
+                P(0.67, 0.19, "5", moves=[(0.64, 0.35, 0), (0.46, 0.09, 2)]),
+                P(0.14, 0.28, "2"), P(0.06, 0.11, "3"), P(0.95, 0.12, "4"),
             ],
             away=[
-                P(0.50, 0.29, "x1", moves=[(0.46, 0.28, 1)]),
-                P(0.40, 0.20, "x5", moves=[(0.42, 0.26, 1), (0.44, 0.20, 2)]),
+                P(0.50, 0.27, "x1", moves=[(0.62, 0.28, 1), (0.74, 0.21, 2)]),
+                P(0.62, 0.11, "x5", moves=[(0.66, 0.21, 1), (0.54, 0.13, 2)]),
             ],
             ball=0,
             # off the screen, pocket pass to the roll
@@ -184,13 +186,13 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "สกรีนเดิม แต่อ่านตรงข้าม ถ้ากองหลังของบิ๊กแมนขึ้นมา ให้ถอยออกแทนการมุด",
                   "vi-VN": "Cùng màn chắn, đọc ngược lại: nếu hậu vệ kèm trung phong dâng lên thì bật ra thay vì cắt vào."},
             home=[
-                P(0.50, 0.34, "1", moves=[(0.34, 0.28, 1)]),
-                P(0.38, 0.24, "4", moves=[(0.44, 0.30, 0), (0.60, 0.32, 2)]),
-                P(0.85, 0.26, "2"), P(0.05, 0.11, "3"), P(0.95, 0.11, "5"),
+                P(0.50, 0.34, "1", moves=[(0.74, 0.28, 1), (0.68, 0.16, 2)]),
+                P(0.67, 0.19, "4", moves=[(0.64, 0.35, 0), (0.44, 0.36, 2)]),
+                P(0.14, 0.28, "2"), P(0.06, 0.11, "3"), P(0.95, 0.12, "5"),
             ],
             away=[
-                P(0.50, 0.29, "x1", moves=[(0.44, 0.28, 1)]),
-                P(0.40, 0.20, "x4", moves=[(0.44, 0.26, 1)]),
+                P(0.50, 0.27, "x1", moves=[(0.62, 0.28, 1), (0.74, 0.21, 2)]),
+                P(0.62, 0.11, "x4", moves=[(0.78, 0.34, 1), (0.56, 0.31, 2)]),
             ],
             ball=0,
             # off the screen, then back to the 4 popping
@@ -216,11 +218,12 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "คำตอบของการประกบเกิน ก้าวออกสองก้าวแล้วพุ่งเข้าห่วงทันทีที่เขาหันหน้า",
                   "vi-VN": "Câu trả lời cho kèm quá sát: bước ra hai bước rồi cắt thẳng vào rổ."},
             home=[
-                P(0.50, 0.32, "1"),
-                P(0.85, 0.26, "2", moves=[(0.90, 0.32, 0), (0.60, 0.08, 1)]),
-                P(0.15, 0.26, "3"), P(0.38, 0.10, "5"),
+                P(0.50, 0.33, "1"),
+                P(0.86, 0.26, "2", moves=[(0.92, 0.33, 0), (0.64, 0.09, 1)]),
+                P(0.14, 0.28, "3"), P(0.36, 0.09, "5"),
             ],
-            away=[P(0.80, 0.28, "x2", moves=[(0.86, 0.32, 0)])],
+            away=[P(0.75, 0.20, "x2",
+                    moves=[(0.84, 0.28, 0), (0.82, 0.22, 1)])],
             ball=0,
             # the fake to the wing, then the bounce pass behind X2
             ball_to=[(1, 1)],
@@ -245,11 +248,11 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "ส่งบอลไหล่ชนไหล่ ช่องว่างขนาดคนหนึ่งคือช่องที่เขาจะเสียบ",
                   "vi-VN": "Trao bóng vai kề vai — khe hở vừa một hậu vệ là khe hở sẽ bị luồn."},
             home=[
-                P(0.30, 0.32, "1", moves=[(0.44, 0.30, 0), (0.30, 0.16, 2)]),
-                P(0.70, 0.30, "2", moves=[(0.52, 0.30, 1), (0.66, 0.14, 2)]),
-                P(0.05, 0.11, "3"), P(0.95, 0.11, "4"), P(0.50, 0.09, "5"),
+                P(0.28, 0.33, "1", moves=[(0.44, 0.31, 0), (0.30, 0.18, 2)]),
+                P(0.74, 0.31, "2", moves=[(0.58, 0.31, 1), (0.70, 0.16, 2)]),
+                P(0.06, 0.11, "3"), P(0.94, 0.11, "4"), P(0.34, 0.09, "5"),
             ],
-            away=[P(0.68, 0.26, "x2", moves=[(0.56, 0.26, 1)])],
+            away=[P(0.82, 0.25, "x2", moves=[(0.66, 0.24, 1), (0.76, 0.20, 2)])],
             ball=0,
             # dribbled at the 2, handed off, downhill
             ball_to=[(0, 0), (1, 1), (1, 2)],
@@ -274,7 +277,7 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "บิ๊กแมนสองคนที่เอลโบว์ อีกสองอยู่มุม ปิดสกรีนฝั่งไหน อีกฝั่งก็ว่าง",
                   "vi-VN": "Hai trung phong ở elbow, hai người ở góc. Chặn màn nào thì màn kia mở."},
             home=[
-                P(0.50, 0.34, "1", moves=[(0.62, 0.26, 1)]),
+                P(0.50, 0.34, "1", moves=[(0.72, 0.26, 1)]),
                 P(0.33, 0.19, "4", moves=[(0.42, 0.28, 0)]),
                 P(0.67, 0.19, "5", moves=[(0.58, 0.28, 0), (0.52, 0.10, 2)]),
                 P(0.05, 0.11, "2"), P(0.95, 0.11, "3"),
@@ -305,13 +308,13 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "เตรียมเท้าและมือก่อนบอลมา การยิงเริ่มตั้งแต่จังหวะรับ",
                   "vi-VN": "Chân và tay sẵn sàng trước khi bóng đến. Cú ném bắt đầu từ lúc bắt bóng."},
             home=[
-                P(0.50, 0.09, "5"),
-                P(0.15, 0.26, "2", moves=[(0.10, 0.20, 0)]),
-                P(0.85, 0.26, "3", moves=[(0.90, 0.20, 1)]),
+                P(0.62, 0.08, "5"),
+                P(0.18, 0.30, "2", moves=[(0.08, 0.16, 0)]),
+                P(0.82, 0.30, "3", moves=[(0.92, 0.16, 1)]),
             ],
             ball=0,
-            # kicked corner to corner, up on the catch
-            ball_to=[(1, 0), (2, 1), ((0.50, 0.05), 2)],
+            # each shooter is on his spot a beat before the ball arrives
+            ball_to=[(1, 1), (2, 2), ((0.50, 0.05), 3)],
         ),
         Drill(
             id="bb_post_finish", category="finishing", minutes=10, rel=True,
@@ -333,16 +336,16 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "ปิดตัว รับบอล เลี้ยงหนึ่งครั้ง แล้วจบด้านตรงข้ามกับคนมาช่วย",
                   "vi-VN": "Chèn vị trí, bắt bóng, một nhịp dẫn, kết thúc phía xa người bọc lót."},
             home=[
-                P(0.38, 0.12, "5", moves=[(0.44, 0.09, 1)]),
-                P(0.50, 0.34, "1"),
+                P(0.34, 0.12, "5", moves=[(0.46, 0.07, 1)]),
+                P(0.50, 0.32, "1"),
             ],
             away=[
-                P(0.34, 0.10, "x5", moves=[(0.38, 0.08, 1)]),
-                P(0.62, 0.12, "x4", moves=[(0.52, 0.10, 1)]),
+                P(0.34, 0.19, "x5", moves=[(0.36, 0.13, 1)]),
+                P(0.70, 0.16, "x4", moves=[(0.62, 0.09, 1)]),
             ],
             ball=1,
             # entered to the 5; he finishes through contact
-            ball_to=[(0, 0), ((0.50, 0.05), 1)],
+            ball_to=[(0, 0), (0, 1), ((0.50, 0.04), 2)],
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -366,8 +369,8 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "วิ่งเต็มสองในสาม ที่เหลือย่อก้าวสั้นและยกมือ พุ่งใส่คือฟาวล์",
                   "vi-VN": "Chạy hai phần ba, phanh một phần ba cuối bằng bước ngắn và giơ tay cao."},
             home=[
-                P(0.50, 0.12, "x1", moves=[(0.20, 0.24, 0)]),
-                P(0.50, 0.09, "x2", moves=[(0.80, 0.24, 1)]),
+                P(0.50, 0.12, "x1", moves=[(0.24, 0.22, 0)]),
+                P(0.50, 0.09, "x2", moves=[(0.76, 0.22, 1)]),
             ],
             away=[P(0.15, 0.26, "2"), P(0.85, 0.26, "3")],
                         # the kick-out passes the closeouts answer
@@ -393,17 +396,22 @@ def basketball_drills() -> list[Drill]:
                   "ms-MY": "Bantu awal, pulih ketika bola dihantar.",
                   "th-TH": "ช่วยเร็ว กลับตอนบอลถูกส่ง ไม่ใช่ตอนรับ กลับช้ายังแย่กว่าไม่ช่วย",
                   "vi-VN": "Bọc lót sớm, về vị trí ngay khi bóng được chuyền, không phải khi đối thủ bắt bóng."},
+            # A real 2v2: the ball on the right wing, the shooter on the
+            # left, and the whole width of the floor between them, so the
+            # help is a journey and the recovery is a race.
             home=[
-                P(0.35, 0.16, "x4", moves=[(0.46, 0.14, 0), (0.32, 0.20, 1)]),
-                P(0.50, 0.26, "x1", moves=[(0.48, 0.22, 0)]),
+                P(0.84, 0.30, "1", moves=[(0.60, 0.22, 0)]),
+                P(0.14, 0.28, "4"),
             ],
             away=[
-                P(0.55, 0.30, "1", moves=[(0.50, 0.16, 0)]),
-                P(0.20, 0.24, "4", moves=[(0.14, 0.24, 1)]),
+                P(0.77, 0.23, "x1", moves=[(0.68, 0.26, 0)]),
+                P(0.27, 0.23, "x4", moves=[(0.42, 0.18, 0), (0.24, 0.24, 1)]),
             ],
-                        # their 1 drives; help comes, the kick-out goes to 4
-            ball=(0.53, 0.32),
-            ball_to=[("a0", 0), ("a1", 1)],
+            # 1 drives; help comes off 4, the kick-out goes back to him and
+            # x4 has to close out on it.
+            ball=0,
+            ball_follow=0,
+            ball_to=[(1, 1)],
         ),
         Drill(
             id="bb_box_out", category="defending", minutes=8, rel=True, free=True,
@@ -424,22 +432,27 @@ def basketball_drills() -> list[Drill]:
                   "ms-MY": "Cari lawan anda dahulu, bukan bola.",
                   "th-TH": "หาคนก่อนหาบอล ปะทะก่อนแล้วค่อยไปเก็บ",
                   "vi-VN": "Tìm người trước khi tìm bóng. Tiếp xúc trước rồi mới bắt bóng."},
+            # A box-out needs a shot to box out on: 1 shoots from the top,
+            # the two bigs crash, and the two defenders turn and seal before
+            # the ball comes off.
             home=[
-                P(0.38, 0.14, "x4", moves=[(0.38, 0.18, 0), (0.42, 0.10, 1)]),
-                P(0.62, 0.14, "x5", moves=[(0.62, 0.18, 0), (0.58, 0.10, 1)]),
+                P(0.50, 0.32, "1"),
+                P(0.28, 0.24, "4", moves=[(0.32, 0.16, 1)]),
+                P(0.72, 0.24, "5", moves=[(0.68, 0.16, 1)]),
             ],
             away=[
-                P(0.38, 0.22, "4", moves=[(0.38, 0.16, 0)]),
-                P(0.62, 0.22, "5", moves=[(0.62, 0.16, 0)]),
+                P(0.32, 0.17, "x4", moves=[(0.36, 0.11, 1), (0.46, 0.09, 2)]),
+                P(0.68, 0.17, "x5", moves=[(0.64, 0.11, 1)]),
             ],
-                        # the shot goes up — the rebound is the contest
-            ball=(0.50, 0.30),
-            ball_to=[((0.50, 0.05), 0)],
+            ball=0,
+            # the shot goes up — the rebound is the contest
+            ball_to=[((0.50, 0.05), 0), ("a0", 2)],
         ),
 
         # ── inbounds / special situations ────────────────────────────────────
         Drill(
             id="bb_blob_box", category="setpiece", minutes=10, rel=True, free=True,
+            off_surface=True,
             name={"en": "Baseline inbounds: box", "en-GB": "Baseline inbounds: box",
                   "zh-CN": "底线发球：箱型战术", "zh-TW": "底線發球：箱型戰術",
                   "ja-JP": "エンドラインOB：ボックス", "ko-KR": "엔드라인 인바운드: 박스",
@@ -459,21 +472,24 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "คนตัดคนแรกคือตัวล่อ คนตั้งสกรีนคือเป้าหมาย นับออกเสียง ห้าวินาทีหมดเร็ว",
                   "vi-VN": "Người cắt đầu là mồi nhử, người dựng màn mới là mục tiêu. Đếm to — năm giây trôi nhanh."},
             home=[
-                P(0.50, 0.03, "1"),
-                P(0.38, 0.10, "2", moves=[(0.10, 0.12, 0)]),
-                P(0.62, 0.10, "3", moves=[(0.66, 0.16, 0)]),
-                P(0.38, 0.20, "4", moves=[(0.44, 0.14, 0), (0.46, 0.07, 1)]),
-                P(0.62, 0.20, "5", moves=[(0.86, 0.20, 0)]),
+                P(0.50, -0.03, "1", moves=[(0.34, 0.04, 2)]),
+                P(0.36, 0.10, "2", moves=[(0.08, 0.13, 0)]),
+                P(0.64, 0.10, "3", moves=[(0.92, 0.13, 0)]),
+                P(0.34, 0.20, "4", moves=[(0.30, 0.14, 0), (0.46, 0.06, 1)]),
+                P(0.66, 0.20, "5", moves=[(0.66, 0.32, 0)]),
             ],
             away=[
-                P(0.42, 0.14, "x2"), P(0.58, 0.14, "x3"), P(0.50, 0.20, "x4"),
+                P(0.20, 0.12, "x2", moves=[(0.16, 0.18, 0)]),
+                P(0.80, 0.12, "x3", moves=[(0.86, 0.18, 0)]),
+                P(0.34, 0.28, "x4", moves=[(0.40, 0.14, 1)]),
             ],
             ball=0,
             # inbounded to the 4 curling off the box, laid in
-            ball_to=[(3, 0), ((0.50, 0.05), 1)],
+            ball_to=[(3, 1), ((0.50, 0.05), 2)],
         ),
         Drill(
             id="bb_press_break", category="setpiece", minutes=12, rel=True,
+            off_surface=True,
             name={"en": "Press break", "en-GB": "Press break", "zh-CN": "破全场紧逼",
                   "zh-TW": "破全場緊逼", "ja-JP": "プレスブレイク", "ko-KR": "프레스 브레이크",
                   "es-ES": "Romper la presión", "fr-FR": "Casser la pression",
@@ -492,16 +508,16 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "พาบอลเข้ากลางสนาม บอลกลางแก้เพรสได้ บอลริมเส้นคืออาหารของเขา",
                   "vi-VN": "Đưa bóng vào giữa sân. Bóng ở giữa phá được pressing, bóng sát biên là mồi."},
             home=[
-                P(0.50, 0.97, "5"),
+                P(0.50, 1.03, "5"),
                 P(0.22, 0.86, "1", moves=[(0.30, 0.78, 0)]),
                 P(0.78, 0.86, "2", moves=[(0.70, 0.78, 0)]),
                 P(0.50, 0.68, "3", moves=[(0.50, 0.56, 1)]),
                 P(0.50, 0.40, "4"),
             ],
             away=[
-                P(0.30, 0.88, "x1", moves=[(0.30, 0.82, 0)]),
-                P(0.70, 0.88, "x2", moves=[(0.70, 0.82, 0)]),
-                P(0.50, 0.74, "x3", moves=[(0.44, 0.66, 1)]),
+                P(0.36, 0.90, "x1", moves=[(0.36, 0.84, 0)]),
+                P(0.64, 0.90, "x2", moves=[(0.64, 0.84, 0)]),
+                P(0.50, 0.76, "x3", moves=[(0.44, 0.66, 1)]),
             ],
             ball=0,
             # in to the 1, middle to the 3, over the top to the 4
@@ -529,13 +545,13 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "ไม่มีการเลี้ยง วิธีเดียวที่บอลจะเคลื่อนคือคนต้องเคลื่อน ส่งแล้วตัดทุกครั้ง",
                   "vi-VN": "Không dẫn bóng thì cách duy nhất để bóng di chuyển là người di chuyển."},
             home=[
-                P(0.50, 0.34, "1", moves=[(0.40, 0.12, 1)]),
-                P(0.15, 0.26, "2", moves=[(0.22, 0.30, 0)]),
-                P(0.85, 0.26, "3"),
+                P(0.50, 0.34, "1", moves=[(0.46, 0.10, 1)]),
+                P(0.14, 0.28, "2"),
+                P(0.86, 0.28, "3"),
             ],
             away=[
-                P(0.46, 0.28, "x1", moves=[(0.42, 0.24, 1)]),
-                P(0.20, 0.22, "x2", moves=[(0.24, 0.26, 0)]),
+                P(0.50, 0.27, "x1", moves=[(0.46, 0.20, 1)]),
+                P(0.16, 0.20, "x2"),
                 P(0.80, 0.22, "x3"),
             ],
             ball=0,
@@ -562,13 +578,14 @@ def basketball_drills() -> list[Drill]:
                   "th-TH": "พุ่งเข้าหาไหล่ด้านในของกองหลัง จ่ายเมื่อเขาขยับเท่านั้น",
                   "vi-VN": "Tấn công vai trong của hậu vệ. Chỉ chuyền khi anh ta lao ra."},
             home=[
-                P(0.35, 0.55, "1", moves=[(0.42, 0.26, 0), (0.46, 0.12, 1)]),
-                P(0.70, 0.55, "2", moves=[(0.66, 0.26, 0), (0.58, 0.10, 1)]),
+                P(0.32, 0.58, "1", moves=[(0.38, 0.30, 0), (0.42, 0.20, 1)]),
+                P(0.74, 0.58, "2", moves=[(0.72, 0.30, 0), (0.60, 0.09, 2)]),
             ],
-            away=[P(0.50, 0.22, "x1", moves=[(0.46, 0.20, 1)])],
+            away=[P(0.50, 0.20, "x1", moves=[(0.44, 0.13, 1)])],
             ball=0,
-            # 2v1: carried at the defender, dished for the layup
-            ball_to=[(0, 0), (1, 1), ((0.50, 0.05), 1)],
+            # 2v1: carried at the defender until he commits, then a real
+            # pass across to the far lane for the layup
+            ball_to=[(0, 0), (0, 1), (1, 2), ((0.50, 0.04), 3)],
         ),
     ]
 
@@ -586,12 +603,50 @@ BLOCK_L, BLOCK_R = (0.38, 0.10), (0.62, 0.10)
 SLOT_L, SLOT_R = (0.32, 0.33), (0.68, 0.33)
 HALF = 0.50
 
-BALLHANDLER_SPOTS = {
-    "top": TOP, "left wing": WING_L, "right wing": WING_R,
-    # "Halfspace" is the football channel between centre and wing; a
-    # basketball coach calls these ball-screen spots the slots.
-    "left slot": SLOT_L, "right slot": SLOT_R,
-}
+# Every ball screen in this family is authored driving to the RIGHT — the
+# handler comes off the screener's shoulder toward increasing x — and the
+# spots that sit on the right of the floor are mirrored, so a wing screen
+# always sends the ball to the middle. Each row is a real half-court
+# alignment: handler, screener lifting from an elbow, both defenders on
+# their own man a body-width off, and the roll finishing with room.
+PNR_SPOTS = [
+    # key, label, mirror, handler path, screener path, X1 path, X5 path,
+    # spacers (the three players who are not in the action)
+    ("top", "top", False,
+     [(0.50, 0.34), (0.74, 0.28), (0.68, 0.16)],
+     [(0.67, 0.19), (0.64, 0.35), (0.46, 0.09)],
+     [(0.50, 0.27), (0.62, 0.28), (0.74, 0.21)],
+     [(0.62, 0.11), (0.66, 0.21), (0.54, 0.13)],
+     [(0.06, 0.11), (0.95, 0.12), (0.14, 0.28)]),
+    ("left wing", "left wing", False,
+     [(0.14, 0.30), (0.38, 0.24), (0.44, 0.17)],
+     [(0.33, 0.19), (0.24, 0.33), (0.42, 0.09)],
+     [(0.23, 0.24), (0.29, 0.29), (0.34, 0.22)],
+     [(0.38, 0.11), (0.30, 0.19), (0.37, 0.14)],
+     [(0.94, 0.11), (0.72, 0.33), (0.05, 0.12)]),
+    ("right wing", "right wing", True,
+     [(0.14, 0.30), (0.38, 0.24), (0.44, 0.17)],
+     [(0.33, 0.19), (0.24, 0.33), (0.42, 0.09)],
+     [(0.23, 0.24), (0.29, 0.29), (0.34, 0.22)],
+     [(0.38, 0.11), (0.30, 0.19), (0.37, 0.14)],
+     [(0.94, 0.11), (0.72, 0.33), (0.05, 0.12)]),
+    ("left slot", "left slot", False,
+     [(0.30, 0.34), (0.54, 0.28), (0.48, 0.15)],
+     [(0.33, 0.19), (0.44, 0.36), (0.40, 0.09)],
+     [(0.30, 0.27), (0.42, 0.29), (0.54, 0.22)],
+     [(0.38, 0.11), (0.44, 0.21), (0.34, 0.13)],
+     [(0.94, 0.12), (0.86, 0.30), (0.06, 0.11)]),
+    ("right slot", "right slot", True,
+     [(0.30, 0.34), (0.54, 0.28), (0.48, 0.15)],
+     [(0.33, 0.19), (0.44, 0.36), (0.40, 0.09)],
+     [(0.30, 0.27), (0.42, 0.29), (0.54, 0.22)],
+     [(0.38, 0.11), (0.44, 0.21), (0.34, 0.13)],
+     [(0.94, 0.12), (0.86, 0.30), (0.06, 0.11)]),
+]
+
+
+def _mirror(pts, on: bool):
+    return [(1.0 - x, y) for (x, y) in pts] if on else list(pts)
 
 
 PNR_NAME = {
@@ -622,25 +677,33 @@ PNR_NOTE = {
 
 
 def ball_screen_family() -> list[Drill]:
-    """The same action from every spot a guard actually uses it."""
+    """The same action from every spot a guard actually uses it.
+
+    They all used to be drawn on one lane line: handler, screener and both
+    defenders inside a column narrower than a token, so the roll, the
+    dribble and the screen angle could not be told apart. Each spot now
+    gets a real alignment — the screener lifts from the elbow, the handler
+    turns the corner two token-widths past him, X1 trails and X5 covers,
+    and the roller finishes on the far side of the lane.
+    """
     out = []
-    for label, spot in BALLHANDLER_SPOTS.items():
-        toward = -1 if spot[0] > 0.5 else 1
-        screen = (spot[0] + 0.09 * toward, spot[1] - 0.02)
+    for key, label, mirror, one, five, x1, x5, spacers in PNR_SPOTS:
+        one = _mirror(one, mirror)
+        five = _mirror(five, mirror)
+        x1 = _mirror(x1, mirror)
+        x5 = _mirror(x5, mirror)
+        spacers = _mirror(spacers, mirror)
         out.append(Drill(
-            id=f"bb_screen_{label.replace(' ', '_')}", category="attacking",
-            minutes=12, rel=True, free=(label in ("top", "right wing")),
+            id=f"bb_screen_{key.replace(' ', '_')}", category="attacking",
+            minutes=12, rel=True, free=(key in ("top", "right wing")),
             name=suffixed(PNR_NAME, label), note=PNR_NOTE,
             home=[
-                P(*spot, "1", moves=[(screen[0] + 0.06 * toward, screen[1] - 0.03, 1),
-                                     (spot[0] + 0.20 * toward, 0.16, 2)]),
-                P(*screen, "5", moves=[(screen[0], screen[1] + 0.02, 0),
-                                       (0.50, 0.10, 2)]),
-                P(*CORNER_L, "2"), P(*CORNER_R, "3"),
-                P(*(WING_L if spot[0] > 0.5 else WING_R), "4"),
+                P(*one[0], "1", moves=[one[1] + (1,), one[2] + (2,)]),
+                P(*five[0], "5", moves=[five[1] + (0,), five[2] + (2,)]),
+                P(*spacers[0], "2"), P(*spacers[1], "3"), P(*spacers[2], "4"),
             ],
-            away=[P(spot[0], spot[1] - 0.04, "X1", moves=[(screen[0], screen[1] - 0.04, 1)]),
-                  P(screen[0], screen[1] - 0.05, "X5", moves=[(screen[0], screen[1] - 0.02, 1)])],
+            away=[P(*x1[0], "X1", moves=[x1[1] + (1,), x1[2] + (2,)]),
+                  P(*x5[0], "X5", moves=[x5[1] + (1,), x5[2] + (2,)])],
             ball=0,
             # Dribbled off the screen, then the pocket pass to the roller.
             ball_to=[(0, 1), (1, 2)],
@@ -673,51 +736,70 @@ CUT_NOTE = {
 }
 
 
+# key, label, free, and the four routes: the ball handler, the cutter, the
+# cutter's defender, the on-ball defender. A fifth big and a spacer are
+# placed per cut so the lane the cut finishes in is empty.
+CUT_SPECS = [
+    ("give_and_go", "give and go", True,
+     [(0.50, 0.34), (0.66, 0.24, 1), (0.58, 0.11, 2)],   # 1 passes, then cuts
+     [(0.86, 0.28)],                                      # 2 holds it on the wing
+     [(0.77, 0.22)],                                      # X2 on the ball
+     [(0.50, 0.27), (0.56, 0.21, 1), (0.46, 0.15, 2)],    # X1 trails the cut
+     (0.33, 0.19), (0.06, 0.11), [(1, 0), (0, 2)]),
+    ("backdoor", "the backdoor cut", True,
+     [(0.50, 0.34)],                                      # 1 waits for the cut
+     [(0.14, 0.26), (0.10, 0.34, 0), (0.38, 0.10, 1)],    # 2 steps out, then goes
+     [(0.26, 0.21), (0.20, 0.30, 0), (0.26, 0.20, 1)],    # X2 denies, then beaten
+     [(0.58, 0.26)],
+     (0.62, 0.10), (0.94, 0.11), [(1, 1)]),
+    # A flare needs a screener; without one it is a player drifting.
+    ("flare", "the flare", False,
+     [(0.66, 0.33)],                                      # 1 skips it across
+     [(0.34, 0.33), (0.42, 0.28, 0), (0.08, 0.30, 1)],    # 2 steps in, flares out
+     [(0.34, 0.26), (0.44, 0.22, 0), (0.22, 0.20, 1)],    # X2 chases into the screen
+     [(0.60, 0.26)],
+     None, (0.94, 0.11), [(1, 1)]),
+    ("baseline", "along the baseline", False,
+     [(0.50, 0.33)],
+     [(0.06, 0.12), (0.34, 0.07, 0), (0.72, 0.09, 1)],
+     [(0.17, 0.17), (0.36, 0.14, 0), (0.70, 0.15, 1)],
+     [(0.42, 0.27)],
+     (0.33, 0.19), (0.94, 0.11), [(1, 1)]),
+]
+
+
 def cut_family() -> list[Drill]:
     """Four cuts, each with the right player cutting.
 
     Every one of them used to move the receiver while the passer nudged
     0.7 m backwards — but a give-and-go is the *passer* cutting off his own
     pass, and a flare is read off a screen that was not on the board at all.
+    They were also drawn on top of their defenders in a column one token
+    wide; each cut now starts with the pair a body-width apart and finishes
+    in a lane the big has vacated.
     """
-    # key, label, who starts where, and what each of the two does
-    specs = [
-        ("give_and_go", "give and go", WING_R, True, None),
-        ("backdoor", "the backdoor cut", WING_L, False, None),
-        # A flare needs a screener; without one it is a player drifting.
-        ("flare", "the flare", SLOT_L, False, ELBOW_L),
-        ("baseline", "along the baseline", CORNER_L, False, None),
-    ]
-    ends = {"give_and_go": (0.62, 0.10), "backdoor": (0.34, 0.09),
-            "flare": (0.10, 0.30), "baseline": (0.86, 0.09)}
     out = []
-    for key, label, start, passer_cuts, screen_at in specs:
-        end = ends[key]
-        cutter_moves = [(start[0] + (end[0] - start[0]) * 0.5,
-                         (start[1] + end[1]) / 2, 1), end + (2,)]
-        if passer_cuts:
-            # The passer goes; the receiver holds the ball on the wing.
-            home = [P(*TOP, "1", moves=[(0.545, 0.235, 1), (0.585, 0.115, 2)]),
-                    P(*start, "2", moves=[(start[0] + 0.02, start[1] - 0.02, 1)])]
+    for key, label, free, one, two, x2, x1, big, spacer, route in CUT_SPECS:
+        home = [P(one[0][0], one[0][1], "1",
+                  moves=[m for m in one[1:]]),
+                P(two[0][0], two[0][1], "2", moves=[m for m in two[1:]]),
+                P(*spacer, "3")]
+        if big is None:
+            # The flare's big is the screener: he steps into X2's path.
+            home.append(P(*ELBOW_L, "5", moves=[(0.26, 0.26, 0)]))
         else:
-            home = [P(*TOP, "1", moves=[(0.50, 0.34, 1)]),
-                    P(*start, "2", moves=cutter_moves)]
-        home += [P(*CORNER_R, "3")]
-        home += ([P(*screen_at, "5", moves=[(screen_at[0] - 0.05, screen_at[1] + 0.05, 0)])]
-                 if screen_at else [P(*ELBOW_L, "5")])
+            home.append(P(*big, "5"))
         out.append(Drill(
             id=f"bb_cut_{key}", category="attacking", minutes=10, rel=True,
-            free=(key in ("give_and_go", "backdoor")),
+            free=free,
             name=suffixed(CUT_NAME, label), note=CUT_NOTE,
             home=home,
-            away=[P(start[0], start[1] - 0.04, "X2",
-                    moves=[(start[0] + 0.03, start[1] - 0.02, 1)]),
-                  P(0.50, 0.22, "X1", moves=[(0.52, 0.19, 1)])],
+            away=[P(x2[0][0], x2[0][1], "X2", moves=[m for m in x2[1:]]),
+                  P(x1[0][0], x1[0][1], "X1", moves=[m for m in x1[1:]])],
             ball=0,
-            # Give and go: pass, cut, get it back at the rim. The cutting
-            # variants: a live dribble first, then the pass into the cut.
-            ball_to=([(1, 0), (0, 2)] if passer_cuts
-                     else [(0, 1), (1, 2)]),
+            # Give and go: pass, cut, get it back at the rim. The other
+            # three: the pass is thrown to where the cut finishes.
+            ball_to=route,
         ))
     return out
 
@@ -748,22 +830,34 @@ SHOT_NOTE = {
 
 
 def shooting_family() -> list[Drill]:
-    spots = [("the corner", CORNER_L), ("left wing", WING_L), ("top", TOP),
-             ("right wing", WING_R), ("the elbow", ELBOW_R)]
+    """A shooter, a feeder under the rim, and a closeout to shoot over.
+
+    The passer used to stand on the free-throw line — in front of the
+    shooter, in the way of both the pass and the shot — and a spot marker
+    sat between him and the defender with nobody standing on it, so a coach
+    could not tell whether it was a chair to be used or clutter. The feeder
+    is now under the basket where he can rebound, the shooter steps up onto
+    his spot, and the defender closes out from the paint.
+    """
+    # spot; the feeder's rebounding spot under the rim (on the shooter's
+    # side, so the pass does not thread the defender); where the closeout
+    # starts (the far side of the paint) and where it finishes.
+    spots = [("the corner", CORNER_L, (0.40, 0.08), (0.60, 0.12), (0.19, 0.15)),
+             ("left wing", WING_L, (0.40, 0.08), (0.60, 0.12), (0.28, 0.22)),
+             ("top", TOP, (0.58, 0.08), (0.36, 0.12), (0.42, 0.24)),
+             ("right wing", WING_R, (0.60, 0.08), (0.40, 0.12), (0.72, 0.22)),
+             ("the elbow", ELBOW_R, (0.60, 0.08), (0.38, 0.12), (0.60, 0.14))]
     out = []
-    for label, spot in spots:
+    for label, spot, feed, xstart, close in spots:
         out.append(Drill(
             id=f"bb_shot_{label.replace(' ', '_')}", category="finishing",
             minutes=8, rel=True, free=(label in ("the corner", "top")),
             name=suffixed(SHOT_NAME, label), note=SHOT_NOTE,
-            home=[P(spot[0], spot[1] + 0.07, "1",
-                    moves=[spot + (1,)]),
-                  P(*FT_LINE, "P", moves=[(0.50, 0.22, 0)])],
-            away=[P(spot[0], spot[1] - 0.05, "X",
-                    moves=[(spot[0], spot[1] - 0.02, 1)])],
-            markers=[M(*spot, "square", "")],
+            home=[P(spot[0], spot[1] + 0.10, "1", moves=[spot + (0,)]),
+                  P(*feed, "P")],
+            away=[P(*xstart, "X", moves=[close + (1,)])],
             ball=1,
-            # Delivered on the relocation, up on the catch.
+            # Fed from under the rim once the shooter is set, up on the catch.
             ball_to=[(0, 1), ((0.50, 0.05), 2)],
         ))
     return out
@@ -795,26 +889,64 @@ POST_NOTE = {
 }
 
 
+# Each post drill written out: where 5 works, where his defender starts
+# (on the high side, not on top of him), where the help comes from, and
+# what the finish is. (key, label, free, home, away, ball_to).
+POST_SETS = [
+    ("drop_step", "the drop step", True, [
+        ("1", (0.84, 0.30), []),
+        ("5", (0.34, 0.12), [(0.44, 0.06, 1)]),      # baseline-side drop step
+        ("2", (0.06, 0.11), []),
+        ("3", (0.50, 0.33), []),
+    ], [
+        ("X5", (0.34, 0.19), [(0.36, 0.13, 1)]),     # stays on the high side
+        ("X4", (0.66, 0.16), [(0.60, 0.10, 1)]),
+    ], [(1, 0), (1, 1), ((0.50, 0.04), 2)]),
+    ("face_up", "facing up", False, [
+        ("1", (0.88, 0.30), []),
+        ("5", (0.66, 0.20), [(0.54, 0.09, 1)]),
+        ("2", (0.06, 0.11), []),
+        ("3", (0.46, 0.33), []),
+    ], [
+        ("X5", (0.66, 0.13), [(0.64, 0.05, 1)]),
+        ("X4", (0.34, 0.16), [(0.42, 0.10, 1)]),
+    ], [(1, 0), (1, 1), ((0.50, 0.04), 2)]),
+    # The kick-out: 5 holds the seal, the dig comes, the ball leaves from
+    # the block he is actually standing on.
+    ("kick_out", "the kick-out", True, [
+        ("1", (0.88, 0.30), []),
+        ("5", (0.66, 0.12), []),
+        ("2", (0.06, 0.12), []),
+        ("3", (0.46, 0.33), []),
+    ], [
+        ("X5", (0.66, 0.20), []),
+        ("X4", (0.34, 0.16), [(0.50, 0.13, 1)]),     # the dig off the corner
+    ], [(1, 0), (2, 2)]),
+    # A short roll is a ball screen, not a high-post entry: 5 screens,
+    # X5 shows, 5 rolls only as far as the free-throw line and plays 4-on-3.
+    ("short_roll", "the short roll", False, [
+        ("1", (0.50, 0.34), [(0.70, 0.28, 1), (0.78, 0.22, 2)]),
+        ("5", (0.66, 0.19), [(0.62, 0.33, 0), (0.52, 0.20, 2)]),
+        ("2", (0.06, 0.11), []),
+        ("3", (0.16, 0.30), []),
+    ], [
+        ("X5", (0.62, 0.12), [(0.72, 0.33, 1), (0.68, 0.24, 2)]),
+        ("X4", (0.32, 0.13), [(0.44, 0.15, 2)]),
+    ], [(0, 1), (1, 2)]),
+]
+
+
 def post_family() -> list[Drill]:
-    specs = [("drop_step", "the drop step", BLOCK_L), ("face_up", "facing up", ELBOW_R),
-             ("kick_out", "the kick-out", BLOCK_R), ("short_roll", "the short roll", FT_LINE)]
     out = []
-    for key, label, spot in specs:
+    for key, label, free, home, away, route in POST_SETS:
         out.append(Drill(
             id=f"bb_post_{key}", category="attacking", minutes=10, rel=True,
-            free=(key in ("drop_step", "kick_out")),
+            free=free,
             name=suffixed(POST_NAME, label), note=POST_NOTE,
-            home=[P(*WING_R, "1", moves=[(0.80, 0.30, 1)]),
-                  P(*spot, "5", moves=[(spot[0] + (0.5 - spot[0]) * 0.5, 0.08, 2)]),
-                  P(*CORNER_L, "2"), P(*TOP, "3")],
-            away=[P(spot[0], spot[1] - 0.05, "X5",
-                    moves=[(spot[0], spot[1] - 0.02, 1)]),
-                  P(0.68, 0.16, "X4", moves=[(0.58, 0.12, 2)])],
+            home=[P(*st, lab, moves=list(mv)) for lab, st, mv in home],
+            away=[P(*st, lab, moves=list(mv)) for lab, st, mv in away],
             ball=0,
-            # Entered to the 5; he finishes at the rim, or kicks it back
-            # out to the corner when the drill is the kick-out.
-            ball_to=([(1, 0), (2, 2)] if key == "kick_out"
-                     else [(1, 0), ((0.50, 0.05), 2)]),
+            ball_to=route,
         ))
     return out
 
@@ -848,52 +980,57 @@ DEF_NOTE = {
 def defence_family() -> list[Drill]:
     """Four ball-screen coverages, each doing what it is called.
 
-    They used to be one board: X1 chased over the screen to the same point
-    in all four, so "switching" was a blitz with the roller free, and
-    "icing" — which only exists on a *side* screen, where the on-ball
-    defender jumps above it to force the ball down the line — was drawn as
-    a chase over a screen at the top of the key.
+    Run as the 2v2 every coach runs it as, and laid out as a real
+    half-court screen: the handler above the arc, the big lifting from the
+    elbow to screen his outside shoulder, and each defender starting on his
+    own man. Only the two defenders' routes change from drill to drill —
+    that is the whole point of the family. The ball rides with the handler
+    (a dribble, not a pass from his own defender, which is what the loose
+    ball at his feet used to narrate as).
     """
     specs = [
-        # key, label, where the screen is, X1's path, X5's path, the roll
-        ("drop", "in drop coverage", (0.60, 0.31),
-         [(0.575, 0.285, 1), (0.63, 0.235, 2)], [(0.53, 0.175, 1)],
-         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
-        ("hedge", "hedging", (0.60, 0.31),
-         [(0.575, 0.285, 1), (0.63, 0.235, 2)], [(0.645, 0.315, 1), (0.55, 0.20, 2)],
-         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
+        # key, label, 1's path, 5's path, X1's path, X5's path
+        ("drop", "in drop coverage",
+         [(0.50, 0.34), (0.74, 0.28), (0.68, 0.16)],
+         [(0.67, 0.19), (0.64, 0.35), (0.46, 0.09)],
+         [(0.50, 0.27), (0.62, 0.28), (0.74, 0.21)],
+         [(0.62, 0.11), (0.60, 0.20), (0.58, 0.13)]),
+        ("hedge", "hedging",
+         [(0.50, 0.34), (0.74, 0.28), (0.68, 0.16)],
+         [(0.67, 0.19), (0.64, 0.35), (0.46, 0.09)],
+         [(0.50, 0.27), (0.62, 0.28), (0.74, 0.21)],
+         [(0.62, 0.11), (0.76, 0.33), (0.56, 0.14)]),
         # The switch: the big picks up the ball and the guard peels back
         # onto the roller, who used to roll to the rim with nobody on him.
-        ("switch", "switching", (0.60, 0.31),
-         [(0.60, 0.255, 1), (0.545, 0.155, 2)], [(0.665, 0.275, 1), (0.71, 0.225, 2)],
-         [(0.60, 0.33, 0), (0.52, 0.10, 2)]),
+        ("switch", "switching",
+         [(0.50, 0.34), (0.74, 0.28), (0.68, 0.16)],
+         [(0.67, 0.19), (0.64, 0.35), (0.46, 0.09)],
+         [(0.50, 0.27), (0.62, 0.25), (0.52, 0.14)],
+         [(0.62, 0.11), (0.74, 0.35), (0.72, 0.22)]),
         # ICE is a side screen, and X1 jumps above it to send the ball down
         # the sideline instead of chasing over the top.
-        ("ice", "icing the side screen", (0.845, 0.35),
-         [(0.815, 0.395, 1), (0.87, 0.30, 2)], [(0.80, 0.245, 1)],
-         [(0.845, 0.37, 0), (0.79, 0.13, 2)]),
+        ("ice", "icing the side screen",
+         [(0.86, 0.30), (0.88, 0.20), (0.84, 0.10)],
+         [(0.67, 0.19), (0.76, 0.38), (0.62, 0.10)],
+         # X1 jumps ABOVE the screen — on the ball's high shoulder — which
+         # is the whole coverage: it sends the dribble down the line.
+         [(0.86, 0.23), (0.88, 0.36), (0.90, 0.20)],
+         [(0.70, 0.12), (0.76, 0.20), (0.72, 0.13)]),
     ]
     out = []
-    for key, label, screen, x1_path, x5_path, roll in specs:
-        ball_x = 0.50 if key != "ice" else 0.80
-        handler = (ball_x, 0.30) if key != "ice" else (0.80, 0.42)
+    for key, label, one, five, x1, x5 in specs:
         out.append(Drill(
             id=f"bb_defence_{key}", category="defending", minutes=12, rel=True,
             free=(key in ("drop", "switch")),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(handler[0], handler[1] - 0.05, "X1", moves=x1_path),
-                  P(screen[0], screen[1] - 0.05, "X5", moves=x5_path),
-                  P(*CORNER_L, "X2"), P(*CORNER_R, "X3"), P(*ELBOW_L, "X4")],
-            away=[P(*handler, "1",
-                    moves=[(handler[0] + (0.08 if key != "ice" else 0.02),
-                            handler[1] + 0.02, 1),
-                           (handler[0] + (0.16 if key != "ice" else 0.05),
-                            handler[1] - 0.12, 2)]),
-                  P(*screen, "5", moves=roll)],
-            ball=(handler[0] - 0.03, handler[1] + 0.03),
+            home=[P(*one[0], "1", moves=[one[1] + (1,), one[2] + (2,)]),
+                  P(*five[0], "5", moves=[five[1] + (0,), five[2] + (2,)])],
+            away=[P(*x1[0], "X1", moves=[x1[1] + (1,), x1[2] + (2,)]),
+                  P(*x5[0], "X5", moves=[x5[1] + (1,), x5[2] + (2,)])],
+            ball=0,
             # Their 1 dribbles off the screen and attacks — the action every
             # coverage in this family exists to answer.
-            ball_to=[("a0", 1), ("a0", 2)],
+            ball_follow=0,
         ))
     return out
 
@@ -924,23 +1061,46 @@ TRANS_NOTE = {
 }
 
 
+# Where each lane finishes the break: the wings fill the corners, the ball
+# takes the middle, the trailers stop at the arc — instead of all five
+# running into the same square metre of paint.
+TRANS_FILL = {0.10: (0.08, 0.16), 0.90: (0.92, 0.16), 0.50: (0.44, 0.14),
+              0.30: (0.24, 0.32), 0.70: (0.76, 0.32)}
+# The defenders retreat in the shape the numbers demand: two in tandem,
+# three in a triangle, four in a box — never a flat line across the
+# free-throw line, which is the one shape a break never meets.
+TRANS_D = {
+    2: ([(0.50, 0.25), (0.56, 0.08)], [(0.56, 0.20, 1)]),
+    3: ([(0.50, 0.25), (0.34, 0.09), (0.66, 0.09)], [(0.56, 0.20, 1)]),
+    4: ([(0.36, 0.22), (0.64, 0.22), (0.34, 0.08), (0.66, 0.08)],
+        [(0.32, 0.31, 1), (0.68, 0.31, 1)]),
+}
+
+
 def transition_family() -> list[Drill]:
     out = []
     for n, d in ((3, 2), (4, 3), (5, 4)):
         lanes = [0.10, 0.90, 0.50, 0.30, 0.70][:n]
+        if n == 5:
+            fill = {**TRANS_FILL, 0.30: (0.20, 0.34), 0.70: (0.80, 0.34)}
+        else:
+            fill = TRANS_FILL
+        spots, dmoves = TRANS_D[d]
+        mid = lanes.index(0.50)
         out.append(Drill(
             id=f"bb_transition_{n}v{d}", category="ssg", minutes=12, rel=True,
             free=(n == 3),
             name=suffixed(TRANS_NAME, f"{n}v{d}"), note=TRANS_NOTE,
             home=[P(x, 0.62, str(i + 1),
-                    moves=[(x, 0.38, 0), (x + (0.5 - x) * 0.5, 0.18, 1)])
+                    moves=[(x, 0.38, 0), fill[x] + (1,)])
                   for i, x in enumerate(lanes)],
-            away=[P(0.5 + (i - (d - 1) / 2) * 0.20, 0.24, f"X{i + 1}",
-                    moves=[(0.5 + (i - (d - 1) / 2) * 0.16, 0.14, 1)])
-                  for i in range(d)],
+            away=[P(*sp, f"X{i + 1}",
+                    moves=[dmoves[i]] if i < len(dmoves) else [])
+                  for i, sp in enumerate(spots)],
             ball=0,
-            # Pushed ahead to the middle lane, finished at the rim.
-            ball_to=[(2 % n, 0), ((0.50, 0.05), 1)],
+            # Pushed ahead to the middle lane, carried into the paint and
+            # finished from where the ball actually ends up.
+            ball_to=[(mid, 0), (mid, 1), ((0.50, 0.04), 2)],
         ))
     return out
 
@@ -971,42 +1131,69 @@ SET_NOTE = {
 }
 
 
+# Each set is written out in full: the inbounder is always outside the
+# line he is throwing from, the players break in different directions
+# instead of shuffling down the lane together, and the pass is aimed at the
+# man the set is designed to free. (key, label, free, home, away, ball_to);
+# a player is (label, start, [(x, y, phase), ...]).
+INBOUNDS_SETS = [
+    ("stack", "stack", True, [
+        ("1", (0.50, -0.03), [(0.30, 0.05, 1)]),
+        ("2", (0.40, 0.10), [(0.08, 0.12, 0)]),      # first out: ball-side corner
+        ("3", (0.40, 0.17), [(0.64, 0.09, 0)]),      # second: across to the far block
+        ("4", (0.40, 0.24), [(0.52, 0.33, 0)]),      # third: back to the top
+    ], [
+        ("X2", (0.26, 0.13), [(0.16, 0.17, 0)]),
+        ("X3", (0.26, 0.20), [(0.50, 0.15, 0)]),
+    ], [(2, 0), ((0.50, 0.05), 1)]),
+    ("the box", "the box", True, [
+        ("1", (0.50, -0.03), [(0.44, 0.03, 2)]),
+        ("2", (0.33, 0.19), [(0.20, 0.30, 0)]),
+        ("3", (0.67, 0.19), [(0.80, 0.30, 0)]),
+        ("4", (0.38, 0.10), [(0.28, 0.06, 0)]),
+        ("5", (0.62, 0.10), [(0.56, 0.06, 1)]),      # the screener is the target
+    ], [
+        ("X2", (0.33, 0.26), [(0.24, 0.35, 1)]),
+        ("X3", (0.67, 0.26), [(0.76, 0.35, 1)]),
+    ], [(4, 1), ((0.50, 0.05), 2)]),
+    ("the zipper", "the zipper", False, [
+        ("1", (0.50, -0.03), [(0.60, 0.05, 2)]),
+        ("2", (0.36, 0.10), [(0.44, 0.33, 1)]),      # straight up the lane line
+        ("4", (0.64, 0.20), [(0.32, 0.21, 0)]),      # the down screen at the elbow
+        ("3", (0.86, 0.28), []),
+    ], [
+        ("X2", (0.52, 0.07), [(0.52, 0.26, 1)]),
+        ("X4", (0.64, 0.13), [(0.42, 0.16, 0)]),
+    ], [(1, 1), ((0.50, 0.05), 2)]),
+    ("sideline", "from the sideline", False, [
+        ("1", (1.14, 0.19), [(0.94, 0.24, 1)]),      # outside the SIDELINE
+        ("2", (0.66, 0.20), [(0.86, 0.31, 0)]),
+        ("3", (0.14, 0.28), []),
+        ("4", (0.64, 0.08), [(0.44, 0.18, 0)]),
+    ], [
+        ("X2", (0.80, 0.15), [(0.78, 0.24, 0)]),
+        ("X4", (0.50, 0.12), [(0.42, 0.08, 0)]),
+    ], [(1, 0), ((0.50, 0.05), 1)]),
+]
+
+
 def inbounds_family() -> list[Drill]:
     # A sideline out-of-bounds is taken from outside the *sideline*, near
-    # half court — not from behind the endline at mid-width, which is where
-    # it stood, identical to the three baseline sets. And the zipper is a
-    # player rising from the block up the lane line, not the box with two
-    # players deleted.
-    specs = [("stack", "stack", [(0.50, 0.12), (0.50, 0.16), (0.50, 0.20)], None),
-             ("the box", "the box", [ELBOW_L, ELBOW_R, BLOCK_L, BLOCK_R], None),
-             ("the zipper", "the zipper",
-              [BLOCK_L, (0.34, 0.30), CORNER_R], None),
-             ("sideline", "from the sideline",
-              [(0.30, 0.34), (0.62, 0.30), CORNER_R], (1.03, 0.38))]
+    # the free-throw line extended — not from behind the endline at
+    # mid-width, which is where it stood, identical to the three baseline
+    # sets. And the zipper is a player rising from the block up the lane
+    # line off a down screen, not the box with two players deleted.
     out = []
-    for key, label, spots, inbounder in specs:
+    for key, label, free, home, away, route in INBOUNDS_SETS:
         out.append(Drill(
             id=f"bb_inbounds_{key.replace(' ', '_')}", category="setpiece",
-            minutes=8, rel=True, free=(key in ("stack", "the box")),
-            off_surface=True,
+            minutes=8, rel=True, free=free, off_surface=True,
             name=suffixed(SET_NAME, label), note=SET_NOTE,
-            home=[P(*(inbounder or (0.50, -0.03)), "1",
-                    moves=[(0.50, 0.10, 2) if inbounder is None
-                           else (0.94, 0.34, 2)])] + [
-                # Clamped inside the floor: a cutter used to finish two
-                # metres outside a fifteen-metre-wide court.
-                P(x, y, str(i + 2),
-                  moves=[(min(max(x + (0.5 - x) * 0.4, 0.06), 0.94), y + 0.10, 0),
-                         (min(max(x + (x - 0.5) * 0.4, 0.06), 0.94), y + 0.04, 1)])
-                for i, (x, y) in enumerate(spots)
-            ],
-            # Beside the cutter, not on the next player in the stack — the
-            # stack spots are 0.04 apart vertically, exactly this offset.
-            away=[P(x + 0.07, y - 0.02, "X", moves=[(x + 0.02, y + 0.03, 1)])
-                  for x, y in spots[:2]],
+            home=[P(*start, lab, moves=list(mv)) for lab, start, mv in home],
+            away=[P(*start, lab, moves=list(mv)) for lab, start, mv in away],
             ball=0,
-            # In to the first cutter as he clears, then finished.
-            ball_to=[(1, 0), ((0.50, 0.05), 2)],
+            # In to the man the set frees, then finished.
+            ball_to=route,
         ))
     return out
 
@@ -1066,6 +1253,42 @@ FT_NOTE = {
 }
 
 
+# Off-ball screening, written out per set. All three used to share one
+# generator that put cutter, screener and defender on the same lane line —
+# a stagger with only one screener, a flex with the big under the rim, a
+# pin-down nobody could see. (key, label, level, home, away).
+OFFBALL_SETS = [
+    ("pin_down", "the pin-down", "foundation", [
+        ("1", (0.56, 0.33), []),
+        ("2", (0.08, 0.12), [(0.14, 0.30, 1)]),      # curls up to the wing
+        ("5", (0.34, 0.24), [(0.24, 0.19, 0)]),      # pins down at the block
+        ("3", (0.94, 0.11), []),
+    ], [
+        ("X2", (0.14, 0.19), [(0.28, 0.26, 1)]),
+        ("X1", (0.56, 0.26), []),
+    ]),
+    ("stagger", "the stagger", "development", [
+        ("1", (0.36, 0.33), []),
+        ("2", (0.92, 0.09), [(0.88, 0.31, 1)]),      # off both screens
+        ("5", (0.62, 0.09), [(0.76, 0.12, 0)]),      # first screen
+        ("4", (0.62, 0.22), [(0.76, 0.21, 0)]),      # second, a stride above it
+        ("3", (0.06, 0.11), []),
+    ], [
+        ("X2", (0.86, 0.16), [(0.78, 0.26, 1)]),
+        ("X1", (0.36, 0.26), []),
+    ]),
+    ("flex", "the flex cut", "development", [
+        ("1", (0.66, 0.33), []),
+        ("2", (0.08, 0.11), [(0.06, 0.16, 0), (0.62, 0.08, 1)]),
+        ("5", (0.36, 0.20), [(0.36, 0.13, 0)]),      # weak-side block screen
+        ("3", (0.30, 0.33), []),
+    ], [
+        ("X2", (0.18, 0.17), [(0.16, 0.22, 0), (0.46, 0.16, 1)]),
+        ("X1", (0.76, 0.27), []),
+    ]),
+]
+
+
 def gaps_family() -> list[Drill]:
     """Zone defence, off-ball screening and free throws.
 
@@ -1076,28 +1299,36 @@ def gaps_family() -> list[Drill]:
     """
     out = []
     zones = [("two_three", "the 2-3", "foundation",
-              [(0.34, 0.24), (0.66, 0.24), (0.16, 0.11), (0.50, 0.09), (0.84, 0.11)]),
+              [(0.34, 0.24), (0.66, 0.24), (0.21, 0.15), (0.50, 0.09), (0.80, 0.14)]),
              ("one_three_one", "the 1-3-1", "advanced",
-              [(0.50, 0.30), (0.22, 0.19), (0.50, 0.17), (0.78, 0.19), (0.50, 0.07)]),
+              [(0.50, 0.28), (0.22, 0.19), (0.50, 0.17), (0.78, 0.19), (0.50, 0.07)]),
              ("zone_offence", "attacking the zone", "development", None)]
     for key, label, lvl, spots in zones:
         if spots is None:
             # The offence: two guards up top to move the ball, a high post
             # in the middle of the zone, and a baseline runner behind it.
-            home = [P(0.36, 0.34, "1", moves=[(0.30, 0.31, 0)]),
-                    P(0.64, 0.34, "2", moves=[(0.72, 0.31, 1)]),
-                    P(0.50, 0.20, "5", moves=[(0.50, 0.175, 1)]),
+            home = [P(0.36, 0.34, "1", moves=[(0.26, 0.32, 0)]),
+                    P(0.64, 0.34, "2", moves=[(0.76, 0.31, 1)]),
+                    P(0.50, 0.20, "5", moves=[(0.34, 0.12, 1)]),
                     P(*CORNER_L, "3", moves=[(0.16, 0.09, 2)]),
                     P(*CORNER_R, "4", moves=[(0.84, 0.09, 2)])]
             away = [P(x, y, f"X{i + 1}",
                       moves=[(x + (0.5 - x) * 0.18, y + 0.02, 1)])
                     for i, (x, y) in enumerate(
                         [(0.34, 0.24), (0.66, 0.24), (0.16, 0.11),
-                         (0.50, 0.09), (0.84, 0.11)])]
+                         (0.46, 0.08), (0.84, 0.11)])]
         else:
-            home = [P(*TOP, "1", moves=[(0.62, 0.33, 1)]),
-                    P(*CORNER_R, "2", moves=[(0.84, 0.14, 2)]),
-                    P(*CORNER_L, "3"), P(*ELBOW_L, "5")]
+            # The zone attack stands OUTSIDE the zone, not on top of it:
+            # the point guard above the top man, the big in the gap.
+            two_three = (key == "two_three")
+            home = [P(0.50, 0.34 if two_three else 0.36, "1",
+                      moves=[((0.64, 0.35) if two_three else (0.66, 0.34))
+                             + (1 if two_three else 0,)]),
+                    P(*((0.96, 0.08) if two_three else CORNER_R), "2",
+                      moves=[((0.88, 0.18) if two_three else (0.84, 0.14))
+                             + (1 if two_three else 0,)]),
+                    P(*(CORNER_L if two_three else (0.06, 0.24)), "3"),
+                    P(*((0.40, 0.16) if two_three else (0.36, 0.11)), "5")]
             away = [P(x, y, f"X{i + 1}",
                       moves=[(x + (0.62 - x) * 0.22, y + 0.03, 1)])
                     for i, (x, y) in enumerate(spots)]
@@ -1108,33 +1339,20 @@ def gaps_family() -> list[Drill]:
             home=home, away=away, ball=0,
             # Swung across the top and into the baseline runner — the two
             # passes that make a zone shift and the shift that opens it.
-            ball_to=[(1, 0), (3, 2)] if key == "two_three"
-                    else [(1, 1), ((0.50, 0.05), 2)],
+            ball_to=([(1, 0), (1, 1), (3, 2)] if key == "two_three"
+                     else [(0, 0), (1, 1), ((0.50, 0.05), 2)]),
         ))
-    screens = [("pin_down", "the pin-down", BLOCK_L, (0.22, 0.30), "foundation"),
-               ("stagger", "the stagger", BLOCK_R, (0.78, 0.31), "development"),
-               ("flex", "the flex cut", CORNER_L, (0.62, 0.10), "development")]
-    for key, label, start, end, lvl in screens:
-        mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
+    for key, label, lvl, home, away in OFFBALL_SETS:
         out.append(Drill(
             id=f"bb_offball_{key}", category="attacking", minutes=10, rel=True,
             level=lvl, free=(key == "pin_down"),
             name=suffixed(OFFBALL_NAME, label), note=OFFBALL_NOTE,
-            home=[P(*TOP, "1", moves=[(0.50, 0.32, 2)]),
-                  P(*start, "2", moves=[(start[0] + (start[0] - end[0]) * 0.12,
-                                         start[1] - 0.02, 0),
-                                        mid + (1,), end + (2,)]),
-                  P(mid[0] + 0.05, mid[1] - 0.03, "5",
-                    moves=[(mid[0] + 0.02, mid[1] - 0.01, 0)]),
-                  P(*CORNER_R, "3")],
-            away=[P(start[0], start[1] - 0.04, "X2",
-                    moves=[(mid[0] + 0.05, mid[1] - 0.05, 1),
-                           (end[0] + 0.03, end[1] - 0.03, 2)]),
-                  P(0.50, 0.22, "X1")],
+            home=[P(*st, lab, moves=list(mv)) for lab, st, mv in home],
+            away=[P(*st, lab, moves=list(mv)) for lab, st, mv in away],
             ball=0,
             # Held up top while the 2 fights off the screen, delivered the
             # moment he clears — the pass the whole screen exists to earn.
-            ball_to=[(1, 2)],
+            ball_to=[(1, 1)],
         ))
     out.append(Drill(
         id="bb_free_throw", category="finishing", minutes=8, rel=True,
@@ -1145,15 +1363,17 @@ def gaps_family() -> list[Drill]:
               "id-ID": "Lemparan bebas", "ms-MY": "Lontaran percuma",
               "th-TH": "การยิงลูกโทษ", "vi-VN": "Ném phạt"},
         note=FT_NOTE,
-        home=[P(0.50, 0.235, "1", moves=[(0.50, 0.215, 0)]),
-              P(0.375, 0.135, "2", moves=[(0.42, 0.09, 1)]),
-              P(0.625, 0.135, "3", moves=[(0.58, 0.09, 1)])],
-        away=[P(0.375, 0.175, "X2", moves=[(0.40, 0.115, 1)]),
-              P(0.625, 0.175, "X3", moves=[(0.60, 0.115, 1)])],
-        markers=[M(0.50, 0.06, "square", "")],
+        # By rule the defending team takes the two spaces closest to the
+        # basket; the shooter's own team-mates line up outside them. That is
+        # also why the rebound off a missed free throw belongs to X2.
+        home=[P(0.50, 0.21, "1"),
+              P(0.35, 0.17, "2", moves=[(0.28, 0.12, 1)]),
+              P(0.65, 0.17, "3")],
+        away=[P(0.35, 0.095, "X2", moves=[(0.46, 0.07, 1)]),
+              P(0.65, 0.095, "X3")],
         ball=0,
             # the shot goes up; the rebound is the drill
-            ball_to=[((0.50, 0.05), 0), (1, 1)],
+            ball_to=[((0.50, 0.05), 0), ("a0", 1)],
     ))
     return out
 
@@ -1168,6 +1388,7 @@ def shell_drill() -> list[Drill]:
     """4v4 shell — the one defensive drill every programme runs. Its absence
     was the first thing a coach reviewing this library would have noticed."""
     o = [CORNER_L, WING_L, WING_R, CORNER_R]
+    D = [(0.20, 0.08), (0.27, 0.21), (0.73, 0.21), (0.80, 0.08)]
     return [Drill(
         id="bb_shell_4v4", category="defending", minutes=12, rel=True,
         free=True,
@@ -1194,14 +1415,17 @@ def shell_drill() -> list[Drill]:
               "th-TH": "ทุกการส่งบอล เชลล์ทั้งวงต้องขยับ — บอล ตัวเอง คนที่ประกบ ใครขยับช้าคือเหยื่อของการ์ด",
               "vi-VN": "Mỗi đường chuyền cả lớp vỏ phòng thủ phải dịch — bóng, bạn, người. "
                        "Ai dịch chậm là con mồi của hậu vệ."},
-        home=[P(x, y - 0.05, f"X{i + 1}",
-                moves=[(x * 0.6 + 0.5 * 0.4, (y - 0.05) * 0.7 + 0.06 * 0.3, (i + 1) % 3),
-                       (x, y - 0.05, ((i + 1) % 3) + 1)])
-              for i, (x, y) in enumerate(o)],
-        away=[P(x, y, f"{i + 1}",
-                moves=[(x, y + 0.02, i % 3)]) for i, (x, y) in enumerate(o)],
-        ball=CORNER_L,              # the swing starts from the corner
-        ball_to=[("a1", 0), ("a2", 1), ("a3", 2)],
+        # The four attackers hold the shell's four spots; each defender
+        # starts a stride inside his man, toward the lane and toward the
+        # basket, which is the shell's whole starting rule.
+        home=[P(x, y, f"{i + 1}") for i, (x, y) in enumerate(o)],
+        away=[P(*d, f"X{i + 1}",
+                moves=[(d[0] * 0.6 + 0.5 * 0.4, d[1] * 0.7 + 0.06 * 0.3,
+                        (i + 1) % 3),
+                       (d[0], d[1], ((i + 1) % 3) + 1)])
+              for i, d in enumerate(D)],
+        ball=0,                     # the swing starts from the corner
+        ball_to=[(1, 0), (2, 1), (3, 2)],
     )]
 
 
