@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../main.dart' show isSingleSportApp;
 import '../models/drill.dart';
+import '../models/drill_note.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
 import '../services/drill_library_service.dart';
@@ -293,36 +294,45 @@ class _BoardCard extends StatelessWidget {
         decoration: const BoxDecoration(
             color: T.surface, borderRadius: T.brLg),
         clipBehavior: Clip.antiAlias,
-        child: Column(
+        // The board is portrait and the card is wide, so the thumbnail keeps
+        // its own shape and the buttons take the width beside it. Given the
+        // whole card the canvas drew a 109pt pitch in the middle of 361pt of
+        // turf, which is a picture of a field rather than of a board.
+        padding: const EdgeInsets.all(T.s12),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 168,
-              width: double.infinity,
-              child: ChangeNotifierProvider<TacticsState>.value(
-                value: preview,
-                child: const IgnorePointer(
-                    child: TacticsCanvas(preview: true)),
+            ClipRRect(
+              borderRadius: T.brSm,
+              child: SizedBox(
+                height: 190,
+                child: AspectRatio(
+                  aspectRatio: 402 / 730,
+                  child: ChangeNotifierProvider<TacticsState>.value(
+                    value: preview,
+                    child: const IgnorePointer(
+                        child: TacticsCanvas(preview: true)),
+                  ),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(T.s12),
-              child: Row(
+            const SizedBox(width: T.s16),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    child: TacticalButton(
-                      label: 'home_open_board'.tr(),
-                      icon: Icons.edit_outlined,
-                      onTap: onOpen,
-                    ),
+                  TacticalButton(
+                    label: 'home_open_board'.tr(),
+                    icon: Icons.edit_outlined,
+                    onTap: onOpen,
                   ),
-                  const SizedBox(width: T.s8),
-                  Expanded(
-                    child: TacticalButton(
-                      label: 'home_new_board'.tr(),
-                      icon: Icons.add,
-                      quiet: true,
-                      onTap: onNew,
-                    ),
+                  const SizedBox(height: T.s8),
+                  TacticalButton(
+                    label: 'home_new_board'.tr(),
+                    icon: Icons.add,
+                    quiet: true,
+                    onTap: onNew,
                   ),
                 ],
               ),
@@ -402,11 +412,12 @@ class _TodayRow extends StatelessWidget {
   }
 
   /// The purpose line — the note's own first section, which is the one that
-  /// answers "why would I run this?" on a card this size.
+  /// answers "why would I run this?" on a card this size. Its label is left
+  /// off: "Purpose:" on a card headed by the drill's name says nothing.
   static String _firstLine(String note) {
-    final line = note.split('\n').first.trim();
-    final close = line.indexOf('】');
-    return close > 0 ? line.substring(close + 1).trim() : line;
+    final parsed = DrillNote.parse(note);
+    if (parsed.isEmpty) return note.trim();
+    return parsed.sections.first.body;
   }
 }
 
