@@ -1685,7 +1685,9 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               autofocus: true,
               // A name has to fit the badge under the board icon and the chip
               // in the edit bar; past this it is only ever seen truncated.
-              maxLength: 12,
+              // A text element is the sentence, not a name under a token.
+              maxLength: isTextElement(p) ? kTextElementMaxChars : 12,
+              maxLines: isTextElement(p) ? 2 : 1,
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),

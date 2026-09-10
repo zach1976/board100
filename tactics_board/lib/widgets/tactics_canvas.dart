@@ -1347,6 +1347,19 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
             spreadRadius: 3,
           )
         : null;
+    if (isTextElement(player)) {
+      // A chip sized to its words has no size to subtract, so it is placed on
+      // the point and then pulled back by half of whatever it turned out to
+      // be. Every other element is a known 44pt square.
+      return Positioned(
+        left: pos.dx,
+        top: pos.dy,
+        child: FractionalTranslation(
+          translation: const Offset(-0.5, -0.5),
+          child: visibleIcon,
+        ),
+      );
+    }
     return Positioned(
       left: pos.dx - size / 2,
       top: pos.dy - size / 2,

@@ -26,6 +26,8 @@ import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/drill_detail_page.dart';
 import 'package:tactics_board/pages/drill_primer_page.dart';
+import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/widgets/tactics_canvas.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
@@ -51,6 +53,24 @@ Future<void> _loadRoboto() async {
       ..addFont(Future.value(f.readAsBytesSync().buffer.asByteData()));
     await loader.load();
   }
+}
+
+/// A short corner with written notes on it — the thing the reviewer could
+/// not build. Filled in once before the pump: a builder runs many times, and
+/// adding the notes inside one puts four copies of every key on the board.
+void _fillTextDemo(TacticsState state) {
+  PlayerIcon note(String id, String label, double x, double y) => PlayerIcon(
+        id: id,
+        label: label,
+        team: PlayerTeam.neutral,
+        markerShape: MarkerShape.text,
+        position: Offset(x, y),
+      );
+  state
+    ..addPlayer(note('n1', 'injector waits for the call', 240, 250))
+    ..addPlayer(note('n2', 'trap on the top of the D', 200, 620))
+    ..addPlayer(note('n3', 'drag flick far post', 300, 430))
+    ..addPlayer(note('n4', 'runner short', 90, 520));
 }
 
 void main() {
@@ -83,6 +103,10 @@ void main() {
         ? drills.first
         : drills.firstWhere((d) => d.id == wanted, orElse: () => drills.first);
 
+    if (which == 'text') {
+      state.setCanvasSizeSilent(const Size(kW, kH));
+      _fillTextDemo(state);
+    }
     final key = GlobalKey();
     await tester.pumpWidget(
       EasyLocalization(
@@ -102,7 +126,15 @@ void main() {
               locale: context.locale,
               home: RepaintBoundary(
                 key: key,
-                child: which == 'primer'
+                child: which == 'text'
+                    // Inside a Scaffold: without a Material ancestor the
+                    // canvas inherits DefaultTextStyle.fallback, whose font
+                    // is null, and every glyph comes out as a tofu box.
+                    ? Scaffold(
+                        body: ChangeNotifierProvider<TacticsState>.value(
+                            value: state,
+                            child: const TacticsCanvas(preview: true)))
+                    : which == 'primer'
                     ? DrillPrimerPage(sportType: sport)
                     : which == 'drill'
                     ? DrillDetailPage(

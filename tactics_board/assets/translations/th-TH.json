@@ -400,5 +400,7 @@
   "learn_note_route": "Ball path — the whole drill in one line.",
   "learn_note_seq": "Sequence — beat by beat, matching the steps.",
   "learn_note_point": "Coaching point — the one thing to say.",
-  "learn_note_mistake": "Common mistake — what goes wrong first."
+  "learn_note_mistake": "Common mistake — what goes wrong first.",
+  "text_add_title": "เพิ่มข้อความ",
+  "text_add_hint": "เช่น แดรกฟลิกไปเสาไกล"
 }
