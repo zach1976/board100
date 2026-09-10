@@ -173,7 +173,13 @@ class _IntroPageState extends State<IntroPage> {
                         width: i == _at ? 18 : 6,
                         height: 6,
                         decoration: BoxDecoration(
-                          color: i == _at ? T.accent : T.border,
+                          // NOT T.border: that is an 18%-opacity line meant
+                          // for a flat surface, and over a photograph of
+                          // grass the two unvisited dots disappear — leaving
+                          // one dash that reads as a bug, not as "1 of 3".
+                          color: i == _at
+                              ? T.accent
+                              : const Color(0x66FFFFFF),
                           borderRadius: BorderRadius.circular(3),
                         ),
                       ),
