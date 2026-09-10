@@ -582,7 +582,11 @@ def _holder(drill):
     if isinstance(drill.ball, tuple):
         x, y = drill.ball
         best, who = 160.0, None
-        for pl in drill.home:
+        # BOTH sides. Searching only home made every loose ball belong to the
+        # nearest home player, so a ball placed on their setter was credited
+        # to our blocker and seven volleyball boards read "B plays it to A"
+        # over a picture of S setting.
+        for pl in drill.home + drill.away:
             d = abs(pl.x - x) + abs(pl.y - y)
             if d < best:
                 best, who = d, pl

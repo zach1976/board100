@@ -530,7 +530,9 @@ def game_family() -> list[Drill]:
                   for i, (x, _) in enumerate(spots)],
             ball=0,
             # two passes along the line as both sides move
-            ball_to=[(1 % n, 0), (2 % n, 0)],
+            # One pass per beat: both on beat 0 meant the first was never
+            # drawn and the ball appeared to teleport past its receiver.
+            ball_to=[(1 % n, 0), (2 % n, 1)],
         ))
     return out
 

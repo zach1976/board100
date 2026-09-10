@@ -14,6 +14,7 @@ maps them, which is the only way to be sure nobody is standing in the margin.
 import math
 import re as _re
 from dataclasses import dataclass, field
+from typing import NamedTuple
 
 from .vocab import NEUTRAL, V
 
@@ -318,7 +319,9 @@ def to_canvas(drill: Drill, sport: str) -> None:
     drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
     # ball_to point targets are author coordinates too; the player references
     # need nothing, they resolve to positions that are already transformed.
-    drill.ball_to = [(((fx(t[0]), fy(t[1])) if isinstance(t, tuple) else t), ph)
+    drill.ball_to = [(((Spot(fx(t.x), fy(t.y)) if isinstance(t, Spot)
+                        else (fx(t[0]), fy(t[1]))) if isinstance(t, tuple)
+                       else t), ph)
                      for (t, ph) in drill.ball_to]
     drill.rel = False
 
@@ -429,6 +432,26 @@ NET_RALLY_SPORTS = {"tableTennis", "badminton", "tennis", "pickleball",
                     "beachTennis", "footvolley", "sepakTakraw"}
 
 
+class Spot(NamedTuple):
+    """A place on the floor, said exactly.
+
+    A bare (x, y) ball target is put through at_the_feet_of — 40 units toward
+    the middle and 70 down — because the common case is a ball ending at
+    somebody. For a landing zone that is simply wrong: on a volleyball court
+    70 units is a metre, the difference between a short serve and a ball on
+    the net tape, and the author has to write the spot pre-compensated to get
+    the spot they meant.
+
+    The default is not flipped because the library's 110 existing point
+    targets were all tuned by eye against it, and the only way to preserve
+    them would be to bake the offset into their literals — turning readable
+    coordinates like (0.50, 0.30) into (0.5388, 0.3549). So: write Spot when
+    you mean exactly here, which is every landing zone and every target box.
+    """
+    x: float
+    y: float
+
+
 def resolve_ball(drill: Drill, sport: str) -> None:
     """Turn ball_follow / ball_to into concrete ball_moves.
 
@@ -437,6 +460,8 @@ def resolve_ball(drill: Drill, sport: str) -> None:
     that space_out then moved out from under the ball.
     """
     def target_pos(t, phase):
+        if isinstance(t, Spot):
+            return (t.x, t.y)
         if isinstance(t, tuple):
             return t
         if isinstance(t, str):
@@ -467,9 +492,20 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             (*at_the_feet_of(mx, my, sport), ph) for (mx, my, ph) in holder.moves]
 
     if drill.ball_to:
+        # Two legs on the same beat cannot both be drawn: the ball is one
+        # icon walking one chain, so the first target is skipped and the pass
+        # into it never appears. It cost a penalty corner its slip and a
+        # counter-attack its carry before anyone noticed, in two different
+        # sports, so it fails the build now instead.
+        phases = [ph for (_, ph) in drill.ball_to]
+        assert len(phases) == len(set(phases)), (
+            f"{drill.id}: two ball_to legs share a phase {sorted(phases)} — "
+            f"the ball can only make one trip per beat, so the earlier target "
+            f"is silently dropped")
         follow_legs = drill.ball_moves if drill.ball_follow is not None else []
         drill.ball_moves = follow_legs + [
-            (*at_the_feet_of(*target_pos(t, ph), sport), ph)
+            ((*target_pos(t, ph), ph) if isinstance(t, Spot)
+             else (*at_the_feet_of(*target_pos(t, ph), sport), ph))
             for (t, ph) in drill.ball_to]
 
 

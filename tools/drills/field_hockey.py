@@ -7,6 +7,10 @@ about arriving inside it with the ball under control rather than just near it.
 from .engine import Drill, M, P, suffixed
 
 GOAL = (0.50, 0.02)
+# The court painter draws the D itself (arcs of 14.63 m from each post), the
+# 23 m lines and the penalty spots, so nothing here marks them: an unlabelled
+# zone token used to sit on the top of every circle in the library, and
+# players ran straight over it.
 CIRCLE_Y = 0.17          # top of the shooting circle, on the centre line
 TWENTY_THREE = 0.25
 PENALTY_SPOT = (0.50, 0.07)
@@ -50,6 +54,7 @@ def warmup_family() -> list[Drill]:
              ("elimination", "elimination skills")]
     out = []
     for key, label in specs:
+        follow, to = 0, []
         if key == "gates":
             home = [P(0.50, 0.80, "1", moves=[(0.30, 0.66, 0), (0.70, 0.54, 1),
                                               (0.40, 0.42, 2)])]
@@ -61,17 +66,23 @@ def warmup_family() -> list[Drill]:
             home = [P(0.34, 0.72, "1", moves=[(0.38, 0.62, 0)]),
                     P(0.66, 0.60, "2", moves=[(0.62, 0.70, 0)])]
             markers, away = [], []
+            follow, to = None, [(1, 0), (0, 1)]
         else:
-            home = [P(0.50, 0.74, "1", moves=[(0.40, 0.60, 0), (0.56, 0.50, 1)])]
-            markers = [M(0.48, 0.58, "cone", "")]
-            away = [P(0.48, 0.58, "D", moves=[(0.44, 0.56, 0)])]
+            # The dodge has to be visible: the cone stands beside the
+            # defender, not under him, and 1's route steps off the line and
+            # back onto it around a defender who holds his ground.
+            home = [P(0.50, 0.76, "1", moves=[(0.38, 0.62, 0), (0.60, 0.48, 1)])]
+            markers = [M(0.58, 0.62, "cone", "")]
+            away = [P(0.46, 0.60, "D")]
         out.append(Drill(
             id=f"fh_warm_{key}", category="warmup", minutes=8, rel=True,
             free=(key in ("gates", "pairs")),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, markers=markers, ball=0,
-            # carried through the gates, or knocked between the pair
-            ball_to=([(0, 0), (0, 1)] if key not in ('pairs',) else [(1, 0), (0, 1)]),
+            # carried through the gates and round the defender, or knocked
+            # between the pair. A carry has to ride every leg: the ball used
+            # to stop at the second gate while the player ran on to the third.
+            ball_follow=follow, ball_to=to,
         ))
     return out
 
@@ -104,33 +115,62 @@ BUILD_NOTE = {
 
 
 def buildup_family() -> list[Drill]:
-    specs = [("from_the_back", "from the back", 0.80), ("through_midfield", "through midfield", 0.62),
-             ("switching", "switching the ball", 0.70)]
+    # Three different problems, not one shape at three heights: walking it
+    # out of the back across the line, breaking the midfield line with a
+    # through ball, and a real switch from one touchline to the other. Each
+    # receiver arrives on the beat he is passed to, so the ball is never left
+    # standing on a spot its target has already run out of.
+    layouts = {
+        "from_the_back": (
+            [P(0.14, 0.84, "2", moves=[(0.20, 0.76, 0)]),
+             P(0.36, 0.86, "5", moves=[(0.40, 0.74, 0)]),
+             P(0.64, 0.84, "6", moves=[(0.68, 0.72, 1)]),
+             P(0.88, 0.80, "3", moves=[(0.90, 0.68, 1)]),
+             P(0.50, 0.60, "8", moves=[(0.56, 0.48, 2)])],
+            [P(0.28, 0.60, "D", moves=[(0.26, 0.68, 0)]),
+             P(0.58, 0.54, "D", moves=[(0.62, 0.64, 1)]),
+             P(0.46, 0.44, "D")],
+            [(1, 0), (2, 1), (4, 2)],
+        ),
+        "through_midfield": (
+            [P(0.16, 0.72, "2", moves=[(0.22, 0.62, 0)]),
+             P(0.42, 0.64, "5", moves=[(0.46, 0.54, 0)]),
+             P(0.70, 0.62, "6", moves=[(0.72, 0.52, 1)]),
+             P(0.90, 0.70, "3"),
+             P(0.54, 0.44, "8", moves=[(0.58, 0.26, 2)])],
+            [P(0.32, 0.48, "D", moves=[(0.26, 0.56, 0)]),
+             P(0.62, 0.42, "D", moves=[(0.56, 0.50, 1)]),
+             P(0.46, 0.28, "D", moves=[(0.42, 0.40, 2)])],
+            # 5 receives facing forward and slides it through the last line
+            # into the 8's run — the point the drill is named for.
+            [(1, 0), (4, 2)],
+        ),
+        "switching": (
+            [P(0.12, 0.76, "2", moves=[(0.18, 0.68, 0)]),
+             P(0.34, 0.80, "5", moves=[(0.38, 0.70, 0)]),
+             P(0.62, 0.78, "6", moves=[(0.64, 0.66, 1)]),
+             P(0.90, 0.74, "3", moves=[(0.88, 0.60, 2)]),
+             P(0.50, 0.58, "8", moves=[(0.46, 0.46, 2)])],
+            [P(0.26, 0.50, "D", moves=[(0.28, 0.62, 0)]),
+             P(0.48, 0.52, "D", moves=[(0.58, 0.60, 1)]),
+             P(0.72, 0.48, "D", moves=[(0.80, 0.56, 2)])],
+            # "Switching the ball" used to move all five straight up the
+            # pitch, x changing by at most 0.04 — no switch anywhere on it.
+            # It now crosses the full width, 2 to 3.
+            [(1, 0), (2, 1), (3, 2)],
+        ),
+    }
+    specs = [("from_the_back", "from the back"),
+             ("through_midfield", "through midfield"),
+             ("switching", "switching the ball")]
     out = []
-    for key, label, y in specs:
+    for key, label in specs:
+        home, away, route = layouts[key]
         out.append(Drill(
             id=f"fh_build_{key}", category="possession", minutes=12, rel=True,
             free=(key == "from_the_back"),
             name=suffixed(BUILD_NAME, label), note=BUILD_NOTE,
-            # "Switching the ball" used to move all five straight up the
-            # pitch, x changing by at most 0.04 — no switch anywhere on it.
-            home=([P(0.16, y, "2", moves=[(0.30, y - 0.02, 0)]),
-                   P(0.38, y - 0.06, "5", moves=[(0.52, y - 0.02, 1)]),
-                   P(0.62, y - 0.06, "6", moves=[(0.78, y - 0.06, 2)]),
-                   P(0.86, y, "3", moves=[(0.88, y - 0.16, 3)]),
-                   P(0.50, y - 0.22, "8", moves=[(0.66, y - 0.24, 3)])]
-                  if key == "switching" else
-                  [P(0.16, y, "2", moves=[(0.20, y - 0.06, 0)]),
-                   P(0.38, y - 0.06, "5", moves=[(0.42, y - 0.14, 1)]),
-                   P(0.62, y - 0.06, "6", moves=[(0.66, y - 0.16, 1)]),
-                   P(0.84, y, "3", moves=[(0.82, y - 0.10, 2)]),
-                   P(0.50, y - 0.20, "8", moves=[(0.50, y - 0.30, 2)])]),
-            away=[P(0.30, y - 0.14, "D", moves=[(0.26, y - 0.10, 0)]),
-                  P(0.58, y - 0.16, "D", moves=[(0.54, y - 0.12, 1)]),
-                  P(0.50, y - 0.32, "D")],
-            ball=0,
-            # out of the back, one line at a time
-            ball_to=[(1, 0), (2, 1), (4, 2)],
+            home=home, away=away, ball=0, ball_to=route,
         ))
     return out
 
@@ -163,24 +203,70 @@ ENTRY_NOTE = {
 
 
 def entry_family() -> list[Drill]:
-    specs = [("overlap", "on the overlap", 0.16, 0.30), ("give_and_go", "give and go", 0.50, 0.42),
-             ("baseline", "along the baseline", 0.86, 0.72), ("three_v_two", "3v2", 0.34, 0.50)]
+    """Four ways in, four different boards.
+
+    All four used to draw the same sequence — 1 straight up the middle, a
+    pass to 2, a square ball to 3 — so "on the overlap" showed no overlap,
+    "give and go" never gave the ball back to 1, and "along the baseline"
+    never went near the baseline. Each variant is now the thing it is named
+    after, and every shot is struck from inside the circle.
+    """
+    layouts = {
+        # 2 goes round the OUTSIDE of the carrier and receives ahead of him.
+        "overlap": (
+            [P(0.28, 0.48, "1", moves=[(0.24, 0.32, 0)]),
+             P(0.42, 0.44, "2", moves=[(0.14, 0.36, 0), (0.16, 0.18, 1),
+                                       (0.30, 0.09, 2)]),
+             P(0.66, 0.40, "3", moves=[(0.56, 0.16, 1)])],
+            [P(0.36, 0.28, "D", moves=[(0.22, 0.22, 1)]),
+             P(0.62, 0.24, "D", moves=[(0.66, 0.12, 2)]),
+             P(*GOAL, "GK", role="GK")],
+            0, [(1, 1), (1, 2)],
+        ),
+        # 1 -> 2 -> 1: the whole point is that the ball comes back, and 1
+        # runs past his marker to collect it inside the circle.
+        "give_and_go": (
+            [P(0.42, 0.46, "1", moves=[(0.44, 0.24, 1), (0.48, 0.14, 2)]),
+             P(0.66, 0.38, "2", moves=[(0.68, 0.20, 2)]),
+             P(0.24, 0.34, "3", moves=[(0.28, 0.16, 2)])],
+            [P(0.46, 0.36, "D", moves=[(0.60, 0.30, 1)]),
+             P(0.66, 0.24, "D", moves=[(0.58, 0.12, 2)]),
+             P(*GOAL, "GK", role="GK")],
+            None, [(1, 0), (0, 1), (0, 2)],
+        ),
+        # To the backline and back out: the pull-back from the dead ball is
+        # the hardest ball in the circle to defend.
+        "baseline": (
+            [P(0.82, 0.50, "1", moves=[(0.80, 0.28, 0), (0.74, 0.06, 1)]),
+             P(0.56, 0.36, "2", moves=[(0.54, 0.12, 1)]),
+             P(0.34, 0.34, "3", moves=[(0.36, 0.09, 1)])],
+            [P(0.66, 0.24, "D", moves=[(0.70, 0.14, 1)]),
+             P(0.44, 0.20, "D", moves=[(0.60, 0.08, 2)]),
+             P(*GOAL, "GK", role="GK")],
+            0, [(1, 2), (2, 3)],
+        ),
+        # A real 3v2: the ball crosses both defenders before anyone shoots.
+        "three_v_two": (
+            [P(0.20, 0.46, "1", moves=[(0.26, 0.30, 0), (0.32, 0.10, 3)]),
+             P(0.48, 0.40, "2", moves=[(0.50, 0.26, 0), (0.56, 0.09, 3)]),
+             P(0.78, 0.38, "3", moves=[(0.70, 0.12, 1)])],
+            [P(0.38, 0.30, "D", moves=[(0.34, 0.20, 0)]),
+             P(0.62, 0.28, "D", moves=[(0.54, 0.18, 1)]),
+             P(*GOAL, "GK", role="GK")],
+            None, [(0, 0), (1, 1), (2, 2), ((0.52, 0.04), 3)],
+        ),
+    }
+    specs = [("overlap", "on the overlap"), ("give_and_go", "give and go"),
+             ("baseline", "along the baseline"), ("three_v_two", "3v2")]
     out = []
-    for key, label, x, second_x in specs:
+    for key, label in specs:
+        home, away, follow, route = layouts[key]
         out.append(Drill(
             id=f"fh_entry_{key}", category="attacking", minutes=12, rel=True,
             free=(key in ("overlap", "give_and_go")),
             name=suffixed(ENTRY_NAME, label), note=ENTRY_NOTE,
-            home=[P(x, 0.44, "1", moves=[(x, 0.30, 0), (second_x, circle_edge(second_x) + 0.03, 1)]),
-                  P(second_x, 0.46, "2", moves=[(second_x, 0.32, 0), (0.50, 0.10, 2)]),
-                  P(0.68, 0.40, "3", moves=[(0.62, 0.24, 1), (0.60, 0.09, 2)])],
-            away=[P(0.42, 0.24, "D", moves=[(0.44, 0.16, 1)]),
-                  P(0.62, 0.22, "D", moves=[(0.58, 0.14, 1)]),
-                  P(*GOAL, "GK", role="GK")],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
-            ball=0,
-            # into the runner at the circle's edge, squared for the 3
-            ball_to=[(0, 0), (1, 1), (2, 2)],
+            home=home, away=away, ball=0,
+            ball_follow=follow, ball_to=route,
         ))
     return out
 
@@ -211,29 +297,60 @@ SHOT_NOTE = {
 
 
 def shooting_family() -> list[Drill]:
-    specs = [("deflection", "the deflection", 0.36), ("reverse", "on the reverse", 0.66),
-             ("tomahawk", "the tomahawk", 0.74), ("rebound", "off the rebound", 0.50)]
+    """Four finishes, each struck from where that finish is actually taken.
+
+    Every shooter finishes inside the D — a goal cannot be scored from
+    outside it — and the two support players stand at the far post and on
+    the rebound rather than on top of the keeper.
+    """
+    layouts = {
+        # Low and hard across the face for the far-post touch.
+        "deflection": (
+            [P(0.30, 0.34, "1", moves=[(0.34, 0.12, 0)]),
+             P(0.62, 0.20, "2", moves=[(0.64, 0.07, 1)]),
+             P(0.48, 0.24, "3", moves=[(0.44, 0.13, 2)])],
+            (0.44, 0.06), [(0, 0), (1, 1), ((0.56, 0.03), 2)],
+        ),
+        # Taken on the move on the right, hit with the reverse stick.
+        "reverse": (
+            [P(0.72, 0.34, "1", moves=[(0.64, 0.13, 0)]),
+             P(0.50, 0.26, "2", moves=[(0.52, 0.14, 2)]),
+             P(0.34, 0.20, "3", moves=[(0.32, 0.07, 1)])],
+            (0.56, 0.06), [(0, 0), ((0.46, 0.03), 1)],
+        ),
+        # The tomahawk is a reverse-edge hit from the top right of the D —
+        # it used to be struck from behind the backline, off the pitch.
+        "tomahawk": (
+            [P(0.80, 0.36, "1", moves=[(0.68, 0.11, 0)]),
+             P(0.42, 0.22, "2", moves=[(0.38, 0.09, 1)]),
+             P(0.56, 0.28, "3", moves=[(0.54, 0.15, 2)])],
+            (0.58, 0.06), [(0, 0), ((0.44, 0.03), 1)],
+        ),
+        # Shot, save, second contact: the rebound has to be on the board or
+        # the drill is just another straight strike.
+        "rebound": (
+            [P(0.50, 0.36, "1", moves=[(0.44, 0.15, 0)]),
+             P(0.70, 0.24, "2", moves=[(0.62, 0.12, 2)]),
+             P(0.32, 0.22, "3", moves=[(0.36, 0.10, 2)])],
+            (0.50, 0.09),
+            [(0, 0), ((0.48, 0.05), 1), (1, 2), ((0.42, 0.03), 3)],
+        ),
+    }
+    specs = [("deflection", "the deflection"), ("reverse", "on the reverse"),
+             ("tomahawk", "the tomahawk"), ("rebound", "off the rebound")]
     out = []
-    for key, label, x in specs:
+    for key, label in specs:
+        home, gk_end, route = layouts[key]
         out.append(Drill(
             id=f"fh_shot_{key}", category="finishing", minutes=10, rel=True,
             free=(key in ("deflection", "rebound")),
             name=suffixed(SHOT_NAME, label), note=SHOT_NOTE,
-            # Inside the D. Every shooter used to finish just outside the
-            # circle, where a goal cannot be scored — the only player on a
-            # shooting board who could not score was the one shooting.
-            home=[P(x, 0.30, "1", moves=[(x, circle_edge(x) - 0.045, 0)]),
-                  P(0.42, 0.10, "2", moves=[(0.38, 0.06, 1)]),
-                  P(0.60, 0.10, "3", moves=[(0.64, 0.06, 1)])],
-            # The keeper covers the near post on the shooter's side; the
-            # same dive was copied onto all four boards, so against the two
-            # shots from the right he stepped away from the ball.
-            away=[P(*GOAL, "GK", role="GK",
-                    moves=[(0.5 + (x - 0.5) * 0.45, 0.05, 1)])],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
-            ball=0,
-            # carried into the D and struck low
-            ball_to=[(0, 0), ((0.50, 0.03), 1)],
+            home=home,
+            # The keeper covers the shooter's side; the same dive was once
+            # copied onto all four boards, so against the two shots from the
+            # right he stepped away from the ball.
+            away=[P(*GOAL, "GK", role="GK", moves=[gk_end + (1,)])],
+            ball=0, ball_to=route,
         ))
     return out
 
@@ -264,26 +381,54 @@ PRESS_NOTE = {
 
 
 def press_family() -> list[Drill]:
-    # "In the circle" is not a hockey press. The three heights a team
-    # actually chooses between are the full press, the halfway press and
-    # falling back to its own 23.
-    specs = [("high", "high", 0.30), ("half", "half", 0.50),
-             ("circle", "falling back to the 23", 0.70)]
+    """The three heights a hockey team actually chooses between.
+
+    Attacking upward: the opponents defend the top goal and build out of the
+    circle at the top, so a high press is a line ON their 23 (y ≈ 0.27) with
+    the A's above it, and falling back is a block on our own 23 (y ≈ 0.78)
+    with the A's coming down at it. Both boards used to put the attackers
+    BEHIND the line of pressers, which drew each drill as its own opposite —
+    a high press that read as a low block and a low block that read as a
+    high press. The two presses step up onto the ball; the low block drops.
+
+    Opponents wear A, B and C, not three A's: the ball starts at B's feet
+    and is played infield to A, which is the beat the whole line jumps on.
+    """
+    layouts = {
+        # (D line's y, the line's two moves, the A's, ball at B's feet)
+        "high": (0.42, [(-0.02, 0.27), (-0.10, 0.20)],
+                 [P(0.34, 0.12, "A", moves=[(0.20, 0.16, 1)]),
+                  P(0.60, 0.09, "B"), P(0.84, 0.15, "C")],
+                 (0.556, 0.147), (0.50, 0.56), (0.36, 0.44)),
+        "half": (0.64, [(-0.02, 0.49), (-0.10, 0.42)],
+                 [P(0.34, 0.33, "A", moves=[(0.20, 0.37, 1)]),
+                  P(0.60, 0.30, "B"), P(0.84, 0.36, "C")],
+                 (0.556, 0.357), (0.50, 0.78), (0.36, 0.66)),
+        "circle": (0.52, [(0.00, 0.66), (0.02, 0.78)],
+                   # Landing clear of the line's own starting column, so the
+                   # A's do not end on the ghosts the D's leave behind.
+                   [P(0.34, 0.34, "A", moves=[(0.28, 0.48, 1)]),
+                    P(0.60, 0.30, "B", moves=[(0.64, 0.44, 1)]),
+                    P(0.84, 0.36, "C", moves=[(0.88, 0.46, 1)])],
+                   (0.556, 0.357), (0.50, 0.62), (0.48, 0.88)),
+    }
+    specs = [("high", "high"), ("half", "half"),
+             ("circle", "falling back to the 23")]
     out = []
-    for key, label, y in specs:
+    for key, label in specs:
+        y, (leg0, leg1), aways, ball, cover, cover_end = layouts[key]
         out.append(Drill(
             id=f"fh_press_{key}", category="defending", minutes=12, rel=True,
             free=(key == "half"),
             name=suffixed(PRESS_NAME, label), note=PRESS_NOTE,
-            home=[P(x, y, "D", moves=[(x + (0.2 - x) * 0.16, y + 0.05, 0),
-                                      (x + (0.2 - x) * 0.26, y + 0.09, 1)])
-                  for x in (0.20, 0.40, 0.60, 0.80)]
-                 + [P(0.50, y + 0.16, "D", moves=[(0.42, y + 0.18, 1)])],
-            away=[P(0.24, y + 0.12, "A", moves=[(0.14, y + 0.16, 1)]),
-                  P(0.56, y + 0.14, "A"), P(0.80, y + 0.10, "A")],
-            ball=(0.24, y + 0.12),      # the attack starts with it
-            # their A carries into the trap the press sets
-            ball_to=[("a0", 1)],
+            home=[P(x, y, "D", moves=[(x + leg0[0], leg0[1], 0),
+                                      (x + leg1[0], leg1[1], 1)])
+                  for x in (0.16, 0.38, 0.60, 0.82)]
+                 + [P(*cover, "D", moves=[cover_end + (1,)])],
+            away=aways,
+            ball=ball,                  # the attack starts with it, at B
+            # infield to A, and A carries into the trap the press sets
+            ball_to=[("a0", 0), ("a0", 1)],
         ))
     return out
 
@@ -319,38 +464,55 @@ def setpiece_family() -> list[Drill]:
     out = []
     # The stop is taken a step outside the D, not nine metres behind the
     # 23 m line — from there a drag flick cannot reach the goal at all.
-    # (striker's release, extra runner, what the routine does)
-    STOP = (0.50, 0.195)
-    specs = [("drag_flick", "the drag flick", (0.50, 0.20), (0.42, 0.05)),
-             ("straight_strike", "the straight strike", (0.50, 0.20), (0.585, 0.055)),
-             ("variation_left", "a variation to the left", (0.33, 0.175), (0.40, 0.05)),
-             ("defending_it", "defending it", (0.50, 0.20), (0.58, 0.05))]
-    for key, label, striker, deflector in specs:
+    # The routine is injection (beat 0), slip to the striker (beat 1),
+    # strike (beat 2); the four sheets differ in where the ball is slipped
+    # to, where the post man goes and where the strike finishes. The stopper
+    # clears out of the striker's way instead of standing on him — T and F
+    # used to end 22 canvas units apart, one token on top of another.
+    # (striker's release, stopper's exit, post runner, strike)
+    STOP = (0.50, 0.19)
+    specs = [
+        ("drag_flick", "the drag flick",
+         (0.42, 0.21), (0.30, 0.24), (0.62, 0.20), (0.62, 0.06),
+         (0.45, 0.03), (0.44, 0.07)),
+        ("straight_strike", "the straight strike",
+         (0.56, 0.21), (0.72, 0.25), (0.36, 0.20), (0.36, 0.06),
+         (0.55, 0.03), (0.56, 0.07)),
+        ("variation_left", "a variation to the left",
+         (0.32, 0.20), (0.52, 0.32), (0.62, 0.20), (0.62, 0.06),
+         (0.56, 0.035), (0.44, 0.07)),
+        ("defending_it", "defending it",
+         (0.42, 0.21), (0.30, 0.24), (0.62, 0.20), (0.62, 0.06),
+         (0.45, 0.03), (0.52, 0.13)),
+    ]
+    for key, label, striker, stopper, post, post_end, strike, gk in specs:
         defending = key == "defending_it"
         out.append(Drill(
             id=f"fh_corner_{key}", category="setpiece", minutes=12, rel=True,
-# A penalty corner packs the circle by design.
-tight=True,
+            # A penalty corner packs the circle by design.
+            tight=True,
             free=(key in ("drag_flick", "defending_it")), off_surface=True,
             name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
-            # I injects from 10 m outside the post, T traps at the top of
-            # the D, F strikes from the trap, and the fourth player is the
-            # deflector or slip runner that tells the four routines apart.
-            home=[P(0.72, -0.015, "I", moves=[(0.62, 0.10, 0)]),
-                  P(*STOP, "T", moves=[(STOP[0] - 0.02, STOP[1] - 0.005, 1)]),
-                  P(0.50, 0.315, "F", moves=[striker + (2,)]),
-                  P(deflector[0], deflector[1] + 0.10, "P",
-                    moves=[deflector + (2,)])],
-            away=([P(*GOAL, "GK", role="GK", moves=[(0.46, 0.06, 2)])] + [
-                # Behind the backline until the ball is injected, which is
-                # where the four runners have to start by the rules.
-                P(0.475 + i * 0.022, -0.02, "D",
-                  moves=[(0.46 + (i - 1.5) * 0.075, 0.145, 2)]) for i in range(4)
-            ]) if defending else [P(*GOAL, "GK", role="GK", moves=[(0.46, 0.06, 2)])],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
+            # I injects from the backline outside the circle (feet off the
+            # pitch, as the rule requires), T traps at the top of the D and
+            # steps away, F runs onto the slip, and P is the post runner.
+            home=[P(0.80, -0.02, "I", moves=[(0.82, 0.15, 1)]),
+                  P(*STOP, "T", moves=[stopper + (1,)]),
+                  P(0.44, 0.34, "F", moves=[striker + (1,)]),
+                  P(post[0], post[1], "P", moves=[post_end + (2,)])],
+            away=([P(0.50, 0.045, "GK", role="GK", moves=[gk + (2,)])] + [
+                # The four runners break out of the goal the moment the ball
+                # is injected. They used to be drawn stacked behind the
+                # backline, where space_out threw them off the top of the
+                # board; they now start on the goal line and run out as a fan.
+                P(x, 0.00, "D", moves=[end + (2,)])
+                for x, end in ((0.44, (0.50, 0.23)), (0.56, (0.68, 0.17)),
+                               (0.30, (0.34, 0.09)), (0.66, (0.84, 0.07)))
+            ]) if defending else
+            [P(*GOAL, "GK", role="GK", moves=[gk + (2,)])],
             ball=0,
-            # injected, trapped at the top of the D, struck or slipped
-            ball_to=[(1, 0), (2, 2), ((0.50, 0.03), 2)],
+            # injected, trapped at the top of the D, slipped and struck
+            ball_to=[(1, 0), (2, 1), (strike, 2)],
         ))
     out.append(Drill(
         id="fh_set_free_hit", category="setpiece", minutes=8, rel=True,
@@ -387,7 +549,6 @@ tight=True,
               P(0.44, 0.26, "2", moves=[(0.40, 0.20, 1)]),
               P(0.68, 0.24, "3", moves=[(0.60, 0.14, 1)])],
         away=[P(0.32, 0.22, "D"), P(*GOAL, "GK", role="GK")],
-        markers=[M(0.50, CIRCLE_Y, "zone", "")],
         ball=0,
             # taken quickly through 2 into the 3's run at the circle
             ball_to=[(1, 0), (2, 1)],
@@ -421,23 +582,51 @@ GAME_NOTE = {
 
 
 def game_family() -> list[Drill]:
+    """Small-sided games in a shape, not in two flat rows.
+
+    Both sides used to be a lattice that stepped five metres — no lines, no
+    striker, nobody in either circle. Each side now stands in the shape that
+    number of players is actually organised in, and the board shows one
+    sequence out of the back and into the circle, which is what the note
+    asks a coach to score.
+    """
+    # Home, deepest first; away is the same shape mirrored into the far half.
+    shapes = {
+        3: [(0.30, 0.78), (0.68, 0.72), (0.48, 0.44)],
+        5: [(0.22, 0.84), (0.62, 0.86), (0.34, 0.66), (0.72, 0.62),
+            (0.50, 0.40)],
+        7: [(0.16, 0.88), (0.36, 0.92), (0.74, 0.86), (0.28, 0.68),
+            (0.62, 0.66), (0.88, 0.74), (0.50, 0.40)],
+    }
     out = []
     for n in (3, 5, 7):
-        spots = [(0.50 - 0.30 + 0.60 * i / max(n - 1, 1), 0.44 + 0.06 * (i % 2))
-                 for i in range(n)]
+        spots = shapes[n]
+        mid = n // 2
+        home = []
+        for i, (x, y) in enumerate(spots):
+            moves = []
+            if i == 0:
+                moves = [(x + 0.04, y - 0.12, 0)]
+            elif i == mid:
+                moves = [(x - 0.05, y - 0.12, 0)]
+            elif i == n - 1:
+                # Received at the top of the D, then taken in: one pass from
+                # halfway to the goal line is not what a circle entry is.
+                moves = [(0.52, 0.24, 1), (0.50, 0.12, 2)]
+            home.append(P(x, y, f"{i + 1}", moves=moves))
+        away = []
+        for i, (x, y) in enumerate(spots):
+            moves = [(0.58, 0.20, 1)] if i == mid else []
+            away.append(P(1 - x, 1 - y, chr(65 + i), moves=moves))
         out.append(Drill(
             id=f"fh_game_{n}v{n}", category="ssg", minutes=15, rel=True,
             free=(n == 5),
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
-            home=[P(x, y + 0.16, f"{i + 1}", moves=[(x, y + 0.08, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            away=[P(x, y - 0.10, chr(65 + i), moves=[(x, y - 0.02, 0)])
-                  for i, (x, y) in enumerate(spots)]
-                 + [P(*GOAL, "GK", role="GK")],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
+            home=home, away=away + [P(*GOAL, "GK", role="GK")],
             ball=0,
-            # two passes across the middle under pressure
-            ball_to=[(1 % n, 0), (2 % n, 0)],
+            # out of the back, through midfield, into the circle entry the
+            # game is scored on
+            ball_to=[(mid, 0), (n - 1, 1), (n - 1, 2), ((0.50, 0.04), 3)],
         ))
     return out
 
@@ -469,17 +658,18 @@ AERIAL_NOTE = {
     "vi-VN": "Tha bong xuong khoang trong khong co ai va goi som. Nam met la luat.",
 }
 LONG_CORNER_NOTE = {
-    "en": "Taken five metres from the corner flag, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
-    "zh-CN": "在距角旗五米处开出，第一脚就已经是向前的。站在球边等所有人慢跑就位，等于白送给对方二十秒。",
-    "zh-TW": "在距角旗五米處開出，第一腳就已經是向前的。站在球邊等所有人慢跑就位，等於白送給對方二十秒。",
-    "ja-JP": "コーナーフラッグから5メートルの位置から。最初のパスがすでに前向きになる。全員が歩いて配置につくのを待てば、守備に20秒を献上する。",
-    "ko-KR": "코너 깃발에서 5미터 지점에서 시작하니 첫 패스부터 전방이다. 모두가 자리를 잡을 때까지 기다리면 수비에 20초를 준다.",
-    "es-ES": "Se saca a cinco metros del banderin, asi el primer pase ya va hacia adelante. Esperar a que todos troten a su sitio regala veinte segundos a la defensa.",
-    "fr-FR": "Frappe a cinq metres du drapeau de coin, pour que la premiere passe aille deja vers l avant. Attendre que tout le monde se place offre vingt secondes a la defense.",
-    "id-ID": "Diambil lima meter dari bendera sudut, sehingga umpan pertama sudah ke depan.",
-    "ms-MY": "Diambil lima meter dari bendera penjuru, supaya hantaran pertama sudah ke hadapan.",
-    "th-TH": "เล่นจากจุดห่างธงมุมห้าเมตร เพื่อให้จ่ายลูกแรกไปข้างหน้าได้เลย",
-    "vi-VN": "Thuc hien cach co goc nam met, de duong chuyen dau tien da huong len phia truoc.",
+    "en": "Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
+    "en-GB": "Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
+    "zh-CN": "在23米线上、球出界位置的延长线上开出，第一脚就已经是向前的。站在球边等所有人慢跑就位，等于白送给对方二十秒。",
+    "zh-TW": "在23公尺線上、球出界位置的延長線上開出，第一腳就已經是向前的。站在球邊等所有人慢跑就位，等於白送給對方二十秒。",
+    "ja-JP": "ボールが出た地点の延長線上、23メートルラインから始める。最初のパスがすでに前向きになる。全員が歩いて配置につくのを待てば、守備に20秒を献上する。",
+    "ko-KR": "공이 나간 지점과 같은 선상, 23미터 라인에서 시작하니 첫 패스부터 전방이다. 모두가 자리를 잡을 때까지 기다리면 수비에 20초를 준다.",
+    "es-ES": "Se saca en la linea de 23 m, a la altura de donde salio la bola, asi el primer pase ya va hacia adelante. Esperar a que todos troten a su sitio regala veinte segundos a la defensa.",
+    "fr-FR": "Joue sur la ligne des 23 m, dans l axe de la sortie de balle, pour que la premiere passe aille deja vers l avant. Attendre que tout le monde se place offre vingt secondes a la defense.",
+    "id-ID": "Diambil di garis 23 m, segaris dengan tempat bola keluar, sehingga umpan pertama sudah ke depan.",
+    "ms-MY": "Diambil di garisan 23 m, segaris dengan tempat bola keluar, supaya hantaran pertama sudah ke hadapan.",
+    "th-TH": "เล่นจากเส้น 23 เมตร ตรงแนวที่บอลออก เพื่อให้จ่ายลูกแรกไปข้างหน้าได้เลย",
+    "vi-VN": "Thuc hien tren vach 23 m, thang hang voi diem bong ra bien, de duong chuyen dau tien da huong len phia truoc.",
 }
 COUNTER_NOTE = {
     "en": "Three passes to the circle, not five. Every extra touch is a defender getting back, and hockey's defenders get back very fast.",
@@ -533,25 +723,30 @@ def gaps_family() -> list[Drill]:
                   "id-ID": "Tekel", "ms-MY": "Rampasan",
                   "th-TH": "การแย่งบอล", "vi-VN": "Vào bóng"},
             note=TACKLE_NOTE,
-            home=[P(0.50, 0.36, "D", moves=[(0.48, 0.46, 0), (0.46, 0.52, 1)])],
-            away=[P(0.46, 0.62, "A", moves=[(0.46, 0.52, 0), (0.40, 0.42, 1)])],
-            markers=[M(0.34, 0.40), M(0.66, 0.40)],
+            # The attacker runs at his own goal, so the defender has to be
+            # goal-side when the tackle is made: A used to end BEYOND D —
+            # beaten defender, ball to the defender — and the ball started
+            # loose behind A with nobody to have played it. S serves it in.
+            home=[P(0.52, 0.80, "D", moves=[(0.50, 0.68, 0), (0.44, 0.78, 1)])],
+            away=[P(0.44, 0.46, "A", moves=[(0.44, 0.60, 0), (0.38, 0.72, 1)]),
+                  P(0.30, 0.40, "S")],
+            markers=[M(0.30, 0.70), M(0.58, 0.70)],
             # the carrier comes at the tackle; the ball is what changes hands
-            ball=(0.46, 0.64),
+            ball=(0.35, 0.46),
             ball_to=[("a0", 0), (0, 1)],
         ),
         Drill(
             id="fh_build_aerial", category="possession", minutes=10, rel=True,
             name=suffixed(BUILD_NAME, "with the aerial"), note=AERIAL_NOTE,
-            home=[P(0.20, 0.78, "2", moves=[(0.24, 0.72, 0)]),
-                  P(0.78, 0.44, "7", moves=[(0.74, 0.36, 1)]),
+            home=[P(0.20, 0.80, "2", moves=[(0.26, 0.70, 0)]),
+                  P(0.78, 0.44, "7", moves=[(0.76, 0.34, 1)]),
                   P(0.50, 0.58, "8", moves=[(0.56, 0.50, 1)])],
-            away=[P(0.36, 0.66, "D", moves=[(0.30, 0.70, 0)]),
-                  P(0.60, 0.52, "D", moves=[(0.66, 0.46, 1)])],
+            away=[P(0.40, 0.60, "D", moves=[(0.32, 0.52, 0)]),
+                  P(0.62, 0.56, "D", moves=[(0.60, 0.44, 1)])],
             markers=[M(0.78, 0.40, "zone", "")],
             ball=0,
-            # the aerial over both lines, killed by the 7
-            ball_to=[(1, 1)],
+            # the aerial over both lines, killed by the 7 in the space
+            ball_to=[(0, 0), (1, 1)],
         ),
         Drill(
             id="fh_set_long_corner", category="setpiece", minutes=8, rel=True,
@@ -561,16 +756,19 @@ def gaps_family() -> list[Drill]:
                   "id-ID": "Sudut panjang", "ms-MY": "Penjuru panjang",
                   "th-TH": "ลูกมุมยาว", "vi-VN": "Phạt góc dài"},
             note=LONG_CORNER_NOTE,
-            home=[P(0.965, 0.115, "7", moves=[(0.90, 0.16, 0)]),
-                  P(0.66, 0.235, "9", moves=[(0.60, 0.145, 1)]),
-                  P(0.42, 0.28, "10", moves=[(0.46, 0.16, 2)])],
-            away=[P(0.78, 0.20, "D", moves=[(0.84, 0.155, 0)]),
-                  P(0.54, 0.19, "D", moves=[(0.50, 0.135, 1)]),
-                  P(*GOAL, "GK", role="GK", moves=[(0.44, 0.06, 2)])],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
+            # Taken on the 23 m line, in line with where the ball crossed —
+            # not from beside the corner flag, which the rules stopped using
+            # in 2015. Both receivers arrive on the beat they are passed to;
+            # the ball used to be left on a spot its target had already left.
+            home=[P(0.92, 0.25, "7", moves=[(0.86, 0.14, 1)]),
+                  P(0.62, 0.30, "9", moves=[(0.66, 0.20, 0)]),
+                  P(0.40, 0.26, "10", moves=[(0.46, 0.14, 1)])],
+            away=[P(0.78, 0.26, "D", moves=[(0.72, 0.15, 0)]),
+                  P(0.50, 0.22, "D", moves=[(0.58, 0.10, 1)]),
+                  P(*GOAL, "GK", role="GK", moves=[(0.48, 0.07, 2)])],
             ball=0,
-            # worked in off the baseline through the 9
-            ball_to=[(1, 0), (2, 1)],
+            # worked in off the 23 through the 9 and finished by the 10
+            ball_to=[(1, 0), (2, 1), ((0.52, 0.04), 2)],
         ),
         Drill(
             id="fh_counter_attack", category="attacking", minutes=12, rel=True,
@@ -589,10 +787,12 @@ def gaps_family() -> list[Drill]:
             away=[P(0.44, 0.44, "D", moves=[(0.40, 0.30, 1)]),
                   P(0.70, 0.36, "D", moves=[(0.64, 0.22, 2)]),
                   P(*GOAL, "GK", role="GK", moves=[(0.54, 0.06, 2)])],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
             ball=0,
-            # won by the 5, sprung wide, carried in and squared
-            ball_to=[(2, 1), (2, 2), ((0.50, 0.03), 2)],
+            # Won by the 5, sprung to the 9, carried in and struck. The
+            # carry and the strike used to share one beat, which drew the
+            # pass from where the 5 had been standing before he broke out
+            # and left the ball on its own in the middle of the pitch.
+            ball_to=[(0, 0), (2, 1), (2, 2), ((0.50, 0.03), 3)],
         ),
     ] + [
         Drill(
@@ -601,24 +801,32 @@ def gaps_family() -> list[Drill]:
             name=suffixed(FH_GK_NAME, label), note=FH_GK_NOTE,
             home=home,
             away=[P(*GOAL, "GK", role="GK", moves=[gk + (1,)])],
-            markers=[M(0.50, CIRCLE_Y, "zone", "")],
+            # The keeper clears to a target wide of the circle, so the
+            # clearance has somewhere to be judged against.
+            markers=([M(0.90, 0.30, "cone", "")] if key == "clearing" else []),
             ball=0,
-            # the strike each keeper drill answers
-            ball_to=[((0.50, 0.03), 1)],
+            # What each keeper drill actually answers: three of these used
+            # to stop at the shot, so the drill named for the rebound had no
+            # rebound and the one named for clearing never cleared.
+            ball_to=route,
         )
-        for key, label, lvl, home, gk in [
+        for key, label, lvl, home, gk, route in [
             ("angles", "angles", "foundation",
              [P(0.32, 0.155, "1", moves=[(0.36, 0.115, 0)]),
-              P(0.68, 0.155, "2", moves=[(0.64, 0.115, 0)])], (0.415, 0.055)),
+              P(0.68, 0.155, "2", moves=[(0.64, 0.115, 0)])], (0.415, 0.055),
+             [((0.50, 0.03), 1)]),
             ("first_save", "the first save and the rebound", "development",
-             [P(0.50, 0.20, "1", moves=[(0.50, 0.125, 0)]),
-              P(0.66, 0.175, "2", moves=[(0.60, 0.075, 2)])], (0.50, 0.05)),
+             [P(0.50, 0.26, "1", moves=[(0.44, 0.15, 0)]),
+              P(0.70, 0.22, "2", moves=[(0.62, 0.11, 2)])], (0.48, 0.09),
+             [(0, 0), ((0.46, 0.05), 1), (1, 2), ((0.56, 0.04), 3)]),
             ("one_v_one", "one against one", "development",
-             [P(0.50, 0.40, "1", moves=[(0.50, 0.22, 0), (0.44, 0.10, 1)])],
-             (0.47, 0.07)),
+             [P(0.50, 0.44, "1", moves=[(0.50, 0.26, 0), (0.45, 0.145, 1)])],
+             (0.52, 0.10),
+             [(0, 0), (0, 1), ((0.42, 0.04), 2)]),
             ("clearing", "clearing the circle", "development",
-             [P(0.24, 0.185, "1", moves=[(0.30, 0.13, 0)]),
-              P(0.76, 0.185, "2", moves=[(0.70, 0.13, 0)])], (0.50, 0.09)),
+             [P(0.26, 0.22, "1", moves=[(0.32, 0.13, 0)]),
+              P(0.76, 0.24, "2", moves=[(0.68, 0.12, 0)])], (0.44, 0.10),
+             [(0, 0), ("a0", 1), ((0.92, 0.28), 2)]),
         ]
     ]
 
