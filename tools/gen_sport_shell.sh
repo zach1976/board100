@@ -76,6 +76,15 @@ for SPORT in "${SPORTS[@]}"; do
   # ── pubspec: depends on the core, generates its own icons + splash ─────────
   VERSION=$(grep -E '^version:' "$CORE/pubspec.yaml" | sed 's/version: //')
   PKG=$(echo "$KEY" | tr '[:upper:]' '[:lower:]')_board
+  # The intro backdrops are this app's own (the core's assets go into all
+  # sixteen bundles, so sixteen sports' artwork would ride along in each).
+  # Declared only once they exist: Flutter fails the build on an asset
+  # directory with nothing in it, and most sports have no art yet.
+  INTRO_ASSETS=""
+  if compgen -G "$DIR/assets/intro/*.webp" > /dev/null; then
+    INTRO_ASSETS="  assets:
+    - assets/intro/"
+  fi
   cat > "$DIR/pubspec.yaml" <<YAML
 name: ${PKG}
 description: "${NAME_EN} — single-sport shell over the shared tactics_board core."
@@ -103,6 +112,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+${INTRO_ASSETS}
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.

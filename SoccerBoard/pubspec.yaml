@@ -24,10 +24,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/intro/
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.
-# Sources live with the core, next to every other sport's artwork.
+# The sources are this app's own assets/icon/ — no other app's artwork is
+# reachable from here.
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

@@ -221,7 +221,12 @@
           文件名 <code>&lt;key&gt;_1.png</code> / <code>_2</code> / <code>_3</code>，
           比如 <code>soccer_1.png</code>。
         </p>
-        <p>剩下的（转 WebP、压到 ~250KB、放进各 app 的 <code>assets/intro/</code>、改 pubspec）我批量跑。</p>
+        <p>
+          然后一条命令：<br>
+          <code>tools/install_intro_art.py --all ~/Downloads/intro_art</code><br>
+          它负责补比例、转 WebP、放进各 app 的 <code>assets/intro/</code>。pubspec 由
+          <code>gen_sport_shell.sh</code> 自动带上。
+        </p>
       </div>
       <div class="card">
         <h3>为什么每个 app 各存一份</h3>
@@ -250,12 +255,21 @@
           <tr>
             <td>比例</td>
             <td class="mono">9 : 19.5（1080 × 2340）</td>
-            <td>按最高的手机来。代码用 <code>BoxFit.cover</code> 底部对齐，矮屏切掉的是顶部空白，不会切到板子。</td>
+            <td>按最高的手机来。代码用 <code>BoxFit.cover</code> 底部对齐。</td>
           </tr>
           <tr>
             <td>比例出不来时</td>
-            <td class="mono">2 : 3（1024 × 1536）</td>
-            <td>也能用，但一定要把主体压在下 60%，左右会被裁掉一点。</td>
+            <td class="mono">矮一点没关系</td>
+            <td>
+              <code>install_intro_art.py</code> 会往<b style="color:var(--text)">上</b>把画布接到 9:19.5——
+              顶部本来就是一片渐变暗绿，接得看不出来。所以不用为了比例重出图。
+              到 1 : 1.8 左右都很自然，矮过 1 : 1.6 就能看出是补的。
+            </td>
+          </tr>
+          <tr>
+            <td>千万别更瘦长</td>
+            <td class="mono">比 9 : 19.5 还高</td>
+            <td>这种只能裁两侧，边上的手写字会被切成半个词。矮的能救，高的救不了。</td>
           </tr>
           <tr>
             <td>顶部留白</td>
@@ -283,6 +297,7 @@
       <li class="warn">
         <b>上 40% 空着。</b>生成模型最爱把板子往中间怼。出来的图如果板子顶到画面一半以上，
         就在提示词末尾再加一句 <code>the board must start below the vertical midpoint</code> 重出。
+        （矮图补比例之后这条会自动缓解，但主体本身还是要压低。）
       </li>
       <li>
         <b>不要 UI、不要手机边框、不要按钮。</b>ChatGPT 一听 "app onboarding screen" 很容易
