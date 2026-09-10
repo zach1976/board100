@@ -409,5 +409,10 @@
   "pages_page": "{} ページ",
   "pages_add": "空白ページ",
   "pages_duplicate": "複製",
-  "home_board_title": "{}ボード"
+  "home_board_title": "{}ボード",
+  "home_all_boards": "全 {} 件 →",
+  "home_mine_empty": "まだ保存がありません — ボードで保存するとここに出ます",
+  "home_today_word": "今日",
+  "home_yesterday": "昨日",
+  "home_days_ago": "{} 日前"
 }

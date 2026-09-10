@@ -409,5 +409,10 @@
   "pages_page": "Trang {}",
   "pages_add": "Trang trống",
   "pages_duplicate": "Nhân bản",
-  "home_board_title": "Bảng {}"
+  "home_board_title": "Bảng {}",
+  "home_all_boards": "Tất cả {} →",
+  "home_mine_empty": "Chưa lưu bảng nào — lưu trên bảng là nó xuất hiện ở đây",
+  "home_today_word": "hôm nay",
+  "home_yesterday": "hôm qua",
+  "home_days_ago": "{} ngày trước"
 }

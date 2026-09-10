@@ -409,5 +409,10 @@
   "pages_page": "第 {} 頁",
   "pages_add": "空白頁",
   "pages_duplicate": "複製本頁",
-  "home_board_title": "{}戰術板"
+  "home_board_title": "{}戰術板",
+  "home_all_boards": "全部 {} 個 →",
+  "home_mine_empty": "還沒有儲存的戰術板——在板上按儲存就會出現在這裡",
+  "home_today_word": "今天",
+  "home_yesterday": "昨天",
+  "home_days_ago": "{} 天前"
 }

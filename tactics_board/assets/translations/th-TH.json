@@ -409,5 +409,10 @@
   "pages_page": "หน้า {}",
   "pages_add": "หน้าว่าง",
   "pages_duplicate": "ทำสำเนา",
-  "home_board_title": "กระดาน{}"
+  "home_board_title": "กระดาน{}",
+  "home_all_boards": "ทั้งหมด {} →",
+  "home_mine_empty": "ยังไม่มีที่บันทึกไว้ — กดบันทึกบนกระดานแล้วจะขึ้นที่นี่",
+  "home_today_word": "วันนี้",
+  "home_yesterday": "เมื่อวาน",
+  "home_days_ago": "{} วันก่อน"
 }

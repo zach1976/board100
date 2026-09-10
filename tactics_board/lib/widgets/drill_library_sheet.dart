@@ -36,6 +36,10 @@ class DrillLibrarySheet extends StatefulWidget {
   /// here, and a coach who picked "foundation" means it.
   final DrillLevel? initialLevel;
 
+  /// Open on the coach's own saved boards rather than the shipped library.
+  /// The home page's "my boards" leads here for the full list.
+  final bool openMine;
+
   /// Called after a drill has been put on the board. The sheet is opened
   /// from two places that want different things next: over the board it is
   /// already where the coach wants to be, but from the home page the board
@@ -48,6 +52,7 @@ class DrillLibrarySheet extends StatefulWidget {
     this.onUpgrade,
     this.initialCategory,
     this.initialLevel,
+    this.openMine = false,
     this.onLoaded,
   });
 
@@ -55,6 +60,7 @@ class DrillLibrarySheet extends StatefulWidget {
       {VoidCallback? onUpgrade,
       DrillCategory? initialCategory,
       DrillLevel? initialLevel,
+      bool openMine = false,
       VoidCallback? onLoaded}) {
     return TacticalSheet.show<void>(
       context,
@@ -65,6 +71,7 @@ class DrillLibrarySheet extends StatefulWidget {
             onUpgrade: onUpgrade,
             initialCategory: initialCategory,
             initialLevel: initialLevel,
+            openMine: openMine,
             onLoaded: onLoaded,
           )),
     );
@@ -90,6 +97,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     super.initState();
     _filter = widget.initialCategory;
     _level = widget.initialLevel;
+    _showMine = widget.openMine;
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
     widget.state.listSavedTacticMetas().then((metas) {
       if (mounted) setState(() => _mine = metas);

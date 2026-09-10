@@ -324,13 +324,23 @@ class _BoardCard extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(T.s12, T.s12, T.s12, 0),
                 child: ClipRRect(
                   borderRadius: T.brMd,
+                  // Drawn at the size the board is really drawn at, then
+                  // scaled as one picture. A token is a fixed 44pt whatever
+                  // box the canvas is given, so a preview laid out small got
+                  // full-size players on a shrunken pitch — three of them
+                  // covering the centre circle. Scaling the finished board
+                  // instead makes the preview exactly the board, smaller.
                   child: Center(
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.32,
-                      child: const AspectRatio(
-                        aspectRatio: 402 / 730,
-                        child: IgnorePointer(
-                            child: TacticsCanvas(preview: true)),
+                      child: const FittedBox(
+                        fit: BoxFit.contain,
+                        child: SizedBox(
+                          width: kBoardRefWidth,
+                          height: kBoardRefHeight,
+                          child: IgnorePointer(
+                              child: TacticsCanvas(preview: true)),
+                        ),
                       ),
                     ),
                   ),

@@ -409,5 +409,10 @@
   "pages_page": "Page {}",
   "pages_add": "Page vierge",
   "pages_duplicate": "Dupliquer",
-  "home_board_title": "Tableau {}"
+  "home_board_title": "Tableau {}",
+  "home_all_boards": "Les {} →",
+  "home_mine_empty": "Rien d'enregistré : enregistrez depuis le tableau et cela apparaîtra ici",
+  "home_today_word": "aujourd'hui",
+  "home_yesterday": "hier",
+  "home_days_ago": "il y a {} jours"
 }
