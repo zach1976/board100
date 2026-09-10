@@ -25,6 +25,14 @@ cd "$(dirname "$0")/.."
 
 CORE="tactics_board"
 TABLE="tools/sports.tsv"
+
+# Google's published sample application ids. An app whose table row says "-"
+# ships ad-free on that platform and gets one of these — NOT whatever id came
+# in with the platform folder copied from the core, which is the hub's own.
+# BeachTennisBoard and FootvolleyBoard shipped for months reporting against
+# the hub's Android id because this fallback did not exist.
+SAMPLE_ADMOB_IOS="ca-app-pub-3940256099942544~1458002511"
+SAMPLE_ADMOB_ANDROID="ca-app-pub-3940256099942544~3347511713"
 [ -f "$TABLE" ] || { echo "missing $TABLE"; exit 1; }
 
 row() {  # $1 = sport key -> tab-separated row, or empty
@@ -82,7 +90,8 @@ for SPORT in "${SPORTS[@]}"; do
   # directory with nothing in it, and most sports have no art yet.
   INTRO_ASSETS=""
   if compgen -G "$DIR/assets/intro/*.webp" > /dev/null; then
-    INTRO_ASSETS="  assets:
+    INTRO_ASSETS="
+  assets:
     - assets/intro/"
   fi
   cat > "$DIR/pubspec.yaml" <<YAML
@@ -111,8 +120,7 @@ dev_dependencies:
   flutter_native_splash: ^2.4.4
 
 flutter:
-  uses-material-design: true
-${INTRO_ASSETS}
+  uses-material-design: true${INTRO_ASSETS}
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.
@@ -183,15 +191,19 @@ macos/Podfile.lock
 android/.gradle/
 android/local.properties
 android/key.properties
+
+# tools/drive_app.sh writes UI-inspection shots into whichever app it drives.
+# A shell's store screenshots live in fastlane/screenshots/, not here.
+screenshots/
 GIT
 
   # ── iOS identity ──────────────────────────────────────────────────────────
   sed -i '' "s/PRODUCT_BUNDLE_IDENTIFIER = com\.[^;]*/PRODUCT_BUNDLE_IDENTIFIER = $BUNDLE/g" \
     "$DIR/ios/Runner.xcodeproj/project.pbxproj"
   /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $NAME_EN" "$DIR/ios/Runner/Info.plist"
-  if [ "$ADMOB_IOS" != "-" ]; then
-    /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $ADMOB_IOS" "$DIR/ios/Runner/Info.plist"
-  fi
+  IOS_APP_ID="$ADMOB_IOS"
+  if [ "$IOS_APP_ID" = "-" ]; then IOS_APP_ID="$SAMPLE_ADMOB_IOS"; fi
+  /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $IOS_APP_ID" "$DIR/ios/Runner/Info.plist"
   # Localized display names (the store shows these per device language).
   echo "CFBundleDisplayName = \"$NAME_EN\";" > "$DIR/ios/Runner/en.lproj/InfoPlist.strings"
   for l in zh-Hans zh-Hant; do
@@ -208,10 +220,10 @@ GIT
   # the store identity is the applicationId).
   sed -i '' "s/applicationId = \"[^\"]*\"/applicationId = \"$BUNDLE\"/" \
     "$DIR/android/app/build.gradle.kts"
-  if [ "$ADMOB_ANDROID" != "-" ]; then
-    sed -i '' "s|ca-app-pub-[0-9]*~[0-9]*|$ADMOB_ANDROID|" \
-      "$DIR/android/app/src/main/AndroidManifest.xml"
-  fi
+  ANDROID_APP_ID="$ADMOB_ANDROID"
+  if [ "$ANDROID_APP_ID" = "-" ]; then ANDROID_APP_ID="$SAMPLE_ADMOB_ANDROID"; fi
+  sed -i '' "s|ca-app-pub-[0-9]*~[0-9]*|$ANDROID_APP_ID|" \
+    "$DIR/android/app/src/main/AndroidManifest.xml"
   for d in "$DIR/android/app/src/main/res"/values "$DIR/android/app/src/main/res"/values-*; do
     f="$d/strings.xml"; [ -f "$f" ] || continue
     case "$(basename "$d")" in
