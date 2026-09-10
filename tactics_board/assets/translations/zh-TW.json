@@ -432,5 +432,14 @@
   "report_send": "傳送",
   "report_sent": "已傳送，謝謝",
   "report_needs_detail": "請說明哪裡不對",
-  "sending": "傳送中…"
+  "sending": "傳送中…",
+  "intro_skip": "跳過",
+  "intro_next": "下一步",
+  "intro_start": "開始",
+  "intro_board_t": "畫出來，再走一遍",
+  "intro_board_b": "把球員擺到場上、畫出跑位，然後一拍一拍地把這套配合走一遍。",
+  "intro_drills_t": "六百個訓練，已經寫好了",
+  "intro_drills_b": "每一個都是能一步步走的板，配著練什麼、怎麼擺、以及只說一句的那句話。",
+  "intro_plan_t": "排一堂課",
+  "intro_plan_b": "把訓練串成週二的計畫，站在場邊用手機一項項跑下來。"
 }
