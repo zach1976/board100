@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Añadir texto",
   "text_add_hint": "p. ej. drag flick al palo largo",
-  "rotate_reset": "Restablecer"
+  "rotate_reset": "Restablecer",
+  "pages_title": "Páginas",
+  "pages_hint": "Una rutina es una forma con variantes: duplica y edita",
+  "pages_page": "Página {}",
+  "pages_add": "Página en blanco",
+  "pages_duplicate": "Duplicar"
 }

@@ -212,6 +212,15 @@ class TacticsBoardHomePage extends StatelessWidget {
               },
             ),
           ),
+        // Pages. Always there, because a routine is several boards and the
+        // way to make the second one has to be visible before anybody knows
+        // they want it; a coach wrote a review saying there was no easy way
+        // to add pages, and there was no way at all.
+        Positioned(
+          top: _chromeTop(topPad),
+          right: 12 + (44 * uiScale(context)).clamp(44.0, 60.0),
+          child: const _PagesButton(),
+        ),
         Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
         _CollapsibleEditPanel(),
         Positioned(
@@ -487,6 +496,197 @@ class _GlassCircle extends StatelessWidget {
             ),
             child: child,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The page counter, and the way in to the rest of them.
+///
+/// Flicking is the thing the reviewer asked for, so the chevrons are on the
+/// board itself once there is more than one page; adding, copying and
+/// deleting live behind the counter, which is where you go when you are
+/// thinking about the routine rather than drawing it.
+class _PagesButton extends StatelessWidget {
+  const _PagesButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, (int, int)>(
+      selector: (_, s) => (s.pageIndex, s.pageCount),
+      builder: (context, tuple, _) {
+        final state = context.read<TacticsState>();
+        final index = tuple.$1;
+        final count = tuple.$2;
+        final s = uiScale(context);
+        final dim = (32 * s).clamp(44.0, 60.0).toDouble();
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (count > 1) ...[
+              GestureDetector(
+                onTap: index > 0 ? () => state.goToPage(index - 1) : null,
+                child: _GlassCircle(
+                  size: dim,
+                  child: Icon(Icons.chevron_left,
+                      color: index > 0 ? Colors.white : Colors.white24,
+                      size: 20 * s),
+                ),
+              ),
+              SizedBox(width: 4 * s),
+            ],
+            GestureDetector(
+              onTap: () => _openSheet(context, state),
+              child: _GlassCircle(
+                size: dim,
+                child: Text(
+                  count > 1 ? '${index + 1}/$count' : '1',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (count > 1 ? 11 : 13) * s,
+                    fontWeight: FontWeight.w700,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
+                ),
+              ),
+            ),
+            if (count > 1) ...[
+              SizedBox(width: 4 * s),
+              GestureDetector(
+                onTap: index < count - 1
+                    ? () => state.goToPage(index + 1)
+                    : null,
+                child: _GlassCircle(
+                  size: dim,
+                  child: Icon(Icons.chevron_right,
+                      color: index < count - 1 ? Colors.white : Colors.white24,
+                      size: 20 * s),
+                ),
+              ),
+            ],
+          ],
+        );
+      },
+    );
+  }
+
+  void _openSheet(BuildContext context, TacticsState state) {
+    TacticalSheet.show<void>(
+      context,
+      builder: (ctx) => scaledSheet(
+        ctx,
+        TacticalSheet(
+          maxHeightFraction: 0.6,
+          padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s16),
+          child: Consumer<TacticsState>(
+            builder: (context, s, _) => Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TacticalSheetHeader(
+                  title: 'pages_title'.tr(),
+                  subtitle: 'pages_hint'.tr(),
+                ),
+                const SizedBox(height: T.s12),
+                Flexible(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        for (var i = 0; i < s.pageCount; i++)
+                          _PageRow(
+                            index: i,
+                            current: i == s.pageIndex,
+                            canDelete: s.pageCount > 1,
+                            onTap: () => s.goToPage(i),
+                            onDelete: () => s.deletePage(i),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: T.s12),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TacticalButton(
+                        label: 'pages_duplicate'.tr(),
+                        icon: Icons.copy_all_outlined,
+                        onTap: () => s.addPage(copyCurrent: true),
+                      ),
+                    ),
+                    const SizedBox(width: T.s8),
+                    Expanded(
+                      child: TacticalButton(
+                        label: 'pages_add'.tr(),
+                        icon: Icons.add,
+                        quiet: true,
+                        onTap: () => s.addPage(),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PageRow extends StatelessWidget {
+  final int index;
+  final bool current;
+  final bool canDelete;
+  final VoidCallback onTap;
+  final VoidCallback onDelete;
+  const _PageRow({
+    required this.index,
+    required this.current,
+    required this.canDelete,
+    required this.onTap,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: T.s8),
+        padding: const EdgeInsets.symmetric(
+            horizontal: T.s12, vertical: T.s12),
+        decoration: BoxDecoration(
+          color: current ? T.accentFill : T.surfaceHi,
+          borderRadius: T.brMd,
+          border: current ? Border.all(color: T.accent, width: 1.5) : null,
+        ),
+        child: Row(
+          children: [
+            Text('${index + 1}',
+                style: TextStyle(
+                    color: current ? T.accent : T.textDim,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700)),
+            const SizedBox(width: T.s12),
+            Expanded(
+              child: Text('pages_page'.tr(args: ['${index + 1}']),
+                  style: TextStyle(
+                      color: current ? T.text : T.textDim, fontSize: 15)),
+            ),
+            if (canDelete)
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: onDelete,
+                child: const Padding(
+                  padding: EdgeInsets.all(6),
+                  child: Icon(Icons.delete_outline_rounded,
+                      size: 18, color: kDanger),
+                ),
+              ),
+          ],
         ),
       ),
     );

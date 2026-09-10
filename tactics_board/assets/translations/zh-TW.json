@@ -403,5 +403,10 @@
   "learn_note_mistake": "常見錯誤 — 最先出問題的地方。",
   "text_add_title": "新增文字",
   "text_add_hint": "例如：拖拉推射遠角",
-  "rotate_reset": "復位"
+  "rotate_reset": "復位",
+  "pages_title": "分頁",
+  "pages_hint": "一套套路是同一形狀的幾個變化——先複製，再改",
+  "pages_page": "第 {} 頁",
+  "pages_add": "空白頁",
+  "pages_duplicate": "複製本頁"
 }

@@ -817,11 +817,32 @@ Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
   state.resetZoom();
   await Future.delayed(const Duration(milliseconds: 200));
   try {
+    final title = state.currentTacticName?.trim().isNotEmpty == true
+        ? state.currentTacticName!.trim()
+        : state.sportType.displayName;
     // Returns true only when the document was actually shared (not cancelled).
-    return await PdfExportService.exportCurrentFrame(
-      title: state.currentTacticName?.trim().isNotEmpty == true
-          ? state.currentTacticName!.trim()
-          : state.sportType.displayName,
+    if (state.pageCount <= 1) {
+      return await PdfExportService.exportCurrentFrame(
+        title: title,
+        filename: '${_friendlyFileStem(state)}.pdf',
+      );
+    }
+    // Walk the pages, capturing each. The board is the only thing that can
+    // draw a page, so the walk happens here where there are frames to wait
+    // for, and the coach is put back where they were when it is done.
+    final startedOn = state.pageIndex;
+    final shots = <Uint8List>[];
+    for (var i = 0; i < state.pageCount; i++) {
+      state.goToPage(i);
+      await Future.delayed(const Duration(milliseconds: 120));
+      final png = await PdfExportService.captureBoard();
+      if (png != null) shots.add(png);
+    }
+    state.goToPage(startedOn);
+    await Future.delayed(const Duration(milliseconds: 60));
+    return await PdfExportService.exportFrames(
+      shots,
+      title: title,
       filename: '${_friendlyFileStem(state)}.pdf',
     );
   } catch (e) {

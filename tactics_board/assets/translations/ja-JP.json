@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "テキストを追加",
   "text_add_hint": "例：ファーポストへドラッグフリック",
-  "rotate_reset": "リセット"
+  "rotate_reset": "リセット",
+  "pages_title": "ページ",
+  "pages_hint": "一連の型は同じ形の変化——複製してから直す",
+  "pages_page": "{} ページ",
+  "pages_add": "空白ページ",
+  "pages_duplicate": "複製"
 }

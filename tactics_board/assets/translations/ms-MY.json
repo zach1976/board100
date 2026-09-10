@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Tambah teks",
   "text_add_hint": "cth. drag flick ke tiang jauh",
-  "rotate_reset": "Set semula"
+  "rotate_reset": "Set semula",
+  "pages_title": "Halaman",
+  "pages_hint": "Satu rutin ialah satu bentuk dengan variasi — gandakan kemudian ubah",
+  "pages_page": "Halaman {}",
+  "pages_add": "Halaman kosong",
+  "pages_duplicate": "Gandakan"
 }

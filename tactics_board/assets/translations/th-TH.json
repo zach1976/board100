@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "เพิ่มข้อความ",
   "text_add_hint": "เช่น แดรกฟลิกไปเสาไกล",
-  "rotate_reset": "รีเซ็ต"
+  "rotate_reset": "รีเซ็ต",
+  "pages_title": "หน้า",
+  "pages_hint": "ชุดแบบฝึกคือรูปเดียวกันที่เปลี่ยนรายละเอียด — ทำสำเนาแล้วแก้",
+  "pages_page": "หน้า {}",
+  "pages_add": "หน้าว่าง",
+  "pages_duplicate": "ทำสำเนา"
 }
