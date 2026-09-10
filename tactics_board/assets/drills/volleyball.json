@@ -76,17 +76,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                423.5,
+                407.3880597014926,
                 1056.0
               ],
               [
-                398.0,
+                376.51741293532336,
                 1132.5
               ]
             ],
@@ -108,17 +108,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 1056.0
               ],
               [
-                602.0,
+                623.4825870646766,
                 1132.5
               ]
             ],
@@ -140,17 +140,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              438.0,
+              416.51741293532336,
               1202.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.5,
+                552.6119402985075,
                 1126.0
               ],
               [
-                438.0,
+                416.51741293532336,
                 1202.5
               ]
             ],
@@ -246,7 +246,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               1209.0
             ],
             "scale": 1.0,
@@ -279,7 +279,7 @@
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 903.0
               ]
             ],
@@ -300,13 +300,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                321.5,
+                283.90547263681594,
                 1209.0
               ]
             ],
@@ -333,7 +333,7 @@
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 495.0
               ]
             ],
@@ -354,17 +354,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              361.5,
+              323.90547263681594,
               1279.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.0,
+                354.7761194029851,
                 565.0
               ],
               [
-                638.5,
+                676.0945273631842,
                 973.0
               ]
             ],
@@ -460,17 +460,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 1183.5
               ],
               [
-                308.75,
+                268.4701492537314,
                 1234.5
               ]
             ],
@@ -492,17 +492,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 1183.5
               ],
               [
-                691.25,
+                731.5298507462687,
                 1234.5
               ]
             ],
@@ -551,7 +551,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              348.75,
+              308.4701492537314,
               1304.5
             ],
             "scale": 1.0,
@@ -561,7 +561,7 @@
                 641.5
               ],
               [
-                651.25,
+                691.5298507462687,
                 1304.5
               ]
             ],
@@ -657,13 +657,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -684,13 +684,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.175,
+                310.1455223880597,
                 1158.0
               ]
             ],
@@ -738,13 +738,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                353.63,
+                322.80248756218907,
                 826.5000000000001
               ]
             ],
@@ -797,17 +797,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 1030.5
               ],
               [
-                678.5,
+                716.0945273631842,
                 839.2499999999999
               ]
             ],
@@ -856,7 +856,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -882,15 +882,15 @@
             "scale": 1.0,
             "moves": [
               [
-                383.175,
+                350.1455223880597,
                 1228.0
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                638.5,
+                676.0945273631842,
                 909.2499999999999
               ]
             ],
@@ -993,7 +993,7 @@
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -1014,13 +1014,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.175,
+                310.1455223880597,
                 1158.0
               ]
             ],
@@ -1041,13 +1041,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                656.825,
+                689.8544776119403,
                 1158.0
               ]
             ],
@@ -1068,13 +1068,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                353.63,
+                322.80248756218907,
                 826.5000000000001
               ]
             ],
@@ -1127,17 +1127,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 1030.5
               ],
               [
-                678.5,
+                716.0945273631842,
                 839.2499999999999
               ]
             ],
@@ -1186,7 +1186,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -1212,15 +1212,15 @@
             "scale": 1.0,
             "moves": [
               [
-                383.175,
+                350.1455223880597,
                 1228.0
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                638.5,
+                676.0945273631842,
                 909.2499999999999
               ]
             ],
@@ -1317,13 +1317,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -1371,13 +1371,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                656.825,
+                689.8544776119403,
                 1158.0
               ]
             ],
@@ -1398,13 +1398,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                353.63,
+                322.80248756218907,
                 826.5000000000001
               ]
             ],
@@ -1457,17 +1457,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 1030.5
               ],
               [
-                678.5,
+                716.0945273631842,
                 839.2499999999999
               ]
             ],
@@ -1516,7 +1516,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -1546,11 +1546,11 @@
                 1279.0000000000002
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                638.5,
+                676.0945273631842,
                 909.2499999999999
               ]
             ],
@@ -1647,13 +1647,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -1674,13 +1674,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.175,
+                310.1455223880597,
                 1158.0
               ]
             ],
@@ -1728,13 +1728,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                656.825,
+                689.8544776119403,
                 1158.0
               ]
             ],
@@ -1787,17 +1787,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 1030.5
               ],
               [
-                678.5,
+                716.0945273631842,
                 839.2499999999999
               ]
             ],
@@ -1846,7 +1846,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -1872,15 +1872,15 @@
             "scale": 1.0,
             "moves": [
               [
-                383.175,
+                350.1455223880597,
                 1228.0
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                638.5,
+                676.0945273631842,
                 909.2499999999999
               ]
             ],
@@ -1983,7 +1983,7 @@
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -2004,13 +2004,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.175,
+                310.1455223880597,
                 1158.0
               ]
             ],
@@ -2058,13 +2058,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                656.825,
+                689.8544776119403,
                 1158.0
               ]
             ],
@@ -2085,17 +2085,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                321.5,
+                283.90547263681594,
                 1030.5
               ],
               [
-                321.5,
+                283.90547263681594,
                 839.2499999999999
               ]
             ],
@@ -2117,17 +2117,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 1030.5
               ],
               [
-                678.5,
+                716.0945273631842,
                 839.2499999999999
               ]
             ],
@@ -2176,7 +2176,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -2202,15 +2202,15 @@
             "scale": 1.0,
             "moves": [
               [
-                383.175,
+                350.1455223880597,
                 1228.0
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                638.5,
+                676.0945273631842,
                 909.2499999999999
               ]
             ],
@@ -2307,13 +2307,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -2334,13 +2334,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.175,
+                310.1455223880597,
                 1158.0
               ]
             ],
@@ -2388,13 +2388,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                656.825,
+                689.8544776119403,
                 1158.0
               ]
             ],
@@ -2415,17 +2415,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                321.5,
+                283.90547263681594,
                 1030.5
               ],
               [
-                321.5,
+                283.90547263681594,
                 839.2499999999999
               ]
             ],
@@ -2506,7 +2506,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -2532,11 +2532,11 @@
             "scale": 1.0,
             "moves": [
               [
-                383.175,
+                350.1455223880597,
                 1228.0
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
@@ -2601,18 +2601,18 @@
         "vi-VN": "Chuyền hai chuyền trước"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向前移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向前移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが前方へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 앞으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza hacia delante; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace vers l'avant ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke depan; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke hadapan; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปข้างหน้า • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển lên phía trước; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
       },
       "mistake": {
         "en": "Squaring the shoulders, not the hips — the hands lie about where the set goes, the hips cannot.",
@@ -2643,7 +2643,7 @@
             "scale": 1.0,
             "moves": [
               [
-                525.5,
+                530.8706467661692,
                 1107.0
               ]
             ],
@@ -2664,13 +2664,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                589.25,
+                608.0472636815921,
                 794.625
               ]
             ],
@@ -2691,13 +2691,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               1017.7500000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                334.25,
+                299.3407960199005,
                 813.75
               ]
             ],
@@ -2718,7 +2718,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               813.75
             ],
             "scale": 1.0,
@@ -2744,15 +2744,15 @@
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                374.25,
+                339.3407960199005,
                 1087.75
               ],
               [
-                374.25,
+                339.3407960199005,
                 565.0
               ]
             ],
@@ -2813,18 +2813,18 @@
         "vi-VN": "Chuyền hai chuyền sau"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向前移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向前移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが前方へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 앞으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza hacia delante; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace vers l'avant ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke depan; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke hadapan; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปข้างหน้า • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển lên phía trước; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
       },
       "mistake": {
         "en": "Squaring the shoulders, not the hips — the hands lie about where the set goes, the hips cannot.",
@@ -2855,7 +2855,7 @@
             "scale": 1.0,
             "moves": [
               [
-                525.5,
+                530.8706467661692,
                 1107.0
               ]
             ],
@@ -2876,13 +2876,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                589.25,
+                608.0472636815921,
                 794.625
               ]
             ],
@@ -2903,13 +2903,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              742.25,
+              793.271144278607,
               1043.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                742.25,
+                793.271144278607,
                 839.2499999999999
               ]
             ],
@@ -2930,7 +2930,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              742.25,
+              793.271144278607,
               839.2499999999999
             ],
             "scale": 1.0,
@@ -2956,15 +2956,15 @@
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                702.25,
+                753.271144278607,
                 1113.25
               ],
               [
-                702.25,
+                753.271144278607,
                 565.0
               ]
             ],
@@ -3025,18 +3025,18 @@
         "vi-VN": "Chuyền hai chuyền nhảy"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves up the board; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向前移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向前移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが前方へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 앞으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza hacia delante; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace vers l'avant ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke depan; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke hadapan; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปข้างหน้า • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển lên phía trước; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 3 players, ball with P.\nBall path: P → S → A → the open spot\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left; Step 3: A plays it to the spot, A moves up the board.\nCoaching point: Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动；第3步：A把球打到落点，A向前移动。\n【要点】把胯正对目标，不是肩。手可以骗人，胯骗不了人。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】3 人，球在 P 手中。\n【球路】P → S → A → 空位\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動；第3步：A把球打到落點，A向前移動。\n【要點】把胯正對目標，不是肩。手可以騙人，胯騙不了人。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】3人、ボールはP。\n【ボールの道筋】P → S → A → スペース\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動。ステップ3：Aが狙った位置へ打つ、Aが前方へ移動。\n【ポイント】肩ではなく腰をターゲットに向ける。手は嘘をつけるが腰は嘘をつけない。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】3명, 공은 P.\n【볼 경로】P → S → A → 빈 자리\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동; 3단계: A가 목표 지점으로 친다, A는 앞으로 이동.\n【포인트】어깨가 아니라 골반을 목표로 향하게 하라. 손은 속일 수 있어도 골반은 못 속인다.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 3 jugadores, balón con P.\nRecorrido del balón: P → S → A → el espacio libre\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda; Paso 3: A la coloca en el punto, A se desplaza hacia delante.\nPunto clave: Cuadra las caderas al objetivo, no los hombros: las manos mienten sobre el destino, las caderas no.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 3 joueurs, ballon avec P.\nTrajet du ballon : P → S → A → l'espace libre\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche ; Étape 3 : A la place sur la zone, A se déplace vers l'avant.\nPoint clé : Aligne les hanches sur la cible, pas les épaules : les mains peuvent mentir sur la destination, les hanches non.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 3 pemain, bola pada P.\nJalur bola: P → S → A → titik kosong\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke depan.\nPoin utama: Arahkan pinggul ke target, bukan bahu.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 3 pemain, bola dengan P.\nLaluan bola: P → S → A → ruang kosong\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri; Langkah 3: A memukul ke titik sasaran, A bergerak ke hadapan.\nPoin utama: Hadapkan pinggul ke sasaran, bukan bahu.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: ผู้เล่น 3 คน บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → จุดว่าง\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย • ขั้นที่ 3: A ตีไปที่จุดเป้า A ขยับไปข้างหน้า\nจุดเน้น: หันสะโพกไปหาเป้าหมาย ไม่ใช่ไหล่ มือโกหกได้ แต่สะโพกโกหกไม่ได้",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 3 cầu thủ, bóng ở chỗ P.\nĐường bóng: P → S → A → vị trí trống\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái; Bước 3: A đánh vào điểm rơi, A di chuyển lên phía trước.\nĐiểm chính: Hướng hông về mục tiêu, không phải vai."
       },
       "mistake": {
         "en": "Squaring the shoulders, not the hips — the hands lie about where the set goes, the hips cannot.",
@@ -3067,7 +3067,7 @@
             "scale": 1.0,
             "moves": [
               [
-                525.5,
+                530.8706467661692,
                 1107.0
               ]
             ],
@@ -3088,13 +3088,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                589.25,
+                608.0472636815921,
                 794.625
               ]
             ],
@@ -3168,7 +3168,7 @@
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
@@ -3273,17 +3273,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 845.6250000000001
               ],
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -3305,13 +3305,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 1056.0
               ]
             ],
@@ -3332,17 +3332,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                283.25,
+                237.5995024875622,
                 1132.5
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -3370,7 +3370,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 979.5000000000001
               ],
               [
@@ -3396,13 +3396,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 711.75
               ]
             ],
@@ -3423,7 +3423,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -3443,17 +3443,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              412.5,
+              385.64676616915426,
               1202.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 915.6250000000001
               ],
               [
-                387.0,
+                354.7761194029851,
                 858.25
               ]
             ],
@@ -3555,11 +3555,11 @@
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 845.6250000000001
               ],
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -3581,13 +3581,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 1056.0
               ]
             ],
@@ -3608,17 +3608,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                283.25,
+                237.5995024875622,
                 1132.5
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -3646,7 +3646,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 979.5000000000001
               ],
               [
@@ -3672,13 +3672,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 711.75
               ]
             ],
@@ -3699,7 +3699,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -3719,17 +3719,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              412.5,
+              385.64676616915426,
               1202.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 915.6250000000001
               ],
               [
-                387.0,
+                354.7761194029851,
                 858.25
               ]
             ],
@@ -3825,17 +3825,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 845.6250000000001
               ],
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -3857,13 +3857,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 1056.0
               ]
             ],
@@ -3884,17 +3884,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                283.25,
+                237.5995024875622,
                 1132.5
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -3922,7 +3922,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 979.5000000000001
               ],
               [
@@ -3948,13 +3948,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 711.75
               ]
             ],
@@ -3975,7 +3975,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -3995,17 +3995,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              412.5,
+              385.64676616915426,
               1202.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 915.6250000000001
               ],
               [
-                387.0,
+                354.7761194029851,
                 858.25
               ]
             ],
@@ -4101,13 +4101,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                334.25,
+                299.3407960199005,
                 954.0
               ]
             ],
@@ -4134,7 +4134,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 1005.0
               ],
               [
@@ -4160,13 +4160,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              640.25,
+              669.7885572139303,
               1030.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -4187,17 +4187,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                308.75,
+                268.4701492537314,
                 1056.0
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -4219,13 +4219,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              576.5,
+              592.6119402985075,
               1260.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 1183.5
               ]
             ],
@@ -4273,7 +4273,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -4299,11 +4299,11 @@
             "scale": 1.0,
             "moves": [
               [
-                498.25,
+                506.30597014925377,
                 1253.5
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
@@ -4404,13 +4404,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                334.25,
+                299.3407960199005,
                 954.0
               ]
             ],
@@ -4437,7 +4437,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 1005.0
               ],
               [
@@ -4463,13 +4463,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              640.25,
+              669.7885572139303,
               1030.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 807.375
               ]
             ],
@@ -4490,17 +4490,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                308.75,
+                268.4701492537314,
                 1056.0
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -4522,13 +4522,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              576.5,
+              592.6119402985075,
               1260.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 1183.5
               ]
             ],
@@ -4576,7 +4576,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -4602,11 +4602,11 @@
             "scale": 1.0,
             "moves": [
               [
-                498.25,
+                506.30597014925377,
                 1253.5
               ],
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
@@ -4671,18 +4671,18 @@
         "vi-VN": "Tấn công từ vị trí 4"
       },
       "note": {
-        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B moves right, B moves left, D moves up the board.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
-        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B moves right, B moves left, D moves up the board.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
-        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动，A向后移动；第3步：A把球击向D，B向右移动，B向左移动，D向前移动。\n【要点】助跑要晚而快，不要早而飘。真正让你高过拦网的，是最后两步。",
-        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動，A向後移動；第3步：A把球擊向D，B向右移動，B向左移動，D向前移動。\n【要點】助跑要晚而快，不要早而飄。真正讓你高過攔網的，是最後兩步。",
-        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】3対3、ボールはP。\n【ボールの道筋】P → S → A → D\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動、Aが後方へ移動。ステップ3：AがDへ打つ、Bが右へ移動、Bが左へ移動、Dが前方へ移動。\n【ポイント】助走は遅く速く。早く出て流れるな。ブロックの上に出られるかは最後の2歩で決まる。",
-        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】3대3, 공은 P.\n【볼 경로】P → S → A → D\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동, A는 뒤로 이동; 3단계: A가 D 쪽으로 친다, B는 오른쪽으로 이동, B는 왼쪽으로 이동, D는 앞으로 이동.\n【포인트】조주는 늦게, 빠르게. 일찍 나가 흘러가지 마라. 블로킹 위로 올라가는 건 마지막 두 걸음이다.",
-        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 3 contra 3, balón con P.\nRecorrido del balón: P → S → A → D\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda, A se desplaza hacia atrás; Paso 3: A la juega hacia D, B se desplaza a la derecha, B se desplaza a la izquierda, D se desplaza hacia delante.\nPunto clave: Empieza la carrera tarde y rápido, no pronto y a la deriva: los dos últimos pasos te ponen por encima del bloqueo.",
-        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 3 contre 3, ballon avec P.\nTrajet du ballon : P → S → A → D\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche, A se déplace vers l'arrière ; Étape 3 : A joue vers D, B se déplace à droite, B se déplace à gauche, D se déplace vers l'avant.\nPoint clé : Déclenche la course tard et vite, pas tôt en dérive : ce sont les deux derniers appuis qui te font passer au-dessus du bloc.",
-        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 3 lawan 3, bola pada P.\nJalur bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke D, B bergerak ke kanan, B bergerak ke kiri, D bergerak ke depan.\nPoin utama: Mulai awalan telat dan cepat, bukan awal dan melayang. Dua langkah terakhir yang membawamu di atas blok.",
-        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 3 lawan 3, bola dengan P.\nLaluan bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke arah D, B bergerak ke kanan, B bergerak ke kiri, D bergerak ke hadapan.\nPoin utama: Mula larian lewat dan pantas. Dua langkah terakhir yang membawa anda mengatasi sekatan.",
-        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → D\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย A ขยับถอยหลัง • ขั้นที่ 3: A ตีไปที่ D B ขยับไปทางขวา B ขยับไปทางซ้าย D ขยับไปข้างหน้า\nจุดเน้น: เริ่มวิ่งเข้าช้าแต่เร็ว อย่าออกเร็วแล้วลอย สองก้าวสุดท้ายคือสิ่งที่พาคุณข้ามบล็อก",
-        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 3 đấu 3, bóng ở chỗ P.\nĐường bóng: P → S → A → D\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái, A di chuyển lùi lại; Bước 3: A đánh sang D, B di chuyển sang phải, B di chuyển sang trái, D di chuyển lên phía trước.\nĐiểm chính: Chạy đà muộn và nhanh, đừng sớm rồi trôi. Hai bước cuối mới đưa bạn vượt trên hàng chắn."
+        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B, D move up the board, B moves left.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
+        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B, D move up the board, B moves left.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
+        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动，A向后移动；第3步：A把球击向D，B、D向前移动，B向左移动。\n【要点】助跑要晚而快，不要早而飘。真正让你高过拦网的，是最后两步。",
+        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動，A向後移動；第3步：A把球擊向D，B、D向前移動，B向左移動。\n【要點】助跑要晚而快，不要早而飄。真正讓你高過攔網的，是最後兩步。",
+        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】3対3、ボールはP。\n【ボールの道筋】P → S → A → D\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動、Aが後方へ移動。ステップ3：AがDへ打つ、B・Dが前方へ移動、Bが左へ移動。\n【ポイント】助走は遅く速く。早く出て流れるな。ブロックの上に出られるかは最後の2歩で決まる。",
+        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】3대3, 공은 P.\n【볼 경로】P → S → A → D\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동, A는 뒤로 이동; 3단계: A가 D 쪽으로 친다, B, D는 앞으로 이동, B는 왼쪽으로 이동.\n【포인트】조주는 늦게, 빠르게. 일찍 나가 흘러가지 마라. 블로킹 위로 올라가는 건 마지막 두 걸음이다.",
+        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 3 contra 3, balón con P.\nRecorrido del balón: P → S → A → D\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda, A se desplaza hacia atrás; Paso 3: A la juega hacia D, B, D se desplaza hacia delante, B se desplaza a la izquierda.\nPunto clave: Empieza la carrera tarde y rápido, no pronto y a la deriva: los dos últimos pasos te ponen por encima del bloqueo.",
+        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 3 contre 3, ballon avec P.\nTrajet du ballon : P → S → A → D\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche, A se déplace vers l'arrière ; Étape 3 : A joue vers D, B, D se déplace vers l'avant, B se déplace à gauche.\nPoint clé : Déclenche la course tard et vite, pas tôt en dérive : ce sont les deux derniers appuis qui te font passer au-dessus du bloc.",
+        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 3 lawan 3, bola pada P.\nJalur bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke D, B, D bergerak ke depan, B bergerak ke kiri.\nPoin utama: Mulai awalan telat dan cepat, bukan awal dan melayang. Dua langkah terakhir yang membawamu di atas blok.",
+        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 3 lawan 3, bola dengan P.\nLaluan bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke arah D, B, D bergerak ke hadapan, B bergerak ke kiri.\nPoin utama: Mula larian lewat dan pantas. Dua langkah terakhir yang membawa anda mengatasi sekatan.",
+        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → D\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย A ขยับถอยหลัง • ขั้นที่ 3: A ตีไปที่ D B, D ขยับไปข้างหน้า B ขยับไปทางซ้าย\nจุดเน้น: เริ่มวิ่งเข้าช้าแต่เร็ว อย่าออกเร็วแล้วลอย สองก้าวสุดท้ายคือสิ่งที่พาคุณข้ามบล็อก",
+        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 3 đấu 3, bóng ở chỗ P.\nĐường bóng: P → S → A → D\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái, A di chuyển lùi lại; Bước 3: A đánh sang D, B, D di chuyển lên phía trước, B di chuyển sang trái.\nĐiểm chính: Chạy đà muộn và nhanh, đừng sớm rồi trôi. Hai bước cuối mới đưa bạn vượt trên hàng chắn."
       },
       "mistake": {
         "en": "Starting the approach early and drifting — the last two steps make the jump, not the first.",
@@ -4707,13 +4707,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -4734,13 +4734,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                582.875,
+                600.3296019900498,
                 794.625
               ]
             ],
@@ -4761,17 +4761,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                283.25,
+                237.5995024875622,
                 1132.5
               ],
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -4793,13 +4793,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              297.125,
+              266.2437810945274,
               686.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                327.875,
+                291.6231343283582,
                 711.75
               ]
             ],
@@ -4820,13 +4820,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              409.625,
+              378.7437810945274,
               686.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5,
+                345.64676616915426,
                 711.75
               ]
             ],
@@ -4874,7 +4874,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -4894,17 +4894,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                323.25,
+                277.5995024875622,
                 1202.5
               ],
               [
@@ -5005,13 +5005,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -5032,13 +5032,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                582.875,
+                600.3296019900498,
                 794.625
               ]
             ],
@@ -5065,7 +5065,7 @@
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 1030.5
               ],
               [
@@ -5091,13 +5091,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              450.125,
+              451.46766169154233,
               699.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                480.875,
+                476.8470149253732,
                 711.75
               ]
             ],
@@ -5118,13 +5118,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              562.625,
+              563.9676616915423,
               699.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                525.5,
+                530.8706467661692,
                 711.75
               ]
             ],
@@ -5172,7 +5172,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -5192,17 +5192,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                501.75,
+                493.69402985074635,
                 1100.5
               ],
               [
@@ -5267,18 +5267,18 @@
         "vi-VN": "Tấn công từ vị trí 2"
       },
       "note": {
-        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B moves right, B moves left, D moves up the board.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
-        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B moves right, B moves left, D moves up the board.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
-        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动，A向后移动；第3步：A把球击向D，B向右移动，B向左移动，D向前移动。\n【要点】助跑要晚而快，不要早而飘。真正让你高过拦网的，是最后两步。",
-        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動，A向後移動；第3步：A把球擊向D，B向右移動，B向左移動，D向前移動。\n【要點】助跑要晚而快，不要早而飄。真正讓你高過攔網的，是最後兩步。",
-        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】3対3、ボールはP。\n【ボールの道筋】P → S → A → D\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動、Aが後方へ移動。ステップ3：AがDへ打つ、Bが右へ移動、Bが左へ移動、Dが前方へ移動。\n【ポイント】助走は遅く速く。早く出て流れるな。ブロックの上に出られるかは最後の2歩で決まる。",
-        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】3대3, 공은 P.\n【볼 경로】P → S → A → D\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동, A는 뒤로 이동; 3단계: A가 D 쪽으로 친다, B는 오른쪽으로 이동, B는 왼쪽으로 이동, D는 앞으로 이동.\n【포인트】조주는 늦게, 빠르게. 일찍 나가 흘러가지 마라. 블로킹 위로 올라가는 건 마지막 두 걸음이다.",
-        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 3 contra 3, balón con P.\nRecorrido del balón: P → S → A → D\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda, A se desplaza hacia atrás; Paso 3: A la juega hacia D, B se desplaza a la derecha, B se desplaza a la izquierda, D se desplaza hacia delante.\nPunto clave: Empieza la carrera tarde y rápido, no pronto y a la deriva: los dos últimos pasos te ponen por encima del bloqueo.",
-        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 3 contre 3, ballon avec P.\nTrajet du ballon : P → S → A → D\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche, A se déplace vers l'arrière ; Étape 3 : A joue vers D, B se déplace à droite, B se déplace à gauche, D se déplace vers l'avant.\nPoint clé : Déclenche la course tard et vite, pas tôt en dérive : ce sont les deux derniers appuis qui te font passer au-dessus du bloc.",
-        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 3 lawan 3, bola pada P.\nJalur bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke D, B bergerak ke kanan, B bergerak ke kiri, D bergerak ke depan.\nPoin utama: Mulai awalan telat dan cepat, bukan awal dan melayang. Dua langkah terakhir yang membawamu di atas blok.",
-        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 3 lawan 3, bola dengan P.\nLaluan bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke arah D, B bergerak ke kanan, B bergerak ke kiri, D bergerak ke hadapan.\nPoin utama: Mula larian lewat dan pantas. Dua langkah terakhir yang membawa anda mengatasi sekatan.",
-        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → D\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย A ขยับถอยหลัง • ขั้นที่ 3: A ตีไปที่ D B ขยับไปทางขวา B ขยับไปทางซ้าย D ขยับไปข้างหน้า\nจุดเน้น: เริ่มวิ่งเข้าช้าแต่เร็ว อย่าออกเร็วแล้วลอย สองก้าวสุดท้ายคือสิ่งที่พาคุณข้ามบล็อก",
-        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 3 đấu 3, bóng ở chỗ P.\nĐường bóng: P → S → A → D\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái, A di chuyển lùi lại; Bước 3: A đánh sang D, B di chuyển sang phải, B di chuyển sang trái, D di chuyển lên phía trước.\nĐiểm chính: Chạy đà muộn và nhanh, đừng sớm rồi trôi. Hai bước cuối mới đưa bạn vượt trên hàng chắn."
+        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B, D move up the board, B moves left.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
+        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 3, ball with P.\nBall path: P → S → A → D\nSequence: Step 1: P plays it to S, P moves up the board; Step 2: S plays it to A, S moves left, A moves back; Step 3: A plays it to D, B, D move up the board, B moves left.\nCoaching point: Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.",
+        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球击向S，P向前移动；第2步：S把球击向A，S向左移动，A向后移动；第3步：A把球击向D，B、D向前移动，B向左移动。\n【要点】助跑要晚而快，不要早而飘。真正让你高过拦网的，是最后两步。",
+        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 3，球在 P 手中。\n【球路】P → S → A → D\n【流程】第1步：P把球擊向S，P向前移動；第2步：S把球擊向A，S向左移動，A向後移動；第3步：A把球擊向D，B、D向前移動，B向左移動。\n【要點】助跑要晚而快，不要早而飄。真正讓你高過攔網的，是最後兩步。",
+        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】3対3、ボールはP。\n【ボールの道筋】P → S → A → D\n【流れ】ステップ1：PがSへ打つ、Pが前方へ移動。ステップ2：SがAへ打つ、Sが左へ移動、Aが後方へ移動。ステップ3：AがDへ打つ、B・Dが前方へ移動、Bが左へ移動。\n【ポイント】助走は遅く速く。早く出て流れるな。ブロックの上に出られるかは最後の2歩で決まる。",
+        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】3대3, 공은 P.\n【볼 경로】P → S → A → D\n【진행】1단계: P가 S 쪽으로 친다, P는 앞으로 이동; 2단계: S가 A 쪽으로 친다, S는 왼쪽으로 이동, A는 뒤로 이동; 3단계: A가 D 쪽으로 친다, B, D는 앞으로 이동, B는 왼쪽으로 이동.\n【포인트】조주는 늦게, 빠르게. 일찍 나가 흘러가지 마라. 블로킹 위로 올라가는 건 마지막 두 걸음이다.",
+        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 3 contra 3, balón con P.\nRecorrido del balón: P → S → A → D\nSecuencia: Paso 1: P la juega hacia S, P se desplaza hacia delante; Paso 2: S la juega hacia A, S se desplaza a la izquierda, A se desplaza hacia atrás; Paso 3: A la juega hacia D, B, D se desplaza hacia delante, B se desplaza a la izquierda.\nPunto clave: Empieza la carrera tarde y rápido, no pronto y a la deriva: los dos últimos pasos te ponen por encima del bloqueo.",
+        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 3 contre 3, ballon avec P.\nTrajet du ballon : P → S → A → D\nDéroulé : Étape 1 : P joue vers S, P se déplace vers l'avant ; Étape 2 : S joue vers A, S se déplace à gauche, A se déplace vers l'arrière ; Étape 3 : A joue vers D, B, D se déplace vers l'avant, B se déplace à gauche.\nPoint clé : Déclenche la course tard et vite, pas tôt en dérive : ce sont les deux derniers appuis qui te font passer au-dessus du bloc.",
+        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 3 lawan 3, bola pada P.\nJalur bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke S, P bergerak ke depan; Langkah 2: S memukul ke A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke D, B, D bergerak ke depan, B bergerak ke kiri.\nPoin utama: Mulai awalan telat dan cepat, bukan awal dan melayang. Dua langkah terakhir yang membawamu di atas blok.",
+        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 3 lawan 3, bola dengan P.\nLaluan bola: P → S → A → D\nUrutan: Langkah 1: P memukul ke arah S, P bergerak ke hadapan; Langkah 2: S memukul ke arah A, S bergerak ke kiri, A bergerak ke belakang; Langkah 3: A memukul ke arah D, B, D bergerak ke hadapan, B bergerak ke kiri.\nPoin utama: Mula larian lewat dan pantas. Dua langkah terakhir yang membawa anda mengatasi sekatan.",
+        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ P\nเส้นทางบอล: P → S → A → D\nลำดับ: ขั้นที่ 1: P ตีไปที่ S P ขยับไปข้างหน้า • ขั้นที่ 2: S ตีไปที่ A S ขยับไปทางซ้าย A ขยับถอยหลัง • ขั้นที่ 3: A ตีไปที่ D B, D ขยับไปข้างหน้า B ขยับไปทางซ้าย\nจุดเน้น: เริ่มวิ่งเข้าช้าแต่เร็ว อย่าออกเร็วแล้วลอย สองก้าวสุดท้ายคือสิ่งที่พาคุณข้ามบล็อก",
+        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 3 đấu 3, bóng ở chỗ P.\nĐường bóng: P → S → A → D\nTrình tự: Bước 1: P đánh sang S, P di chuyển lên phía trước; Bước 2: S đánh sang A, S di chuyển sang trái, A di chuyển lùi lại; Bước 3: A đánh sang D, B, D di chuyển lên phía trước, B di chuyển sang trái.\nĐiểm chính: Chạy đà muộn và nhanh, đừng sớm rồi trôi. Hai bước cuối mới đưa bạn vượt trên hàng chắn."
       },
       "mistake": {
         "en": "Starting the approach early and drifting — the last two steps make the jump, not the first.",
@@ -5303,13 +5303,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -5330,13 +5330,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                582.875,
+                600.3296019900498,
                 794.625
               ]
             ],
@@ -5357,17 +5357,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                729.5,
+                777.8358208955224,
                 1132.5
               ],
               [
-                653.0,
+                685.223880597015,
                 788.25
               ]
             ],
@@ -5389,13 +5389,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              603.125,
+              636.6915422885572,
               686.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                633.875,
+                662.070895522388,
                 711.75
               ]
             ],
@@ -5416,13 +5416,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              715.625,
+              749.1915422885572,
               686.25
             ],
             "scale": 1.0,
             "moves": [
               [
-                678.5,
+                716.0945273631842,
                 711.75
               ]
             ],
@@ -5470,7 +5470,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -5490,17 +5490,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                689.5,
+                737.8358208955224,
                 1202.5
               ],
               [
@@ -5601,13 +5601,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -5628,13 +5628,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                582.875,
+                600.3296019900498,
                 794.625
               ]
             ],
@@ -5687,13 +5687,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              450.125,
+              451.46766169154233,
               488.6249999999999
             ],
             "scale": 1.0,
             "moves": [
               [
-                480.875,
+                476.8470149253732,
                 711.75
               ]
             ],
@@ -5714,13 +5714,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              562.625,
+              563.9676616915423,
               488.6249999999999
             ],
             "scale": 1.0,
             "moves": [
               [
-                525.5,
+                530.8706467661692,
                 711.75
               ]
             ],
@@ -5768,7 +5768,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -5788,13 +5788,13 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
@@ -5886,13 +5886,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                321.5,
+                283.90547263681594,
                 788.25
               ]
             ],
@@ -5940,13 +5940,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                729.5,
+                777.8358208955224,
                 1107.0
               ]
             ],
@@ -5967,7 +5967,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -5987,17 +5987,17 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                321.5,
+                283.90547263681594,
                 495.0
               ],
               [
-                321.5,
+                283.90547263681594,
                 692.625
               ]
             ],
@@ -6019,13 +6019,13 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                361.5,
+                323.90547263681594,
                 565.0
               ],
               [
@@ -6125,13 +6125,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              295.5,
+              260.75248756218906,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                307.15625,
+                266.54073383084574,
                 788.25
               ]
             ],
@@ -6152,13 +6152,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              373.0,
+              337.92910447761193,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                361.34375,
+                332.14085820895525,
                 788.25
               ]
             ],
@@ -6206,13 +6206,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                729.5,
+                777.8358208955224,
                 1107.0
               ]
             ],
@@ -6233,7 +6233,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -6253,17 +6253,17 @@
             "team": 1,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                334.25,
+                299.3407960199005,
                 495.0
               ],
               [
-                334.25,
+                299.3407960199005,
                 692.625
               ]
             ],
@@ -6285,13 +6285,13 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                374.25,
+                339.3407960199005,
                 565.0
               ],
               [
@@ -6391,13 +6391,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              461.25,
+              461.4116915422886,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                472.90625,
+                467.19993781094536,
                 788.25
               ]
             ],
@@ -6418,13 +6418,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              538.75,
+              538.5883084577115,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                527.09375,
+                532.8000621890548,
                 788.25
               ]
             ],
@@ -6472,13 +6472,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                729.5,
+                777.8358208955224,
                 1107.0
               ]
             ],
@@ -6499,7 +6499,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -6551,7 +6551,7 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -6621,18 +6621,18 @@
         "vi-VN": "Chắn bóng ba người"
       },
       "note": {
-        "en": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 5 v 2.\nBall path: B → A → D\nSequence: Step 1: B plays it to A, A moves back; Step 2: A plays it to D, B moves right, B, 2 Ds move up the board, B moves left.\nCoaching point: Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
-        "en-GB": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 5 v 2.\nBall path: B → A → D\nSequence: Step 1: B plays it to A, A moves back; Step 2: A plays it to D, B moves right, B, 2 Ds move up the board, B moves left.\nCoaching point: Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
-        "zh-CN": "【目的】防守：练被动时怎么把球接回来。先稳住、拖住时间，把这一分打回平手，再想进攻。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】5 对 2。\n【球路】B → A → D\n【流程】第1步：B把球击向A，A向后移动；第2步：A把球击向D，B向右移动，B、2 名 D向前移动，B向左移动。\n【要点】先并手，再靠人。中间漏光的双人拦网，等于白白站了两个人。",
-        "zh-TW": "【目的】防守：練被動時怎麼把球接回來。先穩住、拖住時間，把這一分打回平手，再想進攻。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】5 對 2。\n【球路】B → A → D\n【流程】第1步：B把球擊向A，A向後移動；第2步：A把球擊向D，B向右移動，B、2 名 D向前移動，B向左移動。\n【要點】先併手，再靠人。中間漏光的雙人攔網，等於白白站了兩個人。",
-        "ja-JP": "【目的】プレッシャー下でラリーに残る。守備から立て直し、時間を作り、再び攻める前に五分に戻す。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】5対2。\n【ボールの道筋】B → A → D\n【流れ】ステップ1：BがAへ打つ、Aが後方へ移動。ステップ2：AがDへ打つ、Bが右へ移動、B・D2人が前方へ移動、Bが左へ移動。\n【ポイント】人に寄る前に手を閉じる。隙間の空いた2枚ブロックは2人の無駄遣い。",
-        "ko-KR": "【목적】압박 속에서 랠리를 이어간다. 수비에서 재정비하고 시간을 벌어, 다시 공격하기 전에 균형으로 되돌린다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】5대2.\n【볼 경로】B → A → D\n【진행】1단계: B가 A 쪽으로 친다, A는 뒤로 이동; 2단계: A가 D 쪽으로 친다, B는 오른쪽으로 이동, B, D 2명는 앞으로 이동, B는 왼쪽으로 이동.\n【포인트】붙기 전에 손부터 모아라. 사이가 벌어진 2인 블로킹은 두 명을 버리는 것이다.",
-        "es-ES": "Objetivo: Sostener el peloteo bajo presión: recomponer desde la defensa, ganar tiempo y devolver el punto a igualdad antes de atacar.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 5 contra 2.\nRecorrido del balón: B → A → D\nSecuencia: Paso 1: B la juega hacia A, A se desplaza hacia atrás; Paso 2: A la juega hacia D, B se desplaza a la derecha, B, 2 D se desplaza hacia delante, B se desplaza a la izquierda.\nPunto clave: Cierra el hueco entre manos antes que el hueco con el atacante: un bloqueo doble con luz son dos jugadoras desperdiciadas.",
-        "fr-FR": "Objectif : Rester dans l'échange sous pression : se replacer en défense, gagner du temps et ramener le point à l'équilibre avant de réattaquer.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 5 contre 2.\nTrajet du ballon : B → A → D\nDéroulé : Étape 1 : B joue vers A, A se déplace vers l'arrière ; Étape 2 : A joue vers D, B se déplace à droite, B, 2 D se déplace vers l'avant, B se déplace à gauche.\nPoint clé : Ferme l'écart entre les mains avant l'écart avec l'attaquant : un double contre ajouré, ce sont deux joueuses gaspillées.",
-        "id-ID": "Tujuan: Bertahan dalam reli di bawah tekanan — pulihkan dari bertahan, ulur waktu, kembalikan poin ke seimbang sebelum menyerang lagi.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 5 lawan 2.\nJalur bola: B → A → D\nUrutan: Langkah 1: B memukul ke A, A bergerak ke belakang; Langkah 2: A memukul ke D, B bergerak ke kanan, B, 2 D bergerak ke depan, B bergerak ke kiri.\nPoin utama: Rapatkan tangan sebelum merapat ke penyerang. Blok ganda yang bercelah adalah dua pemain yang terbuang.",
-        "ms-MY": "Tujuan: Kekal dalam rali di bawah tekanan — pulih daripada bertahan, beli masa, kembalikan mata ke seimbang sebelum menyerang semula.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 5 lawan 2.\nLaluan bola: B → A → D\nUrutan: Langkah 1: B memukul ke arah A, A bergerak ke belakang; Langkah 2: A memukul ke arah D, B bergerak ke kanan, B, 2 D bergerak ke hadapan, B bergerak ke kiri.\nPoin utama: Rapatkan tangan sebelum merapat kepada penyerang.",
-        "th-TH": "จุดประสงค์: อยู่ในการโต้ภายใต้แรงกดดัน — ตั้งหลักจากรับ ซื้อเวลา และดึงแต้มกลับมาเสมอก่อนบุกอีกครั้ง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 5 ต่อ 2\nเส้นทางบอล: B → A → D\nลำดับ: ขั้นที่ 1: B ตีไปที่ A A ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ D B ขยับไปทางขวา B, D 2 คน ขยับไปข้างหน้า B ขยับไปทางซ้าย\nจุดเน้น: ปิดช่องระหว่างมือก่อนปิดช่องกับตัวตบ บล็อกคู่ที่มีแสงลอดคือเสียผู้เล่นสองคนเปล่า ๆ",
-        "vi-VN": "Mục đích: Trụ lại pha bóng dưới áp lực — gượng dậy từ thế thủ, kéo dài thời gian, đưa điểm về cân bằng trước khi tấn công lại.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 5 đấu 2.\nĐường bóng: B → A → D\nTrình tự: Bước 1: B đánh sang A, A di chuyển lùi lại; Bước 2: A đánh sang D, B di chuyển sang phải, B, 2 D di chuyển lên phía trước, B di chuyển sang trái.\nĐiểm chính: Khép tay trước khi khép khoảng cách với chủ công. Hàng chắn đôi hở sáng là lãng phí hai người."
+        "en": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 5 v 2.\nBall path: B → A → D\nSequence: Step 1: B plays it to A, A moves back; Step 2: A plays it to D, 3 Bs, 2 Ds move up the board.\nCoaching point: Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
+        "en-GB": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 5 v 2.\nBall path: B → A → D\nSequence: Step 1: B plays it to A, A moves back; Step 2: A plays it to D, 3 Bs, 2 Ds move up the board.\nCoaching point: Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.",
+        "zh-CN": "【目的】防守：练被动时怎么把球接回来。先稳住、拖住时间，把这一分打回平手，再想进攻。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】5 对 2。\n【球路】B → A → D\n【流程】第1步：B把球击向A，A向后移动；第2步：A把球击向D，3 名 B、2 名 D向前移动。\n【要点】先并手，再靠人。中间漏光的双人拦网，等于白白站了两个人。",
+        "zh-TW": "【目的】防守：練被動時怎麼把球接回來。先穩住、拖住時間，把這一分打回平手，再想進攻。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】5 對 2。\n【球路】B → A → D\n【流程】第1步：B把球擊向A，A向後移動；第2步：A把球擊向D，3 名 B、2 名 D向前移動。\n【要點】先併手，再靠人。中間漏光的雙人攔網，等於白白站了兩個人。",
+        "ja-JP": "【目的】プレッシャー下でラリーに残る。守備から立て直し、時間を作り、再び攻める前に五分に戻す。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】5対2。\n【ボールの道筋】B → A → D\n【流れ】ステップ1：BがAへ打つ、Aが後方へ移動。ステップ2：AがDへ打つ、B3人・D2人が前方へ移動。\n【ポイント】人に寄る前に手を閉じる。隙間の空いた2枚ブロックは2人の無駄遣い。",
+        "ko-KR": "【목적】압박 속에서 랠리를 이어간다. 수비에서 재정비하고 시간을 벌어, 다시 공격하기 전에 균형으로 되돌린다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】5대2.\n【볼 경로】B → A → D\n【진행】1단계: B가 A 쪽으로 친다, A는 뒤로 이동; 2단계: A가 D 쪽으로 친다, B 3명, D 2명는 앞으로 이동.\n【포인트】붙기 전에 손부터 모아라. 사이가 벌어진 2인 블로킹은 두 명을 버리는 것이다.",
+        "es-ES": "Objetivo: Sostener el peloteo bajo presión: recomponer desde la defensa, ganar tiempo y devolver el punto a igualdad antes de atacar.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 5 contra 2.\nRecorrido del balón: B → A → D\nSecuencia: Paso 1: B la juega hacia A, A se desplaza hacia atrás; Paso 2: A la juega hacia D, 3 B, 2 D se desplaza hacia delante.\nPunto clave: Cierra el hueco entre manos antes que el hueco con el atacante: un bloqueo doble con luz son dos jugadoras desperdiciadas.",
+        "fr-FR": "Objectif : Rester dans l'échange sous pression : se replacer en défense, gagner du temps et ramener le point à l'équilibre avant de réattaquer.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 5 contre 2.\nTrajet du ballon : B → A → D\nDéroulé : Étape 1 : B joue vers A, A se déplace vers l'arrière ; Étape 2 : A joue vers D, 3 B, 2 D se déplace vers l'avant.\nPoint clé : Ferme l'écart entre les mains avant l'écart avec l'attaquant : un double contre ajouré, ce sont deux joueuses gaspillées.",
+        "id-ID": "Tujuan: Bertahan dalam reli di bawah tekanan — pulihkan dari bertahan, ulur waktu, kembalikan poin ke seimbang sebelum menyerang lagi.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 5 lawan 2.\nJalur bola: B → A → D\nUrutan: Langkah 1: B memukul ke A, A bergerak ke belakang; Langkah 2: A memukul ke D, 3 B, 2 D bergerak ke depan.\nPoin utama: Rapatkan tangan sebelum merapat ke penyerang. Blok ganda yang bercelah adalah dua pemain yang terbuang.",
+        "ms-MY": "Tujuan: Kekal dalam rali di bawah tekanan — pulih daripada bertahan, beli masa, kembalikan mata ke seimbang sebelum menyerang semula.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 5 lawan 2.\nLaluan bola: B → A → D\nUrutan: Langkah 1: B memukul ke arah A, A bergerak ke belakang; Langkah 2: A memukul ke arah D, 3 B, 2 D bergerak ke hadapan.\nPoin utama: Rapatkan tangan sebelum merapat kepada penyerang.",
+        "th-TH": "จุดประสงค์: อยู่ในการโต้ภายใต้แรงกดดัน — ตั้งหลักจากรับ ซื้อเวลา และดึงแต้มกลับมาเสมอก่อนบุกอีกครั้ง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 5 ต่อ 2\nเส้นทางบอล: B → A → D\nลำดับ: ขั้นที่ 1: B ตีไปที่ A A ขยับถอยหลัง • ขั้นที่ 2: A ตีไปที่ D B 3 คน, D 2 คน ขยับไปข้างหน้า\nจุดเน้น: ปิดช่องระหว่างมือก่อนปิดช่องกับตัวตบ บล็อกคู่ที่มีแสงลอดคือเสียผู้เล่นสองคนเปล่า ๆ",
+        "vi-VN": "Mục đích: Trụ lại pha bóng dưới áp lực — gượng dậy từ thế thủ, kéo dài thời gian, đưa điểm về cân bằng trước khi tấn công lại.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 5 đấu 2.\nĐường bóng: B → A → D\nTrình tự: Bước 1: B đánh sang A, A di chuyển lùi lại; Bước 2: A đánh sang D, 3 B, 2 D di chuyển lên phía trước.\nĐiểm chính: Khép tay trước khi khép khoảng cách với chủ công. Hàng chắn đôi hở sáng là lãng phí hai người."
       },
       "mistake": {
         "en": "A double block with daylight in it — two players wasted on one gap.",
@@ -6657,13 +6657,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              295.4296875,
+              268.47014925373134,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                318.3125,
+                280.04664179104475,
                 788.25
               ]
             ],
@@ -6684,13 +6684,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.9296875,
+              345.64676616915426,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5,
+                345.64676616915426,
                 788.25
               ]
             ],
@@ -6711,13 +6711,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              449.140625,
+              422.82338308457713,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                426.6875,
+                411.24689054726366,
                 788.25
               ]
             ],
@@ -6765,13 +6765,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                729.5,
+                777.8358208955224,
                 1107.0
               ]
             ],
@@ -6792,7 +6792,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -6812,17 +6812,17 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5,
+                345.64676616915426,
                 495.0
               ],
               [
-                372.5,
+                345.64676616915426,
                 692.625
               ]
             ],
@@ -6844,13 +6844,13 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 565.0
               ],
               [
@@ -6950,13 +6950,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              329.0,
+              304.8320895522388,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -6977,13 +6977,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              441.5,
+              417.33208955223887,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.75,
+                391.9527363184079,
                 788.25
               ]
             ],
@@ -7004,13 +7004,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              283.25,
+              237.5995024875622,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                309.26,
+                269.0875621890548,
                 1145.25
               ]
             ],
@@ -7058,13 +7058,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              716.75,
+              762.4004975124378,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                690.74,
+                730.9124378109453,
                 1145.25
               ]
             ],
@@ -7085,13 +7085,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                612.1999999999999,
+                635.8308457711443,
                 915.75
               ]
             ],
@@ -7112,7 +7112,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -7132,13 +7132,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 692.625
               ]
             ],
@@ -7159,17 +7159,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.0,
+                354.7761194029851,
                 667.0
               ],
               [
-                650.74,
+                690.9124378109453,
                 1215.25
               ]
             ],
@@ -7265,13 +7265,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              329.0,
+              304.8320895522388,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -7292,13 +7292,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              441.5,
+              417.33208955223887,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.75,
+                391.9527363184079,
                 788.25
               ]
             ],
@@ -7319,13 +7319,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              270.5,
+              222.16417910447763,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                298.04,
+                255.5044776119403,
                 992.2499999999999
               ]
             ],
@@ -7346,13 +7346,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              449.0,
+              438.2587064676617,
               1285.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                455.12,
+                445.6676616915423,
                 1221.75
               ]
             ],
@@ -7373,13 +7373,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                668.3,
+                703.7462686567164,
                 1170.75
               ]
             ],
@@ -7400,13 +7400,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                589.76,
+                608.6646766169155,
                 915.75
               ]
             ],
@@ -7427,7 +7427,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -7447,13 +7447,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 692.625
               ]
             ],
@@ -7474,17 +7474,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.0,
+                354.7761194029851,
                 667.0
               ],
               [
-                628.3,
+                663.7462686567164,
                 1240.75
               ]
             ],
@@ -7580,13 +7580,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              329.0,
+              304.8320895522388,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 788.25
               ]
             ],
@@ -7607,13 +7607,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              441.5,
+              417.33208955223887,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.75,
+                391.9527363184079,
                 788.25
               ]
             ],
@@ -7634,13 +7634,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              436.25,
+              422.82338308457713,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                443.90000000000003,
+                432.08457711442793,
                 839.2499999999999
               ]
             ],
@@ -7661,13 +7661,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              283.25,
+              237.5995024875622,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                309.26,
+                269.0875621890548,
                 1145.25
               ]
             ],
@@ -7688,13 +7688,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              729.5,
+              777.8358208955224,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                701.96,
+                744.4955223880597,
                 1119.75
               ]
             ],
@@ -7715,13 +7715,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                612.1999999999999,
+                635.8308457711443,
                 915.75
               ]
             ],
@@ -7742,7 +7742,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
@@ -7762,13 +7762,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 692.625
               ]
             ],
@@ -7789,17 +7789,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              398.0,
+              376.51741293532336,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.0,
+                354.7761194029851,
                 667.0
               ],
               [
-                661.96,
+                704.4955223880597,
                 1189.75
               ]
             ],
@@ -7927,13 +7927,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 469.50000000000006
               ]
             ],
@@ -7960,7 +7960,7 @@
             "scale": 1.0,
             "moves": [
               [
-                487.25,
+                484.56467661691545,
                 367.5
               ]
             ],
@@ -7981,13 +7981,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 469.50000000000006
               ]
             ],
@@ -8038,7 +8038,7 @@
                 233.5
               ],
               [
-                527.25,
+                524.5646766169154,
                 437.5
               ]
             ],
@@ -8166,13 +8166,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 469.50000000000006
               ]
             ],
@@ -8199,7 +8199,7 @@
             "scale": 1.0,
             "moves": [
               [
-                487.25,
+                484.56467661691545,
                 367.5
               ]
             ],
@@ -8220,13 +8220,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 469.50000000000006
               ]
             ],
@@ -8247,7 +8247,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               240.0
             ],
             "scale": 1.0,
@@ -8273,11 +8273,11 @@
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 310.0
               ],
               [
-                527.25,
+                524.5646766169154,
                 437.5
               ]
             ],
@@ -8373,17 +8373,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              404.375,
+              384.23507462686564,
               1438.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                404.375,
+                384.23507462686564,
                 1362.0
               ],
               [
-                404.375,
+                384.23507462686564,
                 1413.0
               ]
             ],
@@ -8405,13 +8405,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 469.50000000000006
               ]
             ],
@@ -8438,7 +8438,7 @@
             "scale": 1.0,
             "moves": [
               [
-                487.25,
+                484.56467661691545,
                 367.5
               ]
             ],
@@ -8459,13 +8459,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 469.50000000000006
               ]
             ],
@@ -8486,7 +8486,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              640.25,
+              669.7885572139303,
               648.0
             ],
             "scale": 1.0,
@@ -8506,17 +8506,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              444.375,
+              424.23507462686564,
               1368.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                600.25,
+                629.7885572139303,
                 718.0
               ],
               [
-                527.25,
+                524.5646766169154,
                 437.5
               ]
             ],
@@ -8612,17 +8612,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              595.625,
+              615.7649253731344,
               1438.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                595.625,
+                615.7649253731344,
                 1362.0
               ],
               [
-                595.625,
+                615.7649253731344,
                 1413.0
               ]
             ],
@@ -8644,13 +8644,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                347.0,
+                314.7761194029851,
                 469.50000000000006
               ]
             ],
@@ -8677,7 +8677,7 @@
             "scale": 1.0,
             "moves": [
               [
-                487.25,
+                484.56467661691545,
                 367.5
               ]
             ],
@@ -8698,13 +8698,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 469.50000000000006
               ]
             ],
@@ -8725,7 +8725,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              391.625,
+              368.7997512437811,
               393.0
             ],
             "scale": 1.0,
@@ -8745,17 +8745,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              555.625,
+              575.7649253731344,
               1368.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                431.625,
+                408.7997512437811,
                 463.0
               ],
               [
-                527.25,
+                524.5646766169154,
                 437.5
               ]
             ],
@@ -8851,13 +8851,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              385.25,
+              361.0820895522388,
               1005.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                401.315,
+                380.53059701492543,
                 941.2499999999999
               ]
             ],
@@ -8878,13 +8878,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                587.72,
+                606.1950248756219,
                 1170.75
               ]
             ],
@@ -8905,13 +8905,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              614.75,
+              638.9179104477612,
               495.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                401.315,
+                380.53059701492543,
                 558.75
               ]
             ],
@@ -8932,13 +8932,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               265.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                587.72,
+                606.1950248756219,
                 329.25
               ]
             ],
@@ -8959,17 +8959,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              425.25,
+              401.0820895522388,
               1075.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                441.315,
+                420.53059701492543,
                 628.75
               ],
               [
-                547.72,
+                566.1950248756219,
                 1240.75
               ]
             ],
@@ -9065,13 +9065,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               954.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                368.42,
+                340.70746268656717,
                 890.25
               ]
             ],
@@ -9092,13 +9092,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              640.25,
+              669.7885572139303,
               979.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                620.615,
+                646.0181592039801,
                 915.75
               ]
             ],
@@ -9146,13 +9146,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                368.42,
+                340.70746268656717,
                 609.75
               ]
             ],
@@ -9173,13 +9173,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              359.75,
+              330.2114427860697,
               520.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                620.615,
+                646.0181592039801,
                 584.25
               ]
             ],
@@ -9227,17 +9227,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              387.0,
+              354.7761194029851,
               1024.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                408.42,
+                380.70746268656717,
                 679.75
               ],
               [
-                580.615,
+                606.0181592039801,
                 985.75
               ]
             ],
@@ -9333,13 +9333,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               928.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                357.455,
+                327.4330845771144,
                 864.75
               ]
             ],
@@ -9360,13 +9360,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               928.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                609.65,
+                632.7437810945273,
                 864.75
               ]
             ],
@@ -9387,13 +9387,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                412.28,
+                393.8049751243781,
                 1170.75
               ]
             ],
@@ -9414,13 +9414,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                631.58,
+                659.2925373134328,
                 1170.75
               ]
             ],
@@ -9441,13 +9441,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               571.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                357.455,
+                327.4330845771144,
                 635.25
               ]
             ],
@@ -9468,13 +9468,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               571.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                609.65,
+                632.7437810945273,
                 635.25
               ]
             ],
@@ -9495,13 +9495,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               265.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                412.28,
+                393.8049751243781,
                 329.25
               ]
             ],
@@ -9522,13 +9522,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               265.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                631.58,
+                659.2925373134328,
                 329.25
               ]
             ],
@@ -9549,17 +9549,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              374.25,
+              339.3407960199005,
               998.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                397.455,
+                367.4330845771144,
                 705.25
               ],
               [
-                569.65,
+                592.7437810945273,
                 934.75
               ]
             ],
@@ -9655,13 +9655,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                346.49,
+                314.15870646766166,
                 839.2499999999999
               ]
             ],
@@ -9709,13 +9709,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                653.51,
+                685.8412935323383,
                 839.2499999999999
               ]
             ],
@@ -9736,13 +9736,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                335.525,
+                300.884328358209,
                 1170.75
               ]
             ],
@@ -9790,13 +9790,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                664.475,
+                699.1156716417911,
                 1170.75
               ]
             ],
@@ -9817,13 +9817,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                346.49,
+                314.15870646766166,
                 660.75
               ]
             ],
@@ -9871,13 +9871,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               597.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                653.51,
+                685.8412935323383,
                 660.75
               ]
             ],
@@ -9898,13 +9898,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               265.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                335.525,
+                300.884328358209,
                 329.25
               ]
             ],
@@ -9952,13 +9952,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537313,
               265.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                664.475,
+                699.1156716417911,
                 329.25
               ]
             ],
@@ -9979,13 +9979,13 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              361.5,
+              323.90547263681594,
               973.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                386.49,
+                354.15870646766166,
                 730.75
               ],
               [
@@ -10072,13 +10072,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                296.0,
+                253.03482587064676,
                 845.625
               ]
             ],
@@ -10099,13 +10099,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 903.0
               ]
             ],
@@ -10126,13 +10126,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1005.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                359.75,
+                330.2114427860697,
                 947.625
               ]
             ],
@@ -10153,13 +10153,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1209.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                331.0625,
+                295.48196517412936,
                 1049.625
               ]
             ],
@@ -10180,13 +10180,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              512.75,
+              515.4353233830847,
               1285.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                449.0,
+                438.2587064676617,
                 1119.75
               ]
             ],
@@ -10207,7 +10207,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              290.75,
+              258.5261194029851,
               692.625
             ],
             "scale": 1.0,
@@ -10227,7 +10227,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              403.25,
+              371.0261194029851,
               692.625
             ],
             "scale": 1.0,
@@ -10247,7 +10247,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               1005.0
             ],
             "scale": 1.0,
@@ -10267,17 +10267,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              361.5,
+              323.90547263681594,
               973.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                361.5,
+                323.90547263681594,
                 973.0
               ],
               [
-                399.75,
+                370.2114427860697,
                 1017.625
               ]
             ],
@@ -10373,13 +10373,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -10400,13 +10400,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 807.375
               ]
             ],
@@ -10433,11 +10433,11 @@
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 845.625
               ],
               [
-                551.0,
+                561.7412935323383,
                 807.375
               ]
             ],
@@ -10459,13 +10459,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              525.5,
+              530.8706467661692,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                551.0,
+                561.7412935323383,
                 711.75
               ]
             ],
@@ -10506,7 +10506,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -10526,21 +10526,21 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                511.0,
+                521.7412935323383,
                 877.375
               ],
               [
-                498.25,
+                506.30597014925377,
                 565.0
               ]
             ],
@@ -10637,13 +10637,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              691.25,
+              731.5298507462687,
               1234.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 1132.5
               ]
             ],
@@ -10664,13 +10664,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 807.375
               ]
             ],
@@ -10691,17 +10691,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              474.5,
+              469.1293532338309,
               928.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 877.5
               ],
               [
-                691.25,
+                731.5298507462687,
                 820.1250000000001
               ]
             ],
@@ -10723,13 +10723,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                296.0,
+                253.03482587064676,
                 711.75
               ]
             ],
@@ -10770,7 +10770,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -10790,21 +10790,21 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              651.25,
+              691.5298507462687,
               1304.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                651.25,
+                691.5298507462687,
                 890.1250000000001
               ],
               [
-                664.0,
+                706.9651741293533,
                 565.0
               ]
             ],
@@ -10888,13 +10888,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                449.0,
+                438.2587064676617,
                 1107.0
               ]
             ],
@@ -10915,13 +10915,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               1158.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
+                638.9179104477612,
                 1081.5
               ]
             ],
@@ -10942,13 +10942,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                563.75,
+                577.1766169154229,
                 820.1250000000001
               ]
             ],
@@ -10969,7 +10969,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
@@ -11009,7 +11009,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              678.5,
+              716.0945273631842,
               903.0
             ],
             "scale": 1.0,
@@ -11035,7 +11035,7 @@
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 259.125
               ]
             ],
@@ -11056,7 +11056,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
@@ -11076,17 +11076,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              361.5,
+              323.90547263681594,
               973.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                438.0,
+                416.51741293532336,
                 1253.5
               ],
               [
-                523.75,
+                537.1766169154229,
                 890.1250000000001
               ]
             ],
@@ -11169,13 +11169,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               1183.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                359.75,
+                330.2114427860697,
                 1081.5
               ]
             ],
@@ -11196,17 +11196,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               807.375
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 807.375
               ],
               [
-                538.25,
+                546.3059701492538,
                 781.875
               ]
             ],
@@ -11228,13 +11228,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              321.5,
+              283.90547263681594,
               903.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                296.0,
+                253.03482587064676,
                 845.625
               ]
             ],
@@ -11255,13 +11255,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              341.75,
+              314.7761194029851,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                308.75,
+                268.4701492537314,
                 711.75
               ]
             ],
@@ -11282,13 +11282,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              454.25,
+              438.2587064676617,
               692.625
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.75,
+                391.9527363184079,
                 711.75
               ]
             ],
@@ -11329,7 +11329,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              576.5,
+              592.6119402985075,
               622.5
             ],
             "scale": 1.0,
@@ -11349,17 +11349,17 @@
             "team": 2,
             "sportType": 4,
             "position": [
-              348.75,
+              308.4701492537314,
               1253.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                562.0,
+                583.4825870646766,
                 877.375
               ],
               [
-                501.75,
+                493.69402985074635,
                 743.5
               ]
             ],

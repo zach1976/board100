@@ -55,15 +55,36 @@ COURT = {
 }
 
 
+# The board area on the phone the app is drawn for: a 402x874 screen less the
+# toolbar and the safe areas. It matters here because the two halves of a
+# board scale by DIFFERENT rules: the app rescales player positions by plain
+# canvas fractions (TacticsState._rescalePlayers), while the court painter
+# fits the playing surface to ITS OWN aspect inside whatever box it is given.
+# The two only agree on one canvas shape, and it is this one — not the
+# nominal 1000x1500 the coordinates are written in.
+#
+# Computing the court against 1000x1500 (aspect 0.667) instead of the real
+# 402x730 (0.551) put every court in the wrong place, by different amounts
+# per sport and per axis. Measured off the renders: soccer's pitch is drawn
+# y 174..1325 while this said 75..1425, so a corner taken "from the flag"
+# was drawn 50pt outside the pitch; basketball's is x 60..939 while this said
+# 138..862, so a corner three stood well inside the sideline.
+DISPLAY_W, DISPLAY_H = 402.0, 730.0
+
+
 def court_rect(sport: str) -> tuple[float, float, float, float]:
     aspect, scale_w, scale_h = COURT[sport]
-    if CANVAS_W / CANVAS_H > aspect:
-        ch = CANVAS_H * scale_h
+    if DISPLAY_W / DISPLAY_H > aspect:
+        ch = DISPLAY_H * scale_h
         cw = ch * aspect
     else:
-        cw = CANVAS_W * scale_w
+        cw = DISPLAY_W * scale_w
         ch = cw / aspect
-    return ((CANVAS_W - cw) / 2, (CANVAS_H - ch) / 2, cw, ch)
+    left = (DISPLAY_W - cw) / 2
+    top = (DISPLAY_H - ch) / 2
+    # Back into the authoring canvas, whose fractions are what the app keeps.
+    return (left / DISPLAY_W * CANVAS_W, top / DISPLAY_H * CANVAS_H,
+            cw / DISPLAY_W * CANVAS_W, ch / DISPLAY_H * CANVAS_H)
 
 TEAM_HOME, TEAM_AWAY, TEAM_NEUTRAL = 0, 1, 2
 # MarkerShape enum order in lib/models/player_icon.dart

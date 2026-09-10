@@ -76,13 +76,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1081.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                423.5,
+                407.3880597014926,
                 1005.0
               ]
             ],
@@ -103,13 +103,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               1081.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 1005.0
               ]
             ],
@@ -130,17 +130,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              438.0,
+              416.51741293532336,
               1151.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.5,
+                552.6119402985075,
                 1075.0
               ],
               [
-                463.5,
+                447.3880597014926,
                 1075.0
               ]
             ],
@@ -236,13 +236,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              334.25,
+              299.3407960199005,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                385.25,
+                361.0820895522388,
                 1030.5
               ]
             ],
@@ -290,13 +290,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              665.75,
+              700.6592039800995,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
+                638.9179104477612,
                 1030.5
               ]
             ],
@@ -317,7 +317,7 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              374.25,
+              339.3407960199005,
               1202.5
             ],
             "scale": 1.0,
@@ -327,7 +327,7 @@
                 1075.0
               ],
               [
-                625.75,
+                660.6592039800995,
                 1202.5
               ]
             ],
@@ -387,18 +387,18 @@
         "vi-VN": "Khống chế bóng khống chế bằng ngực"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1 moves left, F moves up the board; Step 2: F plays it to 1, 2 moves up the board.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1 moves left, F moves up the board; Step 2: F plays it to 1, 2 moves up the board.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 1。\n【球路】F → 1\n【流程】第1步：F接喂球，1号球员向左移动，F向前移动；第2步：F把球击向1号球员，2号球员向前移动。\n【要点】三次触球、不能用手：第一下必须停到同伴真能传球的位置，而不只是停在自己这半场某个地方。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 1。\n【球路】F → 1\n【流程】第1步：F接餵球，1號球員向左移動，F向前移動；第2步：F把球擊向1號球員，2號球員向前移動。\n【要點】三次觸球、不能用手：第一下必須停到同伴真能傳球的位置，而不只是停在自己這半場某個地方。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対1。\n【ボールの道筋】F → 1\n【流れ】ステップ1：Fが球出しを受ける、1番が左へ移動、Fが前方へ移動。ステップ2：Fが1番へ打つ、2番が前方へ移動。\n【ポイント】3タッチ、手は使えない。1本目は「自陣のどこか」ではなく、相方が実際に上げられる場所へ落とす。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대1.\n【볼 경로】F → 1\n【진행】1단계: F가 토스를 받는다, 1번는 왼쪽으로 이동, F는 앞으로 이동; 2단계: F가 1번 쪽으로 친다, 2번는 앞으로 이동.\n【포인트】세 번의 터치, 손은 금지. 첫 터치는 파트너가 실제로 올릴 수 있는 자리로 가야 한다.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 1.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: F recibe el envío, 1 se desplaza a la izquierda, F se desplaza hacia delante; Paso 2: F la juega hacia 1, 2 se desplaza hacia delante.\nPunto clave: Tres toques y sin manos: el primero debe caer donde tu pareja pueda colocar de verdad, no en cualquier sitio de tu campo.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 1.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : F reçoit l'envoi, 1 se déplace à gauche, F se déplace vers l'avant ; Étape 2 : F joue vers 1, 2 se déplace vers l'avant.\nPoint clé : Trois touches, sans les mains : la première doit finir là où ton partenaire peut vraiment relever.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 1.\nJalur bola: F → 1\nUrutan: Langkah 1: F menerima umpan latihan, 1 bergerak ke kiri, F bergerak ke depan; Langkah 2: F memukul ke 1, 2 bergerak ke depan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama harus jatuh di tempat rekanmu benar-benar bisa mengumpan.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 1.\nLaluan bola: F → 1\nUrutan: Langkah 1: F menerima suapan, 1 bergerak ke kiri, F bergerak ke hadapan; Langkah 2: F memukul ke arah 1, 2 bergerak ke hadapan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama mesti jatuh di tempat rakan anda benar-benar boleh mengumpan.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 1\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: F รับลูกป้อน 1 ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 2: F ตีไปที่ 1 2 ขยับไปข้างหน้า\nจุดเน้น: สามสัมผัสและห้ามใช้มือ สัมผัสแรกต้องลงในจุดที่คู่หูชงต่อได้จริง",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 1.\nĐường bóng: F → 1\nTrình tự: Bước 1: F nhận bóng mớm, 1 di chuyển sang trái, F di chuyển lên phía trước; Bước 2: F đánh sang 1, 2 di chuyển lên phía trước.\nĐiểm chính: Ba chạm, không dùng tay: chạm đầu phải rơi vào nơi đồng đội thực sự chuyền được."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1 moves left, F moves up the board; Step 2: F plays it to 1, 2 moves right.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1 moves left, F moves up the board; Step 2: F plays it to 1, 2 moves right.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 1。\n【球路】F → 1\n【流程】第1步：F接喂球，1号球员向左移动，F向前移动；第2步：F把球击向1号球员，2号球员向右移动。\n【要点】三次触球、不能用手：第一下必须停到同伴真能传球的位置，而不只是停在自己这半场某个地方。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 1。\n【球路】F → 1\n【流程】第1步：F接餵球，1號球員向左移動，F向前移動；第2步：F把球擊向1號球員，2號球員向右移動。\n【要點】三次觸球、不能用手：第一下必須停到同伴真能傳球的位置，而不只是停在自己這半場某個地方。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対1。\n【ボールの道筋】F → 1\n【流れ】ステップ1：Fが球出しを受ける、1番が左へ移動、Fが前方へ移動。ステップ2：Fが1番へ打つ、2番が右へ移動。\n【ポイント】3タッチ、手は使えない。1本目は「自陣のどこか」ではなく、相方が実際に上げられる場所へ落とす。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대1.\n【볼 경로】F → 1\n【진행】1단계: F가 토스를 받는다, 1번는 왼쪽으로 이동, F는 앞으로 이동; 2단계: F가 1번 쪽으로 친다, 2번는 오른쪽으로 이동.\n【포인트】세 번의 터치, 손은 금지. 첫 터치는 파트너가 실제로 올릴 수 있는 자리로 가야 한다.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 1.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: F recibe el envío, 1 se desplaza a la izquierda, F se desplaza hacia delante; Paso 2: F la juega hacia 1, 2 se desplaza a la derecha.\nPunto clave: Tres toques y sin manos: el primero debe caer donde tu pareja pueda colocar de verdad, no en cualquier sitio de tu campo.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 1.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : F reçoit l'envoi, 1 se déplace à gauche, F se déplace vers l'avant ; Étape 2 : F joue vers 1, 2 se déplace à droite.\nPoint clé : Trois touches, sans les mains : la première doit finir là où ton partenaire peut vraiment relever.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 1.\nJalur bola: F → 1\nUrutan: Langkah 1: F menerima umpan latihan, 1 bergerak ke kiri, F bergerak ke depan; Langkah 2: F memukul ke 1, 2 bergerak ke kanan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama harus jatuh di tempat rekanmu benar-benar bisa mengumpan.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 1.\nLaluan bola: F → 1\nUrutan: Langkah 1: F menerima suapan, 1 bergerak ke kiri, F bergerak ke hadapan; Langkah 2: F memukul ke arah 1, 2 bergerak ke kanan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama mesti jatuh di tempat rakan anda benar-benar boleh mengumpan.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 1\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: F รับลูกป้อน 1 ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 2: F ตีไปที่ 1 2 ขยับไปทางขวา\nจุดเน้น: สามสัมผัสและห้ามใช้มือ สัมผัสแรกต้องลงในจุดที่คู่หูชงต่อได้จริง",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 1.\nĐường bóng: F → 1\nTrình tự: Bước 1: F nhận bóng mớm, 1 di chuyển sang trái, F di chuyển lên phía trước; Bước 2: F đánh sang 1, 2 di chuyển sang phải.\nĐiểm chính: Ba chạm, không dùng tay: chạm đầu phải rơi vào nơi đồng đội thực sự chuyền được."
       },
       "mistake": {
         "en": "A first touch that lands anywhere on your side, not where the setter can use it.",
@@ -423,13 +423,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                551.0,
+                561.7412935323384,
                 1030.5
               ]
             ],
@@ -450,13 +450,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 954.0
               ]
             ],
@@ -504,7 +504,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               954.0
             ],
             "scale": 1.0,
@@ -534,7 +534,7 @@
                 641.5
               ],
               [
-                511.0,
+                521.7412935323384,
                 1100.5
               ]
             ],
@@ -594,18 +594,18 @@
         "vi-VN": "Khống chế bóng chuyền bằng vai"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1, F move up the board; Step 2: F plays it to 1, 2 moves up the board.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1, F move up the board; Step 2: F plays it to 1, 2 moves up the board.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 1。\n【球路】F → 1\n【流程】第1步：F接喂球，1号球员、F向前移动；第2步：F把球击向1号球员，2号球员向前移动。\n【要点】三次触球、不能用手：第一下必须停到同伴真能传球的位置，而不只是停在自己这半场某个地方。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 1。\n【球路】F → 1\n【流程】第1步：F接餵球，1號球員、F向前移動；第2步：F把球擊向1號球員，2號球員向前移動。\n【要點】三次觸球、不能用手：第一下必須停到同伴真能傳球的位置，而不只是停在自己這半場某個地方。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対1。\n【ボールの道筋】F → 1\n【流れ】ステップ1：Fが球出しを受ける、1番・Fが前方へ移動。ステップ2：Fが1番へ打つ、2番が前方へ移動。\n【ポイント】3タッチ、手は使えない。1本目は「自陣のどこか」ではなく、相方が実際に上げられる場所へ落とす。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대1.\n【볼 경로】F → 1\n【진행】1단계: F가 토스를 받는다, 1번, F는 앞으로 이동; 2단계: F가 1번 쪽으로 친다, 2번는 앞으로 이동.\n【포인트】세 번의 터치, 손은 금지. 첫 터치는 파트너가 실제로 올릴 수 있는 자리로 가야 한다.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 1.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: F recibe el envío, 1, F se desplaza hacia delante; Paso 2: F la juega hacia 1, 2 se desplaza hacia delante.\nPunto clave: Tres toques y sin manos: el primero debe caer donde tu pareja pueda colocar de verdad, no en cualquier sitio de tu campo.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 1.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : F reçoit l'envoi, 1, F se déplace vers l'avant ; Étape 2 : F joue vers 1, 2 se déplace vers l'avant.\nPoint clé : Trois touches, sans les mains : la première doit finir là où ton partenaire peut vraiment relever.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 1.\nJalur bola: F → 1\nUrutan: Langkah 1: F menerima umpan latihan, 1, F bergerak ke depan; Langkah 2: F memukul ke 1, 2 bergerak ke depan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama harus jatuh di tempat rekanmu benar-benar bisa mengumpan.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 1.\nLaluan bola: F → 1\nUrutan: Langkah 1: F menerima suapan, 1, F bergerak ke hadapan; Langkah 2: F memukul ke arah 1, 2 bergerak ke hadapan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama mesti jatuh di tempat rakan anda benar-benar boleh mengumpan.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 1\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: F รับลูกป้อน 1, F ขยับไปข้างหน้า • ขั้นที่ 2: F ตีไปที่ 1 2 ขยับไปข้างหน้า\nจุดเน้น: สามสัมผัสและห้ามใช้มือ สัมผัสแรกต้องลงในจุดที่คู่หูชงต่อได้จริง",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 1.\nĐường bóng: F → 1\nTrình tự: Bước 1: F nhận bóng mớm, 1, F di chuyển lên phía trước; Bước 2: F đánh sang 1, 2 di chuyển lên phía trước.\nĐiểm chính: Ba chạm, không dùng tay: chạm đầu phải rơi vào nơi đồng đội thực sự chuyền được."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1, F move up the board; Step 2: F plays it to 1, 2 moves right.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 1.\nBall path: F → 1\nSequence: Step 1: F takes the feed, 1, F move up the board; Step 2: F plays it to 1, 2 moves right.\nCoaching point: Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 1。\n【球路】F → 1\n【流程】第1步：F接喂球，1号球员、F向前移动；第2步：F把球击向1号球员，2号球员向右移动。\n【要点】三次触球、不能用手：第一下必须停到同伴真能传球的位置，而不只是停在自己这半场某个地方。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 1。\n【球路】F → 1\n【流程】第1步：F接餵球，1號球員、F向前移動；第2步：F把球擊向1號球員，2號球員向右移動。\n【要點】三次觸球、不能用手：第一下必須停到同伴真能傳球的位置，而不只是停在自己這半場某個地方。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対1。\n【ボールの道筋】F → 1\n【流れ】ステップ1：Fが球出しを受ける、1番・Fが前方へ移動。ステップ2：Fが1番へ打つ、2番が右へ移動。\n【ポイント】3タッチ、手は使えない。1本目は「自陣のどこか」ではなく、相方が実際に上げられる場所へ落とす。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대1.\n【볼 경로】F → 1\n【진행】1단계: F가 토스를 받는다, 1번, F는 앞으로 이동; 2단계: F가 1번 쪽으로 친다, 2번는 오른쪽으로 이동.\n【포인트】세 번의 터치, 손은 금지. 첫 터치는 파트너가 실제로 올릴 수 있는 자리로 가야 한다.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 1.\nRecorrido del balón: F → 1\nSecuencia: Paso 1: F recibe el envío, 1, F se desplaza hacia delante; Paso 2: F la juega hacia 1, 2 se desplaza a la derecha.\nPunto clave: Tres toques y sin manos: el primero debe caer donde tu pareja pueda colocar de verdad, no en cualquier sitio de tu campo.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 1.\nTrajet du ballon : F → 1\nDéroulé : Étape 1 : F reçoit l'envoi, 1, F se déplace vers l'avant ; Étape 2 : F joue vers 1, 2 se déplace à droite.\nPoint clé : Trois touches, sans les mains : la première doit finir là où ton partenaire peut vraiment relever.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 1.\nJalur bola: F → 1\nUrutan: Langkah 1: F menerima umpan latihan, 1, F bergerak ke depan; Langkah 2: F memukul ke 1, 2 bergerak ke kanan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama harus jatuh di tempat rekanmu benar-benar bisa mengumpan.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 1.\nLaluan bola: F → 1\nUrutan: Langkah 1: F menerima suapan, 1, F bergerak ke hadapan; Langkah 2: F memukul ke arah 1, 2 bergerak ke kanan.\nPoin utama: Tiga sentuhan tanpa tangan: yang pertama mesti jatuh di tempat rakan anda benar-benar boleh mengumpan.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 1\nเส้นทางบอล: F → 1\nลำดับ: ขั้นที่ 1: F รับลูกป้อน 1, F ขยับไปข้างหน้า • ขั้นที่ 2: F ตีไปที่ 1 2 ขยับไปทางขวา\nจุดเน้น: สามสัมผัสและห้ามใช้มือ สัมผัสแรกต้องลงในจุดที่คู่หูชงต่อได้จริง",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 1.\nĐường bóng: F → 1\nTrình tự: Bước 1: F nhận bóng mớm, 1, F di chuyển lên phía trước; Bước 2: F đánh sang 1, 2 di chuyển sang phải.\nĐiểm chính: Ba chạm, không dùng tay: chạm đầu phải rơi vào nơi đồng đội thực sự chuyền được."
       },
       "mistake": {
         "en": "A first touch that lands anywhere on your side, not where the setter can use it.",
@@ -630,13 +630,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 979.4999999999999
               ]
             ],
@@ -657,13 +657,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                512.75,
+                515.4353233830847,
                 903.0
               ]
             ],
@@ -711,7 +711,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              512.75,
+              515.4353233830847,
               903.0
             ],
             "scale": 1.0,
@@ -741,7 +741,7 @@
                 641.5
               ],
               [
-                562.0,
+                583.4825870646766,
                 1049.5
               ]
             ],
@@ -837,13 +837,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                551.0,
+                561.7412935323384,
                 953.9999999999999
               ]
             ],
@@ -864,13 +864,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -918,7 +918,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -948,7 +948,7 @@
                 641.5
               ],
               [
-                511.0,
+                521.7412935323384,
                 1023.9999999999999
               ]
             ],
@@ -1044,17 +1044,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 1005.0
               ],
               [
-                525.5,
+                530.8706467661692,
                 1005.0
               ]
             ],
@@ -1076,13 +1076,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               1005.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -1130,7 +1130,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -1160,7 +1160,7 @@
                 310.0
               ],
               [
-                485.5,
+                490.8706467661692,
                 1075.0
               ]
             ],
@@ -1256,17 +1256,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 1005.0
               ],
               [
-                525.5,
+                530.8706467661692,
                 1005.0
               ]
             ],
@@ -1288,13 +1288,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               1005.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -1342,7 +1342,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -1372,7 +1372,7 @@
                 310.0
               ],
               [
-                485.5,
+                490.8706467661692,
                 1075.0
               ]
             ],
@@ -1500,7 +1500,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               444.0
             ],
             "scale": 1.0,
@@ -1527,7 +1527,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               444.0
             ],
             "scale": 1.0,
@@ -1573,7 +1573,7 @@
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 514.0
               ],
               [
@@ -1705,13 +1705,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               444.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                270.5,
+                222.16417910447763,
                 316.5
               ]
             ],
@@ -1732,7 +1732,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               444.0
             ],
             "scale": 1.0,
@@ -1752,7 +1752,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              270.5,
+              222.16417910447763,
               240.0
             ],
             "scale": 1.0,
@@ -1778,7 +1778,7 @@
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 514.0
               ],
               [
@@ -1910,7 +1910,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               444.0
             ],
             "scale": 1.0,
@@ -1937,7 +1937,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               444.0
             ],
             "scale": 1.0,
@@ -1983,7 +1983,7 @@
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 514.0
               ],
               [
@@ -2083,13 +2083,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -2110,17 +2110,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                551.0,
+                561.7412935323384,
                 883.875
               ],
               [
-                512.75,
+                515.4353233830847,
                 781.875
               ]
             ],
@@ -2169,13 +2169,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              359.75,
+              330.2114427860697,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                359.75,
+                330.2114427860697,
                 495.0
               ]
             ],
@@ -2196,7 +2196,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              359.75,
+              330.2114427860697,
               495.0
             ],
             "scale": 1.0,
@@ -2216,21 +2216,21 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ],
               [
-                512.75,
+                515.4353233830847,
                 769.125
               ],
               [
-                359.75,
+                330.2114427860697,
                 495.0
               ]
             ],
@@ -2327,13 +2327,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -2354,13 +2354,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 947.6249999999999
               ],
               [
@@ -2453,13 +2453,13 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ],
               [
@@ -2564,13 +2564,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -2591,17 +2591,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 909.375
               ],
               [
-                436.25,
+                422.82338308457713,
                 807.375
               ]
             ],
@@ -2629,7 +2629,7 @@
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 705.375
               ]
             ],
@@ -2650,13 +2650,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               342.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                653.0,
+                685.223880597015,
                 418.5
               ]
             ],
@@ -2677,7 +2677,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               418.5
             ],
             "scale": 1.0,
@@ -2697,21 +2697,21 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ],
               [
-                436.25,
+                422.82338308457713,
                 794.625
               ],
               [
-                653.0,
+                685.223880597015,
                 418.5
               ]
             ],
@@ -2772,18 +2772,18 @@
         "vi-VN": "Phối hợp từ chuyền nhanh"
       },
       "note": {
-        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1 moves up the board, 2 moves left; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1 moves up the board, 2 moves left; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员向前移动，2号球员向左移动；第2步：B把球击向1号球员，B向左移动，D向后移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
-        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員向前移動，2號球員向左移動；第2步：B把球擊向1號球員，B向左移動，D向後移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
-        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番が前方へ移動、2番が左へ移動。ステップ2：Bが1番へ打つ、Bが左へ移動、Dが後方へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
-        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번는 앞으로 이동, 2번는 왼쪽으로 이동; 2단계: B가 1번 쪽으로 친다, B는 왼쪽으로 이동, D는 뒤로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
-        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1 se desplaza hacia delante, 2 se desplaza a la izquierda; Paso 2: B la juega hacia 1, B se desplaza a la izquierda, D se desplaza hacia atrás.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
-        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1 se déplace vers l'avant, 2 se déplace à gauche ; Étape 2 : B joue vers 1, B se déplace à gauche, D se déplace vers l'arrière.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
-        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1 bergerak ke depan, 2 bergerak ke kiri; Langkah 2: B memukul ke 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
-        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1 bergerak ke hadapan, 2 bergerak ke kiri; Langkah 2: B memukul ke arah 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
-        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1 ขยับไปข้างหน้า 2 ขยับไปทางซ้าย • ขั้นที่ 2: B ตีไปที่ 1 B ขยับไปทางซ้าย D ขยับถอยหลัง\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
-        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1 di chuyển lên phía trước, 2 di chuyển sang trái; Bước 2: B đánh sang 1, B di chuyển sang trái, D di chuyển lùi lại.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
+        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1 moves up the board, 2 moves left; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1 moves up the board, 2 moves left; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员向前移动，2号球员向左移动；第2步：B把球击向1号球员，B、D向左移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
+        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員向前移動，2號球員向左移動；第2步：B把球擊向1號球員，B、D向左移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
+        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番が前方へ移動、2番が左へ移動。ステップ2：Bが1番へ打つ、B・Dが左へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
+        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번는 앞으로 이동, 2번는 왼쪽으로 이동; 2단계: B가 1번 쪽으로 친다, B, D는 왼쪽으로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
+        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1 se desplaza hacia delante, 2 se desplaza a la izquierda; Paso 2: B la juega hacia 1, B, D se desplaza a la izquierda.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
+        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1 se déplace vers l'avant, 2 se déplace à gauche ; Étape 2 : B joue vers 1, B, D se déplace à gauche.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
+        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1 bergerak ke depan, 2 bergerak ke kiri; Langkah 2: B memukul ke 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
+        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1 bergerak ke hadapan, 2 bergerak ke kiri; Langkah 2: B memukul ke arah 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
+        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1 ขยับไปข้างหน้า 2 ขยับไปทางซ้าย • ขั้นที่ 2: B ตีไปที่ 1 B, D ขยับไปทางซ้าย\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
+        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1 di chuyển lên phía trước, 2 di chuyển sang trái; Bước 2: B đánh sang 1, B, D di chuyển sang trái.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
       },
       "mistake": {
         "en": "A silent set at the net — a coin flip over who attacks.",
@@ -2808,13 +2808,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -2835,7 +2835,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
@@ -2845,7 +2845,7 @@
                 941.25
               ],
               [
-                436.25,
+                422.82338308457713,
                 788.25
               ]
             ],
@@ -2867,13 +2867,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               699.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                449.0,
+                438.2587064676617,
                 692.625
               ]
             ],
@@ -2894,13 +2894,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 418.5
               ]
             ],
@@ -2921,7 +2921,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -2941,17 +2941,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 769.0
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -3011,18 +3011,18 @@
         "vi-VN": "Phối hợp từ cuối sân"
       },
       "note": {
-        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员、2号球员向前移动；第2步：B把球击向1号球员，B向左移动，D向后移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
-        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員、2號球員向前移動；第2步：B把球擊向1號球員，B向左移動，D向後移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
-        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番・2番が前方へ移動。ステップ2：Bが1番へ打つ、Bが左へ移動、Dが後方へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
-        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번, 2번는 앞으로 이동; 2단계: B가 1번 쪽으로 친다, B는 왼쪽으로 이동, D는 뒤로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
-        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1, 2 se desplaza hacia delante; Paso 2: B la juega hacia 1, B se desplaza a la izquierda, D se desplaza hacia atrás.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
-        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1, 2 se déplace vers l'avant ; Étape 2 : B joue vers 1, B se déplace à gauche, D se déplace vers l'arrière.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
-        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1, 2 bergerak ke depan; Langkah 2: B memukul ke 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
-        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1, 2 bergerak ke hadapan; Langkah 2: B memukul ke arah 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
-        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1, 2 ขยับไปข้างหน้า • ขั้นที่ 2: B ตีไปที่ 1 B ขยับไปทางซ้าย D ขยับถอยหลัง\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
-        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1, 2 di chuyển lên phía trước; Bước 2: B đánh sang 1, B di chuyển sang trái, D di chuyển lùi lại.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
+        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员、2号球员向前移动；第2步：B把球击向1号球员，B、D向左移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
+        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員、2號球員向前移動；第2步：B把球擊向1號球員，B、D向左移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
+        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番・2番が前方へ移動。ステップ2：Bが1番へ打つ、B・Dが左へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
+        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번, 2번는 앞으로 이동; 2단계: B가 1번 쪽으로 친다, B, D는 왼쪽으로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
+        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1, 2 se desplaza hacia delante; Paso 2: B la juega hacia 1, B, D se desplaza a la izquierda.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
+        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1, 2 se déplace vers l'avant ; Étape 2 : B joue vers 1, B, D se déplace à gauche.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
+        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1, 2 bergerak ke depan; Langkah 2: B memukul ke 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
+        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1, 2 bergerak ke hadapan; Langkah 2: B memukul ke arah 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
+        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1, 2 ขยับไปข้างหน้า • ขั้นที่ 2: B ตีไปที่ 1 B, D ขยับไปทางซ้าย\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
+        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1, 2 di chuyển lên phía trước; Bước 2: B đánh sang 1, B, D di chuyển sang trái.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
       },
       "mistake": {
         "en": "A silent set at the net — a coin flip over who attacks.",
@@ -3047,13 +3047,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -3074,17 +3074,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 966.75
               ],
               [
-                538.25,
+                546.3059701492538,
                 813.75
               ]
             ],
@@ -3106,13 +3106,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               699.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                449.0,
+                438.2587064676617,
                 692.625
               ]
             ],
@@ -3133,13 +3133,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 418.5
               ]
             ],
@@ -3160,7 +3160,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -3180,17 +3180,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 769.0
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -3250,18 +3250,18 @@
         "vi-VN": "Phối hợp tấn công ngay chạm hai"
       },
       "note": {
-        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B moves left, D moves back.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
-        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员、2号球员向前移动；第2步：B把球击向1号球员，B向左移动，D向后移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
-        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員、2號球員向前移動；第2步：B把球擊向1號球員，B向左移動，D向後移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
-        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番・2番が前方へ移動。ステップ2：Bが1番へ打つ、Bが左へ移動、Dが後方へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
-        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번, 2번는 앞으로 이동; 2단계: B가 1번 쪽으로 친다, B는 왼쪽으로 이동, D는 뒤로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
-        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1, 2 se desplaza hacia delante; Paso 2: B la juega hacia 1, B se desplaza a la izquierda, D se desplaza hacia atrás.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
-        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1, 2 se déplace vers l'avant ; Étape 2 : B joue vers 1, B se déplace à gauche, D se déplace vers l'arrière.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
-        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1, 2 bergerak ke depan; Langkah 2: B memukul ke 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
-        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1, 2 bergerak ke hadapan; Langkah 2: B memukul ke arah 1, B bergerak ke kiri, D bergerak ke belakang.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
-        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1, 2 ขยับไปข้างหน้า • ขั้นที่ 2: B ตีไปที่ 1 B ขยับไปทางซ้าย D ขยับถอยหลัง\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
-        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1, 2 di chuyển lên phía trước; Bước 2: B đánh sang 1, B di chuyển sang trái, D di chuyển lùi lại.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
+        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → B → 1\nSequence: Step 1: 1 plays it to B, 1, 2 move up the board; Step 2: B plays it to 1, B, D move left.\nCoaching point: The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.",
+        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → B → 1\n【流程】第1步：1号球员把球击向B，1号球员、2号球员向前移动；第2步：B把球击向1号球员，B、D向左移动。\n【要点】第二次触球决定谁来进攻——球到之前把名字喊出来。不出声的二传，网前就是抛硬币。",
+        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → B → 1\n【流程】第1步：1號球員把球擊向B，1號球員、2號球員向前移動；第2步：B把球擊向1號球員，B、D向左移動。\n【要點】第二次觸球決定誰來進攻——球到之前把名字喊出來。不出聲的二傳，網前就是拋硬幣。",
+        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → B → 1\n【流れ】ステップ1：1番がBへ打つ、1番・2番が前方へ移動。ステップ2：Bが1番へ打つ、B・Dが左へ移動。\n【ポイント】2タッチ目が誰の攻撃かを決める。ボールが来る前に名前を呼ぶ。無言のトスはネット際のコイントスだ。",
+        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → B → 1\n【진행】1단계: 1번가 B 쪽으로 친다, 1번, 2번는 앞으로 이동; 2단계: B가 1번 쪽으로 친다, B, D는 왼쪽으로 이동.\n【포인트】두 번째 터치가 누가 공격할지 정한다. 공이 오기 전에 이름을 불러라.",
+        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → B → 1\nSecuencia: Paso 1: 1 la juega hacia B, 1, 2 se desplaza hacia delante; Paso 2: B la juega hacia 1, B, D se desplaza a la izquierda.\nPunto clave: El segundo toque decide quién ataca: di el nombre antes de que llegue. Una colocación muda es una moneda al aire en la red.",
+        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → B → 1\nDéroulé : Étape 1 : 1 joue vers B, 1, 2 se déplace vers l'avant ; Étape 2 : B joue vers 1, B, D se déplace à gauche.\nPoint clé : La deuxième touche décide qui attaque : dis le nom avant l'arrivée. Une passe muette est un pile ou face au filet.",
+        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke B, 1, 2 bergerak ke depan; Langkah 2: B memukul ke 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut namanya lebih dulu.",
+        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → B → 1\nUrutan: Langkah 1: 1 memukul ke arah B, 1, 2 bergerak ke hadapan; Langkah 2: B memukul ke arah 1, B, D bergerak ke kiri.\nPoin utama: Sentuhan kedua menentukan siapa menyerang — sebut nama dahulu.",
+        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → B → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ B 1, 2 ขยับไปข้างหน้า • ขั้นที่ 2: B ตีไปที่ 1 B, D ขยับไปทางซ้าย\nจุดเน้น: สัมผัสที่สองตัดสินว่าใครบุก เรียกชื่อก่อนบอลมาถึง",
+        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → B → 1\nTrình tự: Bước 1: 1 đánh sang B, 1, 2 di chuyển lên phía trước; Bước 2: B đánh sang 1, B, D di chuyển sang trái.\nĐiểm chính: Chạm thứ hai quyết định ai tấn công — gọi tên trước khi bóng tới."
       },
       "mistake": {
         "en": "A silent set at the net — a coin flip over who attacks.",
@@ -3286,13 +3286,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -3313,17 +3313,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                474.5,
+                469.1293532338309,
                 801.0
               ],
               [
-                410.75,
+                391.9527363184079,
                 648.0
               ]
             ],
@@ -3345,13 +3345,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               699.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                449.0,
+                438.2587064676617,
                 692.625
               ]
             ],
@@ -3372,13 +3372,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 418.5
               ]
             ],
@@ -3399,7 +3399,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               877.5
             ],
             "scale": 1.0,
@@ -3419,17 +3419,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 769.0
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -3525,13 +3525,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -3552,13 +3552,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                512.75,
+                515.4353233830847,
                 826.5000000000001
               ]
             ],
@@ -3579,13 +3579,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               316.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 393.0
               ]
             ],
@@ -3606,7 +3606,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               699.0
             ],
             "scale": 1.0,
@@ -3626,7 +3626,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               393.0
             ],
             "scale": 1.0,
@@ -3646,17 +3646,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                438.0,
+                416.51741293532336,
                 386.5
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -3752,13 +3752,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -3779,13 +3779,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                512.75,
+                515.4353233830847,
                 826.5000000000001
               ]
             ],
@@ -3806,13 +3806,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              576.5,
+              592.6119402985075,
               393.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                576.5,
+                592.6119402985075,
                 469.50000000000006
               ]
             ],
@@ -3833,7 +3833,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               699.0
             ],
             "scale": 1.0,
@@ -3853,7 +3853,7 @@
             "team": 2,
             "sportType": null,
             "position": [
-              576.5,
+              592.6119402985075,
               469.50000000000006
             ],
             "scale": 1.0,
@@ -3873,17 +3873,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.5,
+                552.6119402985075,
                 463.00000000000006
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -3979,13 +3979,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 877.5
               ]
             ],
@@ -4006,13 +4006,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                512.75,
+                515.4353233830847,
                 826.5000000000001
               ]
             ],
@@ -4060,7 +4060,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              398.0,
+              376.51741293532336,
               699.0
             ],
             "scale": 1.0,
@@ -4100,7 +4100,7 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
@@ -4110,7 +4110,7 @@
                 667.0
               ],
               [
-                501.75,
+                493.69402985074635,
                 947.5
               ]
             ],
@@ -4206,13 +4206,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 788.25
               ]
             ],
@@ -4233,13 +4233,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                602.0,
+                623.4825870646766,
                 1132.5
               ]
             ],
@@ -4260,13 +4260,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               571.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 686.25
               ]
             ],
@@ -4287,13 +4287,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 622.5
               ]
             ],
@@ -4314,17 +4314,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 641.5
               ],
               [
-                501.75,
+                493.69402985074635,
                 858.25
               ]
             ],
@@ -4420,13 +4420,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                436.25,
+                422.82338308457713,
                 788.25
               ]
             ],
@@ -4447,13 +4447,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 1209.0
               ]
             ],
@@ -4474,13 +4474,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               571.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 686.25
               ]
             ],
@@ -4501,13 +4501,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 622.5
               ]
             ],
@@ -4528,17 +4528,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 641.5
               ],
               [
-                476.25,
+                462.82338308457713,
                 858.25
               ]
             ],
@@ -4634,13 +4634,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                398.0,
+                376.51741293532336,
                 1005.0
               ]
             ],
@@ -4661,13 +4661,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                614.75,
+                638.9179104477612,
                 1030.5
               ]
             ],
@@ -4688,13 +4688,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               571.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 686.25
               ]
             ],
@@ -4715,13 +4715,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                538.25,
+                546.3059701492538,
                 622.5
               ]
             ],
@@ -4742,17 +4742,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              602.0,
+              623.4825870646766,
               495.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 641.5
               ],
               [
-                438.0,
+                416.51741293532336,
                 1075.0
               ]
             ],
@@ -4799,18 +4799,18 @@
         "vi-VN": "Thời điểm chắn một đối một trước lưới"
       },
       "note": {
-        "en": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 2.\nBall path: A → B\nSequence: Step 1: A takes the feed, F moves up the board; Step 2: A plays it to B, B, A move up the board.\nCoaching point: Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.",
-        "en-GB": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 2.\nBall path: A → B\nSequence: Step 1: A takes the feed, F moves up the board; Step 2: A plays it to B, B, A move up the board.\nCoaching point: Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.",
-        "zh-CN": "【目的】防守：练被动时怎么把球接回来。先稳住、拖住时间，把这一分打回平手，再想进攻。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】1 对 2。\n【球路】A → B\n【流程】第1步：A接喂球，F向前移动；第2步：A把球击向B，B、A向前移动。\n【要点】看进攻人的支撑腿起跳，别看球。球可以做假，起跳那条腿做不了假。",
-        "zh-TW": "【目的】防守：練被動時怎麼把球接回來。先穩住、拖住時間，把這一分打回平手，再想進攻。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】1 對 2。\n【球路】A → B\n【流程】第1步：A接餵球，F向前移動；第2步：A把球擊向B，B、A向前移動。\n【要點】看進攻人的支撐腿起跳，別看球。球可以做假，起跳那條腿做不了假。",
-        "ja-JP": "【目的】プレッシャー下でラリーに残る。守備から立て直し、時間を作り、再び攻める前に五分に戻す。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】1対2。\n【ボールの道筋】A → B\n【流れ】ステップ1：Aが球出しを受ける、Fが前方へ移動。ステップ2：AがBへ打つ、B・Aが前方へ移動。\n【ポイント】ボールではなくアタッカーの踏み込み足に合わせて跳ぶ。ボールは騙せるが、踏み切る脚は騙せない。",
-        "ko-KR": "【목적】압박 속에서 랠리를 이어간다. 수비에서 재정비하고 시간을 벌어, 다시 공격하기 전에 균형으로 되돌린다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】1대2.\n【볼 경로】A → B\n【진행】1단계: A가 토스를 받는다, F는 앞으로 이동; 2단계: A가 B 쪽으로 친다, B, A는 앞으로 이동.\n【포인트】공이 아니라 공격수의 디딤발에 맞춰 뛰어라. 공은 속여도 뛰는 다리는 못 속인다.",
-        "es-ES": "Objetivo: Sostener el peloteo bajo presión: recomponer desde la defensa, ganar tiempo y devolver el punto a igualdad antes de atacar.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 1 contra 2.\nRecorrido del balón: A → B\nSecuencia: Paso 1: A recibe el envío, F se desplaza hacia delante; Paso 2: A la juega hacia B, B, A se desplaza hacia delante.\nPunto clave: Salta con la pierna de apoyo del atacante, no con el balón: el balón se puede fintar, la pierna que salta no.",
-        "fr-FR": "Objectif : Rester dans l'échange sous pression : se replacer en défense, gagner du temps et ramener le point à l'équilibre avant de réattaquer.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 1 contre 2.\nTrajet du ballon : A → B\nDéroulé : Étape 1 : A reçoit l'envoi, F se déplace vers l'avant ; Étape 2 : A joue vers B, B, A se déplace vers l'avant.\nPoint clé : Saute sur la jambe d'appui de l'attaquant, pas sur le ballon : le ballon peut feinter, la jambe qui saute non.",
-        "id-ID": "Tujuan: Bertahan dalam reli di bawah tekanan — pulihkan dari bertahan, ulur waktu, kembalikan poin ke seimbang sebelum menyerang lagi.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 1 lawan 2.\nJalur bola: A → B\nUrutan: Langkah 1: A menerima umpan latihan, F bergerak ke depan; Langkah 2: A memukul ke B, B, A bergerak ke depan.\nPoin utama: Lompat mengikuti kaki tumpu penyerang, bukan bolanya.",
-        "ms-MY": "Tujuan: Kekal dalam rali di bawah tekanan — pulih daripada bertahan, beli masa, kembalikan mata ke seimbang sebelum menyerang semula.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 1 lawan 2.\nLaluan bola: A → B\nUrutan: Langkah 1: A menerima suapan, F bergerak ke hadapan; Langkah 2: A memukul ke arah B, B, A bergerak ke hadapan.\nPoin utama: Lompat mengikut kaki tumpuan penyerang, bukan bola.",
-        "th-TH": "จุดประสงค์: อยู่ในการโต้ภายใต้แรงกดดัน — ตั้งหลักจากรับ ซื้อเวลา และดึงแต้มกลับมาเสมอก่อนบุกอีกครั้ง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 1 ต่อ 2\nเส้นทางบอล: A → B\nลำดับ: ขั้นที่ 1: A รับลูกป้อน F ขยับไปข้างหน้า • ขั้นที่ 2: A ตีไปที่ B B, A ขยับไปข้างหน้า\nจุดเน้น: กระโดดตามขาหลักของตัวบุก อย่าตามบอล บอลหลอกได้ ขาหลอกไม่ได้",
-        "vi-VN": "Mục đích: Trụ lại pha bóng dưới áp lực — gượng dậy từ thế thủ, kéo dài thời gian, đưa điểm về cân bằng trước khi tấn công lại.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 1 đấu 2.\nĐường bóng: A → B\nTrình tự: Bước 1: A nhận bóng mớm, F di chuyển lên phía trước; Bước 2: A đánh sang B, B, A di chuyển lên phía trước.\nĐiểm chính: Bật theo chân trụ của người tấn công, đừng theo bóng."
+        "en": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 2.\nBall path: A → B\nSequence: Step 1: A takes the feed, F moves left; Step 2: A plays it to B, B, A move up the board.\nCoaching point: Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.",
+        "en-GB": "Purpose: Stay in the rally under pressure — reset from defence, buy time, and turn the point back to neutral before you attack again.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 2.\nBall path: A → B\nSequence: Step 1: A takes the feed, F moves left; Step 2: A plays it to B, B, A move up the board.\nCoaching point: Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.",
+        "zh-CN": "【目的】防守：练被动时怎么把球接回来。先稳住、拖住时间，把这一分打回平手，再想进攻。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】1 对 2。\n【球路】A → B\n【流程】第1步：A接喂球，F向左移动；第2步：A把球击向B，B、A向前移动。\n【要点】看进攻人的支撑腿起跳，别看球。球可以做假，起跳那条腿做不了假。",
+        "zh-TW": "【目的】防守：練被動時怎麼把球接回來。先穩住、拖住時間，把這一分打回平手，再想進攻。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】1 對 2。\n【球路】A → B\n【流程】第1步：A接餵球，F向左移動；第2步：A把球擊向B，B、A向前移動。\n【要點】看進攻人的支撐腿起跳，別看球。球可以做假，起跳那條腿做不了假。",
+        "ja-JP": "【目的】プレッシャー下でラリーに残る。守備から立て直し、時間を作り、再び攻める前に五分に戻す。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】1対2。\n【ボールの道筋】A → B\n【流れ】ステップ1：Aが球出しを受ける、Fが左へ移動。ステップ2：AがBへ打つ、B・Aが前方へ移動。\n【ポイント】ボールではなくアタッカーの踏み込み足に合わせて跳ぶ。ボールは騙せるが、踏み切る脚は騙せない。",
+        "ko-KR": "【목적】압박 속에서 랠리를 이어간다. 수비에서 재정비하고 시간을 벌어, 다시 공격하기 전에 균형으로 되돌린다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】1대2.\n【볼 경로】A → B\n【진행】1단계: A가 토스를 받는다, F는 왼쪽으로 이동; 2단계: A가 B 쪽으로 친다, B, A는 앞으로 이동.\n【포인트】공이 아니라 공격수의 디딤발에 맞춰 뛰어라. 공은 속여도 뛰는 다리는 못 속인다.",
+        "es-ES": "Objetivo: Sostener el peloteo bajo presión: recomponer desde la defensa, ganar tiempo y devolver el punto a igualdad antes de atacar.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 1 contra 2.\nRecorrido del balón: A → B\nSecuencia: Paso 1: A recibe el envío, F se desplaza a la izquierda; Paso 2: A la juega hacia B, B, A se desplaza hacia delante.\nPunto clave: Salta con la pierna de apoyo del atacante, no con el balón: el balón se puede fintar, la pierna que salta no.",
+        "fr-FR": "Objectif : Rester dans l'échange sous pression : se replacer en défense, gagner du temps et ramener le point à l'équilibre avant de réattaquer.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 1 contre 2.\nTrajet du ballon : A → B\nDéroulé : Étape 1 : A reçoit l'envoi, F se déplace à gauche ; Étape 2 : A joue vers B, B, A se déplace vers l'avant.\nPoint clé : Saute sur la jambe d'appui de l'attaquant, pas sur le ballon : le ballon peut feinter, la jambe qui saute non.",
+        "id-ID": "Tujuan: Bertahan dalam reli di bawah tekanan — pulihkan dari bertahan, ulur waktu, kembalikan poin ke seimbang sebelum menyerang lagi.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 1 lawan 2.\nJalur bola: A → B\nUrutan: Langkah 1: A menerima umpan latihan, F bergerak ke kiri; Langkah 2: A memukul ke B, B, A bergerak ke depan.\nPoin utama: Lompat mengikuti kaki tumpu penyerang, bukan bolanya.",
+        "ms-MY": "Tujuan: Kekal dalam rali di bawah tekanan — pulih daripada bertahan, beli masa, kembalikan mata ke seimbang sebelum menyerang semula.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 1 lawan 2.\nLaluan bola: A → B\nUrutan: Langkah 1: A menerima suapan, F bergerak ke kiri; Langkah 2: A memukul ke arah B, B, A bergerak ke hadapan.\nPoin utama: Lompat mengikut kaki tumpuan penyerang, bukan bola.",
+        "th-TH": "จุดประสงค์: อยู่ในการโต้ภายใต้แรงกดดัน — ตั้งหลักจากรับ ซื้อเวลา และดึงแต้มกลับมาเสมอก่อนบุกอีกครั้ง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 1 ต่อ 2\nเส้นทางบอล: A → B\nลำดับ: ขั้นที่ 1: A รับลูกป้อน F ขยับไปทางซ้าย • ขั้นที่ 2: A ตีไปที่ B B, A ขยับไปข้างหน้า\nจุดเน้น: กระโดดตามขาหลักของตัวบุก อย่าตามบอล บอลหลอกได้ ขาหลอกไม่ได้",
+        "vi-VN": "Mục đích: Trụ lại pha bóng dưới áp lực — gượng dậy từ thế thủ, kéo dài thời gian, đưa điểm về cân bằng trước khi tấn công lại.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 1 đấu 2.\nĐường bóng: A → B\nTrình tự: Bước 1: A nhận bóng mớm, F di chuyển sang trái; Bước 2: A đánh sang B, B, A di chuyển lên phía trước.\nĐiểm chính: Bật theo chân trụ của người tấn công, đừng theo bóng."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -4835,13 +4835,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               826.5000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 788.25
               ]
             ],
@@ -4862,13 +4862,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 673.5
               ]
             ],
@@ -4889,13 +4889,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              614.75,
+              638.9179104477612,
               418.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                551.0,
+                561.7412935323383,
                 495.0
               ]
             ],
@@ -4916,17 +4916,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              589.25,
+              608.0472636815921,
               469.50000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                501.75,
+                493.69402985074635,
                 616.0
               ],
               [
-                501.75,
+                493.69402985074635,
                 858.25
               ]
             ],
@@ -5182,13 +5182,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5,
+                345.64676616915426,
                 992.2499999999999
               ]
             ],
@@ -5209,13 +5209,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               1056.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                627.5,
+                654.3532338308457,
                 992.2499999999999
               ]
             ],
@@ -5236,13 +5236,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              372.5,
+              345.64676616915426,
               444.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.5,
+                345.64676616915426,
                 507.75
               ]
             ],
@@ -5263,13 +5263,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              627.5,
+              654.3532338308457,
               444.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                627.5,
+                654.3532338308457,
                 507.75
               ]
             ],
@@ -5290,17 +5290,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              412.5,
+              385.64676616915426,
               1126.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                412.5,
+                385.64676616915426,
                 577.75
               ],
               [
-                412.5,
+                385.64676616915426,
                 1062.25
               ]
             ],
@@ -5396,13 +5396,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               954.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                308.75,
+                268.4701492537314,
                 890.25
               ]
             ],
@@ -5423,13 +5423,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 1068.75
               ]
             ],
@@ -5450,13 +5450,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              563.75,
+              577.1766169154229,
               954.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                563.75,
+                577.1766169154229,
                 890.25
               ]
             ],
@@ -5477,13 +5477,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               1132.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                704.0,
+                746.9651741293533,
                 1068.75
               ]
             ],
@@ -5504,13 +5504,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              308.75,
+              268.4701492537314,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                308.75,
+                268.4701492537314,
                 609.75
               ]
             ],
@@ -5531,13 +5531,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              461.75,
+              453.69402985074635,
               367.49999999999994
             ],
             "scale": 1.0,
             "moves": [
               [
-                461.75,
+                453.69402985074635,
                 431.24999999999994
               ]
             ],
@@ -5558,13 +5558,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              563.75,
+              577.1766169154229,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                563.75,
+                577.1766169154229,
                 609.75
               ]
             ],
@@ -5585,13 +5585,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              704.0,
+              746.9651741293533,
               367.49999999999994
             ],
             "scale": 1.0,
             "moves": [
               [
-                704.0,
+                746.9651741293533,
                 431.24999999999994
               ]
             ],
@@ -5612,17 +5612,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              348.75,
+              308.4701492537314,
               1024.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                348.75,
+                308.4701492537314,
                 679.75
               ],
               [
-                348.75,
+                308.4701492537314,
                 960.25
               ]
             ],
@@ -5718,13 +5718,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               954.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                359.75,
+                330.2114427860697,
                 903.0
               ]
             ],
@@ -5745,13 +5745,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               954.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 903.0
               ]
             ],
@@ -5799,13 +5799,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              347.0,
+              314.7761194029851,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                359.75,
+                330.2114427860697,
                 597.0
               ]
             ],
@@ -5826,13 +5826,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              653.0,
+              685.223880597015,
               546.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                640.25,
+                669.7885572139303,
                 597.0
               ]
             ],
@@ -5880,17 +5880,17 @@
             "team": 2,
             "sportType": 14,
             "position": [
-              387.0,
+              354.7761194029851,
               1024.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                399.75,
+                370.2114427860697,
                 667.0
               ],
               [
-                399.75,
+                370.2114427860697,
                 973.0
               ]
             ],
