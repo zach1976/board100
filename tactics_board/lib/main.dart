@@ -11,7 +11,6 @@ import 'services/tap_guard.dart';
 import 'state/tactics_state.dart';
 import 'pages/sport_home_page.dart';
 import 'pages/sport_selection_page.dart';
-import 'pages/home_page.dart';
 
 /// Non-null when the app is built for a single sport. Set by a shell app's
 /// `main()` via [ConfigConstants.fixedSportType]; defaults to the legacy

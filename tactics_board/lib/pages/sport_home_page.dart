@@ -9,6 +9,7 @@ import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
 import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
+import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
@@ -17,7 +18,9 @@ import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
 import '../widgets/tactics_canvas.dart';
 import 'drill_detail_page.dart';
+import 'drill_primer_page.dart';
 import 'home_page.dart';
+import 'sport_selection_page.dart';
 import 'practice_plan_page.dart';
 
 /// Where a coach lands, one page per sport.
@@ -39,6 +42,7 @@ class SportHomePage extends StatefulWidget {
 class _SportHomePageState extends State<SportHomePage> {
   late Future<List<Drill>> _drills;
   List<TacticMeta> _mine = const [];
+  List<RecentBoard> _recent = const [];
 
   @override
   void initState() {
@@ -49,12 +53,41 @@ class _SportHomePageState extends State<SportHomePage> {
   }
 
   void _refreshMine() {
-    context.read<TacticsState>().listSavedTacticMetas().then((m) {
+    final state = context.read<TacticsState>();
+    state.listSavedTacticMetas().then((m) {
+      // Newest first: "my boards" is a way back to the one being worked on,
+      // and a list in whatever order the filesystem returned buries it.
+      m.sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
       if (mounted) setState(() => _mine = m);
     }).catchError((_) {
       // No saved boards is the normal first-run state; the block just does
       // not appear.
     });
+    RecentBoardsService.instance.list(state.sportType).then((r) {
+      if (mounted) setState(() => _recent = r);
+    }).catchError((_) {});
+  }
+
+  /// A drill out of the shipped library, opened again from the recent list.
+  Future<void> _openRecent(RecentBoard r) async {
+    final state = context.read<TacticsState>();
+    if (r.kind == RecentBoardKind.tactic) {
+      await state.loadTactics(r.id);
+      if (mounted) _openBoard();
+      return;
+    }
+    final all = await _drills;
+    final drill = all.where((d) => d.id == r.id).firstOrNull;
+    if (drill == null) {
+      // The library moved on and this drill is gone. Drop the shortcut rather
+      // than leave a row that does nothing.
+      await RecentBoardsService.instance
+          .forget(state.sportType, r.kind, r.id);
+      if (mounted) setState(() => _recent = _recent.where((e) => e != r).toList());
+      return;
+    }
+    if (!mounted) return;
+    await _openDrill(drill);
   }
 
   String get _locale {
@@ -110,6 +143,15 @@ class _SportHomePageState extends State<SportHomePage> {
               state.loadFromJson(Map<String, dynamic>.from(drill.board));
               state.currentTacticName = null;
               state.currentTacticMeta = null;
+              RecentBoardsService.instance.record(
+                state.sportType,
+                RecentBoard(
+                  kind: RecentBoardKind.drill,
+                  id: drill.id,
+                  label: drill.localizedName(_locale),
+                  openedAt: DateTime.now(),
+                ),
+              );
               Navigator.of(context).pop();
               _openBoard();
             }
@@ -164,19 +206,26 @@ class _SportHomePageState extends State<SportHomePage> {
                 );
               },
             ),
-            if (_mine.isNotEmpty) ...[
-              _sectionHead('home_mine'.tr()),
+            if (_recent.isNotEmpty || _mine.isNotEmpty) ...[
+              _sectionHead('home_recent'.tr()),
               const SizedBox(height: T.s12),
-              for (final meta in _mine.take(4))
-                _SavedRow(
-                  meta: meta,
-                  onTap: () async {
-                    await state.loadTactics(meta.name);
-                    if (mounted) _openBoard();
-                  },
+              for (final row in _recentRows().take(5))
+                _BoardRow(
+                  label: row.$1,
+                  subtitle: row.$2,
+                  isDrill: row.$3,
+                  onTap: row.$4,
                 ),
               const SizedBox(height: T.s24),
             ],
+            _sectionHead('home_learn'.tr()),
+            const SizedBox(height: T.s12),
+            _LearnBlock(
+              onPrimer: () =>
+                  DrillPrimerPage.push(context, state.sportType),
+              onLevel: (l) => _openLibraryLevel(l),
+            ),
+            const SizedBox(height: T.s24),
             _PlanCard(onTap: () {
               Navigator.of(context).push(MaterialPageRoute<void>(
                 builder: (_) => PracticePlanPage(state: state),
@@ -186,6 +235,48 @@ class _SportHomePageState extends State<SportHomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _openLibraryLevel(DrillLevel level) async {
+    final state = context.read<TacticsState>();
+    await DrillLibrarySheet.show(
+      context,
+      state,
+      initialLevel: level,
+      onLoaded: _openBoard,
+      onUpgrade: () => _openBoard(),
+    );
+  }
+
+  /// The recent list, with the coach's saved boards folded in.
+  ///
+  /// Two sources, one list: what was last on the board (a drill included,
+  /// which is never saved) and what they have saved and named. Merged by
+  /// time so the row at the top really is the last thing they touched.
+  List<(String, String, bool, VoidCallback)> _recentRows() {
+    final seen = <String>{};
+    final rows = <(DateTime, String, String, bool, VoidCallback)>[];
+    for (final r in _recent) {
+      seen.add('${r.kind.name}:${r.id}');
+      rows.add((
+        r.openedAt,
+        r.label,
+        r.kind == RecentBoardKind.drill
+            ? 'home_from_library'.tr()
+            : 'home_saved'.tr(),
+        r.kind == RecentBoardKind.drill,
+        () => _openRecent(r),
+      ));
+    }
+    for (final m in _mine) {
+      if (seen.contains('tactic:${m.name}')) continue;
+      rows.add((m.updatedAt, m.name, 'home_saved'.tr(), false, () async {
+        await context.read<TacticsState>().loadTactics(m.name);
+        if (mounted) _openBoard();
+      }));
+    }
+    rows.sort((a, b) => b.$1.compareTo(a.$1));
+    return [for (final r in rows) (r.$2, r.$3, r.$4, r.$5)];
   }
 
   Widget _header(SportType sport) {
@@ -201,9 +292,14 @@ class _SportHomePageState extends State<SportHomePage> {
           ),
         ),
         if (!isSingleSportApp)
+          // Back to the sport grid. The grid REPLACED itself with this page,
+          // so there is nothing to pop to — it has to be replaced back.
           TacticalIconButton(
             icon: Icons.grid_view_rounded,
-            onTap: () => Navigator.of(context).maybePop(),
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute<void>(
+                  builder: (_) => const SportSelectionPage()),
+            ),
           ),
         const SizedBox(width: T.s4),
         TacticalIconButton(
@@ -446,10 +542,17 @@ class _CategoryGrid extends StatelessWidget {
   }
 }
 
-class _SavedRow extends StatelessWidget {
-  final TacticMeta meta;
+class _BoardRow extends StatelessWidget {
+  final String label;
+  final String subtitle;
+  final bool isDrill;
   final VoidCallback onTap;
-  const _SavedRow({required this.meta, required this.onTap});
+  const _BoardRow({
+    required this.label,
+    required this.subtitle,
+    required this.isDrill,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -464,18 +567,103 @@ class _SavedRow extends StatelessWidget {
             const BoxDecoration(color: T.surfaceHi, borderRadius: T.brMd),
         child: Row(
           children: [
-            const Icon(Icons.dashboard_outlined, size: 18, color: T.textDim),
+            Icon(isDrill ? Icons.menu_book_outlined : Icons.dashboard_outlined,
+                size: 18, color: T.textDim),
             const SizedBox(width: T.s12),
             Expanded(
-              child: Text(meta.name,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: T.text, fontSize: 15)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(color: T.text, fontSize: 15)),
+                  const SizedBox(height: 2),
+                  Text(subtitle,
+                      style: const TextStyle(color: T.textOff, fontSize: 11.5)),
+                ],
+              ),
             ),
             const Icon(Icons.chevron_right, size: 18, color: T.textOff),
           ],
         ),
       ),
+    );
+  }
+}
+
+/// The learning block: how to read a board, then the library by level.
+///
+/// The library is 600-odd diagrams whose marks a coach has to decode, and
+/// three levels that answer the question they actually ask first — "is this
+/// for my group?". Both were reachable only by scrolling the whole list.
+class _LearnBlock extends StatelessWidget {
+  final VoidCallback onPrimer;
+  final void Function(DrillLevel) onLevel;
+  const _LearnBlock({required this.onPrimer, required this.onLevel});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onPrimer,
+          child: Container(
+            padding: const EdgeInsets.all(T.s16),
+            decoration:
+                const BoxDecoration(color: T.surface, borderRadius: T.brMd),
+            child: Row(
+              children: [
+                const Icon(Icons.school_outlined, size: 20, color: T.accent),
+                const SizedBox(width: T.s12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('learn_primer_title'.tr(),
+                          style: const TextStyle(
+                              color: T.text,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600)),
+                      const SizedBox(height: 2),
+                      Text('learn_primer_sub'.tr(),
+                          style: const TextStyle(
+                              color: T.textDim, fontSize: 12.5)),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.chevron_right, size: 18, color: T.textOff),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: T.s8),
+        Row(
+          children: [
+            for (final l in DrillLevel.values) ...[
+              Expanded(
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => onLevel(l),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: T.s12),
+                    decoration: const BoxDecoration(
+                        color: T.surfaceHi, borderRadius: T.brMd),
+                    alignment: Alignment.center,
+                    child: Text(l.labelKey.tr(),
+                        style: const TextStyle(
+                            color: T.text,
+                            fontSize: 13.5,
+                            fontWeight: FontWeight.w600)),
+                  ),
+                ),
+              ),
+              if (l != DrillLevel.values.last) const SizedBox(width: T.s8),
+            ],
+          ],
+        ),
+      ],
     );
   }
 }

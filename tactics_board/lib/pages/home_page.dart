@@ -39,7 +39,6 @@ import '../models/practice.dart';
 import '../services/practice_service.dart';
 import 'practice_plan_page.dart';
 import 'practice_run_page.dart';
-import 'sport_selection_page.dart';
 
 class TacticsBoardHomePage extends StatelessWidget {
   const TacticsBoardHomePage({super.key});
@@ -136,8 +135,12 @@ class TacticsBoardHomePage extends StatelessWidget {
         // The first-run coach mark sits under the corner chrome and gets out
         // of the way for good once the coach selects or draws anything.
         if (!editPanelOpen) const _FirstRunHint(),
-        if (!isSingleSportApp)
-          Positioned(
+        // Always: the board is pushed from the sport's home page now, in
+        // every build. It used to be the root — so a single-sport app had no
+        // back button at all, and once the home page went in front of it
+        // there was no way off the board. The board swallows the edge-swipe
+        // (it draws with it), so this is the only way back.
+        Positioned(
             top: _chromeTop(topPad), left: 12,
             child: Selector<TacticsState, (String?, String?)>(
               selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
@@ -187,9 +190,11 @@ class TacticsBoardHomePage extends StatelessWidget {
                       ));
                       return;
                     }
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (_) => const SportSelectionPage()),
-                    );
+                    // Back to the sport's home page, which is what pushed
+                    // the board. It used to replace the route with the sport
+                    // grid, which skipped the home page in the hub and did
+                    // not exist at all in a single-sport build.
+                    Navigator.of(context).maybePop();
                   },
                   child: _GlassCircle(
                     size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),

@@ -25,6 +25,7 @@ import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/drill_detail_page.dart';
+import 'package:tactics_board/pages/drill_primer_page.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
@@ -101,7 +102,9 @@ void main() {
               locale: context.locale,
               home: RepaintBoundary(
                 key: key,
-                child: which == 'drill'
+                child: which == 'primer'
+                    ? DrillPrimerPage(sportType: sport)
+                    : which == 'drill'
                     ? DrillDetailPage(
                         drill: drill,
                         sportType: sport,
@@ -125,7 +128,8 @@ void main() {
 
     final out = Directory('${Directory.current.parent.path}/tools/page_png')
       ..createSync(recursive: true);
-    final name = which == 'drill' ? 'drill_${drill.id}' : '${which}_${sport.name}';
+    final name =
+        which == 'drill' ? 'drill_${drill.id}' : '${which}_${sport.name}';
     await tester.runAsync(() async {
       final boundary =
           key.currentContext!.findRenderObject() as RenderRepaintBoundary;

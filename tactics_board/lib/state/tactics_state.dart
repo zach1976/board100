@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -19,6 +20,7 @@ import '../services/ad_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
+import '../services/recent_boards_service.dart';
 import '../services/sync_service.dart';
 
 class _BoardSnapshot {
@@ -1732,6 +1734,18 @@ class TacticsState extends ChangeNotifier {
     final dir = await _tacticsDir;
     final file = File('${dir.path}/$name.json');
     if (!await file.exists()) return;
+    // Recorded here rather than at the call sites: a saved board is opened
+    // from the library sheet, the home page and the plan runner, and a
+    // "recent" list that misses one of them is worse than none.
+    unawaited(RecentBoardsService.instance.record(
+      _sportType,
+      RecentBoard(
+        kind: RecentBoardKind.tactic,
+        id: name,
+        label: name,
+        openedAt: DateTime.now(),
+      ),
+    ));
     final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
     loadFromJson(json);
     currentTacticName = name;
