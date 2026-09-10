@@ -283,7 +283,12 @@ class _SportHomePageState extends State<SportHomePage> {
         const SizedBox(width: T.s8),
         Expanded(
           child: Text(
-            sport.displayName,
+            // The app's own name, not the sport's: this is the home page of
+            // 足球战术板 / Soccer Board, which is what the store calls it and
+            // what the icon on the phone says.
+            'home_board_title'.tr(args: [sport.displayName]),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
                 color: T.text, fontSize: 22, fontWeight: FontWeight.w700),
           ),

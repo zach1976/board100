@@ -408,5 +408,6 @@
   "pages_hint": "一套套路是同一形狀的幾個變化——先複製，再改",
   "pages_page": "第 {} 頁",
   "pages_add": "空白頁",
-  "pages_duplicate": "複製本頁"
+  "pages_duplicate": "複製本頁",
+  "home_board_title": "{}戰術板"
 }

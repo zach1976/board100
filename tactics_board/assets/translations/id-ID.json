@@ -408,5 +408,6 @@
   "pages_hint": "Satu rutin adalah satu bentuk dengan variasi — duplikat lalu ubah",
   "pages_page": "Halaman {}",
   "pages_add": "Halaman kosong",
-  "pages_duplicate": "Duplikat"
+  "pages_duplicate": "Duplikat",
+  "home_board_title": "Papan {}"
 }

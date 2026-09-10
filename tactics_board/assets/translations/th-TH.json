@@ -408,5 +408,6 @@
   "pages_hint": "ชุดแบบฝึกคือรูปเดียวกันที่เปลี่ยนรายละเอียด — ทำสำเนาแล้วแก้",
   "pages_page": "หน้า {}",
   "pages_add": "หน้าว่าง",
-  "pages_duplicate": "ทำสำเนา"
+  "pages_duplicate": "ทำสำเนา",
+  "home_board_title": "กระดาน{}"
 }

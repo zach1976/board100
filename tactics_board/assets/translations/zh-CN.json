@@ -408,5 +408,6 @@
   "pages_hint": "一套套路是同一形状的几个变化——先复制，再改",
   "pages_page": "第 {} 页",
   "pages_add": "空白页",
-  "pages_duplicate": "复制本页"
+  "pages_duplicate": "复制本页",
+  "home_board_title": "{}战术板"
 }

@@ -408,5 +408,6 @@
   "pages_hint": "一連の型は同じ形の変化——複製してから直す",
   "pages_page": "{} ページ",
   "pages_add": "空白ページ",
-  "pages_duplicate": "複製"
+  "pages_duplicate": "複製",
+  "home_board_title": "{}ボード"
 }
