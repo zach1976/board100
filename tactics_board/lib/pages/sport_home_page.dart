@@ -235,7 +235,7 @@ class _SportHomePageState extends State<SportHomePage> {
                     const SizedBox(height: T.s12),
                     _CategoryGrid(
                       sport: state.sportType,
-                      present: all.map((d) => d.category).toSet(),
+                      drills: all,
                       onTap: (c) => _openLibrary(category: c),
                     ),
                     const SizedBox(height: T.s24),
@@ -623,21 +623,27 @@ class _TodayRow extends StatelessWidget {
 
 class _CategoryGrid extends StatelessWidget {
   final SportType sport;
-  final Set<DrillCategory> present;
+  final List<Drill> drills;
   final void Function(DrillCategory) onTap;
   const _CategoryGrid(
-      {required this.sport, required this.present, required this.onTap});
+      {required this.sport, required this.drills, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final counts = <DrillCategory, int>{};
+    for (final d in drills) {
+      counts[d.category] = (counts[d.category] ?? 0) + 1;
+    }
     return Wrap(
       spacing: T.s8,
       runSpacing: T.s8,
       children: [
         for (final c in DrillCategory.values)
-          if (present.contains(c))
+          if (counts.containsKey(c))
             TacticalChip(
               label: c.labelKeyFor(sport.drillVocabulary).tr(),
+              // How much is behind the door, before opening it.
+              count: counts[c],
               selected: false,
               onTap: () => onTap(c),
             ),

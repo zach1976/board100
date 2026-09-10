@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
@@ -37,8 +38,12 @@ void main() {
     // rather than one of them wandering off it.
     expect((fan['2']! + fan['3']!).distance, closeTo(0, 0.001));
     expect(fan['2']!.distance, closeTo(fan['3']!.distance, 0.001));
-    // Far enough apart that both numbers can be read on a 44pt token.
-    expect((fan['2']! - fan['3']!).distance, greaterThan(30));
+    // Far enough apart that both numbers can be read. Said as a fraction of
+    // the token, not as a pixel count: the point is "visibly two players",
+    // and a literal 30 was only ever true of the 44pt token it was written
+    // against — it broke the day the token became 36.
+    expect((fan['2']! - fan['3']!).distance,
+        greaterThan(kPlayerIconSize * 0.7));
   });
 
   test('players already apart are left exactly where they are', () {
@@ -102,7 +107,8 @@ void main() {
     for (final a in at.keys) {
       for (final b in at.keys) {
         if (a == b) continue;
-        expect((at[a]! - at[b]!).distance, greaterThan(20),
+        expect((at[a]! - at[b]!).distance,
+            greaterThan(kPlayerIconSize * 0.5),
             reason: '$a and $b are still on top of each other');
       }
     }

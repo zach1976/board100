@@ -10,7 +10,19 @@ import '../painters/ball_painter.dart';
 import '../services/photo_library_service.dart';
 import 'marker_shape_clipper.dart';
 
-const double kPlayerIconSize = 44.0;
+/// How big a player token is drawn, in points, on any board.
+///
+/// It was 44, which on the 402pt board the phone draws is 12% of a football
+/// pitch's width — a token 8.3 m across, seventeen times life size. That is
+/// what made half the library's boards look crowded and what the spacing
+/// audit spent its time pushing apart. 36 is 10% of the pitch, still leaves
+/// the shirt number at 12pt, and gives every diagram a quarter more clear
+/// space between players.
+///
+/// tools/drills/engine.py's SPACING_APART is this number: the generator
+/// spaces boards by the size they are drawn at, so the two must move
+/// together.
+const double kPlayerIconSize = 36.0;
 
 /// How much of its 44pt cell a ball actually fills.
 ///

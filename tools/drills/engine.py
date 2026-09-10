@@ -876,8 +876,12 @@ def derive_level(drill: Drill) -> str:
 # wall ship as one unreadable blob.
 CANVAS_PT = (400.0, 700.0)      # the app's own default canvas
 BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
-SPACING_APART = 44.0            # one icon: no overlap at all
-SPACING_TIGHT = 30.0            # shoulder to shoulder, labels still readable
+# kPlayerIconSize in lib/widgets/player_icon_widget.dart. The generator
+# spaces boards by the size they are actually drawn at, so when the token
+# changed from 44 to 36 these came with it — otherwise the audit would keep
+# pushing players apart to clear a token that is no longer that big.
+SPACING_APART = 36.0            # one icon: no overlap at all
+SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 
 # Was a list of sports whose boards predated the rule. Empty since
 # 2026-09-07: space_out() applies the rule to every sport.
