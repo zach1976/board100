@@ -140,9 +140,14 @@ class TacticsState extends ChangeNotifier {
   int _lastExtCaptureMs = 0;
   bool get externalDisplayConnected => _externalConnected;
 
-  TacticsState({SportType sportType = SportType.basketball})
+  /// [preview] builds a throwaway board — a drill's detail page showing the
+  /// real canvas rather than a picture of it. It must NOT claim the external
+  /// display: the channel handler is static, so a second state registering
+  /// one silently takes it off the live board and never gives it back.
+  TacticsState({SportType sportType = SportType.basketball,
+                bool preview = false})
       : _sportType = sportType {
-    _initExternalDisplay();
+    if (!preview) _initExternalDisplay();
     _loadFieldPrefs();
   }
 

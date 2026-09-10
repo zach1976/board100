@@ -275,7 +275,7 @@
   "share_link_copied": "Link copied",
   "share_link_failed": "Couldn't create a link — sharing the file instead",
   "drills_title": "Drills",
-  "drills_hint": "Tap one to put it on the board — then change it",
+  "drills_hint": "Tap one to see it; + puts it straight on the board",
   "drills_empty": "No drills for this sport yet",
   "drills_minutes": "{} min",
   "drills_search": "Search drills",
@@ -360,5 +360,11 @@
   "pro_restore_none": "No previous purchase found.",
   "pro_purchase_failed": "Purchase failed. Please try again.",
   "pro_thanks": "Thanks! Ads removed.",
-  "pro_unavailable": "Not available right now. Please try again later."
+  "pro_unavailable": "Not available right now. Please try again later.",
+  "common_back": "Back",
+  "drills_common_mistake": "COMMON MISTAKE",
+  "drills_put_on_board": "Put it on the board",
+  "drills_unlock": "Unlock with Pro",
+  "anim_prev_step": "Previous step",
+  "anim_next_step": "Next step"
 }

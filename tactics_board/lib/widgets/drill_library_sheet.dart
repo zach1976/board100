@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../config_constants.dart';
 
 import '../models/drill.dart';
+import '../pages/drill_detail_page.dart';
 import '../models/tactic_meta.dart';
 import '../models/sport_type.dart';
 import '../services/drill_library_service.dart';
@@ -98,6 +99,32 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(drill.localizedName(_locale))),
+    );
+  }
+
+  /// The whole drill on its own page: the board it makes, stepped through,
+  /// and the note laid out section by section. The card can only ever show a
+  /// headline, and a coach deciding what to run on Tuesday needs the shape.
+  Future<void> _openDetail(Drill drill) async {
+    final unlocked = _unlocked(drill);
+    await DrillDetailPage.push(
+      context,
+      drill: drill,
+      sportType: widget.state.sportType,
+      locale: _locale,
+      onLoad: unlocked
+          ? () {
+              // Out of the detail page, then out of the sheet, so the coach
+              // lands on the board the button just filled.
+              Navigator.of(context).pop();
+              _load(drill);
+            }
+          : null,
+      onUpgrade: () {
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
+        widget.onUpgrade?.call();
+      },
     );
   }
 
@@ -313,6 +340,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                           locale: _locale,
                           isLocked: (d) => !_unlocked(d),
                           onLoad: _load,
+                          onOpen: _openDetail,
                         ),
                       ),
                     ),
@@ -397,11 +425,13 @@ class _DrillRow extends StatelessWidget {
   final String locale;
   final bool Function(Drill) isLocked;
   final void Function(Drill) onLoad;
+  final void Function(Drill) onOpen;
   const _DrillRow({
     required this.variants,
     required this.locale,
     required this.isLocked,
     required this.onLoad,
+    required this.onOpen,
   });
 
   @override
@@ -491,8 +521,23 @@ class _DrillRow extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               if (!grouped)
-                Icon(allLocked ? Icons.lock_outline : Icons.add_circle_outline,
-                    color: allLocked ? T.textOff : T.accent, size: 26),
+                // The one control on the card: put it on the board now. The
+                // card itself opens the drill instead, so the two things a
+                // coach wants from a list — "use this" and "what is this?" —
+                // are each one tap and never the same tap.
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => onLoad(first),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Icon(
+                        allLocked
+                            ? Icons.lock_outline
+                            : Icons.add_circle_outline,
+                        color: allLocked ? T.textOff : T.accent,
+                        size: 26),
+                  ),
+                ),
             ],
           ),
           if (grouped) ...[
@@ -508,7 +553,7 @@ class _DrillRow extends StatelessWidget {
                     // chip is the repetition this grouping exists to remove.
                     label: _variantLabel(v),
                     locked: isLocked(v),
-                    onTap: () => onLoad(v),
+                    onTap: () => onOpen(v),
                   ),
               ],
             ),
@@ -517,9 +562,8 @@ class _DrillRow extends StatelessWidget {
       ),
     );
 
-    if (grouped) return card;
     return GestureDetector(
-      onTap: () => onLoad(first),
+      onTap: () => onOpen(first),
       behavior: HitTestBehavior.opaque,
       child: card,
     );

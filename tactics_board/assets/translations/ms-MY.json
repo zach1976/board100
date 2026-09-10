@@ -321,7 +321,7 @@
   "share_link_copied": "Pautan disalin",
   "share_link_failed": "Gagal membuat pautan — kongsi fail",
   "drills_title": "Latihan",
-  "drills_hint": "Ketik untuk letak di papan, kemudian ubah",
+  "drills_hint": "Ketik untuk lihat; + terus ke papan",
   "drills_empty": "Belum ada latihan untuk sukan ini",
   "drills_minutes": "{} min",
   "drills_search": "Cari latihan",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "Ketik wajah untuk laras bingkai, atau guna ikon di bawah.",
   "elements_label": "Elemen Tersuai",
   "element_crop_title": "Tambah Elemen",
-  "element_delete_confirm": "Padam elemen ini?"
+  "element_delete_confirm": "Padam elemen ini?",
+  "common_back": "Kembali",
+  "drills_common_mistake": "KESILAPAN LAZIM",
+  "drills_put_on_board": "Letak pada papan",
+  "drills_unlock": "Buka dengan Pro",
+  "anim_prev_step": "Langkah sebelum",
+  "anim_next_step": "Langkah seterusnya"
 }

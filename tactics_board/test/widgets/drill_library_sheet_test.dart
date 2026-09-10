@@ -5,7 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/pages/drill_detail_page.dart';
 import 'package:tactics_board/widgets/drill_library_sheet.dart';
+import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 /// The library sheet against the real shipped assets.
 ///
@@ -87,11 +89,24 @@ void main() {
     await tester.pump(const Duration(milliseconds: 50));
     expect(find.textContaining('zzzzz'), findsWidgets);
 
-    // ── tapping a drill puts it on the board, unsaved ────────────────────
+    // ── tapping a drill opens it, rather than loading it blind ──────────
+    // The card is a headline; a coach choosing what to run needs the board
+    // and the whole note first. The list's one control — the + — is the
+    // fast path for a drill they already know.
     await tester.enterText(find.byType(TextField), '');
     await tester.pump(const Duration(milliseconds: 50));
     await tester.tap(find.text('4v2 抢圈'));
-    await tester.pump(const Duration(milliseconds: 50));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(DrillDetailPage), findsOneWidget,
+        reason: 'the card should open the drill, not load it');
+    expect(state.players, isEmpty,
+        reason: 'opening a drill must not touch the board behind the sheet');
+    // The detail page draws the real board on its own throwaway state, and
+    // its own button is what puts the drill on the live one.
+    expect(find.byType(TacticsCanvas), findsWidgets);
+    await tester.tap(find.text('放到板上'));
+    await tester.pumpAndSettle();
 
     expect(state.players, isNotEmpty,
         reason: 'the drill should have replaced the empty board');

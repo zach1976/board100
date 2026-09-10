@@ -321,7 +321,7 @@
   "share_link_copied": "คัดลอกลิงก์แล้ว",
   "share_link_failed": "สร้างลิงก์ไม่สำเร็จ — แชร์ไฟล์แทน",
   "drills_title": "แบบฝึก",
-  "drills_hint": "แตะเพื่อวางลงกระดาน แล้วแก้ได้เลย",
+  "drills_hint": "แตะเพื่อดู กด + เพื่อวางบนกระดานทันที",
   "drills_empty": "ยังไม่มีแบบฝึกสำหรับกีฬานี้",
   "drills_minutes": "{} นาที",
   "drills_search": "ค้นหาแบบฝึก",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "แตะใบหน้าเพื่อปรับกรอบ หรือใช้ไอคอนด้านล่าง",
   "elements_label": "องค์ประกอบกำหนดเอง",
   "element_crop_title": "เพิ่มองค์ประกอบ",
-  "element_delete_confirm": "ลบองค์ประกอบนี้ไหม?"
+  "element_delete_confirm": "ลบองค์ประกอบนี้ไหม?",
+  "common_back": "ย้อนกลับ",
+  "drills_common_mistake": "ข้อผิดพลาดที่พบบ่อย",
+  "drills_put_on_board": "วางลงบนกระดาน",
+  "drills_unlock": "ปลดล็อกด้วย Pro",
+  "anim_prev_step": "ขั้นก่อนหน้า",
+  "anim_next_step": "ขั้นถัดไป"
 }

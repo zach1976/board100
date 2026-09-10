@@ -321,7 +321,7 @@
   "share_link_copied": "링크를 복사했습니다",
   "share_link_failed": "링크를 만들지 못했습니다. 파일로 공유합니다",
   "drills_title": "훈련",
-  "drills_hint": "탭하면 보드에 배치됩니다. 자유롭게 수정하세요",
+  "drills_hint": "탭하면 자세히, +를 누르면 바로 보드에",
   "drills_empty": "이 종목의 훈련이 아직 없습니다",
   "drills_minutes": "{}분",
   "drills_search": "훈련 검색",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "얼굴을 눌러 프레임을 조정하거나 아래 아이콘을 사용하세요.",
   "elements_label": "커스텀 요소",
   "element_crop_title": "요소 추가",
-  "element_delete_confirm": "이 요소를 삭제할까요?"
+  "element_delete_confirm": "이 요소를 삭제할까요?",
+  "common_back": "뒤로",
+  "drills_common_mistake": "흔한 실수",
+  "drills_put_on_board": "보드에 올리기",
+  "drills_unlock": "Pro로 잠금 해제",
+  "anim_prev_step": "이전 단계",
+  "anim_next_step": "다음 단계"
 }
