@@ -29,3 +29,5 @@ __pycache__/
 *Board/screenshots/
 tactics_board/screenshots/0[0-9]-*.png
 board_png/
+# Page shots from tool/shoot_pages.dart — a look at the UI, not source.
+page_png/

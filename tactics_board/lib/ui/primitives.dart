@@ -306,7 +306,12 @@ class TacticalChip extends StatelessWidget {
           child: Container(
             constraints: const BoxConstraints(minHeight: 36),
             padding: const EdgeInsets.symmetric(horizontal: T.s12),
-            alignment: Alignment.center,
+            // No alignment: a Container that is given one grows to the
+            // largest size its parent allows. In a horizontal scroller that
+            // is unbounded, so the chip shrank to its label and nobody
+            // noticed — but in a Wrap it is the row's full width, and eight
+            // categories came out as eight full-width bars. The Row already
+            // centres its own children.
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [

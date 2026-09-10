@@ -239,13 +239,22 @@ class _BoardPreview extends StatelessWidget {
           final steps = s.maxMoveSteps;
           return Column(
             children: [
-              ClipRRect(
-                borderRadius: T.brMd,
-                child: AspectRatio(
-                  aspectRatio: 402 / 730,
-                  // The canvas takes its own size from the box it is given.
-                  child: const IgnorePointer(
-                      child: TacticsCanvas(preview: true)),
+              // Capped at part of the screen, not at the board's own shape:
+              // a portrait pitch given the full width is 1.8 screens tall,
+              // which pushed the note — the reason this page exists — under
+              // the fold on every phone.
+              Center(
+                child: ClipRRect(
+                  borderRadius: T.brMd,
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.44,
+                    child: AspectRatio(
+                      aspectRatio: 402 / 730,
+                      // The canvas sizes itself from the box it is given.
+                      child: const IgnorePointer(
+                          child: TacticsCanvas(preview: true)),
+                    ),
+                  ),
                 ),
               ),
               if (steps > 0) ...[

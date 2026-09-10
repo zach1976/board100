@@ -114,9 +114,9 @@ def soccer_drills() -> list[Drill]:
             # pass has a receiver on the cone, the loop closes.
             ball_to=[(2, 0), (4, 1), (6, 2), (1, 3), (3, 4)],
             setup={
-                "en": "4 cones in a diamond 8–10 m apart, two players queued "
-                      "at each, one ball",
-                "zh-CN": "4 个锥标摆成菱形、间距 8–10 米，每个锥标后排 2 人，一颗球",
+                "en": "4 cones in an elongated diamond 10–15 m apart, three "
+                      "players in line at each, one ball",
+                "zh-CN": "4 个锥标摆成拉长的菱形、间距 10–15 米，每个锥标后面排 3 人，一颗球",
             },
             free=True,
         ),
