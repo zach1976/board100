@@ -402,5 +402,6 @@
   "learn_note_point": "Coaching point — the one thing to say.",
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "เพิ่มข้อความ",
-  "text_add_hint": "เช่น แดรกฟลิกไปเสาไกล"
+  "text_add_hint": "เช่น แดรกฟลิกไปเสาไกล",
+  "rotate_reset": "รีเซ็ต"
 }

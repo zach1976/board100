@@ -402,5 +402,6 @@
   "learn_note_point": "Coaching point — the one thing to say.",
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "텍스트 추가",
-  "text_add_hint": "예: 파 포스트로 드래그 플릭"
+  "text_add_hint": "예: 파 포스트로 드래그 플릭",
+  "rotate_reset": "초기화"
 }

@@ -58,6 +58,37 @@ Future<void> _loadRoboto() async {
 /// A short corner with written notes on it — the thing the reviewer could
 /// not build. Filled in once before the pump: a builder runs many times, and
 /// adding the notes inside one puts four copies of every key on the board.
+/// Elements turned every which way, to check what turns and what does not.
+void _fillRotationDemo(TacticsState state) {
+  PlayerIcon at(String id, String label, double x, double y, double deg,
+          {MarkerShape shape = MarkerShape.none, PlayerTeam team = PlayerTeam.home}) =>
+      PlayerIcon(
+        id: id,
+        label: label,
+        team: team,
+        markerShape: shape,
+        position: Offset(x, y),
+        rotation: deg * 3.14159265 / 180,
+      );
+  state
+    ..addPlayer(at('r0', '7', 60, 150, 0))
+    ..addPlayer(at('r1', '7', 160, 150, 45))
+    ..addPlayer(at('r2', '7', 250, 150, 90))
+    ..addPlayer(at('r3', '7', 345, 150, 180))
+    ..addPlayer(at('a0', '', 60, 330, 0,
+        shape: MarkerShape.arrowMark, team: PlayerTeam.neutral))
+    ..addPlayer(at('a1', '', 160, 330, 45,
+        shape: MarkerShape.arrowMark, team: PlayerTeam.neutral))
+    ..addPlayer(at('a2', '', 250, 330, 135,
+        shape: MarkerShape.arrowMark, team: PlayerTeam.neutral))
+    ..addPlayer(at('a3', '', 345, 330, 270,
+        shape: MarkerShape.arrowMark, team: PlayerTeam.neutral))
+    ..addPlayer(at('h0', '', 130, 500, 0,
+        shape: MarkerShape.hurdle, team: PlayerTeam.neutral))
+    ..addPlayer(at('h1', '', 280, 500, 90,
+        shape: MarkerShape.hurdle, team: PlayerTeam.neutral));
+}
+
 void _fillTextDemo(TacticsState state) {
   PlayerIcon note(String id, String label, double x, double y) => PlayerIcon(
         id: id,
@@ -103,9 +134,13 @@ void main() {
         ? drills.first
         : drills.firstWhere((d) => d.id == wanted, orElse: () => drills.first);
 
-    if (which == 'text') {
+    if (which == 'text' || which == 'rotate') {
       state.setCanvasSizeSilent(const Size(kW, kH));
-      _fillTextDemo(state);
+      if (which == 'text') {
+        _fillTextDemo(state);
+      } else {
+        _fillRotationDemo(state);
+      }
     }
     final key = GlobalKey();
     await tester.pumpWidget(
@@ -126,7 +161,7 @@ void main() {
               locale: context.locale,
               home: RepaintBoundary(
                 key: key,
-                child: which == 'text'
+                child: (which == 'text' || which == 'rotate')
                     // Inside a Scaffold: without a Material ancestor the
                     // canvas inherits DefaultTextStyle.fallback, whose font
                     // is null, and every glyph comes out as a tofu box.

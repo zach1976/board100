@@ -402,5 +402,6 @@
   "learn_note_point": "要点 — 只说一句话的那一句。",
   "learn_note_mistake": "常见错误 — 最先出问题的地方。",
   "text_add_title": "添加文字",
-  "text_add_hint": "例如：拖拉推射远角"
+  "text_add_hint": "例如：拖拉推射远角",
+  "rotate_reset": "复位"
 }

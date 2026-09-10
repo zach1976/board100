@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:io';
 import 'dart:ui' show FontFeature;
 import 'dart:ui' as ui;
@@ -1489,6 +1490,43 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           // Row 2 — colour swatches + size slider, revealed on demand.
           if (expanded) ...[
             const SizedBox(height: 8),
+            // Turn it. Two fingers on the element does the same thing, but on
+            // a phone that is a fiddly gesture for what is usually one clear
+            // intention — "face him up the pitch" — so it gets buttons too.
+            Row(
+              children: [
+                const Icon(Icons.rotate_90_degrees_ccw,
+                    color: Colors.white38, size: 14),
+                const SizedBox(width: 8),
+                _editAction(Icons.rotate_left, Colors.white70,
+                    () => _turn(p, -math.pi / 12)),
+                const SizedBox(width: 6),
+                _editAction(Icons.rotate_right, Colors.white70,
+                    () => _turn(p, math.pi / 12)),
+                const SizedBox(width: 10),
+                Text(_degrees(p.rotation),
+                    style: const TextStyle(
+                        color: Colors.white54,
+                        fontSize: 12,
+                        fontFeatures: [FontFeature.tabularFigures()])),
+                const Spacer(),
+                if (p.rotation != 0)
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => _turn(p, -p.rotation),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      child: Text('rotate_reset'.tr(),
+                          style: const TextStyle(
+                              color: kAccent,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600)),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 8),
             Row(
               children: [
                 if (!isPhoto)
@@ -1525,6 +1563,18 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
         ],
       ),
     );
+  }
+
+  /// One notch of the rotate buttons, snapped by the state.
+  void _turn(PlayerIcon p, double delta) {
+    widget.state.rotatePlayer(p.id, p.rotation + delta);
+    widget.state.rotatePlayerEnd(p.id);
+  }
+
+  /// "0°", "90°", "-45°" — read back so a coach can match two elements.
+  String _degrees(double radians) {
+    final deg = (radians * 180 / math.pi).round() % 360;
+    return '${deg > 180 ? deg - 360 : deg}\u00B0';
   }
 
   /// Title key follows the element kind — markers and balls aren't

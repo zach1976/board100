@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -883,6 +884,33 @@ class TacticsState extends ChangeNotifier {
 
   void resizePlayerEnd(String id) {
     _saveSnapshot();
+  }
+
+  /// Turn an element. [radians] is absolute, clockwise from as-drawn.
+  ///
+  /// Snapped to 15 degrees while it is being turned: a diagram with a
+  /// hurdle three degrees off does not read as three degrees off, it reads
+  /// as drawn carelessly. Within three degrees of a quarter turn it snaps
+  /// there exactly, because square to the pitch is the answer most of the
+  /// time.
+  void rotatePlayer(String id, double radians) {
+    final idx = _players.indexWhere((p) => p.id == id);
+    if (idx < 0) return;
+    _players[idx] = _players[idx].copyWith(rotation: snapAngle(radians));
+    notifyListeners();
+  }
+
+  void rotatePlayerEnd(String id) {
+    _saveSnapshot();
+  }
+
+  /// Nearest 15 degrees, and exactly square when it is close to square.
+  static double snapAngle(double radians) {
+    const step = math.pi / 12; // 15 degrees
+    const quarter = math.pi / 2;
+    final toQuarter = (radians / quarter).roundToDouble() * quarter;
+    if ((radians - toQuarter).abs() < 0.052) return toQuarter; // ~3 degrees
+    return (radians / step).roundToDouble() * step;
   }
 
   void movePlayerEnd(String id, Offset newPosition) {
