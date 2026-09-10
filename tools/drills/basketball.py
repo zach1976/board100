@@ -1166,7 +1166,10 @@ INBOUNDS_SETS = [
         ("X4", (0.64, 0.13), [(0.42, 0.16, 0)]),
     ], [(1, 1), ((0.50, 0.05), 2)]),
     ("sideline", "from the sideline", False, [
-        ("1", (1.14, 0.19), [(0.94, 0.24, 1)]),      # outside the SIDELINE
+        # Just outside the sideline. It can only be JUST outside: the court
+        # is drawn to 938 of a 1000-unit canvas and a token is 109 wide, so
+        # the margin holds half an inbounder and no more.
+        ("1", (1.03, 0.19), [(0.94, 0.24, 1)]),      # outside the SIDELINE
         ("2", (0.66, 0.20), [(0.86, 0.31, 0)]),
         ("3", (0.14, 0.28), []),
         ("4", (0.64, 0.08), [(0.44, 0.18, 0)]),

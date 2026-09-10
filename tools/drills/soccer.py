@@ -95,20 +95,20 @@ def soccer_drills() -> list[Drill]:
             # exactly what this draws: the front leaves, the back takes his
             # place, and the runner arrives at the tail, all on one beat.
             home=[
-                # top cone (500,340): front 380 · back 260 · tail 140
-                P(500, 380, "1", moves=[(860, 750, 1)]),   # pass, run to R tail
-                P(500, 260, "5", moves=[(500, 380, 1)]),   # step up as 1 leaves
+                # top cone (500,420): front 460 · back 340 · tail 220
+                P(500, 460, "1", moves=[(860, 750, 1)]),   # pass, run to R tail
+                P(500, 340, "5", moves=[(500, 460, 1)]),   # step up as 1 leaves
                 # right cone (660,750): front 620 · back 740 · tail 860
-                P(620, 750, "2", moves=[(500, 1360, 2)]),  # follow to B tail
+                P(620, 750, "2", moves=[(500, 1280, 2)]),  # follow to B tail
                 P(740, 750, "6", moves=[(620, 750, 2)]),   # step up as 2 leaves
-                # bottom cone (1160): front 1120 · back 1240 · tail 1360
-                P(500, 1120, "3", moves=[(140, 750, 3)]),  # follow to L tail
-                P(500, 1240, "7", moves=[(500, 1120, 3)]), # step up
+                # bottom cone (1080): front 1040 · back 1160 · tail 1280
+                P(500, 1040, "3", moves=[(140, 750, 3)]),  # follow to L tail
+                P(500, 1160, "7", moves=[(500, 1040, 3)]), # step up
                 # left cone (340,750): front 380 · back 260 · tail 140
-                P(380, 750, "4", moves=[(500, 140, 4)]),   # follow to T tail
+                P(380, 750, "4", moves=[(500, 220, 4)]),   # follow to T tail
                 P(260, 750, "8", moves=[(380, 750, 4)]),   # step up
             ],
-            markers=[M(500, 340), M(660, 750), M(500, 1160), M(340, 750)],
+            markers=[M(500, 420), M(660, 750), M(500, 1080), M(340, 750)],
             ball=0,
             # 1→2→3→4, then to the stepped-up 5 (top) and 6 (right): every
             # pass has a receiver on the cone, the loop closes.
@@ -214,7 +214,7 @@ def soccer_drills() -> list[Drill]:
                 P(740, 660, "D", moves=[(700, 560, 1)]),
                 P(620, 300, "C"),
                 # The cross has to be going somewhere a keeper is standing.
-                P(500, 150, "GK", role="GK"),
+                P(500, 195, "GK", role="GK"),
             ],
             ball=0,
             # fed into the overlap outside him, then crossed to the 9
@@ -320,7 +320,7 @@ def soccer_drills() -> list[Drill]:
             ],
             # A finishing drill with no keeper teaches the wrong picture.
             away=[P(660, 220, "A"), P(380, 300, "B"),
-                  P(500, 150, "GK", role="GK")],
+                  P(500, 195, "GK", role="GK")],
             ball=0,
             # carried to the byline, cut back to the 10 arriving on the spot
             ball_to=[(0, 0), (2, 1)],
@@ -347,7 +347,7 @@ def soccer_drills() -> list[Drill]:
             home=[P(500, 900, "9", moves=[(500, 620, 0), (580, 420, 1)])],
             # Off his line to narrow the angle, and clear of the spot the
             # striker is running to.
-            away=[P(500, 140, "GK", role="GK", moves=[(500, 300, 1)])],
+            away=[P(500, 195, "GK", role="GK", moves=[(500, 300, 1)])],
             ball=0,
             # carried at the keeper the whole way, finished past him
             ball_follow=0,
@@ -701,7 +701,7 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "เซ็นเตอร์แบ็กต้องถ่างออกนอกกรอบก่อน ไม่งั้นผู้รักษาประตูไม่มีมุมจ่าย",
                   "vi-VN": "Trung vệ dạt rộng ra ngoài vòng cấm trước, nếu đứng gần thủ môn không có góc chuyền."},
             home=[
-                P(500, 1350, "GK", role="GK"),
+                P(500, 1300, "GK", role="GK"),
                 P(320, 1200, "4", role="LCB", moves=[(220, 1150, 0)]),
                 P(680, 1200, "5", role="RCB", moves=[(780, 1150, 0)]),
                 P(500, 1050, "6", role="CDM", moves=[(500, 980, 1)]),
@@ -881,7 +881,7 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[
                 P(640, 480, "A", moves=[(665, 490, 0)]),
-                P(500, 150, "GK", role="GK", moves=[(540, 180, 1)]),
+                P(500, 195, "GK", role="GK", moves=[(540, 180, 1)]),
             ],
             ball=0,
             # into the 9's feet as he checks away, taken across the
@@ -1240,7 +1240,7 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[
                 P(300, 400, "A", moves=[(300, 300, 0)]),
-                P(620, 280, "B"), P(500, 160, "GK", role="GK", moves=[(430, 220, 1)]),
+                P(620, 280, "B"), P(500, 195, "GK", role="GK", moves=[(430, 220, 1)]),
             ],
             ball=0,
             # 11 carries the line with his run, then the far-post cross meets the 7
@@ -1329,7 +1329,7 @@ def soccer_drills() -> list[Drill]:
             # line is spread along the edge of it, the keeper holds his
             # line, and the clearance goes to a man who is actually there.
             home=[
-                P(390, 140, "2"), P(610, 140, "3"),
+                P(390, 200, "2"), P(610, 200, "3"),
                 P(380, 290, "4"), P(500, 290, "5"),
                 # One man attacks the near-post ball; the rest hold their
                 # zone, which is what the note has always said.

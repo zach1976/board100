@@ -230,7 +230,10 @@ def loop_family() -> list[Drill]:
     specs = [("vs_backspin", "against backspin", 1.24, FH),
              ("vs_block", "against the block", 1.14, FH),
              ("from_backhand", "from the backhand corner", 1.18, BH),
-             ("counter_loop", "counter-loop", 1.30, FH)]
+             # 1.30 of a table length behind the table is off the canvas
+             # now that the table is drawn taller; 1.18 is the same spot on
+             # the floor it used to be.
+             ("counter_loop", "counter-loop", 1.18, FH)]
     out = []
     for key, label, depth, x in specs:
         out.append(tt(
@@ -369,11 +372,11 @@ def defence_family() -> list[Drill]:
     # at three depths, with the same shuffle and the same incoming ball.
     specs = [("chop_block", "the chop block", 1.04, (0.36, 0.02),
               [(BH, 1.02, 0), (0.50, 1.06, 1)]),
-             ("deep_chop", "the deep chop", 1.30, (0.50, 0.06),
+             ("deep_chop", "the deep chop", 1.18, (0.50, 0.06),
               [(BH, 1.32, 0), (FH, 1.30, 1), (0.50, 1.28, 2)]),
              # 1.40 is as far back as the board goes; a lob is played from
              # further still, and the board says "deep" as clearly as it can.
-             ("lob", "the lob and recover", 1.38, (0.50, 0.10),
+             ("lob", "the lob and recover", 1.24, (0.50, 0.10),
               [(FH + 0.06, 1.40, 0), (0.50, 1.34, 2)])]
     out = []
     for key, label, depth, target, path in specs:
@@ -562,8 +565,11 @@ def multiball() -> list[Drill]:
         home=[P(*HOME_READY, "1",
                 moves=[(FH, 1.14, 0), (BH, 1.14, 1), (FH, 1.14, 2),
                        (0.50, 1.16, 3)])],
-        away=[P(-0.28, 0.20, "C", moves=[(-0.28, 0.24, 1)])],
+        # Beside the table, in the room — but the table is drawn 650 of the
+        # canvas's 1000 units wide, so -0.28 of a table width is off the
+        # canvas altogether. -0.12 is the furthest out a coach fits.
+        away=[P(-0.12, 0.20, "C", moves=[(-0.12, 0.24, 1)])],
         markers=[M(FH, DEEP, "zone", ""), M(BH, DEEP, "zone", "")],
-        ball=(-0.28, 0.20), free=True,
+        ball=(-0.12, 0.20), free=True,
     )]
 
