@@ -26,14 +26,39 @@ class DrillLibrarySheet extends StatefulWidget {
 
   /// Opens the purchase sheet. Null on builds with no store.
   final VoidCallback? onUpgrade;
-  const DrillLibrarySheet({super.key, required this.state, this.onUpgrade});
+
+  /// The category the list opens on. Used by the sport home page, whose
+  /// category chips are a way INTO this list rather than a second copy of it.
+  final DrillCategory? initialCategory;
+
+  /// Called after a drill has been put on the board. The sheet is opened
+  /// from two places that want different things next: over the board it is
+  /// already where the coach wants to be, but from the home page the board
+  /// is another push away.
+  final VoidCallback? onLoaded;
+
+  const DrillLibrarySheet({
+    super.key,
+    required this.state,
+    this.onUpgrade,
+    this.initialCategory,
+    this.onLoaded,
+  });
 
   static Future<void> show(BuildContext context, TacticsState state,
-      {VoidCallback? onUpgrade}) {
+      {VoidCallback? onUpgrade,
+      DrillCategory? initialCategory,
+      VoidCallback? onLoaded}) {
     return TacticalSheet.show<void>(
       context,
-      builder: (ctx) =>
-          scaledSheet(ctx, DrillLibrarySheet(state: state, onUpgrade: onUpgrade)),
+      builder: (ctx) => scaledSheet(
+          ctx,
+          DrillLibrarySheet(
+            state: state,
+            onUpgrade: onUpgrade,
+            initialCategory: initialCategory,
+            onLoaded: onLoaded,
+          )),
     );
   }
 
@@ -55,6 +80,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   @override
   void initState() {
     super.initState();
+    _filter = widget.initialCategory;
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
     widget.state.listSavedTacticMetas().then((metas) {
       if (mounted) setState(() => _mine = metas);
@@ -100,6 +126,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(drill.localizedName(_locale))),
     );
+    widget.onLoaded?.call();
   }
 
   /// The whole drill on its own page: the board it makes, stepped through,

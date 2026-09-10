@@ -366,5 +366,11 @@
   "drills_put_on_board": "放到板上",
   "drills_unlock": "用 Pro 解锁",
   "anim_prev_step": "上一步",
-  "anim_next_step": "下一步"
+  "anim_next_step": "下一步",
+  "home_today": "今天练什么",
+  "home_all_drills": "全部 {} 个 →",
+  "home_browse": "按类别找",
+  "home_mine": "我的战术",
+  "home_open_board": "打开战术板",
+  "home_new_board": "新建空白板"
 }

@@ -76,6 +76,14 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
     }
 
+    // The app opens on the sport's home page; the board is a push from it.
+    // The sweep below returns to the board between locales, so this is the
+    // only place that has to make the trip.
+    await tester.tap(find.text('Open the board'));
+    for (var i = 0; i < 20; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
     // Every locale gets the board and the overflow menu, which is where the
     // long labels live — "Practice plan" and "Remove ads" ran 65 pixels past
     // the edge here before the menu item learned to wrap.

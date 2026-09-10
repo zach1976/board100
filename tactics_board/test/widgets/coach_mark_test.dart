@@ -46,6 +46,13 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
     }
 
+    // The app opens on the sport's home page now, and the board is a push
+    // from it — so get there before looking for anything on the board.
+    await tester.tap(find.text('Open the board'));
+    for (var i = 0; i < 20; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
     final hint = find.textContaining('Add', findRichText: true);
     expect(hint, findsWidgets, reason: 'the coach mark should be on screen');
 

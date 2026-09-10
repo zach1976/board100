@@ -366,5 +366,11 @@
   "drills_put_on_board": "ボードに置く",
   "drills_unlock": "Pro で解除",
   "anim_prev_step": "前のステップ",
-  "anim_next_step": "次のステップ"
+  "anim_next_step": "次のステップ",
+  "home_today": "今日のメニュー",
+  "home_all_drills": "全 {} 件 →",
+  "home_browse": "カテゴリーで探す",
+  "home_mine": "マイボード",
+  "home_open_board": "ボードを開く",
+  "home_new_board": "新しいボード"
 }

@@ -366,5 +366,11 @@
   "drills_put_on_board": "Taruh di papan",
   "drills_unlock": "Buka dengan Pro",
   "anim_prev_step": "Langkah sebelumnya",
-  "anim_next_step": "Langkah berikutnya"
+  "anim_next_step": "Langkah berikutnya",
+  "home_today": "Latihan hari ini",
+  "home_all_drills": "Semua {} latihan →",
+  "home_browse": "Cari per kategori",
+  "home_mine": "Papan saya",
+  "home_open_board": "Buka papan",
+  "home_new_board": "Papan baru"
 }

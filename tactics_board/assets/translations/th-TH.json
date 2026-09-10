@@ -366,5 +366,11 @@
   "drills_put_on_board": "วางลงบนกระดาน",
   "drills_unlock": "ปลดล็อกด้วย Pro",
   "anim_prev_step": "ขั้นก่อนหน้า",
-  "anim_next_step": "ขั้นถัดไป"
+  "anim_next_step": "ขั้นถัดไป",
+  "home_today": "วันนี้ซ้อมอะไร",
+  "home_all_drills": "ทั้งหมด {} แบบฝึก →",
+  "home_browse": "ค้นตามหมวด",
+  "home_mine": "กระดานของฉัน",
+  "home_open_board": "เปิดกระดาน",
+  "home_new_board": "กระดานใหม่"
 }
