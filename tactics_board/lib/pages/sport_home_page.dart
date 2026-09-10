@@ -46,6 +46,7 @@ class _SportHomePageState extends State<SportHomePage> {
   /// Null until the answer is known: showing the home page for one frame and
   /// then covering it with an intro is worse than a blank frame.
   bool? _intro;
+  int? _drillCount;
   List<TacticMeta> _mine = const [];
   List<RecentBoard> _recent = const [];
   Map<String, DrillMark> _marks = const {};
@@ -59,6 +60,9 @@ class _SportHomePageState extends State<SportHomePage> {
     IntroPage.shouldShow().then((show) {
       if (mounted) setState(() => _intro = show);
     });
+    _drills.then((all) {
+      if (mounted) setState(() => _drillCount = all.length);
+    }).catchError((_) => <Drill>[]);
   }
 
   void _refreshMine() {
@@ -175,8 +179,11 @@ class _SportHomePageState extends State<SportHomePage> {
       return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
     }
     if (_intro == true) {
+      // The count is this app's own library — right in the hub and in each of
+      // the fifteen shells — but the intro is not held back for it.
       return IntroPage(
         sportType: state.sportType,
+        drillCount: _drillCount,
         onDone: () => setState(() => _intro = false),
       );
     }

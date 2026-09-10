@@ -10,20 +10,36 @@ import '../widgets/sport_glyph.dart';
 /// What this app is, in the four seconds before the coach decides.
 ///
 /// The home page answers "what do I do now" but never "what is this" — and
-/// the one thing that separates this from every other tactics board, six
-/// hundred drills with the coaching written out, is the thing a new user is
-/// least likely to find on their own: it is behind a card called "what to run
-/// today" that they will scroll past on the way to drawing.
+/// the one thing that separates this from every other tactics board, a
+/// library of drills with the coaching written out, is the thing a new user
+/// is least likely to find on their own: it is behind a card called "what to
+/// run today" that they will scroll past on the way to drawing.
 ///
 /// Three panels, skippable from the first, shown once. A fourth would be one
 /// more thing between someone and the board they came for.
 class IntroPage extends StatefulWidget {
   final SportType sportType;
 
+  /// How many drills THIS app ships. Not the 624 in the repository: a
+  /// single-sport build carries only its own sport's library, so the intro
+  /// of Soccer Board promising six hundred drills is a promise of five
+  /// hundred it does not have.
+  ///
+  /// Null until the library has been read. The intro does NOT wait for it —
+  /// a first impression that begins with a blank frame while a file loads is
+  /// a worse first impression than one without a number in it, and the
+  /// reader is on the first panel long before the second one is reached.
+  final int? drillCount;
+
   /// Runs when the intro is finished or skipped — the app carries on.
   final VoidCallback onDone;
 
-  const IntroPage({super.key, required this.sportType, required this.onDone});
+  const IntroPage({
+    super.key,
+    required this.sportType,
+    this.drillCount,
+    required this.onDone,
+  });
 
   static const _prefKey = 'intro_seen';
 
@@ -76,7 +92,9 @@ class _IntroPageState extends State<IntroPage> {
       ),
       _Panel(
         icon: Icons.menu_book_outlined,
-        title: 'intro_drills_t'.tr(),
+        title: widget.drillCount == null
+            ? 'intro_drills_t_plain'.tr()
+            : 'intro_drills_t'.tr(args: ['${widget.drillCount}']),
         body: 'intro_drills_b'.tr(),
       ),
       _Panel(
