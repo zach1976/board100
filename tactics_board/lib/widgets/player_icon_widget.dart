@@ -215,25 +215,31 @@ class PlayerIconWidget extends StatelessWidget {
             duration: const Duration(milliseconds: 140),
             curve: Curves.easeOutCubic,
             scale: isSelected ? 1.1 : 1.0,
-            child: SizedBox(
-              width: size,
-              height: size,
-              child: (player.isMarker && player.photoId != null)
-                  ? ShapedPhotoMarker(player: player, isSelected: isSelected)
-                  : player.isMarker
-                  ? _MarkerWidget(player: player, isSelected: isSelected)
-                  : player.isBall
-                  ? Center(
-                      child: FractionallySizedBox(
-                        widthFactor: kBallDrawFactor,
-                        heightFactor: kBallDrawFactor,
-                        child: _BallWidget(
-                            player: player, isSelected: isSelected),
-                      ),
-                    )
-                  : (player.photoId != null
-                      ? PhotoPlayerShape(player: player, isSelected: isSelected)
-                      : _PlayerShape(player: player, isSelected: isSelected)),
+            // Only the shape turns. The name badge below and the number
+            // inside the token are drawn in their own layers and stay
+            // upright, because an upside-down 7 is not a 7.
+            child: Transform.rotate(
+              angle: player.rotation,
+              child: SizedBox(
+                width: size,
+                height: size,
+                child: (player.isMarker && player.photoId != null)
+                    ? ShapedPhotoMarker(player: player, isSelected: isSelected)
+                    : player.isMarker
+                    ? _MarkerWidget(player: player, isSelected: isSelected)
+                    : player.isBall
+                    ? Center(
+                        child: FractionallySizedBox(
+                          widthFactor: kBallDrawFactor,
+                          heightFactor: kBallDrawFactor,
+                          child: _BallWidget(
+                              player: player, isSelected: isSelected),
+                        ),
+                      )
+                    : (player.photoId != null
+                        ? PhotoPlayerShape(player: player, isSelected: isSelected)
+                        : _PlayerShape(player: player, isSelected: isSelected)),
+              ),
             ),
           ),
           if (player.label.length > 2) ...[
@@ -286,10 +292,14 @@ class _PlayerShape extends StatelessWidget {
           ),
           size: Size.infinite,
         ),
+        // Turned back by however much the shape was turned: an upside-down
+        // 7 is not a 7, and a sideways one is a stroke.
         if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
             alignment: const Alignment(0, 0.35),
-            child: Text(
+            child: Transform.rotate(
+              angle: -player.rotation,
+              child: Text(
               player.label,
               // Heavier weight + a dark outline (layered shadows) keeps the
               // jersey number crisp from the bench and when projected.
@@ -304,6 +314,7 @@ class _PlayerShape extends StatelessWidget {
                   Shadow(color: Colors.black87, blurRadius: 3),
                 ],
               ),
+            ),
             ),
           ),
       ],
@@ -454,7 +465,9 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
         if (p.label.isNotEmpty && p.label.length <= 2)
           Align(
             alignment: const Alignment(0, 0.85),
-            child: Container(
+            child: Transform.rotate(
+              angle: -p.rotation,
+              child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
               decoration: BoxDecoration(
                 color: p.color.withValues(alpha: 0.92),
@@ -473,6 +486,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                   ],
                 ),
               ),
+            ),
             ),
           ),
       ],
@@ -678,7 +692,9 @@ class _MarkerWidget extends StatelessWidget {
         if (player.label.isNotEmpty && player.label.length <= 2)
           Align(
             alignment: Alignment.center,
-            child: Text(
+            child: Transform.rotate(
+              angle: -player.rotation,
+              child: Text(
               player.label,
               style: TextStyle(
                 color: Colors.white,
@@ -687,6 +703,7 @@ class _MarkerWidget extends StatelessWidget {
                 height: 1,
                 shadows: const [Shadow(color: Colors.black87, blurRadius: 2)],
               ),
+            ),
             ),
           ),
       ],

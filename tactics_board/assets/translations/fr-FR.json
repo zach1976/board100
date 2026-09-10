@@ -402,5 +402,6 @@
   "learn_note_point": "Coaching point — the one thing to say.",
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Ajouter du texte",
-  "text_add_hint": "ex. drag flick au second poteau"
+  "text_add_hint": "ex. drag flick au second poteau",
+  "rotate_reset": "Réinitialiser"
 }

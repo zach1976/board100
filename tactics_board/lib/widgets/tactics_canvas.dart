@@ -1271,6 +1271,7 @@ class _PlayerOnBoard extends StatefulWidget {
 
 class _PlayerOnBoardState extends State<_PlayerOnBoard> {
   double _baseScale = 1.0;
+  double _baseRotation = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -1302,6 +1303,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       onScaleStart: canPan
           ? (d) {
               _baseScale = player.scale;
+              _baseRotation = player.rotation;
             }
           : null,
       onScaleUpdate: canPan
@@ -1314,6 +1316,10 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
               state.movePlayer(player.id, player.position + d.focalPointDelta);
               if (d.pointerCount >= 2) {
                 state.resizePlayer(player.id, _baseScale * d.scale);
+                // The same gesture already carried the twist; it was simply
+                // being thrown away. Two fingers pinch AND turn, which is
+                // what hands do to a piece on a board.
+                state.rotatePlayer(player.id, _baseRotation + d.rotation);
               }
             }
           : null,

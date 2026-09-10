@@ -27,6 +27,16 @@ class PlayerIcon {
   Offset position;
   bool isSelected;
   double scale;
+  /// How far the icon is turned, in radians, clockwise from its drawn
+  /// orientation. Mutable like [scale] and [position] because a drag changes
+  /// it every frame.
+  ///
+  /// Every element used to face one fixed way, which a coach hit the moment
+  /// he drew a short corner: "when adding a person to the field they are on
+  /// their side and not facing upright". Arrows, hurdles, goals and the
+  /// referee all have a direction; a shirt number does not, so the label is
+  /// turned back and stays upright.
+  double rotation;
   List<Offset> moves; // ordered waypoints after player position
   List<int> movePhases; // phase number for each move (controls animation order)
   final Color moveColor; // distinct color for this player's move arrows
@@ -54,6 +64,7 @@ class PlayerIcon {
     this.sportType,
     this.isSelected = false,
     this.scale = 1.0,
+    this.rotation = 0.0,
     List<Offset>? moves,
     List<int>? movePhases,
     Color? moveColor,
@@ -88,6 +99,11 @@ class PlayerIcon {
     'sportType': sportType?.index,
     'position': [position.dx, position.dy],
     'scale': scale,
+    // Omitted when it is zero, which is nearly every element on nearly every
+    // board: a key per icon per save is not worth a number that means "as
+    // drawn". A file without it reads back as 0, so old boards need no
+    // migration.
+    if (rotation != 0) 'rotation': rotation,
     'moves': moves.map((m) => [m.dx, m.dy]).toList(),
     'movePhases': movePhases,
     'moveColor': moveColor.value,
@@ -106,6 +122,7 @@ class PlayerIcon {
     sportType: json['sportType'] != null ? SportType.values[json['sportType'] as int] : null,
     position: Offset((json['position'][0] as num).toDouble(), (json['position'][1] as num).toDouble()),
     scale: (json['scale'] as num? ?? 1.0).toDouble(),
+    rotation: (json['rotation'] as num? ?? 0.0).toDouble(),
     moves: (json['moves'] as List?)?.map((m) => Offset((m[0] as num).toDouble(), (m[1] as num).toDouble())).toList(),
     movePhases: (json['movePhases'] as List?)?.cast<int>(),
     moveColor: json['moveColor'] != null ? Color(json['moveColor'] as int) : null,
@@ -128,6 +145,7 @@ class PlayerIcon {
     Offset? position,
     bool? isSelected,
     double? scale,
+    double? rotation,
     List<Offset>? moves,
     List<int>? movePhases,
     Color? moveColor,
@@ -150,6 +168,7 @@ class PlayerIcon {
       position: position ?? this.position,
       isSelected: isSelected ?? this.isSelected,
       scale: scale ?? this.scale,
+      rotation: rotation ?? this.rotation,
       moves: moves ?? List.of(this.moves),
       movePhases: movePhases ?? List.of(this.movePhases),
       moveColor: moveColor ?? this.moveColor,
