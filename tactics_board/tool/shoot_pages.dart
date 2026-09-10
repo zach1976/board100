@@ -47,14 +47,21 @@ const double kW = 402, kH = 874;
 /// A CJK face, so a Chinese shot can actually be read instead of coming out
 /// as rows of tofu boxes — which is most of what these pages have to hold.
 Future<void> _loadCjk() async {
+  // A .ttf the engine will actually parse. The .ttc collections on macOS
+  // (Hiragino, Songti) load without error and then render nothing, which is
+  // why every Chinese shot came out as rows of tofu boxes.
   for (final path in [
+    '/System/Library/Fonts/Supplemental/Arial Unicode.ttf',
     '/System/Library/Fonts/Hiragino Sans GB.ttc',
     '/System/Library/Fonts/Supplemental/Songti.ttc',
   ]) {
     final f = File(path);
     if (!f.existsSync()) continue;
     try {
-      final loader = FontLoader('Roboto')
+      // Its own family, reached through fontFamilyFallback. Registered as a
+      // second face of 'Roboto' the engine picks one and renders the rest as
+      // tofu — which is what every Chinese shot was until this.
+      final loader = FontLoader('CJK')
         ..addFont(Future.value(f.readAsBytesSync().buffer.asByteData()));
       await loader.load();
       return;
@@ -177,7 +184,8 @@ void main() {
             value: state,
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(fontFamily: 'Roboto'),
+              theme: ThemeData(
+                  fontFamily: 'Roboto', fontFamilyFallback: const ['CJK']),
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
@@ -210,6 +218,14 @@ void main() {
     for (var i = 0; i < 30; i++) {
       await tester.pump(const Duration(milliseconds: 100));
     }
+    // PANEL=2 swipes a PageView twice before shooting, so a multi-panel page
+    // can be captured a panel at a time without the product growing a
+    // "start on page N" parameter it would never otherwise need.
+    final panel = int.tryParse(env['PANEL'] ?? '') ?? 0;
+    for (var i = 0; i < panel; i++) {
+      await tester.drag(find.byType(PageView), const Offset(-kW, 0));
+      await tester.pumpAndSettle();
+    }
     // The ball and marker sprites decode outside the fake-async zone.
     await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 600)));
@@ -217,8 +233,9 @@ void main() {
 
     final out = Directory('${Directory.current.parent.path}/tools/page_png')
       ..createSync(recursive: true);
-    final name =
-        which == 'drill' ? 'drill_${drill.id}' : '${which}_${sport.name}';
+    final name = which == 'drill'
+        ? 'drill_${drill.id}'
+        : '${which}_${sport.name}${panel > 0 ? '_$panel' : ''}';
     await tester.runAsync(() async {
       final boundary =
           key.currentContext!.findRenderObject() as RenderRepaintBoundary;
