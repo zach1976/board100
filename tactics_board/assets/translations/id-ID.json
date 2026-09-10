@@ -321,7 +321,7 @@
   "share_link_copied": "Tautan disalin",
   "share_link_failed": "Gagal membuat tautan — berbagi berkas",
   "drills_title": "Latihan",
-  "drills_hint": "Ketuk untuk menaruhnya di papan, lalu ubah",
+  "drills_hint": "Ketuk untuk melihat; + langsung ke papan",
   "drills_empty": "Belum ada latihan untuk olahraga ini",
   "drills_minutes": "{} mnt",
   "drills_search": "Cari latihan",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "Ketuk wajah untuk atur bingkai, atau pakai ikon di bawah.",
   "elements_label": "Elemen Kustom",
   "element_crop_title": "Tambah Elemen",
-  "element_delete_confirm": "Hapus elemen ini?"
+  "element_delete_confirm": "Hapus elemen ini?",
+  "common_back": "Kembali",
+  "drills_common_mistake": "KESALAHAN UMUM",
+  "drills_put_on_board": "Taruh di papan",
+  "drills_unlock": "Buka dengan Pro",
+  "anim_prev_step": "Langkah sebelumnya",
+  "anim_next_step": "Langkah berikutnya"
 }

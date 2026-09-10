@@ -321,7 +321,7 @@
   "share_link_copied": "Enlace copiado",
   "share_link_failed": "No se pudo crear el enlace; se comparte el archivo",
   "drills_title": "Ejercicios",
-  "drills_hint": "Toca uno para llevarlo a la pizarra y edítalo",
+  "drills_hint": "Toca para verlo; + lo pone en la pizarra",
   "drills_empty": "Aún no hay ejercicios para este deporte",
   "drills_minutes": "{} min",
   "drills_search": "Buscar ejercicios",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "Toca una cara para ajustar el encuadre o usa los iconos de abajo.",
   "elements_label": "Elementos personalizados",
   "element_crop_title": "Añadir elemento",
-  "element_delete_confirm": "¿Eliminar este elemento?"
+  "element_delete_confirm": "¿Eliminar este elemento?",
+  "common_back": "Atrás",
+  "drills_common_mistake": "ERROR HABITUAL",
+  "drills_put_on_board": "Ponerlo en la pizarra",
+  "drills_unlock": "Desbloquear con Pro",
+  "anim_prev_step": "Paso anterior",
+  "anim_next_step": "Paso siguiente"
 }

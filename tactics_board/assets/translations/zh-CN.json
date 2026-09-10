@@ -300,7 +300,7 @@
   "share_link_copied": "链接已复制",
   "share_link_failed": "链接生成失败，改为分享文件",
   "drills_title": "训练素材",
-  "drills_hint": "点一个直接放到板上，随便改",
+  "drills_hint": "点开看详情，按 + 直接放到板上",
   "drills_empty": "这个运动暂时还没有素材",
   "drills_minutes": "{} 分钟",
   "drills_search": "搜索训练",
@@ -360,5 +360,11 @@
   "field_half": "半场",
   "field_blank": "空白",
   "field_half_left": "半场·左",
-  "field_half_right": "半场·右"
+  "field_half_right": "半场·右",
+  "common_back": "返回",
+  "drills_common_mistake": "常见错误",
+  "drills_put_on_board": "放到板上",
+  "drills_unlock": "用 Pro 解锁",
+  "anim_prev_step": "上一步",
+  "anim_next_step": "下一步"
 }

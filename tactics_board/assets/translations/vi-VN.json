@@ -321,7 +321,7 @@
   "share_link_copied": "Đã sao chép liên kết",
   "share_link_failed": "Không tạo được liên kết — chia sẻ tệp",
   "drills_title": "Bài tập",
-  "drills_hint": "Chạm để đưa lên bảng rồi chỉnh sửa",
+  "drills_hint": "Chạm để xem; + đưa thẳng lên bảng",
   "drills_empty": "Chưa có bài tập cho môn này",
   "drills_minutes": "{} phút",
   "drills_search": "Tìm bài tập",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "Chạm khuôn mặt để chỉnh khung, hoặc dùng biểu tượng bên dưới.",
   "elements_label": "Phần tử tùy chỉnh",
   "element_crop_title": "Thêm phần tử",
-  "element_delete_confirm": "Xóa phần tử này?"
+  "element_delete_confirm": "Xóa phần tử này?",
+  "common_back": "Quay lại",
+  "drills_common_mistake": "LỖI THƯỜNG GẶP",
+  "drills_put_on_board": "Đưa lên bảng",
+  "drills_unlock": "Mở khoá bằng Pro",
+  "anim_prev_step": "Bước trước",
+  "anim_next_step": "Bước sau"
 }

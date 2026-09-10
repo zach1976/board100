@@ -321,7 +321,7 @@
   "share_link_copied": "連結已複製",
   "share_link_failed": "連結產生失敗，改為分享檔案",
   "drills_title": "訓練素材",
-  "drills_hint": "點一個直接放到板上，隨便改",
+  "drills_hint": "點開看詳情，按 + 直接放到板上",
   "drills_empty": "這個運動暫時還沒有素材",
   "drills_minutes": "{} 分鐘",
   "drills_search": "搜尋訓練",
@@ -360,5 +360,11 @@
   "photo_manage_hint": "點擊頭像調整裁切，或使用下方圖示。",
   "elements_label": "自訂元素",
   "element_crop_title": "新增元素",
-  "element_delete_confirm": "刪除該元素？"
+  "element_delete_confirm": "刪除該元素？",
+  "common_back": "返回",
+  "drills_common_mistake": "常見錯誤",
+  "drills_put_on_board": "放到板上",
+  "drills_unlock": "用 Pro 解鎖",
+  "anim_prev_step": "上一步",
+  "anim_next_step": "下一步"
 }
