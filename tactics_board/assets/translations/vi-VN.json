@@ -408,5 +408,6 @@
   "pages_hint": "Một bài là cùng một hình với vài thay đổi — nhân bản rồi sửa",
   "pages_page": "Trang {}",
   "pages_add": "Trang trống",
-  "pages_duplicate": "Nhân bản"
+  "pages_duplicate": "Nhân bản",
+  "home_board_title": "Bảng {}"
 }

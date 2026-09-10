@@ -408,5 +408,6 @@
   "pages_hint": "Una rutina es una forma con variantes: duplica y edita",
   "pages_page": "Página {}",
   "pages_add": "Página en blanco",
-  "pages_duplicate": "Duplicar"
+  "pages_duplicate": "Duplicar",
+  "home_board_title": "Pizarra de {}"
 }

@@ -408,5 +408,6 @@
   "pages_hint": "Une routine, c'est une forme et ses variantes : dupliquez puis modifiez",
   "pages_page": "Page {}",
   "pages_add": "Page vierge",
-  "pages_duplicate": "Dupliquer"
+  "pages_duplicate": "Dupliquer",
+  "home_board_title": "Tableau {}"
 }
