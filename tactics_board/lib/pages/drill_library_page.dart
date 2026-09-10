@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import '../config_constants.dart';
 
 import '../models/drill.dart';
-import '../pages/drill_detail_page.dart';
+import 'drill_detail_page.dart';
 import '../models/tactic_meta.dart';
 import '../models/sport_type.dart';
 import '../services/drill_library_service.dart';
+import '../services/drill_notes_service.dart';
 import '../services/purchase_service.dart';
 import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
-import 'toolbar.dart' show sheetConstraints, scaledSheet;
+import '../widgets/toolbar.dart' show sheetConstraints, scaledSheet;
 
 /// The drill library: pick a session piece and put it on the board.
 ///
@@ -22,7 +23,7 @@ import 'toolbar.dart' show sheetConstraints, scaledSheet;
 /// same JSON, same animation — so the coach can immediately edit it into
 /// their own, which is the point: these are starting shapes, not a locked
 /// catalogue.
-class DrillLibrarySheet extends StatefulWidget {
+class DrillLibraryPage extends StatefulWidget {
   final TacticsState state;
 
   /// Opens the purchase sheet. Null on builds with no store.
@@ -40,48 +41,61 @@ class DrillLibrarySheet extends StatefulWidget {
   /// The home page's "my boards" leads here for the full list.
   final bool openMine;
 
+  /// Open showing only starred drills — the coach's own library within the
+  /// shipped one.
+  final bool starredOnly;
+
   /// Called after a drill has been put on the board. The sheet is opened
   /// from two places that want different things next: over the board it is
   /// already where the coach wants to be, but from the home page the board
   /// is another push away.
   final VoidCallback? onLoaded;
 
-  const DrillLibrarySheet({
+  const DrillLibraryPage({
     super.key,
     required this.state,
     this.onUpgrade,
     this.initialCategory,
     this.initialLevel,
     this.openMine = false,
+    this.starredOnly = false,
     this.onLoaded,
   });
 
-  static Future<void> show(BuildContext context, TacticsState state,
+  /// A page, not a sheet.
+  ///
+  /// Six hundred drills behind a search box, two rows of filters and a
+  /// scrolling list is a place you work in, and a sheet says the opposite:
+  /// it covers the board, caps itself at 82% of the screen, and is dismissed
+  /// by a stray swipe. On a page the list gets the whole screen and the back
+  /// button means what it says.
+  static Future<void> push(BuildContext context, TacticsState state,
       {VoidCallback? onUpgrade,
       DrillCategory? initialCategory,
       DrillLevel? initialLevel,
       bool openMine = false,
+      bool starredOnly = false,
       VoidCallback? onLoaded}) {
-    return TacticalSheet.show<void>(
-      context,
-      builder: (ctx) => scaledSheet(
-          ctx,
-          DrillLibrarySheet(
-            state: state,
-            onUpgrade: onUpgrade,
-            initialCategory: initialCategory,
-            initialLevel: initialLevel,
-            openMine: openMine,
-            onLoaded: onLoaded,
-          )),
+    return Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => DrillLibraryPage(
+          state: state,
+          onUpgrade: onUpgrade,
+          initialCategory: initialCategory,
+          initialLevel: initialLevel,
+          openMine: openMine,
+          starredOnly: starredOnly,
+          onLoaded: onLoaded,
+        ),
+      ),
     );
   }
 
   @override
-  State<DrillLibrarySheet> createState() => _DrillLibrarySheetState();
+  State<DrillLibraryPage> createState() => _DrillLibraryPageState();
 }
 
-class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
+class _DrillLibraryPageState extends State<DrillLibraryPage> {
   late Future<List<Drill>> _drills;
   DrillCategory? _filter;
   DrillLevel? _level;
@@ -91,6 +105,8 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   // not importing.
   List<TacticMeta> _mine = const [];
   bool _showMine = false;
+  bool _starred = false;
+  Map<String, DrillMark> _marks = const {};
 
   @override
   void initState() {
@@ -98,6 +114,10 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     _filter = widget.initialCategory;
     _level = widget.initialLevel;
     _showMine = widget.openMine;
+    _starred = widget.starredOnly;
+    DrillNotesService.instance.all(widget.state.sportType).then((m) {
+      if (mounted) setState(() => _marks = m);
+    });
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
     widget.state.listSavedTacticMetas().then((metas) {
       if (mounted) setState(() => _mine = metas);
@@ -186,17 +206,18 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
 
   @override
   Widget build(BuildContext context) {
-    // The sheet's shape, drag handle and padding come from the shared
-    // container now — this widget only says what is inside it.
-    return TacticalSheet(
-      maxHeightFraction: 0.82,
-      padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s8),
+    return Scaffold(
+      backgroundColor: T.bg0,
+      body: SafeArea(
+        child: Padding(
+      padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, T.s8),
       child: FutureBuilder<List<Drill>>(
         future: _drills,
         builder: (context, snap) {
           final all = snap.data ?? const <Drill>[];
           final q = _query.trim().toLowerCase();
           final shown = all
+              .where((d) => !_starred || (_marks[d.id]?.starred ?? false))
               .where((d) => _filter == null || d.category == _filter)
               .where((d) => _level == null || d.level == _level)
               .where((d) =>
@@ -232,9 +253,34 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Title, subtitle and close, in the shape every sheet uses.
-                TacticalSheetHeader(
-                  title: 'drills_title'.tr(),
-                  subtitle: 'drills_hint'.tr(),
+                // Back, title and subtitle — a page's header, not a sheet's.
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2, right: T.s4),
+                      child: TacticalIconButton(
+                        icon: Icons.arrow_back,
+                        onTap: () => Navigator.of(context).pop(),
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('drills_title'.tr(),
+                              style: const TextStyle(
+                                  color: T.text,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700)),
+                          const SizedBox(height: 2),
+                          Text('drills_hint'.tr(),
+                              style: const TextStyle(
+                                  color: T.textDim, fontSize: 13)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 // Say what's free up front. A lock the user only meets by
                 // tapping reads as a trap; a count reads as an offer.
@@ -304,6 +350,19 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        // Starred is always offered: it is how a coach picks
+                        // twenty drills out of six hundred, and hiding it
+                        // until they have saved a board hides the very thing
+                        // that makes the library theirs.
+                        _CategoryChip(
+                          label: 'drills_starred'.tr(),
+                          selected: _starred,
+                          onTap: () => setState(() {
+                            _starred = !_starred;
+                            _showMine = false;
+                          }),
+                        ),
+                        const SizedBox(width: 6),
                         if (_mine.isNotEmpty) ...[
                           _CategoryChip(
                             label: 'drills_mine'.tr(),
@@ -318,6 +377,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
                           selected: !_showMine && _filter == null,
                           onTap: () => setState(() {
                             _showMine = false;
+                            _starred = false;
                             _filter = null;
                           }),
                         ),
@@ -405,11 +465,13 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
           );
         },
       ),
+        ),
+      ),
     );
   }
 }
 
-/// The sheet's filter chip is the app's filter chip. It used to be a solid
+/// The library's filter chip is the app's filter chip. It used to be a solid
 /// accent block with a white border when selected, so a row of them read as
 /// a row of buttons rather than a state.
 class _CategoryChip extends StatelessWidget {

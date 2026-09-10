@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
-import 'package:tactics_board/widgets/drill_library_sheet.dart';
+import 'package:tactics_board/pages/drill_library_page.dart';
 
 /// The release-checklist overflow sweep (zachs_app_base.md §7.1), as a test.
 ///
@@ -114,7 +114,7 @@ void main() {
                 body: ValueListenableBuilder<TacticsState>(
                   valueListenable: sheet,
                   builder: (context, s, _) =>
-                      DrillLibrarySheet(key: ValueKey(s.sportType), state: s),
+                      DrillLibraryPage(key: ValueKey(s.sportType), state: s),
                 ),
               ),
             );

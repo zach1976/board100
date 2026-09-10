@@ -6,7 +6,7 @@ import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/pages/drill_detail_page.dart';
-import 'package:tactics_board/widgets/drill_library_sheet.dart';
+import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 /// The library sheet against the real shipped assets.
@@ -48,7 +48,7 @@ void main() {
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
-              home: Scaffold(body: DrillLibrarySheet(state: state)),
+              home: Scaffold(body: DrillLibraryPage(state: state)),
             );
           },
         ),
