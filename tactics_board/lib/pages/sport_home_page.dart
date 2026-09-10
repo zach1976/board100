@@ -108,10 +108,7 @@ class _SportHomePageState extends State<SportHomePage> {
   }
 
   Future<void> _newBoard() async {
-    context.read<TacticsState>()
-      ..clearAll()
-      ..currentTacticName = null
-      ..currentTacticMeta = null;
+    context.read<TacticsState>().newDocument();
     await _openBoard();
   }
 

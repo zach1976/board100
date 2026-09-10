@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "텍스트 추가",
   "text_add_hint": "예: 파 포스트로 드래그 플릭",
-  "rotate_reset": "초기화"
+  "rotate_reset": "초기화",
+  "pages_title": "페이지",
+  "pages_hint": "루틴은 같은 모양의 변형—복제한 뒤 수정",
+  "pages_page": "{}페이지",
+  "pages_add": "빈 페이지",
+  "pages_duplicate": "복제"
 }

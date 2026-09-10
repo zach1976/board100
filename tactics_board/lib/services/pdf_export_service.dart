@@ -16,6 +16,59 @@ class PdfExportService {
     return bytes?.buffer.asUint8List();
   }
 
+  /// Share a document: one PDF page per board page, in order.
+  ///
+  /// A routine that can be drawn across several pages but only sent as one
+  /// is a routine you cannot hand to anybody, so this takes the captures the
+  /// caller collected by walking the pages — the walking has to happen up
+  /// there, where there is a state to drive and frames to wait for.
+  static Future<bool> exportFrames(
+    List<Uint8List> pngs, {
+    String title = 'Tactics Board',
+    String? filename,
+  }) async {
+    if (pngs.isEmpty) return false;
+    final doc = pw.Document();
+    final dateStr = DateTime.now().toIso8601String().split('T').first;
+    for (var i = 0; i < pngs.length; i++) {
+      final img = pw.MemoryImage(pngs[i]);
+      doc.addPage(
+        pw.Page(
+          pageFormat: PdfPageFormat.a4,
+          margin: const pw.EdgeInsets.all(24),
+          build: (context) => pw.Column(
+            children: [
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                children: [
+                  pw.Text(
+                      pngs.length > 1 ? '$title  ${i + 1}/${pngs.length}' : title,
+                      style: pw.TextStyle(
+                          fontSize: 16, fontWeight: pw.FontWeight.bold)),
+                  pw.Text(dateStr,
+                      style: const pw.TextStyle(
+                          fontSize: 10, color: PdfColors.grey600)),
+                ],
+              ),
+              pw.SizedBox(height: 12),
+              pw.Expanded(child: pw.Image(img, fit: pw.BoxFit.contain)),
+            ],
+          ),
+        ),
+      );
+    }
+    final bytes = await doc.save();
+    return Printing.sharePdf(
+      bytes: bytes,
+      filename:
+          filename ?? 'tactics_${DateTime.now().millisecondsSinceEpoch}.pdf',
+    );
+  }
+
+  /// One capture of the live board, for a caller walking the pages itself.
+  static Future<Uint8List?> captureBoard({double pixelRatio = 2.0}) =>
+      _captureBoard(pixelRatio: pixelRatio);
+
   /// Capture the current board and share it as a single-page PDF.
   /// Caller should reset zoom and wait for a frame before invoking.
   /// Returns true only when the document was actually shared (false on capture

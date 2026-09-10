@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Add text",
   "text_add_hint": "e.g. drag flick to the far post",
-  "rotate_reset": "Reset"
+  "rotate_reset": "Reset",
+  "pages_title": "Pages",
+  "pages_hint": "A routine is one shape with things changed — duplicate, then edit",
+  "pages_page": "Page {}",
+  "pages_add": "Blank page",
+  "pages_duplicate": "Duplicate"
 }

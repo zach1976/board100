@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Ajouter du texte",
   "text_add_hint": "ex. drag flick au second poteau",
-  "rotate_reset": "Réinitialiser"
+  "rotate_reset": "Réinitialiser",
+  "pages_title": "Pages",
+  "pages_hint": "Une routine, c'est une forme et ses variantes : dupliquez puis modifiez",
+  "pages_page": "Page {}",
+  "pages_add": "Page vierge",
+  "pages_duplicate": "Dupliquer"
 }

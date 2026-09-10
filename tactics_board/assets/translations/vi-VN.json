@@ -403,5 +403,10 @@
   "learn_note_mistake": "Common mistake — what goes wrong first.",
   "text_add_title": "Thêm chữ",
   "text_add_hint": "vd. drag flick vào cột xa",
-  "rotate_reset": "Đặt lại"
+  "rotate_reset": "Đặt lại",
+  "pages_title": "Trang",
+  "pages_hint": "Một bài là cùng một hình với vài thay đổi — nhân bản rồi sửa",
+  "pages_page": "Trang {}",
+  "pages_add": "Trang trống",
+  "pages_duplicate": "Nhân bản"
 }

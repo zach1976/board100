@@ -44,6 +44,23 @@ class TacticsState extends ChangeNotifier {
   DrawingStroke? _currentStroke;
 
   // Undo / Redo stacks
+  /// A board is a document of pages. The page being edited lives in
+  /// [_players] / [_strokes] as it always has; the others sit here as the
+  /// same JSON a saved board uses, and are swapped in and out on a page
+  /// change. A routine is variations of one shape, which is what pages are
+  /// for — a practice plan sequences whole drills across a session, and the
+  /// two are different jobs.
+  final List<Map<String, dynamic>> _otherPages = [];
+
+  /// Where the live page sits among them. 0 on every board that has one page,
+  /// which is every board saved before pages existed.
+  int _pageIndex = 0;
+
+  /// Undo history belongs to a page: undoing on page 2 must not reach into
+  /// page 1. Parked here while another page is being edited.
+  final Map<int, List<_BoardSnapshot>> _parkedUndo = {};
+  final Map<int, List<_BoardSnapshot>> _parkedRedo = {};
+
   final List<_BoardSnapshot> _undoStack = [];
   final List<_BoardSnapshot> _redoStack = [];
   static const int _maxHistory = 50;
@@ -1606,6 +1623,31 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Start over: one empty page, no history, nothing named.
+  ///
+  /// Distinct from [clearAll], which empties the page you are looking at —
+  /// that is what a coach pressing Clear on the board means, and it must not
+  /// silently take the rest of the routine with it.
+  void newDocument() {
+    _otherPages.clear();
+    _parkedUndo.clear();
+    _parkedRedo.clear();
+    _pageIndex = 0;
+    _players.clear();
+    _strokes.clear();
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    _selectedStrokeId = null;
+    _resetAnimationState();
+    _atStep = 0;
+    _targetStep = 0;
+    _undoStack.clear();
+    _redoStack.clear();
+    currentTacticName = null;
+    currentTacticMeta = null;
+    notifyListeners();
+  }
+
   void clearAll() {
     if (_players.isEmpty && _strokes.isEmpty) return;
     _saveSnapshot();
@@ -1639,6 +1681,20 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Bring a page's coordinates onto the canvas it is being shown at.
+  void _rescaleFromSaved(Map<String, dynamic> page) {
+    final savedW = (page['canvasWidth'] as num?)?.toDouble() ?? _canvasSize.width;
+    final savedH = (page['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
+    if (savedW <= 0 || savedH <= 0) return;
+    if (savedW == _canvasSize.width && savedH == _canvasSize.height) return;
+    final sx = _canvasSize.width / savedW;
+    final sy = _canvasSize.height / savedH;
+    for (final p in _players) {
+      p.position = Offset(p.position.dx * sx, p.position.dy * sy);
+      p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
+    }
+  }
+
   void _saveSnapshot() {
     _undoStack.add(_currentSnapshot());
     if (_undoStack.length > _maxHistory) _undoStack.removeAt(0);
@@ -1657,29 +1713,148 @@ class TacticsState extends ChangeNotifier {
 
   // ── Save / Load tactics ──────────────────────────────────────────────────
 
-  Map<String, dynamic> toJson() => {
-    'sportType': _sportType.index,
-    'players': _players.map((p) => p.toJson()).toList(),
-    'strokes': _strokes.map((s) => s.toJson()).toList(),
-    'canvasWidth': _canvasSize.width,
-    'canvasHeight': _canvasSize.height,
-  };
+  int get pageCount => _otherPages.length + 1;
+  int get pageIndex => _pageIndex;
+
+  /// The live page as JSON, without the page list — one page's worth.
+  Map<String, dynamic> _pageJson() => {
+        'sportType': _sportType.index,
+        'players': _players.map((p) => p.toJson()).toList(),
+        'strokes': _strokes.map((s) => s.toJson()).toList(),
+        'canvasWidth': _canvasSize.width,
+        'canvasHeight': _canvasSize.height,
+      };
+
+  /// Every page in order, with the live one written back into its slot.
+  List<Map<String, dynamic>> _allPages() {
+    final out = List<Map<String, dynamic>>.from(_otherPages);
+    out.insert(_pageIndex, _pageJson());
+    return out;
+  }
+
+  void _loadPage(Map<String, dynamic> page) {
+    _players = (page['players'] as List)
+        .map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>))
+        .toList();
+    _strokes = (page['strokes'] as List)
+        .map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>))
+        .toList();
+    _rescaleFromSaved(page);
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    _selectedStrokeId = null;
+    _resetAnimationState();
+    _atStep = 0;
+    _targetStep = 0;
+  }
+
+  /// Switch to page [i], keeping everything about the page being left.
+  void goToPage(int i) {
+    if (i == _pageIndex || i < 0 || i >= pageCount) return;
+    final pages = _allPages();
+    _parkedUndo[_pageIndex] = List.of(_undoStack);
+    _parkedRedo[_pageIndex] = List.of(_redoStack);
+    _pageIndex = i;
+    _loadPage(pages[i]);
+    _otherPages
+      ..clear()
+      ..addAll([
+        for (var k = 0; k < pages.length; k++)
+          if (k != i) pages[k]
+      ]);
+    _undoStack
+      ..clear()
+      ..addAll(_parkedUndo[i] ?? const []);
+    _redoStack
+      ..clear()
+      ..addAll(_parkedRedo[i] ?? const []);
+    notifyListeners();
+  }
+
+  /// A new page after the current one. [copyCurrent] is the common case: a
+  /// routine is the same shape with one thing changed, and drawing the second
+  /// page from nothing is why nobody makes a second page.
+  void addPage({bool copyCurrent = false}) {
+    final pages = _allPages();
+    final blank = <String, dynamic>{
+      'sportType': _sportType.index,
+      'players': <dynamic>[],
+      'strokes': <dynamic>[],
+      'canvasWidth': _canvasSize.width,
+      'canvasHeight': _canvasSize.height,
+    };
+    pages.insert(_pageIndex + 1,
+        copyCurrent ? jsonDecode(jsonEncode(_pageJson())) as Map<String, dynamic> : blank);
+    _parkedUndo.clear();
+    _parkedRedo.clear();
+    _pageIndex += 1;
+    _loadPage(pages[_pageIndex]);
+    _otherPages
+      ..clear()
+      ..addAll([
+        for (var k = 0; k < pages.length; k++)
+          if (k != _pageIndex) pages[k]
+      ]);
+    _undoStack.clear();
+    _redoStack.clear();
+    notifyListeners();
+  }
+
+  /// Remove page [i]. The last page cannot be removed — a document with no
+  /// pages is not a document, it is a crash.
+  void deletePage(int i) {
+    if (pageCount <= 1 || i < 0 || i >= pageCount) return;
+    final pages = _allPages()..removeAt(i);
+    _parkedUndo.clear();
+    _parkedRedo.clear();
+    _pageIndex = i.clamp(0, pages.length - 1);
+    _loadPage(pages[_pageIndex]);
+    _otherPages
+      ..clear()
+      ..addAll([
+        for (var k = 0; k < pages.length; k++)
+          if (k != _pageIndex) pages[k]
+      ]);
+    _undoStack.clear();
+    _redoStack.clear();
+    notifyListeners();
+  }
+
+  /// The document: page one at the top level, the rest alongside it.
+  ///
+  /// Page ONE, not the page being edited — a build that predates pages reads
+  /// only the top level, and it must open such a file at the beginning of the
+  /// routine rather than wherever the last person happened to stop. This
+  /// build reads `pages` and lands back on `pageIndex`.
+  Map<String, dynamic> toJson() {
+    final pages = _allPages();
+    return {
+      ...pages.first,
+      if (pages.length > 1) 'pages': pages,
+      if (pages.length > 1) 'pageIndex': _pageIndex,
+    };
+  }
 
   void loadFromJson(Map<String, dynamic> json) {
     _sportType = SportType.values[json['sportType'] as int];
-    _players = (json['players'] as List).map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>)).toList();
-    _strokes = (json['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
-    // Rescale positions if canvas size differs
-    final savedW = (json['canvasWidth'] as num?)?.toDouble() ?? _canvasSize.width;
-    final savedH = (json['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
-    if (savedW > 0 && savedH > 0 && (savedW != _canvasSize.width || savedH != _canvasSize.height)) {
-      final sx = _canvasSize.width / savedW;
-      final sy = _canvasSize.height / savedH;
-      for (final p in _players) {
-        p.position = Offset(p.position.dx * sx, p.position.dy * sy);
-        p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
-      }
-    }
+    final raw = json['pages'];
+    final pages = raw is List && raw.isNotEmpty
+        ? raw.map((p) => Map<String, dynamic>.from(p as Map)).toList()
+        : <Map<String, dynamic>>[Map<String, dynamic>.from(json)];
+    _pageIndex = ((json['pageIndex'] as num?)?.toInt() ?? 0)
+        .clamp(0, pages.length - 1);
+    _parkedUndo.clear();
+    _parkedRedo.clear();
+    final live = pages[_pageIndex];
+    _players = (live['players'] as List).map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>)).toList();
+    _strokes = (live['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
+    _rescaleFromSaved(live);
+    _otherPages
+      ..clear()
+      ..addAll([
+        for (var k = 0; k < pages.length; k++)
+          if (k != _pageIndex) pages[k]
+      ]);
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _isAnimating = false;
