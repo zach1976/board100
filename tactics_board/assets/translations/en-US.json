@@ -436,11 +436,14 @@
   "intro_skip": "Skip",
   "intro_next": "Next",
   "intro_start": "Start",
-  "intro_board_t": "Draw it, then play it",
+  "intro_board_t": "Draw it, *then walk it*",
   "intro_board_b": "Put players on the pitch, give them runs, and step through the move one beat at a time.",
-  "intro_drills_t": "{} drills, already written",
+  "intro_drills_t": "*{}* drills, already written",
   "intro_drills_b": "Every one is a board you can step through, with what it trains, how it is set up and the one thing to say.",
-  "intro_plan_t": "Line up a session",
+  "intro_plan_t": "*Line up* a session",
   "intro_plan_b": "String drills into a plan for Tuesday, and run it from your phone on the touchline.",
-  "intro_drills_t_plain": "The drills are already written"
+  "intro_drills_t_plain": "The drills are already written",
+  "intro_pillar_plan": "Plan it",
+  "intro_pillar_run": "Run it",
+  "intro_pillar_grow": "Improve"
 }
