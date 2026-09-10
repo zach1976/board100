@@ -2336,49 +2336,52 @@ def gk_family() -> list[Drill]:
     line, every "shot" stopped where he was standing anyway, and the drill
     read as a ball rolling to a stop in the six-yard box.
 
-    Each board is the same three beats — a serve the keeper deals with, his
-    distribution back out, and a second serve from the other side — laid out
-    for whichever part of the job the variant trains.
+    Each board is ONE complete repetition — a serve the keeper deals with and
+    his distribution back out — laid out for whichever part of the job the
+    variant trains. It used to draw a second serve too, and the keeper a
+    second set position: the goal is 7.32 m wide, about 94 canvas units, and
+    a token is 109, so his two positions could not help but overlap and the
+    goalmouth came out as a pile of keepers. A drill is repeated anyway; the
+    board shows the rep and the note says how many.
     """
     specs = [
         # key, label, servers, their moves, the keeper's, the ball's legs
         ("handling", "handling",
          [(0.32, 0.19), (0.68, 0.19), (0.50, 0.27)],
-         {1: [(0.64, 0.22, 1)]},
-         [(0.42, 0.06, 0), (0.58, 0.055, 1)],
-         [("a0", 0), (1, 1), ("a0", 2)]),
+         {},
+         [(0.42, 0.06, 0)],
+         [("a0", 0), (1, 1)]),
         ("angles", "angles",
          [(0.18, 0.20), (0.50, 0.26), (0.82, 0.20)],
-         {2: [(0.80, 0.23, 1)]},
+         {},
          # Narrow the angle toward whoever is about to strike: that is the
          # whole exercise, and it is a shuffle across the line, not a walk
          # out to the penalty spot.
-         [(0.410, 0.055, 0), (0.590, 0.05, 1)],
-         [("a0", 0), (2, 1), ("a0", 2)]),
+         [(0.410, 0.055, 0)],
+         [("a0", 0), (2, 1)]),
         ("crosses", "crosses",
          [(0.10, 0.12), (0.90, 0.12)],
-         {1: [(0.88, 0.16, 1)]},
+         {},
          # Off the line and across to take it at the highest point.
-         [(0.42, 0.065, 0), (0.58, 0.06, 1)],
-         [("a0", 0), (1, 1), ("a0", 2)]),
+         [(0.42, 0.065, 0)],
+         [("a0", 0), (1, 1)]),
         ("distribution", "distribution",
          [(0.34, 0.24), (0.14, 0.46), (0.86, 0.46)],
-         {1: [(0.12, 0.38, 0)], 2: [(0.88, 0.38, 0), (0.84, 0.30, 1)]},
+         {1: [(0.12, 0.38, 0)], 2: [(0.88, 0.38, 0)]},
          [(0.47, 0.07, 0)],
          [("a0", 0), (2, 1)]),
         ("one_v_one", "1v1",
          [(0.50, 0.34)],
          {0: [(0.50, 0.20, 0)]},
-         # Out to narrow it while the striker is still travelling, then set
-         # and spread as he strikes.
-         [(0.50, 0.085, 0), (0.47, 0.10, 1)],
+         # Out to narrow it while the striker is still travelling.
+         [(0.50, 0.085, 0)],
          [("a0", 1)]),
         # A save starts from being set: feet still before the strike.
         ("set_position", "set position",
          [(0.36, 0.22), (0.64, 0.22)],
-         {1: [(0.62, 0.25, 1)]},
-         [(0.42, 0.06, 0), (0.58, 0.055, 1)],
-         [("a0", 0), (1, 1), ("a0", 2)]),
+         {},
+         [(0.42, 0.06, 0)],
+         [("a0", 0), (1, 1)]),
     ]
     out = []
     for key, label, servers, smoves, gkmoves, legs in specs:

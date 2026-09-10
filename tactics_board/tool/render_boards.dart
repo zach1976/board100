@@ -127,6 +127,16 @@ void main() {
       for (final raw in data['drills'] as List) {
         final drill = raw as Map<String, dynamic>;
         if (!picked(sport, drill['id'] as String)) continue;
+        // ONLY= does not wipe outRoot, so a board that now has fewer steps
+        // would keep the tail of its last render — a stale -3.png read as a
+        // fourth step that no longer exists.
+        if (only != null) {
+          for (final old in dir.listSync().whereType<File>()) {
+            if (old.uri.pathSegments.last.startsWith('${drill['id']}-')) {
+              old.deleteSync();
+            }
+          }
+        }
         state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
         state.setCanvasSizeSilent(const Size(kW, kH));
         await tester.pump(const Duration(milliseconds: 60));
