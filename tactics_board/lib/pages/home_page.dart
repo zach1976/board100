@@ -859,13 +859,13 @@ class _MenuButton extends StatelessWidget {
 
   void _showContact(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const _ContactPage()),
+      MaterialPageRoute(builder: (_) => const ContactPage()),
     );
   }
 
   void _showLogin(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const _LoginPage()),
+      MaterialPageRoute(builder: (_) => const LoginPage()),
     );
   }
 }
@@ -873,13 +873,13 @@ class _MenuButton extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Contact Us page — email form via API (same as ScoreSyncer/zach_base)
 // ─────────────────────────────────────────────────────────────────────────────
-class _ContactPage extends StatefulWidget {
-  const _ContactPage();
+class ContactPage extends StatefulWidget {
+  const ContactPage();
   @override
-  State<_ContactPage> createState() => _ContactPageState();
+  State<ContactPage> createState() => _ContactPageState();
 }
 
-class _ContactPageState extends State<_ContactPage> {
+class _ContactPageState extends State<ContactPage> {
   final _emailCtrl = TextEditingController();
   final _subjectCtrl = TextEditingController();
   final _bodyCtrl = TextEditingController();
@@ -1029,13 +1029,13 @@ class _ContactPageState extends State<_ContactPage> {
 // ─────────────────────────────────────────────────────────────────────────────
 // Login page — Apple + Google sign-in (same pattern as lang1000/chinesefriend)
 // ─────────────────────────────────────────────────────────────────────────────
-class _LoginPage extends StatefulWidget {
-  const _LoginPage();
+class LoginPage extends StatefulWidget {
+  const LoginPage();
   @override
-  State<_LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<_LoginPage> {
+class _LoginPageState extends State<LoginPage> {
   final _auth = AuthService.instance;
   bool _loading = false;
 

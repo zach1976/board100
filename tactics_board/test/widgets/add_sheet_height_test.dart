@@ -19,7 +19,10 @@ void main() {
 
   testWidgets('the Add sheet opens with nothing left to scroll to',
       (tester) async {
-    SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
+    SharedPreferences.setMockInitialValues(
+        // 'intro_seen': the app opens on the intro for a first run, and this
+        // test is about the board behind it.
+        {'remove_ads_pro': true, 'intro_seen': true});
     ConfigConstants.fixedSportType = SportType.soccer;
     addTearDown(() => ConfigConstants.fixedSportType = null);
     await EasyLocalization.ensureInitialized();

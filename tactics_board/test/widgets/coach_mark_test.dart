@@ -23,7 +23,10 @@ void main() {
 
   testWidgets('the coach mark opens the Add sheet, and its X only dismisses',
       (tester) async {
-    SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
+    SharedPreferences.setMockInitialValues(
+        // 'intro_seen': the app opens on the intro for a first run, and this
+        // test is about the board behind it.
+        {'remove_ads_pro': true, 'intro_seen': true});
     // Without a fixed sport the app opens on the sport grid, and the board —
     // and so the coach mark — is never built.
     ConfigConstants.fixedSportType = SportType.soccer;

@@ -432,5 +432,14 @@
   "report_send": "发送",
   "report_sent": "已发送，谢谢",
   "report_needs_detail": "请说明哪里不对",
-  "sending": "发送中…"
+  "sending": "发送中…",
+  "intro_skip": "跳过",
+  "intro_next": "下一步",
+  "intro_start": "开始",
+  "intro_board_t": "画出来，再走一遍",
+  "intro_board_b": "把球员摆到场上、画出跑位，然后一拍一拍地把这套配合走一遍。",
+  "intro_drills_t": "六百个训练，已经写好了",
+  "intro_drills_b": "每一个都是能一步步走的板，配着练什么、怎么摆、以及只说一句的那句话。",
+  "intro_plan_t": "排一堂课",
+  "intro_plan_b": "把训练串成周二的计划，站在场边用手机一项项跑下来。"
 }

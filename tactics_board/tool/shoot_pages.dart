@@ -26,6 +26,7 @@ import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/drill_detail_page.dart';
 import 'package:tactics_board/pages/drill_primer_page.dart';
+import 'package:tactics_board/pages/intro_page.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';

@@ -21,6 +21,7 @@ import '../widgets/tactics_canvas.dart';
 import 'drill_detail_page.dart';
 import 'drill_primer_page.dart';
 import 'home_page.dart';
+import 'intro_page.dart';
 import 'sport_selection_page.dart';
 import 'practice_plan_page.dart';
 
@@ -42,6 +43,9 @@ class SportHomePage extends StatefulWidget {
 
 class _SportHomePageState extends State<SportHomePage> {
   late Future<List<Drill>> _drills;
+  /// Null until the answer is known: showing the home page for one frame and
+  /// then covering it with an intro is worse than a blank frame.
+  bool? _intro;
   List<TacticMeta> _mine = const [];
   List<RecentBoard> _recent = const [];
   Map<String, DrillMark> _marks = const {};
@@ -52,6 +56,9 @@ class _SportHomePageState extends State<SportHomePage> {
     final state = context.read<TacticsState>();
     _drills = DrillLibraryService.instance.forSport(state.sportType);
     _refreshMine();
+    IntroPage.shouldShow().then((show) {
+      if (mounted) setState(() => _intro = show);
+    });
   }
 
   void _refreshMine() {
@@ -164,6 +171,15 @@ class _SportHomePageState extends State<SportHomePage> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
+    if (_intro == null) {
+      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+    }
+    if (_intro == true) {
+      return IntroPage(
+        sportType: state.sportType,
+        onDone: () => setState(() => _intro = false),
+      );
+    }
     return Scaffold(
       backgroundColor: T.bg0,
       body: SafeArea(
@@ -177,6 +193,15 @@ class _SportHomePageState extends State<SportHomePage> {
               onOpen: _openBoard,
               onNew: _newBoard,
             ),
+            const SizedBox(height: T.s12),
+            // Directly under the board, because a session plan is the other
+            // thing a coach opens the app to do: draw one board, or line up
+            // a Tuesday. At the bottom of the page it read as an afterthought.
+            _PlanCard(onTap: () {
+              Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => PracticePlanPage(state: state),
+              ));
+            }),
             const SizedBox(height: T.s24),
             // Two builders on one cached future, so the coach's own boards can
             // sit between what to run today and the categories — their work
@@ -283,11 +308,23 @@ class _SportHomePageState extends State<SportHomePage> {
               onLevel: (l) => _openLibraryLevel(l),
             ),
             const SizedBox(height: T.s24),
-            _PlanCard(onTap: () {
-              Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => PracticePlanPage(state: state),
-              ));
-            }),
+            // Account and help. Quiet, at the foot of the page — they were
+            // only in the board's overflow menu, which is a strange place to
+            // hide "sign in" and "contact us".
+            const TacticalDivider(),
+            const SizedBox(height: T.s8),
+            _FootRow(
+              icon: Icons.person_outline,
+              label: 'menu_login'.tr(),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const LoginPage())),
+            ),
+            _FootRow(
+              icon: Icons.mail_outline,
+              label: 'contact_title'.tr(),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const ContactPage())),
+            ),
           ],
         ),
       ),
@@ -774,6 +811,37 @@ class _LearnBlock extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+/// A quiet row at the foot of the page: sign in, contact us.
+class _FootRow extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+  const _FootRow(
+      {required this.icon, required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: T.s12),
+        child: Row(
+          children: [
+            Icon(icon, size: 17, color: T.textOff),
+            const SizedBox(width: T.s12),
+            Expanded(
+              child: Text(label,
+                  style: const TextStyle(color: T.textDim, fontSize: 14.5)),
+            ),
+            const Icon(Icons.chevron_right, size: 17, color: T.textOff),
+          ],
+        ),
+      ),
     );
   }
 }

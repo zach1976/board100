@@ -40,7 +40,9 @@ void main() {
   testWidgets('the board and its menus survive every locale on a small phone',
       (tester) async {
     const screen = kNarrow;
-    SharedPreferences.setMockInitialValues({});
+    // 'intro_seen': the app opens on the intro for a first run, and this
+    // sweep is about the board behind it.
+    SharedPreferences.setMockInitialValues({'intro_seen': true});
     // See overflow_test.dart: the default test platform picks the Android
     // billing plugin, which opens a connection that fails asynchronously.
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
