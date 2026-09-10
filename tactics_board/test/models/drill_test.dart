@@ -263,7 +263,19 @@ void _libraryTests(String sport) {
       // by the rules), and equipment — cones mark channels and gates that sit
       // outside the lines on purpose.
       final sportType = SportType.values.firstWhere((s) => s.name == sport);
-      final field = sportType.fieldRect(const Size(1000, 1500));
+      // The surface as the phone actually draws it, put back into the
+      // 1000x1500 the coordinates are written in. Player positions rescale by
+      // plain canvas fractions while the court is fitted to its own aspect,
+      // so the two only line up on the canvas the board is shown at — asking
+      // fieldRect for 1000x1500 measures a court no device ever draws.
+      const shownIn = Size(402, 730);
+      final shown = sportType.fieldRect(shownIn);
+      final field = Rect.fromLTRB(
+        shown.left / shownIn.width * 1000,
+        shown.top / shownIn.height * 1500,
+        shown.right / shownIn.width * 1000,
+        shown.bottom / shownIn.height * 1500,
+      );
       for (final d in drills) {
         if (d.offSurface) continue;
         for (final p in (d.board['players'] as List).cast<Map>()) {

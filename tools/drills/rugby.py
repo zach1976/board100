@@ -263,7 +263,11 @@ def defence_family() -> list[Drill]:
             id=f"rg_defence_{key}", category="defending", minutes=12, rel=True,
             free=(key == "drift"),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(x, y, "D", moves=[(x + slide, y + push, 0), (x + slide * 2, y + push * 1.4, 1)])
+            # Clamped: a scramble slides the whole line toward the ball, and
+            # the widest defender was sliding 0.04 past the touchline.
+            home=[P(x, y, "D",
+                    moves=[(min(x + slide, 0.97), y + push, 0),
+                           (min(x + slide * 2, 0.97), y + push * 1.4, 1)])
                   for x, y in line],
             away=[P(x, 0.60, "A", moves=[(x + 0.04, 0.52, 0)]) for x, _ in line_of(5, 0.60, 0.24, 0.84)],
             ball=(0.24, 0.60),          # the attack starts with it
