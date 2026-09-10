@@ -6,9 +6,12 @@ generated per rotation rather than drawn once. The court is portrait with the
 net across the middle at y=0.5; home defends the bottom half, and away is the
 same shape mirrored through the net.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, court_rect, suffixed
 
 NET = 0.5
+
+# The court in canvas units, for ball_spot below.
+_L, _T, _W, _H = court_rect("volleyball")
 
 # The six zones, by their volleyball numbers, on the home (bottom) side.
 Z = {1: (0.80, 0.88), 2: (0.78, 0.62), 3: (0.50, 0.60),
@@ -34,6 +37,20 @@ def mirror(pt):
 
 def zone(n, side="home"):
     return Z[n] if side == "home" else mirror(Z[n])
+
+
+def ball_spot(pt):
+    """Where to author a point ball target so the ball is DRAWN at `pt`.
+
+    resolve_ball puts every ball at_the_feet_of its target — 40 canvas units
+    across toward the middle and 70 down — and does it for a bare (x, y) too.
+    A landing spot written literally is therefore drawn a metre past itself,
+    which on a volleyball court is the difference between a short serve and a
+    ball on the net tape.
+    """
+    x, y = pt
+    ax = x - 40.0 / _W if x < 0.5 else x + 40.0 / _W
+    return (ax, y - 70.0 / _H)
 
 
 # ── serve receive, one drill per rotation ────────────────────────────────────
@@ -145,17 +162,26 @@ ATTACK_NOTE = {
 
 
 def attack_family() -> list[Drill]:
-    """The four attacks a set can go to: outside, middle, opposite, pipe."""
+    """The four attacks a set can go to: outside, middle, opposite, pipe.
+
+    A front-row hitter waits BEHIND the 3 m line and runs at the net while
+    the set is in the air, contacting it about a metre off the tape — so the
+    set travels along the net, not four metres backwards into the court, and
+    the swing starts where a front-row swing starts. (It used to be drawn the
+    other way round: A began at the net, backed off to the attack line, and
+    the setter delivered the ball to the retreat.)
+    """
     specs = [
-        ("outside", "zone 4", (0.22, 0.62), (0.16, 0.80), (0.26, 0.53)),
-        ("middle", "zone 3", (0.50, 0.60), (0.44, 0.72), (0.50, 0.52)),
-        ("opposite", "zone 2", (0.78, 0.62), (0.86, 0.80), (0.74, 0.53)),
+        # key, label, where the approach starts, where the ball is contacted
+        ("outside", "zone 4", (0.12, 0.76), (0.17, 0.555)),
+        ("middle", "zone 3", (0.40, 0.74), (0.38, 0.555)),
+        ("opposite", "zone 2", (0.90, 0.76), (0.86, 0.555)),
         # A back-row attacker takes off behind the attack line at y=0.667.
         # Drawn at 0.58 the arrow visibly crossed it — an illegal attack.
-        ("pipe", "the pipe", (0.50, 0.92), (0.50, 0.80), (0.50, 0.685)),
+        ("pipe", "the pipe", (0.50, 0.92), (0.50, 0.70)),
     ]
     out = []
-    for key, label, start, wind, hit in specs:
+    for key, label, start, hit in specs:
         out.append(Drill(
             id=f"vb_attack_{key}", category="finishing", minutes=12, rel=True,
             free=(key == "outside"),
@@ -163,19 +189,22 @@ def attack_family() -> list[Drill]:
             home=[
                 P(*zone(1), "P", moves=[(0.72, 0.80, 0)]),
                 P(*SET_POINT, "S", moves=[(SET_POINT[0] - 0.03, 0.535, 1)]),
-                P(*start, "A", moves=[wind + (1,), hit + (2,)]),
+                P(*start, "A", moves=[hit + (1,)]),
             ],
             away=[
-                P(hit[0] - 0.04, 1 - hit[1] - 0.02, "B",
-                  moves=[(hit[0] - 0.03, 0.47, 2)]),
-                P(hit[0] + 0.06, 1 - hit[1] - 0.02, "B",
-                  moves=[(hit[0] + 0.04, 0.47, 2)]),
+                # The block stands at the net from the first beat — blockers
+                # do not start three metres off it — and only closes sideways
+                # onto the hitter as the swing comes.
+                P(hit[0] - 0.09, 0.465, "B",
+                  moves=[(hit[0] - 0.065, 0.475, 2)]),
+                P(hit[0] + 0.09, 0.465, "B",
+                  moves=[(hit[0] + 0.065, 0.475, 2)]),
                 P(*mirror(zone(6)), "D", moves=[(0.5, 0.14, 2)]),
             ],
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
-            # Pass to the setter, ball up to the point of attack, spiked at
-            # their deep defender.
+            # Pass to the setter, the set out to the hitter running in, the
+            # swing across the net at their deep defender.
             ball_to=[(1, 0), (2, 1), ("a2", 2)],
         ))
     return out
@@ -231,12 +260,18 @@ def block_family() -> list[Drill]:
     # Nobody triple-blocks a first-tempo middle: there is no time to close
     # three, and committing the front row leaves two diggers for the court.
     # A triple goes up against a high ball at a pin.
-    specs = [("solo", "solo", 1, 0.22), ("double_outside", "double outside", 2, 0.24),
-             ("double_middle", "double middle", 2, 0.50), ("triple", "triple", 3, 0.30)]
+    # x is where their hitter attacks. Kept out of the band either side of
+    # the midline: a ball is drawn at its target's feet, offset toward the
+    # middle, so a set from their setter to a hitter just across the middle
+    # is drawn shorter than one token and reads as no set at all.
+    specs = [("solo", "solo", 1, 0.20), ("double_outside", "double outside", 2, 0.24),
+             ("double_middle", "double middle", 2, 0.62), ("triple", "triple", 3, 0.78)]
     out = []
     for key, label, n, x in specs:
-        blockers = [P(x + (i - (n - 1) / 2) * 0.10, 0.545, "B",
-                      moves=[(x + (i - (n - 1) / 2) * 0.085, 0.53, 1)])
+        # Closing to a shoulder-to-shoulder wall, not to one point: three
+        # blockers stacked on the same spot cannot be counted or read.
+        blockers = [P(x + (i - (n - 1) / 2) * 0.14, 0.545, "B",
+                      moves=[(x + (i - (n - 1) / 2) * 0.115, 0.53, 1)])
                     for i in range(n)]
         out.append(Drill(
             id=f"vb_block_{key}", category="defending", minutes=10, rel=True,
@@ -253,13 +288,19 @@ tight=True,
                 P(0.82, 0.84, "D", moves=[(0.86, 0.78, 1)]),
             ],
             away=[
-                P(*mirror(SET_POINT), "S"),
-                P(x, 1 - 0.62, "A", moves=[(x, 0.30, 0), (x, 0.455, 1)]),
+                P(0.38, 0.47, "S"),
+                P(x, 0.32, "A", moves=[(x, 0.22, 0), (x, 0.44, 1)]),
             ],
-            ball=mirror(SET_POINT),
-            # Their set, their approach, the swing into our floor defence —
-            # the ball the block is timed against.
-            ball_to=[("a1", 0), (n, 1)],
+            # Their pass, coming up out of their back court. The ball used to
+            # start on the setter's own point, where _holder picked the
+            # nearest HOME player instead and the text read "B plays it to A"
+            # — a blue blocker setting the red hitter. Started behind him, the
+            # setter is the one who feeds the hitter, in the picture and in
+            # the sentence.
+            ball=(0.62, 0.14),
+            # Pass, set, and the swing into our floor defence — the ball the
+            # block is timed against.
+            ball_to=[("a0", 0), ("a1", 1), (n, 2)],
         ))
     return out
 
@@ -306,7 +347,7 @@ def defense_family() -> list[Drill]:
         ("rotation", "rotation",
          [(0.14, 0.74), (0.42, 0.92), (0.80, 0.88), (0.66, 0.68)]),
         ("man_up", "man-up",
-         [(0.40, 0.62), (0.16, 0.86), (0.86, 0.84), (0.70, 0.68)]),
+         [(0.42, 0.63), (0.16, 0.86), (0.86, 0.84), (0.70, 0.68)]),
     ]
     out = []
     for key, label, spots in specs:
@@ -314,19 +355,23 @@ def defense_family() -> list[Drill]:
             id=f"vb_defense_{key}", category="defending", minutes=12, rel=True,
             free=(key == "perimeter"),
             name=suffixed(DEFENSE_NAME, label), note=DEFENSE_NOTE,
-            home=[P(0.26, 0.545, "B", moves=[(0.26, 0.53, 1)]),
-                  P(0.38, 0.545, "B", moves=[(0.36, 0.53, 1)])] + [
+            home=[P(0.21, 0.55, "B", moves=[(0.225, 0.53, 1)]),
+                  P(0.36, 0.55, "B", moves=[(0.345, 0.53, 1)])] + [
                 P(x, y, "D", moves=[(x + (0.5 - x) * 0.12, y - 0.05, 1)])
                 for x, y in spots
             ],
             away=[
-                P(*mirror(SET_POINT), "S"),
-                P(0.26, 0.38, "A", moves=[(0.26, 0.455, 1)]),
+                P(0.40, 0.47, "S"),
+                P(0.20, 0.34, "A", moves=[(0.20, 0.22, 0), (0.20, 0.44, 1)]),
             ],
-            ball=mirror(SET_POINT),
-            # Set, swing, and the dig in the deep corner — where every one
-            # of these systems says the ball must be kept off the floor.
-            ball_to=[("a1", 0), (4, 1)],
+            # Their pass, from their back court. Placed on the setter's own
+            # point it was nearer a home blocker than to him, and the text
+            # read "B plays it to A" — a blue blocker setting the red hitter.
+            ball=(0.62, 0.14),
+            # Pass, set to the hitter running in, swing, and the dig in the
+            # deep corner — where every one of these systems says the ball
+            # must be kept off the floor.
+            ball_to=[("a0", 0), ("a1", 1), (4, 2)],
         ))
     return out
 
@@ -358,32 +403,41 @@ SERVE_NOTE = {
 }
 
 
+# Where the three receivers stand, the same shape behind every serve.
+SERVE_PASSERS = [(0.22, 0.24), (0.50, 0.18), (0.76, 0.24)]
+
+
 def serve_family() -> list[Drill]:
-    specs = [("float_deep", "float deep", (0.50, 0.06), (0.50, 0.04)),
-             ("jump", "jump", (0.50, 0.06), (0.30, 0.10)),
-             ("short", "short", (0.35, 0.06), (0.72, 0.42)),
+    # (key, label, where the server stands, where the serve lands)
+    specs = [("float_deep", "float deep", (0.50, 0.06), (0.50, 0.07)),
+             ("jump", "jump", (0.50, 0.06), (0.26, 0.10)),
+             ("short", "short", (0.35, 0.06), (0.72, 0.40)),
              ("seam", "at the seam", (0.65, 0.06), (0.33, 0.22))]
     out = []
-    for key, label, start, target in specs:
+    for key, label, start, land in specs:
+        # The receiver nearest the landing spot plays it, and steps TO the
+        # ball — which behind a deep float means backwards. All three used to
+        # step toward the net whatever the serve did.
+        def gap(sp):
+            return ((sp[0] - land[0]) * 9) ** 2 + ((sp[1] - land[1]) * 18) ** 2
+        i = min(range(3), key=lambda k: gap(SERVE_PASSERS[k]))
+        away = []
+        for k, (px, py) in enumerate(SERVE_PASSERS):
+            step = [(px + (land[0] - px) * 0.6, py + (land[1] - py) * 0.6, 1)]
+            away.append(P(px, py, "P", moves=step if k == i else []))
         out.append(Drill(
             id=f"vb_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "float_deep"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
             home=[P(start[0], 1.04, "S",
                     moves=[(start[0], 0.98, 0), (start[0], 1.02, 1)])],
-            away=[
-                P(0.22, 0.24, "P", moves=[(0.26, 0.28, 1)]),
-                P(0.50, 0.14, "P", moves=[(0.48, 0.20, 1)]),
-                P(0.76, 0.24, "P", moves=[(0.72, 0.28, 1)]),
-            ],
-            markers=[M(target[0], 1 - target[1] if target[1] > 0.5 else target[1],
-                       "zone", "")],
+            away=away,
+            markers=[M(*land, "zone", "")],
             ball=0,
-            # Over the net into the marked zone — the receiver nearest it
-            # takes it on the second beat.
-            ball_to=[((target[0],
-                       1 - target[1] if target[1] > 0.5 else target[1]), 0),
-                     ("a1", 1)],
+            # Over the net into the marked zone — ball_spot so the ball is
+            # drawn ON the zone and not 70 units past it, which for the short
+            # serve put the landing disc on the net tape.
+            ball_to=[(ball_spot(land), 0), (f"a{i}", 1)],
         ))
     return out
 
@@ -418,10 +472,17 @@ SETTER_NOTE = {
 }
 
 
+# The passer stands clear of the lane the setter releases through. Drawn on
+# it — zone 5 released straight over the libero — the run, the player and the
+# pass line were one arrow nobody could take apart.
+SETTER_PASSER = {1: (0.34, 0.84), 6: (0.24, 0.82), 5: (0.56, 0.90)}
+
+
 def setter_family() -> list[Drill]:
     out = []
     for z in (1, 6, 5):
         x, y = zone(z)
+        px, py = SETTER_PASSER[z]
         out.append(Drill(
             id=f"vb_setter_z{z}", category="attacking", minutes=10, rel=True,
             free=(z == 1),
@@ -429,11 +490,13 @@ def setter_family() -> list[Drill]:
             home=[
                 P(x, y, "S", moves=[(SET_POINT[0], SET_POINT[1] + 0.03, 0),
                                     SET_POINT + (1,)]),
-                P(0.30, 0.80, "P", moves=[(0.34, 0.74, 0)]),
-                P(0.22, 0.62, "A", moves=[(0.16, 0.80, 1), (0.26, 0.53, 2)]),
-                P(0.50, 0.60, "M", moves=[(0.46, 0.68, 1), (0.50, 0.52, 2)]),
+                P(px, py, "P", moves=[(px + 0.04, py - 0.06, 0)]),
+                # Both hitters wait behind the 3 m line and run at the net as
+                # the set goes up, which is where the set is delivered.
+                P(0.16, 0.74, "A", moves=[(0.20, 0.555, 2)]),
+                P(0.46, 0.70, "M", moves=[(0.46, 0.545, 2)]),
             ],
-            away=[P(0.30, 0.455, "B", moves=[(0.26, 0.47, 2)])],
+            away=[P(0.30, 0.455, "B", moves=[(0.24, 0.47, 2)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=1,
             # The pass climbs as the setter releases; he delivers the pin
@@ -477,26 +540,37 @@ def warmup_family() -> list[Drill]:
     out = []
     for i, (key, label) in enumerate(specs):
         if key == "pepper":
-            home = [P(0.34, 0.80, "1", moves=[(0.38, 0.74, 0), (0.34, 0.80, 1)]),
-                    P(0.66, 0.80, "2", moves=[(0.62, 0.74, 0), (0.66, 0.80, 1)])]
+            # Pepper is played down the length of a half at five metres:
+            # closer than that and there is no room to pass, set and hit.
+            home = [P(0.44, 0.94, "1", moves=[(0.44, 0.84, 0), (0.44, 0.94, 1)]),
+                    P(0.44, 0.64, "2", moves=[(0.48, 0.74, 0), (0.44, 0.64, 1)])]
             away = []
+            ball_to = [(1, 0), (0, 1)]
         elif key == "butterfly":
-            home = [P(0.22, 0.86, "1", moves=[(0.50, 0.80, 0)]),
-                    P(0.50, 0.68, "2", moves=[(0.78, 0.62, 0)]),
-                    P(0.78, 0.86, "3", moves=[(0.22, 0.86, 1)])]
-            away = [P(0.50, 0.24, "4", moves=[(0.26, 0.30, 0)])]
+            # The butterfly proper: 1 serves, 4 passes to the target T at the
+            # net on the PASSER's own side, and everyone follows the ball one
+            # station on — server to passer, passer to target, target to the
+            # back of the serving line. It used to be 4 passing straight back
+            # over the net, which is a rally, not a butterfly.
+            home = [P(0.32, 0.96, "1", moves=[(0.56, 0.30, 2)]),
+                    P(0.16, 0.96, "2"), P(0.48, 0.96, "3")]
+            away = [P(0.62, 0.26, "4", moves=[(0.42, 0.42, 2)]),
+                    P(0.40, 0.42, "T", moves=[(0.64, 0.94, 2)])]
+            ball_to = [("a0", 0), ("a1", 1)]
         else:
-            home = [P(0.20, 0.88, "1", moves=[(0.44, 0.84, 0), (0.20, 0.88, 1)]),
-                    P(0.80, 0.88, "2", moves=[(0.56, 0.84, 0), (0.80, 0.88, 1)])]
-            away = [P(0.50, 0.30, "C", moves=[(0.50, 0.36, 0)])]
+            # Both shuffle the same way, to the cone and back: shuffling into
+            # each other until the tokens touch reads as a collision.
+            home = [P(0.24, 0.88, "1", moves=[(0.46, 0.84, 0), (0.24, 0.88, 1)]),
+                    P(0.58, 0.88, "2", moves=[(0.80, 0.84, 0), (0.58, 0.88, 1)])]
+            away = [P(0.50, 0.30, "C", moves=[(0.50, 0.40, 0)])]
+            ball_to = [("a0", 0), (1, 1)]
         out.append(Drill(
             id=f"vb_warm_{key}", category="warmup", minutes=8, rel=True,
             free=(key == "pepper"),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, ball=0,
             # Back and forth — the ball is the metronome of every warm-up.
-            ball_to=([(1, 0), (0, 1)] if not away
-                     else [("a0", 0), (1, 1)]),
+            ball_to=ball_to,
         ))
     return out
 
@@ -531,7 +605,9 @@ FREEBALL_NOTE = {
 
 
 def freeball_family() -> list[Drill]:
-    specs = [("free_ball", "a free ball", 0.30), ("down_ball", "a down ball", 0.42)]
+    # ay: where their contact is made — a free ball is sent up from deep, a
+    # down ball is struck standing from around their attack line.
+    specs = [("free_ball", "a free ball", 0.24), ("down_ball", "a down ball", 0.36)]
     out = []
     for key, label, ay in specs:
         out.append(Drill(
@@ -540,17 +616,22 @@ def freeball_family() -> list[Drill]:
             name=suffixed(FREEBALL_NAME, label), note=FREEBALL_NOTE,
             home=[
                 P(0.26, 0.545, "B", moves=[(0.24, 0.66, 0)]),
-                P(0.50, 0.545, "M", moves=[(0.46, 0.70, 0), (0.50, 0.52, 2)]),
+                P(0.50, 0.545, "M", moves=[(0.46, 0.70, 0), (0.40, 0.545, 2)]),
                 P(0.72, 0.72, "S", moves=[SET_POINT + (1,)]),
-                P(0.22, 0.80, "P", moves=[(0.20, 0.74, 0), (0.26, 0.53, 2)]),
+                P(0.22, 0.80, "P", moves=[(0.20, 0.74, 0), (0.26, 0.545, 2)]),
                 P(0.62, 0.90, "D", moves=[(0.56, 0.84, 0)]),
             ],
-            away=[P(0.50, ay, "A", moves=[(0.50, ay + 0.06, 0)])],
+            away=[P(0.50, ay, "A", moves=[(0.50, ay + 0.08, 0)])],
             markers=[M(*SET_POINT, "square", "")],
-            ball=(0.50, ay),
-            # The gift comes over slow; pass, set, and the swing puts it
-            # back on their floor — the whole point of a free ball.
-            ball_to=[(4, 0), (2, 1), ("a0", 2)],
+            # Beside their hitter, not under him — and far enough from our
+            # front row that the text does not credit the first touch to one
+            # of our own blockers.
+            ball=(0.44, ay + 0.05),
+            # The gift comes over slow; dig, set to the middle running in,
+            # and the swing puts it back on their floor — the whole point of
+            # a free ball. It used to be set BACK over the net to the
+            # opponent, and the middle never touched it.
+            ball_to=[(4, 0), (2, 1), (1, 2), (ball_spot((0.62, 0.26)), 3)],
         ))
     return out
 
@@ -584,25 +665,30 @@ SET_NOTE = {
 
 
 def setting_family() -> list[Drill]:
-    specs = [("front", "front set", (0.24, 0.55)), ("back", "back set", (0.88, 0.57)),
-             ("jump", "jump set", (0.50, 0.52))]
+    # target = the window the set is delivered into, a metre off the net;
+    # start = where the hitter waits, behind the 3 m line, before running in.
+    # The set used to travel four metres BACKWARD to a hitter standing on the
+    # attack line, leaving the target box at the net empty on every board.
+    specs = [("front", "front set", (0.18, 0.555), (0.12, 0.76)),
+             ("back", "back set", (0.86, 0.565), (0.92, 0.76)),
+             ("jump", "jump set", (0.38, 0.545), (0.36, 0.74))]
     out = []
-    for key, label, target in specs:
+    for key, label, target, start in specs:
         out.append(Drill(
             id=f"vb_set_{key}", category="possession", minutes=8, rel=True,
             free=(key == "front"),
             name=suffixed(SET_NAME, label), note=SET_NOTE,
             home=[
-                P(0.50, 0.86, "P", moves=[(0.54, 0.78, 0)]),
+                P(0.60, 0.88, "P", moves=[(0.58, 0.78, 0)]),
                 P(*SET_POINT, "S", moves=[(SET_POINT[0] - 0.02, 0.535, 1)]),
-                P(target[0], target[1] + 0.16, "A",
-                  moves=[target + (2,)]),
+                P(*start, "A", moves=[target + (1,)]),
             ],
             markers=[M(*target, "square", "")],
             ball=0,
-            # Pass up to the setter, delivered to the target window, put away.
+            # Pass up to the setter, delivered to the target window as the
+            # hitter arrives in it, put away over the net.
             ball_to=[(1, 0), (2, 1),
-                     ((target[0], 0.30), 2)],
+                     (ball_spot((target[0], 0.30)), 2)],
         ))
     return out
 
@@ -634,6 +720,12 @@ GAME_NOTE = {
 }
 
 
+def _away_player(spot, label):
+    """An away player and his small step toward the ball, from HIS own spot."""
+    ax, ay = spot
+    return P(ax, ay, label, moves=[(ax + (0.5 - ax) * 0.14, ay + 0.05, 0)])
+
+
 def game_family() -> list[Drill]:
     """2v2 up to 6v6 — the whole court every time, fewer bodies to cover it."""
     layouts = {
@@ -650,12 +742,17 @@ def game_family() -> list[Drill]:
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.14, y - 0.05, 0)])
                   for i, (x, y) in enumerate(spots)],
-            away=[P(*mirror((x, y)), chr(65 + i),
-                    moves=[(x + (0.5 - x) * 0.14, 1 - y + 0.05, 0)])
+            # Shift each away player toward the ball from where THEY stand.
+            # Written against the home x, every away player crossed the court
+            # to his mirror image — two X-crossings through team-mates on the
+            # 6v6 board for no tactical reason at all.
+            away=[_away_player(mirror((x, y)), chr(65 + i))
                   for i, (x, y) in enumerate(spots)],
             ball=0,
             # One exchange of the rally — over to their A, back to our 2.
-            ball_to=[("a0", 0), (1 % n, 0)],
+            # One trip per beat: their serve and our pass off it both on
+            # beat 0 meant the serve was never drawn.
+            ball_to=[("a0", 0), (1 % n, 1)],
         ))
     return out
 
@@ -747,29 +844,35 @@ def gaps_family() -> list[Drill]:
             free=True, level="foundation",
             name=suffixed(COVER_NAME, "around the outside hitter"),
             note=COVER_NOTE,
-            home=[P(0.22, 0.62, "A", moves=[(0.18, 0.575, 1)]),
-                  P(*SET_POINT, "S", moves=[(0.44, 0.62, 1)]),
-                  P(0.34, 0.70, "C", moves=[(0.28, 0.655, 1)]),
-                  P(0.20, 0.86, "C", moves=[(0.235, 0.735, 1)]),
-                  P(0.52, 0.92, "C", moves=[(0.42, 0.79, 1)])],
-            away=[P(0.20, 0.455, "B"), P(0.32, 0.455, "B")],
-            markers=[M(0.26, 0.70, "zone", "")],
+            # A coverage board needs a hit and a block to cover: the only
+            # ball movement used to be A playing it a metre backwards to a C.
+            home=[P(0.17, 0.575, "A"),
+                  P(*SET_POINT, "S", moves=[(0.44, 0.62, 0)]),
+                  P(0.34, 0.70, "C", moves=[(0.27, 0.62, 0)]),
+                  P(0.20, 0.86, "C", moves=[(0.17, 0.70, 0)]),
+                  P(0.52, 0.92, "C", moves=[(0.38, 0.76, 0)])],
+            away=[P(0.12, 0.465, "B"), P(0.27, 0.465, "B")],
+            markers=[M(0.24, 0.68, "zone", "")],
             ball=0,
-            # the swing comes back off the block into the cover
-            ball_to=[(0, 0), (2, 1)],
+            # cover first, then the swing into the block and the rebound
+            # dropping into the arc that is already there
+            ball_to=[("a0", 1), (2, 2)],
         ),
         Drill(
             id="vb_attack_quick", category="finishing", minutes=12, rel=True,
             name=suffixed(TEMPO_NAME, "the quick in front"), note=TEMPO_NOTE,
             home=[P(*zone(1), "P", moves=[(0.72, 0.80, 0)]),
                   P(*SET_POINT, "S", moves=[(0.62, 0.545, 1)]),
-                  P(0.50, 0.62, "M", moves=[(0.56, 0.575, 0), (0.58, 0.545, 1)])],
-            away=[P(0.54, 0.455, "B", moves=[(0.58, 0.47, 2)]),
+                  # In the air before the set, and a metre and a bit in front
+                  # of the setter — ending ON him hid both labels and left
+                  # the "set" with no length at all.
+                  P(0.36, 0.68, "M", moves=[(0.38, 0.55, 0)])],
+            away=[P(0.54, 0.455, "B", moves=[(0.50, 0.47, 2)]),
                   P(*mirror(zone(6)), "D")],
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
             # pass, one-beat set, the quick dies before the block closes
-            ball_to=[(1, 0), (2, 1), ((0.56, 0.30), 2)],
+            ball_to=[(1, 0), (2, 1), (ball_spot((0.56, 0.28)), 2)],
         ),
         Drill(
             id="vb_attack_slide", category="finishing", minutes=12, rel=True,
@@ -784,19 +887,24 @@ def gaps_family() -> list[Drill]:
             markers=[M(*SET_POINT, "square", "")],
             ball=0,
             # pass, set chasing the slide, hit from behind the setter
-            ball_to=[(1, 0), (2, 1), ((0.82, 0.30), 2)],
+            ball_to=[(1, 0), (2, 1), (ball_spot((0.82, 0.30)), 2)],
         ),
         Drill(
             id="vb_receive_two_passer", category="possession", minutes=12, rel=True,
             free=True, level="advanced",
             name=suffixed(LIBERO_NAME, "in a two-passer receive"), note=LIBERO_NOTE,
-            home=[P(0.34, 0.84, "L", moves=[(0.42, 0.78, 1)]),
-                  P(0.74, 0.82, "P", moves=[(0.68, 0.76, 1)]),
+            home=[P(0.34, 0.84, "L", moves=[(0.40, 0.76, 0)]),
+                  P(0.74, 0.82, "P", moves=[(0.66, 0.74, 0)]),
                   P(*SET_POINT, "S", moves=[(0.60, 0.555, 1)]),
-                  P(0.22, 0.62, "H"), P(0.50, 0.60, "M"), P(0.78, 0.62, "H")],
-            away=[P(0.50, 0.06, "SV", moves=[(0.46, 0.115, 0)])],
+                  # Clear of where the pass comes to rest at the setter's
+                  # feet, which is otherwise on top of the middle.
+                  P(0.20, 0.62, "H"), P(0.44, 0.60, "M"), P(0.80, 0.62, "H")],
+            away=[P(0.50, 0.06, "SV", moves=[(0.50, 0.16, 0)])],
             markers=[M(*SET_POINT, "square", "")],
-            ball=3,
+            # In the server's hand. A serve-receive drill in which the ball
+            # started inside our own court with a front-row hitter had nobody
+            # serving in it.
+            ball=(0.45, 0.10),
             # their serve into the seam; the libero takes it to the setter
             ball_to=[(0, 0), (2, 1)],
         ),
@@ -805,15 +913,17 @@ def gaps_family() -> list[Drill]:
             level="foundation",
             name=suffixed(SETTER_NAME, "the second-ball dump"), note=DUMP_NOTE,
             home=[P(0.20, 0.84, "P", moves=[(0.28, 0.76, 0)]),
-                  P(*SET_POINT, "S", moves=[(0.62, 0.545, 1), (0.56, 0.525, 2)]),
-                  P(0.22, 0.62, "H", moves=[(0.18, 0.575, 2)])],
+                  P(*SET_POINT, "S", moves=[(0.62, 0.545, 1)]),
+                  P(0.20, 0.62, "H", moves=[(0.24, 0.555, 2)])],
             away=[P(0.26, 0.455, "B", moves=[(0.20, 0.47, 2)]),
                   P(0.42, 0.455, "B", moves=[(0.36, 0.47, 2)]),
                   P(*mirror(zone(6)), "D")],
             markers=[M(0.62, 0.40, "zone", "")],
             ball=0,
-            # pass up — and the setter drops it over on two
-            ball_to=[(1, 0), ((0.44, 0.44), 2)],
+            # pass up — and the setter drops it over on two, INTO their
+            # court behind the block. Written as a bare point it was drawn
+            # 70 units short of itself, which left the dump on the net tape.
+            ball_to=[(1, 0), (ball_spot((0.62, 0.40)), 2)],
         ),
     ]
 

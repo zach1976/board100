@@ -366,7 +366,7 @@ def counter_family() -> list[Drill]:
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
             # carried up the pool, laid across, finished
-            ball_to=[(0, 0), (1 % n, 1), ((0.50, 0.04), 1)],
+            ball_to=[(0, 0), (1 % n, 1), ((0.50, 0.04), 2)],
         ))
     return out
 
@@ -471,7 +471,7 @@ def game_family() -> list[Drill]:
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
             # two passes round the ring under pressure
-            ball_to=[(1 % n, 0), (2 % n, 0)],
+            ball_to=[(1 % n, 0), (2 % n, 1)],
         ))
     return out
 
