@@ -56,6 +56,22 @@ List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players) {
   return [...ranked[0], ...ranked[1], ...ranked[2]];
 }
 
+/// Where a chain has reached once every phase below [phaseLimit] has run.
+///
+/// phaseLimit 0 is the overview: step 0 shows the whole planned chain, so the
+/// end of it is the last leg, not the start.
+Offset chainEndAt(PlayerIcon player, int phaseLimit) {
+  if (player.moves.isEmpty) return player.position;
+  if (phaseLimit <= 0) return player.moves.last;
+  player.syncPhases();
+  var end = player.position;
+  for (var i = 0; i < player.moves.length; i++) {
+    final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+    if (ph < phaseLimit) end = player.moves[i];
+  }
+  return end;
+}
+
 /// How close two players have to be before the board fans them apart.
 const double _kFanThreshold = kPlayerIconSize * 0.9;
 
@@ -744,7 +760,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // him, so the board showed the man who had gone instead of
                   // the man who arrived.
                   if (state.showMoveLines)
-                    ...players.where((p) => p.moves.isNotEmpty).map((player) {
+                    ...players.where((p) => p.moves.isNotEmpty).where((p) {
+                      // Mirror of the rule above, the other way round: once
+                      // the run has been played the end icon is the live one,
+                      // and a ghost less than a token away only covers it.
+                      final phaseLimit = state.atStep > 0
+                          ? state.atStep
+                          : (state.targetStep > 0 ? state.targetStep : 0);
+                      if (phaseLimit == 0) return true;
+                      return (chainEndAt(p, phaseLimit) - p.position).distance
+                          >= nudgeThreshold(p.scale);
+                    }).map((player) {
                       final size = kPlayerIconSize * player.scale;
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
@@ -844,9 +870,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // every cone.
                       final ballEscorted = player.isBall &&
                           ballTravelsWithPlayers(player, players);
+                      // At step 0 the solid token is still at the start, so
+                      // a run shorter than the token would drop the faded end
+                      // icon straight on top of it — the same player drawn
+                      // twice. The nudge arrow carries the direction instead.
+                      final shortRun = visibleMoves.isNotEmpty &&
+                          (visibleMoves.last - player.position).distance <
+                              nudgeThreshold(player.scale);
                       return visibleMoves.asMap().entries.where((entry) {
+                        final isEnd = entry.key == visibleMoves.length - 1;
+                        if (shortRun && atStartTime && isEnd) return false;
                         if (!ballEscorted) return true;
-                        return entry.key == visibleMoves.length - 1;
+                        return isEnd;
                       }).map((entry) {
                         final isLast = entry.key == visibleMoves.length - 1;
                         final chainSelected = state.selectedPlayerId == player.id;

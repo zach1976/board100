@@ -115,7 +115,10 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
 
     var boards = 0, shots = 0;
-    var warmed = false;
+    // Each sport has its own ball sprite, so warming once for the run left
+    // the FIRST board of every other sport shot before its ball had decoded —
+    // fifteen boards across a full run with no ball on them.
+    String? warmedSport;
     final files = drillDir.listSync().whereType<File>().toList()
       ..sort((a, b) => a.path.compareTo(b.path));
     for (final f in files) {
@@ -143,11 +146,11 @@ void main() {
         // The ball and marker sprites decode asynchronously, so the very
         // first shot of a run came out without its cones and ball. Give the
         // first board a real-time beat to load them before shooting.
-        if (!warmed) {
+        if (warmedSport != sport) {
           await tester.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 400)));
           await tester.pump(const Duration(milliseconds: 60));
-          warmed = true;
+          warmedSport = sport;
         }
         boards++;
 
