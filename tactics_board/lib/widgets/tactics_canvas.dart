@@ -1463,6 +1463,42 @@ class _WaypointDotState extends State<_WaypointDot> {
 
     // Larger hit area for easier dragging
     const hitSize = 40.0;
+    // An unselected chain's middle stops are diagram, not controls: a filled
+    // coloured disc the size of a ball, carrying a number, is read as an
+    // object standing on the pitch — every reviewer of the drill library
+    // called them balls. Unselected they are a small hollow ring, which says
+    // "a point on this line" and nothing more; the moment the player is
+    // selected they become the numbered disc again, because then they ARE
+    // the handles you drag and long-press. The hit area never changes, so a
+    // waypoint is just as easy to grab either way.
+    final quiet = !widget.isSelected && !widget.isPrimary;
+    if (quiet) {
+      return Positioned(
+        left: widget.position.dx - hitSize / 2,
+        top: widget.position.dy - hitSize / 2,
+        child: GestureDetector(
+          onTap: _onTap,
+          onPanUpdate: _onPanUpdate,
+          onPanEnd: _onPanEnd,
+          onLongPress: _onDefaultLongPress,
+          child: SizedBox(
+            width: hitSize,
+            height: hitSize,
+            child: Center(
+              child: Container(
+                width: 13,
+                height: 13,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0x59000000),
+                  border: Border.all(color: widget.player.moveColor, width: 2.5),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     return Positioned(
       left: widget.position.dx - hitSize / 2,
       top: widget.position.dy - hitSize / 2,
