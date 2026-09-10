@@ -366,5 +366,11 @@
   "drills_put_on_board": "보드에 올리기",
   "drills_unlock": "Pro로 잠금 해제",
   "anim_prev_step": "이전 단계",
-  "anim_next_step": "다음 단계"
+  "anim_next_step": "다음 단계",
+  "home_today": "오늘 뭘 할까",
+  "home_all_drills": "전체 {}개 →",
+  "home_browse": "카테고리로 찾기",
+  "home_mine": "내 보드",
+  "home_open_board": "보드 열기",
+  "home_new_board": "새 보드"
 }

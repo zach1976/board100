@@ -9,6 +9,7 @@ import 'services/ad_service.dart';
 import 'services/purchase_service.dart';
 import 'services/tap_guard.dart';
 import 'state/tactics_state.dart';
+import 'pages/sport_home_page.dart';
 import 'pages/sport_selection_page.dart';
 import 'pages/home_page.dart';
 
@@ -152,8 +153,11 @@ class TacticsBoardApp extends StatelessWidget {
               insetPadding: EdgeInsets.fromLTRB(T.s16, T.s8, T.s16, 96),
             ),
           ),
+          // A sport's home page, not its board: everything the app has grown
+          // — the drill library, session plans, saved boards — used to be
+          // reachable only from a menu on top of an empty pitch.
           home: fs != null
-              ? const TacticsBoardHomePage()
+              ? const SportHomePage()
               : const SportSelectionPage(),
         ),
       ),

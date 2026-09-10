@@ -366,5 +366,11 @@
   "drills_put_on_board": "放到板上",
   "drills_unlock": "用 Pro 解鎖",
   "anim_prev_step": "上一步",
-  "anim_next_step": "下一步"
+  "anim_next_step": "下一步",
+  "home_today": "今天練什麼",
+  "home_all_drills": "全部 {} 個 →",
+  "home_browse": "依類別尋找",
+  "home_mine": "我的戰術",
+  "home_open_board": "開啟戰術板",
+  "home_new_board": "新增空白板"
 }

@@ -366,5 +366,11 @@
   "drills_put_on_board": "Ponerlo en la pizarra",
   "drills_unlock": "Desbloquear con Pro",
   "anim_prev_step": "Paso anterior",
-  "anim_next_step": "Paso siguiente"
+  "anim_next_step": "Paso siguiente",
+  "home_today": "Qué entrenar hoy",
+  "home_all_drills": "Los {} ejercicios →",
+  "home_browse": "Por categoría",
+  "home_mine": "Mis pizarras",
+  "home_open_board": "Abrir la pizarra",
+  "home_new_board": "Nueva pizarra"
 }

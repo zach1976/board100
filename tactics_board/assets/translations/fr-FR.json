@@ -366,5 +366,11 @@
   "drills_put_on_board": "Mettre sur le tableau",
   "drills_unlock": "Débloquer avec Pro",
   "anim_prev_step": "Étape précédente",
-  "anim_next_step": "Étape suivante"
+  "anim_next_step": "Étape suivante",
+  "home_today": "À travailler aujourd'hui",
+  "home_all_drills": "Les {} exercices →",
+  "home_browse": "Par catégorie",
+  "home_mine": "Mes tableaux",
+  "home_open_board": "Ouvrir le tableau",
+  "home_new_board": "Nouveau tableau"
 }

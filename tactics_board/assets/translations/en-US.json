@@ -366,5 +366,11 @@
   "drills_put_on_board": "Put it on the board",
   "drills_unlock": "Unlock with Pro",
   "anim_prev_step": "Previous step",
-  "anim_next_step": "Next step"
+  "anim_next_step": "Next step",
+  "home_today": "What to run today",
+  "home_all_drills": "All {} drills →",
+  "home_browse": "Browse by category",
+  "home_mine": "My boards",
+  "home_open_board": "Open the board",
+  "home_new_board": "New board"
 }

@@ -166,7 +166,19 @@ Map<String, Offset> fanOutOffsets(
 }
 
 class TacticsCanvas extends StatefulWidget {
-  const TacticsCanvas({super.key});
+  /// A read-only copy of a board — a drill's detail page, the home page's
+  /// thumbnail — rather than THE board.
+  ///
+  /// Two things here belong to the live board alone and must not be built a
+  /// second time: [boardRepaintKey] and [externalRepaintKey] are top-level
+  /// GlobalKeys, so a second canvas anywhere in the tree steals them (Flutter
+  /// throws "Duplicate GlobalKeys" the moment both are mounted, which is
+  /// every push transition from a page showing a preview). They exist for
+  /// capture — screenshots, PDF, video, the external display — and a preview
+  /// is captured by nothing. Skipping the external layer also saves a
+  /// preview from painting a 960x540 second copy of itself on every frame.
+  final bool preview;
+  const TacticsCanvas({super.key, this.preview = false});
 
   @override
   State<TacticsCanvas> createState() => _TacticsCanvasState();
@@ -459,18 +471,19 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       clipBehavior: Clip.none,
       children: [
         // Offscreen landscape canvas for external display
-        Positioned(
-          left: -20000,
-          top: 0,
-          child: RepaintBoundary(
-            key: externalRepaintKey,
-            child: SizedBox(
-              width: 960,
-              height: 540,
-              child: _buildExternalContent(),
+        if (!widget.preview)
+          Positioned(
+            left: -20000,
+            top: 0,
+            child: RepaintBoundary(
+              key: externalRepaintKey,
+              child: SizedBox(
+                width: 960,
+                height: 540,
+                child: _buildExternalContent(),
+              ),
             ),
           ),
-        ),
         LayoutBuilder(
       builder: (context, constraints) {
             final canvasW = constraints.maxWidth;
@@ -621,7 +634,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             );
 
             final wrapped = RepaintBoundary(
-              key: boardRepaintKey,
+              key: widget.preview ? null : boardRepaintKey,
               child: SizedBox(
                 width: canvasW,
                 height: canvasH,

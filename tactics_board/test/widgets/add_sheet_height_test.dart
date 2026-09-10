@@ -40,6 +40,13 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
     }
 
+    // The app opens on the sport's home page now, and the board is a push
+    // from it — so get there before reaching for the board's own controls.
+    await tester.tap(find.text('Open the board'));
+    for (var i = 0; i < 20; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
     await tester.tap(find.byIcon(Icons.add_rounded).first, warnIfMissed: false);
     for (var i = 0; i < 12; i++) {
       await tester.pump(const Duration(milliseconds: 100));

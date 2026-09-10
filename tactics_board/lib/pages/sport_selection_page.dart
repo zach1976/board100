@@ -21,7 +21,7 @@ import '../painters/footvolley_court_painter.dart';
 import '../state/tactics_state.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
-import 'home_page.dart';
+import 'sport_home_page.dart';
 
 class SportSelectionPage extends StatelessWidget {
   const SportSelectionPage({super.key});
@@ -184,7 +184,7 @@ class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMi
   void _navigate() {
     context.read<TacticsState>().setSportType(widget.sport);
     Navigator.of(context).pushReplacement(PageRouteBuilder(
-      pageBuilder: (ctx, anim, sec) => const TacticsBoardHomePage(),
+      pageBuilder: (ctx, anim, sec) => const SportHomePage(),
       transitionsBuilder: (ctx, anim, sec, child) =>
           FadeTransition(opacity: anim, child: child),
       transitionDuration: const Duration(milliseconds: 250),

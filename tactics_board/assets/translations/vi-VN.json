@@ -366,5 +366,11 @@
   "drills_put_on_board": "Đưa lên bảng",
   "drills_unlock": "Mở khoá bằng Pro",
   "anim_prev_step": "Bước trước",
-  "anim_next_step": "Bước sau"
+  "anim_next_step": "Bước sau",
+  "home_today": "Hôm nay tập gì",
+  "home_all_drills": "Tất cả {} bài →",
+  "home_browse": "Tìm theo nhóm",
+  "home_mine": "Bảng của tôi",
+  "home_open_board": "Mở bảng chiến thuật",
+  "home_new_board": "Bảng mới"
 }

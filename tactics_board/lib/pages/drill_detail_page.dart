@@ -243,19 +243,9 @@ class _BoardPreview extends StatelessWidget {
                 borderRadius: T.brMd,
                 child: AspectRatio(
                   aspectRatio: 402 / 730,
-                  child: LayoutBuilder(
-                    builder: (context, box) {
-                      // The canvas scales its board to whatever box it is
-                      // given, and it has to be told that size explicitly —
-                      // without this every drill is laid out for the last
-                      // size the state saw.
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        s.setCanvasSizeSilent(
-                            Size(box.maxWidth, box.maxHeight));
-                      });
-                      return const IgnorePointer(child: TacticsCanvas());
-                    },
-                  ),
+                  // The canvas takes its own size from the box it is given.
+                  child: const IgnorePointer(
+                      child: TacticsCanvas(preview: true)),
                 ),
               ),
               if (steps > 0) ...[
