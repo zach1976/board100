@@ -1,0 +1,583 @@
+<title>Intro 背景图提示词</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+  /* Committed to one look on purpose: this page is a preview surface for
+     artwork that only ever appears on a near-black green app screen, so the
+     palette IS the app's palette (tactics_board/lib/ui/tokens.dart). */
+  :root {
+    color-scheme: dark;
+    --bg0: #071A1D;
+    --bg1: #0B2328;
+    --surface: #12333B;
+    --surface-hi: #173E47;
+    --border: rgba(180, 205, 210, 0.18);
+    --border-hi: rgba(180, 205, 210, 0.34);
+    --text: #F3F7F6;
+    --dim: #9AAEB1;
+    --off: #60777B;
+    --accent: #18C7BC;
+    --accent-fill: rgba(24, 199, 188, 0.14);
+    --warn: #E6A93D;
+    --ui: 'Archivo', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg0);
+    color: var(--text);
+    font-family: var(--ui);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px 96px; }
+
+  /* ── masthead ──────────────────────────────────────────────────────── */
+  header { padding: 56px 0 32px; border-bottom: 1px solid var(--border); }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--off); margin: 0 0 14px;
+  }
+  h1 {
+    margin: 0 0 14px; font-size: clamp(30px, 4.4vw, 44px); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede { margin: 0; max-width: 60ch; color: var(--dim); font-size: 16px; }
+
+  /* ── section scaffolding ───────────────────────────────────────────── */
+  section { padding: 44px 0 0; }
+  h2 {
+    margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h2 + .sub { margin: 0 0 22px; color: var(--dim); max-width: 68ch; font-size: 14.5px; }
+  h3 { margin: 0 0 10px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+
+  /* ── composer ──────────────────────────────────────────────────────── */
+  .composer { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 24px; align-items: start; }
+  @media (max-width: 860px) { .composer { grid-template-columns: 1fr; } }
+
+  .rail {
+    background: var(--bg1); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px; position: sticky; top: 20px;
+  }
+  @media (max-width: 860px) { .rail { position: static; } }
+  .rail-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--off); margin: 0 0 10px;
+  }
+  .rail-label.second { margin-top: 22px; }
+
+  .sports { display: flex; flex-direction: column; gap: 2px; max-height: 46vh; overflow-y: auto; }
+  @media (max-width: 860px) { .sports { max-height: none; flex-direction: row; flex-wrap: wrap; } }
+
+  button.pick {
+    appearance: none; text-align: left; width: 100%; cursor: pointer;
+    background: transparent; color: var(--dim); font-family: var(--ui);
+    font-size: 14px; border: 1px solid transparent; border-radius: 8px;
+    padding: 7px 10px; display: flex; justify-content: space-between; gap: 10px;
+    transition: background 120ms, color 120ms;
+  }
+  @media (max-width: 860px) { button.pick { width: auto; } }
+  button.pick:hover { background: var(--surface); color: var(--text); }
+  button.pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.pick[aria-pressed="true"] {
+    background: var(--accent-fill); color: var(--text); border-color: rgba(24, 199, 188, 0.4);
+  }
+  button.pick .k { font-family: var(--mono); font-size: 11px; color: var(--off); }
+  button.pick[aria-pressed="true"] .k { color: var(--accent); }
+
+  .panels { display: flex; flex-direction: column; gap: 4px; }
+  .panels button.pick { flex-direction: column; align-items: flex-start; gap: 1px; padding: 9px 10px; }
+  .panels .t { font-weight: 600; }
+  .panels .d { font-size: 11.5px; color: var(--off); }
+
+  /* ── the prompt block ──────────────────────────────────────────────── */
+  .promptcard { background: var(--bg1); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .promptbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .promptbar .who { font-size: 13.5px; color: var(--dim); }
+  .promptbar .who b { color: var(--text); font-weight: 600; }
+  .promptbar .file { font-family: var(--mono); font-size: 11.5px; color: var(--accent); }
+
+  button.copy {
+    appearance: none; cursor: pointer; font-family: var(--ui); font-size: 13px; font-weight: 600;
+    background: var(--accent); color: #06231F; border: 0; border-radius: 8px; padding: 8px 16px;
+    transition: filter 120ms;
+  }
+  button.copy:hover { filter: brightness(1.08); }
+  button.copy:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+  button.copy.done { background: var(--surface-hi); color: var(--accent); }
+
+  pre.prompt {
+    margin: 0; padding: 20px; font-family: var(--mono); font-size: 12.5px; line-height: 1.75;
+    color: var(--text); white-space: pre-wrap; word-break: break-word; max-height: 62vh; overflow-y: auto;
+  }
+  pre.prompt .var { color: var(--accent); }
+
+  /* ── generic cards / tables ────────────────────────────────────────── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--bg1); border: 1px solid var(--border); border-radius: 12px; padding: 18px;
+  }
+  .card p { margin: 0; color: var(--dim); font-size: 14px; }
+  .card p + p { margin-top: 10px; }
+  .card code, p code, li code, td code {
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    background: var(--surface); padding: 1px 5px; border-radius: 4px;
+  }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg1); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--off); background: var(--surface); white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.mono { font-family: var(--mono); font-size: 12px; color: var(--dim); white-space: nowrap; }
+
+  ul.rules { margin: 0; padding: 0; list-style: none; }
+  ul.rules li {
+    padding: 12px 0 12px 30px; border-bottom: 1px solid var(--border);
+    position: relative; color: var(--dim); font-size: 14.5px;
+  }
+  ul.rules li:last-child { border-bottom: 0; }
+  ul.rules li::before {
+    content: ''; position: absolute; left: 8px; top: 21px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+  ul.rules li b { color: var(--text); font-weight: 600; }
+  ul.rules li.warn::before { background: var(--warn); }
+
+  .note {
+    border-left: 2px solid var(--accent); background: var(--accent-fill);
+    padding: 14px 18px; border-radius: 0 10px 10px 0; color: var(--dim); font-size: 14px;
+  }
+  .note b { color: var(--text); font-weight: 600; }
+
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--off); font-size: 13px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">board100 · intro page</p>
+    <h1>Intro 背景图 <em>提示词</em></h1>
+    <p class="lede">
+      新 intro 的排版、文字、下划线、按钮全部由代码画。图片只负责一件事：
+      一张竖幅的场景底图，上面 40% 是空的。左边选运动和屏，右边就是可以直接粘进
+      ChatGPT 的英文提示词。
+    </p>
+  </header>
+
+  <section>
+    <h2>提示词生成器</h2>
+    <p class="sub">
+      16 个 app × 3 屏 = 48 张。每个 app 只需要自己那 3 张，不需要别人的。
+      提示词里青色的部分是按运动替换掉的，其余每张完全一致——这是刻意的，
+      同一套光和同一块板子才能让 16 个 app 看起来是一家的。
+    </p>
+
+    <div class="composer">
+      <div class="rail">
+        <p class="rail-label">运动 / APP</p>
+        <div class="sports" id="sports"></div>
+        <p class="rail-label second">第几屏</p>
+        <div class="panels" id="panels"></div>
+      </div>
+
+      <div class="promptcard">
+        <div class="promptbar">
+          <div class="who">
+            <b id="who-sport">足球战术板</b> · <span id="who-panel">第 1 屏</span>
+            <span class="file" id="who-file"></span>
+          </div>
+          <button class="copy" id="copy" type="button">复制提示词</button>
+        </div>
+        <pre class="prompt" id="prompt"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>交付</h2>
+    <p class="sub">图出好之后原样丢给我就行，转格式、压体积、写 pubspec 我来做。</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>最省事的方式</h3>
+        <p>
+          全部 PNG 原图丢进 <code>~/Downloads/intro_art/</code>，
+          文件名 <code>&lt;key&gt;_1.png</code> / <code>_2</code> / <code>_3</code>，
+          比如 <code>soccer_1.png</code>。
+        </p>
+        <p>剩下的（转 WebP、压到 ~250KB、放进各 app 的 <code>assets/intro/</code>、改 pubspec）我批量跑。</p>
+      </div>
+      <div class="card">
+        <h3>为什么每个 app 各存一份</h3>
+        <p>
+          shell 用 <code>hasPackagePath</code> 把核心包的资源整包打进去——
+          图放核心里，每个 app 都要背 48 张。
+        </p>
+        <p>所以底图跟 app 图标一样，归各自目录所有：<code>SoccerBoard/assets/intro/</code>。</p>
+      </div>
+      <div class="card">
+        <h3>缺图不会崩</h3>
+        <p>代码里图是可选的：<code>errorBuilder</code> 兜底回现在这版纯色渐变。</p>
+        <p>所以可以一个运动一个运动地补，先出足球看效果，不用等 48 张齐了才能跑。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>出图规格</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>项</th><th>值</th><th>为什么</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>比例</td>
+            <td class="mono">9 : 19.5（1080 × 2340）</td>
+            <td>按最高的手机来。代码用 <code>BoxFit.cover</code> 底部对齐，矮屏切掉的是顶部空白，不会切到板子。</td>
+          </tr>
+          <tr>
+            <td>比例出不来时</td>
+            <td class="mono">2 : 3（1024 × 1536）</td>
+            <td>也能用，但一定要把主体压在下 60%，左右会被裁掉一点。</td>
+          </tr>
+          <tr>
+            <td>顶部留白</td>
+            <td class="mono">上 40% 必须是空的</td>
+            <td>标题、副标题、跳过都压在那儿。这是整套提示词里唯一不能让步的一条。</td>
+          </tr>
+          <tr>
+            <td>格式</td>
+            <td class="mono">PNG 交付 → WebP 入包</td>
+            <td>每张 ~250KB，一个 app 3 张不到 1MB。</td>
+          </tr>
+          <tr>
+            <td>图里的字</td>
+            <td class="mono">只允许薄荷绿手写涂鸦</td>
+            <td>标题是 12 种语言，必须由代码画。图里烧死任何标题字就等于只能给中文用。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>几条要盯住的</h2>
+    <ul class="rules">
+      <li class="warn">
+        <b>上 40% 空着。</b>生成模型最爱把板子往中间怼。出来的图如果板子顶到画面一半以上，
+        就在提示词末尾再加一句 <code>the board must start below the vertical midpoint</code> 重出。
+      </li>
+      <li>
+        <b>不要 UI、不要手机边框、不要按钮。</b>ChatGPT 一听 "app onboarding screen" 很容易
+        自己加个手机壳或者假按钮进去。提示词末尾的 <code>Do NOT include</code> 那段别删。
+      </li>
+      <li>
+        <b>手写涂鸦保留。</b><em style="color:var(--dim);font-style:normal">Plan / Train / Improve</em>
+        这种薄荷绿手写是装饰质感，不是要读的文案，12 种语言下都成立。
+      </li>
+      <li>
+        <b>16 张要像一家的。</b>同一个角度、同一个光、同一块黑框板子，只换球场、球和道具。
+        一张图明显换了光就重出，不然 16 个 app 摆一起会散。
+      </li>
+      <li>
+        <b>红蓝磁扣是唯一的高饱和色。</b>其余全是压暗的墨绿。这跟 app 里 home/away 的
+        <code>#3E8EF7</code> / <code>#FF5964</code> 是对上的。
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>三屏分别在讲什么</h2>
+    <p class="sub">文案已经在 <code>assets/translations/</code> 里了，图只是给这句话搭台子。</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>屏</th><th>中文标题</th><th>图要给的感觉</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">1</td>
+            <td>画出来，<span style="color:var(--accent)">再走一遍</span></td>
+            <td>板子是主角。低机位、近，板子立在支架上，球在前景虚一点。讲"这是块能画的板"。</td>
+          </tr>
+          <tr>
+            <td class="mono">2</td>
+            <td><span style="color:var(--accent)">129</span> 个训练，已经写好了</td>
+            <td>棚拍感，纯渐变底、没有地面材质，物体浮着。更像海报，衬"一整套现成的东西"。</td>
+          </tr>
+          <tr>
+            <td class="mono">3</td>
+            <td><span style="color:var(--accent)">排</span>一堂课</td>
+            <td>环境全景，场地本身入镜，左上角有失焦的球场灯。讲"你站在场边用它"。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:18px" class="note">
+      <b>数字是每个 app 自己的。</b>足球是 129，不是全仓库的 624——第 2 屏的数字由代码填，
+      图里不要有任何数字。
+    </p>
+  </section>
+
+  <footer>
+    board100 · intro 背景图 · 16 个 app × 3 屏 · 提示词按 <code>tools/sports.tsv</code> 的 key 组织
+  </footer>
+</div>
+
+<script>
+  // The style + composition rules every one of the 48 images shares. Kept as
+  // one string on purpose: sixteen apps only read as one family if the light,
+  // the camera and the board are literally the same words each time.
+  const STYLE_HEAD =
+`Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach's magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.`;
+
+  const STYLE_TAIL =
+`Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading "Plan / Train / Improve" and "Better Players / Brighter Teams" with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.`;
+
+  const PANELS = [
+    {
+      n: 1, t: '画出来，再走一遍', d: '板子是主角 · 低机位',
+      scene:
+`Close, slightly low camera angle. The board is the clear hero, standing on its own kickstand and filling the middle of the frame. The ground is {SURFACE}. {BALL} rests on the ground in front of the board and to the left, close to camera and softly out of focus. {PROP_A} sits behind the board on the left. {PROP_B} lies on the ground to the right of the board. Soft diagonal light rays fall across the backdrop from the upper right.`
+    },
+    {
+      n: 2, t: '129 个训练，已经写好了', d: '棚拍 · 纯渐变底',
+      scene:
+`Studio composition on a plain deep-green gradient backdrop — no ground texture at all, the objects sit on a smooth seamless surface with soft contact shadows under them. The board is centred and tilted back a little, seen slightly from above. {PROP_A} sits at the left edge of the board, overlapping it. {BALL} rests at the lower right, just touching the board's corner. Graphic, clean and poster-like rather than photographic.`
+    },
+    {
+      n: 3, t: '排一堂课', d: '环境全景 · 场地入镜',
+      scene:
+`Wide environmental shot taken on the playing surface itself, from a low sideline angle. {SURFACE} fills the lower frame, sharp near the camera and softening into darkness toward the back. A row of stadium floodlights glows far out of focus in the upper left corner as small warm bokeh. The board stands centre-frame on the ground. {PROP_B} lies at the lower left. {BALL} rests at the lower right. {PROP_A} sits further back on the left.`
+    },
+  ];
+
+  // key -> the five things that actually change between the sixteen apps.
+  // Order matches tools/sports.tsv, hub first.
+  const SPORTS = [
+    { key: 'tactics_board', dir: 'tactics_board', zh: '战术板（合集）',
+      COURT: 'a blank magnetic tactics board face with faint white grid lines and no sport markings',
+      SURFACE: 'a dark slate table top',
+      BALL: 'a football, a basketball and a volleyball grouped together',
+      PROP_A: 'a stack of red and yellow training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'soccer', dir: 'SoccerBoard', zh: '足球战术板',
+      COURT: 'a full football pitch seen vertically, with the centre circle, both penalty areas and goal boxes',
+      SURFACE: 'mown green grass turf with faint mowing stripes',
+      BALL: 'a classic black-and-white size-5 football',
+      PROP_A: 'a stack of red and yellow training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'basketball', dir: 'BasketballBoard', zh: '篮球战术板',
+      COURT: 'a full basketball court seen vertically, with the centre circle, both keys and the three-point arcs',
+      SURFACE: 'polished light hardwood flooring with long reflected highlights',
+      BALL: 'an orange pebbled basketball',
+      PROP_A: 'a stack of orange training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'volleyball', dir: 'VolleyballBoard', zh: '排球战术板',
+      COURT: 'a volleyball court seen vertically, with the centre net line and both attack lines',
+      SURFACE: 'a blue and yellow indoor sports floor',
+      BALL: 'a white, blue and yellow volleyball',
+      PROP_A: 'a pair of black knee pads',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'badminton', dir: 'BadmintonBoard', zh: '羽毛球战术板',
+      COURT: 'a badminton doubles court seen vertically, with the short service lines, the net line and the tramlines',
+      SURFACE: 'a green and blue synthetic badminton mat',
+      BALL: 'a white feather shuttlecock standing upright on its cork',
+      PROP_A: 'a badminton racket lying flat',
+      PROP_B: 'an open tube of shuttlecocks' },
+    { key: 'tableTennis', dir: 'TableTennisBoard', zh: '乒乓球战术板',
+      COURT: 'a table tennis table seen from above, with the centre line and the net across the middle',
+      SURFACE: 'a dark blue table tennis table top',
+      BALL: 'a white 40mm table tennis ball',
+      PROP_A: 'a red and black table tennis paddle',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'tennis', dir: 'TennisBoard', zh: '网球战术板',
+      COURT: 'a tennis court seen vertically, with the service boxes, the baselines and the net line',
+      SURFACE: 'a blue acrylic hard court with crisp white lines',
+      BALL: 'a fluorescent yellow tennis ball',
+      PROP_A: 'a tennis racket lying flat',
+      PROP_B: 'a can of tennis balls' },
+    { key: 'pickleball', dir: 'PickleballBoard', zh: '匹克球战术板',
+      COURT: 'a pickleball court seen vertically, with the non-volley kitchen zone and both service courts',
+      SURFACE: 'a blue and green pickleball court surface',
+      BALL: 'a yellow perforated plastic pickleball',
+      PROP_A: 'a graphite pickleball paddle',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'fieldHockey', dir: 'FieldHockeyBoard', zh: '曲棍球战术板',
+      COURT: 'a field hockey pitch seen vertically, with both shooting circles and the 23-metre lines',
+      SURFACE: 'blue water-based astroturf, still damp and faintly reflective',
+      BALL: 'a white dimpled field hockey ball',
+      PROP_A: 'a field hockey stick leaning against the board',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'rugby', dir: 'RugbyBoard', zh: '橄榄球战术板',
+      COURT: 'a rugby pitch seen vertically, with the in-goal areas, the 22-metre lines and the halfway line',
+      SURFACE: 'worn green grass with patches of churned mud',
+      BALL: 'an oval brown and white rugby ball',
+      PROP_A: 'a stack of red and yellow training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'baseball', dir: 'BaseballBoard', zh: '棒球战术板',
+      COURT: 'a baseball diamond seen from above, with the infield, the bases and the foul lines',
+      SURFACE: 'the edge of a dirt infield meeting mown outfield grass',
+      BALL: 'a white baseball with red stitching',
+      PROP_A: 'a worn leather catcher’s glove',
+      PROP_B: 'a wooden baseball bat lying flat' },
+    { key: 'handball', dir: 'HandballBoard', zh: '手球战术板',
+      COURT: 'a handball court seen vertically, with both 6-metre and 9-metre arcs and both goals',
+      SURFACE: 'a blue and yellow resin indoor court',
+      BALL: 'a small three-panel handball ball',
+      PROP_A: 'a stack of blue training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'waterPolo', dir: 'WaterPoloBoard', zh: '水球战术板',
+      COURT: 'a water polo pool seen vertically, with the 2-metre and 5-metre lines and both goals',
+      SURFACE: 'wet blue pool-deck tiles at the water’s edge, with dark water and a floating lane rope behind',
+      BALL: 'a yellow water polo ball',
+      PROP_A: 'a blue water polo cap with ear guards',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'sepakTakraw', dir: 'SepakTakrawBoard', zh: '藤球战术板',
+      COURT: 'a sepak takraw court seen vertically, with the net line and both service circles',
+      SURFACE: 'a dark green synthetic indoor court',
+      BALL: 'a woven rattan takraw ball',
+      PROP_A: 'a stack of red and yellow training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'beachTennis', dir: 'BeachTennisBoard', zh: '沙滩网球战术板',
+      COURT: 'a beach tennis court seen vertically, with the net line and the sidelines',
+      SURFACE: 'fine golden beach sand, raked flat with a few footprints',
+      BALL: 'a yellow depressurised beach tennis ball half-buried in the sand',
+      PROP_A: 'a beach tennis paddle standing upright in the sand',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+    { key: 'footvolley', dir: 'FootvolleyBoard', zh: '足排球战术板',
+      COURT: 'a footvolley court seen vertically, with the net line and the sidelines',
+      SURFACE: 'fine golden beach sand with footprints, a net post at the edge of frame',
+      BALL: 'a classic black-and-white football half-buried in the sand',
+      PROP_A: 'a stack of red and yellow training cones',
+      PROP_B: 'a chrome coach’s whistle on a black lanyard' },
+  ];
+
+  let sportAt = 1;   // soccer: the one with a real mockup to compare against
+  let panelAt = 0;
+
+  function compose(sport, panel) {
+    const fill = (s) => s
+      .replace(/\{COURT\}/g, sport.COURT)
+      .replace(/\{SURFACE\}/g, sport.SURFACE)
+      .replace(/\{BALL\}/g, sport.BALL)
+      .replace(/\{PROP_A\}/g, sport.PROP_A)
+      .replace(/\{PROP_B\}/g, sport.PROP_B);
+    return [fill(STYLE_HEAD), fill(panel.scene), STYLE_TAIL].join('\n\n');
+  }
+
+  // The per-sport words are highlighted so it is obvious at a glance what
+  // changed between two sports — the rest being identical is the point.
+  function render() {
+    const sport = SPORTS[sportAt];
+    const panel = PANELS[panelAt];
+    const text = compose(sport, panel);
+
+    const varied = [sport.COURT, sport.SURFACE, sport.BALL, sport.PROP_A, sport.PROP_B]
+      .filter(Boolean)
+      .sort((a, b) => b.length - a.length);
+    let html = '';
+    let rest = text;
+    // Walk the string, wrapping any occurrence of a substituted phrase.
+    outer: while (rest.length) {
+      let bestAt = -1, bestPhrase = null;
+      for (const p of varied) {
+        const i = rest.indexOf(p);
+        if (i !== -1 && (bestAt === -1 || i < bestAt)) { bestAt = i; bestPhrase = p; }
+      }
+      if (bestAt === -1) { html += esc(rest); break outer; }
+      html += esc(rest.slice(0, bestAt));
+      html += '<span class="var">' + esc(bestPhrase) + '</span>';
+      rest = rest.slice(bestAt + bestPhrase.length);
+    }
+
+    document.getElementById('prompt').innerHTML = html;
+    document.getElementById('who-sport').textContent = sport.zh;
+    document.getElementById('who-panel').textContent = '第 ' + panel.n + ' 屏';
+    document.getElementById('who-file').textContent =
+      sport.dir + '/assets/intro/intro_' + panel.n + '.webp';
+
+    for (const b of document.querySelectorAll('#sports button')) {
+      b.setAttribute('aria-pressed', String(Number(b.dataset.i) === sportAt));
+    }
+    for (const b of document.querySelectorAll('#panels button')) {
+      b.setAttribute('aria-pressed', String(Number(b.dataset.i) === panelAt));
+    }
+    const c = document.getElementById('copy');
+    c.classList.remove('done');
+    c.textContent = '复制提示词';
+  }
+
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  const sportsEl = document.getElementById('sports');
+  SPORTS.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pick';
+    b.dataset.i = String(i);
+    b.innerHTML = '<span>' + s.zh + '</span><span class="k">' + s.key + '</span>';
+    b.addEventListener('click', () => { sportAt = i; render(); });
+    sportsEl.appendChild(b);
+  });
+
+  const panelsEl = document.getElementById('panels');
+  PANELS.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pick';
+    b.dataset.i = String(i);
+    b.innerHTML = '<span class="t">' + p.n + '. ' + p.t + '</span><span class="d">' + p.d + '</span>';
+    b.addEventListener('click', () => { panelAt = i; render(); });
+    panelsEl.appendChild(b);
+  });
+
+  document.getElementById('copy').addEventListener('click', async (e) => {
+    const text = compose(SPORTS[sportAt], PANELS[panelAt]);
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (_) {
+      // Clipboard is blocked in some embedded viewers; select it instead so
+      // a manual Cmd-C still works rather than the button doing nothing.
+      const r = document.createRange();
+      r.selectNodeContents(document.getElementById('prompt'));
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      e.target.textContent = '已选中，按 ⌘C';
+      e.target.classList.add('done');
+      return;
+    }
+    e.target.textContent = '已复制 ✓';
+    e.target.classList.add('done');
+  });
+
+  render();
+</script>

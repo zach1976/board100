@@ -83,6 +83,19 @@ Future<void> _loadRoboto() async {
   }
 }
 
+/// The icon font, or every Icon in the shot is an empty box — which reads as
+/// a layout bug in a screenshot rather than as the missing font it is.
+Future<void> _loadIcons() async {
+  final root = Platform.environment['FLUTTER_ROOT'] ??
+      File(Platform.resolvedExecutable).parent.parent.parent.path;
+  final f = File('$root/bin/cache/artifacts/material_fonts/'
+      'MaterialIcons-Regular.otf');
+  if (!f.existsSync()) return;
+  final loader = FontLoader('MaterialIcons')
+    ..addFont(Future.value(f.readAsBytesSync().buffer.asByteData()));
+  await loader.load();
+}
+
 /// A short corner with written notes on it — the thing the reviewer could
 /// not build. Filled in once before the pump: a builder runs many times, and
 /// adding the notes inside one puts four copies of every key on the board.
@@ -147,6 +160,7 @@ void main() {
     await EasyLocalization.ensureInitialized();
     await _loadRoboto();
     await _loadCjk();
+    await _loadIcons();
     tester.view.physicalSize = const Size(kW * 3, kH * 3);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(tester.view.reset);

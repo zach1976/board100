@@ -436,11 +436,14 @@
   "intro_skip": "跳过",
   "intro_next": "下一步",
   "intro_start": "开始",
-  "intro_board_t": "画出来，再走一遍",
+  "intro_board_t": "画出来，*再走一遍*",
   "intro_board_b": "把球员摆到场上、画出跑位，然后一拍一拍地把这套配合走一遍。",
-  "intro_drills_t": "{} 个训练，已经写好了",
+  "intro_drills_t": "*{}* 个训练，已经写好了",
   "intro_drills_b": "每一个都是能一步步走的板，配着练什么、怎么摆、以及只说一句的那句话。",
-  "intro_plan_t": "排一堂课",
+  "intro_plan_t": "*排*一堂课",
   "intro_plan_b": "把训练串成周二的计划，站在场边用手机一项项跑下来。",
-  "intro_drills_t_plain": "训练都已经写好了"
+  "intro_drills_t_plain": "训练都已经写好了",
+  "intro_pillar_plan": "安排训练",
+  "intro_pillar_run": "逐项执行",
+  "intro_pillar_grow": "持续提升"
 }
