@@ -46,6 +46,24 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
   return true;
 }
 
+/// A run too short to draw as a translation.
+///
+/// A token is 44pt on a 402pt board — about 8.6 m of a full pitch — so a
+/// defender shifting three metres moves less than his own width. The arrow
+/// between two icons needs a radius of clearance at each end, which is more
+/// than the whole move, so the line vanishes under the tokens and the start
+/// copy of the player lands on top of the end copy: one man drawn twice with
+/// nothing legible between. Below this the board says it the only way it
+/// honestly can at this scale — one copy of the player, and a stub arrow
+/// butted against him showing which way he shifts.
+///
+/// The line is one token width: two copies of the same player closer than
+/// that cannot be told apart from one token with a shadow. Above it they are
+/// separate on the board and the run keeps its destination, even where the
+/// arrow between them has to be squeezed.
+double nudgeThreshold(double scale) => kPlayerIconSize * scale;
+
+
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all; used when not animating
@@ -104,12 +122,37 @@ class PlayerMovesPainter extends CustomPainter {
       final startRadius = i == 0 ? iconRadius : _waypointRadius;
       final isLastSegment = i == points.length - 2;
       final endRadius = isLastSegment ? iconRadius : _waypointRadius;
-      final adjustedFrom = _offsetToward(from, to, startRadius);
-      final adjustedTo = _offsetToward(to, from, endRadius);
+      final dist = (to - from).distance;
+      if (dist < nudgeThreshold(player.scale)) {
+        _drawNudge(canvas, color, from, to, endRadius);
+        continue;
+      }
+      // Two tokens far enough apart to read can still be closer than the two
+      // clearances want. Shrinking both in proportion keeps a short arrow
+      // pointing the right way; at full radius the offsets would cross over
+      // and the arrowhead would be drawn at the wrong end.
+      final room = min(1.0, dist / (startRadius + endRadius + 10));
+      final adjustedFrom = _offsetToward(from, to, startRadius * room);
+      final adjustedTo = _offsetToward(to, from, endRadius * room);
       _drawDashedLine(canvas, color, adjustedFrom, adjustedTo);
       _drawArrowHead(canvas, color, adjustedFrom, adjustedTo);
     }
 
+  }
+
+  /// The stub for a move the icons are too big to show — see
+  /// [nudgeThreshold]. It ends where the conventional arrow would, just clear
+  /// of the destination, and runs back from there far enough to be read.
+  void _drawNudge(
+      Canvas canvas, Color color, Offset from, Offset to, double endRadius) {
+    final delta = to - from;
+    final dist = delta.distance;
+    if (dist < 0.5) return;
+    final dir = delta / dist;
+    final tip = to - dir * endRadius;
+    final tail = tip - dir * 17.0;
+    _drawDashedLine(canvas, color, tail, tip);
+    _drawArrowHead(canvas, color, tail, tip);
   }
 
   void _drawStartMarker(Canvas canvas, Color color, Offset center) {
