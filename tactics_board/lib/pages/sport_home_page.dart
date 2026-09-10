@@ -8,12 +8,13 @@ import '../models/drill_note.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
 import '../services/drill_library_service.dart';
+import '../services/drill_notes_service.dart';
 import '../services/purchase_service.dart';
 import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
-import '../widgets/drill_library_sheet.dart';
+import 'drill_library_page.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
 import '../widgets/tactics_canvas.dart';
@@ -43,6 +44,7 @@ class _SportHomePageState extends State<SportHomePage> {
   late Future<List<Drill>> _drills;
   List<TacticMeta> _mine = const [];
   List<RecentBoard> _recent = const [];
+  Map<String, DrillMark> _marks = const {};
 
   @override
   void initState() {
@@ -65,6 +67,9 @@ class _SportHomePageState extends State<SportHomePage> {
     });
     RecentBoardsService.instance.list(state.sportType).then((r) {
       if (mounted) setState(() => _recent = r);
+    }).catchError((_) {});
+    DrillNotesService.instance.all(state.sportType).then((m) {
+      if (mounted) setState(() => _marks = m);
     }).catchError((_) {});
   }
 
@@ -114,7 +119,7 @@ class _SportHomePageState extends State<SportHomePage> {
 
   Future<void> _openLibrary({DrillCategory? category}) async {
     final state = context.read<TacticsState>();
-    await DrillLibrarySheet.show(
+    await DrillLibraryPage.push(
       context,
       state,
       initialCategory: category,
@@ -173,6 +178,9 @@ class _SportHomePageState extends State<SportHomePage> {
               onNew: _newBoard,
             ),
             const SizedBox(height: T.s24),
+            // Two builders on one cached future, so the coach's own boards can
+            // sit between what to run today and the categories — their work
+            // belongs above a way of browsing somebody else's.
             FutureBuilder<List<Drill>>(
               future: _drills,
               builder: (context, snap) {
@@ -189,14 +197,6 @@ class _SportHomePageState extends State<SportHomePage> {
                       drills: _pickToday(all),
                       locale: _locale,
                       onTap: _openDrill,
-                    ),
-                    const SizedBox(height: T.s24),
-                    _sectionHead('home_browse'.tr()),
-                    const SizedBox(height: T.s12),
-                    _CategoryGrid(
-                      sport: state.sportType,
-                      present: all.map((d) => d.category).toSet(),
-                      onTap: (c) => _openLibrary(category: c),
                     ),
                     const SizedBox(height: T.s24),
                   ],
@@ -223,6 +223,58 @@ class _SportHomePageState extends State<SportHomePage> {
                   onTap: row.$3,
                 ),
             const SizedBox(height: T.s24),
+            FutureBuilder<List<Drill>>(
+              future: _drills,
+              builder: (context, snap) {
+                final all = snap.data ?? const <Drill>[];
+                if (all.isEmpty) return const SizedBox.shrink();
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _sectionHead('home_browse'.tr()),
+                    const SizedBox(height: T.s12),
+                    _CategoryGrid(
+                      sport: state.sportType,
+                      present: all.map((d) => d.category).toSet(),
+                      onTap: (c) => _openLibrary(category: c),
+                    ),
+                    const SizedBox(height: T.s24),
+                  ],
+                );
+              },
+            ),
+            // The coach's own library: the twenty of six hundred they use.
+            // Only once there is one — an empty shelf is not a shelf.
+            if (_marks.values.any((m) => m.starred)) ...[
+              FutureBuilder<List<Drill>>(
+                future: _drills,
+                builder: (context, snap) {
+                  final all = snap.data ?? const <Drill>[];
+                  final starred = all
+                      .where((d) => _marks[d.id]?.starred ?? false)
+                      .toList();
+                  if (starred.isEmpty) return const SizedBox.shrink();
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _sectionHead('home_starred'.tr(),
+                          action: starred.length > 3
+                              ? 'home_all_starred'
+                                  .tr(args: ['${starred.length}'])
+                              : null,
+                          onAction: _openStarred),
+                      const SizedBox(height: T.s12),
+                      _TodayRow(
+                        drills: starred.take(6).toList(),
+                        locale: _locale,
+                        onTap: _openDrill,
+                      ),
+                      const SizedBox(height: T.s24),
+                    ],
+                  );
+                },
+              ),
+            ],
             _sectionHead('home_learn'.tr()),
             const SizedBox(height: T.s12),
             _LearnBlock(
@@ -244,7 +296,7 @@ class _SportHomePageState extends State<SportHomePage> {
 
   Future<void> _openLibraryLevel(DrillLevel level) async {
     final state = context.read<TacticsState>();
-    await DrillLibrarySheet.show(
+    await DrillLibraryPage.push(
       context,
       state,
       initialLevel: level,
@@ -295,9 +347,21 @@ class _SportHomePageState extends State<SportHomePage> {
     return 'home_days_ago'.tr(args: ['$days']);
   }
 
+  Future<void> _openStarred() async {
+    final state = context.read<TacticsState>();
+    await DrillLibraryPage.push(
+      context,
+      state,
+      starredOnly: true,
+      onLoaded: _openBoard,
+      onUpgrade: () => _openBoard(),
+    );
+    if (mounted) _refreshMine();
+  }
+
   Future<void> _openMine() async {
     final state = context.read<TacticsState>();
-    await DrillLibrarySheet.show(
+    await DrillLibraryPage.push(
       context,
       state,
       openMine: true,

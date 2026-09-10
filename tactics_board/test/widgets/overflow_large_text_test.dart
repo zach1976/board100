@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
-import 'package:tactics_board/widgets/drill_library_sheet.dart';
+import 'package:tactics_board/pages/drill_library_page.dart';
 
 /// The overflow sweep again at the largest text size people really use.
 ///
@@ -108,7 +108,7 @@ void main() {
                     .copyWith(textScaler: const TextScaler.linear(2.0)),
                 child: child!,
               ),
-              home: Scaffold(body: DrillLibrarySheet(state: state)),
+              home: Scaffold(body: DrillLibraryPage(state: state)),
             );
           },
         ),

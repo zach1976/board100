@@ -32,7 +32,7 @@ import '../widgets/sport_glyph.dart';
 import '../widgets/language_picker.dart';
 import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
-import '../widgets/drill_library_sheet.dart';
+import 'drill_library_page.dart';
 import '../widgets/photo_crop_editor.dart';
 import '../widgets/photo_import_sheet.dart';
 import '../widgets/timeline_editor.dart';
@@ -808,7 +808,7 @@ class _MenuButton extends StatelessWidget {
       case 'share':
         shareBoardImage(context, context.read<TacticsState>());
       case 'drills':
-        DrillLibrarySheet.show(
+        DrillLibraryPage.push(
           context,
           context.read<TacticsState>(),
           onUpgrade: () => _showPaywall(context),

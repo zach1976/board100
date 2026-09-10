@@ -7,10 +7,12 @@ import 'package:provider/provider.dart';
 import '../models/drill.dart';
 import '../models/drill_note.dart';
 import '../models/sport_type.dart';
+import '../services/drill_notes_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../widgets/tactics_canvas.dart';
+import 'drill_report_page.dart';
 
 /// Everything a coach needs to decide whether to run this drill, on one page.
 ///
@@ -75,12 +77,63 @@ class DrillDetailPage extends StatefulWidget {
 
 class _DrillDetailPageState extends State<DrillDetailPage> {
   late final TacticsState _preview;
+  DrillMark _mark = const DrillMark();
 
   @override
   void initState() {
     super.initState();
     _preview = TacticsState(sportType: widget.sportType, preview: true)
       ..loadFromJson(Map<String, dynamic>.from(widget.drill.board));
+    DrillNotesService.instance
+        .forDrill(widget.sportType, widget.drill.id)
+        .then((m) {
+      if (mounted) setState(() => _mark = m);
+    });
+  }
+
+  Future<void> _toggleStar() async {
+    final next = !_mark.starred;
+    setState(() => _mark = _mark.copyWith(starred: next));
+    await DrillNotesService.instance
+        .setStarred(widget.sportType, widget.drill.id, next);
+  }
+
+  /// The coach's own note on a shipped drill — what is true of THEIR group.
+  Future<void> _editNote() async {
+    var text = _mark.note;
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: T.surfaceHi,
+        title: Text('drill_note_title'.tr(),
+            style: const TextStyle(color: T.text)),
+        content: TextFormField(
+          initialValue: text,
+          autofocus: true,
+          maxLines: 4,
+          maxLength: 300,
+          style: const TextStyle(color: T.text),
+          decoration: InputDecoration(
+            hintText: 'drill_note_hint'.tr(),
+            hintStyle: const TextStyle(color: T.textOff),
+            counterStyle: const TextStyle(color: T.textOff, fontSize: 11),
+          ),
+          onChanged: (v) => text = v,
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text('cancel'.tr())),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text('confirm'.tr())),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    setState(() => _mark = _mark.copyWith(note: text.trim()));
+    await DrillNotesService.instance
+        .setNote(widget.sportType, widget.drill.id, text);
   }
 
   @override
@@ -142,6 +195,34 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       const SizedBox(height: T.s4),
                       _mistakeBlock(mistake),
                     ],
+                    const SizedBox(height: T.s16),
+                    _MyNote(mark: _mark, onEdit: _editNote),
+                    const SizedBox(height: T.s16),
+                    // Quiet, at the bottom, where you land after finding
+                    // something wrong rather than before reading it.
+                    GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () => DrillReportPage.push(
+                        context,
+                        drill: d,
+                        sportType: widget.sportType,
+                        locale: widget.locale,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: T.s8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.flag_outlined,
+                                size: 14, color: T.textOff),
+                            const SizedBox(width: 6),
+                            Text('report_title'.tr(),
+                                style: const TextStyle(
+                                    color: T.textOff, fontSize: 13)),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -219,6 +300,13 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                 ),
               ],
             ),
+          ),
+          // The star is the whole of "my library": a coach uses maybe twenty
+          // of six hundred, and this is how those twenty are named.
+          TacticalIconButton(
+            icon: _mark.starred ? Icons.star_rounded : Icons.star_border_rounded,
+            onTap: _toggleStar,
+            color: _mark.starred ? T.warning : null,
           ),
         ],
       ),
@@ -640,6 +728,62 @@ class _PointCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// The coach's own note on a shipped drill.
+///
+/// The library's words are written for everybody; this is the line that is
+/// true of one group and nobody else's — "ours need the square 2 m bigger".
+class _MyNote extends StatelessWidget {
+  final DrillMark mark;
+  final VoidCallback onEdit;
+  const _MyNote({required this.mark, required this.onEdit});
+
+  @override
+  Widget build(BuildContext context) {
+    final empty = !mark.hasNote;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onEdit,
+      child: Container(
+        padding: const EdgeInsets.all(T.s12),
+        decoration: BoxDecoration(
+          color: empty ? Colors.transparent : T.surface,
+          borderRadius: T.brMd,
+          border: Border.all(
+              color: empty ? T.border : Colors.transparent,
+              style: BorderStyle.solid),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(empty ? Icons.edit_note : Icons.sticky_note_2_outlined,
+                size: 16, color: empty ? T.textOff : T.accent),
+            const SizedBox(width: T.s8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('drill_note_title'.tr(),
+                      style: TextStyle(
+                          color: empty ? T.textOff : T.accent,
+                          fontSize: 10.5,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.8)),
+                  const SizedBox(height: 4),
+                  Text(empty ? 'drill_note_empty'.tr() : mark.note,
+                      style: TextStyle(
+                          color: empty ? T.textOff : T.text,
+                          fontSize: 14.5,
+                          height: 1.5)),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
