@@ -203,18 +203,26 @@ class _SportHomePageState extends State<SportHomePage> {
                 );
               },
             ),
-            if (_recent.isNotEmpty || _mine.isNotEmpty) ...[
-              _sectionHead('home_recent'.tr()),
-              const SizedBox(height: T.s12),
-              for (final row in _recentRows().take(5))
+            _sectionHead('home_mine'.tr(),
+                action: _mine.length > 4
+                    ? 'home_all_boards'.tr(args: ['${_mine.length}'])
+                    : null,
+                onAction: _openMine),
+            const SizedBox(height: T.s12),
+            if (_mine.isEmpty)
+              // Said plainly rather than left blank: an empty section with no
+              // explanation reads as something that failed to load.
+              Text('home_mine_empty'.tr(),
+                  style: const TextStyle(color: T.textOff, fontSize: 13.5))
+            else
+              for (final row in _myBoards().take(4))
                 _BoardRow(
                   label: row.$1,
                   subtitle: row.$2,
-                  isDrill: row.$3,
-                  onTap: row.$4,
+                  isDrill: false,
+                  onTap: row.$3,
                 ),
-              const SizedBox(height: T.s24),
-            ],
+            const SizedBox(height: T.s24),
             _sectionHead('home_learn'.tr()),
             const SizedBox(height: T.s12),
             _LearnBlock(
@@ -245,35 +253,58 @@ class _SportHomePageState extends State<SportHomePage> {
     );
   }
 
-  /// The recent list, with the coach's saved boards folded in.
+  /// The coach's own boards, the one they touched last at the top.
   ///
-  /// Two sources, one list: what was last on the board (a drill included,
-  /// which is never saved) and what they have saved and named. Merged by
-  /// time so the row at the top really is the last thing they touched.
-  List<(String, String, bool, VoidCallback)> _recentRows() {
-    final seen = <String>{};
-    final rows = <(DateTime, String, String, bool, VoidCallback)>[];
-    for (final r in _recent) {
-      seen.add('${r.kind.name}:${r.id}');
-      rows.add((
-        r.openedAt,
-        r.label,
-        r.kind == RecentBoardKind.drill
-            ? 'home_from_library'.tr()
-            : 'home_saved'.tr(),
-        r.kind == RecentBoardKind.drill,
-        () => _openRecent(r),
-      ));
+  /// Ordered by whichever is later, saving it or opening it: a board they
+  /// edited without saving, or reopened this morning, is the one they are
+  /// working on, and sorting by file date alone buries it under whatever
+  /// they happened to save most recently.
+  List<(String, String, VoidCallback)> _myBoards() {
+    DateTime opened(String name) {
+      for (final r in _recent) {
+        if (r.kind == RecentBoardKind.tactic && r.id == name) {
+          return r.openedAt;
+        }
+      }
+      return DateTime(2000);
     }
+
+    final rows = <(DateTime, String, String, VoidCallback)>[];
     for (final m in _mine) {
-      if (seen.contains('tactic:${m.name}')) continue;
-      rows.add((m.updatedAt, m.name, 'home_saved'.tr(), false, () async {
+      final when = m.updatedAt.isAfter(opened(m.name))
+          ? m.updatedAt
+          : opened(m.name);
+      rows.add((when, m.name, _when(when), () async {
         await context.read<TacticsState>().loadTactics(m.name);
         if (mounted) _openBoard();
       }));
     }
     rows.sort((a, b) => b.$1.compareTo(a.$1));
-    return [for (final r in rows) (r.$2, r.$3, r.$4, r.$5)];
+    return [for (final r in rows) (r.$2, r.$3, r.$4)];
+  }
+
+  /// "today", "yesterday", "3 days ago" — a date on a board tells a coach
+  /// nothing; how long ago tells them whether it is the one they want.
+  String _when(DateTime t) {
+    final now = DateTime.now();
+    final days = DateTime(now.year, now.month, now.day)
+        .difference(DateTime(t.year, t.month, t.day))
+        .inDays;
+    if (days <= 0) return 'home_today_word'.tr();
+    if (days == 1) return 'home_yesterday'.tr();
+    return 'home_days_ago'.tr(args: ['$days']);
+  }
+
+  Future<void> _openMine() async {
+    final state = context.read<TacticsState>();
+    await DrillLibrarySheet.show(
+      context,
+      state,
+      openMine: true,
+      onLoaded: _openBoard,
+      onUpgrade: () => _openBoard(),
+    );
+    if (mounted) _refreshMine();
   }
 
   Widget _header(SportType sport) {
@@ -402,14 +433,21 @@ class _BoardCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: T.brSm,
+              // Drawn at the real board size and scaled as one picture, so
+              // the players are the size they are on the board rather than
+              // three times it — see kBoardRefWidth.
               child: SizedBox(
                 height: 190,
-                child: AspectRatio(
-                  aspectRatio: 402 / 730,
-                  child: ChangeNotifierProvider<TacticsState>.value(
-                    value: preview,
-                    child: const IgnorePointer(
-                        child: TacticsCanvas(preview: true)),
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: SizedBox(
+                    width: kBoardRefWidth,
+                    height: kBoardRefHeight,
+                    child: ChangeNotifierProvider<TacticsState>.value(
+                      value: preview,
+                      child: const IgnorePointer(
+                          child: TacticsCanvas(preview: true)),
+                    ),
                   ),
                 ),
               ),

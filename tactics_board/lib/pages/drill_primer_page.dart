@@ -222,10 +222,18 @@ class _Example extends StatelessWidget {
         ClipRRect(
           borderRadius: T.brSm,
           child: AspectRatio(
-            aspectRatio: 402 / 730,
-            child: ChangeNotifierProvider<TacticsState>.value(
-              value: state,
-              child: const IgnorePointer(child: TacticsCanvas(preview: true)),
+            aspectRatio: kBoardRefWidth / kBoardRefHeight,
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: SizedBox(
+                width: kBoardRefWidth,
+                height: kBoardRefHeight,
+                child: ChangeNotifierProvider<TacticsState>.value(
+                  value: state,
+                  child:
+                      const IgnorePointer(child: TacticsCanvas(preview: true)),
+                ),
+              ),
             ),
           ),
         ),

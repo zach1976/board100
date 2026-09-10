@@ -56,6 +56,15 @@ List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players) {
   return [...ranked[0], ...ranked[1], ...ranked[2]];
 }
 
+/// The board as the phone draws it: a 402x874 screen less the toolbar and the
+/// safe areas. A preview lays the canvas out at exactly this and scales the
+/// result, because a token is a fixed 44pt whatever box the canvas is given —
+/// laid out small, a preview came out with full-size players standing on a
+/// shrunken pitch. It is the same size tool/render_boards.dart shoots at, so
+/// a preview, a shot and the board itself are one picture at three sizes.
+const double kBoardRefWidth = 402;
+const double kBoardRefHeight = 730;
+
 /// Where a chain has reached once every phase below [phaseLimit] has run.
 ///
 /// phaseLimit 0 is the overview: step 0 shows the whole planned chain, so the

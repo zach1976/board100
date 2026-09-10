@@ -409,5 +409,10 @@
   "pages_page": "Halaman {}",
   "pages_add": "Halaman kosong",
   "pages_duplicate": "Gandakan",
-  "home_board_title": "Papan {}"
+  "home_board_title": "Papan {}",
+  "home_all_boards": "Semua {} →",
+  "home_mine_empty": "Belum ada yang disimpan — simpan pada papan dan ia muncul di sini",
+  "home_today_word": "hari ini",
+  "home_yesterday": "semalam",
+  "home_days_ago": "{} hari lalu"
 }
