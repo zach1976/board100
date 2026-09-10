@@ -8,6 +8,7 @@ import '../models/tactic_meta.dart';
 import '../models/sport_type.dart';
 import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
+import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import '../ui/primitives.dart';
@@ -31,6 +32,10 @@ class DrillLibrarySheet extends StatefulWidget {
   /// category chips are a way INTO this list rather than a second copy of it.
   final DrillCategory? initialCategory;
 
+  /// The level the list opens on — the home page's learning block leads
+  /// here, and a coach who picked "foundation" means it.
+  final DrillLevel? initialLevel;
+
   /// Called after a drill has been put on the board. The sheet is opened
   /// from two places that want different things next: over the board it is
   /// already where the coach wants to be, but from the home page the board
@@ -42,12 +47,14 @@ class DrillLibrarySheet extends StatefulWidget {
     required this.state,
     this.onUpgrade,
     this.initialCategory,
+    this.initialLevel,
     this.onLoaded,
   });
 
   static Future<void> show(BuildContext context, TacticsState state,
       {VoidCallback? onUpgrade,
       DrillCategory? initialCategory,
+      DrillLevel? initialLevel,
       VoidCallback? onLoaded}) {
     return TacticalSheet.show<void>(
       context,
@@ -57,6 +64,7 @@ class DrillLibrarySheet extends StatefulWidget {
             state: state,
             onUpgrade: onUpgrade,
             initialCategory: initialCategory,
+            initialLevel: initialLevel,
             onLoaded: onLoaded,
           )),
     );
@@ -81,6 +89,7 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
   void initState() {
     super.initState();
     _filter = widget.initialCategory;
+    _level = widget.initialLevel;
     _drills = DrillLibraryService.instance.forSport(widget.state.sportType);
     widget.state.listSavedTacticMetas().then((metas) {
       if (mounted) setState(() => _mine = metas);
@@ -122,6 +131,18 @@ class _DrillLibrarySheetState extends State<DrillLibrarySheet> {
     widget.state.loadFromJson(Map<String, dynamic>.from(drill.board));
     widget.state.currentTacticName = null;
     widget.state.currentTacticMeta = null;
+    // A drill is never saved — it is a starting shape the coach edits — so
+    // without this the thing they most recently had on the board is exactly
+    // the thing the home page cannot offer them again.
+    RecentBoardsService.instance.record(
+      widget.state.sportType,
+      RecentBoard(
+        kind: RecentBoardKind.drill,
+        id: drill.id,
+        label: drill.localizedName(_locale),
+        openedAt: DateTime.now(),
+      ),
+    );
     Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(drill.localizedName(_locale))),

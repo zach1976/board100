@@ -98,6 +98,10 @@ void main() {
     /// 14 pixels wide and reported a 122 pixel overflow that was not real.
     Future<void> dismiss() async {
       for (var attempt = 0; attempt < 3; attempt++) {
+        // Already on the board: there is nothing to dismiss, and the board
+        // now carries the same chevron a pushed page does — tapping it would
+        // pop the board off itself onto the sport's home page.
+        if (find.byIcon(Icons.more_horiz).evaluate().isNotEmpty) return;
         final back = find.byType(BackButton);
         final backIcon = find.byIcon(Icons.arrow_back);
         final chevron = find.byIcon(Icons.arrow_back_ios_new);
@@ -112,6 +116,16 @@ void main() {
         }
         for (var i = 0; i < 6; i++) {
           await tester.pump(const Duration(milliseconds: 80));
+        }
+        // The board carries the same chevron as a pushed page, so a dismiss
+        // that finds nothing else to close taps the board off itself and
+        // lands on the sport's home page. Walk back on.
+        final toBoard = find.byIcon(Icons.edit_outlined);
+        if (toBoard.evaluate().isNotEmpty) {
+          await tester.tap(toBoard.first, warnIfMissed: false);
+          for (var i = 0; i < 10; i++) {
+            await tester.pump(const Duration(milliseconds: 80));
+          }
         }
         if (find.byIcon(Icons.more_horiz).evaluate().isNotEmpty) return;
       }
