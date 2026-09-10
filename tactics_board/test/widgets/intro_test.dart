@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/intro_page.dart';
+import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 
@@ -57,6 +58,21 @@ void main() {
 
     // ── a first run lands on the intro, not on the home page ────────────
     expect(find.byType(IntroPage), findsOneWidget);
+    // Whatever number it ends up showing is this app's own library, not the
+    // 624 across the repository: a single-sport build carries one sport's
+    // drills and must not promise the rest. Null here only because reading
+    // the asset is a real round-trip the fake-async test zone never runs —
+    // which is the point: the intro appears without waiting for it.
+    final intro = tester.widget<IntroPage>(find.byType(IntroPage));
+    expect(intro.drillCount == null || intro.drillCount! < 624, isTrue);
+    late final int shipped;
+    await tester.runAsync(() async {
+      shipped =
+          (await DrillLibraryService.instance.forSport(SportType.soccer))
+              .length;
+    });
+    expect(shipped, lessThan(624),
+        reason: 'this app ships one sport, not the whole repository');
     expect(find.text('Open the board'), findsNothing,
         reason: 'the home page is behind the intro, not in front of it');
 
