@@ -23,12 +23,29 @@ class DrillNote {
   static DrillNote parse(String note) {
     final text = note.trim();
     if (text.isEmpty) return _empty;
-    final out = <DrillSection>[];
+    final rows = <(String?, String)>[];
     for (final raw in text.split('\n')) {
       final line = raw.trim();
       if (line.isEmpty) continue;
-      final split = _splitLabel(line);
-      out.add(DrillSection(split.$1, split.$2));
+      rows.add(_splitLabel(line));
+    }
+    final out = <DrillSection>[];
+    for (var i = 0; i < rows.length; i++) {
+      final (label, body) = rows[i];
+      final probe = DrillSection(label, body);
+      final DrillSectionKind kind;
+      if (i == 0) {
+        kind = DrillSectionKind.lead;
+      } else if (probe.beats.isNotEmpty) {
+        kind = DrillSectionKind.sequence;
+      } else if (body.contains(' → ')) {
+        kind = DrillSectionKind.route;
+      } else if (i == rows.length - 1) {
+        kind = DrillSectionKind.point;
+      } else {
+        kind = DrillSectionKind.info;
+      }
+      out.add(DrillSection(label, body, kind: kind));
     }
     return DrillNote(out);
   }
@@ -55,11 +72,41 @@ class DrillNote {
   }
 }
 
+/// What a section is FOR, so the page can lay each one out as its own thing
+/// instead of seven identical grey paragraphs.
+///
+/// Worked out from position and shape rather than from the label text: the
+/// labels are localised into twelve languages, and matching them would put
+/// that table on this side of the wire as well.
+enum DrillSectionKind {
+  /// Why run this at all. Always first, and the one line a coach reads if
+  /// they read nothing else.
+  lead,
+
+  /// Where the ball goes — "1 → 2 → 3 → 球门". A chain, not a sentence.
+  route,
+
+  /// Beat by beat, matching the board's own steps.
+  sequence,
+
+  /// The one thing to say out loud. Always last.
+  point,
+
+  /// Frequency, origin, setup: the standing facts.
+  info,
+}
+
 class DrillSection {
   /// Null on a note with no labels — then [body] is the whole paragraph.
   final String? label;
   final String body;
-  const DrillSection(this.label, this.body);
+  final DrillSectionKind kind;
+  const DrillSection(this.label, this.body,
+      {this.kind = DrillSectionKind.info});
+
+  /// The stops of a ball path, in order — "1", "2", "球门".
+  List<String> get stops =>
+      body.split(' → ').map((p) => p.trim()).where((p) => p.isNotEmpty).toList();
 
   /// The beats of a sequence section, in order, with their own numbering
   /// stripped — "第1步：1号球员把球传给2号球员" becomes the sentence alone, so

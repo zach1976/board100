@@ -1043,7 +1043,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => context.read<TacticsState>().finishAnimation());
         } else {
-          _ctrl.forward(from: 0);
+          _startLeg();
         }
       } else {
         // _phaseIdx = phase value to animate on this leg.
@@ -1054,7 +1054,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => context.read<TacticsState>().finishAnimation());
         } else {
-          _ctrl.forward(from: 0);
+          _startLeg();
         }
       }
     } else if (!widget.isAnimating && old.isAnimating) {
@@ -1063,6 +1063,20 @@ class _AnimationDriverState extends State<_AnimationDriver>
       _singleStep = false;
       _isBackward = false;
     }
+  }
+
+  /// Rewind and run this leg, but never during a build.
+  ///
+  /// didUpdateWidget runs inside the build phase, and forward(from: 0) sets
+  /// the controller's value synchronously — so its first tick lands on
+  /// updateAnimatedPositions and the state notifies its listeners while the
+  /// tree is being built. The first animation of a session got away with it
+  /// (the value was already 0, so nothing changed and nothing fired); every
+  /// one after it started from 1.0 and did.
+  void _startLeg() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && widget.isAnimating) _ctrl.forward(from: 0);
+    });
   }
 
   // Phase-based animation: collect all (player, moveIndex) grouped by phase.

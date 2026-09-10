@@ -43,6 +43,26 @@ const kLocales = [
 /// A 402x874 phone — the one the drill boards were measured against.
 const double kW = 402, kH = 874;
 
+/// A CJK face, so a Chinese shot can actually be read instead of coming out
+/// as rows of tofu boxes — which is most of what these pages have to hold.
+Future<void> _loadCjk() async {
+  for (final path in [
+    '/System/Library/Fonts/Hiragino Sans GB.ttc',
+    '/System/Library/Fonts/Supplemental/Songti.ttc',
+  ]) {
+    final f = File(path);
+    if (!f.existsSync()) continue;
+    try {
+      final loader = FontLoader('Roboto')
+        ..addFont(Future.value(f.readAsBytesSync().buffer.asByteData()));
+      await loader.load();
+      return;
+    } catch (_) {
+      // A .ttc the engine will not parse; try the next one.
+    }
+  }
+}
+
 Future<void> _loadRoboto() async {
   final root = Platform.environment['FLUTTER_ROOT'] ??
       File(Platform.resolvedExecutable).parent.parent.parent.path;
@@ -118,6 +138,7 @@ void main() {
     addTearDown(() => ConfigConstants.fixedSportType = null);
     await EasyLocalization.ensureInitialized();
     await _loadRoboto();
+    await _loadCjk();
     tester.view.physicalSize = const Size(kW * 3, kH * 3);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(tester.view.reset);
