@@ -154,7 +154,12 @@ void main() {
         orElse: () => SportType.soccer);
     final locale = (env['LOCALE'] ?? 'zh-CN').split('-');
 
-    SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
+    SharedPreferences.setMockInitialValues({
+      'remove_ads_pro': true,
+      // Every page except the intro itself sits BEHIND the intro on a first
+      // run, so without this a PAGE=home shot is a picture of the intro.
+      if (which != 'intro') 'intro_seen': true,
+    });
     ConfigConstants.fixedSportType = sport;
     addTearDown(() => ConfigConstants.fixedSportType = null);
     await EasyLocalization.ensureInitialized();
