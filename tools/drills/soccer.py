@@ -1034,11 +1034,17 @@ def soccer_drills() -> list[Drill]:
             # used to be dropped because it was played to a cone its player
             # had already left — so a fifth body queues behind cone one and
             # receives it. See passing_family for the same fix.
+            # Each runner joins the QUEUE outside the cone he passed to, not
+            # the cone itself: the man standing on it has not left yet — he
+            # goes a beat later — and sending the runner onto the cone put
+            # two players on one point. The corners used to be intermediate
+            # points along the edges, which left the top-right cone empty at
+            # the end and the routine with nowhere to restart.
             home=[
-                P(300, 600, "1", moves=[(560, 620, 1)]),
-                P(700, 600, "2", moves=[(700, 780, 2)]),
-                P(700, 900, "3", moves=[(420, 900, 3)]),
-                P(300, 900, "4", moves=[(220, 600, 4)]),
+                P(300, 600, "1", moves=[(820, 500, 1)]),
+                P(700, 600, "2", moves=[(820, 1000, 2)]),
+                P(700, 900, "3", moves=[(180, 1000, 3)]),
+                P(300, 900, "4", moves=[(180, 500, 4)]),
                 # Steps onto cone one as player 1 leaves it, and receives the
                 # closing pass there. See passing_family.
                 P(220, 600, "5", moves=[(300, 600, 1)]),
