@@ -425,9 +425,9 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                 ? null
                 : [
                     if (isSelected)
-                      BoxShadow(
-                        color: T.accent.withValues(alpha: 0.55),
-                        blurRadius: 10,
+                      const BoxShadow(
+                        color: T.selectRing,
+                        blurRadius: 0,
                         spreadRadius: 2,
                       ),
                     // One shadow, not two. Every token used to emit a halo in
@@ -584,9 +584,9 @@ class _ShapedPhotoMarkerState extends State<ShapedPhotoMarker> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: T.accent.withValues(alpha: 0.6),
-                      blurRadius: 12,
-                      spreadRadius: 3,
+                      color: T.selectRing,
+                      blurRadius: 0,
+                      spreadRadius: 2,
                     ),
                   ],
                 ),
@@ -1007,11 +1007,13 @@ class _BallWidgetState extends State<_BallWidget>
                 blurRadius: 4,
                 offset: const Offset(1, 2),
               ),
+              // A ring, not a glow (§09): a halo on a green pitch bleeds
+              // into the grass and reads as a smudge at arm's length.
               if (widget.isSelected)
-                BoxShadow(
-                  color: T.accent.withValues(alpha: 0.7),
-                  blurRadius: 12,
-                  spreadRadius: 3,
+                const BoxShadow(
+                  color: T.selectRing,
+                  blurRadius: 0,
+                  spreadRadius: 2,
                 ),
             ],
           ),

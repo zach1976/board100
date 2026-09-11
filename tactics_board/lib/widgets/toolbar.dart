@@ -3093,8 +3093,8 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: T.accent,
-                        blurRadius: 12,
+                        color: T.selectRing,
+                        blurRadius: 0,
                         spreadRadius: 2,
                       ),
                     ],
@@ -3717,10 +3717,8 @@ class _AddAllTile extends StatelessWidget {
           color: T.accent.withValues(alpha: 0.25),
           border: Border.all(color: T.accent, width: 1.4),
           boxShadow: [
-            BoxShadow(
-              color: T.accent.withValues(alpha: 0.55),
-              blurRadius: 14, spreadRadius: 2,
-            ),
+            // Picked up, not lit up: the accent bloom this used to carry is
+            // the glow §33 rules out.
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.4),
               blurRadius: 8, offset: const Offset(0, 4),
@@ -4609,11 +4607,8 @@ class _DraggableMarkerCard extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           boxShadow: [
-            BoxShadow(
-              color: T.accent.withValues(alpha: 0.55),
-              blurRadius: 14,
-              spreadRadius: 2,
-            ),
+            // Picked up, not lit up: the accent bloom this used to carry is
+            // the glow §33 rules out, and it read as a defect on the pitch.
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.4),
               blurRadius: 8,

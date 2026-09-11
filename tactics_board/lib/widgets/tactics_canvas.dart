@@ -1370,10 +1370,10 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // invisible ghost reads as a stray blob. Chain selection on the start
     // position is implied by the glowing waypoints/end of the chain.
     final BoxShadow? glow = widget.isPrimary
-        ? BoxShadow(
-            color: T.accent.withValues(alpha: 0.85),
-            blurRadius: 16,
-            spreadRadius: 3,
+        ? const BoxShadow(
+            color: T.selectRing,
+            blurRadius: 0,
+            spreadRadius: 2,
           )
         : null;
     if (isTextElement(player)) {
@@ -1615,9 +1615,9 @@ class _WaypointDotState extends State<_WaypointDot> {
                 ),
                 boxShadow: [
                   if (widget.isPrimary)
-                    BoxShadow(
-                      color: T.accent.withValues(alpha: 0.85),
-                      blurRadius: 14,
+                    const BoxShadow(
+                      color: T.selectRing,
+                      blurRadius: 0,
                       spreadRadius: 2,
                     )
                   else if (widget.isSelected)
