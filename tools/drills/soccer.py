@@ -54,8 +54,10 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
-            # three passes round the square while the two hunt
-            ball_to=[(1, 0), (2, 1), (3, 2)],
+            # All the way round and back to 1 — a rondo IS the circle, and
+            # stopping at 4 drew three quarters of it. See rondo_family,
+            # which does the same for every other size.
+            ball_to=[(1, 0), (2, 1), (3, 2), (0, 3)],
             free=True,
         ),
         Drill(
@@ -1459,7 +1461,13 @@ def rondo_family() -> list[Drill]:
             # One move each: a second leg drew a numbered waypoint disc in
             # the middle of the ring that every reviewer read as a ball.
             away=[
-                P(x, y, chr(65 + i), moves=[(*hunt[i], i % 2)])
+                # Spread across the lap rather than all inside the first two
+                # beats: the ball now goes all the way round, and defenders
+                # who take their hunting position on beat 1 and then stand
+                # still for six more read as cones.
+                P(x, y, chr(65 + i),
+                  moves=[(*hunt[i], min(attackers - 1,
+                                        round(i * attackers / defenders)))])
                 for i, (x, y) in enumerate(inner)
             ],
             # A square of cones round the circle, which is how it is set up
@@ -1474,10 +1482,14 @@ def rondo_family() -> list[Drill]:
                          f"{attackers} 人在圈外传，{defenders} 人在圈内抢",
             },
             ball=0,
-            # Three passes round the ring while the defenders hunt. The ring
-            # players' own moves are radial nudges, so every pass line is a
-            # chord no runner shares — each one reads as a ball in flight.
-            ball_to=[(1, 0), (2, 1), (3, 2)],
+            # All the way round and back to the man it started with. It used
+            # to be three passes whatever the size of the ring, so an 8v4
+            # never reached half its players and no rondo ever closed — and a
+            # rondo IS the circle: the ball goes round until somebody in the
+            # middle wins it. The ring players' own moves are radial nudges,
+            # so every pass line is a chord no runner shares and each one
+            # reads as a ball in flight.
+            ball_to=[((i + 1) % attackers, i) for i in range(attackers)],
         ))
     return out
 
