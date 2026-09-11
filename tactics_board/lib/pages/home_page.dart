@@ -98,15 +98,27 @@ class TacticsBoardHomePage extends StatelessWidget {
     );
   }
 
-  /// Vertical offset of the two floating corner buttons. The status bar is
+  /// Vertical offset of the floating corner buttons. The status bar is
   /// hidden (UIStatusBarHidden), so the safe-area inset only exists for the
   /// notch / Dynamic Island — which is centred, leaving both corners free.
   /// Sitting the buttons beside it instead of below reclaims ~40pt of board.
-  double _chromeTop(double topPad) =>
-      (topPad - 38).clamp(8.0, topPad + 8).toDouble();
+  ///
+  /// That only holds while the corners hold small buttons. A board with more
+  /// than one page grows the page control from one circle to three — back,
+  /// count, forward — and anchored to the right it then reaches left into the
+  /// island and the "previous page" chevron disappears under it. So a
+  /// multi-page board spends the 40pt and sits the whole row below the inset:
+  /// the alternative is a control you cannot press.
+  double _chromeTop(double topPad, {required bool wide}) => wide
+      ? topPad + 6
+      : (topPad - 38).clamp(8.0, topPad + 8).toDouble();
 
   Widget _canvasStack(BuildContext context, double topPad) {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    // Only the page count matters here, so the whole board does not rebuild
+    // every time something on it moves.
+    final wideChrome =
+        context.select<TacticsState, int>((s) => s.pageCount) > 1;
     return DragTarget<PhotoDragData>(
       onAcceptWithDetails: (details) => _onPhotoDropped(context, details),
       builder: (ctx, candidate, rejected) => Stack(
@@ -142,7 +154,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         // there was no way off the board. The board swallows the edge-swipe
         // (it draws with it), so this is the only way back.
         Positioned(
-            top: _chromeTop(topPad), left: 12,
+            top: _chromeTop(topPad, wide: wideChrome), left: 12,
             child: Selector<TacticsState, (String?, String?)>(
               selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
               builder: (context, tuple, _) {
@@ -217,11 +229,11 @@ class TacticsBoardHomePage extends StatelessWidget {
         // they want it; a coach wrote a review saying there was no easy way
         // to add pages, and there was no way at all.
         Positioned(
-          top: _chromeTop(topPad),
+          top: _chromeTop(topPad, wide: wideChrome),
           right: 12 + (44 * uiScale(context)).clamp(44.0, 60.0),
           child: const _PagesButton(),
         ),
-        Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
+        Positioned(top: _chromeTop(topPad, wide: wideChrome), right: 12, child: _MenuButton()),
         _CollapsibleEditPanel(),
         Positioned(
           bottom: 12, right: 12,
