@@ -772,23 +772,30 @@ class SequenceView extends StatelessWidget {
   }
 
   Widget _node(String label, bool active) {
+    // Align with widthFactor, NOT Container(alignment:) — a Container that
+    // is given an alignment expands to fill whatever it is offered, so inside
+    // a Wrap every node took the full line and the arrows between them ended
+    // up stranded on lines of their own.
     return Container(
       constraints: const BoxConstraints(minWidth: 40),
       height: 40,
-      alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: T.s8),
       decoration: BoxDecoration(
         color: active ? T.accent : const Color(0xFF123B3F),
         borderRadius: BorderRadius.circular(T.rSm + 1),
       ),
-      child: Text(
-        label,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: active ? T.onAccent : T.text,
-          fontSize: 15,
-          fontWeight: FontWeight.w600,
+      child: Align(
+        alignment: Alignment.center,
+        widthFactor: 1,
+        child: Text(
+          label,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            color: active ? T.onAccent : T.text,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
