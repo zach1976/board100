@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../config_constants.dart';
 import '../models/practice_session.dart';
@@ -58,7 +59,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
       builder: (ctx) => AlertDialog(
         backgroundColor: _kCard,
         title: Text('practice_history_clear_title'.tr(),
-            style: const TextStyle(color: Colors.white)),
+            style: const TextStyle(color: T.text)),
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(ctx, false),
@@ -66,7 +67,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             child: Text('clear'.tr(),
-                style: const TextStyle(color: Colors.redAccent)),
+                style: const TextStyle(color: T.danger)),
           ),
         ],
       ),
@@ -127,27 +128,10 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
       body: _loading
           ? const Center(child: CircularProgressIndicator(color: _kAccent))
           : _sessions.isEmpty
-              ? Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.asset(
-                          packageAsset('assets/icon/empty_history.png'),
-                          width: 130),
-                      const SizedBox(height: 16),
-                      Text('practice_history_empty'.tr(),
-                          style: const TextStyle(color: Colors.white54)),
-                      const SizedBox(height: 8),
-                      Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 32),
-                        child: Text('practice_history_empty_hint'.tr(),
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                color: Colors.white38, fontSize: 12.5)),
-                      ),
-                    ],
-                  ),
+              ? TacticalEmptyState(
+                  image: packageAsset('assets/icon/empty_history.png'),
+                  title: 'practice_history_empty'.tr(),
+                  message: 'practice_history_empty_hint'.tr(),
                 )
               : Column(
                   children: [
@@ -182,7 +166,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                       child: ListView.separated(
                         itemCount: _sessions.length,
                         separatorBuilder: (_, __) =>
-                            const Divider(color: Colors.white10, height: 1),
+                            const Divider(color: T.border, height: 1),
                         itemBuilder: (ctx, i) {
                           final s = _sessions[i];
                           final progress = s.plannedItems == 0
@@ -195,14 +179,14 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                                   : Icons.radio_button_unchecked,
                               color: s.completed
                                   ? _kAccent
-                                  : Colors.white38,
+                                  : T.textOff,
                             ),
                             title: Text(s.planName,
-                                style: const TextStyle(color: Colors.white)),
+                                style: const TextStyle(color: T.text)),
                             subtitle: Text(
                               '${_formatDate(s.startedAt)}  ·  ${_formatDuration(s.totalSecondsSpent)}$progress',
                               style: const TextStyle(
-                                  color: Colors.white54, fontSize: 12),
+                                  color: T.textDim, fontSize: 12),
                             ),
                           );
                         },
@@ -230,7 +214,7 @@ class _StatCell extends StatelessWidget {
                 fontWeight: FontWeight.bold)),
         const SizedBox(height: 2),
         Text(label,
-            style: const TextStyle(color: Colors.white54, fontSize: 12)),
+            style: const TextStyle(color: T.textDim, fontSize: 12)),
       ],
     );
   }
@@ -275,10 +259,10 @@ class _AttendanceStrip extends StatelessWidget {
               const SizedBox(width: 6),
               Text('attendance_season_title'.tr(),
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14)),
+                      color: T.text, fontWeight: FontWeight.w600, fontSize: 14)),
               const Spacer(),
               Text('attendance_of_sessions'.tr(args: ['$total']),
-                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                  style: const TextStyle(color: T.textOff, fontSize: 12)),
             ],
           ),
           const SizedBox(height: 12),
@@ -327,7 +311,7 @@ class _AttendanceRow extends StatelessWidget {
           child: Text(name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white70, fontSize: 13)),
+              style: const TextStyle(color: T.textDim, fontSize: 13)),
         ),
         Expanded(
           child: ClipRRect(
@@ -335,7 +319,7 @@ class _AttendanceRow extends StatelessWidget {
             child: LinearProgressIndicator(
               value: ratio,
               minHeight: 7,
-              backgroundColor: Colors.white10,
+              backgroundColor: T.border,
               valueColor: AlwaysStoppedAnimation(color),
             ),
           ),
@@ -346,7 +330,7 @@ class _AttendanceRow extends StatelessWidget {
           child: Text('$attended/$total',
               textAlign: TextAlign.right,
               style: const TextStyle(
-                  color: Colors.white54, fontSize: 12, fontFeatures: [])),
+                  color: T.textDim, fontSize: 12, fontFeatures: [])),
         ),
       ],
     );

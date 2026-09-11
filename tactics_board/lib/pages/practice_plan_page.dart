@@ -14,7 +14,6 @@ import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
 import 'practice_history_page.dart';
 import 'practice_run_page.dart';
-import '../widgets/toolbar.dart';
 
 const _kBg = T.bg1;
 const _kCard = T.surface;
@@ -62,7 +61,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text('practice_new'.tr(),
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
                   leading: const Icon(Icons.add_circle_outline, color: _kAccent),
@@ -70,15 +69,15 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const Divider(color: T.border, height: 1),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
                   child: Text('practice_copy_from'.tr(),
-                      style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                      style: const TextStyle(color: T.textDim, fontSize: 13)),
                 ),
                 ..._names.map((n) => ListTile(
-                      leading: const Icon(Icons.content_copy_outlined, color: Colors.white54),
-                      title: Text(n, style: const TextStyle(color: Colors.white)),
+                      leading: const Icon(Icons.content_copy_outlined, color: T.textDim),
+                      title: Text(n, style: const TextStyle(color: T.text)),
                       onTap: () => Navigator.pop(ctx, n),
                     )),
               ],
@@ -140,13 +139,13 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: _kCard,
-        title: Text('practice_delete_title'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text(name, style: const TextStyle(color: Colors.white70)),
+        title: Text('practice_delete_title'.tr(), style: const TextStyle(color: T.text)),
+        content: Text(name, style: const TextStyle(color: T.textDim)),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+            child: Text('remove'.tr(), style: const TextStyle(color: T.danger)),
           ),
         ],
       ),
@@ -193,18 +192,18 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
       builder: (ctx) => AlertDialog(
         backgroundColor: _kCard,
         title: Text('practice_import'.tr(),
-            style: const TextStyle(color: Colors.white)),
+            style: const TextStyle(color: T.text)),
         content: TextField(
           controller: ctrl,
           autofocus: true,
           minLines: 6,
           maxLines: 12,
-          style: const TextStyle(color: Colors.white, fontSize: 12),
+          style: const TextStyle(color: T.text, fontSize: 12),
           decoration: InputDecoration(
             hintText: 'practice_import_paste'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
+            hintStyle: const TextStyle(color: T.textOff),
             filled: true,
-            fillColor: Colors.black26,
+            fillColor: Color(0x42000000),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,
@@ -294,7 +293,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
               : ListView.separated(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   itemCount: _names.length,
-                  separatorBuilder: (_, __) => const Divider(color: Colors.white10, height: 1),
+                  separatorBuilder: (_, __) => const Divider(color: T.border, height: 1),
                   itemBuilder: (ctx, i) {
                     final name = _names[i];
                     return FutureBuilder<Practice?>(
@@ -306,20 +305,20 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                             : '${p.items.length} · ${p.totalMinutes} ${'practice_minutes'.tr()}';
                         return ListTile(
                           leading: const Icon(Icons.event_note_outlined, color: _kAccent),
-                          title: Text(name, style: const TextStyle(color: Colors.white)),
-                          subtitle: Text(subtitle, style: const TextStyle(color: Colors.white54)),
+                          title: Text(name, style: const TextStyle(color: T.text)),
+                          subtitle: Text(subtitle, style: const TextStyle(color: T.textDim)),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
                                 icon: const Icon(Icons.ios_share_rounded,
-                                    color: Colors.white54),
+                                    color: T.textDim),
                                 tooltip: 'practice_share'.tr(),
                                 onPressed: () => _share(name),
                               ),
                               IconButton(
                                 icon: const Icon(Icons.delete_outline_rounded,
-                                    color: Colors.redAccent),
+                                    color: T.danger),
                                 onPressed: () => _confirmDelete(name),
                               ),
                             ],
@@ -429,7 +428,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text('practice_add_tactic'.tr(),
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
                   leading: const Icon(Icons.add_circle_outline, color: _kAccent),
@@ -437,15 +436,15 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                       style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const Divider(color: T.border, height: 1),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
                   child: Text('tactic_copy_from'.tr(),
-                      style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                      style: const TextStyle(color: T.textDim, fontSize: 13)),
                 ),
                 ...existing.map((n) => ListTile(
-                      leading: const Icon(Icons.content_copy_outlined, color: Colors.white54),
-                      title: Text(n, style: const TextStyle(color: Colors.white)),
+                      leading: const Icon(Icons.content_copy_outlined, color: T.textDim),
+                      title: Text(n, style: const TextStyle(color: T.text)),
                       onTap: () => Navigator.pop(ctx, n),
                     )),
               ],
@@ -500,7 +499,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 padding: const EdgeInsets.all(16),
                 child: Text(
                   'practice_pick_tactic'.tr(),
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: T.text, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
@@ -508,10 +507,10 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 title: Text('practice_add_tactic'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, _newSentinel),
               ),
-              if (names.isNotEmpty) const Divider(color: Colors.white12, height: 1),
+              if (names.isNotEmpty) const Divider(color: T.border, height: 1),
               ...names.map((n) => ListTile(
-                    leading: const Icon(Icons.description_outlined, color: Colors.white54),
-                    title: Text(n, style: const TextStyle(color: Colors.white)),
+                    leading: const Icon(Icons.description_outlined, color: T.textDim),
+                    title: Text(n, style: const TextStyle(color: T.text)),
                     onTap: () => Navigator.pop(ctx, n),
                   )),
             ],
@@ -537,8 +536,8 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
       builder: (ctx) => AlertDialog(
         backgroundColor: _kCard,
         title: Text('practice_remove_item_title'.tr(),
-            style: const TextStyle(color: Colors.white)),
-        content: Text(name, style: const TextStyle(color: Colors.white70)),
+            style: const TextStyle(color: T.text)),
+        content: Text(name, style: const TextStyle(color: T.textDim)),
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(ctx, false),
@@ -546,7 +545,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             child: Text('remove'.tr(),
-                style: const TextStyle(color: Colors.redAccent)),
+                style: const TextStyle(color: T.danger)),
           ),
         ],
       ),
@@ -595,8 +594,8 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
         backgroundColor: _kBg,
         appBar: AppBar(
           backgroundColor: _kCard,
-          title: Text('practice_edit'.tr(), style: const TextStyle(color: Colors.white)),
-          iconTheme: const IconThemeData(color: Colors.white),
+          title: Text('practice_edit'.tr(), style: const TextStyle(color: T.text)),
+          iconTheme: const IconThemeData(color: T.text),
           actions: [
             if (_p.items.isNotEmpty)
               IconButton(
@@ -612,11 +611,11 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 6),
               child: Text('practice_name'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                  style: const TextStyle(color: T.textDim, fontSize: 13)),
             ),
             TextField(
               controller: _nameCtrl,
-              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: T.text, fontSize: 16, fontWeight: FontWeight.bold),
               decoration: _inputDeco(),
               onChanged: (_) => _dirty = true,
               onEditingComplete: _saveIfDirty,
@@ -625,11 +624,11 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 6),
               child: Text('practice_notes'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 13)),
+                  style: const TextStyle(color: T.textDim, fontSize: 13)),
             ),
             TextField(
               controller: _notesCtrl,
-              style: const TextStyle(color: Colors.white70),
+              style: const TextStyle(color: T.textDim),
               decoration: _inputDeco(),
               minLines: 2,
               maxLines: 4,
@@ -640,7 +639,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
             Row(
               children: [
                 Text('practice_items'.tr(),
-                    style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                    style: const TextStyle(color: T.textDim, fontSize: 13)),
                 const Spacer(),
                 Text('${_p.totalMinutes} ${'practice_minutes'.tr()}',
                     style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
@@ -653,7 +652,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 child: Text(
                   'practice_no_items'.tr(),
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white38),
+                  style: const TextStyle(color: T.textOff),
                 ),
               )
             else
@@ -673,10 +672,16 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 },
                 itemBuilder: (ctx, i) {
                   final it = _p.items[i];
+                  var startsAt = 0;
+                  for (var k = 0; k < i; k++) {
+                    startsAt += _p.items[k].durationMinutes;
+                  }
                   return _ItemCard(
                     key: ValueKey('item-$i-${it.tacticName}'),
                     index: i,
                     item: it,
+                    startsAt: startsAt,
+                    isLast: i == _p.items.length - 1,
                     onDurationChange: (v) {
                       setState(() {
                         it.durationMinutes = v;
@@ -729,10 +734,20 @@ class _ItemCard extends StatefulWidget {
   final VoidCallback onDelete;
   final VoidCallback onLoad;
 
+  /// Minutes into the session this item begins — the sum of everything above
+  /// it. Not a wall clock: Practice carries no start time, and inventing a
+  /// field for one would change the saved format.
+  final int startsAt;
+
+  /// Last in the plan, so the rail stops rather than trailing into nothing.
+  final bool isLast;
+
   const _ItemCard({
     super.key,
     required this.index,
     required this.item,
+    required this.startsAt,
+    required this.isLast,
     required this.onDurationChange,
     required this.onNoteChange,
     required this.onNoteEditEnd,
@@ -761,12 +776,43 @@ class _ItemCardState extends State<_ItemCard> {
 
   @override
   Widget build(BuildContext context) {
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SizedBox(
+            width: 52,
+            child: Column(
+              children: [
+                Text('${widget.startsAt}′',
+                    style: T.meta.copyWith(
+                        fontFeatures: const [FontFeature.tabularFigures()])),
+                const SizedBox(height: 4),
+                Container(
+                  width: 9,
+                  height: 9,
+                  decoration: const BoxDecoration(
+                      color: T.accent, shape: BoxShape.circle),
+                ),
+                // The rail continues to the next item, and stops at the last.
+                if (!widget.isLast)
+                  Expanded(child: Container(width: 1.5, color: T.border)),
+              ],
+            ),
+          ),
+          Expanded(child: _body()),
+        ],
+      ),
+    );
+  }
+
+  Widget _body() {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: const EdgeInsets.only(bottom: T.s12),
       padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
       decoration: BoxDecoration(
         color: _kCard,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(T.rSm),
       ),
       child: Column(
         children: [
@@ -776,7 +822,7 @@ class _ItemCardState extends State<_ItemCard> {
                 index: widget.index,
                 child: const Padding(
                   padding: EdgeInsets.all(8),
-                  child: Icon(Icons.drag_handle, color: Colors.white38),
+                  child: Icon(Icons.drag_handle, color: T.textOff),
                 ),
               ),
               Expanded(
@@ -790,7 +836,7 @@ class _ItemCardState extends State<_ItemCard> {
                         child: Text(
                           widget.item.tacticName,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(color: Colors.white, fontSize: 15),
+                          style: const TextStyle(color: T.text, fontSize: 15),
                         ),
                       ),
                     ],
@@ -807,17 +853,17 @@ class _ItemCardState extends State<_ItemCard> {
                 onChanged: widget.onDurationChange,
               ),
               IconButton(
-                icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
+                icon: const Icon(Icons.delete_outline_rounded, color: T.danger, size: 20),
                 onPressed: widget.onDelete,
               ),
             ],
           ),
           TextField(
             controller: _noteCtrl,
-            style: const TextStyle(color: Colors.white70, fontSize: 13),
+            style: const TextStyle(color: T.textDim, fontSize: 13),
             decoration: InputDecoration(
               hintText: 'practice_item_note'.tr(),
-              hintStyle: const TextStyle(color: Colors.white24),
+              hintStyle: const TextStyle(color: T.textOff),
               isDense: true,
               contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               border: OutlineInputBorder(
@@ -825,7 +871,7 @@ class _ItemCardState extends State<_ItemCard> {
                 borderSide: BorderSide.none,
               ),
               filled: true,
-              fillColor: Colors.white.withValues(alpha: 0.04),
+              fillColor: T.border,
             ),
             onChanged: widget.onNoteChange,
             onEditingComplete: widget.onNoteEditEnd,
@@ -868,18 +914,18 @@ class _DurationFieldState extends State<_DurationField> {
         controller: _ctrl,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.white, fontSize: 14),
+        style: const TextStyle(color: T.text, fontSize: 14),
         decoration: InputDecoration(
           isDense: true,
           suffixText: 'm',
-          suffixStyle: const TextStyle(color: Colors.white38, fontSize: 11),
+          suffixStyle: const TextStyle(color: T.textOff, fontSize: 11),
           contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide.none,
           ),
           filled: true,
-          fillColor: Colors.white.withValues(alpha: 0.06),
+          fillColor: T.border,
         ),
         onChanged: (v) {
           final n = int.tryParse(v);
@@ -896,14 +942,14 @@ Future<String?> _promptName(BuildContext context, {required String title, String
     context: context,
     builder: (ctx) => AlertDialog(
       backgroundColor: _kCard,
-      title: Text(title, style: const TextStyle(color: Colors.white)),
+      title: Text(title, style: const TextStyle(color: T.text)),
       content: TextField(
         controller: ctrl,
         autofocus: true,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: T.text),
         decoration: InputDecoration(
           hintText: hint ?? 'practice_name'.tr(),
-          hintStyle: const TextStyle(color: Colors.white38),
+          hintStyle: const TextStyle(color: T.textOff),
         ),
       ),
       actions: [

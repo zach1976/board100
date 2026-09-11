@@ -343,11 +343,14 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     ),
                   )
                 else if (all.isEmpty)
+                  // §23: the one empty state, not a grey sentence. A search
+                  // that finds nothing should look like the other dead ends
+                  // in the app, not like a label someone forgot to style.
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 34),
-                    child: Center(
-                      child: Text('drills_empty'.tr(),
-                          style: const TextStyle(color: Colors.white38, fontSize: 13)),
+                    padding: const EdgeInsets.symmetric(vertical: T.s32),
+                    child: TacticalEmptyState(
+                      icon: Icons.search_off_rounded,
+                      title: 'drills_empty'.tr(),
                     ),
                   )
                 else ...[
