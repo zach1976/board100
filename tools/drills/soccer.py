@@ -1038,8 +1038,10 @@ def soccer_drills() -> list[Drill]:
                 P(300, 600, "1", moves=[(560, 620, 1)]),
                 P(700, 600, "2", moves=[(700, 780, 2)]),
                 P(700, 900, "3", moves=[(420, 900, 3)]),
-                P(300, 900, "4", moves=[(300, 720, 4)]),
-                P(220, 600, "5"),
+                P(300, 900, "4", moves=[(220, 600, 4)]),
+                # Steps onto cone one as player 1 leaves it, and receives the
+                # closing pass there. See passing_family.
+                P(220, 600, "5", moves=[(300, 600, 1)]),
             ],
             markers=[M(280, 580), M(720, 580), M(720, 920), M(280, 920)],
             ball=0,
@@ -2114,9 +2116,13 @@ def passing_family() -> list[Drill]:
                 P(x, y, f"{i + 1}", moves=[(*queue_spot(i), i + 1)])
                 for i, (x, y) in enumerate(spots)
             ] + [
-                # The spare, behind the first cone. He does not move this lap;
-                # he receives the closing pass and starts the next one.
-                P(*queue_spot(n - 1), f"{n + 1}"),
+                # The spare, queued behind the first cone — and he STEPS UP
+                # onto it the moment the first player leaves. Without that he
+                # is still standing in the queue when the last runner arrives
+                # there, and the two tokens land on the same point; the
+                # closing pass also has to reach the cone, not a man behind
+                # it.
+                P(*queue_spot(n - 1), f"{n + 1}", moves=[(*spots[0], 1)]),
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
             setup={

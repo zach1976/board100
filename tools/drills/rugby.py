@@ -154,11 +154,19 @@ def move_family() -> list[Drill]:
         home = []
         for i, (x, y) in enumerate(line):
             end_x = target_x if i == receiver else x + (target_x - x) * 0.25
+            depth = 0.38
+            # The man the receiver runs onto top of holds his width and his
+            # depth instead of drifting. On the miss pass the receiver's
+            # target IS the outside man's channel, and both finished on the
+            # same point — one player drawn, not two.
+            if i != receiver and abs(end_x - target_x) < 0.07:
+                end_x, depth = x, 0.47
             # A backline from first receiver outward is 10, 12, 13, 15, 14 —
             # not 10, 11, 12, 13, 14, which puts the left wing at inside
             # centre, a position 11 never stands in.
             home.append(P(x, y, ("10", "12", "13", "15", "14")[i],
-                          moves=[(x + (end_x - x) * 0.4, 0.50, 0), (end_x, 0.38, 1)]))
+                          moves=[(x + (end_x - x) * 0.4, 0.50, 0),
+                                 (end_x, depth, 1)]))
         out.append(Drill(
             id=f"rg_move_{key}", category="attacking", minutes=12, rel=True,
             free=(key in ("miss_pass", "switch")),
@@ -217,8 +225,13 @@ def finishing_family() -> list[Drill]:
             # from another sport's template. He covers across instead.
             away=[P(start[0] + 0.04, TRY_LINE + 0.02, "D",
                     moves=[(start[0] + 0.02, TRY_LINE + 0.05, 0)]),
+                  # Offset to the far side of the carrier's channel. On the
+                  # pick-and-go the carrier starts dead centre, and without
+                  # this both defenders covered to the same point — two D
+                  # tokens on one spot, so the board showed one defender.
                   P(0.5 + (0.5 - start[0]) * 0.55, TRY_LINE + 0.075, "D",
-                    moves=[(start[0] * 0.4 + 0.30, TRY_LINE + 0.045, 1)])],
+                    moves=[(max(0.08, start[0] * 0.4 + 0.30 - 0.09),
+                            TRY_LINE + 0.045, 1)])],
             markers=[M(0.50, TRY_LINE, "zone", "")],
             ball=0,
             # carried at the corner, and the offload sends 2 over
@@ -348,13 +361,23 @@ def setpiece_family() -> list[Drill]:
             id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
             tight=True, free=(key == "lineout_five"), off_surface=True,
             name=suffixed(SET_NAME, label), note=SET_NOTE,
-            # The hooker throws from outside the touchline; the jumper in
-            # the middle rises while his two lifters close on him.
+            # The hooker throws from outside the touchline; the jumper's two
+            # lifters close on him from their own sides.
+            #
+            # The lifters' step is SIGNED. It used to be a flat +0.012, which
+            # walked the lifter standing above the jumper down into him while
+            # the one below stepped away — and the jumper was translated up
+            # 0.02 on top of that, straight into the first of them. Two men
+            # on one point, and a lineout that shows four. A lift is vertical
+            # and a top-down board cannot draw it, so the jumper holds his
+            # ground and only the lifters move.
             home=[P(-0.02, y + 0.02 * (n // 2), "2",
                     moves=[(0.01, y + 0.02 * (n // 2), 1)])] + [
                 P(0.14, y + 0.024 * i, lbl,
-                  moves=[(0.145, y + 0.024 * i - (0.02 if i == n // 2 else 0.0)
-                          + (0.012 if abs(i - n // 2) == 1 else 0.0), 1)])
+                  moves=[(0.145, y + 0.024 * i
+                          + (0.010 if i < n // 2 else -0.010
+                             if i > n // 2 else 0.0)
+                          * (1.0 if abs(i - n // 2) == 1 else 0.0), 1)])
                 for i, lbl in enumerate(jumpers)
             ] + [P(0.26, y + 0.024 * (n // 2) + 0.05, "9",
                    moves=[(0.24, y + 0.024 * (n // 2) + 0.02, 2)])],
@@ -475,8 +498,12 @@ def breakdown_family() -> list[Drill]:
             free=(key == "quick_ball"),
             name=suffixed(BREAKDOWN_NAME, label), note=BREAKDOWN_NOTE,
             home=[P(0.50, 0.56, "1", moves=[(0.50, 0.50, 0)])] + [
+                # Spread across the ruck, not stacked on its middle. Every
+                # supporter used to arrive at exactly (0.50, 0.48), so a
+                # three-man counter-ruck was drawn as one man.
                 P(0.42 + 0.08 * i, 0.66, f"{i + 2}",
-                  moves=[(0.46 + 0.06 * i, 0.52, 0), (0.50, 0.48, 1)])
+                  moves=[(0.46 + 0.06 * i, 0.52, 0),
+                         (0.50 + 0.055 * (i - (n - 1) / 2), 0.48, 1)])
                 for i in range(n)
             ],
             away=[P(0.50, 0.44, "D", moves=[(0.50, 0.50, 0)]),
