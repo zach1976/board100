@@ -676,7 +676,13 @@ class MetaItem extends StatelessWidget {
       children: [
         Icon(icon, size: T.iSm, color: tint ?? T.textOff),
         const SizedBox(width: 5),
-        Text(label, style: T.meta),
+        // Flexible + ellipsis so this can live in a narrow row. Without it a
+        // long level name in Thai or French reports its natural width and
+        // overflows whatever it was placed in.
+        Flexible(
+          child: Text(label,
+              maxLines: 1, overflow: TextOverflow.ellipsis, style: T.meta),
+        ),
       ],
     );
   }
