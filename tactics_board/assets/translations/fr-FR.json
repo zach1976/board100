@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "Les exercices sont déjà rédigés",
   "intro_pillar_plan": "Planifier",
   "intro_pillar_run": "Dérouler",
-  "intro_pillar_grow": "Progresser"
+  "intro_pillar_grow": "Progresser",
+  "practice_add_to_plan": "Ajouter à une séance",
+  "practice_added_to": "Ajouté à {}",
+  "practice_add_short": "Au plan"
 }

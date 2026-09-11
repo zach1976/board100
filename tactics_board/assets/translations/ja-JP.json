@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "ドリルはすべて解説つき",
   "intro_pillar_plan": "練習を組む",
   "intro_pillar_run": "順に進める",
-  "intro_pillar_grow": "積み上げる"
+  "intro_pillar_grow": "積み上げる",
+  "practice_add_to_plan": "練習計画に追加",
+  "practice_added_to": "「{}」に追加しました",
+  "practice_add_short": "計画に追加"
 }

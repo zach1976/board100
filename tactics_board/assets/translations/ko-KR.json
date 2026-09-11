@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "드릴은 이미 적혀 있습니다",
   "intro_pillar_plan": "훈련 짜기",
   "intro_pillar_run": "차례로 진행",
-  "intro_pillar_grow": "꾸준히 향상"
+  "intro_pillar_grow": "꾸준히 향상",
+  "practice_add_to_plan": "훈련 계획에 추가",
+  "practice_added_to": "{}에 추가했습니다",
+  "practice_add_short": "계획에 추가"
 }

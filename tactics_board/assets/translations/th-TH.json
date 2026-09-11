@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "แบบฝึกเขียนไว้ให้แล้ว",
   "intro_pillar_plan": "วางแผนซ้อม",
   "intro_pillar_run": "ทำทีละข้อ",
-  "intro_pillar_grow": "พัฒนาต่อ"
+  "intro_pillar_grow": "พัฒนาต่อ",
+  "practice_add_to_plan": "เพิ่มลงแผนซ้อม",
+  "practice_added_to": "เพิ่มลงใน {} แล้ว",
+  "practice_add_short": "เพิ่มลงแผน"
 }
