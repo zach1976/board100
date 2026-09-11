@@ -153,6 +153,52 @@ def audit(drill, sport):
                     + ("——后到者踩在还没让开的位置上"
                        if all(d < 1 for *_x, d in hits) else ""),
         })
+    # Does a station routine come round again?
+    #
+    # A coach reported the triangle stopping: the ball went 1→2→3 and that
+    # was that, when a warm-up is something you set up once and let turn over
+    # for eight minutes. The shape of the defect is a cone that had somebody
+    # on it at the start and has nobody on it at the end — the routine has
+    # nowhere to restart from. Only for one-body-per-station drills; a rondo's
+    # cones mark the grid, not places to stand.
+    cones = [p for p in board["players"] if kind(p) == "marker"]
+    # "Standing on it", not "somewhere near it". In the rotation drills every
+    # body is within 69 units of its cone; the 2v2 that this first mis-flagged
+    # had a player 229 from the nearest marker and was still counted as on
+    # one, because the radius was borrowed from the overlap check and is far
+    # too generous for this.
+    near = 150.0
+
+    def on_a_cone(pos):
+        return any(((pos[0] - c["position"][0]) ** 2
+                    + (pos[1] - c["position"][1]) ** 2) ** 0.5 <= near
+                   for c in cones)
+
+    # EVERY player has to start on a station for this to be a rotation at
+    # all. Counting cones against bodies is not enough: a 4v4 with four goals
+    # and a 2v2 with court markers both match the count while nobody is
+    # standing on anything, and both were flagged as broken rotations.
+    is_rotation = (len(cones) >= 3 and movers
+                   and len(people) in (len(cones), len(cones) + 1)
+                   and all(on_a_cone(p["position"]) for p in people))
+    if is_rotation:
+        empty = []
+        for c in cones:
+            cp = c["position"]
+            def close(pos, cp=cp):
+                return ((pos[0] - cp[0]) ** 2 + (pos[1] - cp[1]) ** 2) ** 0.5 <= near
+            had = any(close(p["position"]) for p in people)
+            has = any(close(position_at(p, max_step(board))) for p in people)  # noqa: E501
+            if had and not has:
+                empty.append(cp)
+        if empty:
+            out.append({
+                "id": "loop_open",
+                "level": "error",
+                "text": f"轮转不闭环：{len(empty)} 个起始有人的锥标在结束时空着，"
+                        "下一轮没人接得上",
+            })
+
     rank = {"error": 0, "warn": 1, "info": 2}
     out.sort(key=lambda i: rank[i["level"]])
     return out
