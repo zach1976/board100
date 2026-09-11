@@ -952,6 +952,37 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                     f"{'labels collide' if drill.tight else 'icons overlap'} "
                     f"(need {floor:.0f}pt)")
 
+    # …and nobody may be hidden UNDER a team-mate at any beat.
+    #
+    # The check above only ever looked at where people start, which is how a
+    # passing pattern shipped with its last runner arriving exactly on the
+    # spare's cone, and a three-man counter-ruck shipped drawn as one man:
+    # every supporter's move ended at the same point. A token is 36pt wide,
+    # so two of them 6pt apart is one token as far as a coach can tell.
+    #
+    # Only team-mates. Opponents on one point is a tackle, a tag, a screen —
+    # the whole content of the drill. And 6pt rather than a full icon,
+    # because bodies at a ruck, a maul or a lineout really are touching: the
+    # tightest honest board in the library sits at 8.7pt.
+    if sport not in SPACING_UNCHECKED:
+        beats = [ph for p in people for ph in p["movePhases"]]
+        for beat in range(0, (max(beats) if beats else 0) + 1):
+            def where(p, beat=beat):
+                at = p["position"]
+                for mv, ph in zip(p["moves"], p["movePhases"]):
+                    if ph <= beat:
+                        at = mv
+                return at
+            for i in range(len(people)):
+                for j in range(i + 1, len(people)):
+                    if people[i]["team"] != people[j]["team"]:
+                        continue
+                    d = _screen_gap(where(people[i]), where(people[j]))
+                    assert d >= 6.0, (
+                        f"{sport}/{drill.id}: {people[i]['label']!r} and "
+                        f"{people[j]['label']!r} are {d:.1f}pt apart on beat "
+                        f"{beat} — one is drawn under the other")
+
     for p in people:
         prev = p["position"]
         for mv in p["moves"]:

@@ -2615,7 +2615,7 @@
                 777.6
               ],
               [
-                500.0,
+                477.6667012161415,
                 722.4
               ]
             ],
@@ -2647,7 +2647,7 @@
                 777.6
               ],
               [
-                500.0,
+                522.3332987838585,
                 722.4
               ]
             ],
@@ -3085,7 +3085,7 @@
                 777.6
               ],
               [
-                500.0,
+                455.33340243228304,
                 722.4
               ]
             ],
@@ -3149,7 +3149,7 @@
                 777.6
               ],
               [
-                500.0,
+                544.666597567717,
                 722.4
               ]
             ],
@@ -3470,7 +3470,7 @@
               ],
               [
                 792.363184079602,
-                584.4
+                708.5999999999999
               ]
             ],
             "movePhases": [
@@ -3763,12 +3763,12 @@
             "scale": 1.0,
             "moves": [
               [
-                279.1033720287452,
+                272.60641238253174,
                 750.0
               ],
               [
-                288.84881149806523,
-                584.4
+                272.60641238253174,
+                708.5999999999999
               ]
             ],
             "movePhases": [
@@ -3795,12 +3795,12 @@
             "scale": 1.0,
             "moves": [
               [
-                396.048645660586,
+                402.54560530679936,
                 750.0
               ],
               [
-                386.3032061912659,
-                584.4
+                402.54560530679936,
+                708.5999999999999
               ]
             ],
             "movePhases": [
@@ -4083,7 +4083,7 @@
             "scale": 1.0,
             "moves": [
               [
-                436.048645660586,
+                442.54560530679936,
                 820.0
               ],
               [
@@ -4285,12 +4285,12 @@
             "scale": 1.0,
             "moves": [
               [
-                659.1755113322278,
+                662.4239911553344,
                 750.0
               ],
               [
-                654.3027915975676,
-                584.4
+                662.4239911553344,
+                708.5999999999999
               ]
             ],
             "movePhases": [
@@ -6341,18 +6341,18 @@
         "vi-VN": "Kết thúc nhặt bóng và tiến"
       },
       "note": {
-        "en": "Purpose: Turn a chance into a try: keep hold of the ball and stay low near the line, and make the final pass early and accurate.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move, D moves up the board; Step 2: 1 throws to 2, 1 follows up behind 2, 2 moves up the board, D moves back.\nCoaching point: Score under the posts if you can — the two points after are worth the extra second it costs to get there.",
-        "en-GB": "Purpose: Turn a chance into a try: keep hold of the ball and stay low near the line, and make the final pass early and accurate.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move, D moves up the board; Step 2: 1 throws to 2, 1 follows up behind 2, 2 moves up the board, D moves back.\nCoaching point: Score under the posts if you can — the two points after are worth the extra second it costs to get there.",
-        "zh-CN": "【目的】得分：练怎么把机会变成达阵。到达阵线前保持球在手里、身体压低，最后一传要早、要准。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】2 对 2，球在 1 手中。\n【球路】1 → 2\n【流程】第1步：1号球员带球推进，D向前移动；第2步：1号球员传给2号球员，1号球员跟上去，跑到2号球员身后，2号球员向前移动，D向后移动。\n【要点】能压到门柱正下方就压过去——后面那两分，值得你多花那一秒。",
-        "zh-TW": "【目的】得分：練怎麼把機會變成達陣。到達陣線前保持球在手裡、身體壓低，最後一傳要早、要準。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】2 對 2，球在 1 手中。\n【球路】1 → 2\n【流程】第1步：1號球員帶球推進，D向前移動；第2步：1號球員傳給2號球員，1號球員跟上去，跑到2號球員身後，2號球員向前移動，D向後移動。\n【要點】能壓到門柱正下方就壓過去——後面那兩分，值得你多花那一秒。",
-        "ja-JP": "【目的】チャンスをトライに変える。ライン際ではボールを離さず低い姿勢を保ち、最後のパスは早く正確に。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → 2\n【流れ】ステップ1：1番がボールを運ぶ、Dが前方へ移動。ステップ2：1番が2番へ送球、1番が2番の後ろへ入る、2番が前方へ移動、Dが後方へ移動。\n【ポイント】可能ならポスト下でトライする。その後の2点は、余分にかかる1秒に見合う。",
-        "ko-KR": "【목적】기회를 트라이로 바꾼다. 라인 근처에서는 공을 놓지 않고 몸을 낮추며, 마지막 패스는 빠르고 정확하게.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → 2\n【진행】1단계: 1번가 공을 몰고 이동, D는 앞으로 이동; 2단계: 1번가 2번에게 송구, 1번가 2번 뒤로 따라 들어간다, 2번는 앞으로 이동, D는 뒤로 이동.\n【포인트】가능하면 골포스트 아래에 찍어라. 이후 2점은 그 1초의 값어치가 있다.",
-        "es-ES": "Objetivo: Convertir la ocasión en ensayo: no soltar el balón y mantenerse bajo cerca de la línea, y dar el último pase pronto y preciso.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → 2\nSecuencia: Paso 1: 1 conduce el balón, D se desplaza hacia delante; Paso 2: 1 lanza a 2, 1 sube por detrás de 2, 2 se desplaza hacia delante, D se desplaza hacia atrás.\nPunto clave: Ensaya bajo palos si puedes: los dos puntos posteriores valen el segundo extra que cuesta llegar ahí.",
-        "fr-FR": "Objectif : Transformer l'occasion en essai : garder le ballon et rester bas près de la ligne, et donner la dernière passe tôt et précise.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2\nDéroulé : Étape 1 : 1 conduit le ballon, D se déplace vers l'avant ; Étape 2 : 1 lance à 2, 1 monte derrière 2, 2 se déplace vers l'avant, D se déplace vers l'arrière.\nPoint clé : Aplatis sous les poteaux si tu peux : les deux points d'après valent la seconde supplémentaire.",
-        "id-ID": "Tujuan: Mengubah peluang menjadi try: pegang bola dan tetap rendah dekat garis, dan berikan umpan terakhir lebih awal dan akurat.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → 2\nUrutan: Langkah 1: 1 menggiring bola, D bergerak ke depan; Langkah 2: 1 melempar ke 2, 1 maju di belakang 2, 2 bergerak ke depan, D bergerak ke belakang.\nPoin utama: Cetak di bawah tiang jika bisa.",
-        "ms-MY": "Tujuan: Menukar peluang kepada try: pegang bola dan kekal rendah dekat garisan, dan buat hantaran terakhir awal dan tepat.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2\nUrutan: Langkah 1: 1 membawa bola, D bergerak ke hadapan; Langkah 2: 1 membaling kepada 2, 1 naik di belakang 2, 2 bergerak ke hadapan, D bergerak ke belakang.\nPoin utama: Jaringkan di bawah tiang jika boleh.",
-        "th-TH": "จุดประสงค์: เปลี่ยนโอกาสเป็นทรัย ถือบอลไว้และย่อตัวต่ำใกล้เส้น และจ่ายบอลสุดท้ายให้เร็วและแม่น\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2\nลำดับ: ขั้นที่ 1: 1 พาบอลไป D ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 2 1 ตามขึ้นไปด้านหลัง2 2 ขยับไปข้างหน้า D ขยับถอยหลัง\nจุดเน้น: ถ้าทำได้ให้วางบอลใต้เสาประตู",
-        "vi-VN": "Mục đích: Biến cơ hội thành try: giữ chặt bóng và hạ thấp người gần vạch, đường chuyền cuối phải sớm và chính xác.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2\nTrình tự: Bước 1: 1 dẫn bóng di chuyển, D di chuyển lên phía trước; Bước 2: 1 ném cho 2, 1 theo lên phía sau 2, 2 di chuyển lên phía trước, D di chuyển lùi lại.\nĐiểm chính: Nếu được, hãy ghi điểm ngay dưới cột."
+        "en": "Purpose: Turn a chance into a try: keep hold of the ball and stay low near the line, and make the final pass early and accurate.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move, D moves up the board; Step 2: 1 throws to 2, 1 follows up behind 2, 2 moves up the board, D moves left.\nCoaching point: Score under the posts if you can — the two points after are worth the extra second it costs to get there.",
+        "en-GB": "Purpose: Turn a chance into a try: keep hold of the ball and stay low near the line, and make the final pass early and accurate.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move, D moves up the board; Step 2: 1 throws to 2, 1 follows up behind 2, 2 moves up the board, D moves left.\nCoaching point: Score under the posts if you can — the two points after are worth the extra second it costs to get there.",
+        "zh-CN": "【目的】得分：练怎么把机会变成达阵。到达阵线前保持球在手里、身体压低，最后一传要早、要准。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】2 对 2，球在 1 手中。\n【球路】1 → 2\n【流程】第1步：1号球员带球推进，D向前移动；第2步：1号球员传给2号球员，1号球员跟上去，跑到2号球员身后，2号球员向前移动，D向左移动。\n【要点】能压到门柱正下方就压过去——后面那两分，值得你多花那一秒。",
+        "zh-TW": "【目的】得分：練怎麼把機會變成達陣。到達陣線前保持球在手裡、身體壓低，最後一傳要早、要準。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】2 對 2，球在 1 手中。\n【球路】1 → 2\n【流程】第1步：1號球員帶球推進，D向前移動；第2步：1號球員傳給2號球員，1號球員跟上去，跑到2號球員身後，2號球員向前移動，D向左移動。\n【要點】能壓到門柱正下方就壓過去——後面那兩分，值得你多花那一秒。",
+        "ja-JP": "【目的】チャンスをトライに変える。ライン際ではボールを離さず低い姿勢を保ち、最後のパスは早く正確に。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → 2\n【流れ】ステップ1：1番がボールを運ぶ、Dが前方へ移動。ステップ2：1番が2番へ送球、1番が2番の後ろへ入る、2番が前方へ移動、Dが左へ移動。\n【ポイント】可能ならポスト下でトライする。その後の2点は、余分にかかる1秒に見合う。",
+        "ko-KR": "【목적】기회를 트라이로 바꾼다. 라인 근처에서는 공을 놓지 않고 몸을 낮추며, 마지막 패스는 빠르고 정확하게.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → 2\n【진행】1단계: 1번가 공을 몰고 이동, D는 앞으로 이동; 2단계: 1번가 2번에게 송구, 1번가 2번 뒤로 따라 들어간다, 2번는 앞으로 이동, D는 왼쪽으로 이동.\n【포인트】가능하면 골포스트 아래에 찍어라. 이후 2점은 그 1초의 값어치가 있다.",
+        "es-ES": "Objetivo: Convertir la ocasión en ensayo: no soltar el balón y mantenerse bajo cerca de la línea, y dar el último pase pronto y preciso.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → 2\nSecuencia: Paso 1: 1 conduce el balón, D se desplaza hacia delante; Paso 2: 1 lanza a 2, 1 sube por detrás de 2, 2 se desplaza hacia delante, D se desplaza a la izquierda.\nPunto clave: Ensaya bajo palos si puedes: los dos puntos posteriores valen el segundo extra que cuesta llegar ahí.",
+        "fr-FR": "Objectif : Transformer l'occasion en essai : garder le ballon et rester bas près de la ligne, et donner la dernière passe tôt et précise.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2\nDéroulé : Étape 1 : 1 conduit le ballon, D se déplace vers l'avant ; Étape 2 : 1 lance à 2, 1 monte derrière 2, 2 se déplace vers l'avant, D se déplace à gauche.\nPoint clé : Aplatis sous les poteaux si tu peux : les deux points d'après valent la seconde supplémentaire.",
+        "id-ID": "Tujuan: Mengubah peluang menjadi try: pegang bola dan tetap rendah dekat garis, dan berikan umpan terakhir lebih awal dan akurat.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → 2\nUrutan: Langkah 1: 1 menggiring bola, D bergerak ke depan; Langkah 2: 1 melempar ke 2, 1 maju di belakang 2, 2 bergerak ke depan, D bergerak ke kiri.\nPoin utama: Cetak di bawah tiang jika bisa.",
+        "ms-MY": "Tujuan: Menukar peluang kepada try: pegang bola dan kekal rendah dekat garisan, dan buat hantaran terakhir awal dan tepat.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2\nUrutan: Langkah 1: 1 membawa bola, D bergerak ke hadapan; Langkah 2: 1 membaling kepada 2, 1 naik di belakang 2, 2 bergerak ke hadapan, D bergerak ke kiri.\nPoin utama: Jaringkan di bawah tiang jika boleh.",
+        "th-TH": "จุดประสงค์: เปลี่ยนโอกาสเป็นทรัย ถือบอลไว้และย่อตัวต่ำใกล้เส้น และจ่ายบอลสุดท้ายให้เร็วและแม่น\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2\nลำดับ: ขั้นที่ 1: 1 พาบอลไป D ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 2 1 ตามขึ้นไปด้านหลัง2 2 ขยับไปข้างหน้า D ขยับไปทางซ้าย\nจุดเน้น: ถ้าทำได้ให้วางบอลใต้เสาประตู",
+        "vi-VN": "Mục đích: Biến cơ hội thành try: giữ chặt bóng và hạ thấp người gần vạch, đường chuyền cuối phải sớm và chính xác.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2\nTrình tự: Bước 1: 1 dẫn bóng di chuyển, D di chuyển lên phía trước; Bước 2: 1 ném cho 2, 1 theo lên phía sau 2, 2 di chuyển lên phía trước, D di chuyển sang trái.\nĐiểm chính: Nếu được, hãy ghi điểm ngay dưới cột."
       },
       "mistake": {
         "en": "Scoring wide when under the posts was on — the two points cost one extra second.",
@@ -6464,7 +6464,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                426.9092039800995,
                 333.24
               ]
             ],
@@ -6698,7 +6698,7 @@
             "scale": 1.0,
             "moves": [
               [
-                629.9391929242676,
+                556.8483969043671,
                 333.24
               ]
             ],
@@ -6932,7 +6932,7 @@
             "scale": 1.0,
             "moves": [
               [
-                564.9695964621337,
+                491.8788004422333,
                 333.24
               ]
             ],
@@ -8856,18 +8856,18 @@
         "vi-VN": "Tình huống cố định ném biên năm người"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2, 7 move right, 4, 5 move back, 6, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2, 7 move right, 4, 5 move back, 6, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】7 对 5，球在 2 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2号球员、7号球员向右移动，4号球员、5号球员向后移动，6号球员、8号球员向前移动；第2步：2号球员传给5号球员，9号球员向前移动；第3步：5号球员传给9号球员。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】7 對 5，球在 2 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2號球員、7號球員向右移動，4號球員、5號球員向後移動，6號球員、8號球員向前移動；第2步：2號球員傳給5號球員，9號球員向前移動；第3步：5號球員傳給9號球員。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】7対5、ボールは2。\n【ボールの道筋】2 → 5 → 9\n【流れ】ステップ1：2番・7番が右へ移動、4番・5番が後方へ移動、6番・8番が前方へ移動。ステップ2：2番が5番へ送球、9番が前方へ移動。ステップ3：5番が9番へ送球。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】7대5, 공은 2.\n【볼 경로】2 → 5 → 9\n【진행】1단계: 2번, 7번는 오른쪽으로 이동, 4번, 5번는 뒤로 이동, 6번, 8번는 앞으로 이동; 2단계: 2번가 5번에게 송구, 9번는 앞으로 이동; 3단계: 5번가 9번에게 송구.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 7 contra 5, balón con 2.\nRecorrido del balón: 2 → 5 → 9\nSecuencia: Paso 1: 2, 7 se desplaza a la derecha, 4, 5 se desplaza hacia atrás, 6, 8 se desplaza hacia delante; Paso 2: 2 lanza a 5, 9 se desplaza hacia delante; Paso 3: 5 lanza a 9.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 7 contre 5, ballon avec 2.\nTrajet du ballon : 2 → 5 → 9\nDéroulé : Étape 1 : 2, 7 se déplace à droite, 4, 5 se déplace vers l'arrière, 6, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 5, 9 se déplace vers l'avant ; Étape 3 : 5 lance à 9.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 7 lawan 5, bola pada 2.\nJalur bola: 2 → 5 → 9\nUrutan: Langkah 1: 2, 7 bergerak ke kanan, 4, 5 bergerak ke belakang, 6, 8 bergerak ke depan; Langkah 2: 2 melempar ke 5, 9 bergerak ke depan; Langkah 3: 5 melempar ke 9.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 7 lawan 5, bola dengan 2.\nLaluan bola: 2 → 5 → 9\nUrutan: Langkah 1: 2, 7 bergerak ke kanan, 4, 5 bergerak ke belakang, 6, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 5, 9 bergerak ke hadapan; Langkah 3: 5 membaling kepada 9.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 7 ต่อ 5 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 5 → 9\nลำดับ: ขั้นที่ 1: 2, 7 ขยับไปทางขวา 4, 5 ขยับถอยหลัง 6, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 5 9 ขยับไปข้างหน้า • ขั้นที่ 3: 5 ขว้างให้ 9\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 7 đấu 5, bóng ở chỗ 2.\nĐường bóng: 2 → 5 → 9\nTrình tự: Bước 1: 2, 7 di chuyển sang phải, 4, 5 di chuyển lùi lại, 6, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 5, 9 di chuyển lên phía trước; Bước 3: 5 ném cho 9.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2 moves right, 4, 5 move back, 7, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2 moves right, 4, 5 move back, 7, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】7 对 5，球在 2 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2号球员向右移动，4号球员、5号球员向后移动，7号球员、8号球员向前移动；第2步：2号球员传给5号球员，9号球员向前移动；第3步：5号球员传给9号球员。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】7 對 5，球在 2 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2號球員向右移動，4號球員、5號球員向後移動，7號球員、8號球員向前移動；第2步：2號球員傳給5號球員，9號球員向前移動；第3步：5號球員傳給9號球員。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】7対5、ボールは2。\n【ボールの道筋】2 → 5 → 9\n【流れ】ステップ1：2番が右へ移動、4番・5番が後方へ移動、7番・8番が前方へ移動。ステップ2：2番が5番へ送球、9番が前方へ移動。ステップ3：5番が9番へ送球。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】7대5, 공은 2.\n【볼 경로】2 → 5 → 9\n【진행】1단계: 2번는 오른쪽으로 이동, 4번, 5번는 뒤로 이동, 7번, 8번는 앞으로 이동; 2단계: 2번가 5번에게 송구, 9번는 앞으로 이동; 3단계: 5번가 9번에게 송구.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 7 contra 5, balón con 2.\nRecorrido del balón: 2 → 5 → 9\nSecuencia: Paso 1: 2 se desplaza a la derecha, 4, 5 se desplaza hacia atrás, 7, 8 se desplaza hacia delante; Paso 2: 2 lanza a 5, 9 se desplaza hacia delante; Paso 3: 5 lanza a 9.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 7 contre 5, ballon avec 2.\nTrajet du ballon : 2 → 5 → 9\nDéroulé : Étape 1 : 2 se déplace à droite, 4, 5 se déplace vers l'arrière, 7, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 5, 9 se déplace vers l'avant ; Étape 3 : 5 lance à 9.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 7 lawan 5, bola pada 2.\nJalur bola: 2 → 5 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan, 4, 5 bergerak ke belakang, 7, 8 bergerak ke depan; Langkah 2: 2 melempar ke 5, 9 bergerak ke depan; Langkah 3: 5 melempar ke 9.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 7 lawan 5, bola dengan 2.\nLaluan bola: 2 → 5 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan, 4, 5 bergerak ke belakang, 7, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 5, 9 bergerak ke hadapan; Langkah 3: 5 membaling kepada 9.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 7 ต่อ 5 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 5 → 9\nลำดับ: ขั้นที่ 1: 2 ขยับไปทางขวา 4, 5 ขยับถอยหลัง 7, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 5 9 ขยับไปข้างหน้า • ขั้นที่ 3: 5 ขว้างให้ 9\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 7 đấu 5, bóng ở chỗ 2.\nĐường bóng: 2 → 5 → 9\nTrình tự: Bước 1: 2 di chuyển sang phải, 4, 5 di chuyển lùi lại, 7, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 5, 9 di chuyển lên phía trước; Bước 3: 5 ném cho 9.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
       },
       "mistake": {
         "en": "Running the play off slow ball — a clever move off slow possession is a slow move.",
@@ -8953,7 +8953,7 @@
             "moves": [
               [
                 211.69741569928135,
-                744.48
+                741.72
               ]
             ],
             "movePhases": [
@@ -8977,15 +8977,8 @@
               761.5050203324645
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                211.69741569928135,
-                733.4399999999999
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -9007,7 +9000,7 @@
             "moves": [
               [
                 211.69741569928135,
-                810.72
+                780.36
               ]
             ],
             "movePhases": [
@@ -9188,7 +9181,7 @@
             "moves": [
               [
                 251.69741569928135,
-                814.48
+                811.72
               ],
               [
                 328.84881149806523,
@@ -9251,18 +9244,18 @@
         "vi-VN": "Tình huống cố định ném biên bảy người"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 5, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 5, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】9 对 7，球在 2 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2号球员、6号球员向右移动，1号球员、3号球员、4号球员向后移动，5号球员、7号球员、8号球员向前移动；第2步：2号球员传给3号球员，9号球员向前移动；第3步：3号球员传给7号球员。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】9 對 7，球在 2 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2號球員、6號球員向右移動，1號球員、3號球員、4號球員向後移動，5號球員、7號球員、8號球員向前移動；第2步：2號球員傳給3號球員，9號球員向前移動；第3步：3號球員傳給7號球員。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】9対7、ボールは2。\n【ボールの道筋】2 → 3 → 7\n【流れ】ステップ1：2番・6番が右へ移動、1番・3番・4番が後方へ移動、5番・7番・8番が前方へ移動。ステップ2：2番が3番へ送球、9番が前方へ移動。ステップ3：3番が7番へ送球。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】9대7, 공은 2.\n【볼 경로】2 → 3 → 7\n【진행】1단계: 2번, 6번는 오른쪽으로 이동, 1번, 3번, 4번는 뒤로 이동, 5번, 7번, 8번는 앞으로 이동; 2단계: 2번가 3번에게 송구, 9번는 앞으로 이동; 3단계: 3번가 7번에게 송구.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 9 contra 7, balón con 2.\nRecorrido del balón: 2 → 3 → 7\nSecuencia: Paso 1: 2, 6 se desplaza a la derecha, 1, 3, 4 se desplaza hacia atrás, 5, 7, 8 se desplaza hacia delante; Paso 2: 2 lanza a 3, 9 se desplaza hacia delante; Paso 3: 3 lanza a 7.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 9 contre 7, ballon avec 2.\nTrajet du ballon : 2 → 3 → 7\nDéroulé : Étape 1 : 2, 6 se déplace à droite, 1, 3, 4 se déplace vers l'arrière, 5, 7, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 3, 9 se déplace vers l'avant ; Étape 3 : 3 lance à 7.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 9 lawan 7, bola pada 2.\nJalur bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 5, 7, 8 bergerak ke depan; Langkah 2: 2 melempar ke 3, 9 bergerak ke depan; Langkah 3: 3 melempar ke 7.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 9 lawan 7, bola dengan 2.\nLaluan bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 5, 7, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 3, 9 bergerak ke hadapan; Langkah 3: 3 membaling kepada 7.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 9 ต่อ 7 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 3 → 7\nลำดับ: ขั้นที่ 1: 2, 6 ขยับไปทางขวา 1, 3, 4 ขยับถอยหลัง 5, 7, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 3 9 ขยับไปข้างหน้า • ขั้นที่ 3: 3 ขว้างให้ 7\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 9 đấu 7, bóng ở chỗ 2.\nĐường bóng: 2 → 3 → 7\nTrình tự: Bước 1: 2, 6 di chuyển sang phải, 1, 3, 4 di chuyển lùi lại, 5, 7, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 3, 9 di chuyển lên phía trước; Bước 3: 3 ném cho 7.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】9 对 7，球在 2 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2号球员、6号球员向右移动，1号球员、3号球员、4号球员向后移动，7号球员、8号球员向前移动；第2步：2号球员传给3号球员，9号球员向前移动；第3步：3号球员传给7号球员。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】9 對 7，球在 2 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2號球員、6號球員向右移動，1號球員、3號球員、4號球員向後移動，7號球員、8號球員向前移動；第2步：2號球員傳給3號球員，9號球員向前移動；第3步：3號球員傳給7號球員。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】9対7、ボールは2。\n【ボールの道筋】2 → 3 → 7\n【流れ】ステップ1：2番・6番が右へ移動、1番・3番・4番が後方へ移動、7番・8番が前方へ移動。ステップ2：2番が3番へ送球、9番が前方へ移動。ステップ3：3番が7番へ送球。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】9대7, 공은 2.\n【볼 경로】2 → 3 → 7\n【진행】1단계: 2번, 6번는 오른쪽으로 이동, 1번, 3번, 4번는 뒤로 이동, 7번, 8번는 앞으로 이동; 2단계: 2번가 3번에게 송구, 9번는 앞으로 이동; 3단계: 3번가 7번에게 송구.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 9 contra 7, balón con 2.\nRecorrido del balón: 2 → 3 → 7\nSecuencia: Paso 1: 2, 6 se desplaza a la derecha, 1, 3, 4 se desplaza hacia atrás, 7, 8 se desplaza hacia delante; Paso 2: 2 lanza a 3, 9 se desplaza hacia delante; Paso 3: 3 lanza a 7.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 9 contre 7, ballon avec 2.\nTrajet du ballon : 2 → 3 → 7\nDéroulé : Étape 1 : 2, 6 se déplace à droite, 1, 3, 4 se déplace vers l'arrière, 7, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 3, 9 se déplace vers l'avant ; Étape 3 : 3 lance à 7.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 9 lawan 7, bola pada 2.\nJalur bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 7, 8 bergerak ke depan; Langkah 2: 2 melempar ke 3, 9 bergerak ke depan; Langkah 3: 3 melempar ke 7.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 9 lawan 7, bola dengan 2.\nLaluan bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 7, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 3, 9 bergerak ke hadapan; Langkah 3: 3 membaling kepada 7.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 9 ต่อ 7 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 3 → 7\nลำดับ: ขั้นที่ 1: 2, 6 ขยับไปทางขวา 1, 3, 4 ขยับถอยหลัง 7, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 3 9 ขยับไปข้างหน้า • ขั้นที่ 3: 3 ขว้างให้ 7\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 9 đấu 7, bóng ở chỗ 2.\nĐường bóng: 2 → 3 → 7\nTrình tự: Bước 1: 2, 6 di chuyển sang phải, 1, 3, 4 di chuyển lùi lại, 7, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 3, 9 di chuyển lên phía trước; Bước 3: 3 ném cho 7.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
       },
       "mistake": {
         "en": "Running the play off slow ball — a clever move off slow possession is a slow move.",
@@ -9375,7 +9368,7 @@
             "moves": [
               [
                 211.69741569928135,
-                777.6
+                774.84
               ]
             ],
             "movePhases": [
@@ -9399,15 +9392,8 @@
               795.6518131964712
             ],
             "scale": 1.0,
-            "moves": [
-              [
-                211.69741569928135,
-                766.5600000000001
-              ]
-            ],
-            "movePhases": [
-              0
-            ],
+            "moves": [],
+            "movePhases": [],
             "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
@@ -9429,7 +9415,7 @@
             "moves": [
               [
                 211.69741569928135,
-                843.84
+                813.48
               ]
             ],
             "movePhases": [
