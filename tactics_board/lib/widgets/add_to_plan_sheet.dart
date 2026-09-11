@@ -137,7 +137,6 @@ class AddToPlanSheet {
     return showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text(title, style: const TextStyle(color: T.text)),
         content: TextField(
           controller: ctrl,

@@ -104,7 +104,6 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surfaceHi,
         title: Text('drill_note_title'.tr(),
             style: const TextStyle(color: T.text)),
         content: TextFormField(
