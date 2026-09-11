@@ -199,16 +199,12 @@ class _SportHomePageState extends State<SportHomePage> {
               state: state,
               onOpen: _openBoard,
               onNew: _newBoard,
+              onPlan: () {
+                Navigator.of(context).push(MaterialPageRoute<void>(
+                  builder: (_) => PracticePlanPage(state: state),
+                ));
+              },
             ),
-            const SizedBox(height: T.s12),
-            // Directly under the board, because a session plan is the other
-            // thing a coach opens the app to do: draw one board, or line up
-            // a Tuesday. At the bottom of the page it read as an afterthought.
-            _PlanCard(onTap: () {
-              Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => PracticePlanPage(state: state),
-              ));
-            }),
             const SizedBox(height: T.s24),
             // Two builders on one cached future, so the coach's own boards can
             // sit between what to run today and the categories — their work
@@ -502,8 +498,12 @@ class _BoardCard extends StatelessWidget {
   final TacticsState state;
   final VoidCallback onOpen;
   final VoidCallback onNew;
+  final VoidCallback onPlan;
   const _BoardCard(
-      {required this.state, required this.onOpen, required this.onNew});
+      {required this.state,
+      required this.onOpen,
+      required this.onNew,
+      required this.onPlan});
 
   @override
   Widget build(BuildContext context) {
@@ -562,6 +562,18 @@ class _BoardCard extends StatelessWidget {
                     icon: Icons.add,
                     quiet: true,
                     onTap: onNew,
+                  ),
+                  const SizedBox(height: T.s8),
+                  // Beside the board rather than in a row of its own under
+                  // it: the three things a coach opens the app to do are one
+                  // group — carry on with a board, start a blank one, or line
+                  // up a Tuesday — and a separate card made the third read as
+                  // a different kind of thing.
+                  TacticalButton(
+                    label: 'practice_plan'.tr(),
+                    icon: Icons.event_note_outlined,
+                    quiet: true,
+                    onTap: onPlan,
                   ),
                 ],
               ),
@@ -879,38 +891,6 @@ class _HomeMenu extends StatelessWidget {
                     color: T.text, fontSize: 15, height: 1.25)),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _PlanCard extends StatelessWidget {
-  final VoidCallback onTap;
-  const _PlanCard({required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(T.s16),
-        decoration:
-            const BoxDecoration(color: T.surface, borderRadius: T.brMd),
-        child: Row(
-          children: [
-            const Icon(Icons.event_note_outlined, size: 20, color: T.accent),
-            const SizedBox(width: T.s12),
-            Expanded(
-              child: Text('practice_plan'.tr(),
-                  style: const TextStyle(
-                      color: T.text,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600)),
-            ),
-            const Icon(Icons.chevron_right, size: 18, color: T.textOff),
-          ],
-        ),
       ),
     );
   }
