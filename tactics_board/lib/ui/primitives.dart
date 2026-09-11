@@ -210,6 +210,11 @@ class TacticalButton extends StatelessWidget {
   final bool danger;
   final bool quiet;
 
+  /// A page's single main action — the drill page's "put it on the board".
+  /// 56pt and 17pt, per §15. Everything else stays at the 44pt working size;
+  /// a toolbar full of 56pt buttons is a toolbar that fits three of them.
+  final bool large;
+
   const TacticalButton({
     super.key,
     required this.label,
@@ -217,6 +222,7 @@ class TacticalButton extends StatelessWidget {
     this.onTap,
     this.danger = false,
     this.quiet = false,
+    this.large = false,
   });
 
   @override
@@ -231,7 +237,7 @@ class TacticalButton extends StatelessWidget {
       fg = Colors.white;
       bg = T.danger;
     } else {
-      fg = const Color(0xFF04231F);
+      fg = T.onAccent;
       bg = enabled ? T.accent : T.surfaceHi;
     }
     return Semantics(
@@ -244,14 +250,14 @@ class TacticalButton extends StatelessWidget {
           onTap: onTap,
           borderRadius: T.brMd,
           child: Container(
-            height: T.tap,
+            height: large ? 56 : T.tap,
             padding: const EdgeInsets.symmetric(horizontal: T.s20),
             alignment: Alignment.center,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (icon != null) ...[
-                  Icon(icon, size: 18, color: fg),
+                  Icon(icon, size: large ? T.iLg : 18, color: fg),
                   const SizedBox(width: T.s8),
                 ],
                 Flexible(
@@ -260,7 +266,7 @@ class TacticalButton extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        fontSize: 15,
+                        fontSize: large ? 17 : 15,
                         fontWeight: FontWeight.w600,
                         color: fg),
                   ),
@@ -593,4 +599,252 @@ class TacticalDivider extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: T.s12, vertical: T.s4),
         color: T.border,
       );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// The coaching-tool vocabulary. Everything below exists so a screen describes
+// what it contains rather than how it looks — and so the drill page, the
+// library and the plan stop each inventing a header, a meta line and a
+// section title of their own.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// One navigation bar, the same height and the same chevron on every page.
+///
+/// Pages used to disagree: some drew a 22pt title inline with the back arrow,
+/// some a 28pt one under it, some put the icon in a circle and some did not.
+/// The title here is optional because a page with a DISPLAY heading of its
+/// own — the drill page — should not repeat it in the bar.
+class TacticalNavBar extends StatelessWidget {
+  final String? title;
+  final List<Widget> actions;
+  final VoidCallback? onBack;
+
+  const TacticalNavBar({
+    super.key,
+    this.title,
+    this.actions = const [],
+    this.onBack,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 52,
+      child: Row(
+        children: [
+          const SizedBox(width: T.s8),
+          TacticalIconButton(
+            icon: Icons.arrow_back_ios_new_rounded,
+            size: T.iMd,
+            onTap: onBack ?? () => Navigator.of(context).maybePop(),
+          ),
+          Expanded(
+            child: title == null
+                ? const SizedBox.shrink()
+                : Padding(
+                    padding: const EdgeInsets.only(left: T.s4),
+                    child: Text(title!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: T.titleSheet),
+                  ),
+          ),
+          ...actions,
+          const SizedBox(width: T.s8),
+        ],
+      ),
+    );
+  }
+}
+
+/// One fact about a drill: an icon and a word. Not a pill.
+///
+/// Four facts in four outlined capsules is four boxes doing the work of one
+/// line, and on a dark ground the capsules read louder than the numbers in
+/// them.
+class MetaItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color? tint;
+
+  const MetaItem({super.key, required this.icon, required this.label, this.tint});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: T.iSm, color: tint ?? T.textOff),
+        const SizedBox(width: 5),
+        Text(label, style: T.meta),
+      ],
+    );
+  }
+}
+
+/// A section title inside a page: a small line icon and 18pt semibold.
+///
+/// Distinct from [TacticalSectionHeader], which is the all-caps eyebrow used
+/// inside sheets. This one heads a block of reading — and it replaces the
+/// card that block used to sit in, which is the whole point: structure comes
+/// from type and space, not from one more container.
+class SectionTitle extends StatelessWidget {
+  final String title;
+  final IconData? icon;
+
+  const SectionTitle({super.key, required this.title, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        if (icon != null) ...[
+          Icon(icon, size: T.iMd, color: T.accent),
+          const SizedBox(width: T.s8),
+        ],
+        Expanded(child: Text(title, style: T.section)),
+      ],
+    );
+  }
+}
+
+/// The one line a coach would say out loud, set apart by a rule rather than
+/// by a box.
+///
+/// A thin teal rule and a tinted ground: enough to stop the eye, not enough
+/// to become a card. It should read like something chalked at the side of the
+/// pitch, not like a callout in a manual.
+class CoachNote extends StatelessWidget {
+  final String text;
+  const CoachNote({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: T.tint,
+        border: Border(left: BorderSide(color: T.accent, width: 2.5)),
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(T.rSm),
+          bottomRight: Radius.circular(T.rSm),
+        ),
+      ),
+      padding: const EdgeInsets.fromLTRB(T.s16, T.s12, T.s16, T.s12),
+      child: Text(text, style: T.body),
+    );
+  }
+}
+
+/// Where the ball goes: 1 → 2 → 3. Nodes, not blocks.
+///
+/// The arrow is tertiary on purpose — it is punctuation between the numbers,
+/// and at full contrast a row of six arrows out-shouts the six stops they
+/// connect.
+class SequenceView extends StatelessWidget {
+  final List<String> stops;
+
+  /// Drawn in accent — the stop the board is currently on. Null for none.
+  final int? current;
+
+  const SequenceView({super.key, required this.stops, this.current});
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: T.s8,
+      runSpacing: T.s8,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        for (var i = 0; i < stops.length; i++) ...[
+          _node(stops[i], i == current),
+          if (i != stops.length - 1)
+            const Icon(Icons.arrow_forward_rounded,
+                size: T.iSm, color: T.textOff),
+        ],
+      ],
+    );
+  }
+
+  Widget _node(String label, bool active) {
+    return Container(
+      constraints: const BoxConstraints(minWidth: 40),
+      height: 40,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: T.s8),
+      decoration: BoxDecoration(
+        color: active ? T.accent : const Color(0xFF123B3F),
+        borderRadius: BorderRadius.circular(T.rSm + 1),
+      ),
+      child: Text(
+        label,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          color: active ? T.onAccent : T.text,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+/// How far through a sequence the board is: segments, and "3 / 5".
+///
+/// Segments rather than a slider, and the count is one-based — a coach
+/// looking at the opening frame is on step 1 of 5, not 0 of 5. Reading "0/5"
+/// is how a debug control tells you its index.
+class StepStrip extends StatelessWidget {
+  /// Zero-based, so 0 renders as "1 / total".
+  final int index;
+  final int total;
+  final VoidCallback? onPrev;
+  final VoidCallback? onNext;
+
+  const StepStrip({
+    super.key,
+    required this.index,
+    required this.total,
+    this.onPrev,
+    this.onNext,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        TacticalIconButton(
+          icon: Icons.chevron_left_rounded,
+          size: T.iLg,
+          onTap: index > 0 ? onPrev : null,
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              for (var i = 0; i < total; i++) ...[
+                Expanded(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 140),
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: i <= index ? T.accent : const Color(0x1FFFFFFF),
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                if (i != total - 1) const SizedBox(width: 4),
+              ],
+            ],
+          ),
+        ),
+        const SizedBox(width: T.s12),
+        Text('${index + 1} / $total', style: T.meta),
+        TacticalIconButton(
+          icon: Icons.chevron_right_rounded,
+          size: T.iLg,
+          onTap: index < total - 1 ? onNext : null,
+        ),
+      ],
+    );
+  }
 }

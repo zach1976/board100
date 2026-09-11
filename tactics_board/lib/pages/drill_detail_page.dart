@@ -1,4 +1,3 @@
-import 'dart:ui' show FontFeature;
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -183,12 +182,8 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       const EdgeInsets.fromLTRB(T.screenX, 0, T.screenX, T.s24),
                   children: [
                     if (lead != null) ...[
-                      Text(
-                        lead,
-                        style: const TextStyle(
-                            color: T.text, fontSize: 16, height: 1.55),
-                      ),
-                      const SizedBox(height: T.s16),
+                      CoachNote(text: lead),
+                      const SizedBox(height: T.sectionGap),
                     ],
                     for (final s in note.sections)
                       if (s.kind != DrillSectionKind.lead) _sectionWidget(s),
@@ -249,86 +244,61 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     }
   }
 
-  /// The name, and under it the numbers a coach filters on. A row of pills
-  /// for four facts was four boxes doing the work of one line.
+  /// The nav row, the drill's name, and the facts a coach filters on.
+  ///
+  /// The name is the page's DISPLAY heading and is not repeated in the bar:
+  /// a title in both places is the same words twice, and it costs the pitch
+  /// the room it needs to be the hero of this page.
   Widget _header(BuildContext context, Drill d) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(T.s8, T.s4, T.screenX, T.s12),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: TacticalIconButton(
-              icon: Icons.arrow_back,
-              onTap: () => Navigator.of(context).pop(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TacticalNavBar(
+          actions: [
+            // The star is the whole of "my library": a coach uses maybe
+            // twenty of six hundred, and this is how those twenty are named.
+            TacticalIconButton(
+              icon: _mark.starred
+                  ? Icons.star_rounded
+                  : Icons.star_border_rounded,
+              onTap: _toggleStar,
+              color: _mark.starred ? T.warning : null,
             ),
-          ),
-          const SizedBox(width: T.s4),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  d.localizedName(widget.locale),
-                  style: const TextStyle(
-                      color: T.text,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      height: 1.2),
-                ),
-                const SizedBox(height: 5),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 4,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    _meta(Icons.schedule_outlined,
-                        'drills_minutes'.tr(args: ['${d.minutes}'])),
-                    _meta(Icons.groups_outlined, '${d.players}'),
-                    _dot(),
-                    Text(
-                      d.category
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, T.s12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(d.localizedName(widget.locale), style: T.display),
+              const SizedBox(height: T.s12),
+              Wrap(
+                spacing: T.s16,
+                runSpacing: 6,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  MetaItem(
+                      icon: Icons.schedule_outlined,
+                      label: 'drills_minutes'.tr(args: ['${d.minutes}'])),
+                  MetaItem(
+                      icon: Icons.groups_outlined, label: '${d.players}'),
+                  MetaItem(
+                      icon: Icons.local_fire_department_outlined,
+                      label: d.category
                           .labelKeyFor(widget.sportType.drillVocabulary)
-                          .tr(),
-                      style: const TextStyle(color: T.textDim, fontSize: 12.5),
-                    ),
-                    _dot(),
-                    Text(d.level.labelKey.tr(),
-                        style:
-                            const TextStyle(color: T.textDim, fontSize: 12.5)),
-                  ],
-                ),
-              ],
-            ),
+                          .tr()),
+                  MetaItem(
+                      icon: Icons.bar_chart_rounded,
+                      label: d.level.labelKey.tr()),
+                ],
+              ),
+            ],
           ),
-          // The star is the whole of "my library": a coach uses maybe twenty
-          // of six hundred, and this is how those twenty are named.
-          TacticalIconButton(
-            icon: _mark.starred ? Icons.star_rounded : Icons.star_border_rounded,
-            onTap: _toggleStar,
-            color: _mark.starred ? T.warning : null,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
-
-  Widget _meta(IconData icon, String text) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 13, color: T.textOff),
-          const SizedBox(width: 4),
-          Text(text, style: const TextStyle(color: T.textDim, fontSize: 12.5)),
-        ],
-      );
-
-  Widget _dot() => Container(
-        width: 3,
-        height: 3,
-        decoration:
-            const BoxDecoration(color: T.textOff, shape: BoxShape.circle),
-      );
 
   Widget _mistakeBlock(String mistake) {
     return Container(
@@ -398,6 +368,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
               flex: 2,
               child: TacticalButton(
                 label: 'practice_add_short'.tr(),
+                large: true,
                 // No icon on this one. The 32px it costs is the difference
                 // between "Add to plan" and "Add to pl…" in most locales,
                 // and the filled primary beside it already carries one.
@@ -412,6 +383,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
             child: TacticalButton(
               label: locked ? 'drills_unlock'.tr() : 'drills_put_on_board'.tr(),
               icon: locked ? Icons.lock_outline : Icons.add_circle_outline,
+              large: true,
               onTap: locked ? widget.onUpgrade : widget.onLoad,
             ),
           ),
@@ -435,44 +407,39 @@ class _BoardCard extends StatelessWidget {
     return Consumer<TacticsState>(
       builder: (context, s, _) {
         final steps = s.maxMoveSteps;
-        return Container(
-          decoration:
-              const BoxDecoration(color: T.surface, borderRadius: T.brLg),
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(T.s12, T.s12, T.s12, 0),
-                child: ClipRRect(
-                  borderRadius: T.brMd,
-                  // Drawn at the size the board is really drawn at, then
-                  // scaled as one picture. A token is a fixed 44pt whatever
-                  // box the canvas is given, so a preview laid out small got
-                  // full-size players on a shrunken pitch — three of them
-                  // covering the centre circle. Scaling the finished board
-                  // instead makes the preview exactly the board, smaller.
-                  child: Center(
+        return Column(
+          children: [
+            ClipRRect(
+              borderRadius: T.brLg,
+              // Drawn at the size the board is really drawn at, then scaled
+              // as one picture. A token is a fixed size whatever box the
+              // canvas is given, so a preview laid out small got full-size
+              // players on a shrunken pitch — three of them covering the
+              // centre circle. Scaling the finished board instead makes the
+              // preview exactly the board, smaller.
+              child: Center(
+                child: SizedBox(
+                  // Taller than it was: with the card gone this is the
+                  // hero of the page, and the pitch gets the width the
+                  // screen can give it.
+                  height: MediaQuery.of(context).size.height * 0.42,
+                  child: const FittedBox(
+                    fit: BoxFit.contain,
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.32,
-                      child: const FittedBox(
-                        fit: BoxFit.contain,
-                        child: SizedBox(
-                          width: kBoardRefWidth,
-                          height: kBoardRefHeight,
-                          child: IgnorePointer(
-                              child: TacticsCanvas(preview: true)),
-                        ),
-                      ),
+                      width: kBoardRefWidth,
+                      height: kBoardRefHeight,
+                      child:
+                          IgnorePointer(child: TacticsCanvas(preview: true)),
                     ),
                   ),
                 ),
               ),
-              if (steps > 0)
-                _StepBar(state: s, steps: steps, at: s.atStep)
-              else
-                const SizedBox(height: T.s12),
+            ),
+            if (steps > 0) ...[
+              const SizedBox(height: T.s4),
+              _StepBar(state: s, steps: steps, at: s.atStep),
             ],
-          ),
+          ],
         );
       },
     );
@@ -487,55 +454,23 @@ class _StepBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(T.s8, T.s4, T.s8, T.s4),
-      child: Row(
-        children: [
-          TacticalIconButton(
-            icon: Icons.chevron_left,
-            onTap: at > 0 ? state.stepBackward : null,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: T.s8),
-              // A track, not just a number: how far through the drill this is
-              // at a glance, without counting.
-              child: Row(
-                children: [
-                  for (var i = 0; i <= steps; i++) ...[
-                    Expanded(
-                      child: Container(
-                        height: 3,
-                        decoration: BoxDecoration(
-                          color: i <= at ? T.accent : T.border,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                    ),
-                    if (i != steps) const SizedBox(width: 3),
-                  ],
-                ],
-              ),
-            ),
-          ),
-          Text('$at/$steps',
-              style: const TextStyle(
-                  color: T.textDim,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  fontFeatures: [FontFeature.tabularFigures()])),
-          const SizedBox(width: T.s8),
-          TacticalIconButton(
-            icon: Icons.chevron_right,
-            onTap: at < steps ? state.stepForward : null,
-          ),
-        ],
-      ),
+    // The board counts the opening frame as step 0; a coach looking at it is
+    // on 1 of 5. StepStrip does that conversion, so the count here stays the
+    // board's own.
+    return StepStrip(
+      index: at,
+      total: steps + 1,
+      onPrev: state.stepBackward,
+      onNext: state.stepForward,
     );
   }
 }
 
-/// Frequency, origin, setup: a label and a standing fact.
+/// Frequency, origin, setup: a heading and the standing fact under it.
+///
+/// This used to be a 10.5pt all-caps scrap over 14.5pt dim body, which read
+/// as a form field rather than as something to read. Structure now comes from
+/// the type scale.
 class _InfoRow extends StatelessWidget {
   final DrillSection section;
   const _InfoRow({required this.section});
@@ -543,25 +478,48 @@ class _InfoRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: T.s12),
+      padding: const EdgeInsets.only(bottom: T.sectionGap),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (section.label != null)
-            Text(section.label!,
-                style: const TextStyle(
-                    color: T.textOff,
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 0.8)),
-          const SizedBox(height: 3),
-          Text(section.body,
-              style: const TextStyle(
-                  color: T.textDim, fontSize: 14.5, height: 1.5)),
+          if (section.label != null) ...[
+            SectionTitle(
+                title: section.label!, icon: _sectionIcon(section.label!)),
+            const SizedBox(height: T.s8),
+          ],
+          Text(section.body, style: T.body),
         ],
       ),
     );
   }
+}
+
+/// A small line icon per section, matched on the section's own label.
+///
+/// Matched on the CJK and English labels the generator writes; anything it
+/// does not recognise gets no icon rather than a wrong one, which is why the
+/// return type is nullable and [SectionTitle] treats null as "text only".
+IconData? _sectionIcon(String label) {
+  const table = <String, IconData>{
+    '组织': Icons.groups_outlined,
+    '組織': Icons.groups_outlined,
+    'Setup': Icons.groups_outlined,
+    '球路': Icons.sports_soccer_outlined,
+    'Ball path': Icons.sports_soccer_outlined,
+    '变化': Icons.shuffle_rounded,
+    '變化': Icons.shuffle_rounded,
+    'Variations': Icons.shuffle_rounded,
+    '频度': Icons.repeat_rounded,
+    '頻度': Icons.repeat_rounded,
+    'Frequency': Icons.repeat_rounded,
+    '教练提示': Icons.sports_outlined,
+    '教練提示': Icons.sports_outlined,
+    'Coaching point': Icons.sports_outlined,
+    '顺序': Icons.format_list_numbered_rounded,
+    '順序': Icons.format_list_numbered_rounded,
+    'Sequence': Icons.format_list_numbered_rounded,
+  };
+  return table[label.trim()];
 }
 
 /// The ball path as the chain it is: 1 → 2 → 3 → goal.
@@ -571,44 +529,17 @@ class _RouteRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stops = section.stops;
     return Padding(
-      padding: const EdgeInsets.only(bottom: T.s16),
+      padding: const EdgeInsets.only(bottom: T.sectionGap),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (section.label != null)
-            Text(section.label!,
-                style: const TextStyle(
-                    color: T.textOff,
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 0.8)),
-          const SizedBox(height: 7),
-          Wrap(
-            spacing: 6,
-            runSpacing: 6,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              for (var i = 0; i < stops.length; i++) ...[
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: T.surfaceHi,
-                    borderRadius: BorderRadius.circular(7),
-                  ),
-                  child: Text(stops[i],
-                      style: const TextStyle(
-                          color: T.text,
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w600)),
-                ),
-                if (i != stops.length - 1)
-                  const Icon(Icons.arrow_forward, size: 13, color: T.textOff),
-              ],
-            ],
-          ),
+          if (section.label != null) ...[
+            SectionTitle(
+                title: section.label!, icon: _sectionIcon(section.label!)),
+            const SizedBox(height: T.s12),
+          ],
+          SequenceView(stops: section.stops),
         ],
       ),
     );
@@ -726,40 +657,19 @@ class _PointCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: T.s12),
-      padding: const EdgeInsets.all(T.s12),
-      decoration: BoxDecoration(
-        color: T.accentFill,
-        borderRadius: T.brMd,
-        border: Border.all(color: T.accent.withValues(alpha: 0.28)),
-      ),
-      child: Row(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: T.sectionGap),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 2),
-            child: Icon(Icons.campaign_outlined, size: 16, color: T.accent),
-          ),
-          const SizedBox(width: T.s8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (section.label != null)
-                  Text(section.label!,
-                      style: const TextStyle(
-                          color: T.accent,
-                          fontSize: 10.5,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.8)),
-                const SizedBox(height: 4),
-                Text(section.body,
-                    style: const TextStyle(
-                        color: T.text, fontSize: 15, height: 1.5)),
-              ],
-            ),
-          ),
+          if (section.label != null) ...[
+            SectionTitle(
+                title: section.label!, icon: _sectionIcon(section.label!)),
+            const SizedBox(height: T.s8),
+          ],
+          // Set apart by a rule rather than by a tinted, outlined box: it is
+          // the line a coach says out loud, not a warning.
+          CoachNote(text: section.body),
         ],
       ),
     );
