@@ -59,68 +59,6 @@ def soccer_drills() -> list[Drill]:
             free=True,
         ),
         Drill(
-            id="passing_diamond", category="warmup", minutes=8,
-            name={"en": "Passing diamond", "zh-CN": "菱形传球", "zh-TW": "菱形傳球",
-                  "ja-JP": "ダイヤモンドパス", "ko-KR": "다이아몬드 패스", "es-ES": "Rombo de pases",
-                  "fr-FR": "Losange de passes", "id-ID": "Umpan berlian", "ms-MY": "Hantaran berlian",
-                  "th-TH": "ผ่านบอลรูปข้าวหลามตัด", "vi-VN": "Chuyền hình thoi", "en-GB": "Passing diamond"},
-            note={"en": "Pass and follow your pass. Open your body before the ball arrives so the next pass is already on.",
-                  "zh-CN": "传球后跟着球跑。球到之前先把身体打开，下一脚传球才接得上。",
-                  "zh-TW": "傳球後跟著球跑。球到之前先把身體打開，下一腳傳球才接得上。",
-                  "ja-JP": "パスしたら自分のパスを追う。ボールが来る前に体を開き、次のパスを準備する。",
-                  "ko-KR": "패스한 뒤 그 패스를 따라 이동. 공이 오기 전에 몸을 열어 다음 패스를 준비하라.",
-                  "es-ES": "Pasa y sigue tu pase. Abre el cuerpo antes de recibir para tener el siguiente pase.",
-                  "fr-FR": "Passe et suis ta passe. Ouvre-toi avant la réception pour enchaîner.",
-                  "id-ID": "Umpan lalu ikuti umpanmu. Buka badan sebelum bola datang.",
-                  "ms-MY": "Hantar dan ikut hantaran anda. Buka badan sebelum bola tiba.",
-                  "th-TH": "จ่ายแล้ววิ่งตามบอล เปิดลำตัวก่อนบอลมาถึง",
-                  "vi-VN": "Chuyền rồi chạy theo. Mở người trước khi bóng đến.",
-                  "en-GB": "Pass and follow your pass. Open your body before the ball arrives so the next pass is already on."},
-            # The standard passing diamond: a queue at every cone, so the
-            # loop stays alive. A front player passes to the front of the next
-            # cone and follows his pass to the BACK of that cone's line; the
-            # next player in the line steps up to receive. Every cone is a
-            # live station, which is the whole reason the cones are there.
-            #
-            #   front (on the cone, toward the middle) then back (queued out):
-            #   1/5 top · 2/6 right · 3/7 bottom · 4/8 left. Ball goes
-            #   1→2→3→4, and by the time it comes back round the stepped-up
-            #   5 and 6 are on their cones to receive it.
-            # An elongated diamond, and THREE places at every cone, not two:
-            # front (on the cone), back, and the tail an arriving runner
-            # joins. With only two, the follower landed on the back player a
-            # beat before that man stepped up — the two tokens sat on the
-            # same point and only the board's fan-out kept them apart. A real
-            # queue is three deep at the moment of the handover, which is
-            # exactly what this draws: the front leaves, the back takes his
-            # place, and the runner arrives at the tail, all on one beat.
-            home=[
-                # top cone (500,420): front 460 · back 340 · tail 220
-                P(500, 460, "1", moves=[(860, 750, 1)]),   # pass, run to R tail
-                P(500, 340, "5", moves=[(500, 460, 1)]),   # step up as 1 leaves
-                # right cone (660,750): front 620 · back 740 · tail 860
-                P(620, 750, "2", moves=[(500, 1280, 2)]),  # follow to B tail
-                P(740, 750, "6", moves=[(620, 750, 2)]),   # step up as 2 leaves
-                # bottom cone (1080): front 1040 · back 1160 · tail 1280
-                P(500, 1040, "3", moves=[(140, 750, 3)]),  # follow to L tail
-                P(500, 1160, "7", moves=[(500, 1040, 3)]), # step up
-                # left cone (340,750): front 380 · back 260 · tail 140
-                P(380, 750, "4", moves=[(500, 220, 4)]),   # follow to T tail
-                P(260, 750, "8", moves=[(380, 750, 4)]),   # step up
-            ],
-            markers=[M(500, 420), M(660, 750), M(500, 1080), M(340, 750)],
-            ball=0,
-            # 1→2→3→4, then to the stepped-up 5 (top) and 6 (right): every
-            # pass has a receiver on the cone, the loop closes.
-            ball_to=[(2, 0), (4, 1), (6, 2), (1, 3), (3, 4)],
-            setup={
-                "en": "4 cones in an elongated diamond 10–15 m apart, three "
-                      "players in line at each, one ball",
-                "zh-CN": "4 个锥标摆成拉长的菱形、间距 10–15 米，每个锥标后面排 3 人，一颗球",
-            },
-            free=True,
-        ),
-        Drill(
             id="dribble_slalom", category="warmup", minutes=8,
             name={"en": "Dribble slalom", "zh-CN": "绕杆运球", "zh-TW": "繞桿運球",
                   "ja-JP": "スラロームドリブル", "ko-KR": "슬라럼 드리블", "es-ES": "Eslalon de conducción",
@@ -1092,18 +1030,21 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Ambil tempat pemain yang anda hantar. Bercakap sebelum hantaran.",
                   "th-TH": "ไปยืนแทนคนที่คุณจ่ายให้ พูดก่อนจ่าย ไม่ใช่หลังจ่าย",
                   "vi-VN": "Vào chỗ người bạn vừa chuyền. Gọi trước khi chuyền, không phải sau."},
-            # Three passes and three follows: the fourth used to be played
-            # to a cone its player had already left.
+            # Four passes and four follows, closing the square. The fourth
+            # used to be dropped because it was played to a cone its player
+            # had already left — so a fifth body queues behind cone one and
+            # receives it. See passing_family for the same fix.
             home=[
                 P(300, 600, "1", moves=[(560, 620, 1)]),
                 P(700, 600, "2", moves=[(700, 780, 2)]),
                 P(700, 900, "3", moves=[(420, 900, 3)]),
-                P(300, 900, "4"),
+                P(300, 900, "4", moves=[(300, 720, 4)]),
+                P(220, 600, "5"),
             ],
             markers=[M(280, 580), M(720, 580), M(720, 920), M(280, 920)],
             ball=0,
             # the ball leads round the square, runners a beat behind
-            ball_to=[(1, 0), (2, 1), (3, 2)],
+            ball_to=[(1, 0), (2, 1), (3, 2), (4, 3)],
         ),
         Drill(
             id="warmup_two_ball", category="warmup", minutes=6,
@@ -2130,6 +2071,10 @@ PASSING_NOTE = {
 def passing_family() -> list[Drill]:
     """Passing shapes: the geometry that makes each pattern teach something."""
     shapes = {
+        # The diamond used to be built by hand with three players queued at
+        # every cone. One queue, at the cone the ball starts on, closes the
+        # ring just as well and asks a coach for four players fewer — so the
+        # diamond is just another size of the same pattern now.
         "triangle": 3, "diamond": 4, "pentagon": 5, "hexagon": 6,
     }
     out = []
@@ -2147,28 +2092,43 @@ def passing_family() -> list[Drill]:
             tx, ty = spots[(i + 1) % n]
             return (0.5 + (tx - 0.5) * 1.46, 0.5 + (ty - 0.5) * 1.46)
 
+        # ONE extra body, queued behind the first cone — and the ring closes.
+        #
+        # With exactly one player per cone this pattern cannot come round: the
+        # first player follows his pass and leaves his cone empty, so the last
+        # pass has nobody to go to. The old code stopped a pass short because
+        # of it, which drew two thirds of a shape and a routine that ends —
+        # and a warm-up is something a coach sets up once and lets turn over
+        # for eight minutes.
+        #
+        # A second queue at every cone would also work, but this is the whole
+        # of what is needed: one queue, at the cone the ball starts on. After
+        # a full lap the spare has the ball, the last passer has taken his
+        # place behind him, and the shape is the starting shape again.
         out.append(Drill(
             id=f"passing_{label}", category="warmup", minutes=8, rel=True,
-            free=(label == "triangle"),
+            free=label in ("triangle", "diamond"),
             name=suffixed(PASSING_NAME, label), note=PASSING_NOTE,
             home=[
-                # Everyone but the last player follows his pass; the last one
-                # receives and the pattern restarts. Following him too would
-                # send the ball on to a cone nobody has reached yet.
-                P(x, y, f"{i + 1}",
-                  moves=([(*queue_spot(i), i + 1)] if i < n - 1 else []))
+                # Every passer follows his pass, the last one included.
+                P(x, y, f"{i + 1}", moves=[(*queue_spot(i), i + 1)])
                 for i, (x, y) in enumerate(spots)
+            ] + [
+                # The spare, behind the first cone. He does not move this lap;
+                # he receives the closing pass and starts the next one.
+                P(*queue_spot(n - 1), f"{n + 1}"),
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
             setup={
                 "en": f"{n} cones in a {label}, 8–10 m apart, one player on "
-                      f"each, one ball",
+                      f"each and a spare behind the first, one ball",
                 "zh-CN": f"{n} 个锥标摆成{ {'triangle':'三角形','diamond':'菱形','pentagon':'五边形','hexagon':'六边形'}[label] }，"
-                         "间距 8–10 米，一人一锥，一颗球",
+                         "间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球",
             },
             ball=0,
-            # Round the ring, ending when the last player receives.
-            ball_to=[(i + 1, i) for i in range(n - 1)],
+            # A full lap: the closing pass goes to the spare, who is still
+            # standing on the cone the first player has just left.
+            ball_to=[(i + 1, i) for i in range(n)],
         ))
     return out
 
