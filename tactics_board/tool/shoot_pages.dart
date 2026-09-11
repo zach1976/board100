@@ -248,6 +248,13 @@ void main() {
     // PANEL=2 swipes a PageView twice before shooting, so a multi-panel page
     // can be captured a panel at a time without the product growing a
     // "start on page N" parameter it would never otherwise need.
+    // SCROLL=600 drags the page up before the shot, so a long page can be
+    // looked at below the fold without a second tool.
+    final scroll = double.tryParse(env['SCROLL'] ?? '') ?? 0;
+    if (scroll > 0) {
+      await tester.drag(find.byType(Scrollable).last, Offset(0, -scroll));
+      await tester.pumpAndSettle();
+    }
     final panel = int.tryParse(env['PANEL'] ?? '') ?? 0;
     for (var i = 0; i < panel; i++) {
       await tester.drag(find.byType(PageView), const Offset(-kW, 0));

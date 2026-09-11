@@ -137,14 +137,35 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
 
   @override
   void dispose() {
+    _scroll.dispose();
     _preview.dispose();
     super.dispose();
   }
 
+  /// The page's own scroll, so tapping a beat can bring the board back.
+  final _scroll = ScrollController();
+
   /// Walk the board to the beat that was tapped. Beat n is step n+1 — step 0
   /// is the setup, before anything has happened.
-  void _goToBeat(int beat) =>
-      _preview.animateToStep((beat + 1).clamp(0, _preview.maxMoveSteps));
+  ///
+  /// Scrolls the board back on screen first, and not only so the coach can
+  /// watch: animateToStep sets a target, and the thing that actually advances
+  /// the step is the animation controller inside the canvas. Scrolled far
+  /// enough down the page the canvas is unmounted, nothing drives it, and the
+  /// tap silently does nothing at all.
+  Future<void> _goToBeat(int beat) async {
+    // By offset, not by Scrollable.ensureVisible on the board's own key:
+    // scrolled this far the board is off the viewport and the list has
+    // unmounted it, so there is no context left to make visible. The board
+    // sits at the top of the stream, so the top IS the board.
+    if (_scroll.hasClients && _scroll.offset > 0) {
+      await _scroll.animateTo(0,
+          duration: const Duration(milliseconds: 260),
+          curve: Curves.easeOutCubic);
+    }
+    if (!mounted) return;
+    _preview.animateToStep((beat + 1).clamp(0, _preview.maxMoveSteps));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,61 +182,72 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
       body: SafeArea(
         child: Column(
           children: [
-            _header(context, d),
-            // The board stays put while the note scrolls under it. Tapping
-            // beat 5 walks the board to beat 5 — which is worth nothing if
-            // scrolling to beat 5 has pushed the board off the screen.
-            ChangeNotifierProvider<TacticsState>.value(
-              value: _preview,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: T.screenX),
-                child: _BoardCard(state: _preview),
-              ),
-            ),
-            const SizedBox(height: T.s16),
             Expanded(
+              // One stream: the name, the facts, the board and the reading
+              // all scroll together. The board used to be pinned so that
+              // tapping beat 5 could not push it off screen — but a board
+              // nailed to the top costs 40% of every screenful on a page
+              // whose job is to be read, and the strip that walks it is
+              // right beside the beats anyway.
               child: ChangeNotifierProvider<TacticsState>.value(
                 value: _preview,
                 child: ListView(
+                  controller: _scroll,
                   padding:
-                      const EdgeInsets.fromLTRB(T.screenX, 0, T.screenX, T.s24),
+                      const EdgeInsets.fromLTRB(0, 0, 0, T.s24),
                   children: [
-                    if (lead != null) ...[
-                      CoachNote(text: lead),
-                      const SizedBox(height: T.sectionGap),
-                    ],
-                    for (final s in note.sections)
-                      if (s.kind != DrillSectionKind.lead) _sectionWidget(s),
-                    if (mistake != null) ...[
-                      const SizedBox(height: T.s4),
-                      _mistakeBlock(mistake),
-                    ],
-                    const SizedBox(height: T.s16),
-                    _MyNote(mark: _mark, onEdit: _editNote),
-                    const SizedBox(height: T.s16),
-                    // Quiet, at the bottom, where you land after finding
-                    // something wrong rather than before reading it.
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => DrillReportPage.push(
-                        context,
-                        drill: d,
-                        sportType: widget.sportType,
-                        locale: widget.locale,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: T.s8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.flag_outlined,
-                                size: 14, color: T.textOff),
-                            const SizedBox(width: 6),
-                            Text('report_title'.tr(),
-                                style: const TextStyle(
-                                    color: T.textOff, fontSize: 13)),
-                          ],
+                    _header(context, d),
+                    Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: T.screenX),
+                      child: _BoardCard(state: _preview),
+                    ),
+                    const SizedBox(height: T.s24),
+                    Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: T.screenX),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                        if (lead != null) ...[
+                          CoachNote(text: lead),
+                          const SizedBox(height: T.sectionGap),
+                        ],
+                        for (final s in note.sections)
+                          if (s.kind != DrillSectionKind.lead) _sectionWidget(s),
+                        if (mistake != null) ...[
+                          const SizedBox(height: T.s4),
+                          _mistakeBlock(mistake),
+                        ],
+                        const SizedBox(height: T.s16),
+                        _MyNote(mark: _mark, onEdit: _editNote),
+                        const SizedBox(height: T.s16),
+                        // Quiet, at the bottom, where you land after finding
+                        // something wrong rather than before reading it.
+                        GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () => DrillReportPage.push(
+                            context,
+                            drill: d,
+                            sportType: widget.sportType,
+                            locale: widget.locale,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: T.s8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(Icons.flag_outlined,
+                                    size: 14, color: T.textOff),
+                                const SizedBox(width: 6),
+                                Text('report_title'.tr(),
+                                    style: const TextStyle(
+                                        color: T.textOff, fontSize: 13)),
+                              ],
+                            ),
+                          ),
                         ),
+                        ],
                       ),
                     ),
                   ],
@@ -563,20 +595,15 @@ class _Beats extends StatelessWidget {
         // The board counts the setup as step 0, so beat i is step i + 1.
         final live = s.atStep - 1;
         return Padding(
-          padding: const EdgeInsets.only(bottom: T.s16),
+          padding: const EdgeInsets.only(bottom: T.sectionGap),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (section.label != null)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 7),
-                  child: Text(section.label!,
-                      style: const TextStyle(
-                          color: T.textOff,
-                          fontSize: 10.5,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.8)),
-                ),
+              if (section.label != null) ...[
+                SectionTitle(
+                    title: section.label!, icon: _sectionIcon(section.label!)),
+                const SizedBox(height: T.s12),
+              ],
               for (var i = 0; i < beats.length; i++)
                 _BeatRow(
                   index: i,
@@ -639,7 +666,7 @@ class _BeatRow extends StatelessWidget {
               child: Text(text,
                   style: TextStyle(
                       color: current ? T.text : T.textDim,
-                      fontSize: 14.5,
+                      fontSize: 16,
                       height: 1.5)),
             ),
           ],
