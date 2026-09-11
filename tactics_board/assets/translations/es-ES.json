@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "Los ejercicios ya están escritos",
   "intro_pillar_plan": "Planifica",
   "intro_pillar_run": "Ejecuta",
-  "intro_pillar_grow": "Mejora"
+  "intro_pillar_grow": "Mejora",
+  "practice_add_to_plan": "Añadir a un plan",
+  "practice_added_to": "Añadido a {}",
+  "practice_add_short": "Al plan"
 }

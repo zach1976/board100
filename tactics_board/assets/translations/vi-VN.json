@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "Các bài tập đã được viết sẵn",
   "intro_pillar_plan": "Lên buổi tập",
   "intro_pillar_run": "Chạy từng mục",
-  "intro_pillar_grow": "Tiến bộ"
+  "intro_pillar_grow": "Tiến bộ",
+  "practice_add_to_plan": "Thêm vào buổi tập",
+  "practice_added_to": "Đã thêm vào {}",
+  "practice_add_short": "Vào buổi tập"
 }

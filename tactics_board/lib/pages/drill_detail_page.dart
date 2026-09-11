@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/drill.dart';
+import '../widgets/add_to_plan_sheet.dart';
 import '../models/drill_note.dart';
 import '../models/sport_type.dart';
 import '../services/drill_notes_service.dart';
@@ -368,6 +369,15 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     );
   }
 
+  Future<void> _addToPlan() async {
+    await AddToPlanSheet.show(
+      context,
+      sport: widget.sportType,
+      drill: widget.drill,
+      locale: widget.locale,
+    );
+  }
+
   Widget _bottomBar(BuildContext context) {
     final locked = widget.onLoad == null;
     return Container(
@@ -376,13 +386,36 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
         color: T.bg1,
         border: Border(top: BorderSide(color: T.border)),
       ),
-      child: SizedBox(
-        width: double.infinity,
-        child: TacticalButton(
-          label: locked ? 'drills_unlock'.tr() : 'drills_put_on_board'.tr(),
-          icon: locked ? Icons.lock_outline : Icons.add_circle_outline,
-          onTap: locked ? widget.onUpgrade : widget.onLoad,
-        ),
+      child: Row(
+        children: [
+          // Not shown on a locked drill: there is nothing to put in a plan
+          // until it is unlocked, and offering it would be a dead end.
+          if (!locked) ...[
+            // 2:3 — the primary keeps enough width for its own label in
+            // every locale. At an even split French truncated it to
+            // "Mettre sur le t…", which is the main action losing its name.
+            Expanded(
+              flex: 2,
+              child: TacticalButton(
+                label: 'practice_add_short'.tr(),
+                // No icon on this one. The 32px it costs is the difference
+                // between "Add to plan" and "Add to pl…" in most locales,
+                // and the filled primary beside it already carries one.
+                quiet: true,
+                onTap: _addToPlan,
+              ),
+            ),
+            const SizedBox(width: T.s8),
+          ],
+          Expanded(
+            flex: 3,
+            child: TacticalButton(
+              label: locked ? 'drills_unlock'.tr() : 'drills_put_on_board'.tr(),
+              icon: locked ? Icons.lock_outline : Icons.add_circle_outline,
+              onTap: locked ? widget.onUpgrade : widget.onLoad,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "The drills are already written",
   "intro_pillar_plan": "Plan it",
   "intro_pillar_run": "Run it",
-  "intro_pillar_grow": "Improve"
+  "intro_pillar_grow": "Improve",
+  "practice_add_to_plan": "Add to a plan",
+  "practice_added_to": "Added to {}",
+  "practice_add_short": "Add to plan"
 }

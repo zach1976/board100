@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "Latihannya sudah ditulis",
   "intro_pillar_plan": "Susun sesi",
   "intro_pillar_run": "Jalankan",
-  "intro_pillar_grow": "Maju"
+  "intro_pillar_grow": "Maju",
+  "practice_add_to_plan": "Tambah ke rancangan",
+  "practice_added_to": "Ditambah ke {}",
+  "practice_add_short": "Ke rancangan"
 }

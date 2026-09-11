@@ -445,5 +445,8 @@
   "intro_drills_t_plain": "訓練都已經寫好了",
   "intro_pillar_plan": "安排訓練",
   "intro_pillar_run": "逐項執行",
-  "intro_pillar_grow": "持續提升"
+  "intro_pillar_grow": "持續提升",
+  "practice_add_to_plan": "加入訓練計畫",
+  "practice_added_to": "已加入「{}」",
+  "practice_add_short": "加入計畫"
 }
