@@ -27,6 +27,13 @@ const kNarrow = Size(320, 568);
 
 /// Collects overflow reports for the length of a test.
 ///
+/// Report through [check], never `expect` directly: an `expect` that fails
+/// while [FlutterError.onError] is still hooked is reported by the framework
+/// as "a test overrode FlutterError.onError but had unexpected additional
+/// errors", and the list of what actually overflowed is never printed. A real
+/// overflow once cost an hour that way — it looked like the test had hung,
+/// because teardown then blocks for ten minutes.
+///
 /// Not tester.takeException(): a RenderFlex overflow is reported during paint
 /// and does not surface there, so the first version of this test printed
 /// pages of overflow warnings and still passed. Hooking FlutterError.onError
@@ -53,6 +60,12 @@ class OverflowWatch {
   }
 
   void stop() => FlutterError.onError = _previous;
+
+  /// Restore the handler FIRST, then fail. See the note on this class.
+  void check(List<String> broken) {
+    stop();
+    expect(broken, isEmpty, reason: '\n${broken.join('\n')}');
+  }
 
   /// What overflowed since the last call, tagged with where we were.
   List<String> drain(String where) {
@@ -143,7 +156,8 @@ void main() {
       }
     }
 
-    expect(broken, isEmpty, reason: broken.join('\n'));
+    watch.check(broken);
+    watch.start();
 
     // Every other sport, at the three locales whose words run longest. The
     // chip labels come from a shared vocabulary, so badminton exercises the
@@ -170,6 +184,6 @@ void main() {
     }
 
     debugDefaultTargetPlatformOverride = null;
-    expect(broken, isEmpty, reason: broken.join('\n'));
+    watch.check(broken);
   });
 }
