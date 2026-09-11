@@ -182,6 +182,17 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
       body: SafeArea(
         child: Column(
           children: [
+            TacticalNavBar(
+              actions: [
+                TacticalIconButton(
+                  icon: _mark.starred
+                      ? Icons.star_rounded
+                      : Icons.star_border_rounded,
+                  onTap: _toggleStar,
+                  color: _mark.starred ? T.warning : null,
+                ),
+              ],
+            ),
             Expanded(
               // One stream: the name, the facts, the board and the reading
               // all scroll together. The board used to be pinned so that
@@ -284,19 +295,6 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TacticalNavBar(
-          actions: [
-            // The star is the whole of "my library": a coach uses maybe
-            // twenty of six hundred, and this is how those twenty are named.
-            TacticalIconButton(
-              icon: _mark.starred
-                  ? Icons.star_rounded
-                  : Icons.star_border_rounded,
-              onTap: _toggleStar,
-              color: _mark.starred ? T.warning : null,
-            ),
-          ],
-        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, T.s12),
           child: Column(
