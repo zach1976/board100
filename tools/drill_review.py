@@ -199,6 +199,40 @@ def audit(drill, sport):
                         "下一轮没人接得上",
             })
 
+    # A circulation drill whose ball never comes back.
+    #
+    # The rotation check above needs somebody to vacate a station, so it is
+    # blind to the shape where nobody rotates at all and only the ball moves
+    # — a rondo. Every rondo shipped passing three quarters of the way round
+    # and stopping, which is a picture of a fragment: the ball goes round
+    # until the middle wins it, and that is the whole drill.
+    #
+    # Read off the ball path the drill already writes for itself, in English
+    # because that locale always exists. A path whose stops are all shirt
+    # numbers is a circuit among team-mates and should close; one that ends
+    # at "basket", "goal" or "net" is a shot, and asking a shot to come round
+    # is asking the drill to stop scoring.
+    route = next((ln.split(":", 1)[1] for ln in drill.get("note", {})
+                  .get("en", "").split("\n") if "→" in ln and ":" in ln), "")
+    stops = [t.strip() for t in route.split("→") if t.strip()]
+    # …and only where NOBODY rotates. A pass-and-follow pattern closes its
+    # circle through a fresh body — the spare's number is not the starter's —
+    # so demanding the same shirt at both ends flags a routine that works.
+    # The shape this is about is the static ring: everyone holds station and
+    # only the ball travels.
+    holds_station = people and max(
+        (((position_at(p, max_step(board))[0] - p["position"][0]) ** 2
+          + (position_at(p, max_step(board))[1] - p["position"][1]) ** 2) ** 0.5)
+        for p in people) <= 200
+    if (len(stops) >= 4 and all(t.isdigit() for t in stops)
+            and stops[0] != stops[-1] and holds_station):
+        out.append({
+            "id": "ball_not_round",
+            "level": "warn",
+            "text": f"球没有转回起点：{' → '.join(stops)} —— "
+                    "传接循环没有闭合，下一轮接不上",
+        })
+
     rank = {"error": 0, "warn": 1, "info": 2}
     out.sort(key=lambda i: rank[i["level"]])
     return out
