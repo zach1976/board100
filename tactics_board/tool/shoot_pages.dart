@@ -9,6 +9,7 @@
 //
 //   PAGE=home flutter test tool/shoot_pages.dart
 //   PAGE=drill DRILL=passing_diamond flutter test tool/shoot_pages.dart
+//   PAGE=library flutter test tool/shoot_pages.dart
 //
 // Output: tools/page_png/<name>.png
 import 'dart:io';
@@ -25,6 +26,7 @@ import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/drill_detail_page.dart';
+import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/drill_primer_page.dart';
 import 'package:tactics_board/pages/intro_page.dart';
 import 'package:tactics_board/models/player_icon.dart';
@@ -220,6 +222,8 @@ void main() {
                             child: const TacticsCanvas(preview: true)))
                     : which == 'primer'
                     ? DrillPrimerPage(sportType: sport)
+                    : which == 'library'
+                    ? DrillLibraryPage(state: state, onLoaded: () {})
                     : which == 'drill'
                     ? DrillDetailPage(
                         drill: drill,

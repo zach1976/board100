@@ -14,7 +14,7 @@ import '../state/tactics_state.dart';
 import '../ui_constants.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
-import '../widgets/toolbar.dart' show sheetConstraints, scaledSheet;
+import '../widgets/drill_thumbnail.dart';
 
 /// The drill library: pick a session piece and put it on the board.
 ///
@@ -597,124 +597,101 @@ class _DrillRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final first = variants.first;
     final grouped = variants.length > 1;
-    // A family is locked only when every variant is: the free tier deliberately
-    // opens one size of a rondo, not none of it.
+    // A family is locked only when every variant is: the free tier
+    // deliberately opens one size of a rondo, not none of it.
     final allLocked = variants.every(isLocked);
 
-    final card = Container(
-      padding: const EdgeInsets.fromLTRB(T.panelPad, T.s16, T.s12, T.s16),
-      decoration: const BoxDecoration(
-        // Surface contrast, no outline: a list of bordered rectangles is a
-        // list of boxes, and the drill is what the coach is reading.
-        color: T.surfaceHi,
-        borderRadius: T.brMd,
-      ),
-      child: Column(
+    // A row, not a card. The note used to be dumped here four lines at a
+    // time, which made every entry a paragraph to read — and a library you
+    // read is a library you cannot skim. The whole note is one tap away on
+    // the drill page; this is for finding which drill that is.
+    final row = Padding(
+      padding: const EdgeInsets.symmetric(vertical: T.s12),
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          DrillThumbnail(drill: first),
+          const SizedBox(width: T.s12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  grouped
+                      ? first.localizedFamilyName(locale)
+                      : first.localizedName(locale),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: allLocked ? T.textDim : T.text,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      height: 1.3),
+                ),
+                const SizedBox(height: 6),
+                // A bounded Row, not a Wrap: a Wrap hands each child
+                // unbounded width, and on a 320pt phone the level name in a
+                // long locale then overflows the line it lands on.
+                Row(
                   children: [
-                    Text(
-                      grouped
-                          ? first.localizedFamilyName(locale)
-                          : first.localizedName(locale),
-                      style: TextStyle(
-                          color: allLocked ? T.textDim : T.text,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          height: 1.25),
+                    Flexible(
+                      child: MetaItem(
+                          icon: Icons.schedule_outlined,
+                          label: 'drills_minutes'
+                              .tr(args: [_span((d) => d.minutes)])),
                     ),
-                    const SizedBox(height: 3),
-                    _ExpandableNote(text: first.localizedNote(locale)),
-                    if (first.localizedMistake(locale) != null) ...[
-                      const SizedBox(height: 6),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 1),
-                            child: Icon(Icons.warning_amber_rounded,
-                                size: 14, color: T.warning),
-                          ),
-                          const SizedBox(width: 5),
-                          Expanded(
-                            child: Text(
-                              first.localizedMistake(locale)!,
-                              // Two lines, upright, muted amber. It used to
-                              // be an italic paragraph that shouted louder
-                              // than the coaching point above it.
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: T.warning.withValues(alpha: 0.85),
-                                  fontSize: 12.5,
-                                  height: 1.35),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                    const SizedBox(height: 7),
-                    Row(
-                      children: [
-                        Flexible(
-                          child: _Fact(
-                              icon: Icons.schedule_outlined,
-                              text: 'drills_minutes'.tr(args: [_span((d) => d.minutes)])),
-                        ),
-                        const SizedBox(width: 12),
-                        Flexible(
-                          child: _Fact(
-                              icon: Icons.groups_outlined,
-                              text: _span((d) => d.players)),
-                        ),
-                      ],
+                    const SizedBox(width: T.s12),
+                    Flexible(
+                      child: MetaItem(
+                          icon: Icons.groups_outlined,
+                          label: _span((d) => d.players)),
+                    ),
+                    const SizedBox(width: T.s12),
+                    Flexible(
+                      child: MetaItem(
+                          icon: Icons.bar_chart_rounded,
+                          label: first.level.labelKey.tr()),
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(width: 8),
-              if (!grouped)
-                // The one control on the card: put it on the board now. The
-                // card itself opens the drill instead, so the two things a
-                // coach wants from a list — "use this" and "what is this?" —
-                // are each one tap and never the same tap.
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () => onLoad(first),
-                  child: Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: Icon(
-                        allLocked
-                            ? Icons.lock_outline
-                            : Icons.add_circle_outline,
-                        color: allLocked ? T.textOff : T.accent,
-                        size: 26),
+                if (grouped) ...[
+                  const SizedBox(height: T.s8),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [
+                      for (final v in variants)
+                        _VariantChip(
+                          // The variant half of "<family> <variant>" is what
+                          // the chip is for; showing the family name again on
+                          // every chip is the repetition this grouping exists
+                          // to remove.
+                          label: _variantLabel(v),
+                          locked: isLocked(v),
+                          onTap: () => onOpen(v),
+                        ),
+                    ],
                   ),
-                ),
-            ],
-          ),
-          if (grouped) ...[
-            const SizedBox(height: 10),
-            Wrap(
-              spacing: 6,
-              runSpacing: 6,
-              children: [
-                for (final v in variants)
-                  _VariantChip(
-                    // The variant half of "<family> <variant>" is what the
-                    // chip is for; showing the family name again on every
-                    // chip is the repetition this grouping exists to remove.
-                    label: _variantLabel(v),
-                    locked: isLocked(v),
-                    onTap: () => onOpen(v),
-                  ),
+                ],
               ],
+            ),
+          ),
+          if (!grouped) ...[
+            const SizedBox(width: T.s8),
+            // The one control on the row: put it on the board now. The row
+            // itself opens the drill instead, so the two things a coach wants
+            // from a list — "use this" and "what is this?" — are each one tap
+            // and never the same tap.
+            GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => onLoad(first),
+              child: Padding(
+                padding: const EdgeInsets.all(6),
+                child: Icon(
+                    allLocked ? Icons.lock_outline : Icons.add_circle_outline,
+                    color: allLocked ? T.textOff : T.accent,
+                    size: T.iLg),
+              ),
             ),
           ],
         ],
@@ -724,7 +701,7 @@ class _DrillRow extends StatelessWidget {
     return GestureDetector(
       onTap: () => onOpen(first),
       behavior: HitTestBehavior.opaque,
-      child: card,
+      child: row,
     );
   }
 
@@ -850,25 +827,3 @@ class _MineRow extends StatelessWidget {
   }
 }
 
-class _Fact extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  const _Fact({required this.icon, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 13, color: Colors.white38),
-        const SizedBox(width: 4),
-        Flexible(
-          child: Text(text,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white38, fontSize: 11.5)),
-        ),
-      ],
-    );
-  }
-}
