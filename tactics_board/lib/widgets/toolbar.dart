@@ -77,7 +77,6 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
   final ok = await showDialog<bool>(
     context: context,
     builder: (ctx) => AlertDialog(
-      backgroundColor: T.surface,
       title: Text('photo_duplicate_title'.tr(),
           style: const TextStyle(color: Colors.white)),
       content: Text(
@@ -1206,7 +1205,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final newName = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: const Text('Rename', style: TextStyle(color: Colors.white)),
         content: TextField(
           controller: ctrl,
@@ -1243,7 +1241,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text(name, style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -1543,7 +1540,6 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surfaceHi,
         title: Text('text_add_title'.tr(),
             style: const TextStyle(color: Colors.white)),
         content: TextFormField(
@@ -2270,7 +2266,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: T.surface,
           title: Text('photo_duplicate_title'.tr(),
               style: const TextStyle(color: Colors.white)),
           content: Text(
@@ -2415,7 +2410,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -2444,7 +2438,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final box = await showDialog<List<String>>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
         content: TextField(
           controller: controller,
@@ -2510,7 +2503,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          backgroundColor: T.surface,
           title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [
@@ -3200,7 +3192,6 @@ class _PhotosManageDialog extends StatelessWidget {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setSheet) => AlertDialog(
-          backgroundColor: T.surfaceHi,
           title: Text('squad_member_title'.tr(),
               style: const TextStyle(color: Colors.white)),
           content: SingleChildScrollView(
@@ -3320,7 +3311,6 @@ class _PhotosManageDialog extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
@@ -4489,7 +4479,6 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          backgroundColor: T.surface,
           title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
           content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
           actions: [

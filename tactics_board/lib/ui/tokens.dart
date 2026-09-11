@@ -196,6 +196,14 @@ class T {
   static const toolbar = TextStyle(
       fontSize: 13.5, fontWeight: FontWeight.w500, color: text, height: 1.2);
 
+  /// A dialog's title and body. §24 sets these apart from a page's section
+  /// heading: a dialog asks one question, and its title carries more weight
+  /// than a heading inside a page that is already being read.
+  static const dialogTitle = TextStyle(
+      fontSize: 20, fontWeight: FontWeight.w600, color: text, height: 1.25);
+  static const dialogBody = TextStyle(
+      fontSize: 15.5, fontWeight: FontWeight.w400, color: textDim, height: 1.45);
+
   /// An all-caps eyebrow above a group.
   static const label = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w600, color: textDim, letterSpacing: 0.6);

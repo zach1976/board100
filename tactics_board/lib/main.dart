@@ -104,7 +104,10 @@ class TacticsBoardApp extends StatelessWidget {
               seedColor: T.accent, // teal/emerald
               brightness: Brightness.dark,
             ),
-            scaffoldBackgroundColor: T.surfaceHi,
+            // §04: the page behind everything is the deep green-black, not
+            // an elevated surface. Screens that set their own background were
+            // hiding this; the ones that do not were a step too light.
+            scaffoldBackgroundColor: T.bg0,
             appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle.light,
             ),
@@ -122,9 +125,9 @@ class TacticsBoardApp extends StatelessWidget {
               backgroundColor: T.surface,
               surfaceTintColor: Colors.transparent,
               elevation: 16,
-              shape: RoundedRectangleBorder(borderRadius: T.brLg),
-              titleTextStyle: T.section,
-              contentTextStyle: T.body,
+              shape: RoundedRectangleBorder(borderRadius: T.brDialog),
+              titleTextStyle: T.dialogTitle,
+              contentTextStyle: T.dialogBody,
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(

@@ -1292,7 +1292,6 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: T.surface,
         title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
         content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
         actions: [
@@ -1801,7 +1800,6 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDialogState) => AlertDialog(
-        backgroundColor: T.surfaceHi,
         title: Text(_titleKey().tr(), style: const TextStyle(color: Colors.white)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
