@@ -205,9 +205,9 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
       builder: (ctx) => AlertDialog(
         backgroundColor: _kCard,
         title: Text('practice_complete_title'.tr(),
-            style: const TextStyle(color: Colors.white)),
+            style: const TextStyle(color: T.text)),
         content: Text(widget.practice.name,
-            style: const TextStyle(color: Colors.white70)),
+            style: const TextStyle(color: T.textDim)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
@@ -235,13 +235,13 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
         backgroundColor: _kBg,
         appBar: AppBar(
           backgroundColor: _kCard,
-          iconTheme: const IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: T.text),
           title: Text(widget.practice.name,
-              style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: T.text)),
         ),
         body: Center(
           child: Text('practice_no_items'.tr(),
-              style: const TextStyle(color: Colors.white54)),
+              style: const TextStyle(color: T.textDim)),
         ),
       );
     }
@@ -275,7 +275,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
           child: Column(
             children: [
               Text('${_idx + 1} / $total',
-                  style: const TextStyle(color: Colors.white54, fontSize: 16)),
+                  style: const TextStyle(color: T.textDim, fontSize: 16)),
               const SizedBox(height: 8),
               Container(
                 padding: const EdgeInsets.all(16),
@@ -289,14 +289,14 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                   children: [
                     Text(it.tacticName,
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: T.text,
                             fontSize: 20,
                             fontWeight: FontWeight.bold)),
                     if (it.note.trim().isNotEmpty) ...[
                       const SizedBox(height: 8),
                       Text(it.note,
                           style: const TextStyle(
-                              color: Colors.white70, fontSize: 14)),
+                              color: T.textDim, fontSize: 14)),
                     ],
                   ],
                 ),
@@ -305,7 +305,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
               Text(
                 _mmss(_secLeft),
                 style: TextStyle(
-                  color: _secLeft == 0 ? Colors.redAccent : _kAccent,
+                  color: _secLeft == 0 ? T.danger : _kAccent,
                   fontSize: 84,
                   fontWeight: FontWeight.w300,
                   fontFeatures: const [FontFeature.tabularFigures()],
@@ -340,11 +340,11 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: _resetItem,
-                      icon: const Icon(Icons.refresh, color: Colors.white70),
+                      icon: const Icon(Icons.refresh, color: T.textDim),
                       label: Text('timeline_reset'.tr(),
-                          style: const TextStyle(color: Colors.white70)),
+                          style: const TextStyle(color: T.textDim)),
                       style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Colors.white24),
+                        side: const BorderSide(color: T.textOff),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
@@ -395,7 +395,7 @@ class _RoundBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bg = primary ? _kAccent : _kCard;
-    final fg = primary ? Colors.black : Colors.white;
+    final fg = primary ? Colors.black : T.text;
     return Opacity(
       opacity: enabled ? 1 : 0.35,
       child: GestureDetector(
