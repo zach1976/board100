@@ -147,12 +147,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                             decoration: BoxDecoration(
                               color: T.accent,
                               borderRadius: BorderRadius.circular(1),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: T.accent.withValues(alpha: 0.6),
-                                  blurRadius: 4,
-                                ),
-                              ],
+
                             ),
                           ),
                       ],
