@@ -3092,9 +3092,12 @@ def overload_family() -> list[Drill]:
                          f"{dfn} 人在里面抢",
             },
             ball=0,
-            # One pass a beat, round the ring: the extra man is only visible
-            # as passes, and two of them sharing a beat is no pass at all.
-            ball_to=[((i + 1) % att, i) for i in range(3)],
+            # One pass a beat, all the way round and home. It used to be
+            # three passes whatever the size of the ring — so only the 3v2
+            # happened to close, and the 6v4 showed half a circuit of a drill
+            # whose whole point is keeping the ball. The extra man is only
+            # visible as passes, and two of them sharing a beat is no pass.
+            ball_to=[((i + 1) % att, i) for i in range(att)],
         ))
     return out
 
