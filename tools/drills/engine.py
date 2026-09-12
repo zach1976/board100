@@ -488,8 +488,16 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             f"plain ball= already puts it at their feet")
         if drill.ball is None:
             drill.ball = drill.ball_follow
-        drill.ball_moves = [
-            (*at_the_feet_of(mx, my, sport), ph) for (mx, my, ph) in holder.moves]
+        # Each leg is offset along the direction that leg travelled, so the
+        # ball stays ahead of the carrier the whole way down the slalom
+        # rather than trailing him.
+        follow = []
+        prev_x, prev_y = holder.x, holder.y
+        for (mx, my, ph) in holder.moves:
+            follow.append((*at_the_feet_of(mx, my, sport,
+                                           (mx - prev_x, my - prev_y)), ph))
+            prev_x, prev_y = mx, my
+        drill.ball_moves = follow
 
     if drill.ball_to:
         # Two legs on the same beat cannot both be drawn: the ball is one
@@ -541,7 +549,10 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
             holder = drill.home[drill.ball]
-            bx, by = at_the_feet_of(holder.x, holder.y, sport)
+            # Ahead of him from the first frame if he is about to set off.
+            lead = ((holder.moves[0][0] - holder.x,
+                     holder.moves[0][1] - holder.y) if holder.moves else None)
+            bx, by = at_the_feet_of(holder.x, holder.y, sport, lead)
             players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
                                  drill.ball_moves))
         else:
@@ -888,16 +899,37 @@ SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 SPACING_UNCHECKED: set[str] = set()
 
 
-def at_the_feet_of(x: float, y: float, sport: str) -> tuple[float, float]:
+def at_the_feet_of(x: float, y: float, sport: str,
+                   heading: tuple[float, float] | None = None
+                   ) -> tuple[float, float]:
     """Where a carried ball sits: at the holder's feet, not on his number.
 
     Placed on the holder's own point, the ball icon is the same 44pt as the
     player circle and covers it completely — every board in the library drew
-    a ball with nobody visibly carrying it. Offset toward the middle of the
-    pitch and down, far enough to clear the digit and close enough to still
-    read as his. The app keeps this offset through the animation.
+    a ball with nobody visibly carrying it. So it is offset far enough to
+    clear the digit and close enough to still read as his, and the app keeps
+    that offset through the animation.
+
+    [heading] is the direction the holder is travelling. A dribbled ball is
+    IN FRONT of the foot — you push it and run onto it. Without this the
+    offset was a fixed "toward the middle and downward", so a player carrying
+    the ball up the pitch towed it along behind him, which is not how anybody
+    dribbles and read as the ball being left behind. A player standing still
+    has no heading and keeps the old offset.
+
+    The 80-unit distance matches the length of that old (40, 70) offset, so
+    the ball sits exactly as far from its holder as it always has.
     """
     left, top, w, h = court_rect(sport)
+    if heading is not None:
+        hx, hy = heading
+        length = math.hypot(hx, hy)
+        if length > 1e-6:
+            bx = x + hx / length * 80.0
+            by = y + hy / length * 80.0
+            # A ball pushed ahead at the touchline must not be pushed off it.
+            return (min(max(bx, left + 15), left + w - 15),
+                    min(max(by, top + 15), top + h - 15))
     dx = 40.0 if x < left + w / 2 else -40.0
     dy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
     return x + dx, y + dy
