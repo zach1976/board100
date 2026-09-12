@@ -44,12 +44,12 @@ class AddToPlanSheet {
 
     String planName = picked;
     if (picked == _PlanPicker.newPlan) {
-      final typed = await _promptName(context, title: 'practice_new'.tr());
+      final typed = await promptForName(context,
+          title: 'practice_new'.tr(),
+          hint: 'practice_name'.tr(),
+          taken: names.toSet(),
+          takenMessage: 'practice_name_exists'.tr());
       if (typed == null || typed.isEmpty || !context.mounted) return null;
-      if (names.contains(typed)) {
-        _toast(context, 'practice_name_exists'.tr());
-        return null;
-      }
       planName = typed;
     }
 
@@ -131,34 +131,6 @@ class AddToPlanSheet {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
-  static Future<String?> _promptName(BuildContext context,
-      {required String title}) {
-    final ctrl = TextEditingController();
-    return showDialog<String>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(title, style: const TextStyle(color: T.text)),
-        content: TextField(
-          controller: ctrl,
-          autofocus: true,
-          style: const TextStyle(color: T.text),
-          decoration: InputDecoration(
-            hintText: 'practice_name'.tr(),
-            hintStyle: const TextStyle(color: T.textOff),
-          ),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-            child: Text('confirm'.tr(),
-                style: const TextStyle(color: T.accent)),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 class _PlanPicker extends StatelessWidget {

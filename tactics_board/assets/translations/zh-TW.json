@@ -448,5 +448,7 @@
   "intro_pillar_grow": "持續提升",
   "practice_add_to_plan": "加入訓練計畫",
   "practice_added_to": "已加入「{}」",
-  "practice_add_short": "加入計畫"
+  "practice_add_short": "加入計畫",
+  "board_name_title": "給這塊板取個名字",
+  "board_name_exists": "已存在同名的戰術板"
 }

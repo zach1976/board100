@@ -124,7 +124,32 @@ class _SportHomePageState extends State<SportHomePage> {
   }
 
   Future<void> _newBoard() async {
-    context.read<TacticsState>().newDocument();
+    final state = context.read<TacticsState>();
+    // Named before it is drawn on. A board with no name is a board that
+    // cannot be found again: it does not appear under "my boards", and the
+    // next blank one takes its place on the home card. Cancelling makes
+    // nothing, which is why the question comes first — there is no half-made
+    // board to lose.
+    //
+    // The names come from the list this page already holds, not from a fresh
+    // directory read: the coach tapped a button, and making them wait on
+    // disk before the keyboard appears is a pause with nothing behind it.
+    final taken = _mine.map((m) => m.name).toSet();
+    final name = await promptForName(
+      context,
+      title: 'board_name_title'.tr(),
+      taken: taken,
+      takenMessage: 'board_name_exists'.tr(),
+    );
+    if (name == null || !mounted) return;
+    state.newDocument();
+    try {
+      await state.saveTactics(name);
+    } catch (_) {
+      // A board that cannot be written is still a board worth drawing on;
+      // the toolbar's own Save will say so when they try again.
+    }
+    if (!mounted) return;
     await _openBoard();
   }
 

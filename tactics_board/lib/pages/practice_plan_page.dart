@@ -89,7 +89,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     }
 
     final sport = widget.state.sportType;
-    final name = await _promptName(context, title: 'practice_new'.tr());
+    final name = await promptForName(context, title: 'practice_new'.tr());
     if (name == null || name.isEmpty) return;
     final existing = await PracticeService.load(sport, name);
     if (existing != null) {
@@ -455,7 +455,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
       if (!mounted) return;
     }
 
-    final name = await _promptName(
+    final name = await promptForName(
       context,
       title: 'practice_add_tactic'.tr(),
       hint: 'tactics_name'.tr(),
@@ -934,31 +934,4 @@ class _DurationFieldState extends State<_DurationField> {
       ),
     );
   }
-}
-
-Future<String?> _promptName(BuildContext context, {required String title, String? hint}) async {
-  final ctrl = TextEditingController();
-  return showDialog<String>(
-    context: context,
-    builder: (ctx) => AlertDialog(
-      backgroundColor: _kCard,
-      title: Text(title, style: const TextStyle(color: T.text)),
-      content: TextField(
-        controller: ctrl,
-        autofocus: true,
-        style: const TextStyle(color: T.text),
-        decoration: InputDecoration(
-          hintText: hint ?? 'practice_name'.tr(),
-          hintStyle: const TextStyle(color: T.textOff),
-        ),
-      ),
-      actions: [
-        TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
-        TextButton(
-          onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-          child: Text('confirm'.tr(), style: const TextStyle(color: _kAccent)),
-        ),
-      ],
-    ),
-  );
 }
