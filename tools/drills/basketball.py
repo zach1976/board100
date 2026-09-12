@@ -1428,7 +1428,10 @@ def shell_drill() -> list[Drill]:
                        (d[0], d[1], ((i + 1) % 3) + 1)])
               for i, d in enumerate(D)],
         ball=0,                     # the swing starts from the corner
-        ball_to=[(1, 0), (2, 1), (3, 2)],
+        # And swings back. A shell drill is the defence shifting on every
+        # pass; stopping at the far man shows the shift out and never the
+        # shift home, which is the half a guard hunts.
+        ball_to=[(1, 0), (2, 1), (3, 2), (0, 3)],
     )]
 
 
