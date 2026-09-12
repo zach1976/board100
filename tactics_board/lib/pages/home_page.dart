@@ -105,13 +105,26 @@ class TacticsBoardHomePage extends StatelessWidget {
   ///
   /// That only holds while the corners hold small buttons. A board with more
   /// than one page grows the page control from one circle to three — back,
-  /// count, forward — and anchored to the right it then reaches left into the
-  /// island and the "previous page" chevron disappears under it. So a
-  /// multi-page board spends the 40pt and sits the whole row below the inset:
-  /// the alternative is a control you cannot press.
-  double _chromeTop(double topPad, {required bool wide}) => wide
-      ? topPad + 6
-      : (topPad - 38).clamp(8.0, topPad + 8).toDouble();
+  /// count, forward — and anchored to the right it then reaches left into
+  /// the island, where the "previous page" chevron disappeared under it.
+  ///
+  /// So the chrome is two rows. Back and the menu never move: they are one
+  /// button each, they fit the corners, and a back button that jumps down
+  /// the moment you add a page is a navigation bar that changes height with
+  /// its content. The page control is what grows, so the page control is
+  /// what drops — to its own row below the inset, where the board makes room
+  /// for it rather than sitting underneath it.
+  double _chromeTop(double topPad) =>
+      (topPad - 38).clamp(8.0, topPad + 8).toDouble();
+
+  /// The second row: only a multi-page board has one.
+  double _pagesTop(double topPad) => topPad + 6;
+
+  /// How much of the top the second row takes, so the pitch can start below
+  /// it. Zero for the one-page board that has no second row.
+  double _pagesBand(BuildContext context, double topPad, bool wide) => wide
+      ? _pagesTop(topPad) + (44 * uiScale(context)).clamp(44.0, 60.0) + 6
+      : 0.0;
 
   Widget _canvasStack(BuildContext context, double topPad) {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
@@ -124,9 +137,19 @@ class TacticsBoardHomePage extends StatelessWidget {
       builder: (ctx, candidate, rejected) => Stack(
       fit: StackFit.expand,
       children: [
-        isLandscape
-            ? const RotatedBox(quarterTurns: 1, child: TacticsCanvas())
-            : const TacticsCanvas(),
+        // A one-page board runs full bleed: its two corner buttons sit in
+        // the island's own band, where there is nothing but grass. A
+        // multi-page board's row had to come down out of that band to stay
+        // reachable, and down there it covers the penalty area — so the
+        // pitch starts below it instead of underneath it. Only the boards
+        // that pay for the row pay for the inset.
+        Padding(
+          padding: EdgeInsets.only(
+              top: _pagesBand(context, topPad, wideChrome)),
+          child: isLandscape
+              ? const RotatedBox(quarterTurns: 1, child: TacticsCanvas())
+              : const TacticsCanvas(),
+        ),
         // Presentation mode swaps all editing chrome for a clean, locked
         // overlay; the normal board chrome is shown otherwise.
         Consumer<TacticsState>(
@@ -154,7 +177,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         // there was no way off the board. The board swallows the edge-swipe
         // (it draws with it), so this is the only way back.
         Positioned(
-            top: _chromeTop(topPad, wide: wideChrome), left: 12,
+            top: _chromeTop(topPad), left: 12,
             child: Selector<TacticsState, (String?, String?)>(
               selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
               builder: (context, tuple, _) {
@@ -228,12 +251,17 @@ class TacticsBoardHomePage extends StatelessWidget {
         // way to make the second one has to be visible before anybody knows
         // they want it; a coach wrote a review saying there was no easy way
         // to add pages, and there was no way at all.
+        // Beside the menu while it is one circle; on its own row once it
+        // grows chevrons, because three circles anchored right reach into
+        // the island.
         Positioned(
-          top: _chromeTop(topPad, wide: wideChrome),
-          right: 12 + (44 * uiScale(context)).clamp(44.0, 60.0),
+          top: wideChrome ? _pagesTop(topPad) : _chromeTop(topPad),
+          right: wideChrome
+              ? 12
+              : 12 + (44 * uiScale(context)).clamp(44.0, 60.0),
           child: const _PagesButton(),
         ),
-        Positioned(top: _chromeTop(topPad, wide: wideChrome), right: 12, child: _MenuButton()),
+        Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
         _CollapsibleEditPanel(),
         Positioned(
           bottom: 12, right: 12,

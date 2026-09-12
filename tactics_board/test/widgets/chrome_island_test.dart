@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 import 'overflow_test.dart' show kLocales;
 
@@ -74,6 +75,11 @@ void main() {
     /// the board itself is a full-width gesture surface, and it is SUPPOSED
     /// to run under the island — it is the pitch.
     bool underIsland(Finder finder) {
+      // An empty finder must never pass silently: the first version of this
+      // test asked whether the chevrons were under the island, found no
+      // chevrons at all, and reported success.
+      expect(finder, findsWidgets,
+          reason: 'the control this asks about is not on screen');
       for (final element in finder.evaluate()) {
         final box = element.renderObject as RenderBox?;
         if (box == null || !box.hasSize) continue;
@@ -109,10 +115,26 @@ void main() {
       ('previous page', find.byIcon(Icons.chevron_left)),
       ('next page', find.byIcon(Icons.chevron_right)),
       ('page count', find.text(label)),
-      ('back', find.byIcon(Icons.arrow_back_ios_new_rounded)),
+      ('back', find.byIcon(Icons.arrow_back_ios_new)),
     ]) {
       expect(underIsland(control.$2), isFalse,
           reason: '${control.$1} must not sit under the Dynamic Island');
+    }
+
+    // …and having come down out of the island's band, the row must not have
+    // landed on the pitch instead: it covered the penalty area.
+    final pitch = tester
+        .renderObject<RenderBox>(find.byType(TacticsCanvas).first);
+    final pitchTop = pitch.localToGlobal(Offset.zero).dy;
+    for (final control in <(String, Finder)>[
+      ('previous page', find.byIcon(Icons.chevron_left)),
+      ('page count', find.text(label)),
+      ('back', find.byIcon(Icons.arrow_back_ios_new)),
+    ]) {
+      final box = control.$2.evaluate().first.renderObject as RenderBox;
+      final bottom = box.localToGlobal(Offset.zero).dy + box.size.height;
+      expect(bottom, lessThanOrEqualTo(pitchTop + 1),
+          reason: '${control.$1} sits on top of the pitch');
     }
   });
 }
