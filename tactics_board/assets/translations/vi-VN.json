@@ -448,5 +448,7 @@
   "intro_pillar_grow": "Tiến bộ",
   "practice_add_to_plan": "Thêm vào buổi tập",
   "practice_added_to": "Đã thêm vào {}",
-  "practice_add_short": "Vào buổi tập"
+  "practice_add_short": "Vào buổi tập",
+  "board_name_title": "Đặt tên bảng này",
+  "board_name_exists": "Đã có bảng trùng tên"
 }

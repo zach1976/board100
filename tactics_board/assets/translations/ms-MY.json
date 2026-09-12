@@ -448,5 +448,7 @@
   "intro_pillar_grow": "Maju",
   "practice_add_to_plan": "Tambah ke rancangan",
   "practice_added_to": "Ditambah ke {}",
-  "practice_add_short": "Ke rancangan"
+  "practice_add_short": "Ke rancangan",
+  "board_name_title": "Namakan papan ini",
+  "board_name_exists": "Papan dengan nama itu sudah wujud"
 }

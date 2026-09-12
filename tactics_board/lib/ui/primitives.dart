@@ -1,4 +1,5 @@
 import 'dart:ui' show FontFeature;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'tokens.dart';
@@ -860,4 +861,68 @@ class StepStrip extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Ask for a name. One dialog, not three.
+///
+/// The plan page, the add-to-plan sheet and the toolbar each grew their own —
+/// same shape, same two buttons, three slightly different paddings and hint
+/// colours. [taken] is checked as the coach types so a clash is refused
+/// before the dialog closes rather than swallowed by whatever raised it:
+/// saving over a board you did not mean to is not recoverable.
+Future<String?> promptForName(
+  BuildContext context, {
+  required String title,
+  String? hint,
+  String initial = '',
+  Set<String> taken = const {},
+  String? takenMessage,
+}) {
+  final ctrl = TextEditingController(text: initial);
+  return showDialog<String>(
+    context: context,
+    builder: (ctx) => StatefulBuilder(
+      builder: (ctx, setState) {
+        final typed = ctrl.text.trim();
+        final clash = typed.isNotEmpty && typed != initial && taken.contains(typed);
+        return AlertDialog(
+          title: Text(title),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: ctrl,
+                autofocus: true,
+                style: const TextStyle(color: T.text),
+                onChanged: (_) => setState(() {}),
+                onSubmitted: (v) {
+                  if (v.trim().isNotEmpty && !clash) Navigator.pop(ctx, v.trim());
+                },
+                decoration: InputDecoration(
+                  hintText: hint,
+                  hintStyle: const TextStyle(color: T.textOff),
+                ),
+              ),
+              if (clash && takenMessage != null) ...[
+                const SizedBox(height: T.s8),
+                Text(takenMessage,
+                    style: const TextStyle(color: T.danger, fontSize: 13)),
+              ],
+            ],
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+            TextButton(
+              onPressed: typed.isEmpty || clash
+                  ? null
+                  : () => Navigator.pop(ctx, typed),
+              child: Text('confirm'.tr()),
+            ),
+          ],
+        );
+      },
+    ),
+  );
 }

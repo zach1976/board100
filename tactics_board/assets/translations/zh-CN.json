@@ -448,5 +448,7 @@
   "intro_pillar_grow": "持续提升",
   "practice_add_to_plan": "加入训练计划",
   "practice_added_to": "已加入「{}」",
-  "practice_add_short": "加入计划"
+  "practice_add_short": "加入计划",
+  "board_name_title": "给这块板起个名字",
+  "board_name_exists": "已存在同名的战术板"
 }
