@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../config_constants.dart';
 
 import '../models/drill.dart';
+import '../models/drill_note.dart';
 import 'drill_detail_page.dart';
 import '../models/tactic_meta.dart';
 import '../models/sport_type.dart';
@@ -616,7 +617,7 @@ class _DrillRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrillThumbnail(drill: first, sport: sport),
+          DrillThumbnail(drill: first, sport: sport, height: 84),
           const SizedBox(width: T.s12),
           Expanded(
             child: Column(
@@ -634,6 +635,17 @@ class _DrillRow extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       height: 1.3),
                 ),
+                // Why run it. The library's whole claim is that the
+                // coaching is written down, and a list that shows only a
+                // name and three numbers keeps that claim on the next
+                // screen. One line, the drill's own opening sentence.
+                if (_purpose(first, locale) case final why?) ...[
+                  const SizedBox(height: 4),
+                  Text(why,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: T.secondary.copyWith(height: 1.35)),
+                ],
                 const SizedBox(height: 6),
                 // A bounded Row, not a Wrap: a Wrap hands each child
                 // unbounded width, and on a 320pt phone the level name in a
@@ -709,6 +721,27 @@ class _DrillRow extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       child: row,
     );
+  }
+
+  /// The one line that is true of THIS drill.
+  ///
+  /// The coaching point, not the opening 【目的】 — that one describes the
+  /// category, so every rondo and every possession game carries the same
+  /// sentence word for word and a list of them says nothing. The point is
+  /// hand-written per drill: "limit it to two touches", "the winger waits
+  /// for the full-back to go past him".
+  ///
+  /// Falls back to the opening line for a drill with no point of its own,
+  /// and returns null when there is nothing at all, so the row closes up
+  /// rather than leaving a gap where a sentence should be.
+  String? _purpose(Drill d, String locale) {
+    final note = DrillNote.parse(d.localizedNote(locale));
+    String? bodyOf(DrillSectionKind kind) => note.sections
+        .where((s) => s.kind == kind)
+        .map((s) => s.body.trim())
+        .where((b) => b.isNotEmpty)
+        .lastOrNull;
+    return bodyOf(DrillSectionKind.point) ?? bodyOf(DrillSectionKind.lead);
   }
 
   /// "10" for a single drill, "10–20" across a family. A rondo family runs

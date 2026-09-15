@@ -53,7 +53,8 @@ class DrillThumbnail extends StatelessWidget {
         width: height * (fr.width / fr.height),
         height: height,
         child: CustomPaint(
-          painter: _ThumbPainter(_dots(drill, pitch), drill.offSurface),
+          painter: _ThumbPainter(
+              _dots(drill, pitch), _ballPath(drill, pitch), drill.offSurface),
         ),
       ),
     );
@@ -118,6 +119,43 @@ class DrillThumbnail extends StatelessWidget {
   }
 }
 
+/// Where the ball goes, in the pitch's frame.
+///
+/// Start positions alone say how many people are on the grass and roughly
+/// where; they do not say what the drill is FOR. The ball's path does: a
+/// rondo is a closed ring, a slalom is a line straight up the pitch, a cross
+/// goes out to the touchline and back in. One thin line is the difference
+/// between a list of green rectangles and a list you can read.
+List<Offset> _ballPath(Drill drill, Rect pitch) {
+  final board = drill.board;
+  final w = (board['canvasWidth'] as num?)?.toDouble() ?? 1000.0;
+  final h = (board['canvasHeight'] as num?)?.toDouble() ?? 1500.0;
+  final players = board['players'];
+  if (players is! List || w <= 0 || h <= 0) return const [];
+  if (pitch.width <= 0 || pitch.height <= 0) return const [];
+  for (final raw in players) {
+    if (raw is! Map) continue;
+    if (raw['team'] != 2 || raw['markerShape'] != 0) continue;
+    final out = <Offset>[];
+    void add(List<dynamic> pt) {
+      final x = (pt[0] as num?)?.toDouble();
+      final y = (pt[1] as num?)?.toDouble();
+      if (x == null || y == null) return;
+      out.add(Offset(
+        (((x / w - pitch.left) / pitch.width)).clamp(0.03, 0.97),
+        (((y / h - pitch.top) / pitch.height)).clamp(0.03, 0.97),
+      ));
+    }
+    final pos = raw['position'];
+    if (pos is List && pos.length >= 2) add(pos);
+    for (final mv in (raw['moves'] as List? ?? const [])) {
+      if (mv is List && mv.length >= 2) add(mv);
+    }
+    return out.length >= 2 ? out : const [];
+  }
+  return const [];
+}
+
 enum _Kind { home, away, ball, gear }
 
 class _Dot {
@@ -129,12 +167,13 @@ class _Dot {
 
 class _ThumbPainter extends CustomPainter {
   final List<_Dot> dots;
+  final List<Offset> ball;
 
   /// A drill run off the pitch — a gym circuit, a classroom walk-through —
   /// gets the neutral ground rather than turf it never touches.
   final bool offSurface;
 
-  const _ThumbPainter(this.dots, this.offSurface);
+  const _ThumbPainter(this.dots, this.ball, this.offSurface);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -153,6 +192,26 @@ class _ThumbPainter extends CustomPainter {
       canvas.drawLine(Offset(0, size.height / 2),
           Offset(size.width, size.height / 2), line);
       canvas.drawCircle(size.center(Offset.zero), size.width * 0.17, line);
+    }
+
+    // The ball's route, under everything: it is the shape of the drill, not
+    // a thing standing on the grass, and at full contrast it would out-shout
+    // the players it is being passed between.
+    if (ball.length >= 2) {
+      final path = Path()
+        ..moveTo(ball.first.dx * size.width, ball.first.dy * size.height);
+      for (final p in ball.skip(1)) {
+        path.lineTo(p.dx * size.width, p.dy * size.height);
+      }
+      canvas.drawPath(
+        path,
+        Paint()
+          ..color = Colors.white.withValues(alpha: 0.55)
+          ..strokeWidth = size.shortestSide * 0.028
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round
+          ..style = PaintingStyle.stroke,
+      );
     }
 
     // Back to front, so a player is never hidden under a cone: gear first,
@@ -187,5 +246,7 @@ class _ThumbPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ThumbPainter old) =>
-      old.dots.length != dots.length || old.offSurface != offSurface;
+      old.dots.length != dots.length ||
+      old.ball.length != ball.length ||
+      old.offSurface != offSurface;
 }
