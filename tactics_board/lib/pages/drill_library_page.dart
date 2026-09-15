@@ -492,6 +492,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         itemCount: groups.length,
                         separatorBuilder: (_, __) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _DrillRow(
+                        sport: widget.state.sportType,
                           variants: groups[i],
                           locale: _locale,
                           isLocked: (d) => !_unlocked(d),
@@ -584,12 +585,14 @@ class _ExpandableNoteState extends State<_ExpandableNote> {
 /// tappable as a whole.
 class _DrillRow extends StatelessWidget {
   final List<Drill> variants;
+  final SportType sport;
   final String locale;
   final bool Function(Drill) isLocked;
   final void Function(Drill) onLoad;
   final void Function(Drill) onOpen;
   const _DrillRow({
     required this.variants,
+    required this.sport,
     required this.locale,
     required this.isLocked,
     required this.onLoad,
@@ -613,7 +616,7 @@ class _DrillRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrillThumbnail(drill: first),
+          DrillThumbnail(drill: first, sport: sport),
           const SizedBox(width: T.s12),
           Expanded(
             child: Column(
