@@ -450,5 +450,6 @@
   "practice_added_to": "Added to {}",
   "practice_add_short": "Add to plan",
   "board_name_title": "Name this board",
-  "board_name_exists": "A board with that name already exists"
+  "board_name_exists": "A board with that name already exists",
+  "anim_setup": "Setup"
 }

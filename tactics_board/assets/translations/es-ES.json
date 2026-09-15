@@ -450,5 +450,6 @@
   "practice_added_to": "Añadido a {}",
   "practice_add_short": "Al plan",
   "board_name_title": "Nombra esta pizarra",
-  "board_name_exists": "Ya existe una pizarra con ese nombre"
+  "board_name_exists": "Ya existe una pizarra con ese nombre",
+  "anim_setup": "Inicio"
 }

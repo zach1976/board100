@@ -450,5 +450,6 @@
   "practice_added_to": "Ditambah ke {}",
   "practice_add_short": "Ke rancangan",
   "board_name_title": "Namakan papan ini",
-  "board_name_exists": "Papan dengan nama itu sudah wujud"
+  "board_name_exists": "Papan dengan nama itu sudah wujud",
+  "anim_setup": "Awal"
 }

@@ -450,5 +450,6 @@
   "practice_added_to": "{}에 추가했습니다",
   "practice_add_short": "계획에 추가",
   "board_name_title": "이 보드의 이름",
-  "board_name_exists": "같은 이름의 보드가 있습니다"
+  "board_name_exists": "같은 이름의 보드가 있습니다",
+  "anim_setup": "배치"
 }
