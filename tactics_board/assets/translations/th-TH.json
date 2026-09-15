@@ -450,5 +450,6 @@
   "practice_added_to": "เพิ่มลงใน {} แล้ว",
   "practice_add_short": "เพิ่มลงแผน",
   "board_name_title": "ตั้งชื่อกระดานนี้",
-  "board_name_exists": "มีกระดานชื่อนี้อยู่แล้ว"
+  "board_name_exists": "มีกระดานชื่อนี้อยู่แล้ว",
+  "anim_setup": "เริ่มต้น"
 }

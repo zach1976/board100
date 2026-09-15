@@ -450,5 +450,6 @@
   "practice_added_to": "「{}」に追加しました",
   "practice_add_short": "計画に追加",
   "board_name_title": "このボードに名前を",
-  "board_name_exists": "同じ名前のボードがあります"
+  "board_name_exists": "同じ名前のボードがあります",
+  "anim_setup": "配置"
 }

@@ -483,12 +483,11 @@ class _StepBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The board counts the opening frame as step 0; a coach looking at it is
-    // on 1 of 5. StepStrip does that conversion, so the count here stays the
-    // board's own.
+    // The board's own numbering goes straight through: step 0 is the setup
+    // and StepStrip names it rather than counting it.
     return StepStrip(
       index: at,
-      total: steps + 1,
+      beats: steps,
       onPrev: state.stepBackward,
       onNext: state.stepForward,
     );

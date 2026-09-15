@@ -805,20 +805,25 @@ class SequenceView extends StatelessWidget {
 
 /// How far through a sequence the board is: segments, and "3 / 5".
 ///
-/// Segments rather than a slider, and the count is one-based — a coach
-/// looking at the opening frame is on step 1 of 5, not 0 of 5. Reading "0/5"
-/// is how a debug control tells you its index.
+/// The opening frame is not step one — it is the setup, the shape a coach
+/// walks out and arranges before anything happens. Numbering it "1 / 5" said
+/// the first beat had already played; numbering it "0 / 5" is how a debug
+/// control reports an index. It is named instead, with the word the app
+/// already uses for it on the learn page, and the count starts at the first
+/// beat that actually moves somebody.
 class StepStrip extends StatelessWidget {
-  /// Zero-based, so 0 renders as "1 / total".
+  /// The board's own step: 0 is the setup, 1..[beats] each played beat.
   final int index;
-  final int total;
+
+  /// How many beats the drill has, not counting the setup.
+  final int beats;
   final VoidCallback? onPrev;
   final VoidCallback? onNext;
 
   const StepStrip({
     super.key,
     required this.index,
-    required this.total,
+    required this.beats,
     this.onPrev,
     this.onNext,
   });
@@ -835,28 +840,31 @@ class StepStrip extends StatelessWidget {
         Expanded(
           child: Row(
             children: [
-              for (var i = 0; i < total; i++) ...[
+              // One segment per beat. At the setup none are filled, which is
+              // the truthful picture: nothing has happened yet.
+              for (var i = 0; i < beats; i++) ...[
                 Expanded(
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 140),
                     height: 3,
                     decoration: BoxDecoration(
-                      color: i <= index ? T.accent : const Color(0x1FFFFFFF),
+                      color: i < index ? T.accent : const Color(0x1FFFFFFF),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                 ),
-                if (i != total - 1) const SizedBox(width: 4),
+                if (i != beats - 1) const SizedBox(width: 4),
               ],
             ],
           ),
         ),
         const SizedBox(width: T.s12),
-        Text('${index + 1} / $total', style: T.meta),
+        Text(index == 0 ? 'anim_setup'.tr() : '$index / $beats',
+            style: T.meta),
         TacticalIconButton(
           icon: Icons.chevron_right_rounded,
           size: T.iLg,
-          onTap: index < total - 1 ? onNext : null,
+          onTap: index < beats ? onNext : null,
         ),
       ],
     );

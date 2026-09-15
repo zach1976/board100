@@ -450,5 +450,6 @@
   "practice_added_to": "Đã thêm vào {}",
   "practice_add_short": "Vào buổi tập",
   "board_name_title": "Đặt tên bảng này",
-  "board_name_exists": "Đã có bảng trùng tên"
+  "board_name_exists": "Đã có bảng trùng tên",
+  "anim_setup": "Bắt đầu"
 }
