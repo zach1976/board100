@@ -255,6 +255,14 @@ void main() {
       await tester.drag(find.byType(Scrollable).last, Offset(0, -scroll));
       await tester.pumpAndSettle();
     }
+    // STEP=n walks the drill board n beats before the shot, so the setup
+    // frame and a played beat can be compared without a second tool.
+    final step = int.tryParse(env['STEP'] ?? '') ?? 0;
+    for (var i = 0; i < step; i++) {
+      await tester.tap(find.byIcon(Icons.chevron_right_rounded).last);
+      await tester.pump(const Duration(milliseconds: 900));
+      await tester.pumpAndSettle();
+    }
     final panel = int.tryParse(env['PANEL'] ?? '') ?? 0;
     for (var i = 0; i < panel; i++) {
       await tester.drag(find.byType(PageView), const Offset(-kW, 0));

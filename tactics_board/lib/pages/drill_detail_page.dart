@@ -483,6 +483,20 @@ class _StepBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // The setup frame shows the setup: where everybody stands, and nothing
+    // about where they are going. The board draws every planned run at step
+    // 0 — right for an author laying a drill out, wrong for a coach reading
+    // one, who then meets nine arrows before a single thing has happened.
+    // Done here rather than in the canvas so the board itself keeps the
+    // behaviour its own learn page describes.
+    //
+    // After the frame, not during it: setShowMoveLines notifies, and
+    // notifying a listener while it is building is how you get "setState()
+    // called during build". It no-ops when the value is unchanged, so this
+    // settles after one frame rather than looping.
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => state.setShowMoveLines(at > 0));
+
     // The board's own numbering goes straight through: step 0 is the setup
     // and StepStrip names it rather than counting it.
     return StepStrip(
