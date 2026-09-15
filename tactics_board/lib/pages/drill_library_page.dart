@@ -617,7 +617,7 @@ class _DrillRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrillThumbnail(drill: first, sport: sport, height: 84),
+          DrillThumbnail(drill: first, sport: sport, height: 96),
           const SizedBox(width: T.s12),
           Expanded(
             child: Column(

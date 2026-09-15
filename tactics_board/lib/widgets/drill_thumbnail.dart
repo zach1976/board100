@@ -31,7 +31,7 @@ class DrillThumbnail extends StatelessWidget {
     super.key,
     required this.drill,
     required this.sport,
-    this.height = 72,
+    this.height = 96,
   });
 
   @override
@@ -47,17 +47,81 @@ class DrillThumbnail extends StatelessWidget {
       fr.height / kBoardRefHeight,
     );
 
+    final aspect = fr.width / fr.height;
+    final dots = _dots(drill, pitch);
+    final ball = _ballPath(drill, pitch);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(T.rSm),
       child: SizedBox(
-        width: height * (fr.width / fr.height),
+        width: height * aspect,
         height: height,
         child: CustomPaint(
           painter: _ThumbPainter(
-              _dots(drill, pitch), _ballPath(drill, pitch), drill.offSurface),
+              dots, ball, _window(dots, ball), drill.offSurface),
         ),
       ),
     );
+  }
+
+  /// The part of the pitch this drill actually uses.
+  ///
+  /// Nearly every drill happens in a corner of the pitch or a box in the
+  /// middle, so a thumbnail of the whole pitch spent most of itself on empty
+  /// grass and left eleven players as eleven specks. This finds what the
+  /// drill occupies and frames that instead.
+  ///
+  /// The window is SQUARE in this space, which is what keeps the picture
+  /// undistorted: both axes here run 0..1 across a box that is already the
+  /// pitch's proportions, so equal fractions of each are equal fractions of
+  /// the frame. And it never zooms past 45% of the pitch — a two-player
+  /// drill blown up to fill the thumbnail would say those two were standing
+  /// forty metres apart.
+  static Rect _window(List<_Dot> dots, List<Offset> ball) {
+    final xs = <double>[...dots.map((d) => d.x), ...ball.map((p) => p.dx)];
+    final ys = <double>[...dots.map((d) => d.y), ...ball.map((p) => p.dy)];
+    if (xs.isEmpty) return const Rect.fromLTWH(0, 0, 1, 1);
+
+    var left = xs.reduce((a, b) => a < b ? a : b);
+    var right = xs.reduce((a, b) => a > b ? a : b);
+    var top = ys.reduce((a, b) => a < b ? a : b);
+    var bottom = ys.reduce((a, b) => a > b ? a : b);
+
+    // Room for the tokens themselves, which are drawn centred on their point
+    // and would otherwise be cut in half by the edge.
+    const pad = 0.09;
+    left -= pad;
+    right += pad;
+    top -= pad;
+    bottom += pad;
+
+    // Square, and never tighter than 45% of the pitch.
+    final span = [right - left, bottom - top, 0.45]
+        .reduce((a, b) => a > b ? a : b)
+        .clamp(0.0, 1.0);
+    final w = span;
+    final h = span;
+    final cx = (left + right) / 2;
+    final cy = (top + bottom) / 2;
+    var rect = Rect.fromCenter(center: Offset(cx, cy), width: w, height: h);
+
+    // Slide back inside the pitch rather than shrinking: a drill in the
+    // corner should be framed on the corner, not zoomed out to re-centre.
+    if (rect.width >= 1) {
+      rect = Rect.fromLTWH(0, rect.top, 1, rect.height);
+    } else if (rect.left < 0) {
+      rect = rect.translate(-rect.left, 0);
+    } else if (rect.right > 1) {
+      rect = rect.translate(1 - rect.right, 0);
+    }
+    if (rect.height >= 1) {
+      rect = Rect.fromLTWH(rect.left, 0, rect.width, 1);
+    } else if (rect.top < 0) {
+      rect = rect.translate(0, -rect.top);
+    } else if (rect.bottom > 1) {
+      rect = rect.translate(0, 1 - rect.bottom);
+    }
+    return rect;
   }
 
   /// What stands on the board, by what it IS, in the pitch's own frame.
@@ -169,11 +233,20 @@ class _ThumbPainter extends CustomPainter {
   final List<_Dot> dots;
   final List<Offset> ball;
 
+  /// The part of the pitch being shown, in pitch fractions.
+  final Rect window;
+
   /// A drill run off the pitch — a gym circuit, a classroom walk-through —
   /// gets the neutral ground rather than turf it never touches.
   final bool offSurface;
 
-  const _ThumbPainter(this.dots, this.ball, this.offSurface);
+  const _ThumbPainter(this.dots, this.ball, this.window, this.offSurface);
+
+  /// A point on the pitch, in the cropped frame.
+  Offset _at(double x, double y, Size size) => Offset(
+        (x - window.left) / window.width * size.width,
+        (y - window.top) / window.height * size.height,
+      );
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -189,9 +262,15 @@ class _ThumbPainter extends CustomPainter {
         ..color = T.turfLine.withValues(alpha: 0.28)
         ..strokeWidth = 1
         ..style = PaintingStyle.stroke;
-      canvas.drawLine(Offset(0, size.height / 2),
-          Offset(size.width, size.height / 2), line);
-      canvas.drawCircle(size.center(Offset.zero), size.width * 0.17, line);
+      // Drawn in pitch coordinates and then cropped, so a drill framed on
+      // one corner still shows the touchline it is played against — the
+      // markings are how a coach tells "in the box" from "on halfway" once
+      // the frame no longer shows the whole pitch.
+      canvas.drawRect(
+          Rect.fromPoints(_at(0, 0, size), _at(1, 1, size)), line);
+      canvas.drawLine(_at(0, 0.5, size), _at(1, 0.5, size), line);
+      canvas.drawCircle(_at(0.5, 0.5, size),
+          0.135 / window.width * size.width, line);
     }
 
     // The ball's route, under everything: it is the shape of the drill, not
@@ -199,9 +278,11 @@ class _ThumbPainter extends CustomPainter {
     // the players it is being passed between.
     if (ball.length >= 2) {
       final path = Path()
-        ..moveTo(ball.first.dx * size.width, ball.first.dy * size.height);
+        ..moveTo(_at(ball.first.dx, ball.first.dy, size).dx,
+            _at(ball.first.dx, ball.first.dy, size).dy);
       for (final p in ball.skip(1)) {
-        path.lineTo(p.dx * size.width, p.dy * size.height);
+        final q = _at(p.dx, p.dy, size);
+        path.lineTo(q.dx, q.dy);
       }
       canvas.drawPath(
         path,
@@ -219,7 +300,7 @@ class _ThumbPainter extends CustomPainter {
     final unit = size.shortestSide;
     for (final kind in _Kind.values) {
       for (final d in dots.where((d) => d.kind == kind)) {
-        final at = Offset(d.x * size.width, d.y * size.height);
+        final at = _at(d.x, d.y, size);
         switch (kind) {
           case _Kind.gear:
             // A cone is a small triangle: at this size a round cone and a
@@ -248,5 +329,6 @@ class _ThumbPainter extends CustomPainter {
   bool shouldRepaint(_ThumbPainter old) =>
       old.dots.length != dots.length ||
       old.ball.length != ball.length ||
+      old.window != window ||
       old.offSurface != offSurface;
 }
