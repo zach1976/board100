@@ -463,6 +463,18 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Show or hide the planned runs without it being a toggle the coach threw.
+  ///
+  /// The drill page uses this to keep the setup frame clean: the board shows
+  /// every planned move at step 0, which is what an author wants when laying
+  /// a drill out and the opposite of what a reader wants — the first thing
+  /// they see should be where everybody stands, not where everybody is going.
+  void setShowMoveLines(bool show) {
+    if (_showMoveLines == show) return;
+    _showMoveLines = show;
+    notifyListeners();
+  }
+
   void toggleSequentialMode() {
     _sequentialMode = !_sequentialMode;
     notifyListeners();
