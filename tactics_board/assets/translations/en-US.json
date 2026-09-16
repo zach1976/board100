@@ -451,5 +451,8 @@
   "practice_add_short": "Add to plan",
   "board_name_title": "Name this board",
   "board_name_exists": "A board with that name already exists",
-  "anim_setup": "Setup"
+  "anim_setup": "Setup",
+  "drill_usage_3": "Staple",
+  "drill_usage_2": "Regular",
+  "drill_usage_1": "Occasional"
 }

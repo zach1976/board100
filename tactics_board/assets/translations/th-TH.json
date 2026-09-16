@@ -451,5 +451,8 @@
   "practice_add_short": "เพิ่มลงแผน",
   "board_name_title": "ตั้งชื่อกระดานนี้",
   "board_name_exists": "มีกระดานชื่อนี้อยู่แล้ว",
-  "anim_setup": "เริ่มต้น"
+  "anim_setup": "เริ่มต้น",
+  "drill_usage_3": "ใช้บ่อย",
+  "drill_usage_2": "ปานกลาง",
+  "drill_usage_1": "นานๆ ครั้ง"
 }

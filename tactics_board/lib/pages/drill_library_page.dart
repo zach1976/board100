@@ -241,7 +241,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
           shown.sort((a, b) {
             final r = a.category.usageRank.compareTo(b.category.usageRank);
             if (r != 0) return r;
-            final u = a.usage.compareTo(b.usage);
+            final u = b.usage.compareTo(a.usage);
             return u != 0 ? u : at[a.id]!.compareTo(at[b.id]!);
           });
           // Variants of a family share their note word for word, so a flat
@@ -596,6 +596,34 @@ class _ExpandableNoteState extends State<_ExpandableNote> {
 
 /// per variant; a drill that stands alone shows its own name and note and is
 /// tappable as a whole.
+/// "常用 / 一般 / 偶尔" — how often a coach reaches for the drill, the
+/// staples lit in the accent so they stand out in a long list.
+class _UsageTag extends StatelessWidget {
+  final int usage;
+  const _UsageTag({required this.usage});
+
+  @override
+  Widget build(BuildContext context) {
+    final color = switch (usage) {
+      3 => T.accent,
+      2 => T.textDim,
+      _ => T.textOff,
+    };
+    return Container(
+      margin: const EdgeInsets.only(top: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: color.withValues(alpha: 0.6)),
+      ),
+      child: Text('drill_usage_$usage'.tr(),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: T.meta.copyWith(color: color, height: 1.2)),
+    );
+  }
+}
+
 class _DrillRow extends StatelessWidget {
   final List<Drill> variants;
   final SportType sport;
@@ -635,17 +663,30 @@ class _DrillRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  grouped
-                      ? first.localizedFamilyName(locale)
-                      : first.localizedName(locale),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: allLocked ? T.textDim : T.text,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      height: 1.3),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        grouped
+                            ? first.localizedFamilyName(locale)
+                            : first.localizedName(locale),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: allLocked ? T.textDim : T.text,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            height: 1.3),
+                      ),
+                    ),
+                    const SizedBox(width: T.s8),
+                    // How often it is run, as a tag by the name: the meta
+                    // row below is already full on the narrowest phone.
+                    // Flexible, so a long word ("Bình thường") gives way
+                    // to the name rather than pushing past the edge.
+                    Flexible(child: _UsageTag(usage: first.usage)),
+                  ],
                 ),
                 // Why run it. The library's whole claim is that the
                 // coaching is written down, and a list that shows only a

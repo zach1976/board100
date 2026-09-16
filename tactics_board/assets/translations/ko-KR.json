@@ -451,5 +451,8 @@
   "practice_add_short": "계획에 추가",
   "board_name_title": "이 보드의 이름",
   "board_name_exists": "같은 이름의 보드가 있습니다",
-  "anim_setup": "배치"
+  "anim_setup": "배치",
+  "drill_usage_3": "자주",
+  "drill_usage_2": "보통",
+  "drill_usage_1": "가끔"
 }

@@ -271,6 +271,7 @@ def collect(only=None):
                 "mistake": d.get("mistake", {}).get("en", ""),
                 "mistakeZh": d.get("mistake", {}).get("zh-CN", ""),
                 "category": d.get("category"),
+                "usage": d.get("usage", 2),
                 "level": d.get("level"),
                 "minutes": d.get("minutes"),
                 "players": d.get("players"),
@@ -285,6 +286,15 @@ def collect(only=None):
                 } for p in board["players"]],
                 "issues": audit(d, sport),
             })
+    # The app's order: within a sport, the categories a coach reaches for
+    # every session first, then the staples of each, then the file order.
+    # Reviewing in that order puts the drills most players will meet at
+    # the top of the queue.
+    cat_rank = {c: i for i, c in enumerate([
+        "warmup", "possession", "ssg", "finishing", "attacking",
+        "defending", "goalkeeping", "setpiece", "conditioning"])}
+    drills.sort(key=lambda d: (d["sport"], cat_rank.get(d["category"], 99),
+                               -d["usage"]))
     return drills
 
 
@@ -552,7 +562,7 @@ function renderPane() {
     </div>
     <p class="meta">
       <span>${d.sport}</span><span>${d.category}</span><span>${d.level}</span>
-      <span>${d.minutes} 分钟</span><span>${d.players} 人</span>
+      <span>${d.minutes} 分钟</span><span>${d.players} 人</span><span>${['', '偶尔', '一般', '常用'][d.usage] || ''}</span>
       <span>${d.maxStep} 步</span>${d.family ? `<span>${d.family}</span>` : ''}
       <span>${d.id}</span>
     </p>

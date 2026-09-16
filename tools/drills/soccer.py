@@ -3524,37 +3524,37 @@ def match_moments() -> list[Drill]:
     ]
 
 
-# How often each drill is reached for within its category — 1 staple,
-# 2 regular (the default, not listed), 3 occasional. A family is one entry,
+# How often each drill is reached for within its category — 3 staple,
+# 2 regular (the default, not listed), 1 occasional. A family is one entry,
 # keyed by the id prefix its variants share. The library lists a category
 # staples first; this is the judgement behind that order.
 USAGE = {
     # possession: the rondo IS the possession session
-    "rondo_4v2": 1, "rondo_": 1, "possession_7v4": 1,
-    "rondo_5v2_split": 2, "possession_overload_4v2_plus": 3,
+    "rondo_4v2": 3, "rondo_": 3, "possession_7v4": 3,
+    "rondo_5v2_split": 2, "possession_overload_4v2_plus": 1,
     # warm-up: the passing shapes, the Y, the slalom open most sessions
-    "passing_": 1, "warmup_y_pattern": 1, "dribble_slalom": 1,
-    "warmup_two_ball": 3,
+    "passing_": 3, "warmup_y_pattern": 3, "dribble_slalom": 3,
+    "warmup_two_ball": 1,
     # attacking: wall pass and 1v1 every week; the pivot switch rarely
-    "wall_pass_wide": 1, "duel_": 1,
-    "halfspace_run": 3, "attack_double_pivot_switch": 3,
+    "wall_pass_wide": 3, "duel_": 3,
+    "halfspace_run": 1, "attack_double_pivot_switch": 1,
     # finishing
-    "finish_first_time": 1, "one_v_one_gk": 1, "finish_turn_shoot": 1,
-    "finish_volley_side": 3, "finish_second_ball_box": 3,
+    "finish_first_time": 3, "one_v_one_gk": 3, "finish_turn_shoot": 3,
+    "finish_volley_side": 1, "finish_second_ball_box": 1,
     # defending: 1v1 and 2v2 are the base; formation presses are for a
     # squad that has settled on one
-    "defend_1v1_channel": 1, "defend_2v2": 1,
-    "press_442": 3, "press_433": 3, "press_4231": 3, "press_352": 3,
-    "defend_offside_line": 3, "defend_throw_in": 3,
-    "defend_rest_defence": 3, "press_trap_touchline": 3,
+    "defend_1v1_channel": 3, "defend_2v2": 3,
+    "press_442": 1, "press_433": 1, "press_4231": 1, "press_352": 1,
+    "defend_offside_line": 1, "defend_throw_in": 1,
+    "defend_rest_defence": 1, "press_trap_touchline": 1,
     # small-sided games: the plain game closes most sessions
-    "ssg_3v3": 1, "ssg_4v4": 1, "ssg_5v5": 1, "ssg_6v6": 1, "ssg_7v7": 1,
-    "ssg_6v6_transition": 3,
+    "ssg_3v3": 3, "ssg_4v4": 3, "ssg_5v5": 3, "ssg_6v6": 3, "ssg_7v7": 3,
+    "ssg_6v6_transition": 1,
     # goalkeeping
-    "gk_handling": 1, "gk_set_position": 1, "gk_angles": 1, "gk_sweeper": 3,
+    "gk_handling": 3, "gk_set_position": 3, "gk_angles": 3, "gk_sweeper": 1,
     # set pieces: corners first, and a near-post routine before anything
-    "corner_near_post": 1,
-    "throw_in_third": 3, "finish_penalty_routine": 3, "setpiece_kickoff": 3,
+    "corner_near_post": 3,
+    "throw_in_third": 1, "finish_penalty_routine": 1, "setpiece_kickoff": 1,
 }
 
 

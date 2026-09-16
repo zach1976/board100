@@ -451,5 +451,8 @@
   "practice_add_short": "加入计划",
   "board_name_title": "给这块板起个名字",
   "board_name_exists": "已存在同名的战术板",
-  "anim_setup": "站位"
+  "anim_setup": "站位",
+  "drill_usage_3": "常用",
+  "drill_usage_2": "一般",
+  "drill_usage_1": "偶尔"
 }

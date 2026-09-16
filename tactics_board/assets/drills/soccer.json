@@ -11,7 +11,7 @@
       "minutes": 10,
       "players": 6,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Rondo 4v2",
@@ -395,7 +395,7 @@
       "minutes": 8,
       "players": 1,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Dribble slalom",
@@ -631,7 +631,7 @@
       "minutes": 15,
       "players": 11,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "7v4 possession",
@@ -2259,7 +2259,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 with the keeper",
@@ -2681,7 +2681,7 @@
       "minutes": 12,
       "players": 4,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "2v2 recovery",
@@ -2883,7 +2883,7 @@
       "minutes": 10,
       "players": 9,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Corner: near post",
@@ -3888,7 +3888,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Y-pattern passing",
@@ -5453,7 +5453,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Wall pass on the wing",
@@ -5902,7 +5902,7 @@
       "minutes": 12,
       "players": 5,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Half-space run",
@@ -6161,7 +6161,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "First-time finishing",
@@ -6388,7 +6388,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Receive, turn, shoot",
@@ -7442,7 +7442,7 @@
       "minutes": 8,
       "players": 6,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": true,
       "name": {
         "en": "Attacking throw-in",
@@ -7711,7 +7711,7 @@
       "minutes": 20,
       "players": 12,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "6v6 transition game",
@@ -8432,7 +8432,7 @@
       "minutes": 6,
       "players": 4,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Two-ball awareness",
@@ -8724,7 +8724,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Overload to isolate",
@@ -9032,7 +9032,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Pivot switch",
@@ -9577,7 +9577,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Side volley from the cutback",
@@ -9777,7 +9777,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 defending in the channel",
@@ -11021,7 +11021,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Penalties under fatigue",
@@ -11202,7 +11202,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Rondo 5v2",
@@ -11646,7 +11646,7 @@
       "minutes": 12,
       "players": 9,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Rondo 6v3",
@@ -12189,7 +12189,7 @@
       "minutes": 12,
       "players": 10,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Rondo 7v3",
@@ -12784,7 +12784,7 @@
       "minutes": 15,
       "players": 12,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Rondo 8v4",
@@ -13493,7 +13493,7 @@
       "minutes": 15,
       "players": 6,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 3v3",
@@ -13861,7 +13861,7 @@
       "minutes": 18,
       "players": 8,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 4v4",
@@ -14269,7 +14269,7 @@
       "minutes": 18,
       "players": 10,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 5v5",
@@ -14717,7 +14717,7 @@
       "minutes": 20,
       "players": 12,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 6v6",
@@ -15205,7 +15205,7 @@
       "minutes": 20,
       "players": 14,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 7v7",
@@ -18675,7 +18675,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Press from 4-4-2",
@@ -19114,7 +19114,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Press from 4-3-3",
@@ -19553,7 +19553,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Press from 4-2-3-1",
@@ -19992,7 +19992,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Press from 3-5-2",
@@ -21694,7 +21694,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide left",
@@ -21912,7 +21912,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide right",
@@ -22130,7 +22130,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 duels central",
@@ -22348,7 +22348,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "1v1 duels half-space",
@@ -22566,7 +22566,7 @@
       "minutes": 8,
       "players": 4,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Passing pattern triangle",
@@ -22846,7 +22846,7 @@
       "minutes": 8,
       "players": 5,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Passing pattern diamond",
@@ -23178,7 +23178,7 @@
       "minutes": 8,
       "players": 6,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Passing pattern pentagon",
@@ -23562,7 +23562,7 @@
       "minutes": 8,
       "players": 7,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Passing pattern hexagon",
@@ -26176,7 +26176,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping handling",
@@ -26370,7 +26370,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping angles",
@@ -27107,7 +27107,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
-      "usage": 1,
+      "usage": 3,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping set position",
@@ -27281,7 +27281,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping sweeping behind the line",
@@ -37155,7 +37155,7 @@
       "minutes": 12,
       "players": 9,
       "free": true,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Holding the offside line",
@@ -37771,7 +37771,7 @@
       "minutes": 10,
       "players": 8,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": true,
       "name": {
         "en": "Defending the throw-in",
@@ -38062,7 +38062,7 @@
       "minutes": 12,
       "players": 9,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Rest defence",
@@ -38414,7 +38414,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Pressing trap: the touchline",
@@ -38957,7 +38957,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Second ball in the box",
@@ -39191,7 +39191,7 @@
       "minutes": 8,
       "players": 8,
       "free": false,
-      "usage": 3,
+      "usage": 1,
       "offSurface": false,
       "name": {
         "en": "Kick-off routine",
