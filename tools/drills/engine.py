@@ -160,6 +160,10 @@ class Drill:
     # own frequency and shows it on the card. Each sport sets it in one
     # table, USAGE, so the judgement is in one place.
     usage: int = 2
+    # Where a dead ball sits when that is not at the holder's feet: on the
+    # corner arc, on the penalty spot. The holder (ball=) still narrates as
+    # the one with the ball; only the icon's start moves. Author units.
+    ball_spot: tuple | None = None
     # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
     # its holder, which is right for a dribble and useless for a throw:
     # baseball drew four double plays and two relays without a single ball
@@ -333,6 +337,8 @@ def to_canvas(drill: Drill, sport: str) -> None:
         m.x, m.y = fx(m.x), fy(m.y)
     if isinstance(drill.ball, tuple):
         drill.ball = (fx(drill.ball[0]), fy(drill.ball[1]))
+    if drill.ball_spot is not None:
+        drill.ball_spot = (fx(drill.ball_spot[0]), fy(drill.ball_spot[1]))
     drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
     # ball_to point targets are author coordinates too; the player references
     # need nothing, they resolve to positions that are already transformed.
@@ -607,6 +613,8 @@ def build_board(drill: Drill, sport: str) -> dict:
                 lead = (drill.ball_moves[0][0] - holder.x,
                         drill.ball_moves[0][1] - holder.y)
             bx, by = at_the_feet_of(holder.x, holder.y, sport, lead)
+            if drill.ball_spot is not None:
+                bx, by = drill.ball_spot
             players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
                                  drill.ball_moves))
         else:
