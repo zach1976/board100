@@ -233,13 +233,16 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                   d.localizedNote(_locale).toLowerCase().contains(q))
               .toList();
           // Most-used first: the categories a coach reaches for every
-          // session lead, set pieces and conditioning trail. Within a
-          // category the library's own order stands (sort is not stable,
-          // so the original index breaks ties).
+          // session lead, set pieces and conditioning trail; within a
+          // category the staples lead and the occasional drills trail.
+          // Then the library's own order (sort is not stable, so the
+          // original index breaks ties).
           final at = {for (var i = 0; i < all.length; i++) all[i].id: i};
           shown.sort((a, b) {
             final r = a.category.usageRank.compareTo(b.category.usageRank);
-            return r != 0 ? r : at[a.id]!.compareTo(at[b.id]!);
+            if (r != 0) return r;
+            final u = a.usage.compareTo(b.usage);
+            return u != 0 ? u : at[a.id]!.compareTo(at[b.id]!);
           });
           // Variants of a family share their note word for word, so a flat
           // list shows the same paragraph five times over. Group them: one

@@ -24,6 +24,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up pepper",
@@ -194,6 +195,7 @@
       "minutes": 8,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up butterfly passing",
@@ -421,6 +423,7 @@
       "minutes": 8,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up shuffle and dig",
@@ -618,6 +621,7 @@
       "minutes": 10,
       "players": 7,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 1",
@@ -948,6 +952,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 2",
@@ -1278,6 +1283,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 3",
@@ -1608,6 +1614,7 @@
       "minutes": 10,
       "players": 7,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 4",
@@ -1938,6 +1945,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 5",
@@ -2268,6 +2276,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve receive rotation 6",
@@ -2598,6 +2607,7 @@
       "minutes": 8,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setting to the front",
@@ -2810,6 +2820,7 @@
       "minutes": 8,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setting behind the head",
@@ -3022,6 +3033,7 @@
       "minutes": 8,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setting off the jump",
@@ -3234,6 +3246,7 @@
       "minutes": 10,
       "players": 5,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setter release from zone 1",
@@ -3500,6 +3513,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setter release from zone 6",
@@ -3766,6 +3780,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setter release from zone 5",
@@ -4032,6 +4047,7 @@
       "minutes": 10,
       "players": 6,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Transition off a free ball",
@@ -4340,6 +4356,7 @@
       "minutes": 10,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Transition off a down ball",
@@ -4648,6 +4665,7 @@
       "minutes": 12,
       "players": 6,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack from zone 4",
@@ -4941,6 +4959,7 @@
       "minutes": 12,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack from zone 3",
@@ -5234,6 +5253,7 @@
       "minutes": 12,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack from zone 2",
@@ -5527,6 +5547,7 @@
       "minutes": 12,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack from the pipe",
@@ -5807,6 +5828,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Block solo",
@@ -6051,6 +6073,7 @@
       "minutes": 10,
       "players": 6,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Block double outside",
@@ -6322,6 +6345,7 @@
       "minutes": 10,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Block double middle",
@@ -6593,6 +6617,7 @@
       "minutes": 10,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Block triple",
@@ -6891,6 +6916,7 @@
       "minutes": 12,
       "players": 8,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence perimeter",
@@ -7216,6 +7242,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence rotation",
@@ -7541,6 +7568,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence middle-up",
@@ -7866,6 +7894,7 @@
       "minutes": 8,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve float deep",
@@ -8091,6 +8120,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve jump",
@@ -8316,6 +8346,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve short",
@@ -8541,6 +8572,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve at the seam",
@@ -8766,6 +8798,7 @@
       "minutes": 15,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 2v2",
@@ -8980,6 +9013,7 @@
       "minutes": 15,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 3v3",
@@ -9248,6 +9282,7 @@
       "minutes": 15,
       "players": 8,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 4v4",
@@ -9570,6 +9605,7 @@
       "minutes": 20,
       "players": 12,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 6v6",
@@ -9987,6 +10023,7 @@
       "minutes": 10,
       "players": 7,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Hitter coverage around the outside hitter",
@@ -10281,6 +10318,7 @@
       "minutes": 12,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "First tempo the quick in front",
@@ -10540,6 +10578,7 @@
       "minutes": 12,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "First tempo the slide behind the setter",
@@ -10791,6 +10830,7 @@
       "minutes": 12,
       "players": 7,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Libero in a two-passer receive",
@@ -11072,6 +11112,7 @@
       "minutes": 8,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Setter release from the second-ball dump",

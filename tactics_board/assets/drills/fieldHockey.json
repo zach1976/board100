@@ -24,6 +24,7 @@
       "minutes": 8,
       "players": 1,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up dribbling gates",
@@ -292,6 +293,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up passing in pairs",
@@ -452,6 +454,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up elimination skills",
@@ -630,6 +633,7 @@
       "minutes": 12,
       "players": 8,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Building up from the back",
@@ -950,6 +954,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Building up through midfield",
@@ -1265,6 +1270,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Building up switching the ball",
@@ -1592,6 +1598,7 @@
       "minutes": 12,
       "players": 6,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Entering the circle on the overlap",
@@ -1868,6 +1875,7 @@
       "minutes": 12,
       "players": 6,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Entering the circle give and go",
@@ -2139,6 +2147,7 @@
       "minutes": 12,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Entering the circle along the baseline",
@@ -2415,6 +2424,7 @@
       "minutes": 12,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Entering the circle 3v2",
@@ -2696,6 +2706,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting the deflection",
@@ -2915,6 +2926,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting on the reverse",
@@ -3129,6 +3141,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting the tomahawk",
@@ -3343,6 +3356,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting off the rebound",
@@ -3567,6 +3581,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Press high",
@@ -3895,6 +3910,7 @@
       "minutes": 12,
       "players": 8,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Press half",
@@ -4223,6 +4239,7 @@
       "minutes": 12,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Press falling back to the 23",
@@ -4565,6 +4582,7 @@
       "minutes": 12,
       "players": 5,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Penalty corner the drag flick",
@@ -4811,6 +4829,7 @@
       "minutes": 12,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Penalty corner the straight strike",
@@ -5057,6 +5076,7 @@
       "minutes": 12,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Penalty corner a variation to the left",
@@ -5303,6 +5323,7 @@
       "minutes": 12,
       "players": 9,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Penalty corner defending it",
@@ -5644,6 +5665,7 @@
       "minutes": 8,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Free hit routine",
@@ -5871,6 +5893,7 @@
       "minutes": 15,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 3v3",
@@ -6160,6 +6183,7 @@
       "minutes": 15,
       "players": 11,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 5v5",
@@ -6529,6 +6553,7 @@
       "minutes": 15,
       "players": 15,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 7v7",
@@ -6965,6 +6990,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Tackling",
@@ -7182,6 +7208,7 @@
       "minutes": 10,
       "players": 5,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Building up with the aerial",
@@ -7430,6 +7457,7 @@
       "minutes": 8,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Long corner",
@@ -7690,6 +7718,7 @@
       "minutes": 12,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Counter-attack",
@@ -8000,6 +8029,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping angles",
@@ -8182,6 +8212,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping the first save and the rebound",
@@ -8379,6 +8410,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping one against one",
@@ -8549,6 +8581,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping clearing the circle",

@@ -24,6 +24,7 @@
       "minutes": 8,
       "players": 5,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up star passing",
@@ -258,6 +259,7 @@
       "minutes": 8,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up three lanes",
@@ -460,6 +462,7 @@
       "minutes": 8,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up with the keeper",
@@ -647,6 +650,7 @@
       "minutes": 12,
       "players": 12,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Circulation wide to wide",
@@ -1043,6 +1047,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Circulation through the pivot",
@@ -1466,6 +1471,7 @@
       "minutes": 12,
       "players": 14,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Circulation with a late runner",
@@ -1916,6 +1922,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack crossing the backs",
@@ -2306,6 +2313,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack the wing break-in",
@@ -2691,6 +2699,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack off the pivot's screen",
@@ -3076,6 +3085,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack overloading the left",
@@ -3468,6 +3478,7 @@
       "minutes": 12,
       "players": 14,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack seven against six",
@@ -3880,6 +3891,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Fast break first wave",
@@ -4092,6 +4104,7 @@
       "minutes": 10,
       "players": 6,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Fast break second wave",
@@ -4368,6 +4381,7 @@
       "minutes": 10,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Fast break third wave",
@@ -4708,6 +4722,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting the jump shot from 9 m",
@@ -4915,6 +4930,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting from the wing angle",
@@ -5122,6 +5138,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting the pivot's turn",
@@ -5329,6 +5346,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Shooting after breaking through",
@@ -5536,6 +5554,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence 6-0",
@@ -6016,6 +6035,7 @@
       "minutes": 12,
       "players": 13,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence 5-1",
@@ -6496,6 +6516,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence 3-2-1",
@@ -6976,6 +6997,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence 4-2",
@@ -7443,6 +7465,7 @@
       "minutes": 6,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Set piece the 7 m throw",
@@ -7692,6 +7715,7 @@
       "minutes": 8,
       "players": 10,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Set piece the 9 m free throw",
@@ -8019,6 +8043,7 @@
       "minutes": 8,
       "players": 10,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Set piece the throw-off",
@@ -8346,6 +8371,7 @@
       "minutes": 8,
       "players": 10,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Set piece the sideline throw",
@@ -8673,6 +8699,7 @@
       "minutes": 15,
       "players": 7,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 3v3",
@@ -8961,6 +8988,7 @@
       "minutes": 15,
       "players": 9,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 4v4",
@@ -9303,6 +9331,7 @@
       "minutes": 15,
       "players": 11,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 5v5",
@@ -9699,6 +9728,7 @@
       "minutes": 15,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game 6v6",
@@ -10136,6 +10166,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attack one against one",
@@ -10340,6 +10371,7 @@
       "minutes": 12,
       "players": 13,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence man to man",
@@ -10700,6 +10732,7 @@
       "minutes": 10,
       "players": 7,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence getting back",
@@ -10990,6 +11023,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence blocking the shot",
@@ -11186,6 +11220,7 @@
       "minutes": 18,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game end to end",
@@ -11509,6 +11544,7 @@
       "minutes": 10,
       "players": 3,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping angles",
@@ -11731,6 +11767,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping one against one",
@@ -11911,6 +11948,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping saving the 7 m",
@@ -12086,6 +12124,7 @@
       "minutes": 10,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping the outlet pass",

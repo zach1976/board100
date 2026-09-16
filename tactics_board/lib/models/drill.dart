@@ -48,6 +48,11 @@ class Drill {
   /// buying on top of something useful, not instead of it.
   final bool free;
 
+  /// How often a coach reaches for this drill within its category: 1 a
+  /// staple, 2 regular, 3 occasional. The library sorts on it after the
+  /// category's own frequency; the generator's per-sport table sets it.
+  final int usage;
+
   const Drill({
     required this.id,
     required this.category,
@@ -61,6 +66,7 @@ class Drill {
     this.family,
     this.familyName,
     this.free = false,
+    this.usage = 2,
     this.offSurface = false,
   });
 
@@ -81,6 +87,7 @@ class Drill {
             ? null
             : Map<String, String>.from(json['familyName'] as Map),
         free: json['free'] as bool? ?? false,
+        usage: json['usage'] as int? ?? 2,
         offSurface: json['offSurface'] as bool? ?? false,
       );
 
