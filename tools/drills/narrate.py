@@ -25,7 +25,7 @@ twelve strings here — the price of text that is never machine-translated.
 """
 from __future__ import annotations
 
-from .intents import RUN_WHY, why_text
+from .intents import RESET, RUN_WHY, why_text
 
 LOCALES = ["en", "en-GB", "zh-CN", "zh-TW", "ja-JP", "ko-KR", "es-ES",
            "fr-FR", "id-ID", "ms-MY", "th-TH", "vi-VN"]
@@ -770,7 +770,10 @@ def sequence_texts(drill, sport: str) -> dict | None:
     if beats:
         for p in people:
             for i, (x, y, ph) in enumerate(p.moves):
-                if i == 0 or ph in beats:
+                # A later leg with an authored reason is worth its clause
+                # even on a beat that already has one: "A gets back to the
+                # cone" is what closes the rondo's loop.
+                if i == 0 or (ph in beats and not p.why.get(ph)):
                     continue
                 px, py = p.moves[i - 1][:2]
                 dx, dy = x - px, y - py
@@ -849,7 +852,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     if loc in ("en", "en-GB") and len(subjects) > 1:
                         tmpl = tmpl.replace(" moves ", " move ")
                     run = tmpl.format(a=joined, dir=DIR[dir_key][loc])
-                    if why:
+                    if why == "reset":
+                        run = RESET[loc].format(a=joined)
+                    elif why:
                         run = RUN_WHY[loc].format(run=run,
                                                   why=why_text(why, loc))
                     rendered.append(run)
