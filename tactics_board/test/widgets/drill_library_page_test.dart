@@ -63,8 +63,12 @@ void main() {
     // ── it lists the shipped drills, in English ──────────────────────────
     expect(find.byType(CircularProgressIndicator), findsNothing);
     expect(find.text('No drills for this sport yet'), findsNothing);
-    expect(find.text('Rondo 4v2'), findsOneWidget);
+    // Most-used first: a warm-up leads the list, the rondo is further down.
+    expect(find.text('Dribble slalom'), findsOneWidget);
     expect(find.byType(TextField), findsOneWidget, reason: 'the search box');
+    await tester.scrollUntilVisible(find.text('Rondo 4v2'), 200,
+        scrollable: find.byType(Scrollable).last);
+    expect(find.text('Rondo 4v2'), findsOneWidget);
 
     // ── and in Chinese, including the variant half of a family name ──────
     await ctx.setLocale(const Locale('zh', 'CN'));
@@ -93,9 +97,12 @@ void main() {
     // The card is a headline; a coach choosing what to run needs the board
     // and the whole note first. The list's one control — the + — is the
     // fast path for a drill they already know.
-    await tester.enterText(find.byType(TextField), '');
+    // Searching for it rather than scrolling: the rondo sits under the
+    // warm-ups now that the list runs most-used first.
+    await tester.enterText(find.byType(TextField), '抢圈 4v2');
     await tester.pump(const Duration(milliseconds: 50));
-    await tester.tap(find.text('抢圈 4v2'));
+    // The search box now holds the same text; the card is the other match.
+    await tester.tap(find.text('抢圈 4v2').last);
     await tester.pumpAndSettle();
 
     expect(find.byType(DrillDetailPage), findsOneWidget,

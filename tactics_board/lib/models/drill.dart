@@ -154,6 +154,26 @@ enum DrillCategory {
   goalkeeping,
   conditioning;
 
+  /// How often a coach reaches for the category, most often first — the
+  /// order the library lists drills in. It follows the 【频度】 line each
+  /// category's notes carry: warm-ups and possession open nearly every
+  /// session and a small-sided game closes it; finishing is drilled often;
+  /// attacking and defending patterns are a few times a week; set pieces
+  /// weekly and before matches; conditioning on fitness days and in
+  /// pre-season. Keepers' work is daily but for keepers alone, so it sits
+  /// after the whole-squad staples.
+  int get usageRank => switch (this) {
+        DrillCategory.warmup => 0,
+        DrillCategory.possession => 1,
+        DrillCategory.ssg => 2,
+        DrillCategory.finishing => 3,
+        DrillCategory.attacking => 4,
+        DrillCategory.defending => 5,
+        DrillCategory.goalkeeping => 6,
+        DrillCategory.setpiece => 7,
+        DrillCategory.conditioning => 8,
+      };
+
   static DrillCategory parse(String? raw) => DrillCategory.values.firstWhere(
         (c) => c.name == raw,
         orElse: () => DrillCategory.possession,
