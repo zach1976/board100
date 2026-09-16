@@ -560,6 +560,31 @@ const TAGS = [
 ];
 
 const key = d => d.sport + '/' + d.id;
+
+// Where the reviewer was — sport, filter, search, drill, step — so a refresh
+// (or the next morning) opens the page exactly there. The drill also goes
+// into the URL, so a reload lands on it even if storage is cleared.
+const STATE_KEY = 'drill-review-state-v1';
+function saveState() {
+  try {
+    localStorage.setItem(STATE_KEY, JSON.stringify({
+      sport: document.getElementById('sport').value,
+      filter: document.getElementById('filter').value,
+      q: document.getElementById('q').value,
+      drill: current ? key(current) : null,
+      step,
+    }));
+  } catch (e) { /* private mode: nothing to remember with */ }
+  if (current) {
+    const url = new URL(location.href);
+    url.searchParams.set('d', key(current));
+    history.replaceState(null, '', url);
+  }
+}
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STATE_KEY) || 'null'); }
+  catch (e) { return null; }
+}
 const save = () => localStorage.setItem(KEY, JSON.stringify(edits));
 const editOf = d => edits[key(d)] || {};
 const isEdited = d => {
@@ -625,10 +650,15 @@ function preload(d) {
 // ── detail ─────────────────────────────────────────────────────────────────
 let step = 0;
 
-function select(d) {
-  current = d; step = 0; preload(d);
+function select(d, at = 0) {
+  current = d; step = at; preload(d);
   renderList();
   renderPane();
+  saveState();
+  // Keep the chosen row in view — after a refresh the list has just been
+  // rebuilt and would otherwise sit at the top.
+  const row = $list.querySelector('.row.on');
+  if (row) row.scrollIntoView({ block: 'nearest' });
 }
 
 function renderPane() {
@@ -769,6 +799,7 @@ function redrawBoard() {
   img.src = src(current, step);
   img.alt = `第 ${step} 步`;
   document.getElementById('stepn').textContent = `${step} / ${current.maxStep}`;
+  saveState();
   // The sentence for this step, under the board and lit in the note.
   const zh = beatText(current.noteZh, step), en = beatText(current.note, step);
   const box = document.getElementById('beatNow');
@@ -814,17 +845,28 @@ document.getElementById('clear').onclick = () => {
   edits = {}; save(); renderList(); renderPane();
 };
 ['sport','filter','q'].forEach(id =>
-  document.getElementById(id).addEventListener('input', () => { renderList(); }));
+  document.getElementById(id).addEventListener('input', () => { renderList(); saveState(); }));
 
+// Restore the filters before the first list is drawn.
+const saved = loadState();
+if (saved) {
+  for (const id of ['sport', 'filter', 'q']) {
+    const el = document.getElementById(id);
+    if (saved[id] != null && [...(el.options || [])].some(o => o.value === saved[id]) || id === 'q') {
+      if (saved[id] != null) el.value = saved[id];
+    }
+  }
+}
 renderList();
 // Open on the worked example rather than an empty pane: passing_diamond is
 // the drill every fix so far was proven on, so review starts where the
 // reference is. Falls back to the first visible drill for a filtered build.
 // ?d=soccer/rondo_4v2 opens straight on one drill — the thumbnail page
 // links here that way.
-const want = new URLSearchParams(location.search).get('d');
-select((want && DRILLS.find(d => key(d) === want))
-  || DRILLS.find(d => d.id === 'passing_diamond') || visible()[0] || null);
+const want = new URLSearchParams(location.search).get('d') || (saved && saved.drill);
+const opening = (want && DRILLS.find(d => key(d) === want))
+  || DRILLS.find(d => d.id === 'passing_diamond') || visible()[0] || null;
+select(opening, saved && saved.drill === want && opening ? Math.min(saved.step || 0, opening.maxStep) : 0);
 </script>
 </body>
 </html>
