@@ -224,7 +224,7 @@ def audit(drill, sport):
         (((position_at(p, max_step(board))[0] - p["position"][0]) ** 2
           + (position_at(p, max_step(board))[1] - p["position"][1]) ** 2) ** 0.5)
         for p in people) <= 200
-    if (len(stops) >= 4 and all(t.isdigit() for t in stops)
+    if (len(stops) >= 4 and all(t.isdigit() or len(t) == 1 for t in stops)
             and stops[0] != stops[-1] and holds_station):
         out.append({
             "id": "ball_not_round",

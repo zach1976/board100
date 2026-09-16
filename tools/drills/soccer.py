@@ -38,10 +38,10 @@ def soccer_drills() -> list[Drill]:
             # 80 apart down each edge. Sending 1 and 4 both to (300,700) —
             # and 2 and 3 both to (700,700) — stacked the pairs dead centre.
             home=[
-                P(300, 500, "1", moves=[(280, 660, 0)]),
-                P(700, 500, "2", moves=[(720, 660, 1)]),
-                P(700, 900, "3", moves=[(720, 760, 2)]),
-                P(300, 900, "4", moves=[(280, 760, 1)]),
+                P(300, 500, "A", moves=[(280, 660, 0)]),
+                P(700, 500, "B", moves=[(720, 660, 1)]),
+                P(700, 900, "C", moves=[(720, 760, 2)]),
+                P(300, 900, "D", moves=[(280, 760, 1)]),
             ],
             # The two defenders hunt on offset points — they were sent to
             # the same two spots (450,800) and (600,650) a beat apart, so one
@@ -49,8 +49,8 @@ def soccer_drills() -> list[Drill]:
             # One leg each: a second drew a numbered waypoint disc in the
             # middle of the ring that reads as a ball stop.
             away=[
-                P(450, 650, "A", moves=[(600, 640, 0)]),
-                P(550, 800, "B", moves=[(430, 810, 1)]),
+                P(450, 650, "X1", moves=[(600, 640, 0)]),
+                P(550, 800, "X2", moves=[(430, 810, 1)]),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -83,7 +83,7 @@ def soccer_drills() -> list[Drill]:
                 # then the long touch into space. The last leg used to go
                 # straight from the third cone to the finish, which weaved
                 # three cones and walked past the fourth.
-                P(500, 1200, "1", moves=[(420, 1050, 0), (580, 900, 1), (420, 750, 2),
+                P(500, 1200, "A", moves=[(420, 1050, 0), (580, 900, 1), (420, 750, 2),
                                          (580, 620, 3), (500, 430, 4)]),
             ],
             markers=[M(500, 1050), M(500, 900), M(500, 750), M(500, 620)],
@@ -112,14 +112,14 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Sáu đường chuyền rồi chuyển cánh. Cánh xa chỉ trống khi bóng đang di chuyển.",
                   "en-GB": "Six passes then switch. The far side is only free while the ball travels — move it before they shift."},
             home=[
-                P(200, 500, "1"), P(500, 420, "2"), P(800, 500, "3", moves=[(820, 700, 1)]),
-                P(200, 900, "4"), P(500, 980, "5"), P(800, 900, "6"),
-                P(500, 700, "7", moves=[(600, 660, 0)]),
+                P(200, 500, "A"), P(500, 420, "B"), P(800, 500, "C", moves=[(820, 700, 1)]),
+                P(200, 900, "D"), P(500, 980, "E"), P(800, 900, "F"),
+                P(500, 700, "G", moves=[(600, 660, 0)]),
             ],
             away=[
-                P(380, 620, "A", moves=[(500, 560, 0)]),
-                P(700, 580, "B", moves=[(760, 560, 1)]),
-                P(380, 800, "C"), P(620, 800, "D"),
+                P(380, 620, "X1", moves=[(500, 560, 0)]),
+                P(700, 580, "X2", moves=[(760, 560, 1)]),
+                P(380, 800, "X3"), P(620, 800, "X4"),
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
             ball=0,
@@ -483,12 +483,12 @@ def soccer_drills() -> list[Drill]:
             # The two teams share the middle third instead of standing in
             # their own halves, and nobody finishes his run on a marker.
             home=[
-                P(300, 880, "1", moves=[(320, 760, 0)]), P(700, 880, "2"),
-                P(350, 1080, "3"), P(680, 1040, "4", moves=[(820, 820, 1)]),
+                P(300, 880, "A", moves=[(320, 760, 0)]), P(700, 880, "B"),
+                P(350, 1080, "C"), P(680, 1040, "D", moves=[(820, 820, 1)]),
             ],
             away=[
-                P(480, 640, "A", moves=[(460, 760, 0)]), P(700, 640, "B"),
-                P(280, 420, "C"), P(640, 380, "D"),
+                P(480, 640, "X1", moves=[(460, 760, 0)]), P(700, 640, "X2"),
+                P(280, 420, "X3"), P(640, 380, "X4"),
             ],
             markers=[
                 M(250, 250, "square"), M(750, 250, "square"),
@@ -522,10 +522,10 @@ def soccer_drills() -> list[Drill]:
             # The passer stays on his cone: he used to follow his pass onto
             # the receiver's own spot, so the two ended on one token.
             home=[
-                P(500, 1120, "1"),
-                P(500, 820, "2", moves=[(500, 940, 0)]),
-                P(760, 640, "3", moves=[(760, 500, 1)]),
-                P(240, 640, "4", moves=[(240, 500, 1)]),
+                P(500, 1120, "A"),
+                P(500, 820, "B", moves=[(500, 940, 0)]),
+                P(760, 640, "C", moves=[(760, 500, 1)]),
+                P(240, 640, "D", moves=[(240, 500, 1)]),
             ],
             markers=[M(500, 1140), M(500, 800), M(780, 620), M(220, 620)],
             ball=0,
@@ -554,8 +554,8 @@ def soccer_drills() -> list[Drill]:
             # with the partner watching: 2 serves, 1's first touch carries
             # the ball through the gate, 1 sets it back and 2 serves again.
             home=[
-                P(300, 1050, "1", moves=[(420, 900, 1), (560, 760, 3)]),
-                P(700, 1050, "2"),
+                P(300, 1050, "A", moves=[(420, 900, 1), (560, 760, 3)]),
+                P(700, 1050, "B"),
             ],
             markers=[M(370, 850), M(480, 950), M(510, 710), M(620, 810)],
             ball=1,
@@ -584,16 +584,16 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "บอลที่ผ่ากลางระหว่างสองกองหลังนับสองแต้ม มีช่องแค่ชั่วขณะ",
                   "vi-VN": "Đường chuyền xuyên giữa hai hậu vệ tính điểm đôi, chỉ mở ra trong khoảnh khắc."},
             home=[
-                P(500, 480, "1", moves=[(560, 520, 0)]),
-                P(780, 640, "2"), P(700, 900, "3", moves=[(640, 860, 1)]),
-                P(300, 900, "4"), P(220, 640, "5"),
+                P(500, 480, "A", moves=[(560, 520, 0)]),
+                P(780, 640, "B"), P(700, 900, "C", moves=[(640, 860, 1)]),
+                P(300, 900, "D"), P(220, 640, "E"),
             ],
             # Either side of the 1→3 line with a lane between them: the
             # split used to be drawn straight through both of them, which
             # is not a split, it is a tackle.
             away=[
-                P(400, 700, "A", moves=[(450, 660, 0)]),
-                P(640, 640, "B", moves=[(680, 700, 1)]),
+                P(400, 700, "X1", moves=[(450, 660, 0)]),
+                P(640, 640, "X2", moves=[(680, 700, 1)]),
             ],
             markers=[M(480, 460), M(800, 620), M(720, 920), M(280, 920), M(200, 620)],
             ball=0,
@@ -623,13 +623,13 @@ def soccer_drills() -> list[Drill]:
             # in the top one against B; the middle one is left empty, which
             # is the whole point — the ball has to cross it.
             home=[
-                P(250, 1200, "1", moves=[(300, 1120, 0)]), P(500, 1290, "2"),
-                P(620, 1150, "3", moves=[(660, 1080, 0)]),
-                P(300, 340, "4"), P(700, 380, "5", moves=[(640, 460, 1)]),
+                P(250, 1200, "A", moves=[(300, 1120, 0)]), P(500, 1290, "B"),
+                P(620, 1150, "C", moves=[(660, 1080, 0)]),
+                P(300, 340, "D"), P(700, 380, "E", moves=[(640, 460, 1)]),
             ],
             away=[
-                P(430, 1050, "A", moves=[(470, 1140, 0)]),
-                P(520, 460, "B", moves=[(560, 380, 1)]),
+                P(430, 1050, "X1", moves=[(470, 1140, 0)]),
+                P(520, 460, "X2", moves=[(560, 380, 1)]),
             ],
             # Two lines of cones across the pitch, not four boxes on the
             # touchlines: they are what makes the three zones visible.
@@ -1018,13 +1018,13 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ทำประตูภายใน 10 วินาทีหลังแย่งบอลได้ บอลแรกหลังเปลี่ยนมือชี้ขาด",
                   "vi-VN": "Ghi bàn trong 10 giây sau khi đoạt bóng. Đường chuyền đầu quyết định."},
             home=[
-                P(300, 1000, "1", moves=[(360, 880, 0)]), P(500, 1050, "2"),
-                P(700, 1000, "3", moves=[(660, 860, 1)]),
-                P(300, 780, "4"), P(500, 820, "5", moves=[(520, 700, 1)]), P(700, 780, "6"),
+                P(300, 1000, "A", moves=[(360, 880, 0)]), P(500, 1050, "B"),
+                P(700, 1000, "C", moves=[(660, 860, 1)]),
+                P(300, 780, "D"), P(500, 820, "E", moves=[(520, 700, 1)]), P(700, 780, "F"),
             ],
             away=[
-                P(300, 600, "A", moves=[(360, 700, 0)]), P(500, 560, "B"),
-                P(700, 600, "C"), P(300, 380, "D"), P(500, 340, "E"), P(700, 380, "F"),
+                P(300, 600, "X1", moves=[(360, 700, 0)]), P(500, 560, "X2"),
+                P(700, 600, "X3"), P(300, 380, "X4"), P(500, 340, "X5"), P(700, 380, "X6"),
             ],
             markers=[M(500, 140, "square"), M(500, 1360, "square")],
             ball=0,
@@ -1062,13 +1062,13 @@ def soccer_drills() -> list[Drill]:
             # points along the edges, which left the top-right cone empty at
             # the end and the routine with nowhere to restart.
             home=[
-                P(300, 600, "1", moves=[(820, 500, 1)]),
-                P(700, 600, "2", moves=[(820, 1000, 2)]),
-                P(700, 900, "3", moves=[(180, 1000, 3)]),
-                P(300, 900, "4", moves=[(180, 500, 4)]),
+                P(300, 600, "A", moves=[(820, 500, 1)]),
+                P(700, 600, "B", moves=[(820, 1000, 2)]),
+                P(700, 900, "C", moves=[(180, 1000, 3)]),
+                P(300, 900, "D", moves=[(180, 500, 4)]),
                 # Steps onto cone one as player 1 leaves it, and receives the
                 # closing pass there. See passing_family.
-                P(220, 600, "5", moves=[(300, 600, 1)]),
+                P(220, 600, "E", moves=[(300, 600, 1)]),
             ],
             markers=[M(280, 580), M(720, 580), M(720, 920), M(280, 920)],
             ball=0,
@@ -1099,10 +1099,10 @@ def soccer_drills() -> list[Drill]:
             # opens his body to take it. Two legs on the same beat drew one
             # diagonal line and called it two passes.
             home=[
-                P(330, 600, "1", moves=[(370, 650, 3)]),
-                P(670, 600, "2", moves=[(640, 650, 0)]),
-                P(670, 920, "3", moves=[(640, 880, 1)]),
-                P(330, 920, "4", moves=[(370, 880, 2)]),
+                P(330, 600, "A", moves=[(370, 650, 3)]),
+                P(670, 600, "B", moves=[(640, 650, 0)]),
+                P(670, 920, "C", moves=[(640, 880, 1)]),
+                P(330, 920, "D", moves=[(370, 880, 2)]),
             ],
             markers=[M(300, 550), M(700, 550), M(700, 950), M(300, 950)],
             ball=0,
@@ -1337,14 +1337,14 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "แตะสองครั้งบังคับให้มองก่อนรับบอล ไม่ใช่แก้ด้วยทักษะ แต่ด้วยการมองเร็วขึ้น",
                   "vi-VN": "Hai chạm buộc phải quan sát trước khi nhận bóng."},
             home=[
-                P(500, 1050, "1", moves=[(540, 950, 0)]),
-                P(280, 900, "2"), P(720, 900, "3", moves=[(760, 800, 1)]),
-                P(400, 720, "4"), P(600, 720, "5", moves=[(620, 640, 1)]),
+                P(500, 1050, "A", moves=[(540, 950, 0)]),
+                P(280, 900, "B"), P(720, 900, "C", moves=[(760, 800, 1)]),
+                P(400, 720, "D"), P(600, 720, "E", moves=[(620, 640, 1)]),
             ],
             away=[
-                P(500, 450, "A", moves=[(500, 560, 0)]),
-                P(280, 600, "B"), P(720, 600, "C"),
-                P(400, 320, "D"), P(600, 320, "E"),
+                P(500, 450, "X1", moves=[(500, 560, 0)]),
+                P(280, 600, "X2"), P(720, 600, "X3"),
+                P(400, 320, "X4"), P(600, 320, "X5"),
             ],
             markers=[M(500, 140, "square"), M(500, 1360, "square"),
                      M(180, 200), M(820, 200), M(180, 1300), M(820, 1300)],
@@ -1473,7 +1473,7 @@ def rondo_family() -> list[Drill]:
             name=suffixed(RONDO_NAME, f"{attackers}v{defenders}"),
             note=RONDO_NOTE,
             home=[
-                P(x, y, f"{i + 1}",
+                P(x, y, chr(65 + i),
                   moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)])
                 for i, (x, y) in enumerate(ring_pos)
             ],
@@ -1484,7 +1484,7 @@ def rondo_family() -> list[Drill]:
                 # beats: the ball now goes all the way round, and defenders
                 # who take their hunting position on beat 1 and then stand
                 # still for six more read as cones.
-                P(x, y, chr(65 + i),
+                P(x, y, f"X{i + 1}",
                   moves=[(*hunt[i], min(attackers - 1,
                                         round(i * attackers / defenders)))])
                 for i, (x, y) in enumerate(inner)
@@ -1601,13 +1601,13 @@ def ssg_family() -> list[Drill]:
             free=(n == 4),
             name=suffixed(SSG_NAME, f"{n}v{n}"), note=SSG_NOTE,
             home=[
-                P(x, y, f"{i + 1}",
+                P(x, y, chr(65 + i),
                   moves=([(*drop, 0)] if i == fwd else
                          [(*run, 1)] if i == runner else []))
                 for i, (x, y) in enumerate(hs)
             ],
             away=[
-                P(x, y, chr(65 + i),
+                P(x, y, f"X{i + 1}",
                   moves=[(*mark, 0)] if i == n - 1 else [])
                 for i, (x, y) in enumerate(aw)
             ],
@@ -1672,13 +1672,13 @@ def counter_family() -> list[Drill]:
             rel=True, free=(att == 3),
             name=suffixed(COUNTER_NAME, f"{att}v{dfn}"), note=COUNTER_NOTE,
             home=[
-                P(x, ys[i], f"{i + 1}",
+                P(x, ys[i], chr(65 + i),
                   moves=[(*drive, 0)] if i == carrier
                   else [(0.5 + (x - 0.5) * 0.75, 0.30 if i % 2 == 0 else 0.26, 1)])
                 for i, x in enumerate(xs)
             ],
             away=[
-                P(x, 0.50, chr(65 + i),
+                P(x, 0.50, f"X{i + 1}",
                   moves=[(x + (drive[0] - x) * 0.35, 0.52, 0)] if i == engage
                   else [(x, 0.40, 1)])
                 for i, x in enumerate(dxs)
@@ -2150,7 +2150,7 @@ def passing_family() -> list[Drill]:
             name=suffixed(PASSING_NAME, label), note=PASSING_NOTE,
             home=[
                 # Every passer follows his pass, the last one included.
-                P(x, y, f"{i + 1}", moves=[(*queue_spot(i), i + 1)])
+                P(x, y, chr(65 + i), moves=[(*queue_spot(i), i + 1)])
                 for i, (x, y) in enumerate(spots)
             ] + [
                 # The spare, queued behind the first cone — and he STEPS UP
@@ -2159,7 +2159,7 @@ def passing_family() -> list[Drill]:
                 # there, and the two tokens land on the same point; the
                 # closing pass also has to reach the cone, not a man behind
                 # it.
-                P(*queue_spot(n - 1), f"{n + 1}", moves=[(*spots[0], 1)]),
+                P(*queue_spot(n - 1), chr(65 + n), moves=[(*spots[0], 1)]),
             ],
             markers=[M(x, y) for x, y in ring(n, 0.5, 0.5, 0.32, 0.24)],
             setup={
@@ -2397,7 +2397,7 @@ def gk_family() -> list[Drill]:
             free=(key == "handling"),
             name=suffixed(GK_NAME, label), note=GK_NOTE,
             home=[
-                P(x, y, f"{i + 1}", moves=smoves.get(i, []))
+                P(x, y, chr(65 + i), moves=smoves.get(i, []))
                 for i, (x, y) in enumerate(servers)
             ],
             away=[P(0.5, 0.03, "GK", role="GK", moves=gkmoves)],
@@ -2488,7 +2488,7 @@ def conditioning_family() -> list[Drill]:
             id=f"cond_{key}", category="conditioning", minutes=12, rel=True,
             free=(key == "shuttle_finish"),
             name=suffixed(COND_NAME, label), note=COND_NOTE,
-            home=[P(0.50, 0.90, "1",
+            home=[P(0.50, 0.90, "A",
                     moves=[(x, y, i) for i, (x, y) in enumerate(legs)]
                           + [(0.50, 0.24, reps)])],
             markers=[M(x, y) for x, y in cones],
@@ -2802,13 +2802,13 @@ def transition_family() -> list[Drill]:
             free=(n == 5),
             name=suffixed(TRANSITION_NAME, f"{n}v{n}"), note=TRANSITION_NOTE,
             home=[
-                P(x, y, f"{i + 1}",
+                P(x, y, chr(65 + i),
                   moves=([(*steal, 0)] if i == fwd else
                          [(*run, 1)] if i == runner else []))
                 for i, (x, y) in enumerate(hs)
             ],
             away=[
-                P(x, y, chr(65 + i),
+                P(x, y, f"X{i + 1}",
                   moves=[(*chase, 1)] if i == n - 1 else [])
                 for i, (x, y) in enumerate(aw)
             ],
@@ -2878,15 +2878,15 @@ def first_touch_family() -> list[Drill]:
             free=(key == "open_body"),
             name=suffixed(TOUCH_NAME, label), note=TOUCH_NOTE,
             home=[
-                P(0.50, 0.76, "1"),
+                P(0.50, 0.76, "A"),
                 # Checks five metres toward the server — the movement that
                 # makes the pass arrive when the marker is still behind him.
-                P(0.50, 0.46, "2", moves=[(0.50, 0.56, 0), (*touch, 1)]),
+                P(0.50, 0.46, "B", moves=[(0.50, 0.56, 0), (*touch, 1)]),
             ],
             # Traffic means more than one body; with a single presser the
             # variant was just "side on" again, drawn on top of the receiver.
-            away=[P(*a0, "A", moves=[(*a1, 0)])]
-                 + ([P(0.66, 0.44, "B", moves=[(0.63, 0.52, 0)])]
+            away=[P(*a0, "X1", moves=[(*a1, 0)])]
+                 + ([P(0.66, 0.44, "X2", moves=[(0.63, 0.52, 0)])]
                     if key == "in_traffic" else []),
             markers=[M(0.30, 0.66), M(0.70, 0.66), M(0.30, 0.34), M(0.70, 0.34)],
             setup={
@@ -3097,10 +3097,10 @@ def overload_family() -> list[Drill]:
             id=f"overload_{att}v{dfn}", category="possession", minutes=minutes,
             rel=True, free=(att == 4),
             name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
-            home=[P(x, y, f"{i + 1}",
+            home=[P(x, y, chr(65 + i),
                     moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i % 2)])
                   for i, (x, y) in enumerate(a)],
-            away=[P(x, y, chr(65 + i), moves=[(*hunt[i], i % 2)])
+            away=[P(x, y, f"X{i + 1}", moves=[(*hunt[i], i % 2)])
                   for i, (x, y) in enumerate(d)],
             markers=[M(0.5 + sx * rx * 1.05, 0.55 + sy * ry * 1.05)
                      for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))],
