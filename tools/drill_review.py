@@ -233,6 +233,97 @@ def audit(drill, sport):
                     "传接循环没有闭合，下一轮接不上",
         })
 
+    # A drill has to be runnable more than once. Either it is a loop — the
+    # last beat leaves everyone, and the ball, back where they began — or it
+    # is a rep with an end (the ball's last stop is a goal, a spot, a
+    # keeper: not a player who then stands holding it) AND a 【规则】 line
+    # saying how the next rep starts. Anything else stops halfway: "passes
+    # to 10" and then nothing, which is what the reviewer kept finding.
+    last = max_step(board)
+    NEAR = 220
+    def dist(a, b):
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
+    # A loop as a set: every starting spot is filled again at the end by
+    # somebody of the same team — a pass-and-follow rotation closes without
+    # anyone standing where he began — and the ball is back where it was
+    # (to within the width of a man: it sits on one foot or the other).
+    def spots_refilled(side):
+        starts = [tuple(p["position"]) for p in side]
+        ends = [tuple(position_at(p, last)) for p in side]
+        for s0 in starts:
+            j = next((k for k, e in enumerate(ends) if dist(s0, e) <= NEAR), None)
+            if j is None:
+                return False
+            ends.pop(j)
+        return True
+    teams = {}
+    for p in people:
+        teams.setdefault(p.get("team"), []).append(p)
+    loop = (last > 0 and all(spots_refilled(side) for side in teams.values())
+            and all(dist(b["position"], position_at(b, last)) <= 200
+                    for b in balls))
+    has_rules = any(ln.startswith("Rules:") for ln in
+                    drill.get("note", {}).get("en", "").split("\n"))
+    if balls and balls[0].get("moves"):
+        ball = balls[0]
+        bx, by = position_at(ball, last)
+        def keeper(p):
+            return p.get("role") == "GK" or str(p.get("label", "")).upper() in ("GK", "K")
+        # A stop at an outfield player's feet is a player; the goal, the
+        # net, the keeper's hands or the space a run went into is an end.
+        holder = next((p for p in people if not keeper(p)
+                       and dist(position_at(p, last), (bx, by)) <= 130), None)
+        # …unless he carried it there: a dribble ends where the dribbler
+        # stops, and that IS the end of the rep.
+        carried = (holder is not None and holder.get("moves")
+                   and ball.get("movePhases") and holder.get("movePhases")
+                   and ball["movePhases"][-1] == holder["movePhases"][-1])
+        # …or the keeper played it to him: a distribution is the end of a
+        # keeper's rep, whoever catches it.
+        from_keeper = False
+        if holder is not None and len(ball.get("moves", [])) >= 2:
+            px, py = ball["moves"][-2]
+            from_keeper = any(keeper(p) and dist(position_at(p, last), (px, py)) <= 150
+                              for p in people)
+        # The route line is the author's own word for where it ends: a
+        # last stop that is not a shirt ("goal", "the open spot") is an end
+        # even when a man is standing right next to it.
+        labels = {str(p.get("label", "")) for p in people}
+        route_en = next((ln.split(":", 1)[1] for ln in
+                         drill.get("note", {}).get("en", "").split("\n")
+                         if ln.startswith("Ball path:")), "")
+        route_stops = [t.strip() for t in route_en.split("→") if t.strip()]
+        ends_off_board = bool(route_stops) and route_stops[-1] not in labels
+        # …or the other side has it now: a defender who steps in and wins
+        # the ball has ended the rep as surely as a shot.
+        won = False
+        if holder is not None and len(ball.get("moves", [])) >= 2:
+            px, py = ball["moves"][-2]
+            prev_ph = ball["movePhases"][-2] + 1
+            before = next((p for p in people
+                           if dist(position_at(p, prev_ph), (px, py)) <= 130), None)
+            won = before is not None and before.get("team") != holder.get("team")
+        terminal = (holder is None or carried or from_keeper or ends_off_board
+                    or won)
+    else:
+        terminal = not movers
+    if movers and not loop:
+        if not terminal:
+            out.append({
+                "id": "half_done",
+                "level": "warn",
+                "text": "只做了一半：球最后停在某个球员脚下，既没有回到起点"
+                        "（不成循环），也没有终点（射门/出球/门将）—— "
+                        "要么补完整回合，要么让它转回起点",
+            })
+        elif not has_rules:
+            out.append({
+                "id": "no_next_rep",
+                "level": "warn",
+                "text": "一回合有终点，但没有【规则】说下一回合怎么开始"
+                        "（谁换、球从哪儿来）",
+            })
+
     rank = {"error": 0, "warn": 1, "info": 2}
     out.sort(key=lambda i: rank[i["level"]])
     return out
