@@ -173,12 +173,12 @@
             "scale": 1.0,
             "moves": [
               [
-                600.085287846482,
-                415.0
+                577.7096753276847,
+                395.09274361526695
               ],
               [
-                460.0,
-                212.5
+                523.5237793289012,
+                218.96327096119524
               ]
             ],
             "movePhases": [
@@ -599,20 +599,20 @@
             "scale": 1.0,
             "moves": [
               [
-                364.89339019189765,
-                994.15
+                357.6508483774477,
+                851.1640497546141
               ],
               [
-                742.7971748400853,
-                753.85
+                708.3544859445188,
+                713.1465197591439
               ],
               [
-                257.2028251599147,
-                753.85
+                297.06088548511184,
+                688.6134232540447
               ],
               [
-                635.1066098081023,
-                994.15
+                607.2069171623777,
+                881.8459607293094
               ]
             ],
             "movePhases": [
@@ -821,12 +821,12 @@
             "scale": 1.0,
             "moves": [
               [
-                224.8081023454158,
-                523.0
+                262.29046188179166,
+                472.9119049986632
               ],
               [
-                154.76545842217485,
-                307.0
+                157.18192585880263,
+                304.82951636417215
               ]
             ],
             "movePhases": [
@@ -1102,12 +1102,12 @@
             "scale": 1.0,
             "moves": [
               [
-                670.1279317697229,
-                523.0
+                635.4819149682407,
+                481.7745056547084
               ],
               [
-                504.97867803837954,
-                266.5
+                506.0212018616014,
+                265.1695801517693
               ]
             ],
             "movePhases": [
@@ -1383,12 +1383,12 @@
             "scale": 1.0,
             "moves": [
               [
-                670.1279317697229,
-                523.0
+                635.4819149682407,
+                481.7745056547084
               ],
               [
-                487.4680170575693,
-                631.0
+                521.1901848624253,
+                529.934875275437
               ]
             ],
             "movePhases": [
@@ -1594,14 +1594,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              590.5
+              528.3073339353622,
+              445.6755732031852
             ],
             "scale": 1.0,
             "moves": [
               [
-                582.5746268656717,
-                266.5
+                594.2672929303095,
+                271.3244267968148
               ]
             ],
             "movePhases": [
@@ -1844,16 +1844,16 @@
             "scale": 1.0,
             "moves": [
               [
-                487.4680170575693,
-                563.5
+                368.9138019094333,
+                508.64051790594897
               ],
               [
-                530.0426439232409,
-                563.5
+                490.2683544170035,
+                499.5052255390633
               ],
               [
-                635.1066098081023,
-                361.0
+                622.0376987940878,
+                350.86393475028683
               ]
             ],
             "movePhases": [
@@ -2068,12 +2068,12 @@
             "scale": 1.0,
             "moves": [
               [
-                652.6172707889126,
-                496.0
+                622.8375449737175,
+                465.12530977712754
               ],
               [
-                477.51066098081026,
-                280.0
+                548.0388548335903,
+                283.9461248483454
               ]
             ],
             "movePhases": [
@@ -2229,22 +2229,22 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              565.0639658848614,
-              253.0
+              527.0729284615211,
+              200.8156695532647
             ],
             "scale": 1.0,
             "moves": [
               [
-                172.27611940298507,
-                361.0
+                210.26715682632545,
+                273.18433044673526
               ],
               [
-                827.723880597015,
-                361.0
+                787.7532361896216,
+                288.83296675931376
               ],
               [
-                460.0,
-                212.5
+                571.309031993319,
+                178.7632314635061
               ]
             ],
             "movePhases": [
@@ -2428,22 +2428,22 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              577.0
+              463.1569498678236,
+              435.9888061151065
             ],
             "scale": 1.0,
             "moves": [
               [
-                399.91471215351817,
-                307.0
+                396.7577622856946,
+                308.0111938848935
               ],
               [
-                504.97867803837954,
-                239.5
+                429.6311157026953,
+                241.26733126517186
               ],
               [
-                460.0,
-                199.0
+                457.5125015286551,
+                196.78504609165256
               ]
             ],
             "movePhases": [
@@ -2626,12 +2626,12 @@
             "scale": 1.0,
             "moves": [
               [
-                233.5634328358209,
-                496.0
+                258.95182747026644,
+                379.909243365616
               ],
               [
-                766.4365671641791,
-                496.0
+                726.7185629372502,
+                419.2888300516716
               ]
             ],
             "movePhases": [
@@ -2829,8 +2829,8 @@
                 335.42977871136105
               ],
               [
-                224.8081023454158,
-                523.0
+                260.2089022305439,
+                426.26576395924394
               ]
             ],
             "movePhases": [
@@ -3045,18 +3045,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              577.0
+              500.0,
+              427.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                212.5
+                500.0,
+                222.5
               ],
               [
-                504.97867803837954,
-                266.5
+                529.2120897214418,
+                244.1871976903051
               ]
             ],
             "movePhases": [
@@ -3102,18 +3102,18 @@
         "vi-VN": "Ném biên cuối sân: đội hình hộp"
       },
       "note": {
-        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 3, ball with 1.\nBall path: 1 → 4 → basket\nSequence: Step 1: 2 moves left, 3 moves right, 4, x2, x3 move back, 5 moves up the board; Step 2: 1 throws to 4, x4 moves up the board; Step 3: 4 puts up the shot, 1 moves left.\nCoaching point: The first cutter is a decoy; the screener becomes the target. Count out loud — five seconds goes fast.",
-        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 3, ball with 1.\nBall path: 1 → 4 → basket\nSequence: Step 1: 2 moves left, 3 moves right, 4, x2, x3 move back, 5 moves up the board; Step 2: 1 throws to 4, x4 moves up the board; Step 3: 4 puts up the shot, 1 moves left.\nCoaching point: The first cutter is a decoy; the screener becomes the target. Count out loud — five seconds goes fast.",
-        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】5 对 3，球在 1 手中。\n【球路】1 → 4 → 篮筐\n【流程】第1步：2号球员向左移动，3号球员向右移动，4号球员、x2、x3向后移动，5号球员向前移动；第2步：1号球员传给4号球员，x4向前移动；第3步：4号球员投篮，1号球员向左移动。\n【要点】第一个跑动的人是幌子，掩护的人才是目标。出声数秒 —— 五秒过得很快。",
-        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】5 對 3，球在 1 手中。\n【球路】1 → 4 → 籃框\n【流程】第1步：2號球員向左移動，3號球員向右移動，4號球員、x2、x3向後移動，5號球員向前移動；第2步：1號球員傳給4號球員，x4向前移動；第3步：4號球員投籃，1號球員向左移動。\n【要點】第一個跑動的人是幌子，掩護的人才是目標。出聲數秒 —— 五秒過得很快。",
-        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】5対3、ボールは1。\n【ボールの道筋】1 → 4 → リング\n【流れ】ステップ1：2番が左へ移動、3番が右へ移動、4番・x2・x3が後方へ移動、5番が前方へ移動。ステップ2：1番が4番へ送球、x4が前方へ移動。ステップ3：4番がシュートを放つ、1番が左へ移動。\n【ポイント】最初のカッターは囮、スクリーナーが本命。声に出して数える。5秒は速い。",
-        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】5대3, 공은 1.\n【볼 경로】1 → 4 → 림\n【진행】1단계: 2번는 왼쪽으로 이동, 3번는 오른쪽으로 이동, 4번, x2, x3는 뒤로 이동, 5번는 앞으로 이동; 2단계: 1번가 4번에게 송구, x4는 앞으로 이동; 3단계: 4번 슛을 던진다, 1번는 왼쪽으로 이동.\n【포인트】첫 커터는 미끼, 스크리너가 목표다. 소리 내어 세라 — 5초는 짧다.",
-        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 5 contra 3, balón con 1.\nRecorrido del balón: 1 → 4 → canasta\nSecuencia: Paso 1: 2 se desplaza a la izquierda, 3 se desplaza a la derecha, 4, x2, x3 se desplaza hacia atrás, 5 se desplaza hacia delante; Paso 2: 1 lanza a 4, x4 se desplaza hacia delante; Paso 3: 4 lanza a canasta, 1 se desplaza a la izquierda.\nPunto clave: El primer cortador es señuelo; el bloqueador es el objetivo. Cuenta en voz alta.",
-        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 5 contre 3, ballon avec 1.\nTrajet du ballon : 1 → 4 → panier\nDéroulé : Étape 1 : 2 se déplace à gauche, 3 se déplace à droite, 4, x2, x3 se déplace vers l'arrière, 5 se déplace vers l'avant ; Étape 2 : 1 lance à 4, x4 se déplace vers l'avant ; Étape 3 : 4 tire au panier, 1 se déplace à gauche.\nPoint clé : Le premier coupeur est un leurre, le poseur d'écran est la cible. Compte à voix haute.",
-        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 5 lawan 3, bola pada 1.\nJalur bola: 1 → 4 → ring\nUrutan: Langkah 1: 2 bergerak ke kiri, 3 bergerak ke kanan, 4, x2, x3 bergerak ke belakang, 5 bergerak ke depan; Langkah 2: 1 melempar ke 4, x4 bergerak ke depan; Langkah 3: 4 melepaskan tembakan, 1 bergerak ke kiri.\nPoin utama: Pemotong pertama umpan, pemasang screen targetnya. Hitung keras — 5 detik cepat.",
-        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 5 lawan 3, bola dengan 1.\nLaluan bola: 1 → 4 → jaring\nUrutan: Langkah 1: 2 bergerak ke kiri, 3 bergerak ke kanan, 4, x2, x3 bergerak ke belakang, 5 bergerak ke hadapan; Langkah 2: 1 membaling kepada 4, x4 bergerak ke hadapan; Langkah 3: 4 melepaskan jaringan, 1 bergerak ke kiri.\nPoin utama: Pemotong pertama adalah umpan, pemasang skrin sasaran.",
-        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 5 ต่อ 3 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 4 → ห่วง\nลำดับ: ขั้นที่ 1: 2 ขยับไปทางซ้าย 3 ขยับไปทางขวา 4, x2, x3 ขยับถอยหลัง 5 ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 4 x4 ขยับไปข้างหน้า • ขั้นที่ 3: 4 ยิงเข้าห่วง 1 ขยับไปทางซ้าย\nจุดเน้น: คนตัดคนแรกคือตัวล่อ คนตั้งสกรีนคือเป้าหมาย นับออกเสียง ห้าวินาทีหมดเร็ว",
-        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 5 đấu 3, bóng ở chỗ 1.\nĐường bóng: 1 → 4 → rổ\nTrình tự: Bước 1: 2 di chuyển sang trái, 3 di chuyển sang phải, 4, x2, x3 di chuyển lùi lại, 5 di chuyển lên phía trước; Bước 2: 1 ném cho 4, x4 di chuyển lên phía trước; Bước 3: 4 ném rổ, 1 di chuyển sang trái.\nĐiểm chính: Người cắt đầu là mồi nhử, người dựng màn mới là mục tiêu. Đếm to — năm giây trôi nhanh."
+        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 3, ball with 1.\nBall path: 1 → 4 → basket\nSequence: Step 1: 2 moves left, 3 moves right, 4, x2, x3 move back, 5 moves up the board; Step 2: 1 throws to 4, x4 moves up the board; Step 3: 1 follows up behind 2, 4 puts up the shot.\nCoaching point: The first cutter is a decoy; the screener becomes the target. Count out loud — five seconds goes fast.",
+        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 3, ball with 1.\nBall path: 1 → 4 → basket\nSequence: Step 1: 2 moves left, 3 moves right, 4, x2, x3 move back, 5 moves up the board; Step 2: 1 throws to 4, x4 moves up the board; Step 3: 1 follows up behind 2, 4 puts up the shot.\nCoaching point: The first cutter is a decoy; the screener becomes the target. Count out loud — five seconds goes fast.",
+        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】5 对 3，球在 1 手中。\n【球路】1 → 4 → 篮筐\n【流程】第1步：2号球员向左移动，3号球员向右移动，4号球员、x2、x3向后移动，5号球员向前移动；第2步：1号球员传给4号球员，x4向前移动；第3步：1号球员跟上去，跑到2号球员身后，4号球员投篮。\n【要点】第一个跑动的人是幌子，掩护的人才是目标。出声数秒 —— 五秒过得很快。",
+        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】5 對 3，球在 1 手中。\n【球路】1 → 4 → 籃框\n【流程】第1步：2號球員向左移動，3號球員向右移動，4號球員、x2、x3向後移動，5號球員向前移動；第2步：1號球員傳給4號球員，x4向前移動；第3步：1號球員跟上去，跑到2號球員身後，4號球員投籃。\n【要點】第一個跑動的人是幌子，掩護的人才是目標。出聲數秒 —— 五秒過得很快。",
+        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】5対3、ボールは1。\n【ボールの道筋】1 → 4 → リング\n【流れ】ステップ1：2番が左へ移動、3番が右へ移動、4番・x2・x3が後方へ移動、5番が前方へ移動。ステップ2：1番が4番へ送球、x4が前方へ移動。ステップ3：1番が2番の後ろへ入る、4番がシュートを放つ。\n【ポイント】最初のカッターは囮、スクリーナーが本命。声に出して数える。5秒は速い。",
+        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】5대3, 공은 1.\n【볼 경로】1 → 4 → 림\n【진행】1단계: 2번는 왼쪽으로 이동, 3번는 오른쪽으로 이동, 4번, x2, x3는 뒤로 이동, 5번는 앞으로 이동; 2단계: 1번가 4번에게 송구, x4는 앞으로 이동; 3단계: 1번가 2번 뒤로 따라 들어간다, 4번 슛을 던진다.\n【포인트】첫 커터는 미끼, 스크리너가 목표다. 소리 내어 세라 — 5초는 짧다.",
+        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 5 contra 3, balón con 1.\nRecorrido del balón: 1 → 4 → canasta\nSecuencia: Paso 1: 2 se desplaza a la izquierda, 3 se desplaza a la derecha, 4, x2, x3 se desplaza hacia atrás, 5 se desplaza hacia delante; Paso 2: 1 lanza a 4, x4 se desplaza hacia delante; Paso 3: 1 sube por detrás de 2, 4 lanza a canasta.\nPunto clave: El primer cortador es señuelo; el bloqueador es el objetivo. Cuenta en voz alta.",
+        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 5 contre 3, ballon avec 1.\nTrajet du ballon : 1 → 4 → panier\nDéroulé : Étape 1 : 2 se déplace à gauche, 3 se déplace à droite, 4, x2, x3 se déplace vers l'arrière, 5 se déplace vers l'avant ; Étape 2 : 1 lance à 4, x4 se déplace vers l'avant ; Étape 3 : 1 monte derrière 2, 4 tire au panier.\nPoint clé : Le premier coupeur est un leurre, le poseur d'écran est la cible. Compte à voix haute.",
+        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 5 lawan 3, bola pada 1.\nJalur bola: 1 → 4 → ring\nUrutan: Langkah 1: 2 bergerak ke kiri, 3 bergerak ke kanan, 4, x2, x3 bergerak ke belakang, 5 bergerak ke depan; Langkah 2: 1 melempar ke 4, x4 bergerak ke depan; Langkah 3: 1 maju di belakang 2, 4 melepaskan tembakan.\nPoin utama: Pemotong pertama umpan, pemasang screen targetnya. Hitung keras — 5 detik cepat.",
+        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 5 lawan 3, bola dengan 1.\nLaluan bola: 1 → 4 → jaring\nUrutan: Langkah 1: 2 bergerak ke kiri, 3 bergerak ke kanan, 4, x2, x3 bergerak ke belakang, 5 bergerak ke hadapan; Langkah 2: 1 membaling kepada 4, x4 bergerak ke hadapan; Langkah 3: 1 naik di belakang 2, 4 melepaskan jaringan.\nPoin utama: Pemotong pertama adalah umpan, pemasang skrin sasaran.",
+        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 5 ต่อ 3 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 4 → ห่วง\nลำดับ: ขั้นที่ 1: 2 ขยับไปทางซ้าย 3 ขยับไปทางขวา 4, x2, x3 ขยับถอยหลัง 5 ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 4 x4 ขยับไปข้างหน้า • ขั้นที่ 3: 1 ตามขึ้นไปด้านหลัง2 4 ยิงเข้าห่วง\nจุดเน้น: คนตัดคนแรกคือตัวล่อ คนตั้งสกรีนคือเป้าหมาย นับออกเสียง ห้าวินาทีหมดเร็ว",
+        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 5 đấu 3, bóng ở chỗ 1.\nĐường bóng: 1 → 4 → rổ\nTrình tự: Bước 1: 2 di chuyển sang trái, 3 di chuyển sang phải, 4, x2, x3 di chuyển lùi lại, 5 di chuyển lên phía trước; Bước 2: 1 ném cho 4, x4 di chuyển lên phía trước; Bước 3: 1 theo lên phía sau 2, 4 ném rổ.\nĐiểm chính: Người cắt đầu là mồi nhử, người dựng màn mới là mục tiêu. Đếm to — năm giây trôi nhanh."
       },
       "mistake": {
         "en": "Improvising a moment whose value was that it was rehearsed.",
@@ -3365,12 +3365,12 @@
             "scale": 1.0,
             "moves": [
               [
-                504.97867803837954,
-                226.0
+                487.1359027253803,
+                90.0
               ],
               [
-                460.0,
-                212.5
+                480.9607914522032,
+                90.0
               ]
             ],
             "movePhases": [
@@ -3654,22 +3654,22 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              1395.5
+              463.1569498678235,
+              1394.4888061151064
             ],
             "scale": 1.0,
             "moves": [
               [
-                364.89339019189765,
-                1198.0
+                361.73644032407407,
+                1199.0111938848936
               ],
               [
-                460.0,
-                901.0000000000001
+                471.86385782430057,
+                905.8889678355154
               ],
               [
-                460.0,
-                685.0
+                492.29797056414225,
+                694.6283790025213
               ]
             ],
             "movePhases": [
@@ -3892,12 +3892,12 @@
             "scale": 1.0,
             "moves": [
               [
-                224.8081023454158,
-                523.0
+                262.29046188179166,
+                472.9119049986632
               ],
               [
-                504.97867803837954,
-                280.0
+                416.13397450721396,
+                273.35767464918945
               ]
             ],
             "movePhases": [
@@ -4076,20 +4076,20 @@
             "scale": 1.0,
             "moves": [
               [
-                434.93603411513857,
-                550.0
+                383.9239868902848,
+                559.2384680311122
               ],
               [
-                469.957356076759,
-                415.0
+                413.15135572697756,
+                423.21482181941695
               ],
               [
-                547.5533049040512,
-                266.5
+                538.7754016385322,
+                259.9091172704658
               ],
               [
-                460.0,
-                199.0
+                522.7203411678641,
+                205.70584135002923
               ]
             ],
             "movePhases": [
@@ -4380,12 +4380,12 @@
             "scale": 1.0,
             "moves": [
               [
-                670.1279317697229,
-                523.0
+                635.4819149682407,
+                481.7745056547084
               ],
               [
-                504.97867803837954,
-                266.5
+                506.0212018616014,
+                265.1695801517693
               ]
             ],
             "movePhases": [
@@ -4674,12 +4674,12 @@
             "scale": 1.0,
             "moves": [
               [
-                434.93603411513857,
-                469.0
+                320.2900173136564,
+                427.7745056547083
               ],
               [
-                469.957356076759,
-                266.5
+                395.68077405729514,
+                268.7849633399849
               ]
             ],
             "movePhases": [
@@ -4968,12 +4968,12 @@
             "scale": 1.0,
             "moves": [
               [
-                565.0639658848614,
-                469.0
+                679.7099826863436,
+                427.7745056547083
               ],
               [
-                530.042643923241,
-                266.5
+                604.3192259427049,
+                268.7849633399849
               ]
             ],
             "movePhases": [
@@ -5262,12 +5262,12 @@
             "scale": 1.0,
             "moves": [
               [
-                495.0213219616205,
-                523.0
+                460.37530516013834,
+                481.7745056547084
               ],
               [
-                452.4466950959488,
-                266.5
+                425.70162305444313,
+                275.3942766290123
               ]
             ],
             "movePhases": [
@@ -5556,12 +5556,12 @@
             "scale": 1.0,
             "moves": [
               [
-                504.9786780383795,
-                523.0
+                539.6246948398616,
+                481.7745056547084
               ],
               [
-                547.5533049040512,
-                266.5
+                574.2983769455568,
+                275.3942766290123
               ]
             ],
             "movePhases": [
@@ -5620,18 +5620,18 @@
         "vi-VN": "Cắt vào phối hợp một-hai"
       },
       "note": {
-        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 1 moves right, X1 moves up the board; Step 3: 2 throws to 1.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
-        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 1 moves right, X1 moves up the board; Step 3: 2 throws to 1.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 2，球在 1 手中。\n【球路】1 → 2 → 1\n【流程】第1步：1号球员传给2号球员；第2步：1号球员向右移动，X1向前移动；第3步：2号球员传给1号球员。\n【要点】在你的防守人扭头的那一刻切，而不是你站腻了才切。空切是对他的反应，不是你自己的决定。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 2，球在 1 手中。\n【球路】1 → 2 → 1\n【流程】第1步：1號球員傳給2號球員；第2步：1號球員向右移動，X1向前移動；第3步：2號球員傳給1號球員。\n【要點】在你的防守人扭頭的那一刻切，而不是你站膩了才切。空切是對他的反應，不是你自己的決定。",
-        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対2、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1番が2番へ送球。ステップ2：1番が右へ移動、X1が前方へ移動。ステップ3：2番が1番へ送球。\n【ポイント】自分のマークが顔を向けた瞬間に切る。飽きたからではない。カットは相手への反応であって、自分の判断ではない。",
-        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대2, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1번가 2번에게 송구; 2단계: 1번는 오른쪽으로 이동, X1는 앞으로 이동; 3단계: 2번가 1번에게 송구.\n【포인트】수비가 고개를 돌릴 때 컷하라. 지루해서가 아니라. 컷은 상대에 대한 반응이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 2, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 lanza a 2; Paso 2: 1 se desplaza a la derecha, X1 se desplaza hacia delante; Paso 3: 2 lanza a 1.\nPunto clave: Corta cuando tu defensor gira la cabeza, no cuando te aburres: el corte es una reacción a él, no una decisión tuya.",
-        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 lance à 2 ; Étape 2 : 1 se déplace à droite, X1 se déplace vers l'avant ; Étape 3 : 2 lance à 1.\nPoint clé : Coupe quand ton défenseur tourne la tête, pas quand tu t'ennuies : la coupe est une réaction, pas une décision.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 2, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 melempar ke 2; Langkah 2: 1 bergerak ke kanan, X1 bergerak ke depan; Langkah 3: 2 melempar ke 1.\nPoin utama: Cut saat penjagamu menoleh, bukan saat kamu bosan.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 membaling kepada 2; Langkah 2: 1 bergerak ke kanan, X1 bergerak ke hadapan; Langkah 3: 2 membaling kepada 1.\nPoin utama: Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 • ขั้นที่ 2: 1 ขยับไปทางขวา X1 ขยับไปข้างหน้า • ขั้นที่ 3: 2 ขว้างให้ 1\nจุดเน้น: ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
-        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 ném cho 2; Bước 2: 1 di chuyển sang phải, X1 di chuyển lên phía trước; Bước 3: 2 ném cho 1.\nĐiểm chính: Cắt khi người kèm quay đầu, không phải khi bạn chán."
+        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 1 follows up behind 2, X1 moves up the board; Step 3: 2 throws to 1.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
+        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → 1\nSequence: Step 1: 1 throws to 2; Step 2: 1 follows up behind 2, X1 moves up the board; Step 3: 2 throws to 1.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 2，球在 1 手中。\n【球路】1 → 2 → 1\n【流程】第1步：1号球员传给2号球员；第2步：1号球员跟上去，跑到2号球员身后，X1向前移动；第3步：2号球员传给1号球员。\n【要点】在你的防守人扭头的那一刻切，而不是你站腻了才切。空切是对他的反应，不是你自己的决定。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 2，球在 1 手中。\n【球路】1 → 2 → 1\n【流程】第1步：1號球員傳給2號球員；第2步：1號球員跟上去，跑到2號球員身後，X1向前移動；第3步：2號球員傳給1號球員。\n【要點】在你的防守人扭頭的那一刻切，而不是你站膩了才切。空切是對他的反應，不是你自己的決定。",
+        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対2、ボールは1。\n【ボールの道筋】1 → 2 → 1\n【流れ】ステップ1：1番が2番へ送球。ステップ2：1番が2番の後ろへ入る、X1が前方へ移動。ステップ3：2番が1番へ送球。\n【ポイント】自分のマークが顔を向けた瞬間に切る。飽きたからではない。カットは相手への反応であって、自分の判断ではない。",
+        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대2, 공은 1.\n【볼 경로】1 → 2 → 1\n【진행】1단계: 1번가 2번에게 송구; 2단계: 1번가 2번 뒤로 따라 들어간다, X1는 앞으로 이동; 3단계: 2번가 1번에게 송구.\n【포인트】수비가 고개를 돌릴 때 컷하라. 지루해서가 아니라. 컷은 상대에 대한 반응이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 2, balón con 1.\nRecorrido del balón: 1 → 2 → 1\nSecuencia: Paso 1: 1 lanza a 2; Paso 2: 1 sube por detrás de 2, X1 se desplaza hacia delante; Paso 3: 2 lanza a 1.\nPunto clave: Corta cuando tu defensor gira la cabeza, no cuando te aburres: el corte es una reacción a él, no una decisión tuya.",
+        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2 → 1\nDéroulé : Étape 1 : 1 lance à 2 ; Étape 2 : 1 monte derrière 2, X1 se déplace vers l'avant ; Étape 3 : 2 lance à 1.\nPoint clé : Coupe quand ton défenseur tourne la tête, pas quand tu t'ennuies : la coupe est une réaction, pas une décision.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 2, bola pada 1.\nJalur bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 melempar ke 2; Langkah 2: 1 maju di belakang 2, X1 bergerak ke depan; Langkah 3: 2 melempar ke 1.\nPoin utama: Cut saat penjagamu menoleh, bukan saat kamu bosan.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2 → 1\nUrutan: Langkah 1: 1 membaling kepada 2; Langkah 2: 1 naik di belakang 2, X1 bergerak ke hadapan; Langkah 3: 2 membaling kepada 1.\nPoin utama: Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 1\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 • ขั้นที่ 2: 1 ตามขึ้นไปด้านหลัง2 X1 ขยับไปข้างหน้า • ขั้นที่ 3: 2 ขว้างให้ 1\nจุดเน้น: ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
+        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 1\nTrình tự: Bước 1: 1 ném cho 2; Bước 2: 1 theo lên phía sau 2, X1 di chuyển lên phía trước; Bước 3: 2 ném cho 1.\nĐiểm chính: Cắt khi người kèm quay đầu, không phải khi bạn chán."
       },
       "mistake": {
         "en": "Cutting when bored, not when the defender's head turns.",
@@ -5806,12 +5806,12 @@
             "scale": 1.0,
             "moves": [
               [
-                775.1918976545842,
-                523.0
+                737.7095381182083,
+                472.9119049986632
               ],
               [
-                530.0426439232409,
-                293.5
+                614.6749146557304,
+                289.8924725346312
               ]
             ],
             "movePhases": [
@@ -6050,14 +6050,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              604.0
+              475.32326149565654,
+              457.90099490276987
             ],
             "scale": 1.0,
             "moves": [
               [
-                434.93603411513857,
-                280.0
+                419.61277261948203,
+                286.09900509723013
               ]
             ],
             "movePhases": [
@@ -6302,14 +6302,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              600.085287846482,
-              590.5
+              560.3385108443256,
+              514.1398460892565
             ],
             "scale": 1.0,
             "moves": [
               [
-                172.27611940298507,
-                550.0
+                212.0228964051414,
+                486.3601539107435
               ]
             ],
             "movePhases": [
@@ -6547,14 +6547,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              590.5
+              540.8811111701896,
+              451.73420363661455
             ],
             "scale": 1.0,
             "moves": [
               [
-                652.6172707889126,
-                266.5
+                651.7361596187229,
+                265.26579636338545
               ]
             ],
             "movePhases": [
@@ -6722,18 +6722,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              452.4466950959488,
-              253.0
+              333.13636997255685,
+              193.48200023000666
             ],
             "scale": 1.0,
             "moves": [
               [
-                146.01012793176972,
-                293.5
+                185.3204530551617,
+                213.01799976999334
               ],
               [
-                460.0,
-                212.5
+                421.93611267066206,
+                159.99369872360984
               ]
             ],
             "movePhases": [
@@ -6902,18 +6902,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              452.4466950959488,
-              253.0
+              358.90475405895256,
+              242.44123610752735
             ],
             "scale": 1.0,
             "moves": [
               [
-                233.5634328358209,
-                496.0
+                247.10537387281715,
+                366.55876389247265
               ],
               [
-                460.0,
-                212.5
+                440.12074738177614,
+                195.5516267977046
               ]
             ],
             "movePhases": [
@@ -7082,18 +7082,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              530.0426439232409,
-              253.0
+              551.6796808981071,
+              260.8639941753412
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                550.0
+                518.3629630251338,
+                402.1360058246588
               ],
               [
-                460.0,
-                212.5
+                505.6439652930575,
+                222.3006620008303
               ]
             ],
             "movePhases": [
@@ -7262,18 +7262,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              547.5533049040512,
-              253.0
+              641.0952459410474,
+              242.44123610752735
             ],
             "scale": 1.0,
             "moves": [
               [
-                766.4365671641791,
-                496.0
+                752.8946261271828,
+                366.55876389247265
               ],
               [
-                460.0,
-                212.5
+                559.8792526182239,
+                195.5516267977046
               ]
             ],
             "movePhases": [
@@ -7442,18 +7442,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              547.5533049040512,
-              253.0
+              618.072997757079,
+              256.9496338608708
             ],
             "scale": 1.0,
             "moves": [
               [
-                608.840618336887,
-                401.5
+                618.3209254838591,
+                257.55036613912927
               ],
               [
-                460.0,
-                212.5
+                557.3556846983905,
+                198.27029166840367
               ]
             ],
             "movePhases": [
@@ -7689,22 +7689,22 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              757.6812366737739,
-              550.0
+              727.7348468964196,
+              441.1734297533967
             ],
             "scale": 1.0,
             "moves": [
               [
-                399.91471215351817,
-                307.0
+                429.8611019308725,
+                275.8265702466033
               ],
               [
-                487.4680170575693,
-                226.0
+                435.83796304772613,
+                235.1501221965458
               ],
               [
-                460.0,
-                199.0
+                458.6167296934212,
+                197.4647715159602
               ]
             ],
             "movePhases": [
@@ -7941,22 +7941,22 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              792.7025586353944,
-              550.0
+              767.1908457408982,
+              434.0846923822883
             ],
             "scale": 1.0,
             "moves": [
               [
-                600.085287846482,
-                415.0
+                705.5970007409782,
+                390.91530761771173
               ],
               [
-                495.0213219616205,
-                266.5
+                587.7826288295128,
+                256.63521844636557
               ],
               [
-                460.0,
-                199.0
+                545.3340235786319,
+                194.9152964506119
               ]
             ],
             "movePhases": [
@@ -8179,18 +8179,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              792.7025586353944,
-              550.0
+              783.0079087763334,
+              417.306764516534
             ],
             "scale": 1.0,
             "moves": [
               [
-                600.085287846482,
-                307.0
+                689.779937705543,
+                299.693235483466
               ],
               [
-                154.76545842217485,
-                307.0
+                194.29416347046583,
+                245.67093266851555
               ]
             ],
             "movePhases": [
@@ -8454,12 +8454,12 @@
             "scale": 1.0,
             "moves": [
               [
-                635.1066098081023,
-                523.0
+                602.4985309430651,
+                486.58670694677505
               ],
               [
-                477.51066098081026,
-                415.0
+                558.6830894653382,
+                413.59177161064173
               ]
             ],
             "movePhases": [
@@ -9685,26 +9685,26 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              146.01012793176972,
-              293.5
+              137.75866278720716,
+              296.93044691769944
             ],
             "scale": 1.0,
             "moves": [
               [
-                233.5634328358209,
-                496.0
+                161.81489798038345,
+                352.56955308230056
               ],
               [
-                766.4365671641791,
-                496.0
+                726.9506118742389,
+                416.945558457551
               ],
               [
-                853.9898720682303,
-                293.5
+                841.7051875832491,
+                284.05007653427015
               ],
               [
-                146.01012793176972,
-                293.5
+                185.74054390833183,
+                230.06207042055854
               ]
             ],
             "movePhases": [
@@ -9950,16 +9950,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                658.0
+                441.2764559915748,
+                642.3281269610001
               ],
               [
-                487.4680170575693,
-                334.0
+                446.1589455630419,
+                343.9892888568352
               ],
               [
-                460.0,
-                199.0
+                480.5653078890881,
+                206.6034325436321
               ]
             ],
             "movePhases": [
@@ -10256,16 +10256,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                658.0
+                441.2764559915748,
+                642.3281269610001
               ],
               [
-                487.4680170575693,
-                334.0
+                446.1589455630419,
+                343.9892888568352
               ],
               [
-                460.0,
-                199.0
+                480.5653078890881,
+                206.6034325436321
               ]
             ],
             "movePhases": [
@@ -10621,16 +10621,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                658.0
+                441.2764559915748,
+                642.3281269610001
               ],
               [
-                487.4680170575693,
-                334.0
+                446.1589455630419,
+                343.9892888568352
               ],
               [
-                460.0,
-                199.0
+                480.5653078890881,
+                206.6034325436321
               ]
             ],
             "movePhases": [
@@ -10894,12 +10894,12 @@
             "scale": 1.0,
             "moves": [
               [
-                582.5746268656717,
-                266.5
+                574.3042133821341,
+                132.70370557682594
               ],
               [
-                460.0,
-                212.5
+                579.3136593234998,
+                132.04325840828903
               ]
             ],
             "movePhases": [
@@ -11189,12 +11189,12 @@
             "scale": 1.0,
             "moves": [
               [
-                512.5319829424308,
-                226.0
+                520.7834480869933,
+                90.0
               ],
               [
-                460.0,
-                212.5
+                529.4465685087125,
+                90.0
               ]
             ],
             "movePhases": [
@@ -11450,12 +11450,12 @@
             "scale": 1.0,
             "moves": [
               [
-                487.4680170575693,
-                590.5
+                456.0651801732705,
+                440.96328655041106
               ],
               [
-                460.0,
-                212.5
+                488.34927789166306,
+                221.64708253848846
               ]
             ],
             "movePhases": [
@@ -11514,18 +11514,18 @@
         "vi-VN": "Ném biên từ đường biên dọc"
       },
       "note": {
-        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 1 throws to 2, 2 moves right, 4, X4 move left, X2 moves up the board; Step 2: 2 puts up the shot, 1 moves left.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
-        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 1 throws to 2, 2 moves right, 4, X4 move left, X2 moves up the board; Step 2: 2 puts up the shot, 1 moves left.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
-        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，球在 1 手中。\n【球路】1 → 2 → 篮筐\n【流程】第1步：1号球员传给2号球员，2号球员向右移动，4号球员、X4向左移动，X2向前移动；第2步：2号球员投篮，1号球员向左移动。\n【要点】第一个跑动的人就是诱饵，而且他自己知道。如果他跑得像个诱饵，第二个人也没人防了。",
-        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，球在 1 手中。\n【球路】1 → 2 → 籃框\n【流程】第1步：1號球員傳給2號球員，2號球員向右移動，4號球員、X4向左移動，X2向前移動；第2步：2號球員投籃，1號球員向左移動。\n【要點】第一個跑動的人就是誘餌，而且他自己知道。如果他跑得像個誘餌，第二個人也沒人防了。",
-        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、ボールは1。\n【ボールの道筋】1 → 2 → リング\n【流れ】ステップ1：1番が2番へ送球、2番が右へ移動、4番・X4が左へ移動、X2が前方へ移動。ステップ2：2番がシュートを放つ、1番が左へ移動。\n【ポイント】最初のカッターは囮であり、本人もそれを知っている。囮らしく走れば、二人目も誰も見なくなる。",
-        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 공은 1.\n【볼 경로】1 → 2 → 림\n【진행】1단계: 1번가 2번에게 송구, 2번는 오른쪽으로 이동, 4번, X4는 왼쪽으로 이동, X2는 앞으로 이동; 2단계: 2번 슛을 던진다, 1번는 왼쪽으로 이동.\n【포인트】첫 커터는 미끼이고 본인도 안다. 미끼답게 뛰면 두 번째도 아무도 안 막는다.",
-        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, balón con 1.\nRecorrido del balón: 1 → 2 → canasta\nSecuencia: Paso 1: 1 lanza a 2, 2 se desplaza a la derecha, 4, X4 se desplaza a la izquierda, X2 se desplaza hacia delante; Paso 2: 2 lanza a canasta, 1 se desplaza a la izquierda.\nPunto clave: El primer cortador es el señuelo y lo sabe: si lo corre como señuelo, al segundo tampoco lo marca nadie.",
-        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2 → panier\nDéroulé : Étape 1 : 1 lance à 2, 2 se déplace à droite, 4, X4 se déplace à gauche, X2 se déplace vers l'avant ; Étape 2 : 2 tire au panier, 1 se déplace à gauche.\nPoint clé : Le premier coupeur est le leurre et le sait : s'il joue le leurre, personne ne prend le second non plus.",
-        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, bola pada 1.\nJalur bola: 1 → 2 → ring\nUrutan: Langkah 1: 1 melempar ke 2, 2 bergerak ke kanan, 4, X4 bergerak ke kiri, X2 bergerak ke depan; Langkah 2: 2 melepaskan tembakan, 1 bergerak ke kiri.\nPoin utama: Pemotong pertama adalah umpan dan dia tahu itu.",
-        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2 → jaring\nUrutan: Langkah 1: 1 membaling kepada 2, 2 bergerak ke kanan, 4, X4 bergerak ke kiri, X2 bergerak ke hadapan; Langkah 2: 2 melepaskan jaringan, 1 bergerak ke kiri.\nPoin utama: Pemotong pertama ialah umpan dan dia tahu itu.",
-        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 2 ขยับไปทางขวา 4, X4 ขยับไปทางซ้าย X2 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ยิงเข้าห่วง 1 ขยับไปทางซ้าย\nจุดเน้น: คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
-        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → rổ\nTrình tự: Bước 1: 1 ném cho 2, 2 di chuyển sang phải, 4, X4 di chuyển sang trái, X2 di chuyển lên phía trước; Bước 2: 2 ném rổ, 1 di chuyển sang trái.\nĐiểm chính: Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
+        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 1 throws to 2, 2 moves right, 4, X4 move left, X2 moves up the board; Step 2: 2 puts up the shot, 1 runs up in support.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
+        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 1 throws to 2, 2 moves right, 4, X4 move left, X2 moves up the board; Step 2: 2 puts up the shot, 1 runs up in support.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
+        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，球在 1 手中。\n【球路】1 → 2 → 篮筐\n【流程】第1步：1号球员传给2号球员，2号球员向右移动，4号球员、X4向左移动，X2向前移动；第2步：2号球员投篮，1号球员跑上去接应。\n【要点】第一个跑动的人就是诱饵，而且他自己知道。如果他跑得像个诱饵，第二个人也没人防了。",
+        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，球在 1 手中。\n【球路】1 → 2 → 籃框\n【流程】第1步：1號球員傳給2號球員，2號球員向右移動，4號球員、X4向左移動，X2向前移動；第2步：2號球員投籃，1號球員跑上去接應。\n【要點】第一個跑動的人就是誘餌，而且他自己知道。如果他跑得像個誘餌，第二個人也沒人防了。",
+        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、ボールは1。\n【ボールの道筋】1 → 2 → リング\n【流れ】ステップ1：1番が2番へ送球、2番が右へ移動、4番・X4が左へ移動、X2が前方へ移動。ステップ2：2番がシュートを放つ、1番がサポートに上がる。\n【ポイント】最初のカッターは囮であり、本人もそれを知っている。囮らしく走れば、二人目も誰も見なくなる。",
+        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 공은 1.\n【볼 경로】1 → 2 → 림\n【진행】1단계: 1번가 2번에게 송구, 2번는 오른쪽으로 이동, 4번, X4는 왼쪽으로 이동, X2는 앞으로 이동; 2단계: 2번 슛을 던진다, 1번가 지원하러 올라간다.\n【포인트】첫 커터는 미끼이고 본인도 안다. 미끼답게 뛰면 두 번째도 아무도 안 막는다.",
+        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, balón con 1.\nRecorrido del balón: 1 → 2 → canasta\nSecuencia: Paso 1: 1 lanza a 2, 2 se desplaza a la derecha, 4, X4 se desplaza a la izquierda, X2 se desplaza hacia delante; Paso 2: 2 lanza a canasta, 1 sube en apoyo.\nPunto clave: El primer cortador es el señuelo y lo sabe: si lo corre como señuelo, al segundo tampoco lo marca nadie.",
+        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, ballon avec 1.\nTrajet du ballon : 1 → 2 → panier\nDéroulé : Étape 1 : 1 lance à 2, 2 se déplace à droite, 4, X4 se déplace à gauche, X2 se déplace vers l'avant ; Étape 2 : 2 tire au panier, 1 monte en soutien.\nPoint clé : Le premier coupeur est le leurre et le sait : s'il joue le leurre, personne ne prend le second non plus.",
+        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, bola pada 1.\nJalur bola: 1 → 2 → ring\nUrutan: Langkah 1: 1 melempar ke 2, 2 bergerak ke kanan, 4, X4 bergerak ke kiri, X2 bergerak ke depan; Langkah 2: 2 melepaskan tembakan, 1 maju mendukung.\nPoin utama: Pemotong pertama adalah umpan dan dia tahu itu.",
+        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, bola dengan 1.\nLaluan bola: 1 → 2 → jaring\nUrutan: Langkah 1: 1 membaling kepada 2, 2 bergerak ke kanan, 4, X4 bergerak ke kiri, X2 bergerak ke hadapan; Langkah 2: 2 melepaskan jaringan, 1 naik menyokong.\nPoin utama: Pemotong pertama ialah umpan dan dia tahu itu.",
+        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 2 ขยับไปทางขวา 4, X4 ขยับไปทางซ้าย X2 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ยิงเข้าห่วง 1 ขึ้นไปสนับสนุน\nจุดเน้น: คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
+        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → rổ\nTrình tự: Bước 1: 1 ném cho 2, 2 di chuyển sang phải, 4, X4 di chuyển sang trái, X2 di chuyển lên phía trước; Bước 2: 2 ném rổ, 1 dâng lên hỗ trợ.\nĐiểm chính: Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
       },
       "mistake": {
         "en": "The first cutter runs it like a decoy he does not believe in.",
@@ -11711,12 +11711,12 @@
             "scale": 1.0,
             "moves": [
               [
-                775.1918976545842,
-                563.5
+                869.3171401601865,
+                434.5894056751272
               ],
               [
-                460.0,
-                212.5
+                562.7473612937312,
+                192.12628991445933
               ]
             ],
             "movePhases": [
@@ -12046,16 +12046,16 @@
             "scale": 1.0,
             "moves": [
               [
-                862.7452025586354,
-                253.0
+                842.4351365392882,
+                235.5613540231032
               ],
               [
-                792.7025586353944,
-                388.0
+                842.0820949601855,
+                238.55175081644705
               ],
               [
-                452.4466950959488,
-                361.0
+                491.8571722715053,
+                281.30587215112035
               ]
             ],
             "movePhases": [
@@ -12386,16 +12386,16 @@
             "scale": 1.0,
             "moves": [
               [
-                600.085287846482,
-                604.0
+                561.531072698346,
+                549.140517905949
               ],
               [
-                757.6812366737739,
-                334.0
+                746.653789698643,
+                325.61330745220715
               ],
               [
-                460.0,
-                212.5
+                564.233868783851,
+                190.18658198129748
               ]
             ],
             "movePhases": [
@@ -12767,16 +12767,16 @@
             "scale": 1.0,
             "moves": [
               [
-                329.8720682302772,
-                577.0
+                366.31952007093855,
+                530.5751374772187
               ],
               [
-                687.638592750533,
-                563.5
+                648.0564526630677,
+                501.66596467657405
               ],
               [
-                460.0,
-                212.5
+                530.4889612769655,
+                216.4623095924654
               ]
             ],
             "movePhases": [
@@ -13013,14 +13013,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              512.5319829424308,
-              590.5
+              473.01281910463115,
+              511.7419989416999
             ],
             "scale": 1.0,
             "moves": [
               [
-                224.8081023454158,
-                550.0
+                264.3272661832154,
+                488.7580010583001
               ]
             ],
             "movePhases": [
@@ -13282,14 +13282,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              417.42537313432837,
-              590.5
+              457.285062038233,
+              515.7639585969317
             ],
             "scale": 1.0,
             "moves": [
               [
-                792.7025586353944,
-                563.5
+                752.8428697314898,
+                498.2360414030682
               ]
             ],
             "movePhases": [
@@ -13534,14 +13534,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              600.085287846482,
-              590.5
+              631.8282724069702,
+              440.9272553192259
             ],
             "scale": 1.0,
             "moves": [
               [
-                565.0639658848614,
-                253.0
+                613.3209813243732,
+                262.5727446807741
               ]
             ],
             "movePhases": [
@@ -13736,18 +13736,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              460.0,
-              428.5
+              500.0,
+              278.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                212.5
+                500.0,
+                222.5
               ],
               [
-                504.97867803837954,
-                239.5
+                509.0822966380291,
+                236.2448187233784
               ]
             ],
             "movePhases": [

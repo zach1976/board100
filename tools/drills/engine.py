@@ -521,10 +521,27 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             f"the ball can only make one trip per beat, so the earlier target "
             f"is silently dropped")
         follow_legs = drill.ball_moves if drill.ball_follow is not None else []
-        drill.ball_moves = follow_legs + [
-            ((*target_pos(t, ph), ph) if isinstance(t, Spot)
-             else (*at_the_feet_of(*target_pos(t, ph), sport), ph))
-            for (t, ph) in drill.ball_to]
+        # A pass stops at the receiver's feet on the side it came from — the
+        # foot facing the passer — not on a fixed "down and inward" offset,
+        # which parked it beyond the man as if it had run past him.
+        if follow_legs:
+            prev = follow_legs[-1][:2]
+        elif isinstance(drill.ball, int):
+            prev = (drill.home[drill.ball].x, drill.home[drill.ball].y)
+        else:
+            prev = drill.ball
+        legs = []
+        for (t, ph) in drill.ball_to:
+            if isinstance(t, Spot):
+                point = target_pos(t, ph)
+            else:
+                rx, ry = target_pos(t, ph)
+                facing = ((prev[0] - rx, prev[1] - ry)
+                          if prev is not None else None)
+                point = at_the_feet_of(rx, ry, sport, facing)
+            legs.append((*point, ph))
+            prev = point
+        drill.ball_moves = follow_legs + legs
 
 
 def build_board(drill: Drill, sport: str) -> dict:
@@ -559,9 +576,13 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
             holder = drill.home[drill.ball]
-            # Ahead of him from the first frame if he is about to set off.
+            # Ahead of him from the first frame if he is about to set off;
+            # a man about to pass has it on the foot facing his receiver.
             lead = ((holder.moves[0][0] - holder.x,
                      holder.moves[0][1] - holder.y) if holder.moves else None)
+            if lead is None and drill.ball_moves:
+                lead = (drill.ball_moves[0][0] - holder.x,
+                        drill.ball_moves[0][1] - holder.y)
             bx, by = at_the_feet_of(holder.x, holder.y, sport, lead)
             players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
                                  drill.ball_moves))
