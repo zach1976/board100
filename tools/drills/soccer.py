@@ -193,7 +193,9 @@ def soccer_drills() -> list[Drill]:
                 # point is that the winger holds until the full-back is past
                 # him, and the old timing had the ball leave on the same beat
                 # the run started.
-                P(760, 900, "2", moves=[(905, 770, 0), (880, 480, 1)], why={0: "overlap", 1: "overlap"}),
+                # The second leg carries him well past the winger: ending a token's
+                # width beyond him left the release pass too short to draw.
+                P(760, 900, "2", moves=[(905, 770, 0), (900, 380, 1)], why={0: "overlap", 1: "overlap"}),
                 P(480, 600, "10", moves=[(460, 470, 1)], why={1: "second_ball"}),
                 P(600, 500, "9", moves=[(400, 250, 2)], why={2: "far_post"}),
             ],

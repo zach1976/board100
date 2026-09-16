@@ -459,7 +459,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 painter: PlayerMovesPainter(
                   players: sPlayers,
                   targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
-                  completedSteps: _state.isAnimating ? _state.atStep : null,
+                  completedSteps: _state.isAnimating
+                      ? (_state.animToStep > _state.animFromStep
+                          ? _state.atStep + 1
+                          : _state.atStep)
+                      : null,
                 ),
                 size: const Size(pw, ph),
               ),
@@ -687,6 +691,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       players,
       (p) => state.animatedPositions[p.id] ?? p.position,
     );
+    // Beats elapsed, whichever way the board is being stepped: atStep when
+    // played in the app, targetStep when a tool shoots a frame.
+    final stepLimit = state.atStep > 0
+        ? state.atStep
+        : (state.targetStep > 0 ? state.targetStep : 0);
 
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
@@ -724,7 +733,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       return _PlayerOnBoard(
         key: ValueKey(player.id),
         player: player,
-        renderPosition: animPos,
+        // With no animation running (a shot frame) the token still stands
+        // where the beats so far have taken it, solid — the same place the
+        // animated token would be. Left at its start it read as a player
+        // who had not moved, once the earlier legs stopped being drawn.
+        renderPosition: animPos ??
+            (stepLimit > 0 && player.moves.isNotEmpty
+                ? chainEndAt(player, stepLimit)
+                : null),
         drawOffset: fan[player.id] ?? Offset.zero,
         isSelected: selected,
         isPrimary: selected &&
@@ -786,21 +802,25 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
-                      final phaseLimit = state.atStep > 0
-                          ? state.atStep
-                          : (state.targetStep > 0 ? state.targetStep : 0);
-                      if (phaseLimit == 0) return true;
-                      return (chainEndAt(p, phaseLimit) - p.position).distance
-                          >= nudgeThreshold(p.scale);
+                      if (stepLimit == 0) return true;
+                      // Only the beat on show leaves a ghost, at the spot its
+                      // leg starts from; a player standing still this beat
+                      // has nothing to be a ghost of.
+                      final legs = stepLegs(p, stepLimit);
+                      if (legs.isEmpty) return false;
+                      return (legs.last.value - stepStart(p, stepLimit))
+                              .distance >=
+                          nudgeThreshold(p.scale);
                     }).map((player) {
                       final size = kPlayerIconSize * player.scale;
+                      final ghostAt = stepStart(player, stepLimit);
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
                           !player.isBall;
                       return Positioned(
                         key: ValueKey('ghost_${player.id}'),
-                        left: player.position.dx - size / 2,
-                        top: player.position.dy - size / 2,
+                        left: ghostAt.dx - size / 2,
+                        top: ghostAt.dy - size / 2,
                         child: SizedBox(
                           width: size,
                           height: size,
@@ -869,19 +889,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // hides phases that haven't started yet.
                   if (state.showMoveLines)
                     ...players.expand((player) {
-                      final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
-                      List<Offset> visibleMoves;
-                      if (phaseLimit > 0) {
-                        player.syncPhases();
-                        int count = 0;
-                        for (int i = 0; i < player.moves.length; i++) {
-                          final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-                          if (ph < phaseLimit) count = i + 1;
-                        }
-                        visibleMoves = player.moves.take(count).toList();
-                      } else {
-                        visibleMoves = player.moves;
-                      }
+                      // The legs of the beat on show, keyed by their index
+                      // in the chain so a dot still selects its own waypoint.
+                      final legs = stepLegs(player, stepLimit);
+                      final from = stepStart(player, stepLimit);
                       final atStartTime =
                           state.atStep == 0 && state.targetStep == 0;
                       // A ball riding along with the players keeps only its
@@ -895,16 +906,16 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // a run shorter than the token would drop the faded end
                       // icon straight on top of it — the same player drawn
                       // twice. The nudge arrow carries the direction instead.
-                      final shortRun = visibleMoves.isNotEmpty &&
-                          (visibleMoves.last - player.position).distance <
+                      final shortRun = legs.isNotEmpty &&
+                          (legs.last.value - from).distance <
                               nudgeThreshold(player.scale);
-                      return visibleMoves.asMap().entries.where((entry) {
-                        final isEnd = entry.key == visibleMoves.length - 1;
+                      return legs.where((entry) {
+                        final isEnd = entry.key == legs.last.key;
                         if (shortRun && atStartTime && isEnd) return false;
                         if (!ballEscorted) return true;
                         return isEnd;
                       }).map((entry) {
-                        final isLast = entry.key == visibleMoves.length - 1;
+                        final isLast = entry.key == legs.last.key;
                         final chainSelected = state.selectedPlayerId == player.id;
                         return _WaypointDot(
                           key: ValueKey('wp_${player.id}_${entry.key}'),
@@ -930,7 +941,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         painter: PlayerMovesPainter(
                           players: players,
                           targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
-                          completedSteps: state.isAnimating ? state.atStep : null,
+                          // The leg being run is the one to draw: going
+                          // forward that is the beat after the ones done.
+                          completedSteps: state.isAnimating
+                              ? (state.animToStep > state.animFromStep
+                                  ? state.atStep + 1
+                                  : state.atStep)
+                              : null,
                         ),
                         size: Size(canvasW, canvasH),
                       ),
