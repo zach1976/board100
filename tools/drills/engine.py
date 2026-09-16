@@ -551,8 +551,24 @@ def resolve_ball(drill: Drill, sport: str) -> None:
         drill.ball_moves = follow_legs + legs
 
 
+def unlabel_lone_player(drill: Drill) -> None:
+    """A drill with one outfield player has nobody to tell him apart from.
+
+    A "9" on the only man on the board is a number with no job — and a
+    lone dribbler wearing "A" is stranger still. The keeper keeps his GK:
+    that is a role, not a number. The narration names an unlabelled
+    player "the player" / "球员".
+    """
+    def outfield(p):
+        return p.role != "GK" and p.label.upper() not in ("GK", "K")
+    people = [p for p in drill.home + drill.away if outfield(p)]
+    if len(people) == 1:
+        people[0].label = ""
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     from .narrate import compose_note
+    unlabel_lone_player(drill)
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
     space_out(drill, sport)
