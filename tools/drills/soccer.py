@@ -8,6 +8,9 @@ one spec with computed geometry rather than copy-pasted.
 import math
 
 from .engine import Drill, M, P, grid, merge, ring, suffixed
+from .rules_common import (BUILDUP_RULES, DUEL_RULES, GAME_RULES, GK_RULES,
+                           PATTERN_RULES, QUEUE_RULES, ROTATION_RULES,
+                           SETPIECE_RULES, TWO_BALL_RULES)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -17,22 +20,6 @@ from .engine import Drill, M, P, grid, merge, ring, suffixed
 
 # What makes a rondo a rondo rather than a passing square: the defender who
 # wins it comes out, the passer who lost it goes in, and nobody stops.
-# How a 2v2 keeps going: a rep has an end, and the next pair is waiting.
-DUEL_RULES = {
-    "en": "A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue at halfway and the next pair comes straight in; the two defenders hold for four reps, then swap with the attackers.",
-    "en-GB": "A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue at halfway and the next pair comes straight in; the two defenders hold for four reps, then swap with the attackers.",
-    "zh-CN": "一球结束——射门、防守人断球或球出界——进攻两人回到中线排队，下一组马上进攻；防守两人连守四球后与进攻互换。",
-    "zh-TW": "一球結束——射門、防守人斷球或球出界——進攻兩人回到中線排隊，下一組馬上進攻；防守兩人連守四球後與進攻互換。",
-    "ja-JP": "シュート、ボール奪取、ボールアウトで1本終了。攻撃の2人はハーフウェーの列に戻り、次の組がすぐ入る。守備の2人は4本続けてから攻撃と交代。",
-    "ko-KR": "슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격 두 명은 하프라인 줄로 돌아가고 다음 조가 바로 들어온다. 수비 두 명은 네 번을 막은 뒤 공격과 교대한다.",
-    "es-ES": "La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila en el medio campo y entra la siguiente pareja; los dos defensores aguantan cuatro repeticiones y luego cambian con los atacantes.",
-    "fr-FR": "La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file à la ligne médiane et la paire suivante enchaîne ; les deux défenseurs tiennent quatre séquences puis permutent avec les attaquants.",
-    "id-ID": "Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean di tengah lapangan dan pasangan berikutnya langsung masuk; dua bek bertahan empat ulangan lalu bertukar dengan penyerang.",
-    "ms-MY": "Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan di tengah padang dan pasangan seterusnya terus masuk; dua pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.",
-    "th-TH": "จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวที่กลางสนามแล้วคู่ถัดไปเข้าทันที ฝ่ายรับสองคนรับสี่รอบแล้วสลับกับฝ่ายบุก",
-    "vi-VN": "Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Hai tiền đạo về xếp hàng ở giữa sân, cặp tiếp theo vào ngay; hai hậu vệ giữ bốn lượt rồi đổi vai với tiền đạo.",
-}
-
 RONDO_RULES = {
     "en": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
     "en-GB": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
@@ -558,7 +545,8 @@ def soccer_drills() -> list[Drill]:
             # their own halves, and nobody finishes his run on a marker.
             home=[
                 P(300, 880, "A", moves=[(320, 760, 0)]), P(700, 880, "B"),
-                P(350, 1080, "C"), P(680, 1040, "D", moves=[(820, 820, 1)]),
+                P(350, 1080, "C"),
+                P(680, 1040, "D", moves=[(800, 560, 1)], why={1: "run_behind"}),
             ],
             away=[
                 P(480, 640, "X1", moves=[(460, 760, 0)]), P(700, 640, "X2"),
@@ -570,8 +558,10 @@ def soccer_drills() -> list[Drill]:
                 M(200, 200), M(800, 200), M(200, 1200), M(800, 1200),
             ],
             ball=0,
-            # two passes across the four-goal box as 4 breaks
-            ball_to=[(1, 0), (3, 1)],
+            # two passes across the box as D breaks, and the ball through
+            # the top-right gate — a game's rep ends with a goal, and a
+            # board that stopped on D's feet showed no way to score.
+            ball_to=[(1, 0), (3, 1), ((750, 250), 2)],
             free=True,
         ),
         # ── warm-up ──────────────────────────────────────────────────────────
@@ -658,8 +648,11 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "บอลที่ผ่ากลางระหว่างสองกองหลังนับสองแต้ม มีช่องแค่ชั่วขณะ",
                   "vi-VN": "Đường chuyền xuyên giữa hai hậu vệ tính điểm đôi, chỉ mở ra trong khoảnh khắc."},
             home=[
-                P(500, 480, "A", moves=[(560, 520, 0)]),
-                P(780, 640, "B"), P(700, 900, "C", moves=[(640, 860, 1)]),
+                P(500, 480, "A", moves=[(560, 520, 0), (500, 480, 1)],
+                  why={0: "open_angle", 1: "reset"}),
+                P(780, 640, "B"),
+                P(700, 900, "C", moves=[(640, 860, 1), (700, 900, 2)],
+                  why={1: "meet", 2: "reset"}),
                 P(300, 900, "D"), P(220, 640, "E"),
             ],
             # Either side of the 1→3 line with a lane between them: the
@@ -671,8 +664,9 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(480, 460), M(800, 620), M(720, 920), M(280, 920), M(200, 620)],
             ball=0,
-            # the split pass through the middle, then round
-            ball_to=[(2, 0), (4, 1)],
+            # the split pass through the middle, round, and back to A, so
+            # the next split can go
+            ball_to=[(2, 0), (4, 1), (0, 2)],
         ),
         Drill(
             id="possession_3_zone", category="possession", minutes=15,
@@ -1387,9 +1381,10 @@ def soccer_drills() -> list[Drill]:
                 P(580, 450, "10", moves=[(560, 380, 0)]),
             ],
             # the corner comes in; the near-post zone attacks it first and
-            # heads it out to the outlet on the edge of the box
+            # heads it out to the outlet on the edge of the box, who drives
+            # it away upfield — the rep is over when the ball is clear
             ball=(896, 170),
-            ball_to=[(4, 0), (5, 1)],
+            ball_to=[(4, 0), (5, 1), ((820, 800), 2)],
         ),
         Drill(
             id="ssg_5v5_two_touch", category="ssg", minutes=18,
@@ -3085,8 +3080,9 @@ def heading_family() -> list[Drill]:
                      "边路另有一名边后卫作为解围目标",
         },
         ball=0,
-        # Won in front of the striker and cleared to the full-back.
-        ball_to=[("a0", 0), ("a1", 1)],
+        # Won in front of the striker, cleared to the full-back, and played
+        # long by him — the rep ends with the ball out of the defensive third.
+        ball_to=[("a0", 0), ("a1", 1), ((0.12, 0.72), 2)],
     ))
     return out
 
@@ -3158,7 +3154,10 @@ def goal_kick_family() -> list[Drill]:
                          "对方两人上抢",
             },
             ball=0,
-            ball_to=legs,
+            # …and the last man plays it forward into the other half: the
+            # goal kick has worked when the ball is out of the back third,
+            # not when a midfielder is standing on it.
+            ball_to=legs + [((0.50, 0.28), len(legs))],
         ))
     return out
 
@@ -3379,7 +3378,8 @@ def match_moments() -> list[Drill]:
                   "th-TH": "สามคนอยู่หลังขณะที่คนอื่นบุก ยืนตรงเส้นทางที่สวนกลับจะมา ไม่ใช่ตรงที่บอลอยู่",
                   "vi-VN": "Ba người ở lại khi số còn lại dâng lên, đứng ở nơi pha phản công sẽ đi qua, không phải nơi có bóng."},
             home=[
-                P(0.30, 0.72, "5", moves=[(0.36, 0.66, 0), (0.44, 0.56, 1)]),
+                P(0.30, 0.72, "5", moves=[(0.36, 0.66, 0), (0.44, 0.56, 1), (0.36, 0.62, 2)],
+                  why={2: "close_lane"}),
                 P(0.52, 0.76, "4", moves=[(0.52, 0.68, 0), (0.50, 0.56, 1)]),
                 P(0.74, 0.70, "6", moves=[(0.68, 0.64, 0), (0.58, 0.54, 1)]),
                 P(0.20, 0.44, "3", moves=[(0.24, 0.32, 0)]),
@@ -3388,15 +3388,18 @@ def match_moments() -> list[Drill]:
             ],
             away=[
                 P(0.52, 0.20, "A", moves=[(0.50, 0.44, 1)]),
-                P(0.28, 0.22, "B", moves=[(0.30, 0.46, 1)]),
+                P(0.28, 0.22, "B", moves=[(0.30, 0.46, 1), (0.30, 0.64, 2)], why={1: "run_behind", 2: "run_behind"}),
                 P(0.76, 0.22, "C", moves=[(0.72, 0.46, 1)]),
             ],
             # The ball is what is being lost, so it has to be on the 10 as he
             # carries it in — a plain ball= left it standing in midfield while
             # he ran off, and the turnover then came from open grass.
             ball_follow=4,
-            # the turnover: their A carries away on the second beat
-            ball_to=[("a0", 1)],
+            # the turnover: their A carries away on the second beat and
+            # tries to release B down the side — and the 5, already across,
+            # steps in and wins it back. That is the rep: the rest defence
+            # is there to stop the counter, and the board shows it stopped.
+            ball_to=[("a0", 1), (0, 2)],
         ),
         Drill(
             id="press_trap_touchline", category="defending", minutes=12, rel=True,
@@ -3581,6 +3584,54 @@ USAGE = {
 }
 
 
+# Which continuation each drill gets (rules_common), by id or by the prefix
+# a family shares. A drill that already writes its own rule keeps it.
+RULES = {
+    # one man, one rep: back of the line
+    "dribble_slalom": QUEUE_RULES, "cond_": QUEUE_RULES, "touch_": QUEUE_RULES,
+    "warmup_first_touch_gate": QUEUE_RULES, "finish_": QUEUE_RULES,
+    "one_v_one_gk": QUEUE_RULES, "cutback_finish": QUEUE_RULES,
+    "header_attacking": QUEUE_RULES, "cross_": QUEUE_RULES,
+    # a group pattern: ball back to the start, everyone round one
+    "warmup_y_pattern": PATTERN_RULES, "combo_": PATTERN_RULES,
+    "wall_pass_wide": PATTERN_RULES, "overlap_wide": PATTERN_RULES,
+    "third_man_run": PATTERN_RULES, "halfspace_run": PATTERN_RULES,
+    "attack_": PATTERN_RULES, "switch_": PATTERN_RULES,
+    "possession_switch_two_touch": PATTERN_RULES,
+    # live opponents: attackers queue, defenders hold
+    "duel_": DUEL_RULES, "counter_": DUEL_RULES, "defend_1v1_channel": DUEL_RULES,
+    "defend_the_cross": DUEL_RULES, "header_defensive": DUEL_RULES,
+    "defend_2v2": DUEL_RULES,
+    # games
+    "ssg_": GAME_RULES, "transition_": GAME_RULES,
+    "possession_3_zone": GAME_RULES, "possession_overload_4v2_plus": GAME_RULES,
+    # build-up and the press
+    "buildup_": BUILDUP_RULES, "build_from_gk": BUILDUP_RULES,
+    "goalkick_": BUILDUP_RULES, "press_": BUILDUP_RULES, "shape_": BUILDUP_RULES,
+    "defend_shape_shift": BUILDUP_RULES, "defend_offside_line": BUILDUP_RULES,
+    "defend_rest_defence": BUILDUP_RULES, "defend_throw_in": BUILDUP_RULES,
+    "defend_counter_press": BUILDUP_RULES,
+    # dead balls
+    "corner_": SETPIECE_RULES, "fk_": SETPIECE_RULES, "free_kick_edge": SETPIECE_RULES,
+    "throw_in_third": SETPIECE_RULES, "setpiece_": SETPIECE_RULES,
+    "finish_penalty_routine": SETPIECE_RULES,
+    # keepers
+    "gk_": GK_RULES,
+    # loops that run themselves
+    "passing_": ROTATION_RULES, "warmup_rotation_square": ROTATION_RULES,
+    "warmup_two_ball": TWO_BALL_RULES,
+}
+
+
+def _rules_of(drill_id: str):
+    if drill_id in RULES:
+        return RULES[drill_id]
+    for key, rules in RULES.items():
+        if key.endswith("_") and drill_id.startswith(key):
+            return rules
+    return None
+
+
 def _usage_of(drill_id: str) -> int:
     if drill_id in USAGE:
         return USAGE[drill_id]
@@ -3595,6 +3646,8 @@ def soccer_library() -> list[Drill]:
     drills = _soccer_library()
     for d in drills:
         d.usage = _usage_of(d.id)
+        if d.rules is None:
+            d.rules = _rules_of(d.id)
     return drills
 
 
