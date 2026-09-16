@@ -254,7 +254,7 @@ class PlayerIconWidget extends StatelessWidget {
               ),
             ),
           ),
-          if (player.label.length > 2) ...[
+          if (player.label.isNotEmpty && !player.labelInside) ...[
             // Small gap so the name badge doesn't crowd the avatar's edge.
             SizedBox(height: 3 * player.scale),
             Container(
@@ -306,7 +306,7 @@ class _PlayerShape extends StatelessWidget {
         ),
         // Turned back by however much the shape was turned: an upside-down
         // 7 is not a 7, and a sideways one is a stroke.
-        if (player.label.isNotEmpty && player.label.length <= 2)
+        if (player.labelInside)
           Align(
             alignment: const Alignment(0, 0.35),
             child: Transform.rotate(
@@ -474,7 +474,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
               ),
             ),
           ),
-        if (p.label.isNotEmpty && p.label.length <= 2)
+        if (p.labelInside)
           Align(
             alignment: const Alignment(0, 0.85),
             child: Transform.rotate(
@@ -701,7 +701,7 @@ class _MarkerWidget extends StatelessWidget {
               ),
             ),
           ),
-        if (player.label.isNotEmpty && player.label.length <= 2)
+        if (player.labelInside)
           Align(
             alignment: Alignment.center,
             child: Transform.rotate(

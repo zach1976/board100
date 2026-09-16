@@ -134,6 +134,13 @@ class PlayerIcon {
     attachedTo: json['attachedTo'] as String?,
   );
 
+  /// Whether the label sits inside the disc like a shirt number, or hangs
+  /// below it as a name badge. A number (up to two digits) or a single
+  /// letter is a shirt; anything else — "X1", "GK", "W1", a real name — is
+  /// a name, and two characters crammed into a 44pt circle were unreadable.
+  bool get labelInside =>
+      label.isNotEmpty &&
+      (label.length == 1 || (label.length <= 2 && int.tryParse(label) != null));
   bool get isBall => team == PlayerTeam.neutral && sportType != null && markerShape == MarkerShape.none;
   bool get isMarker => markerShape != MarkerShape.none;
 

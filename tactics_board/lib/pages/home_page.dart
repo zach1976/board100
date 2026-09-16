@@ -1679,7 +1679,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             _identityGlyph(p),
-                            if (p.label.length > 2) ...[
+                            if (p.label.isNotEmpty && !p.labelInside) ...[
                               const SizedBox(width: 6),
                               Flexible(
                                 child: Text(p.label, overflow: TextOverflow.ellipsis, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
@@ -1699,7 +1699,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               const SizedBox(width: 6),
               // Explicit add-run toggle — while on, taps on the board lay
               // this player's movement path (so a stray tap never can).
-              _MoveToggle(state: widget.state, compact: p.label.length > 2),
+              _MoveToggle(state: widget.state, compact: p.label.isNotEmpty && !p.labelInside),
               if (!isPhoto) ...[
                 const SizedBox(width: 6),
                 // Colour + size — collapsed by default; this reveals Row 2.
@@ -2055,7 +2055,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
             ),
             size: Size(dim, dim),
           ),
-          if (p.label.isNotEmpty && p.label.length <= 2)
+          if (p.labelInside)
             Align(
               alignment: const Alignment(0, 0.35),
               child: Text(
@@ -2096,7 +2096,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     // A named element leaves no room for the "Position" placeholder beside
     // it, so the unset state falls back to its icon. An assigned role is only
     // 2-3 characters ('GK', 'CM'), so that always stays as text.
-    final iconOnly = !assigned && p.label.length > 2;
+    final iconOnly = !assigned && p.label.isNotEmpty && !p.labelInside;
     return GestureDetector(
       onTap: _pickRole,
       child: Container(
