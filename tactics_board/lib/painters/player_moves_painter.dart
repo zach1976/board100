@@ -64,6 +64,34 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
 double nudgeThreshold(double scale) => kPlayerIconSize * scale;
 
 
+/// The legs a player runs on the beat that is showing, as (index into
+/// moves, point). With [phaseLimit] beats elapsed the beat on show is
+/// phaseLimit-1. phaseLimit 0 is the overview: every leg.
+List<MapEntry<int, Offset>> stepLegs(PlayerIcon player, int phaseLimit) {
+  player.syncPhases();
+  final out = <MapEntry<int, Offset>>[];
+  for (var i = 0; i < player.moves.length; i++) {
+    final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+    if (phaseLimit <= 0 || ph == phaseLimit - 1) {
+      out.add(MapEntry(i, player.moves[i]));
+    }
+  }
+  return out;
+}
+
+/// Where the player stands as the beat on show begins: the end of the last
+/// leg of any earlier beat, else the start. The overview starts at the start.
+Offset stepStart(PlayerIcon player, int phaseLimit) {
+  if (phaseLimit <= 0) return player.position;
+  player.syncPhases();
+  var at = player.position;
+  for (var i = 0; i < player.moves.length; i++) {
+    final ph = i < player.movePhases.length ? player.movePhases[i] : i;
+    if (ph < phaseLimit - 1) at = player.moves[i];
+  }
+  return at;
+}
+
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all; used when not animating
@@ -92,26 +120,18 @@ class PlayerMovesPainter extends CustomPainter {
     final color = player.moveColor;
     player.syncPhases();
 
-    // phaseLimit is the number of beats elapsed (atStep). Show only the
-    // segments whose phase value is strictly less than phaseLimit so that
-    // empty beats in the middle of the timeline don't reveal later arrows
-    // ahead of their actual phase.
+    // phaseLimit is the number of beats elapsed (atStep). Past step 0 only
+    // the beat on show is drawn — its legs, from where the player stood as
+    // it began. The earlier legs were the previous steps' pictures, and
+    // stacked up they hid the one that mattered; the later ones have not
+    // started. Step 0 is the overview and draws the whole plan.
     final int phaseLimit = completedSteps ?? targetStep;
-    final List<Offset> allMoves;
-    if (phaseLimit > 0) {
-      int visibleCount = 0;
-      for (int i = 0; i < player.moves.length; i++) {
-        final ph = i < player.movePhases.length ? player.movePhases[i] : i;
-        if (ph < phaseLimit) {
-          visibleCount = i + 1;
-        }
-      }
-      allMoves = player.moves.take(visibleCount).toList();
-    } else {
-      allMoves = player.moves;
-    }
-    if (allMoves.isEmpty) return;
-    final points = [player.position, ...allMoves];
+    final legs = stepLegs(player, phaseLimit);
+    if (legs.isEmpty) return;
+    final points = [
+      stepStart(player, phaseLimit),
+      ...legs.map((e) => e.value),
+    ];
     // bbox half + shadow/border margin — keep arrow clear of the icon's drop shadow
     final iconRadius = kPlayerIconSize / 2 * player.scale + 3;
 
