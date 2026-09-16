@@ -398,6 +398,11 @@ TEMPLATE = r"""<!doctype html>
        padding:12px 14px;font-size:14.5px;color:var(--dim);margin:0 0 6px;
        white-space:pre-line}
   .cur.zh{font-size:14px}
+  .cur .beat{border-radius:4px;padding:0 2px}
+  .cur .beat.on{background:rgba(32,199,195,.22);outline:1px solid var(--accent)}
+  .beat-now{margin-top:10px;min-height:2.6em;padding:8px 12px;border-radius:10px;
+    background:var(--bg1);border:1px solid var(--accent);font-size:14px;line-height:1.5}
+  .beat-now .en{color:var(--dim);font-size:12.5px;display:block;margin-top:2px}
   textarea{width:100%;font-family:var(--body);font-size:14.5px;line-height:1.6;color:var(--text);
            background:var(--surface);border:1px solid var(--border);border-radius:10px;
            padding:12px 14px;resize:vertical;min-height:96px}
@@ -561,14 +566,15 @@ function renderPane() {
           <button class="ghost" id="next">›</button>
           <button class="ghost" id="play">播放</button>
         </div>
+        <div class="beat-now" id="beatNow"></div>
       </div>
 
       <div>
         ${issues}
 
         <h3>现有说明</h3>
-        <p class="cur">${d.note || '<i>空</i>'}</p>
-        <p class="cur zh">${d.noteZh || '<i>空</i>'}</p>
+        <p class="cur" id="noteEn">${noteHtml(d.note)}</p>
+        <p class="cur zh" id="noteZhCur">${noteHtml(d.noteZh)}</p>
 
         <h3>改写后的说明 · 中文</h3>
         <textarea id="noteZh" placeholder="怎么摆、怎么跑、教练看什么。写到 45 词以上才算详细。">${e.noteZh || ''}</textarea>
@@ -626,6 +632,39 @@ function renderPane() {
   };
   document.getElementById('save').onclick = () => doSave(false);
   document.getElementById('nextTodo').onclick = () => doSave(true);
+  // Clicking a sentence walks the board to that beat.
+  for (const el of document.querySelectorAll('.cur .beat')) {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => { step = Number(el.dataset.k); redrawBoard(); });
+  }
+  redrawBoard();
+}
+
+// The note, with every beat of its sequence line wrapped so the stepper can
+// light up the sentence the board is showing. Step 0 is the set-up line.
+const SEQ_HEAD = /^(【流程】|Sequence: )/;
+const SETUP_HEAD = /^(【组织】|Setup: )/;
+function noteHtml(note) {
+  if (!note) return '<i>空</i>';
+  return note.split('\n').map(line => {
+    if (SETUP_HEAD.test(line)) return `<span class="beat" data-k="0">${line}</span>`;
+    if (!SEQ_HEAD.test(line)) return line;
+    const head = line.match(SEQ_HEAD)[0];
+    const body = line.slice(head.length);
+    const parts = body.split(/(?<=；)|(?<=; )/);
+    return head + parts.map((t, i) => `<span class="beat" data-k="${i + 1}">${t}</span>`).join('');
+  }).join('<br>');
+}
+function beatText(note, k) {
+  if (!note) return '';
+  for (const line of note.split('\n')) {
+    if (k === 0 && SETUP_HEAD.test(line)) return line.replace(SETUP_HEAD, '');
+    if (k > 0 && SEQ_HEAD.test(line)) {
+      const parts = line.replace(SEQ_HEAD, '').split(/(?<=；)|(?<=; )/);
+      return (parts[k - 1] || '').replace(/[；;]\s*$/, '');
+    }
+  }
+  return '';
 }
 
 function redrawBoard() {
@@ -633,6 +672,13 @@ function redrawBoard() {
   img.src = src(current, step);
   img.alt = `第 ${step} 步`;
   document.getElementById('stepn').textContent = `${step} / ${current.maxStep}`;
+  // The sentence for this step, under the board and lit in the note.
+  const zh = beatText(current.noteZh, step), en = beatText(current.note, step);
+  const box = document.getElementById('beatNow');
+  if (box) box.innerHTML = `${zh || (step === 0 ? '初始站位' : '')}<span class="en">${en}</span>`;
+  for (const el of document.querySelectorAll('.cur .beat')) {
+    el.classList.toggle('on', Number(el.dataset.k) === step);
+  }
 }
 
 function doSave(advance) {
