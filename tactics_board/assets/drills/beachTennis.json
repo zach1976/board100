@@ -24,6 +24,7 @@
       "minutes": 6,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up volley exchange",
@@ -194,6 +195,7 @@
       "minutes": 6,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up short court",
@@ -364,6 +366,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Volley rally straight",
@@ -529,6 +532,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Volley rally cross-court",
@@ -694,6 +698,7 @@
       "minutes": 8,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Return the block",
@@ -921,6 +926,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Return on the attack",
@@ -1148,6 +1154,7 @@
       "minutes": 8,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve flat exchange",
@@ -1380,6 +1387,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve sliced",
@@ -1612,6 +1620,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve jump",
@@ -1844,6 +1853,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attacking approach",
@@ -2071,6 +2081,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attacking the drop",
@@ -2298,6 +2309,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Attacking cross-court",
@@ -2525,6 +2537,7 @@
       "minutes": 8,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Lob battle over the net pair",
@@ -2752,6 +2765,7 @@
       "minutes": 8,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Lob battle recovering it",
@@ -2966,6 +2980,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash straight",
@@ -3186,6 +3201,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash cross-court",
@@ -3406,6 +3422,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash jump",
@@ -3626,6 +3643,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defending the block",
@@ -3858,6 +3876,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defending the lob",
@@ -4090,6 +4109,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defending the drop",
@@ -4322,6 +4342,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Court coverage the middle ball",
@@ -4529,6 +4550,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Court coverage switching sides",
@@ -4736,6 +4758,7 @@
       "minutes": 15,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game half-court singles",
@@ -4936,6 +4959,7 @@
       "minutes": 15,
       "players": 8,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game king of the court",
@@ -5258,6 +5282,7 @@
       "minutes": 15,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Game full doubles",

@@ -24,6 +24,7 @@
       "minutes": 6,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Footwork to the forehand net",
@@ -269,6 +270,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Footwork to the backhand net",
@@ -514,6 +516,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Footwork to the forehand rear",
@@ -759,6 +762,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Footwork to the backhand rear",
@@ -1004,6 +1008,7 @@
       "minutes": 8,
       "players": 1,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Footwork to all four corners",
@@ -1207,6 +1212,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Multi-shuttle feeding",
@@ -1452,6 +1458,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Clear straight",
@@ -1642,6 +1649,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Clear cross-court",
@@ -1832,6 +1840,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Drive rally flat exchange",
@@ -1997,6 +2006,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Drive rally cross-court",
@@ -2162,6 +2172,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Drop straight",
@@ -2347,6 +2358,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Drop cross-court",
@@ -2532,6 +2544,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Drop sliced",
@@ -2717,6 +2730,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Net kill",
@@ -2902,6 +2916,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Net lift",
@@ -3087,6 +3102,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Net with spin",
@@ -3272,6 +3288,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Deception hold and flick",
@@ -3462,6 +3479,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Deception double motion",
@@ -3652,6 +3670,7 @@
       "minutes": 10,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles attacking shape",
@@ -3846,6 +3865,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles defending shape",
@@ -4053,6 +4073,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles rotating on the lift",
@@ -4260,6 +4281,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash straight",
@@ -4445,6 +4467,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash cross-court",
@@ -4630,6 +4653,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Smash steep",
@@ -4815,6 +4839,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence block return",
@@ -5000,6 +5025,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence drive return",
@@ -5185,6 +5211,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defence lift return",
@@ -5370,6 +5397,7 @@
       "minutes": 6,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Serve short",
@@ -5590,6 +5618,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Serve flick",
@@ -5810,6 +5839,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Serve high singles",
@@ -6030,6 +6060,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Serve drive",
@@ -6250,6 +6281,7 @@
       "minutes": 15,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Conditioned game half-court singles",
@@ -6450,6 +6482,7 @@
       "minutes": 15,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Conditioned game front-court only",
@@ -6610,6 +6643,7 @@
       "minutes": 15,
       "players": 3,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Conditioned game 2v1",
@@ -6797,6 +6831,7 @@
       "minutes": 15,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Conditioned game full doubles",
@@ -7011,6 +7046,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Return of serve against the short serve",
@@ -7236,6 +7272,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Return of serve against the flick",
@@ -7448,6 +7485,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Clear round the head",
@@ -7640,6 +7678,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Net the battle at the tape",

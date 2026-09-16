@@ -24,6 +24,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up mini tennis",
@@ -194,6 +195,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up service box rally",
@@ -364,6 +366,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Warm-up baseline feed",
@@ -534,6 +537,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Rally cross-court forehand",
@@ -744,6 +748,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Rally cross-court backhand",
@@ -954,6 +959,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Rally down the line",
@@ -1164,6 +1170,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Rally figure of eight",
@@ -1362,6 +1369,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Plus one serve",
@@ -1552,6 +1560,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Plus one return",
@@ -1742,6 +1751,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Plus one inside-out forehand",
@@ -1932,6 +1942,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Plus one approach",
@@ -2122,6 +2133,7 @@
       "minutes": 12,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles one up one back",
@@ -2329,6 +2341,7 @@
       "minutes": 12,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles both back",
@@ -2536,6 +2549,7 @@
       "minutes": 12,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles both up",
@@ -2743,6 +2757,7 @@
       "minutes": 12,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Doubles the Australian formation",
@@ -2950,6 +2965,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "At the net first volley",
@@ -3135,6 +3151,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "At the net second volley",
@@ -3320,6 +3337,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "At the net overhead",
@@ -3505,6 +3523,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "At the net drop volley",
@@ -3690,6 +3709,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defending the slice",
@@ -3880,6 +3900,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Defending the lob",
@@ -4070,6 +4091,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Defending the block return",
@@ -4260,6 +4282,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve deuce wide",
@@ -4445,6 +4468,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve deuce down the T",
@@ -4630,6 +4654,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve deuce at the body",
@@ -4815,6 +4840,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve ad wide",
@@ -5000,6 +5026,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve ad down the T",
@@ -5185,6 +5212,7 @@
       "minutes": 20,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Point play half-court singles",
@@ -5385,6 +5413,7 @@
       "minutes": 20,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Point play first to seven",
@@ -5545,6 +5574,7 @@
       "minutes": 20,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Point play approach and volley only",
@@ -5705,6 +5735,7 @@
       "minutes": 20,
       "players": 4,
       "free": true,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Point play doubles set",
@@ -5906,6 +5937,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve the kicking second serve",
@@ -6078,6 +6110,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve and volley",
@@ -6280,6 +6313,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": false,
       "name": {
         "en": "Rally the drop shot and the pass",
@@ -6487,6 +6521,7 @@
       "minutes": 10,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Doubles the poach",

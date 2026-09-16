@@ -153,6 +153,12 @@ class Drill:
     # shape is what happens when the defender wins it, and that has no
     # phase to derive it from.
     rules: dict | None = None
+    # How often a coach reaches for this one within its category: 1 a staple
+    # (the rondo, the passing square, the 1v1 — run most weeks), 2 regular,
+    # 3 occasional (a formation-specific press, a penalty routine). The
+    # library sorts on it after the category's own frequency. Each sport
+    # sets it in one table, USAGE, so the judgement is in one place.
+    usage: int = 2
     # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
     # its holder, which is right for a dribble and useless for a throw:
     # baseball drew four double plays and two relays without a single ball
@@ -1149,6 +1155,7 @@ def build(sport: str, library) -> dict:
                 "minutes": d.minutes,
                 "players": d.player_count,
                 "free": d.free,
+                "usage": d.usage,
                 "offSurface": d.off_surface,
                 "name": d.name,
                 "note": d.note,

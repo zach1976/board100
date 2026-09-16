@@ -24,6 +24,7 @@
       "minutes": 6,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Warm-up forehand to forehand",
@@ -214,6 +215,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Warm-up backhand to backhand",
@@ -404,6 +406,7 @@
       "minutes": 6,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Warm-up down the middle",
@@ -581,6 +584,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Multiball",
@@ -796,6 +800,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Footwork in and out",
@@ -1016,6 +1021,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Footwork Falkenberg",
@@ -1251,6 +1257,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Footwork side to side",
@@ -1421,6 +1428,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Rally control block against the drive",
@@ -1606,6 +1614,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Rally control counter-drive",
@@ -1791,6 +1800,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Rally control half-long pushes",
@@ -1976,6 +1986,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Short game the touch",
@@ -2181,6 +2192,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Short game the flick",
@@ -2386,6 +2398,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Short game the banana flick",
@@ -2591,6 +2604,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Short game the long push",
@@ -2783,6 +2797,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Loop against backspin",
@@ -2968,6 +2983,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Loop against the block",
@@ -3153,6 +3169,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Loop from the backhand corner",
@@ -3338,6 +3355,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Loop countering",
@@ -3523,6 +3541,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Finishing the smash",
@@ -3708,6 +3727,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Finishing from the wide forehand",
@@ -3893,6 +3913,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Finishing into the body",
@@ -4078,6 +4099,7 @@
       "minutes": 10,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Defending the chop block",
@@ -4268,6 +4290,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Defending the deep chop",
@@ -4463,6 +4486,7 @@
       "minutes": 10,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Defending the lob and recover",
@@ -4653,6 +4677,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve short backspin",
@@ -4833,6 +4858,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve long and fast",
@@ -5013,6 +5039,7 @@
       "minutes": 8,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve sidespin wide",
@@ -5193,6 +5220,7 @@
       "minutes": 8,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Serve and third ball",
@@ -5365,6 +5393,7 @@
       "minutes": 15,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Match play half table",
@@ -5565,6 +5594,7 @@
       "minutes": 15,
       "players": 2,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Match play serve and receive only",
@@ -5750,6 +5780,7 @@
       "minutes": 15,
       "players": 2,
       "free": true,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Match play a full game",
@@ -5897,6 +5928,7 @@
       "minutes": 15,
       "players": 4,
       "free": false,
+      "usage": 2,
       "offSurface": true,
       "name": {
         "en": "Match play doubles rotation",
