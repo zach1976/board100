@@ -146,12 +146,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                667.0
+                500.0,
+                677.0
               ],
               [
-                460.0,
-                1024.0
+                500.0,
+                874.0
               ]
             ],
             "movePhases": [
@@ -316,12 +316,12 @@
             "scale": 1.0,
             "moves": [
               [
-                568.0472636815921,
-                743.5
+                549.8742158564211,
+                728.4171786122554
               ],
               [
-                431.9527363184079,
-                947.5
+                450.125784143579,
+                822.5828213877446
               ]
             ],
             "movePhases": [
@@ -481,12 +481,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                539.5
+                345.64676616915426,
+                549.5
               ],
               [
-                385.64676616915426,
-                1024.0
+                345.64676616915426,
+                874.0
               ]
             ],
             "movePhases": [
@@ -646,12 +646,12 @@
             "scale": 1.0,
             "moves": [
               [
-                629.7885572139303,
-                565.0
+                623.640428967453,
+                560.3479170237788
               ],
               [
-                385.64676616915426,
-                1024.0
+                391.7948944156316,
+                888.6520829762212
               ]
             ],
             "movePhases": [
@@ -877,8 +877,8 @@
                 157.0
               ],
               [
-                385.64676616915426,
-                845.5
+                350.8097877507959,
+                695.6667787938661
               ]
             ],
             "movePhases": [
@@ -1104,8 +1104,8 @@
                 157.0
               ],
               [
-                614.3532338308457,
-                1100.5
+                630.8313849231574,
+                954.0361351750784
               ]
             ],
             "movePhases": [
@@ -1332,12 +1332,12 @@
             "scale": 1.0,
             "moves": [
               [
-                401.0820895522388,
-                488.5
+                361.0820895522388,
+                498.5
               ],
               [
-                416.51741293532336,
-                1126.0
+                374.3033270818031,
+                976.0306444703145
               ]
             ],
             "movePhases": [
@@ -1564,12 +1564,12 @@
             "scale": 1.0,
             "moves": [
               [
-                595.0219470493241,
-                501.1273099766709
+                613.7792505923883,
+                508.25543615148786
               ],
               [
-                416.51741293532336,
-                1126.0
+                408.3153855080882,
+                982.590947831608
               ]
             ],
             "movePhases": [
@@ -1796,12 +1796,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                386.5
+                490.0587846838864,
+                395.8799233940086
               ],
               [
-                416.51741293532336,
-                1126.0
+                390.07836594265643,
+                977.1577489315982
               ]
             ],
             "movePhases": [
@@ -2023,12 +2023,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                488.5
+                343.36888804507396,
+                498.46756386968303
               ],
               [
-                385.64676616915426,
-                947.5
+                345.1659973961775,
+                797.5014446293751
               ]
             ],
             "movePhases": [
@@ -2087,18 +2087,18 @@
         "vi-VN": "Tấn công bỏ nhỏ"
       },
       "note": {
-        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1, 2 move up the board; Step 3: A moves up the board.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
-        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1, 2 move up the board; Step 3: A moves up the board.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
-        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 手中。\n【球路】1 → A → 1\n【流程】第1步：1号球员把球击向A；第2步：A把球击向1号球员，1号球员、2号球员向前移动；第3步：A向前移动。\n【要点】只要球高过网带就往前压。在这块场地上，站得离网更近的那一对，多半赢下这一轮。",
-        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 手中。\n【球路】1 → A → 1\n【流程】第1步：1號球員把球擊向A；第2步：A把球擊向1號球員，1號球員、2號球員向前移動；第3步：A向前移動。\n【要點】只要球高過網帶就往前壓。在這塊場地上，站得離網更近的那一對，多半贏下這一輪。",
-        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1番がAへ打つ。ステップ2：Aが1番へ打つ、1番・2番が前方へ移動。ステップ3：Aが前方へ移動。\n【ポイント】白帯より高い球にはすべて前へ出る。このコートではネットに近い方のペアが大抵勝つ。",
-        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1번가 A 쪽으로 친다; 2단계: A가 1번 쪽으로 친다, 1번, 2번는 앞으로 이동; 3단계: A는 앞으로 이동.\n【포인트】테이프보다 높은 공엔 전부 전진하라. 이 코트에선 네트에 가까운 조가 대개 이긴다.",
-        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A; Paso 2: A la juega hacia 1, 1, 2 se desplaza hacia delante; Paso 3: A se desplaza hacia delante.\nPunto clave: Avanza con cualquier bola por encima de la cinta: en esta pista gana casi siempre la pareja más cerca de la red.",
-        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A ; Étape 2 : A joue vers 1, 1, 2 se déplace vers l'avant ; Étape 3 : A se déplace vers l'avant.\nPoint clé : Avance sur toute balle au-dessus de la bande : sur ce terrain, la paire la plus proche du filet gagne le plus souvent.",
-        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A; Langkah 2: A memukul ke 1, 1, 2 bergerak ke depan; Langkah 3: A bergerak ke depan.\nPoin utama: Maju pada setiap bola di atas bibir net.",
-        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A; Langkah 2: A memukul ke arah 1, 1, 2 bergerak ke hadapan; Langkah 3: A bergerak ke hadapan.\nPoin utama: Maju pada setiap bola di atas bibir jaring.",
-        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A • ขั้นที่ 2: A ตีไปที่ 1 1, 2 ขยับไปข้างหน้า • ขั้นที่ 3: A ขยับไปข้างหน้า\nจุดเน้น: ขึ้นหน้าทุกครั้งที่บอลสูงกว่าขอบเน็ต",
-        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A; Bước 2: A đánh sang 1, 1, 2 di chuyển lên phía trước; Bước 3: A di chuyển lên phía trước.\nĐiểm chính: Tiến lên với mọi quả cao hơn mép lưới."
+        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1 runs up in support, 2 moves up the board; Step 3: A runs up in support.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
+        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1 runs up in support, 2 moves up the board; Step 3: A runs up in support.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
+        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，球在 1 手中。\n【球路】1 → A → 1\n【流程】第1步：1号球员把球击向A；第2步：A把球击向1号球员，1号球员跑上去接应，2号球员向前移动；第3步：A跑上去接应。\n【要点】只要球高过网带就往前压。在这块场地上，站得离网更近的那一对，多半赢下这一轮。",
+        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，球在 1 手中。\n【球路】1 → A → 1\n【流程】第1步：1號球員把球擊向A；第2步：A把球擊向1號球員，1號球員跑上去接應，2號球員向前移動；第3步：A跑上去接應。\n【要點】只要球高過網帶就往前壓。在這塊場地上，站得離網更近的那一對，多半贏下這一輪。",
+        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1番がAへ打つ。ステップ2：Aが1番へ打つ、1番がサポートに上がる、2番が前方へ移動。ステップ3：Aがサポートに上がる。\n【ポイント】白帯より高い球にはすべて前へ出る。このコートではネットに近い方のペアが大抵勝つ。",
+        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → A → 1\n【진행】1단계: 1번가 A 쪽으로 친다; 2단계: A가 1번 쪽으로 친다, 1번가 지원하러 올라간다, 2번는 앞으로 이동; 3단계: A가 지원하러 올라간다.\n【포인트】테이프보다 높은 공엔 전부 전진하라. 이 코트에선 네트에 가까운 조가 대개 이긴다.",
+        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A; Paso 2: A la juega hacia 1, 1 sube en apoyo, 2 se desplaza hacia delante; Paso 3: A sube en apoyo.\nPunto clave: Avanza con cualquier bola por encima de la cinta: en esta pista gana casi siempre la pareja más cerca de la red.",
+        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A ; Étape 2 : A joue vers 1, 1 monte en soutien, 2 se déplace vers l'avant ; Étape 3 : A monte en soutien.\nPoint clé : Avance sur toute balle au-dessus de la bande : sur ce terrain, la paire la plus proche du filet gagne le plus souvent.",
+        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A; Langkah 2: A memukul ke 1, 1 maju mendukung, 2 bergerak ke depan; Langkah 3: A maju mendukung.\nPoin utama: Maju pada setiap bola di atas bibir net.",
+        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A; Langkah 2: A memukul ke arah 1, 1 naik menyokong, 2 bergerak ke hadapan; Langkah 3: A naik menyokong.\nPoin utama: Maju pada setiap bola di atas bibir jaring.",
+        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A • ขั้นที่ 2: A ตีไปที่ 1 1 ขึ้นไปสนับสนุน 2 ขยับไปข้างหน้า • ขั้นที่ 3: A ขึ้นไปสนับสนุน\nจุดเน้น: ขึ้นหน้าทุกครั้งที่บอลสูงกว่าขอบเน็ต",
+        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A; Bước 2: A đánh sang 1, 1 dâng lên hỗ trợ, 2 di chuyển lên phía trước; Bước 3: A dâng lên hỗ trợ.\nĐiểm chính: Tiến lên với mọi quả cao hơn mép lưới."
       },
       "mistake": {
         "en": "Hanging back when a ball is up — the pair closer to the net wins the exchange.",
@@ -2250,12 +2250,12 @@
             "scale": 1.0,
             "moves": [
               [
-                401.0820895522388,
-                667.0
+                354.31005666317907,
+                676.7128569965316
               ],
               [
-                385.64676616915426,
-                947.5
+                349.09528888811707,
+                797.5743614910909
               ]
             ],
             "movePhases": [
@@ -2477,12 +2477,12 @@
             "scale": 1.0,
             "moves": [
               [
-                645.223880597015,
-                463.00000000000006
+                642.7893260685354,
+                460.8182024383536
               ],
               [
-                385.64676616915426,
-                947.5
+                392.09536893141586,
+                812.3653141449687
               ]
             ],
             "movePhases": [
@@ -2704,12 +2704,12 @@
             "scale": 1.0,
             "moves": [
               [
-                401.0820895522388,
-                718.0
+                358.88180658674804,
+                727.9697364936998
               ],
               [
-                401.0820895522388,
-                1202.5
+                360.64696751203434,
+                1052.5011833286883
               ]
             ],
             "movePhases": [
@@ -2918,12 +2918,12 @@
             "scale": 1.0,
             "moves": [
               [
-                401.0820895522388,
-                718.0
+                357.85641194610963,
+                727.9349423217488
               ],
               [
-                416.51741293532336,
-                1202.5
+                372.8312456719613,
+                1052.5849690552113
               ]
             ],
             "movePhases": [
@@ -3138,12 +3138,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                424.75
+                343.60849989063917,
+                434.7240299758482
               ],
               [
-                401.0820895522388,
-                1049.5
+                358.5174230925135,
+                899.5411200306661
               ]
             ],
             "movePhases": [
@@ -3358,12 +3358,12 @@
             "scale": 1.0,
             "moves": [
               [
-                645.223880597015,
-                450.25
+                643.4657862397763,
+                448.4868049929945
               ],
               [
-                401.0820895522388,
-                1049.5
+                398.64385594529125,
+                908.8663415542297
               ]
             ],
             "movePhases": [
@@ -3578,12 +3578,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                348.25
+                480.6767125124913,
+                355.8812473213917
               ],
               [
-                401.0820895522388,
-                1049.5
+                376.1495355538432,
+                900.9317362353684
               ]
             ],
             "movePhases": [
@@ -4481,12 +4481,12 @@
             "scale": 1.0,
             "moves": [
               [
-                475.43532338308466,
-                667.0
+                503.46546513117624,
+                517.9005531408138
               ],
               [
-                509.1293532338309,
-                973.0
+                476.23410249157143,
+                823.3161086669041
               ]
             ],
             "movePhases": [
@@ -4688,12 +4688,12 @@
             "scale": 1.0,
             "moves": [
               [
-                475.43532338308466,
-                667.0
+                503.46546513117624,
+                517.9005531408138
               ],
               [
-                614.3532338308457,
-                998.5
+                626.7589231843309,
+                853.4096942345842
               ]
             ],
             "movePhases": [
@@ -4888,12 +4888,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                577.75
+                345.64676616915426,
+                587.75
               ],
               [
-                385.64676616915426,
-                1062.25
+                345.64676616915426,
+                912.2499999999999
               ]
             ],
             "movePhases": [
@@ -5210,12 +5210,12 @@
             "scale": 1.0,
             "moves": [
               [
-                370.2114427860697,
-                673.375
+                330.2114427860697,
+                683.375
               ],
               [
-                370.2114427860697,
-                966.625
+                330.2114427860697,
+                816.625
               ]
             ],
             "movePhases": [
@@ -5424,12 +5424,12 @@
             "scale": 1.0,
             "moves": [
               [
-                370.2114427860697,
-                673.375
+                330.2114427860697,
+                683.375
               ],
               [
-                370.2114427860697,
-                966.625
+                330.2114427860697,
+                816.625
               ]
             ],
             "movePhases": [

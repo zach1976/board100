@@ -343,26 +343,26 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              340.0,
-              570.0
+              380.0,
+              500.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                580.0,
-                570.0
+                540.0,
+                500.0
               ],
               [
-                660.0,
-                890.0
+                664.2229123600034,
+                748.4458247200067
               ],
               [
-                420.0,
-                970.0
+                450.5914709812017,
+                862.3590087177535
               ],
               [
-                340.0,
-                570.0
+                330.7012180927107,
+                573.8744557179531
               ]
             ],
             "movePhases": [
@@ -1009,18 +1009,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              240.0,
-              570.0
+              274.2781352708207,
+              529.7112541083283
             ],
             "scale": 1.0,
             "moves": [
               [
-                560.0,
-                730.0
+                525.7218647291793,
+                630.2887458916717
               ],
               [
-                780.0,
-                770.0
+                742.1543958127841,
+                681.5592324257553
               ]
             ],
             "movePhases": [
@@ -1288,12 +1288,12 @@
             "scale": 1.0,
             "moves": [
               [
-                860.0,
-                450.0
+                883.5191615160127,
+                458.2839827989399
               ],
               [
-                440.0,
-                320.0
+                473.4730752139842,
+                281.6497585867606
               ]
             ],
             "movePhases": [
@@ -1494,16 +1494,16 @@
             "scale": 1.0,
             "moves": [
               [
-                520.0,
-                870.0
+                485.33235150375526,
+                828.7183263447096
               ],
               [
-                380.0,
-                890.0
+                419.85644067710956,
+                824.790499178925
               ],
               [
-                600.0,
-                430.0
+                605.7556793084678,
+                432.30025242262644
               ]
             ],
             "movePhases": [
@@ -1788,18 +1788,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              290.0,
-              970.0
+              312.4695047554424,
+              850.0243961956461
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                770.0
+                437.5304952445576,
+                749.9756038043539
               ],
               [
-                780.0,
-                530.0
+                756.2507622863812,
+                508.3325427732964
               ]
             ],
             "movePhases": [
@@ -2055,12 +2055,12 @@
             "scale": 1.0,
             "moves": [
               [
-                820.0,
-                330.0
+                856.6695564230255,
+                339.9306458473882
               ],
               [
-                500.0,
-                490.0
+                538.4183696568042,
+                404.17093494963103
               ]
             ],
             "movePhases": [
@@ -2215,8 +2215,8 @@
                 345.7218647291793
               ],
               [
-                500.0,
-                130.0
+                497.12978781374,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -2480,8 +2480,8 @@
             "scale": 1.0,
             "moves": [
               [
-                480.0,
-                410.0
+                446.8950761103794,
+                372.49107728427583
               ]
             ],
             "movePhases": [
@@ -2676,12 +2676,12 @@
             "scale": 1.0,
             "moves": [
               [
-                400.0,
-                830.0
+                353.6203822173688,
+                839.74522228289
               ],
               [
-                620.0,
-                870.0
+                580.6647685893081,
+                810.2917956165073
               ]
             ],
             "movePhases": [
@@ -2971,18 +2971,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              874.0,
-              280.47048751007253
+              837.3762967000652,
+              233.4663152317172
             ],
             "scale": 1.0,
             "moves": [
               [
-                568.0,
-                372.30529814665596
+                684.6237032999348,
+                279.3094704250113
               ],
               [
-                460.0,
-                268.99113618049967
+                573.3587509979268,
+                230.90498352023866
               ]
             ],
             "movePhases": [
@@ -3238,18 +3238,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              495.0,
-              441.0
+              534.0348441358475,
+              383.3892458375112
             ],
             "scale": 1.0,
             "moves": [
               [
-                600.0,
-                470.0
+                560.9651558641525,
+                387.6107541624888
               ],
               [
-                460.0,
-                130.0
+                514.6359555909244,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -3678,12 +3678,12 @@
             "scale": 1.0,
             "moves": [
               [
-                660.0,
-                950.0
+                620.0,
+                880.0
               ],
               [
-                780.0,
-                890.0
+                743.3738971823079,
+                842.9878308453076
               ]
             ],
             "movePhases": [
@@ -3946,18 +3946,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1190.0
+              500.0,
+              1040.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                1010.0
+                500.0,
+                1020.0
               ],
               [
-                720.0,
-                570.0
+                724.2229123600034,
+                571.5541752799933
               ]
             ],
             "movePhases": [
@@ -4171,26 +4171,26 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              660.0,
-              1120.0
+              620.0,
+              1050.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                340.0,
-                1120.0
+                380.0,
+                1050.0
               ],
               [
-                460.0,
-                970.0
+                399.3869879551734,
+                977.2987951680997
               ],
               [
-                660.0,
-                1120.0
+                622.2416578099607,
+                1031.1946757577343
               ],
               [
-                520.0,
-                830.0
+                577.8954630015164,
+                837.9727670662095
               ]
             ],
             "movePhases": [
@@ -4548,12 +4548,12 @@
             "scale": 1.0,
             "moves": [
               [
-                660.0,
-                970.0
+                665.6053135686121,
+                827.7711584940855
               ],
               [
-                260.0,
-                710.0
+                293.7220776935874,
+                671.0653385711578
               ]
             ],
             "movePhases": [
@@ -4936,12 +4936,12 @@
             "scale": 1.0,
             "moves": [
               [
-                620.0,
-                1150.0
+                583.2210074393383,
+                1102.471900261657
               ],
               [
-                600.0,
-                530.0
+                632.9573819106076,
+                539.6894066388185
               ]
             ],
             "movePhases": [
@@ -5232,18 +5232,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1230.0
+              429.48160239769743,
+              1262.2222869987665
             ],
             "scale": 1.0,
             "moves": [
               [
-                260.0,
-                1220.0
+                290.51839760230257,
+                1187.7777130012335
               ],
               [
-                200.0,
-                850.0
+                184.3870631124926,
+                856.1923300125892
               ]
             ],
             "movePhases": [
@@ -5417,12 +5417,12 @@
             "scale": 1.0,
             "moves": [
               [
-                600.0,
-                790.0
+                698.0762147124661,
+                775.0195718328627
               ],
               [
-                850.0,
-                540.0
+                847.3949027746556,
+                537.7111932432073
               ]
             ],
             "movePhases": [
@@ -5680,16 +5680,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                870.0
+                500.0,
+                880.0
               ],
               [
-                460.0,
-                770.0
+                500.0,
+                780.0
               ],
               [
-                620.0,
-                470.0
+                628.9554399953494,
+                473.7308300110452
               ]
             ],
             "movePhases": [
@@ -5938,16 +5938,16 @@
             "scale": 1.0,
             "moves": [
               [
-                660.0,
-                630.0
+                652.0,
+                624.0
               ],
               [
-                580.0,
-                410.0
+                628.957402729758,
+                419.49694922660194
               ],
               [
-                460.0,
-                130.0
+                527.0119631683941,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -6169,12 +6169,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                550.0
+                430.19951872402237,
+                519.0882695145475
               ],
               [
-                460.0,
-                130.0
+                487.97487395883996,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -6362,22 +6362,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              970.0
+              469.97560380435397,
+              837.5304952445576
             ],
             "scale": 1.0,
             "moves": [
               [
-                620.0,
-                670.0
+                610.0243961956461,
+                662.4695047554425
               ],
               [
-                500.0,
-                490.0
+                562.1966333712011,
+                496.8590233283281
               ],
               [
-                510.0,
-                130.0
+                486.51966587790207,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -6648,12 +6648,12 @@
             "scale": 1.0,
             "moves": [
               [
-                520.0,
-                790.0
+                490.06741791027696,
+                758.8514344942905
               ],
               [
-                840.0,
-                810.0
+                800.0933274204007,
+                743.8631175566766
               ]
             ],
             "movePhases": [
@@ -6916,8 +6916,8 @@
             "scale": 1.0,
             "moves": [
               [
-                560.0,
-                630.0
+                557.6000847997456,
+                627.8398643204071
               ]
             ],
             "movePhases": [
@@ -7219,12 +7219,12 @@
             "scale": 1.0,
             "moves": [
               [
-                730.0,
-                429.70205479452056
+                825.5504584469797,
+                302.13342995137896
               ],
               [
-                550.0,
-                383.7846494762289
+                669.90231254045,
+                309.8323778903873
               ]
             ],
             "movePhases": [
@@ -7481,18 +7481,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              935.0,
-              630.0
+              903.667516971985,
+              596.2170797422701
             ],
             "scale": 1.0,
             "moves": [
               [
-                830.0,
-                690.0
+                935.0,
+                580.3088849314533
               ],
               [
-                800.0,
-                430.0
+                871.6773912846373,
+                433.46116580479776
               ]
             ],
             "movePhases": [
@@ -7888,12 +7888,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                890.0
+                440.5364683002267,
+                873.517178529796
               ],
               [
-                620.0,
-                930.0
+                580.1513121714881,
+                864.9180333533703
               ]
             ],
             "movePhases": [
@@ -7939,18 +7939,18 @@
         "vi-VN": "Ô vuông luân chuyển"
       },
       "note": {
-        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → C → D → E\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, E move right; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: D moves up the board.\nCoaching point: Take the place of the player you passed to. Talk before the pass, not after it.",
-        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → C → D → E\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, E move right; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: D moves up the board.\nCoaching point: Take the place of the player you passed to. Talk before the pass, not after it.",
-        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】5 人，4 个锥标，球在 A 脚下。\n【球路】A → B → C → D → E\n【流程】第1步：A把球传给B；第2步：B把球传给C，A、E向右移动；第3步：C把球传给D，B跟上去，跑到C身后；第4步：D把球传给E，C跟上去，跑到D身后；第5步：D向前移动。\n【要点】传给谁就去补谁的位置。开口要在传球之前，不是之后。",
-        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】5 人，4 個錐標，球在 A 腳下。\n【球路】A → B → C → D → E\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A、E向右移動；第3步：C把球傳給D，B跟上去，跑到C身後；第4步：D把球傳給E，C跟上去，跑到D身後；第5步：D向前移動。\n【要點】傳給誰就去補誰的位置。開口要在傳球之前，不是之後。",
-        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】5人、コーン4個、ボールはA。\n【ボールの道筋】A → B → C → D → E\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、A・Eが右へ移動。ステップ3：CがDへパス、BがCの後ろへ入る。ステップ4：DがEへパス、CがDの後ろへ入る。ステップ5：Dが前方へ移動。\n【ポイント】パスした相手の位置に入る。声はパスの前に出す。",
-        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】5명, 콘 4개, 공은 A.\n【볼 경로】A → B → C → D → E\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A, E는 오른쪽으로 이동; 3단계: C가 D에게 패스, B가 C 뒤로 따라 들어간다; 4단계: D가 E에게 패스, C가 D 뒤로 따라 들어간다; 5단계: D는 앞으로 이동.\n【포인트】패스한 상대의 자리로 들어간다. 말은 패스 전에 하라.",
-        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 5 jugadores, 4 conos, balón con A.\nRecorrido del balón: A → B → C → D → E\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A, E se desplaza a la derecha; Paso 3: C pasa a D, B sube por detrás de C; Paso 4: D pasa a E, C sube por detrás de D; Paso 5: D se desplaza hacia delante.\nPunto clave: Ocupa el sitio de a quien pasaste. Habla antes del pase, no después.",
-        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 5 joueurs, 4 plots, ballon avec A.\nTrajet du ballon : A → B → C → D → E\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A, E se déplace à droite ; Étape 3 : C passe à D, B monte derrière C ; Étape 4 : D passe à E, C monte derrière D ; Étape 5 : D se déplace vers l'avant.\nPoint clé : Prends la place de celui à qui tu passes. Parle avant la passe.",
-        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 5 pemain, 4 kerucut, bola pada A.\nJalur bola: A → B → C → D → E\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A, E bergerak ke kanan; Langkah 3: C mengoper ke D, B maju di belakang C; Langkah 4: D mengoper ke E, C maju di belakang D; Langkah 5: D bergerak ke depan.\nPoin utama: Ambil posisi pemain yang kamu umpan. Bicara sebelum mengumpan.",
-        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 5 pemain, 4 kon, bola dengan A.\nLaluan bola: A → B → C → D → E\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A, E bergerak ke kanan; Langkah 3: C menghantar kepada D, B naik di belakang C; Langkah 4: D menghantar kepada E, C naik di belakang D; Langkah 5: D bergerak ke hadapan.\nPoin utama: Ambil tempat pemain yang anda hantar. Bercakap sebelum hantaran.",
-        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: ผู้เล่น 5 คน กรวย 4 อัน บอลอยู่ที่ A\nเส้นทางบอล: A → B → C → D → E\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A, E ขยับไปทางขวา • ขั้นที่ 3: C จ่ายให้ D B ตามขึ้นไปด้านหลังC • ขั้นที่ 4: D จ่ายให้ E C ตามขึ้นไปด้านหลังD • ขั้นที่ 5: D ขยับไปข้างหน้า\nจุดเน้น: ไปยืนแทนคนที่คุณจ่ายให้ พูดก่อนจ่าย ไม่ใช่หลังจ่าย",
-        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 5 cầu thủ, 4 cọc, bóng ở chỗ A.\nĐường bóng: A → B → C → D → E\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A, E di chuyển sang phải; Bước 3: C chuyền cho D, B theo lên phía sau C; Bước 4: D chuyền cho E, C theo lên phía sau D; Bước 5: D di chuyển lên phía trước.\nĐiểm chính: Vào chỗ người bạn vừa chuyền. Gọi trước khi chuyền, không phải sau."
+        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → C → D → E\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, E move right; Step 3: C passes to D, B moves back; Step 4: D passes to E, C moves left; Step 5: D moves up the board.\nCoaching point: Take the place of the player you passed to. Talk before the pass, not after it.",
+        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → C → D → E\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, E move right; Step 3: C passes to D, B moves back; Step 4: D passes to E, C moves left; Step 5: D moves up the board.\nCoaching point: Take the place of the player you passed to. Talk before the pass, not after it.",
+        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】5 人，4 个锥标，球在 A 脚下。\n【球路】A → B → C → D → E\n【流程】第1步：A把球传给B；第2步：B把球传给C，A、E向右移动；第3步：C把球传给D，B向后移动；第4步：D把球传给E，C向左移动；第5步：D向前移动。\n【要点】传给谁就去补谁的位置。开口要在传球之前，不是之后。",
+        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】5 人，4 個錐標，球在 A 腳下。\n【球路】A → B → C → D → E\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A、E向右移動；第3步：C把球傳給D，B向後移動；第4步：D把球傳給E，C向左移動；第5步：D向前移動。\n【要點】傳給誰就去補誰的位置。開口要在傳球之前，不是之後。",
+        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】5人、コーン4個、ボールはA。\n【ボールの道筋】A → B → C → D → E\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、A・Eが右へ移動。ステップ3：CがDへパス、Bが後方へ移動。ステップ4：DがEへパス、Cが左へ移動。ステップ5：Dが前方へ移動。\n【ポイント】パスした相手の位置に入る。声はパスの前に出す。",
+        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】5명, 콘 4개, 공은 A.\n【볼 경로】A → B → C → D → E\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A, E는 오른쪽으로 이동; 3단계: C가 D에게 패스, B는 뒤로 이동; 4단계: D가 E에게 패스, C는 왼쪽으로 이동; 5단계: D는 앞으로 이동.\n【포인트】패스한 상대의 자리로 들어간다. 말은 패스 전에 하라.",
+        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 5 jugadores, 4 conos, balón con A.\nRecorrido del balón: A → B → C → D → E\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A, E se desplaza a la derecha; Paso 3: C pasa a D, B se desplaza hacia atrás; Paso 4: D pasa a E, C se desplaza a la izquierda; Paso 5: D se desplaza hacia delante.\nPunto clave: Ocupa el sitio de a quien pasaste. Habla antes del pase, no después.",
+        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 5 joueurs, 4 plots, ballon avec A.\nTrajet du ballon : A → B → C → D → E\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A, E se déplace à droite ; Étape 3 : C passe à D, B se déplace vers l'arrière ; Étape 4 : D passe à E, C se déplace à gauche ; Étape 5 : D se déplace vers l'avant.\nPoint clé : Prends la place de celui à qui tu passes. Parle avant la passe.",
+        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 5 pemain, 4 kerucut, bola pada A.\nJalur bola: A → B → C → D → E\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A, E bergerak ke kanan; Langkah 3: C mengoper ke D, B bergerak ke belakang; Langkah 4: D mengoper ke E, C bergerak ke kiri; Langkah 5: D bergerak ke depan.\nPoin utama: Ambil posisi pemain yang kamu umpan. Bicara sebelum mengumpan.",
+        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 5 pemain, 4 kon, bola dengan A.\nLaluan bola: A → B → C → D → E\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A, E bergerak ke kanan; Langkah 3: C menghantar kepada D, B bergerak ke belakang; Langkah 4: D menghantar kepada E, C bergerak ke kiri; Langkah 5: D bergerak ke hadapan.\nPoin utama: Ambil tempat pemain yang anda hantar. Bercakap sebelum hantaran.",
+        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: ผู้เล่น 5 คน กรวย 4 อัน บอลอยู่ที่ A\nเส้นทางบอล: A → B → C → D → E\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A, E ขยับไปทางขวา • ขั้นที่ 3: C จ่ายให้ D B ขยับถอยหลัง • ขั้นที่ 4: D จ่ายให้ E C ขยับไปทางซ้าย • ขั้นที่ 5: D ขยับไปข้างหน้า\nจุดเน้น: ไปยืนแทนคนที่คุณจ่ายให้ พูดก่อนจ่าย ไม่ใช่หลังจ่าย",
+        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 5 cầu thủ, 4 cọc, bóng ở chỗ A.\nĐường bóng: A → B → C → D → E\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A, E di chuyển sang phải; Bước 3: C chuyền cho D, B di chuyển lùi lại; Bước 4: D chuyền cho E, C di chuyển sang trái; Bước 5: D di chuyển lên phía trước.\nĐiểm chính: Vào chỗ người bạn vừa chuyền. Gọi trước khi chuyền, không phải sau."
       },
       "mistake": {
         "en": "Going through the motions cold — the warm-up sets the standard the session keeps.",
@@ -8196,20 +8196,20 @@
             "scale": 1.0,
             "moves": [
               [
-                660.0,
-                670.0
+                620.0,
+                600.0
               ],
               [
-                660.0,
-                970.0
+                679.3869879551734,
+                822.7012048319003
               ],
               [
-                340.0,
-                970.0
+                378.3894666975513,
+                884.0284155177549
               ],
               [
-                340.0,
-                670.0
+                321.28360480080977,
+                677.1168474892676
               ]
             ],
             "movePhases": [
@@ -8487,20 +8487,20 @@
             "scale": 1.0,
             "moves": [
               [
-                600.0,
-                720.0
+                561.0207103429882,
+                637.2614048940303
               ],
               [
-                600.0,
-                950.0
+                615.2478178014519,
+                803.9255004853145
               ],
               [
-                410.0,
-                950.0
+                446.40838394576554,
+                856.2985472429119
               ],
               [
-                410.0,
-                720.0
+                397.78563280407957,
+                725.0197214716028
               ]
             ],
             "movePhases": [
@@ -8799,16 +8799,16 @@
             "scale": 1.0,
             "moves": [
               [
-                220.0,
-                570.0
+                256.9219158112659,
+                521.9776902317902
               ],
               [
-                600.0,
-                770.0
+                567.4511955478581,
+                666.2854486524752
               ],
               [
-                810.0,
-                570.0
+                781.0538241880654,
+                540.576160992753
               ]
             ],
             "movePhases": [
@@ -9099,12 +9099,12 @@
             "scale": 1.0,
             "moves": [
               [
-                480.0,
-                870.0
+                444.9800991421037,
+                772.2148515341124
               ],
               [
-                840.0,
-                570.0
+                812.1830857171615,
+                542.4366131678075
               ]
             ],
             "movePhases": [
@@ -9347,12 +9347,12 @@
             "scale": 1.0,
             "moves": [
               [
-                220.0,
-                410.0
+                180.0,
+                420.0
               ],
               [
-                720.0,
-                350.0
+                682.2334233141371,
+                298.7712426483117
               ]
             ],
             "movePhases": [
@@ -9546,12 +9546,12 @@
             "scale": 1.0,
             "moves": [
               [
-                480.0,
-                510.0
+                599.8442062786311,
+                435.0097371075856
               ],
               [
-                460.0,
-                130.0
+                520.5825265911062,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -9783,12 +9783,12 @@
             "scale": 1.0,
             "moves": [
               [
-                730.0,
-                950.0
+                755.0310313688004,
+                958.587085313798
               ],
               [
-                640.0,
-                790.0
+                703.999669406975,
+                796.3152400792653
               ]
             ],
             "movePhases": [
@@ -10097,12 +10097,12 @@
             "scale": 1.0,
             "moves": [
               [
-                660.0,
-                300.0
+                776.4959964405946,
+                206.58285823247107
               ],
               [
-                740.0,
-                570.0
+                779.0447037395654,
+                420.0057038967477
               ]
             ],
             "movePhases": [
@@ -10538,12 +10538,12 @@
             "scale": 1.0,
             "moves": [
               [
-                680.0,
-                970.0
+                653.9018125753962,
+                945.0669459713208
               ],
               [
-                580.0,
-                710.0
+                628.8359342864414,
+                719.510541850032
               ]
             ],
             "movePhases": [
@@ -10786,12 +10786,12 @@
             "scale": 1.0,
             "moves": [
               [
-                520.0,
-                810.0
+                480.5479516541699,
+                730.6527001946082
               ],
               [
-                800.0,
-                590.0
+                770.9790887958538,
+                560.4489037743839
               ]
             ],
             "movePhases": [
@@ -10958,8 +10958,8 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                160.0
+                484.2063305941471,
+                191.0324335213538
               ]
             ],
             "movePhases": [
@@ -11375,30 +11375,30 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              625.9629938960516
+              568.5947780598593,
+              597.1304133308261
             ],
             "scale": 1.0,
             "moves": [
               [
-                627.5523817582987,
-                726.5201991561963
+                598.9576036984395,
+                615.3527797214218
               ],
               [
-                619.4038607420594,
-                922.7442435008584
+                639.663587017278,
+                775.217979607448
               ],
               [
-                470.96462211824905,
-                976.9792354757296
+                498.6108480510253,
+                864.2710615853397
               ],
               [
-                337.9299293008258,
-                814.2742595511158
+                366.59143675868813,
+                785.3302870454304
               ],
               [
-                460.0,
-                625.9629938960516
+                459.77786145532747,
+                625.116298740384
               ]
             ],
             "movePhases": [
@@ -11912,34 +11912,34 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              593.6234928787269
+              572.2085229899026,
+              558.0608157656285
             ],
             "scale": 1.0,
             "moves": [
               [
-                638.0006964303441,
-                678.5146830492043
+                605.7921734404415,
+                574.0773601623027
               ],
               [
-                697.3342619071254,
-                876.5941267803182
+                697.9425477199661,
+                736.9644430714491
               ],
               [
-                519.3335654767814,
-                1018.079443731114
+                603.2404191756765,
+                881.205022625105
               ],
               [
-                361.999303569656,
-                961.4853169507957
+                401.94591128301,
+                888.5630036330475
               ],
               [
-                302.66573809287456,
-                763.4058732196818
+                309.13876809997225,
+                758.5231326979446
               ],
               [
-                460.0,
-                593.6234928787269
+                449.55175021889715,
+                585.711930562594
               ]
             ],
             "movePhases": [
@@ -12501,38 +12501,38 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              561.2839918614021
+              574.3343846951483,
+              520.8542345386901
             ],
             "scale": 1.0,
             "moves": [
               [
-                643.6522152317401,
-                634.3409034763379
+                609.3178305365918,
+                534.7706607990499
               ],
               [
-                750.227971648757,
-                822.8505976573335
+                739.1505025213996,
+                691.2787522444839
               ],
               [
-                638.2561458425512,
-                1009.2137336607617
+                697.3375470489425,
+                861.5226780108304
               ],
               [
-                472.05380645419046,
-                1053.0950689608655
+                504.7806525773213,
+                949.7663148139964
               ],
               [
-                277.0163366555848,
-                921.451063060554
+                312.11419666077813,
+                879.0248082294711
               ],
               [
-                280.010929244423,
-                713.4123374510999
+                263.4212434220982,
+                719.9104236369814
               ],
               [
-                460.0,
-                561.2839918614021
+                442.4728662568045,
+                546.8774166820812
               ]
             ],
             "movePhases": [
@@ -13204,42 +13204,42 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              528.9444908440774
+              575.6919114572734,
+              484.84303404527503
             ],
             "scale": 1.0,
             "moves": [
               [
-                646.86180576331,
-                592.8806295416272
+                611.1698943060368,
+                496.9820863404296
               ],
               [
-                786.54976858777,
-                768.548168943536
+                768.139108406937,
+                643.8837858660763
               ],
               [
-                734.94930576331,
-                974.355493169392
+                772.8583697720377,
+                824.3828229208602
               ],
               [
-                522.28726858777,
-                1089.743462923406
+                620.9343051980859,
+                965.3327553666368
               ],
               [
-                353.13819423668997,
-                1047.1193704583727
+                393.07960273598496,
+                974.0581277125519
               ],
               [
-                213.45023141222995,
-                871.451831056464
+                236.35008254239727,
+                850.8847019806051
               ],
               [
-                265.05069423668994,
-                665.6445068306078
+                228.58879912713107,
+                675.5662298712446
               ],
               [
-                460.0,
-                528.9444908440774
+                437.4735351964332,
+                508.84881128999
               ]
             ],
             "movePhases": [
@@ -13601,18 +13601,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              644.3199999999999,
-              1049.5870265914584
+              613.6987446659059,
+              942.0019458407577
             ],
             "scale": 1.0,
             "moves": [
               [
-                470.88,
-                914.7046484689766
+                501.501255334094,
+                882.2897292196774
               ],
               [
-                407.2896,
-                776.9524325141015
+                415.915367647706,
+                770.4782911912678
               ]
             ],
             "movePhases": [
@@ -14008,18 +14008,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1077.1374697824335
+              463.3869337385956,
+              936.0074242395124
             ],
             "scale": 1.0,
             "moves": [
               [
-                462.23999999999995,
-                926.0692062852538
+                458.85306626140436,
+                927.1992518281747
               ],
               [
-                390.70079999999996,
-                771.7867244157937
+                385.30738790811034,
+                773.9142786052865
               ]
             ],
             "movePhases": [
@@ -14455,18 +14455,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              309.59999999999997,
-              1104.6879129734084
+              321.79677079757,
+              974.0620346844637
             ],
             "scale": 1.0,
             "moves": [
               [
-                453.6,
-                937.433764101531
+                361.40322920243,
+                928.0596423904757
               ],
               [
-                374.112,
-                766.6210163174859
+                343.480683873748,
+                776.0705459729456
               ]
             ],
             "movePhases": [
@@ -14942,18 +14942,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              286.55999999999995,
-              1132.2383561643835
+              298.8447713337741,
+              1001.6883546237151
             ],
             "scale": 1.0,
             "moves": [
               [
-                444.96000000000004,
-                948.7983219178083
+                352.6752286662259,
+                939.3483234584767
               ],
               [
-                357.52320000000003,
-                761.4553082191782
+                328.755093610868,
+                770.6629124369182
               ]
             ],
             "movePhases": [
@@ -15469,18 +15469,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              263.52,
-              1159.7887993553586
+              275.8782473441896,
+              1029.3023220646066
             ],
             "scale": 1.0,
             "moves": [
               [
-                436.32000000000005,
-                960.1628797340854
+                343.96175265581036,
+                950.6493570248374
               ],
               [
-                340.9344,
-                756.2896001208702
+                313.78613297594643,
+                765.2505585719615
               ]
             ],
             "movePhases": [
@@ -15682,12 +15682,12 @@
             "scale": 1.0,
             "moves": [
               [
-                346.95,
-                957.752215954875
+                253.25160071149116,
+                947.0521477748348
               ],
               [
-                682.75,
-                544.4955680902498
+                666.3653923033621,
+                531.2474492475844
               ]
             ],
             "movePhases": [
@@ -15997,12 +15997,12 @@
             "scale": 1.0,
             "moves": [
               [
-                524.35,
-                957.752215954875
+                587.4675268439482,
+                964.339290273061
               ],
               [
-                682.75,
-                544.4955680902498
+                701.4532735264055,
+                551.6087929061586
               ]
             ],
             "movePhases": [
@@ -16366,12 +16366,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                957.752215954875
+                500.0,
+                967.752215954875
               ],
               [
-                682.75,
-                590.4129734085415
+                687.090735971319,
+                592.0259393360383
               ]
             ],
             "movePhases": [
@@ -16621,18 +16621,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              425.75714185523117,
+              1236.7715142938778
             ],
             "scale": 1.0,
             "moves": [
               [
-                282.6,
-                1233.2566478646252
+                316.8428581447689,
+                1193.0559434015288
               ],
               [
-                676.0,
-                1003.6696212731669
+                648.919456717246,
+                977.2609129825273
               ]
             ],
             "movePhases": [
@@ -16936,18 +16936,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              445.38477662785374,
+              1208.1141816692925
             ],
             "scale": 1.0,
             "moves": [
               [
-                443.47499999999997,
-                1233.2566478646252
+                458.09022337214617,
+                1221.713276026114
               ],
               [
-                676.0,
-                1003.6696212731669
+                662.6349819899817,
+                993.2697458769832
               ]
             ],
             "movePhases": [
@@ -17305,18 +17305,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              500.0,
+              1186.5708098307814
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                1233.2566478646252
+                500.0,
+                1243.2566478646252
               ],
               [
-                676.0,
-                1003.6696212731669
+                670.2241821435937,
+                999.2788774766715
               ]
             ],
             "movePhases": [
@@ -17525,16 +17525,16 @@
             "scale": 1.0,
             "moves": [
               [
-                270.0,
-                475.61946011281225
+                215.75709092967392,
+                484.34137282594713
               ],
               [
-                550.0,
-                372.30529814665596
+                518.0590723871833,
+                337.2981964862829
               ],
               [
-                513.0,
-                268.99113618049967
+                497.78123764132357,
+                275.05617585684666
               ]
             ],
             "movePhases": [
@@ -17744,16 +17744,16 @@
             "scale": 1.0,
             "moves": [
               [
-                730.0,
-                475.61946011281225
+                784.242909070326,
+                484.34137282594713
               ],
               [
-                450.0,
-                372.30529814665596
+                481.9409276128167,
+                337.2981964862829
               ],
               [
-                487.0,
-                268.99113618049967
+                502.21876235867643,
+                275.05617585684666
               ]
             ],
             "movePhases": [
@@ -17963,16 +17963,16 @@
             "scale": 1.0,
             "moves": [
               [
-                387.0,
-                521.5368654311039
+                338.4955584634332,
+                531.083546531896
               ],
               [
-                550.0,
-                383.7846494762289
+                529.4649378400222,
+                366.0867168281762
               ],
               [
-                513.0,
-                268.99113618049967
+                498.61086603090826,
+                274.78086860611825
               ]
             ],
             "movePhases": [
@@ -18182,16 +18182,16 @@
             "scale": 1.0,
             "moves": [
               [
-                613.0,
-                521.5368654311039
+                661.5044415365668,
+                531.083546531896
               ],
               [
-                450.0,
-                383.7846494762289
+                470.5350621599777,
+                366.0867168281762
               ],
               [
-                487.0,
-                268.99113618049967
+                501.3891339690917,
+                274.78086860611825
               ]
             ],
             "movePhases": [
@@ -18401,16 +18401,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                613.3716760676873
+                500.0,
+                623.3716760676873
               ],
               [
-                550.0,
-                395.2640008058018
+                566.8784012247366,
+                401.84984590837763
               ],
               [
-                513.0,
-                268.99113618049967
+                506.5987832635243,
+                271.59362761991736
               ]
             ],
             "movePhases": [
@@ -18849,8 +18849,8 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                498.5781627719581
+                424.83555457881016,
+                401.18644605823283
               ]
             ],
             "movePhases": [
@@ -19287,8 +19287,8 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                498.5781627719581
+                424.83555457881016,
+                401.18644605823283
               ]
             ],
             "movePhases": [
@@ -19725,8 +19725,8 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                498.5781627719581
+                424.83555457881016,
+                401.18644605823283
               ]
             ],
             "movePhases": [
@@ -20163,8 +20163,8 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                498.5781627719581
+                424.83555457881016,
+                401.18644605823283
               ]
             ],
             "movePhases": [
@@ -20466,18 +20466,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              874.0,
-              280.47048751007253
+              834.6874326735986,
+              220.9355084892699
             ],
             "scale": 1.0,
             "moves": [
               [
-                432.0,
-                349.3465954875101
+                471.31256732640145,
+                268.8815745083128
               ],
               [
-                460.0,
-                268.99113618049967
+                469.6224110029694,
+                272.9992579424217
               ]
             ],
             "movePhases": [
@@ -20780,22 +20780,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              874.0,
-              280.47048751007253
+              834.8168287355418,
+              221.8733550662396
             ],
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                360.82594681708304
+                435.18317126445817,
+                279.423079260916
               ],
               [
-                360.0,
-                613.3716760676873
+                351.99686368288246,
+                470.0490962272382
               ],
               [
-                460.0,
-                268.99113618049967
+                461.6612200120044,
+                269.2060772474269
               ]
             ],
             "movePhases": [
@@ -21092,18 +21092,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              874.0,
-              280.47048751007253
+              834.8168287355418,
+              221.8733550662396
             ],
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                360.82594681708304
+                435.18317126445817,
+                279.423079260916
               ],
               [
-                460.0,
-                268.99113618049967
+                449.8021635872123,
+                261.2822047174497
               ]
             ],
             "movePhases": [
@@ -21406,22 +21406,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              874.0,
-              280.47048751007253
+              835.6296281572683,
+              226.53550594242947
             ],
             "scale": 1.0,
             "moves": [
               [
-                450.0,
-                383.7846494762289
+                488.3703718427317,
+                297.71963104387197
               ],
               [
-                450.0,
-                590.4129734085415
+                436.5571124791396,
+                444.9496062906456
               ],
               [
-                460.0,
-                268.99113618049967
+                480.018695703651,
+                276.455627908108
               ]
             ],
             "movePhases": [
@@ -21623,22 +21623,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              414.0,
-              1118.463134568896
+              334.9111070511255,
+              978.6630024197989
             ],
             "scale": 1.0,
             "moves": [
               [
-                234.0,
-                797.0412973408542
+                233.0888929488745,
+                796.8414294899513
               ],
               [
-                432.0,
-                567.4542707493957
+                354.49304568485303,
+                568.1170500465722
               ],
               [
-                492.4,
-                268.99113618049967
+                497.6662779974742,
+                271.0575538509462
               ]
             ],
             "movePhases": [
@@ -21840,22 +21840,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              585.9999999999999,
-              1118.463134568896
+              665.0888929488744,
+              978.6630024197989
             ],
             "scale": 1.0,
             "moves": [
               [
-                766.0,
-                797.0412973408542
+                766.9111070511254,
+                796.8414294899513
               ],
               [
-                568.0,
-                567.4542707493957
+                645.5069543151469,
+                568.1170500465722
               ],
               [
-                507.6,
-                268.99113618049967
+                502.3337220025258,
+                271.05755385094625
               ]
             ],
             "movePhases": [
@@ -22057,22 +22057,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              640.0,
-              1118.463134568896
+              640.9111070511256,
+              978.6630024197989
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                797.0412973408542
+                539.0888929488744,
+                796.8414294899513
               ],
               [
-                658.0,
-                567.4542707493957
+                660.493045684853,
+                568.1170500465722
               ],
               [
-                480.6,
-                268.99113618049967
+                481.54279873370706,
+                267.7202219582921
               ]
             ],
             "movePhases": [
@@ -22274,22 +22274,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              478.0,
-              1118.463134568896
+              478.9111070511255,
+              978.6630024197989
             ],
             "scale": 1.0,
             "moves": [
               [
-                378.0,
-                797.0412973408542
+                377.0888929488745,
+                796.8414294899513
               ],
               [
-                496.0,
-                567.4542707493957
+                498.49304568485303,
+                568.1170500465722
               ],
               [
-                529.2,
-                268.99113618049967
+                491.21342721674455,
+                278.96579535978515
               ]
             ],
             "movePhases": [
@@ -22349,18 +22349,18 @@
         "vi-VN": "Bài chuyền bóng tam giác"
       },
       "note": {
-        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, D moves back; Step 3: C passes to D, B follows up behind C; Step 4: C follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, D moves back; Step 3: C passes to D, B follows up behind C; Step 4: C follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】3 个锥标摆成三角形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D\n【流程】第1步：A把球传给B；第2步：B把球传给C，A跟上去，跑到B身后，D向后移动；第3步：C把球传给D，B跟上去，跑到C身后；第4步：C跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
-        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A跟上去，跑到B身後，D向後移動；第3步：C把球傳給D，B跟上去，跑到C身後；第4步：C跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
-        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、AがBの後ろへ入る、Dが後方へ移動。ステップ3：CがDへパス、BがCの後ろへ入る。ステップ4：CがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
-        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A가 B 뒤로 따라 들어간다, D는 뒤로 이동; 3단계: C가 D에게 패스, B가 C 뒤로 따라 들어간다; 4단계: C가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
-        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A sube por detrás de B, D se desplaza hacia atrás; Paso 3: C pasa a D, B sube por detrás de C; Paso 4: C sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
-        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A monte derrière B, D se déplace vers l'arrière ; Étape 3 : C passe à D, B monte derrière C ; Étape 4 : C monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
-        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A maju di belakang B, D bergerak ke belakang; Langkah 3: C mengoper ke D, B maju di belakang C; Langkah 4: C maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
-        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A naik di belakang B, D bergerak ke belakang; Langkah 3: C menghantar kepada D, B naik di belakang C; Langkah 4: C naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
-        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A ตามขึ้นไปด้านหลังB D ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ตามขึ้นไปด้านหลังC • ขั้นที่ 4: C ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
-        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A theo lên phía sau B, D di chuyển lùi lại; Bước 3: C chuyền cho D, B theo lên phía sau C; Bước 4: C theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
+        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, D move back; Step 3: C passes to D, B moves left; Step 4: C follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D\nSequence: Step 1: A passes to B; Step 2: B passes to C, A, D move back; Step 3: C passes to D, B moves left; Step 4: C follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】3 个锥标摆成三角形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D\n【流程】第1步：A把球传给B；第2步：B把球传给C，A、D向后移动；第3步：C把球传给D，B向左移动；第4步：C跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
+        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A、D向後移動；第3步：C把球傳給D，B向左移動；第4步：C跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
+        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、A・Dが後方へ移動。ステップ3：CがDへパス、Bが左へ移動。ステップ4：CがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
+        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A, D는 뒤로 이동; 3단계: C가 D에게 패스, B는 왼쪽으로 이동; 4단계: C가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
+        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A, D se desplaza hacia atrás; Paso 3: C pasa a D, B se desplaza a la izquierda; Paso 4: C sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
+        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A, D se déplace vers l'arrière ; Étape 3 : C passe à D, B se déplace à gauche ; Étape 4 : C monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
+        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A, D bergerak ke belakang; Langkah 3: C mengoper ke D, B bergerak ke kiri; Langkah 4: C maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
+        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A, D bergerak ke belakang; Langkah 3: C menghantar kepada D, B bergerak ke kiri; Langkah 4: C naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
+        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A, D ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ขยับไปทางซ้าย • ขั้นที่ 4: C ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
+        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 3 cones in a triangle, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A, D di chuyển lùi lại; Bước 3: C chuyền cho D, B di chuyển sang trái; Bước 4: C theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
       },
       "mistake": {
         "en": "Running the shape without scanning — patterns teach the pass, the head-check finds it in a game.",
@@ -22559,16 +22559,16 @@
             "scale": 1.0,
             "moves": [
               [
-                678.2384017536785,
-                934.7935132957292
+                675.4159292216924,
+                797.2195845491535
               ],
               [
-                321.7615982463214,
-                934.7935132957292
+                360.60836365966924,
+                851.2588325143996
               ],
               [
-                460.0,
-                590.4129734085415
+                468.9387622269755,
+                594.1367789804708
               ]
             ],
             "movePhases": [
@@ -22885,20 +22885,20 @@
             "scale": 1.0,
             "moves": [
               [
-                712.0,
-                820.0
+                692.8627773686969,
+                696.1224638698493
               ],
               [
-                460.0,
-                1049.5870265914584
+                545.0018528249975,
+                913.4445043964494
               ],
               [
-                287.99999999999994,
-                820.0
+                318.08795500751546,
+                788.5704363841593
               ],
               [
-                460.0,
-                590.4129734085415
+                455.0886684891568,
+                586.6169936937413
               ]
             ],
             "movePhases": [
@@ -22959,18 +22959,18 @@
         "vi-VN": "Bài chuyền bóng ngũ giác"
       },
       "note": {
-        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F\nSequence: Step 1: A passes to B; Step 2: B passes to C, A moves right, F moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D moves up the board; Step 6: E follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F\nSequence: Step 1: A passes to B; Step 2: B passes to C, A moves right, F moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D moves up the board; Step 6: E follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】5 个锥标摆成五边形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D → E → F\n【流程】第1步：A把球传给B；第2步：B把球传给C，A向右移动，F向后移动；第3步：C把球传给D，B跟上去，跑到C身后；第4步：D把球传给E，C跟上去，跑到D身后；第5步：E把球传给F，D向前移动；第6步：E跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
-        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D → E → F\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A向右移動，F向後移動；第3步：C把球傳給D，B跟上去，跑到C身後；第4步：D把球傳給E，C跟上去，跑到D身後；第5步：E把球傳給F，D向前移動；第6步：E跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
-        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D → E → F\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、Aが右へ移動、Fが後方へ移動。ステップ3：CがDへパス、BがCの後ろへ入る。ステップ4：DがEへパス、CがDの後ろへ入る。ステップ5：EがFへパス、Dが前方へ移動。ステップ6：EがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
-        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D → E → F\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A는 오른쪽으로 이동, F는 뒤로 이동; 3단계: C가 D에게 패스, B가 C 뒤로 따라 들어간다; 4단계: D가 E에게 패스, C가 D 뒤로 따라 들어간다; 5단계: E가 F에게 패스, D는 앞으로 이동; 6단계: E가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
-        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D → E → F\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A se desplaza a la derecha, F se desplaza hacia atrás; Paso 3: C pasa a D, B sube por detrás de C; Paso 4: D pasa a E, C sube por detrás de D; Paso 5: E pasa a F, D se desplaza hacia delante; Paso 6: E sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
-        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D → E → F\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A se déplace à droite, F se déplace vers l'arrière ; Étape 3 : C passe à D, B monte derrière C ; Étape 4 : D passe à E, C monte derrière D ; Étape 5 : E passe à F, D se déplace vers l'avant ; Étape 6 : E monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
-        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D → E → F\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A bergerak ke kanan, F bergerak ke belakang; Langkah 3: C mengoper ke D, B maju di belakang C; Langkah 4: D mengoper ke E, C maju di belakang D; Langkah 5: E mengoper ke F, D bergerak ke depan; Langkah 6: E maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
-        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D → E → F\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A bergerak ke kanan, F bergerak ke belakang; Langkah 3: C menghantar kepada D, B naik di belakang C; Langkah 4: D menghantar kepada E, C naik di belakang D; Langkah 5: E menghantar kepada F, D bergerak ke hadapan; Langkah 6: E naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
-        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D → E → F\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A ขยับไปทางขวา F ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ตามขึ้นไปด้านหลังC • ขั้นที่ 4: D จ่ายให้ E C ตามขึ้นไปด้านหลังD • ขั้นที่ 5: E จ่ายให้ F D ขยับไปข้างหน้า • ขั้นที่ 6: E ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
-        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D → E → F\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A di chuyển sang phải, F di chuyển lùi lại; Bước 3: C chuyền cho D, B theo lên phía sau C; Bước 4: D chuyền cho E, C theo lên phía sau D; Bước 5: E chuyền cho F, D di chuyển lên phía trước; Bước 6: E theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
+        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, F moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C moves left; Step 5: E passes to F, D moves up the board; Step 6: E follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, F moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C moves left; Step 5: E passes to F, D moves up the board; Step 6: E follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】5 个锥标摆成五边形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D → E → F\n【流程】第1步：A把球传给B；第2步：B把球传给C，A跟上去，跑到B身后，F向后移动；第3步：C把球传给D，B跟上去，跑到C身后；第4步：D把球传给E，C向左移动；第5步：E把球传给F，D向前移动；第6步：E跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
+        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D → E → F\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A跟上去，跑到B身後，F向後移動；第3步：C把球傳給D，B跟上去，跑到C身後；第4步：D把球傳給E，C向左移動；第5步：E把球傳給F，D向前移動；第6步：E跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
+        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D → E → F\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、AがBの後ろへ入る、Fが後方へ移動。ステップ3：CがDへパス、BがCの後ろへ入る。ステップ4：DがEへパス、Cが左へ移動。ステップ5：EがFへパス、Dが前方へ移動。ステップ6：EがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
+        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D → E → F\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A가 B 뒤로 따라 들어간다, F는 뒤로 이동; 3단계: C가 D에게 패스, B가 C 뒤로 따라 들어간다; 4단계: D가 E에게 패스, C는 왼쪽으로 이동; 5단계: E가 F에게 패스, D는 앞으로 이동; 6단계: E가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
+        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D → E → F\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A sube por detrás de B, F se desplaza hacia atrás; Paso 3: C pasa a D, B sube por detrás de C; Paso 4: D pasa a E, C se desplaza a la izquierda; Paso 5: E pasa a F, D se desplaza hacia delante; Paso 6: E sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
+        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D → E → F\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A monte derrière B, F se déplace vers l'arrière ; Étape 3 : C passe à D, B monte derrière C ; Étape 4 : D passe à E, C se déplace à gauche ; Étape 5 : E passe à F, D se déplace vers l'avant ; Étape 6 : E monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
+        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D → E → F\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A maju di belakang B, F bergerak ke belakang; Langkah 3: C mengoper ke D, B maju di belakang C; Langkah 4: D mengoper ke E, C bergerak ke kiri; Langkah 5: E mengoper ke F, D bergerak ke depan; Langkah 6: E maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
+        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D → E → F\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A naik di belakang B, F bergerak ke belakang; Langkah 3: C menghantar kepada D, B naik di belakang C; Langkah 4: D menghantar kepada E, C bergerak ke kiri; Langkah 5: E menghantar kepada F, D bergerak ke hadapan; Langkah 6: E naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
+        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D → E → F\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A ตามขึ้นไปด้านหลังB F ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ตามขึ้นไปด้านหลังC • ขั้นที่ 4: D จ่ายให้ E C ขยับไปทางซ้าย • ขั้นที่ 5: E จ่ายให้ F D ขยับไปข้างหน้า • ขั้นที่ 6: E ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
+        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D → E → F\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A theo lên phía sau B, F di chuyển lùi lại; Bước 3: C chuyền cho D, B theo lên phía sau C; Bước 4: D chuyền cho E, C di chuyển sang trái; Bước 5: E chuyền cho F, D di chuyển lên phía trước; Bước 6: E theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
       },
       "mistake": {
         "en": "Running the shape without scanning — patterns teach the pass, the head-check finds it in a game.",
@@ -23263,24 +23263,24 @@
             "scale": 1.0,
             "moves": [
               [
-                699.6662421063787,
-                749.0537070952264
+                672.9565432451568,
+                634.8969853210153
               ],
               [
-                608.1218835777032,
-                1005.7398062005029
+                654.7035187660217,
+                856.0110028842115
               ],
               [
-                391.8781164222967,
-                1005.7398062005029
+                429.2416953959842,
+                915.3712851844346
               ],
               [
-                300.3337578936212,
-                749.0537070952264
+                306.8528108684489,
+                744.1380962398222
               ],
               [
-                460.0,
-                590.4129734085415
+                447.721257723819,
+                580.9681805010835
               ]
             ],
             "movePhases": [
@@ -23342,18 +23342,18 @@
         "vi-VN": "Bài chuyền bóng lục giác"
       },
       "note": {
-        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F → G\nSequence: Step 1: A passes to B; Step 2: B passes to C, A moves right, G moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D follows up behind E; Step 6: F passes to G, E moves up the board; Step 7: F follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F → G\nSequence: Step 1: A passes to B; Step 2: B passes to C, A moves right, G moves back; Step 3: C passes to D, B follows up behind C; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D follows up behind E; Step 6: F passes to G, E moves up the board; Step 7: F follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
-        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】6 个锥标摆成六边形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D → E → F → G\n【流程】第1步：A把球传给B；第2步：B把球传给C，A向右移动，G向后移动；第3步：C把球传给D，B跟上去，跑到C身后；第4步：D把球传给E，C跟上去，跑到D身后；第5步：E把球传给F，D跟上去，跑到E身后；第6步：F把球传给G，E向前移动；第7步：F跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
-        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D → E → F → G\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A向右移動，G向後移動；第3步：C把球傳給D，B跟上去，跑到C身後；第4步：D把球傳給E，C跟上去，跑到D身後；第5步：E把球傳給F，D跟上去，跑到E身後；第6步：F把球傳給G，E向前移動；第7步：F跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
-        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D → E → F → G\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、Aが右へ移動、Gが後方へ移動。ステップ3：CがDへパス、BがCの後ろへ入る。ステップ4：DがEへパス、CがDの後ろへ入る。ステップ5：EがFへパス、DがEの後ろへ入る。ステップ6：FがGへパス、Eが前方へ移動。ステップ7：FがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
-        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D → E → F → G\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A는 오른쪽으로 이동, G는 뒤로 이동; 3단계: C가 D에게 패스, B가 C 뒤로 따라 들어간다; 4단계: D가 E에게 패스, C가 D 뒤로 따라 들어간다; 5단계: E가 F에게 패스, D가 E 뒤로 따라 들어간다; 6단계: F가 G에게 패스, E는 앞으로 이동; 7단계: F가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
-        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D → E → F → G\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A se desplaza a la derecha, G se desplaza hacia atrás; Paso 3: C pasa a D, B sube por detrás de C; Paso 4: D pasa a E, C sube por detrás de D; Paso 5: E pasa a F, D sube por detrás de E; Paso 6: F pasa a G, E se desplaza hacia delante; Paso 7: F sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
-        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D → E → F → G\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A se déplace à droite, G se déplace vers l'arrière ; Étape 3 : C passe à D, B monte derrière C ; Étape 4 : D passe à E, C monte derrière D ; Étape 5 : E passe à F, D monte derrière E ; Étape 6 : F passe à G, E se déplace vers l'avant ; Étape 7 : F monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
-        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D → E → F → G\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A bergerak ke kanan, G bergerak ke belakang; Langkah 3: C mengoper ke D, B maju di belakang C; Langkah 4: D mengoper ke E, C maju di belakang D; Langkah 5: E mengoper ke F, D maju di belakang E; Langkah 6: F mengoper ke G, E bergerak ke depan; Langkah 7: F maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
-        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D → E → F → G\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A bergerak ke kanan, G bergerak ke belakang; Langkah 3: C menghantar kepada D, B naik di belakang C; Langkah 4: D menghantar kepada E, C naik di belakang D; Langkah 5: E menghantar kepada F, D naik di belakang E; Langkah 6: F menghantar kepada G, E bergerak ke hadapan; Langkah 7: F naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
-        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D → E → F → G\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A ขยับไปทางขวา G ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ตามขึ้นไปด้านหลังC • ขั้นที่ 4: D จ่ายให้ E C ตามขึ้นไปด้านหลังD • ขั้นที่ 5: E จ่ายให้ F D ตามขึ้นไปด้านหลังE • ขั้นที่ 6: F จ่ายให้ G E ขยับไปข้างหน้า • ขั้นที่ 7: F ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
-        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D → E → F → G\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A di chuyển sang phải, G di chuyển lùi lại; Bước 3: C chuyền cho D, B theo lên phía sau C; Bước 4: D chuyền cho E, C theo lên phía sau D; Bước 5: E chuyền cho F, D theo lên phía sau E; Bước 6: F chuyền cho G, E di chuyển lên phía trước; Bước 7: F theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
+        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F → G\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, G moves back; Step 3: C passes to D, B moves back; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D follows up behind E; Step 6: F passes to G, E moves up the board; Step 7: F follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nBall path: A → B → C → D → E → F → G\nSequence: Step 1: A passes to B; Step 2: B passes to C, A follows up behind B, G moves back; Step 3: C passes to D, B moves back; Step 4: D passes to E, C follows up behind D; Step 5: E passes to F, D follows up behind E; Step 6: F passes to G, E moves up the board; Step 7: F follows up behind A.\nCoaching point: Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.",
+        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】6 个锥标摆成六边形，间距 8–10 米，一人一锥，第一个锥后面再排一人，一颗球。\n【球路】A → B → C → D → E → F → G\n【流程】第1步：A把球传给B；第2步：B把球传给C，A跟上去，跑到B身后，G向后移动；第3步：C把球传给D，B向后移动；第4步：D把球传给E，C跟上去，跑到D身后；第5步：E把球传给F，D跟上去，跑到E身后；第6步：F把球传给G，E向前移动；第7步：F跟上去，跑到A身后。\n【要点】每一脚都传到接球人转身的反方向那只脚。球速比人速重要。",
+        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【球路】A → B → C → D → E → F → G\n【流程】第1步：A把球傳給B；第2步：B把球傳給C，A跟上去，跑到B身後，G向後移動；第3步：C把球傳給D，B向後移動；第4步：D把球傳給E，C跟上去，跑到D身後；第5步：E把球傳給F，D跟上去，跑到E身後；第6步：F把球傳給G，E向前移動；第7步：F跟上去，跑到A身後。\n【要點】每一腳都傳到接球人轉身的反方向那隻腳。球速比人速重要。",
+        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball。\n【ボールの道筋】A → B → C → D → E → F → G\n【流れ】ステップ1：AがBへパス。ステップ2：BがCへパス、AがBの後ろへ入る、Gが後方へ移動。ステップ3：CがDへパス、Bが後方へ移動。ステップ4：DがEへパス、CがDの後ろへ入る。ステップ5：EがFへパス、DがEの後ろへ入る。ステップ6：FがGへパス、Eが前方へ移動。ステップ7：FがAの後ろへ入る。\n【ポイント】受け手が向きを変える逆側の足へ。ボールのスピードは人のスピードに勝る。",
+        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\n【볼 경로】A → B → C → D → E → F → G\n【진행】1단계: A가 B에게 패스; 2단계: B가 C에게 패스, A가 B 뒤로 따라 들어간다, G는 뒤로 이동; 3단계: C가 D에게 패스, B는 뒤로 이동; 4단계: D가 E에게 패스, C가 D 뒤로 따라 들어간다; 5단계: E가 F에게 패스, D가 E 뒤로 따라 들어간다; 6단계: F가 G에게 패스, E는 앞으로 이동; 7단계: F가 A 뒤로 따라 들어간다.\n【포인트】받는 사람이 도는 반대쪽 발로. 공의 속도가 사람의 속도를 이긴다.",
+        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nRecorrido del balón: A → B → C → D → E → F → G\nSecuencia: Paso 1: A pasa a B; Paso 2: B pasa a C, A sube por detrás de B, G se desplaza hacia atrás; Paso 3: C pasa a D, B se desplaza hacia atrás; Paso 4: D pasa a E, C sube por detrás de D; Paso 5: E pasa a F, D sube por detrás de E; Paso 6: F pasa a G, E se desplaza hacia delante; Paso 7: F sube por detrás de A.\nPunto clave: Siempre al pie contrario al giro del receptor. La velocidad del balón gana a la del jugador.",
+        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nTrajet du ballon : A → B → C → D → E → F → G\nDéroulé : Étape 1 : A passe à B ; Étape 2 : B passe à C, A monte derrière B, G se déplace vers l'arrière ; Étape 3 : C passe à D, B se déplace vers l'arrière ; Étape 4 : D passe à E, C monte derrière D ; Étape 5 : E passe à F, D monte derrière E ; Étape 6 : F passe à G, E se déplace vers l'avant ; Étape 7 : F monte derrière A.\nPoint clé : Toujours sur le pied opposé au tour du receveur. La vitesse du ballon bat celle du joueur.",
+        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nJalur bola: A → B → C → D → E → F → G\nUrutan: Langkah 1: A mengoper ke B; Langkah 2: B mengoper ke C, A maju di belakang B, G bergerak ke belakang; Langkah 3: C mengoper ke D, B bergerak ke belakang; Langkah 4: D mengoper ke E, C maju di belakang D; Langkah 5: E mengoper ke F, D maju di belakang E; Langkah 6: F mengoper ke G, E bergerak ke depan; Langkah 7: F maju di belakang A.\nPoin utama: Selalu ke kaki yang berlawanan dengan arah putaran penerima.",
+        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nLaluan bola: A → B → C → D → E → F → G\nUrutan: Langkah 1: A menghantar kepada B; Langkah 2: B menghantar kepada C, A naik di belakang B, G bergerak ke belakang; Langkah 3: C menghantar kepada D, B bergerak ke belakang; Langkah 4: D menghantar kepada E, C naik di belakang D; Langkah 5: E menghantar kepada F, D naik di belakang E; Langkah 6: F menghantar kepada G, E bergerak ke hadapan; Langkah 7: F naik di belakang A.\nPoin utama: Sentiasa ke kaki bertentangan arah pusingan penerima.",
+        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball\nเส้นทางบอล: A → B → C → D → E → F → G\nลำดับ: ขั้นที่ 1: A จ่ายให้ B • ขั้นที่ 2: B จ่ายให้ C A ตามขึ้นไปด้านหลังB G ขยับถอยหลัง • ขั้นที่ 3: C จ่ายให้ D B ขยับถอยหลัง • ขั้นที่ 4: D จ่ายให้ E C ตามขึ้นไปด้านหลังD • ขั้นที่ 5: E จ่ายให้ F D ตามขึ้นไปด้านหลังE • ขั้นที่ 6: F จ่ายให้ G E ขยับไปข้างหน้า • ขั้นที่ 7: F ตามขึ้นไปด้านหลังA\nจุดเน้น: จ่ายไปที่เท้าฝั่งตรงข้ามกับทิศที่คนรับจะหมุน ความเร็วบอลชนะความเร็วคน",
+        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball.\nĐường bóng: A → B → C → D → E → F → G\nTrình tự: Bước 1: A chuyền cho B; Bước 2: B chuyền cho C, A theo lên phía sau B, G di chuyển lùi lại; Bước 3: C chuyền cho D, B di chuyển lùi lại; Bước 4: D chuyền cho E, C theo lên phía sau D; Bước 5: E chuyền cho F, D theo lên phía sau E; Bước 6: F chuyền cho G, E di chuyển lên phía trước; Bước 7: F theo lên phía sau A.\nĐiểm chính: Luôn chuyền vào chân ngược hướng xoay của người nhận. Tốc độ bóng hơn tốc độ người."
       },
       "mistake": {
         "en": "Running the shape without scanning — patterns teach the pass, the head-check finds it in a game.",
@@ -23693,28 +23693,28 @@
             "scale": 1.0,
             "moves": [
               [
-                678.2384017536785,
-                705.2064867042708
+                647.4357462645553,
+                597.9642529408602
               ],
               [
-                678.2384017536785,
-                934.7935132957292
+                697.7205884799063,
+                787.4693945586714
               ],
               [
-                460.0,
-                1049.5870265914584
+                557.3756491167057,
+                923.8372742293477
               ],
               [
-                321.7615982463214,
-                934.7935132957292
+                359.9867444684403,
+                881.5513919958548
               ],
               [
-                321.76159824632146,
-                705.2064867042707
+                305.973668890568,
+                711.4546055998737
               ],
               [
-                460.0,
-                590.4129734085415
+                442.994701676009,
+                576.5413616180099
               ]
             ],
             "movePhases": [
@@ -23994,12 +23994,12 @@
             "scale": 1.0,
             "moves": [
               [
-                234.0,
-                406.7433521353747
+                189.82427903758887,
+                416.63429877167437
               ],
               [
-                436.5,
-                360.82594681708304
+                328.164958361594,
+                332.42308715481926
               ]
             ],
             "movePhases": [
@@ -24275,12 +24275,12 @@
             "scale": 1.0,
             "moves": [
               [
-                234.0,
-                406.7433521353747
+                189.82427903758887,
+                416.63429877167437
               ],
               [
-                563.5,
-                355.0862711522966
+                527.2618883090354,
+                309.3298337163261
               ]
             ],
             "movePhases": [
@@ -24556,12 +24556,12 @@
             "scale": 1.0,
             "moves": [
               [
-                766.0,
-                406.7433521353747
+                810.1757209624111,
+                416.63429877167437
               ],
               [
-                563.5,
-                360.82594681708304
+                671.835041638406,
+                332.42308715481926
               ]
             ],
             "movePhases": [
@@ -24837,12 +24837,12 @@
             "scale": 1.0,
             "moves": [
               [
-                766.0,
-                406.7433521353747
+                810.1757209624111,
+                416.63429877167437
               ],
               [
-                436.5,
-                355.0862711522966
+                472.73811169096456,
+                309.3298337163261
               ]
             ],
             "movePhases": [
@@ -25186,12 +25186,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                624.8510273972603
+                421.4971212506049,
+                539.4465466186762
               ],
               [
-                712.0,
-                601.8923247381144
+                672.0208890575032,
+                533.7203873321707
               ]
             ],
             "movePhases": [
@@ -25535,12 +25535,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                785.5619460112813
+                421.4971212506049,
+                700.1574652326972
               ],
               [
-                712.0,
-                762.6032433521355
+                672.0208890575032,
+                694.4313059461917
               ]
             ],
             "movePhases": [
@@ -25884,12 +25884,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                992.1902699435939
+                421.4971212506049,
+                906.7857891650098
               ],
               [
-                712.0,
-                969.231567284448
+                672.0208890575032,
+                901.0596298785043
               ]
             ],
             "movePhases": [
@@ -26071,18 +26071,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              378.0,
-              464.1401087832394
+              379.31518165897785,
+              325.6342275431177
             ],
             "scale": 1.0,
             "moves": [
               [
-                468.0,
-                314.90854149879135
+                386.6848183410221,
+                313.414422738913
               ],
               [
-                622.0,
-                464.1401087832394
+                585.2319639739056,
+                371.63080749030087
               ]
             ],
             "movePhases": [
@@ -26264,18 +26264,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              252.0,
-              475.61946011281225
+              274.34434246330187,
+              355.4878038184254
             ],
             "scale": 1.0,
             "moves": [
               [
-                459.0,
-                309.16886583400486
+                356.65565753669813,
+                289.3005221283917
               ],
               [
-                748.0,
-                475.61946011281225
+                710.7591864039192,
+                384.7902326903775
               ]
             ],
             "movePhases": [
@@ -26437,18 +26437,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              180.0,
-              383.7846494762289
+              218.14426535246508,
+              296.6535726705075
             ],
             "scale": 1.0,
             "moves": [
               [
-                468.0,
-                320.6482171635778
+                349.8557346475349,
+                267.77929396929915
               ],
               [
-                820.0,
-                383.7846494762289
+                780.3233341770505,
+                306.59932252903866
               ]
             ],
             "movePhases": [
@@ -26644,18 +26644,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              396.0,
-              521.5368654311039
+              397.13655018442415,
+              382.9235705173312
             ],
             "scale": 1.0,
             "moves": [
               [
-                513.0,
-                326.3878928283643
+                431.86344981557585,
+                325.001187742137
               ],
               [
-                802.0,
-                682.247784045125
+                776.4727831651389,
+                566.3546053158508
               ]
             ],
             "movePhases": [
@@ -26814,8 +26814,8 @@
                 325.61946011281225
               ],
               [
-                460.0,
-                343.6069198227236
+                500.0,
+                353.6069198227236
               ]
             ],
             "movePhases": [
@@ -26977,18 +26977,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              414.0,
-              498.5781627719581
+              396.5654302467767,
+              351.82660671100354
             ],
             "scale": 1.0,
             "moves": [
               [
-                468.0,
-                314.90854149879135
+                405.43456975322323,
+                321.6600975597459
               ],
               [
-                586.0,
-                498.5781627719581
+                554.0119568971027,
+                393.68229410222307
               ]
             ],
             "movePhases": [
@@ -27224,12 +27224,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                464.1401087832394
+                500.0,
+                474.1401087832394
               ],
               [
-                216.0,
-                728.1651893634165
+                245.5625943188495,
+                618.6551213853534
               ]
             ],
             "movePhases": [
@@ -27437,8 +27437,8 @@
                 371.53686543110393
               ],
               [
-                460.0,
-                268.99113618049967
+                500.0,
+                278.99113618049967
               ]
             ],
             "movePhases": [
@@ -27690,8 +27690,8 @@
                 377.7294317096711
               ],
               [
-                460.0,
-                268.99113618049967
+                486.38815227236665,
+                277.8246163868163
               ]
             ],
             "movePhases": [
@@ -27885,8 +27885,8 @@
                 371.53686543110393
               ],
               [
-                460.0,
-                268.99113618049967
+                500.0,
+                278.99113618049967
               ]
             ],
             "movePhases": [
@@ -28191,12 +28191,12 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                1095.50443190975
+                371.09716814292693,
+                1053.6036450622753
               ],
               [
-                820.0,
-                980.7109186140209
+                783.2125113060783,
+                933.1537700389368
               ]
             ],
             "movePhases": [
@@ -28499,12 +28499,12 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                865.9174053182917
+                371.09716814292693,
+                824.0166184708169
               ],
               [
-                820.0,
-                751.1238920225625
+                783.2125113060783,
+                703.5667434474784
               ]
             ],
             "movePhases": [
@@ -28807,12 +28807,12 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                613.3716760676873
+                371.09716814292693,
+                571.4708892202125
               ],
               [
-                820.0,
-                498.57816277195815
+                783.2125113060783,
+                451.02101419687415
               ]
             ],
             "movePhases": [
@@ -29034,12 +29034,12 @@
             "scale": 1.0,
             "moves": [
               [
-                450.0,
-                820.0
+                344.3296184963297,
+                795.6880837107708
               ],
               [
-                288.0,
-                636.3303787268333
+                278.97842991830663,
+                640.0890180838371
               ]
             ],
             "movePhases": [
@@ -29261,12 +29261,12 @@
             "scale": 1.0,
             "moves": [
               [
-                550.0,
-                820.0
+                655.6703815036702,
+                795.6880837107708
               ],
               [
-                712.0,
-                636.3303787268333
+                721.0215700816933,
+                640.0890180838371
               ]
             ],
             "movePhases": [
@@ -29500,12 +29500,12 @@
             "scale": 1.0,
             "moves": [
               [
-                478.0,
-                659.289081385979
+                457.8503832581,
+                642.0339731367689
               ],
               [
-                234.0,
-                613.3716760676873
+                268.9325937122428,
+                571.3914262370937
               ]
             ],
             "movePhases": [
@@ -29739,12 +29739,12 @@
             "scale": 1.0,
             "moves": [
               [
-                522.0,
-                659.289081385979
+                542.1496167419,
+                642.0339731367689
               ],
               [
-                766.0,
-                613.3716760676873
+                731.0674062877572,
+                571.3914262370937
               ]
             ],
             "movePhases": [
@@ -29971,12 +29971,12 @@
             "scale": 1.0,
             "moves": [
               [
-                504.0,
-                774.0825946817083
+                389.68575147716444,
+                733.7034060562509
               ],
               [
-                414.0,
-                544.4955680902498
+                378.8322951618707,
+                554.3494904952798
               ]
             ],
             "movePhases": [
@@ -30279,14 +30279,14 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              490.5,
-              492.83848710717166
+              467.77333673688184,
+              344.72554427453804
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                268.99113618049967
+                482.72666326311816,
+                277.1040790131333
               ]
             ],
             "movePhases": [
@@ -30588,18 +30588,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              486.0,
-              492.83848710717166
+              366.53244126171325,
+              432.0529924209117
             ],
             "scale": 1.0,
             "moves": [
               [
-                387.0,
-                504.31783843674464
+                426.46755873828675,
+                425.1033331230045
               ],
               [
-                460.0,
-                268.99113618049967
+                475.2591229048746,
+                275.0693130813948
               ]
             ],
             "movePhases": [
@@ -30902,18 +30902,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              514.0,
-              492.83848710717166
+              632.8167205512431,
+              409.12992913970965
             ],
             "scale": 1.0,
             "moves": [
               [
-                712.0,
-                458.40043311845284
+                673.1832794487569,
+                402.1089910859148
               ],
               [
-                460.0,
-                268.99113618049967
+                551.904571615496,
+                259.8673667258598
               ]
             ],
             "movePhases": [
@@ -31196,18 +31196,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              252.0,
-              498.5781627719581
+              286.20667673097546,
+              458.46744393669184
             ],
             "scale": 1.0,
             "moves": [
               [
-                514.0,
-                636.3303787268333
+                479.79332326902454,
+                536.4410975620996
               ],
               [
-                460.0,
-                268.99113618049967
+                495.2181244326263,
+                278.8480937111879
               ]
             ],
             "movePhases": [
@@ -31490,18 +31490,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              748.0,
-              498.5781627719581
+              713.7933232690245,
+              458.46744393669184
             ],
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                636.3303787268333
+                520.2066767309755,
+                536.4410975620996
               ],
               [
-                460.0,
-                268.99113618049967
+                504.7818755673737,
+                278.8480937111879
               ]
             ],
             "movePhases": [
@@ -31903,12 +31903,12 @@
             "scale": 1.0,
             "moves": [
               [
-                482.976,
-                803.928908138598
+                521.9574813887656,
+                746.6539070633946
               ],
               [
-                363.74399999999997,
-                771.7867244157937
+                401.77002534413714,
+                719.4485297877272
               ]
             ],
             "movePhases": [
@@ -32350,12 +32350,12 @@
             "scale": 1.0,
             "moves": [
               [
-                476.64,
-                802.207005439162
+                515.9721956659919,
+                742.5221753753665
               ],
               [
-                344.15999999999997,
-                766.6210163174859
+                382.34520054824145,
+                713.564286817341
               ]
             ],
             "movePhases": [
@@ -32837,12 +32837,12 @@
             "scale": 1.0,
             "moves": [
               [
-                470.304,
-                800.4851027397261
+                509.87959348465904,
+                738.7146180088223
               ],
               [
-                324.57599999999996,
-                761.4553082191782
+                362.8720830796253,
+                707.8785653379231
               ]
             ],
             "movePhases": [
@@ -33096,18 +33096,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1118.463134568896
+              500.0,
+              968.4631345688961
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                888.8761079774376
+                500.0,
+                898.8761079774376
               ],
               [
-                568.0,
-                659.289081385979
+                581.6492430904474,
+                664.8247524976707
               ]
             ],
             "movePhases": [
@@ -33361,18 +33361,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1118.463134568896
+              500.0,
+              968.4631345688961
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                888.8761079774376
+                500.0,
+                898.8761079774376
               ],
               [
-                622.0,
-                705.2064867042708
+                620.1206359986555,
+                703.368931428935
               ]
             ],
             "movePhases": [
@@ -33626,18 +33626,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1118.463134568896
+              500.0,
+              968.4631345688961
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                888.8761079774376
+                500.0,
+                898.8761079774376
               ],
               [
-                378.0,
-                705.2064867042708
+                379.87936400134447,
+                703.368931428935
               ]
             ],
             "movePhases": [
@@ -33918,18 +33918,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1118.463134568896
+              500.0,
+              968.4631345688961
             ],
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                888.8761079774376
+                500.0,
+                898.8761079774376
               ],
               [
-                460.0,
-                636.3303787268333
+                500.0,
+                646.3303787268333
               ]
             ],
             "movePhases": [
@@ -34118,12 +34118,12 @@
             "scale": 1.0,
             "moves": [
               [
-                450.0,
-                395.2640008058018
+                351.47912478608214,
+                379.810377075881
               ],
               [
-                460.0,
-                268.99113618049967
+                449.22272743336185,
+                260.81078184992526
               ]
             ],
             "movePhases": [
@@ -34332,12 +34332,12 @@
             "scale": 1.0,
             "moves": [
               [
-                504.0,
-                406.7433521353747
+                533.3834382981919,
+                376.5671953693092
               ],
               [
-                216.0,
-                751.1238920225625
+                236.88945284523265,
+                629.2348321716827
               ]
             ],
             "movePhases": [
@@ -34614,22 +34614,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              425.8866556593909,
+              1236.4508465065956
             ],
             "scale": 1.0,
             "moves": [
               [
-                172.8,
-                1187.3392425463335
+                206.91334434060911,
+                1147.4592058705193
               ],
               [
-                342.0,
-                934.7935132957293
+                276.4931009917945,
+                940.6182988409928
               ],
               [
-                568.0,
-                819.9999999999999
+                538.6476613654552,
+                789.8779779567548
               ]
             ],
             "movePhases": [
@@ -34907,22 +34907,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              433.3637177920708,
+              1222.3033737913493
             ],
             "scale": 1.0,
             "moves": [
               [
-                107.99999999999997,
-                1049.5870265914584
+                134.63628220792916,
+                1023.8544626308906
               ],
               [
-                310.5,
-                751.1238920225625
+                241.01869552222973,
+                755.4935947669529
               ],
               [
-                486.0,
-                957.752215954875
+                378.77815328894826,
+                844.3791445308236
               ]
             ],
             "movePhases": [
@@ -35200,18 +35200,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              460.0,
-              1196.5708098307814
+              512.59771674921,
+              1187.568926734828
             ],
             "scale": 1.0,
             "moves": [
               [
-                568.0,
-                659.289081385979
+                595.40228325079,
+                668.2909644819323
               ],
               [
-                342.0,
-                797.0412973408542
+                380.4428593402556,
+                711.3340436494901
               ]
             ],
             "movePhases": [
@@ -35527,16 +35527,16 @@
             "scale": 1.0,
             "moves": [
               [
-                725.0037735580383,
-                1003.7810134971796
+                719.173592434441,
+                868.2097202494614
               ],
               [
-                306.7966792689263,
-                988.6149026752619
+                346.30465277654554,
+                909.7558875656845
               ],
               [
-                460.0,
-                654.9604645930701
+                465.7813012615531,
+                657.2728470503465
               ]
             ],
             "movePhases": [
@@ -35907,20 +35907,20 @@
             "scale": 1.0,
             "moves": [
               [
-                766.0000000000001,
-                877.3967566478647
+                744.3216649140637,
+                756.4479295659097
               ],
               [
-                460.0,
-                1099.8330487026592
+                553.3089133224374,
+                970.1827363784068
               ],
               [
-                270.71999999999997,
-                877.3967566478647
+                302.14159755279917,
+                843.437780537399
               ],
               [
-                460.0,
-                654.9604645930701
+                451.37309312355774,
+                648.4854512332089
               ]
             ],
             "movePhases": [
@@ -36346,24 +36346,24 @@
             "scale": 1.0,
             "moves": [
               [
-                751.023293986317,
-                799.2869902720913
+                722.4285159264577,
+                688.1195708373168
               ],
               [
-                618.2788127373171,
-                1057.3514970859426
+                675.0482819391106,
+                909.128834751488
               ],
               [
-                381.72118726268286,
-                1057.3514970859426
+                419.6053432889113,
+                969.0742368951451
               ],
               [
-                283.899501292041,
-                808.6601622371841
+                292.40955178210993,
+                802.2744295162385
               ],
               [
-                460.0,
-                654.9604645930701
+                444.740439790774,
+                642.8083773080759
               ]
             ],
             "movePhases": [
@@ -36817,28 +36817,28 @@
             "scale": 1.0,
             "moves": [
               [
-                725.0037735580383,
-                751.0124997985496
+                692.7952505681358,
+                646.575176911648
               ],
               [
-                693.2033207310736,
-                988.6149026752619
+                721.4492889833389,
+                839.4830965687838
               ],
               [
-                460.0,
-                1099.8330487026592
+                560.6678747454671,
+                977.6850959732537
               ],
               [
-                306.7966792689263,
-                988.6149026752619
+                345.2279067198517,
+                934.3801353262951
               ],
               [
-                306.7966792689263,
-                766.1786106204675
+                291.81644767268244,
+                772.1655252112206
               ],
               [
-                460.0,
-                654.9604645930701
+                440.5137214116021,
+                638.4523579948138
               ]
             ],
             "movePhases": [
@@ -37173,8 +37173,8 @@
             "scale": 1.0,
             "moves": [
               [
-                504.0,
-                842.9587026591458
+                471.8027832638242,
+                693.3401333845238
               ]
             ],
             "movePhases": [
@@ -37456,8 +37456,8 @@
             "scale": 1.0,
             "moves": [
               [
-                514.0,
-                498.5781627719581
+                622.1605827655317,
+                470.460557128813
               ]
             ],
             "movePhases": [
@@ -37746,8 +37746,8 @@
             "scale": 1.0,
             "moves": [
               [
-                802.0,
-                544.4955680902498
+                875.2728191995355,
+                547.2480216744075
               ]
             ],
             "movePhases": [
@@ -38096,8 +38096,8 @@
                 449.51349259161424
               ],
               [
-                460.0,
-                751.1238920225625
+                512.6392094220402,
+                602.1286365625931
               ]
             ],
             "movePhases": [
@@ -38392,12 +38392,12 @@
             "scale": 1.0,
             "moves": [
               [
-                820.0,
-                659.289081385979
+                790.0602035191453,
+                550.4506356367395
               ],
               [
-                820.0,
-                774.0825946817083
+                826.8537086286705,
+                631.272407425206
               ]
             ],
             "movePhases": [
@@ -38637,8 +38637,8 @@
                 383.0162167606769
               ],
               [
-                460.0,
-                268.99113618049967
+                500.0,
+                278.99113618049967
               ]
             ],
             "movePhases": [
@@ -38861,16 +38861,16 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                326.3878928283643
+                459.73122444972324,
+                335.20066765016156
               ],
               [
-                414.0,
-                406.7433521353747
+                453.98705116463066,
+                335.30403077210656
               ],
               [
-                460.0,
-                268.99113618049967
+                474.41404093284103,
+                274.7892806077458
               ]
             ],
             "movePhases": [
@@ -39159,12 +39159,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                1026.6283239323127
+                486.26877555027676,
+                877.8155491105155
               ],
               [
-                784.0,
-                498.5781627719581
+                775.9268624480861,
+                492.52324425532765
               ]
             ],
             "movePhases": [

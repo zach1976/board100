@@ -290,12 +290,12 @@
             "scale": 1.0,
             "moves": [
               [
-                447.9597383453105,
-                820.0
+                348.48456529301893,
+                803.504240863692
               ],
               [
-                552.0402616546894,
-                682.0
+                529.152240807663,
+                661.4479204208222
               ]
             ],
             "movePhases": [
@@ -552,12 +552,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                820.0
+                431.39262305707507,
+                791.1464193947834
               ],
               [
-                736.1207849640685,
-                682.0
+                705.1339840372927,
+                648.8900270287554
               ]
             ],
             "movePhases": [
@@ -970,12 +970,12 @@
             "scale": 1.0,
             "moves": [
               [
-                374.32752902155886,
-                820.0
+                289.93807133457426,
+                816.5550602603244
               ],
               [
-                484.77584300718627,
-                682.0
+                396.49262789705335,
+                675.7866062636086
               ]
             ],
             "movePhases": [
@@ -1494,12 +1494,12 @@
             "scale": 1.0,
             "moves": [
               [
-                401.9396075179657,
-                820.0
+                323.80577299675485,
+                820.3264577858782
               ],
               [
-                524.9695964621338,
-                709.6
+                500.9509458436965,
+                687.5751224385561
               ]
             ],
             "movePhases": [
@@ -2018,12 +2018,12 @@
             "scale": 1.0,
             "moves": [
               [
-                434.4244057490326,
-                820.0
+                343.5545670980573,
+                811.7434977598755
               ],
               [
-                519.5554634236228,
-                709.6
+                496.99320979327894,
+                689.459446654496
               ]
             ],
             "movePhases": [
@@ -2478,12 +2478,12 @@
             "scale": 1.0,
             "moves": [
               [
-                491.27280265339965,
-                820.0
+                409.4998876544232,
+                818.2277331624633
               ],
               [
-                581.8179933665009,
-                709.6
+                560.6014565841022,
+                691.1027729774739
               ]
             ],
             "movePhases": [
@@ -2729,12 +2729,12 @@
             "scale": 1.0,
             "moves": [
               [
-                507.51520176893314,
-                847.6
+                508.08999731283404,
+                846.5469793868494
               ],
               [
-                460.0,
-                820.0
+                506.6800596233345,
+                829.7206171791757
               ]
             ],
             "movePhases": [
@@ -2948,12 +2948,12 @@
             "scale": 1.0,
             "moves": [
               [
-                507.51520176893314,
-                847.6
+                508.08999731283404,
+                846.5469793868494
               ],
               [
-                460.0,
-                820.0
+                506.6800596233345,
+                829.7206171791757
               ]
             ],
             "movePhases": [
@@ -3231,12 +3231,12 @@
             "scale": 1.0,
             "moves": [
               [
-                507.51520176893314,
-                847.6
+                508.08999731283404,
+                846.5469793868494
               ],
               [
-                460.0,
-                820.0
+                506.6800596233345,
+                829.7206171791757
               ]
             ],
             "movePhases": [
@@ -3657,12 +3657,12 @@
             "scale": 1.0,
             "moves": [
               [
-                481.5273631840796,
-                820.0
+                379.57339896955176,
+                800.6133017901916
               ],
               [
-                752.363184079602,
-                654.4
+                721.4959613323445,
+                621.5192233228362
               ]
             ],
             "movePhases": [
@@ -4083,12 +4083,12 @@
             "scale": 1.0,
             "moves": [
               [
-                442.54560530679936,
-                820.0
+                347.70370950845404,
+                808.2440251463053
               ],
               [
-                377.5760088446656,
-                654.4
+                341.19186610471775,
+                664.3182430755014
               ]
             ],
             "movePhases": [
@@ -4509,12 +4509,12 @@
             "scale": 1.0,
             "moves": [
               [
-                465.2849640685462,
-                820.0
+                365.9354718254054,
+                803.6436181710496
               ],
               [
-                589.9391929242676,
-                654.4
+                568.3945051089567,
+                635.5101888248901
               ]
             ],
             "movePhases": [
@@ -4935,12 +4935,12 @@
             "scale": 1.0,
             "moves": [
               [
-                484.77584300718627,
-                820.0
+                382.3531375398709,
+                800.0340468295419
               ],
               [
-                784.847982310669,
-                654.4
+                752.9326092914698,
+                619.4453866223423
               ]
             ],
             "movePhases": [
@@ -5361,12 +5361,12 @@
             "scale": 1.0,
             "moves": [
               [
-                470.15768380320617,
-                820.0
+                369.9785563539628,
+                802.7112191041691
               ],
               [
-                638.6663902708679,
-                654.4
+                613.3502507011199,
+                630.5930937663327
               ]
             ],
             "movePhases": [
@@ -5595,8 +5595,8 @@
             "scale": 1.0,
             "moves": [
               [
-                410.06080707573244,
-                544.0
+                370.06080707573244,
+                554.0
               ]
             ],
             "movePhases": [
@@ -5824,8 +5824,8 @@
             "scale": 1.0,
             "moves": [
               [
-                768.6055831951354,
-                461.2
+                762.7798762533529,
+                456.7744201902377
               ]
             ],
             "movePhases": [
@@ -6053,8 +6053,8 @@
             "scale": 1.0,
             "moves": [
               [
-                247.63681592039802,
-                461.2
+                239.93986029907748,
+                464.3882048138159
               ]
             ],
             "movePhases": [
@@ -6282,8 +6282,8 @@
             "scale": 1.0,
             "moves": [
               [
-                638.6663902708679,
-                406.0
+                667.0218851637497,
+                415.1479974529381
               ]
             ],
             "movePhases": [
@@ -6515,8 +6515,8 @@
                 397.7948262577625
               ],
               [
-                491.27280265339965,
-                368.73999999999995
+                493.46660880782144,
+                366.70824789711054
               ]
             ],
             "movePhases": [
@@ -6749,8 +6749,8 @@
                 419.125509797604
               ],
               [
-                736.1207849640687,
-                368.73999999999995
+                774.3162687357939,
+                378.7196456680191
               ]
             ],
             "movePhases": [
@@ -6983,8 +6983,8 @@
                 386.563603418777
               ],
               [
-                573.696793808734,
-                368.73999999999995
+                597.0144135568498,
+                376.9812818730083
               ]
             ],
             "movePhases": [
@@ -7412,12 +7412,12 @@
             "scale": 1.0,
             "moves": [
               [
-                483.15160309563294,
-                847.6
+                378.08958490999,
+                824.1503360848347
               ],
               [
-                524.9695964621338,
-                847.6
+                487.3416417912026,
+                796.9365108953982
               ]
             ],
             "movePhases": [
@@ -7845,12 +7845,12 @@
             "scale": 1.0,
             "moves": [
               [
-                483.15160309563294,
-                847.6
+                378.08958490999,
+                824.1503360848347
               ],
               [
-                524.9695964621338,
-                847.6
+                487.3416417912026,
+                796.9365108953982
               ]
             ],
             "movePhases": [
@@ -8278,12 +8278,12 @@
             "scale": 1.0,
             "moves": [
               [
-                483.15160309563294,
-                847.6
+                378.08958490999,
+                824.1503360848347
               ],
               [
-                524.9695964621338,
-                847.6
+                487.3416417912026,
+                796.9365108953982
               ]
             ],
             "movePhases": [
@@ -8792,12 +8792,12 @@
             "scale": 1.0,
             "moves": [
               [
-                508.7271973466004,
-                1006.3000000000001
+                626.9813840758902,
+                952.9217405628124
               ],
               [
-                638.6663902708679,
-                737.2
+                664.4260779356434,
+                745.9223824880527
               ]
             ],
             "movePhases": [
@@ -9180,12 +9180,12 @@
             "scale": 1.0,
             "moves": [
               [
-                251.69741569928135,
-                811.72
+                131.84970554036136,
+                746.653881066372
               ],
               [
-                328.84881149806523,
-                858.64
+                211.56470446425718,
+                767.9719860657367
               ]
             ],
             "movePhases": [
@@ -9662,12 +9662,12 @@
             "scale": 1.0,
             "moves": [
               [
-                251.69741569928135,
-                797.9200000000001
+                136.68671634844196,
+                755.7299799154546
               ],
               [
-                251.69741569928135,
-                930.4000000000001
+                165.09705580418847,
+                795.3738017592309
               ]
             ],
             "movePhases": [
@@ -10063,18 +10063,18 @@
         "vi-VN": "Maul đẩy từ ném biên"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 5, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 5, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 3，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到5号球员身后，4号球员向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 3，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到5號球員身後，4號球員向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対3、ボールは2。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が5番の後ろへ入る、4番が右へ移動、5番・6番・7番・8番・D3人が前方へ移動。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대3, 공은 2.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 5번 뒤로 따라 들어간다, 4번는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 3, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 5, 4 se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 3, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 5, 4 se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 3, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 5, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 3, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 5, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 3 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง5 4 ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 3, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 5, 4 di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 3，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 3，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対3、ボールは2。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番が右へ移動、5番・6番・7番・8番・D3人が前方へ移動。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대3, 공은 2.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 3, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4 se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 3, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4 se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 3, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 3, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 3 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4 ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 3, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4 di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
       },
       "mistake": {
         "en": "Driving with the ball at the front — one rip from a turnover.",
@@ -10348,12 +10348,12 @@
             "scale": 1.0,
             "moves": [
               [
-                188.54685296508578,
-                656.987682221421
+                108.9400221116639,
+                641.6990985296387
               ],
               [
-                328.84881149806523,
-                682.0
+                209.91706552010484,
+                625.029945390167
               ]
             ],
             "movePhases": [
@@ -10412,18 +10412,18 @@
         "vi-VN": "Maul cách phòng thủ"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 5, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 5, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 5，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到5号球员身后，4号球员、D向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动，D向左移动。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 5，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到5號球員身後，4號球員、D向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動，D向左移動。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対5、ボールは2。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が5番の後ろへ入る、4番・Dが右へ移動、5番・6番・7番・8番・D3人が前方へ移動、Dが左へ移動。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대5, 공은 2.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 5번 뒤로 따라 들어간다, 4번, D는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동, D는 왼쪽으로 이동.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 5, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 5, 4, D se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante, D se desplaza a la izquierda.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 5, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 5, 4, D se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant, D se déplace à gauche.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 5, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 5, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan, D bergerak ke kiri.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 5, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 5, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan, D bergerak ke kiri.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 5 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง5 4, D ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า D ขยับไปทางซ้าย\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 5, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 5, 4, D di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước, D di chuyển sang trái.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 5，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员、D向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动，D向左移动。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 5，球在 2 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員、D向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動，D向左移動。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対5、ボールは2。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番・Dが右へ移動、5番・6番・7番・8番・D3人が前方へ移動、Dが左へ移動。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대5, 공은 2.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번, D는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동, D는 왼쪽으로 이동.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 5, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4, D se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante, D se desplaza a la izquierda.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 5, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4, D se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant, D se déplace à gauche.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 5, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan, D bergerak ke kiri.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 5, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan, D bergerak ke kiri.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 5 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4, D ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า D ขยับไปทางซ้าย\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 5, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4, D di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước, D di chuyển sang trái.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
       },
       "mistake": {
         "en": "Driving with the ball at the front — one rip from a turnover.",
@@ -10751,12 +10751,12 @@
             "scale": 1.0,
             "moves": [
               [
-                188.54685296508578,
-                656.987682221421
+                108.9400221116639,
+                641.6990985296387
               ],
               [
-                328.84881149806523,
-                682.0
+                209.91706552010484,
+                625.029945390167
               ]
             ],
             "movePhases": [
@@ -11127,12 +11127,12 @@
             "scale": 1.0,
             "moves": [
               [
-                430.36380597014926,
-                875.2
+                328.6200676575805,
+                856.0695466776443
               ],
               [
-                484.3635986733002,
-                875.2
+                446.93550865786983,
+                825.321900421243
               ]
             ],
             "movePhases": [
@@ -11611,12 +11611,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.69720840243224,
-                875.2
+                295.37436223225967,
+                867.3901210268411
               ],
               [
-                475.0304035378662,
-                875.2
+                361.94895366602316,
+                837.7438424994543
               ]
             ],
             "movePhases": [
@@ -12149,12 +12149,12 @@
             "scale": 1.0,
             "moves": [
               [
-                372.93532338308455,
-                875.2
+                287.3419720950989,
+                870.9361872816665
               ],
               [
-                449.5066334991708,
-                875.2
+                339.05816792067213,
+                843.1079635121051
               ]
             ],
             "movePhases": [
@@ -12400,12 +12400,12 @@
             "scale": 1.0,
             "moves": [
               [
-                475.0304035378662,
-                682.0
+                435.0304035378662,
+                692.0
               ],
               [
-                491.27280265339965,
-                757.9
+                373.7058773938721,
+                707.4798903414411
               ]
             ],
             "movePhases": [

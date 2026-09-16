@@ -136,12 +136,12 @@
             "scale": 1.0,
             "moves": [
               [
-                552.6119402985075,
-                1075.0
+                517.1980862828948,
+                1031.6973898070926
               ],
               [
-                447.3880597014926,
-                1075.0
+                485.1236064893348,
+                1023.8993324113628
               ]
             ],
             "movePhases": [
@@ -323,12 +323,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                1075.0
+                432.47779925566186,
+                1047.9039905677932
               ],
               [
-                660.6592039800995,
-                1202.5
+                624.3650090637454,
+                1108.433512469299
               ]
             ],
             "movePhases": [
@@ -530,12 +530,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                641.5
+                500.0,
+                491.5
               ],
               [
-                521.7412935323384,
-                1100.5
+                552.6370001990044,
+                951.0197392876659
               ]
             ],
             "movePhases": [
@@ -737,12 +737,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                641.5
+                500.0,
+                491.5
               ],
               [
-                583.4825870646766,
-                1049.5
+                603.858055431974,
+                901.9443570189952
               ]
             ],
             "movePhases": [
@@ -944,12 +944,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                641.5
+                500.0,
+                491.5
               ],
               [
-                521.7412935323384,
-                1023.9999999999999
+                551.1556246239248,
+                874.7034451330862
               ]
             ],
             "movePhases": [
@@ -1156,12 +1156,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                310.0
+                500.0,
+                160.0
               ],
               [
-                490.8706467661692,
-                1075.0
+                527.9499304484494,
+                925.0533339269773
               ]
             ],
             "movePhases": [
@@ -1368,12 +1368,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                310.0
+                500.0,
+                160.0
               ],
               [
-                490.8706467661692,
-                1075.0
+                527.9499304484494,
+                925.0533339269773
               ]
             ],
             "movePhases": [
@@ -1573,12 +1573,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                514.0
+                357.91641251302474,
+                523.0534994709049
               ],
               [
-                460.0,
-                1202.5
+                481.83625185518656,
+                1054.5892930764212
               ]
             ],
             "movePhases": [
@@ -1778,12 +1778,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                514.0
+                357.91641251302474,
+                523.0534994709049
               ],
               [
-                460.0,
-                1202.5
+                481.83625185518656,
+                1054.5892930764212
               ]
             ],
             "movePhases": [
@@ -1983,12 +1983,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                514.0
+                357.91641251302474,
+                523.0534994709049
               ],
               [
-                460.0,
-                1202.5
+                481.83625185518656,
+                1054.5892930764212
               ]
             ],
             "movePhases": [
@@ -2947,12 +2947,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                769.0
+                430.5198718796131,
+                775.5699575703745
               ],
               [
-                493.69402985074635,
-                947.5
+                435.95834565822963,
+                799.490734484785
               ]
             ],
             "movePhases": [
@@ -3186,12 +3186,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                769.0
+                430.5198718796131,
+                775.5699575703745
               ],
               [
-                493.69402985074635,
-                947.5
+                435.95834565822963,
+                799.490734484785
               ]
             ],
             "movePhases": [
@@ -3425,12 +3425,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                769.0
+                430.5198718796131,
+                775.5699575703745
               ],
               [
-                493.69402985074635,
-                947.5
+                435.95834565822963,
+                799.490734484785
               ]
             ],
             "movePhases": [
@@ -3652,12 +3652,12 @@
             "scale": 1.0,
             "moves": [
               [
-                416.51741293532336,
-                386.5
+                373.1806953477417,
+                396.4303841836177
               ],
               [
-                493.69402985074635,
-                947.5
+                440.488643489678,
+                798.5974159418406
               ]
             ],
             "movePhases": [
@@ -3879,12 +3879,12 @@
             "scale": 1.0,
             "moves": [
               [
-                552.6119402985075,
-                463.00000000000006
+                564.6866764255093,
+                467.9678573631621
               ],
               [
-                493.69402985074635,
-                947.5
+                474.62091470199323,
+                800.2855875472547
               ]
             ],
             "movePhases": [
@@ -3943,18 +3943,18 @@
         "vi-VN": "Dứt điểm bỏ nhỏ"
       },
       "note": {
-        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → D → 1\nSequence: Step 1: 1 plays it to D, 1 moves up the board; Step 2: D plays it to 1, 2 moves up the board; Step 3: D moves up the board.\nCoaching point: Contact above the tape or place it instead. A footvolley attack hit from below net height is a free ball with extra steps.",
-        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → D → 1\nSequence: Step 1: 1 plays it to D, 1 moves up the board; Step 2: D plays it to 1, 2 moves up the board; Step 3: D moves up the board.\nCoaching point: Contact above the tape or place it instead. A footvolley attack hit from below net height is a free ball with extra steps.",
-        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → D → 1\n【流程】第1步：1号球员把球击向D，1号球员向前移动；第2步：D把球击向1号球员，2号球员向前移动；第3步：D向前移动。\n【要点】要么在网带以上击球，要么就改为放点。低于网高打出的进攻，只是绕了个弯的调整球。",
-        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → D → 1\n【流程】第1步：1號球員把球擊向D，1號球員向前移動；第2步：D把球擊向1號球員，2號球員向前移動；第3步：D向前移動。\n【要點】要麼在網帶以上擊球，要麼就改為放點。低於網高打出的進攻，只是繞了個彎的調整球。",
-        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → D → 1\n【流れ】ステップ1：1番がDへ打つ、1番が前方へ移動。ステップ2：Dが1番へ打つ、2番が前方へ移動。ステップ3：Dが前方へ移動。\n【ポイント】白帯より上で当てるか、置きにいくか。ネットより低い位置から打つ攻撃は、手間をかけたフリーボールでしかない。",
-        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → D → 1\n【진행】1단계: 1번가 D 쪽으로 친다, 1번는 앞으로 이동; 2단계: D가 1번 쪽으로 친다, 2번는 앞으로 이동; 3단계: D는 앞으로 이동.\n【포인트】테이프 위에서 맞히거나 아니면 놓아라. 네트보다 낮은 곳에서 친 공격은 번거로운 프리볼일 뿐이다.",
-        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → D → 1\nSecuencia: Paso 1: 1 la juega hacia D, 1 se desplaza hacia delante; Paso 2: D la juega hacia 1, 2 se desplaza hacia delante; Paso 3: D se desplaza hacia delante.\nPunto clave: Contacta por encima de la cinta o colócala: un ataque golpeado por debajo de la red es un balón libre con pasos de más.",
-        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → D → 1\nDéroulé : Étape 1 : 1 joue vers D, 1 se déplace vers l'avant ; Étape 2 : D joue vers 1, 2 se déplace vers l'avant ; Étape 3 : D se déplace vers l'avant.\nPoint clé : Frappe au-dessus de la bande, sinon place la balle : une attaque portée sous la hauteur du filet n'est qu'une balle libre compliquée.",
-        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → D → 1\nUrutan: Langkah 1: 1 memukul ke D, 1 bergerak ke depan; Langkah 2: D memukul ke 1, 2 bergerak ke depan; Langkah 3: D bergerak ke depan.\nPoin utama: Kontak di atas bibir net, atau tempatkan saja bolanya.",
-        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → D → 1\nUrutan: Langkah 1: 1 memukul ke arah D, 1 bergerak ke hadapan; Langkah 2: D memukul ke arah 1, 2 bergerak ke hadapan; Langkah 3: D bergerak ke hadapan.\nPoin utama: Sentuh di atas bibir jaring, atau letakkan sahaja bolanya.",
-        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → D → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ D 1 ขยับไปข้างหน้า • ขั้นที่ 2: D ตีไปที่ 1 2 ขยับไปข้างหน้า • ขั้นที่ 3: D ขยับไปข้างหน้า\nจุดเน้น: ปะทะบอลเหนือขอบเน็ต ไม่งั้นก็หย่อนวางแทน",
-        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → D → 1\nTrình tự: Bước 1: 1 đánh sang D, 1 di chuyển lên phía trước; Bước 2: D đánh sang 1, 2 di chuyển lên phía trước; Bước 3: D di chuyển lên phía trước.\nĐiểm chính: Chạm bóng trên mép lưới, nếu không thì đặt bóng."
+        "en": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → D → 1\nSequence: Step 1: 1 plays it to D, 1 moves up the board; Step 2: D plays it to 1, 2 moves up the board; Step 3: D follows up behind B.\nCoaching point: Contact above the tape or place it instead. A footvolley attack hit from below net height is a free ball with extra steps.",
+        "en-GB": "Purpose: End the point cleanly — take the ball early, hit into the open space, and finish rather than give the rally back.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 2 v 2, ball with 1.\nBall path: 1 → D → 1\nSequence: Step 1: 1 plays it to D, 1 moves up the board; Step 2: D plays it to 1, 2 moves up the board; Step 3: D follows up behind B.\nCoaching point: Contact above the tape or place it instead. A footvolley attack hit from below net height is a free ball with extra steps.",
+        "zh-CN": "【目的】得分：练怎么一拍把球打死。早点击球、打对方空当，直接得分，别把球又送回去。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】2 对 2，球在 1 脚下。\n【球路】1 → D → 1\n【流程】第1步：1号球员把球击向D，1号球员向前移动；第2步：D把球击向1号球员，2号球员向前移动；第3步：D跟上去，跑到B身后。\n【要点】要么在网带以上击球，要么就改为放点。低于网高打出的进攻，只是绕了个弯的调整球。",
+        "zh-TW": "【目的】得分：練怎麼一拍把球打死。早點擊球、打對方空檔，直接得分，別把球又送回去。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】2 對 2，球在 1 腳下。\n【球路】1 → D → 1\n【流程】第1步：1號球員把球擊向D，1號球員向前移動；第2步：D把球擊向1號球員，2號球員向前移動；第3步：D跟上去，跑到B身後。\n【要點】要麼在網帶以上擊球，要麼就改為放點。低於網高打出的進攻，只是繞了個彎的調整球。",
+        "ja-JP": "【目的】ポイントをきれいに決める。早く打ち、空いた場所へ叩き、ラリーを返さず終わらせる。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】2対2、ボールは1。\n【ボールの道筋】1 → D → 1\n【流れ】ステップ1：1番がDへ打つ、1番が前方へ移動。ステップ2：Dが1番へ打つ、2番が前方へ移動。ステップ3：DがBの後ろへ入る。\n【ポイント】白帯より上で当てるか、置きにいくか。ネットより低い位置から打つ攻撃は、手間をかけたフリーボールでしかない。",
+        "ko-KR": "【목적】포인트를 깔끔하게 끝낸다. 공을 일찍 치고 빈 곳으로 때려, 랠리를 돌려주지 말고 마무리한다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】2대2, 공은 1.\n【볼 경로】1 → D → 1\n【진행】1단계: 1번가 D 쪽으로 친다, 1번는 앞으로 이동; 2단계: D가 1번 쪽으로 친다, 2번는 앞으로 이동; 3단계: D가 B 뒤로 따라 들어간다.\n【포인트】테이프 위에서 맞히거나 아니면 놓아라. 네트보다 낮은 곳에서 친 공격은 번거로운 프리볼일 뿐이다.",
+        "es-ES": "Objetivo: Cerrar el punto con limpieza: golpear pronto, dirigir al hueco y definir en vez de devolver el peloteo.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 2 contra 2, balón con 1.\nRecorrido del balón: 1 → D → 1\nSecuencia: Paso 1: 1 la juega hacia D, 1 se desplaza hacia delante; Paso 2: D la juega hacia 1, 2 se desplaza hacia delante; Paso 3: D sube por detrás de B.\nPunto clave: Contacta por encima de la cinta o colócala: un ataque golpeado por debajo de la red es un balón libre con pasos de más.",
+        "fr-FR": "Objectif : Conclure le point proprement : frapper tôt, viser l'espace libre et finir plutôt que de rendre l'échange.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 2 contre 2, ballon avec 1.\nTrajet du ballon : 1 → D → 1\nDéroulé : Étape 1 : 1 joue vers D, 1 se déplace vers l'avant ; Étape 2 : D joue vers 1, 2 se déplace vers l'avant ; Étape 3 : D monte derrière B.\nPoint clé : Frappe au-dessus de la bande, sinon place la balle : une attaque portée sous la hauteur du filet n'est qu'une balle libre compliquée.",
+        "id-ID": "Tujuan: Menyelesaikan poin dengan bersih — pukul lebih awal, arahkan ke ruang kosong, dan tuntaskan bukan mengembalikan reli.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 2 lawan 2, bola pada 1.\nJalur bola: 1 → D → 1\nUrutan: Langkah 1: 1 memukul ke D, 1 bergerak ke depan; Langkah 2: D memukul ke 1, 2 bergerak ke depan; Langkah 3: D maju di belakang B.\nPoin utama: Kontak di atas bibir net, atau tempatkan saja bolanya.",
+        "ms-MY": "Tujuan: Menamatkan mata dengan bersih — pukul lebih awal, arah ke ruang kosong, dan selesaikan bukan memulangkan rali.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 2 lawan 2, bola dengan 1.\nLaluan bola: 1 → D → 1\nUrutan: Langkah 1: 1 memukul ke arah D, 1 bergerak ke hadapan; Langkah 2: D memukul ke arah 1, 2 bergerak ke hadapan; Langkah 3: D naik di belakang B.\nPoin utama: Sentuh di atas bibir jaring, atau letakkan sahaja bolanya.",
+        "th-TH": "จุดประสงค์: จบแต้มให้เด็ดขาด — ตีเร็ว ตีเข้าที่ว่าง และจบ ไม่ใช่คืนลูกให้คู่ต่อสู้\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 2 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → D → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ D 1 ขยับไปข้างหน้า • ขั้นที่ 2: D ตีไปที่ 1 2 ขยับไปข้างหน้า • ขั้นที่ 3: D ตามขึ้นไปด้านหลังB\nจุดเน้น: ปะทะบอลเหนือขอบเน็ต ไม่งั้นก็หย่อนวางแทน",
+        "vi-VN": "Mục đích: Kết thúc điểm dứt khoát — đánh sớm, đánh vào khoảng trống, và ghi điểm thay vì trả lại pha bóng.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 2 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → D → 1\nTrình tự: Bước 1: 1 đánh sang D, 1 di chuyển lên phía trước; Bước 2: D đánh sang 1, 2 di chuyển lên phía trước; Bước 3: D theo lên phía sau B.\nĐiểm chính: Chạm bóng trên mép lưới, nếu không thì đặt bóng."
       },
       "mistake": {
         "en": "Hitting from below net height — an attack under the tape is a free ball with steps.",
@@ -4106,12 +4106,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                667.0
+                474.50066740393794,
+                672.8273304103171
               ],
               [
-                493.69402985074635,
-                947.5
+                461.7849789804329,
+                797.9101982526604
               ]
             ],
             "movePhases": [
@@ -4320,12 +4320,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                641.5
+                526.6324462455067,
+                538.6368380428091
               ],
               [
-                493.69402985074635,
-                858.25
+                476.13218157552325,
+                711.4611378702882
               ]
             ],
             "movePhases": [
@@ -4534,12 +4534,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                641.5
+                526.6324462455067,
+                538.6368380428091
               ],
               [
-                462.82338308457713,
-                858.25
+                453.54307955667696,
+                714.3832263554035
               ]
             ],
             "movePhases": [
@@ -4748,12 +4748,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                641.5
+                526.6324462455067,
+                538.6368380428091
               ],
               [
-                416.51741293532336,
-                1075.0
+                401.0296080909697,
+                928.8478346423983
               ]
             ],
             "movePhases": [
@@ -4922,12 +4922,12 @@
             "scale": 1.0,
             "moves": [
               [
-                493.69402985074635,
-                616.0
+                525.3734480607782,
+                510.47450204330204
               ],
               [
-                493.69402985074635,
-                858.25
+                473.6830735757455,
+                710.7875050042921
               ]
             ],
             "movePhases": [
@@ -5082,12 +5082,12 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                552.25
+                500.0,
+                562.25
               ],
               [
-                460.0,
-                1087.75
+                500.0,
+                937.75
               ]
             ],
             "movePhases": [
@@ -5296,12 +5296,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                577.75
+                345.64676616915426,
+                587.75
               ],
               [
-                385.64676616915426,
-                1062.25
+                345.64676616915426,
+                912.2499999999999
               ]
             ],
             "movePhases": [
@@ -5618,12 +5618,12 @@
             "scale": 1.0,
             "moves": [
               [
-                308.4701492537314,
-                679.75
+                268.4701492537314,
+                689.75
               ],
               [
-                308.4701492537314,
-                960.25
+                268.4701492537314,
+                810.25
               ]
             ],
             "movePhases": [
@@ -5886,12 +5886,12 @@
             "scale": 1.0,
             "moves": [
               [
-                370.2114427860697,
-                667.0
+                326.7557752406416,
+                676.9253299137106
               ],
               [
-                370.2114427860697,
-                973.0
+                328.98874449377,
+                823.0093442401801
               ]
             ],
             "movePhases": [

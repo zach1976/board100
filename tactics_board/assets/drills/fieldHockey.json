@@ -404,12 +404,12 @@
             "scale": 1.0,
             "moves": [
               [
-                568.0,
-                1067.0873225404732
+                528.3818054307426,
+                1004.8939283030226
               ],
               [
-                432.0,
-                968.2523935242839
+                455.02103951763513,
+                947.5306704636887
               ]
             ],
             "movePhases": [
@@ -897,16 +897,16 @@
             "scale": 1.0,
             "moves": [
               [
-                450.0,
-                1116.5047870485678
+                339.25466946373035,
+                1083.8558005196096
               ],
               [
-                622.0,
-                1091.7960547945204
+                583.4391834376698,
+                1036.9022820223863
               ],
               [
-                514.0,
-                795.2912677459526
+                561.5244268889152,
+                804.936625426067
               ]
             ],
             "movePhases": [
@@ -1217,12 +1217,12 @@
             "scale": 1.0,
             "moves": [
               [
-                504.0,
-                869.4174645080947
+                402.2484599173464,
+                850.2775401806733
               ],
               [
-                532.0,
-                523.4952129514321
+                540.5331354885832,
+                527.0468032661231
               ]
             ],
             "movePhases": [
@@ -1539,16 +1539,16 @@
             "scale": 1.0,
             "moves": [
               [
-                432.0,
-                1067.0873225404732
+                315.7350796577027,
+                1021.2464186573203
               ],
               [
-                586.0,
-                1017.6698580323787
+                548.1587994070057,
+                966.1292049937757
               ],
               [
-                802.0,
-                943.5436612702366
+                765.6980109840599,
+                897.5854264344536
               ]
             ],
             "movePhases": [
@@ -1819,12 +1819,12 @@
                 448.9160267457353
               ],
               [
-                234.0,
-                424.6602839352428
+                235.75041684756994,
+                422.901786652095
               ],
               [
-                360.0,
-                313.47098879202986
+                285.9985119638128,
+                315.8857580820374
               ]
             ],
             "movePhases": [
@@ -2086,16 +2086,16 @@
             "scale": 1.0,
             "moves": [
               [
-                604.0,
-                671.747606475716
+                571.2537715773084,
+                635.0340338940133
               ],
               [
-                486.0,
-                498.7864806973847
+                487.5260125302912,
+                497.1647687962695
               ],
               [
-                522.0,
-                375.2428194271482
+                484.30248737449415,
+                385.20967851196093
               ]
             ],
             "movePhases": [
@@ -2365,12 +2365,12 @@
                 147.2816936488169
               ],
               [
-                496.0,
-                350.53408717310083
+                598.1503274481363,
+                230.16210291508855
               ],
               [
-                414.0,
-                313.47098879202986
+                453.8593569736556,
+                238.7293536569475
               ]
             ],
             "movePhases": [
@@ -2638,20 +2638,20 @@
             "scale": 1.0,
             "moves": [
               [
-                324.0,
-                572.9126774595268
+                262.9178910612274,
+                580.0848530326809
               ],
               [
-                460.0,
-                523.4952129514321
+                429.4297991720231,
+                491.1760669106912
               ],
               [
-                640.0,
-                350.53408717310083
+                618.7632354025565,
+                332.01280764707224
               ],
               [
-                478.0,
-                251.69915815691155
+                562.5454681060446,
+                248.14990135225406
               ]
             ],
             "movePhases": [
@@ -2862,16 +2862,16 @@
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                350.53408717310083
+                345.4955619100364,
+                359.84144358102884
               ],
               [
-                586.0,
-                288.7622565379826
+                554.5303044990775,
+                254.70780737540076
               ],
               [
-                514.0,
-                239.34479202988788
+                554.4969780077665,
+                249.3432483453681
               ]
             ],
             "movePhases": [
@@ -3081,12 +3081,12 @@
             "scale": 1.0,
             "moves": [
               [
-                586.0,
-                362.8884533001245
+                647.3929897056703,
+                369.97502795131186
               ],
               [
-                504.0,
-                239.34479202988788
+                517.975064161631,
+                228.39301341502198
               ]
             ],
             "movePhases": [
@@ -3295,12 +3295,12 @@
             "scale": 1.0,
             "moves": [
               [
-                622.0,
-                338.1797210460772
+                688.4060977859125,
+                343.6960636463437
               ],
               [
-                486.0,
-                239.34479202988788
+                510.94574947056475,
+                216.05720607269495
               ]
             ],
             "movePhases": [
@@ -3509,20 +3509,20 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                387.5971855541718
+                462.3017719064373,
+                395.9186528074766
               ],
               [
-                522.0,
-                264.0535242839352
+                474.2304129686646,
+                273.67533987088666
               ],
               [
-                568.0,
-                350.53408717310083
+                528.1049493043839,
+                276.43764062213364
               ],
               [
-                468.0,
-                239.34479202988788
+                482.62966671493723,
+                227.78792263233663
               ]
             ],
             "movePhases": [
@@ -3847,12 +3847,12 @@
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                350.53408717310083
+                434.8476805060483,
+                294.06343596807733
               ],
               [
-                270.0,
-                399.9515516811955
+                308.79983817864445,
+                316.14628083925066
               ]
             ],
             "movePhases": [
@@ -4175,12 +4175,12 @@
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                609.9757758405977
+                434.8476805060483,
+                553.5051246355742
               ],
               [
-                270.0,
-                659.3932403486924
+                308.79983817864445,
+                575.5879695067476
               ]
             ],
             "movePhases": [
@@ -4517,12 +4517,12 @@
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                622.3301419676214
+                435.5371666824281,
+                560.9231109616101
               ],
               [
-                342.0,
-                795.2912677459526
+                352.44468837915446,
+                663.1999365125993
               ]
             ],
             "movePhases": [
@@ -4581,18 +4581,18 @@
         "vi-VN": "Phạt góc cú hất kéo"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向左移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向左移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向左移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向左移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -4758,16 +4758,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                437.01465006226647
+                557.685182673856,
+                311.5852381956063
               ],
               [
-                468.0,
-                461.72338231631375
+                496.0548118767679,
+                349.66933874833165
               ],
               [
-                495.0,
-                239.34479202988788
+                472.7592863687399,
+                247.34868775101893
               ]
             ],
             "movePhases": [
@@ -4827,18 +4827,18 @@
         "vi-VN": "Phạt góc cú đánh thẳng"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向右移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向右移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが右へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 오른쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la derecha, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à droite, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kanan, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kanan, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางขวา F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang phải, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向右移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向右移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが右へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 오른쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la derecha, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à droite, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kanan, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kanan, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางขวา F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang phải, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5004,16 +5004,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                437.01465006226647
+                557.685182673856,
+                311.5852381956063
               ],
               [
-                514.0,
-                461.72338231631375
+                557.674946494967,
+                311.8078345908609
               ],
               [
-                505.0,
-                239.34479202988788
+                552.0896012165897,
+                249.0300325364568
               ]
             ],
             "movePhases": [
@@ -5073,18 +5073,18 @@
         "vi-VN": "Phạt góc biến thể bên trái"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I, T move back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I, T move back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I、T向后移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I、T向後移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、I・Tが後方へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I, T는 뒤로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I, T se desplaza hacia atrás, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I, T se déplace vers l'arrière, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I, T bergerak ke belakang, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I, T bergerak ke belakang, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I, T ขยับถอยหลัง F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I, T di chuyển lùi lại, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向后移动，F向前移动；第3步：F射门，P、GK向前移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向後移動，F向前移動；第3步：F射門，P、GK向前移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが後方へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 뒤로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza hacia atrás, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace vers l'arrière, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke belakang, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke belakang, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับถอยหลัง F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển lùi lại, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5250,16 +5250,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                437.01465006226647
+                557.685182673856,
+                311.5852381956063
               ],
               [
-                378.0,
-                449.36901618929016
+                414.443876413472,
+                355.78228774124517
               ],
               [
-                514.0,
-                245.52197509339973
+                505.0261988647334,
+                238.77991374431812
               ]
             ],
             "movePhases": [
@@ -5319,18 +5319,18 @@
         "vi-VN": "Phạt góc cách phòng thủ"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 5，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向左移动，F向前移动；第3步：F射门，P、GK、3 名 D向前移动，D向右移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 5，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向左移動，F向前移動；第3步：F射門，P、GK、3 名 D向前移動，D向右移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対5、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GK・D3人が前方へ移動、Dが右へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대5, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK, D 3명는 앞으로 이동, D는 오른쪽으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 5, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK, 3 D se desplaza hacia delante, D se desplaza a la derecha.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 5, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK, 3 D se déplace vers l'avant, D se déplace à droite.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 5, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK, 3 D bergerak ke depan, D bergerak ke kanan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 5, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK, 3 D bergerak ke hadapan, D bergerak ke kanan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 5 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK, D 3 คน ขยับไปข้างหน้า D ขยับไปทางขวา\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 5, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK, 3 D di chuyển lên phía trước, D di chuyển sang phải.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 5，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向左移动，F向前移动；第3步：F射门，P、GK、3 名 D向前移动，D向右移动。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 5，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向左移動，F向前移動；第3步：F射門，P、GK、3 名 D向前移動，D向右移動。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対5、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GK・D3人が前方へ移動、Dが右へ移動。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대5, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK, D 3명는 앞으로 이동, D는 오른쪽으로 이동.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 5, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK, 3 D se desplaza hacia delante, D se desplaza a la derecha.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 5, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK, 3 D se déplace vers l'avant, D se déplace à droite.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 5, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK, 3 D bergerak ke depan, D bergerak ke kanan.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 5, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK, 3 D bergerak ke hadapan, D bergerak ke kanan.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 5 บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK, D 3 คน ขยับไปข้างหน้า D ขยับไปทางขวา\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 5, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK, 3 D di chuyển lên phía trước, D di chuyển sang phải.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5604,16 +5604,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                437.01465006226647
+                557.685182673856,
+                311.5852381956063
               ],
               [
-                468.0,
-                461.72338231631375
+                496.0548118767679,
+                349.66933874833165
               ],
               [
-                495.0,
-                239.34479202988788
+                472.7592863687399,
+                247.34868775101893
               ]
             ],
             "movePhases": [
@@ -5823,12 +5823,12 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                523.4952129514321
+                368.0149315111388,
+                471.3369923690693
               ],
               [
-                550.0,
-                375.2428194271482
+                525.9453831739272,
+                353.1699105475677
               ]
             ],
             "movePhases": [
@@ -6102,20 +6102,20 @@
             "scale": 1.0,
             "moves": [
               [
-                577.0,
-                943.5436612702366
+                552.9615809410241,
+                921.4923931035917
               ],
               [
-                478.0,
-                498.7864806973847
+                523.6624276405403,
+                508.58583478760056
               ],
               [
-                460.0,
-                350.53408717310083
+                508.2563972896361,
+                360.10689599493196
               ],
               [
-                460.0,
-                251.69915815691155
+                503.6983015652632,
+                261.6136284706937
               ]
             ],
             "movePhases": [
@@ -6471,20 +6471,20 @@
             "scale": 1.0,
             "moves": [
               [
-                351.00000000000006,
-                869.4174645080947
+                297.59386349087583,
+                878.2861877378942
               ],
               [
-                478.0,
-                498.7864806973847
+                482.77928754275814,
+                500.6161501523132
               ],
               [
-                460.0,
-                350.53408717310083
+                493.7593329826692,
+                360.29030370309175
               ],
               [
-                460.0,
-                251.69915815691155
+                497.20619504431494,
+                261.6503598606357
               ]
             ],
             "movePhases": [
@@ -6920,20 +6920,20 @@
             "scale": 1.0,
             "moves": [
               [
-                297.0,
-                894.1261967621421
+                244.4103228871659,
+                903.1293614468215
               ],
               [
-                478.0,
-                498.7864806973847
+                478.0298414165656,
+                498.08573338321895
               ],
               [
-                460.0,
-                350.53408717310083
+                491.9618257189432,
+                360.1292362352601
               ],
               [
-                460.0,
-                251.69915815691155
+                496.3996966347366,
+                261.61810344323317
               ]
             ],
             "movePhases": [
@@ -7147,12 +7147,12 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                943.5436612702366
+                412.07122950758946,
+                801.0947928672496
               ],
               [
-                486.0,
-                1165.9222515566626
+                436.85395608294493,
+                1016.4467843943532
               ]
             ],
             "movePhases": [
@@ -7395,12 +7395,12 @@
             "scale": 1.0,
             "moves": [
               [
-                324.0,
-                1067.0873225404732
+                251.95957124028774,
+                1070.390875830159
               ],
               [
-                694.0,
-                622.3301419676214
+                679.5042020720405,
+                610.8981196362673
               ]
             ],
             "movePhases": [
@@ -7446,18 +7446,18 @@
         "vi-VN": "Phạt góc dài"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, ball with 7.\nBall path: 7 → 9 → 10 → goal\nSequence: Step 1: 7 passes to 9, 9 moves up the board, D moves back; Step 2: 9 passes to 10, 7, 10 move up the board, D moves back; Step 3: 10 shoots, GK moves up the board.\nCoaching point: Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, ball with 7.\nBall path: 7 → 9 → 10 → goal\nSequence: Step 1: 7 passes to 9, 9 moves up the board, D moves back; Step 2: 9 passes to 10, 7, 10 move up the board, D moves back; Step 3: 10 shoots, GK moves up the board.\nCoaching point: Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】3 对 3，球在 7 杆下。\n【球路】7 → 9 → 10 → 球门\n【流程】第1步：7号球员把球传给9号球员，9号球员向前移动，D向后移动；第2步：9号球员把球传给10号球员，7号球员、10号球员向前移动，D向后移动；第3步：10号球员射门，GK向前移动。\n【要点】在23米线上、球出界位置的延长线上开出，第一脚就已经是向前的。站在球边等所有人慢跑就位，等于白送给对方二十秒。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】3 對 3，球在 7 桿下。\n【球路】7 → 9 → 10 → 球門\n【流程】第1步：7號球員把球傳給9號球員，9號球員向前移動，D向後移動；第2步：9號球員把球傳給10號球員，7號球員、10號球員向前移動，D向後移動；第3步：10號球員射門，GK向前移動。\n【要點】在23公尺線上、球出界位置的延長線上開出，第一腳就已經是向前的。站在球邊等所有人慢跑就位，等於白送給對方二十秒。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】3対3、ボールは7。\n【ボールの道筋】7 → 9 → 10 → ゴール\n【流れ】ステップ1：7番が9番へパス、9番が前方へ移動、Dが後方へ移動。ステップ2：9番が10番へパス、7番・10番が前方へ移動、Dが後方へ移動。ステップ3：10番がシュート、GKが前方へ移動。\n【ポイント】ボールが出た地点の延長線上、23メートルラインから始める。最初のパスがすでに前向きになる。全員が歩いて配置につくのを待てば、守備に20秒を献上する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】3대3, 공은 7.\n【볼 경로】7 → 9 → 10 → 골문\n【진행】1단계: 7번가 9번에게 패스, 9번는 앞으로 이동, D는 뒤로 이동; 2단계: 9번가 10번에게 패스, 7번, 10번는 앞으로 이동, D는 뒤로 이동; 3단계: 10번 슛, GK는 앞으로 이동.\n【포인트】공이 나간 지점과 같은 선상, 23미터 라인에서 시작하니 첫 패스부터 전방이다. 모두가 자리를 잡을 때까지 기다리면 수비에 20초를 준다.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 3 contra 3, balón con 7.\nRecorrido del balón: 7 → 9 → 10 → portería\nSecuencia: Paso 1: 7 pasa a 9, 9 se desplaza hacia delante, D se desplaza hacia atrás; Paso 2: 9 pasa a 10, 7, 10 se desplaza hacia delante, D se desplaza hacia atrás; Paso 3: 10 remata, GK se desplaza hacia delante.\nPunto clave: Se saca en la linea de 23 m, a la altura de donde salio la bola, asi el primer pase ya va hacia adelante. Esperar a que todos troten a su sitio regala veinte segundos a la defensa.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 3 contre 3, ballon avec 7.\nTrajet du ballon : 7 → 9 → 10 → but\nDéroulé : Étape 1 : 7 passe à 9, 9 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 2 : 9 passe à 10, 7, 10 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 3 : 10 frappe, GK se déplace vers l'avant.\nPoint clé : Joue sur la ligne des 23 m, dans l axe de la sortie de balle, pour que la premiere passe aille deja vers l avant. Attendre que tout le monde se place offre vingt secondes a la defense.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 3 lawan 3, bola pada 7.\nJalur bola: 7 → 9 → 10 → gawang\nUrutan: Langkah 1: 7 mengoper ke 9, 9 bergerak ke depan, D bergerak ke belakang; Langkah 2: 9 mengoper ke 10, 7, 10 bergerak ke depan, D bergerak ke belakang; Langkah 3: 10 menembak, GK bergerak ke depan.\nPoin utama: Diambil di garis 23 m, segaris dengan tempat bola keluar, sehingga umpan pertama sudah ke depan.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 3 lawan 3, bola dengan 7.\nLaluan bola: 7 → 9 → 10 → gol\nUrutan: Langkah 1: 7 menghantar kepada 9, 9 bergerak ke hadapan, D bergerak ke belakang; Langkah 2: 9 menghantar kepada 10, 7, 10 bergerak ke hadapan, D bergerak ke belakang; Langkah 3: 10 menjaring, GK bergerak ke hadapan.\nPoin utama: Diambil di garisan 23 m, segaris dengan tempat bola keluar, supaya hantaran pertama sudah ke hadapan.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ 7\nเส้นทางบอล: 7 → 9 → 10 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 9 9 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 2: 9 จ่ายให้ 10 7, 10 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 3: 10 ยิงประตู GK ขยับไปข้างหน้า\nจุดเน้น: เล่นจากเส้น 23 เมตร ตรงแนวที่บอลออก เพื่อให้จ่ายลูกแรกไปข้างหน้าได้เลย",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 3 đấu 3, bóng ở chỗ 7.\nĐường bóng: 7 → 9 → 10 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 9, 9 di chuyển lên phía trước, D di chuyển lùi lại; Bước 2: 9 chuyền cho 10, 7, 10 di chuyển lên phía trước, D di chuyển lùi lại; Bước 3: 10 dứt điểm, GK di chuyển lên phía trước.\nĐiểm chính: Thuc hien tren vach 23 m, thang hang voi diem bong ra bien, de duong chuyen dau tien da huong len phia truoc."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, ball with 7.\nBall path: 7 → 9 → 10 → goal\nSequence: Step 1: 7 passes to 9, 9 moves up the board, D moves back; Step 2: 9 passes to 10, 7 follows up behind 9, 10 moves up the board, D moves back; Step 3: 10 shoots, GK moves up the board.\nCoaching point: Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, ball with 7.\nBall path: 7 → 9 → 10 → goal\nSequence: Step 1: 7 passes to 9, 9 moves up the board, D moves back; Step 2: 9 passes to 10, 7 follows up behind 9, 10 moves up the board, D moves back; Step 3: 10 shoots, GK moves up the board.\nCoaching point: Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】3 对 3，球在 7 杆下。\n【球路】7 → 9 → 10 → 球门\n【流程】第1步：7号球员把球传给9号球员，9号球员向前移动，D向后移动；第2步：9号球员把球传给10号球员，7号球员跟上去，跑到9号球员身后，10号球员向前移动，D向后移动；第3步：10号球员射门，GK向前移动。\n【要点】在23米线上、球出界位置的延长线上开出，第一脚就已经是向前的。站在球边等所有人慢跑就位，等于白送给对方二十秒。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】3 對 3，球在 7 桿下。\n【球路】7 → 9 → 10 → 球門\n【流程】第1步：7號球員把球傳給9號球員，9號球員向前移動，D向後移動；第2步：9號球員把球傳給10號球員，7號球員跟上去，跑到9號球員身後，10號球員向前移動，D向後移動；第3步：10號球員射門，GK向前移動。\n【要點】在23公尺線上、球出界位置的延長線上開出，第一腳就已經是向前的。站在球邊等所有人慢跑就位，等於白送給對方二十秒。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】3対3、ボールは7。\n【ボールの道筋】7 → 9 → 10 → ゴール\n【流れ】ステップ1：7番が9番へパス、9番が前方へ移動、Dが後方へ移動。ステップ2：9番が10番へパス、7番が9番の後ろへ入る、10番が前方へ移動、Dが後方へ移動。ステップ3：10番がシュート、GKが前方へ移動。\n【ポイント】ボールが出た地点の延長線上、23メートルラインから始める。最初のパスがすでに前向きになる。全員が歩いて配置につくのを待てば、守備に20秒を献上する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】3대3, 공은 7.\n【볼 경로】7 → 9 → 10 → 골문\n【진행】1단계: 7번가 9번에게 패스, 9번는 앞으로 이동, D는 뒤로 이동; 2단계: 9번가 10번에게 패스, 7번가 9번 뒤로 따라 들어간다, 10번는 앞으로 이동, D는 뒤로 이동; 3단계: 10번 슛, GK는 앞으로 이동.\n【포인트】공이 나간 지점과 같은 선상, 23미터 라인에서 시작하니 첫 패스부터 전방이다. 모두가 자리를 잡을 때까지 기다리면 수비에 20초를 준다.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 3 contra 3, balón con 7.\nRecorrido del balón: 7 → 9 → 10 → portería\nSecuencia: Paso 1: 7 pasa a 9, 9 se desplaza hacia delante, D se desplaza hacia atrás; Paso 2: 9 pasa a 10, 7 sube por detrás de 9, 10 se desplaza hacia delante, D se desplaza hacia atrás; Paso 3: 10 remata, GK se desplaza hacia delante.\nPunto clave: Se saca en la linea de 23 m, a la altura de donde salio la bola, asi el primer pase ya va hacia adelante. Esperar a que todos troten a su sitio regala veinte segundos a la defensa.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 3 contre 3, ballon avec 7.\nTrajet du ballon : 7 → 9 → 10 → but\nDéroulé : Étape 1 : 7 passe à 9, 9 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 2 : 9 passe à 10, 7 monte derrière 9, 10 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 3 : 10 frappe, GK se déplace vers l'avant.\nPoint clé : Joue sur la ligne des 23 m, dans l axe de la sortie de balle, pour que la premiere passe aille deja vers l avant. Attendre que tout le monde se place offre vingt secondes a la defense.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 3 lawan 3, bola pada 7.\nJalur bola: 7 → 9 → 10 → gawang\nUrutan: Langkah 1: 7 mengoper ke 9, 9 bergerak ke depan, D bergerak ke belakang; Langkah 2: 9 mengoper ke 10, 7 maju di belakang 9, 10 bergerak ke depan, D bergerak ke belakang; Langkah 3: 10 menembak, GK bergerak ke depan.\nPoin utama: Diambil di garis 23 m, segaris dengan tempat bola keluar, sehingga umpan pertama sudah ke depan.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 3 lawan 3, bola dengan 7.\nLaluan bola: 7 → 9 → 10 → gol\nUrutan: Langkah 1: 7 menghantar kepada 9, 9 bergerak ke hadapan, D bergerak ke belakang; Langkah 2: 9 menghantar kepada 10, 7 naik di belakang 9, 10 bergerak ke hadapan, D bergerak ke belakang; Langkah 3: 10 menjaring, GK bergerak ke hadapan.\nPoin utama: Diambil di garisan 23 m, segaris dengan tempat bola keluar, supaya hantaran pertama sudah ke hadapan.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 3 ต่อ 3 บอลอยู่ที่ 7\nเส้นทางบอล: 7 → 9 → 10 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 9 9 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 2: 9 จ่ายให้ 10 7 ตามขึ้นไปด้านหลัง9 10 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 3: 10 ยิงประตู GK ขยับไปข้างหน้า\nจุดเน้น: เล่นจากเส้น 23 เมตร ตรงแนวที่บอลออก เพื่อให้จ่ายลูกแรกไปข้างหน้าได้เลย",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 3 đấu 3, bóng ở chỗ 7.\nĐường bóng: 7 → 9 → 10 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 9, 9 di chuyển lên phía trước, D di chuyển lùi lại; Bước 2: 9 chuyền cho 10, 7 theo lên phía sau 9, 10 di chuyển lên phía trước, D di chuyển lùi lại; Bước 3: 10 dứt điểm, GK di chuyển lên phía trước.\nĐiểm chính: Thuc hien tren vach 23 m, thang hang voi diem bong ra bien, de duong chuyen dau tien da huong len phia truoc."
       },
       "mistake": {
         "en": "Improvising a moment whose value was that it was rehearsed.",
@@ -7650,16 +7650,16 @@
             "scale": 1.0,
             "moves": [
               [
-                604.0,
-                449.36901618929016
+                721.3502480590522,
+                399.7881034657353
               ],
               [
-                504.0,
-                375.2428194271482
+                539.0927818992234,
+                332.8303910244394
               ],
               [
-                478.0,
-                251.69915815691155
+                529.0581009998034,
+                260.93121229081714
               ]
             ],
             "movePhases": [
@@ -7942,20 +7942,20 @@
             "scale": 1.0,
             "moves": [
               [
-                396.0,
-                844.7087322540474
+                339.6982280935627,
+                853.0301995073521
               ],
               [
-                532.0,
-                572.9126774595268
+                527.7703924796865,
+                569.5740742240638
               ],
               [
-                478.0,
-                362.8884533001245
+                520.8232205251425,
+                372.83862169185727
               ],
               [
-                460.0,
-                239.34479202988788
+                508.1437547564401,
+                248.92920795704637
               ]
             ],
             "movePhases": [
@@ -8139,8 +8139,8 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                239.34479202988788
+                442.09465232131777,
+                224.54416440141875
               ]
             ],
             "movePhases": [
@@ -8321,20 +8321,20 @@
             "scale": 1.0,
             "moves": [
               [
-                486.0,
-                387.5971855541718
+                475.54176867489133,
+                391.9428909012812
               ],
               [
-                504.0,
-                264.0535242839352
+                468.65803204105754,
+                273.9178012637244
               ],
               [
-                568.0,
-                338.1797210460772
+                528.0677450270236,
+                271.4713186726265
               ],
               [
-                514.0,
-                251.69915815691155
+                531.7983486888666,
+                258.5567321432068
               ]
             ],
             "movePhases": [
@@ -8496,16 +8496,16 @@
             "scale": 1.0,
             "moves": [
               [
-                460.0,
-                523.4952129514321
+                500.0,
+                533.4952129514321
               ],
               [
-                495.0,
-                381.42000249065995
+                470.8878240515476,
+                389.8264884909078
               ],
               [
-                468.0,
-                251.69915815691155
+                444.1459862771527,
+                260.05288893686867
               ]
             ],
             "movePhases": [
@@ -8708,16 +8708,16 @@
             "scale": 1.0,
             "moves": [
               [
-                378.0,
-                362.8884533001245
+                303.0509449502253,
+                364.85069027986145
               ],
               [
-                486.0,
-                325.82535491905355
+                382.38944625490177,
+                304.34027481223654
               ],
               [
-                838.0,
-                548.2039452054795
+                802.5103470394597,
+                451.72164364581164
               ]
             ],
             "movePhases": [
