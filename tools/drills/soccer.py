@@ -467,7 +467,7 @@ def soccer_drills() -> list[Drill]:
             # corner of the penalty area: the delivery used to stop 18 m out
             # while the 9 ran away from it.
             home=[
-                P(0.96, 0.03, "7"),                              # corner taker
+                P(0.945, 0.04, "7"),                             # corner taker, beside the flag
                 P(0.56, 0.40, "9", moves=[(0.62, 0.11, 0)]),     # near post run
                 P(0.44, 0.36, "5", moves=[(0.36, 0.20, 0)]),     # decoy, pulling back
                 P(0.30, 0.44, "6", moves=[(0.28, 0.28, 0)]),     # decoy, pulling back
@@ -477,7 +477,7 @@ def soccer_drills() -> list[Drill]:
                 P(0.70, 0.20, "A"), P(0.52, 0.16, "B"), P(0.58, 0.32, "C"),
                 P(0.50, 0.03, "GK", role="GK"),
             ],
-            ball=0,
+            ball=0, ball_spot=(0.985, 0.012),   # on the corner arc
             # swung to the near post where the 9 arrives, flicked on at goal
             ball_to=[(1, 0), ((0.5, 0.02), 1)],
             free=True,
@@ -1014,7 +1014,7 @@ def soccer_drills() -> list[Drill]:
             # five used to be inside one corner arc, and the "short pass"
             # was two metres long.
             home=[
-                P(0.96, 0.03, "7", moves=[(0.92, 0.10, 0)]),
+                P(0.945, 0.04, "7", moves=[(0.92, 0.10, 0)]),
                 P(0.80, 0.16, "8"),
                 P(0.56, 0.42, "9", moves=[(0.60, 0.12, 1)]),
                 P(0.40, 0.44, "5", moves=[(0.34, 0.22, 1)]),
@@ -1025,7 +1025,7 @@ def soccer_drills() -> list[Drill]:
                 P(0.46, 0.22, "B"), P(0.44, 0.34, "C"),
                 P(0.50, 0.03, "GK", role="GK"),
             ],
-            ball=0,
+            ball=0, ball_spot=(0.985, 0.012),   # on the corner arc
             # played short to the 8, whose cross finds the 9 arriving
             ball_to=[(1, 0), (2, 1)],
         ),
@@ -2104,7 +2104,7 @@ def corner_family() -> list[Drill]:
             free=(key == "far_post"),
             name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
             home=[
-                P(0.96, 0.03, "7"),
+                P(0.945, 0.04, "7"),
                 runner(nine, "9"), runner(five, "5"),
                 runner(six, "6"), runner(eight, "8"),
             ],
@@ -2118,7 +2118,7 @@ def corner_family() -> list[Drill]:
                 "zh-CN": "右侧角球，四名进攻者进禁区，"
                          "对三名盯人和一名站在门线上的门将",
             },
-            ball=0,
+            ball=0, ball_spot=(0.985, 0.012),   # on the corner arc
             ball_to=legs,
         ))
     return out
