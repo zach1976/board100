@@ -677,7 +677,11 @@ renderList();
 // Open on the worked example rather than an empty pane: passing_diamond is
 // the drill every fix so far was proven on, so review starts where the
 // reference is. Falls back to the first visible drill for a filtered build.
-select(DRILLS.find(d => d.id === 'passing_diamond') || visible()[0] || null);
+// ?d=soccer/rondo_4v2 opens straight on one drill — the thumbnail page
+// links here that way.
+const want = new URLSearchParams(location.search).get('d');
+select((want && DRILLS.find(d => key(d) === want))
+  || DRILLS.find(d => d.id === 'passing_diamond') || visible()[0] || null);
 </script>
 </body>
 </html>
