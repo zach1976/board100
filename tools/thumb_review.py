@@ -139,6 +139,7 @@ PAGE = """<!doctype html>
     background: rgba(32,199,195,.14); border-color: rgba(32,199,195,.4); }}
   .grid {{ display: grid; gap: 14px; padding: 20px 24px 80px;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }}
+  .card[hidden] {{ display: none; }}
   .card {{ margin: 0; display: flex; gap: 14px; background: var(--card);
     border: 1px solid var(--line); border-radius: 14px; padding: 14px; }}
   .card img {{ width: 96px; height: auto; border-radius: 9px; flex: none;
@@ -180,6 +181,9 @@ PAGE = """<!doctype html>
       card.hidden = want && card.dataset.sport !== want;
     }}
   }});
+  // ?sport=soccer opens the page already narrowed to one sport.
+  const preset = new URLSearchParams(location.search).get('sport');
+  if (preset) chips.querySelector(`button[data-filter="${{preset}}"]`)?.click();
 </script>
 </body></html>
 """
