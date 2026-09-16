@@ -487,7 +487,17 @@ FOLLOW_NEAR = 240.0
 
 
 def _label(p) -> str:
-    return p.label or "?"
+    return p.label or ""
+
+
+# The one player on a board wears no number (engine.unlabel_lone_player);
+# in a sentence he is simply the player.
+LONE = {
+    "en": "the player", "en-GB": "the player",
+    "zh-CN": "球员", "zh-TW": "球員", "ja-JP": "選手", "ko-KR": "선수",
+    "es-ES": "el jugador", "fr-FR": "le joueur", "id-ID": "pemain",
+    "ms-MY": "pemain", "th-TH": "ผู้เล่น", "vi-VN": "cầu thủ",
+}
 
 
 # How a shirt label reads as a sentence subject, per locale. "3" alone is a
@@ -501,6 +511,8 @@ _SUBJ = {
 
 def _subj(label, loc):
     label = str(label)
+    if not label:
+        return LONE[loc]
     tmpl = _SUBJ.get(loc)
     if tmpl and label.isdigit():
         return tmpl.format(n=label)
@@ -880,7 +892,7 @@ def route_texts(drill, sport: str) -> dict | None:
     holder = _holder(drill)
     start = _label(holder) if holder is not None else None
     for loc in LOCALES:
-        stops = [start] if start else []
+        stops = [start] if start is not None else []
         for (t, ph) in route:
             if isinstance(t, tuple):
                 shooty = _is_far_end(sport, t)
@@ -903,7 +915,7 @@ def route_texts(drill, sport: str) -> dict | None:
         clean = [x for i, x in enumerate(stops) if i == 0 or x != stops[i-1]]
         if len(clean) < 2:
             return None
-        stops_by_loc[loc] = " → ".join(clean)
+        stops_by_loc[loc] = " → ".join(x or LONE[loc] for x in clean)
     return stops_by_loc
 
 
@@ -925,7 +937,7 @@ def setup_texts(drill, sport: str) -> dict:
             bits.append(SETUP_CONES[loc].format(n=cones))
         if isinstance(drill.ball, int):
             bits.append(_ball_at(sport, loc).format(
-                a=_label(drill.home[drill.ball])))
+                a=_subj(_label(drill.home[drill.ball]), loc)))
         out[loc] = AND[loc].join(bits)
     return out
 
