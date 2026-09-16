@@ -48,10 +48,14 @@ class Drill {
   /// buying on top of something useful, not instead of it.
   final bool free;
 
-  /// How often a coach reaches for this drill within its category: 1 a
-  /// staple, 2 regular, 3 occasional. The library sorts on it after the
-  /// category's own frequency; the generator's per-sport table sets it.
+  /// How often a coach reaches for this drill within its category: 3 a
+  /// staple, 2 regular, 1 occasional — bigger is more, like a rating. The
+  /// library sorts on it after the category's own frequency and shows it
+  /// on the card; the generator's per-sport table sets it.
   final int usage;
+
+  /// The translation key for the usage tier — "常用", "一般", "偶尔".
+  String get usageKey => 'drill_usage_${usage.clamp(1, 3)}';
 
   const Drill({
     required this.id,

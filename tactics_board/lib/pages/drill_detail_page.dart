@@ -332,6 +332,8 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                   MetaItem(
                       icon: Icons.bar_chart_rounded,
                       label: d.level.labelKey.tr()),
+                  MetaItem(
+                      icon: Icons.repeat_rounded, label: d.usageKey.tr()),
                 ],
               ),
             ],

@@ -451,5 +451,8 @@
   "practice_add_short": "Ke rencana",
   "board_name_title": "Beri nama papan ini",
   "board_name_exists": "Papan dengan nama itu sudah ada",
-  "anim_setup": "Awal"
+  "anim_setup": "Awal",
+  "drill_usage_3": "Sering",
+  "drill_usage_2": "Biasa",
+  "drill_usage_1": "Sesekali"
 }

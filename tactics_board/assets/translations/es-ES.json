@@ -451,5 +451,8 @@
   "practice_add_short": "Al plan",
   "board_name_title": "Nombra esta pizarra",
   "board_name_exists": "Ya existe una pizarra con ese nombre",
-  "anim_setup": "Inicio"
+  "anim_setup": "Inicio",
+  "drill_usage_3": "Habitual",
+  "drill_usage_2": "Normal",
+  "drill_usage_1": "Ocasional"
 }
