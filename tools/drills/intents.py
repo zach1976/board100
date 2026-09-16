@@ -43,6 +43,14 @@ WHY = {
         "id-ID": "memberi pilihan umpan", "ms-MY": "memberi pilihan hantaran",
         "th-TH": "เปิดตัวเป็นทางเลือกส่งบอล", "vi-VN": "tạo hướng chuyền cho người cầm bóng",
     },
+    "meet": {
+        "en": "meet the pass", "en-GB": "meet the pass",
+        "zh-CN": "迎上去接球", "zh-TW": "迎上去接球",
+        "ja-JP": "ボールを迎えに行く", "ko-KR": "패스를 마중 나간다",
+        "es-ES": "ir al encuentro del balón", "fr-FR": "venir au-devant du ballon",
+        "id-ID": "menjemput bola", "ms-MY": "menyambut bola",
+        "th-TH": "ขยับเข้าหาบอล", "vi-VN": "bước ra đón bóng",
+    },
     "open_angle": {
         "en": "open the passing angle", "en-GB": "open the passing angle",
         "zh-CN": "拉开传球角度", "zh-TW": "拉開傳球角度",
