@@ -35,28 +35,28 @@ add("down the line", "沿边线", "沿邊線", "ライン際", "라인 따라",
 add("down the middle", "走中路", "走中路", "センターへ", "가운데로",
     "por el centro", "dans l'axe", "lewat tengah", "melalui tengah",
     "ตรงกลาง", "vào giữa")
-add("wide left", "左路拉开", "左路拉開", "左サイドへ", "왼쪽 넓게",
+add("wide left", "左边路", "左邊路", "左サイドへ", "왼쪽 넓게",
     "abierto izquierda", "large à gauche", "melebar kiri", "melebar kiri",
     "กว้างซ้าย", "dạt trái")
-add("wide right", "右路拉开", "右路拉開", "右サイドへ", "오른쪽 넓게",
+add("wide right", "右边路", "右邊路", "右サイドへ", "오른쪽 넓게",
     "abierto derecha", "large à droite", "melebar kanan", "melebar kanan",
     "กว้างขวา", "dạt phải")
-add("near post", "近角", "近角", "ニアポスト", "니어 포스트",
+add("near post", "前点", "前點", "ニアポスト", "니어 포스트",
     "primer palo", "premier poteau", "tiang dekat", "tiang dekat",
     "เสาใกล้", "cột gần")
-add("far post", "远角", "遠角", "ファーポスト", "파 포스트",
+add("far post", "后点", "後點", "ファーポスト", "파 포스트",
     "segundo palo", "second poteau", "tiang jauh", "tiang jauh",
     "เสาไกล", "cột xa")
-add("left · near post", "左路 · 近角", "左路 · 近角", "左 · ニアポスト",
+add("left · near post", "左路 · 前点", "左路 · 前點", "左 · ニアポスト",
     "왼쪽 · 니어 포스트", "izquierda · primer palo", "gauche · premier poteau",
     "kiri · tiang dekat", "kiri · tiang dekat", "ซ้าย · เสาใกล้", "trái · cột gần")
-add("left · far post", "左路 · 远角", "左路 · 遠角", "左 · ファーポスト",
+add("left · far post", "左路 · 后点", "左路 · 後點", "左 · ファーポスト",
     "왼쪽 · 파 포스트", "izquierda · segundo palo", "gauche · second poteau",
     "kiri · tiang jauh", "kiri · tiang jauh", "ซ้าย · เสาไกล", "trái · cột xa")
-add("right · near post", "右路 · 近角", "右路 · 近角", "右 · ニアポスト",
+add("right · near post", "右路 · 前点", "右路 · 前點", "右 · ニアポスト",
     "오른쪽 · 니어 포스트", "derecha · primer palo", "droite · premier poteau",
     "kanan · tiang dekat", "kanan · tiang dekat", "ขวา · เสาใกล้", "phải · cột gần")
-add("right · far post", "右路 · 远角", "右路 · 遠角", "右 · ファーポスト",
+add("right · far post", "右路 · 后点", "右路 · 後點", "右 · ファーポスト",
     "오른쪽 · 파 포스트", "derecha · segundo palo", "droite · second poteau",
     "kanan · tiang jauh", "kanan · tiang jauh", "ขวา · เสาไกล", "phải · cột xa")
 add("short", "短球", "短球", "ショート", "짧게",
@@ -77,13 +77,13 @@ add("defensive", "防守", "防守", "守備", "수비",
     "defensivo", "défensif", "bertahan", "bertahan", "เกมรับ", "phòng thủ")
 
 # ── zones of the pitch ───────────────────────────────────────────────────────
-add("own third", "本方三区", "本方三區", "自陣サード", "자기 진영 3분의 1",
+add("own third", "后场", "後場", "自陣サード", "자기 진영 3분의 1",
     "campo propio", "premier tiers", "sepertiga sendiri", "satu pertiga sendiri",
     "โซนตัวเอง", "một phần ba sân nhà")
-add("middle third", "中三区", "中三區", "ミドルサード", "중앙 3분의 1",
+add("middle third", "中场", "中場", "ミドルサード", "중앙 3분의 1",
     "campo medio", "tiers médian", "sepertiga tengah", "satu pertiga tengah",
     "โซนกลาง", "một phần ba giữa")
-add("final third", "前三区", "前三區", "アタッキングサード", "공격 3분의 1",
+add("final third", "前场", "前場", "アタッキングサード", "공격 3분의 1",
     "último tercio", "dernier tiers", "sepertiga akhir", "satu pertiga akhir",
     "โซนสุดท้าย", "một phần ba cuối")
 add("half-space", "肋部", "肋部", "ハーフスペース", "하프 스페이스",
@@ -129,10 +129,10 @@ add("pull back", "倒三角", "倒三角", "マイナスの折り返し", "컷�
 add("runner across", "反向穿插", "反向穿插", "クロスランナー", "가로지르는 침투",
     "desmarque cruzado", "course croisée", "pelari menyilang",
     "pelari menyilang", "วิ่งตัดหน้า", "chạy cắt ngang")
-add("second ball", "二点球", "二點球", "セカンドボール", "세컨드 볼",
+add("second ball", "第二落点", "第二落點", "セカンドボール", "세컨드 볼",
     "segunda jugada", "second ballon", "bola kedua", "bola kedua",
     "บอลจังหวะสอง", "bóng hai")
-add("crosses", "传中", "傳中", "クロス", "크로스",
+add("crosses", "应对传中", "應對傳中", "クロス", "크로스",
     "centros", "centres", "umpan silang", "hantaran lintang",
     "การเปิดบอล", "tạt bóng")
 add("direct", "直接射门", "直接射門", "直接", "직접",
@@ -753,7 +753,7 @@ add("receiving the kick-off", "接开球", "接開球", "キックオフレシ�
     "킥오프 리시브", "la recepción del saque", "la réception du coup d'envoi",
     "menerima kick-off", "menerima sepak mula", "การรับลูกเปิดเกม",
     "nhận bóng phát")
-add("handling", "传接", "傳接", "ハンドリング", "핸들링",
+add("handling", "接球", "接球", "ハンドリング", "핸들링",
     "manejo", "maniement", "penguasaan", "pengendalian",
     "การรับส่ง", "xử lý bóng")
 

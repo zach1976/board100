@@ -14,8 +14,8 @@
       "offSurface": false,
       "name": {
         "en": "Rondo 4v2",
-        "zh-CN": "4v2 抢圈",
-        "zh-TW": "4v2 搶圈",
+        "zh-CN": "抢圈 4v2",
+        "zh-TW": "搶圈 4v2",
         "ja-JP": "ロンド 4対2",
         "ko-KR": "론도 4대2",
         "es-ES": "Rondo 4v2",
@@ -584,7 +584,7 @@
       "offSurface": false,
       "name": {
         "en": "7v4 possession",
-        "zh-CN": "7v4 控球",
+        "zh-CN": "控球 7v4",
         "zh-TW": "7v4 控球",
         "ja-JP": "7対4 ポゼッション",
         "ko-KR": "7대4 볼 소유",
@@ -1005,8 +1005,8 @@
       "offSurface": false,
       "name": {
         "en": "Overlap and cross",
-        "zh-CN": "边路套上传中",
-        "zh-TW": "邊路套上傳中",
+        "zh-CN": "套边传中",
+        "zh-TW": "套邊傳中",
         "ja-JP": "オーバーラップとクロス",
         "ko-KR": "오버래핑과 크로스",
         "es-ES": "Desdoble y centro",
@@ -1018,18 +1018,18 @@
         "en-GB": "Overlap and cross"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 2 → 9\nSequence: Step 1: 7 passes to 2, 2 moves up the board; Step 2: 7 runs up in support, 10 moves up the board, D moves back; Step 3: 2 passes to 9, 9 moves up the board.\nCoaching point: The winger holds until the full-back is past him — the defender can't watch both.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 2 → 9\nSequence: Step 1: 7 passes to 2, 2 moves up the board; Step 2: 7 runs up in support, 10 moves up the board, D moves back; Step 3: 2 passes to 9, 9 moves up the board.\nCoaching point: The winger holds until the full-back is past him — the defender can't watch both.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 3，球在 7 脚下。\n【球路】7 → 2 → 9\n【流程】第1步：7号球员把球传给2号球员，2号球员向前移动；第2步：7号球员跑上去接应，10号球员向前移动，D向后移动；第3步：2号球员把球传给9号球员，9号球员向前移动。\n【要点】边锋要等边后卫套过自己再放球 —— 防守球员盯不住两个人。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 3，球在 7 腳下。\n【球路】7 → 2 → 9\n【流程】第1步：7號球員把球傳給2號球員，2號球員向前移動；第2步：7號球員跑上去接應，10號球員向前移動，D向後移動；第3步：2號球員把球傳給9號球員，9號球員向前移動。\n【要點】邊鋒要等邊後衛套過自己再放球 —— 防守球員盯不住兩個人。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対3、ボールは7。\n【ボールの道筋】7 → 2 → 9\n【流れ】ステップ1：7番が2番へパス、2番が前方へ移動。ステップ2：7番がサポートに上がる、10番が前方へ移動、Dが後方へ移動。ステップ3：2番が9番へパス、9番が前方へ移動。\n【ポイント】ウイングはSBが追い越すまで持つ。DFは二人同時に見られない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대3, 공은 7.\n【볼 경로】7 → 2 → 9\n【진행】1단계: 7번가 2번에게 패스, 2번는 앞으로 이동; 2단계: 7번가 지원하러 올라간다, 10번는 앞으로 이동, D는 뒤로 이동; 3단계: 2번가 9번에게 패스, 9번는 앞으로 이동.\n【포인트】윙어는 풀백이 추월할 때까지 잡아둔다. 수비수는 둘을 동시에 볼 수 없다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 3, balón con 7.\nRecorrido del balón: 7 → 2 → 9\nSecuencia: Paso 1: 7 pasa a 2, 2 se desplaza hacia delante; Paso 2: 7 sube en apoyo, 10 se desplaza hacia delante, D se desplaza hacia atrás; Paso 3: 2 pasa a 9, 9 se desplaza hacia delante.\nPunto clave: El extremo aguanta hasta que el lateral lo supera: el defensa no puede mirar a los dos.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 3, ballon avec 7.\nTrajet du ballon : 7 → 2 → 9\nDéroulé : Étape 1 : 7 passe à 2, 2 se déplace vers l'avant ; Étape 2 : 7 monte en soutien, 10 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 3 : 2 passe à 9, 9 se déplace vers l'avant.\nPoint clé : L'ailier retient jusqu'au dépassement du latéral : le défenseur ne peut voir les deux.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 3, bola pada 7.\nJalur bola: 7 → 2 → 9\nUrutan: Langkah 1: 7 mengoper ke 2, 2 bergerak ke depan; Langkah 2: 7 maju mendukung, 10 bergerak ke depan, D bergerak ke belakang; Langkah 3: 2 mengoper ke 9, 9 bergerak ke depan.\nPoin utama: Sayap menahan bola sampai bek sayap melewatinya — bek lawan tak bisa menjaga keduanya.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 3, bola dengan 7.\nLaluan bola: 7 → 2 → 9\nUrutan: Langkah 1: 7 menghantar kepada 2, 2 bergerak ke hadapan; Langkah 2: 7 naik menyokong, 10 bergerak ke hadapan, D bergerak ke belakang; Langkah 3: 2 menghantar kepada 9, 9 bergerak ke hadapan.\nPoin utama: Pemain sayap tahan bola sehingga bek sayap melepasinya.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 3 บอลอยู่ที่ 7\nเส้นทางบอล: 7 → 2 → 9\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 2 2 ขยับไปข้างหน้า • ขั้นที่ 2: 7 ขึ้นไปสนับสนุน 10 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 3: 2 จ่ายให้ 9 9 ขยับไปข้างหน้า\nจุดเน้น: ปีกถือบอลไว้จนกว่าแบ็กจะแซงขึ้นไป กองหลังดูสองคนพร้อมกันไม่ได้",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 3, bóng ở chỗ 7.\nĐường bóng: 7 → 2 → 9\nTrình tự: Bước 1: 7 chuyền cho 2, 2 di chuyển lên phía trước; Bước 2: 7 dâng lên hỗ trợ, 10 di chuyển lên phía trước, D di chuyển lùi lại; Bước 3: 2 chuyền cho 9, 9 di chuyển lên phía trước.\nĐiểm chính: Tiền vệ cánh giữ bóng đến khi hậu vệ biên vượt qua — hậu vệ không thể theo cả hai."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 2 → 9\nSequence: Step 1: 2 moves right; Step 2: 7 passes to 2, 7, 10 move up the board, D moves back; Step 3: 2 passes to 9, 9 moves up the board.\nCoaching point: The winger holds until the full-back is past him — the defender can't watch both.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 2 → 9\nSequence: Step 1: 2 moves right; Step 2: 7 passes to 2, 7, 10 move up the board, D moves back; Step 3: 2 passes to 9, 9 moves up the board.\nCoaching point: The winger holds until the full-back is past him — the defender can't watch both.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 3，球在 7 脚下。\n【球路】7 → 2 → 9\n【流程】第1步：2号球员向右移动；第2步：7号球员把球传给2号球员，7号球员、10号球员向前移动，D向后移动；第3步：2号球员把球传给9号球员，9号球员向前移动。\n【要点】叠瓦式配合：边锋要等边后卫套过自己再放球 —— 防守球员盯不住两个人。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 3，球在 7 腳下。\n【球路】7 → 2 → 9\n【流程】第1步：2號球員向右移動；第2步：7號球員把球傳給2號球員，7號球員、10號球員向前移動，D向後移動；第3步：2號球員把球傳給9號球員，9號球員向前移動。\n【要點】疊瓦式配合：邊鋒要等邊後衛套過自己再放球 —— 防守球員盯不住兩個人。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対3、ボールは7。\n【ボールの道筋】7 → 2 → 9\n【流れ】ステップ1：2番が右へ移動。ステップ2：7番が2番へパス、7番・10番が前方へ移動、Dが後方へ移動。ステップ3：2番が9番へパス、9番が前方へ移動。\n【ポイント】ウイングはSBが追い越すまで持つ。DFは二人同時に見られない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대3, 공은 7.\n【볼 경로】7 → 2 → 9\n【진행】1단계: 2번는 오른쪽으로 이동; 2단계: 7번가 2번에게 패스, 7번, 10번는 앞으로 이동, D는 뒤로 이동; 3단계: 2번가 9번에게 패스, 9번는 앞으로 이동.\n【포인트】윙어는 풀백이 추월할 때까지 잡아둔다. 수비수는 둘을 동시에 볼 수 없다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 3, balón con 7.\nRecorrido del balón: 7 → 2 → 9\nSecuencia: Paso 1: 2 se desplaza a la derecha; Paso 2: 7 pasa a 2, 7, 10 se desplaza hacia delante, D se desplaza hacia atrás; Paso 3: 2 pasa a 9, 9 se desplaza hacia delante.\nPunto clave: El extremo aguanta hasta que el lateral lo supera: el defensa no puede mirar a los dos.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 3, ballon avec 7.\nTrajet du ballon : 7 → 2 → 9\nDéroulé : Étape 1 : 2 se déplace à droite ; Étape 2 : 7 passe à 2, 7, 10 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 3 : 2 passe à 9, 9 se déplace vers l'avant.\nPoint clé : L'ailier retient jusqu'au dépassement du latéral : le défenseur ne peut voir les deux.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 3, bola pada 7.\nJalur bola: 7 → 2 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan; Langkah 2: 7 mengoper ke 2, 7, 10 bergerak ke depan, D bergerak ke belakang; Langkah 3: 2 mengoper ke 9, 9 bergerak ke depan.\nPoin utama: Sayap menahan bola sampai bek sayap melewatinya — bek lawan tak bisa menjaga keduanya.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 3, bola dengan 7.\nLaluan bola: 7 → 2 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan; Langkah 2: 7 menghantar kepada 2, 7, 10 bergerak ke hadapan, D bergerak ke belakang; Langkah 3: 2 menghantar kepada 9, 9 bergerak ke hadapan.\nPoin utama: Pemain sayap tahan bola sehingga bek sayap melepasinya.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 3 บอลอยู่ที่ 7\nเส้นทางบอล: 7 → 2 → 9\nลำดับ: ขั้นที่ 1: 2 ขยับไปทางขวา • ขั้นที่ 2: 7 จ่ายให้ 2 7, 10 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 3: 2 จ่ายให้ 9 9 ขยับไปข้างหน้า\nจุดเน้น: ปีกถือบอลไว้จนกว่าแบ็กจะแซงขึ้นไป กองหลังดูสองคนพร้อมกันไม่ได้",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 3, bóng ở chỗ 7.\nĐường bóng: 7 → 2 → 9\nTrình tự: Bước 1: 2 di chuyển sang phải; Bước 2: 7 chuyền cho 2, 7, 10 di chuyển lên phía trước, D di chuyển lùi lại; Bước 3: 2 chuyền cho 9, 9 di chuyển lên phía trước.\nĐiểm chính: Tiền vệ cánh giữ bóng đến khi hậu vệ biên vượt qua — hậu vệ không thể theo cả hai."
       },
       "mistake": {
         "en": "Waiting for the perfect ball — the run made late is a run defended easily.",
@@ -1087,12 +1087,17 @@
             "scale": 1.0,
             "moves": [
               [
+                905,
+                770
+              ],
+              [
                 880,
                 480
               ]
             ],
             "movePhases": [
-              0
+              0,
+              1
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -1244,7 +1249,7 @@
               ]
             ],
             "movePhases": [
-              0,
+              1,
               2
             ],
             "moveColor": 4282434815,
@@ -1484,8 +1489,8 @@
       "offSurface": false,
       "name": {
         "en": "Switch the play",
-        "zh-CN": "转移进攻",
-        "zh-TW": "轉移進攻",
+        "zh-CN": "大范围转移",
+        "zh-TW": "大範圍轉移",
         "ja-JP": "サイドチェンジ",
         "ko-KR": "방향 전환",
         "es-ES": "Cambio de orientación",
@@ -1794,8 +1799,8 @@
       "note": {
         "en": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 10\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 10, 9, 10, 8 move up the board.\nCoaching point: Three runners: near post, penalty spot, edge of the box. The cutback goes behind the first.",
         "en-GB": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 4 v 3, ball with 7.\nBall path: 7 → 10\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 10, 9, 10, 8 move up the board.\nCoaching point: Three runners: near post, penalty spot, edge of the box. The cutback goes behind the first.",
-        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】4 对 3，球在 7 脚下。\n【球路】7 → 10\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给10号球员，9号球员、10号球员、8号球员向前移动。\n【要点】三条跑动线路：近门柱、点球点、禁区弧顶。倒三角要传到第一个人身后。",
-        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】4 對 3，球在 7 腳下。\n【球路】7 → 10\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給10號球員，9號球員、10號球員、8號球員向前移動。\n【要點】三條跑動路線：近門柱、罰球點、禁區弧頂。倒三角要傳到第一個人身後。",
+        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】4 对 3，球在 7 脚下。\n【球路】7 → 10\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给10号球员，9号球员、10号球员、8号球员向前移动。\n【要点】三条跑动线路：前点、点球点、禁区弧顶。倒三角要传到第一个人身后。",
+        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】4 對 3，球在 7 腳下。\n【球路】7 → 10\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給10號球員，9號球員、10號球員、8號球員向前移動。\n【要點】三條跑動路線：前點、罰球點、禁區弧頂。倒三角要傳到第一個人身後。",
         "ja-JP": "【目的】チャンスを得点に変える。足を作って到達し、早く低く打ち、人ではなくスペースを狙う。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】4対3、ボールは7。\n【ボールの道筋】7 → 10\n【流れ】ステップ1：7番がボールを運ぶ。ステップ2：7番が10番へパス、9番・10番・8番が前方へ移動。\n【ポイント】3人が走る：ニア、PKスポット、ボックス外。折り返しは1人目の後ろへ。",
         "ko-KR": "【목적】기회를 골로 바꾼다. 발을 갖춰 도착하고, 빠르고 낮게 슛하며, 사람이 아니라 공간을 노린다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】4대3, 공은 7.\n【볼 경로】7 → 10\n【진행】1단계: 7번가 공을 몰고 이동; 2단계: 7번가 10번에게 패스, 9번, 10번, 8번는 앞으로 이동.\n【포인트】세 명의 침투: 니어포스트, 페널티 스폿, 박스 외곽. 컷백은 첫 번째 선수 뒤로.",
         "es-ES": "Objetivo: Convertir la ocasión en gol: llegar con los apoyos puestos, rematar pronto y raso, y buscar el espacio, no la camiseta.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 4 contra 3, balón con 7.\nRecorrido del balón: 7 → 10\nSecuencia: Paso 1: 7 conduce el balón; Paso 2: 7 pasa a 10, 9, 10, 8 se desplaza hacia delante.\nPunto clave: Tres llegadas: primer palo, punto de penalti, frontal. El pase atrás va detrás del primero.",
@@ -2460,8 +2465,8 @@
       "offSurface": false,
       "name": {
         "en": "2v2 recovery",
-        "zh-CN": "2v2 回追防守",
-        "zh-TW": "2v2 回追防守",
+        "zh-CN": "回追防守 2v2",
+        "zh-TW": "回追防守 2v2",
         "ja-JP": "2対2 リカバリー",
         "ko-KR": "2대2 회복 수비",
         "es-ES": "Repliegue 2v2",
@@ -2661,8 +2666,8 @@
       "offSurface": false,
       "name": {
         "en": "Corner: near post",
-        "zh-CN": "角球：近门柱",
-        "zh-TW": "角球：近門柱",
+        "zh-CN": "角球 前点",
+        "zh-TW": "角球 前點",
         "ja-JP": "CK：ニアポスト",
         "ko-KR": "코너킥: 니어포스트",
         "es-ES": "Córner al primer palo",
@@ -2676,8 +2681,8 @@
       "note": {
         "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 4, ball with 7.\nBall path: 7 → 9 → goal\nSequence: Step 1: 7 passes to 9, 9, 5, 6 move up the board; Step 2: 9 shoots, 8 moves up the board.\nCoaching point: Two decoys pull the markers back, the near-post runner attacks the ball in front of them.",
         "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 5 v 4, ball with 7.\nBall path: 7 → 9 → goal\nSequence: Step 1: 7 passes to 9, 9, 5, 6 move up the board; Step 2: 9 shoots, 8 moves up the board.\nCoaching point: Two decoys pull the markers back, the near-post runner attacks the ball in front of them.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】5 对 4，球在 7 脚下。\n【球路】7 → 9 → 球门\n【流程】第1步：7号球员把球传给9号球员，9号球员、5号球员、6号球员向前移动；第2步：9号球员射门，8号球员向前移动。\n【要点】两个人做诱饵把盯人拉向后点，近门柱的人从他们身前抢点。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】5 對 4，球在 7 腳下。\n【球路】7 → 9 → 球門\n【流程】第1步：7號球員把球傳給9號球員，9號球員、5號球員、6號球員向前移動；第2步：9號球員射門，8號球員向前移動。\n【要點】兩個人做誘餌把盯人拉向後點，近門柱的人從他們身前搶點。",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】5 对 4，球在 7 脚下。\n【球路】7 → 9 → 球门\n【流程】第1步：7号球员把球传给9号球员，9号球员、5号球员、6号球员向前移动；第2步：9号球员射门，8号球员向前移动。\n【要点】两个人做诱饵把盯人拉向后点，前点的人从他们身前抢点。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】5 對 4，球在 7 腳下。\n【球路】7 → 9 → 球門\n【流程】第1步：7號球員把球傳給9號球員，9號球員、5號球員、6號球員向前移動；第2步：9號球員射門，8號球員向前移動。\n【要點】兩個人做誘餌把盯人拉向後點，前點的人從他們身前搶點。",
         "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】5対4、ボールは7。\n【ボールの道筋】7 → 9 → ゴール\n【流れ】ステップ1：7番が9番へパス、9番・5番・6番が前方へ移動。ステップ2：9番がシュート、8番が前方へ移動。\n【ポイント】2人がおとりでマーカーを後ろに引き、ニアの選手がその前でボールに入る。",
         "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】5대4, 공은 7.\n【볼 경로】7 → 9 → 골문\n【진행】1단계: 7번가 9번에게 패스, 9번, 5번, 6번는 앞으로 이동; 2단계: 9번 슛, 8번는 앞으로 이동.\n【포인트】두 명이 미끼로 수비를 뒤로 끌고, 니어포스트 선수가 그 앞에서 공을 잡는다.",
         "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 5 contra 4, balón con 7.\nRecorrido del balón: 7 → 9 → portería\nSecuencia: Paso 1: 7 pasa a 9, 9, 5, 6 se desplaza hacia delante; Paso 2: 9 remata, 8 se desplaza hacia delante.\nPunto clave: Dos señuelos arrastran a los marcadores atrás; el del primer palo ataca por delante.",
@@ -3229,8 +3234,8 @@
       "offSurface": false,
       "name": {
         "en": "4v4, four goals",
-        "zh-CN": "4v4 四门球",
-        "zh-TW": "4v4 四門球",
+        "zh-CN": "四门球 4v4",
+        "zh-TW": "四門球 4v4",
         "ja-JP": "4対4 4ゴール",
         "ko-KR": "4대4 네 골대",
         "es-ES": "4v4 a cuatro porterías",
@@ -4173,8 +4178,8 @@
       "name": {
         "en": "Rondo 5v2 — split pass",
         "en-GB": "Rondo 5v2 — split pass",
-        "zh-CN": "5v2 抢圈：穿裆直塞",
-        "zh-TW": "5v2 搶圈：穿襠直塞",
+        "zh-CN": "抢圈 5v2 · 穿越直塞",
+        "zh-TW": "搶圈 5v2 · 穿越直塞",
         "ja-JP": "5対2 ロンド：割るパス",
         "ko-KR": "5대2 론도 — 가르는 패스",
         "es-ES": "Rondo 5v2 — pase interior",
@@ -5238,7 +5243,7 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 1, ball with 7.\nBall path: 7 → 10 → 7\nSequence: Step 1: 7 passes to 10, 7, 10 move up the board, D moves back; Step 2: 10 passes to 7.\nCoaching point: Run past the defender before you pass, not after — the wall player returns it into space, not to feet.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 1, ball with 7.\nBall path: 7 → 10 → 7\nSequence: Step 1: 7 passes to 10, 7, 10 move up the board, D moves back; Step 2: 10 passes to 7.\nCoaching point: Run past the defender before you pass, not after — the wall player returns it into space, not to feet.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 1，球在 7 脚下。\n【球路】7 → 10 → 7\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员向前移动，D向后移动；第2步：10号球员把球传给7号球员。\n【要点】先启动再出球，不是传完才跑 —— 墙的回球要送到空当，不是脚下。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 1，球在 7 脚下。\n【球路】7 → 10 → 7\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员向前移动，D向后移动；第2步：10号球员把球传给7号球员。\n【要点】二过一：先启动再出球，不是传完才跑 —— 墙的回球要送到空当，不是脚下。",
         "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 1，球在 7 腳下。\n【球路】7 → 10 → 7\n【流程】第1步：7號球員把球傳給10號球員，7號球員、10號球員向前移動，D向後移動；第2步：10號球員把球傳給7號球員。\n【要點】先啟動再出球，不是傳完才跑 —— 牆的回球要送到空檔，不是腳下。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対1、ボールは7。\n【ボールの道筋】7 → 10 → 7\n【流れ】ステップ1：7番が10番へパス、7番・10番が前方へ移動、Dが後方へ移動。ステップ2：10番が7番へパス。\n【ポイント】パス前に相手を追い越す。壁役はスペースへ返す、足元ではない。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대1, 공은 7.\n【볼 경로】7 → 10 → 7\n【진행】1단계: 7번가 10번에게 패스, 7번, 10번는 앞으로 이동, D는 뒤로 이동; 2단계: 10번가 7번에게 패스.\n【포인트】패스 전에 수비를 지나쳐 뛰어라. 벽 역할은 발밑이 아니라 공간으로 돌려준다.",
@@ -5403,8 +5408,8 @@
       "name": {
         "en": "3v2 counter",
         "en-GB": "3v2 counter",
-        "zh-CN": "3v2 快速反击",
-        "zh-TW": "3v2 快速反擊",
+        "zh-CN": "快速反击 3v2",
+        "zh-TW": "快速反擊 3v2",
         "ja-JP": "3対2 カウンター",
         "ko-KR": "3대2 역습",
         "es-ES": "Contragolpe 3v2",
@@ -6359,8 +6364,8 @@
       "name": {
         "en": "Back four: shift and cover",
         "en-GB": "Back four: shift and cover",
-        "zh-CN": "后防四人：横移与保护",
-        "zh-TW": "後防四人：橫移與保護",
+        "zh-CN": "后防四人 横移与保护",
+        "zh-TW": "後防四人 橫移與保護",
         "ja-JP": "4バック：スライドとカバー",
         "ko-KR": "포백: 이동과 커버",
         "es-ES": "Línea de cuatro: basculación",
@@ -6897,7 +6902,7 @@
       "name": {
         "en": "Corner: short routine",
         "en-GB": "Corner: short routine",
-        "zh-CN": "角球：短角球配合",
+        "zh-CN": "角球 短角球",
         "zh-TW": "角球：短角球配合",
         "ja-JP": "CK：ショートコーナー",
         "ko-KR": "코너킥: 짧은 전개",
@@ -7473,8 +7478,8 @@
       "name": {
         "en": "6v6 transition game",
         "en-GB": "6v6 transition game",
-        "zh-CN": "6v6 攻防转换",
-        "zh-TW": "6v6 攻防轉換",
+        "zh-CN": "小场比赛 6v6 · 攻防转换",
+        "zh-TW": "小場比賽 6v6 · 攻防轉換",
         "ja-JP": "6対6 トランジション",
         "ko-KR": "6대6 전환 게임",
         "es-ES": "6v6 de transiciones",
@@ -9085,8 +9090,8 @@
       "name": {
         "en": "Far-post cross",
         "en-GB": "Far-post cross",
-        "zh-CN": "远门柱传中",
-        "zh-TW": "遠門柱傳中",
+        "zh-CN": "后点传中",
+        "zh-TW": "後點傳中",
         "ja-JP": "ファーポストへのクロス",
         "ko-KR": "파포스트 크로스",
         "es-ES": "Centro al segundo palo",
@@ -9099,8 +9104,8 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 3 v 3, ball with 11.\nBall path: 11 → 7\nSequence: Step 1: 11 carries the ball on the move, A moves back; Step 2: 11 passes to 7, 9, 7 move up the board, GK moves left.\nCoaching point: Attack the far post from behind the defender's shoulder — arriving late beats standing early.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 3 v 3, ball with 11.\nBall path: 11 → 7\nSequence: Step 1: 11 carries the ball on the move, A moves back; Step 2: 11 passes to 7, 9, 7 move up the board, GK moves left.\nCoaching point: Attack the far post from behind the defender's shoulder — arriving late beats standing early.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】3 对 3，球在 11 脚下。\n【球路】11 → 7\n【流程】第1步：11号球员带球推进，A向后移动；第2步：11号球员把球传给7号球员，9号球员、7号球员向前移动，GK向左移动。\n【要点】从防守人肩后包抄远门柱 —— 晚到一步好过早早站住。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】3 對 3，球在 11 腳下。\n【球路】11 → 7\n【流程】第1步：11號球員帶球推進，A向後移動；第2步：11號球員把球傳給7號球員，9號球員、7號球員向前移動，GK向左移動。\n【要點】從防守人肩後包抄遠門柱 —— 晚到一步好過早早站住。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】3 对 3，球在 11 脚下。\n【球路】11 → 7\n【流程】第1步：11号球员带球推进，A向后移动；第2步：11号球员把球传给7号球员，9号球员、7号球员向前移动，GK向左移动。\n【要点】从防守人肩后包抄后点 —— 晚到一步好过早早站住。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】3 對 3，球在 11 腳下。\n【球路】11 → 7\n【流程】第1步：11號球員帶球推進，A向後移動；第2步：11號球員把球傳給7號球員，9號球員、7號球員向前移動，GK向左移動。\n【要點】從防守人肩後包抄後點 —— 晚到一步好過早早站住。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】3対3、ボールは11。\n【ボールの道筋】11 → 7\n【流れ】ステップ1：11番がボールを運ぶ、Aが後方へ移動。ステップ2：11番が7番へパス、9番・7番が前方へ移動、GKが左へ移動。\n【ポイント】相手の肩の後ろからファーへ入る。早く立つより遅れて入る方が強い。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】3대3, 공은 11.\n【볼 경로】11 → 7\n【진행】1단계: 11번가 공을 몰고 이동, A는 뒤로 이동; 2단계: 11번가 7번에게 패스, 9번, 7번는 앞으로 이동, GK는 왼쪽으로 이동.\n【포인트】수비 어깨 뒤에서 파포스트로 들어가라. 미리 서 있는 것보다 늦게 도착하는 편이 낫다.",
         "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 3 contra 3, balón con 11.\nRecorrido del balón: 11 → 7\nSecuencia: Paso 1: 11 conduce el balón, A se desplaza hacia atrás; Paso 2: 11 pasa a 7, 9, 7 se desplaza hacia delante, GK se desplaza a la izquierda.\nPunto clave: Ataca el segundo palo desde detrás del hombro del defensa: llegar tarde gana a esperar.",
@@ -9333,8 +9338,8 @@
       "name": {
         "en": "Side volley from the cutback",
         "en-GB": "Side volley from the cutback",
-        "zh-CN": "倒三角凌空侧射",
-        "zh-TW": "倒三角凌空側射",
+        "zh-CN": "倒三角侧身凌空",
+        "zh-TW": "倒三角側身凌空",
         "ja-JP": "折り返しからのサイドボレー",
         "ko-KR": "컷백 사이드 발리",
         "es-ES": "Volea lateral tras pase atrás",
@@ -10083,8 +10088,8 @@
       "name": {
         "en": "5v5, two touches",
         "en-GB": "5v5, two touches",
-        "zh-CN": "5v5 两脚触球",
-        "zh-TW": "5v5 兩腳觸球",
+        "zh-CN": "小场比赛 5v5 · 两次触球",
+        "zh-TW": "小場比賽 5v5 · 兩次觸球",
         "ja-JP": "5対5 2タッチ",
         "ko-KR": "5대5 투터치",
         "es-ES": "5v5 a dos toques",
@@ -19730,8 +19735,8 @@
       "name": {
         "en": "Corner far post",
         "en-GB": "Corner far post",
-        "zh-CN": "角球 远角",
-        "zh-TW": "角球 遠角",
+        "zh-CN": "角球 后点",
+        "zh-TW": "角球 後點",
         "ja-JP": "コーナーキック ファーポスト",
         "ko-KR": "코너킥 파 포스트",
         "es-ES": "Córner segundo palo",
@@ -20670,8 +20675,8 @@
       "name": {
         "en": "Corner second ball",
         "en-GB": "Corner second ball",
-        "zh-CN": "角球 二点球",
-        "zh-TW": "角球 二點球",
+        "zh-CN": "角球 第二落点",
+        "zh-TW": "角球 第二落點",
         "ja-JP": "コーナーキック セカンドボール",
         "ko-KR": "코너킥 세컨드 볼",
         "es-ES": "Córner segunda jugada",
@@ -20989,8 +20994,8 @@
       "name": {
         "en": "1v1 duels wide left",
         "en-GB": "1v1 duels wide left",
-        "zh-CN": "1v1 对抗 左路拉开",
-        "zh-TW": "1v1 對抗 左路拉開",
+        "zh-CN": "1v1 对抗 左边路",
+        "zh-TW": "1v1 對抗 左邊路",
         "ja-JP": "1対1 左サイドへ",
         "ko-KR": "1대1 대결 왼쪽 넓게",
         "es-ES": "Duelos 1v1 abierto izquierda",
@@ -21206,8 +21211,8 @@
       "name": {
         "en": "1v1 duels wide right",
         "en-GB": "1v1 duels wide right",
-        "zh-CN": "1v1 对抗 右路拉开",
-        "zh-TW": "1v1 對抗 右路拉開",
+        "zh-CN": "1v1 对抗 右边路",
+        "zh-TW": "1v1 對抗 右邊路",
         "ja-JP": "1対1 右サイドへ",
         "ko-KR": "1대1 대결 오른쪽 넓게",
         "es-ES": "Duelos 1v1 abierto derecha",
@@ -23285,8 +23290,8 @@
       "name": {
         "en": "Crossing left · near post",
         "en-GB": "Crossing left · near post",
-        "zh-CN": "传中训练 左路 · 近角",
-        "zh-TW": "傳中訓練 左路 · 近角",
+        "zh-CN": "传中训练 左路 · 前点",
+        "zh-TW": "傳中訓練 左路 · 前點",
         "ja-JP": "クロス 左 · ニアポスト",
         "ko-KR": "크로스 왼쪽 · 니어 포스트",
         "es-ES": "Centros izquierda · primer palo",
@@ -23299,7 +23304,7 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：近门柱、远门柱和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：前点、后点和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
         "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【球路】7 → 9\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給9號球員，9號球員、10號球員、8號球員、GK向前移動。\n【要點】傳中前抬頭看一次，然後傳你看到的那片空檔 —— 別傳人，人已經跑掉了。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【ボールの道筋】7 → 9\n【流れ】ステップ1：7番がボールを運ぶ。ステップ2：7番が9番へパス、9番・10番・8番・GKが前方へ移動。\n【ポイント】上げる前に一度顔を上げ、見えたスペースへ。人は既に動いている。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\n【볼 경로】7 → 9\n【진행】1단계: 7번가 공을 몰고 이동; 2단계: 7번가 9번에게 패스, 9번, 10번, 8번, GK는 앞으로 이동.\n【포인트】올리기 전에 한 번 보고, 본 공간으로 보내라. 사람은 이미 움직였다.",
@@ -23566,8 +23571,8 @@
       "name": {
         "en": "Crossing left · far post",
         "en-GB": "Crossing left · far post",
-        "zh-CN": "传中训练 左路 · 远角",
-        "zh-TW": "傳中訓練 左路 · 遠角",
+        "zh-CN": "传中训练 左路 · 后点",
+        "zh-TW": "傳中訓練 左路 · 後點",
         "ja-JP": "クロス 左 · ファーポスト",
         "ko-KR": "크로스 왼쪽 · 파 포스트",
         "es-ES": "Centros izquierda · segundo palo",
@@ -23580,7 +23585,7 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：近门柱、远门柱和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：前点、后点和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
         "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【球路】7 → 9\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給9號球員，9號球員、10號球員、8號球員、GK向前移動。\n【要點】傳中前抬頭看一次，然後傳你看到的那片空檔 —— 別傳人，人已經跑掉了。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【ボールの道筋】7 → 9\n【流れ】ステップ1：7番がボールを運ぶ。ステップ2：7番が9番へパス、9番・10番・8番・GKが前方へ移動。\n【ポイント】上げる前に一度顔を上げ、見えたスペースへ。人は既に動いている。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\n【볼 경로】7 → 9\n【진행】1단계: 7번가 공을 몰고 이동; 2단계: 7번가 9번에게 패스, 9번, 10번, 8번, GK는 앞으로 이동.\n【포인트】올리기 전에 한 번 보고, 본 공간으로 보내라. 사람은 이미 움직였다.",
@@ -23847,8 +23852,8 @@
       "name": {
         "en": "Crossing right · near post",
         "en-GB": "Crossing right · near post",
-        "zh-CN": "传中训练 右路 · 近角",
-        "zh-TW": "傳中訓練 右路 · 近角",
+        "zh-CN": "传中训练 右路 · 前点",
+        "zh-TW": "傳中訓練 右路 · 前點",
         "ja-JP": "クロス 右 · ニアポスト",
         "ko-KR": "크로스 오른쪽 · 니어 포스트",
         "es-ES": "Centros derecha · primer palo",
@@ -23861,7 +23866,7 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：近门柱、远门柱和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：前点、后点和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
         "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【球路】7 → 9\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給9號球員，9號球員、10號球員、8號球員、GK向前移動。\n【要點】傳中前抬頭看一次，然後傳你看到的那片空檔 —— 別傳人，人已經跑掉了。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【ボールの道筋】7 → 9\n【流れ】ステップ1：7番がボールを運ぶ。ステップ2：7番が9番へパス、9番・10番・8番・GKが前方へ移動。\n【ポイント】上げる前に一度顔を上げ、見えたスペースへ。人は既に動いている。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\n【볼 경로】7 → 9\n【진행】1단계: 7번가 공을 몰고 이동; 2단계: 7번가 9번에게 패스, 9번, 10번, 8번, GK는 앞으로 이동.\n【포인트】올리기 전에 한 번 보고, 본 공간으로 보내라. 사람은 이미 움직였다.",
@@ -24128,8 +24133,8 @@
       "name": {
         "en": "Crossing right · far post",
         "en-GB": "Crossing right · far post",
-        "zh-CN": "传中训练 右路 · 远角",
-        "zh-TW": "傳中訓練 右路 · 遠角",
+        "zh-CN": "传中训练 右路 · 后点",
+        "zh-TW": "傳中訓練 右路 · 後點",
         "ja-JP": "クロス 右 · ファーポスト",
         "ko-KR": "크로스 오른쪽 · 파 포스트",
         "es-ES": "Centros derecha · segundo palo",
@@ -24142,7 +24147,7 @@
       "note": {
         "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
         "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\nBall path: 7 → 9\nSequence: Step 1: 7 carries the ball on the move; Step 2: 7 passes to 9, 9, 10, 8, GK move up the board.\nCoaching point: Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：近门柱、远门柱和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，两名中卫；进攻方三人包抄：前点、后点和禁区前沿。\n【球路】7 → 9\n【流程】第1步：7号球员带球推进；第2步：7号球员把球传给9号球员，9号球员、10号球员、8号球员、GK向前移动。\n【要点】传中前抬头看一次，然后传你看到的那片空当 —— 别传人，人已经跑掉了。",
         "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【球路】7 → 9\n【流程】第1步：7號球員帶球推進；第2步：7號球員把球傳給9號球員，9號球員、10號球員、8號球員、GK向前移動。\n【要點】傳中前抬頭看一次，然後傳你看到的那片空檔 —— 別傳人，人已經跑掉了。",
         "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge。\n【ボールの道筋】7 → 9\n【流れ】ステップ1：7番がボールを運ぶ。ステップ2：7番が9番へパス、9番・10番・8番・GKが前方へ移動。\n【ポイント】上げる前に一度顔を上げ、見えたスペースへ。人は既に動いている。",
         "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge.\n【볼 경로】7 → 9\n【진행】1단계: 7번가 공을 몰고 이동; 2단계: 7번가 9번에게 패스, 9번, 10번, 8번, GK는 앞으로 이동.\n【포인트】올리기 전에 한 번 보고, 본 공간으로 보내라. 사람은 이미 움직였다.",
@@ -25456,8 +25461,8 @@
       "name": {
         "en": "Goalkeeping handling",
         "en-GB": "Goalkeeping handling",
-        "zh-CN": "门将训练 传接",
-        "zh-TW": "門將訓練 傳接",
+        "zh-CN": "门将训练 接球",
+        "zh-TW": "門將訓練 接球",
         "ja-JP": "GKトレーニング ハンドリング",
         "ko-KR": "골키퍼 훈련 핸들링",
         "es-ES": "Portería manejo",
@@ -25842,8 +25847,8 @@
       "name": {
         "en": "Goalkeeping crosses",
         "en-GB": "Goalkeeping crosses",
-        "zh-CN": "门将训练 传中",
-        "zh-TW": "門將訓練 傳中",
+        "zh-CN": "门将训练 应对传中",
+        "zh-TW": "門將訓練 應對傳中",
         "ja-JP": "GKトレーニング クロス",
         "ko-KR": "골키퍼 훈련 크로스",
         "es-ES": "Portería centros",
@@ -27455,8 +27460,8 @@
       "name": {
         "en": "Switching play own third",
         "en-GB": "Switching play own third",
-        "zh-CN": "转移球 本方三区",
-        "zh-TW": "轉移球 本方三區",
+        "zh-CN": "转移球 后场",
+        "zh-TW": "轉移球 後場",
         "ja-JP": "サイドチェンジ 自陣サード",
         "ko-KR": "전환 플레이 자기 진영 3분의 1",
         "es-ES": "Cambio de juego campo propio",
@@ -27763,8 +27768,8 @@
       "name": {
         "en": "Switching play middle third",
         "en-GB": "Switching play middle third",
-        "zh-CN": "转移球 中三区",
-        "zh-TW": "轉移球 中三區",
+        "zh-CN": "转移球 中场",
+        "zh-TW": "轉移球 中場",
         "ja-JP": "サイドチェンジ ミドルサード",
         "ko-KR": "전환 플레이 중앙 3분의 1",
         "es-ES": "Cambio de juego campo medio",
@@ -28071,8 +28076,8 @@
       "name": {
         "en": "Switching play final third",
         "en-GB": "Switching play final third",
-        "zh-CN": "转移球 前三区",
-        "zh-TW": "轉移球 前三區",
+        "zh-CN": "转移球 前场",
+        "zh-TW": "轉移球 前場",
         "ja-JP": "サイドチェンジ アタッキングサード",
         "ko-KR": "전환 플레이 공격 3분의 1",
         "es-ES": "Cambio de juego último tercio",
@@ -30480,8 +30485,8 @@
       "name": {
         "en": "Free kick wide left",
         "en-GB": "Free kick wide left",
-        "zh-CN": "任意球 左路拉开",
-        "zh-TW": "任意球 左路拉開",
+        "zh-CN": "任意球 左边路",
+        "zh-TW": "任意球 左邊路",
         "ja-JP": "フリーキック 左サイドへ",
         "ko-KR": "프리킥 왼쪽 넓게",
         "es-ES": "Tiro libre abierto izquierda",
@@ -30774,8 +30779,8 @@
       "name": {
         "en": "Free kick wide right",
         "en-GB": "Free kick wide right",
-        "zh-CN": "任意球 右路拉开",
-        "zh-TW": "任意球 右路拉開",
+        "zh-CN": "任意球 右边路",
+        "zh-TW": "任意球 右邊路",
         "ja-JP": "フリーキック 右サイドへ",
         "ko-KR": "프리킥 오른쪽 넓게",
         "es-ES": "Tiro libre abierto derecha",
@@ -37300,8 +37305,8 @@
       "name": {
         "en": "Rest defence",
         "en-GB": "Rest defence",
-        "zh-CN": "进攻时的余量防守",
-        "zh-TW": "進攻時的餘量防守",
+        "zh-CN": "进攻时的防守准备",
+        "zh-TW": "進攻時的防守準備",
         "ja-JP": "ネガティブトランジションの備え",
         "ko-KR": "공격 시 후방 대비",
         "es-ES": "Resto defensivo",
@@ -37965,8 +37970,8 @@
       "note": {
         "en": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 1, 2 cones, ball with 8.\nBall path: 8 → goal\nSequence: Step 1: 8 carries the ball on the move; Step 2: 8 shoots, 10, 6 move up the board, GK moves left.\nCoaching point: Set the ball across your body first, then hit through the middle of it. On target from 25 yards beats perfect over the bar.",
         "en-GB": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 3 v 1, 2 cones, ball with 8.\nBall path: 8 → goal\nSequence: Step 1: 8 carries the ball on the move; Step 2: 8 shoots, 10, 6 move up the board, GK moves left.\nCoaching point: Set the ball across your body first, then hit through the middle of it. On target from 25 yards beats perfect over the bar.",
-        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 1，2 个锥标，球在 8 脚下。\n【球路】8 → 球门\n【流程】第1步：8号球员带球推进；第2步：8号球员射门，10号球员、6号球员向前移动，GK向左移动。\n【要点】先把球横着趟到身体外侧，再从球的正中间打透。25 码打正门框，比打得漂亮却飞了要值钱。",
-        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 1，2 個錐標，球在 8 腳下。\n【球路】8 → 球門\n【流程】第1步：8號球員帶球推進；第2步：8號球員射門，10號球員、6號球員向前移動，GK向左移動。\n【要點】先把球橫著趟到身體外側，再從球的正中間打透。25 碼打正門框，比打得漂亮卻飛了要值錢。",
+        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】3 对 1，2 个锥标，球在 8 脚下。\n【球路】8 → 球门\n【流程】第1步：8号球员带球推进；第2步：8号球员射门，10号球员、6号球员向前移动，GK向左移动。\n【要点】先把球横着趟到身体外侧，再从球的正中间打透。25 米打正门框，比打得漂亮却飞了要值钱。",
+        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】3 對 1，2 個錐標，球在 8 腳下。\n【球路】8 → 球門\n【流程】第1步：8號球員帶球推進；第2步：8號球員射門，10號球員、6號球員向前移動，GK向左移動。\n【要點】先把球橫著趟到身體外側，再從球的正中間打透。25 米打正門框，比打得漂亮卻飛了要值錢。",
         "ja-JP": "【目的】チャンスを得点に変える。足を作って到達し、早く低く打ち、人ではなくスペースを狙う。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】3対1、コーン2個、ボールは8。\n【ボールの道筋】8 → ゴール\n【流れ】ステップ1：8番がボールを運ぶ。ステップ2：8番がシュート、10番・6番が前方へ移動、GKが左へ移動。\n【ポイント】まずボールを体の外へ置き直し、中心を叩く。25ヤードから枠に飛ばす方が、バーの上の完璧な一撃より価値がある。",
         "ko-KR": "【목적】기회를 골로 바꾼다. 발을 갖춰 도착하고, 빠르고 낮게 슛하며, 사람이 아니라 공간을 노린다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】3대1, 콘 2개, 공은 8.\n【볼 경로】8 → 골문\n【진행】1단계: 8번가 공을 몰고 이동; 2단계: 8번 슛, 10번, 6번는 앞으로 이동, GK는 왼쪽으로 이동.\n【포인트】먼저 공을 몸 바깥으로 밀어 놓고 중심을 때려라. 25야드에서 유효슈팅이 크로스바를 넘긴 완벽한 슛보다 낫다.",
         "es-ES": "Objetivo: Convertir la ocasión en gol: llegar con los apoyos puestos, rematar pronto y raso, y buscar el espacio, no la camiseta.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 3 contra 1, 2 conos, balón con 8.\nRecorrido del balón: 8 → portería\nSecuencia: Paso 1: 8 conduce el balón; Paso 2: 8 remata, 10, 6 se desplaza hacia delante, GK se desplaza a la izquierda.\nPunto clave: Coloca primero el balón al costado y golpea por su centro. A puerta desde 25 yardas vale más que perfecto por encima del larguero.",
