@@ -18,7 +18,7 @@ def soccer_drills() -> list[Drill]:
         # ── warm-up ──────────────────────────────────────────────────────────
         Drill(
             id="rondo_4v2", category="possession", minutes=10,
-            name={"en": "Rondo 4v2", "zh-CN": "4v2 抢圈", "zh-TW": "4v2 搶圈",
+            name={"en": "Rondo 4v2", "zh-CN": "抢圈 4v2", "zh-TW": "搶圈 4v2",
                   "ja-JP": "ロンド 4対2", "ko-KR": "론도 4대2", "es-ES": "Rondo 4v2",
                   "fr-FR": "Rondo 4c2", "id-ID": "Rondo 4v2", "ms-MY": "Rondo 4v2",
                   "th-TH": "รอนโด 4v2", "vi-VN": "Rondo 4v2", "en-GB": "Rondo 4v2"},
@@ -90,7 +90,7 @@ def soccer_drills() -> list[Drill]:
         # ── possession ───────────────────────────────────────────────────────
         Drill(
             id="possession_7v4", category="possession", minutes=15,
-            name={"en": "7v4 possession", "zh-CN": "7v4 控球", "zh-TW": "7v4 控球",
+            name={"en": "7v4 possession", "zh-CN": "控球 7v4", "zh-TW": "7v4 控球",
                   "ja-JP": "7対4 ポゼッション", "ko-KR": "7대4 볼 소유", "es-ES": "Posesión 7v4",
                   "fr-FR": "Conservation 7c4", "id-ID": "Penguasaan 7v4", "ms-MY": "Penguasaan 7v4",
                   "th-TH": "ครองบอล 7v4", "vi-VN": "Giữ bóng 7v4", "en-GB": "7v4 possession"},
@@ -126,13 +126,16 @@ def soccer_drills() -> list[Drill]:
         # ── attacking patterns ───────────────────────────────────────────────
         Drill(
             id="overlap_wide", category="attacking", minutes=12,
-            name={"en": "Overlap and cross", "zh-CN": "边路套上传中", "zh-TW": "邊路套上傳中",
+            name={"en": "Overlap and cross", # 套边, the commentary term, and the one the other two overlap drills
+                  # already use. 套上传中 parsed at a glance as 套·上传·中 —
+                  # 上传 is "upload" — and read as nothing at all.
+                  "zh-CN": "套边传中", "zh-TW": "套邊傳中",
                   "ja-JP": "オーバーラップとクロス", "ko-KR": "오버래핑과 크로스", "es-ES": "Desdoble y centro",
                   "fr-FR": "Débordement et centre", "id-ID": "Overlap dan umpan silang", "ms-MY": "Overlap dan lambungan",
                   "th-TH": "โอเวอร์แล็ปและครอส", "vi-VN": "Chồng biên và tạt", "en-GB": "Overlap and cross"},
             note={"en": "The winger holds until the full-back is past him — the defender can't watch both.",
-                  "zh-CN": "边锋要等边后卫套过自己再放球 —— 防守球员盯不住两个人。",
-                  "zh-TW": "邊鋒要等邊後衛套過自己再放球 —— 防守球員盯不住兩個人。",
+                  "zh-CN": "叠瓦式配合：边锋要等边后卫套过自己再放球 —— 防守球员盯不住两个人。",
+                  "zh-TW": "疊瓦式配合：邊鋒要等邊後衛套過自己再放球 —— 防守球員盯不住兩個人。",
                   "ja-JP": "ウイングはSBが追い越すまで持つ。DFは二人同時に見られない。",
                   "ko-KR": "윙어는 풀백이 추월할 때까지 잡아둔다. 수비수는 둘을 동시에 볼 수 없다.",
                   "es-ES": "El extremo aguanta hasta que el lateral lo supera: el defensa no puede mirar a los dos.",
@@ -144,9 +147,20 @@ def soccer_drills() -> list[Drill]:
                   "en-GB": "The winger holds until the full-back is past him — the defender can't watch both."},
             home=[
                 P(820, 760, "7", moves=[(820, 600, 1)]),            # winger holds, then inside
-                # One run, not two: the intermediate waypoint disc on the
-                # touchline read as a red opponent standing there.
-                P(760, 900, "2", moves=[(880, 480, 0)]),           # overlapping full-back
+                # AROUND the winger, not through him. A straight line from
+                # where the full-back starts to where he ends passed within
+                # twenty units of the winger's centre, so the one thing an
+                # overlap is — the run round the OUTSIDE of the man on the
+                # ball — was the one thing the board did not show. The
+                # waypoint was taken out once because its disc read as an
+                # opponent on the touchline; the board draws waypoints as
+                # quiet hollow rings now, so it goes back.
+                #
+                # Two beats, and the pass waits for the second: the coaching
+                # point is that the winger holds until the full-back is past
+                # him, and the old timing had the ball leave on the same beat
+                # the run started.
+                P(760, 900, "2", moves=[(905, 770, 0), (880, 480, 1)]),
                 P(480, 600, "10", moves=[(460, 470, 1)]),          # holds the penalty spot
                 P(600, 500, "9", moves=[(400, 250, 2)]),           # box edge to the far post
             ],
@@ -157,10 +171,10 @@ def soccer_drills() -> list[Drill]:
                 P(500, 195, "GK", role="GK"),
             ],
             ball=0,
-            # fed into the overlap outside him, then crossed to the 9
-            # arriving at the far post — never to the space between two
-            # players with nobody's name on it
-            ball_to=[(1, 0), (3, 2)],
+            # Released into the overlap once he is past, then crossed to the
+            # 9 arriving at the far post — never to the space between two
+            # players with nobody's name on it.
+            ball_to=[(1, 1), (3, 2)],
             free=True,
         ),
         Drill(
@@ -196,7 +210,7 @@ def soccer_drills() -> list[Drill]:
         ),
         Drill(
             id="switch_play", category="attacking", minutes=12,
-            name={"en": "Switch the play", "zh-CN": "转移进攻", "zh-TW": "轉移進攻",
+            name={"en": "Switch the play", "zh-CN": "大范围转移", "zh-TW": "大範圍轉移",
                   "ja-JP": "サイドチェンジ", "ko-KR": "방향 전환", "es-ES": "Cambio de orientación",
                   "fr-FR": "Renversement de jeu", "id-ID": "Pindah serangan", "ms-MY": "Tukar arah serangan",
                   "th-TH": "เปลี่ยนข้างเกม", "vi-VN": "Chuyển hướng tấn công", "en-GB": "Switch the play"},
@@ -238,8 +252,8 @@ def soccer_drills() -> list[Drill]:
                   "fr-FR": "Centre en retrait", "id-ID": "Umpan tarik dan penyelesaian", "ms-MY": "Hantaran tarik dan penamat",
                   "th-TH": "ตัดกลับแล้วจบสกอร์", "vi-VN": "Chuyền ngược và dứt điểm", "en-GB": "Cutback finish"},
             note={"en": "Three runners: near post, penalty spot, edge of the box. The cutback goes behind the first.",
-                  "zh-CN": "三条跑动线路：近门柱、点球点、禁区弧顶。倒三角要传到第一个人身后。",
-                  "zh-TW": "三條跑動路線：近門柱、罰球點、禁區弧頂。倒三角要傳到第一個人身後。",
+                  "zh-CN": "三条跑动线路：前点、点球点、禁区弧顶。倒三角要传到第一个人身后。",
+                  "zh-TW": "三條跑動路線：前點、罰球點、禁區弧頂。倒三角要傳到第一個人身後。",
                   "ja-JP": "3人が走る：ニア、PKスポット、ボックス外。折り返しは1人目の後ろへ。",
                   "ko-KR": "세 명의 침투: 니어포스트, 페널티 스폿, 박스 외곽. 컷백은 첫 번째 선수 뒤로.",
                   "es-ES": "Tres llegadas: primer palo, punto de penalti, frontal. El pase atrás va detrás del primero.",
@@ -332,7 +346,7 @@ def soccer_drills() -> list[Drill]:
         ),
         Drill(
             id="defend_2v2", category="defending", minutes=12,
-            name={"en": "2v2 recovery", "zh-CN": "2v2 回追防守", "zh-TW": "2v2 回追防守",
+            name={"en": "2v2 recovery", "zh-CN": "回追防守 2v2", "zh-TW": "回追防守 2v2",
                   "ja-JP": "2対2 リカバリー", "ko-KR": "2대2 회복 수비", "es-ES": "Repliegue 2v2",
                   "fr-FR": "Repli 2c2", "id-ID": "Pemulihan 2v2", "ms-MY": "Pemulihan 2v2",
                   "th-TH": "ถอยกลับ 2v2", "vi-VN": "Lùi về 2v2", "en-GB": "2v2 recovery"},
@@ -367,13 +381,13 @@ def soccer_drills() -> list[Drill]:
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
             id="corner_near_post", category="setpiece", minutes=10, rel=True,
-            name={"en": "Corner: near post", "zh-CN": "角球：近门柱", "zh-TW": "角球：近門柱",
+            name={"en": "Corner: near post", "zh-CN": "角球 前点", "zh-TW": "角球 前點",
                   "ja-JP": "CK：ニアポスト", "ko-KR": "코너킥: 니어포스트", "es-ES": "Córner al primer palo",
                   "fr-FR": "Corner premier poteau", "id-ID": "Sepak pojok tiang dekat", "ms-MY": "Penjuru tiang dekat",
                   "th-TH": "เตะมุม: เสาแรก", "vi-VN": "Phạt góc: cột gần", "en-GB": "Corner: near post"},
             note={"en": "Two decoys pull the markers back, the near-post runner attacks the ball in front of them.",
-                  "zh-CN": "两个人做诱饵把盯人拉向后点，近门柱的人从他们身前抢点。",
-                  "zh-TW": "兩個人做誘餌把盯人拉向後點，近門柱的人從他們身前搶點。",
+                  "zh-CN": "两个人做诱饵把盯人拉向后点，前点的人从他们身前抢点。",
+                  "zh-TW": "兩個人做誘餌把盯人拉向後點，前點的人從他們身前搶點。",
                   "ja-JP": "2人がおとりでマーカーを後ろに引き、ニアの選手がその前でボールに入る。",
                   "ko-KR": "두 명이 미끼로 수비를 뒤로 끌고, 니어포스트 선수가 그 앞에서 공을 잡는다.",
                   "es-ES": "Dos señuelos arrastran a los marcadores atrás; el del primer palo ataca por delante.",
@@ -445,7 +459,7 @@ def soccer_drills() -> list[Drill]:
         # ── small-sided games ────────────────────────────────────────────────
         Drill(
             id="ssg_4v4_four_goals", category="ssg", minutes=20,
-            name={"en": "4v4, four goals", "zh-CN": "4v4 四门球", "zh-TW": "4v4 四門球",
+            name={"en": "4v4, four goals", "zh-CN": "四门球 4v4", "zh-TW": "四門球 4v4",
                   "ja-JP": "4対4 4ゴール", "ko-KR": "4대4 네 골대", "es-ES": "4v4 a cuatro porterías",
                   "fr-FR": "4c4 quatre buts", "id-ID": "4v4 empat gawang", "ms-MY": "4v4 empat gol",
                   "th-TH": "4v4 สี่ประตู", "vi-VN": "4v4 bốn khung thành", "en-GB": "4v4, four goals"},
@@ -547,8 +561,8 @@ def soccer_drills() -> list[Drill]:
         # ── possession ───────────────────────────────────────────────────────
         Drill(
             id="rondo_5v2_split", category="possession", minutes=12,
-            name={"en": "Rondo 5v2 — split pass", "en-GB": "Rondo 5v2 — split pass", "zh-CN": "5v2 抢圈：穿裆直塞",
-                  "zh-TW": "5v2 搶圈：穿襠直塞", "ja-JP": "5対2 ロンド：割るパス", "ko-KR": "5대2 론도 — 가르는 패스",
+            name={"en": "Rondo 5v2 — split pass", "en-GB": "Rondo 5v2 — split pass", "zh-CN": "抢圈 5v2 · 穿越直塞",
+                  "zh-TW": "搶圈 5v2 · 穿越直塞", "ja-JP": "5対2 ロンド：割るパス", "ko-KR": "5대2 론도 — 가르는 패스",
                   "es-ES": "Rondo 5v2 — pase interior", "fr-FR": "Rondo 5c2 — passe dans l'axe",
                   "id-ID": "Rondo 5v2 — umpan belah", "ms-MY": "Rondo 5v2 — hantaran belah",
                   "th-TH": "รอนโด 5v2 — บอลผ่ากลาง", "vi-VN": "Rondo 5v2 — chuyền xẻ nách"},
@@ -667,7 +681,7 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "วันทูที่ริมเส้น", "vi-VN": "Phối hợp một-hai biên"},
             note={"en": "Run past the defender before you pass, not after — the wall player returns it into space, not to feet.",
                   "en-GB": "Run past the defender before you pass, not after — the wall player returns it into space, not to feet.",
-                  "zh-CN": "先启动再出球，不是传完才跑 —— 墙的回球要送到空当，不是脚下。",
+                  "zh-CN": "二过一：先启动再出球，不是传完才跑 —— 墙的回球要送到空当，不是脚下。",
                   "zh-TW": "先啟動再出球，不是傳完才跑 —— 牆的回球要送到空檔，不是腳下。",
                   "ja-JP": "パス前に相手を追い越す。壁役はスペースへ返す、足元ではない。",
                   "ko-KR": "패스 전에 수비를 지나쳐 뛰어라. 벽 역할은 발밑이 아니라 공간으로 돌려준다.",
@@ -691,8 +705,8 @@ def soccer_drills() -> list[Drill]:
         ),
         Drill(
             id="counter_3v2", category="attacking", minutes=12,
-            name={"en": "3v2 counter", "en-GB": "3v2 counter", "zh-CN": "3v2 快速反击",
-                  "zh-TW": "3v2 快速反擊", "ja-JP": "3対2 カウンター", "ko-KR": "3대2 역습",
+            name={"en": "3v2 counter", "en-GB": "3v2 counter", "zh-CN": "快速反击 3v2",
+                  "zh-TW": "快速反擊 3v2", "ja-JP": "3対2 カウンター", "ko-KR": "3대2 역습",
                   "es-ES": "Contragolpe 3v2", "fr-FR": "Contre 3c2", "id-ID": "Serangan balik 3v2",
                   "ms-MY": "Serangan balas 3v2", "th-TH": "สวนกลับ 3v2", "vi-VN": "Phản công 3v2"},
             note={"en": "Carry until a defender commits, then release. Passing early turns 3v2 back into 3v3.",
@@ -832,8 +846,8 @@ def soccer_drills() -> list[Drill]:
         # ── defending ────────────────────────────────────────────────────────
         Drill(
             id="defend_shape_shift", category="defending", minutes=12,
-            name={"en": "Back four: shift and cover", "en-GB": "Back four: shift and cover", "zh-CN": "后防四人：横移与保护",
-                  "zh-TW": "後防四人：橫移與保護", "ja-JP": "4バック：スライドとカバー", "ko-KR": "포백: 이동과 커버",
+            name={"en": "Back four: shift and cover", "en-GB": "Back four: shift and cover", "zh-CN": "后防四人 横移与保护",
+                  "zh-TW": "後防四人 橫移與保護", "ja-JP": "4バック：スライドとカバー", "ko-KR": "포백: 이동과 커버",
                   "es-ES": "Línea de cuatro: basculación", "fr-FR": "Ligne à quatre : coulissement",
                   "id-ID": "Empat bek: geser dan tutup", "ms-MY": "Empat bek: alih dan lindung",
                   "th-TH": "แนวรับสี่คน: ขยับและคุมพื้นที่", "vi-VN": "Bộ tứ vệ: dịch chuyển và bọc lót"},
@@ -906,7 +920,7 @@ def soccer_drills() -> list[Drill]:
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
             id="corner_short", category="setpiece", minutes=8, rel=True,
-            name={"en": "Corner: short routine", "en-GB": "Corner: short routine", "zh-CN": "角球：短角球配合",
+            name={"en": "Corner: short routine", "en-GB": "Corner: short routine", "zh-CN": "角球 短角球",
                   "zh-TW": "角球：短角球配合", "ja-JP": "CK：ショートコーナー", "ko-KR": "코너킥: 짧은 전개",
                   "es-ES": "Córner en corto", "fr-FR": "Corner joué court",
                   "id-ID": "Sepak pojok pendek", "ms-MY": "Penjuru pendek",
@@ -981,8 +995,8 @@ def soccer_drills() -> list[Drill]:
         # ── small-sided ──────────────────────────────────────────────────────
         Drill(
             id="ssg_6v6_transition", category="ssg", minutes=20,
-            name={"en": "6v6 transition game", "en-GB": "6v6 transition game", "zh-CN": "6v6 攻防转换",
-                  "zh-TW": "6v6 攻防轉換", "ja-JP": "6対6 トランジション", "ko-KR": "6대6 전환 게임",
+            name={"en": "6v6 transition game", "en-GB": "6v6 transition game", "zh-CN": "小场比赛 6v6 · 攻防转换",
+                  "zh-TW": "小場比賽 6v6 · 攻防轉換", "ja-JP": "6対6 トランジション", "ko-KR": "6대6 전환 게임",
                   "es-ES": "6v6 de transiciones", "fr-FR": "6c6 transitions",
                   "id-ID": "Permainan transisi 6v6", "ms-MY": "Permainan peralihan 6v6",
                   "th-TH": "เกมเปลี่ยนสถานะ 6v6", "vi-VN": "Trò chơi chuyển trạng thái 6v6"},
@@ -1167,15 +1181,15 @@ def soccer_drills() -> list[Drill]:
         ),
         Drill(
             id="attack_cross_far_post", category="attacking", minutes=10,
-            name={"en": "Far-post cross", "en-GB": "Far-post cross", "zh-CN": "远门柱传中",
-                  "zh-TW": "遠門柱傳中", "ja-JP": "ファーポストへのクロス", "ko-KR": "파포스트 크로스",
+            name={"en": "Far-post cross", "en-GB": "Far-post cross", "zh-CN": "后点传中",
+                  "zh-TW": "後點傳中", "ja-JP": "ファーポストへのクロス", "ko-KR": "파포스트 크로스",
                   "es-ES": "Centro al segundo palo", "fr-FR": "Centre au second poteau",
                   "id-ID": "Umpan silang tiang jauh", "ms-MY": "Lambungan tiang jauh",
                   "th-TH": "ครอสเสาไกล", "vi-VN": "Tạt cột xa"},
             note={"en": "Attack the far post from behind the defender's shoulder — arriving late beats standing early.",
                   "en-GB": "Attack the far post from behind the defender's shoulder — arriving late beats standing early.",
-                  "zh-CN": "从防守人肩后包抄远门柱 —— 晚到一步好过早早站住。",
-                  "zh-TW": "從防守人肩後包抄遠門柱 —— 晚到一步好過早早站住。",
+                  "zh-CN": "从防守人肩后包抄后点 —— 晚到一步好过早早站住。",
+                  "zh-TW": "從防守人肩後包抄後點 —— 晚到一步好過早早站住。",
                   "ja-JP": "相手の肩の後ろからファーへ入る。早く立つより遅れて入る方が強い。",
                   "ko-KR": "수비 어깨 뒤에서 파포스트로 들어가라. 미리 서 있는 것보다 늦게 도착하는 편이 낫다.",
                   "es-ES": "Ataca el segundo palo desde detrás del hombro del defensa: llegar tarde gana a esperar.",
@@ -1200,7 +1214,7 @@ def soccer_drills() -> list[Drill]:
         Drill(
             id="finish_volley_side", category="finishing", minutes=10,
             name={"en": "Side volley from the cutback", "en-GB": "Side volley from the cutback",
-                  "zh-CN": "倒三角凌空侧射", "zh-TW": "倒三角凌空側射",
+                  "zh-CN": "倒三角侧身凌空", "zh-TW": "倒三角側身凌空",
                   "ja-JP": "折り返しからのサイドボレー", "ko-KR": "컷백 사이드 발리",
                   "es-ES": "Volea lateral tras pase atrás", "fr-FR": "Volée latérale sur retrait",
                   "id-ID": "Voli samping dari umpan tarik", "ms-MY": "Voli sisi daripada hantaran tarik",
@@ -1300,8 +1314,8 @@ def soccer_drills() -> list[Drill]:
         ),
         Drill(
             id="ssg_5v5_two_touch", category="ssg", minutes=18,
-            name={"en": "5v5, two touches", "en-GB": "5v5, two touches", "zh-CN": "5v5 两脚触球",
-                  "zh-TW": "5v5 兩腳觸球", "ja-JP": "5対5 2タッチ", "ko-KR": "5대5 투터치",
+            name={"en": "5v5, two touches", "en-GB": "5v5, two touches", "zh-CN": "小场比赛 5v5 · 两次触球",
+                  "zh-TW": "小場比賽 5v5 · 兩次觸球", "ja-JP": "5対5 2タッチ", "ko-KR": "5대5 투터치",
                   "es-ES": "5v5 a dos toques", "fr-FR": "5c5 à deux touches",
                   "id-ID": "5v5 dua sentuhan", "ms-MY": "5v5 dua sentuhan",
                   "th-TH": "5v5 แตะสองครั้ง", "vi-VN": "5v5 hai chạm"},
@@ -2214,7 +2228,7 @@ def crossing_family() -> list[Drill]:
                     "en": "one goal with a keeper, two centre-backs and a "
                           "three-man box: near post, far post and the edge",
                     "zh-CN": "一个球门带门将，两名中卫；进攻方三人包抄："
-                             "近门柱、远门柱和禁区前沿",
+                             "前点、后点和禁区前沿",
                 },
                 ball=0,
                 # Carried to the byline with the 7's own run, then delivered
@@ -3234,7 +3248,7 @@ def match_moments() -> list[Drill]:
             id="defend_rest_defence", category="defending", minutes=12, rel=True,
             level="advanced",
             name={"en": "Rest defence", "en-GB": "Rest defence",
-                  "zh-CN": "进攻时的余量防守", "zh-TW": "進攻時的餘量防守",
+                  "zh-CN": "进攻时的防守准备", "zh-TW": "進攻時的防守準備",
                   "ja-JP": "ネガティブトランジションの備え", "ko-KR": "공격 시 후방 대비",
                   "es-ES": "Resto defensivo", "fr-FR": "\u00c9quilibre d\u00e9fensif",
                   "id-ID": "Keseimbangan bertahan", "ms-MY": "Imbangan pertahanan",
@@ -3321,8 +3335,8 @@ def match_moments() -> list[Drill]:
                   "th-TH": "ยิงไกล", "vi-VN": "Sút xa"},
             note={"en": "Set the ball across your body first, then hit through the middle of it. On target from 25 yards beats perfect over the bar.",
                   "en-GB": "Set the ball across your body first, then hit through the middle of it. On target from 25 yards beats perfect over the bar.",
-                  "zh-CN": "先把球横着趟到身体外侧，再从球的正中间打透。25 码打正门框，比打得漂亮却飞了要值钱。",
-                  "zh-TW": "先把球橫著趟到身體外側，再從球的正中間打透。25 碼打正門框，比打得漂亮卻飛了要值錢。",
+                  "zh-CN": "先把球横着趟到身体外侧，再从球的正中间打透。25 米打正门框，比打得漂亮却飞了要值钱。",
+                  "zh-TW": "先把球橫著趟到身體外側，再從球的正中間打透。25 米打正門框，比打得漂亮卻飛了要值錢。",
                   "ja-JP": "まずボールを体の外へ置き直し、中心を叩く。25ヤードから枠に飛ばす方が、バーの上の完璧な一撃より価値がある。",
                   "ko-KR": "먼저 공을 몸 바깥으로 밀어 놓고 중심을 때려라. 25야드에서 유효슈팅이 크로스바를 넘긴 완벽한 슛보다 낫다.",
                   "es-ES": "Coloca primero el bal\u00f3n al costado y golpea por su centro. A puerta desde 25 yardas vale m\u00e1s que perfecto por encima del larguero.",

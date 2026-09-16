@@ -71,7 +71,7 @@ void main() {
     for (var i = 0; i < 6; i++) {
       await tester.pump(const Duration(milliseconds: 50));
     }
-    expect(find.text('4v2 抢圈'), findsOneWidget);
+    expect(find.text('抢圈 4v2'), findsOneWidget);
 
     // The crossing family's variant used to be appended in English —
     // "传中 near post". Family drills sit far down a scrolling list, so this
@@ -81,7 +81,7 @@ void main() {
     expect(find.textContaining('近角'), findsWidgets,
         reason: 'the variant should be translated, not appended in English');
     expect(find.textContaining('near post'), findsNothing);
-    expect(find.text('4v2 抢圈'), findsNothing,
+    expect(find.text('抢圈 4v2'), findsNothing,
         reason: 'search should have filtered the rondo out');
 
     // ── a search with no matches says so rather than showing a blank list ─
@@ -95,7 +95,7 @@ void main() {
     // fast path for a drill they already know.
     await tester.enterText(find.byType(TextField), '');
     await tester.pump(const Duration(milliseconds: 50));
-    await tester.tap(find.text('4v2 抢圈'));
+    await tester.tap(find.text('抢圈 4v2'));
     await tester.pumpAndSettle();
 
     expect(find.byType(DrillDetailPage), findsOneWidget,
