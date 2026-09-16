@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../models/drill.dart';
@@ -9,17 +11,19 @@ import 'tactics_canvas.dart' show kBoardRefWidth, kBoardRefHeight;
 ///
 /// Deliberately NOT a shrunken [TacticsCanvas]: the canvas is the real board
 /// — sprites, animation controllers, gesture recognisers, a repaint boundary
-/// — and a hundred of them in a scrolling list is a hundred of all that. This
-/// paints the two things that make a drill recognisable at a glance, straight
-/// from the same `drill.board` JSON: the surface, and who is standing where
-/// on it before anybody has moved.
+/// — and a hundred of them in a scrolling list is a hundred of all that.
 ///
-/// It is cropped to the PITCH, not to the canvas. Boards are authored in a
-/// 1000x1500 box and the pitch is fitted inside that box at the sport's own
-/// proportions, so drawing the whole box rendered a football pitch — 68 by
-/// 105 — as a square with dead margins down both sides, and squeezed every
-/// player into the middle of it. Cropping to the pitch makes the thumbnail
-/// the shape the sport actually is, and gives the players all of it.
+/// What it draws is a coaching diagram, not a snapshot of coordinates. A
+/// snapshot — dots where people start, a line where the ball's centre went —
+/// was tried and could not be read: the ball's path ran beside the players
+/// rather than between them, and the run that IS an overlap was not drawn at
+/// all. A coach reads a drill the way it is chalked on a whiteboard: solid
+/// arrows for passes, from one player to the next; dashed arrows for runs;
+/// and nothing else competing with them.
+///
+/// It is cropped to what the drill occupies. Nearly every drill happens in a
+/// box in the middle or a corner of the pitch, and a thumbnail of the whole
+/// pitch spent most of itself on empty grass.
 class DrillThumbnail extends StatelessWidget {
   final Drill drill;
   final SportType sport;
@@ -46,65 +50,227 @@ class DrillThumbnail extends StatelessWidget {
       fr.width / kBoardRefWidth,
       fr.height / kBoardRefHeight,
     );
-
-    final aspect = fr.width / fr.height;
-    final dots = _dots(drill, pitch);
-    final ball = _ballPath(drill, pitch);
+    final scene = _Scene.read(drill, pitch);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(T.rSm),
       child: SizedBox(
-        width: height * aspect,
+        width: height * (fr.width / fr.height),
         height: height,
         child: CustomPaint(
           painter: _ThumbPainter(
-              dots, ball, _window(dots, ball), drill.offSurface),
+              scene, drill.offSurface, DefaultTextStyle.of(context).style),
         ),
       ),
     );
   }
+}
+
+enum _Kind { home, away, gear }
+
+/// Below this a "move" is an adjustment, not a run. Measured across the
+/// library: the runs that DEFINE a drill — an overlap, a third-man run, a
+/// slalom — are all 0.31 of the pitch or longer, and every stepping-in,
+/// opening-up, closing-down shuffle is 0.17 or shorter, the hand-authored
+/// 4v2 rondo's included. Drawn as arrows the shuffles were noise around every
+/// ring, and worse, they moved the receiver's mark so the passes no longer
+/// met the circles.
+const double _kRunMin = 0.20;
+
+/// One thing on the pitch and where it goes, in pitch-fraction coordinates.
+class _Mark {
+  final Offset at;
+  final List<Offset> run;
+  final _Kind kind;
+  final String label;
+  const _Mark(this.at, this.run, this.kind, this.label);
+
+  /// Where a diagram draws this person. A real run ends where it ends —
+  /// a pass onto a runner goes to where he arrives, and a pass after a carry
+  /// leaves from where the carry stopped. A nudge (the ring drills' small
+  /// radial shuffles) is not a run and does not move the mark.
+  Offset get shown =>
+      run.isNotEmpty && (run.last - at).distance >= _kRunMin ? run.last : at;
+}
+
+/// A pass: from one player's centre to the next, in pitch fractions.
+class _Pass {
+  final Offset from;
+  final Offset to;
+  const _Pass(this.from, this.to);
+}
+
+/// The drill, read once from its board and turned into the things a diagram
+/// draws: people, where each of them runs, the passes between them, and the
+/// window of pitch that holds it all.
+class _Scene {
+  final List<_Mark> marks;
+  final List<_Pass> passes;
+  final Offset? ball;
+  final Rect window;
+
+  /// The shirts the drill's own route names — the ones its sentence is
+  /// about, and so the ones worth a number in a picture this small.
+  final Set<String> named;
+
+  const _Scene(this.marks, this.passes, this.ball, this.window, this.named);
+
+  static _Scene read(Drill drill, Rect pitch) {
+    final board = drill.board;
+    final w = (board['canvasWidth'] as num?)?.toDouble() ?? 1000.0;
+    final h = (board['canvasHeight'] as num?)?.toDouble() ?? 1500.0;
+    final players = board['players'];
+    if (players is! List || w <= 0 || h <= 0 ||
+        pitch.width <= 0 || pitch.height <= 0) {
+      return const _Scene([], [], null, Rect.fromLTWH(0, 0, 1, 1), {});
+    }
+
+    Offset? point(dynamic raw) {
+      if (raw is! List || raw.length < 2) return null;
+      final x = (raw[0] as num?)?.toDouble();
+      final y = (raw[1] as num?)?.toDouble();
+      if (x == null || y == null) return null;
+      return Offset((x / w - pitch.left) / pitch.width,
+          (y / h - pitch.top) / pitch.height);
+    }
+
+    final marks = <_Mark>[];
+    List<Offset>? ballPath;
+    for (final raw in players) {
+      if (raw is! Map) continue;
+      final at = point(raw['position']);
+      if (at == null) continue;
+      final run = <Offset>[
+        for (final mv in (raw['moves'] as List? ?? const []))
+          if (point(mv) case final p?) p,
+      ];
+      // PlayerTeam is serialised as its index: 0 home, 1 away, 2 the
+      // equipment that is not a person. markerShape 0 among those is the
+      // ball; anything else is a cone, a ladder, a hurdle.
+      final team = raw['team'];
+      final label = (raw['label'] as String? ?? '').trim();
+      if (team == 0) {
+        marks.add(_Mark(at, run, _Kind.home, label));
+      } else if (team == 1) {
+        marks.add(_Mark(at, run, _Kind.away, label));
+      } else if (raw['markerShape'] == 0) {
+        ballPath ??= [at, ...run];
+      } else {
+        marks.add(_Mark(at, const [], _Kind.gear, ''));
+      }
+    }
+
+    // Passes come from the route the drill declares for itself — "Ball
+    // path: 1 → 2 → 3 → 4 → 1", in shirt numbers — not from guessing which
+    // person each stop of the ball's path is nearest to. Guessing snapped a
+    // rondo's passes into the defenders, who move toward the ball line
+    // precisely because they are trying to cut it out, and it assumed a
+    // player's k-th move happens on beat k, which nothing guarantees. The
+    // declaration is exact and it is what the coach reads on the page.
+    //
+    // A stop that is not a shirt number — "goal", "basket", "net" — is a
+    // shot or a delivery to space: the ball's own last point is used, so the
+    // arrow still shows where it went.
+    final people = marks.where((m) => m.kind != _Kind.gear).toList();
+    final passes = <_Pass>[];
+    Offset? ball;
+    final route = _route(drill);
+    if (route.isNotEmpty && people.isNotEmpty) {
+      _Mark? holder;
+      final side = () {
+        for (final m in people) {
+          if (m.label == route.first) return m.kind;
+        }
+        return _Kind.home;
+      }();
+      _Mark? byLabel(String l) {
+        for (final m in people) {
+          if (m.kind == side && m.label == l) return m;
+        }
+        return null;
+      }
+
+      Offset? prev;
+      for (var i = 0; i < route.length; i++) {
+        final m = byLabel(route[i]);
+        final Offset? here;
+        if (m != null) {
+          // The passer leaves from where he is when he passes: his start,
+          // or the end of the carry that brought him here.
+          here = i == 0 ? m.at : m.shown;
+          holder ??= m;
+        } else if (ballPath != null && ballPath.isNotEmpty) {
+          here = ballPath.last;
+        } else {
+          here = null;
+        }
+        if (here == null) continue;
+        if (i == 0) {
+          ball = here;
+        } else if (prev != null && (here - prev).distance > 0.01) {
+          passes.add(_Pass(prev, here));
+        }
+        prev = here;
+      }
+    } else if (ballPath != null && ballPath.isNotEmpty) {
+      // No declared route — a carry, a shot from a standing start. The ball
+      // is drawn where it begins and the runs say the rest.
+      ball = ballPath.first;
+    }
+
+    return _Scene(marks, passes, ball, _window(marks, passes, ball),
+        route.toSet());
+  }
+
+  /// The shirt numbers the ball visits, in order, from the drill's own note.
+  ///
+  /// Read from the English note because that locale always exists and the
+  /// numbers are the same in every language. The line is the one the
+  /// generator writes as "Ball path: 1 → 2 → 3"; a drill with no passes — a
+  /// slalom, a shooting drill from a standing start — has no such line.
+  static List<String> _route(Drill drill) {
+    final note = drill.note['en'] ?? drill.note.values.firstOrNull ?? '';
+    for (final raw in note.split('\n')) {
+      if (!raw.contains('→')) continue;
+      final body = raw.contains(':') ? raw.split(':').sublist(1).join(':') : raw;
+      return [
+        for (final t in body.split('→'))
+          if (t.trim().isNotEmpty) t.trim(),
+      ];
+    }
+    return const [];
+  }
 
   /// The part of the pitch this drill actually uses.
   ///
-  /// Nearly every drill happens in a corner of the pitch or a box in the
-  /// middle, so a thumbnail of the whole pitch spent most of itself on empty
-  /// grass and left eleven players as eleven specks. This finds what the
-  /// drill occupies and frames that instead.
-  ///
-  /// The window is SQUARE in this space, which is what keeps the picture
-  /// undistorted: both axes here run 0..1 across a box that is already the
-  /// pitch's proportions, so equal fractions of each are equal fractions of
-  /// the frame. And it never zooms past 45% of the pitch — a two-player
-  /// drill blown up to fill the thumbnail would say those two were standing
-  /// forty metres apart.
-  static Rect _window(List<_Dot> dots, List<Offset> ball) {
-    final xs = <double>[...dots.map((d) => d.x), ...ball.map((p) => p.dx)];
-    final ys = <double>[...dots.map((d) => d.y), ...ball.map((p) => p.dy)];
-    if (xs.isEmpty) return const Rect.fromLTWH(0, 0, 1, 1);
-
-    var left = xs.reduce((a, b) => a < b ? a : b);
-    var right = xs.reduce((a, b) => a > b ? a : b);
-    var top = ys.reduce((a, b) => a < b ? a : b);
-    var bottom = ys.reduce((a, b) => a > b ? a : b);
-
-    // Room for the tokens themselves, which are drawn centred on their point
-    // and would otherwise be cut in half by the edge.
-    const pad = 0.09;
+  /// Square in this space, which is what keeps the picture undistorted: both
+  /// axes run 0..1 across a box that is already the sport's proportions. And
+  /// never tighter than 45% of the pitch — a two-player drill blown up to
+  /// fill the thumbnail would say those two were standing forty metres
+  /// apart.
+  static Rect _window(List<_Mark> marks, List<_Pass> passes, Offset? ball) {
+    final pts = <Offset>[
+      for (final m in marks) ...[m.at, ...m.run],
+      for (final p in passes) ...[p.from, p.to],
+      if (ball != null) ball,
+    ];
+    if (pts.isEmpty) return const Rect.fromLTWH(0, 0, 1, 1);
+    var left = pts.map((p) => p.dx).reduce(math.min);
+    var right = pts.map((p) => p.dx).reduce(math.max);
+    var top = pts.map((p) => p.dy).reduce(math.min);
+    var bottom = pts.map((p) => p.dy).reduce(math.max);
+    // Room for the tokens, drawn centred on their point.
+    const pad = 0.10;
     left -= pad;
     right += pad;
     top -= pad;
     bottom += pad;
-
-    // Square, and never tighter than 45% of the pitch.
-    final span = [right - left, bottom - top, 0.45]
-        .reduce((a, b) => a > b ? a : b)
+    final span = math.max(math.max(right - left, bottom - top), 0.45)
         .clamp(0.0, 1.0);
-    final w = span;
-    final h = span;
-    final cx = (left + right) / 2;
-    final cy = (top + bottom) / 2;
-    var rect = Rect.fromCenter(center: Offset(cx, cy), width: w, height: h);
-
+    var rect = Rect.fromCenter(
+        center: Offset((left + right) / 2, (top + bottom) / 2),
+        width: span,
+        height: span);
     // Slide back inside the pitch rather than shrinking: a drill in the
     // corner should be framed on the corner, not zoomed out to re-centre.
     if (rect.width >= 1) {
@@ -123,129 +289,24 @@ class DrillThumbnail extends StatelessWidget {
     }
     return rect;
   }
-
-  /// What stands on the board, by what it IS, in the pitch's own frame.
-  ///
-  /// Everything used to come back as one blue dot — the cones, the ball and
-  /// the coach along with the players — so a thumbnail of eight things was a
-  /// blue smudge and every drill looked like every other drill. The point of
-  /// a thumbnail is that the eye can tell two of them apart without reading.
-  ///
-  /// Start positions only. `position` is where a thing stands before the
-  /// first beat and `moves` is where it goes afterwards; a still picture of a
-  /// drill is its SETUP — what a coach walks out and arranges — not a frame
-  /// from the middle of it.
-  ///
-  /// The canvas size is read from the payload rather than assumed: `board`
-  /// carries canvasWidth/canvasHeight, and a hardcoded 1000x1500 would
-  /// silently misplace every dot the day that changes.
-  static List<_Dot> _dots(Drill drill, Rect pitch) {
-    final board = drill.board;
-    final w = (board['canvasWidth'] as num?)?.toDouble() ?? 1000.0;
-    final h = (board['canvasHeight'] as num?)?.toDouble() ?? 1500.0;
-    final out = <_Dot>[];
-    final players = board['players'];
-    if (players is! List || w <= 0 || h <= 0) return out;
-    if (pitch.width <= 0 || pitch.height <= 0) return out;
-    for (final raw in players) {
-      if (raw is! Map) continue;
-      final pos = raw['position'];
-      if (pos is! List || pos.length < 2) continue;
-      final x = (pos[0] as num?)?.toDouble();
-      final y = (pos[1] as num?)?.toDouble();
-      if (x == null || y == null) continue;
-
-      // PlayerTeam is serialised as its index: 0 home, 1 away, 2 the
-      // equipment that is not a person at all. markerShape 0 among those is
-      // the ball; anything else is a cone, a ladder, a hurdle.
-      final team = raw['team'];
-      final shape = raw['markerShape'];
-      final _Kind kind;
-      if (team == 0) {
-        kind = _Kind.home;
-      } else if (team == 1) {
-        kind = _Kind.away;
-      } else if (shape == 0) {
-        kind = _Kind.ball;
-      } else {
-        kind = _Kind.gear;
-      }
-
-      // Into the pitch's frame. A drill that uses the space outside the
-      // touchline — a thrower at a lineout, a keeper behind his goal — lands
-      // outside 0..1 and is pinned to the edge rather than dropped: he is
-      // part of the shape even when he is off the grass.
-      final px = (x / w - pitch.left) / pitch.width;
-      final py = (y / h - pitch.top) / pitch.height;
-      out.add(_Dot(px.clamp(0.03, 0.97), py.clamp(0.03, 0.97), kind));
-    }
-    return out;
-  }
-}
-
-/// Where the ball goes, in the pitch's frame.
-///
-/// Start positions alone say how many people are on the grass and roughly
-/// where; they do not say what the drill is FOR. The ball's path does: a
-/// rondo is a closed ring, a slalom is a line straight up the pitch, a cross
-/// goes out to the touchline and back in. One thin line is the difference
-/// between a list of green rectangles and a list you can read.
-List<Offset> _ballPath(Drill drill, Rect pitch) {
-  final board = drill.board;
-  final w = (board['canvasWidth'] as num?)?.toDouble() ?? 1000.0;
-  final h = (board['canvasHeight'] as num?)?.toDouble() ?? 1500.0;
-  final players = board['players'];
-  if (players is! List || w <= 0 || h <= 0) return const [];
-  if (pitch.width <= 0 || pitch.height <= 0) return const [];
-  for (final raw in players) {
-    if (raw is! Map) continue;
-    if (raw['team'] != 2 || raw['markerShape'] != 0) continue;
-    final out = <Offset>[];
-    void add(List<dynamic> pt) {
-      final x = (pt[0] as num?)?.toDouble();
-      final y = (pt[1] as num?)?.toDouble();
-      if (x == null || y == null) return;
-      out.add(Offset(
-        (((x / w - pitch.left) / pitch.width)).clamp(0.03, 0.97),
-        (((y / h - pitch.top) / pitch.height)).clamp(0.03, 0.97),
-      ));
-    }
-    final pos = raw['position'];
-    if (pos is List && pos.length >= 2) add(pos);
-    for (final mv in (raw['moves'] as List? ?? const [])) {
-      if (mv is List && mv.length >= 2) add(mv);
-    }
-    return out.length >= 2 ? out : const [];
-  }
-  return const [];
-}
-
-enum _Kind { home, away, ball, gear }
-
-class _Dot {
-  final double x;
-  final double y;
-  final _Kind kind;
-  const _Dot(this.x, this.y, this.kind);
 }
 
 class _ThumbPainter extends CustomPainter {
-  final List<_Dot> dots;
-  final List<Offset> ball;
-
-  /// The part of the pitch being shown, in pitch fractions.
-  final Rect window;
+  final _Scene scene;
 
   /// A drill run off the pitch — a gym circuit, a classroom walk-through —
   /// gets the neutral ground rather than turf it never touches.
   final bool offSurface;
 
-  const _ThumbPainter(this.dots, this.ball, this.window, this.offSurface);
+  /// The ambient text style, for the shirt numbers: a bare TextSpan names no
+  /// font family, and in the renderer that means the box font.
+  final TextStyle base;
 
-  /// A point on the pitch, in the cropped frame.
-  Offset _at(double x, double y, Size size) => Offset(
-        (x - window.left) / window.width * size.width,
-        (y - window.top) / window.height * size.height,
+  const _ThumbPainter(this.scene, this.offSurface, this.base);
+
+  Offset _at(Offset p, Size size) => Offset(
+        (p.dx - scene.window.left) / scene.window.width * size.width,
+        (p.dy - scene.window.top) / scene.window.height * size.height,
       );
 
   @override
@@ -253,82 +314,168 @@ class _ThumbPainter extends CustomPainter {
     canvas.drawRect(Offset.zero & size,
         Paint()..color = offSurface ? T.surfaceHi : T.turf);
 
+    final unit = size.shortestSide;
+    final tokenR = unit * 0.10;
+
+    // ── markings, barely there ──────────────────────────────────────────
+    // Drawn in pitch coordinates and cropped with everything else, so a
+    // drill framed on one corner still shows the touchline it is played
+    // against. Faint, because they are context and the arrows are content.
     if (!offSurface) {
-      // A halfway line and a centre circle, edge to edge. The thumbnail IS
-      // the pitch now, so it needs no outline drawn inside itself, and a
-      // full set of markings at this size is noise the players would have
-      // to compete with.
       final line = Paint()
-        ..color = T.turfLine.withValues(alpha: 0.28)
+        ..color = Colors.white.withValues(alpha: 0.16)
         ..strokeWidth = 1
         ..style = PaintingStyle.stroke;
-      // Drawn in pitch coordinates and then cropped, so a drill framed on
-      // one corner still shows the touchline it is played against — the
-      // markings are how a coach tells "in the box" from "on halfway" once
-      // the frame no longer shows the whole pitch.
       canvas.drawRect(
-          Rect.fromPoints(_at(0, 0, size), _at(1, 1, size)), line);
-      canvas.drawLine(_at(0, 0.5, size), _at(1, 0.5, size), line);
-      canvas.drawCircle(_at(0.5, 0.5, size),
-          0.135 / window.width * size.width, line);
+          Rect.fromPoints(_at(Offset.zero, size), _at(const Offset(1, 1), size)),
+          line);
+      canvas.drawLine(_at(const Offset(0, 0.5), size),
+          _at(const Offset(1, 0.5), size), line);
+      canvas.drawCircle(_at(const Offset(0.5, 0.5), size),
+          0.135 / scene.window.width * size.width, line);
     }
 
-    // The ball's route, under everything: it is the shape of the drill, not
-    // a thing standing on the grass, and at full contrast it would out-shout
-    // the players it is being passed between.
-    if (ball.length >= 2) {
-      final path = Path()
-        ..moveTo(_at(ball.first.dx, ball.first.dy, size).dx,
-            _at(ball.first.dx, ball.first.dy, size).dy);
-      for (final p in ball.skip(1)) {
-        final q = _at(p.dx, p.dy, size);
-        path.lineTo(q.dx, q.dy);
-      }
+    // ── cones and gear, under everything ────────────────────────────────
+    for (final m in scene.marks.where((m) => m.kind == _Kind.gear)) {
+      final at = _at(m.at, size);
+      final s = unit * 0.05;
       canvas.drawPath(
-        path,
-        Paint()
-          ..color = Colors.white.withValues(alpha: 0.55)
-          ..strokeWidth = size.shortestSide * 0.028
-          ..strokeCap = StrokeCap.round
-          ..strokeJoin = StrokeJoin.round
-          ..style = PaintingStyle.stroke,
+        Path()
+          ..moveTo(at.dx, at.dy - s)
+          ..lineTo(at.dx + s, at.dy + s)
+          ..lineTo(at.dx - s, at.dy + s)
+          ..close(),
+        Paint()..color = const Color(0xFFE0703A),
       );
     }
 
-    // Back to front, so a player is never hidden under a cone: gear first,
-    // then people, then the ball.
-    final unit = size.shortestSide;
-    for (final kind in _Kind.values) {
-      for (final d in dots.where((d) => d.kind == kind)) {
-        final at = _at(d.x, d.y, size);
-        switch (kind) {
-          case _Kind.gear:
-            // A cone is a small triangle: at this size a round cone and a
-            // round player are the same mark.
-            final s = unit * 0.06;
-            canvas.drawPath(
-              Path()
-                ..moveTo(at.dx, at.dy - s)
-                ..lineTo(at.dx + s, at.dy + s)
-                ..lineTo(at.dx - s, at.dy + s)
-                ..close(),
-              Paint()..color = const Color(0xFFE0703A),
-            );
-          case _Kind.home:
-          case _Kind.away:
-            canvas.drawCircle(at, unit * 0.075,
-                Paint()..color = kind == _Kind.home ? T.home : T.away);
-          case _Kind.ball:
-            canvas.drawCircle(at, unit * 0.05, Paint()..color = Colors.white);
-        }
+    // ── runs: dashed, in the runner's colour, with an arrowhead ─────────
+    for (final m in scene.marks.where((m) => m.run.isNotEmpty)) {
+      if ((m.run.last - m.at).distance < _kRunMin) continue;
+      final colour = (m.kind == _Kind.home ? T.home : T.away);
+      final paint = Paint()
+        ..color = colour.withValues(alpha: 0.9)
+        ..strokeWidth = unit * 0.026
+        ..strokeCap = StrokeCap.round
+        ..style = PaintingStyle.stroke;
+      final pts = [m.at, ...m.run].map((p) => _at(p, size)).toList();
+      // Start at the edge of the token, not its centre.
+      pts[0] = _shorten(pts[0], pts[1], tokenR);
+      for (var i = 1; i < pts.length; i++) {
+        _dashed(canvas, pts[i - 1], pts[i], paint, unit * 0.06, unit * 0.04);
+      }
+      _head(canvas, pts[pts.length - 2], pts.last, paint..style = PaintingStyle.fill, unit * 0.075);
+    }
+
+    // ── passes: solid white, player to player, with an arrowhead ────────
+    final pass = Paint()
+      ..color = Colors.white.withValues(alpha: 0.92)
+      ..strokeWidth = unit * 0.03
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke;
+    for (final p in scene.passes) {
+      final a = _shorten(_at(p.from, size), _at(p.to, size), tokenR);
+      final b = _shorten(_at(p.to, size), _at(p.from, size), tokenR * 1.15);
+      canvas.drawLine(a, b, pass);
+      _head(canvas, a, b, Paint()..color = pass.color, unit * 0.08);
+    }
+
+    // ── people: a filled disc with a dark rim, so two of them touching are
+    //    still two ────────────────────────────────────────────────────────
+    final rim = Paint()
+      ..color = const Color(0xCC0B272A)
+      ..strokeWidth = unit * 0.018
+      ..style = PaintingStyle.stroke;
+    for (final m in scene.marks.where((m) => m.kind != _Kind.gear)) {
+      final at = _at(m.at, size);
+      canvas.drawCircle(at, tokenR,
+          Paint()..color = m.kind == _Kind.home ? T.home : T.away);
+      canvas.drawCircle(at, tokenR, rim);
+
+      // A shirt number on the people the drill's sentence names — the
+      // passers, the receivers, anyone with a real run. "7 passes to 2" is
+      // unreadable against a picture where nobody is 7 or 2. Everyone else
+      // stays a plain disc: at this size a number in every circle is texture,
+      // not information.
+      // A lone player needs no number either: there is nobody to tell apart.
+      final wanted = m.label.isNotEmpty &&
+          scene.marks.where((o) => o.kind == m.kind).length > 1 &&
+          (scene.named.contains(m.label) ||
+              (m.run.isNotEmpty && (m.run.last - m.at).distance >= _kRunMin));
+      if (wanted) {
+        final tp = TextPainter(
+          text: TextSpan(
+            text: m.label,
+            // Merged onto the ambient style so it inherits whatever family
+            // the app (or the renderer) has set; a bare TextSpan names none.
+            style: base.copyWith(
+              color: Colors.white,
+              fontSize: tokenR * (m.label.length > 1 ? 1.05 : 1.35),
+              fontWeight: FontWeight.w800,
+              height: 1,
+            ),
+          ),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        tp.paint(canvas, at - Offset(tp.width / 2, tp.height / 2));
       }
     }
+
+    // ── the ball, where it starts ───────────────────────────────────────
+    if (scene.ball != null) {
+      final at = _at(scene.ball!, size);
+      // Beside its holder rather than on him, so both are visible.
+      final b = Offset(at.dx + tokenR * 1.05, at.dy + tokenR * 1.05);
+      canvas.drawCircle(b, unit * 0.045, Paint()..color = Colors.white);
+      canvas.drawCircle(b, unit * 0.045, rim);
+    }
+  }
+
+  /// [a] moved toward [b] by [by].
+  static Offset _shorten(Offset a, Offset b, double by) {
+    final d = b - a;
+    final len = d.distance;
+    if (len <= by) return a;
+    return a + d / len * by;
+  }
+
+  static void _dashed(Canvas canvas, Offset a, Offset b, Paint paint,
+      double dash, double gap) {
+    final d = b - a;
+    final len = d.distance;
+    if (len < 1e-3) return;
+    final dir = d / len;
+    var t = 0.0;
+    while (t < len) {
+      final s = a + dir * t;
+      final e = a + dir * math.min(t + dash, len);
+      canvas.drawLine(s, e, paint);
+      t += dash + gap;
+    }
+  }
+
+  /// A small filled triangle at [tip], pointing along [from]→[tip].
+  static void _head(Canvas canvas, Offset from, Offset tip, Paint paint,
+      double size) {
+    final d = tip - from;
+    if (d.distance < 1e-3) return;
+    final dir = d / d.distance;
+    final n = Offset(-dir.dy, dir.dx);
+    final base = tip - dir * size;
+    canvas.drawPath(
+      Path()
+        ..moveTo(tip.dx, tip.dy)
+        ..lineTo(base.dx + n.dx * size * 0.55, base.dy + n.dy * size * 0.55)
+        ..lineTo(base.dx - n.dx * size * 0.55, base.dy - n.dy * size * 0.55)
+        ..close(),
+      paint,
+    );
   }
 
   @override
   bool shouldRepaint(_ThumbPainter old) =>
-      old.dots.length != dots.length ||
-      old.ball.length != ball.length ||
-      old.window != window ||
+      old.scene.marks.length != scene.marks.length ||
+      old.scene.passes.length != scene.passes.length ||
+      old.scene.window != scene.window ||
       old.offSurface != offSurface;
 }

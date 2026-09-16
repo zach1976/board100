@@ -79,7 +79,12 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Chạm ngắn qua nón, rồi ngẩng đầu đẩy bóng dài.",
                   "en-GB": "Small touches through the cones, then head up and one long touch into space."},
             home=[
-                P(500, 1200, "1", moves=[(420, 1050, 0), (580, 900, 1), (420, 750, 2), (500, 500, 3)]),
+                # Round ALL four cones — left, right, left, right — and only
+                # then the long touch into space. The last leg used to go
+                # straight from the third cone to the finish, which weaved
+                # three cones and walked past the fourth.
+                P(500, 1200, "1", moves=[(420, 1050, 0), (580, 900, 1), (420, 750, 2),
+                                         (580, 620, 3), (500, 430, 4)]),
             ],
             markers=[M(500, 1050), M(500, 900), M(500, 750), M(500, 620)],
             ball=0,

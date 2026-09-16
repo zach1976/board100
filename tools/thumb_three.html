@@ -1,0 +1,31 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>缩略图 · 三个例子</title>
+<style>
+  body{margin:0;background:#071D1F;color:#F4F7F5;font:15px/1.6 -apple-system,"PingFang SC",sans-serif;padding:32px}
+  h1{font-size:20px;margin:0 0 6px} .lede{color:#A9BAB8;margin:0 0 28px}
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px}
+  figure{margin:0;background:#0B272A;border:1px solid rgba(180,205,210,.16);border-radius:14px;padding:18px}
+  img{width:100%;height:auto;border-radius:10px;display:block}
+  figcaption b{display:block;font-size:17px;margin:14px 0 4px}
+  figcaption p{margin:0;color:#A9BAB8;font-size:14px}
+  .key{margin-top:32px;color:#A9BAB8;font-size:14px;display:flex;gap:28px;flex-wrap:wrap}
+  .key span{display:inline-flex;align-items:center;gap:8px}
+  .sw{display:inline-block;width:34px;height:0;border-top:3px solid #fff} .dash{border-top-style:dashed;border-color:#4D8FE8}
+  .dot{display:inline-block;width:14px;height:14px;border-radius:50%} .tri{display:inline-block;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid #E0703A}
+</style></head><body>
+<h1>缩略图 · 三个例子</h1>
+<p class="lede">按「战术简图」画：实线白箭头 = 传球，从一个人连到下一个人；虚线箭头 = 跑动；裁到训练自己占的范围。</p>
+<div class="row">
+  <figure><img src="thumb_png/soccer/rondo_4v2.png"><figcaption><b>4v2 抢圈</b><p>外圈四人，中间两人抢。球 1→2→3→4→1 绕外圈转一整圈。</p></figcaption></figure>
+  <figure><img src="thumb_png/soccer/dribble_slalom.png"><figcaption><b>绕杆运球</b><p>一人带球，从底部出发折线绕过四个锥标。没有传球，只有一条带球跑动。</p></figcaption></figure>
+  <figure><img src="thumb_png/soccer/overlap_wide.png"><figcaption><b>套边传中</b><p>7 号传给套上的 2 号（虚线跑到边路），2 号传中给冲进禁区的 9 号。</p></figcaption></figure>
+</div>
+<div class="key">
+  <span><i class="sw"></i> 传球</span>
+  <span><i class="sw dash"></i> 跑动</span>
+  <span><i class="dot" style="background:#4D8FE8"></i> 主队</span>
+  <span><i class="dot" style="background:#E86452"></i> 客队</span>
+  <span><i class="dot" style="background:#fff;width:10px;height:10px"></i> 球</span>
+  <span><i class="tri"></i> 锥标</span>
+</div>
+</body></html>

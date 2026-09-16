@@ -20,6 +20,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/drill.dart';
@@ -31,15 +32,37 @@ import 'package:tactics_board/widgets/drill_thumbnail.dart';
 const double kThumbHeight = 96;
 const double kPixelRatio = 4.0;
 
+/// Without a real font the test binding draws every glyph as a filled box,
+/// so the shirt numbers came out as white squares. Roboto ships with Flutter.
+Future<void> _loadRoboto() async {
+  final root = Platform.environment['FLUTTER_ROOT'] ??
+      File(Platform.resolvedExecutable).parent.parent.parent.path;
+  for (final file in ['Roboto-Regular.ttf', 'Roboto-Bold.ttf']) {
+    final f = File('$root/bin/cache/artifacts/material_fonts/$file');
+    if (!f.existsSync()) continue;
+    final loader = FontLoader('Roboto')
+      ..addFont(Future.value(f.readAsBytesSync().buffer.asByteData()));
+    await loader.load();
+  }
+}
+
 void main() {
   testWidgets('render every drill thumbnail', (tester) async {
     final repo = Directory.current.parent;
     final drillDir = Directory('${Directory.current.path}/assets/drills');
     final outRoot = Directory('${repo.path}/tools/thumb_png');
-    if (outRoot.existsSync()) outRoot.deleteSync(recursive: true);
+    // ONLY=soccer/rondo_4v2,soccer/dribble_slalom renders a handful in
+    // place while the painter is being argued about; the full run wipes and
+    // rebuilds everything.
+    final only = Platform.environment['ONLY']
+        ?.split(',')
+        .map((e) => e.trim())
+        .toSet();
+    if (only == null && outRoot.existsSync()) outRoot.deleteSync(recursive: true);
 
     SharedPreferences.setMockInitialValues({});
     await EasyLocalization.ensureInitialized();
+    await _loadRoboto();
 
     final boundaryKey = GlobalKey();
     final thumb = ValueNotifier<Widget>(const SizedBox.shrink());
@@ -48,7 +71,9 @@ void main() {
     await tester.pumpWidget(
       Directionality(
         textDirection: material.TextDirection.ltr,
-        child: Center(
+        child: DefaultTextStyle(
+          style: const TextStyle(fontFamily: 'Roboto'),
+          child: Center(
           child: RepaintBoundary(
             key: boundaryKey,
             child: ValueListenableBuilder<Widget>(
@@ -56,6 +81,7 @@ void main() {
               builder: (_, w, __) => w,
             ),
           ),
+        ),
         ),
       ),
     );
@@ -73,6 +99,7 @@ void main() {
 
       for (final raw in data['drills'] as List) {
         final drill = Drill.fromJson(Map<String, dynamic>.from(raw as Map));
+        if (only != null && !only.contains('$sportName/${drill.id}')) continue;
         thumb.value = DrillThumbnail(
           drill: drill,
           sport: sport,
