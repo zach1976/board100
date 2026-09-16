@@ -56,10 +56,10 @@ def soccer_drills() -> list[Drill]:
             # 80 apart down each edge. Sending 1 and 4 both to (300,700) —
             # and 2 and 3 both to (700,700) — stacked the pairs dead centre.
             home=[
-                P(300, 500, "A", moves=[(280, 660, 0)], why={0: "open_angle"}),
-                P(700, 500, "B", moves=[(720, 660, 1)], why={1: "open_angle"}),
-                P(700, 900, "C", moves=[(720, 760, 2)], why={2: "open_angle"}),
-                P(300, 900, "D", moves=[(280, 760, 1)], why={1: "support"}),
+                P(300, 500, "A", moves=[(280, 660, 0), (300, 500, 1)], why={0: "open_angle", 1: "reset"}),
+                P(700, 500, "B", moves=[(720, 660, 1), (700, 500, 2)], why={1: "open_angle", 2: "reset"}),
+                P(700, 900, "C", moves=[(720, 760, 2), (700, 900, 3)], why={2: "open_angle", 3: "reset"}),
+                P(300, 900, "D", moves=[(280, 760, 1), (300, 900, 2)], why={1: "support", 2: "reset"}),
             ],
             # The two defenders hunt on offset points — they were sent to
             # the same two spots (450,800) and (600,650) a beat apart, so one
@@ -67,8 +67,10 @@ def soccer_drills() -> list[Drill]:
             # One leg each: a second drew a numbered waypoint disc in the
             # middle of the ring that reads as a ball stop.
             away=[
-                P(450, 650, "X1", moves=[(600, 640, 0)], why={0: "close_lane"}),
-                P(550, 800, "X2", moves=[(430, 810, 1)], why={1: "press_ball"}),
+                # The hunters work the lap in turn: one goes to the ball, the other
+                # sits in the lane behind him, and they swap as it goes round.
+                P(450, 650, "X1", moves=[(610, 600, 0), (470, 720, 2)], why={0: "press_ball", 2: "close_lane"}),
+                P(550, 800, "X2", moves=[(600, 810, 1), (420, 620, 3)], why={1: "press_ball", 3: "close_lane"}),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -1492,9 +1494,13 @@ def rondo_family() -> list[Drill]:
             note=RONDO_NOTE,
             rules=RONDO_RULES,
             home=[
+                # Out to open an angle, then back onto the cone the beat
+                # after: the outside players keep their stations, and a
+                # lap that left everyone a step inside never closed.
                 P(x, y, chr(65 + i),
-                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)],
-                  why={i % 2: "support"})
+                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2),
+                         (x, y, i % 2 + 1)],
+                  why={i % 2: "support", i % 2 + 1: "reset"})
                 for i, (x, y) in enumerate(ring_pos)
             ],
             # One move each: a second leg drew a numbered waypoint disc in

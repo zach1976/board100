@@ -23,6 +23,17 @@ RUN_WHY = {
     "th-TH": "{run}เพื่อ{why}", "vi-VN": "{run} để {why}",
 }
 
+# A return needs no direction: "A moves back to get back to the cone" says
+# the same thing twice. Rendered as its own clause.
+RESET = {
+    "en": "{a} gets back to the cone", "en-GB": "{a} gets back to the cone",
+    "zh-CN": "{a}回到原位", "zh-TW": "{a}回到原位",
+    "ja-JP": "{a}が元の位置に戻る", "ko-KR": "{a}는 원래 자리로 돌아간다",
+    "es-ES": "{a} vuelve a su cono", "fr-FR": "{a} revient sur son plot",
+    "id-ID": "{a} kembali ke cone", "ms-MY": "{a} kembali ke kon",
+    "th-TH": "{a} กลับไปที่กรวยเดิม", "vi-VN": "{a} về lại vị trí cũ",
+}
+
 WHY = {
     "support": {
         "en": "offer a passing option", "en-GB": "offer a passing option",
@@ -215,6 +226,14 @@ WHY = {
         "es-ES": "esperar el rechace en la frontal", "fr-FR": "attendre le second ballon à l'entrée de la surface",
         "id-ID": "menunggu bola kedua di tepi kotak", "ms-MY": "menunggu bola kedua di tepi kotak",
         "th-TH": "รอบอลสองที่หน้าเขตโทษ", "vi-VN": "chờ bóng hai ở rìa vòng cấm",
+    },
+    "reset": {
+        "en": "get back to the cone", "en-GB": "get back to the cone",
+        "zh-CN": "回到原位", "zh-TW": "回到原位",
+        "ja-JP": "元の位置に戻る", "ko-KR": "원래 자리로 돌아간다",
+        "es-ES": "volver a su cono", "fr-FR": "revenir sur son plot",
+        "id-ID": "kembali ke cone", "ms-MY": "kembali ke kon",
+        "th-TH": "กลับไปที่กรวยเดิม", "vi-VN": "về lại vị trí cũ",
     },
     "turn": {
         "en": "turn and face forward", "en-GB": "turn and face forward",
