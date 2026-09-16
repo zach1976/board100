@@ -56,10 +56,10 @@ def soccer_drills() -> list[Drill]:
             # 80 apart down each edge. Sending 1 and 4 both to (300,700) —
             # and 2 and 3 both to (700,700) — stacked the pairs dead centre.
             home=[
-                P(300, 500, "A", moves=[(280, 660, 0)]),
-                P(700, 500, "B", moves=[(720, 660, 1)]),
-                P(700, 900, "C", moves=[(720, 760, 2)]),
-                P(300, 900, "D", moves=[(280, 760, 1)]),
+                P(300, 500, "A", moves=[(280, 660, 0)], why={0: "open_angle"}),
+                P(700, 500, "B", moves=[(720, 660, 1)], why={1: "open_angle"}),
+                P(700, 900, "C", moves=[(720, 760, 2)], why={2: "open_angle"}),
+                P(300, 900, "D", moves=[(280, 760, 1)], why={1: "support"}),
             ],
             # The two defenders hunt on offset points — they were sent to
             # the same two spots (450,800) and (600,650) a beat apart, so one
@@ -67,8 +67,8 @@ def soccer_drills() -> list[Drill]:
             # One leg each: a second drew a numbered waypoint disc in the
             # middle of the ring that reads as a ball stop.
             away=[
-                P(450, 650, "X1", moves=[(600, 640, 0)]),
-                P(550, 800, "X2", moves=[(430, 810, 1)]),
+                P(450, 650, "X1", moves=[(600, 640, 0)], why={0: "close_lane"}),
+                P(550, 800, "X2", moves=[(430, 810, 1)], why={1: "press_ball"}),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -169,7 +169,7 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Tiền vệ cánh giữ bóng đến khi hậu vệ biên vượt qua — hậu vệ không thể theo cả hai.",
                   "en-GB": "The winger holds until the full-back is past him — the defender can't watch both."},
             home=[
-                P(820, 760, "7", moves=[(820, 600, 1)]),            # winger holds, then inside
+                P(820, 760, "7", moves=[(820, 600, 1)], why={1: "pull_away"}),  # winger holds, then inside
                 # AROUND the winger, not through him. A straight line from
                 # where the full-back starts to where he ends passed within
                 # twenty units of the winger's centre, so the one thing an
@@ -183,12 +183,12 @@ def soccer_drills() -> list[Drill]:
                 # point is that the winger holds until the full-back is past
                 # him, and the old timing had the ball leave on the same beat
                 # the run started.
-                P(760, 900, "2", moves=[(905, 770, 0), (880, 480, 1)]),
-                P(480, 600, "10", moves=[(460, 470, 1)]),          # holds the penalty spot
-                P(600, 500, "9", moves=[(400, 250, 2)]),           # box edge to the far post
+                P(760, 900, "2", moves=[(905, 770, 0), (880, 480, 1)], why={0: "overlap", 1: "overlap"}),
+                P(480, 600, "10", moves=[(460, 470, 1)], why={1: "second_ball"}),
+                P(600, 500, "9", moves=[(400, 250, 2)], why={2: "far_post"}),
             ],
             away=[
-                P(740, 660, "D", moves=[(700, 560, 1)]),
+                P(740, 660, "D", moves=[(700, 560, 1)], why={1: "shadow"}),
                 P(620, 300, "C"),
                 # The cross has to be going somewhere a keeper is standing.
                 P(500, 195, "GK", role="GK"),
@@ -1493,7 +1493,8 @@ def rondo_family() -> list[Drill]:
             rules=RONDO_RULES,
             home=[
                 P(x, y, chr(65 + i),
-                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)])
+                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)],
+                  why={i % 2: "support"})
                 for i, (x, y) in enumerate(ring_pos)
             ],
             # One move each: a second leg drew a numbered waypoint disc in
@@ -1505,7 +1506,9 @@ def rondo_family() -> list[Drill]:
                 # still for six more read as cones.
                 P(x, y, f"X{i + 1}",
                   moves=[(*hunt[i], min(attackers - 1,
-                                        round(i * attackers / defenders)))])
+                                        round(i * attackers / defenders)))],
+                  why={min(attackers - 1, round(i * attackers / defenders)):
+                       "close_lane" if i % 2 else "press_ball"})
                 for i, (x, y) in enumerate(inner)
             ],
             # A square of cones round the circle, which is how it is set up

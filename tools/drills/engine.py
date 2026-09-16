@@ -105,6 +105,9 @@ class P:
     label: str = ""
     role: str | None = None
     moves: list = field(default_factory=list)
+    # Why each leg is run, {phase: intent key} — see intents.WHY. The
+    # board draws where; this is the coach's "so that…" for the sentence.
+    why: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -305,6 +308,7 @@ def normalise_phases(drill: Drill) -> None:
     remap = {old: new for new, old in enumerate(used)}
     for p in drill.home + drill.away:
         p.moves = [(x, y, remap[ph]) for (x, y, ph) in p.moves]
+        p.why = {remap[ph]: w for ph, w in p.why.items() if ph in remap}
     drill.ball_moves = [(x, y, remap[ph]) for (x, y, ph) in drill.ball_moves]
 
 
