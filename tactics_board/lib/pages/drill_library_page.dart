@@ -232,6 +232,15 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                   d.localizedName(_locale).toLowerCase().contains(q) ||
                   d.localizedNote(_locale).toLowerCase().contains(q))
               .toList();
+          // Most-used first: the categories a coach reaches for every
+          // session lead, set pieces and conditioning trail. Within a
+          // category the library's own order stands (sort is not stable,
+          // so the original index breaks ties).
+          final at = {for (var i = 0; i < all.length; i++) all[i].id: i};
+          shown.sort((a, b) {
+            final r = a.category.usageRank.compareTo(b.category.usageRank);
+            return r != 0 ? r : at[a.id]!.compareTo(at[b.id]!);
+          });
           // Variants of a family share their note word for word, so a flat
           // list shows the same paragraph five times over. Group them: one
           // card per family, the coaching point once, the variants beside it.
@@ -252,7 +261,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
             }
           }
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
-            ..sort((a, b) => a.index.compareTo(b.index));
+            ..sort((a, b) => a.usageRank.compareTo(b.usageRank));
 
           // What each chip would give you if you tapped it: the search and
           // the OTHER axis still apply, its own does not. A "热身 0" is worth
