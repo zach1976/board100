@@ -78,6 +78,14 @@ SECTION = {
         "id-ID": "Jalur bola: ", "ms-MY": "Laluan bola: ",
         "th-TH": "เส้นทางบอล: ", "vi-VN": "Đường bóng: ",
     },
+    "rules": {
+        "en": "Rules: ", "en-GB": "Rules: ",
+        "zh-CN": "【规则】", "zh-TW": "【規則】",
+        "ja-JP": "【ルール】", "ko-KR": "【규칙】",
+        "es-ES": "Reglas: ", "fr-FR": "Règles : ",
+        "id-ID": "Aturan: ", "ms-MY": "Peraturan: ",
+        "th-TH": "กติกา: ", "vi-VN": "Luật: ",
+    },
     "point": {
         "en": "Coaching point: ", "en-GB": "Coaching point: ",
         "zh-CN": "【要点】", "zh-TW": "【要點】",
@@ -942,6 +950,9 @@ def compose_note(drill, sport: str) -> None:
             parts.append(SECTION["route"][loc] + route[loc])
         if seq is not None:
             parts.append(SECTION["seq"][loc] + seq[loc])
+        if drill.rules:
+            parts.append(SECTION["rules"][loc]
+                         + (drill.rules.get(loc) or drill.rules["en"]))
         parts.append(SECTION["point"][loc] + point)
         # One section per line: as a single run-on paragraph the note made
         # the reader find the section markers themselves.

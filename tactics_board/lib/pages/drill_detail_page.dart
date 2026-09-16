@@ -560,6 +560,9 @@ IconData? _sectionIcon(String label) {
     '顺序': Icons.format_list_numbered_rounded,
     '順序': Icons.format_list_numbered_rounded,
     'Sequence': Icons.format_list_numbered_rounded,
+    '规则': Icons.rule_rounded,
+    '規則': Icons.rule_rounded,
+    'Rules': Icons.rule_rounded,
   };
   return table[label.trim()];
 }

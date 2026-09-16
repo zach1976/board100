@@ -144,6 +144,12 @@ class Drill:
     # session on it — warm-up through small-sided game — because a starter
     # library that can't start anything is an advert, not a starter library.
     free: bool = False
+    # How the drill keeps going once the sequence on the board has run —
+    # who swaps with whom, what scores. Hand-written, locale -> str, shown
+    # as its own 【规则】 line. The board animates one lap; a rondo's real
+    # shape is what happens when the defender wins it, and that has no
+    # phase to derive it from.
+    rules: dict | None = None
     # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
     # its holder, which is right for a dribble and useless for a throw:
     # baseball drew four double plays and two relays without a single ball

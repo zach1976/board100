@@ -13,11 +13,29 @@ from .engine import Drill, M, P, grid, merge, ring, suffixed
 # goal at the top (y=0), which is how the app draws a full pitch.
 # ─────────────────────────────────────────────────────────────────────────────
 
+# What makes a rondo a rondo rather than a passing square: the defender who
+# wins it comes out, the passer who lost it goes in, and nobody stops.
+RONDO_RULES = {
+    "en": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
+    "en-GB": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
+    "zh-CN": "防守者抢断或把球破坏出圈，就和丢球的传球者互换——丢球的进圈防守，抢到的出来传球，练习不停顿地继续。",
+    "zh-TW": "防守者搶斷或把球破壞出圈，就和丟球的傳球者互換——丟球的進圈防守，搶到的出來傳球，練習不停頓地繼續。",
+    "ja-JP": "守備側がボールを奪うか外に出したら、ボールを失った選手と交代する。失った選手が中に入って守り、奪った選手が外に出てパス役に回り、止まらずに続ける。",
+    "ko-KR": "수비가 공을 빼앗거나 밖으로 쳐내면 공을 잃은 선수와 자리를 바꾼다. 잃은 선수가 안으로 들어가 수비하고, 빼앗은 선수가 밖으로 나와 패스하며 멈추지 않고 이어간다.",
+    "es-ES": "Cuando un defensor recupera el balón o lo saca del círculo, cambia con el jugador que lo perdió: el que pierde entra a defender, el que recupera sale a pasar, y el juego sigue sin parar.",
+    "fr-FR": "Quand un défenseur récupère le ballon ou le sort du cercle, il échange avec le joueur qui l'a perdu : celui-ci entre défendre, le récupérateur sort passer, et le jeu continue sans arrêt.",
+    "id-ID": "Saat bek merebut bola atau mengeluarkannya dari lingkaran, ia bertukar dengan pemain yang kehilangan bola — yang kehilangan masuk bertahan, yang merebut keluar mengoper, dan latihan berlanjut tanpa jeda.",
+    "ms-MY": "Apabila pemain bertahan merampas bola atau menyepaknya keluar bulatan, dia bertukar dengan pemain yang kehilangan bola — yang hilang masuk bertahan, yang merampas keluar menghantar, dan latihan diteruskan tanpa henti.",
+    "th-TH": "เมื่อฝ่ายรับแย่งบอลได้หรือเตะบอลออกนอกวง ให้สลับกับผู้เล่นที่เสียบอล คนเสียบอลเข้าไปรับ คนแย่งได้ออกมาส่ง เล่นต่อโดยไม่หยุด",
+    "vi-VN": "Khi hậu vệ đoạt được bóng hoặc phá bóng ra khỏi vòng, đổi chỗ với người vừa mất bóng — người mất bóng vào phòng ngự, người đoạt bóng ra ngoài chuyền, bài tập tiếp tục không dừng.",
+}
+
+
 def soccer_drills() -> list[Drill]:
     return [
         # ── warm-up ──────────────────────────────────────────────────────────
         Drill(
-            id="rondo_4v2", category="possession", minutes=10,
+            id="rondo_4v2", category="possession", rules=RONDO_RULES, minutes=10,
             name={"en": "Rondo 4v2", "zh-CN": "抢圈 4v2", "zh-TW": "搶圈 4v2",
                   "ja-JP": "ロンド 4対2", "ko-KR": "론도 4대2", "es-ES": "Rondo 4v2",
                   "fr-FR": "Rondo 4c2", "id-ID": "Rondo 4v2", "ms-MY": "Rondo 4v2",
@@ -94,7 +112,7 @@ def soccer_drills() -> list[Drill]:
 
         # ── possession ───────────────────────────────────────────────────────
         Drill(
-            id="possession_7v4", category="possession", minutes=15,
+            id="possession_7v4", category="possession", rules=RONDO_RULES, minutes=15,
             name={"en": "7v4 possession", "zh-CN": "控球 7v4", "zh-TW": "7v4 控球",
                   "ja-JP": "7対4 ポゼッション", "ko-KR": "7대4 볼 소유", "es-ES": "Posesión 7v4",
                   "fr-FR": "Conservation 7c4", "id-ID": "Penguasaan 7v4", "ms-MY": "Penguasaan 7v4",
@@ -565,7 +583,7 @@ def soccer_drills() -> list[Drill]:
 
         # ── possession ───────────────────────────────────────────────────────
         Drill(
-            id="rondo_5v2_split", category="possession", minutes=12,
+            id="rondo_5v2_split", category="possession", rules=RONDO_RULES, minutes=12,
             name={"en": "Rondo 5v2 — split pass", "en-GB": "Rondo 5v2 — split pass", "zh-CN": "抢圈 5v2 · 穿越直塞",
                   "zh-TW": "搶圈 5v2 · 穿越直塞", "ja-JP": "5対2 ロンド：割るパス", "ko-KR": "5대2 론도 — 가르는 패스",
                   "es-ES": "Rondo 5v2 — pase interior", "fr-FR": "Rondo 5c2 — passe dans l'axe",
@@ -1472,6 +1490,7 @@ def rondo_family() -> list[Drill]:
             minutes=minutes, rel=True, free=(attackers == 4),
             name=suffixed(RONDO_NAME, f"{attackers}v{defenders}"),
             note=RONDO_NOTE,
+            rules=RONDO_RULES,
             home=[
                 P(x, y, chr(65 + i),
                   moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2)])
@@ -3097,6 +3116,7 @@ def overload_family() -> list[Drill]:
             id=f"overload_{att}v{dfn}", category="possession", minutes=minutes,
             rel=True, free=(att == 4),
             name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
+            rules=RONDO_RULES,
             home=[P(x, y, chr(65 + i),
                     moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i % 2)])
                   for i, (x, y) in enumerate(a)],
