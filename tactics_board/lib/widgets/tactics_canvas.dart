@@ -839,8 +839,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                       ),
                                       size: Size.infinite,
                                     ),
-                                    if (player.label.isNotEmpty &&
-                                        player.label.length <= 2)
+                                    if (player.labelInside)
                                       Align(
                                         alignment: Alignment.center,
                                         child: Text(
