@@ -273,19 +273,25 @@ class _Scene {
         height: span);
     // Slide back inside the pitch rather than shrinking: a drill in the
     // corner should be framed on the corner, not zoomed out to re-centre.
-    if (rect.width >= 1) {
-      rect = Rect.fromLTWH(0, rect.top, 1, rect.height);
-    } else if (rect.left < 0) {
-      rect = rect.translate(-rect.left, 0);
-    } else if (rect.right > 1) {
-      rect = rect.translate(1 - rect.right, 0);
+    // "Inside" allows a strip beyond the lines, because a corner taker or
+    // a thrower stands outside them and is part of the picture; the
+    // strip is only as wide as those people need.
+    final lo = math.min(0.0, math.min(left + pad, top + pad) - 0.02);
+    final hiX = math.max(1.0, right - pad + 0.02);
+    final hiY = math.max(1.0, bottom - pad + 0.02);
+    if (rect.width >= hiX - lo) {
+      rect = Rect.fromLTWH(lo, rect.top, hiX - lo, rect.height);
+    } else if (rect.left < lo) {
+      rect = rect.translate(lo - rect.left, 0);
+    } else if (rect.right > hiX) {
+      rect = rect.translate(hiX - rect.right, 0);
     }
-    if (rect.height >= 1) {
-      rect = Rect.fromLTWH(rect.left, 0, rect.width, 1);
-    } else if (rect.top < 0) {
-      rect = rect.translate(0, -rect.top);
-    } else if (rect.bottom > 1) {
-      rect = rect.translate(0, 1 - rect.bottom);
+    if (rect.height >= hiY - lo) {
+      rect = Rect.fromLTWH(rect.left, lo, rect.width, hiY - lo);
+    } else if (rect.top < lo) {
+      rect = rect.translate(0, lo - rect.top);
+    } else if (rect.bottom > hiY) {
+      rect = rect.translate(0, hiY - rect.bottom);
     }
     return rect;
   }
@@ -311,8 +317,10 @@ class _ThumbPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Offset.zero & size,
-        Paint()..color = offSurface ? T.surfaceHi : T.turf);
+    // Always the turf and its lines: a drill whose taker stands outside
+    // the corner flag is still played on a pitch, and the lines are what
+    // show him to be outside it.
+    canvas.drawRect(Offset.zero & size, Paint()..color = T.turf);
 
     final unit = size.shortestSide;
     final tokenR = unit * 0.10;
@@ -321,7 +329,7 @@ class _ThumbPainter extends CustomPainter {
     // Drawn in pitch coordinates and cropped with everything else, so a
     // drill framed on one corner still shows the touchline it is played
     // against. Faint, because they are context and the arrows are content.
-    if (!offSurface) {
+    {
       final line = Paint()
         ..color = Colors.white.withValues(alpha: 0.16)
         ..strokeWidth = 1

@@ -446,7 +446,7 @@ def soccer_drills() -> list[Drill]:
 
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
-            id="corner_near_post", category="setpiece", minutes=10, rel=True,
+            id="corner_near_post", category="setpiece", minutes=10, rel=True, off_surface=True,
             name={"en": "Corner: near post", "zh-CN": "角球 前点", "zh-TW": "角球 前點",
                   "ja-JP": "CK：ニアポスト", "ko-KR": "코너킥: 니어포스트", "es-ES": "Córner al primer palo",
                   "fr-FR": "Corner premier poteau", "id-ID": "Sepak pojok tiang dekat", "ms-MY": "Penjuru tiang dekat",
@@ -467,7 +467,7 @@ def soccer_drills() -> list[Drill]:
             # corner of the penalty area: the delivery used to stop 18 m out
             # while the 9 ran away from it.
             home=[
-                P(0.945, 0.04, "7"),                             # corner taker, beside the flag
+                P(1.025, -0.015, "7"),                           # corner taker, outside the flag
                 P(0.56, 0.40, "9", moves=[(0.62, 0.11, 0)]),     # near post run
                 P(0.44, 0.36, "5", moves=[(0.36, 0.20, 0)]),     # decoy, pulling back
                 P(0.30, 0.44, "6", moves=[(0.28, 0.28, 0)]),     # decoy, pulling back
@@ -992,7 +992,7 @@ def soccer_drills() -> list[Drill]:
 
         # ── set pieces ───────────────────────────────────────────────────────
         Drill(
-            id="corner_short", category="setpiece", minutes=8, rel=True,
+            id="corner_short", category="setpiece", minutes=8, rel=True, off_surface=True,
             name={"en": "Corner: short routine", "en-GB": "Corner: short routine", "zh-CN": "角球 短角球",
                   "zh-TW": "角球：短角球配合", "ja-JP": "CK：ショートコーナー", "ko-KR": "코너킥: 짧은 전개",
                   "es-ES": "Córner en corto", "fr-FR": "Corner joué court",
@@ -1014,7 +1014,7 @@ def soccer_drills() -> list[Drill]:
             # five used to be inside one corner arc, and the "short pass"
             # was two metres long.
             home=[
-                P(0.945, 0.04, "7", moves=[(0.92, 0.10, 0)]),
+                P(1.025, -0.015, "7", moves=[(0.92, 0.10, 0)]),
                 P(0.80, 0.16, "8"),
                 P(0.56, 0.42, "9", moves=[(0.60, 0.12, 1)]),
                 P(0.40, 0.44, "5", moves=[(0.34, 0.22, 1)]),
@@ -2100,11 +2100,11 @@ def corner_family() -> list[Drill]:
             return P(sx, sy, shirt, moves=[] if end is None else [(*end, phase)])
 
         out.append(Drill(
-            id=f"corner_{key}", category="setpiece", minutes=10, rel=True,
+            id=f"corner_{key}", category="setpiece", minutes=10, rel=True, off_surface=True,
             free=(key == "far_post"),
             name=suffixed(CORNER_NAME, label), note=CORNER_NOTE,
             home=[
-                P(0.945, 0.04, "7"),
+                P(1.025, -0.015, "7"),
                 runner(nine, "9"), runner(five, "5"),
                 runner(six, "6"), runner(eight, "8"),
             ],
