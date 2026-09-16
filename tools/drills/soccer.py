@@ -5,6 +5,8 @@ the point), then the families: a rondo is really run at 4v2, 5v2 and 6v3, and
 each size is a different problem for the players, so they are generated from
 one spec with computed geometry rather than copy-pasted.
 """
+import math
+
 from .engine import Drill, M, P, grid, merge, ring, suffixed
 
 
@@ -52,25 +54,31 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "แตะสองครั้ง บอลที่เจาะได้คือบอลทะลุกลาง มองหาก่อนจะวนออกข้าง",
                   "vi-VN": "Hai chạm. Đường chuyền xuyên tuyến đi qua giữa — tìm nó trước khi chuyền vòng.",
                   "en-GB": "Two touches. The pass that breaks the line is the one through the middle — look for it before playing round."},
-            # Each support shuffle ends at its own point on the perimeter,
-            # 80 apart down each edge. Sending 1 and 4 both to (300,700) —
-            # and 2 and 3 both to (700,700) — stacked the pairs dead centre.
+            # The outside players keep their cones. The only move they make
+            # is the one the ball asks for: a step along the edge to meet the
+            # pass as it comes, then back onto the cone once it has gone. A
+            # is the starting holder and simply stays put. An earlier "support
+            # shuffle" sent each man up his own edge regardless of where the
+            # ball was, which a coach read as unrelated to the pass — it was.
             home=[
-                P(300, 500, "A", moves=[(280, 660, 0), (300, 500, 1)], why={0: "open_angle", 1: "reset"}),
-                P(700, 500, "B", moves=[(720, 660, 1), (700, 500, 2)], why={1: "open_angle", 2: "reset"}),
-                P(700, 900, "C", moves=[(720, 760, 2), (700, 900, 3)], why={2: "open_angle", 3: "reset"}),
-                P(300, 900, "D", moves=[(280, 760, 1), (300, 900, 2)], why={1: "support", 2: "reset"}),
+                P(300, 500, "A"),
+                P(700, 500, "B", moves=[(620, 500, 0), (700, 500, 1)], why={0: "meet", 1: "reset"}),
+                P(700, 900, "C", moves=[(700, 820, 1), (700, 900, 2)], why={1: "meet", 2: "reset"}),
+                P(300, 900, "D", moves=[(380, 900, 2), (300, 900, 3)], why={2: "meet", 3: "reset"}),
             ],
-            # The two defenders hunt on offset points — they were sent to
-            # the same two spots (450,800) and (600,650) a beat apart, so one
-            # arrived on the other before he had left.
-            # One leg each: a second drew a numbered waypoint disc in the
-            # middle of the ring that reads as a ball stop.
+            # The pair turn with the ball, the same way round, so their paths
+            # never cross: X1 presses whoever has it, tracing a square just
+            # inside the cones; X2 is the cover, on a smaller square in the
+            # middle, always between the holder and the far option. Both start
+            # where the lap leaves them — X1 on A, who has the ball — so the
+            # loop closes.
             away=[
-                # The hunters work the lap in turn: one goes to the ball, the other
-                # sits in the lane behind him, and they swap as it goes round.
-                P(450, 650, "X1", moves=[(610, 600, 0), (470, 720, 2)], why={0: "press_ball", 2: "close_lane"}),
-                P(550, 800, "X2", moves=[(600, 810, 1), (420, 620, 3)], why={1: "press_ball", 3: "close_lane"}),
+                P(390, 560, "X1",
+                  moves=[(610, 560, 0), (610, 840, 1), (390, 840, 2), (390, 560, 3)],
+                  why={0: "press_ball", 1: "press_ball", 2: "press_ball", 3: "press_ball"}),
+                P(440, 660, "X2",
+                  moves=[(560, 660, 0), (560, 740, 1), (440, 740, 2), (440, 660, 3)],
+                  why={0: "close_lane", 1: "close_lane", 2: "close_lane", 3: "close_lane"}),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -1482,40 +1490,58 @@ def rondo_family() -> list[Drill]:
         rx = radius * 1.45
         ry = rx * ROUND
         ring_pos = ring(attackers, 0.5, 0.5, rx, ry)
-        # The defenders work in the middle, offset half a slot round from
-        # the players so they never stand on a passing lane.
-        half = 180.0 / defenders
-        inner = ring(defenders, 0.5, 0.5, rx * 0.30, ry * 0.30, -90 + half)
-        hunt = ring(defenders, 0.5, 0.5, rx * 0.40, ry * 0.40, -90 + half + 34)
+        n = attackers
+
+        def on_ring(i, k):
+            """Point at player i's angle, k of the way out from the centre."""
+            a = math.radians(-90 + 360.0 * i / n)
+            return (0.5 + rx * k * math.cos(a), 0.5 + ry * k * math.sin(a))
+
+        def meet(i):
+            """A step from player i's cone toward the man who passes to him."""
+            px, py = ring_pos[i - 1]
+            x, y = ring_pos[i]
+            return (x + (px - x) * 0.25, y + (py - y) * 0.25)
+
+        # The ball goes round the ring: player i receives on beat i-1 and
+        # plays on beat i, so at beat ph the holder is player ph+1.
+        def holder(ph):
+            return (ph + 1) % n
+
+        # Where defender j stands while player h has the ball: X1 presses,
+        # just inside the holder's cone; the rest cover from the far side of
+        # the middle, on the lanes to the options across the ring.
+        def post(j, h):
+            if j == 0:
+                return on_ring(h, 0.72)
+            spread = (j - 1 - (defenders - 2) / 2) * 70
+            a = math.radians(-90 + 360.0 * h / n + 180 + spread)
+            return (0.5 + rx * 0.30 * math.cos(a), 0.5 + ry * 0.30 * math.sin(a))
+
         out.append(Drill(
             id=f"rondo_{attackers}v{defenders}", category="possession",
             minutes=minutes, rel=True, free=(attackers == 4),
             name=suffixed(RONDO_NAME, f"{attackers}v{defenders}"),
             note=RONDO_NOTE,
             rules=RONDO_RULES,
-            home=[
-                # Out to open an angle, then back onto the cone the beat
-                # after: the outside players keep their stations, and a
-                # lap that left everyone a step inside never closed.
+            # The outside players keep their cones; the one move is a step
+            # to meet the pass as it comes, then back once it has gone. A,
+            # who starts with the ball, stays put. Same shape as rondo_4v2.
+            home=[P(*ring_pos[0], "A")] + [
                 P(x, y, chr(65 + i),
-                  moves=[(x + (0.5 - x) * 0.12, y + (0.5 - y) * 0.12, i % 2),
-                         (x, y, i % 2 + 1)],
-                  why={i % 2: "support", i % 2 + 1: "reset"})
-                for i, (x, y) in enumerate(ring_pos)
+                  moves=[(*meet(i), i - 1), (x, y, i)],
+                  why={i - 1: "meet", i: "reset"})
+                for i, (x, y) in enumerate(ring_pos) if i > 0
             ],
-            # One move each: a second leg drew a numbered waypoint disc in
-            # the middle of the ring that every reviewer read as a ball.
+            # The defenders turn with the ball, all the same way round, so
+            # nobody crosses anybody: a post per beat, and the last beat
+            # brings the ball — and them — back to where they started. Only
+            # the first leg is narrated; the rest is the same sentence.
             away=[
-                # Spread across the lap rather than all inside the first two
-                # beats: the ball now goes all the way round, and defenders
-                # who take their hunting position on beat 1 and then stand
-                # still for six more read as cones.
-                P(x, y, f"X{i + 1}",
-                  moves=[(*hunt[i], min(attackers - 1,
-                                        round(i * attackers / defenders)))],
-                  why={min(attackers - 1, round(i * attackers / defenders)):
-                       "close_lane" if i % 2 else "press_ball"})
-                for i, (x, y) in enumerate(inner)
+                P(*post(j, 0), f"X{j + 1}",
+                  moves=[(*post(j, holder(ph)), ph) for ph in range(n)],
+                  why={0: "press_ball" if j == 0 else "close_lane"})
+                for j in range(defenders)
             ],
             # A square of cones round the circle, which is how it is set up
             # on grass and how the other passing shapes are drawn.
