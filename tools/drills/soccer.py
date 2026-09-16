@@ -17,6 +17,22 @@ from .engine import Drill, M, P, grid, merge, ring, suffixed
 
 # What makes a rondo a rondo rather than a passing square: the defender who
 # wins it comes out, the passer who lost it goes in, and nobody stops.
+# How a 2v2 keeps going: a rep has an end, and the next pair is waiting.
+DUEL_RULES = {
+    "en": "A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue at halfway and the next pair comes straight in; the two defenders hold for four reps, then swap with the attackers.",
+    "en-GB": "A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue at halfway and the next pair comes straight in; the two defenders hold for four reps, then swap with the attackers.",
+    "zh-CN": "一球结束——射门、防守人断球或球出界——进攻两人回到中线排队，下一组马上进攻；防守两人连守四球后与进攻互换。",
+    "zh-TW": "一球結束——射門、防守人斷球或球出界——進攻兩人回到中線排隊，下一組馬上進攻；防守兩人連守四球後與進攻互換。",
+    "ja-JP": "シュート、ボール奪取、ボールアウトで1本終了。攻撃の2人はハーフウェーの列に戻り、次の組がすぐ入る。守備の2人は4本続けてから攻撃と交代。",
+    "ko-KR": "슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격 두 명은 하프라인 줄로 돌아가고 다음 조가 바로 들어온다. 수비 두 명은 네 번을 막은 뒤 공격과 교대한다.",
+    "es-ES": "La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila en el medio campo y entra la siguiente pareja; los dos defensores aguantan cuatro repeticiones y luego cambian con los atacantes.",
+    "fr-FR": "La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file à la ligne médiane et la paire suivante enchaîne ; les deux défenseurs tiennent quatre séquences puis permutent avec les attaquants.",
+    "id-ID": "Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean di tengah lapangan dan pasangan berikutnya langsung masuk; dua bek bertahan empat ulangan lalu bertukar dengan penyerang.",
+    "ms-MY": "Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan di tengah padang dan pasangan seterusnya terus masuk; dua pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.",
+    "th-TH": "จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวที่กลางสนามแล้วคู่ถัดไปเข้าทันที ฝ่ายรับสองคนรับสี่รอบแล้วสลับกับฝ่ายบุก",
+    "vi-VN": "Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Hai tiền đạo về xếp hàng ở giữa sân, cặp tiếp theo vào ngay; hai hậu vệ giữ bốn lượt rồi đổi vai với tiền đạo.",
+}
+
 RONDO_RULES = {
     "en": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
     "en-GB": "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.",
@@ -401,7 +417,7 @@ def soccer_drills() -> list[Drill]:
             free=True,
         ),
         Drill(
-            id="defend_2v2", category="defending", minutes=12,
+            id="defend_2v2", category="defending", rules=DUEL_RULES, minutes=12,
             name={"en": "2v2 recovery", "zh-CN": "回追防守 2v2", "zh-TW": "回追防守 2v2",
                   "ja-JP": "2対2 リカバリー", "ko-KR": "2대2 회복 수비", "es-ES": "Repliegue 2v2",
                   "fr-FR": "Repli 2c2", "id-ID": "Pemulihan 2v2", "ms-MY": "Pemulihan 2v2",
@@ -419,18 +435,25 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Hậu vệ thứ nhất trì hoãn, thứ hai bọc lót bên trong. Không cùng lao vào bóng.",
                   "en-GB": "First defender delays, second covers the inside. Never both at the ball."},
             # They start level with their men and sprint back goal-side:
-            # a recovery drill in which nobody recovers is a 2v2.
+            # a recovery drill in which nobody recovers is a 2v2. The rep
+            # then runs to its end — the first defender delays the carrier,
+            # the second covers inside, they swap roles on the pass, and
+            # the 10 gets his shot away — because a drill that stopped at
+            # the pass showed no defending and no way to go again.
             home=[
-                P(380, 820, "4", moves=[(420, 600, 0)]),
-                P(620, 860, "5", moves=[(580, 660, 1)]),
+                P(380, 820, "4", moves=[(420, 640, 0), (500, 560, 1)],
+                  why={0: "recover", 1: "cover"}),
+                P(620, 860, "5", moves=[(560, 700, 0), (640, 540, 1)],
+                  why={0: "recover", 1: "delay"}),
             ],
             away=[
                 P(300, 940, "9", moves=[(360, 760, 0)]),
-                P(700, 980, "10", moves=[(660, 800, 1)]),
+                P(700, 980, "10", moves=[(620, 660, 1)], why={1: "run_behind"}),
             ],
-            # their 9 carries at the recovering pair
+            # their 9 carries at the recovering pair, releases the 10, who
+            # shoots
             ball=(340, 1010),
-            ball_to=[("a0", 0), ("a1", 1)],
+            ball_to=[("a0", 0), ("a1", 1), ((480, 60), 2)],
             free=True,
         ),
 
