@@ -140,20 +140,40 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "จ่ายหกครั้งแล้วเปลี่ยนข้าง ฝั่งไกลว่างเฉพาะตอนบอลกำลังเดินทาง",
                   "vi-VN": "Sáu đường chuyền rồi chuyển cánh. Cánh xa chỉ trống khi bóng đang di chuyển.",
                   "en-GB": "Six passes then switch. The far side is only free while the ball travels — move it before they shift."},
+            # A whole lap, not two passes and a stop: along the top, into
+            # the pivot, switched out to the far side, along the bottom,
+            # into the pivot again and back to A — "six passes then switch"
+            # drawn as the loop it is. Receivers meet the pass and get back
+            # to their cones, as in the rondos; A starts with the ball and
+            # holds his.
             home=[
-                P(200, 500, "A"), P(500, 420, "B"), P(800, 500, "C", moves=[(820, 700, 1)]),
-                P(200, 900, "D"), P(500, 980, "E"), P(800, 900, "F"),
-                P(500, 700, "G", moves=[(600, 660, 0)]),
+                P(200, 500, "A"),
+                P(500, 420, "B", moves=[(425, 440, 0), (500, 420, 1)], why={0: "meet", 1: "reset"}),
+                P(800, 500, "C", moves=[(725, 480, 1), (800, 500, 2)], why={1: "meet", 2: "reset"}),
+                P(200, 900, "D", moves=[(275, 850, 3), (200, 900, 4)], why={3: "meet", 4: "reset"}),
+                P(500, 980, "E", moves=[(425, 960, 4), (500, 980, 5)], why={4: "meet", 5: "reset"}),
+                P(800, 900, "F", moves=[(725, 920, 5), (800, 900, 6)], why={5: "meet", 6: "reset"}),
+                # The pivot takes it twice, once from each side, and turns
+                # to play it out the other way.
+                P(500, 700, "G", moves=[(575, 650, 2), (500, 700, 3), (575, 750, 6), (500, 700, 7)],
+                  why={2: "meet", 3: "reset", 6: "meet", 7: "reset"}),
             ],
+            # Four in a box; whoever is nearest the receiver steps out to
+            # press him and drops back the beat after. X1 starts on A, who
+            # has the ball, and ends there, so the loop closes.
             away=[
-                P(380, 620, "X1", moves=[(500, 560, 0)]),
-                P(700, 580, "X2", moves=[(760, 560, 1)]),
-                P(380, 800, "X3"), P(620, 800, "X4"),
+                P(280, 560, "X1", moves=[(460, 500, 0), (400, 600, 1), (440, 660, 6), (280, 560, 7)],
+                  why={0: "press_ball", 1: "cover", 6: "press_ball", 7: "press_ball"}),
+                P(600, 600, "X2", moves=[(720, 560, 1), (600, 600, 2), (720, 840, 5), (600, 600, 6)],
+                  why={1: "press_ball", 2: "cover", 5: "press_ball", 6: "cover"}),
+                P(400, 800, "X3", moves=[(280, 840, 3), (400, 800, 4)],
+                  why={3: "press_ball", 4: "cover"}),
+                P(600, 800, "X4", moves=[(560, 740, 2), (600, 800, 3), (520, 900, 4), (600, 800, 5)],
+                  why={2: "press_ball", 3: "cover", 4: "press_ball", 5: "cover"}),
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
             ball=0,
-            # bounced off the 7 and out the far side to the 3
-            ball_to=[(6, 0), (2, 1)],
+            ball_to=[(1, 0), (2, 1), (6, 2), (3, 3), (4, 4), (5, 5), (6, 6), (0, 7)],
             free=True,
         ),
 

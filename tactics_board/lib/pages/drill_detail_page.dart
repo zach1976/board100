@@ -176,6 +176,17 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
         .where((s) => s.kind == DrillSectionKind.lead)
         .map((s) => s.body)
         .firstOrNull;
+    // For the caption under the board: the sequence's beats, and the set-up
+    // line — the section whose icon is the group, whatever its language.
+    final beats = note.sections
+        .where((s) => s.kind == DrillSectionKind.sequence)
+        .map((s) => s.beats)
+        .firstOrNull ?? const <String>[];
+    final setup = note.sections
+        .where((s) =>
+            s.label != null && _sectionIcon(s.label!) == Icons.groups_outlined)
+        .map((s) => s.body)
+        .firstOrNull;
 
     return Scaffold(
       backgroundColor: T.bg0,
@@ -211,7 +222,8 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                     Padding(
                       padding:
                           const EdgeInsets.symmetric(horizontal: T.screenX),
-                      child: _BoardCard(state: _preview),
+                      child: _BoardCard(
+                          state: _preview, beats: beats, setup: setup),
                     ),
                     const SizedBox(height: T.s24),
                     Padding(
@@ -429,7 +441,12 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
 /// screens tall, pushing the note under the fold on every phone.
 class _BoardCard extends StatelessWidget {
   final TacticsState state;
-  const _BoardCard({required this.state});
+
+  /// The sequence's sentences, one per beat, and the set-up line, so the
+  /// board can say what the step it is showing is.
+  final List<String> beats;
+  final String? setup;
+  const _BoardCard({required this.state, this.beats = const [], this.setup});
 
   @override
   Widget build(BuildContext context) {
@@ -467,6 +484,16 @@ class _BoardCard extends StatelessWidget {
             if (steps > 0) ...[
               const SizedBox(height: T.s4),
               _StepBar(state: s, steps: steps, at: s.atStep),
+              // What this step is, in words, right under the picture of it.
+              // The full list further down lights the same beat, but a coach
+              // stepping the board should not have to scroll to read what
+              // just happened.
+              _BeatCaption(
+                text: s.atStep == 0
+                    ? setup
+                    : (s.atStep - 1 < beats.length ? beats[s.atStep - 1] : null),
+                label: s.atStep == 0 ? 'anim_setup'.tr() : null,
+              ),
             ],
           ],
         );
@@ -504,6 +531,32 @@ class _StepBar extends StatelessWidget {
       beats: steps,
       onPrev: state.stepBackward,
       onNext: state.stepForward,
+    );
+  }
+}
+
+/// The sentence for the step the board is on, under the stepper.
+class _BeatCaption extends StatelessWidget {
+  final String? text;
+  final String? label;
+  const _BeatCaption({this.text, this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    if (text == null || text!.isEmpty) return const SizedBox(height: T.s8);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(T.s4, T.s8, T.s4, T.s4),
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 160),
+        child: SizedBox(
+          key: ValueKey(text),
+          width: double.infinity,
+          child: Text(
+            label != null ? '$label · $text' : text!,
+            style: T.body,
+          ),
+        ),
+      ),
     );
   }
 }
