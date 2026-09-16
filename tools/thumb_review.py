@@ -87,8 +87,11 @@ def main(argv):
 
     rows = []
     for c in cards:
-        shot = (f'<img src="{c["img"]}" alt="">' if c["img"]
-                else '<div class="missing">未渲染</div>')
+        # The picture links to the drill's page on the review site, so a
+        # thumbnail that looks wrong is one click from the board it depicts.
+        detail = f'drill_review.html?d={c["sport"]}/{c["id"]}'
+        shot = (f'<a href="{detail}" title="打开训练详情"><img src="{c["img"]}" alt=""></a>'
+                if c["img"] else '<div class="missing">未渲染</div>')
         rows.append(
             f'<figure class="card" data-sport="{c["sport"]}">'
             f'{shot}'
@@ -142,8 +145,10 @@ PAGE = """<!doctype html>
   .card[hidden] {{ display: none; }}
   .card {{ margin: 0; display: flex; gap: 14px; background: var(--card);
     border: 1px solid var(--line); border-radius: 14px; padding: 14px; }}
-  .card img {{ width: 96px; height: auto; border-radius: 9px; flex: none;
+  .card a {{ flex: none; line-height: 0; }}
+  .card img {{ width: 96px; height: auto; border-radius: 9px;
     image-rendering: auto; }}
+  .card a:hover img {{ outline: 2px solid var(--accent, #6fd3a5); }}
   .missing {{ width: 96px; height: 130px; border-radius: 9px; flex: none;
     display: grid; place-items: center; background: #103338;
     color: var(--off); font-size: 12px; }}
