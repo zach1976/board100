@@ -25,6 +25,8 @@ twelve strings here — the price of text that is never machine-translated.
 """
 from __future__ import annotations
 
+from .intents import RUN_WHY, why_text
+
 LOCALES = ["en", "en-GB", "zh-CN", "zh-TW", "ja-JP", "ko-KR", "es-ES",
            "fr-FR", "id-ID", "ms-MY", "th-TH", "vi-VN"]
 
@@ -759,7 +761,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
             dx, dy = x - p.x, y - p.y
             d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
                 ("down" if dy > 0 else "up")
-            add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d))
+            add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d),
+                why=p.why.get(ph))
 
     # A chain's later legs are not narrated — until they are all a beat has.
     # A kicker who steps back (beat 1), steps in (beat 2) and kicks (beat 3)
@@ -773,7 +776,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 dx, dy = x - px, y - py
                 d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) \
                     else ("down" if dy > 0 else "up")
-                add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d))
+                add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d),
+                    why=p.why.get(ph))
 
     if not beats:
         return None
@@ -793,7 +797,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     acts.append((table, params))
                 elif "dir_key" in params or len(params) == 1:
                     grouped.setdefault(
-                        (id(table), params.get("dir_key")), []
+                        (id(table), params.get("dir_key"), params.get("why")),
+                        [],
                     ).append(params["a"])
                 else:
                     acts.append((table, params))
@@ -802,7 +807,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 fmt = {k: (_subj(v, loc) if k in ("a", "b", "to") else v)
                        for k, v in params.items()}
                 rendered.append(table[loc].format(**fmt))
-            for (tid, dir_key), subjects in grouped.items():
+            for (tid, dir_key, why), subjects in grouped.items():
                 table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, HIT_MOVE,
                                          PASS_SPOT, HIT_SPOT, HIT_DEEP,
                                          KICK_POSTS, PITCH, SHOOT, SHOOT_HOOP,
@@ -843,8 +848,11 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     tmpl = RUN[loc]
                     if loc in ("en", "en-GB") and len(subjects) > 1:
                         tmpl = tmpl.replace(" moves ", " move ")
-                    rendered.append(tmpl.format(
-                        a=joined, dir=DIR[dir_key][loc]))
+                    run = tmpl.format(a=joined, dir=DIR[dir_key][loc])
+                    if why:
+                        run = RUN_WHY[loc].format(run=run,
+                                                  why=why_text(why, loc))
+                    rendered.append(run)
                 else:
                     rendered.append(table[loc].format(a=joined))
             parts.append(BEAT[loc].format(n=ph + 1) + AND[loc].join(rendered))

@@ -156,6 +156,10 @@ void main() {
 
         for (var step = 0; step <= state.maxMoveSteps; step++) {
           state.setTargetStep(step);
+          // Step 0 is the set-up — where everyone starts, nothing else —
+          // the same frame the app shows before the first beat. The lines
+          // and ghost positions only appear once the drill is walking.
+          state.setShowMoveLines(step > 0);
           await tester.pump(const Duration(milliseconds: 60));
           // runAsync: toImage is a real async GPU round-trip, and the images
           // the board loads (ball, marker sprites) only finish decoding

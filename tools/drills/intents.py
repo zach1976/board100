@@ -1,0 +1,234 @@
+"""Why a player runs where he runs — the half of a move the board cannot draw.
+
+The sequence line is derived from the phases: "A moves up the board" is
+true, and useless to a coach who wants to tell A *why*. That reason is not
+in the geometry (a run to the near post and a run to drag a defender off
+the near post look identical), so it is authored: each move carries an
+intent key, `P(..., why={phase: "support"})`, and the sentence becomes
+"A moves up the board to offer a passing option".
+
+Keys are the coaching vocabulary, not per-drill prose, so a reason is
+written once in twelve locales and a drill only names it. Add a key here
+before using it in a spec; an unknown key fails the build rather than
+printing a bare code.
+"""
+
+# How the reason attaches to the run sentence, per locale.
+RUN_WHY = {
+    "en": "{run} to {why}", "en-GB": "{run} to {why}",
+    "zh-CN": "{run}（{why}）", "zh-TW": "{run}（{why}）",
+    "ja-JP": "{run}し、{why}", "ko-KR": "{run}해 {why}",
+    "es-ES": "{run} para {why}", "fr-FR": "{run} pour {why}",
+    "id-ID": "{run} untuk {why}", "ms-MY": "{run} untuk {why}",
+    "th-TH": "{run}เพื่อ{why}", "vi-VN": "{run} để {why}",
+}
+
+WHY = {
+    "support": {
+        "en": "offer a passing option", "en-GB": "offer a passing option",
+        "zh-CN": "给持球人一个接应点", "zh-TW": "給持球人一個接應點",
+        "ja-JP": "パスコースを作る", "ko-KR": "패스 옵션을 만든다",
+        "es-ES": "ofrecer una línea de pase", "fr-FR": "offrir une solution de passe",
+        "id-ID": "memberi pilihan umpan", "ms-MY": "memberi pilihan hantaran",
+        "th-TH": "เปิดตัวเป็นทางเลือกส่งบอล", "vi-VN": "tạo hướng chuyền cho người cầm bóng",
+    },
+    "open_angle": {
+        "en": "open the passing angle", "en-GB": "open the passing angle",
+        "zh-CN": "拉开传球角度", "zh-TW": "拉開傳球角度",
+        "ja-JP": "パス角度を広げる", "ko-KR": "패스 각도를 연다",
+        "es-ES": "abrir el ángulo de pase", "fr-FR": "ouvrir l'angle de passe",
+        "id-ID": "membuka sudut umpan", "ms-MY": "membuka sudut hantaran",
+        "th-TH": "เปิดมุมส่งบอล", "vi-VN": "mở góc chuyền",
+    },
+    "close_lane": {
+        "en": "cut off the passing lane", "en-GB": "cut off the passing lane",
+        "zh-CN": "封堵传球线路", "zh-TW": "封堵傳球線路",
+        "ja-JP": "パスコースを切る", "ko-KR": "패스 길을 차단한다",
+        "es-ES": "cerrar la línea de pase", "fr-FR": "fermer la ligne de passe",
+        "id-ID": "menutup jalur umpan", "ms-MY": "menutup laluan hantaran",
+        "th-TH": "ปิดเส้นทางส่งบอล", "vi-VN": "chặn đường chuyền",
+    },
+    "press_ball": {
+        "en": "press the ball carrier", "en-GB": "press the ball carrier",
+        "zh-CN": "上抢持球人", "zh-TW": "上搶持球人",
+        "ja-JP": "ボールホルダーに寄せる", "ko-KR": "볼 소유자를 압박한다",
+        "es-ES": "presionar al poseedor", "fr-FR": "presser le porteur",
+        "id-ID": "menekan pembawa bola", "ms-MY": "menekan pembawa bola",
+        "th-TH": "เพรสคนถือบอล", "vi-VN": "áp sát người cầm bóng",
+    },
+    "cover": {
+        "en": "cover the space behind", "en-GB": "cover the space behind",
+        "zh-CN": "补位，保护身后空当", "zh-TW": "補位，保護身後空當",
+        "ja-JP": "背後のスペースをカバーする", "ko-KR": "뒷공간을 커버한다",
+        "es-ES": "cubrir el espacio a la espalda", "fr-FR": "couvrir l'espace derrière",
+        "id-ID": "menutup ruang di belakang", "ms-MY": "menutup ruang di belakang",
+        "th-TH": "คุมพื้นที่ด้านหลัง", "vi-VN": "bọc lót khoảng trống phía sau",
+    },
+    "recover": {
+        "en": "recover goal-side", "en-GB": "recover goal-side",
+        "zh-CN": "回追到球门一侧", "zh-TW": "回追到球門一側",
+        "ja-JP": "ゴール側へ戻る", "ko-KR": "골 쪽으로 복귀한다",
+        "es-ES": "recuperar la posición entre balón y portería", "fr-FR": "revenir côté but",
+        "id-ID": "kembali ke sisi gawang", "ms-MY": "kembali ke sisi gol",
+        "th-TH": "วิ่งกลับมาคุมฝั่งประตู", "vi-VN": "lùi về phía khung thành",
+    },
+    "third_man": {
+        "en": "arrive as the third man", "en-GB": "arrive as the third man",
+        "zh-CN": "作为第三人插上", "zh-TW": "作為第三人插上",
+        "ja-JP": "3人目として飛び出す", "ko-KR": "제3의 선수로 침투한다",
+        "es-ES": "llegar como tercer hombre", "fr-FR": "arriver en troisième homme",
+        "id-ID": "masuk sebagai pemain ketiga", "ms-MY": "masuk sebagai pemain ketiga",
+        "th-TH": "วิ่งเข้ามาเป็นคนที่สาม", "vi-VN": "xâm nhập với vai trò người thứ ba",
+    },
+    "overlap": {
+        "en": "overlap on the outside", "en-GB": "overlap on the outside",
+        "zh-CN": "从外侧套上", "zh-TW": "從外側套上",
+        "ja-JP": "外側をオーバーラップする", "ko-KR": "바깥쪽으로 오버래핑한다",
+        "es-ES": "desdoblar por fuera", "fr-FR": "déborder à l'extérieur",
+        "id-ID": "overlap di sisi luar", "ms-MY": "overlap di sisi luar",
+        "th-TH": "โอเวอร์แลปด้านนอก", "vi-VN": "chồng biên bên ngoài",
+    },
+    "underlap": {
+        "en": "underlap on the inside", "en-GB": "underlap on the inside",
+        "zh-CN": "从内侧插上", "zh-TW": "從內側插上",
+        "ja-JP": "内側をアンダーラップする", "ko-KR": "안쪽으로 언더래핑한다",
+        "es-ES": "desdoblar por dentro", "fr-FR": "passer à l'intérieur",
+        "id-ID": "underlap di sisi dalam", "ms-MY": "underlap di sisi dalam",
+        "th-TH": "แทรกขึ้นด้านใน", "vi-VN": "xâm nhập phía trong",
+    },
+    "run_behind": {
+        "en": "run in behind the defence", "en-GB": "run in behind the defence",
+        "zh-CN": "插入防线身后", "zh-TW": "插入防線身後",
+        "ja-JP": "最終ラインの裏へ抜ける", "ko-KR": "수비 뒷공간으로 침투한다",
+        "es-ES": "desmarcarse a la espalda de la defensa", "fr-FR": "prendre la profondeur",
+        "id-ID": "berlari ke belakang pertahanan", "ms-MY": "berlari ke belakang pertahanan",
+        "th-TH": "วิ่งทะลุหลังแนวรับ", "vi-VN": "chạy ra sau hàng thủ",
+    },
+    "near_post": {
+        "en": "attack the near post", "en-GB": "attack the near post",
+        "zh-CN": "抢前点", "zh-TW": "搶前點",
+        "ja-JP": "ニアに飛び込む", "ko-KR": "니어 포스트를 공략한다",
+        "es-ES": "atacar el primer palo", "fr-FR": "attaquer le premier poteau",
+        "id-ID": "menyerang tiang dekat", "ms-MY": "menyerang tiang dekat",
+        "th-TH": "วิ่งเข้าเสาแรก", "vi-VN": "băng vào cột gần",
+    },
+    "far_post": {
+        "en": "attack the far post", "en-GB": "attack the far post",
+        "zh-CN": "抢后点", "zh-TW": "搶後點",
+        "ja-JP": "ファーに飛び込む", "ko-KR": "파 포스트를 공략한다",
+        "es-ES": "atacar el segundo palo", "fr-FR": "attaquer le deuxième poteau",
+        "id-ID": "menyerang tiang jauh", "ms-MY": "menyerang tiang jauh",
+        "th-TH": "วิ่งเข้าเสาสอง", "vi-VN": "băng vào cột xa",
+    },
+    "drop_deep": {
+        "en": "drop to receive", "en-GB": "drop to receive",
+        "zh-CN": "回撤接球", "zh-TW": "回撤接球",
+        "ja-JP": "下りて受ける", "ko-KR": "내려와서 공을 받는다",
+        "es-ES": "bajar a recibir", "fr-FR": "décrocher pour recevoir",
+        "id-ID": "turun untuk menerima bola", "ms-MY": "turun untuk menerima bola",
+        "th-TH": "ถอยลงมารับบอล", "vi-VN": "lùi xuống nhận bóng",
+    },
+    "pull_away": {
+        "en": "drag a defender away", "en-GB": "drag a defender away",
+        "zh-CN": "把防守人带走，拉开空间", "zh-TW": "把防守人帶走，拉開空間",
+        "ja-JP": "守備者を引き連れてスペースを空ける", "ko-KR": "수비를 끌고 나가 공간을 만든다",
+        "es-ES": "arrastrar a un defensor", "fr-FR": "emmener un défenseur",
+        "id-ID": "menarik bek menjauh", "ms-MY": "menarik pemain bertahan menjauh",
+        "th-TH": "ลากตัวประกบออกไปเปิดพื้นที่", "vi-VN": "kéo hậu vệ đi để mở khoảng trống",
+    },
+    "shift": {
+        "en": "shift across with the ball", "en-GB": "shift across with the ball",
+        "zh-CN": "随球横移，保持紧凑", "zh-TW": "隨球橫移，保持緊湊",
+        "ja-JP": "ボールに合わせてスライドする", "ko-KR": "공을 따라 옆으로 이동한다",
+        "es-ES": "bascular con el balón", "fr-FR": "coulisser avec le ballon",
+        "id-ID": "bergeser mengikuti bola", "ms-MY": "beralih mengikut bola",
+        "th-TH": "ขยับตามบอลให้แน่น", "vi-VN": "dịch chuyển theo bóng giữ đội hình",
+    },
+    "queue": {
+        "en": "rejoin the queue", "en-GB": "rejoin the queue",
+        "zh-CN": "回到队尾", "zh-TW": "回到隊尾",
+        "ja-JP": "列の最後尾に戻る", "ko-KR": "줄 맨 뒤로 돌아간다",
+        "es-ES": "volver a la fila", "fr-FR": "reprendre la file",
+        "id-ID": "kembali ke antrean", "ms-MY": "kembali ke barisan",
+        "th-TH": "กลับไปต่อแถว", "vi-VN": "về cuối hàng",
+    },
+    "to_goal": {
+        "en": "attack the goal", "en-GB": "attack the goal",
+        "zh-CN": "冲向球门", "zh-TW": "衝向球門",
+        "ja-JP": "ゴールへ向かう", "ko-KR": "골문으로 쇄도한다",
+        "es-ES": "atacar la portería", "fr-FR": "attaquer le but",
+        "id-ID": "menyerang gawang", "ms-MY": "menyerang gol",
+        "th-TH": "บุกเข้าหาประตู", "vi-VN": "lao về khung thành",
+    },
+    "get_free": {
+        "en": "shake off the marker", "en-GB": "shake off the marker",
+        "zh-CN": "摆脱盯防", "zh-TW": "擺脫盯防",
+        "ja-JP": "マークを外す", "ko-KR": "마크를 떨쳐낸다",
+        "es-ES": "desmarcarse", "fr-FR": "se démarquer",
+        "id-ID": "lepas dari penjagaan", "ms-MY": "lepas daripada kawalan",
+        "th-TH": "สลัดตัวประกบ", "vi-VN": "thoát người kèm",
+    },
+    "finish": {
+        "en": "get into a finishing position", "en-GB": "get into a finishing position",
+        "zh-CN": "进入射门位置", "zh-TW": "進入射門位置",
+        "ja-JP": "シュート位置に入る", "ko-KR": "슈팅 위치로 들어간다",
+        "es-ES": "llegar a posición de remate", "fr-FR": "se placer pour finir",
+        "id-ID": "masuk ke posisi penyelesaian", "ms-MY": "masuk ke posisi penamat",
+        "th-TH": "เข้าตำแหน่งยิง", "vi-VN": "vào vị trí dứt điểm",
+    },
+    "width": {
+        "en": "hold the width", "en-GB": "hold the width",
+        "zh-CN": "保持宽度", "zh-TW": "保持寬度",
+        "ja-JP": "幅を取る", "ko-KR": "폭을 유지한다",
+        "es-ES": "dar amplitud", "fr-FR": "garder la largeur",
+        "id-ID": "menjaga lebar", "ms-MY": "mengekalkan kelebaran",
+        "th-TH": "รักษาความกว้าง", "vi-VN": "giữ chiều rộng",
+    },
+    "set_gk": {
+        "en": "set on the line of the ball", "en-GB": "set on the line of the ball",
+        "zh-CN": "对准球的方向站好位", "zh-TW": "對準球的方向站好位",
+        "ja-JP": "ボールの線上に構える", "ko-KR": "공의 선상에 자리 잡는다",
+        "es-ES": "colocarse en la línea del balón", "fr-FR": "se placer sur la ligne du ballon",
+        "id-ID": "bersiap di garis bola", "ms-MY": "bersedia di garis bola",
+        "th-TH": "ตั้งตำแหน่งตรงแนวบอล", "vi-VN": "chọn vị trí trên đường bóng",
+    },
+    "shadow": {
+        "en": "track the runner", "en-GB": "track the runner",
+        "zh-CN": "盯住跑动的人", "zh-TW": "盯住跑動的人",
+        "ja-JP": "ランナーについていく", "ko-KR": "침투하는 선수를 따라간다",
+        "es-ES": "seguir al que se desmarca", "fr-FR": "suivre le coureur",
+        "id-ID": "mengikuti pemain yang berlari", "ms-MY": "mengekori pemain yang berlari",
+        "th-TH": "ตามประกบคนวิ่ง", "vi-VN": "theo kèm người chạy chỗ",
+    },
+    "delay": {
+        "en": "delay and jockey", "en-GB": "delay and jockey",
+        "zh-CN": "拖延，不轻易上抢", "zh-TW": "拖延，不輕易上搶",
+        "ja-JP": "遅らせて間合いを取る", "ko-KR": "지연시키며 거리를 유지한다",
+        "es-ES": "temporizar sin entrar", "fr-FR": "temporiser sans se jeter",
+        "id-ID": "memperlambat tanpa terburu-buru", "ms-MY": "melambatkan tanpa terburu-buru",
+        "th-TH": "ถ่วงเวลา ไม่รีบเข้าแย่ง", "vi-VN": "trì hoãn, không vội xoạc",
+    },
+    "second_ball": {
+        "en": "wait on the edge for the second ball", "en-GB": "wait on the edge for the second ball",
+        "zh-CN": "在禁区边缘等第二落点", "zh-TW": "在禁區邊緣等第二落點",
+        "ja-JP": "ペナルティエリア外でこぼれ球を待つ", "ko-KR": "박스 밖에서 세컨드 볼을 기다린다",
+        "es-ES": "esperar el rechace en la frontal", "fr-FR": "attendre le second ballon à l'entrée de la surface",
+        "id-ID": "menunggu bola kedua di tepi kotak", "ms-MY": "menunggu bola kedua di tepi kotak",
+        "th-TH": "รอบอลสองที่หน้าเขตโทษ", "vi-VN": "chờ bóng hai ở rìa vòng cấm",
+    },
+    "turn": {
+        "en": "turn and face forward", "en-GB": "turn and face forward",
+        "zh-CN": "转身面向前方", "zh-TW": "轉身面向前方",
+        "ja-JP": "前を向く", "ko-KR": "돌아서 앞을 본다",
+        "es-ES": "girarse y encarar", "fr-FR": "se retourner face au jeu",
+        "id-ID": "berbalik menghadap ke depan", "ms-MY": "berpusing menghadap ke hadapan",
+        "th-TH": "หมุนตัวหันหน้าไปข้างหน้า", "vi-VN": "xoay người hướng lên phía trước",
+    },
+}
+
+
+def why_text(key: str, loc: str) -> str:
+    try:
+        return WHY[key][loc]
+    except KeyError:
+        raise KeyError(f"unknown run intent {key!r}") from None
