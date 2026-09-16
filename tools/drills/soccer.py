@@ -66,19 +66,20 @@ def soccer_drills() -> list[Drill]:
                 P(700, 900, "C", moves=[(700, 820, 1), (700, 900, 2)], why={1: "meet", 2: "reset"}),
                 P(300, 900, "D", moves=[(380, 900, 2), (300, 900, 3)], why={2: "meet", 3: "reset"}),
             ],
-            # The pair turn with the ball, the same way round, so their paths
-            # never cross: X1 presses whoever has it, tracing a square just
-            # inside the cones; X2 is the cover, on a smaller square in the
-            # middle, always between the holder and the far option. Both start
-            # where the lap leaves them — X1 on A, who has the ball — so the
-            # loop closes.
+            # The pair take turns: whoever is nearer the receiver goes to
+            # press him, the other drops into the middle to sit on the lane
+            # through it. So every press is a diagonal from the middle out to
+            # a corner and every cover a diagonal back — never along the pass.
+            # (X1 tracking the ball round the ring read as X1 dribbling it.)
+            # X1 starts on A, who has the ball; X2 in the middle. The fourth
+            # beat puts them back there, so the loop closes.
             away=[
-                P(390, 560, "X1",
-                  moves=[(610, 560, 0), (610, 840, 1), (390, 840, 2), (390, 560, 3)],
-                  why={0: "press_ball", 1: "press_ball", 2: "press_ball", 3: "press_ball"}),
-                P(440, 660, "X2",
-                  moves=[(560, 660, 0), (560, 740, 1), (440, 740, 2), (440, 660, 3)],
-                  why={0: "close_lane", 1: "close_lane", 2: "close_lane", 3: "close_lane"}),
+                P(410, 610, "X1",
+                  moves=[(440, 760, 0), (590, 790, 1), (560, 640, 2), (410, 610, 3)],
+                  why={0: "close_lane", 1: "press_ball", 2: "close_lane", 3: "press_ball"}),
+                P(560, 760, "X2",
+                  moves=[(590, 610, 0), (440, 640, 1), (410, 790, 2), (560, 760, 3)],
+                  why={0: "press_ball", 1: "close_lane", 2: "press_ball", 3: "close_lane"}),
             ],
             markers=[M(280, 480), M(720, 480), M(720, 920), M(280, 920)],
             ball=0,
@@ -1510,13 +1511,19 @@ def rondo_family() -> list[Drill]:
         def holder(ph):
             return (ph + 1) % n
 
-        # Where defender j stands while player h has the ball: X1 presses,
-        # just inside the holder's cone; the rest cover from the far side of
-        # the middle, on the lanes to the options across the ring.
-        def post(j, h):
-            if j == 0:
-                return on_ring(h, 0.72)
-            spread = (j - 1 - (defenders - 2) / 2) * 70
+        # Where defender j stands on beat ph: the press goes round the
+        # defenders as the ball goes round the ring — whoever is nearest the
+        # receiver takes him, a step inside his cone — and the rest cover
+        # from the far side of the middle, on the lanes across the ring.
+        # Pressing from the middle keeps every run a diagonal off the pass;
+        # one man tracking the ball round the edge read as him dribbling it.
+        def post(j, ph):
+            h = holder(ph)
+            pr = ph % defenders
+            if j == pr:
+                return on_ring(h, 0.60)
+            k = (j - pr) % defenders          # 1..d-1, the cover order
+            spread = (k - 1 - (defenders - 2) / 2) * 70
             a = math.radians(-90 + 360.0 * h / n + 180 + spread)
             return (0.5 + rx * 0.30 * math.cos(a), 0.5 + ry * 0.30 * math.sin(a))
 
@@ -1540,8 +1547,9 @@ def rondo_family() -> list[Drill]:
             # brings the ball — and them — back to where they started. Only
             # the first leg is narrated; the rest is the same sentence.
             away=[
-                P(*post(j, 0), f"X{j + 1}",
-                  moves=[(*post(j, holder(ph)), ph) for ph in range(n)],
+                # Start where the last beat of the lap leaves them.
+                P(*post(j, n - 1), f"X{j + 1}",
+                  moves=[(*post(j, ph), ph) for ph in range(n)],
                   why={0: "press_ball" if j == 0 else "close_lane"})
                 for j in range(defenders)
             ],
