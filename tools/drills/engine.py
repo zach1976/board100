@@ -172,6 +172,10 @@ class Drill:
     # its own 【器材】 line. A cone means nothing until the note says whether
     # it is a corner of the area, a station, a gate or a turning mark.
     gear: dict | None = None
+    # A drill's own 【目的】 line when the category's does not fit it — the
+    # conditioning category talks about running with the ball, and the
+    # fitness drills have none.
+    purpose: dict | None = None
     # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
     # its holder, which is right for a dribble and useless for a throw:
     # baseball drew four double plays and two relays without a single ball

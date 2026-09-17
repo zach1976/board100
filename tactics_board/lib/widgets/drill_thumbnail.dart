@@ -77,20 +77,37 @@ enum _Kind { home, away, gear }
 /// met the circles.
 const double _kRunMin = 0.20;
 
+/// The threshold for a drill this big. A conditioning drill lives in a
+/// 10 m T or a 16 m star, and every run in it is under 0.10 of the pitch;
+/// with the fixed threshold its thumbnail was a man and four cones and no
+/// arrows at all. Scaled to the drill's own extent below 0.45 of the pitch
+/// (the window's minimum), the T-run's shuffles are runs and the rondo's
+/// shuffles still are not.
+double _runMinFor(double extent) =>
+    extent >= 0.45 ? _kRunMin : _kRunMin * (extent / 0.45) * 0.9;
+
 /// One thing on the pitch and where it goes, in pitch-fraction coordinates.
 class _Mark {
   final Offset at;
   final List<Offset> run;
   final _Kind kind;
   final String label;
-  const _Mark(this.at, this.run, this.kind, this.label);
+  final double runMin;
+  const _Mark(this.at, this.run, this.kind, this.label,
+      [this.runMin = _kRunMin]);
+
+  /// A real run, not an adjustment. Judged by how far the run gets from
+  /// the start, not by where it ends: a shuttle that comes back to its cone
+  /// ends where it began and is still ten metres of running.
+  bool get runs =>
+      run.isNotEmpty &&
+      run.map((p) => (p - at).distance).reduce(math.max) >= runMin;
 
   /// Where a diagram draws this person. A real run ends where it ends —
   /// a pass onto a runner goes to where he arrives, and a pass after a carry
   /// leaves from where the carry stopped. A nudge (the ring drills' small
   /// radial shuffles) is not a run and does not move the mark.
-  Offset get shown =>
-      run.isNotEmpty && (run.last - at).distance >= _kRunMin ? run.last : at;
+  Offset get shown => runs ? run.last : at;
 }
 
 /// A pass: from one player's centre to the next, in pitch fractions.
@@ -134,6 +151,19 @@ class _Scene {
           (y / h - pitch.top) / pitch.height);
     }
 
+    // How much of the pitch the drill uses, for the run threshold.
+    var lo = const Offset(2, 2), hi = const Offset(-1, -1);
+    for (final raw in players) {
+      if (raw is! Map) continue;
+      for (final pt in [raw['position'], ...(raw['moves'] as List? ?? const [])]) {
+        final p = point(pt);
+        if (p == null) continue;
+        lo = Offset(math.min(lo.dx, p.dx), math.min(lo.dy, p.dy));
+        hi = Offset(math.max(hi.dx, p.dx), math.max(hi.dy, p.dy));
+      }
+    }
+    final runMin = _runMinFor(math.max(hi.dx - lo.dx, hi.dy - lo.dy));
+
     final marks = <_Mark>[];
     List<Offset>? ballPath;
     for (final raw in players) {
@@ -150,9 +180,9 @@ class _Scene {
       final team = raw['team'];
       final label = (raw['label'] as String? ?? '').trim();
       if (team == 0) {
-        marks.add(_Mark(at, run, _Kind.home, label));
+        marks.add(_Mark(at, run, _Kind.home, label, runMin));
       } else if (team == 1) {
-        marks.add(_Mark(at, run, _Kind.away, label));
+        marks.add(_Mark(at, run, _Kind.away, label, runMin));
       } else if (raw['markerShape'] == 0) {
         ballPath ??= [at, ...run];
       } else {
@@ -265,7 +295,12 @@ class _Scene {
     right += pad;
     top -= pad;
     bottom += pad;
-    final span = math.max(math.max(right - left, bottom - top), 0.45)
+    // Never tighter than 45% of the pitch for a drill that uses the
+    // pitch — but a conditioning drill in a 10 m T is allowed to fill
+    // the picture; at 45% it was a man and four dots in one corner.
+    final extent = math.max(right - left, bottom - top) - 2 * pad;
+    final floor = extent < 0.25 ? 0.28 : 0.45;
+    final span = math.max(math.max(right - left, bottom - top), floor)
         .clamp(0.0, 1.0);
     var rect = Rect.fromCenter(
         center: Offset((left + right) / 2, (top + bottom) / 2),
@@ -359,7 +394,7 @@ class _ThumbPainter extends CustomPainter {
 
     // ── runs: dashed, in the runner's colour, with an arrowhead ─────────
     for (final m in scene.marks.where((m) => m.run.isNotEmpty)) {
-      if ((m.run.last - m.at).distance < _kRunMin) continue;
+      if (!m.runs) continue;
       final colour = (m.kind == _Kind.home ? T.home : T.away);
       final paint = Paint()
         ..color = colour.withValues(alpha: 0.9)
@@ -408,8 +443,7 @@ class _ThumbPainter extends CustomPainter {
       // A lone player needs no number either: there is nobody to tell apart.
       final wanted = m.label.isNotEmpty &&
           scene.marks.where((o) => o.kind == m.kind).length > 1 &&
-          (scene.named.contains(m.label) ||
-              (m.run.isNotEmpty && (m.run.last - m.at).distance >= _kRunMin));
+          (scene.named.contains(m.label) || m.runs);
       if (wanted) {
         final tp = TextPainter(
           text: TextSpan(

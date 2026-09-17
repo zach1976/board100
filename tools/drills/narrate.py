@@ -1000,7 +1000,7 @@ def compose_note(drill, sport: str) -> None:
     from .purposes import purpose_texts
     from .background import background_texts
     seq = sequence_texts(drill, sport)
-    purpose = purpose_texts(sport, drill.category)
+    purpose = drill.purpose or purpose_texts(sport, drill.category)
     freq, origin = background_texts(sport, drill.category, drill.id)
     # A drill with no movement (shadow footwork) still gets a purpose and a
     # setup; only the sequence line is skipped when there is nothing to walk.

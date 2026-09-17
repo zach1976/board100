@@ -581,6 +581,18 @@ add("badminton", "Defence", "Racket down until the smash — defence is a stance
 add("badminton", "Serve", "Treating the one shot nobody can rush as if it did not matter.", "把唯一没人能逼你的一拍打得随随便便。", "把唯一沒人能逼你的一拍打得隨隨便便。", "誰にも急かされない一打を雑に扱う。", "아무도 못 몰아붙이는 샷을 대충 친다.", "Tratar el único golpe que nadie apura como si diera igual.", "Traiter le seul coup où nul ne te presse comme s'il ne comptait pas.", "Menyepelekan satu-satunya pukulan tanpa tekanan.", "Memandang ringan satu-satunya pukulan tanpa tekanan.", "เล่นลูกที่ไม่มีใครเร่งแบบชุ่ย", "Xem nhẹ cú duy nhất không ai ép.")
 add("badminton", "Conditioned game", "Playing to win and forgetting the constraint that was the lesson.", "只想赢，忘了那条作为课题的限制。", "只想贏，忘了那條作為課題的限制。", "勝ちに行って課題の制約を忘れる。", "이기려다 과제인 제약을 잊는다.", "Jugar a ganar y olvidar la condición que era la lección.", "Jouer pour gagner et oublier la contrainte-leçon.", "Main untuk menang, lupa batasannya.", "Main untuk menang, lupa syaratnya.", "เล่นเอาชนะจนลืมกติกา", "Chơi để thắng mà quên điều kiện.")
 # ── Generic category floors (sport "*") for every remaining one-off ──
+cat("*", "conditioning",
+    "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+    "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+    "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+    "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+    "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+    "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+    "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+    "Menahan tenaga di ulangan berat demi bertahan satu set.",
+    "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+    "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+    "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính.")
 cat("*", "warmup", "Going through the motions cold.", "身体没热开就敷衍了事。", "身體沒熱開就敷衍了事。", "冷えたまま流す。", "몸이 식은 채 대충.", "Hacerlo en frío, de trámite.", "Le faire à froid, machinalement.", "Sekadar formalitas saat dingin.", "Sekadar melepas batuk.", "ทำขอไปทีตอนตัวเย็น", "Làm cho có khi còn nguội.")
 cat("*", "possession", "Taking the safe touch when the sharp one was on.", "该处理得果断时选了保险的一下。", "該處理得果斷時選了保險的一下。", "鋭い選択があるのに安全なタッチを選ぶ。", "날카로운 선택이 있는데 안전하게.", "Elegir el toque seguro cuando había uno agudo.", "Choisir la touche sûre quand la tranchante était là.", "Memilih sentuhan aman padahal ada yang tajam.", "Memilih sentuhan selamat sedangkan ada yang tajam.", "เลือกเล่นปลอดภัยทั้งที่มีทางคม", "Chọn xử lý an toàn khi có phương án sắc bén.")
 cat("*", "attacking", "Forcing it early instead of waiting the half-second the opening needs.", "过早强行出手，不等空当需要的那半秒。", "過早強行出手，不等空當需要的那半秒。", "空きに必要な半秒を待たず早く仕掛ける。", "기회에 필요한 0.5초를 안 기다린다.", "Forzarla pronto en vez de esperar el medio segundo del hueco.", "Forcer trop tôt sans attendre la demi-seconde nécessaire.", "Memaksa terlalu dini.", "Memaksa terlalu awal.", "รีบทำเร็วเกินไป", "Ép quá sớm.")
