@@ -343,15 +343,18 @@ KICK_TO = {
     "id-ID": "{a} menendang ke {b}", "ms-MY": "{a} menendang ke {b}",
     "th-TH": "{a} เตะไปหา {b}", "vi-VN": "{a} đá về phía {b}",
 }
+# A leg from one side to the other is a turnover: nobody passes to an
+# opponent. "The ball goes from 11 to 3" read as exactly that — 11 giving
+# it away on purpose — so it says who won it.
 CHANGES_HANDS = {
-    "en": "the ball goes from {a} to {b}",
-    "en-GB": "the ball goes from {a} to {b}",
-    "zh-CN": "球从{a}转到{b}", "zh-TW": "球從{a}轉到{b}",
-    "ja-JP": "ボールが{a}から{b}へ渡る", "ko-KR": "공이 {a}에서 {b}에게 넘어간다",
-    "es-ES": "el balón pasa de {a} a {b}", "fr-FR": "le ballon passe de {a} à {b}",
-    "id-ID": "bola berpindah dari {a} ke {b}",
-    "ms-MY": "bola berpindah dari {a} kepada {b}",
-    "th-TH": "บอลเปลี่ยนจาก {a} ไป {b}", "vi-VN": "bóng chuyển từ {a} sang {b}",
+    "en": "{b} wins the ball off {a}",
+    "en-GB": "{b} wins the ball off {a}",
+    "zh-CN": "{b}断下{a}的球", "zh-TW": "{b}斷下{a}的球",
+    "ja-JP": "{b}が{a}からボールを奪う", "ko-KR": "{b}가 {a}에게서 공을 빼앗는다",
+    "es-ES": "{b} le roba el balón a {a}", "fr-FR": "{b} récupère le ballon sur {a}",
+    "id-ID": "{b} merebut bola dari {a}",
+    "ms-MY": "{b} merampas bola daripada {a}",
+    "th-TH": "{b} แย่งบอลจาก {a}", "vi-VN": "{b} đoạt bóng từ {a}",
 }
 # Several players wearing the same letter doing the same thing: "3 Ds move
 # back", not "D, D, D moves back".
