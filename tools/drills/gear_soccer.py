@@ -43,9 +43,9 @@ GEAR = {
         "四个锥标摆成两个门，各约 1.5 米宽，一个在接球人的左前方、一个在右前方；第一脚触球要把球带过其中一个门，左右交替",
         "四個錐標擺成兩個門，各約 1.5 米寬，一個在接球人的左前方、一個在右前方；第一腳觸球要把球帶過其中一個門，左右交替"),
     "possession_3_zone": _t(
-        "six cones mark three zones across the pitch; a point only counts when the ball is played through the middle one",
-        "六个锥标把场地分成三个横向区域，球穿过中间区域才算得分",
-        "六個錐標把場地分成三個橫向區域，球穿過中間區域才算得分"),
+        "four cones mark the corners of the grid and four more the two dividing lines; a point only counts when the ball is played through the middle zone — round the outside does not count, and out of the grid is a turnover",
+        "四个锥标围出场地的四个角，另外四个标出两条分区线；球必须穿过中间区才算得分——从外面绕过去不算，出了场地算丢球",
+        "四個錐標圍出場地的四個角，另外四個標出兩條分區線；球必須穿過中間區才算得分——從外面繞過去不算，出了場地算丟球"),
     "warmup_rotation_square": _t(
         "four cones are the four corners of the square and the four stations; a player runs to the cone he passed to",
         "四个锥标是方阵的四个角，也是四个站位，传给谁就跑到那个锥标",

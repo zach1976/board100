@@ -10,8 +10,8 @@ import math
 from .engine import Drill, M, P, grid, merge, ring, suffixed
 from .gear_soccer import gear_of
 from .rules_common import (BUILDUP_RULES, DUEL_RULES, GAME_RULES, GK_RULES,
-                           PATTERN_RULES, QUEUE_RULES, ROTATION_RULES,
-                           SETPIECE_RULES, TWO_BALL_RULES)
+                           GRID_RULES, PATTERN_RULES, QUEUE_RULES,
+                           ROTATION_RULES, SETPIECE_RULES, TWO_BALL_RULES)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -757,23 +757,39 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Mata hanya sah jika bola melalui zon tengah.",
                   "th-TH": "ทำแต้มได้เฉพาะเมื่อบอลผ่านโซนกลาง ห้ามอ้อม",
                   "vi-VN": "Chỉ ghi điểm khi bóng đi qua khu giữa, không được vòng ngoài."},
-            # Three zones: 1, 2 and 3 in the bottom one against A; 4 and 5
-            # in the top one against B; the middle one is left empty, which
-            # is the whole point — the ball has to cross it.
+            # A 25 x 40 m grid, not the whole pitch: seven players spread
+            # over a full field stood in the two goal areas, which read as
+            # goalkeepers, and no zone was ever more than a suggestion.
+            # Three zones of about 13 m: three in the bottom one, two
+            # defenders in the middle, two in the top one.
+            # A schematic of a 25 x 40 m grid, drawn wider than scale
+            # because a token is eight metres across: three men really do
+            # stand within a zone this size, and at true scale they would be
+            # one blob. The set-up line carries the real dimensions.
             home=[
-                P(250, 1200, "A", moves=[(300, 1120, 0)]), P(500, 1290, "B"),
-                P(620, 1150, "C", moves=[(660, 1080, 0)]),
-                P(300, 340, "D"), P(700, 380, "E", moves=[(640, 460, 1), (560, 300, 2)],
+                P(350, 1060, "A", moves=[(392, 1018, 0)]),
+                P(500, 1110, "B"),
+                P(650, 1060, "C", moves=[(618, 1015, 0)]),
+                P(400, 740, "D"),
+                P(610, 740, "E", moves=[(600, 802, 1), (585, 700, 2)],
                   why={1: "meet", 2: "turn"}),
             ],
             away=[
-                P(430, 1050, "X1", moves=[(470, 1140, 0)]),
-                P(520, 460, "X2", moves=[(560, 380, 1)]),
+                P(420, 895, "X1", moves=[(462, 950, 0)], why={0: "press_ball"}),
+                # He slides across to cut the lane as the ball goes along the
+                # bottom, and the pass through the middle beats him: that is
+                # the drill, so he is not drawn standing on the receiver.
+                P(580, 895, "X2", moves=[(622, 932, 0)], why={0: "close_lane"}),
             ],
-            # Two lines of cones across the pitch, not four boxes on the
-            # touchlines: they are what makes the three zones visible.
-            markers=[M(150, 950), M(500, 950), M(850, 950),
-                     M(150, 560), M(500, 560), M(850, 560)],
+            # Four corner cones for the grid and four more for the two
+            # dividing lines: exactly what a coach puts down for it.
+            markers=[M(300, 1140), M(700, 1140), M(300, 660), M(700, 660),
+                     M(300, 980), M(700, 980), M(300, 820), M(700, 820)],
+            setup={
+                "en": "a grid about 25 m wide and 40 m long divided by cones into three zones of 13 m: A, B and C in the bottom zone, D and E in the top one, and the two defenders X1 and X2 in the middle. No goalkeepers — nobody is in a goal",
+                "zh-CN": "用锥标围出约 25 米宽、40 米长的区域，再分成三个约 13 米深的横向区：A、B、C 在下区，D、E 在上区，X1、X2 两名防守者在中间区。不设门将，也没有人站在球门里",
+                "zh-TW": "用錐標圍出約 25 米寬、40 米長的區域，再分成三個約 13 米深的橫向區：A、B、C 在下區，D、E 在上區，X1、X2 兩名防守者在中間區。不設門將，也沒有人站在球門裡",
+            },
             ball=0,
             # through the thirds: into 3 in the bottom zone, then over the
             # empty middle zone to 5
@@ -3783,7 +3799,9 @@ RULES = {
     "defend_2v2": DUEL_RULES,
     # games
     "ssg_": GAME_RULES, "transition_": GAME_RULES,
-    "possession_3_zone": GAME_RULES, "possession_overload_4v2_plus": GAME_RULES,
+    # Possession grids have no goals and no keeper, so they do not restart
+    # from one: the coach serves the next ball in.
+    "possession_3_zone": GRID_RULES, "possession_overload_4v2_plus": GRID_RULES,
     # build-up and the press
     "buildup_": BUILDUP_RULES, "build_from_gk": BUILDUP_RULES,
     "goalkick_": BUILDUP_RULES, "press_": BUILDUP_RULES, "shape_": BUILDUP_RULES,
