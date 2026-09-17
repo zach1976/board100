@@ -100,7 +100,11 @@ def audit(drill, sport):
                     f"({balls[0]['position'][0]:.0f}, {balls[0]['position'][1]:.0f})",
         })
     # Conditioning without the ball is meant to be without the ball.
-    if movers and not balls and drill.get("category") != "conditioning":
+    # …and neither is a solo shadow drill: one player, no opponent, no ball
+    # is footwork, which is the whole point of it.
+    solo = len({p.get("team") for p in people}) < 2 and len(people) == 1
+    if movers and not balls and drill.get("category") != "conditioning" \
+            and not solo:
         out.append({
             "id": "no_ball",
             "level": "warn",
@@ -124,37 +128,45 @@ def audit(drill, sport):
             "text": f"说明只有 {words} 词，目标 {NOTE_TARGET_WORDS}+",
         })
 
-    # One card for all the overlaps, not one per finding. Three cards each
-    # opening with 第 N 步 read as a step-by-step description of the drill —
-    # a four-beat drill with collisions on beats 1–3 was read as "only has
-    # three steps". And players are named by shirt number, not internal id.
+    # People drawn on one spot.
+    #
+    # The board fans apart anyone standing within 0.9 of a token of anyone
+    # else (tactics_canvas.fanOutOffsets), so a pair on one point — a tag at
+    # second base, a tackle, a defender on his man — is already drawn side
+    # by side and needs no report: that IS the picture the drill wants. What
+    # the fan cannot rescue is a pile: four tokens rosetted on one spot are
+    # four labels nobody can read. So the check counts clusters, not pairs.
+    # A line of players a token apart is a line, not a pile: what matters is
+    # how many are on ONE spot, so the count is of neighbours around a single
+    # player rather than a chain of them.
+    NEAR = OVERLAP_UNITS * 0.55
     hits = []
-    for step in range(max_step(board) + 1):
-        # People only. A ball 40 units from a player is at their feet — that
-        # is possession, placed there on purpose by at_the_feet_of — and
-        # equipment under a player is the arrangement the drill means. The
-        # board's own fan-out draws the same line.
+    # A drill the author marked tight is a scrum, a maul, a lineout or a
+    # wall: the pile IS the subject, and the board draws it fanned.
+    if drill.get("tight"):
+        hits = None
+    for step in range(max_step(board) + 1) if hits is not None else ():
         at = [(p, position_at(p, step)) for p in board["players"]
               if kind(p) == "player"]
-        for i in range(len(at)):
-            for j in range(i + 1, len(at)):
-                (a, pa), (b, pb) = at[i], at[j]
-                d = ((pa[0] - pb[0]) ** 2 + (pa[1] - pb[1]) ** 2) ** 0.5
-                if d < OVERLAP_UNITS * 0.55:
-                    na = a.get("label") or a["id"]
-                    nb = b.get("label") or b["id"]
-                    hits.append((step, na, nb, d))
+        for i, (p, pa) in enumerate(at):
+            near = [q for j, (q, pb) in enumerate(at) if j != i
+                    and ((pa[0] - pb[0]) ** 2 + (pa[1] - pb[1]) ** 2) ** 0.5 < NEAR]
+            if len(near) >= 3:
+                names = "+".join([p.get("label") or p["id"]]
+                                 + [q.get("label") or q["id"] for q in near])
+                if not any(h[0] == step and set(h[1].split("+")) == set(names.split("+"))
+                           for h in hits):
+                    hits.append((step, names, len(near) + 1))
     if hits:
-        parts = "；".join(
-            f"第 {step} 步 {na}+{nb}" + ("（完全重合）" if d < 1 else f"（相距 {d:.0f}）")
-            for step, na, nb, d in hits)
+        parts = "；".join(f"第 {step} 步 {names}（{n} 人）"
+                          for step, names, n in hits)
         out.append({
             "id": "overlap",
             "level": "warn",
-            "text": f"{len(hits)} 处球员重叠：{parts}"
-                    + ("——后到者踩在还没让开的位置上"
-                       if all(d < 1 for *_x, d in hits) else ""),
+            "text": f"{len(hits)} 处挤在一点：{parts} —— 两个人板上会自动扇开，"
+                    "四个人叠在一起就看不清了",
         })
+
     # Does a station routine come round again?
     #
     # A coach reported the triangle stopping: the ball went 1→2→3 and that

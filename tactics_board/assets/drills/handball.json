@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up star passing",
         "en-GB": "Warm-up star passing",
@@ -278,6 +279,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up three lanes",
         "en-GB": "Warm-up three lanes",
@@ -487,6 +489,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up with the keeper",
         "en-GB": "Warm-up with the keeper",
@@ -676,6 +679,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Circulation wide to wide",
         "en-GB": "Circulation wide to wide",
@@ -1079,6 +1083,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Circulation through the pivot",
         "en-GB": "Circulation through the pivot",
@@ -1509,6 +1514,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Circulation with a late runner",
         "en-GB": "Circulation with a late runner",
@@ -1966,6 +1972,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Attack crossing the backs",
         "en-GB": "Attack crossing the backs",
@@ -2358,6 +2365,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Attack the wing break-in",
         "en-GB": "Attack the wing break-in",
@@ -2745,6 +2753,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Attack off the pivot's screen",
         "en-GB": "Attack off the pivot's screen",
@@ -3132,6 +3141,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Attack overloading the left",
         "en-GB": "Attack overloading the left",
@@ -3526,6 +3536,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Attack seven against six",
         "en-GB": "Attack seven against six",
@@ -3940,6 +3951,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fast break first wave",
         "en-GB": "Fast break first wave",
@@ -4024,11 +4036,11 @@
             "scale": 1.0,
             "moves": [
               [
-                303.88059701492534,
+                238.50746268656718,
                 615.0
               ],
               [
-                401.94029850746267,
+                287.53731343283584,
                 324.75
               ]
             ],
@@ -4097,18 +4109,18 @@
             "team": 2,
             "sportType": 10,
             "position": [
-              196.3084863293422,
-              970.4300424296255
+              185.10418661011732,
+              967.9005531408138
             ],
             "scale": 1.0,
             "moves": [
               [
-                427.546107596019,
-                248.95855892041365
+                300.8623622528834,
+                245.86753633447196
               ],
               [
-                458.6395607630717,
-                197.47856647249824
+                431.0040755291054,
+                169.49151030039025
               ]
             ],
             "movePhases": [
@@ -4154,6 +4166,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fast break second wave",
         "en-GB": "Fast break second wave",
@@ -4238,11 +4251,11 @@
             "scale": 1.0,
             "moves": [
               [
-                303.88059701492534,
+                238.50746268656718,
                 615.0
               ],
               [
-                401.94029850746267,
+                287.53731343283584,
                 324.75
               ]
             ],
@@ -4270,11 +4283,11 @@
             "scale": 1.0,
             "moves": [
               [
-                696.1194029850747,
+                761.4925373134329,
                 615.0
               ],
               [
-                598.0597014925374,
+                712.4626865671642,
                 324.75
               ]
             ],
@@ -4302,11 +4315,11 @@
             "scale": 1.0,
             "moves": [
               [
-                401.94029850746267,
+                369.25373134328356,
                 615.0
               ],
               [
-                450.9701492537313,
+                393.7686567164179,
                 324.75
               ]
             ],
@@ -4375,18 +4388,18 @@
             "team": 2,
             "sportType": 10,
             "position": [
-              196.3084863293422,
-              970.4300424296255
+              185.10418661011732,
+              967.9005531408138
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.4929541674898,
-                393.7017150726923
+                664.5967924392777,
+                388.85036021223254
               ],
               [
-                516.980017652976,
-                207.17722814544285
+                542.8087880455895,
+                196.5825988407356
               ]
             ],
             "movePhases": [
@@ -4432,6 +4445,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fast break third wave",
         "en-GB": "Fast break third wave",
@@ -4516,11 +4530,11 @@
             "scale": 1.0,
             "moves": [
               [
-                303.88059701492534,
+                238.50746268656718,
                 615.0
               ],
               [
-                401.94029850746267,
+                287.53731343283584,
                 324.75
               ]
             ],
@@ -4548,11 +4562,11 @@
             "scale": 1.0,
             "moves": [
               [
-                696.1194029850747,
+                761.4925373134329,
                 615.0
               ],
               [
-                598.0597014925374,
+                712.4626865671642,
                 324.75
               ]
             ],
@@ -4580,11 +4594,11 @@
             "scale": 1.0,
             "moves": [
               [
-                401.94029850746267,
+                369.25373134328356,
                 615.0
               ],
               [
-                450.9701492537313,
+                393.7686567164179,
                 324.75
               ]
             ],
@@ -4612,11 +4626,11 @@
             "scale": 1.0,
             "moves": [
               [
-                598.0597014925373,
+                630.7462686567163,
                 615.0
               ],
               [
-                549.0298507462687,
+                606.2313432835821,
                 324.75
               ]
             ],
@@ -4717,18 +4731,18 @@
             "team": 2,
             "sportType": 10,
             "position": [
-              196.3084863293422,
-              970.4300424296255
+              185.10418661011732,
+              967.9005531408138
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.4929541674898,
-                393.7017150726923
+                664.5967924392777,
+                388.85036021223254
               ],
               [
-                516.980017652976,
-                207.17722814544285
+                542.8087880455895,
+                196.5825988407356
               ]
             ],
             "movePhases": [
@@ -4774,6 +4788,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting the jump shot from 9 m",
         "en-GB": "Shooting the jump shot from 9 m",
@@ -4983,6 +4998,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting from the wing angle",
         "en-GB": "Shooting from the wing angle",
@@ -5192,6 +5208,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting the pivot's turn",
         "en-GB": "Shooting the pivot's turn",
@@ -5401,6 +5418,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting after breaking through",
         "en-GB": "Shooting after breaking through",
@@ -5610,6 +5628,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defence 6-0",
         "en-GB": "Defence 6-0",
@@ -6097,6 +6116,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defence 5-1",
         "en-GB": "Defence 5-1",
@@ -6584,6 +6604,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defence 3-2-1",
         "en-GB": "Defence 3-2-1",
@@ -7071,6 +7092,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defence 4-2",
         "en-GB": "Defence 4-2",
@@ -7545,6 +7567,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Set piece the 7 m throw",
         "en-GB": "Set piece the 7 m throw",
@@ -7796,6 +7819,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Set piece the 9 m free throw",
         "en-GB": "Set piece the 9 m free throw",
@@ -8125,6 +8149,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Set piece the throw-off",
         "en-GB": "Set piece the throw-off",
@@ -8454,6 +8479,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": true,
       "name": {
         "en": "Set piece the sideline throw",
         "en-GB": "Set piece the sideline throw",
@@ -8783,6 +8809,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 3v3",
         "en-GB": "Game 3v3",
@@ -9078,6 +9105,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 4v4",
         "en-GB": "Game 4v4",
@@ -9427,6 +9455,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 5v5",
         "en-GB": "Game 5v5",
@@ -9830,6 +9859,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 6v6",
         "en-GB": "Game 6v6",
@@ -10274,6 +10304,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attack one against one",
         "en-GB": "Attack one against one",
@@ -10480,6 +10511,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defence man to man",
         "en-GB": "Defence man to man",
@@ -10842,6 +10874,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence getting back",
         "en-GB": "Defence getting back",
@@ -11134,6 +11167,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence blocking the shot",
         "en-GB": "Defence blocking the shot",
@@ -11332,6 +11366,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game end to end",
         "en-GB": "Game end to end",
@@ -11657,6 +11692,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping angles",
         "en-GB": "Goalkeeping angles",
@@ -11881,6 +11917,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping one against one",
         "en-GB": "Goalkeeping one against one",
@@ -12063,6 +12100,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping saving the 7 m",
         "en-GB": "Goalkeeping saving the 7 m",
@@ -12240,6 +12278,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping the outlet pass",
         "en-GB": "Goalkeeping the outlet pass",
@@ -12456,6 +12495,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Line shuttle",
         "en-GB": "Line shuttle",
@@ -12571,6 +12611,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",
@@ -12716,6 +12757,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Repeat sprints",
         "en-GB": "Repeat sprints",

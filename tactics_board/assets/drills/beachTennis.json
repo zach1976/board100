@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up volley exchange",
         "en-GB": "Warm-up volley exchange",
@@ -199,6 +200,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up short court",
         "en-GB": "Warm-up short court",
@@ -371,6 +373,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Volley rally straight",
         "en-GB": "Volley rally straight",
@@ -538,6 +541,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Volley rally cross-court",
         "en-GB": "Volley rally cross-court",
@@ -705,6 +709,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Return the block",
         "en-GB": "Return the block",
@@ -934,6 +939,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Return on the attack",
         "en-GB": "Return on the attack",
@@ -1163,6 +1169,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve flat exchange",
         "en-GB": "Serve flat exchange",
@@ -1397,6 +1404,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve sliced",
         "en-GB": "Serve sliced",
@@ -1631,6 +1639,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve jump",
         "en-GB": "Serve jump",
@@ -1865,6 +1874,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking approach",
         "en-GB": "Attacking approach",
@@ -2094,6 +2104,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking the drop",
         "en-GB": "Attacking the drop",
@@ -2323,6 +2334,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking cross-court",
         "en-GB": "Attacking cross-court",
@@ -2552,6 +2564,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lob battle over the net pair",
         "en-GB": "Lob battle over the net pair",
@@ -2781,6 +2794,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lob battle recovering it",
         "en-GB": "Lob battle recovering it",
@@ -2997,6 +3011,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash straight",
         "en-GB": "Smash straight",
@@ -3219,6 +3234,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash cross-court",
         "en-GB": "Smash cross-court",
@@ -3441,6 +3457,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash jump",
         "en-GB": "Smash jump",
@@ -3663,6 +3680,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the block",
         "en-GB": "Defending the block",
@@ -3897,6 +3915,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the lob",
         "en-GB": "Defending the lob",
@@ -4131,6 +4150,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the drop",
         "en-GB": "Defending the drop",
@@ -4365,6 +4385,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Court coverage the middle ball",
         "en-GB": "Court coverage the middle ball",
@@ -4574,6 +4595,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Court coverage switching sides",
         "en-GB": "Court coverage switching sides",
@@ -4783,6 +4805,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game half-court singles",
         "en-GB": "Game half-court singles",
@@ -4985,6 +5008,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game king of the court",
         "en-GB": "Game king of the court",
@@ -5309,6 +5333,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game full doubles",
         "en-GB": "Game full doubles",
@@ -5512,6 +5537,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Sand sprints",
         "en-GB": "Sand sprints",
@@ -5647,6 +5673,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lateral shuffle",
         "en-GB": "Lateral shuffle",
@@ -5812,6 +5839,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",

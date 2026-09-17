@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Warm-up forehand to forehand",
         "en-GB": "Warm-up forehand to forehand",
@@ -219,6 +220,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Warm-up backhand to backhand",
         "en-GB": "Warm-up backhand to backhand",
@@ -411,6 +413,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Warm-up down the middle",
         "en-GB": "Warm-up down the middle",
@@ -590,6 +593,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Multiball",
         "en-GB": "Multiball",
@@ -807,6 +811,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Footwork in and out",
         "en-GB": "Footwork in and out",
@@ -1029,6 +1034,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Footwork Falkenberg",
         "en-GB": "Footwork Falkenberg",
@@ -1266,6 +1272,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Footwork side to side",
         "en-GB": "Footwork side to side",
@@ -1438,6 +1445,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Rally control block against the drive",
         "en-GB": "Rally control block against the drive",
@@ -1625,6 +1633,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Rally control counter-drive",
         "en-GB": "Rally control counter-drive",
@@ -1812,6 +1821,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Rally control half-long pushes",
         "en-GB": "Rally control half-long pushes",
@@ -1999,6 +2009,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Short game the touch",
         "en-GB": "Short game the touch",
@@ -2206,6 +2217,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Short game the flick",
         "en-GB": "Short game the flick",
@@ -2413,6 +2425,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Short game the banana flick",
         "en-GB": "Short game the banana flick",
@@ -2620,6 +2633,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Short game the long push",
         "en-GB": "Short game the long push",
@@ -2814,6 +2828,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Loop against backspin",
         "en-GB": "Loop against backspin",
@@ -3001,6 +3016,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Loop against the block",
         "en-GB": "Loop against the block",
@@ -3188,6 +3204,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Loop from the backhand corner",
         "en-GB": "Loop from the backhand corner",
@@ -3375,6 +3392,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Loop countering",
         "en-GB": "Loop countering",
@@ -3562,6 +3580,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Finishing the smash",
         "en-GB": "Finishing the smash",
@@ -3749,6 +3768,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Finishing from the wide forehand",
         "en-GB": "Finishing from the wide forehand",
@@ -3936,6 +3956,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Finishing into the body",
         "en-GB": "Finishing into the body",
@@ -4123,6 +4144,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Defending the chop block",
         "en-GB": "Defending the chop block",
@@ -4315,6 +4337,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Defending the deep chop",
         "en-GB": "Defending the deep chop",
@@ -4512,6 +4535,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Defending the lob and recover",
         "en-GB": "Defending the lob and recover",
@@ -4704,6 +4728,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve short backspin",
         "en-GB": "Serve short backspin",
@@ -4886,6 +4911,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve long and fast",
         "en-GB": "Serve long and fast",
@@ -5068,6 +5094,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve sidespin wide",
         "en-GB": "Serve sidespin wide",
@@ -5250,6 +5277,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve and third ball",
         "en-GB": "Serve and third ball",
@@ -5424,6 +5452,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Match play half table",
         "en-GB": "Match play half table",
@@ -5626,6 +5655,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Match play serve and receive only",
         "en-GB": "Match play serve and receive only",
@@ -5813,6 +5843,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Match play a full game",
         "en-GB": "Match play a full game",
@@ -5962,6 +5993,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Match play doubles rotation",
         "en-GB": "Match play doubles rotation",
@@ -6165,6 +6197,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shadow footwork",
         "en-GB": "Shadow footwork",
@@ -6330,6 +6363,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "In and out of the table",
         "en-GB": "In and out of the table",
@@ -6515,6 +6549,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Repeat sprints",
         "en-GB": "Repeat sprints",

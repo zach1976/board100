@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up mini tennis",
         "en-GB": "Warm-up mini tennis",
@@ -199,6 +200,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up service box rally",
         "en-GB": "Warm-up service box rally",
@@ -371,6 +373,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up baseline feed",
         "en-GB": "Warm-up baseline feed",
@@ -543,6 +546,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rally cross-court forehand",
         "en-GB": "Rally cross-court forehand",
@@ -755,6 +759,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rally cross-court backhand",
         "en-GB": "Rally cross-court backhand",
@@ -967,6 +972,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rally down the line",
         "en-GB": "Rally down the line",
@@ -1179,6 +1185,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rally figure of eight",
         "en-GB": "Rally figure of eight",
@@ -1379,6 +1386,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Plus one serve",
         "en-GB": "Plus one serve",
@@ -1571,6 +1579,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Plus one return",
         "en-GB": "Plus one return",
@@ -1763,6 +1772,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Plus one inside-out forehand",
         "en-GB": "Plus one inside-out forehand",
@@ -1955,6 +1965,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Plus one approach",
         "en-GB": "Plus one approach",
@@ -2147,6 +2158,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles one up one back",
         "en-GB": "Doubles one up one back",
@@ -2356,6 +2368,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles both back",
         "en-GB": "Doubles both back",
@@ -2565,6 +2578,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles both up",
         "en-GB": "Doubles both up",
@@ -2774,6 +2788,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles the Australian formation",
         "en-GB": "Doubles the Australian formation",
@@ -2983,6 +2998,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "At the net first volley",
         "en-GB": "At the net first volley",
@@ -3170,6 +3186,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "At the net second volley",
         "en-GB": "At the net second volley",
@@ -3357,6 +3374,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "At the net overhead",
         "en-GB": "At the net overhead",
@@ -3544,6 +3562,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "At the net drop volley",
         "en-GB": "At the net drop volley",
@@ -3731,6 +3750,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the slice",
         "en-GB": "Defending the slice",
@@ -3923,6 +3943,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the lob",
         "en-GB": "Defending the lob",
@@ -4115,6 +4136,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Defending the block return",
         "en-GB": "Defending the block return",
@@ -4307,6 +4329,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve deuce wide",
         "en-GB": "Serve deuce wide",
@@ -4494,6 +4517,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve deuce down the T",
         "en-GB": "Serve deuce down the T",
@@ -4681,6 +4705,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve deuce at the body",
         "en-GB": "Serve deuce at the body",
@@ -4868,6 +4893,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve ad wide",
         "en-GB": "Serve ad wide",
@@ -5055,6 +5081,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve ad down the T",
         "en-GB": "Serve ad down the T",
@@ -5242,6 +5269,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Point play half-court singles",
         "en-GB": "Point play half-court singles",
@@ -5444,6 +5472,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Point play first to seven",
         "en-GB": "Point play first to seven",
@@ -5606,6 +5635,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Point play approach and volley only",
         "en-GB": "Point play approach and volley only",
@@ -5768,6 +5798,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Point play doubles set",
         "en-GB": "Point play doubles set",
@@ -5971,6 +6002,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve the kicking second serve",
         "en-GB": "Serve the kicking second serve",
@@ -6150,6 +6182,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve and volley",
         "en-GB": "Serve and volley",
@@ -6354,6 +6387,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rally the drop shot and the pass",
         "en-GB": "Rally the drop shot and the pass",
@@ -6563,6 +6597,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Doubles the poach",
         "en-GB": "Doubles the poach",
@@ -6821,6 +6856,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Spider run",
         "en-GB": "Spider run",
@@ -7056,6 +7092,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lateral shuffle",
         "en-GB": "Lateral shuffle",
@@ -7221,6 +7258,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Repeat sprints",
         "en-GB": "Repeat sprints",

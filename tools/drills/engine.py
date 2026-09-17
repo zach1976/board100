@@ -1270,6 +1270,9 @@ def build(sport: str, library) -> dict:
                 "usage": d.usage,
                 "frame": frame_of(sport, board),
                 "offSurface": d.off_surface,
+                # A scrum, a maul, a lineout, a wall: the author says the
+                # bodies really are touching, and the pile-up check trusts it.
+                "tight": d.tight,
                 "name": d.name,
                 "note": d.note,
                 # The family's most common error — the other half of the

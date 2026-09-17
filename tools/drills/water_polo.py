@@ -575,7 +575,7 @@ def gaps_family() -> list[Drill]:
 
 # The man-up sets, the game passages and the defence drills (whose ball
 # reaches the centre) end on the shot; the swim-and-catch is carried on.
-FINISH_AT_GOAL = ["wp_manup_three_three", "wp_manup_umbrella",
+FINISH_AT_GOAL = ["wp_manup_four_two", "wp_manup_three_three", "wp_manup_umbrella",
                   "wp_defence_press", "wp_defence_drop", "wp_defence_front_the_centre",
                   "wp_game_3v3", "wp_game_4v4", "wp_game_6v6"]
 CARRIED_ON = ["wp_warm_swim_catch"]

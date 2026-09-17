@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Handling in a grid",
         "en-GB": "Handling in a grid",
@@ -393,6 +394,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Handling in threes",
         "en-GB": "Handling in threes",
@@ -677,6 +679,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Handling across the width",
         "en-GB": "Handling across the width",
@@ -1237,6 +1240,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Phase play 1-3-3-1",
         "en-GB": "Phase play 1-3-3-1",
@@ -1768,6 +1772,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Phase play 2-4-2",
         "en-GB": "Phase play 2-4-2",
@@ -2299,6 +2304,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Phase play left to right",
         "en-GB": "Phase play left to right",
@@ -2766,6 +2772,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Breakdown for quick ball",
         "en-GB": "Breakdown for quick ball",
@@ -3019,6 +3026,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Breakdown the jackal",
         "en-GB": "Breakdown the jackal",
@@ -3240,6 +3248,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Breakdown the counter-ruck",
         "en-GB": "Breakdown the counter-ruck",
@@ -3525,6 +3534,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backline move the miss pass",
         "en-GB": "Backline move the miss pass",
@@ -3958,6 +3968,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backline move the switch",
         "en-GB": "Backline move the switch",
@@ -4391,6 +4402,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backline move the loop",
         "en-GB": "Backline move the loop",
@@ -4824,6 +4836,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backline move the cut-out",
         "en-GB": "Backline move the cut-out",
@@ -5257,6 +5270,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backline move with a dummy runner",
         "en-GB": "Backline move with a dummy runner",
@@ -5690,6 +5704,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Kicking the box kick",
         "en-GB": "Kicking the box kick",
@@ -5921,6 +5936,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Kicking the cross-field kick",
         "en-GB": "Kicking the cross-field kick",
@@ -6152,6 +6168,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Kicking for territory",
         "en-GB": "Kicking for territory",
@@ -6383,6 +6400,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Kicking the grubber",
         "en-GB": "Kicking the grubber",
@@ -6614,6 +6632,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pick and go",
         "en-GB": "Finishing pick and go",
@@ -6850,6 +6869,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing in the corner",
         "en-GB": "Finishing in the corner",
@@ -7086,6 +7106,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing off the kick chase",
         "en-GB": "Finishing off the kick chase",
@@ -7322,6 +7343,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence drifting",
         "en-GB": "Defence drifting",
@@ -7757,6 +7779,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence the blitz",
         "en-GB": "Defence the blitz",
@@ -8192,6 +8215,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence scrambling back",
         "en-GB": "Defence scrambling back",
@@ -8627,6 +8651,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Set piece the scrum",
         "en-GB": "Set piece the scrum",
@@ -9143,6 +9168,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": true,
       "name": {
         "en": "Set piece the five-man lineout",
         "en-GB": "Set piece the five-man lineout",
@@ -9533,6 +9559,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": true,
       "name": {
         "en": "Set piece the seven-man lineout",
         "en-GB": "Set piece the seven-man lineout",
@@ -10017,6 +10044,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Set piece receiving the kick-off",
         "en-GB": "Set piece receiving the kick-off",
@@ -10356,6 +10384,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": true,
       "name": {
         "en": "Maul driving from the lineout",
         "en-GB": "Maul driving from the lineout",
@@ -10707,6 +10736,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": true,
       "name": {
         "en": "Maul defending it",
         "en-GB": "Maul defending it",
@@ -11112,6 +11142,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Game touch 5v5",
         "en-GB": "Game touch 5v5",
@@ -11490,6 +11521,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Game sevens 7v7",
         "en-GB": "Game sevens 7v7",
@@ -11976,6 +12008,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Game contact 8v8",
         "en-GB": "Game contact 8v8",
@@ -12503,6 +12536,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Tackling front on and from the side",
         "en-GB": "Tackling front on and from the side",
@@ -12756,6 +12790,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "The high ball the contest and the counter",
         "en-GB": "The high ball the contest and the counter",
@@ -13033,6 +13068,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Place kicking the routine",
         "en-GB": "Place kicking the routine",
@@ -13195,6 +13231,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Exit from your own 22 two phases and the kick",
         "en-GB": "Exit from your own 22 two phases and the kick",
@@ -13499,6 +13536,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Bronco",
         "en-GB": "Bronco",
@@ -13694,6 +13732,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Up-downs",
         "en-GB": "Up-downs",
@@ -13879,6 +13918,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Repeat sprints",
         "en-GB": "Repeat sprints",
