@@ -654,13 +654,24 @@ def soccer_drills() -> list[Drill]:
             # the ball are where they began. B never moves — he is the
             # server for the whole set, and the rules line says when the
             # two swap.
+            # Laid out the way it is coached: the receiver stands still, the
+            # server ten metres straight in front of him, and two gates a
+            # metre and a half wide sit four metres ahead of the receiver to
+            # his left and right, a V. Serve, first touch through the left
+            # gate, back; serve, through the right gate, back. The cones
+            # used to be four dots in a diagonal that read as nothing.
             home=[
-                P(300, 1050, "A",
-                  moves=[(420, 900, 1), (560, 760, 3), (300, 1050, 5)],
-                  why={1: "turn", 3: "turn", 5: "reset"}),
-                P(700, 1050, "B"),
+                P(500, 1000, "A",
+                  moves=[(340, 830, 1), (500, 1000, 3), (660, 830, 4), (500, 1000, 6)],
+                  why={1: "gate", 3: "reset", 4: "gate", 6: "reset"}),
+                P(500, 700, "B"),
             ],
-            markers=[M(370, 850), M(480, 950), M(510, 710), M(620, 810)],
+            markers=[M(320, 910), M(400, 850), M(600, 850), M(680, 910)],
+            setup={
+                "en": "a receiver on a spot, the server about 10 m straight in front of him with the balls; two gates of cones a metre and a half wide about 4 m ahead of the receiver, one to his left and one to his right",
+                "zh-CN": "接球人站定一点，喂球者带球站在他正前方约 10 米；两个约 1.5 米宽的锥标门摆在接球人前方约 4 米处，左右各一个",
+                "zh-TW": "接球人站定一點，餵球者帶球站在他正前方約 10 米；兩個約 1.5 米寬的錐標門擺在接球人前方約 4 米處，左右各一個",
+            },
             ball=1,
             ball_to=[(0, 0), (0, 1), (1, 2), (0, 3), (0, 4), (1, 5)],
             flow={
