@@ -3906,7 +3906,7 @@
       "familyName": null,
       "category": "warmup",
       "minutes": 8,
-      "players": 4,
+      "players": 5,
       "free": false,
       "usage": 3,
       "offSurface": false,
@@ -3925,18 +3925,18 @@
         "vi-VN": "Chuyền hình chữ Y"
       },
       "note": {
-        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 4 players, 4 cones, ball with A.\nBall path: A → B → C\nSequence: Step 1: A passes to B, B moves back; Step 2: B passes to C, C, D move up the board.\nRules: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Set, back, spread. The lay-off is one touch or the pattern stalls.",
-        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 4 players, 4 cones, ball with A.\nBall path: A → B → C\nSequence: Step 1: A passes to B, B moves back; Step 2: B passes to C, C, D move up the board.\nRules: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Set, back, spread. The lay-off is one touch or the pattern stalls.",
-        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】4 人，4 个锥标，球在 A 脚下。\n【球路】A → B → C\n【流程】第1步：A把球传给B，B向后移动；第2步：B把球传给C，C、D向前移动。\n【规则】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】做球、回做、分边。回做必须一脚出球，否则节奏就断了。",
-        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】4 人，4 個錐標，球在 A 腳下。\n【球路】A → B → C\n【流程】第1步：A把球傳給B，B向後移動；第2步：B把球傳給C，C、D向前移動。\n【規則】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】做球、回做、分邊。回做必須一腳出球，否則節奏就斷了。",
-        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】4人、コーン4個、ボールはA。\n【ボールの道筋】A → B → C\n【流れ】ステップ1：AがBへパス、Bが後方へ移動。ステップ2：BがCへパス、C・Dが前方へ移動。\n【ルール】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】当てて、落として、開く。落としは1タッチでないと止まる。",
-        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】4명, 콘 4개, 공은 A.\n【볼 경로】A → B → C\n【진행】1단계: A가 B에게 패스, B는 뒤로 이동; 2단계: B가 C에게 패스, C, D는 앞으로 이동.\n【규칙】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】대고, 내주고, 벌린다. 내주는 패스는 원터치라야 흐름이 산다.",
-        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 4 jugadores, 4 conos, balón con A.\nRecorrido del balón: A → B → C\nSecuencia: Paso 1: A pasa a B, B se desplaza hacia atrás; Paso 2: B pasa a C, C, D se desplaza hacia delante.\nReglas: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Apoyo, descarga, apertura. La descarga es a un toque o se atasca.",
-        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 4 joueurs, 4 plots, ballon avec A.\nTrajet du ballon : A → B → C\nDéroulé : Étape 1 : A passe à B, B se déplace vers l'arrière ; Étape 2 : B passe à C, C, D se déplace vers l'avant.\nRègles : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Appui, remise, écartement. La remise se fait à une touche.",
-        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 4 pemain, 4 kerucut, bola pada A.\nJalur bola: A → B → C\nUrutan: Langkah 1: A mengoper ke B, B bergerak ke belakang; Langkah 2: B mengoper ke C, C, D bergerak ke depan.\nAturan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Sentuh, kembalikan, lebarkan. Umpan balik harus satu sentuhan.",
-        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 4 pemain, 4 kon, bola dengan A.\nLaluan bola: A → B → C\nUrutan: Langkah 1: A menghantar kepada B, B bergerak ke belakang; Langkah 2: B menghantar kepada C, C, D bergerak ke hadapan.\nPeraturan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Sentuh, pulangkan, luaskan. Hantaran balik mesti satu sentuhan.",
-        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: ผู้เล่น 4 คน กรวย 4 อัน บอลอยู่ที่ A\nเส้นทางบอล: A → B → C\nลำดับ: ขั้นที่ 1: A จ่ายให้ B B ขยับถอยหลัง • ขั้นที่ 2: B จ่ายให้ C C, D ขยับไปข้างหน้า\nกติกา: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: ชน วางกลับ แล้วเปิดออก บอลวางกลับต้องแตะเดียว",
-        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 4 cầu thủ, 4 cọc, bóng ở chỗ A.\nĐường bóng: A → B → C\nTrình tự: Bước 1: A chuyền cho B, B di chuyển lùi lại; Bước 2: B chuyền cho C, C, D di chuyển lên phía trước.\nLuật: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Đệm, trả, mở biên. Đường trả phải một chạm."
+        "en": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → A → C → E\nSequence: Step 1: A passes to B, B moves back to meet the pass; Step 2: B passes to A, C moves up the board to offer a passing option; Step 3: A passes to C, A, E move up the board to follow the pass to the next station, B moves right to follow the pass to the next station; Step 4: C passes to E, B moves up the board to follow the pass to the next station, C moves back to rejoin the queue.\nRules: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Set, back, spread. The lay-off is one touch or the pattern stalls.",
+        "en-GB": "Purpose: Raise the heart rate and sharpen touch before the load comes; it sets the standard the session keeps.\nFrequency: Used every session — it opens the training and warms the body and the touch before the work.\nSetup: 5 players, 4 cones, ball with A.\nBall path: A → B → A → C → E\nSequence: Step 1: A passes to B, B moves back to meet the pass; Step 2: B passes to A, C moves up the board to offer a passing option; Step 3: A passes to C, A, E move up the board to follow the pass to the next station, B moves right to follow the pass to the next station; Step 4: C passes to E, B moves up the board to follow the pass to the next station, C moves back to rejoin the queue.\nRules: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Set, back, spread. The lay-off is one touch or the pattern stalls.",
+        "zh-CN": "【目的】热身：练球前先把身体活动开、找回球感。热身认真，一整堂课的质量才跟得上。\n【频度】热身常用——几乎每堂课的开场，训练前先活动身体、找回球感。\n【组织】5 人，4 个锥标，球在 A 脚下。\n【球路】A → B → A → C → E\n【流程】第1步：A把球传给B，B向后移动（迎上去接球）；第2步：B把球传给A，C向前移动（给持球人一个接应点）；第3步：A把球传给C，A、E向前移动（跟着球换到下一个位置），B向右移动（跟着球换到下一个位置）；第4步：C把球传给E，B向前移动（跟着球换到下一个位置），C向后移动（回到队尾）。\n【规则】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】做球、回做、分边。回做必须一脚出球，否则节奏就断了。",
+        "zh-TW": "【目的】熱身：練球前先把身體活動開、找回球感。熱身認真，一整堂課的品質才跟得上。\n【頻度】熱身常用——幾乎每堂課的開場，訓練前先活動身體、找回球感。\n【組織】5 人，4 個錐標，球在 A 腳下。\n【球路】A → B → A → C → E\n【流程】第1步：A把球傳給B，B向後移動（迎上去接球）；第2步：B把球傳給A，C向前移動（給持球人一個接應點）；第3步：A把球傳給C，A、E向前移動（跟著球換到下一個位置），B向右移動（跟著球換到下一個位置）；第4步：C把球傳給E，B向前移動（跟著球換到下一個位置），C向後移動（回到隊尾）。\n【規則】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】做球、回做、分邊。回做必須一腳出球，否則節奏就斷了。",
+        "ja-JP": "【目的】負荷が来る前に心拍を上げ、ボールタッチを整える。練習全体の基準を作る。\n【頻度】毎回のセッションで使う。練習の入りで、体とタッチを温める。\n【準備】5人、コーン4個、ボールはA。\n【ボールの道筋】A → B → A → C → E\n【流れ】ステップ1：AがBへパス、Bが後方へ移動し、ボールを迎えに行く。ステップ2：BがAへパス、Cが前方へ移動し、パスコースを作る。ステップ3：AがCへパス、A・Eが前方へ移動し、パスを追って次の位置へ移る、Bが右へ移動し、パスを追って次の位置へ移る。ステップ4：CがEへパス、Bが前方へ移動し、パスを追って次の位置へ移る、Cが後方へ移動し、列の最後尾に戻る。\n【ルール】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】当てて、落として、開く。落としは1タッチでないと止まる。",
+        "ko-KR": "【목적】본격적인 부하 전에 심박수를 올리고 볼 감각을 살린다. 세션 전체의 기준을 세운다.\n【빈도】매 세션마다 사용 — 훈련의 시작으로, 본격 운동 전에 몸과 감각을 데운다.\n【준비】5명, 콘 4개, 공은 A.\n【볼 경로】A → B → A → C → E\n【진행】1단계: A가 B에게 패스, B는 뒤로 이동해 패스를 마중 나간다; 2단계: B가 A에게 패스, C는 앞으로 이동해 패스 옵션을 만든다; 3단계: A가 C에게 패스, A, E는 앞으로 이동해 패스를 따라 다음 자리로 옮긴다, B는 오른쪽으로 이동해 패스를 따라 다음 자리로 옮긴다; 4단계: C가 E에게 패스, B는 앞으로 이동해 패스를 따라 다음 자리로 옮긴다, C는 뒤로 이동해 줄 맨 뒤로 돌아간다.\n【규칙】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】대고, 내주고, 벌린다. 내주는 패스는 원터치라야 흐름이 산다.",
+        "es-ES": "Objetivo: Eleva pulsaciones y afina el toque antes de la carga; fija el nivel de la sesión.\nFrecuencia: Se usa cada sesión: abre el entrenamiento y calienta cuerpo y toque.\nMontaje: 5 jugadores, 4 conos, balón con A.\nRecorrido del balón: A → B → A → C → E\nSecuencia: Paso 1: A pasa a B, B se desplaza hacia atrás para ir al encuentro del balón; Paso 2: B pasa a A, C se desplaza hacia delante para ofrecer una línea de pase; Paso 3: A pasa a C, A, E se desplaza hacia delante para seguir el pase a la siguiente posición, B se desplaza a la derecha para seguir el pase a la siguiente posición; Paso 4: C pasa a E, B se desplaza hacia delante para seguir el pase a la siguiente posición, C se desplaza hacia atrás para volver a la fila.\nReglas: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Apoyo, descarga, apertura. La descarga es a un toque o se atasca.",
+        "fr-FR": "Objectif : Élève le rythme cardiaque et affine la touche avant la charge ; fixe le niveau de la séance.\nFréquence : Utilisé à chaque séance : il ouvre l'entraînement et échauffe le corps et la touche.\nMise en place : 5 joueurs, 4 plots, ballon avec A.\nTrajet du ballon : A → B → A → C → E\nDéroulé : Étape 1 : A passe à B, B se déplace vers l'arrière pour venir au-devant du ballon ; Étape 2 : B passe à A, C se déplace vers l'avant pour offrir une solution de passe ; Étape 3 : A passe à C, A, E se déplace vers l'avant pour suivre la passe vers le poste suivant, B se déplace à droite pour suivre la passe vers le poste suivant ; Étape 4 : C passe à E, B se déplace vers l'avant pour suivre la passe vers le poste suivant, C se déplace vers l'arrière pour reprendre la file.\nRègles : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Appui, remise, écartement. La remise se fait à une touche.",
+        "id-ID": "Tujuan: Menaikkan detak jantung dan menajamkan sentuhan sebelum beban; menetapkan standar sesi.\nFrekuensi: Dipakai setiap sesi — membuka latihan dan menghangatkan tubuh dan sentuhan.\nPersiapan: 5 pemain, 4 kerucut, bola pada A.\nJalur bola: A → B → A → C → E\nUrutan: Langkah 1: A mengoper ke B, B bergerak ke belakang untuk menjemput bola; Langkah 2: B mengoper ke A, C bergerak ke depan untuk memberi pilihan umpan; Langkah 3: A mengoper ke C, A, E bergerak ke depan untuk mengikuti umpan ke pos berikutnya, B bergerak ke kanan untuk mengikuti umpan ke pos berikutnya; Langkah 4: C mengoper ke E, B bergerak ke depan untuk mengikuti umpan ke pos berikutnya, C bergerak ke belakang untuk kembali ke antrean.\nAturan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Sentuh, kembalikan, lebarkan. Umpan balik harus satu sentuhan.",
+        "ms-MY": "Tujuan: Menaikkan degupan jantung dan menajamkan sentuhan sebelum beban; menetapkan piawaian sesi.\nKekerapan: Digunakan setiap sesi — membuka latihan dan memanaskan badan dan sentuhan.\nPersediaan: 5 pemain, 4 kon, bola dengan A.\nLaluan bola: A → B → A → C → E\nUrutan: Langkah 1: A menghantar kepada B, B bergerak ke belakang untuk menyambut bola; Langkah 2: B menghantar kepada A, C bergerak ke hadapan untuk memberi pilihan hantaran; Langkah 3: A menghantar kepada C, A, E bergerak ke hadapan untuk mengikuti hantaran ke pos seterusnya, B bergerak ke kanan untuk mengikuti hantaran ke pos seterusnya; Langkah 4: C menghantar kepada E, B bergerak ke hadapan untuk mengikuti hantaran ke pos seterusnya, C bergerak ke belakang untuk kembali ke barisan.\nPeraturan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Sentuh, pulangkan, luaskan. Hantaran balik mesti satu sentuhan.",
+        "th-TH": "จุดประสงค์: เพิ่มอัตราหัวใจและปรับสัมผัสบอลก่อนโหลดหนัก และตั้งมาตรฐานของการฝึก\nความถี่: ใช้ทุกครั้ง — เปิดการฝึกและอุ่นร่างกายกับสัมผัสก่อนเริ่ม\nการจัด: ผู้เล่น 5 คน กรวย 4 อัน บอลอยู่ที่ A\nเส้นทางบอล: A → B → A → C → E\nลำดับ: ขั้นที่ 1: A จ่ายให้ B B ขยับถอยหลังเพื่อขยับเข้าหาบอล • ขั้นที่ 2: B จ่ายให้ A C ขยับไปข้างหน้าเพื่อเปิดตัวเป็นทางเลือกส่งบอล • ขั้นที่ 3: A จ่ายให้ C A, E ขยับไปข้างหน้าเพื่อวิ่งตามบอลไปตำแหน่งถัดไป B ขยับไปทางขวาเพื่อวิ่งตามบอลไปตำแหน่งถัดไป • ขั้นที่ 4: C จ่ายให้ E B ขยับไปข้างหน้าเพื่อวิ่งตามบอลไปตำแหน่งถัดไป C ขยับถอยหลังเพื่อกลับไปต่อแถว\nกติกา: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: ชน วางกลับ แล้วเปิดออก บอลวางกลับต้องแตะเดียว",
+        "vi-VN": "Mục đích: Tăng nhịp tim và làm nhạy cảm giác bóng trước khi vào tải; đặt chuẩn cho cả buổi.\nTần suất: Dùng mỗi buổi — mở đầu buổi tập, làm nóng người và cảm giác bóng.\nBố trí: 5 cầu thủ, 4 cọc, bóng ở chỗ A.\nĐường bóng: A → B → A → C → E\nTrình tự: Bước 1: A chuyền cho B, B di chuyển lùi lại để bước ra đón bóng; Bước 2: B chuyền cho A, C di chuyển lên phía trước để tạo hướng chuyền cho người cầm bóng; Bước 3: A chuyền cho C, A, E di chuyển lên phía trước để chạy theo đường chuyền sang vị trí kế, B di chuyển sang phải để chạy theo đường chuyền sang vị trí kế; Bước 4: C chuyền cho E, B di chuyển lên phía trước để chạy theo đường chuyền sang vị trí kế, C di chuyển lùi lại để về cuối hàng.\nLuật: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Đệm, trả, mở biên. Đường trả phải một chạm."
       },
       "mistake": {
         "en": "Going through the motions cold — the warm-up sets the standard the session keeps.",
@@ -3965,8 +3965,15 @@
               1120
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                500,
+                800
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3989,10 +3996,20 @@
               [
                 500,
                 940
+              ],
+              [
+                760,
+                740
+              ],
+              [
+                760,
+                640
               ]
             ],
             "movePhases": [
-              0
+              0,
+              2,
+              3
             ],
             "moveColor": 4294929773,
             "customColor": null,
@@ -4016,10 +4033,15 @@
               [
                 760,
                 500
+              ],
+              [
+                500,
+                1260
               ]
             ],
             "movePhases": [
-              1
+              1,
+              3
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -4039,16 +4061,36 @@
               640
             ],
             "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "E",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500,
+              1260
+            ],
+            "scale": 1.0,
             "moves": [
               [
-                240,
-                500
+                500,
+                1120
               ]
             ],
             "movePhases": [
-              1
+              2
             ],
-            "moveColor": 4294956864,
+            "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -4152,13 +4194,23 @@
                 1020.0
               ],
               [
-                724.2229123600034,
-                571.5541752799933
+                500.0,
+                1040.0
+              ],
+              [
+                725.294750498168,
+                572.080133580728
+              ],
+              [
+                530.4231126734783,
+                1046.0105803830247
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,

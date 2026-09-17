@@ -235,6 +235,14 @@ WHY = {
         "id-ID": "menunggu bola kedua di tepi kotak", "ms-MY": "menunggu bola kedua di tepi kotak",
         "th-TH": "รอบอลสองที่หน้าเขตโทษ", "vi-VN": "chờ bóng hai ở rìa vòng cấm",
     },
+    "follow": {
+        "en": "follow the pass to the next station", "en-GB": "follow the pass to the next station",
+        "zh-CN": "跟着球换到下一个位置", "zh-TW": "跟著球換到下一個位置",
+        "ja-JP": "パスを追って次の位置へ移る", "ko-KR": "패스를 따라 다음 자리로 옮긴다",
+        "es-ES": "seguir el pase a la siguiente posición", "fr-FR": "suivre la passe vers le poste suivant",
+        "id-ID": "mengikuti umpan ke pos berikutnya", "ms-MY": "mengikuti hantaran ke pos seterusnya",
+        "th-TH": "วิ่งตามบอลไปตำแหน่งถัดไป", "vi-VN": "chạy theo đường chuyền sang vị trí kế",
+    },
     "reset": {
         "en": "get back to the cone", "en-GB": "get back to the cone",
         "zh-CN": "回到原位", "zh-TW": "回到原位",
