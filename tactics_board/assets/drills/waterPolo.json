@@ -25,6 +25,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Warm-up eggbeater and pass",
@@ -226,6 +227,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up swim and catch",
@@ -392,6 +394,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Warm-up wet passing",
@@ -553,6 +556,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter circulation",
@@ -950,6 +954,7 @@
       "players": 12,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter through the centre",
@@ -1374,6 +1379,7 @@
       "players": 12,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter drive and kick",
@@ -1803,6 +1809,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter-attack 2v1",
@@ -2026,6 +2033,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter-attack 3v2",
@@ -2308,6 +2316,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter-attack 4v3",
@@ -2649,6 +2658,7 @@
       "players": 12,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Six on five 4-2",
@@ -3085,6 +3095,7 @@
       "players": 12,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Six on five 3-3",
@@ -3521,6 +3532,7 @@
       "players": 12,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Six on five the umbrella",
@@ -3957,6 +3969,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Centre forward the entry pass",
@@ -4242,6 +4255,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Centre forward the backhand",
@@ -4527,6 +4541,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Centre forward the sweep shot",
@@ -4812,6 +4827,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Centre forward drawing the exclusion",
@@ -5062,6 +5078,7 @@
       "players": 13,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence pressing",
@@ -5553,6 +5570,7 @@
       "players": 13,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence dropping off",
@@ -6044,6 +6062,7 @@
       "players": 13,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence fronting the centre",
@@ -6535,6 +6554,7 @@
       "players": 12,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence five against six",
@@ -6999,6 +7019,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Restart the five-metre penalty",
@@ -7175,6 +7196,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Restart the quick free throw",
@@ -7423,6 +7445,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Restart the swim-off",
@@ -7633,6 +7656,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Game 3v3",
@@ -7922,6 +7946,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Game 4v4",
@@ -8265,6 +8290,7 @@
       "players": 13,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Game 6v6",
@@ -8716,6 +8742,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter shot the skip shot",
@@ -8996,6 +9023,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter shot the power shot from the point",
@@ -9276,6 +9304,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter shot the lob",
@@ -9556,6 +9585,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Perimeter shot catch and shoot",
@@ -9836,6 +9866,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping angles",
@@ -10059,6 +10090,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping the two-metre shot",
@@ -10255,6 +10287,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping the five-metre penalty",
@@ -10451,6 +10484,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping the outlet that starts the counter",

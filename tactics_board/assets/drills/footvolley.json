@@ -25,6 +25,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up juggling in pairs",
@@ -186,6 +187,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up on every surface",
@@ -374,6 +376,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Ball control with the chest",
@@ -582,6 +585,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Ball control the shoulder pass",
@@ -790,6 +794,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Ball control high",
@@ -998,6 +1003,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Receiving with the chest",
@@ -1211,6 +1217,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Receiving with the thigh",
@@ -1424,6 +1431,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Serve long and fast",
@@ -1630,6 +1638,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Serve in the corner",
@@ -1836,6 +1845,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Serve at the seam",
@@ -2042,6 +2052,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Setting up the shark attack",
@@ -2287,6 +2298,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Setting up the sombrero",
@@ -2525,6 +2537,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Setting up cross-court",
@@ -2770,6 +2783,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination off the quick set",
@@ -3010,6 +3024,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination from the back court",
@@ -3250,6 +3265,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination attacking the second ball",
@@ -3490,6 +3506,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Finishing the bicycle kick",
@@ -3718,6 +3735,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Finishing the header",
@@ -3946,6 +3964,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Finishing the drop",
@@ -4174,6 +4193,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the block",
@@ -4389,6 +4409,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending covering the block",
@@ -4604,6 +4625,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the dig",
@@ -4806,6 +4828,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Block timing one against one at the net",
@@ -4994,6 +5017,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 1v1",
@@ -5155,6 +5179,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 2v2",
@@ -5370,6 +5395,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 4v4",
@@ -5693,6 +5719,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 3v3",

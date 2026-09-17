@@ -12,6 +12,7 @@
       "players": 6,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 4v2",
@@ -396,6 +397,7 @@
       "players": 1,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Dribble slalom",
@@ -632,6 +634,7 @@
       "players": 11,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "7v4 possession",
@@ -1216,6 +1219,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overlap and cross",
@@ -1490,6 +1494,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Third-man run",
@@ -1702,6 +1707,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Switch the play",
@@ -1998,6 +2004,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Cutback finish",
@@ -2260,6 +2267,7 @@
       "players": 2,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 with the keeper",
@@ -2418,6 +2426,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Pressing trigger",
@@ -2702,6 +2711,7 @@
       "players": 4,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "2v2 recovery",
@@ -2919,6 +2929,7 @@
       "players": 9,
       "free": true,
       "usage": 3,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner: near post",
@@ -3221,6 +3232,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick: edge of the box",
@@ -3274,7 +3286,7 @@
             "sportType": null,
             "position": [
               455,
-              371
+              440
             ],
             "scale": 1.0,
             "moves": [],
@@ -3294,13 +3306,13 @@
             "sportType": null,
             "position": [
               545,
-              371
+              440
             ],
             "scale": 1.0,
             "moves": [
               [
                 560,
-                460
+                530
               ]
             ],
             "movePhases": [
@@ -3321,13 +3333,13 @@
             "sportType": null,
             "position": [
               700,
-              430
+              500
             ],
             "scale": 1.0,
             "moves": [
               [
                 640,
-                400
+                470
               ]
             ],
             "movePhases": [
@@ -3348,7 +3360,7 @@
             "sportType": null,
             "position": [
               384,
-              218
+              300
             ],
             "scale": 1.0,
             "moves": [],
@@ -3367,8 +3379,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              455.58525139645326,
-              221.88751181793097
+              461,
+              300
             ],
             "scale": 1.0,
             "moves": [],
@@ -3387,8 +3399,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              543.9857336879084,
-              222.73370408985608
+              539,
+              300
             ],
             "scale": 1.0,
             "moves": [],
@@ -3408,7 +3420,7 @@
             "sportType": null,
             "position": [
               616,
-              218
+              300
             ],
             "scale": 1.0,
             "moves": [],
@@ -3427,8 +3439,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.42901491563833,
-              184.0324335213538
+              500,
+              190
             ],
             "scale": 1.0,
             "moves": [],
@@ -3448,16 +3460,16 @@
             "sportType": 6,
             "position": [
               500,
-              345
+              412
             ],
             "scale": 1.0,
             "moves": [
               [
-                560.9651558641525,
-                387.6107541624888
+                561.0315617801932,
+                457.194307315707
               ],
               [
-                514.6359555909244,
+                512.1499394878838,
                 191.0324335213538
               ]
             ],
@@ -3489,6 +3501,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "4v4, four goals",
@@ -3505,18 +3518,18 @@
         "en-GB": "4v4, four goals"
       },
       "note": {
-        "en": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: 4 v 4, 4 cones, ball with A.\nBall path: A → B → D → goal\nSequence: Step 1: A passes to B, A, X1 move up the board; Step 2: B passes to D, D moves up the board to run in behind the defence; Step 3: D shoots.\nRules: After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.\nCoaching point: Two goals each forces a switch: attack the one they left open, not the one in front of you.",
-        "en-GB": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: 4 v 4, 4 cones, ball with A.\nBall path: A → B → D → goal\nSequence: Step 1: A passes to B, A, X1 move up the board; Step 2: B passes to D, D moves up the board to run in behind the defence; Step 3: D shoots.\nRules: After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.\nCoaching point: Two goals each forces a switch: attack the one they left open, not the one in front of you.",
-        "zh-CN": "【目的】小场比赛：人少场地小，球来得快、决定也快，每个人都得参与，没法躲。\n【频度】几乎每天用来收尾——小场比赛让练过的一切在压力下落地。\n【组织】4 对 4，4 个锥标，球在 A 脚下。\n【球路】A → B → D → 球门\n【流程】第1步：A把球传给B，A、X1向前移动；第2步：B把球传给D，D向前移动（插入防线身后）；第3步：D射门。\n【规则】进球或球出界后，从门将或边线重新开始，比赛不停；每局 4 分钟，局间换边或换对手。\n【要点】每队两个球门，逼着你转移：攻他们放空的那个，不是眼前那个。",
-        "zh-TW": "【目的】小場比賽：人少場地小，球來得快、決定也快，每個人都得參與，沒法躲。\n【頻度】幾乎每天用來收尾——小場比賽讓練過的一切在壓力下落地。\n【組織】4 對 4，4 個錐標，球在 A 腳下。\n【球路】A → B → D → 球門\n【流程】第1步：A把球傳給B，A、X1向前移動；第2步：B把球傳給D，D向前移動（插入防線身後）；第3步：D射門。\n【規則】進球或球出界後，從門將或邊線重新開始，比賽不停；每局 4 分鐘，局間換邊或換對手。\n【要點】每隊兩個球門，逼著你轉移：攻他們放空的那個，不是眼前那個。",
-        "ja-JP": "【目的】ミニゲーム。人数が少ない分、ボールも判断も速く来て、誰もプレーから隠れられない。\n【頻度】ほぼ毎日の締め。ミニゲームで、練習したすべてがプレッシャー下に出る。\n【準備】4対4、コーン4個、ボールはA。\n【ボールの道筋】A → B → D → ゴール\n【流れ】ステップ1：AがBへパス、A・X1が前方へ移動。ステップ2：BがDへパス、Dが前方へ移動し、最終ラインの裏へ抜ける。ステップ3：Dがシュート。\n【ルール】得点かボールアウトの後は、キーパーかタッチラインから再開して止めない。1ゲーム4分、終わったらエンドか相手を交代。\n【ポイント】各チーム2ゴールで展開が必要になる。目の前ではなく、空いた方を狙う。",
-        "ko-KR": "【목적】미니 게임: 인원이 적어 공과 모든 결정이 더 빨리 오고, 누구도 플레이에서 숨을 수 없다.\n【빈도】거의 매일 세션 마무리로 사용 — 미니 게임에서 훈련한 모든 것이 압박 속에 나온다.\n【준비】4대4, 콘 4개, 공은 A.\n【볼 경로】A → B → D → 골문\n【진행】1단계: A가 B에게 패스, A, X1는 앞으로 이동; 2단계: B가 D에게 패스, D는 앞으로 이동해 수비 뒷공간으로 침투한다; 3단계: D 슛.\n【규칙】골이 나거나 공이 나가면 골키퍼나 터치라인에서 다시 시작하고 멈추지 않는다. 한 게임 4분, 끝나면 진영이나 상대를 바꾼다.\n【포인트】각 팀 두 골대가 전환을 강제한다. 눈앞이 아니라 비어 있는 쪽을 노려라.",
-        "es-ES": "Objetivo: Juego reducido: menos jugadores, así el balón y cada decisión llegan antes y nadie se esconde.\nFrecuencia: Un cierre de sesión casi diario: el juego reducido es donde todo lo entrenado se pone en juego bajo presión.\nMontaje: 4 contra 4, 4 conos, balón con A.\nRecorrido del balón: A → B → D → portería\nSecuencia: Paso 1: A pasa a B, A, X1 se desplaza hacia delante; Paso 2: B pasa a D, D se desplaza hacia delante para desmarcarse a la espalda de la defensa; Paso 3: D remata.\nReglas: Tras un gol o balón fuera, se reanuda desde el portero o la banda sin parar; partidos de cuatro minutos, luego cambio de campo o de rival.\nPunto clave: Dos porterías por equipo obligan a cambiar: ataca la que dejaron libre.",
-        "fr-FR": "Objectif : Jeu réduit : moins de joueurs, donc le ballon et chaque décision arrivent plus vite et personne ne se cache.\nFréquence : Une fin de séance presque quotidienne : le jeu réduit est là où tout le travail se joue sous pression.\nMise en place : 4 contre 4, 4 plots, ballon avec A.\nTrajet du ballon : A → B → D → but\nDéroulé : Étape 1 : A passe à B, A, X1 se déplace vers l'avant ; Étape 2 : B passe à D, D se déplace vers l'avant pour prendre la profondeur ; Étape 3 : D frappe.\nRègles : Après un but ou une sortie, on relance du gardien ou de la touche sans s'arrêter ; matchs de quatre minutes, puis on change de côté ou d'adversaire.\nPoint clé : Deux buts par équipe forcent le renversement : attaque celui qu'ils ont laissé.",
-        "id-ID": "Tujuan: Permainan skala kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tak ada yang bisa sembunyi.\nFrekuensi: Penutup sesi hampir tiap hari — permainan kecil adalah tempat semua yang dilatih diuji di bawah tekanan.\nPersiapan: 4 lawan 4, 4 kerucut, bola pada A.\nJalur bola: A → B → D → gawang\nUrutan: Langkah 1: A mengoper ke B, A, X1 bergerak ke depan; Langkah 2: B mengoper ke D, D bergerak ke depan untuk berlari ke belakang pertahanan; Langkah 3: D menembak.\nAturan: Setelah gol atau bola keluar, mulai lagi dari kiper atau garis tepi dan terus bermain; empat menit per gim, lalu tukar sisi atau lawan.\nPoin utama: Dua gawang per tim memaksa perpindahan: serang yang mereka tinggalkan.",
-        "ms-MY": "Tujuan: Permainan kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tiada siapa boleh menyorok.\nKekerapan: Penutup sesi hampir setiap hari — permainan kecil ialah tempat semua yang dilatih diuji di bawah tekanan.\nPersediaan: 4 lawan 4, 4 kon, bola dengan A.\nLaluan bola: A → B → D → gol\nUrutan: Langkah 1: A menghantar kepada B, A, X1 bergerak ke hadapan; Langkah 2: B menghantar kepada D, D bergerak ke hadapan untuk berlari ke belakang pertahanan; Langkah 3: D menjaring.\nPeraturan: Selepas gol atau bola keluar, mula semula dari penjaga gol atau garisan tepi dan terus bermain; empat minit setiap perlawanan, kemudian tukar sisi atau lawan.\nPoin utama: Dua gol setiap pasukan memaksa pertukaran sisi.",
-        "th-TH": "จุดประสงค์: เกมสนามเล็ก: คนน้อยลง บอลและทุกการตัดสินใจมาเร็วขึ้น และไม่มีใครหลบเกมได้\nความถี่: ปิดการฝึกเกือบทุกวัน — เกมสนามเล็กคือที่ทุกอย่างที่ซ้อมถูกใช้ภายใต้แรงกดดัน\nการจัด: 4 ต่อ 4 กรวย 4 อัน บอลอยู่ที่ A\nเส้นทางบอล: A → B → D → ประตู\nลำดับ: ขั้นที่ 1: A จ่ายให้ B A, X1 ขยับไปข้างหน้า • ขั้นที่ 2: B จ่ายให้ D D ขยับไปข้างหน้าเพื่อวิ่งทะลุหลังแนวรับ • ขั้นที่ 3: D ยิงประตู\nกติกา: หลังได้ประตูหรือบอลออก เริ่มใหม่จากผู้รักษาประตูหรือเส้นข้างแล้วเล่นต่อไม่หยุด เกมละ 4 นาที แล้วสลับแดนหรือสลับคู่แข่ง\nจุดเน้น: ทีมละสองประตูบังคับให้เปลี่ยนข้าง โจมตีประตูที่เขาทิ้งว่าง",
-        "vi-VN": "Mục đích: Trò chơi sân nhỏ: ít người hơn nên bóng và mọi quyết định đến nhanh hơn, không ai trốn khỏi trận đấu được.\nTần suất: Kết thúc buổi tập gần như mỗi ngày — trò chơi sân nhỏ là nơi mọi thứ đã tập được thể hiện dưới áp lực.\nBố trí: 4 đấu 4, 4 cọc, bóng ở chỗ A.\nĐường bóng: A → B → D → khung thành\nTrình tự: Bước 1: A chuyền cho B, A, X1 di chuyển lên phía trước; Bước 2: B chuyền cho D, D di chuyển lên phía trước để chạy ra sau hàng thủ; Bước 3: D dứt điểm.\nLuật: Sau bàn thắng hoặc bóng ra ngoài, bắt đầu lại từ thủ môn hoặc đường biên và chơi tiếp; mỗi trận 4 phút rồi đổi sân hoặc đổi đối thủ.\nĐiểm chính: Mỗi đội hai khung thành buộc phải chuyển hướng: tấn công nơi họ bỏ trống."
+        "en": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nBall path: A → B → D → goal\nSequence: Step 1: A passes to B, A, X1 move up the board; Step 2: B passes to D, D moves up the board to run in behind the defence; Step 3: D shoots.\nRules: After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.\nCoaching point: Two goals each forces a switch: attack the one they left open, not the one in front of you.",
+        "en-GB": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nBall path: A → B → D → goal\nSequence: Step 1: A passes to B, A, X1 move up the board; Step 2: B passes to D, D moves up the board to run in behind the defence; Step 3: D shoots.\nRules: After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.\nCoaching point: Two goals each forces a switch: attack the one they left open, not the one in front of you.",
+        "zh-CN": "【目的】小场比赛：人少场地小，球来得快、决定也快，每个人都得参与，没法躲。\n【频度】几乎每天用来收尾——小场比赛让练过的一切在压力下落地。\n【组织】约 30×40 米的场地，四个锥标标出四个角；每个角内侧放一个小球门（方块），每队进攻一端的两个门、防守另一端的两个。4 对 4，不设门将。\n【球路】A → B → D → 球门\n【流程】第1步：A把球传给B，A、X1向前移动；第2步：B把球传给D，D向前移动（插入防线身后）；第3步：D射门。\n【规则】进球或球出界后，从门将或边线重新开始，比赛不停；每局 4 分钟，局间换边或换对手。\n【要点】每队两个球门，逼着你转移：攻他们放空的那个，不是眼前那个。",
+        "zh-TW": "【目的】小場比賽：人少場地小，球來得快、決定也快，每個人都得參與，沒法躲。\n【頻度】幾乎每天用來收尾——小場比賽讓練過的一切在壓力下落地。\n【組織】約 30×40 米的場地，四個錐標標出四個角；每個角內側放一個小球門（方塊），每隊進攻一端的兩個門、防守另一端的兩個。4 對 4，不設門將。\n【球路】A → B → D → 球門\n【流程】第1步：A把球傳給B，A、X1向前移動；第2步：B把球傳給D，D向前移動（插入防線身後）；第3步：D射門。\n【規則】進球或球出界後，從門將或邊線重新開始，比賽不停；每局 4 分鐘，局間換邊或換對手。\n【要點】每隊兩個球門，逼著你轉移：攻他們放空的那個，不是眼前那個。",
+        "ja-JP": "【目的】ミニゲーム。人数が少ない分、ボールも判断も速く来て、誰もプレーから隠れられない。\n【頻度】ほぼ毎日の締め。ミニゲームで、練習したすべてがプレッシャー下に出る。\n【準備】a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers。\n【ボールの道筋】A → B → D → ゴール\n【流れ】ステップ1：AがBへパス、A・X1が前方へ移動。ステップ2：BがDへパス、Dが前方へ移動し、最終ラインの裏へ抜ける。ステップ3：Dがシュート。\n【ルール】得点かボールアウトの後は、キーパーかタッチラインから再開して止めない。1ゲーム4分、終わったらエンドか相手を交代。\n【ポイント】各チーム2ゴールで展開が必要になる。目の前ではなく、空いた方を狙う。",
+        "ko-KR": "【목적】미니 게임: 인원이 적어 공과 모든 결정이 더 빨리 오고, 누구도 플레이에서 숨을 수 없다.\n【빈도】거의 매일 세션 마무리로 사용 — 미니 게임에서 훈련한 모든 것이 압박 속에 나온다.\n【준비】a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\n【볼 경로】A → B → D → 골문\n【진행】1단계: A가 B에게 패스, A, X1는 앞으로 이동; 2단계: B가 D에게 패스, D는 앞으로 이동해 수비 뒷공간으로 침투한다; 3단계: D 슛.\n【규칙】골이 나거나 공이 나가면 골키퍼나 터치라인에서 다시 시작하고 멈추지 않는다. 한 게임 4분, 끝나면 진영이나 상대를 바꾼다.\n【포인트】각 팀 두 골대가 전환을 강제한다. 눈앞이 아니라 비어 있는 쪽을 노려라.",
+        "es-ES": "Objetivo: Juego reducido: menos jugadores, así el balón y cada decisión llegan antes y nadie se esconde.\nFrecuencia: Un cierre de sesión casi diario: el juego reducido es donde todo lo entrenado se pone en juego bajo presión.\nMontaje: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nRecorrido del balón: A → B → D → portería\nSecuencia: Paso 1: A pasa a B, A, X1 se desplaza hacia delante; Paso 2: B pasa a D, D se desplaza hacia delante para desmarcarse a la espalda de la defensa; Paso 3: D remata.\nReglas: Tras un gol o balón fuera, se reanuda desde el portero o la banda sin parar; partidos de cuatro minutos, luego cambio de campo o de rival.\nPunto clave: Dos porterías por equipo obligan a cambiar: ataca la que dejaron libre.",
+        "fr-FR": "Objectif : Jeu réduit : moins de joueurs, donc le ballon et chaque décision arrivent plus vite et personne ne se cache.\nFréquence : Une fin de séance presque quotidienne : le jeu réduit est là où tout le travail se joue sous pression.\nMise en place : a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nTrajet du ballon : A → B → D → but\nDéroulé : Étape 1 : A passe à B, A, X1 se déplace vers l'avant ; Étape 2 : B passe à D, D se déplace vers l'avant pour prendre la profondeur ; Étape 3 : D frappe.\nRègles : Après un but ou une sortie, on relance du gardien ou de la touche sans s'arrêter ; matchs de quatre minutes, puis on change de côté ou d'adversaire.\nPoint clé : Deux buts par équipe forcent le renversement : attaque celui qu'ils ont laissé.",
+        "id-ID": "Tujuan: Permainan skala kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tak ada yang bisa sembunyi.\nFrekuensi: Penutup sesi hampir tiap hari — permainan kecil adalah tempat semua yang dilatih diuji di bawah tekanan.\nPersiapan: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nJalur bola: A → B → D → gawang\nUrutan: Langkah 1: A mengoper ke B, A, X1 bergerak ke depan; Langkah 2: B mengoper ke D, D bergerak ke depan untuk berlari ke belakang pertahanan; Langkah 3: D menembak.\nAturan: Setelah gol atau bola keluar, mulai lagi dari kiper atau garis tepi dan terus bermain; empat menit per gim, lalu tukar sisi atau lawan.\nPoin utama: Dua gawang per tim memaksa perpindahan: serang yang mereka tinggalkan.",
+        "ms-MY": "Tujuan: Permainan kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tiada siapa boleh menyorok.\nKekerapan: Penutup sesi hampir setiap hari — permainan kecil ialah tempat semua yang dilatih diuji di bawah tekanan.\nPersediaan: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nLaluan bola: A → B → D → gol\nUrutan: Langkah 1: A menghantar kepada B, A, X1 bergerak ke hadapan; Langkah 2: B menghantar kepada D, D bergerak ke hadapan untuk berlari ke belakang pertahanan; Langkah 3: D menjaring.\nPeraturan: Selepas gol atau bola keluar, mula semula dari penjaga gol atau garisan tepi dan terus bermain; empat minit setiap perlawanan, kemudian tukar sisi atau lawan.\nPoin utama: Dua gol setiap pasukan memaksa pertukaran sisi.",
+        "th-TH": "จุดประสงค์: เกมสนามเล็ก: คนน้อยลง บอลและทุกการตัดสินใจมาเร็วขึ้น และไม่มีใครหลบเกมได้\nความถี่: ปิดการฝึกเกือบทุกวัน — เกมสนามเล็กคือที่ทุกอย่างที่ซ้อมถูกใช้ภายใต้แรงกดดัน\nการจัด: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers\nเส้นทางบอล: A → B → D → ประตู\nลำดับ: ขั้นที่ 1: A จ่ายให้ B A, X1 ขยับไปข้างหน้า • ขั้นที่ 2: B จ่ายให้ D D ขยับไปข้างหน้าเพื่อวิ่งทะลุหลังแนวรับ • ขั้นที่ 3: D ยิงประตู\nกติกา: หลังได้ประตูหรือบอลออก เริ่มใหม่จากผู้รักษาประตูหรือเส้นข้างแล้วเล่นต่อไม่หยุด เกมละ 4 นาที แล้วสลับแดนหรือสลับคู่แข่ง\nจุดเน้น: ทีมละสองประตูบังคับให้เปลี่ยนข้าง โจมตีประตูที่เขาทิ้งว่าง",
+        "vi-VN": "Mục đích: Trò chơi sân nhỏ: ít người hơn nên bóng và mọi quyết định đến nhanh hơn, không ai trốn khỏi trận đấu được.\nTần suất: Kết thúc buổi tập gần như mỗi ngày — trò chơi sân nhỏ là nơi mọi thứ đã tập được thể hiện dưới áp lực.\nBố trí: a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers.\nĐường bóng: A → B → D → khung thành\nTrình tự: Bước 1: A chuyền cho B, A, X1 di chuyển lên phía trước; Bước 2: B chuyền cho D, D di chuyển lên phía trước để chạy ra sau hàng thủ; Bước 3: D dứt điểm.\nLuật: Sau bàn thắng hoặc bóng ra ngoài, bắt đầu lại từ thủ môn hoặc đường biên và chơi tiếp; mỗi trận 4 phút rồi đổi sân hoặc đổi đối thủ.\nĐiểm chính: Mỗi đội hai khung thành buộc phải chuyển hướng: tấn công nơi họ bỏ trống."
       },
       "mistake": {
         "en": "Playing the game and forgetting the constraint — the rule is the lesson, not an obstacle.",
@@ -3929,6 +3942,7 @@
       "players": 5,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Y-pattern passing",
@@ -4256,6 +4270,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "First-touch gates",
@@ -4492,6 +4507,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 5v2 — split pass",
@@ -4869,6 +4885,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Three-zone possession",
@@ -5258,6 +5275,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Building from the keeper",
@@ -5561,6 +5579,7 @@
       "players": 3,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Wall pass on the wing",
@@ -5741,6 +5760,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "3v2 counter",
@@ -6010,6 +6030,7 @@
       "players": 5,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Half-space run",
@@ -6269,6 +6290,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "First-time finishing",
@@ -6496,6 +6518,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Receive, turn, shoot",
@@ -6701,6 +6724,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Back four: shift and cover",
@@ -6977,6 +7001,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter-press on loss",
@@ -7241,6 +7266,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner: short routine",
@@ -7550,6 +7576,7 @@
       "players": 6,
       "free": false,
       "usage": 1,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Attacking throw-in",
@@ -7819,6 +7846,7 @@
       "players": 12,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "6v6 transition game",
@@ -8221,6 +8249,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rotation square",
@@ -8540,6 +8569,7 @@
       "players": 4,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Two-ball awareness",
@@ -8832,6 +8862,7 @@
       "players": 8,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overload to isolate",
@@ -9140,6 +9171,7 @@
       "players": 8,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Pivot switch",
@@ -9436,6 +9468,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Far-post cross",
@@ -9685,6 +9718,7 @@
       "players": 3,
       "free": false,
       "usage": 1,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Side volley from the cutback",
@@ -9885,6 +9919,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 defending in the channel",
@@ -10195,6 +10230,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defending a corner",
@@ -10515,6 +10551,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "5v5, two touches",
@@ -10957,6 +10994,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Long switch, first time",
@@ -11206,6 +11244,7 @@
       "players": 2,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Penalties under fatigue",
@@ -11387,6 +11426,7 @@
       "players": 7,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 5v2",
@@ -11851,6 +11891,7 @@
       "players": 9,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 6v3",
@@ -12434,6 +12475,7 @@
       "players": 10,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 7v3",
@@ -13089,6 +13131,7 @@
       "players": 12,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rondo 8v4",
@@ -13878,6 +13921,7 @@
       "players": 6,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 3v3",
@@ -14246,6 +14290,7 @@
       "players": 8,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 4v4",
@@ -14654,6 +14699,7 @@
       "players": 10,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 5v5",
@@ -15102,6 +15148,7 @@
       "players": 12,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 6v6",
@@ -15590,6 +15637,7 @@
       "players": 14,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Small-sided game 7v7",
@@ -16118,6 +16166,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter 2v1",
@@ -16326,6 +16375,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter 4v3",
@@ -16642,6 +16692,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Counter 5v4",
@@ -17012,6 +17063,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Playing out under pressure +1",
@@ -17274,6 +17326,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Playing out under pressure +2",
@@ -17590,6 +17643,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Playing out under pressure +3",
@@ -17960,6 +18014,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Finishing pattern left wing",
@@ -18180,6 +18235,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Finishing pattern right wing",
@@ -18400,6 +18456,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Finishing pattern left halfspace",
@@ -18620,6 +18677,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Finishing pattern right halfspace",
@@ -18840,6 +18898,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Finishing pattern central",
@@ -19060,6 +19119,7 @@
       "players": 13,
       "free": true,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Press from 4-4-2",
@@ -19499,6 +19559,7 @@
       "players": 13,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Press from 4-3-3",
@@ -19938,6 +19999,7 @@
       "players": 13,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Press from 4-2-3-1",
@@ -20377,6 +20439,7 @@
       "players": 13,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Press from 3-5-2",
@@ -20816,6 +20879,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner far post",
@@ -21131,6 +21195,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner pull back",
@@ -21451,6 +21516,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner stack",
@@ -21759,6 +21825,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Corner second ball",
@@ -22079,6 +22146,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide left",
@@ -22297,6 +22365,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide right",
@@ -22515,6 +22584,7 @@
       "players": 4,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 duels central",
@@ -22733,6 +22803,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "1v1 duels half-space",
@@ -22951,6 +23022,7 @@
       "players": 4,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Passing pattern triangle",
@@ -23231,6 +23303,7 @@
       "players": 5,
       "free": true,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Passing pattern diamond",
@@ -23563,6 +23636,7 @@
       "players": 6,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Passing pattern pentagon",
@@ -23947,6 +24021,7 @@
       "players": 7,
       "free": false,
       "usage": 3,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Passing pattern hexagon",
@@ -24383,6 +24458,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Crossing left · near post",
@@ -24665,6 +24741,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Crossing left · far post",
@@ -24947,6 +25024,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Crossing right · near post",
@@ -25229,6 +25307,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Crossing right · far post",
@@ -25511,6 +25590,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defensive shape high block",
@@ -25861,6 +25941,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Defensive shape mid block",
@@ -26211,6 +26292,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Defensive shape low block",
@@ -26561,6 +26643,7 @@
       "players": 4,
       "free": true,
       "usage": 3,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping handling",
@@ -26755,6 +26838,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping angles",
@@ -26949,6 +27033,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping crosses",
@@ -27123,6 +27208,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping distribution",
@@ -27331,6 +27417,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping 1v1",
@@ -27492,6 +27579,7 @@
       "players": 3,
       "free": false,
       "usage": 3,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Goalkeeping set position",
@@ -27666,6 +27754,7 @@
       "players": 5,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Goalkeeping sweeping behind the line",
@@ -27908,6 +27997,7 @@
       "players": 1,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Conditioning with the ball shuttle to finish",
@@ -28122,6 +28212,7 @@
       "players": 1,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Conditioning with the ball repeat sprints",
@@ -28376,6 +28467,7 @@
       "players": 1,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Conditioning with the ball box to box",
@@ -28570,6 +28662,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "bottom",
       "offSurface": false,
       "name": {
         "en": "Switching play own third",
@@ -28879,6 +28972,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Switching play middle third",
@@ -29188,6 +29282,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Switching play final third",
@@ -29497,6 +29592,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination play wall pass left",
@@ -29725,6 +29821,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination play wall pass right",
@@ -29953,6 +30050,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination play overlap left",
@@ -30193,6 +30291,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination play overlap right",
@@ -30433,6 +30532,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Combination play underlap",
@@ -30666,6 +30766,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick direct",
@@ -30976,6 +31077,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick layoff",
@@ -31291,6 +31393,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick runner across",
@@ -31606,6 +31709,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick wide left",
@@ -31901,6 +32005,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free kick wide right",
@@ -32196,6 +32301,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 4v4",
@@ -32604,6 +32710,7 @@
       "players": 10,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 5v5",
@@ -33052,6 +33159,7 @@
       "players": 12,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 6v6",
@@ -33540,6 +33648,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "First touch pressed from behind",
@@ -33806,6 +33915,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "First touch pressed side on",
@@ -34072,6 +34182,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "First touch open body",
@@ -34338,6 +34449,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "First touch in traffic",
@@ -34618,6 +34730,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Heading attacking",
@@ -34813,6 +34926,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Heading defensive",
@@ -35046,6 +35160,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Goal kick short",
@@ -35345,6 +35460,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Goal kick to the full-back",
@@ -35644,6 +35760,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Goal kick long",
@@ -35938,6 +36055,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overload possession 3v2",
@@ -36265,6 +36383,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overload possession 4v3",
@@ -36651,6 +36770,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overload possession 5v4",
@@ -37096,6 +37216,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Overload possession 6v4",
@@ -37560,6 +37681,7 @@
       "players": 9,
       "free": true,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Holding the offside line",
@@ -37892,6 +38014,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defending the cross",
@@ -38176,6 +38299,7 @@
       "players": 8,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Defending the throw-in",
@@ -38467,6 +38591,7 @@
       "players": 9,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Rest defence",
@@ -38834,6 +38959,7 @@
       "players": 8,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Pressing trap: the touchline",
@@ -39135,6 +39261,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting from distance",
@@ -39377,6 +39504,7 @@
       "players": 5,
       "free": false,
       "usage": 1,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Second ball in the box",
@@ -39611,6 +39739,7 @@
       "players": 8,
       "free": false,
       "usage": 1,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Kick-off routine",

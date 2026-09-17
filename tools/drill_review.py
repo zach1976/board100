@@ -363,6 +363,7 @@ def collect(only=None):
                 "mistakeZh": d.get("mistake", {}).get("zh-CN", ""),
                 "category": d.get("category"),
                 "usage": d.get("usage", 2),
+                "frame": d.get("frame"),
                 "level": d.get("level"),
                 "minutes": d.get("minutes"),
                 "players": d.get("players"),
@@ -475,6 +476,14 @@ TEMPLATE = r"""<!doctype html>
   .boardwrap{position:sticky;top:0}
   img.board{width:100%;height:auto;border-radius:12px;border:1px solid var(--border);
             display:block;background:var(--turfHi)}
+  /* A drill that stays in one half is shown at that half, the way the app
+     shows it: the box keeps the width and 56% of the picture's height, and
+     the image is pinned to the busy end. */
+  .boardbox.half{overflow:hidden;border-radius:12px;border:1px solid var(--border);
+                 aspect-ratio:402/409;position:relative}
+  .boardbox.half img.board{border:0;border-radius:0;position:absolute;left:0;width:100%}
+  .boardbox.half.top img.board{top:0}
+  .boardbox.half.bottom img.board{bottom:0}
   .steps{display:flex;align-items:center;gap:8px;margin-top:10px}
   .steps .n{font-family:var(--mono);font-size:13px;color:var(--dim);min-width:52px;text-align:center}
   .steps button{padding:6px 12px}
@@ -686,7 +695,9 @@ function renderPane() {
 
     <div class="split">
       <div class="boardwrap">
-        <img class="board" id="svg" src="${src(d, step)}" alt="第 ${step} 步">
+        <div class="boardbox ${d.frame ? 'half ' + d.frame : ''}">
+          <img class="board" id="svg" src="${src(d, step)}" alt="第 ${step} 步">
+        </div>
         <div class="steps">
           <button class="ghost" id="prev">‹</button>
           <span class="n" id="stepn">${step} / ${d.maxStep}</span>

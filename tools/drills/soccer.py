@@ -509,20 +509,24 @@ def soccer_drills() -> list[Drill]:
             # 23 m from goal with the wall at its nine metres — it used to
             # be a 35 m free kick with the wall 11 m away, and the layoff
             # was received standing inside the wall.
+            # Placed against the drawn pitch: the box edge is at y=356, so
+            # the ball sits just outside it, the wall on the goal-area
+            # line, and the 8 on the D. Written to the old coordinates it
+            # was a free kick from the six-yard line.
             home=[
-                P(455, 371, "10"), P(545, 371, "7", moves=[(560, 460, 0)]),
-                P(700, 430, "8", moves=[(640, 400, 0)]),
+                P(455, 440, "10"), P(545, 440, "7", moves=[(560, 530, 0)]),
+                P(700, 500, "8", moves=[(640, 470, 0)]),
             ],
             away=[
                 # See fk_*: spaced so the four dots read as four players.
-                P(384, 218, "W1"), P(461, 218, "W2"),
-                P(539, 218, "W3"), P(616, 218, "W4"),
+                P(384, 300, "W1"), P(461, 300, "W2"),
+                P(539, 300, "W3"), P(616, 300, "W4"),
                 # Set, not stepping: a token is 109 canvas units and the
                 # goal is 63, so a keeper who shuffles ends up behind a wall
                 # man. He is supposed to be still before the strike anyway.
                 P(500, 190, "GK", role="GK"),
             ],
-            ball=0, ball_spot=(500, 345),   # on the spot, between the two over it
+            ball=0, ball_spot=(500, 412),   # on the spot, between the two over it
             # rolled square into the 8's run, struck second beat through the
             # gap at the end of the wall
             ball_to=[(2, 0), ((500, 60), 1)],
@@ -563,6 +567,18 @@ def soccer_drills() -> list[Drill]:
                 M(250, 1150, "square"), M(750, 1150, "square"),
                 M(200, 200), M(800, 200), M(200, 1200), M(800, 1200),
             ],
+            setup={
+                "en": "a pitch about 30 by 40 m, its four corners marked by "
+                      "cones, with a small goal (the squares) just inside "
+                      "each corner: each team attacks the two at one end and "
+                      "defends the two at the other. 4 v 4, no keepers",
+                "zh-CN": "约 30×40 米的场地，四个锥标标出四个角；每个角内侧放一个"
+                         "小球门（方块），每队进攻一端的两个门、防守另一端的两个。"
+                         "4 对 4，不设门将",
+                "zh-TW": "約 30×40 米的場地，四個錐標標出四個角；每個角內側放一個"
+                         "小球門（方塊），每隊進攻一端的兩個門、防守另一端的兩個。"
+                         "4 對 4，不設門將",
+            },
             ball=0,
             # two passes across the box as D breaks, and the ball through
             # the top-right gate — a game's rep ends with a goal, and a
