@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up juggling in pairs",
         "en-GB": "Warm-up juggling in pairs",
@@ -189,6 +190,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up on every surface",
         "en-GB": "Warm-up on every surface",
@@ -383,6 +385,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up keeping it up as three",
         "en-GB": "Warm-up keeping it up as three",
@@ -577,6 +580,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve receive on the left",
         "en-GB": "Serve receive on the left",
@@ -823,6 +827,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve receive on the right",
         "en-GB": "Serve receive on the right",
@@ -1069,6 +1074,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Feeding off the serve",
         "en-GB": "Feeding off the serve",
@@ -1305,6 +1311,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Feeding high",
         "en-GB": "Feeding high",
@@ -1541,6 +1548,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Feeding fast",
         "en-GB": "Feeding fast",
@@ -1777,6 +1785,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking straight",
         "en-GB": "Attacking straight",
@@ -2033,6 +2042,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking cross-court",
         "en-GB": "Attacking cross-court",
@@ -2289,6 +2299,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Attacking the feint",
         "en-GB": "Attacking the feint",
@@ -2545,6 +2556,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Spiking the roll",
         "en-GB": "Spiking the roll",
@@ -2786,6 +2798,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Spiking the scissor kick",
         "en-GB": "Spiking the scissor kick",
@@ -3014,6 +3027,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Spiking the sunback",
         "en-GB": "Spiking the sunback",
@@ -3255,6 +3269,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending at the net",
         "en-GB": "Defending at the net",
@@ -3498,6 +3513,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending behind the block",
         "en-GB": "Defending behind the block",
@@ -3741,6 +3757,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending covering the block",
         "en-GB": "Defending covering the block",
@@ -3971,6 +3988,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Covering the spike behind your own attack",
         "en-GB": "Covering the spike behind your own attack",
@@ -4180,6 +4198,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game full regu",
         "en-GB": "Game full regu",
@@ -4422,6 +4441,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve deep",
         "en-GB": "Serve deep",
@@ -4678,6 +4698,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve at the seam",
         "en-GB": "Serve at the seam",
@@ -4934,6 +4955,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve short",
         "en-GB": "Serve short",
@@ -5190,6 +5212,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Tekong serve off the high toss",
         "en-GB": "Tekong serve off the high toss",
@@ -5431,6 +5454,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Tekong serve driven low",
         "en-GB": "Tekong serve driven low",
@@ -5672,6 +5696,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 2v2",
         "en-GB": "Game 2v2",
@@ -5888,6 +5913,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 3v3",
         "en-GB": "Game 3v3",
@@ -6158,6 +6184,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game with no block",
         "en-GB": "Game with no block",
@@ -6435,6 +6462,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending blocking at the net",
         "en-GB": "Defending blocking at the net",
@@ -6658,6 +6686,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve receive with the head",
         "en-GB": "Serve receive with the head",
@@ -6879,6 +6908,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",
@@ -7004,6 +7034,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Repeat sprints",
         "en-GB": "Repeat sprints",
@@ -7229,6 +7260,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ankle hops",
         "en-GB": "Ankle hops",

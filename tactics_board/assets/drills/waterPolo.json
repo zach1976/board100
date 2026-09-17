@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up eggbeater and pass",
         "en-GB": "Warm-up eggbeater and pass",
@@ -229,6 +230,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up swim and catch",
         "en-GB": "Warm-up swim and catch",
@@ -401,6 +403,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up wet passing",
         "en-GB": "Warm-up wet passing",
@@ -563,6 +566,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter circulation",
         "en-GB": "Perimeter circulation",
@@ -961,6 +965,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter through the centre",
         "en-GB": "Perimeter through the centre",
@@ -1386,6 +1391,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter drive and kick",
         "en-GB": "Perimeter drive and kick",
@@ -1816,6 +1822,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter-attack 2v1",
         "en-GB": "Counter-attack 2v1",
@@ -2040,6 +2047,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter-attack 3v2",
         "en-GB": "Counter-attack 3v2",
@@ -2323,6 +2331,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter-attack 4v3",
         "en-GB": "Counter-attack 4v3",
@@ -2665,6 +2674,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Six on five 4-2",
         "en-GB": "Six on five 4-2",
@@ -2680,18 +2690,18 @@
         "vi-VN": "Sáu đánh năm 4-2"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 6 v 6, ball with 1.\nBall path: 1 → 2 → 3 → 4\nSequence: Step 1: 1 throws to 2, 1 moves right, 4 moves left; Step 2: 2 throws to 3, 2, 2 Ds move up the board, 5 moves right, 3 Ds move left; Step 3: 3 throws to 4, 3 moves up the board, 6, GK move left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Two passes, then shoot. The block moves on the second pass and recovers by the fourth — everything after that is a wasted ejection.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 6 v 6, ball with 1.\nBall path: 1 → 2 → 3 → 4\nSequence: Step 1: 1 throws to 2, 1 moves right, 4 moves left; Step 2: 2 throws to 3, 2, 2 Ds move up the board, 5 moves right, 3 Ds move left; Step 3: 3 throws to 4, 3 moves up the board, 6, GK move left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Two passes, then shoot. The block moves on the second pass and recovers by the fourth — everything after that is a wasted ejection.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】6 对 6，球在 1号球员 手中。\n【球路】1 → 2 → 3 → 4\n【流程】第1步：1号球员传给2号球员，1号球员向右移动，4号球员向左移动；第2步：2号球员传给3号球员，2号球员、2 名 D向前移动，5号球员向右移动，3 名 D向左移动；第3步：3号球员传给4号球员，3号球员向前移动，6号球员、GK向左移动。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】球整体越过两门柱之间的门线算进球。球出边线由对方在出界处发球；30 秒内没有射门即失去球权。\n【要点】两次传球就出手。封堵会在第二次传球时移动，到第四次就已经补回来了——之后的一切都是白白浪费一次罚出。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】6 對 6，球在 1號球員 手中。\n【球路】1 → 2 → 3 → 4\n【流程】第1步：1號球員傳給2號球員，1號球員向右移動，4號球員向左移動；第2步：2號球員傳給3號球員，2號球員、2 名 D向前移動，5號球員向右移動，3 名 D向左移動；第3步：3號球員傳給4號球員，3號球員向前移動，6號球員、GK向左移動。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】球整體越過兩門柱之間的門線算進球。球出邊線由對方在出界處發球；30 秒內沒有射門即失去球權。\n【要點】兩次傳球就出手。封堵會在第二次傳球時移動，到第四次就已經補回來了——之後的一切都是白白浪費一次罰出。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】6対6、ボールは1番。\n【ボールの道筋】1 → 2 → 3 → 4\n【流れ】ステップ1：1番が2番へ送球、1番が右へ移動、4番が左へ移動。ステップ2：2番が3番へ送球、2番・D2人が前方へ移動、5番が右へ移動、D3人が左へ移動。ステップ3：3番が4番へ送球、3番が前方へ移動、6番・GKが左へ移動。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】ボールがポスト間のラインを完全に越えれば得点。サイドを出たら相手がその地点から再開、30秒以内にシュートがなければ攻撃権を失う。\n【ポイント】パス2本で撃つ。ブロックは2本目で動き、4本目には戻る。それ以降は退水を無駄にしているだけ。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】6대6, 공은 1번.\n【볼 경로】1 → 2 → 3 → 4\n【진행】1단계: 1번가 2번에게 송구, 1번는 오른쪽으로 이동, 4번는 왼쪽으로 이동; 2단계: 2번가 3번에게 송구, 2번, D 2명는 앞으로 이동, 5번는 오른쪽으로 이동, D 3명는 왼쪽으로 이동; 3단계: 3번가 4번에게 송구, 3번는 앞으로 이동, 6번, GK는 왼쪽으로 이동.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】공이 골포스트 사이 라인을 완전히 넘으면 득점. 공이 옆으로 나가면 상대가 그 지점에서 재개하고, 30초 안에 슛이 없으면 공격권을 잃는다.\n【포인트】패스 두 번 뒤 슛. 블록은 두 번째 패스에 움직이고 네 번째면 복구된다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 6 contra 6, balón con 1.\nRecorrido del balón: 1 → 2 → 3 → 4\nSecuencia: Paso 1: 1 lanza a 2, 1 se desplaza a la derecha, 4 se desplaza a la izquierda; Paso 2: 2 lanza a 3, 2, 2 D se desplaza hacia delante, 5 se desplaza a la derecha, 3 D se desplaza a la izquierda; Paso 3: 3 lanza a 4, 3 se desplaza hacia delante, 6, GK se desplaza a la izquierda.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: Es gol cuando el balón cruza entero la línea entre los postes. Si sale por el lateral, el rival reanuda desde ahí, y treinta segundos sin tirar pierden la posesión.\nPunto clave: Dos pases y tira: el bloque se mueve al segundo y se recupera al cuarto; lo que venga después es una expulsión desperdiciada.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 6 contre 6, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3 → 4\nDéroulé : Étape 1 : 1 lance à 2, 1 se déplace à droite, 4 se déplace à gauche ; Étape 2 : 2 lance à 3, 2, 2 D se déplace vers l'avant, 5 se déplace à droite, 3 D se déplace à gauche ; Étape 3 : 3 lance à 4, 3 se déplace vers l'avant, 6, GK se déplace à gauche.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : But quand le ballon franchit entièrement la ligne entre les poteaux. Sortie sur le côté : l'adversaire repart de là, et trente secondes sans tir font perdre la possession.\nPoint clé : Deux passes puis tire : le bloc bouge à la deuxième et se replace à la quatrième — le reste gaspille l'exclusion.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 6 lawan 6, bola pada 1.\nJalur bola: 1 → 2 → 3 → 4\nUrutan: Langkah 1: 1 melempar ke 2, 1 bergerak ke kanan, 4 bergerak ke kiri; Langkah 2: 2 melempar ke 3, 2, 2 D bergerak ke depan, 5 bergerak ke kanan, 3 D bergerak ke kiri; Langkah 3: 3 melempar ke 4, 3 bergerak ke depan, 6, GK bergerak ke kiri.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Gol bila bola sepenuhnya melewati garis di antara tiang. Bola keluar di samping, lawan memulai dari sana, dan tiga puluh detik tanpa tembakan berarti kehilangan bola.\nPoin utama: Dua umpan lalu tembak.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 6 lawan 6, bola dengan 1.\nLaluan bola: 1 → 2 → 3 → 4\nUrutan: Langkah 1: 1 membaling kepada 2, 1 bergerak ke kanan, 4 bergerak ke kiri; Langkah 2: 2 membaling kepada 3, 2, 2 D bergerak ke hadapan, 5 bergerak ke kanan, 3 D bergerak ke kiri; Langkah 3: 3 membaling kepada 4, 3 bergerak ke hadapan, 6, GK bergerak ke kiri.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Gol apabila bola melepasi garisan antara tiang sepenuhnya. Bola keluar di tepi, lawan memulakan dari situ, dan tiga puluh saat tanpa rembatan bermakna kehilangan bola.\nPoin utama: Dua hantaran kemudian tembak.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 6 ต่อ 6 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3 → 4\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 1 ขยับไปทางขวา 4 ขยับไปทางซ้าย • ขั้นที่ 2: 2 ขว้างให้ 3 2, D 2 คน ขยับไปข้างหน้า 5 ขยับไปทางขวา D 3 คน ขยับไปทางซ้าย • ขั้นที่ 3: 3 ขว้างให้ 4 3 ขยับไปข้างหน้า 6, GK ขยับไปทางซ้าย\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นระหว่างเสาทั้งลูก บอลออกข้างให้อีกฝ่ายเริ่มจากจุดนั้น และครบ 30 วินาทีไม่ได้ยิงถือว่าเสียสิทธิ์ครองบอล\nจุดเน้น: จ่ายสองครั้งแล้วยิง บล็อกจะขยับที่ครั้งที่สองและกลับมาทันที่ครั้งที่สี่",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 6 đấu 6, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3 → 4\nTrình tự: Bước 1: 1 ném cho 2, 1 di chuyển sang phải, 4 di chuyển sang trái; Bước 2: 2 ném cho 3, 2, 2 D di chuyển lên phía trước, 5 di chuyển sang phải, 3 D di chuyển sang trái; Bước 3: 3 ném cho 4, 3 di chuyển lên phía trước, 6, GK di chuyển sang trái.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Bàn thắng khi bóng qua hẳn vạch giữa hai cột. Bóng ra biên thì đội kia phát lại từ đó, và ba mươi giây không dứt điểm là mất quyền kiểm soát bóng.\nĐiểm chính: Hai đường chuyền rồi dứt điểm."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 6 v 6, ball with 1.\nBall path: 1 → 2 → 3 → 4 → goal\nSequence: Step 1: 1 throws to 2, 1 moves right, 4 moves left; Step 2: 2 throws to 3, 2, 2 Ds move up the board, 5 moves right, 3 Ds move left; Step 3: 3 throws to 4, 3 moves up the board, 6, GK move left; Step 4: 4 shoots.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Two passes, then shoot. The block moves on the second pass and recovers by the fourth — everything after that is a wasted ejection.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 6 v 6, ball with 1.\nBall path: 1 → 2 → 3 → 4 → goal\nSequence: Step 1: 1 throws to 2, 1 moves right, 4 moves left; Step 2: 2 throws to 3, 2, 2 Ds move up the board, 5 moves right, 3 Ds move left; Step 3: 3 throws to 4, 3 moves up the board, 6, GK move left; Step 4: 4 shoots.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Two passes, then shoot. The block moves on the second pass and recovers by the fourth — everything after that is a wasted ejection.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】6 对 6，球在 1号球员 手中。\n【球路】1 → 2 → 3 → 4 → 球门\n【流程】第1步：1号球员传给2号球员，1号球员向右移动，4号球员向左移动；第2步：2号球员传给3号球员，2号球员、2 名 D向前移动，5号球员向右移动，3 名 D向左移动；第3步：3号球员传给4号球员，3号球员向前移动，6号球员、GK向左移动；第4步：4号球员射门。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】球整体越过两门柱之间的门线算进球。球出边线由对方在出界处发球；30 秒内没有射门即失去球权。\n【要点】两次传球就出手。封堵会在第二次传球时移动，到第四次就已经补回来了——之后的一切都是白白浪费一次罚出。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】6 對 6，球在 1號球員 手中。\n【球路】1 → 2 → 3 → 4 → 球門\n【流程】第1步：1號球員傳給2號球員，1號球員向右移動，4號球員向左移動；第2步：2號球員傳給3號球員，2號球員、2 名 D向前移動，5號球員向右移動，3 名 D向左移動；第3步：3號球員傳給4號球員，3號球員向前移動，6號球員、GK向左移動；第4步：4號球員射門。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】球整體越過兩門柱之間的門線算進球。球出邊線由對方在出界處發球；30 秒內沒有射門即失去球權。\n【要點】兩次傳球就出手。封堵會在第二次傳球時移動，到第四次就已經補回來了——之後的一切都是白白浪費一次罰出。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】6対6、ボールは1番。\n【ボールの道筋】1 → 2 → 3 → 4 → ゴール\n【流れ】ステップ1：1番が2番へ送球、1番が右へ移動、4番が左へ移動。ステップ2：2番が3番へ送球、2番・D2人が前方へ移動、5番が右へ移動、D3人が左へ移動。ステップ3：3番が4番へ送球、3番が前方へ移動、6番・GKが左へ移動。ステップ4：4番がシュート。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】ボールがポスト間のラインを完全に越えれば得点。サイドを出たら相手がその地点から再開、30秒以内にシュートがなければ攻撃権を失う。\n【ポイント】パス2本で撃つ。ブロックは2本目で動き、4本目には戻る。それ以降は退水を無駄にしているだけ。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】6대6, 공은 1번.\n【볼 경로】1 → 2 → 3 → 4 → 골문\n【진행】1단계: 1번가 2번에게 송구, 1번는 오른쪽으로 이동, 4번는 왼쪽으로 이동; 2단계: 2번가 3번에게 송구, 2번, D 2명는 앞으로 이동, 5번는 오른쪽으로 이동, D 3명는 왼쪽으로 이동; 3단계: 3번가 4번에게 송구, 3번는 앞으로 이동, 6번, GK는 왼쪽으로 이동; 4단계: 4번 슛.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】공이 골포스트 사이 라인을 완전히 넘으면 득점. 공이 옆으로 나가면 상대가 그 지점에서 재개하고, 30초 안에 슛이 없으면 공격권을 잃는다.\n【포인트】패스 두 번 뒤 슛. 블록은 두 번째 패스에 움직이고 네 번째면 복구된다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 6 contra 6, balón con 1.\nRecorrido del balón: 1 → 2 → 3 → 4 → portería\nSecuencia: Paso 1: 1 lanza a 2, 1 se desplaza a la derecha, 4 se desplaza a la izquierda; Paso 2: 2 lanza a 3, 2, 2 D se desplaza hacia delante, 5 se desplaza a la derecha, 3 D se desplaza a la izquierda; Paso 3: 3 lanza a 4, 3 se desplaza hacia delante, 6, GK se desplaza a la izquierda; Paso 4: 4 remata.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: Es gol cuando el balón cruza entero la línea entre los postes. Si sale por el lateral, el rival reanuda desde ahí, y treinta segundos sin tirar pierden la posesión.\nPunto clave: Dos pases y tira: el bloque se mueve al segundo y se recupera al cuarto; lo que venga después es una expulsión desperdiciada.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 6 contre 6, ballon avec 1.\nTrajet du ballon : 1 → 2 → 3 → 4 → but\nDéroulé : Étape 1 : 1 lance à 2, 1 se déplace à droite, 4 se déplace à gauche ; Étape 2 : 2 lance à 3, 2, 2 D se déplace vers l'avant, 5 se déplace à droite, 3 D se déplace à gauche ; Étape 3 : 3 lance à 4, 3 se déplace vers l'avant, 6, GK se déplace à gauche ; Étape 4 : 4 frappe.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : But quand le ballon franchit entièrement la ligne entre les poteaux. Sortie sur le côté : l'adversaire repart de là, et trente secondes sans tir font perdre la possession.\nPoint clé : Deux passes puis tire : le bloc bouge à la deuxième et se replace à la quatrième — le reste gaspille l'exclusion.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 6 lawan 6, bola pada 1.\nJalur bola: 1 → 2 → 3 → 4 → gawang\nUrutan: Langkah 1: 1 melempar ke 2, 1 bergerak ke kanan, 4 bergerak ke kiri; Langkah 2: 2 melempar ke 3, 2, 2 D bergerak ke depan, 5 bergerak ke kanan, 3 D bergerak ke kiri; Langkah 3: 3 melempar ke 4, 3 bergerak ke depan, 6, GK bergerak ke kiri; Langkah 4: 4 menembak.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Gol bila bola sepenuhnya melewati garis di antara tiang. Bola keluar di samping, lawan memulai dari sana, dan tiga puluh detik tanpa tembakan berarti kehilangan bola.\nPoin utama: Dua umpan lalu tembak.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 6 lawan 6, bola dengan 1.\nLaluan bola: 1 → 2 → 3 → 4 → gol\nUrutan: Langkah 1: 1 membaling kepada 2, 1 bergerak ke kanan, 4 bergerak ke kiri; Langkah 2: 2 membaling kepada 3, 2, 2 D bergerak ke hadapan, 5 bergerak ke kanan, 3 D bergerak ke kiri; Langkah 3: 3 membaling kepada 4, 3 bergerak ke hadapan, 6, GK bergerak ke kiri; Langkah 4: 4 menjaring.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Gol apabila bola melepasi garisan antara tiang sepenuhnya. Bola keluar di tepi, lawan memulakan dari situ, dan tiga puluh saat tanpa rembatan bermakna kehilangan bola.\nPoin utama: Dua hantaran kemudian tembak.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 6 ต่อ 6 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 3 → 4 → ประตู\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 1 ขยับไปทางขวา 4 ขยับไปทางซ้าย • ขั้นที่ 2: 2 ขว้างให้ 3 2, D 2 คน ขยับไปข้างหน้า 5 ขยับไปทางขวา D 3 คน ขยับไปทางซ้าย • ขั้นที่ 3: 3 ขว้างให้ 4 3 ขยับไปข้างหน้า 6, GK ขยับไปทางซ้าย • ขั้นที่ 4: 4 ยิงประตู\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นระหว่างเสาทั้งลูก บอลออกข้างให้อีกฝ่ายเริ่มจากจุดนั้น และครบ 30 วินาทีไม่ได้ยิงถือว่าเสียสิทธิ์ครองบอล\nจุดเน้น: จ่ายสองครั้งแล้วยิง บล็อกจะขยับที่ครั้งที่สองและกลับมาทันที่ครั้งที่สี่",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 6 đấu 6, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 3 → 4 → khung thành\nTrình tự: Bước 1: 1 ném cho 2, 1 di chuyển sang phải, 4 di chuyển sang trái; Bước 2: 2 ném cho 3, 2, 2 D di chuyển lên phía trước, 5 di chuyển sang phải, 3 D di chuyển sang trái; Bước 3: 3 ném cho 4, 3 di chuyển lên phía trước, 6, GK di chuyển sang trái; Bước 4: 4 dứt điểm.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Bàn thắng khi bóng qua hẳn vạch giữa hai cột. Bóng ra biên thì đội kia phát lại từ đó, và ba mươi giây không dứt điểm là mất quyền kiểm soát bóng.\nĐiểm chính: Hai đường chuyền rồi dứt điểm."
       },
       "mistake": {
         "en": "Holding the ball past the fourth pass — the block recovers and the ejection is wasted.",
@@ -3056,12 +3066,17 @@
               [
                 695.3776466289708,
                 285.40954154874527
+              ],
+              [
+                578.6048818724076,
+                263.31139701451036
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3102,6 +3117,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Six on five 3-3",
         "en-GB": "Six on five 3-3",
@@ -3544,6 +3560,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Six on five the umbrella",
         "en-GB": "Six on five the umbrella",
@@ -3986,6 +4003,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Centre forward the entry pass",
         "en-GB": "Centre forward the entry pass",
@@ -4272,6 +4290,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Centre forward the backhand",
         "en-GB": "Centre forward the backhand",
@@ -4558,6 +4577,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Centre forward the sweep shot",
         "en-GB": "Centre forward the sweep shot",
@@ -4844,6 +4864,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Centre forward drawing the exclusion",
         "en-GB": "Centre forward drawing the exclusion",
@@ -5095,6 +5116,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence pressing",
         "en-GB": "Defence pressing",
@@ -5592,6 +5614,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence dropping off",
         "en-GB": "Defence dropping off",
@@ -6089,6 +6112,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence fronting the centre",
         "en-GB": "Defence fronting the centre",
@@ -6586,6 +6610,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence five against six",
         "en-GB": "Defence five against six",
@@ -7051,6 +7076,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Restart the five-metre penalty",
         "en-GB": "Restart the five-metre penalty",
@@ -7228,6 +7254,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Restart the quick free throw",
         "en-GB": "Restart the quick free throw",
@@ -7477,6 +7504,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Restart the swim-off",
         "en-GB": "Restart the swim-off",
@@ -7688,6 +7716,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 3v3",
         "en-GB": "Game 3v3",
@@ -7983,6 +8012,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 4v4",
         "en-GB": "Game 4v4",
@@ -8332,6 +8362,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 6v6",
         "en-GB": "Game 6v6",
@@ -8789,6 +8820,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter shot the skip shot",
         "en-GB": "Perimeter shot the skip shot",
@@ -9070,6 +9102,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter shot the power shot from the point",
         "en-GB": "Perimeter shot the power shot from the point",
@@ -9351,6 +9384,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter shot the lob",
         "en-GB": "Perimeter shot the lob",
@@ -9632,6 +9666,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Perimeter shot catch and shoot",
         "en-GB": "Perimeter shot catch and shoot",
@@ -9913,6 +9948,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping angles",
         "en-GB": "Goalkeeping angles",
@@ -10137,6 +10173,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping the two-metre shot",
         "en-GB": "Goalkeeping the two-metre shot",
@@ -10334,6 +10371,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping the five-metre penalty",
         "en-GB": "Goalkeeping the five-metre penalty",
@@ -10531,6 +10569,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping the outlet that starts the counter",
         "en-GB": "Goalkeeping the outlet that starts the counter",
@@ -10742,6 +10781,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Eggbeater intervals",
         "en-GB": "Eggbeater intervals",
@@ -10857,6 +10897,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Sprint lengths",
         "en-GB": "Sprint lengths",
@@ -10952,6 +10993,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",

@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Footwork to the forehand net",
         "en-GB": "Footwork to the forehand net",
@@ -274,6 +275,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Footwork to the backhand net",
         "en-GB": "Footwork to the backhand net",
@@ -521,6 +523,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Footwork to the forehand rear",
         "en-GB": "Footwork to the forehand rear",
@@ -768,6 +771,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Footwork to the backhand rear",
         "en-GB": "Footwork to the backhand rear",
@@ -1015,6 +1019,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Footwork to all four corners",
         "en-GB": "Footwork to all four corners",
@@ -1220,6 +1225,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Multi-shuttle feeding",
         "en-GB": "Multi-shuttle feeding",
@@ -1467,6 +1473,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Clear straight",
         "en-GB": "Clear straight",
@@ -1659,6 +1666,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Clear cross-court",
         "en-GB": "Clear cross-court",
@@ -1851,6 +1859,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Drive rally flat exchange",
         "en-GB": "Drive rally flat exchange",
@@ -2018,6 +2027,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Drive rally cross-court",
         "en-GB": "Drive rally cross-court",
@@ -2185,6 +2195,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Drop straight",
         "en-GB": "Drop straight",
@@ -2372,6 +2383,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Drop cross-court",
         "en-GB": "Drop cross-court",
@@ -2559,6 +2571,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Drop sliced",
         "en-GB": "Drop sliced",
@@ -2746,6 +2759,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Net kill",
         "en-GB": "Net kill",
@@ -2933,6 +2947,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Net lift",
         "en-GB": "Net lift",
@@ -3120,6 +3135,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Net with spin",
         "en-GB": "Net with spin",
@@ -3307,6 +3323,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Deception hold and flick",
         "en-GB": "Deception hold and flick",
@@ -3499,6 +3516,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Deception double motion",
         "en-GB": "Deception double motion",
@@ -3691,6 +3709,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles attacking shape",
         "en-GB": "Doubles attacking shape",
@@ -3887,6 +3906,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles defending shape",
         "en-GB": "Doubles defending shape",
@@ -4096,6 +4116,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Doubles rotating on the lift",
         "en-GB": "Doubles rotating on the lift",
@@ -4305,6 +4326,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash straight",
         "en-GB": "Smash straight",
@@ -4492,6 +4514,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash cross-court",
         "en-GB": "Smash cross-court",
@@ -4679,6 +4702,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Smash steep",
         "en-GB": "Smash steep",
@@ -4866,6 +4890,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence block return",
         "en-GB": "Defence block return",
@@ -5053,6 +5078,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence drive return",
         "en-GB": "Defence drive return",
@@ -5240,6 +5266,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence lift return",
         "en-GB": "Defence lift return",
@@ -5427,6 +5454,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve short",
         "en-GB": "Serve short",
@@ -5649,6 +5677,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve flick",
         "en-GB": "Serve flick",
@@ -5871,6 +5900,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve high singles",
         "en-GB": "Serve high singles",
@@ -6093,6 +6123,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Serve drive",
         "en-GB": "Serve drive",
@@ -6315,6 +6346,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioned game half-court singles",
         "en-GB": "Conditioned game half-court singles",
@@ -6517,6 +6549,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioned game front-court only",
         "en-GB": "Conditioned game front-court only",
@@ -6679,6 +6712,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioned game 2v1",
         "en-GB": "Conditioned game 2v1",
@@ -6868,6 +6902,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioned game full doubles",
         "en-GB": "Conditioned game full doubles",
@@ -7084,6 +7119,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Return of serve against the short serve",
         "en-GB": "Return of serve against the short serve",
@@ -7311,6 +7347,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Return of serve against the flick",
         "en-GB": "Return of serve against the flick",
@@ -7525,6 +7562,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Clear round the head",
         "en-GB": "Clear round the head",
@@ -7719,6 +7757,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Net the battle at the tape",
         "en-GB": "Net the battle at the tape",
@@ -7893,6 +7932,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shadow footwork",
         "en-GB": "Shadow footwork",
@@ -8158,6 +8198,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Line shuttle",
         "en-GB": "Line shuttle",
@@ -8263,6 +8304,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",

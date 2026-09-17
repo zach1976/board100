@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up juggling in pairs",
         "en-GB": "Warm-up juggling in pairs",
@@ -189,6 +190,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up on every surface",
         "en-GB": "Warm-up on every surface",
@@ -383,6 +385,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball control with the chest",
         "en-GB": "Ball control with the chest",
@@ -592,6 +595,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball control the shoulder pass",
         "en-GB": "Ball control the shoulder pass",
@@ -801,6 +805,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball control high",
         "en-GB": "Ball control high",
@@ -1010,6 +1015,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Receiving with the chest",
         "en-GB": "Receiving with the chest",
@@ -1224,6 +1230,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Receiving with the thigh",
         "en-GB": "Receiving with the thigh",
@@ -1438,6 +1445,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve long and fast",
         "en-GB": "Serve long and fast",
@@ -1645,6 +1653,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve in the corner",
         "en-GB": "Serve in the corner",
@@ -1852,6 +1861,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Serve at the seam",
         "en-GB": "Serve at the seam",
@@ -2059,6 +2069,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Setting up the shark attack",
         "en-GB": "Setting up the shark attack",
@@ -2305,6 +2316,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Setting up the sombrero",
         "en-GB": "Setting up the sombrero",
@@ -2544,6 +2556,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Setting up cross-court",
         "en-GB": "Setting up cross-court",
@@ -2790,6 +2803,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination off the quick set",
         "en-GB": "Combination off the quick set",
@@ -3031,6 +3045,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination from the back court",
         "en-GB": "Combination from the back court",
@@ -3272,6 +3287,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination attacking the second ball",
         "en-GB": "Combination attacking the second ball",
@@ -3513,6 +3529,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing the bicycle kick",
         "en-GB": "Finishing the bicycle kick",
@@ -3742,6 +3759,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing the header",
         "en-GB": "Finishing the header",
@@ -3971,6 +3989,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing the drop",
         "en-GB": "Finishing the drop",
@@ -4200,6 +4219,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the block",
         "en-GB": "Defending the block",
@@ -4416,6 +4436,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending covering the block",
         "en-GB": "Defending covering the block",
@@ -4632,6 +4653,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the dig",
         "en-GB": "Defending the dig",
@@ -4835,6 +4857,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Block timing one against one at the net",
         "en-GB": "Block timing one against one at the net",
@@ -5024,6 +5047,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 1v1",
         "en-GB": "Game 1v1",
@@ -5186,6 +5210,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 2v2",
         "en-GB": "Game 2v2",
@@ -5402,6 +5427,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 4v4",
         "en-GB": "Game 4v4",
@@ -5726,6 +5752,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Game 3v3",
         "en-GB": "Game 3v3",
@@ -5983,6 +6010,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Sand sprints",
         "en-GB": "Sand sprints",
@@ -6118,6 +6146,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Jump series",
         "en-GB": "Jump series",
@@ -6243,6 +6272,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lateral shuffle",
         "en-GB": "Lateral shuffle",

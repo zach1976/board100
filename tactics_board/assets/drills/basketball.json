@@ -14,6 +14,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Layup lines",
         "en-GB": "Layup lines",
@@ -213,6 +214,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Two-ball dribbling",
         "en-GB": "Two-ball dribbling",
@@ -420,6 +422,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Star passing",
         "en-GB": "Star passing",
@@ -653,6 +656,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Five-out spacing",
         "en-GB": "Five-out spacing",
@@ -872,6 +876,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Pick and roll",
         "en-GB": "Pick and roll",
@@ -1160,6 +1165,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Pick and pop",
         "en-GB": "Pick and pop",
@@ -1448,6 +1454,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Backdoor cut",
         "en-GB": "Backdoor cut",
@@ -1667,6 +1674,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Dribble handoff",
         "en-GB": "Dribble handoff",
@@ -1923,6 +1931,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Horns set",
         "en-GB": "Horns set",
@@ -2149,6 +2158,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Catch and shoot",
         "en-GB": "Catch and shoot",
@@ -2323,6 +2333,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Post finishing",
         "en-GB": "Post finishing",
@@ -2524,6 +2535,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Closeouts",
         "en-GB": "Closeouts",
@@ -2718,6 +2730,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Help and recover",
         "en-GB": "Help and recover",
@@ -2919,6 +2932,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Box out",
         "en-GB": "Box out",
@@ -3147,6 +3161,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Baseline inbounds: box",
         "en-GB": "Baseline inbounds: box",
@@ -3463,6 +3478,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Press break",
         "en-GB": "Press break",
@@ -3770,6 +3786,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "3v3, no dribble",
         "en-GB": "3v3, no dribble",
@@ -4004,6 +4021,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "2v1 transition",
         "en-GB": "2v1 transition",
@@ -4213,6 +4231,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball screen from top",
         "en-GB": "Ball screen from top",
@@ -4514,6 +4533,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball screen from left wing",
         "en-GB": "Ball screen from left wing",
@@ -4810,6 +4830,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball screen from right wing",
         "en-GB": "Ball screen from right wing",
@@ -5106,6 +5127,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball screen from left slot",
         "en-GB": "Ball screen from left slot",
@@ -5402,6 +5424,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Ball screen from right slot",
         "en-GB": "Ball screen from right slot",
@@ -5698,6 +5721,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cutting give and go",
         "en-GB": "Cutting give and go",
@@ -5955,6 +5979,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cutting the backdoor cut",
         "en-GB": "Cutting the backdoor cut",
@@ -6207,6 +6232,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cutting the flare",
         "en-GB": "Cutting the flare",
@@ -6466,6 +6492,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cutting along the baseline",
         "en-GB": "Cutting along the baseline",
@@ -6718,6 +6745,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting the corner",
         "en-GB": "Shooting the corner",
@@ -6900,6 +6928,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting left wing",
         "en-GB": "Shooting left wing",
@@ -7082,6 +7111,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting top",
         "en-GB": "Shooting top",
@@ -7264,6 +7294,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting right wing",
         "en-GB": "Shooting right wing",
@@ -7446,6 +7477,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting the elbow",
         "en-GB": "Shooting the elbow",
@@ -7628,6 +7660,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Post play the drop step",
         "en-GB": "Post play the drop step",
@@ -7882,6 +7915,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Post play facing up",
         "en-GB": "Post play facing up",
@@ -8136,6 +8170,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Post play the kick-out",
         "en-GB": "Post play the kick-out",
@@ -8376,6 +8411,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Post play the short roll",
         "en-GB": "Post play the short roll",
@@ -8647,6 +8683,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence in drop coverage",
         "en-GB": "Defence in drop coverage",
@@ -8888,6 +8925,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence hedging",
         "en-GB": "Defence hedging",
@@ -9129,6 +9167,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence switching",
         "en-GB": "Defence switching",
@@ -9370,6 +9409,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defence icing the side screen",
         "en-GB": "Defence icing the side screen",
@@ -9598,6 +9638,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shell drill 4v4",
         "en-GB": "Shell drill 4v4",
@@ -9924,6 +9965,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 3v2",
         "en-GB": "Transition 3v2",
@@ -10180,6 +10222,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 4v3",
         "en-GB": "Transition 4v3",
@@ -10488,6 +10531,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 5v4",
         "en-GB": "Transition 5v4",
@@ -10855,6 +10899,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Inbounds stack",
         "en-GB": "Inbounds stack",
@@ -11125,6 +11170,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Inbounds the box",
         "en-GB": "Inbounds the box",
@@ -11422,6 +11468,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Inbounds the zipper",
         "en-GB": "Inbounds the zipper",
@@ -11685,6 +11732,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Inbounds from the sideline",
         "en-GB": "Inbounds from the sideline",
@@ -11948,6 +11996,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Zone defence the 2-3",
         "en-GB": "Zone defence the 2-3",
@@ -12295,6 +12344,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Zone defence the 1-3-1",
         "en-GB": "Zone defence the 1-3-1",
@@ -12637,6 +12687,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Zone defence attacking the zone",
         "en-GB": "Zone defence attacking the zone",
@@ -13020,6 +13071,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Off-ball screen the pin-down",
         "en-GB": "Off-ball screen the pin-down",
@@ -13269,6 +13321,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Off-ball screen the stagger",
         "en-GB": "Off-ball screen the stagger",
@@ -13545,6 +13598,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Off-ball screen the flex cut",
         "en-GB": "Off-ball screen the flex cut",
@@ -13791,6 +13845,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Free throws",
         "en-GB": "Free throws",
@@ -14000,6 +14055,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Suicides (17s)",
         "en-GB": "Suicides (17s)",
@@ -14125,6 +14181,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lateral shuffle",
         "en-GB": "Lateral shuffle",
@@ -14335,6 +14392,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lane agility",
         "en-GB": "Lane agility",

@@ -27,6 +27,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up long toss",
         "en-GB": "Warm-up long toss",
@@ -209,6 +210,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up infield and outfield",
         "en-GB": "Warm-up infield and outfield",
@@ -553,6 +555,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Warm-up pitchers fielding practice",
         "en-GB": "Warm-up pitchers fielding practice",
@@ -740,6 +743,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Double play 6-4-3",
         "en-GB": "Double play 6-4-3",
@@ -1188,6 +1192,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Double play 4-6-3",
         "en-GB": "Double play 4-6-3",
@@ -1636,6 +1641,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Double play 5-4-3",
         "en-GB": "Double play 5-4-3",
@@ -2084,6 +2090,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Double play 1-6-3",
         "en-GB": "Double play 1-6-3",
@@ -2532,6 +2539,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cut-off and relay to home",
         "en-GB": "Cut-off and relay to home",
@@ -2938,6 +2946,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cut-off and relay to third",
         "en-GB": "Cut-off and relay to third",
@@ -3339,6 +3348,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cut-off and relay on the gap ball",
         "en-GB": "Cut-off and relay on the gap ball",
@@ -3740,6 +3750,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Baserunning reading the steal",
         "en-GB": "Baserunning reading the steal",
@@ -4107,6 +4118,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Baserunning the hit and run",
         "en-GB": "Baserunning the hit and run",
@@ -4486,6 +4498,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Baserunning tagging up",
         "en-GB": "Baserunning tagging up",
@@ -4853,6 +4866,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Baserunning first to third",
         "en-GB": "Baserunning first to third",
@@ -5235,6 +5249,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Baserunning the secondary lead",
         "en-GB": "Baserunning the secondary lead",
@@ -5597,6 +5612,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Scoring the run the contact play",
         "en-GB": "Scoring the run the contact play",
@@ -5924,6 +5940,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Scoring the run the squeeze",
         "en-GB": "Scoring the run the squeeze",
@@ -6251,6 +6268,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Scoring the run from second",
         "en-GB": "Scoring the run from second",
@@ -6578,6 +6596,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the situation against the bunt",
         "en-GB": "Defending the situation against the bunt",
@@ -7035,6 +7054,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the situation first and third",
         "en-GB": "Defending the situation first and third",
@@ -7498,6 +7518,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the situation with the infield in",
         "en-GB": "Defending the situation with the infield in",
@@ -7948,6 +7969,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the situation the pop-up priority",
         "en-GB": "Defending the situation the pop-up priority",
@@ -8384,6 +8406,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Holding the runner the pick-off at first",
         "en-GB": "Holding the runner the pick-off at first",
@@ -8766,6 +8789,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Holding the runner the pick-off at second",
         "en-GB": "Holding the runner the pick-off at second",
@@ -9148,6 +9172,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Holding the runner the rundown",
         "en-GB": "Holding the runner the rundown",
@@ -9542,6 +9567,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Holding the runner the pitch-out",
         "en-GB": "Holding the runner the pitch-out",
@@ -9931,6 +9957,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Situational scrimmage two outs, runner on second",
         "en-GB": "Situational scrimmage two outs, runner on second",
@@ -10353,6 +10380,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Situational scrimmage bases loaded",
         "en-GB": "Situational scrimmage bases loaded",
@@ -10829,6 +10857,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Situational scrimmage the baserunning game",
         "en-GB": "Situational scrimmage the baserunning game",
@@ -11238,6 +11267,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Hitting off the tee and the front toss",
         "en-GB": "Hitting off the tee and the front toss",
@@ -11440,6 +11470,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Hitting the two-strike approach",
         "en-GB": "Hitting the two-strike approach",
@@ -11775,6 +11806,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Hitting laying down the bunt",
         "en-GB": "Hitting laying down the bunt",
@@ -12109,6 +12141,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Catching blocking the ball in the dirt",
         "en-GB": "Catching blocking the ball in the dirt",
@@ -12286,6 +12319,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Catching the throw down to second",
         "en-GB": "Catching the throw down to second",
@@ -12593,6 +12627,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fielding fundamentals the ground ball and the backhand",
         "en-GB": "Fielding fundamentals the ground ball and the backhand",
@@ -12813,6 +12848,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fielding fundamentals the drop step and the fly ball",
         "en-GB": "Fielding fundamentals the drop step and the fly ball",
@@ -13007,6 +13043,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Fielding fundamentals the bullpen and the sequence",
         "en-GB": "Fielding fundamentals the bullpen and the sequence",
@@ -13211,6 +13248,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Home to first",
         "en-GB": "Home to first",
@@ -13331,6 +13369,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Around the bases",
         "en-GB": "Around the bases",
@@ -13436,6 +13475,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Lateral shuffle",
         "en-GB": "Lateral shuffle",

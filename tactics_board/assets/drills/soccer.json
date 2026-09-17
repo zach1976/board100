@@ -14,6 +14,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 4v2",
         "zh-CN": "抢圈 4v2",
@@ -399,6 +400,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Dribble slalom",
         "zh-CN": "绕杆运球",
@@ -636,6 +638,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "7v4 possession",
         "zh-CN": "控球 7v4",
@@ -1221,6 +1224,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overlap and cross",
         "zh-CN": "套边传中",
@@ -1501,6 +1505,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Third-man run",
         "zh-CN": "第三人跑动",
@@ -1719,6 +1724,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Switch the play",
         "zh-CN": "大范围转移",
@@ -2033,6 +2039,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Cutback finish",
         "zh-CN": "倒三角射门",
@@ -2301,6 +2308,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 with the keeper",
         "zh-CN": "单刀对门将",
@@ -2460,6 +2468,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Pressing trigger",
         "zh-CN": "压迫触发点",
@@ -2745,6 +2754,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "2v2 recovery",
         "zh-CN": "回追防守 2v2",
@@ -2963,6 +2973,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner: near post",
         "zh-CN": "角球 前点",
@@ -3266,6 +3277,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick: edge of the box",
         "zh-CN": "禁区前任意球",
@@ -3535,6 +3547,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "4v4, four goals",
         "zh-CN": "四门球 4v4",
@@ -3976,6 +3989,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Y-pattern passing",
         "en-GB": "Y-pattern passing",
@@ -4304,6 +4318,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First-touch gates",
         "en-GB": "First-touch gates",
@@ -4561,6 +4576,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 5v2 — split pass",
         "en-GB": "Rondo 5v2 — split pass",
@@ -4939,6 +4955,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Three-zone possession",
         "en-GB": "Three-zone possession",
@@ -5379,6 +5396,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Building from the keeper",
         "en-GB": "Building from the keeper",
@@ -5693,6 +5711,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Wall pass on the wing",
         "en-GB": "Wall pass on the wing",
@@ -5879,6 +5898,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "3v2 counter",
         "en-GB": "3v2 counter",
@@ -6134,6 +6154,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Half-space run",
         "en-GB": "Half-space run",
@@ -6374,6 +6395,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First-time finishing",
         "en-GB": "First-time finishing",
@@ -6582,6 +6604,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Receive, turn, shoot",
         "en-GB": "Receive, turn, shoot",
@@ -6788,6 +6811,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Back four: shift and cover",
         "en-GB": "Back four: shift and cover",
@@ -7075,6 +7099,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter-press on loss",
         "en-GB": "Counter-press on loss",
@@ -7350,6 +7375,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner: short routine",
         "en-GB": "Corner: short routine",
@@ -7665,6 +7691,7 @@
       "usage": 1,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Attacking throw-in",
         "en-GB": "Attacking throw-in",
@@ -7915,6 +7942,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "6v6 transition game",
         "en-GB": "6v6 transition game",
@@ -8323,6 +8351,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rotation square",
         "en-GB": "Rotation square",
@@ -8643,6 +8672,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Two-ball awareness",
         "en-GB": "Two-ball awareness",
@@ -8936,6 +8966,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overload to isolate",
         "en-GB": "Overload to isolate",
@@ -9255,6 +9286,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Pivot switch",
         "en-GB": "Pivot switch",
@@ -9562,6 +9594,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Far-post cross",
         "en-GB": "Far-post cross",
@@ -9817,6 +9850,7 @@
       "usage": 1,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Side volley from the cutback",
         "en-GB": "Side volley from the cutback",
@@ -9998,6 +10032,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 defending in the channel",
         "en-GB": "1v1 defending in the channel",
@@ -10309,6 +10344,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Defending a corner",
         "en-GB": "Defending a corner",
@@ -10630,6 +10666,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "5v5, two touches",
         "en-GB": "5v5, two touches",
@@ -11078,6 +11115,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Long switch, first time",
         "en-GB": "Long switch, first time",
@@ -11338,6 +11376,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Penalties under fatigue",
         "en-GB": "Penalties under fatigue",
@@ -11507,6 +11546,7 @@
       "usage": 3,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shuttle 5-10-15",
         "en-GB": "Shuttle 5-10-15",
@@ -11702,6 +11742,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Agility ladder",
         "en-GB": "Agility ladder",
@@ -11847,6 +11888,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Hurdle hops",
         "en-GB": "Hurdle hops",
@@ -12067,6 +12109,7 @@
       "usage": 3,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "T-run",
         "en-GB": "T-run",
@@ -12257,6 +12300,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Star run",
         "en-GB": "Star run",
@@ -12482,6 +12526,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Interval laps",
         "en-GB": "Interval laps",
@@ -12667,6 +12712,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Sprint and stop",
         "en-GB": "Sprint and stop",
@@ -12867,6 +12913,7 @@
       "usage": 1,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Yo-yo intermittent runs",
         "en-GB": "Yo-yo intermittent runs",
@@ -13105,6 +13152,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 5v2",
         "en-GB": "Rondo 5v2",
@@ -13570,6 +13618,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 6v3",
         "en-GB": "Rondo 6v3",
@@ -14154,6 +14203,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 7v3",
         "en-GB": "Rondo 7v3",
@@ -14810,6 +14860,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rondo 8v4",
         "en-GB": "Rondo 8v4",
@@ -15600,6 +15651,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Small-sided game 3v3",
         "en-GB": "Small-sided game 3v3",
@@ -15974,6 +16026,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Small-sided game 4v4",
         "en-GB": "Small-sided game 4v4",
@@ -16388,6 +16441,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Small-sided game 5v5",
         "en-GB": "Small-sided game 5v5",
@@ -16842,6 +16896,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Small-sided game 6v6",
         "en-GB": "Small-sided game 6v6",
@@ -17336,6 +17391,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Small-sided game 7v7",
         "en-GB": "Small-sided game 7v7",
@@ -17870,6 +17926,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter 2v1",
         "en-GB": "Counter 2v1",
@@ -18064,6 +18121,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter 4v3",
         "en-GB": "Counter 4v3",
@@ -18366,6 +18424,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Counter 5v4",
         "en-GB": "Counter 5v4",
@@ -18722,6 +18781,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Playing out under pressure +1",
         "en-GB": "Playing out under pressure +1",
@@ -18995,6 +19055,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Playing out under pressure +2",
         "en-GB": "Playing out under pressure +2",
@@ -19322,6 +19383,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Playing out under pressure +3",
         "en-GB": "Playing out under pressure +3",
@@ -19703,6 +19765,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pattern left wing",
         "en-GB": "Finishing pattern left wing",
@@ -19924,6 +19987,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pattern right wing",
         "en-GB": "Finishing pattern right wing",
@@ -20145,6 +20209,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pattern left halfspace",
         "en-GB": "Finishing pattern left halfspace",
@@ -20366,6 +20431,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pattern right halfspace",
         "en-GB": "Finishing pattern right halfspace",
@@ -20587,6 +20653,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Finishing pattern central",
         "en-GB": "Finishing pattern central",
@@ -20808,6 +20875,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Press from 4-4-2",
         "en-GB": "Press from 4-4-2",
@@ -21248,6 +21316,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Press from 4-3-3",
         "en-GB": "Press from 4-3-3",
@@ -21688,6 +21757,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Press from 4-2-3-1",
         "en-GB": "Press from 4-2-3-1",
@@ -22128,6 +22198,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Press from 3-5-2",
         "en-GB": "Press from 3-5-2",
@@ -22568,6 +22639,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner far post",
         "en-GB": "Corner far post",
@@ -22884,6 +22956,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner pull back",
         "en-GB": "Corner pull back",
@@ -23205,6 +23278,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner stack",
         "en-GB": "Corner stack",
@@ -23514,6 +23588,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Corner second ball",
         "en-GB": "Corner second ball",
@@ -23835,6 +23910,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 duels wide left",
         "en-GB": "1v1 duels wide left",
@@ -24054,6 +24130,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 duels wide right",
         "en-GB": "1v1 duels wide right",
@@ -24273,6 +24350,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 duels central",
         "en-GB": "1v1 duels central",
@@ -24492,6 +24570,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "1v1 duels half-space",
         "en-GB": "1v1 duels half-space",
@@ -24711,6 +24790,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Passing pattern triangle",
         "en-GB": "Passing pattern triangle",
@@ -24992,6 +25072,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Passing pattern diamond",
         "en-GB": "Passing pattern diamond",
@@ -25325,6 +25406,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Passing pattern pentagon",
         "en-GB": "Passing pattern pentagon",
@@ -25710,6 +25792,7 @@
       "usage": 3,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Passing pattern hexagon",
         "en-GB": "Passing pattern hexagon",
@@ -26147,6 +26230,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Crossing left · near post",
         "en-GB": "Crossing left · near post",
@@ -26435,6 +26519,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Crossing left · far post",
         "en-GB": "Crossing left · far post",
@@ -26723,6 +26808,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Crossing right · near post",
         "en-GB": "Crossing right · near post",
@@ -27011,6 +27097,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Crossing right · far post",
         "en-GB": "Crossing right · far post",
@@ -27299,6 +27386,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defensive shape high block",
         "en-GB": "Defensive shape high block",
@@ -27650,6 +27738,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defensive shape mid block",
         "en-GB": "Defensive shape mid block",
@@ -28001,6 +28090,7 @@
       "usage": 2,
       "frame": "bottom",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defensive shape low block",
         "en-GB": "Defensive shape low block",
@@ -28352,6 +28442,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping handling",
         "en-GB": "Goalkeeping handling",
@@ -28547,6 +28638,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping angles",
         "en-GB": "Goalkeeping angles",
@@ -28742,6 +28834,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping crosses",
         "en-GB": "Goalkeeping crosses",
@@ -28917,6 +29010,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping distribution",
         "en-GB": "Goalkeeping distribution",
@@ -29126,6 +29220,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping 1v1",
         "en-GB": "Goalkeeping 1v1",
@@ -29288,6 +29383,7 @@
       "usage": 3,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping set position",
         "en-GB": "Goalkeeping set position",
@@ -29463,6 +29559,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goalkeeping sweeping behind the line",
         "en-GB": "Goalkeeping sweeping behind the line",
@@ -29706,6 +29803,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioning with the ball shuttle to finish",
         "en-GB": "Conditioning with the ball shuttle to finish",
@@ -29921,6 +30019,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioning with the ball repeat sprints",
         "en-GB": "Conditioning with the ball repeat sprints",
@@ -30176,6 +30275,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Conditioning with the ball box to box",
         "en-GB": "Conditioning with the ball box to box",
@@ -30371,6 +30471,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Switching play own third",
         "en-GB": "Switching play own third",
@@ -30691,6 +30792,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Switching play middle third",
         "en-GB": "Switching play middle third",
@@ -31011,6 +31113,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Switching play final third",
         "en-GB": "Switching play final third",
@@ -31331,6 +31434,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination play wall pass left",
         "en-GB": "Combination play wall pass left",
@@ -31555,6 +31659,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination play wall pass right",
         "en-GB": "Combination play wall pass right",
@@ -31779,6 +31884,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination play overlap left",
         "en-GB": "Combination play overlap left",
@@ -32015,6 +32121,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination play overlap right",
         "en-GB": "Combination play overlap right",
@@ -32251,6 +32358,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Combination play underlap",
         "en-GB": "Combination play underlap",
@@ -32480,6 +32588,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick direct",
         "en-GB": "Free kick direct",
@@ -32791,6 +32900,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick layoff",
         "en-GB": "Free kick layoff",
@@ -33107,6 +33217,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick runner across",
         "en-GB": "Free kick runner across",
@@ -33423,6 +33534,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick wide left",
         "en-GB": "Free kick wide left",
@@ -33719,6 +33831,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Free kick wide right",
         "en-GB": "Free kick wide right",
@@ -34015,6 +34128,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 4v4",
         "en-GB": "Transition 4v4",
@@ -34429,6 +34543,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 5v5",
         "en-GB": "Transition 5v5",
@@ -34883,6 +34998,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Transition 6v6",
         "en-GB": "Transition 6v6",
@@ -35377,6 +35493,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First touch pressed from behind",
         "en-GB": "First touch pressed from behind",
@@ -35644,6 +35761,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First touch pressed side on",
         "en-GB": "First touch pressed side on",
@@ -35911,6 +36029,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First touch open body",
         "en-GB": "First touch open body",
@@ -36178,6 +36297,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "First touch in traffic",
         "en-GB": "First touch in traffic",
@@ -36459,6 +36579,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Heading attacking",
         "en-GB": "Heading attacking",
@@ -36655,6 +36776,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Heading defensive",
         "en-GB": "Heading defensive",
@@ -36889,6 +37011,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goal kick short",
         "en-GB": "Goal kick short",
@@ -37189,6 +37312,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goal kick to the full-back",
         "en-GB": "Goal kick to the full-back",
@@ -37489,6 +37613,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Goal kick long",
         "en-GB": "Goal kick long",
@@ -37784,6 +37909,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overload possession 3v2",
         "en-GB": "Overload possession 3v2",
@@ -38112,6 +38238,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overload possession 4v3",
         "en-GB": "Overload possession 4v3",
@@ -38499,6 +38626,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overload possession 5v4",
         "en-GB": "Overload possession 5v4",
@@ -38945,6 +39073,7 @@
       "usage": 2,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Overload possession 6v4",
         "en-GB": "Overload possession 6v4",
@@ -39410,6 +39539,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Holding the offside line",
         "en-GB": "Holding the offside line",
@@ -39753,6 +39883,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Defending the cross",
         "en-GB": "Defending the cross",
@@ -40055,6 +40186,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": true,
+      "tight": false,
       "name": {
         "en": "Defending the throw-in",
         "en-GB": "Defending the throw-in",
@@ -40357,6 +40489,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Rest defence",
         "en-GB": "Rest defence",
@@ -40725,6 +40858,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Pressing trap: the touchline",
         "en-GB": "Pressing trap: the touchline",
@@ -41037,6 +41171,7 @@
       "usage": 2,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Shooting from distance",
         "en-GB": "Shooting from distance",
@@ -41280,6 +41415,7 @@
       "usage": 1,
       "frame": "top",
       "offSurface": false,
+      "tight": false,
       "name": {
         "en": "Second ball in the box",
         "en-GB": "Second ball in the box",
@@ -41515,6 +41651,7 @@
       "usage": 1,
       "frame": null,
       "offSurface": false,
+      "tight": true,
       "name": {
         "en": "Kick-off routine",
         "en-GB": "Kick-off routine",

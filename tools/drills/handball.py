@@ -410,9 +410,12 @@ def break_family() -> list[Drill]:
             # save; each later wave is one beat behind the one in front.
             home=[P(0.50, 0.95, "GK", role="GK",
                     moves=[(0.42, 0.88, 0)])] + [
+                # They keep their lanes: converging to 0.7 of the way in put
+                # all five of a third wave inside five metres, which is a
+                # pile-up, not a break.
                 P(x, y, f"{i + 1}",
-                  moves=[(x + (0.5 - x) * 0.4, 0.40, i // 2),
-                         (x + (0.5 - x) * 0.7, SIX + 0.03, i // 2 + 1)])
+                  moves=[(x + (0.5 - x) * 0.20, 0.40, i // 2),
+                         (x + (0.5 - x) * 0.35, SIX + 0.03, i // 2 + 1)])
                 for i, (x, y) in enumerate(starts)
             ],
             away=[P(0.44, 0.30, "D", moves=[(0.46, 0.20, 1)]),
