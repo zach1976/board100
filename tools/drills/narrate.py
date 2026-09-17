@@ -463,6 +463,10 @@ DIR = {
               "th-TH": "ไปทางขวา", "vi-VN": "sang phải"},
 }
 
+# Separator between names in a list, per locale.
+LIST = {"zh-CN": "、", "zh-TW": "、", "ja-JP": "・"}
+
+
 # ── setup census ────────────────────────────────────────────────────────────
 SETUP_PLAYERS = {
     "en": "{n} players", "en-GB": "{n} players", "zh-CN": "{n} 人",
@@ -476,6 +480,34 @@ SETUP_VS = {
     "es-ES": "{h} contra {a}", "fr-FR": "{h} contre {a}",
     "id-ID": "{h} lawan {a}", "ms-MY": "{h} lawan {a}",
     "th-TH": "{h} ต่อ {a}", "vi-VN": "{h} đấu {a}",
+}
+# Who the letters on the board are. A shirt number is a position a coach
+# already reads; a letter is not, and "5 v 3" left a reader working out
+# which of the dots was B. Listed only where the labels really are letters
+# and there are few enough to read.
+SETUP_SIDE = {
+    "en": "{side}: {names}", "en-GB": "{side}: {names}",
+    "zh-CN": "{side}：{names}", "zh-TW": "{side}：{names}",
+    "ja-JP": "{side}：{names}", "ko-KR": "{side}: {names}",
+    "es-ES": "{side}: {names}", "fr-FR": "{side} : {names}",
+    "id-ID": "{side}: {names}", "ms-MY": "{side}: {names}",
+    "th-TH": "{side}: {names}", "vi-VN": "{side}: {names}",
+}
+# Named by the colour they are drawn in, because that is what a reader
+# matches the letters against: home is blue on every board, away red.
+SIDE_KEEP = {
+    "en": "blue", "en-GB": "blue",
+    "zh-CN": "蓝方", "zh-TW": "藍方", "ja-JP": "青", "ko-KR": "청팀",
+    "es-ES": "azules", "fr-FR": "les bleus",
+    "id-ID": "tim biru", "ms-MY": "pasukan biru",
+    "th-TH": "ทีมน้ำเงิน", "vi-VN": "đội xanh",
+}
+SIDE_PRESS = {
+    "en": "red", "en-GB": "red",
+    "zh-CN": "红方", "zh-TW": "紅方", "ja-JP": "赤", "ko-KR": "홍팀",
+    "es-ES": "rojos", "fr-FR": "les rouges",
+    "id-ID": "tim merah", "ms-MY": "pasukan merah",
+    "th-TH": "ทีมแดง", "vi-VN": "đội đỏ",
 }
 SETUP_CONES = {
     "en": "{n} cones", "en-GB": "{n} cones", "zh-CN": "{n} 个锥标",
@@ -972,6 +1004,16 @@ def setup_texts(drill, sport: str) -> dict:
     hand = getattr(drill, "setup", None)
     if hand:
         return {loc: hand.get(loc, hand["en"]) for loc in LOCALES}
+    # A side whose players wear letters gets them listed: "5 v 3" is a
+    # count, and a coach looking at the board still has to work out which
+    # dot is B. A side wearing shirt numbers is already named by them.
+    def lettered(side):
+        labels = [_label(p) for p in side if _label(p)]
+        return (labels if len(labels) == len(side) and 2 <= len(labels) <= 8
+                and all(not l[0].isdigit() and l.upper() not in ("GK", "K")
+                        for l in labels) else None)
+
+    home_names, away_names = lettered(drill.home), lettered(drill.away)
     out = {}
     for loc in LOCALES:
         bits = []
@@ -980,6 +1022,15 @@ def setup_texts(drill, sport: str) -> dict:
                                              a=len(drill.away)))
         else:
             bits.append(SETUP_PLAYERS[loc].format(n=len(drill.home)))
+        join = LIST.get(loc, ", ")
+        # Only where there are two sides to tell apart: on a one-team drill
+        # the letters are stations, and listing them says nothing.
+        if home_names and drill.away:
+            bits.append(SETUP_SIDE[loc].format(side=SIDE_KEEP[loc],
+                                               names=join.join(home_names)))
+        if away_names:
+            bits.append(SETUP_SIDE[loc].format(side=SIDE_PRESS[loc],
+                                               names=join.join(away_names)))
         cones = sum(1 for m in drill.markers if m.shape == "cone")
         if cones:
             bits.append(SETUP_CONES[loc].format(n=cones))

@@ -75,6 +75,23 @@ GAME_RULES = {
     "vi-VN": "Sau bàn thắng hoặc bóng ra ngoài, bắt đầu lại từ thủ môn hoặc đường biên và chơi tiếp; mỗi trận 4 phút rồi đổi sân hoặc đổi đối thủ.",
 }
 
+# A possession grid with no goals: the ball goes out, the coach serves a
+# new one, and nothing stops.
+GRID_RULES = {
+    "en": "When the ball leaves the grid the coach serves a new one to the team that did not put it out, and play carries on; six minutes, then the defenders swap with two of the players who have been keeping it.",
+    "en-GB": "When the ball leaves the grid the coach serves a new one to the team that did not put it out, and play carries on; six minutes, then the defenders swap with two of the players who have been keeping it.",
+    "zh-CN": "球出区后由教练把新球发给不是把球弄出去的一方，练习不停；做 6 分钟后，两名防守者与控球方的两人互换。",
+    "zh-TW": "球出區後由教練把新球發給不是把球弄出去的一方，練習不停；做 6 分鐘後，兩名防守者與控球方的兩人互換。",
+    "ja-JP": "ボールがグリッドを出たら、出した側でない方にコーチが新しいボールを入れて続行。6分やったら守備の2人と保持側の2人を交代。",
+    "ko-KR": "공이 그리드를 벗어나면 공을 내보내지 않은 팀에게 코치가 새 공을 넣어 주고 계속한다. 6분 후 수비 두 명과 소유 팀의 두 명을 교대한다.",
+    "es-ES": "Cuando el balón sale de la cuadrícula, el entrenador mete otro al equipo que no lo sacó y se sigue jugando; seis minutos y los defensores cambian con dos de los que conservaban.",
+    "fr-FR": "Quand le ballon sort de la grille, l'entraîneur en remet un à l'équipe qui ne l'a pas sorti et on continue ; six minutes, puis les deux défenseurs permutent avec deux joueurs de la conservation.",
+    "id-ID": "Saat bola keluar grid, pelatih memasukkan bola baru untuk tim yang tidak mengeluarkannya dan permainan berlanjut; enam menit, lalu dua bek bertukar dengan dua pemain penguasa bola.",
+    "ms-MY": "Apabila bola keluar grid, jurulatih memasukkan bola baharu kepada pasukan yang tidak mengeluarkannya dan permainan diteruskan; enam minit, kemudian dua pemain bertahan bertukar dengan dua pemain penguasa bola.",
+    "th-TH": "เมื่อบอลออกนอกกริด โค้ชเติมบอลใหม่ให้ฝ่ายที่ไม่ได้ทำออก แล้วเล่นต่อ ทำ 6 นาทีแล้วสลับฝ่ายรับสองคนกับฝ่ายครองบอลสองคน",
+    "vi-VN": "Khi bóng ra khỏi ô, huấn luyện viên đưa bóng mới cho đội không làm bóng ra và tiếp tục; sáu phút rồi hai người phòng ngự đổi với hai người giữ bóng.",
+}
+
 # Build-up against a press, and the press itself: one side succeeds or
 # the other does, and the ball goes back to the keeper either way.
 BUILDUP_RULES = {
