@@ -78,34 +78,6 @@ GEAR = {
         "the cone is the turning mark of the sprint the taker runs before he steps up",
         "锥标是主罚者罚球前折返冲刺的转折点",
         "錐標是主罰者罰球前折返衝刺的轉折點"),
-    "counter_": _t(
-        "the square is the goal being attacked",
-        "方块是进攻的球门",
-        "方塊是進攻的球門"),
-    "counter_3v2": _t(
-        "the square is the goal being attacked",
-        "方块是进攻的球门",
-        "方塊是進攻的球門"),
-    "halfspace_run": _t(
-        "the square is the goal being attacked",
-        "方块是进攻的球门",
-        "方塊是進攻的球門"),
-    "finish_first_time": _t(
-        "the square is the goal",
-        "方块是球门",
-        "方塊是球門"),
-    "finish_volley_side": _t(
-        "the square is the goal",
-        "方块是球门",
-        "方塊是球門"),
-    "throw_in_third": _t(
-        "the square is the goal being attacked",
-        "方块是进攻的球门",
-        "方塊是進攻的球門"),
-    "combo_": _t(
-        "the square is the goal the combination finishes on",
-        "方块是配合最后要攻的球门",
-        "方塊是配合最後要攻的球門"),
     "passing_": _t(
         "a cone at each station of the shape; the passer runs to the cone he passed to and joins that line",
         "每个站位一个锥标，传给谁就跑到那个锥标排到队尾",

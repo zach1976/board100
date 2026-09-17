@@ -599,6 +599,11 @@ def unlabel_lone_player(drill: Drill) -> None:
         people[0].label = ""
 
 
+# The share of the canvas a half-pitch view shows. The app's detail page
+# and the review page crop to exactly this; frame_of decides against it.
+FRAME_VIEW = 0.60
+
+
 def frame_of(sport: str, board: dict) -> str | None:
     """"top" or "bottom" when everything in the drill stays in one half.
 
@@ -614,16 +619,20 @@ def frame_of(sport: str, board: dict) -> str | None:
     if sport not in ("soccer", "basketball", "handball", "fieldHockey",
                      "rugby", "waterPolo"):
         return None
-    left, top, w, h = court_rect(sport)
+    # In canvas terms, because the view that crops is the canvas: the app
+    # and the review page show the top (or bottom) FRAME_VIEW of it, and a
+    # token is half a token tall past its point, so everything has to sit
+    # a token inside that. A little past halfway still counts.
+    canvas_h = BOARD_UNITS[1]
     ys = []
     for p in board["players"]:
         ys.append(p["position"][1])
         ys.extend(m[1] for m in p.get("moves", []))
     if not ys:
         return None
-    if max(ys) <= top + h * 0.58:
+    if max(ys) <= canvas_h * (FRAME_VIEW - 0.045):
         return "top"
-    if min(ys) >= top + h * 0.42:
+    if min(ys) >= canvas_h * (1 - FRAME_VIEW + 0.045):
         return "bottom"
     return None
 
