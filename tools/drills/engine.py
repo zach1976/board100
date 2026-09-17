@@ -544,16 +544,35 @@ def resolve_ball(drill: Drill, sport: str) -> None:
         else:
             prev = drill.ball
         legs = []
+        prev_t = drill.ball if isinstance(drill.ball, int) else None
+        if prev_t is None and isinstance(drill.ball, tuple):
+            # A ball placed by hand at somebody's feet is his: the first leg
+            # to him is a carry, not a pass to himself from behind.
+            bx0, by0 = drill.ball
+            for idx, pl in enumerate(drill.home):
+                if abs(pl.x - bx0) + abs(pl.y - by0) <= 160:
+                    prev_t = idx
+            for idx, pl in enumerate(drill.away):
+                if abs(pl.x - bx0) + abs(pl.y - by0) <= 160:
+                    prev_t = f"a{idx}"
         for (t, ph) in drill.ball_to:
             if isinstance(t, Spot):
                 point = target_pos(t, ph)
             else:
                 rx, ry = target_pos(t, ph)
-                facing = ((prev[0] - rx, prev[1] - ry)
-                          if prev is not None else None)
+                if t == prev_t:
+                    # The same man again is a carry: the ball goes ahead of
+                    # him, the way he ran, not on the foot facing where it
+                    # came from — that put a dribbler's ball behind him.
+                    px, py = target_pos(t, ph - 1)
+                    facing = (rx - px, ry - py)
+                else:
+                    facing = ((prev[0] - rx, prev[1] - ry)
+                              if prev is not None else None)
                 point = at_the_feet_of(rx, ry, sport, facing)
             legs.append((*point, ph))
             prev = point
+            prev_t = t
         drill.ball_moves = follow_legs + legs
 
 

@@ -439,7 +439,7 @@ def soccer_drills() -> list[Drill]:
             ],
             # their 9 carries at the recovering pair, releases the 10, who
             # shoots
-            ball=(340, 1010),
+            ball=(320, 865),
             ball_to=[("a0", 0), ("a1", 1), ((480, 60), 2)],
             free=True,
         ),
@@ -1377,7 +1377,7 @@ def soccer_drills() -> list[Drill]:
                          "防守者在頂端錐標旁等候",
             },
             # their 11 runs the channel with it, cuts inside, and the 3 wins it
-            ball=(730, 1090),
+            ball=(770, 950),
             ball_to=[("a0", 0), ("a0", 1), (0, 2)],
         ),
         Drill(
