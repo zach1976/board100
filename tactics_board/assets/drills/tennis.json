@@ -5,7 +5,7 @@
     {
       "id": "tn_warm_mini_tennis",
       "level": "foundation",
-      "family": "tennis_family_10",
+      "family": "tennis_family_12",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -177,7 +177,7 @@
     {
       "id": "tn_warm_service_box",
       "level": "foundation",
-      "family": "tennis_family_10",
+      "family": "tennis_family_12",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -349,7 +349,7 @@
     {
       "id": "tn_warm_baseline_feed",
       "level": "foundation",
-      "family": "tennis_family_10",
+      "family": "tennis_family_12",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -521,7 +521,7 @@
     {
       "id": "tn_rally_crosscourt_fh",
       "level": "foundation",
-      "family": "tennis_family_6",
+      "family": "tennis_family_8",
       "familyName": {
         "en": "Rally",
         "en-GB": "Rally",
@@ -733,7 +733,7 @@
     {
       "id": "tn_rally_crosscourt_bh",
       "level": "development",
-      "family": "tennis_family_6",
+      "family": "tennis_family_8",
       "familyName": {
         "en": "Rally",
         "en-GB": "Rally",
@@ -945,7 +945,7 @@
     {
       "id": "tn_rally_down_the_line",
       "level": "development",
-      "family": "tennis_family_6",
+      "family": "tennis_family_8",
       "familyName": {
         "en": "Rally",
         "en-GB": "Rally",
@@ -1157,7 +1157,7 @@
     {
       "id": "tn_rally_figure_eight",
       "level": "advanced",
-      "family": "tennis_family_6",
+      "family": "tennis_family_8",
       "familyName": {
         "en": "Rally",
         "en-GB": "Rally",
@@ -2125,7 +2125,7 @@
     {
       "id": "tn_doubles_one_up_one_back",
       "level": "development",
-      "family": "tennis_family_11",
+      "family": "tennis_family_13",
       "familyName": {
         "en": "Doubles",
         "en-GB": "Doubles",
@@ -2334,7 +2334,7 @@
     {
       "id": "tn_doubles_both_back",
       "level": "development",
-      "family": "tennis_family_11",
+      "family": "tennis_family_13",
       "familyName": {
         "en": "Doubles",
         "en-GB": "Doubles",
@@ -2543,7 +2543,7 @@
     {
       "id": "tn_doubles_both_up",
       "level": "development",
-      "family": "tennis_family_11",
+      "family": "tennis_family_13",
       "familyName": {
         "en": "Doubles",
         "en-GB": "Doubles",
@@ -2752,7 +2752,7 @@
     {
       "id": "tn_doubles_australian",
       "level": "advanced",
-      "family": "tennis_family_11",
+      "family": "tennis_family_13",
       "familyName": {
         "en": "Doubles",
         "en-GB": "Doubles",
@@ -2961,7 +2961,7 @@
     {
       "id": "tn_net_first_volley",
       "level": "development",
-      "family": "tennis_family_2",
+      "family": "tennis_family_4",
       "familyName": {
         "en": "At the net",
         "en-GB": "At the net",
@@ -3148,7 +3148,7 @@
     {
       "id": "tn_net_second_volley",
       "level": "development",
-      "family": "tennis_family_2",
+      "family": "tennis_family_4",
       "familyName": {
         "en": "At the net",
         "en-GB": "At the net",
@@ -3335,7 +3335,7 @@
     {
       "id": "tn_net_overhead",
       "level": "development",
-      "family": "tennis_family_2",
+      "family": "tennis_family_4",
       "familyName": {
         "en": "At the net",
         "en-GB": "At the net",
@@ -3522,7 +3522,7 @@
     {
       "id": "tn_net_drop_volley",
       "level": "development",
-      "family": "tennis_family_2",
+      "family": "tennis_family_4",
       "familyName": {
         "en": "At the net",
         "en-GB": "At the net",
@@ -3709,7 +3709,7 @@
     {
       "id": "tn_defend_slice",
       "level": "development",
-      "family": "tennis_family_1",
+      "family": "tennis_family_3",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -3901,7 +3901,7 @@
     {
       "id": "tn_defend_lob",
       "level": "development",
-      "family": "tennis_family_1",
+      "family": "tennis_family_3",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4093,7 +4093,7 @@
     {
       "id": "tn_defend_block_return",
       "level": "development",
-      "family": "tennis_family_1",
+      "family": "tennis_family_3",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4285,7 +4285,7 @@
     {
       "id": "tn_serve_deuce_wide",
       "level": "development",
-      "family": "tennis_family_7",
+      "family": "tennis_family_9",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4472,7 +4472,7 @@
     {
       "id": "tn_serve_deuce_t",
       "level": "development",
-      "family": "tennis_family_7",
+      "family": "tennis_family_9",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4659,7 +4659,7 @@
     {
       "id": "tn_serve_deuce_body",
       "level": "development",
-      "family": "tennis_family_7",
+      "family": "tennis_family_9",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -4846,7 +4846,7 @@
     {
       "id": "tn_serve_ad_wide",
       "level": "development",
-      "family": "tennis_family_7",
+      "family": "tennis_family_9",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -5033,7 +5033,7 @@
     {
       "id": "tn_serve_ad_t",
       "level": "development",
-      "family": "tennis_family_7",
+      "family": "tennis_family_9",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -5220,7 +5220,7 @@
     {
       "id": "tn_game_half_court",
       "level": "development",
-      "family": "tennis_family_4",
+      "family": "tennis_family_6",
       "familyName": {
         "en": "Point play",
         "en-GB": "Point play",
@@ -5422,7 +5422,7 @@
     {
       "id": "tn_game_first_to_seven",
       "level": "development",
-      "family": "tennis_family_4",
+      "family": "tennis_family_6",
       "familyName": {
         "en": "Point play",
         "en-GB": "Point play",
@@ -5584,7 +5584,7 @@
     {
       "id": "tn_game_approach_only",
       "level": "development",
-      "family": "tennis_family_4",
+      "family": "tennis_family_6",
       "familyName": {
         "en": "Point play",
         "en-GB": "Point play",
@@ -5746,7 +5746,7 @@
     {
       "id": "tn_game_doubles_set",
       "level": "development",
-      "family": "tennis_family_4",
+      "family": "tennis_family_6",
       "familyName": {
         "en": "Point play",
         "en-GB": "Point play",
@@ -6799,6 +6799,551 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tnfit_spider",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Spider run",
+        "en-GB": "Spider run",
+        "zh-CN": "蜘蛛跑",
+        "zh-TW": "蜘蛛跑",
+        "ja-JP": "スパイダーラン",
+        "ko-KR": "스파이더 런",
+        "es-ES": "Carrera de la araña",
+        "fr-FR": "Course de l'araignée",
+        "id-ID": "Lari laba-laba",
+        "ms-MY": "Larian labah-labah",
+        "th-TH": "สไปเดอร์รัน",
+        "vi-VN": "Chạy hình nhện"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nEquipment: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves left to sprint flat out; Step 4: the player moves right to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back; Step 7: the player moves right to sprint flat out; Step 8: the player moves left to turn and sprint back; Step 9: the player moves up the board to sprint flat out; Step 10: the player moves back to turn and sprint back.\nHow it continues: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nCoaching point: Five balls, five trips, one clock: the test is not how fast you run out, it is how little time you spend turning round.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nEquipment: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves left to sprint flat out; Step 4: the player moves right to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back; Step 7: the player moves right to sprint flat out; Step 8: the player moves left to turn and sprint back; Step 9: the player moves up the board to sprint flat out; Step 10: the player moves back to turn and sprint back.\nHow it continues: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nCoaching point: Five balls, five trips, one clock: the test is not how fast you run out, it is how little time you spend turning round.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】五个锥标：底线两个单打边角、发球线两个角、发球中点；球员站在底线中点。\n【器材】每个锥标代表一个球：按固定顺序一次取一个，每取一个都要带回底线中点，再去下一个。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（转身冲回起点）；第3步：球员向左移动（全力冲刺）；第4步：球员向右移动（转身冲回起点）；第5步：球员向前移动（全力冲刺）；第6步：球员向后移动（转身冲回起点）；第7步：球员向右移动（全力冲刺）；第8步：球员向左移动（转身冲回起点）；第9步：球员向前移动（全力冲刺）；第10步：球员向后移动（转身冲回起点）。\n【连贯】跑完整套算一次测试，业余球员 16–18 秒；做 3 次，每次之间休息 2 分钟，记录最好成绩。\n【要点】五个球、五趟、一次计时：比的不是冲出去多快，而是转身花了多少时间。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】五個錐標：底線兩個單打邊角、發球線兩個角、發球中點；球員站在底線中點。\n【器材】每個錐標代表一個球：按固定順序一次取一個，每取一個都要帶回底線中點，再去下一個。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（轉身衝回起點）；第3步：球員向左移動（全力衝刺）；第4步：球員向右移動（轉身衝回起點）；第5步：球員向前移動（全力衝刺）；第6步：球員向後移動（轉身衝回起點）；第7步：球員向右移動（全力衝刺）；第8步：球員向左移動（轉身衝回起點）；第9步：球員向前移動（全力衝刺）；第10步：球員向後移動（轉身衝回起點）。\n【連貫】跑完整套算一次測試，業餘球員 16–18 秒；做 3 次，每次之間休息 2 分鐘，記錄最好成績。\n【要點】五個球、五趟、一次計時：比的不是衝出去多快，而是轉身花了多少時間。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline。\n【用具】each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、ターンして全力で戻る。ステップ3：選手が左へ移動し、全力でダッシュ。ステップ4：選手が右へ移動し、ターンして全力で戻る。ステップ5：選手が前方へ移動し、全力でダッシュ。ステップ6：選手が後方へ移動し、ターンして全力で戻る。ステップ7：選手が右へ移動し、全力でダッシュ。ステップ8：選手が左へ移動し、ターンして全力で戻る。ステップ9：選手が前方へ移動し、全力でダッシュ。ステップ10：選手が後方へ移動し、ターンして全力で戻る。\n【続け方】One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\n【ポイント】5球、5往復、1つの時計：速く出ることではなく、切り返しにどれだけ時間を使わないかが試される。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\n【장비】each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 3단계: 선수는 왼쪽으로 이동해 전력 질주; 4단계: 선수는 오른쪽으로 이동해 돌아서 전력으로 되돌아온다; 5단계: 선수는 앞으로 이동해 전력 질주; 6단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 7단계: 선수는 오른쪽으로 이동해 전력 질주; 8단계: 선수는 왼쪽으로 이동해 돌아서 전력으로 되돌아온다; 9단계: 선수는 앞으로 이동해 전력 질주; 10단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다.\n【이어가기】One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\n【포인트】공 다섯 개, 다섯 번 왕복, 한 번의 시계: 얼마나 빨리 나가느냐가 아니라 돌아서는 데 시간을 얼마나 덜 쓰느냐다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nMaterial: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 3: el jugador se desplaza a la izquierda para esprintar a tope; Paso 4: el jugador se desplaza a la derecha para girar y volver a sprint; Paso 5: el jugador se desplaza hacia delante para esprintar a tope; Paso 6: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 7: el jugador se desplaza a la derecha para esprintar a tope; Paso 8: el jugador se desplaza a la izquierda para girar y volver a sprint; Paso 9: el jugador se desplaza hacia delante para esprintar a tope; Paso 10: el jugador se desplaza hacia atrás para girar y volver a sprint.\nContinuidad: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nPunto clave: Cinco bolas, cinco viajes, un cronómetro: no se mide lo rápido que sales, sino lo poco que tardas en girar.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nMatériel : each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 3 : le joueur se déplace à gauche pour sprinter à fond ; Étape 4 : le joueur se déplace à droite pour se retourner et revenir en sprint ; Étape 5 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 7 : le joueur se déplace à droite pour sprinter à fond ; Étape 8 : le joueur se déplace à gauche pour se retourner et revenir en sprint ; Étape 9 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 10 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint.\nEnchaînement : One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nPoint clé : Cinq balles, cinq trajets, un chrono : on ne mesure pas la vitesse d'aller, mais le temps perdu à faire demi-tour.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nPerlengkapan: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 3: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke kanan untuk berbalik dan sprint kembali; Langkah 5: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 7: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 8: pemain bergerak ke kiri untuk berbalik dan sprint kembali; Langkah 9: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 10: pemain bergerak ke belakang untuk berbalik dan sprint kembali.\nKelanjutan: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nPoin utama: Lima bola, lima perjalanan, satu stopwatch: yang diukur bukan seberapa cepat kamu keluar, tapi seberapa sedikit waktu untuk berbalik.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nPeralatan: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 3: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke kanan untuk berpusing dan pecut kembali; Langkah 5: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 7: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 8: pemain bergerak ke kiri untuk berpusing dan pecut kembali; Langkah 9: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 10: pemain bergerak ke belakang untuk berpusing dan pecut kembali.\nKesinambungan: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nPoin utama: Lima bola, lima perjalanan, satu jam randik: yang diukur bukan kelajuan keluar, tetapi masa yang hilang ketika berpusing.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline\nอุปกรณ์: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับไปทางขวาเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 5: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 7: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 8: ผู้เล่น ขยับไปทางซ้ายเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 9: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 10: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง\nการต่อเนื่อง: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nจุดเน้น: ห้าลูก ห้าเที่ยว จับเวลาครั้งเดียว วัดกันที่เสียเวลาหมุนตัวน้อยแค่ไหน ไม่ใช่วิ่งออกเร็วแค่ไหน",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline.\nDụng cụ: each cone stands in for a ball: fetch them one at a time in a fixed order and carry each back to the baseline centre before setting off for the next.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 3: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển sang phải để xoay người và nước rút trở lại; Bước 5: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 7: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 8: cầu thủ di chuyển sang trái để xoay người và nước rút trở lại; Bước 9: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 10: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại.\nTiếp nối: One full spider is the test, 16-18 seconds for a club player; three runs with two minutes between them, and note the best.\nĐiểm chính: Năm bóng, năm lượt, một đồng hồ: đo không phải bạn chạy ra nhanh thế nào mà mất bao ít thời gian để quay lại."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 2,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1323.75
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                257.8011394437154,
+                1005.0
+              ],
+              [
+                499.99999999999994,
+                1323.75
+              ],
+              [
+                257.8011394437154,
+                1323.75
+              ],
+              [
+                499.99999999999994,
+                1323.75
+              ],
+              [
+                499.99999999999994,
+                1005.0
+              ],
+              [
+                499.99999999999994,
+                1323.75
+              ],
+              [
+                742.1988605562844,
+                1323.75
+              ],
+              [
+                499.99999999999994,
+                1323.75
+              ],
+              [
+                742.1988605562844,
+                1005.0
+              ],
+              [
+                499.99999999999994,
+                1323.75
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              257.8011394437154,
+              979.5000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              257.8011394437154,
+              1349.25
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              979.5000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              742.1988605562844,
+              1349.25
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              742.1988605562844,
+              979.5000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tnfit_baseline_side_to_side",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Lateral shuffle",
+        "en-GB": "Lateral shuffle",
+        "zh-CN": "横向滑步",
+        "zh-TW": "橫向滑步",
+        "ja-JP": "サイドステップ",
+        "ko-KR": "사이드 스텝",
+        "es-ES": "Desplazamientos laterales",
+        "fr-FR": "Pas chassés latéraux",
+        "id-ID": "Geser menyamping",
+        "ms-MY": "Gerak sisi",
+        "th-TH": "สไลด์ข้าง",
+        "vi-VN": "Trượt ngang"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nEquipment: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nEquipment: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】底线上三个锥标：单打两个边角和中点；球员从中点出发。\n【器材】锥标是回位必须到达的两个边角：并步横移出去、做出击球动作，再交叉步经中间锥标回来。\n【流程】第1步：球员向左移动（侧滑步，脚不交叉）；第2步：球员向右移动（侧滑步，脚不交叉）；第3步：球员向右移动（侧滑步，脚不交叉）；第4步：球员向左移动（侧滑步，脚不交叉）。\n【连贯】左右移动 20 秒、休息 40 秒，做 10 次。到锥标处要做出正手和反手的挥拍动作——有挥拍才是网球练习。\n【要点】脚不交叉，头不上下起伏：全程保持低重心，最后一步要和第一步一样大。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】底線上三個錐標：單打兩個邊角和中點；球員從中點出發。\n【器材】錐標是回位必須到達的兩個邊角：併步橫移出去、做出擊球動作，再交叉步經中間錐標回來。\n【流程】第1步：球員向左移動（側滑步，腳不交叉）；第2步：球員向右移動（側滑步，腳不交叉）；第3步：球員向右移動（側滑步，腳不交叉）；第4步：球員向左移動（側滑步，腳不交叉）。\n【連貫】左右移動 20 秒、休息 40 秒，做 10 次。到錐標處要做出正手和反手的揮拍動作——有揮拍才是網球練習。\n【要點】腳不交叉，頭不上下起伏：全程保持低重心，最後一步要和第一步一樣大。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】three cones on the baseline — both singles corners and the centre mark; the player starts on the centre。\n【用具】the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone。\n【流れ】ステップ1：選手が左へ移動し、足を交差させずサイドステップ。ステップ2：選手が右へ移動し、足を交差させずサイドステップ。ステップ3：選手が右へ移動し、足を交差させずサイドステップ。ステップ4：選手が左へ移動し、足を交差させずサイドステップ。\n【続け方】Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\n【ポイント】足は交差させず、頭は上下させない：最後まで低く、最後の一歩も最初と同じ幅で。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\n【장비】the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\n【진행】1단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 2단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 3단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 4단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝.\n【이어가기】Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\n【포인트】발은 교차하지 않고 머리는 위아래로 흔들리지 않는다: 끝까지 낮게, 마지막 한 걸음도 첫 걸음만큼 넓게.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nMaterial: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nSecuencia: Paso 1: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies; Paso 2: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 3: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 4: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies.\nContinuidad: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nPunto clave: Los pies no se cruzan y la cabeza no sube y baja: mantente bajo todo el rato y el último paso es tan amplio como el primero.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nMatériel : the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nDéroulé : Étape 1 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds ; Étape 2 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 3 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 4 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds.\nEnchaînement : Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nPoint clé : Les pieds ne se croisent pas et la tête ne monte pas : reste bas jusqu'au bout, le dernier appui aussi large que le premier.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nPerlengkapan: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki; Langkah 2: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 3: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 4: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki.\nKelanjutan: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nPoin utama: Kaki tidak menyilang dan kepala tidak naik-turun: tetap rendah sampai akhir, langkah terakhir selebar yang pertama.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nPeralatan: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki; Langkah 2: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 3: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 4: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki.\nKesinambungan: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nPoin utama: Kaki tidak bersilang dan kepala tidak naik turun: kekal rendah hingga akhir, langkah terakhir selebar yang pertama.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre\nอุปกรณ์: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 2: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า\nการต่อเนื่อง: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nจุดเน้น: เท้าไม่ไขว้ หัวไม่ขึ้นลง ย่อตัวต่ำตลอด ก้าวสุดท้ายกว้างเท่าก้าวแรก",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: three cones on the baseline — both singles corners and the centre mark; the player starts on the centre.\nDụng cụ: the cones are the corners the recovery step has to reach: side-shuffle out, play the stroke, cross-step back through the middle cone.\nTrình tự: Bước 1: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân; Bước 2: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 3: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 4: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân.\nTiếp nối: Twenty seconds of side to side, forty seconds' rest; ten repetitions. Play the shadow forehand and backhand at the cones — the swing is what keeps it a tennis drill.\nĐiểm chính: Chân không bắt chéo, đầu không nhấp nhô: giữ thấp suốt, bước cuối rộng như bước đầu."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 2,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1285.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                272.0481312411439,
+                1285.5
+              ],
+              [
+                499.99999999999994,
+                1285.5
+              ],
+              [
+                727.9518687588559,
+                1285.5
+              ],
+              [
+                499.99999999999994,
+                1285.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              257.8011394437154,
+              1323.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1323.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              742.1988605562844,
+              1323.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "tnfit_up_and_back",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Repeat sprints",
+        "en-GB": "Repeat sprints",
+        "zh-CN": "反复冲刺",
+        "zh-TW": "反覆衝刺",
+        "ja-JP": "反復スプリント",
+        "ko-KR": "반복 스프린트",
+        "es-ES": "Sprints repetidos",
+        "fr-FR": "Sprints répétés",
+        "id-ID": "Sprint berulang",
+        "ms-MY": "Pecutan berulang",
+        "th-TH": "สปรินต์ซ้ำ",
+        "vi-VN": "Chạy nước rút lặp lại"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nEquipment: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to backpedal, eyes up; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to backpedal, eyes up.\nHow it continues: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nCoaching point: The set is judged on the last rep, not the first: if the sixth is much slower than the second, the rest is too short or the effort was not honest.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nEquipment: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to backpedal, eyes up; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to backpedal, eyes up.\nHow it continues: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nCoaching point: The set is judged on the last rep, not the first: if the sixth is much slower than the second, the rest is too short or the effort was not honest.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】两个锥标：一个在底线中点，一个在网前；球员从底线出发。\n【器材】远端锥标代表网前：冲上去触到它，再全程面向球网后退跑回底线锥标——不要背对球场跑。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（后退跑，眼睛看前方）；第3步：球员向前移动（全力冲刺）；第4步：球员向后移动（后退跑，眼睛看前方）。\n【连贯】上网—退底线做 6 次为一组，休息 90 秒；做 5 组。腿累了以后要求在网前锥标处加一个分腿垫步——恰恰是这时候它最容易消失。\n【要点】一组的成色看最后一趟，不看第一趟：如果第六趟比第二趟慢很多，要么休息不够，要么之前没真跑。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】兩個錐標：一個在底線中點，一個在網前；球員從底線出發。\n【器材】遠端錐標代表網前：衝上去觸到它，再全程面向球網後退跑回底線錐標——不要背對球場跑。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（後退跑，眼睛看前方）；第3步：球員向前移動（全力衝刺）；第4步：球員向後移動（後退跑，眼睛看前方）。\n【連貫】上網—退底線做 6 次為一組，休息 90 秒；做 5 組。腿累了以後要求在網前錐標處加一個分腿墊步——恰恰是這時候它最容易消失。\n【要點】一組的成色看最後一趟，不看第一趟：如果第六趟比第二趟慢很多，要麼休息不夠，要麼之前沒真跑。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline。\n【用具】the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、目線を上げてバックペダル。ステップ3：選手が前方へ移動し、全力でダッシュ。ステップ4：選手が後方へ移動し、目線を上げてバックペダル。\n【続け方】Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\n【ポイント】セットは最初ではなく最後の1本で評価する：6本目が2本目よりかなり遅いなら、休息が短いか、手を抜いていたかだ。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\n【장비】the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다; 3단계: 선수는 앞으로 이동해 전력 질주; 4단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다.\n【이어가기】Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\n【포인트】세트는 첫 회차가 아니라 마지막 회차로 평가한다: 여섯 번째가 두 번째보다 훨씬 느리면 휴식이 짧았거나 앞에서 힘을 아꼈던 것이다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nMaterial: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente; Paso 3: el jugador se desplaza hacia delante para esprintar a tope; Paso 4: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente.\nContinuidad: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nPunto clave: La serie se juzga por la última repetición, no por la primera: si la sexta es mucho más lenta que la segunda, el descanso es corto o el esfuerzo no fue honesto.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nMatériel : the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant ; Étape 3 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 4 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant.\nEnchaînement : Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nPoint clé : La série se juge à la dernière répétition, pas à la première : si la sixième est bien plus lente que la deuxième, la récupération est trop courte ou l'effort n'était pas sincère.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nPerlengkapan: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan; Langkah 3: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan.\nKelanjutan: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nPoin utama: Satu set dinilai dari ulangan terakhir, bukan yang pertama: kalau yang keenam jauh lebih lambat, istirahatnya kurang atau usahanya tidak jujur.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nPeralatan: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan; Langkah 3: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan.\nKesinambungan: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nPoin utama: Satu set dinilai dari ulangan terakhir, bukan yang pertama: jika keenam jauh lebih perlahan, rehatnya kurang atau usahanya tidak jujur.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline\nอุปกรณ์: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า\nการต่อเนื่อง: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nจุดเน้น: เซ็ตหนึ่งวัดกันที่รอบสุดท้าย ไม่ใช่รอบแรก ถ้ารอบหกช้ากว่ารอบสองมาก แปลว่าพักน้อยไปหรือก่อนหน้านี้ไม่ได้ทุ่มจริง",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline.\nDụng cụ: the far cone is the net: sprint in and touch it, then backpedal to the baseline cone facing the net the whole way — never turn your back on the court.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước; Bước 3: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước.\nTiếp nối: Six in and outs is one set, then 90 seconds' rest; five sets. Add a split-step at the net cone once the legs are tired — that is when it stops happening.\nĐiểm chính: Một hiệp được đánh giá ở lượt cuối, không phải lượt đầu: nếu lượt sáu chậm hơn lượt hai nhiều thì nghỉ chưa đủ hoặc trước đó chưa gắng thật."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 2,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1298.25
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                499.99999999999994,
+                826.5000000000001
+              ],
+              [
+                499.99999999999994,
+                1298.25
+              ],
+              [
+                499.99999999999994,
+                826.5000000000001
+              ],
+              [
+                499.99999999999994,
+                1298.25
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1323.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              801.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
             "photoId": null,
             "role": null,
             "attachedTo": null

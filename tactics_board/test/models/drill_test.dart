@@ -153,6 +153,8 @@ void _libraryTests(String sport) {
         'flick', 'blitz', 'jackal', 'scrum', 'lineout', 'pivot', 'block',
         'slice', 'drop', 'dropshot', 'lob', 'net', 'kick', 'switch', 'loop',
         'rondo', 'pepper', 'perimeter', 'payung', 'touch', 'rugby',
+        // The bronco is called the bronco by every rugby coach who runs it.
+        'bronco',
       };
       final latin = RegExp(r'[A-Za-z]{3,}');
       for (final d in drills) {

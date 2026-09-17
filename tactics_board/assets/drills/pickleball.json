@@ -5,7 +5,7 @@
     {
       "id": "pb_warm_dink_warm",
       "level": "foundation",
-      "family": "pickleball_family_8",
+      "family": "pickleball_family_10",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -212,7 +212,7 @@
     {
       "id": "pb_warm_hands",
       "level": "foundation",
-      "family": "pickleball_family_8",
+      "family": "pickleball_family_10",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -419,7 +419,7 @@
     {
       "id": "pb_warm_transition",
       "level": "foundation",
-      "family": "pickleball_family_8",
+      "family": "pickleball_family_10",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -631,7 +631,7 @@
     {
       "id": "pb_dink_straight",
       "level": "foundation",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -831,7 +831,7 @@
     {
       "id": "pb_dink_cross",
       "level": "development",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -1038,7 +1038,7 @@
     {
       "id": "pb_dink_to_backhand",
       "level": "development",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -1245,7 +1245,7 @@
     {
       "id": "pb_dink_pull",
       "level": "development",
-      "family": "pickleball_family_6",
+      "family": "pickleball_family_8",
       "familyName": {
         "en": "Dink",
         "en-GB": "Dink",
@@ -2003,7 +2003,7 @@
     {
       "id": "pb_third_drop",
       "level": "foundation",
-      "family": "pickleball_family_11",
+      "family": "pickleball_family_14",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -2262,7 +2262,7 @@
     {
       "id": "pb_third_drive",
       "level": "development",
-      "family": "pickleball_family_11",
+      "family": "pickleball_family_14",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -2521,7 +2521,7 @@
     {
       "id": "pb_third_fifth",
       "level": "development",
-      "family": "pickleball_family_11",
+      "family": "pickleball_family_14",
       "familyName": {
         "en": "Third shot",
         "en-GB": "Third shot",
@@ -3493,7 +3493,7 @@
     {
       "id": "pb_putaway_overhead",
       "level": "development",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_5",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -3715,7 +3715,7 @@
     {
       "id": "pb_putaway_roll_volley",
       "level": "development",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_5",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -3937,7 +3937,7 @@
     {
       "id": "pb_putaway_atp",
       "level": "advanced",
-      "family": "pickleball_family_4",
+      "family": "pickleball_family_5",
       "familyName": {
         "en": "Put-away",
         "en-GB": "Put-away",
@@ -4159,7 +4159,7 @@
     {
       "id": "pb_defend_block",
       "level": "development",
-      "family": "pickleball_family_7",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4381,7 +4381,7 @@
     {
       "id": "pb_defend_reset",
       "level": "development",
-      "family": "pickleball_family_7",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4603,7 +4603,7 @@
     {
       "id": "pb_defend_lob",
       "level": "development",
-      "family": "pickleball_family_7",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -4825,7 +4825,7 @@
     {
       "id": "pb_defend_counter",
       "level": "development",
-      "family": "pickleball_family_7",
+      "family": "pickleball_family_9",
       "familyName": {
         "en": "Defending",
         "en-GB": "Defending",
@@ -5047,7 +5047,7 @@
     {
       "id": "pb_shape_both_up",
       "level": "development",
-      "family": "pickleball_family_9",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -5282,7 +5282,7 @@
     {
       "id": "pb_shape_stacking",
       "level": "advanced",
-      "family": "pickleball_family_9",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -5531,7 +5531,7 @@
     {
       "id": "pb_shape_switch_on_lob",
       "level": "advanced",
-      "family": "pickleball_family_9",
+      "family": "pickleball_family_11",
       "familyName": {
         "en": "Team shape",
         "en-GB": "Team shape",
@@ -7257,6 +7257,581 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "pbfit_kitchen_shuffle",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Lateral shuffle",
+        "en-GB": "Lateral shuffle",
+        "zh-CN": "横向滑步",
+        "zh-TW": "橫向滑步",
+        "ja-JP": "サイドステップ",
+        "ko-KR": "사이드 스텝",
+        "es-ES": "Desplazamientos laterales",
+        "fr-FR": "Pas chassés latéraux",
+        "id-ID": "Geser menyamping",
+        "ms-MY": "Gerak sisi",
+        "th-TH": "สไลด์ข้าง",
+        "vi-VN": "Trượt ngang"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nEquipment: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nEquipment: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】厨房线后方三个锥标：两条边线和中间；球员站在中间，球拍举在身前。\n【器材】锥标标出脚必须留在其后的厨房线：并步移到边线锥标再回来，脚尖不过线、球拍不落下。\n【流程】第1步：球员向左移动（侧滑步，脚不交叉）；第2步：球员向右移动（侧滑步，脚不交叉）；第3步：球员向右移动（侧滑步，脚不交叉）；第4步：球员向左移动（侧滑步，脚不交叉）。\n【连贯】滑步 30 秒、休息 30 秒，做 10 次。球拍掉到胸口以下的那一次不算。\n【要点】脚不交叉，头不上下起伏：全程保持低重心，最后一步要和第一步一样大。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】廚房線後方三個錐標：兩條邊線和中間；球員站在中間，球拍舉在身前。\n【器材】錐標標出腳必須留在其後的廚房線：併步移到邊線錐標再回來，腳尖不過線、球拍不落下。\n【流程】第1步：球員向左移動（側滑步，腳不交叉）；第2步：球員向右移動（側滑步，腳不交叉）；第3步：球員向右移動（側滑步，腳不交叉）；第4步：球員向左移動（側滑步，腳不交叉）。\n【連貫】滑步 30 秒、休息 30 秒，做 10 次。球拍掉到胸口以下的那一次不算。\n【要點】腳不交叉，頭不上下起伏：全程保持低重心，最後一步要和第一步一樣大。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up。\n【用具】the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping。\n【流れ】ステップ1：選手が左へ移動し、足を交差させずサイドステップ。ステップ2：選手が右へ移動し、足を交差させずサイドステップ。ステップ3：選手が右へ移動し、足を交差させずサイドステップ。ステップ4：選手が左へ移動し、足を交差させずサイドステップ。\n【続け方】Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\n【ポイント】足は交差させず、頭は上下させない：最後まで低く、最後の一歩も最初と同じ幅で。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\n【장비】the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\n【진행】1단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 2단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 3단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 4단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝.\n【이어가기】Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\n【포인트】발은 교차하지 않고 머리는 위아래로 흔들리지 않는다: 끝까지 낮게, 마지막 한 걸음도 첫 걸음만큼 넓게.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nMaterial: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nSecuencia: Paso 1: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies; Paso 2: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 3: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 4: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies.\nContinuidad: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nPunto clave: Los pies no se cruzan y la cabeza no sube y baja: mantente bajo todo el rato y el último paso es tan amplio como el primero.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nMatériel : the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nDéroulé : Étape 1 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds ; Étape 2 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 3 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 4 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds.\nEnchaînement : Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nPoint clé : Les pieds ne se croisent pas et la tête ne monte pas : reste bas jusqu'au bout, le dernier appui aussi large que le premier.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nPerlengkapan: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki; Langkah 2: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 3: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 4: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki.\nKelanjutan: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nPoin utama: Kaki tidak menyilang dan kepala tidak naik-turun: tetap rendah sampai akhir, langkah terakhir selebar yang pertama.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nPeralatan: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki; Langkah 2: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 3: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 4: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki.\nKesinambungan: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nPoin utama: Kaki tidak bersilang dan kepala tidak naik turun: kekal rendah hingga akhir, langkah terakhir selebar yang pertama.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up\nอุปกรณ์: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 2: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า\nการต่อเนื่อง: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nจุดเน้น: เท้าไม่ไขว้ หัวไม่ขึ้นลง ย่อตัวต่ำตลอด ก้าวสุดท้ายกว้างเท่าก้าวแรก",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up.\nDụng cụ: the cones mark the kitchen line the feet must stay behind: shuffle to the sideline cone and back without the toes crossing the line and without the paddle dropping.\nTrình tự: Bước 1: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân; Bước 2: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 3: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 4: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân.\nTiếp nối: Thirty seconds of shuffling, thirty seconds' rest; ten repetitions. If the paddle drops below the chest the repetition does not count.\nĐiểm chính: Chân không bắt chéo, đầu không nhấp nhô: giữ thấp suốt, bước cuối rộng như bước đầu."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 5,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              987.6
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                281.92705376918536,
+                987.6
+              ],
+              [
+                499.99999999999994,
+                987.6
+              ],
+              [
+                718.0729462308145,
+                987.6
+              ],
+              [
+                499.99999999999994,
+                987.6
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              267.38885735379773,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              732.6111426462021,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "pbfit_transition",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Transition zone up and back",
+        "en-GB": "Transition zone up and back",
+        "zh-CN": "过渡区上下移动",
+        "zh-TW": "過渡區上下移動",
+        "ja-JP": "トランジションゾーンの往復",
+        "ko-KR": "트랜지션 존 전후 이동",
+        "es-ES": "Zona de transición, ida y vuelta",
+        "fr-FR": "Zone de transition, aller-retour",
+        "id-ID": "Zona transisi maju mundur",
+        "ms-MY": "Zon peralihan ke depan dan belakang",
+        "th-TH": "เคลื่อนที่เข้าออกโซนเปลี่ยนผ่าน",
+        "vi-VN": "Lên xuống vùng chuyển tiếp"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nEquipment: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nSequence: Step 1: the player moves up the board to decelerate and stop under control; Step 2: the player moves up the board to decelerate and stop under control; Step 3: the player moves back to backpedal, eyes up; Step 4: the player moves back to backpedal, eyes up.\nHow it continues: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nCoaching point: Never move while the imaginary ball is coming: two steps, split-step, two steps. The transition zone punishes running through it, not being in it.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nEquipment: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nSequence: Step 1: the player moves up the board to decelerate and stop under control; Step 2: the player moves up the board to decelerate and stop under control; Step 3: the player moves back to backpedal, eyes up; Step 4: the player moves back to backpedal, eyes up.\nHow it continues: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nCoaching point: Never move while the imaginary ball is coming: two steps, split-step, two steps. The transition zone punishes running through it, not being in it.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】底线两个锥标、厨房线两个锥标；球员从底线出发。\n【器材】底线一对是起点，厨房线一对是终点：进两步、分腿垫步、再两步、再垫步——然后以同样的方式后退出来。\n【流程】第1步：球员向前移动（减速并稳稳停住）；第2步：球员向前移动（减速并稳稳停住）；第3步：球员向后移动（后退跑，眼睛看前方）；第4步：球员向后移动（后退跑，眼睛看前方）。\n【连贯】进出四次为一组，休息 60 秒；做 5 组。每个分腿垫步都是一次停顿，一组里没有停顿就等于没做。\n【要点】球（假想的）来的时候不要移动：两步、分腿垫步、再两步。过渡区惩罚的是从中间一路跑过去，而不是待在里面。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】底線兩個錐標、廚房線兩個錐標；球員從底線出發。\n【器材】底線一對是起點，廚房線一對是終點：進兩步、分腿墊步、再兩步、再墊步——然後以同樣的方式後退出來。\n【流程】第1步：球員向前移動（減速並穩穩停住）；第2步：球員向前移動（減速並穩穩停住）；第3步：球員向後移動（後退跑，眼睛看前方）；第4步：球員向後移動（後退跑，眼睛看前方）。\n【連貫】進出四次為一組，休息 60 秒；做 5 組。每個分腿墊步都是一次停頓，一組裡沒有停頓就等於沒做。\n【要點】球（假想的）來的時候不要移動：兩步、分腿墊步、再兩步。過渡區懲罰的是從中間一路跑過去，而不是待在裡面。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】two cones on the baseline and two on the kitchen line; the player starts on the baseline。\n【用具】the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way。\n【流れ】ステップ1：選手が前方へ移動し、減速してコントロールして止まる。ステップ2：選手が前方へ移動し、減速してコントロールして止まる。ステップ3：選手が後方へ移動し、目線を上げてバックペダル。ステップ4：選手が後方へ移動し、目線を上げてバックペダル。\n【続け方】In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\n【ポイント】（想定の）球が来ている間は動かない：2歩、スプリットステップ、2歩。トランジションゾーンが罰するのは走り抜けることで、そこにいること自体ではない。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】two cones on the baseline and two on the kitchen line; the player starts on the baseline.\n【장비】the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\n【진행】1단계: 선수는 앞으로 이동해 감속해 안정적으로 멈춘다; 2단계: 선수는 앞으로 이동해 감속해 안정적으로 멈춘다; 3단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다; 4단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다.\n【이어가기】In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\n【포인트】(가상의) 공이 오는 동안에는 움직이지 않는다: 두 걸음, 스플릿 스텝, 두 걸음. 트랜지션 존은 그냥 뛰어 통과하는 것을 벌하지, 거기 있는 것을 벌하지 않는다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nMaterial: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para frenar y parar con control; Paso 2: el jugador se desplaza hacia delante para frenar y parar con control; Paso 3: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente; Paso 4: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente.\nContinuidad: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nPunto clave: No te muevas mientras la bola imaginaria viene: dos pasos, split-step, dos pasos. La zona de transición castiga atravesarla corriendo, no estar en ella.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nMatériel : the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour décélérer et s'arrêter en contrôle ; Étape 2 : le joueur se déplace vers l'avant pour décélérer et s'arrêter en contrôle ; Étape 3 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant ; Étape 4 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant.\nEnchaînement : In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nPoint clé : Ne bouge pas pendant que la balle imaginaire arrive : deux pas, split-step, deux pas. La zone de transition punit celui qui la traverse en courant, pas celui qui s'y trouve.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nPerlengkapan: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nUrutan: Langkah 1: pemain bergerak ke depan untuk melambat dan berhenti terkendali; Langkah 2: pemain bergerak ke depan untuk melambat dan berhenti terkendali; Langkah 3: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan; Langkah 4: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan.\nKelanjutan: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nPoin utama: Jangan bergerak saat bola khayalan sedang datang: dua langkah, split-step, dua langkah.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nPeralatan: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk memperlahankan dan berhenti terkawal; Langkah 2: pemain bergerak ke hadapan untuk memperlahankan dan berhenti terkawal; Langkah 3: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan; Langkah 4: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan.\nKesinambungan: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nPoin utama: Jangan bergerak ketika bola bayangan sedang datang: dua langkah, split-step, dua langkah.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: two cones on the baseline and two on the kitchen line; the player starts on the baseline\nอุปกรณ์: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อชะลอและหยุดอย่างมั่นคง • ขั้นที่ 2: ผู้เล่น ขยับไปข้างหน้าเพื่อชะลอและหยุดอย่างมั่นคง • ขั้นที่ 3: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า\nการต่อเนื่อง: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nจุดเน้น: อย่าเคลื่อนที่ขณะลูก (สมมติ) กำลังมา สองก้าว สปลิตสเต็ป สองก้าว",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: two cones on the baseline and two on the kitchen line; the player starts on the baseline.\nDụng cụ: the baseline pair is the start and the kitchen pair is the destination: two steps in, split-step, two more, split-step — and backpedal out the same way.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để giảm tốc và dừng có kiểm soát; Bước 2: cầu thủ di chuyển lên phía trước để giảm tốc và dừng có kiểm soát; Bước 3: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước; Bước 4: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước.\nTiếp nối: In and out four times is one set, then 60 seconds' rest; five sets. Every split-step is a stop, so a set with no stops in it has not been done.\nĐiểm chính: Đừng di chuyển khi bóng (tưởng tượng) đang tới: hai bước, split-step, hai bước."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 5,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1344.0
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ],
+              [
+                499.99999999999994,
+                1013.9999999999999
+              ],
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ],
+              [
+                499.99999999999994,
+                1344.0
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              441.84721433844936,
+              1370.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              558.1527856615505,
+              1370.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              441.84721433844936,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              558.1527856615505,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "pbfit_four_corner",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Repeat sprints",
+        "en-GB": "Repeat sprints",
+        "zh-CN": "反复冲刺",
+        "zh-TW": "反覆衝刺",
+        "ja-JP": "反復スプリント",
+        "ko-KR": "반복 스프린트",
+        "es-ES": "Sprints repetidos",
+        "fr-FR": "Sprints répétés",
+        "id-ID": "Sprint berulang",
+        "ms-MY": "Pecutan berulang",
+        "th-TH": "สปรินต์ซ้ำ",
+        "vi-VN": "Chạy nước rút lặp lại"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nEquipment: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nSequence: Step 1: the player moves left to sprint flat out; Step 2: the player gets back to the cone; Step 3: the player moves right to sprint flat out; Step 4: the player gets back to the cone; Step 5: the player moves left to sprint flat out; Step 6: the player gets back to the cone; Step 7: the player moves right to sprint flat out; Step 8: the player gets back to the cone.\nHow it continues: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nCoaching point: The set is judged on the last rep, not the first: if the sixth is much slower than the second, the rest is too short or the effort was not honest.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nEquipment: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nSequence: Step 1: the player moves left to sprint flat out; Step 2: the player gets back to the cone; Step 3: the player moves right to sprint flat out; Step 4: the player gets back to the cone; Step 5: the player moves left to sprint flat out; Step 6: the player gets back to the cone; Step 7: the player moves right to sprint flat out; Step 8: the player gets back to the cone.\nHow it continues: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nCoaching point: The set is judged on the last rep, not the first: if the sixth is much slower than the second, the rest is too short or the effort was not honest.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】半场中间一个锥标，四角各一个：厨房线两个、底线两个；球员站在中间锥标上。\n【器材】中间锥标是原点，四个角是四个点：用球拍够到每个点后回到原点，顺序由教练喊。\n【流程】第1步：球员向左移动（全力冲刺）；第2步：球员回到原位；第3步：球员向右移动（全力冲刺）；第4步：球员回到原位；第5步：球员向左移动（全力冲刺）；第6步：球员回到原位；第7步：球员向右移动（全力冲刺）；第8步：球员回到原位。\n【连贯】四个角各去一次回来算一轮，约 18 秒；休息 40 秒再来。做 6 轮后两人互换。\n【要点】一组的成色看最后一趟，不看第一趟：如果第六趟比第二趟慢很多，要么休息不够，要么之前没真跑。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】半場中間一個錐標，四角各一個：廚房線兩個、底線兩個；球員站在中間錐標上。\n【器材】中間錐標是原點，四個角是四個點：用球拍夠到每個點後回到原點，順序由教練喊。\n【流程】第1步：球員向左移動（全力衝刺）；第2步：球員回到原位；第3步：球員向右移動（全力衝刺）；第4步：球員回到原位；第5步：球員向左移動（全力衝刺）；第6步：球員回到原位；第7步：球員向右移動（全力衝刺）；第8步：球員回到原位。\n【連貫】四個角各去一次回來算一輪，約 18 秒；休息 40 秒再來。做 6 輪後兩人互換。\n【要點】一組的成色看最後一趟，不看第一趟：如果第六趟比第二趟慢很多，要麼休息不夠，要麼之前沒真跑。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one。\n【用具】the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order。\n【流れ】ステップ1：選手が左へ移動し、全力でダッシュ。ステップ2：選手が元の位置に戻る。ステップ3：選手が右へ移動し、全力でダッシュ。ステップ4：選手が元の位置に戻る。ステップ5：選手が左へ移動し、全力でダッシュ。ステップ6：選手が元の位置に戻る。ステップ7：選手が右へ移動し、全力でダッシュ。ステップ8：選手が元の位置に戻る。\n【続け方】Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\n【ポイント】セットは最初ではなく最後の1本で評価する：6本目が2本目よりかなり遅いなら、休息が短いか、手を抜いていたかだ。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\n【장비】the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\n【진행】1단계: 선수는 왼쪽으로 이동해 전력 질주; 2단계: 선수는 원래 자리로 돌아간다; 3단계: 선수는 오른쪽으로 이동해 전력 질주; 4단계: 선수는 원래 자리로 돌아간다; 5단계: 선수는 왼쪽으로 이동해 전력 질주; 6단계: 선수는 원래 자리로 돌아간다; 7단계: 선수는 오른쪽으로 이동해 전력 질주; 8단계: 선수는 원래 자리로 돌아간다.\n【이어가기】Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\n【포인트】세트는 첫 회차가 아니라 마지막 회차로 평가한다: 여섯 번째가 두 번째보다 훨씬 느리면 휴식이 짧았거나 앞에서 힘을 아꼈던 것이다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nMaterial: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nSecuencia: Paso 1: el jugador se desplaza a la izquierda para esprintar a tope; Paso 2: el jugador vuelve a su cono; Paso 3: el jugador se desplaza a la derecha para esprintar a tope; Paso 4: el jugador vuelve a su cono; Paso 5: el jugador se desplaza a la izquierda para esprintar a tope; Paso 6: el jugador vuelve a su cono; Paso 7: el jugador se desplaza a la derecha para esprintar a tope; Paso 8: el jugador vuelve a su cono.\nContinuidad: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nPunto clave: La serie se juzga por la última repetición, no por la primera: si la sexta es mucho más lenta que la segunda, el descanso es corto o el esfuerzo no fue honesto.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nMatériel : the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nDéroulé : Étape 1 : le joueur se déplace à gauche pour sprinter à fond ; Étape 2 : le joueur revient sur son plot ; Étape 3 : le joueur se déplace à droite pour sprinter à fond ; Étape 4 : le joueur revient sur son plot ; Étape 5 : le joueur se déplace à gauche pour sprinter à fond ; Étape 6 : le joueur revient sur son plot ; Étape 7 : le joueur se déplace à droite pour sprinter à fond ; Étape 8 : le joueur revient sur son plot.\nEnchaînement : Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nPoint clé : La série se juge à la dernière répétition, pas à la première : si la sixième est bien plus lente que la deuxième, la récupération est trop courte ou l'effort n'était pas sincère.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nPerlengkapan: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 2: pemain kembali ke cone; Langkah 3: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 4: pemain kembali ke cone; Langkah 5: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 6: pemain kembali ke cone; Langkah 7: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 8: pemain kembali ke cone.\nKelanjutan: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nPoin utama: Satu set dinilai dari ulangan terakhir, bukan yang pertama: kalau yang keenam jauh lebih lambat, istirahatnya kurang atau usahanya tidak jujur.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nPeralatan: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 2: pemain kembali ke kon; Langkah 3: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 4: pemain kembali ke kon; Langkah 5: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 6: pemain kembali ke kon; Langkah 7: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 8: pemain kembali ke kon.\nKesinambungan: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nPoin utama: Satu set dinilai dari ulangan terakhir, bukan yang pertama: jika keenam jauh lebih perlahan, rehatnya kurang atau usahanya tidak jujur.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one\nอุปกรณ์: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น กลับไปที่กรวยเดิม • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น กลับไปที่กรวยเดิม • ขั้นที่ 5: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น กลับไปที่กรวยเดิม • ขั้นที่ 7: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 8: ผู้เล่น กลับไปที่กรวยเดิม\nการต่อเนื่อง: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nจุดเน้น: เซ็ตหนึ่งวัดกันที่รอบสุดท้าย ไม่ใช่รอบแรก ถ้ารอบหกช้ากว่ารอบสองมาก แปลว่าพักน้อยไปหรือก่อนหน้านี้ไม่ได้ทุ่มจริง",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one.\nDụng cụ: the middle cone is base and the four corners are the points: reach each with the paddle, recover to base, and the coach calls the order.\nTrình tự: Bước 1: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 2: cầu thủ về lại vị trí cũ; Bước 3: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 4: cầu thủ về lại vị trí cũ; Bước 5: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 6: cầu thủ về lại vị trí cũ; Bước 7: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 8: cầu thủ về lại vị trí cũ.\nTiếp nối: Four corners and back is one round, about 18 seconds; rest 40 seconds and go again. Six rounds, then the pair swaps.\nĐiểm chính: Một hiệp được đánh giá ở lượt cuối, không phải lượt đầu: nếu lượt sáu chậm hơn lượt hai nhiều thì nghỉ chưa đủ hoặc trước đó chưa gắng thật."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 5,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1172.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                281.92705376918536,
+                1013.9999999999999
+              ],
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ],
+              [
+                718.0729462308145,
+                1013.9999999999999
+              ],
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ],
+              [
+                281.92705376918536,
+                1344.0
+              ],
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ],
+              [
+                718.0729462308145,
+                1344.0
+              ],
+              [
+                499.99999999999994,
+                1172.3999999999999
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              267.38885735379773,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              732.6111426462021,
+              1013.9999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              267.38885735379773,
+              1370.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              732.6111426462021,
+              1370.3999999999999
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              499.99999999999994,
+              1198.8
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
             "photoId": null,
             "role": null,
             "attachedTo": null

@@ -5,7 +5,7 @@
     {
       "id": "bt_warm_volley_exchange",
       "level": "foundation",
-      "family": "beachTennis_family_6",
+      "family": "beachTennis_family_9",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -177,7 +177,7 @@
     {
       "id": "bt_warm_short_court",
       "level": "foundation",
-      "family": "beachTennis_family_6",
+      "family": "beachTennis_family_9",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -349,7 +349,7 @@
     {
       "id": "bt_rally_straight",
       "level": "foundation",
-      "family": "beachTennis_family_9",
+      "family": "beachTennis_family_12",
       "familyName": {
         "en": "Volley rally",
         "en-GB": "Volley rally",
@@ -516,7 +516,7 @@
     {
       "id": "bt_rally_cross_court",
       "level": "development",
-      "family": "beachTennis_family_9",
+      "family": "beachTennis_family_12",
       "familyName": {
         "en": "Volley rally",
         "en-GB": "Volley rally",
@@ -683,7 +683,7 @@
     {
       "id": "bt_return_block",
       "level": "development",
-      "family": "beachTennis_family_8",
+      "family": "beachTennis_family_11",
       "familyName": {
         "en": "Return",
         "en-GB": "Return",
@@ -912,7 +912,7 @@
     {
       "id": "bt_return_attacking",
       "level": "development",
-      "family": "beachTennis_family_8",
+      "family": "beachTennis_family_11",
       "familyName": {
         "en": "Return",
         "en-GB": "Return",
@@ -1141,7 +1141,7 @@
     {
       "id": "bt_serve_flat",
       "level": "development",
-      "family": "beachTennis_family_5",
+      "family": "beachTennis_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -1375,7 +1375,7 @@
     {
       "id": "bt_serve_sliced",
       "level": "development",
-      "family": "beachTennis_family_5",
+      "family": "beachTennis_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -1609,7 +1609,7 @@
     {
       "id": "bt_serve_jump",
       "level": "advanced",
-      "family": "beachTennis_family_5",
+      "family": "beachTennis_family_7",
       "familyName": {
         "en": "Serve",
         "en-GB": "Serve",
@@ -1843,7 +1843,7 @@
     {
       "id": "bt_attack_approach",
       "level": "development",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -2072,7 +2072,7 @@
     {
       "id": "bt_attack_the_drop",
       "level": "development",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -2301,7 +2301,7 @@
     {
       "id": "bt_attack_cross_court",
       "level": "development",
-      "family": "beachTennis_family_3",
+      "family": "beachTennis_family_4",
       "familyName": {
         "en": "Attacking",
         "en-GB": "Attacking",
@@ -4343,7 +4343,7 @@
     {
       "id": "bt_cover_middle",
       "level": "development",
-      "family": "beachTennis_family_7",
+      "family": "beachTennis_family_10",
       "familyName": {
         "en": "Court coverage",
         "en-GB": "Court coverage",
@@ -4552,7 +4552,7 @@
     {
       "id": "bt_cover_switching",
       "level": "advanced",
-      "family": "beachTennis_family_7",
+      "family": "beachTennis_family_10",
       "familyName": {
         "en": "Court coverage",
         "en-GB": "Court coverage",
@@ -4761,7 +4761,7 @@
     {
       "id": "bt_game_half_court",
       "level": "development",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -4963,7 +4963,7 @@
     {
       "id": "bt_game_king_of_the_court",
       "level": "development",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -5287,7 +5287,7 @@
     {
       "id": "bt_game_full_doubles",
       "level": "development",
-      "family": "beachTennis_family_4",
+      "family": "beachTennis_family_5",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -5490,6 +5490,431 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "btfit_sand_sprints",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Sand sprints",
+        "en-GB": "Sand sprints",
+        "zh-CN": "沙地冲刺",
+        "zh-TW": "沙地衝刺",
+        "ja-JP": "砂上スプリント",
+        "ko-KR": "모래 스프린트",
+        "es-ES": "Sprints en arena",
+        "fr-FR": "Sprints sur sable",
+        "id-ID": "Sprint di pasir",
+        "ms-MY": "Pecutan di pasir",
+        "th-TH": "สปรินต์บนทราย",
+        "vi-VN": "Chạy nước rút trên cát"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nEquipment: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to jog to recover.\nHow it continues: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nCoaching point: Short steps and high knees — the sand takes the stride length away, so the speed has to come from turning the legs over faster.",
+        "en-GB": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nEquipment: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to jog to recover.\nHow it continues: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nCoaching point: Short steps and high knees — the sand takes the stride length away, so the speed has to come from turning the legs over faster.",
+        "zh-CN": "【目的】沙地体能：每一步都比硬地费力，练的是腿也是落地的安全——而这项运动拼的就是头三步。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】球场一侧从底线到网前放两个锥标；全组一人一次轮流出发。\n【器材】两个锥标是冲刺的两端：底线和网前；慢跑回来要走场外，把跑道让给下一个人。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（慢跑恢复）。\n【连贯】沿球场长边冲刺一趟，30 秒内绕回来再出发；做 10 次后到阴凉处休息 3 分钟。\n【要点】小步、高抬腿——沙子会把步幅吃掉，速度只能靠步频提上去。",
+        "zh-TW": "【目的】沙地體能：每一步都比硬地費力，練的是腿也是落地的安全——而這項運動拼的就是頭三步。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】球場一側從底線到網前放兩個錐標；全組一人一次輪流出發。\n【器材】兩個錐標是衝刺的兩端：底線和網前；慢跑回來要走場外，把跑道讓給下一個人。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（慢跑恢復）。\n【連貫】沿球場長邊衝刺一趟，30 秒內繞回來再出發；做 10 次後到陰涼處休息 3 分鐘。\n【要點】小步、高抬腿——沙子會把步幅吃掉，速度只能靠步頻提上去。",
+        "ja-JP": "【目的】砂上のフィジカル：一歩がコートより重く、脚も着地の安全も鍛えられる——そしてこの競技は最初の3歩で決まる。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】two cones from the baseline to the net on one side of the court; the group goes one at a time。\n【用具】the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、ジョグで回復。\n【続け方】Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\n【ポイント】歩幅は小さく、膝は高く——砂はストライドを奪うので、速さは回転の速さで出すしかない。",
+        "ko-KR": "【목적】모래에서의 체력: 한 걸음이 코트보다 무겁다. 다리도 착지의 안전도 함께 만들어지며, 이 종목은 첫 세 걸음이 전부다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】two cones from the baseline to the net on one side of the court; the group goes one at a time.\n【장비】the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 조깅으로 회복.\n【이어가기】Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\n【포인트】보폭은 짧게, 무릎은 높게 — 모래가 보폭을 먹어버리니 속도는 회전수로 내야 한다.",
+        "es-ES": "Objetivo: Físico en la arena: cada paso cuesta más que en pista, así que se construyen las piernas y se aseguran las caídas; y en este deporte todo son los tres primeros pasos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nMaterial: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para trotar para recuperar.\nContinuidad: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nPunto clave: Pasos cortos y rodillas altas: la arena se lleva la zancada, así que la velocidad sale de mover las piernas más rápido.",
+        "fr-FR": "Objectif : Physique sur le sable : chaque appui coûte plus que sur un terrain dur, on construit les jambes et on sécurise les réceptions — et tout se joue sur les trois premiers pas.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : two cones from the baseline to the net on one side of the court; the group goes one at a time.\nMatériel : the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour trottiner pour récupérer.\nEnchaînement : Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nPoint clé : Petites foulées, genoux hauts : le sable mange l'amplitude, la vitesse vient donc de la fréquence.",
+        "id-ID": "Tujuan: Fisik di pasir: setiap langkah lebih berat daripada di lapangan keras, kaki terbentuk dan pendaratan jadi aman.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nPerlengkapan: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk joging untuk pulih.\nKelanjutan: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nPoin utama: Langkah pendek dan lutut tinggi — pasir memakan panjang langkah, jadi kecepatan datang dari frekuensi.",
+        "ms-MY": "Tujuan: Fizikal di pasir: setiap langkah lebih berat daripada di gelanggang keras, kaki terbentuk dan pendaratan jadi selamat.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nPeralatan: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk berjoging untuk pulih.\nKesinambungan: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nPoin utama: Langkah pendek dan lutut tinggi — pasir memakan panjang langkah, jadi kelajuan datang dari kekerapan.",
+        "th-TH": "จุดประสงค์: ฟิตเนสบนทราย: ทุกก้าวหนักกว่าบนคอร์ต สร้างขาและลงพื้นอย่างปลอดภัย และกีฬานี้วัดกันที่สามก้าวแรก\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: two cones from the baseline to the net on one side of the court; the group goes one at a time\nอุปกรณ์: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nจุดเน้น: ก้าวสั้นและยกเข่าสูง ทรายกินความยาวก้าว ความเร็วจึงต้องมาจากความถี่",
+        "vi-VN": "Mục đích: Thể lực trên cát: mỗi bước nặng hơn trên sân cứng, vừa xây chân vừa an toàn khi tiếp đất — và môn này quyết ở ba bước đầu.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: two cones from the baseline to the net on one side of the court; the group goes one at a time.\nDụng cụ: the two cones are the ends of the sprint — the baseline and the net; the jog back is outside the court so the next runner has the lane.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để chạy chậm để hồi phục.\nTiếp nối: Sprint the length of the court, jog round and go again inside 30 seconds; ten sprints, then three minutes in the shade.\nĐiểm chính: Bước ngắn và nâng cao gối — cát lấy mất sải chân, tốc độ phải đến từ tần số."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              345.64676616915426,
+              1285.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                345.64676616915426,
+                852.0
+              ],
+              [
+                500.0,
+                1285.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              314.7761194029851,
+              1311.0
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              314.7761194029851,
+              826.5000000000001
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "btfit_sand_lateral",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Lateral shuffle",
+        "en-GB": "Lateral shuffle",
+        "zh-CN": "横向滑步",
+        "zh-TW": "橫向滑步",
+        "ja-JP": "サイドステップ",
+        "ko-KR": "사이드 스텝",
+        "es-ES": "Desplazamientos laterales",
+        "fr-FR": "Pas chassés latéraux",
+        "id-ID": "Geser menyamping",
+        "ms-MY": "Gerak sisi",
+        "th-TH": "สไลด์ข้าง",
+        "vi-VN": "Trượt ngang"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nEquipment: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "en-GB": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nEquipment: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nSequence: Step 1: the player moves left to side-shuffle without crossing the feet; Step 2: the player moves right to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet.\nHow it continues: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "zh-CN": "【目的】沙地体能：每一步都比硬地费力，练的是腿也是落地的安全——而这项运动拼的就是头三步。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】半场中部横向放三个锥标；球员持拍站在中间锥标上。\n【器材】锥标之间是沙滩网球要覆盖的宽度：滑到每个锥标做出截击动作再回来——沙地必须把脚抬起来，宁可抬高也不要拖着走。\n【流程】第1步：球员向左移动（侧滑步，脚不交叉）；第2步：球员向右移动（侧滑步，脚不交叉）；第3步：球员向右移动（侧滑步，脚不交叉）；第4步：球员向左移动（侧滑步，脚不交叉）。\n【连贯】左右移动 20 秒、休息 40 秒，做 10 次后两人互换。\n【要点】脚不交叉，头不上下起伏：全程保持低重心，最后一步要和第一步一样大。",
+        "zh-TW": "【目的】沙地體能：每一步都比硬地費力，練的是腿也是落地的安全——而這項運動拼的就是頭三步。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】半場中部橫向放三個錐標；球員持拍站在中間錐標上。\n【器材】錐標之間是沙灘網球要覆蓋的寬度：滑到每個錐標做出截擊動作再回來——沙地必須把腳抬起來，寧可抬高也不要拖著走。\n【流程】第1步：球員向左移動（側滑步，腳不交叉）；第2步：球員向右移動（側滑步，腳不交叉）；第3步：球員向右移動（側滑步，腳不交叉）；第4步：球員向左移動（側滑步，腳不交叉）。\n【連貫】左右移動 20 秒、休息 40 秒，做 10 次後兩人互換。\n【要點】腳不交叉，頭不上下起伏：全程保持低重心，最後一步要和第一步一樣大。",
+        "ja-JP": "【目的】砂上のフィジカル：一歩がコートより重く、脚も着地の安全も鍛えられる——そしてこの競技は最初の3歩で決まる。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】three cones across the middle of the half; the player starts on the middle one with the paddle up。\n【用具】the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging。\n【流れ】ステップ1：選手が左へ移動し、足を交差させずサイドステップ。ステップ2：選手が右へ移動し、足を交差させずサイドステップ。ステップ3：選手が右へ移動し、足を交差させずサイドステップ。ステップ4：選手が左へ移動し、足を交差させずサイドステップ。\n【続け方】Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\n【ポイント】足は交差させず、頭は上下させない：最後まで低く、最後の一歩も最初と同じ幅で。",
+        "ko-KR": "【목적】모래에서의 체력: 한 걸음이 코트보다 무겁다. 다리도 착지의 안전도 함께 만들어지며, 이 종목은 첫 세 걸음이 전부다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】three cones across the middle of the half; the player starts on the middle one with the paddle up.\n【장비】the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\n【진행】1단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 2단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 3단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 4단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝.\n【이어가기】Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\n【포인트】발은 교차하지 않고 머리는 위아래로 흔들리지 않는다: 끝까지 낮게, 마지막 한 걸음도 첫 걸음만큼 넓게.",
+        "es-ES": "Objetivo: Físico en la arena: cada paso cuesta más que en pista, así que se construyen las piernas y se aseguran las caídas; y en este deporte todo son los tres primeros pasos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nMaterial: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nSecuencia: Paso 1: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies; Paso 2: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 3: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 4: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies.\nContinuidad: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nPunto clave: Los pies no se cruzan y la cabeza no sube y baja: mantente bajo todo el rato y el último paso es tan amplio como el primero.",
+        "fr-FR": "Objectif : Physique sur le sable : chaque appui coûte plus que sur un terrain dur, on construit les jambes et on sécurise les réceptions — et tout se joue sur les trois premiers pas.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : three cones across the middle of the half; the player starts on the middle one with the paddle up.\nMatériel : the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nDéroulé : Étape 1 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds ; Étape 2 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 3 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 4 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds.\nEnchaînement : Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nPoint clé : Les pieds ne se croisent pas et la tête ne monte pas : reste bas jusqu'au bout, le dernier appui aussi large que le premier.",
+        "id-ID": "Tujuan: Fisik di pasir: setiap langkah lebih berat daripada di lapangan keras, kaki terbentuk dan pendaratan jadi aman.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nPerlengkapan: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki; Langkah 2: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 3: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 4: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki.\nKelanjutan: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nPoin utama: Kaki tidak menyilang dan kepala tidak naik-turun: tetap rendah sampai akhir, langkah terakhir selebar yang pertama.",
+        "ms-MY": "Tujuan: Fizikal di pasir: setiap langkah lebih berat daripada di gelanggang keras, kaki terbentuk dan pendaratan jadi selamat.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nPeralatan: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki; Langkah 2: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 3: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 4: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki.\nKesinambungan: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nPoin utama: Kaki tidak bersilang dan kepala tidak naik turun: kekal rendah hingga akhir, langkah terakhir selebar yang pertama.",
+        "th-TH": "จุดประสงค์: ฟิตเนสบนทราย: ทุกก้าวหนักกว่าบนคอร์ต สร้างขาและลงพื้นอย่างปลอดภัย และกีฬานี้วัดกันที่สามก้าวแรก\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: three cones across the middle of the half; the player starts on the middle one with the paddle up\nอุปกรณ์: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 2: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า\nการต่อเนื่อง: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nจุดเน้น: เท้าไม่ไขว้ หัวไม่ขึ้นลง ย่อตัวต่ำตลอด ก้าวสุดท้ายกว้างเท่าก้าวแรก",
+        "vi-VN": "Mục đích: Thể lực trên cát: mỗi bước nặng hơn trên sân cứng, vừa xây chân vừa an toàn khi tiếp đất — và môn này quyết ở ba bước đầu.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: three cones across the middle of the half; the player starts on the middle one with the paddle up.\nDụng cụ: the cones are the width a beach-tennis player covers: shuffle to each, play the volley, and come back — in sand the feet lift, so they lift high rather than dragging.\nTrình tự: Bước 1: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân; Bước 2: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 3: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 4: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân.\nTiếp nối: Twenty seconds side to side, forty seconds' rest; ten repetitions, then the pair swaps.\nĐiểm chính: Chân không bắt chéo, đầu không nhấp nhô: giữ thấp suốt, bước cuối rộng như bước đầu."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1030.5
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                283.90547263681594,
+                1030.5
+              ],
+              [
+                500.0,
+                1030.5
+              ],
+              [
+                716.0945273631842,
+                1030.5
+              ],
+              [
+                500.0,
+                1030.5
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              268.4701492537314,
+              1068.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1068.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              716.0945273631842,
+              1068.75
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "btfit_sand_jumps",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 6,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Jump series",
+        "en-GB": "Jump series",
+        "zh-CN": "连续起跳",
+        "zh-TW": "連續起跳",
+        "ja-JP": "連続ジャンプ",
+        "ko-KR": "연속 점프",
+        "es-ES": "Serie de saltos",
+        "fr-FR": "Série de sauts",
+        "id-ID": "Seri lompatan",
+        "ms-MY": "Siri lompatan",
+        "th-TH": "ชุดกระโดด",
+        "vi-VN": "Chuỗi bật nhảy"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the player two steps behind the net with the sand raked flat under him.\nEquipment: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nSequence: Step 1: the player moves up the board to take off and land on both feet; Step 2: the player gets back to the cone; Step 3: the player moves up the board to take off and land on both feet; Step 4: the player gets back to the cone.\nHow it continues: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nCoaching point: Reach the same height on the last jump as on the first; the moment the height drops the set is over, however many are left — height is the quality being trained.",
+        "en-GB": "Purpose: Fitness in the sand: every step costs more than it does on a court, so the legs are built and the landings are safe — and the first three steps are the whole game.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the player two steps behind the net with the sand raked flat under him.\nEquipment: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nSequence: Step 1: the player moves up the board to take off and land on both feet; Step 2: the player gets back to the cone; Step 3: the player moves up the board to take off and land on both feet; Step 4: the player gets back to the cone.\nHow it continues: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nCoaching point: Reach the same height on the last jump as on the first; the moment the height drops the set is over, however many are left — height is the quality being trained.",
+        "zh-CN": "【目的】沙地体能：每一步都比硬地费力，练的是腿也是落地的安全——而这项运动拼的就是头三步。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】球员站在网后两步，脚下的沙耙平。\n【器材】阴影区是起跳和落地的区域：沙地起跳脚会陷进去，所以助跑更短，手臂要出更多力。\n【流程】第1步：球员向前移动（起跳，双脚落地）；第2步：球员回到原位；第3步：球员向前移动（起跳，双脚落地）；第4步：球员回到原位。\n【连贯】带完整挥拍的扣杀起跳做 6 次，休息 2 分钟；做 3 组。沙地不容出错——落地一旦不稳立刻停止。\n【要点】最后一跳要和第一跳一样高；高度一掉就停，不管还剩几个——练的就是高度。",
+        "zh-TW": "【目的】沙地體能：每一步都比硬地費力，練的是腿也是落地的安全——而這項運動拼的就是頭三步。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】球員站在網後兩步，腳下的沙耙平。\n【器材】陰影區是起跳和落地的區域：沙地起跳腳會陷進去，所以助跑更短，手臂要出更多力。\n【流程】第1步：球員向前移動（起跳，雙腳落地）；第2步：球員回到原位；第3步：球員向前移動（起跳，雙腳落地）；第4步：球員回到原位。\n【連貫】帶完整揮拍的扣殺起跳做 6 次，休息 2 分鐘；做 3 組。沙地不容出錯——落地一旦不穩立刻停止。\n【要點】最後一跳要和第一跳一樣高；高度一掉就停，不管還剩幾個——練的就是高度。",
+        "ja-JP": "【目的】砂上のフィジカル：一歩がコートより重く、脚も着地の安全も鍛えられる——そしてこの競技は最初の3歩で決まる。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the player two steps behind the net with the sand raked flat under him。\n【用具】the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more。\n【流れ】ステップ1：選手が前方へ移動し、踏み切って両足で着地。ステップ2：選手が元の位置に戻る。ステップ3：選手が前方へ移動し、踏み切って両足で着地。ステップ4：選手が元の位置に戻る。\n【続け方】Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\n【ポイント】最後の1本も1本目と同じ高さまで跳ぶ。高さが落ちた時点で、残りが何本でもそのセットは終わり——鍛えているのは高さだ。",
+        "ko-KR": "【목적】모래에서의 체력: 한 걸음이 코트보다 무겁다. 다리도 착지의 안전도 함께 만들어지며, 이 종목은 첫 세 걸음이 전부다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the player two steps behind the net with the sand raked flat under him.\n【장비】the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\n【진행】1단계: 선수는 앞으로 이동해 도약해 두 발로 착지; 2단계: 선수는 원래 자리로 돌아간다; 3단계: 선수는 앞으로 이동해 도약해 두 발로 착지; 4단계: 선수는 원래 자리로 돌아간다.\n【이어가기】Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\n【포인트】마지막 점프도 첫 점프와 같은 높이로. 높이가 떨어지는 순간 몇 개가 남았든 세트는 끝이다 — 훈련하는 것은 높이다.",
+        "es-ES": "Objetivo: Físico en la arena: cada paso cuesta más que en pista, así que se construyen las piernas y se aseguran las caídas; y en este deporte todo son los tres primeros pasos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the player two steps behind the net with the sand raked flat under him.\nMaterial: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para saltar y caer con los dos pies; Paso 2: el jugador vuelve a su cono; Paso 3: el jugador se desplaza hacia delante para saltar y caer con los dos pies; Paso 4: el jugador vuelve a su cono.\nContinuidad: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nPunto clave: Alcanza la misma altura en el último salto que en el primero; en cuanto baja la altura, la serie se acaba, queden los que queden: lo que se entrena es la altura.",
+        "fr-FR": "Objectif : Physique sur le sable : chaque appui coûte plus que sur un terrain dur, on construit les jambes et on sécurise les réceptions — et tout se joue sur les trois premiers pas.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the player two steps behind the net with the sand raked flat under him.\nMatériel : the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sauter et retomber sur deux pieds ; Étape 2 : le joueur revient sur son plot ; Étape 3 : le joueur se déplace vers l'avant pour sauter et retomber sur deux pieds ; Étape 4 : le joueur revient sur son plot.\nEnchaînement : Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nPoint clé : Atteins la même hauteur au dernier saut qu'au premier ; dès que la hauteur baisse, la série est finie, quel qu'en soit le reste — c'est la hauteur que l'on travaille.",
+        "id-ID": "Tujuan: Fisik di pasir: setiap langkah lebih berat daripada di lapangan keras, kaki terbentuk dan pendaratan jadi aman.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the player two steps behind the net with the sand raked flat under him.\nPerlengkapan: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nUrutan: Langkah 1: pemain bergerak ke depan untuk melompat dan mendarat dua kaki; Langkah 2: pemain kembali ke cone; Langkah 3: pemain bergerak ke depan untuk melompat dan mendarat dua kaki; Langkah 4: pemain kembali ke cone.\nKelanjutan: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nPoin utama: Capai tinggi yang sama pada lompatan terakhir seperti yang pertama; begitu tingginya turun, set selesai.",
+        "ms-MY": "Tujuan: Fizikal di pasir: setiap langkah lebih berat daripada di gelanggang keras, kaki terbentuk dan pendaratan jadi selamat.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the player two steps behind the net with the sand raked flat under him.\nPeralatan: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk melompat dan mendarat dua kaki; Langkah 2: pemain kembali ke kon; Langkah 3: pemain bergerak ke hadapan untuk melompat dan mendarat dua kaki; Langkah 4: pemain kembali ke kon.\nKesinambungan: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nPoin utama: Capai ketinggian yang sama pada lompatan terakhir seperti yang pertama; sebaik ketinggian turun, set tamat.",
+        "th-TH": "จุดประสงค์: ฟิตเนสบนทราย: ทุกก้าวหนักกว่าบนคอร์ต สร้างขาและลงพื้นอย่างปลอดภัย และกีฬานี้วัดกันที่สามก้าวแรก\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the player two steps behind the net with the sand raked flat under him\nอุปกรณ์: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดและลงสองเท้า • ขั้นที่ 2: ผู้เล่น กลับไปที่กรวยเดิม • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดและลงสองเท้า • ขั้นที่ 4: ผู้เล่น กลับไปที่กรวยเดิม\nการต่อเนื่อง: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nจุดเน้น: กระโดดครั้งสุดท้ายให้สูงเท่าครั้งแรก พอความสูงตกให้จบเซ็ตทันที เพราะสิ่งที่ฝึกคือความสูง",
+        "vi-VN": "Mục đích: Thể lực trên cát: mỗi bước nặng hơn trên sân cứng, vừa xây chân vừa an toàn khi tiếp đất — và môn này quyết ở ba bước đầu.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the player two steps behind the net with the sand raked flat under him.\nDụng cụ: the shaded zone is the patch the jump starts and lands in: in sand the take-off foot sinks, so the run-up is shorter and the arm has to do more.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để bật lên và tiếp đất bằng hai chân; Bước 2: cầu thủ về lại vị trí cũ; Bước 3: cầu thủ di chuyển lên phía trước để bật lên và tiếp đất bằng hai chân; Bước 4: cầu thủ về lại vị trí cũ.\nTiếp nối: Six smash jumps with the full swing, two minutes' rest; three sets. Sand is unforgiving — stop the moment a landing is uneven.\nĐiểm chính: Lần bật cuối phải cao bằng lần đầu; ngay khi độ cao giảm là kết thúc hiệp, còn bao nhiêu cũng bỏ — thứ đang tập là độ cao."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 13,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              979.5000000000001
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                877.5
+              ],
+              [
+                500.0,
+                979.5000000000001
+              ],
+              [
+                500.0,
+                877.5
+              ],
+              [
+                500.0,
+                979.5000000000001
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              928.5
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": 4294956864,
+            "gender": 2,
+            "markerShape": 7,
             "photoId": null,
             "role": null,
             "attachedTo": null

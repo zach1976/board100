@@ -30,7 +30,12 @@ def _with_notes(sport: str, lib):
         return None
 
     def build():
-        drills = lib()
+        from .fitness_all import fitness_for
+        # Conditioning is part of every library, and it is the same eight
+        # or three drills whatever else the sport has, so it is added here
+        # rather than in fifteen library functions. Soccer has its own,
+        # inside soccer.py, and fitness_for returns nothing for it.
+        drills = lib() + fitness_for(sport)
         try:
             notes = importlib.import_module(f".notes_{sport}", __package__)
         except ModuleNotFoundError:
