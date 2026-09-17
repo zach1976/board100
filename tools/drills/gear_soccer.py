@@ -23,8 +23,8 @@ GEAR = {
         "五个锥标围出圈，直塞必须从圈内两名防守者之间穿过",
         "五個錐標圍出圈，直塞必須從圈內兩名防守者之間穿過"),
     "dribble_slalom": _t(
-        "four cones in a line are the poles to weave through; the ball must pass alternate sides of each",
-        "四个锥标排成一列就是要绕的杆，球要从每个锥标的不同侧交替绕过",
+        "four cones in a line 3 m apart are the poles to weave through; the ball must pass alternate sides of each",
+        "四个锥标排成一列、相距 3 米，就是要绕的杆；球要从每个锥标的不同侧交替绕过",
         "四個錐標排成一列就是要繞的桿，球要從每個錐標的不同側交替繞過"),
     "possession_7v4": _t(
         "four cones mark the corners of a 30 by 30 m square; the line between two cones is the boundary, and the ball is out the moment it crosses it",
@@ -75,9 +75,9 @@ GEAR = {
         "四个锥标标出场地四角（尺寸见【组织】），两个方块是两端线上各 2 米宽的小球门",
         "四個錐標標出場地四角（尺寸見【組織】），兩個方塊是兩端線上各 2 米寬的小球門"),
     "finish_penalty_routine": _t(
-        "the cone is the turning mark of the sprint the taker runs before he steps up",
-        "锥标是主罚者罚球前折返冲刺的转折点",
-        "錐標是主罰者罰球前折返衝刺的轉折點"),
+        "the cone, 20 m from the penalty spot, is the turning mark of the sprint the taker runs before he steps up",
+        "锥标放在离点球点 20 米处，是主罚者罚球前折返冲刺的转折点",
+        "錐標放在離點球點 20 米處，是主罰者罰球前折返衝刺的轉折點"),
     "passing_": _t(
         "a cone at each station of the shape, 10 to 12 m apart; the passer runs to the cone he passed to and joins that line",
         "每个站位一个锥标，相邻锥标相距 10–12 米；传给谁就跑到那个锥标排到队尾",
@@ -172,3 +172,49 @@ def rules_of(drill_id: str):
         if key.endswith("_") and drill_id.startswith(key):
             return text
     return None
+
+
+# The reps that are not games and still talk about scoring: a shot at a
+# defended goal, and a build-up judged by whether the ball got out.
+RULES.update({
+    "duel_": _t(
+        "The attacker scores by putting the ball past the keeper between the posts; the rep ends there, or when the defender wins it, the keeper holds it, or the ball leaves the playing area. Offside is not played.",
+        "进攻者把球从门柱之间打过门将算得分；射门、被断球、门将控住球或球出练习区域，本回合都就此结束。不判越位。",
+        "進攻者把球從門柱之間打過門將算得分；射門、被斷球、門將控住球或球出練習區域，本回合都就此結束。不判越位。"),
+    "counter_": _t(
+        "The break scores by putting the ball in the goal; it ends there, or when a defender wins it or the ball crosses the goal line or the touchline. Offside is played from the moment the ball is released.",
+        "反击把球打进球门算得分；进球、被防守者断下、球出底线或边线，本次反击即结束。从出球那一刻起判越位。",
+        "反擊把球打進球門算得分；進球、被防守者斷下、球出底線或邊線，本次反擊即結束。從出球那一刻起判越位。"),
+    "buildup_": _t(
+        "Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.",
+        "把球控住带过中线算后场一分；断球、把球逼出边线、或逼得对方大脚解围算压迫方一分。",
+        "把球控住帶過中線算後場一分；斷球、把球逼出邊線、或逼得對方大腳解圍算壓迫方一分。"),
+    "build_from_gk": _t(
+        "Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.",
+        "把球控住带过中线算后场一分；断球、把球逼出边线、或逼得对方大脚解围算压迫方一分。",
+        "把球控住帶過中線算後場一分；斷球、把球逼出邊線、或逼得對方大腳解圍算壓迫方一分。"),
+    "goalkick_": _t(
+        "The goal kick has worked when the ball is under control in the other half; it has failed if it is won back, if it goes out, or if the keeper has to hit it long because nobody showed.",
+        "球门球把球控住送过中线算成功；被断、球出界，或因为无人接应只能大脚开出，都算失败。",
+        "球門球把球控住送過中線算成功；被斷、球出界，或因為無人接應只能大腳開出，都算失敗。"),
+    "press_": _t(
+        "The press scores by winning the ball inside ten seconds or forcing it out of play; the team on the ball scores by playing through the press and getting the ball under control past the halfway line.",
+        "压迫方在 10 秒内断下球或把球逼出界算一分；控球方把球穿过压迫、控住带过中线算一分。",
+        "壓迫方在 10 秒內斷下球或把球逼出界算一分；控球方把球穿過壓迫、控住帶過中線算一分。"),
+    "shape_": _t(
+        "The defence scores by keeping the ball in front of the line and winning it; the attack scores by playing a pass that goes behind the last defender with a runner onto it.",
+        "防守方把球挡在防线之前并断下算一分；进攻方传出一脚越过最后一名防守者、且有人跟上算一分。",
+        "防守方把球擋在防線之前並斷下算一分；進攻方傳出一腳越過最後一名防守者、且有人跟上算一分。"),
+    "defend_": _t(
+        "The defence scores by winning the ball or clearing it out of the area; the attack scores by getting a shot away or a cross onto a head. The ball out of play ends the rep either way.",
+        "防守方断下球或把球解围出区域算一分；进攻方打出射门或传中被顶到算一分。球出界则本回合结束。",
+        "防守方斷下球或把球解圍出區域算一分；進攻方打出射門或傳中被頂到算一分。球出界則本回合結束。"),
+    "header_": _t(
+        "The attacker scores by heading the ball down and on target; the defender scores by heading it high, wide and away from goal — first contact is the whole contest.",
+        "进攻方把头球顶下压、顶正球门算得分；防守方把球顶高、顶远、顶离球门算成功——争的就是第一点。",
+        "進攻方把頭球頂下壓、頂正球門算得分；防守方把球頂高、頂遠、頂離球門算成功——爭的就是第一點。"),
+    "warmup_two_ball": _t(
+        "Every ball that comes back round to the corner it started from is a point for the group; a collision, a ball out of the square or a ball that stops is a reset to zero.",
+        "每有一个球转回它出发的那个角，全组算一分；两球相撞、球出方阵或球停下来，计数清零重来。",
+        "每有一個球轉回它出發的那個角，全組算一分；兩球相撞、球出方陣或球停下來，計數清零重來。"),
+})

@@ -1,5 +1,6 @@
 """Basketball: what the cones are, and how each drill keeps going."""
-from .rules_common import GAME_RULES, PATTERN_RULES, SETPLAY_RULES
+from .rules_common import (GAME_RULES, PATTERN_RULES, SCORE_BASKET,
+                           SETPLAY_RULES)
 
 
 def _t(en, zh, zht):
@@ -54,7 +55,13 @@ FLOW = {
 
 GEAR = {
     "bb_two_ball_dribble": _t(
-        "the four cones mark the lane to dribble down and back",
-        "四个锥标标出来回运球的通道",
-        "四個錐標標出來回運球的通道"),
+        "four cones in a line 4 m apart mark the lane to dribble down and back",
+        "四个锥标排成一列、相距 4 米，标出来回运球的通道",
+        "四個錐標排成一列、相距 4 米，標出來回運球的通道"),
+}
+
+
+RULES = {
+    # Every set, cut, screen, coverage and game is scored the same way.
+    "bb_": SCORE_BASKET,
 }

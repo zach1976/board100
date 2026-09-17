@@ -1,6 +1,7 @@
 """Water polo: what the cones and zones are, and how each drill keeps going."""
 from .rules_common import (BUILDUP_RULES, GAME_RULES, GK_RULES, PATTERN_RULES,
-                           QUEUE_RULES, SETPIECE_RULES, SETPLAY_RULES)
+                           QUEUE_RULES, SCORE_GOAL_WATER, SETPIECE_RULES,
+                           SETPLAY_RULES)
 
 
 def _t(en, zh, zht):
@@ -50,4 +51,9 @@ GEAR = {
         "the two cones mark the two-metre line in front of the goal",
         "两个锥标标出球门前的两米线",
         "兩個錐標標出球門前的兩米線"),
+}
+
+
+RULES = {
+    "wp_": SCORE_GOAL_WATER,
 }

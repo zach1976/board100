@@ -1,5 +1,6 @@
 """Tennis: what the cones and zones are, and how each drill keeps going."""
-from .rules_common import FEED_RULES, POINT_RULES, RALLY_RULES, SERVE_RULES
+from .rules_common import (FEED_RULES, POINT_RULES, RALLY_RULES,
+                           SCORE_POINT_NET, SERVE_RULES)
 
 
 def _t(en, zh, zht):
@@ -36,9 +37,9 @@ GEAR = {
         "阴影区是发球必须落进的发球区位置",
         "陰影區是發球必須落進的發球區位置"),
     "tn_game_half_court": _t(
-        "the two cones mark the half of the court in play; a ball outside them is out",
-        "两个锥标标出比赛用的半边场地，落在锥标外算出界",
-        "兩個錐標標出比賽用的半邊場地，落在錐標外算出界"),
+        "two cones on the ends of the centre line mark the half in play, about 4 m wide; a ball outside the line between them is out",
+        "两个锥标摆在中线两端，标出比赛用的半边场地（宽约 4 米），落在锥标连线外算出界",
+        "兩個錐標擺在中線兩端，標出比賽用的半邊場地（寬約 4 米），落在錐標連線外算出界"),
     "tn_serve_and_volley": _t(
         "the two shaded zones are where the serve has to land and where the first volley has to go",
         "两个阴影区分别是发球的落点和第一截击要打到的区域",
@@ -51,4 +52,9 @@ GEAR = {
         "the two shaded zones are where the serve lands and where the poaching volley is put away",
         "两个阴影区分别是发球落点和网前拦截后要打到的区域",
         "兩個陰影區分別是發球落點和網前攔截後要打到的區域"),
+}
+
+
+RULES = {
+    "tn_game_": SCORE_POINT_NET,
 }

@@ -1,6 +1,7 @@
 """Handball: what the zones and squares are, and how each drill keeps going."""
 from .rules_common import (BUILDUP_RULES, GAME_RULES, GK_RULES, PATTERN_RULES,
-                           QUEUE_RULES, SETPIECE_RULES, SETPLAY_RULES)
+                           QUEUE_RULES, SCORE_GOAL_HAND, SETPIECE_RULES,
+                           SETPLAY_RULES)
 
 
 def _t(en, zh, zht):
@@ -46,4 +47,9 @@ GEAR = {
         "the two shaded zones are the two outlets the keeper's first pass can go to — the near wing and the breaking back",
         "两个阴影区是门将一传的两个出球点：近侧边锋和插上的后卫",
         "兩個陰影區是門將一傳的兩個出球點：近側邊鋒和插上的後衛"),
+}
+
+
+RULES = {
+    "hb_": SCORE_GOAL_HAND,
 }
