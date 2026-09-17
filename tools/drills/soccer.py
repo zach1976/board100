@@ -1352,7 +1352,7 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1), (745, 790, 2)],
                   why={0: "press_ball", 1: "delay", 2: "win_ball"}),
-                P(980, 470, ""),                     # the next defender, waiting
+                P(945, 440, ""),                     # the next defender, waiting
             ],
             away=[
                 P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1)],
