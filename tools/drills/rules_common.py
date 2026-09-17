@@ -59,20 +59,21 @@ DUEL_RULES = {
     "vi-VN": "Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.",
 }
 
-# A game: it restarts itself.
+# A game on a coned pitch with mini-goals: it restarts itself, and there is
+# no keeper to restart from.
 GAME_RULES = {
-    "en": "After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.",
-    "en-GB": "After a goal or the ball going out, restart from the keeper or the touchline and keep playing; four-minute games, then swap ends or opponents.",
-    "zh-CN": "进球或球出界后，从门将或边线重新开始，比赛不停；每局 4 分钟，局间换边或换对手。",
-    "zh-TW": "進球或球出界後，從門將或邊線重新開始，比賽不停；每局 4 分鐘，局間換邊或換對手。",
-    "ja-JP": "得点かボールアウトの後は、キーパーかタッチラインから再開して止めない。1ゲーム4分、終わったらエンドか相手を交代。",
-    "ko-KR": "골이 나거나 공이 나가면 골키퍼나 터치라인에서 다시 시작하고 멈추지 않는다. 한 게임 4분, 끝나면 진영이나 상대를 바꾼다.",
-    "es-ES": "Tras un gol o balón fuera, se reanuda desde el portero o la banda sin parar; partidos de cuatro minutos, luego cambio de campo o de rival.",
-    "fr-FR": "Après un but ou une sortie, on relance du gardien ou de la touche sans s'arrêter ; matchs de quatre minutes, puis on change de côté ou d'adversaire.",
-    "id-ID": "Setelah gol atau bola keluar, mulai lagi dari kiper atau garis tepi dan terus bermain; empat menit per gim, lalu tukar sisi atau lawan.",
-    "ms-MY": "Selepas gol atau bola keluar, mula semula dari penjaga gol atau garisan tepi dan terus bermain; empat minit setiap perlawanan, kemudian tukar sisi atau lawan.",
-    "th-TH": "หลังได้ประตูหรือบอลออก เริ่มใหม่จากผู้รักษาประตูหรือเส้นข้างแล้วเล่นต่อไม่หยุด เกมละ 4 นาที แล้วสลับแดนหรือสลับคู่แข่ง",
-    "vi-VN": "Sau bàn thắng hoặc bóng ra ngoài, bắt đầu lại từ thủ môn hoặc đường biên và chơi tiếp; mỗi trận 4 phút rồi đổi sân hoặc đổi đối thủ.",
+    "en": "After a goal the team that conceded restarts from its own end line; when the ball goes out the other team brings it in from where it left, and the coach has spares ready so nothing stops. Four-minute games, then swap ends or opponents.",
+    "en-GB": "After a goal the team that conceded restarts from its own end line; when the ball goes out the other team brings it in from where it left, and the coach has spares ready so nothing stops. Four-minute games, then swap ends or opponents.",
+    "zh-CN": "进球后由失球方从本方端线开球；球出界由对方在出界处发球，教练备好几个球随时补上，比赛不停。每局 4 分钟，局间换边或换对手。",
+    "zh-TW": "進球後由失球方從本方端線開球；球出界由對方在出界處發球，教練備好幾個球隨時補上，比賽不停。每局 4 分鐘，局間換邊或換對手。",
+    "ja-JP": "得点後は失点した側が自陣エンドラインから再開。ボールが出たら相手が出た地点から入れ、コーチが予備球をすぐ入れて止めない。1ゲーム4分で、エンドか相手を交代。",
+    "ko-KR": "골이 들어가면 실점한 팀이 자기 엔드라인에서 재개하고, 공이 나가면 상대가 나간 지점에서 넣는다. 코치가 여분의 공을 바로 넣어 멈추지 않는다. 한 게임 4분 후 진영이나 상대를 바꾼다.",
+    "es-ES": "Tras un gol reanuda el equipo que lo encajó desde su línea de fondo; si la bola sale, la mete el rival desde donde salió, y el entrenador tiene balones listos para que no se pare. Partidos de cuatro minutos y cambio de campo o de rival.",
+    "fr-FR": "Après un but, l'équipe encaissée relance de sa ligne de fond ; ballon sorti, l'adversaire le remet là où il est sorti, et l'entraîneur a des ballons prêts pour que rien ne s'arrête. Matchs de quatre minutes, puis on change de côté ou d'adversaire.",
+    "id-ID": "Setelah gol, tim yang kebobolan memulai dari garis akhirnya; bila bola keluar, lawan memasukkannya dari tempat bola keluar, dan pelatih menyiapkan bola cadangan agar tidak berhenti. Gim empat menit, lalu tukar sisi atau lawan.",
+    "ms-MY": "Selepas gol, pasukan yang kemasukan memulakan dari garisan hujungnya; jika bola keluar, lawan memasukkannya dari tempat ia keluar, dan jurulatih menyediakan bola ganti supaya tiada yang terhenti. Perlawanan empat minit, kemudian tukar sisi atau lawan.",
+    "th-TH": "หลังเสียประตู ฝ่ายที่เสียเริ่มจากเส้นหลังของตัวเอง บอลออกให้ฝ่ายตรงข้ามนำเข้าเล่นตรงจุดที่ออก โค้ชเตรียมบอลสำรองไว้เพื่อไม่ให้เกมหยุด เกมละ 4 นาที แล้วสลับแดนหรือคู่แข่ง",
+    "vi-VN": "Sau bàn thua, đội thủng lưới phát bóng từ vạch cuối sân của mình; bóng ra ngoài thì đội kia ném vào ngay chỗ bóng ra, huấn luyện viên có bóng dự phòng để không bị gián đoạn. Mỗi trận bốn phút rồi đổi sân hoặc đổi đối thủ.",
 }
 
 # A possession grid with no goals: the ball goes out, the coach serves a
