@@ -155,3 +155,117 @@ TWO_BALL_RULES = {
     "th-TH": "บอลสองลูกหมุนไม่หยุด ถ้ามาชนกันที่คนเดียวหรือลูกใดออก ให้หยุด วางกลับที่มุมเริ่มต้นทั้งสองแล้วเริ่มใหม่ 1 นาทีแล้วกลับทิศ",
     "vi-VN": "Hai bóng luân chuyển liên tục; nếu dồn vào một người hoặc một quả ra ngoài thì dừng, đặt lại hai góc xuất phát và làm lại. Một phút rồi đổi chiều.",
 }
+
+# ── net and racket sports ────────────────────────────────────────────────
+# A feeder and a worker: the feed never stops.
+FEED_RULES = {
+    "en": "The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.",
+    "en-GB": "The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.",
+    "zh-CN": "喂球者一球接一球连续喂，不等上一球落地；一组 15–20 球，练习者和喂球者互换。",
+    "zh-TW": "餵球者一球接一球連續餵，不等上一球落地；一組 15–20 球，練習者和餵球者互換。",
+    "ja-JP": "フィーダーは前の球を待たずに次々と出す。1セット15〜20球で、打つ側と出す側を交代。",
+    "ko-KR": "피더는 앞 공이 끝나길 기다리지 않고 연속으로 공을 준다. 한 세트 15~20개, 그 후 치는 사람과 주는 사람이 교대한다.",
+    "es-ES": "El alimentador saca bola tras bola sin esperar a que se juegue la anterior; una serie son 15–20 bolas y luego cambian de papel.",
+    "fr-FR": "Le distributeur enchaîne les balles sans attendre la fin de l'échange précédent ; une série fait 15–20 balles, puis on inverse les rôles.",
+    "id-ID": "Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, lalu pemain dan pengumpan bertukar.",
+    "ms-MY": "Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, kemudian pemain dan pengumpan bertukar.",
+    "th-TH": "คนป้อนป้อนลูกต่อเนื่องไม่รอลูกก่อนหน้า ชุดละ 15–20 ลูก แล้วสลับคนตีกับคนป้อน",
+    "vi-VN": "Người phát bóng đưa bóng liên tục, không đợi bóng trước kết thúc; mỗi hiệp 15–20 bóng rồi người tập và người phát đổi vai.",
+}
+
+# Two players trading a fixed shot: the rally is the rep.
+RALLY_RULES = {
+    "en": "Play the rally until it breaks down, then the same player starts the next one straight away; after ten rallies swap ends and, where the shots differ, roles.",
+    "en-GB": "Play the rally until it breaks down, then the same player starts the next one straight away; after ten rallies swap ends and, where the shots differ, roles.",
+    "zh-CN": "一个回合打到失误为止，由同一人立刻开始下一回合；打 10 个回合后换边，两人击球不同的就换角色。",
+    "zh-TW": "一個回合打到失誤為止，由同一人立刻開始下一回合；打 10 個回合後換邊，兩人擊球不同的就換角色。",
+    "ja-JP": "ラリーが途切れるまで続け、同じ人がすぐ次を始める。10ラリーでコートを替え、役割が違う場合は役割も替える。",
+    "ko-KR": "랠리가 끊길 때까지 치고, 같은 사람이 바로 다음을 시작한다. 열 번 후 코트를 바꾸고, 역할이 다르면 역할도 바꾼다.",
+    "es-ES": "Se pelotea hasta que se rompe el intercambio y el mismo jugador inicia el siguiente de inmediato; tras diez intercambios cambio de lado y, si los golpes son distintos, de papel.",
+    "fr-FR": "L'échange se joue jusqu'à la faute, puis le même joueur relance aussitôt ; après dix échanges on change de côté et, si les coups diffèrent, de rôle.",
+    "id-ID": "Reli dimainkan sampai putus, lalu pemain yang sama langsung memulai lagi; setelah sepuluh reli tukar sisi dan, bila pukulannya berbeda, tukar peran.",
+    "ms-MY": "Rali dimainkan sehingga terputus, kemudian pemain yang sama terus memulakan semula; selepas sepuluh rali tukar sisi dan, jika pukulan berbeza, tukar peranan.",
+    "th-TH": "ตีโต้จนกว่าจะเสีย แล้วคนเดิมเริ่มรอบถัดไปทันที ครบ 10 รอบสลับฝั่ง ถ้าลูกที่ตีต่างกันก็สลับหน้าที่ด้วย",
+    "vi-VN": "Đánh qua lại đến khi hỏng, người đó bắt đầu ngay lượt tiếp; sau mười lượt đổi sân và, nếu cú đánh khác nhau, đổi vai.",
+}
+
+# Points played out under a condition.
+POINT_RULES = {
+    "en": "Play each point out and keep score; serve alternates every two points. Games to 11, then swap ends, and swap partners or opponents.",
+    "en-GB": "Play each point out and keep score; serve alternates every two points. Games to 11, then swap ends, and swap partners or opponents.",
+    "zh-CN": "每一分打到底并计分，每两分换发球；打到 11 分一局，局间换边、换搭档或换对手。",
+    "zh-TW": "每一分打到底並計分，每兩分換發球；打到 11 分一局，局間換邊、換搭檔或換對手。",
+    "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。11点で1ゲーム、コート・パートナー・相手を替える。",
+    "ko-KR": "한 점씩 끝까지 치며 점수를 세고, 두 점마다 서브를 바꾼다. 11점 한 게임, 그 후 코트와 파트너 또는 상대를 바꾼다.",
+    "es-ES": "Cada punto se juega hasta el final y se cuenta; el saque cambia cada dos puntos. Juegos a 11, luego cambio de lado y de pareja o rival.",
+    "fr-FR": "Chaque point se joue jusqu'au bout et compte ; le service change tous les deux points. Jeux en 11, puis on change de côté et de partenaire ou d'adversaire.",
+    "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Gim sampai 11, lalu tukar sisi dan tukar pasangan atau lawan.",
+    "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Perlawanan hingga 11, kemudian tukar sisi dan tukar pasangan atau lawan.",
+    "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม เกมละ 11 แต้ม แล้วสลับฝั่ง สลับคู่หรือคู่แข่ง",
+    "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân, đổi cặp hoặc đổi đối thủ.",
+}
+
+# Serve and return practice.
+SERVE_RULES = {
+    "en": "Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.",
+    "en-GB": "Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.",
+    "zh-CN": "连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。",
+    "zh-TW": "連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。",
+    "ja-JP": "10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。",
+    "ko-KR": "서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.",
+    "es-ES": "Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.",
+    "fr-FR": "Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.",
+    "id-ID": "Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.",
+    "ms-MY": "Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.",
+    "th-TH": "เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด",
+    "vi-VN": "Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.",
+}
+
+# ── bat and ball ─────────────────────────────────────────────────────────
+BASEBALL_RULES = {
+    "en": "After each ball everyone resets to the starting positions and the next ball goes in; ten reps, then the fielders rotate one position round and the runners or hitters swap with the next group.",
+    "en-GB": "After each ball everyone resets to the starting positions and the next ball goes in; ten reps, then the fielders rotate one position round and the runners or hitters swap with the next group.",
+    "zh-CN": "每一球结束后所有人回到起始位置，接着下一球；做 10 次后守备位置顺时针轮换一个，跑垒员或击球员换下一组。",
+    "zh-TW": "每一球結束後所有人回到起始位置，接著下一球；做 10 次後守備位置順時針輪換一個，跑壘員或擊球員換下一組。",
+    "ja-JP": "1球ごとに全員がスタート位置に戻り次の球へ。10本で守備位置を1つずつ回し、走者や打者は次の組と交代。",
+    "ko-KR": "한 공이 끝나면 모두 처음 위치로 돌아가 다음 공으로 간다. 10회 후 수비 위치를 한 자리씩 돌리고 주자나 타자는 다음 조와 교대한다.",
+    "es-ES": "Tras cada bola todos vuelven a la posición inicial y entra la siguiente; diez repeticiones y los fildeadores rotan una posición, corredores o bateadores cambian con el siguiente grupo.",
+    "fr-FR": "Après chaque balle tout le monde se replace et la suivante part ; dix répétitions, puis les défenseurs tournent d'un poste et coureurs ou frappeurs laissent la place au groupe suivant.",
+    "id-ID": "Setelah tiap bola semua kembali ke posisi awal dan bola berikutnya masuk; sepuluh ulangan, lalu penjaga berputar satu posisi dan pelari atau pemukul bertukar dengan kelompok berikutnya.",
+    "ms-MY": "Selepas setiap bola semua kembali ke posisi permulaan dan bola seterusnya masuk; sepuluh ulangan, kemudian pemadang berputar satu posisi dan pelari atau pemukul bertukar dengan kumpulan seterusnya.",
+    "th-TH": "หลังแต่ละลูกทุกคนกลับตำแหน่งเริ่มต้นแล้วลูกถัดไปเข้า ทำ 10 รอบแล้วผู้เล่นรับหมุนตำแหน่งหนึ่งตำแหน่ง คนวิ่งหรือคนตีสลับกับกลุ่มถัดไป",
+    "vi-VN": "Sau mỗi bóng mọi người về vị trí xuất phát và bóng tiếp theo vào; 10 lượt rồi hàng thủ xoay một vị trí, người chạy hoặc người đánh đổi với nhóm kế.",
+}
+
+# ── team sports with a queue at the top ─────────────────────────────────
+# A half-court or set-play rep: attack, then the next group.
+SETPLAY_RULES = {
+    "en": "The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.",
+    "en-GB": "The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.",
+    "zh-CN": "一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。",
+    "zh-TW": "一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。",
+    "ja-JP": "得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。",
+    "ko-KR": "득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.",
+    "es-ES": "La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.",
+    "fr-FR": "La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.",
+    "id-ID": "Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.",
+    "ms-MY": "Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.",
+    "th-TH": "จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ",
+    "vi-VN": "Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.",
+}
+
+# Volleyball and its cousins: the ball is served in and the play runs.
+SERVE_IN_RULES = {
+    "en": "Every rep starts with a serve or a toss from the far side; the rally runs to the floor, the same server puts the next ball in, and after six balls the two sides rotate one position.",
+    "en-GB": "Every rep starts with a serve or a toss from the far side; the rally runs to the floor, the same server puts the next ball in, and after six balls the two sides rotate one position.",
+    "zh-CN": "每一球由对面发球或抛球开始，打到落地为止，同一人接着发下一球；6 球后两边各轮转一个位置。",
+    "zh-TW": "每一球由對面發球或拋球開始，打到落地為止，同一人接著發下一球；6 球後兩邊各輪轉一個位置。",
+    "ja-JP": "毎回、向こう側のサーブかトスで始め、ボールが落ちるまで続ける。同じ人が次を入れ、6球で両側とも1つローテーション。",
+    "ko-KR": "매번 건너편의 서브나 토스로 시작해 공이 떨어질 때까지 이어간다. 같은 사람이 다음 공을 넣고, 여섯 개 후 양쪽 모두 한 자리씩 로테이션한다.",
+    "es-ES": "Cada repetición empieza con un saque o un lanzamiento desde el otro lado y se juega hasta que la bola cae; el mismo sacador mete la siguiente y, tras seis, ambos lados rotan una posición.",
+    "fr-FR": "Chaque séquence part d'un service ou d'un lancer de l'autre côté et se joue jusqu'au sol ; le même serveur relance la suivante et, après six balles, les deux côtés tournent d'une position.",
+    "id-ID": "Setiap ulangan dimulai dengan servis atau lemparan dari seberang, dimainkan sampai bola jatuh; pengservis yang sama memasukkan bola berikutnya, dan setelah enam bola kedua sisi berputar satu posisi.",
+    "ms-MY": "Setiap ulangan bermula dengan servis atau lontaran dari seberang, dimainkan sehingga bola jatuh; penservis yang sama memasukkan bola seterusnya, dan selepas enam bola kedua-dua sisi berputar satu posisi.",
+    "th-TH": "แต่ละรอบเริ่มด้วยการเสิร์ฟหรือโยนจากอีกฝั่ง เล่นจนบอลตกพื้น คนเดิมเสิร์ฟลูกถัดไป ครบ 6 ลูกทั้งสองฝั่งหมุนหนึ่งตำแหน่ง",
+    "vi-VN": "Mỗi lượt bắt đầu bằng giao bóng hoặc tung bóng từ sân bên kia, đánh đến khi bóng chạm đất; cùng người đó giao tiếp, sau sáu bóng cả hai bên xoay một vị trí.",
+}

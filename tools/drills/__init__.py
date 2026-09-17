@@ -11,20 +11,55 @@ from . import (badminton, baseball, basketball, beach_tennis, field_hockey,
                rugby, sepak_takraw, table_tennis, tennis,
                volleyball, water_polo)
 
+def _with_notes(sport: str, lib):
+    """Wrap a library so every drill carries its 【连贯】 and 【器材】 lines.
+
+    The texts live in drills/notes_<sport>.py as FLOW and GEAR tables keyed
+    by drill id or by the prefix a family shares; a drill that writes its
+    own keeps it. Every drill needs a flow; every board with equipment
+    needs gear — the build refuses one without.
+    """
+    import importlib
+
+    def lookup(table, drill_id):
+        if drill_id in table:
+            return table[drill_id]
+        for key, text in table.items():
+            if key.endswith("_") and drill_id.startswith(key):
+                return text
+        return None
+
+    def build():
+        drills = lib()
+        try:
+            notes = importlib.import_module(f".notes_{sport}", __package__)
+        except ModuleNotFoundError:
+            return drills
+        for d in drills:
+            if d.flow is None:
+                d.flow = lookup(notes.FLOW, d.id)
+            if d.gear is None:
+                d.gear = lookup(notes.GEAR, d.id)
+            assert d.flow, f"{sport}/{d.id}: no flow (【连贯】) text"
+            assert not d.markers or d.gear, f"{sport}/{d.id}: markers but no gear text"
+        return drills
+    return build
+
+
 CATALOGUE = {
-    "soccer": soccer.soccer_library,
-    "basketball": basketball.basketball_library,
-    "volleyball": volleyball.volleyball_library,
-    "badminton": badminton.badminton_library,
-    "tennis": tennis.tennis_library,
-    "pickleball": pickleball.pickleball_library,
-    "tableTennis": table_tennis.table_tennis_library,
-    "handball": handball.handball_library,
-    "rugby": rugby.rugby_library,
-    "fieldHockey": field_hockey.field_hockey_library,
-    "waterPolo": water_polo.water_polo_library,
-    "baseball": baseball.baseball_library,
-    "sepakTakraw": sepak_takraw.sepak_takraw_library,
-    "beachTennis": beach_tennis.beach_tennis_library,
-    "footvolley": footvolley.footvolley_library,
+    "soccer": _with_notes("soccer", soccer.soccer_library),
+    "basketball": _with_notes("basketball", basketball.basketball_library),
+    "volleyball": _with_notes("volleyball", volleyball.volleyball_library),
+    "badminton": _with_notes("badminton", badminton.badminton_library),
+    "tennis": _with_notes("tennis", tennis.tennis_library),
+    "pickleball": _with_notes("pickleball", pickleball.pickleball_library),
+    "tableTennis": _with_notes("tableTennis", table_tennis.table_tennis_library),
+    "handball": _with_notes("handball", handball.handball_library),
+    "rugby": _with_notes("rugby", rugby.rugby_library),
+    "fieldHockey": _with_notes("fieldHockey", field_hockey.field_hockey_library),
+    "waterPolo": _with_notes("waterPolo", water_polo.water_polo_library),
+    "baseball": _with_notes("baseball", baseball.baseball_library),
+    "sepakTakraw": _with_notes("sepakTakraw", sepak_takraw.sepak_takraw_library),
+    "beachTennis": _with_notes("beachTennis", beach_tennis.beach_tennis_library),
+    "footvolley": _with_notes("footvolley", footvolley.footvolley_library),
 }
