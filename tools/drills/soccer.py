@@ -515,14 +515,14 @@ def soccer_drills() -> list[Drill]:
             ],
             away=[
                 # See fk_*: spaced so the four dots read as four players.
-                P(384, 253, "W1"), P(461, 253, "W2"),
-                P(539, 253, "W3"), P(616, 253, "W4"),
+                P(384, 218, "W1"), P(461, 218, "W2"),
+                P(539, 218, "W3"), P(616, 218, "W4"),
                 # Set, not stepping: a token is 109 canvas units and the
                 # goal is 63, so a keeper who shuffles ends up behind a wall
                 # man. He is supposed to be still before the strike anyway.
                 P(500, 190, "GK", role="GK"),
             ],
-            ball=0,
+            ball=0, ball_spot=(500, 345),   # on the spot, between the two over it
             # rolled square into the 8's run, struck second beat through the
             # gap at the end of the wall
             ball_to=[(2, 0), ((500, 60), 1)],
@@ -2845,34 +2845,42 @@ def free_kick_family() -> list[Drill]:
         ("direct_central", "direct",
          (0.445, 0.215), (0.555, 0.215), (0.600, 0.240),
          (0.30, 0.32), (0.24, 0.10), (0.70, 0.32), (0.76, 0.10),
-         (0.50, 0.128), 4, [((0.5, 0.02), 0)]),
+         (0.50, 0.100), 4, [((0.5, 0.02), 0)]),
         ("layoff", "layoff",
          (0.440, 0.215), (0.550, 0.215), (0.600, 0.250),
          # Rolled three metres square and struck through the gap at the end
          # of the wall — not carried 30 m from the halfway line.
          (0.26, 0.30), (0.33, 0.225), (0.70, 0.30), (0.78, 0.10),
-         (0.50, 0.128), 4, [(2, 0), ((0.5, 0.02), 1)]),
+         (0.50, 0.100), 4, [(2, 0), ((0.5, 0.02), 1)]),
         ("runner", "runner across",
          (0.560, 0.215), (0.450, 0.215), (0.400, 0.250),
          # He starts beside the wall and runs across its face to meet a
          # rolled ball outside its end.
          (0.30, 0.245), (0.78, 0.185), (0.20, 0.34), (0.22, 0.10),
-         (0.50, 0.128), 4, [(2, 0), ((0.5, 0.02), 1)]),
+         (0.50, 0.100), 4, [(2, 0), ((0.5, 0.02), 1)]),
         ("wide_left", "wide left",
          (0.180, 0.220), (0.260, 0.270), (0.320, 0.300),
          (0.72, 0.30), (0.50, 0.24), (0.56, 0.34), (0.66, 0.08),
          # A wide kick's wall stands on the near-post line, three men, and
          # the ball is whipped past its outside edge to the far post.
-         (0.263, 0.151), 3, [(3, 0), ((0.5, 0.02), 1)]),
+         (0.263, 0.125), 3, [(3, 0), ((0.5, 0.02), 1)]),
         ("wide_right", "wide right",
          (0.820, 0.220), (0.740, 0.270), (0.680, 0.300),
          (0.28, 0.30), (0.50, 0.24), (0.44, 0.34), (0.34, 0.08),
-         (0.737, 0.151), 3, [(3, 0), ((0.5, 0.02), 1)]),
+         (0.737, 0.125), 3, [(3, 0), ((0.5, 0.02), 1)]),
     ]
     out = []
     for (key, label, ten, seven, seven_to, eight, eight_to, nine, nine_to,
          wall, wall_n, legs) in specs:
         xs = [wall[0] + (i - (wall_n - 1) / 2) * 0.09 for i in range(wall_n)]
+        # The dead ball on its spot, a stride goalward of the men over it:
+        # between the two when they stand together, ahead of the 10 when he
+        # is the lone taker. Left to the "foot facing the receiver" rule it
+        # slid across to whichever of them the first pass went past.
+        if abs(ten[0] - seven[0]) < 0.15:
+            spot = ((ten[0] + seven[0]) / 2, min(ten[1], seven[1]) - 0.022)
+        else:
+            spot = (ten[0] + (0.03 if ten[0] < 0.5 else -0.03), ten[1] - 0.022)
         out.append(Drill(
             id=f"fk_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "direct_central"), tight=True,
@@ -2898,7 +2906,7 @@ def free_kick_family() -> list[Drill]:
                          f"{wall_n} 人人墙站在 9.15 米处，一名门将，"
                          "两名球员跟进抢第二点",
             },
-            ball=0,
+            ball=0, ball_spot=spot,
             # Direct strikes go at goal on the first beat; the worked
             # routines go through the 8 (or, wide, the 9) and finish on the
             # second.
