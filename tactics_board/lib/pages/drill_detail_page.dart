@@ -489,7 +489,10 @@ class _BoardCard extends StatelessWidget {
                         alignment: frame == 'bottom'
                             ? Alignment.bottomCenter
                             : Alignment.topCenter,
-                        heightFactor: frame == null ? 1.0 : 0.56,
+                        // 0.60 of the canvas: the generator marks a drill
+                        // "top"/"bottom" only when everything in it sits a
+                        // token inside this share (engine.FRAME_VIEW).
+                        heightFactor: frame == null ? 1.0 : 0.60,
                         child: const SizedBox(
                           width: kBoardRefWidth,
                           height: kBoardRefHeight,

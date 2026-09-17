@@ -308,14 +308,17 @@ def audit(drill, sport):
         ends_off_board = bool(route_stops) and route_stops[-1] not in labels
         # …or the other side has it now: a defender who steps in and wins
         # the ball has ended the rep as surely as a shot.
+        # Read off the route line rather than guessed from geometry: a
+        # defender tight on the passer is nearer the ball's last stop than
+        # the passer himself, and geometry called every such pass a tackle.
         won = False
-        if holder is not None and len(ball.get("moves", [])) >= 2:
-            px, py = ball["moves"][-2]
-            prev_ph = ball["movePhases"][-2] + 1
-            # The nearest man, not the first within reach: the one who lost
-            # it is usually standing right beside the spot too.
-            before = nearest((px, py), prev_ph, False)
-            won = before is not None and before.get("team") != holder.get("team")
+        if len(route_stops) >= 2:
+            team_of = {}
+            for p in people:
+                team_of.setdefault(str(p.get("label", "")), p.get("team"))
+            a, b = route_stops[-2], route_stops[-1]
+            if a in team_of and b in team_of:
+                won = team_of[a] != team_of[b]
         terminal = (holder is None or carried or from_keeper or ends_off_board
                     or won)
     else:
@@ -490,10 +493,10 @@ TEMPLATE = r"""<!doctype html>
   img.board{width:100%;height:auto;border-radius:12px;border:1px solid var(--border);
             display:block;background:var(--turfHi)}
   /* A drill that stays in one half is shown at that half, the way the app
-     shows it: the box keeps the width and 56% of the picture's height, and
+     shows it: the box keeps the width and 60% of the picture's height, and
      the image is pinned to the busy end. */
   .boardbox.half{overflow:hidden;border-radius:12px;border:1px solid var(--border);
-                 aspect-ratio:402/409;position:relative}
+                 aspect-ratio:402/438;position:relative}
   .boardbox.half img.board{border:0;border-radius:0;position:absolute;left:0;width:100%}
   .boardbox.half.top img.board{top:0}
   .boardbox.half.bottom img.board{bottom:0}

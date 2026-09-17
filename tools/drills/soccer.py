@@ -439,18 +439,20 @@ def soccer_drills() -> list[Drill]:
             # the 10 gets his shot away — because a drill that stopped at
             # the pass showed no defending and no way to go again.
             home=[
-                P(380, 820, "4", moves=[(420, 640, 0), (500, 560, 1)],
+                # Played in the attacking half, so the 10's finish is a
+                # shot and not a punt from the centre circle.
+                P(380, 700, "4", moves=[(420, 520, 0), (500, 440, 1)],
                   why={0: "recover", 1: "cover"}),
-                P(620, 860, "5", moves=[(560, 700, 0), (640, 540, 1)],
+                P(620, 740, "5", moves=[(560, 580, 0), (640, 420, 1)],
                   why={0: "recover", 1: "delay"}),
             ],
             away=[
-                P(300, 940, "9", moves=[(360, 760, 0)]),
-                P(700, 980, "10", moves=[(620, 660, 1)], why={1: "run_behind"}),
+                P(300, 820, "9", moves=[(360, 640, 0)]),
+                P(700, 860, "10", moves=[(620, 540, 1)], why={1: "run_behind"}),
             ],
             # their 9 carries at the recovering pair, releases the 10, who
             # shoots
-            ball=(320, 865),
+            ball=(320, 745),
             ball_to=[("a0", 0), ("a1", 1), ((480, 60), 2)],
             free=True,
         ),
@@ -804,7 +806,8 @@ def soccer_drills() -> list[Drill]:
                 P(320, 1200, "4", role="LCB", moves=[(220, 1150, 0)]),
                 P(680, 1200, "5", role="RCB", moves=[(780, 1150, 0)]),
                 P(500, 1050, "6", role="CDM", moves=[(500, 980, 1)]),
-                P(180, 900, "3", role="LB", moves=[(160, 780, 1)]),
+                P(180, 900, "3", role="LB", moves=[(160, 780, 1), (200, 600, 2)],
+                  why={1: "width", 2: "turn"}),
                 P(820, 900, "2", role="RB", moves=[(840, 780, 1)]),
             ],
             away=[
@@ -813,7 +816,8 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # GK to the splitting 4, then down the line to the 3 pushing on
-            ball_to=[(1, 0), (4, 1)],
+            # …and the 3, free on the outside, drives it out of the third
+            ball_to=[(1, 0), (4, 1), (4, 2)],
         ),
 
         # ── attacking ────────────────────────────────────────────────────────
@@ -883,7 +887,6 @@ def soccer_drills() -> list[Drill]:
                 P(420, 560, "A", moves=[(400, 620, 1)]),
                 P(600, 560, "B", moves=[(520, 430, 2)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # 9 carries both beats — until A commits — then releases the 7
             # arriving on the far side, away from the recovering pair
@@ -919,7 +922,6 @@ def soccer_drills() -> list[Drill]:
                 P(760, 680, "3", moves=[(800, 600, 0)]),
                 P(560, 460, "4", moves=[(520, 400, 1)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # into the half-space run, carried on, finished
             ball_to=[(2, 0), (2, 1), ((500, 60), 2)],
@@ -951,7 +953,6 @@ def soccer_drills() -> list[Drill]:
                 P(750, 620, "7", moves=[(700, 520, 2)]),
             ],
             away=[P(500, 200, "GK", role="GK", moves=[(430, 260, 1)])],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # laid into the 9's arrival, struck first time
             ball_to=[(1, 0), ((500, 60), 1)],
@@ -1055,18 +1056,24 @@ def soccer_drills() -> list[Drill]:
             # already happened before the board opens: the ball is at the
             # 8's feet, their 5 takes it off him, and the press follows.
             home=[
-                P(500, 720, "8", moves=[(480, 650, 1)]),
-                P(300, 800, "10", moves=[(340, 660, 1)]),
-                P(700, 800, "7", moves=[(620, 700, 1)]),
-                P(500, 920, "6", moves=[(500, 820, 1)]),
+                # The 8 who lost it goes straight back at the man, the 7
+                # and 10 shut the lanes either side, the 6 sits behind —
+                # and the 8 wins it back before their 5 can find a pass.
+                P(500, 720, "8", moves=[(560, 600, 1), (580, 540, 2)],
+                  why={1: "press_ball", 2: "win_ball"}),
+                P(300, 800, "10", moves=[(400, 620, 1)], why={1: "close_lane"}),
+                P(700, 800, "7", moves=[(740, 600, 1)], why={1: "close_lane"}),
+                P(500, 920, "6", moves=[(500, 760, 1)], why={1: "cover"}),
             ],
             away=[
-                P(600, 560, "5", moves=[(640, 470, 1)]),
+                P(600, 560, "5", moves=[(640, 470, 1)], why={1: "turn"}),
                 P(760, 520, "2"), P(280, 540, "3"),
             ],
             ball=0,
-            # lost right there: their 5 wins it and four blues jump on him
-            ball_to=[("a0", 0)],
+            # lost right there: their 5 wins it, four blues jump on him,
+            # and the 8 takes it straight back — the five seconds the drill
+            # is named for, both halves of them
+            ball_to=[("a0", 0), (0, 2)],
         ),
 
         # ── set pieces ───────────────────────────────────────────────────────
@@ -1139,7 +1146,6 @@ def soccer_drills() -> list[Drill]:
                 P(760, 760, "A", moves=[(790, 700, 0)]),
                 P(690, 380, "B", moves=[(720, 300, 1)]),
             ],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # thrown short to the 7, played down the line to the 9
             ball_to=[(1, 0), (2, 1)],
@@ -1321,7 +1327,8 @@ def soccer_drills() -> list[Drill]:
                 P(250, 700, "11", moves=[(230, 640, 0)]),
                 P(450, 850, "6", moves=[(520, 800, 0)]),
                 P(620, 880, "8"),
-                P(850, 720, "7", moves=[(880, 500, 1)]),
+                P(850, 720, "7", moves=[(880, 500, 1), (860, 320, 2)],
+                  why={1: "run_behind", 2: "width"}),
                 P(600, 600, "9"),
             ],
             away=[
@@ -1331,7 +1338,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # into the pivot, and the 6 switches it to the 7 in one pass
-            ball_to=[(1, 0), (3, 1)],
+            ball_to=[(1, 0), (3, 1), (3, 2)],   # …and the 7 drives on down the side
         ),
         Drill(
             id="attack_cross_far_post", category="attacking", minutes=10,
@@ -1354,8 +1361,8 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Tấn công cột xa từ sau vai hậu vệ — đến muộn hơn là đứng chờ."},
             home=[
                 P(180, 520, "11", moves=[(180, 340, 0)]),
-                P(520, 620, "9", moves=[(520, 340, 1)]),
-                P(660, 700, "7", moves=[(760, 280, 1)]),
+                P(520, 620, "9", moves=[(520, 340, 1)], why={1: "near_post"}),
+                P(660, 700, "7", moves=[(760, 280, 1)], why={1: "far_post"}),
             ],
             away=[
                 P(300, 400, "A", moves=[(300, 300, 0)]),
@@ -1363,7 +1370,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # 11 carries the line with his run, then the far-post cross meets the 7
-            ball_to=[(0, 0), (2, 1)],
+            ball_to=[(0, 0), (2, 1), ((520, 60), 2)],   # …and the 7 volleys it in
         ),
         Drill(
             id="finish_volley_side", category="finishing", minutes=10,
@@ -1390,7 +1397,6 @@ def soccer_drills() -> list[Drill]:
                 P(560, 600, "9", moves=[(520, 440, 0), (500, 400, 1)]),
             ],
             away=[P(500, 200, "GK", role="GK", moves=[(560, 250, 1)])],
-            markers=[M(500, 120, "square", "")],
             ball=0,
             # chipped to the 9's arrival and volleyed
             ball_to=[(1, 0), ((500, 60), 1)],
@@ -1907,7 +1913,6 @@ def counter_family() -> list[Drill]:
                   why={0: "delay"} if i == engage else {1: "recover"})
                 for i, x in enumerate(dxs)
             ],
-            markers=[M(0.5, 0.03, "square", "")],
             setup={
                 "en": f"half a pitch, one goal; {att} attackers break out of "
                       f"their own half at {dfn} recovering defenders",
@@ -2889,7 +2894,6 @@ def combination_family() -> list[Drill]:
                 P(*mx(third[0]), "2", moves=mv(third[1])),
             ],
             away=[P(*mx(defender[0]), "A", moves=mv(defender[1]))],
-            markers=[M(0.5, 0.04, "square", "")],
             setup={
                 "en": "a wide channel in the attacking half, three "
                       "attackers against one defender, one ball",
@@ -3582,7 +3586,8 @@ def match_moments() -> list[Drill]:
                   "vi-VN": "Ép anh ta ra biên rồi siết. Đường biên là hậu vệ thứ hai; ép từ ngoài vào trong sẽ mở ra đường chuyển cánh."},
             home=[
                 P(0.60, 0.36, "9", moves=[(0.72, 0.24, 0)]),
-                P(0.84, 0.44, "7", moves=[(0.88, 0.36, 1)]),
+                P(0.84, 0.44, "7", moves=[(0.88, 0.36, 1), (0.82, 0.44, 2)],
+                  why={1: "close_lane", 2: "win_ball"}),
                 P(0.62, 0.54, "8", moves=[(0.76, 0.48, 1)]),
                 P(0.38, 0.50, "6", moves=[(0.50, 0.44, 1)]),
                 P(0.84, 0.66, "2", moves=[(0.86, 0.54, 1)]),
@@ -3596,7 +3601,7 @@ def match_moments() -> list[Drill]:
             # pass that springs the trap.
             ball=(0.606, 0.232),
             # played out to A, who is shown down the line and squeezed
-            ball_to=[("a0", 0), ("a0", 1)],
+            ball_to=[("a0", 0), ("a0", 1), (1, 2)],   # …and the trap shuts: the 7 takes it
         ),
         Drill(
             id="finish_long_range", category="finishing", minutes=10, rel=True,
