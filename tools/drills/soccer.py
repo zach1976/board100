@@ -3756,6 +3756,9 @@ USAGE = {
     "gk_handling": 3, "gk_set_position": 3, "gk_angles": 3, "gk_sweeper": 1,
     # set pieces: corners first, and a near-post routine before anything
     "corner_near_post": 3,
+    # conditioning without the ball: shuttles and the T-run are on every
+    # fitness day; the yo-yo is a test, run a few times a season
+    "fit_shuttle_5_10_15": 3, "fit_t_run": 3, "fit_interval_laps": 3, "fit_yoyo": 1,
     "throw_in_third": 1, "finish_penalty_routine": 1, "setpiece_kickoff": 1,
 }
 
@@ -3833,7 +3836,8 @@ def soccer_library() -> list[Drill]:
 
 
 def _soccer_library() -> list[Drill]:
-    return merge(soccer_drills(), rondo_family(), ssg_family(),
+    from .soccer_fitness import fitness_family
+    return merge(soccer_drills(), fitness_family(), rondo_family(), ssg_family(),
                  counter_family(), buildup_family(), finishing_family(),
                  press_family(), corner_family(), duel_family(),
                  passing_family(), crossing_family(), shape_family(),

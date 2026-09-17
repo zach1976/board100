@@ -98,7 +98,8 @@ def audit(drill, sport):
                     f"{max_step(board)} 步，球停在 "
                     f"({balls[0]['position'][0]:.0f}, {balls[0]['position'][1]:.0f})",
         })
-    if movers and not balls:
+    # Conditioning without the ball is meant to be without the ball.
+    if movers and not balls and drill.get("category") != "conditioning":
         out.append({
             "id": "no_ball",
             "level": "warn",

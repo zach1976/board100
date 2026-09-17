@@ -11456,9 +11456,1584 @@
       }
     },
     {
+      "id": "fit_shuttle_5_10_15",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 10,
+      "players": 1,
+      "free": true,
+      "usage": 3,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Shuttle 5-10-15",
+        "en-GB": "Shuttle 5-10-15",
+        "zh-CN": "折返跑 5-10-15 米",
+        "zh-TW": "折返跑 5-10-15 米",
+        "ja-JP": "シャトルラン 5-10-15",
+        "ko-KR": "셔틀런 5-10-15",
+        "es-ES": "Ida y vuelta 5-10-15",
+        "fr-FR": "Navettes 5-10-15",
+        "id-ID": "Lari bolak-balik 5-10-15",
+        "ms-MY": "Lari ulang-alik 5-10-15",
+        "th-TH": "วิ่งกลับตัว 5-10-15",
+        "vi-VN": "Chạy con thoi 5-10-15"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nEquipment: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to sprint flat out; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to sprint flat out; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to sprint flat out.\nHow it continues: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nCoaching point: Touch the line with the hand, not the foot, and push off the outside leg on every turn — the turn is where the seconds go.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nEquipment: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to sprint flat out; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to sprint flat out; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to sprint flat out.\nHow it continues: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nCoaching point: Touch the line with the hand, not the foot, and push off the outside leg on every turn — the turn is where the seconds go.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】四个锥标排成一列，间隔 5 米，第一个是起点，跑者站在起点上。\n【器材】四个锥标分别是起点和 5、10、15 米线，每到一个锥标摸线后跑回起点。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（全力冲刺）；第3步：球员向前移动（全力冲刺）；第4步：球员向后移动（全力冲刺）；第5步：球员向前移动（全力冲刺）；第6步：球员向后移动（全力冲刺）。\n【连贯】一趟 = 5 米折返、10 米折返、15 米折返；休息 45 秒再跑。6 趟一组，做 2 组，组间休息 3 分钟。\n【要点】手摸线，不是脚踩线；每次折返用外侧腿蹬出——时间都丢在转身上。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】四個錐標排成一列，間隔 5 米，第一個是起點，跑者站在起點上。\n【器材】四個錐標分別是起點和 5、10、15 米線，每到一個錐標摸線後跑回起點。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（全力衝刺）；第3步：球員向前移動（全力衝刺）；第4步：球員向後移動（全力衝刺）；第5步：球員向前移動（全力衝刺）；第6步：球員向後移動（全力衝刺）。\n【連貫】一趟 = 5 米折返、10 米折返、15 米折返；休息 45 秒再跑。6 趟一組，做 2 組，組間休息 3 分鐘。\n【要點】手摸線，不是腳踩線；每次折返用外側腿蹬出——時間都丟在轉身上。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four cones in a line 5 m apart, the first one the start; the runner starts on it。\n【用具】the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、全力でダッシュ。ステップ3：選手が前方へ移動し、全力でダッシュ。ステップ4：選手が後方へ移動し、全力でダッシュ。ステップ5：選手が前方へ移動し、全力でダッシュ。ステップ6：選手が後方へ移動し、全力でダッシュ。\n【続け方】One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\n【ポイント】足ではなく手でラインに触れ、ターンは外側の脚で蹴る——タイムはターンで失われる。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four cones in a line 5 m apart, the first one the start; the runner starts on it.\n【장비】the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 전력 질주; 3단계: 선수는 앞으로 이동해 전력 질주; 4단계: 선수는 뒤로 이동해 전력 질주; 5단계: 선수는 앞으로 이동해 전력 질주; 6단계: 선수는 뒤로 이동해 전력 질주.\n【이어가기】One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\n【포인트】발이 아니라 손으로 선을 짚고, 돌 때마다 바깥 다리로 밀어낸다 — 시간은 턴에서 새어 나간다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nMaterial: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para esprintar a tope; Paso 3: el jugador se desplaza hacia delante para esprintar a tope; Paso 4: el jugador se desplaza hacia atrás para esprintar a tope; Paso 5: el jugador se desplaza hacia delante para esprintar a tope; Paso 6: el jugador se desplaza hacia atrás para esprintar a tope.\nContinuidad: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nPunto clave: Toca la línea con la mano, no con el pie, y empuja con la pierna exterior en cada giro: ahí se van los segundos.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four cones in a line 5 m apart, the first one the start; the runner starts on it.\nMatériel : the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour sprinter à fond ; Étape 3 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 4 : le joueur se déplace vers l'arrière pour sprinter à fond ; Étape 5 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'arrière pour sprinter à fond.\nEnchaînement : One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nPoint clé : Touche la ligne de la main, pas du pied, et pousse sur la jambe extérieure à chaque demi-tour : c'est là que partent les secondes.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nPerlengkapan: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk lari sekencang mungkin; Langkah 3: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke belakang untuk lari sekencang mungkin; Langkah 5: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke belakang untuk lari sekencang mungkin.\nKelanjutan: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nPoin utama: Sentuh garis dengan tangan, bukan kaki, dan dorong dengan kaki luar di setiap putaran.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nPeralatan: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk pecut sepenuh tenaga; Langkah 3: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke belakang untuk pecut sepenuh tenaga; Langkah 5: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke belakang untuk pecut sepenuh tenaga.\nKesinambungan: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nPoin utama: Sentuh garisan dengan tangan, bukan kaki, dan tolak dengan kaki luar pada setiap pusingan.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four cones in a line 5 m apart, the first one the start; the runner starts on it\nอุปกรณ์: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง • ขั้นที่ 5: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง\nการต่อเนื่อง: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nจุดเน้น: แตะเส้นด้วยมือไม่ใช่เท้า และดันด้วยขาด้านนอกทุกครั้งที่กลับตัว",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four cones in a line 5 m apart, the first one the start; the runner starts on it.\nDụng cụ: the four cones are the start and the 5, 10 and 15 m lines; each is touched and the runner comes back to the start.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để chạy nước rút hết sức; Bước 3: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển lùi lại để chạy nước rút hết sức; Bước 5: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lùi lại để chạy nước rút hết sức.\nTiếp nối: One shuttle is 5 m and back, 10 m and back, 15 m and back; rest 45 seconds and go again. Six shuttles a set, two sets, three minutes between sets.\nĐiểm chính: Chạm vạch bằng tay, không phải chân, và đạp bằng chân ngoài mỗi lần quay — thời gian mất ở chỗ quay."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              356.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                356.0,
+                1039.2796535052375
+              ],
+              [
+                356.0,
+                1094.3805398871878
+              ],
+              [
+                356.0,
+                985.3267022562449
+              ],
+              [
+                356.0,
+                1094.3805398871878
+              ],
+              [
+                356.0,
+                930.2258158742949
+              ],
+              [
+                356.0,
+                1094.3805398871878
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              302.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              302.0,
+              1039.2796535052375
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              302.0,
+              985.3267022562449
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              302.0,
+              930.2258158742949
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_agility_ladder",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Agility ladder",
+        "en-GB": "Agility ladder",
+        "zh-CN": "敏捷梯",
+        "zh-TW": "敏捷梯",
+        "ja-JP": "ラダートレーニング",
+        "ko-KR": "래더 훈련",
+        "es-ES": "Escalera de agilidad",
+        "fr-FR": "Échelle de rythme",
+        "id-ID": "Tangga kelincahan",
+        "ms-MY": "Tangga ketangkasan",
+        "th-TH": "บันไดลิง",
+        "vi-VN": "Thang dây"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nEquipment: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nSequence: Step 1: the player moves up the board to quick feet through the ladder; Step 2: the player moves up the board to sprint flat out; Step 3: the player moves back to jog to recover.\nHow it continues: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nCoaching point: Light and fast on the balls of the feet, arms driving, eyes up — the ladder is over in three seconds and the sprint after it is what it was for.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nEquipment: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nSequence: Step 1: the player moves up the board to quick feet through the ladder; Step 2: the player moves up the board to sprint flat out; Step 3: the player moves back to jog to recover.\nHow it continues: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nCoaching point: Light and fast on the balls of the feet, arms driving, eyes up — the ladder is over in three seconds and the sprint after it is what it was for.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】地上放一条敏捷梯，梯子远端外 12 米放一个锥标，跑者站在梯子前一步。\n【器材】敏捷梯先每格一步、再每格两步、再进出步；锥标是过完最后一格后冲刺的目标。\n【流程】第1步：球员向前移动（快速小碎步过敏捷梯）；第2步：球员向前移动（全力冲刺）；第3步：球员向后移动（慢跑恢复）。\n【连贯】过梯、冲到锥标、绕回起点，下一人马上出发；每种步法做 6 次，共 4 种步法。\n【要点】前脚掌轻快落地，摆臂，眼睛看前方——梯子三秒就过完，之后那段冲刺才是目的。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】地上放一條敏捷梯，梯子遠端外 12 米放一個錐標，跑者站在梯子前一步。\n【器材】敏捷梯先每格一步、再每格兩步、再進出步；錐標是過完最後一格後衝刺的目標。\n【流程】第1步：球員向前移動（快速小碎步過敏捷梯）；第2步：球員向前移動（全力衝刺）；第3步：球員向後移動（慢跑恢復）。\n【連貫】過梯、衝到錐標、繞回起點，下一人馬上出發；每種步法做 6 次，共 4 種步法。\n【要點】前腳掌輕快落地，擺臂，眼睛看前方——梯子三秒就過完，之後那段衝刺才是目的。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder。\n【用具】the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung。\n【流れ】ステップ1：選手が前方へ移動し、ラダーを細かく速く抜ける。ステップ2：選手が前方へ移動し、全力でダッシュ。ステップ3：選手が後方へ移動し、ジョグで回復。\n【続け方】Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\n【ポイント】母指球で軽く速く、腕を振り、目線は前——ラダーは3秒で終わる。その後のダッシュが目的だ。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\n【장비】the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\n【진행】1단계: 선수는 앞으로 이동해 래더를 빠른 잔발로 통과; 2단계: 선수는 앞으로 이동해 전력 질주; 3단계: 선수는 뒤로 이동해 조깅으로 회복.\n【이어가기】Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\n【포인트】앞발로 가볍고 빠르게, 팔을 흔들고, 시선은 앞으로 — 래더는 3초면 끝나고 그 뒤의 질주가 목적이다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nMaterial: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para pies rápidos por la escalera; Paso 2: el jugador se desplaza hacia delante para esprintar a tope; Paso 3: el jugador se desplaza hacia atrás para trotar para recuperar.\nContinuidad: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nPunto clave: Ligero y rápido sobre la punta de los pies, brazos activos, vista al frente: la escalera dura tres segundos y el sprint de después es lo que importa.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nMatériel : the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour pieds rapides dans l'échelle ; Étape 2 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 3 : le joueur se déplace vers l'arrière pour trottiner pour récupérer.\nEnchaînement : Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nPoint clé : Léger et vif sur l'avant du pied, bras actifs, regard devant : l'échelle dure trois secondes, le sprint qui suit est le vrai objectif.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nPerlengkapan: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nUrutan: Langkah 1: pemain bergerak ke depan untuk langkah cepat melewati tangga; Langkah 2: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 3: pemain bergerak ke belakang untuk joging untuk pulih.\nKelanjutan: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nPoin utama: Ringan dan cepat di ujung kaki, lengan aktif, mata ke depan — tangga selesai tiga detik, sprint sesudahnya yang penting.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nPeralatan: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk langkah pantas melalui tangga; Langkah 2: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 3: pemain bergerak ke belakang untuk berjoging untuk pulih.\nKesinambungan: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nPoin utama: Ringan dan pantas di hujung kaki, lengan aktif, mata ke hadapan — tangga selesai tiga saat, pecutan selepasnya yang penting.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder\nอุปกรณ์: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อซอยเท้าเร็วผ่านบันไดลิง • ขั้นที่ 2: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับถอยหลังเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nจุดเน้น: เบาและเร็วบนปลายเท้า แกว่งแขน มองไปข้างหน้า บันไดจบในสามวินาที สปรินต์หลังจากนั้นคือเป้าหมาย",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder.\nDụng cụ: the ladder is stepped through one foot per rung (then two, then in-out); the cone is the sprint target after the last rung.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để bước nhanh qua thang dây; Bước 2: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 3: cầu thủ di chuyển lùi lại để chạy chậm để hồi phục.\nTiếp nối: Through the ladder, sprint to the cone, jog back round to the start and the next player goes at once; each pattern six times, four patterns.\nĐiểm chính: Nhẹ và nhanh trên mũi chân, đánh tay, mắt nhìn trước — thang chỉ ba giây, cú nước rút sau đó mới là mục đích."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1071.4218372280418
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                933.6696212731669
+              ],
+              [
+                500.0,
+                795.9174053182917
+              ],
+              [
+                500.0,
+                1071.4218372280418
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1002.5457292506043
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 10,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              446.0,
+              795.9174053182917
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_hurdle_hops",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Hurdle hops",
+        "en-GB": "Hurdle hops",
+        "zh-CN": "栏架跳跃",
+        "zh-TW": "欄架跳躍",
+        "ja-JP": "ハードルジャンプ",
+        "ko-KR": "허들 점프",
+        "es-ES": "Saltos de valla",
+        "fr-FR": "Sauts de haies",
+        "id-ID": "Lompat gawang",
+        "ms-MY": "Lompat pagar",
+        "th-TH": "กระโดดรั้ว",
+        "vi-VN": "Bật rào"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nEquipment: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nSequence: Step 1: the player moves up the board to two-footed hop over each hurdle; Step 2: the player moves up the board to two-footed hop over each hurdle; Step 3: the player moves up the board to two-footed hop over each hurdle; Step 4: the player moves up the board to two-footed hop over each hurdle; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to jog to recover.\nHow it continues: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nCoaching point: Land soft and leave fast — the less time the feet spend on the ground between hurdles, the more the drill gives you.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nEquipment: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nSequence: Step 1: the player moves up the board to two-footed hop over each hurdle; Step 2: the player moves up the board to two-footed hop over each hurdle; Step 3: the player moves up the board to two-footed hop over each hurdle; Step 4: the player moves up the board to two-footed hop over each hurdle; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to jog to recover.\nHow it continues: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nCoaching point: Land soft and leave fast — the less time the feet spend on the ground between hurdles, the more the drill gives you.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】四个小栏架排成一列、间隔 1 米，最后一个栏架外 12 米放一个锥标，跑者站在第一个栏架前一步。\n【器材】四个栏架依次跳过，中间不停顿；锥标是跳完最后一个后冲刺的目标。\n【流程】第1步：球员向前移动（双脚跳过每个栏架）；第2步：球员向前移动（双脚跳过每个栏架）；第3步：球员向前移动（双脚跳过每个栏架）；第4步：球员向前移动（双脚跳过每个栏架）；第5步：球员向前移动（全力冲刺）；第6步：球员向后移动（慢跑恢复）。\n【连贯】跳四个栏、冲到锥标、绕回起点，下一人出发；每人 8 次一组，做 2 组，组间休息 2 分钟。\n【要点】落地轻、离地快——两个栏架之间脚在地上停的时间越短，练到的越多。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】四個小欄架排成一列、間隔 1 米，最後一個欄架外 12 米放一個錐標，跑者站在第一個欄架前一步。\n【器材】四個欄架依次跳過，中間不停頓；錐標是跳完最後一個後衝刺的目標。\n【流程】第1步：球員向前移動（雙腳跳過每個欄架）；第2步：球員向前移動（雙腳跳過每個欄架）；第3步：球員向前移動（雙腳跳過每個欄架）；第4步：球員向前移動（雙腳跳過每個欄架）；第5步：球員向前移動（全力衝刺）；第6步：球員向後移動（慢跑恢復）。\n【連貫】跳四個欄、衝到錐標、繞回起點，下一人出發；每人 8 次一組，做 2 組，組間休息 2 分鐘。\n【要點】落地輕、離地快——兩個欄架之間腳在地上停的時間越短，練到的越多。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first。\n【用具】the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one。\n【流れ】ステップ1：選手が前方へ移動し、両足でハードルを跳ぶ。ステップ2：選手が前方へ移動し、両足でハードルを跳ぶ。ステップ3：選手が前方へ移動し、両足でハードルを跳ぶ。ステップ4：選手が前方へ移動し、両足でハードルを跳ぶ。ステップ5：選手が前方へ移動し、全力でダッシュ。ステップ6：選手が後方へ移動し、ジョグで回復。\n【続け方】Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\n【ポイント】柔らかく着地して素早く離れる——ハードル間で足が地面にいる時間が短いほど効く。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\n【장비】the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\n【진행】1단계: 선수는 앞으로 이동해 두 발로 허들을 넘는다; 2단계: 선수는 앞으로 이동해 두 발로 허들을 넘는다; 3단계: 선수는 앞으로 이동해 두 발로 허들을 넘는다; 4단계: 선수는 앞으로 이동해 두 발로 허들을 넘는다; 5단계: 선수는 앞으로 이동해 전력 질주; 6단계: 선수는 뒤로 이동해 조깅으로 회복.\n【이어가기】Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\n【포인트】부드럽게 착지하고 빠르게 떠난다 — 허들 사이에서 발이 땅에 머무는 시간이 짧을수록 효과가 크다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nMaterial: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para saltar cada valla con los dos pies; Paso 2: el jugador se desplaza hacia delante para saltar cada valla con los dos pies; Paso 3: el jugador se desplaza hacia delante para saltar cada valla con los dos pies; Paso 4: el jugador se desplaza hacia delante para saltar cada valla con los dos pies; Paso 5: el jugador se desplaza hacia delante para esprintar a tope; Paso 6: el jugador se desplaza hacia atrás para trotar para recuperar.\nContinuidad: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nPunto clave: Aterriza suave y sal rápido: cuanto menos tiempo pasen los pies en el suelo entre vallas, más rinde el ejercicio.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nMatériel : the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour franchir chaque haie pieds joints ; Étape 2 : le joueur se déplace vers l'avant pour franchir chaque haie pieds joints ; Étape 3 : le joueur se déplace vers l'avant pour franchir chaque haie pieds joints ; Étape 4 : le joueur se déplace vers l'avant pour franchir chaque haie pieds joints ; Étape 5 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'arrière pour trottiner pour récupérer.\nEnchaînement : Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nPoint clé : Atterris souple et repars vite : moins les pieds restent au sol entre les haies, plus l'exercice paie.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nPerlengkapan: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nUrutan: Langkah 1: pemain bergerak ke depan untuk melompat dua kaki melewati tiap gawang; Langkah 2: pemain bergerak ke depan untuk melompat dua kaki melewati tiap gawang; Langkah 3: pemain bergerak ke depan untuk melompat dua kaki melewati tiap gawang; Langkah 4: pemain bergerak ke depan untuk melompat dua kaki melewati tiap gawang; Langkah 5: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke belakang untuk joging untuk pulih.\nKelanjutan: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nPoin utama: Mendarat lembut, pergi cepat — makin singkat kaki di tanah di antara gawang, makin besar hasilnya.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nPeralatan: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk melompat dua kaki melepasi setiap pagar; Langkah 2: pemain bergerak ke hadapan untuk melompat dua kaki melepasi setiap pagar; Langkah 3: pemain bergerak ke hadapan untuk melompat dua kaki melepasi setiap pagar; Langkah 4: pemain bergerak ke hadapan untuk melompat dua kaki melepasi setiap pagar; Langkah 5: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke belakang untuk berjoging untuk pulih.\nKesinambungan: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nPoin utama: Mendarat lembut, pergi pantas — makin singkat kaki di tanah antara pagar, makin besar hasilnya.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first\nอุปกรณ์: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดสองเท้าข้ามรั้วทุกอัน • ขั้นที่ 2: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดสองเท้าข้ามรั้วทุกอัน • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดสองเท้าข้ามรั้วทุกอัน • ขั้นที่ 4: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดสองเท้าข้ามรั้วทุกอัน • ขั้นที่ 5: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับถอยหลังเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nจุดเน้น: ลงพื้นเบา ออกตัวเร็ว ยิ่งเท้าอยู่บนพื้นระหว่างรั้วน้อย ยิ่งได้ผล",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first.\nDụng cụ: the four hurdles are hopped in turn without a stop between them; the cone is the sprint target after the last one.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để bật hai chân qua từng rào; Bước 2: cầu thủ di chuyển lên phía trước để bật hai chân qua từng rào; Bước 3: cầu thủ di chuyển lên phía trước để bật hai chân qua từng rào; Bước 4: cầu thủ di chuyển lên phía trước để bật hai chân qua từng rào; Bước 5: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lùi lại để chạy chậm để hồi phục.\nTiếp nối: Four hops, sprint to the cone, jog back round to the start and the next player goes; eight runs each, two sets, rest two minutes between sets.\nĐiểm chính: Tiếp đất nhẹ, rời đất nhanh — chân ở mặt đất giữa các rào càng ít, bài tập càng hiệu quả."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                1031.2441075745367
+              ],
+              [
+                500.0,
+                973.847350926672
+              ],
+              [
+                500.0,
+                916.4505942788074
+              ],
+              [
+                500.0,
+                859.0538376309428
+              ],
+              [
+                500.0,
+                727.0412973408542
+              ],
+              [
+                500.0,
+                1094.3805398871878
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1059.942485898469
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 11,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1002.5457292506043
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 11,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              945.1489726027397
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 11,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              887.752215954875
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 11,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              446.0,
+              727.0412973408542
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_t_run",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "usage": 3,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "T-run",
+        "en-GB": "T-run",
+        "zh-CN": "T 形变向跑",
+        "zh-TW": "T 形變向跑",
+        "ja-JP": "Tドリル",
+        "ko-KR": "T-런",
+        "es-ES": "Prueba en T",
+        "fr-FR": "Parcours en T",
+        "id-ID": "Lari T",
+        "ms-MY": "Larian T",
+        "th-TH": "วิ่งรูปตัว T",
+        "vi-VN": "Chạy chữ T"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nEquipment: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves left to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet; Step 5: the player moves back to backpedal, eyes up.\nHow it continues: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nCoaching point: Sprint, shuffle, shuffle, backpedal: keep the hips low and face forward the whole way — never turn to look where you are going.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nEquipment: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves left to side-shuffle without crossing the feet; Step 3: the player moves right to side-shuffle without crossing the feet; Step 4: the player moves left to side-shuffle without crossing the feet; Step 5: the player moves back to backpedal, eyes up.\nHow it continues: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nCoaching point: Sprint, shuffle, shuffle, backpedal: keep the hips low and face forward the whole way — never turn to look where you are going.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】四个锥标摆成 T 形：起点在下端，前方 10 米一个，它左右各 5 米各一个，跑者站在起点。\n【器材】四个锥标是 T 的四个点：冲到顶端，侧滑到左边，再滑到右边，回到中间，后退跑回起点。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向左移动（侧滑步，脚不交叉）；第3步：球员向右移动（侧滑步，脚不交叉）；第4步：球员向左移动（侧滑步，脚不交叉）；第5步：球员向后移动（后退跑，眼睛看前方）。\n【连贯】跑完一趟直接排到队尾，起点一空下一人就出发；每人 6 趟，最后两趟计时。\n【要点】冲刺、侧滑、侧滑、后退跑：全程重心压低、面朝前方——不要转身看要去的地方。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】四個錐標擺成 T 形：起點在下端，前方 10 米一個，它左右各 5 米各一個，跑者站在起點。\n【器材】四個錐標是 T 的四個點：衝到頂端，側滑到左邊，再滑到右邊，回到中間，後退跑回起點。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向左移動（側滑步，腳不交叉）；第3步：球員向右移動（側滑步，腳不交叉）；第4步：球員向左移動（側滑步，腳不交叉）；第5步：球員向後移動（後退跑，眼睛看前方）。\n【連貫】跑完一趟直接排到隊尾，起點一空下一人就出發；每人 6 趟，最後兩趟計時。\n【要點】衝刺、側滑、側滑、後退跑：全程重心壓低、面朝前方——不要轉身看要去的地方。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot。\n【用具】the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が左へ移動し、足を交差させずサイドステップ。ステップ3：選手が右へ移動し、足を交差させずサイドステップ。ステップ4：選手が左へ移動し、足を交差させずサイドステップ。ステップ5：選手が後方へ移動し、目線を上げてバックペダル。\n【続け方】One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\n【ポイント】ダッシュ、サイドステップ、サイドステップ、バックペダル：腰を低く、常に前を向く——行き先を振り返らない。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\n【장비】the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 3단계: 선수는 오른쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 4단계: 선수는 왼쪽으로 이동해 발을 교차하지 않고 사이드 스텝; 5단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다.\n【이어가기】One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\n【포인트】질주, 사이드 스텝, 사이드 스텝, 백페달: 내내 엉덩이를 낮추고 앞을 본다 — 가는 방향으로 몸을 돌리지 않는다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nMaterial: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies; Paso 3: el jugador se desplaza a la derecha para desplazarse lateral sin cruzar los pies; Paso 4: el jugador se desplaza a la izquierda para desplazarse lateral sin cruzar los pies; Paso 5: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente.\nContinuidad: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nPunto clave: Sprint, lateral, lateral, atrás: caderas bajas y mirada al frente todo el rato; nunca gires para mirar adónde vas.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nMatériel : the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds ; Étape 3 : le joueur se déplace à droite pour pas chassés sans croiser les pieds ; Étape 4 : le joueur se déplace à gauche pour pas chassés sans croiser les pieds ; Étape 5 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant.\nEnchaînement : One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nPoint clé : Sprint, pas chassés, pas chassés, course arrière : hanches basses, regard devant tout du long — ne te retourne jamais.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nPerlengkapan: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki; Langkah 3: pemain bergerak ke kanan untuk geser menyamping tanpa menyilangkan kaki; Langkah 4: pemain bergerak ke kiri untuk geser menyamping tanpa menyilangkan kaki; Langkah 5: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan.\nKelanjutan: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nPoin utama: Sprint, geser, geser, lari mundur: pinggul rendah dan menghadap ke depan sepanjang jalan.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nPeralatan: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki; Langkah 3: pemain bergerak ke kanan untuk gerak sisi tanpa menyilang kaki; Langkah 4: pemain bergerak ke kiri untuk gerak sisi tanpa menyilang kaki; Langkah 5: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan.\nKesinambungan: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nPoin utama: Pecut, gerak sisi, gerak sisi, lari ke belakang: pinggul rendah dan menghadap ke hadapan sepanjang masa.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot\nอุปกรณ์: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อสไลด์ข้างโดยไม่ไขว้เท้า • ขั้นที่ 5: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า\nการต่อเนื่อง: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nจุดเน้น: สปรินต์ สไลด์ สไลด์ ถอยหลัง สะโพกต่ำและหันหน้าไปข้างหน้าตลอด",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot.\nDụng cụ: the cones are the four points of the T: sprint to the top, shuffle to the left, across to the right, back to the middle, backpedal to the start.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân; Bước 3: cầu thủ di chuyển sang phải để trượt ngang không bắt chéo chân; Bước 4: cầu thủ di chuyển sang trái để trượt ngang không bắt chéo chân; Bước 5: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước.\nTiếp nối: One run, then straight to the back of the line; the next goes as soon as the start cone is clear. Six runs each, and time the last two.\nĐiểm chính: Nước rút, trượt ngang, trượt ngang, chạy lùi: hạ thấp hông và luôn hướng mặt về trước — không bao giờ quay người nhìn."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1082.9011885576147
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                991.0663779210314
+              ],
+              [
+                419.0,
+                991.0663779210314
+              ],
+              [
+                581.0,
+                991.0663779210314
+              ],
+              [
+                500.0,
+                991.0663779210314
+              ],
+              [
+                500.0,
+                1082.9011885576147
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1105.8598912167606
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              968.1076752618854
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              410.0,
+              968.1076752618854
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              590.0,
+              968.1076752618854
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_star_run",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Star run",
+        "en-GB": "Star run",
+        "zh-CN": "星形变向跑",
+        "zh-TW": "星形變向跑",
+        "ja-JP": "スタードリル",
+        "ko-KR": "스타 런",
+        "es-ES": "Estrella de cambios de dirección",
+        "fr-FR": "Étoile",
+        "id-ID": "Lari bintang",
+        "ms-MY": "Larian bintang",
+        "th-TH": "วิ่งรูปดาว",
+        "vi-VN": "Chạy hình sao"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nEquipment: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to backpedal, eyes up; Step 3: the player moves right to sprint flat out; Step 4: the player moves left to backpedal, eyes up; Step 5: the player moves back to sprint flat out; Step 6: the player moves up the board to backpedal, eyes up; Step 7: the player moves left to sprint flat out; Step 8: the player moves right to backpedal, eyes up.\nHow it continues: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nCoaching point: Every trip out is a sprint and every trip back is the turn that matters: plant, drop the hips, and be facing the centre before the first step back.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nEquipment: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to backpedal, eyes up; Step 3: the player moves right to sprint flat out; Step 4: the player moves left to backpedal, eyes up; Step 5: the player moves back to sprint flat out; Step 6: the player moves up the board to backpedal, eyes up; Step 7: the player moves left to sprint flat out; Step 8: the player moves right to backpedal, eyes up.\nHow it continues: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nCoaching point: Every trip out is a sprint and every trip back is the turn that matters: plant, drop the hips, and be facing the centre before the first step back.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】中心一个锥标，四周各 8 米各放一个锥标（前后左右），跑者站在中心。\n【器材】中心锥标是原点，四个外圈锥标按前、右、后、左的顺序依次摸到，每次都回到原点。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（后退跑，眼睛看前方）；第3步：球员向右移动（全力冲刺）；第4步：球员向左移动（后退跑，眼睛看前方）；第5步：球员向后移动（全力冲刺）；第6步：球员向前移动（后退跑，眼睛看前方）；第7步：球员向左移动（全力冲刺）；第8步：球员向右移动（后退跑，眼睛看前方）。\n【连贯】四个点各去一次回来算一颗星；休息 40 秒再来。5 颗星一组，做 2 组，第二组反方向。\n【要点】每次出去都是冲刺，每次回来练的是转身：蹬地、压低重心，第一步回来之前已经面朝中心。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】中心一個錐標，四周各 8 米各放一個錐標（前後左右），跑者站在中心。\n【器材】中心錐標是原點，四個外圈錐標按前、右、後、左的順序依次摸到，每次都回到原點。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（後退跑，眼睛看前方）；第3步：球員向右移動（全力衝刺）；第4步：球員向左移動（後退跑，眼睛看前方）；第5步：球員向後移動（全力衝刺）；第6步：球員向前移動（後退跑，眼睛看前方）；第7步：球員向左移動（全力衝刺）；第8步：球員向右移動（後退跑，眼睛看前方）。\n【連貫】四個點各去一次回來算一顆星；休息 40 秒再來。5 顆星一組，做 2 組，第二組反方向。\n【要點】每次出去都是衝刺，每次回來練的是轉身：蹬地、壓低重心，第一步回來之前已經面朝中心。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre。\n【用具】the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、目線を上げてバックペダル。ステップ3：選手が右へ移動し、全力でダッシュ。ステップ4：選手が左へ移動し、目線を上げてバックペダル。ステップ5：選手が後方へ移動し、全力でダッシュ。ステップ6：選手が前方へ移動し、目線を上げてバックペダル。ステップ7：選手が左へ移動し、全力でダッシュ。ステップ8：選手が右へ移動し、目線を上げてバックペダル。\n【続け方】Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\n【ポイント】外へは毎回ダッシュ、戻りはターンが本題：踏み込み、腰を落とし、最初の一歩の前に中心を向く。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\n【장비】the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 시선을 들고 뒤로 달린다; 3단계: 선수는 오른쪽으로 이동해 전력 질주; 4단계: 선수는 왼쪽으로 이동해 시선을 들고 뒤로 달린다; 5단계: 선수는 뒤로 이동해 전력 질주; 6단계: 선수는 앞으로 이동해 시선을 들고 뒤로 달린다; 7단계: 선수는 왼쪽으로 이동해 전력 질주; 8단계: 선수는 오른쪽으로 이동해 시선을 들고 뒤로 달린다.\n【이어가기】Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\n【포인트】나갈 때는 매번 질주, 돌아올 때는 턴이 핵심: 디디고, 엉덩이를 낮추고, 첫 걸음 전에 이미 중심을 향한다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nMaterial: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para correr hacia atrás con la vista al frente; Paso 3: el jugador se desplaza a la derecha para esprintar a tope; Paso 4: el jugador se desplaza a la izquierda para correr hacia atrás con la vista al frente; Paso 5: el jugador se desplaza hacia atrás para esprintar a tope; Paso 6: el jugador se desplaza hacia delante para correr hacia atrás con la vista al frente; Paso 7: el jugador se desplaza a la izquierda para esprintar a tope; Paso 8: el jugador se desplaza a la derecha para correr hacia atrás con la vista al frente.\nContinuidad: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nPunto clave: Cada ida es un sprint y cada vuelta es el giro que importa: apoya, baja las caderas y mira al centro antes del primer paso de vuelta.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nMatériel : the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour courir en arrière, regard devant ; Étape 3 : le joueur se déplace à droite pour sprinter à fond ; Étape 4 : le joueur se déplace à gauche pour courir en arrière, regard devant ; Étape 5 : le joueur se déplace vers l'arrière pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'avant pour courir en arrière, regard devant ; Étape 7 : le joueur se déplace à gauche pour sprinter à fond ; Étape 8 : le joueur se déplace à droite pour courir en arrière, regard devant.\nEnchaînement : Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nPoint clé : Chaque aller est un sprint, chaque retour est le pivot qui compte : appui, hanches basses, face au centre avant le premier pas.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nPerlengkapan: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk lari mundur dengan pandangan ke depan; Langkah 3: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke kiri untuk lari mundur dengan pandangan ke depan; Langkah 5: pemain bergerak ke belakang untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke depan untuk lari mundur dengan pandangan ke depan; Langkah 7: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 8: pemain bergerak ke kanan untuk lari mundur dengan pandangan ke depan.\nKelanjutan: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nPoin utama: Setiap pergi adalah sprint, setiap kembali adalah putaran yang penting: tumpu, rendahkan pinggul, hadap pusat sebelum langkah pertama.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nPeralatan: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk lari ke belakang dengan pandangan ke hadapan; Langkah 3: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke kiri untuk lari ke belakang dengan pandangan ke hadapan; Langkah 5: pemain bergerak ke belakang untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke hadapan untuk lari ke belakang dengan pandangan ke hadapan; Langkah 7: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 8: pemain bergerak ke kanan untuk lari ke belakang dengan pandangan ke hadapan.\nKesinambungan: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nPoin utama: Setiap pergi ialah pecutan, setiap kembali ialah pusingan yang penting: tumpu, rendahkan pinggul, hadap pusat sebelum langkah pertama.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre\nอุปกรณ์: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า • ขั้นที่ 5: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า • ขั้นที่ 7: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 8: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งถอยหลัง สายตามองไปข้างหน้า\nการต่อเนื่อง: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nจุดเน้น: ทุกเที่ยวออกคือสปรินต์ ทุกเที่ยวกลับคือการหมุนตัวที่สำคัญ",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre.\nDụng cụ: the centre cone is base; the four outer cones are touched in turn — ahead, right, behind, left — coming back to base after each.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để chạy lùi, mắt nhìn phía trước; Bước 3: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển sang trái để chạy lùi, mắt nhìn phía trước; Bước 5: cầu thủ di chuyển lùi lại để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lên phía trước để chạy lùi, mắt nhìn phía trước; Bước 7: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 8: cầu thủ di chuyển sang phải để chạy lùi, mắt nhìn phía trước.\nTiếp nối: Four points and back is one star; rest 40 seconds and go again. Five stars a set, two sets, and reverse the order in the second.\nĐiểm chính: Mỗi lượt ra là nước rút, mỗi lượt về là cú xoay quan trọng: dậm chân, hạ hông, hướng về tâm trước bước đầu tiên."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              979.5870265914584
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                887.752215954875
+              ],
+              [
+                500.0,
+                979.5870265914584
+              ],
+              [
+                572.0,
+                979.5870265914584
+              ],
+              [
+                500.0,
+                979.5870265914584
+              ],
+              [
+                500.0,
+                1071.4218372280418
+              ],
+              [
+                500.0,
+                979.5870265914584
+              ],
+              [
+                428.0,
+                979.5870265914584
+              ],
+              [
+                500.0,
+                979.5870265914584
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              979.5870265914584
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              864.7935132957292
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              590.0,
+              979.5870265914584
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              410.0,
+              979.5870265914584
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_interval_laps",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 15,
+      "players": 1,
+      "free": false,
+      "usage": 3,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Interval laps",
+        "en-GB": "Interval laps",
+        "zh-CN": "间歇跑 绕场",
+        "zh-TW": "間歇跑 繞場",
+        "ja-JP": "インターバル走",
+        "ko-KR": "인터벌 러닝",
+        "es-ES": "Vueltas por intervalos",
+        "fr-FR": "Tours en intervalles",
+        "id-ID": "Lari interval",
+        "ms-MY": "Larian selang",
+        "th-TH": "วิ่งอินเทอร์วัลรอบสนาม",
+        "vi-VN": "Chạy vòng ngắt quãng"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nEquipment: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves right to jog to recover; Step 3: the player moves back to sprint flat out; Step 4: the player moves left to jog to recover.\nHow it continues: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nCoaching point: The hard minutes should feel like the last ten of a match, the easy ones like walking to a throw-in; if the easy ones are not easy, the hard ones were not hard.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nEquipment: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves right to jog to recover; Step 3: the player moves back to sprint flat out; Step 4: the player moves left to jog to recover.\nHow it continues: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nCoaching point: The hard minutes should feel like the last ten of a match, the easy ones like walking to a throw-in; if the easy ones are not easy, the hard ones were not hard.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】四个锥标标出一个长方形：长为两个禁区之间的距离，宽为整个球场宽度，全组从一个角出发。\n【器材】四个锥标是绕圈的四个角：长边快跑，短边慢跑。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向右移动（慢跑恢复）；第3步：球员向后移动（全力冲刺）；第4步：球员向左移动（慢跑恢复）。\n【连贯】长边快、短边慢，绕圈不停；跑 12 分钟，走 3 分钟，再跑 8 分钟。快的标准是说不出完整句子。\n【要点】快的一段要像比赛最后十分钟，慢的一段要像走去发界外球；如果慢的不慢，说明快的没快。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】四個錐標標出一個長方形：長為兩個禁區之間的距離，寬為整個球場寬度，全組從一個角出發。\n【器材】四個錐標是繞圈的四個角：長邊快跑，短邊慢跑。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向右移動（慢跑恢復）；第3步：球員向後移動（全力衝刺）；第4步：球員向左移動（慢跑恢復）。\n【連貫】長邊快、短邊慢，繞圈不停；跑 12 分鐘，走 3 分鐘，再跑 8 分鐘。快的標準是說不出完整句子。\n【要點】快的一段要像比賽最後十分鐘，慢的一段要像走去發界外球；如果慢的不慢，說明快的沒快。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner。\n【用具】the four cones are the corners of the lap: the long sides are run hard, the short sides jogged。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が右へ移動し、ジョグで回復。ステップ3：選手が後方へ移動し、全力でダッシュ。ステップ4：選手が左へ移動し、ジョグで回復。\n【続け方】Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\n【ポイント】きつい区間は試合の最後の10分、楽な区間はスローインへ歩く感覚で。楽な区間が楽でなければ、きつい区間がきつくなかった。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\n【장비】the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 오른쪽으로 이동해 조깅으로 회복; 3단계: 선수는 뒤로 이동해 전력 질주; 4단계: 선수는 왼쪽으로 이동해 조깅으로 회복.\n【이어가기】Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\n【포인트】힘든 구간은 경기 마지막 10분처럼, 쉬운 구간은 스로인하러 걸어가듯이. 쉬운 구간이 쉽지 않다면 힘든 구간이 힘들지 않았던 것이다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nMaterial: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza a la derecha para trotar para recuperar; Paso 3: el jugador se desplaza hacia atrás para esprintar a tope; Paso 4: el jugador se desplaza a la izquierda para trotar para recuperar.\nContinuidad: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nPunto clave: Los tramos duros deben sentirse como los últimos diez minutos de un partido y los suaves como caminar a un saque de banda; si los suaves no son suaves, los duros no fueron duros.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nMatériel : the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace à droite pour trottiner pour récupérer ; Étape 3 : le joueur se déplace vers l'arrière pour sprinter à fond ; Étape 4 : le joueur se déplace à gauche pour trottiner pour récupérer.\nEnchaînement : Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nPoint clé : Les portions dures doivent ressembler aux dix dernières minutes d'un match, les faciles à une marche vers une touche ; si les faciles ne sont pas faciles, les dures ne l'étaient pas.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nPerlengkapan: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke kanan untuk joging untuk pulih; Langkah 3: pemain bergerak ke belakang untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke kiri untuk joging untuk pulih.\nKelanjutan: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nPoin utama: Bagian keras terasa seperti sepuluh menit terakhir pertandingan, bagian ringan seperti berjalan ke lemparan ke dalam.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nPeralatan: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke kanan untuk berjoging untuk pulih; Langkah 3: pemain bergerak ke belakang untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke kiri untuk berjoging untuk pulih.\nKesinambungan: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nPoin utama: Bahagian keras terasa seperti sepuluh minit terakhir perlawanan, bahagian ringan seperti berjalan ke lontaran ke dalam.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner\nอุปกรณ์: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งเหยาะเพื่อฟื้นตัว • ขั้นที่ 3: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nจุดเน้น: ช่วงหนักต้องเหมือนสิบนาทีสุดท้ายของเกม ช่วงเบาเหมือนเดินไปทุ่มบอล",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four cones marking a rectangle the length of the pitch between the boxes and its full width; the group starts at one corner.\nDụng cụ: the four cones are the corners of the lap: the long sides are run hard, the short sides jogged.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển sang phải để chạy chậm để hồi phục; Bước 3: cầu thủ di chuyển lùi lại để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển sang trái để chạy chậm để hồi phục.\nTiếp nối: Long side hard, short side easy, round and round without stopping; twelve minutes, then three minutes' walk, then eight more. Hard means you could not hold a conversation.\nĐiểm chính: Phần nặng phải như mười phút cuối trận, phần nhẹ như đi bộ ra ném biên; nếu phần nhẹ không nhẹ thì phần nặng chưa nặng."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              158.0,
+              1071.4218372280418
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                158.0,
+                497.45427074939573
+              ],
+              [
+                842.0,
+                497.45427074939573
+              ],
+              [
+                842.0,
+                1071.4218372280418
+              ],
+              [
+                158.0,
+                1071.4218372280418
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              121.99999999999999,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              121.99999999999999,
+              474.4955680902498
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              878.0,
+              474.4955680902498
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              878.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_sprint_stop",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Sprint and stop",
+        "en-GB": "Sprint and stop",
+        "zh-CN": "冲刺急停",
+        "zh-TW": "衝刺急停",
+        "ja-JP": "スプリント＆ストップ",
+        "ko-KR": "스프린트 앤 스톱",
+        "es-ES": "Sprint y frenada",
+        "fr-FR": "Sprint et arrêt",
+        "id-ID": "Sprint dan berhenti",
+        "ms-MY": "Pecut dan berhenti",
+        "th-TH": "สปรินต์แล้วหยุด",
+        "vi-VN": "Nước rút và dừng"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nEquipment: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves up the board to decelerate and stop under control; Step 3: the player moves back to jog to recover.\nHow it continues: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nCoaching point: The stop is the exercise: three short steps, knees bent, weight back, feet still inside the zone. A stop that skids past the cones is a hamstring waiting to happen.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nEquipment: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves up the board to decelerate and stop under control; Step 3: the player moves back to jog to recover.\nHow it continues: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nCoaching point: The stop is the exercise: three short steps, knees bent, weight back, feet still inside the zone. A stop that skids past the cones is a hamstring waiting to happen.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】一个起点锥标，前方 20 米处用四个锥标围出一个 5 米长的急停区，跑者站在起点。\n【器材】单独的锥标是起点；四个锥标围出的区域是必须在里面停住的地方——不能提前停，也不能冲出去。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向前移动（减速并稳稳停住）；第3步：球员向后移动（慢跑恢复）。\n【连贯】冲刺、在区域内停住、慢跑回起点，下一人出发；每人 8 次，然后把急停区往前挪 5 米再做一组 8 次。\n【要点】急停才是练习的内容：三个小步、屈膝、重心靠后，脚停在区域内。滑出锥标的急停是在等着拉伤腘绳肌。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】一個起點錐標，前方 20 米處用四個錐標圍出一個 5 米長的急停區，跑者站在起點。\n【器材】單獨的錐標是起點；四個錐標圍出的區域是必須在裡面停住的地方——不能提前停，也不能衝出去。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向前移動（減速並穩穩停住）；第3步：球員向後移動（慢跑恢復）。\n【連貫】衝刺、在區域內停住、慢跑回起點，下一人出發；每人 8 次，然後把急停區往前挪 5 米再做一組 8 次。\n【要點】急停才是練習的內容：三個小步、屈膝、重心靠後，腳停在區域內。滑出錐標的急停是在等著拉傷膕繩肌。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone。\n【用具】the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が前方へ移動し、減速してコントロールして止まる。ステップ3：選手が後方へ移動し、ジョグで回復。\n【続け方】Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\n【ポイント】止まることが練習：小さく3歩、膝を曲げ、重心を後ろに、足はゾーン内で止める。コーンを滑り抜ける止まり方はハムストリングの故障予備軍だ。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\n【장비】the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 앞으로 이동해 감속해 안정적으로 멈춘다; 3단계: 선수는 뒤로 이동해 조깅으로 회복.\n【이어가기】Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\n【포인트】멈춤이 곧 훈련이다: 짧은 세 걸음, 무릎 굽히고, 체중 뒤로, 발은 구역 안에서 멈춘다. 콘을 미끄러져 지나치는 멈춤은 햄스트링 부상의 예고다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nMaterial: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia delante para frenar y parar con control; Paso 3: el jugador se desplaza hacia atrás para trotar para recuperar.\nContinuidad: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nPunto clave: La frenada es el ejercicio: tres pasos cortos, rodillas flexionadas, peso atrás, pies dentro de la zona. Una frenada que patina más allá de los conos es una lesión de isquios esperando.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nMatériel : the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'avant pour décélérer et s'arrêter en contrôle ; Étape 3 : le joueur se déplace vers l'arrière pour trottiner pour récupérer.\nEnchaînement : Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nPoint clé : L'arrêt est l'exercice : trois petits pas, genoux fléchis, poids en arrière, pieds dans la zone. Un arrêt qui dérape au-delà des plots, c'est un ischio qui attend.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nPerlengkapan: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke depan untuk melambat dan berhenti terkendali; Langkah 3: pemain bergerak ke belakang untuk joging untuk pulih.\nKelanjutan: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nPoin utama: Berhentinya adalah latihannya: tiga langkah pendek, lutut ditekuk, berat ke belakang, kaki tetap di zona.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nPeralatan: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke hadapan untuk memperlahankan dan berhenti terkawal; Langkah 3: pemain bergerak ke belakang untuk berjoging untuk pulih.\nKesinambungan: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nPoin utama: Berhenti itulah latihannya: tiga langkah pendek, lutut dibengkokkan, berat ke belakang, kaki kekal di zon.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone\nอุปกรณ์: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับไปข้างหน้าเพื่อชะลอและหยุดอย่างมั่นคง • ขั้นที่ 3: ผู้เล่น ขยับถอยหลังเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nจุดเน้น: การหยุดคือแบบฝึก สามก้าวสั้น ย่อเข่า น้ำหนักไปหลัง เท้าหยุดในโซน",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone.\nDụng cụ: the single cone is the start; the four cones mark the zone the runner has to be stopped inside — not before it, not past it.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lên phía trước để giảm tốc và dừng có kiểm soát; Bước 3: cầu thủ di chuyển lùi lại để chạy chậm để hồi phục.\nTiếp nối: Sprint, stop in the zone, jog back to the start and the next player goes; eight each, then the zone moves 5 m closer for a second set of eight.\nĐiểm chính: Cú dừng mới là bài tập: ba bước ngắn, gối khuỵu, trọng tâm lùi, chân dừng trong vùng. Dừng trượt qua cọc là gân kheo đang chờ chấn thương."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                882.0125402900886
+              ],
+              [
+                500.0,
+                836.0951349717968
+              ],
+              [
+                500.0,
+                1094.3805398871878
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              446.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              446.0,
+              864.7935132957292
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              554.0,
+              864.7935132957292
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              446.0,
+              807.3967566478647
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              554.0,
+              807.3967566478647
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "fit_yoyo",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 15,
+      "players": 1,
+      "free": false,
+      "usage": 1,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Yo-yo intermittent runs",
+        "en-GB": "Yo-yo intermittent runs",
+        "zh-CN": "Yo-Yo 间歇往返跑",
+        "zh-TW": "Yo-Yo 間歇往返跑",
+        "ja-JP": "ヨーヨーテスト形式の間欠走",
+        "ko-KR": "요요 간헐 달리기",
+        "es-ES": "Yo-yo intermitente",
+        "fr-FR": "Yo-yo intermittent",
+        "id-ID": "Lari yo-yo",
+        "ms-MY": "Larian yo-yo",
+        "th-TH": "วิ่งโยโย่",
+        "vi-VN": "Chạy yo-yo"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nEquipment: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to sprint flat out; Step 3: the player moves back to jog to recover; Step 4: the player moves up the board to jog to recover.\nHow it continues: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nCoaching point: Arrive on the beep, not before it — running early is wasted, and the ten seconds of walking are part of the drill, not a break from it.",
+        "en-GB": "Purpose: Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nEquipment: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to sprint flat out; Step 3: the player moves back to jog to recover; Step 4: the player moves up the board to jog to recover.\nHow it continues: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nCoaching point: Arrive on the beep, not before it — running early is wasted, and the ten seconds of walking are part of the drill, not a break from it.",
+        "zh-CN": "【目的】无球体能：冲刺、变向、疲劳下重复——比赛要求的跑动能力，最后十分钟由谁还跑得动决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】三对锥标：起点线、前方 20 米的折返线、起点后方 5 米的恢复线，跑者站在起点线上。\n【器材】中间一对是起点，远端一对是 20 米折返线，近端一对是 5 米恢复线；听哨出发跑到折返线再回来，走到恢复线再走回起点，接着下一趟。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（全力冲刺）；第3步：球员向后移动（慢跑恢复）；第4步：球员向前移动（慢跑恢复）。\n【连贯】听哨往返一次，走 10 秒，再来；哨声每一级越来越快。连续两次没赶上线就停下，记下到达的级别。\n【要点】踩着哨声到线，别提前——早到的都是白跑；十秒走动是练习的一部分，不是休息。",
+        "zh-TW": "【目的】無球體能：衝刺、變向、疲勞下重複——比賽要求的跑動能力，最後十分鐘由誰還跑得動決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】三對錐標：起點線、前方 20 米的折返線、起點後方 5 米的恢復線，跑者站在起點線上。\n【器材】中間一對是起點，遠端一對是 20 米折返線，近端一對是 5 米恢復線；聽哨出發跑到折返線再回來，走到恢復線再走回起點，接著下一趟。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（全力衝刺）；第3步：球員向後移動（慢跑恢復）；第4步：球員向前移動（慢跑恢復）。\n【連貫】聽哨往返一次，走 10 秒，再來；哨聲每一級越來越快。連續兩次沒趕上線就停下，記下到達的級別。\n【要點】踩著哨聲到線，別提前——早到的都是白跑；十秒走動是練習的一部分，不是休息。",
+        "ja-JP": "【目的】ボールなしのフィジカル：ダッシュ、方向転換、疲れた状態での反復——試合が求める走力で、最後の10分はまだ走れる者が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line。\n【用具】the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、全力でダッシュ。ステップ3：選手が後方へ移動し、ジョグで回復。ステップ4：選手が前方へ移動し、ジョグで回復。\n【続け方】Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\n【ポイント】ビープに合わせて到着し、早すぎない——早く走るのは無駄。10秒の歩きはドリルの一部で休憩ではない。",
+        "ko-KR": "【목적】볼 없는 체력: 질주, 방향 전환, 지친 상태의 반복 — 경기가 요구하는 달리기이며, 마지막 10분은 아직 뛸 수 있는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\n【장비】the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 전력 질주; 3단계: 선수는 뒤로 이동해 조깅으로 회복; 4단계: 선수는 앞으로 이동해 조깅으로 회복.\n【이어가기】Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\n【포인트】신호에 맞춰 도착하고 앞서지 않는다 — 일찍 달리는 것은 낭비. 10초 걷기는 훈련의 일부지 휴식이 아니다.",
+        "es-ES": "Objetivo: Físico sin balón: esprintar, cambiar de dirección y repetirlo cansado; es la carrera que pide un partido, y los últimos diez minutos los decide quien aún la tiene.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nMaterial: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para esprintar a tope; Paso 3: el jugador se desplaza hacia atrás para trotar para recuperar; Paso 4: el jugador se desplaza hacia delante para trotar para recuperar.\nContinuidad: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nPunto clave: Llega con el pitido, no antes: correr adelantado es correr de más, y los diez segundos caminando son parte del ejercicio, no un descanso.",
+        "fr-FR": "Objectif : Physique sans ballon : sprinter, changer de direction, répéter fatigué — la course qu'un match exige, et les dix dernières minutes reviennent à qui en a encore.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nMatériel : the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour sprinter à fond ; Étape 3 : le joueur se déplace vers l'arrière pour trottiner pour récupérer ; Étape 4 : le joueur se déplace vers l'avant pour trottiner pour récupérer.\nEnchaînement : Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nPoint clé : Arrive sur le bip, pas avant : courir en avance ne sert à rien, et les dix secondes de marche font partie de l'exercice, pas de la pause.",
+        "id-ID": "Tujuan: Fisik tanpa bola: sprint, ganti arah, mengulanginya saat lelah — lari yang diminta pertandingan.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nPerlengkapan: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk lari sekencang mungkin; Langkah 3: pemain bergerak ke belakang untuk joging untuk pulih; Langkah 4: pemain bergerak ke depan untuk joging untuk pulih.\nKelanjutan: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nPoin utama: Tiba tepat pada bunyi bip, bukan sebelumnya; sepuluh detik berjalan adalah bagian dari latihan.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: pecut, tukar arah, ulang ketika penat — larian yang dituntut perlawanan.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nPeralatan: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk pecut sepenuh tenaga; Langkah 3: pemain bergerak ke belakang untuk berjoging untuk pulih; Langkah 4: pemain bergerak ke hadapan untuk berjoging untuk pulih.\nKesinambungan: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nPoin utama: Tiba tepat pada bunyi bip, bukan sebelumnya; sepuluh saat berjalan ialah sebahagian daripada latihan.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้บอล: สปรินต์ เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการวิ่งที่เกมต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line\nอุปกรณ์: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อวิ่งสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับถอยหลังเพื่อวิ่งเหยาะเพื่อฟื้นตัว • ขั้นที่ 4: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nจุดเน้น: ถึงเส้นตามเสียงบี๊บ อย่าถึงก่อน สิบวินาทีที่เดินคือส่วนหนึ่งของแบบฝึก",
+        "vi-VN": "Mục đích: Thể lực không bóng: nước rút, đổi hướng và lặp lại khi mệt — sức chạy trận đấu đòi hỏi, và mười phút cuối thuộc về bên còn chạy được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line.\nDụng cụ: the middle pair is the start, the far pair the 20 m turn, the near pair the 5 m recovery walk; out and back on the beep, walk to the near pair and back, and go again.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để chạy nước rút hết sức; Bước 3: cầu thủ di chuyển lùi lại để chạy chậm để hồi phục; Bước 4: cầu thủ di chuyển lên phía trước để chạy chậm để hồi phục.\nTiếp nối: Out and back to the beep, ten seconds' walk, and again; the beeps get faster every level. Stop the first time you miss the line twice in a row, and note the level.\nĐiểm chính: Đến vạch đúng tiếng bíp, không đến sớm — chạy sớm là phí sức; mười giây đi bộ là một phần của bài, không phải nghỉ."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 6,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                887.752215954875
+              ],
+              [
+                500.0,
+                1094.3805398871878
+              ],
+              [
+                500.0,
+                1146.0376208702658
+              ],
+              [
+                500.0,
+                1094.3805398871878
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              428.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              572.0,
+              1094.3805398871878
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              428.0,
+              876.2728646253022
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              572.0,
+              876.2728646253022
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              428.0,
+              1151.7772965350523
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m5",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              572.0,
+              1151.7772965350523
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
       "id": "rondo_5v2",
       "level": "development",
-      "family": "soccer_family_24",
+      "family": "soccer_family_28",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -11923,7 +13498,7 @@
     {
       "id": "rondo_6v3",
       "level": "development",
-      "family": "soccer_family_24",
+      "family": "soccer_family_28",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -12507,7 +14082,7 @@
     {
       "id": "rondo_7v3",
       "level": "development",
-      "family": "soccer_family_24",
+      "family": "soccer_family_28",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -13163,7 +14738,7 @@
     {
       "id": "rondo_8v4",
       "level": "advanced",
-      "family": "soccer_family_24",
+      "family": "soccer_family_28",
       "familyName": {
         "en": "Rondo",
         "en-GB": "Rondo",
@@ -13953,7 +15528,7 @@
     {
       "id": "ssg_3v3",
       "level": "development",
-      "family": "soccer_family_38",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -14327,7 +15902,7 @@
     {
       "id": "ssg_4v4",
       "level": "development",
-      "family": "soccer_family_38",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -14741,7 +16316,7 @@
     {
       "id": "ssg_5v5",
       "level": "development",
-      "family": "soccer_family_38",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -15195,7 +16770,7 @@
     {
       "id": "ssg_6v6",
       "level": "development",
-      "family": "soccer_family_38",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -15689,7 +17264,7 @@
     {
       "id": "ssg_7v7",
       "level": "development",
-      "family": "soccer_family_38",
+      "family": "soccer_family_42",
       "familyName": {
         "en": "Small-sided game",
         "en-GB": "Small-sided game",
@@ -16223,7 +17798,7 @@
     {
       "id": "counter_2v1",
       "level": "foundation",
-      "family": "soccer_family_9",
+      "family": "soccer_family_10",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -16417,7 +17992,7 @@
     {
       "id": "counter_4v3",
       "level": "development",
-      "family": "soccer_family_9",
+      "family": "soccer_family_10",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -16719,7 +18294,7 @@
     {
       "id": "counter_5v4",
       "level": "development",
-      "family": "soccer_family_9",
+      "family": "soccer_family_10",
       "familyName": {
         "en": "Counter",
         "en-GB": "Counter",
@@ -17075,7 +18650,7 @@
     {
       "id": "buildup_v1",
       "level": "development",
-      "family": "soccer_family_25",
+      "family": "soccer_family_29",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -17348,7 +18923,7 @@
     {
       "id": "buildup_v2",
       "level": "development",
-      "family": "soccer_family_25",
+      "family": "soccer_family_29",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -17675,7 +19250,7 @@
     {
       "id": "buildup_v3",
       "level": "advanced",
-      "family": "soccer_family_25",
+      "family": "soccer_family_29",
       "familyName": {
         "en": "Playing out under pressure",
         "en-GB": "Playing out under pressure",
@@ -18056,7 +19631,7 @@
     {
       "id": "finish_left_wing",
       "level": "development",
-      "family": "soccer_family_34",
+      "family": "soccer_family_38",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -18277,7 +19852,7 @@
     {
       "id": "finish_right_wing",
       "level": "development",
-      "family": "soccer_family_34",
+      "family": "soccer_family_38",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -18498,7 +20073,7 @@
     {
       "id": "finish_left_halfspace",
       "level": "development",
-      "family": "soccer_family_34",
+      "family": "soccer_family_38",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -18719,7 +20294,7 @@
     {
       "id": "finish_right_halfspace",
       "level": "development",
-      "family": "soccer_family_34",
+      "family": "soccer_family_38",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -18940,7 +20515,7 @@
     {
       "id": "finish_central",
       "level": "development",
-      "family": "soccer_family_34",
+      "family": "soccer_family_38",
       "familyName": {
         "en": "Finishing pattern",
         "en-GB": "Finishing pattern",
@@ -19161,7 +20736,7 @@
     {
       "id": "press_442",
       "level": "advanced",
-      "family": "soccer_family_52",
+      "family": "soccer_family_58",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -19601,7 +21176,7 @@
     {
       "id": "press_433",
       "level": "advanced",
-      "family": "soccer_family_52",
+      "family": "soccer_family_58",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -20041,7 +21616,7 @@
     {
       "id": "press_4231",
       "level": "advanced",
-      "family": "soccer_family_52",
+      "family": "soccer_family_58",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -20481,7 +22056,7 @@
     {
       "id": "press_352",
       "level": "advanced",
-      "family": "soccer_family_52",
+      "family": "soccer_family_58",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -20921,7 +22496,7 @@
     {
       "id": "corner_far_post",
       "level": "development",
-      "family": "soccer_family_2",
+      "family": "soccer_family_3",
       "familyName": {
         "en": "Corner",
         "en-GB": "Corner",
@@ -21237,7 +22812,7 @@
     {
       "id": "corner_back_post_pull",
       "level": "development",
-      "family": "soccer_family_2",
+      "family": "soccer_family_3",
       "familyName": {
         "en": "Corner",
         "en-GB": "Corner",
@@ -21558,7 +23133,7 @@
     {
       "id": "corner_decoy_stack",
       "level": "advanced",
-      "family": "soccer_family_2",
+      "family": "soccer_family_3",
       "familyName": {
         "en": "Corner",
         "en-GB": "Corner",
@@ -21867,7 +23442,7 @@
     {
       "id": "corner_second_ball",
       "level": "advanced",
-      "family": "soccer_family_2",
+      "family": "soccer_family_3",
       "familyName": {
         "en": "Corner",
         "en-GB": "Corner",
@@ -22188,7 +23763,7 @@
     {
       "id": "duel_wide_left",
       "level": "foundation",
-      "family": "soccer_family_1",
+      "family": "soccer_family_2",
       "familyName": {
         "en": "1v1 duels",
         "en-GB": "1v1 duels",
@@ -22407,7 +23982,7 @@
     {
       "id": "duel_wide_right",
       "level": "foundation",
-      "family": "soccer_family_1",
+      "family": "soccer_family_2",
       "familyName": {
         "en": "1v1 duels",
         "en-GB": "1v1 duels",
@@ -22626,7 +24201,7 @@
     {
       "id": "duel_central",
       "level": "foundation",
-      "family": "soccer_family_1",
+      "family": "soccer_family_2",
       "familyName": {
         "en": "1v1 duels",
         "en-GB": "1v1 duels",
@@ -22845,7 +24420,7 @@
     {
       "id": "duel_half_left",
       "level": "foundation",
-      "family": "soccer_family_1",
+      "family": "soccer_family_2",
       "familyName": {
         "en": "1v1 duels",
         "en-GB": "1v1 duels",
@@ -23064,7 +24639,7 @@
     {
       "id": "passing_triangle",
       "level": "foundation",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -23345,7 +24920,7 @@
     {
       "id": "passing_diamond",
       "level": "foundation",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -23678,7 +25253,7 @@
     {
       "id": "passing_pentagon",
       "level": "foundation",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -24063,7 +25638,7 @@
     {
       "id": "passing_hexagon",
       "level": "foundation",
-      "family": "soccer_family_16",
+      "family": "soccer_family_17",
       "familyName": {
         "en": "Passing pattern",
         "en-GB": "Passing pattern",
@@ -24500,7 +26075,7 @@
     {
       "id": "cross_left_near_post",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_26",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -24788,7 +26363,7 @@
     {
       "id": "cross_left_far_post",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_26",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -25076,7 +26651,7 @@
     {
       "id": "cross_right_near_post",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_26",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -25364,7 +26939,7 @@
     {
       "id": "cross_right_far_post",
       "level": "development",
-      "family": "soccer_family_22",
+      "family": "soccer_family_26",
       "familyName": {
         "en": "Crossing",
         "en-GB": "Crossing",
@@ -25652,7 +27227,7 @@
     {
       "id": "shape_high",
       "level": "advanced",
-      "family": "soccer_family_23",
+      "family": "soccer_family_27",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -26003,7 +27578,7 @@
     {
       "id": "shape_mid",
       "level": "advanced",
-      "family": "soccer_family_23",
+      "family": "soccer_family_27",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -26354,7 +27929,7 @@
     {
       "id": "shape_low",
       "level": "advanced",
-      "family": "soccer_family_23",
+      "family": "soccer_family_27",
       "familyName": {
         "en": "Defensive shape",
         "en-GB": "Defensive shape",
@@ -26705,7 +28280,7 @@
     {
       "id": "gk_handling",
       "level": "foundation",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -26900,7 +28475,7 @@
     {
       "id": "gk_angles",
       "level": "foundation",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -27095,7 +28670,7 @@
     {
       "id": "gk_crosses",
       "level": "development",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -27270,7 +28845,7 @@
     {
       "id": "gk_distribution",
       "level": "foundation",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -27479,7 +29054,7 @@
     {
       "id": "gk_one_v_one",
       "level": "foundation",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -27641,7 +29216,7 @@
     {
       "id": "gk_set_position",
       "level": "foundation",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -27816,7 +29391,7 @@
     {
       "id": "gk_sweeper",
       "level": "advanced",
-      "family": "soccer_family_31",
+      "family": "soccer_family_35",
       "familyName": {
         "en": "Goalkeeping",
         "en-GB": "Goalkeeping",
@@ -28059,7 +29634,7 @@
     {
       "id": "cond_shuttle_finish",
       "level": "foundation",
-      "family": "soccer_family_49",
+      "family": "soccer_family_55",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -28274,7 +29849,7 @@
     {
       "id": "cond_repeat_sprint",
       "level": "foundation",
-      "family": "soccer_family_49",
+      "family": "soccer_family_55",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -28529,7 +30104,7 @@
     {
       "id": "cond_box_to_box",
       "level": "foundation",
-      "family": "soccer_family_49",
+      "family": "soccer_family_55",
       "familyName": {
         "en": "Conditioning with the ball",
         "en-GB": "Conditioning with the ball",
@@ -28724,7 +30299,7 @@
     {
       "id": "switch_back",
       "level": "development",
-      "family": "soccer_family_14",
+      "family": "soccer_family_15",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -29044,7 +30619,7 @@
     {
       "id": "switch_middle",
       "level": "development",
-      "family": "soccer_family_14",
+      "family": "soccer_family_15",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -29364,7 +30939,7 @@
     {
       "id": "switch_final",
       "level": "advanced",
-      "family": "soccer_family_14",
+      "family": "soccer_family_15",
       "familyName": {
         "en": "Switching play",
         "en-GB": "Switching play",
@@ -29684,7 +31259,7 @@
     {
       "id": "combo_wall_left",
       "level": "development",
-      "family": "soccer_family_56",
+      "family": "soccer_family_63",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -29908,7 +31483,7 @@
     {
       "id": "combo_wall_right",
       "level": "development",
-      "family": "soccer_family_56",
+      "family": "soccer_family_63",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -30132,7 +31707,7 @@
     {
       "id": "combo_overlap_left",
       "level": "development",
-      "family": "soccer_family_56",
+      "family": "soccer_family_63",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -30368,7 +31943,7 @@
     {
       "id": "combo_overlap_right",
       "level": "development",
-      "family": "soccer_family_56",
+      "family": "soccer_family_63",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -30604,7 +32179,7 @@
     {
       "id": "combo_underlap",
       "level": "development",
-      "family": "soccer_family_56",
+      "family": "soccer_family_63",
       "familyName": {
         "en": "Combination play",
         "en-GB": "Combination play",
@@ -30833,7 +32408,7 @@
     {
       "id": "fk_direct_central",
       "level": "development",
-      "family": "soccer_family_17",
+      "family": "soccer_family_19",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -31144,7 +32719,7 @@
     {
       "id": "fk_layoff",
       "level": "development",
-      "family": "soccer_family_17",
+      "family": "soccer_family_19",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -31460,7 +33035,7 @@
     {
       "id": "fk_runner",
       "level": "advanced",
-      "family": "soccer_family_17",
+      "family": "soccer_family_19",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -31776,7 +33351,7 @@
     {
       "id": "fk_wide_left",
       "level": "development",
-      "family": "soccer_family_17",
+      "family": "soccer_family_19",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -32072,7 +33647,7 @@
     {
       "id": "fk_wide_right",
       "level": "development",
-      "family": "soccer_family_17",
+      "family": "soccer_family_19",
       "familyName": {
         "en": "Free kick",
         "en-GB": "Free kick",
@@ -32368,7 +33943,7 @@
     {
       "id": "transition_4v4",
       "level": "development",
-      "family": "soccer_family_48",
+      "family": "soccer_family_53",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -32782,7 +34357,7 @@
     {
       "id": "transition_5v5",
       "level": "development",
-      "family": "soccer_family_48",
+      "family": "soccer_family_53",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -33236,7 +34811,7 @@
     {
       "id": "transition_6v6",
       "level": "advanced",
-      "family": "soccer_family_48",
+      "family": "soccer_family_53",
       "familyName": {
         "en": "Transition",
         "en-GB": "Transition",
@@ -33730,7 +35305,7 @@
     {
       "id": "touch_from_behind",
       "level": "foundation",
-      "family": "soccer_family_47",
+      "family": "soccer_family_52",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -33997,7 +35572,7 @@
     {
       "id": "touch_side_on",
       "level": "foundation",
-      "family": "soccer_family_47",
+      "family": "soccer_family_52",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -34264,7 +35839,7 @@
     {
       "id": "touch_open_body",
       "level": "foundation",
-      "family": "soccer_family_47",
+      "family": "soccer_family_52",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -34531,7 +36106,7 @@
     {
       "id": "touch_in_traffic",
       "level": "foundation",
-      "family": "soccer_family_47",
+      "family": "soccer_family_52",
       "familyName": {
         "en": "First touch",
         "en-GB": "First touch",
@@ -35242,7 +36817,7 @@
     {
       "id": "goalkick_short",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -35542,7 +37117,7 @@
     {
       "id": "goalkick_full_back",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -35842,7 +37417,7 @@
     {
       "id": "goalkick_long",
       "level": "development",
-      "family": "soccer_family_13",
+      "family": "soccer_family_14",
       "familyName": {
         "en": "Goal kick",
         "en-GB": "Goal kick",
@@ -36137,7 +37712,7 @@
     {
       "id": "overload_3v2",
       "level": "development",
-      "family": "soccer_family_44",
+      "family": "soccer_family_49",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -36465,7 +38040,7 @@
     {
       "id": "overload_4v3",
       "level": "development",
-      "family": "soccer_family_44",
+      "family": "soccer_family_49",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -36852,7 +38427,7 @@
     {
       "id": "overload_5v4",
       "level": "development",
-      "family": "soccer_family_44",
+      "family": "soccer_family_49",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
@@ -37298,7 +38873,7 @@
     {
       "id": "overload_6v4",
       "level": "development",
-      "family": "soccer_family_44",
+      "family": "soccer_family_49",
       "familyName": {
         "en": "Overload possession",
         "en-GB": "Overload possession",
