@@ -356,6 +356,19 @@ CHANGES_HANDS = {
     "ms-MY": "{b} merampas bola daripada {a}",
     "th-TH": "{b} แย่งบอลจาก {a}", "vi-VN": "{b} đoạt bóng từ {a}",
 }
+# …and from a distance it was handed on, not won: the ball given to the
+# other side to start the next rep.
+HANDS_OVER = {
+    "en": "{a} plays the ball to {b} for the next rep",
+    "en-GB": "{a} plays the ball to {b} for the next rep",
+    "zh-CN": "{a}把球交给{b}，开始下一轮", "zh-TW": "{a}把球交給{b}，開始下一輪",
+    "ja-JP": "{a}が{b}にボールを渡して次の1本へ", "ko-KR": "{a}가 {b}에게 공을 넘겨 다음 세트를 시작한다",
+    "es-ES": "{a} le da el balón a {b} para la siguiente repetición",
+    "fr-FR": "{a} donne le ballon à {b} pour la séquence suivante",
+    "id-ID": "{a} memberikan bola ke {b} untuk ulangan berikutnya",
+    "ms-MY": "{a} memberikan bola kepada {b} untuk ulangan seterusnya",
+    "th-TH": "{a} ส่งบอลให้ {b} เพื่อเริ่มรอบถัดไป", "vi-VN": "{a} trao bóng cho {b} để bắt đầu lượt tiếp",
+}
 # Several players wearing the same letter doing the same thing: "3 Ds move
 # back", not "D, D, D moves back".
 COUNTED = {
@@ -708,7 +721,14 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     elif sport == "rugby":
                         tbl = KICK_TO
                     else:
-                        tbl = CHANGES_HANDS
+                        # Won, unless the author marked it as the hand-over
+                        # that sets up the next rep: the last leg, with the
+                        # receiver stepping up to meet it or the giver
+                        # getting back to his station.
+                        last_leg = (target, ph) == route[-1]
+                        handed = last_leg and (t.why.get(ph) == "meet"
+                                               or prev.why.get(ph) == "reset")
+                        tbl = HANDS_OVER if handed else CHANGES_HANDS
                     add(ph, tbl, a=_label(prev), b=_label(t))
                 else:
                     add(ph, _pass_verb(sport), a=_label(prev), b=_label(t))

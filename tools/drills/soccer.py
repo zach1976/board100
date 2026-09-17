@@ -1350,14 +1350,16 @@ def soccer_drills() -> list[Drill]:
             # waits behind the bottom gate, the next defender beside the top
             # one, so the board shows where the queues stand.
             home=[
-                P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1), (745, 790, 2)],
-                  why={0: "press_ball", 1: "delay", 2: "win_ball"}),
+                P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1), (745, 790, 2), (770, 520, 3)],
+                  why={0: "press_ball", 1: "delay", 2: "win_ball", 3: "reset"}),
                 P(945, 440, ""),                     # the next defender, waiting
             ],
             away=[
-                P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1)],
-                  why={1: "get_free"}),
-                P(770, 1170, ""),                    # the next attacker, waiting
+                P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1), (770, 1170, 3)],
+                  why={1: "get_free", 3: "queue"}),
+                # The next attacker: steps up to the start as the ball comes
+                # back to him, so the rep after this one is already set.
+                P(770, 1170, "9", moves=[(770, 1020, 3)], why={3: "meet"}),
             ],
             markers=[M(640, 500), M(900, 500), M(640, 1060), M(900, 1060)],
             setup={
@@ -1376,9 +1378,12 @@ def soccer_drills() -> list[Drill]:
                          "頂端錐標之間出來迎。其他進攻者在底端錐標後排隊，下一名"
                          "防守者在頂端錐標旁等候",
             },
-            # their 11 runs the channel with it, cuts inside, and the 3 wins it
+            # their 11 runs the channel with it, cuts inside, the 3 wins it —
+            # and plays it down to the next attacker while he gets back to
+            # his gate and the 11 jogs to the back of the line. Four beats
+            # and the channel is set for the next rep.
             ball=(770, 950),
-            ball_to=[("a0", 0), ("a0", 1), (0, 2)],
+            ball_to=[("a0", 0), ("a0", 1), (0, 2), ("a1", 3)],
         ),
         Drill(
             id="setpiece_defend_corner", category="setpiece", minutes=10, tight=True,
@@ -1627,16 +1632,18 @@ def rondo_family() -> list[Drill]:
                   why={0: "press_ball" if j == 0 else "close_lane"})
                 for j in range(defenders)
             ],
-            # A square of cones round the circle, which is how it is set up
-            # on grass and how the other passing shapes are drawn.
-            markers=[M(0.5 + sx * rx * 1.05, 0.5 + sy * ry * 1.05)
-                     for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))],
+            # A cone under every passer: the cones ARE the ring, the way
+            # rondo_4v2 is drawn. Four cones on a square outside the ring
+            # read as a box the passers were standing inside.
+            markers=[M(x, y) for (x, y) in ring_pos],
             setup={
-                "en": f"a circle about {int(radius * 60)} m across marked by "
-                      f"four cones; {attackers} on the outside keep it off "
-                      f"{defenders} inside",
-                "zh-CN": f"四个锥标围出直径约 {int(radius * 60)} 米的圈，"
-                         f"{attackers} 人在圈外传，{defenders} 人在圈内抢",
+                "en": f"{attackers} cones on a circle about {int(radius * 60)} m "
+                      f"across, a passer on each; {defenders} inside try to "
+                      f"win it",
+                "zh-CN": f"{attackers} 个锥标围出直径约 {int(radius * 60)} 米的圈，"
+                         f"{attackers} 人各站一个锥标在圈上传，{defenders} 人在圈内抢",
+                "zh-TW": f"{attackers} 個錐標圍出直徑約 {int(radius * 60)} 米的圈，"
+                         f"{attackers} 人各站一個錐標在圈上傳，{defenders} 人在圈內搶",
             },
             ball=0,
             # All the way round and back to the man it started with. It used
