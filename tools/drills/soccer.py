@@ -168,11 +168,11 @@ def soccer_drills() -> list[Drill]:
             away=[
                 P(280, 560, "X1", moves=[(460, 500, 0), (400, 600, 1), (440, 660, 6), (280, 560, 7)],
                   why={0: "press_ball", 1: "cover", 6: "press_ball", 7: "press_ball"}),
-                P(600, 600, "X2", moves=[(720, 560, 1), (600, 600, 2), (720, 840, 5), (600, 600, 6)],
+                P(630, 590, "X2", moves=[(720, 560, 1), (630, 590, 2), (720, 840, 5), (630, 590, 6)],
                   why={1: "press_ball", 2: "cover", 5: "press_ball", 6: "cover"}),
-                P(400, 800, "X3", moves=[(280, 840, 3), (400, 800, 4)],
+                P(400, 800, "X3", moves=[(300, 790, 3), (400, 800, 4)],
                   why={3: "press_ball", 4: "cover"}),
-                P(600, 800, "X4", moves=[(560, 740, 2), (600, 800, 3), (520, 900, 4), (600, 800, 5)],
+                P(640, 820, "X4", moves=[(560, 740, 2), (640, 820, 3), (520, 900, 4), (640, 820, 5)],
                   why={2: "press_ball", 3: "cover", 4: "press_ball", 5: "cover"}),
             ],
             markers=[M(180, 400), M(820, 400), M(820, 1000), M(180, 1000)],
@@ -234,7 +234,7 @@ def soccer_drills() -> list[Drill]:
             # Released into the overlap once he is past, then crossed to the
             # 9 arriving at the far post — never to the space between two
             # players with nobody's name on it.
-            ball_to=[(1, 1), (3, 2)],
+            ball_to=[(1, 1), (3, 2), ((500, 60), 3)],
             free=True,
         ),
         Drill(
@@ -256,16 +256,17 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Người thứ ba chạy trước đường chuyền thứ hai, không phải sau.",
                   "en-GB": "The runner starts before the second pass, not after. If he waits, the space is already gone."},
             home=[
-                P(300, 900, "6", moves=[(340, 820, 1)]),
-                P(620, 700, "10", moves=[(560, 800, 0)]),         # drops in, sets it back
-                P(740, 940, "8", moves=[(720, 560, 1), (640, 360, 2)]),  # third man
+                P(300, 900, "6", moves=[(340, 820, 1)], why={1: "meet"}),
+                P(620, 700, "10", moves=[(560, 800, 0)], why={0: "drop_deep"}),   # drops in, sets it back
+                P(740, 940, "8", moves=[(720, 560, 1), (640, 360, 2)],
+                  why={1: "third_man", 2: "run_behind"}),  # third man
             ],
             away=[P(600, 560, "C", moves=[(560, 660, 0)])],
             ball=0,
             # 6 into the 10's feet, set back first time, and the third ball
             # played into the 8 running beyond — two players is a wall pass,
-            # not a third-man run
-            ball_to=[(1, 0), (0, 1), (2, 2)],
+            # not a third-man run — and the 8 finishes it
+            ball_to=[(1, 0), (0, 1), (2, 2), ((500, 60), 3)],
             free=True,
         ),
         Drill(
@@ -289,8 +290,9 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(250, 900, "5"), P(180, 700, "3", moves=[(180, 560, 0)]),
                 P(500, 800, "6", moves=[(500, 700, 0)]),
-                P(820, 700, "7", moves=[(820, 460, 1)]),
-                P(650, 500, "9"),
+                P(820, 700, "7", moves=[(820, 460, 1), (840, 300, 2)],
+                  why={1: "run_behind", 2: "width"}),
+                P(650, 500, "9", moves=[(560, 260, 2)], why={2: "far_post"}),
             ],
             away=[
                 P(320, 760, "A", moves=[(250, 700, 0)]),
@@ -300,8 +302,10 @@ def soccer_drills() -> list[Drill]:
                 P(600, 620, "C", moves=[(700, 680, 1)]),
             ],
             ball=0,
-            # into the 6 and switched to the 7 in one
-            ball_to=[(2, 0), (3, 1)],
+            # into the 6 and switched to the 7 in one — and the 7, clear on
+            # the far side, drives on and crosses for the 9: the switch is
+            # worth something only when it is used
+            ball_to=[(2, 0), (3, 1), (4, 2)],
         ),
 
         # ── finishing ────────────────────────────────────────────────────────
@@ -337,7 +341,7 @@ def soccer_drills() -> list[Drill]:
                   P(500, 195, "GK", role="GK")],
             ball=0,
             # carried to the byline, cut back to the 10 arriving on the spot
-            ball_to=[(0, 0), (2, 1)],
+            ball_to=[(0, 0), (2, 1), ((500, 60), 2)],   # …and the 10 finishes
             free=True,
         ),
         Drill(
@@ -757,7 +761,8 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(250, 1200, "A", moves=[(300, 1120, 0)]), P(500, 1290, "B"),
                 P(620, 1150, "C", moves=[(660, 1080, 0)]),
-                P(300, 340, "D"), P(700, 380, "E", moves=[(640, 460, 1)]),
+                P(300, 340, "D"), P(700, 380, "E", moves=[(640, 460, 1), (560, 300, 2)],
+                  why={1: "meet", 2: "turn"}),
             ],
             away=[
                 P(430, 1050, "X1", moves=[(470, 1140, 0)]),
@@ -770,7 +775,10 @@ def soccer_drills() -> list[Drill]:
             ball=0,
             # through the thirds: into 3 in the bottom zone, then over the
             # empty middle zone to 5
-            ball_to=[(2, 0), (4, 1)],
+            # …and the E, having taken it through the middle, carries it
+            # on: the point is scored when the ball is across, and the board
+            # shows it across.
+            ball_to=[(2, 0), (4, 1), (4, 2)],
         ),
         Drill(
             id="build_from_gk", category="possession", minutes=15,
@@ -832,13 +840,16 @@ def soccer_drills() -> list[Drill]:
                 # Round the outside of the defender, touchline side, with a
                 # token-width of daylight — the runner used to disappear
                 # into D on the way past.
-                P(830, 900, "7", moves=[(890, 720, 0), (890, 470, 1)]),
-                P(620, 780, "10", moves=[(640, 720, 0)]),
+                P(830, 900, "7", moves=[(890, 720, 0), (890, 470, 1)],
+                  why={0: "support", 1: "run_behind"}),
+                P(620, 780, "10", moves=[(640, 720, 0)], why={0: "meet"}),
             ],
-            away=[P(780, 760, "D", moves=[(800, 640, 0)])],
+            away=[P(780, 760, "D", moves=[(800, 640, 0)], why={0: "recover"})],
             ball=0,
-            # given to the wall, returned into the 7's run
-            ball_to=[(1, 0), (0, 1)],
+            # given to the wall, returned into the 7's run — and crossed to
+            # the goal: the wall pass is a way past the man, and past him is
+            # where it ends
+            ball_to=[(1, 0), (0, 1), ((480, 60), 2)],
         ),
         Drill(
             id="counter_3v2", category="attacking", minutes=12,
@@ -865,7 +876,8 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(500, 950, "9", moves=[(500, 800, 0), (500, 700, 1)]),
                 P(240, 980, "11", moves=[(300, 660, 0), (380, 420, 2)]),
-                P(760, 980, "7", moves=[(700, 660, 0), (660, 400, 2)]),
+                P(760, 980, "7", moves=[(700, 660, 0), (660, 400, 2)],
+                  why={0: "width", 2: "run_behind"}),
             ],
             away=[
                 P(420, 560, "A", moves=[(400, 620, 1)]),
@@ -875,7 +887,7 @@ def soccer_drills() -> list[Drill]:
             ball=0,
             # 9 carries both beats — until A commits — then releases the 7
             # arriving on the far side, away from the recovering pair
-            ball_to=[(0, 0), (0, 1), (2, 2)],
+            ball_to=[(0, 0), (0, 1), (2, 2), ((500, 60), 3)],
         ),
         Drill(
             id="halfspace_run", category="attacking", minutes=12,
@@ -1007,7 +1019,8 @@ def soccer_drills() -> list[Drill]:
                 P(200, 1000, "3", moves=[(350, 1060, 1)]),
                 P(400, 1030, "4", moves=[(520, 1030, 1)]),
                 P(600, 1030, "5", moves=[(690, 960, 1)]),
-                P(800, 1000, "2", moves=[(870, 860, 1)]),
+                P(800, 1000, "2", moves=[(870, 860, 1), (840, 800, 2)],
+                  why={1: "shift", 2: "win_ball"}),
             ],
             away=[
                 P(250, 800, "A"), P(500, 760, "B", moves=[(560, 720, 0)]),
@@ -1015,7 +1028,9 @@ def soccer_drills() -> list[Drill]:
             ],
             # their switch — each slide of the four answers one leg of it
             ball=(290, 870),
-            ball_to=[("a1", 0), ("a2", 1)],
+            # …and the 2, arrived as the line slid, steps in and takes it
+            # off the C: the shift has worked when the wide man is met.
+            ball_to=[("a1", 0), ("a2", 1), (3, 2)],
         ),
         Drill(
             id="defend_counter_press", category="defending", minutes=12,
@@ -1090,8 +1105,9 @@ def soccer_drills() -> list[Drill]:
                 P(0.50, 0.03, "GK", role="GK"),
             ],
             ball=0, ball_spot=(0.985, 0.012),   # on the corner arc
-            # played short to the 8, whose cross finds the 9 arriving
-            ball_to=[(1, 0), (2, 1)],
+            # played short to the 8, whose cross finds the 9 arriving — who
+            # finishes
+            ball_to=[(1, 0), (2, 1), ((0.5, 0.02), 2)],
         ),
         Drill(
             id="throw_in_third", category="setpiece", minutes=8, off_surface=True,
@@ -1151,7 +1167,7 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Ghi bàn trong 10 giây sau khi đoạt bóng. Đường chuyền đầu quyết định."},
             home=[
                 P(300, 1000, "A", moves=[(360, 880, 0)]), P(500, 1050, "B"),
-                P(700, 1000, "C", moves=[(660, 860, 1)]),
+                P(700, 1000, "C", moves=[(660, 860, 1)], why={1: "run_behind"}),
                 P(300, 780, "D"), P(500, 820, "E", moves=[(520, 700, 1)]), P(700, 780, "F"),
             ],
             away=[
@@ -1161,7 +1177,7 @@ def soccer_drills() -> list[Drill]:
             markers=[M(500, 140, "square"), M(500, 1360, "square")],
             ball=0,
             # the first two passes after the restart
-            ball_to=[(4, 0), (2, 1)],
+            ball_to=[(4, 0), (2, 1), ((500, 150), 2)],   # …and the C scores
         ),
         # ── batch 3 ──────────────────────────────────────────────────────────
         Drill(
@@ -1268,7 +1284,8 @@ def soccer_drills() -> list[Drill]:
                 P(250, 860, "6"), P(390, 560, "8", moves=[(360, 700, 0)]),
                 P(180, 620, "3", moves=[(180, 500, 0)]),
                 P(560, 760, "10", moves=[(640, 700, 1)]),
-                P(850, 700, "7", moves=[(850, 500, 2)]),
+                P(850, 700, "7", moves=[(850, 500, 2), (820, 330, 3)],
+                  why={2: "width", 3: "pull_away"}),
             ],
             away=[
                 P(330, 760, "A", moves=[(250, 760, 0)]),
@@ -1277,7 +1294,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=1,
             # round the overload: 3, the free 10, out to the 7
-            ball_to=[(2, 0), (3, 1), (4, 2)],
+            ball_to=[(2, 0), (3, 1), (4, 2), (4, 3)],   # …and the 7 drives into the space
         ),
         Drill(
             id="attack_double_pivot_switch", category="attacking", minutes=12,
@@ -1504,7 +1521,7 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(500, 1050, "A", moves=[(540, 950, 0)]),
                 P(280, 900, "B"), P(720, 900, "C", moves=[(760, 800, 1)]),
-                P(400, 720, "D"), P(600, 720, "E", moves=[(620, 640, 1)]),
+                P(400, 720, "D"), P(600, 720, "E", moves=[(620, 640, 1)], why={1: "run_behind"}),
             ],
             away=[
                 P(500, 450, "X1", moves=[(500, 560, 0)]),
@@ -1515,7 +1532,7 @@ def soccer_drills() -> list[Drill]:
                      M(180, 200), M(820, 200), M(180, 1300), M(820, 1300)],
             ball=0,
             # two touches, two passes: into 3, on to 5
-            ball_to=[(2, 0), (4, 1)],
+            ball_to=[(2, 0), (4, 1), ((500, 150), 2)],   # …and the E scores
         ),
         Drill(
             id="possession_switch_two_touch", category="possession", minutes=12,
@@ -1540,7 +1557,8 @@ def soccer_drills() -> list[Drill]:
             home=[
                 P(220, 700, "3", moves=[(180, 600, 0)]),
                 P(500, 800, "6", moves=[(560, 740, 0)]),
-                P(820, 620, "2", moves=[(840, 520, 1)]),
+                P(820, 620, "2", moves=[(840, 520, 1), (820, 360, 2)],
+                  why={1: "run_behind", 2: "pull_away"}),
                 P(700, 900, "8"),
             ],
             # Both markers arrive a body-width short of their man: they
@@ -1551,7 +1569,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # two touches: into the 6, switched to the 2
-            ball_to=[(1, 0), (2, 1)],
+            ball_to=[(1, 0), (2, 1), (2, 2)],   # …and the 2 drives on with it
         ),
         Drill(
             id="finish_penalty_routine", category="setpiece", minutes=8,
@@ -1803,12 +1821,15 @@ def ssg_family() -> list[Drill]:
             home=[
                 P(x, y, chr(65 + i),
                   moves=([(*drop, 0)] if i == fwd else
-                         [(*run, 1)] if i == runner else []))
+                         [(*run, 1)] if i == runner else []),
+                  why=({0: "drop_deep"} if i == fwd else
+                       {1: "run_behind"} if i == runner else {}))
                 for i, (x, y) in enumerate(hs)
             ],
             away=[
                 P(x, y, f"X{i + 1}",
-                  moves=[(*mark, 0)] if i == n - 1 else [])
+                  moves=[(*mark, 0)] if i == n - 1 else [],
+                  why={0: "shadow"} if i == n - 1 else {})
                 for i, (x, y) in enumerate(aw)
             ],
             markers=game_markers(hw, hh),
@@ -1820,9 +1841,10 @@ def ssg_family() -> list[Drill]:
             },
             ball=passer,
             # The forward drops in with a marker on him, takes it, and sets
-            # it into the runner coming past — one passage of the game, not
-            # a script for the whole thing.
-            ball_to=[(fwd, 0), (runner, 1)],
+            # it into the runner coming past, who finishes into the mini-goal
+            # — one passage of the game, not a script for the whole thing,
+            # but a passage that ends the way a game's does.
+            ball_to=[(fwd, 0), (runner, 1), ((0.5, 0.5 - hh), 2)],
         ))
     return out
 
@@ -1874,13 +1896,15 @@ def counter_family() -> list[Drill]:
             home=[
                 P(x, ys[i], chr(65 + i),
                   moves=[(*drive, 0)] if i == carrier
-                  else [(0.5 + (x - 0.5) * 0.75, 0.30 if i % 2 == 0 else 0.26, 1)])
+                  else [(0.5 + (x - 0.5) * 0.75, 0.30 if i % 2 == 0 else 0.26, 1)],
+                  why={0: "pull_away"} if i == carrier else {1: "run_behind"})
                 for i, x in enumerate(xs)
             ],
             away=[
                 P(x, 0.50, f"X{i + 1}",
                   moves=[(x + (drive[0] - x) * 0.35, 0.52, 0)] if i == engage
-                  else [(x, 0.40, 1)])
+                  else [(x, 0.40, 1)],
+                  why={0: "delay"} if i == engage else {1: "recover"})
                 for i, x in enumerate(dxs)
             ],
             markers=[M(0.5, 0.03, "square", "")],
@@ -1895,8 +1919,10 @@ def counter_family() -> list[Drill]:
             ball=carrier,
             # Beat 0 the carrier drives with it (a self-target is a carry);
             # beat 1 he releases to the widest runner arriving in the box —
-            # the note's own words, performed by the ball.
-            ball_to=[(carrier, 0), (att - 1, 1)],
+            # the note's own words, performed by the ball — and beat 2 the
+            # runner finishes. A counter that ends on the pass has not
+            # counted for anything.
+            ball_to=[(carrier, 0), (att - 1, 1), ((0.5, 0.02), 2)],
         ))
     return out
 
@@ -1946,14 +1972,16 @@ def buildup_family() -> list[Drill]:
             # Defensive shirts, not a counting sequence: numbering the back
             # line 2,3,4,5,6 put a second 6 on a board that already had one.
             home=[P(0.5, 0.95, "GK", role="GK")] + [
-                P(x, 0.80, shirt, moves=[(x + (x - 0.5) * 0.30, 0.86, 0)])
+                P(x, 0.80, shirt, moves=[(x + (x - 0.5) * 0.30, 0.86, 0)],
+                  why={0: "width"})
                 for x, shirt in zip(xs, {3: ["5", "4", "2"],
                                          4: ["3", "5", "4", "2"],
                                          5: ["3", "5", "4", "2", "7"]}[defenders])
-            ] + [P(0.80, 0.70, "6", moves=[(0.74, 0.66, 1)])],
+            ] + [P(0.80, 0.70, "6", moves=[(0.74, 0.66, 1), (0.66, 0.50, 2)],
+                   why={1: "drop_deep", 2: "turn"})],
             away=[
                 P(x, 0.62, chr(65 + i),
-                  moves=[(x + (0.5 - x) * 0.10, 0.70, 0)])
+                  moves=[(x + (0.5 - x) * 0.10, 0.70, 0)], why={0: "press_ball"})
                 for i, x in enumerate(pxs)
             ],
             setup={
@@ -1965,8 +1993,10 @@ def buildup_family() -> list[Drill]:
             },
             ball=0,
             # GK to the free centre-back, then past the press into the 6
-            # showing on the edge of the D.
-            ball_to=[(recv, 0), (defenders + 1, 1)],
+            # showing on the edge of the D — who turns and carries it out
+            # of the third. The build-up has worked when the ball is past
+            # the press, not when the 6 is standing on it.
+            ball_to=[(recv, 0), (defenders + 1, 1), ((0.60, 0.36), 2)],
         ))
     return out
 
@@ -2417,12 +2447,16 @@ def crossing_family() -> list[Drill]:
                 free=(side == "right" and key == "near_post"),
                 name=suffixed(CROSS_NAME, f"{side} · {label}"), note=CROSS_NOTE,
                 home=[
-                    P(sx, 0.44, "7", moves=[(sx - sgn * 0.02, 0.14, 0)]),
-                    P(0.5 - sgn * 0.06, 0.44, "9", moves=[(*target, 1)]),
-                    P(0.5 - sgn * 0.20, 0.54, "10", moves=[(*second, 1)]),
+                    P(sx, 0.44, "7", moves=[(sx - sgn * 0.02, 0.14, 0)],
+                      why={0: "width"}),
+                    P(0.5 - sgn * 0.06, 0.44, "9", moves=[(*target, 1)],
+                      why={1: "near_post" if key == "near_post" else "far_post"}),
+                    P(0.5 - sgn * 0.20, 0.54, "10", moves=[(*second, 1)],
+                      why={1: "far_post" if key == "near_post" else "near_post"}),
                     # The third runner holds his run and arrives late for
                     # anything that is cut back or headed out.
-                    P(0.5 + sgn * 0.12, 0.62, "8", moves=[(0.5, 0.25, 1)]),
+                    P(0.5 + sgn * 0.12, 0.62, "8", moves=[(0.5, 0.25, 1)],
+                      why={1: "second_ball"}),
                 ],
                 away=[
                     P(0.425, 0.19, "A"), P(0.575, 0.19, "B"),
@@ -2438,8 +2472,9 @@ def crossing_family() -> list[Drill]:
                 ball=0,
                 # Carried to the byline with the 7's own run, then delivered
                 # to the post the 9 is attacking — never to the shirt he
-                # started on.
-                ball_to=[(0, 0), (1, 1)],
+                # started on. Then the header: a cross is only a cross when
+                # somebody attacks it.
+                ball_to=[(0, 0), (1, 1), ((0.5, 0.02), 2)],
             ))
     return out
 
@@ -2740,18 +2775,21 @@ def switch_family() -> list[Drill]:
             free=(key == "middle"),
             name=suffixed(SWITCH_NAME, label), note=SWITCH_NOTE,
             home=[
-                P(0.10, y + 0.08, "3", moves=[(0.10, y - 0.02, 0)]),
-                P(0.38, y + 0.04, "6", moves=[(0.44, y - 0.02, 0)]),
+                P(0.10, y + 0.08, "3", moves=[(0.10, y - 0.02, 0)], why={0: "support"}),
+                P(0.38, y + 0.04, "6", moves=[(0.44, y - 0.02, 0)], why={0: "meet"}),
                 P(0.62, y - 0.18, "8"),
-                P(0.90, y + 0.02, "2", moves=[(0.90, y - 0.12, 1)]),
+                # Breaks clear as the switch comes and drives on into the
+                # space it opened: that is what the switch is for.
+                P(0.90, y + 0.02, "2", moves=[(0.90, y - 0.12, 1), (0.84, y - 0.30, 2)],
+                  why={1: "run_behind", 2: "pull_away"}),
                 P(0.46, y - 0.22, "9"),
             ],
             away=[
-                P(0.24, y + 0.02, "A", moves=[(0.26, y - 0.04, 0)]),
-                P(0.52, y - 0.02, "B", moves=[(0.40, y - 0.10, 0)]),
+                P(0.24, y + 0.02, "A", moves=[(0.26, y - 0.04, 0)], why={0: "press_ball"}),
+                P(0.52, y - 0.02, "B", moves=[(0.40, y - 0.10, 0)], why={0: "shift"}),
                 # He slides infield with the ball and is the man the switch
                 # is played over: he must be short of the far-side runner.
-                P(0.72, y - 0.06, "C", moves=[(0.58, y - 0.08, 1)]),
+                P(0.72, y - 0.06, "C", moves=[(0.58, y - 0.08, 1)], why={1: "shift"}),
             ],
             setup={
                 "en": "a full pitch width in one third: two full-backs, two "
@@ -2761,8 +2799,9 @@ def switch_family() -> list[Drill]:
             },
             ball=0,
             # 3 draws them left through the 6, then ONE pass across to the 2
-            # arriving on the far side — the note's whole argument.
-            ball_to=[(1, 0), (3, 1)],
+            # arriving on the far side — the note's whole argument — and the
+            # 2 drives into the space the switch opened.
+            ball_to=[(1, 0), (3, 1), (3, 2)],
         ))
     return out
 
@@ -2806,21 +2845,23 @@ def combination_family() -> list[Drill]:
             ((0.40, 0.50), []),                         # the wall: one touch, no run
             ((0.10, 0.74), [(0.12, 0.50, 1)]),          # decoy width
             ((0.26, 0.46), [(0.30, 0.62, 1)]),          # played round, left behind
-            [(1, 0), (0, 1)],
+            # …and the 7, in behind, finishes: a wall pass that stops on
+            # the return has not gone anywhere.
+            [(1, 0), (0, 1), ((0.5, 0.03), 2)],
         ),
         "overlap": (
             ((0.20, 0.58), [(0.28, 0.44, 0)]),
             ((0.46, 0.44), [(0.52, 0.36, 0)]),           # opens up inside
             ((0.30, 0.74), [(0.14, 0.56, 0), (0.16, 0.32, 1)]),   # round the outside
             ((0.34, 0.36), [(0.38, 0.50, 1)]),
-            [(1, 0), (2, 1)],
+            [(1, 0), (2, 1), ((0.5, 0.03), 2)],         # the overlapper crosses/shoots
         ),
         "underlap": (
             ((0.14, 0.56), [(0.16, 0.38, 0)]),          # 7 holds the touchline
             ((0.46, 0.46), []),                         # 10 inside him
             ((0.16, 0.74), [(0.26, 0.64, 0), (0.36, 0.26, 1)]),   # inside, diagonal
             ((0.30, 0.40), [(0.28, 0.46, 1)]),          # A between the two
-            [(1, 0), (2, 1)],
+            [(1, 0), (2, 1), ((0.5, 0.03), 2)],         # the underlapper finishes
         ),
     }
     specs = [("wall_left", "wall pass left", "wall", False),
@@ -3012,12 +3053,15 @@ def transition_family() -> list[Drill]:
             home=[
                 P(x, y, chr(65 + i),
                   moves=([(*steal, 0)] if i == fwd else
-                         [(*run, 1)] if i == runner else []))
+                         [(*run, 1)] if i == runner else []),
+                  why=({0: "win_ball"} if i == fwd else
+                       {1: "run_behind"} if i == runner else {}))
                 for i, (x, y) in enumerate(hs)
             ],
             away=[
                 P(x, y, f"X{i + 1}",
-                  moves=[(*chase, 1)] if i == n - 1 else [])
+                  moves=[(*chase, 1)] if i == n - 1 else [],
+                  why={1: "recover"} if i == n - 1 else {})
                 for i, (x, y) in enumerate(aw)
             ],
             markers=game_markers(hw, hh),
@@ -3031,9 +3075,10 @@ def transition_family() -> list[Drill]:
             # Their ball, at their forward's feet — the board starts a
             # heartbeat before the turnover, which is the whole subject.
             ball=(loser[0] + 0.046, loser[1] + 0.052),
-            # Won on the first beat, gone forward on the second: the five
-            # seconds the note is about, drawn.
-            ball_to=[(fwd, 0), (runner, 1)],
+            # Won on the first beat, gone forward on the second, finished on
+            # the third: the five seconds the note is about, drawn to the
+            # goal they are about.
+            ball_to=[(fwd, 0), (runner, 1), ((0.5, 0.5 - hh), 2)],
         ))
     return out
 
@@ -3372,16 +3417,19 @@ def match_moments() -> list[Drill]:
                 P(0.61, 0.58, "4", moves=[(0.61, 0.48, 0)]),
                 P(0.82, 0.56, "2", moves=[(0.82, 0.46, 0)]),
                 P(0.50, 0.72, "6", moves=[(0.50, 0.62, 0)]),
-                P(0.50, 0.90, "GK", role="GK", moves=[(0.50, 0.80, 0)]),
+                P(0.50, 0.90, "GK", role="GK", moves=[(0.50, 0.80, 0), (0.44, 0.70, 1)],
+                  why={0: "cover", 1: "win_ball"}),
             ],
             away=[
-                P(0.44, 0.42, "9", moves=[(0.46, 0.52, 0)]),
+                P(0.44, 0.42, "9", moves=[(0.46, 0.52, 0)], why={0: "run_behind"}),
                 P(0.72, 0.40, "11", moves=[(0.68, 0.50, 0)]),
                 P(0.50, 0.20, "10", moves=[(0.42, 0.26, 0)]),
             ],
             ball=(0.50, 0.20),
             # the 10 plays the 9 running the line — the pass the trap must beat
-            ball_to=[("a0", 0)],
+            # …the line has stepped up as it is played, the 9 is off, and
+            # the keeper sweeps the ball up: that is what the line is for
+            ball_to=[("a0", 0), (5, 1)],
         ),
         Drill(
             id="defend_the_cross", category="defending", minutes=12, rel=True,
@@ -3409,7 +3457,7 @@ def match_moments() -> list[Drill]:
             # "cross" came from the halfway line.
             home=[
                 P(0.50, 0.03, "GK", role="GK"),
-                P(0.60, 0.09, "5"),
+                P(0.60, 0.09, "5", moves=[(0.58, 0.16, 1)], why={1: "win_ball"}),
                 P(0.44, 0.19, "4"),
                 P(0.24, 0.30, "3", moves=[(0.30, 0.24, 0)]),
                 P(0.50, 0.44, "6", moves=[(0.50, 0.34, 0)]),
@@ -3420,8 +3468,10 @@ def match_moments() -> list[Drill]:
                 P(0.30, 0.50, "11", moves=[(0.36, 0.34, 0)]),
             ],
             ball=(0.834, 0.352),
-            # their 7 gets to the by-line and delivers to the 9
-            ball_to=[("a1", 0)],
+            # their 7 gets to the by-line and delivers to the 9 — and the
+            # 5, first to it, heads it clear: defending a cross ends with
+            # the ball out of the box
+            ball_to=[("a1", 0), (1, 1), ((0.30, 0.42), 2)],
         ),
         Drill(
             id="defend_throw_in", category="defending", minutes=10, rel=True,
@@ -3447,7 +3497,8 @@ def match_moments() -> list[Drill]:
             # Somebody presses the thrower, and the man on B is goal-side
             # of him rather than standing where the ball lands.
             home=[
-                P(0.80, 0.40, "2", moves=[(0.82, 0.38, 0)]),
+                P(0.80, 0.40, "2", moves=[(0.82, 0.38, 0), (0.82, 0.32, 1)],
+                  why={0: "close_lane", 1: "win_ball"}),
                 P(0.60, 0.30, "6", moves=[(0.66, 0.28, 0)]),
                 P(0.62, 0.64, "5", moves=[(0.68, 0.58, 0)]),
                 P(0.40, 0.48, "4", moves=[(0.48, 0.44, 0)]),
@@ -3459,8 +3510,9 @@ def match_moments() -> list[Drill]:
                 P(0.76, 0.64, "C", moves=[(0.82, 0.58, 0)]),
             ],
             ball=(1.02, 0.50),
-            # thrown down the line to B — the ball the trap closes on
-            ball_to=[("a1", 0)],
+            # thrown down the line to B — the ball the trap closes on, and
+            # the 2 closes it
+            ball_to=[("a1", 0), (0, 1)],
         ),
         Drill(
             id="defend_rest_defence", category="defending", minutes=12, rel=True,
@@ -3484,7 +3536,7 @@ def match_moments() -> list[Drill]:
                   "th-TH": "สามคนอยู่หลังขณะที่คนอื่นบุก ยืนตรงเส้นทางที่สวนกลับจะมา ไม่ใช่ตรงที่บอลอยู่",
                   "vi-VN": "Ba người ở lại khi số còn lại dâng lên, đứng ở nơi pha phản công sẽ đi qua, không phải nơi có bóng."},
             home=[
-                P(0.30, 0.72, "5", moves=[(0.36, 0.66, 0), (0.44, 0.56, 1), (0.36, 0.62, 2)],
+                P(0.30, 0.72, "5", moves=[(0.36, 0.66, 0), (0.40, 0.58, 1), (0.38, 0.60, 2)],
                   why={2: "close_lane"}),
                 P(0.52, 0.76, "4", moves=[(0.52, 0.68, 0), (0.50, 0.56, 1)]),
                 P(0.74, 0.70, "6", moves=[(0.68, 0.64, 0), (0.58, 0.54, 1)]),
@@ -3639,7 +3691,8 @@ def match_moments() -> list[Drill]:
                   "vi-VN": "Quyết định hai đường chuyền trước tiếng còi: phát dài vào góc rồi pressing, hoặc giữ bóng và ổn định. Quyết định lúc đứng trước bóng là trả bóng lại."},
             home=[
                 P(0.46, 0.50, "10", moves=[(0.42, 0.54, 0)]),
-                P(0.56, 0.50, "9", moves=[(0.60, 0.46, 0), (0.86, 0.22, 1)]),
+                P(0.56, 0.50, "9", moves=[(0.60, 0.46, 0), (0.86, 0.22, 1), (0.84, 0.10, 2)],
+                  why={1: "run_behind", 2: "width"}),
                 P(0.24, 0.58, "11", moves=[(0.20, 0.42, 1)]),
                 P(0.76, 0.56, "7", moves=[(0.84, 0.40, 1)]),
                 P(0.50, 0.68, "6", moves=[(0.50, 0.60, 1)]),
@@ -3651,7 +3704,7 @@ def match_moments() -> list[Drill]:
             # extra disc on top of them read as an unexplained zone.
             ball=0,
             # tapped back to the 6, then long into the 9's channel run
-            ball_to=[(4, 0), (1, 1)],
+            ball_to=[(4, 0), (1, 1), (1, 2)],   # …and the 9 drives on to the byline
         ),
     ]
 

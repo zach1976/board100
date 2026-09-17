@@ -271,13 +271,25 @@ def audit(drill, sport):
             return p.get("role") == "GK" or str(p.get("label", "")).upper() in ("GK", "K")
         # A stop at an outfield player's feet is a player; the goal, the
         # net, the keeper's hands or the space a run went into is an end.
-        holder = next((p for p in people if not keeper(p)
-                       and dist(position_at(p, last), (bx, by)) <= 130), None)
+        def nearest(pt, step, skip_keeper):
+            best, who = 131, None
+            for p in people:
+                if skip_keeper and keeper(p):
+                    continue
+                dd = dist(position_at(p, step), pt)
+                if dd < best:
+                    best, who = dd, p
+            return who
+        holder = nearest((bx, by), last, True)
         # …unless he carried it there: a dribble ends where the dribbler
-        # stops, and that IS the end of the rep.
-        carried = (holder is not None and holder.get("moves")
-                   and ball.get("movePhases") and holder.get("movePhases")
-                   and ball["movePhases"][-1] == holder["movePhases"][-1])
+        # stops, and that IS the end of the rep. A carry is a leg whose
+        # start was already at this man's feet — a pass that arrives as
+        # he runs onto it is not one.
+        carried = False
+        if holder is not None and ball.get("moves"):
+            prev_pt = ball["moves"][-2] if len(ball["moves"]) >= 2 else ball["position"]
+            prev_ph = ball["movePhases"][-1]   # beats elapsed before the last leg
+            carried = dist(position_at(holder, prev_ph), prev_pt) <= 130
         # …or the keeper played it to him: a distribution is the end of a
         # keeper's rep, whoever catches it.
         from_keeper = False
@@ -300,8 +312,9 @@ def audit(drill, sport):
         if holder is not None and len(ball.get("moves", [])) >= 2:
             px, py = ball["moves"][-2]
             prev_ph = ball["movePhases"][-2] + 1
-            before = next((p for p in people
-                           if dist(position_at(p, prev_ph), (px, py)) <= 130), None)
+            # The nearest man, not the first within reach: the one who lost
+            # it is usually standing right beside the spot too.
+            before = nearest((px, py), prev_ph, False)
             won = before is not None and before.get("team") != holder.get("team")
         terminal = (holder is None or carried or from_keeper or ends_off_board
                     or won)
