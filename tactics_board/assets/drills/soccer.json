@@ -9862,7 +9862,7 @@
       "familyName": null,
       "category": "defending",
       "minutes": 10,
-      "players": 2,
+      "players": 4,
       "free": false,
       "usage": 3,
       "offSurface": false,
@@ -9881,18 +9881,18 @@
         "vi-VN": "Phòng ngự 1v1 ở hành lang"
       },
       "note": {
-        "en": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 1, 4 cones.\nSequence: Step 1: 11 carries the ball on the move, 3 moves up the board; Step 2: 11 carries the ball on the move.\nRules: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
-        "en-GB": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 1 v 1, 4 cones.\nSequence: Step 1: 11 carries the ball on the move, 3 moves up the board; Step 2: 11 carries the ball on the move.\nRules: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
-        "zh-CN": "【目的】防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】1 对 1，4 个锥标。\n【流程】第1步：11号球员带球推进，3号球员向前移动；第2步：11号球员带球推进。\n【规则】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】把他逼向边线，绝不放内切。快速接近、减速到位、重心在前脚掌。",
-        "zh-TW": "【目的】防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】1 對 1，4 個錐標。\n【流程】第1步：11號球員帶球推進，3號球員向前移動；第2步：11號球員帶球推進。\n【規則】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】把他逼向邊線，絕不放內切。快速接近、減速到位、重心在前腳掌。",
-        "ja-JP": "【目的】組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】1対1、コーン4個。\n【流れ】ステップ1：11番がボールを運ぶ、3番が前方へ移動。ステップ2：11番がボールを運ぶ。\n【ルール】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】外へ誘導し、中を切る。速く寄せて、ゆっくり止まり、つま先で構える。",
-        "ko-KR": "【목적】조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】1대1, 콘 4개.\n【진행】1단계: 11번가 공을 몰고 이동, 3번는 앞으로 이동; 2단계: 11번가 공을 몰고 이동.\n【규칙】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】라인 쪽으로 몰아라, 안쪽은 절대 금지. 빠르게 다가가 천천히 멈춰라.",
-        "es-ES": "Objetivo: Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 1 contra 1, 4 conos.\nSecuencia: Paso 1: 11 conduce el balón, 3 se desplaza hacia delante; Paso 2: 11 conduce el balón.\nReglas: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Muéstrale la línea, nunca por dentro. Llega rápido, frena antes, apoya en la punta.",
-        "fr-FR": "Objectif : Refuser l'espace en bloc : la ligne coulisse avec le ballon, ferme la passe de chaque côté du presseur et couvre derrière.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 1 contre 1, 4 plots.\nDéroulé : Étape 1 : 11 conduit le ballon, 3 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon.\nRègles : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Oriente-le vers la ligne, jamais à l'intérieur. Approche vite, arrive lentement.",
-        "id-ID": "Tujuan: Menutup ruang sebagai satu unit — seluruh garis bergeser mengikuti bola, menutup umpan di kedua sisi penekan, dan menutup di belakang.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 1 lawan 1, 4 kerucut.\nUrutan: Langkah 1: 11 menggiring bola, 3 bergerak ke depan; Langkah 2: 11 menggiring bola.\nAturan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Arahkan ke garis, jangan ke dalam. Datang cepat, berhenti pelan.",
-        "ms-MY": "Tujuan: Menafikan ruang sebagai satu unit — seluruh barisan bergerak mengikut bola, menutup hantaran di kedua-dua sisi penekan, dan melindungi di belakang.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 1 lawan 1, 4 kon.\nUrutan: Langkah 1: 11 membawa bola, 3 bergerak ke hadapan; Langkah 2: 11 membawa bola.\nPeraturan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Halakan dia ke garisan, jangan ke dalam.",
-        "th-TH": "จุดประสงค์: ปิดพื้นที่เป็นทีม — ทั้งแนวขยับตามบอล ปิดบอลสองข้างของคนที่ขึ้นบีบ และคุมด้านหลัง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 1 ต่อ 1 กรวย 4 อัน\nลำดับ: ขั้นที่ 1: 11 พาบอลไป 3 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป\nกติกา: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: บีบให้ออกริมเส้น อย่าปล่อยตัดเข้าใน เข้าเร็วแต่หยุดช้า",
-        "vi-VN": "Mục đích: Bịt không gian như một khối — cả tuyến dịch theo bóng, chặn đường chuyền hai bên người áp sát, và bọc lót phía sau.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 1 đấu 1, 4 cọc.\nTrình tự: Bước 1: 11 dẫn bóng di chuyển, 3 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển.\nLuật: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."
+        "en": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nBall path: 11 → 3\nSequence: Step 1: 11 carries the ball on the move, 3 moves up the board to press the ball carrier; Step 2: 11 carries the ball on the move, 3 moves up the board to delay and jockey, 11 moves up the board to shake off the marker; Step 3: the ball goes from 11 to 3, 3 moves left to step in and win the ball.\nRules: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
+        "en-GB": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nBall path: 11 → 3\nSequence: Step 1: 11 carries the ball on the move, 3 moves up the board to press the ball carrier; Step 2: 11 carries the ball on the move, 3 moves up the board to delay and jockey, 11 moves up the board to shake off the marker; Step 3: the ball goes from 11 to 3, 3 moves left to step in and win the ball.\nRules: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.",
+        "zh-CN": "【目的】防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】四个锥标围出约 8 米宽、20 米长的通道；进攻者从底端两个锥标之间出发，把球带出顶端两个锥标之间算赢，防守者从顶端锥标之间出来迎。其他进攻者在底端锥标后排队，下一名防守者在顶端锥标旁等候。\n【球路】11 → 3\n【流程】第1步：11号球员带球推进，3号球员向前移动（上抢持球人）；第2步：11号球员带球推进，3号球员向前移动（拖延，不轻易上抢），11号球员向前移动（摆脱盯防）；第3步：球从11号球员转到3号球员，3号球员向左移动（上脚断球）。\n【规则】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】把他逼向边线，绝不放内切。快速接近、减速到位、重心在前脚掌。",
+        "zh-TW": "【目的】防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】四個錐標圍出約 8 米寬、20 米長的通道；進攻者從底端兩個錐標之間出發，把球帶出頂端兩個錐標之間算贏，防守者從頂端錐標之間出來迎。其他進攻者在底端錐標後排隊，下一名防守者在頂端錐標旁等候。\n【球路】11 → 3\n【流程】第1步：11號球員帶球推進，3號球員向前移動（上搶持球人）；第2步：11號球員帶球推進，3號球員向前移動（拖延，不輕易上搶），11號球員向前移動（擺脫盯防）；第3步：球從11號球員轉到3號球員，3號球員向左移動（上腳斷球）。\n【規則】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】把他逼向邊線，絕不放內切。快速接近、減速到位、重心在前腳掌。",
+        "ja-JP": "【目的】組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one。\n【ボールの道筋】11 → 3\n【流れ】ステップ1：11番がボールを運ぶ、3番が前方へ移動し、ボールホルダーに寄せる。ステップ2：11番がボールを運ぶ、3番が前方へ移動し、遅らせて間合いを取る、11番が前方へ移動し、マークを外す。ステップ3：ボールが11番から3番へ渡る、3番が左へ移動し、足を出してボールを奪う。\n【ルール】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】外へ誘導し、中を切る。速く寄せて、ゆっくり止まり、つま先で構える。",
+        "ko-KR": "【목적】조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\n【볼 경로】11 → 3\n【진행】1단계: 11번가 공을 몰고 이동, 3번는 앞으로 이동해 볼 소유자를 압박한다; 2단계: 11번가 공을 몰고 이동, 3번는 앞으로 이동해 지연시키며 거리를 유지한다, 11번는 앞으로 이동해 마크를 떨쳐낸다; 3단계: 공이 11번에서 3번에게 넘어간다, 3번는 왼쪽으로 이동해 발을 넣어 공을 빼앗는다.\n【규칙】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】라인 쪽으로 몰아라, 안쪽은 절대 금지. 빠르게 다가가 천천히 멈춰라.",
+        "es-ES": "Objetivo: Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nRecorrido del balón: 11 → 3\nSecuencia: Paso 1: 11 conduce el balón, 3 se desplaza hacia delante para presionar al poseedor; Paso 2: 11 conduce el balón, 3 se desplaza hacia delante para temporizar sin entrar, 11 se desplaza hacia delante para desmarcarse; Paso 3: el balón pasa de 11 a 3, 3 se desplaza a la izquierda para entrar y robar el balón.\nReglas: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Muéstrale la línea, nunca por dentro. Llega rápido, frena antes, apoya en la punta.",
+        "fr-FR": "Objectif : Refuser l'espace en bloc : la ligne coulisse avec le ballon, ferme la passe de chaque côté du presseur et couvre derrière.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nTrajet du ballon : 11 → 3\nDéroulé : Étape 1 : 11 conduit le ballon, 3 se déplace vers l'avant pour presser le porteur ; Étape 2 : 11 conduit le ballon, 3 se déplace vers l'avant pour temporiser sans se jeter, 11 se déplace vers l'avant pour se démarquer ; Étape 3 : le ballon passe de 11 à 3, 3 se déplace à gauche pour intervenir et récupérer le ballon.\nRègles : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Oriente-le vers la ligne, jamais à l'intérieur. Approche vite, arrive lentement.",
+        "id-ID": "Tujuan: Menutup ruang sebagai satu unit — seluruh garis bergeser mengikuti bola, menutup umpan di kedua sisi penekan, dan menutup di belakang.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nJalur bola: 11 → 3\nUrutan: Langkah 1: 11 menggiring bola, 3 bergerak ke depan untuk menekan pembawa bola; Langkah 2: 11 menggiring bola, 3 bergerak ke depan untuk memperlambat tanpa terburu-buru, 11 bergerak ke depan untuk lepas dari penjagaan; Langkah 3: bola berpindah dari 11 ke 3, 3 bergerak ke kiri untuk masuk dan merebut bola.\nAturan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Arahkan ke garis, jangan ke dalam. Datang cepat, berhenti pelan.",
+        "ms-MY": "Tujuan: Menafikan ruang sebagai satu unit — seluruh barisan bergerak mengikut bola, menutup hantaran di kedua-dua sisi penekan, dan melindungi di belakang.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nLaluan bola: 11 → 3\nUrutan: Langkah 1: 11 membawa bola, 3 bergerak ke hadapan untuk menekan pembawa bola; Langkah 2: 11 membawa bola, 3 bergerak ke hadapan untuk melambatkan tanpa terburu-buru, 11 bergerak ke hadapan untuk lepas daripada kawalan; Langkah 3: bola berpindah dari 11 kepada 3, 3 bergerak ke kiri untuk masuk dan merampas bola.\nPeraturan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Halakan dia ke garisan, jangan ke dalam.",
+        "th-TH": "จุดประสงค์: ปิดพื้นที่เป็นทีม — ทั้งแนวขยับตามบอล ปิดบอลสองข้างของคนที่ขึ้นบีบ และคุมด้านหลัง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one\nเส้นทางบอล: 11 → 3\nลำดับ: ขั้นที่ 1: 11 พาบอลไป 3 ขยับไปข้างหน้าเพื่อเพรสคนถือบอล • ขั้นที่ 2: 11 พาบอลไป 3 ขยับไปข้างหน้าเพื่อถ่วงเวลา ไม่รีบเข้าแย่ง 11 ขยับไปข้างหน้าเพื่อสลัดตัวประกบ • ขั้นที่ 3: บอลเปลี่ยนจาก 11 ไป 3 3 ขยับไปทางซ้ายเพื่อเข้าแย่งบอล\nกติกา: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: บีบให้ออกริมเส้น อย่าปล่อยตัดเข้าใน เข้าเร็วแต่หยุดช้า",
+        "vi-VN": "Mục đích: Bịt không gian như một khối — cả tuyến dịch theo bóng, chặn đường chuyền hai bên người áp sát, và bọc lót phía sau.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one.\nĐường bóng: 11 → 3\nTrình tự: Bước 1: 11 dẫn bóng di chuyển, 3 di chuyển lên phía trước để áp sát người cầm bóng; Bước 2: 11 dẫn bóng di chuyển, 3 di chuyển lên phía trước để trì hoãn, không vội xoạc, 11 di chuyển lên phía trước để thoát người kèm; Bước 3: bóng chuyển từ 11 sang 3, 3 di chuyển sang trái để vào bóng và đoạt lại.\nLuật: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."
       },
       "mistake": {
         "en": "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.",
@@ -9929,11 +9929,16 @@
               [
                 790,
                 800
+              ],
+              [
+                745,
+                790
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -9945,6 +9950,26 @@
           },
           {
             "id": "d1",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              980,
+              470
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d2",
             "label": "11",
             "team": 1,
             "sportType": null,
@@ -9967,7 +9992,27 @@
               0,
               1
             ],
-            "moveColor": 4294929773,
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d3",
+            "label": "",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              770,
+              1170
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
@@ -10073,11 +10118,16 @@
               [
                 703.999669406975,
                 796.3152400792653
+              ],
+              [
+                665.9324382534874,
+                802.1786977736299
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,

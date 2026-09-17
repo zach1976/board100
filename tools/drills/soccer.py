@@ -1345,13 +1345,40 @@ def soccer_drills() -> list[Drill]:
                   "vi-VN": "Ép ra biên, không cho cắt vào trong. Áp sát nhanh, dừng chậm."},
             # A marked channel inside the pitch, not a column of tokens on
             # the touchline: the defender closes the distance first, then
-            # jockeys him toward the line.
-            home=[P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1)])],
-            away=[P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1)])],
+            # jockeys him toward the line — and steps in when the attacker
+            # tries to cut inside, which is the rep's end. The next attacker
+            # waits behind the bottom gate, the next defender beside the top
+            # one, so the board shows where the queues stand.
+            home=[
+                P(770, 520, "3", moves=[(780, 680, 0), (790, 800, 1), (745, 790, 2)],
+                  why={0: "press_ball", 1: "delay", 2: "win_ball"}),
+                P(980, 470, ""),                     # the next defender, waiting
+            ],
+            away=[
+                P(770, 1020, "11", moves=[(770, 880, 0), (680, 720, 1)],
+                  why={1: "get_free"}),
+                P(770, 1170, ""),                    # the next attacker, waiting
+            ],
             markers=[M(640, 500), M(900, 500), M(640, 1060), M(900, 1060)],
-            # their 11 runs the channel with it
+            setup={
+                "en": "a channel about 8 m wide and 20 m long marked by four "
+                      "cones; the attacker starts between the bottom pair "
+                      "and scores by dribbling out between the top pair, the "
+                      "defender starts between the top pair and comes to "
+                      "meet him. The other attackers queue behind the bottom "
+                      "gate, the next defender waits beside the top one",
+                "zh-CN": "四个锥标围出约 8 米宽、20 米长的通道；进攻者从底端两个"
+                         "锥标之间出发，把球带出顶端两个锥标之间算赢，防守者从"
+                         "顶端锥标之间出来迎。其他进攻者在底端锥标后排队，下一名"
+                         "防守者在顶端锥标旁等候",
+                "zh-TW": "四個錐標圍出約 8 米寬、20 米長的通道；進攻者從底端兩個"
+                         "錐標之間出發，把球帶出頂端兩個錐標之間算贏，防守者從"
+                         "頂端錐標之間出來迎。其他進攻者在底端錐標後排隊，下一名"
+                         "防守者在頂端錐標旁等候",
+            },
+            # their 11 runs the channel with it, cuts inside, and the 3 wins it
             ball=(730, 1090),
-            ball_to=[("a0", 0), ("a0", 1)],
+            ball_to=[("a0", 0), ("a0", 1), (0, 2)],
         ),
         Drill(
             id="setpiece_defend_corner", category="setpiece", minutes=10, tight=True,

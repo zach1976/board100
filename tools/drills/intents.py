@@ -243,6 +243,14 @@ WHY = {
         "id-ID": "mengikuti umpan ke pos berikutnya", "ms-MY": "mengikuti hantaran ke pos seterusnya",
         "th-TH": "วิ่งตามบอลไปตำแหน่งถัดไป", "vi-VN": "chạy theo đường chuyền sang vị trí kế",
     },
+    "win_ball": {
+        "en": "step in and win the ball", "en-GB": "step in and win the ball",
+        "zh-CN": "上脚断球", "zh-TW": "上腳斷球",
+        "ja-JP": "足を出してボールを奪う", "ko-KR": "발을 넣어 공을 빼앗는다",
+        "es-ES": "entrar y robar el balón", "fr-FR": "intervenir et récupérer le ballon",
+        "id-ID": "masuk dan merebut bola", "ms-MY": "masuk dan merampas bola",
+        "th-TH": "เข้าแย่งบอล", "vi-VN": "vào bóng và đoạt lại",
+    },
     "reset": {
         "en": "get back to the cone", "en-GB": "get back to the cone",
         "zh-CN": "回到原位", "zh-TW": "回到原位",
