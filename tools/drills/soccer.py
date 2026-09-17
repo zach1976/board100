@@ -387,20 +387,26 @@ def soccer_drills() -> list[Drill]:
                   "th-TH": "ทริกเกอร์คือบอลย้อนหลังหรือการหยุดบอลพลาด คนแรกเข้าบอล คนอื่นปิดเส้นทางจ่าย",
                   "vi-VN": "Tín hiệu là đường chuyền về hoặc chạm bóng hỏng. Người đầu ép bóng, phần còn lại chặn hướng chuyền.",
                   "en-GB": "The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes."},
+            # The trigger, the press, and what the press is for: the 9 goes
+            # to the ball, the wingers shut the lanes to the two full-backs,
+            # the 8 sits behind; the 6, hurried, plays for his 4 and the 7
+            # steps into the lane and takes it — then finishes. A board that
+            # stopped with four men running up read as half a drill.
             home=[
-                P(500, 620, "9", moves=[(500, 480, 1)]),
-                P(300, 700, "11", moves=[(360, 580, 1)]),
-                P(700, 700, "7", moves=[(640, 580, 1)]),
-                P(500, 850, "8", moves=[(500, 720, 1)]),
+                P(500, 620, "9", moves=[(500, 460, 1)], why={1: "press_ball"}),
+                P(300, 700, "11", moves=[(360, 470, 1)], why={1: "close_lane"}),
+                P(700, 700, "7", moves=[(640, 470, 1), (620, 370, 2), (560, 240, 3)],
+                  why={1: "close_lane", 2: "win_ball", 3: "to_goal"}),
+                P(500, 850, "8", moves=[(500, 700, 1)], why={1: "cover"}),
             ],
             away=[
-                P(500, 420, "6", moves=[(520, 340, 0)]),
+                P(500, 420, "6", moves=[(520, 340, 0)], why={0: "drop_deep"}),
                 P(300, 350, "5"), P(700, 350, "4"),
             ],
             # The pass into the 6 IS the trigger, so it has to be drawn:
             # the ball used to sit on top of him from the first frame.
             ball=(340, 420),
-            ball_to=[("a0", 0)],
+            ball_to=[("a0", 0), (2, 2), ((480, 60), 3)],
             free=True,
         ),
         Drill(
