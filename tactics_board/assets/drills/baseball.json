@@ -5,7 +5,7 @@
     {
       "id": "bb_warm_long_toss",
       "level": "foundation",
-      "family": "baseball_family_11",
+      "family": "baseball_family_14",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -187,7 +187,7 @@
     {
       "id": "bb_warm_infield_outfield",
       "level": "foundation",
-      "family": "baseball_family_11",
+      "family": "baseball_family_14",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -531,7 +531,7 @@
     {
       "id": "bb_warm_pitchers_fielding",
       "level": "foundation",
-      "family": "baseball_family_11",
+      "family": "baseball_family_14",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -718,7 +718,7 @@
     {
       "id": "bb_dp_six_four_three",
       "level": "development",
-      "family": "baseball_family_10",
+      "family": "baseball_family_13",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -1166,7 +1166,7 @@
     {
       "id": "bb_dp_four_six_three",
       "level": "advanced",
-      "family": "baseball_family_10",
+      "family": "baseball_family_13",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -1614,7 +1614,7 @@
     {
       "id": "bb_dp_five_four_three",
       "level": "development",
-      "family": "baseball_family_10",
+      "family": "baseball_family_13",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -2062,7 +2062,7 @@
     {
       "id": "bb_dp_one_six_three",
       "level": "development",
-      "family": "baseball_family_10",
+      "family": "baseball_family_13",
       "familyName": {
         "en": "Double play",
         "en-GB": "Double play",
@@ -2510,7 +2510,7 @@
     {
       "id": "bb_relay_to_home",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_4",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -2916,7 +2916,7 @@
     {
       "id": "bb_relay_to_third",
       "level": "development",
-      "family": "baseball_family_2",
+      "family": "baseball_family_4",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -3317,7 +3317,7 @@
     {
       "id": "bb_relay_gap_ball",
       "level": "advanced",
-      "family": "baseball_family_2",
+      "family": "baseball_family_4",
       "familyName": {
         "en": "Cut-off and relay",
         "en-GB": "Cut-off and relay",
@@ -3718,7 +3718,7 @@
     {
       "id": "bb_run_steal_read",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_7",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4085,7 +4085,7 @@
     {
       "id": "bb_run_hit_and_run",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_7",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4464,7 +4464,7 @@
     {
       "id": "bb_run_tag_up",
       "level": "foundation",
-      "family": "baseball_family_5",
+      "family": "baseball_family_7",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -4831,7 +4831,7 @@
     {
       "id": "bb_run_first_to_third",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_7",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -5213,7 +5213,7 @@
     {
       "id": "bb_run_secondary_lead",
       "level": "development",
-      "family": "baseball_family_5",
+      "family": "baseball_family_7",
       "familyName": {
         "en": "Baserunning",
         "en-GB": "Baserunning",
@@ -6556,7 +6556,7 @@
     {
       "id": "bb_defence_bunt",
       "level": "development",
-      "family": "baseball_family_8",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7013,7 +7013,7 @@
     {
       "id": "bb_defence_first_and_third",
       "level": "advanced",
-      "family": "baseball_family_8",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7476,7 +7476,7 @@
     {
       "id": "bb_defence_infield_in",
       "level": "development",
-      "family": "baseball_family_8",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -7926,7 +7926,7 @@
     {
       "id": "bb_defence_pop_up",
       "level": "development",
-      "family": "baseball_family_8",
+      "family": "baseball_family_11",
       "familyName": {
         "en": "Defending the situation",
         "en-GB": "Defending the situation",
@@ -8362,7 +8362,7 @@
     {
       "id": "bb_pick_first",
       "level": "foundation",
-      "family": "baseball_family_12",
+      "family": "baseball_family_15",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -8744,7 +8744,7 @@
     {
       "id": "bb_pick_second",
       "level": "development",
-      "family": "baseball_family_12",
+      "family": "baseball_family_15",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -9126,7 +9126,7 @@
     {
       "id": "bb_pick_rundown",
       "level": "advanced",
-      "family": "baseball_family_12",
+      "family": "baseball_family_15",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -9520,7 +9520,7 @@
     {
       "id": "bb_pick_pitchout",
       "level": "development",
-      "family": "baseball_family_12",
+      "family": "baseball_family_15",
       "familyName": {
         "en": "Holding the runner",
         "en-GB": "Holding the runner",
@@ -9909,7 +9909,7 @@
     {
       "id": "bb_game_two_outs",
       "level": "development",
-      "family": "baseball_family_9",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -10331,7 +10331,7 @@
     {
       "id": "bb_game_bases_loaded",
       "level": "development",
-      "family": "baseball_family_9",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -10807,7 +10807,7 @@
     {
       "id": "bb_game_baserunning_game",
       "level": "development",
-      "family": "baseball_family_9",
+      "family": "baseball_family_12",
       "familyName": {
         "en": "Situational scrimmage",
         "en-GB": "Situational scrimmage",
@@ -11418,7 +11418,7 @@
     {
       "id": "bb_hit_two_strike",
       "level": "development",
-      "family": "baseball_family_7",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Hitting",
         "en-GB": "Hitting",
@@ -11753,7 +11753,7 @@
     {
       "id": "bb_hit_bunt_technique",
       "level": "foundation",
-      "family": "baseball_family_7",
+      "family": "baseball_family_10",
       "familyName": {
         "en": "Hitting",
         "en-GB": "Hitting",
@@ -12087,7 +12087,7 @@
     {
       "id": "bb_catch_blocking",
       "level": "foundation",
-      "family": "baseball_family_1",
+      "family": "baseball_family_2",
       "familyName": {
         "en": "Catching",
         "en-GB": "Catching",
@@ -12264,7 +12264,7 @@
     {
       "id": "bb_catch_throw_down",
       "level": "development",
-      "family": "baseball_family_1",
+      "family": "baseball_family_2",
       "familyName": {
         "en": "Catching",
         "en-GB": "Catching",
@@ -12571,7 +12571,7 @@
     {
       "id": "bb_field_ground_ball",
       "level": "foundation",
-      "family": "baseball_family_3",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Fielding fundamentals",
         "en-GB": "Fielding fundamentals",
@@ -12791,7 +12791,7 @@
     {
       "id": "bb_field_fly_ball",
       "level": "foundation",
-      "family": "baseball_family_3",
+      "family": "baseball_family_5",
       "familyName": {
         "en": "Fielding fundamentals",
         "en-GB": "Fielding fundamentals",
@@ -13189,6 +13189,396 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bbfit_home_to_first",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Home to first",
+        "en-GB": "Home to first",
+        "zh-CN": "本垒到一垒冲刺",
+        "zh-TW": "本壘到一壘衝刺",
+        "ja-JP": "本塁から一塁へのダッシュ",
+        "ko-KR": "홈에서 1루까지 질주",
+        "es-ES": "De home a primera",
+        "fr-FR": "Du marbre à la première base",
+        "id-ID": "Home ke base satu",
+        "ms-MY": "Home ke base pertama",
+        "th-TH": "วิ่งจากโฮมไปเบสหนึ่ง",
+        "vi-VN": "Chạy từ gôn nhà lên chốt một"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nEquipment: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nSequence: Step 1: the player moves right to sprint flat out; Step 2: the player moves right to sprint flat out; Step 3: the player moves left to jog to recover.\nHow it continues: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nCoaching point: Run through the bag, never at it: the first three steps out of the box and the last three past the base are where the whole time is won or lost.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nEquipment: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nSequence: Step 1: the player moves right to sprint flat out; Step 2: the player moves right to sprint flat out; Step 3: the player moves left to jog to recover.\nHow it continues: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nCoaching point: Run through the bag, never at it: the first three steps out of the box and the last three past the base are where the whole time is won or lost.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】击球员站在本垒打击区，一垒无人；界外区、垒包外五米处放一个锥标。\n【器材】只用一个锥标，放在一垒垒包外五米的界外区：计时在垒包停，人要跑到锥标，两者之前都不许减速。\n【流程】第1步：球员向右移动（全力冲刺）；第2步：球员向右移动（全力冲刺）；第3步：球员向左移动（慢跑恢复）。\n【连贯】每人从挥棒开始跑 6 次并计时：右打者 4.3 秒是平均水平，4.1 秒以内算跑者。每次之间休息 90 秒，沿界外区走回来。\n【要点】跑过垒包，不要跑到垒包为止：出击球区的头三步和过垒的最后三步，决定了整段时间。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】擊球員站在本壘打擊區，一壘無人；界外區、壘包外五米處放一個錐標。\n【器材】只用一個錐標，放在一壘壘包外五米的界外區：計時在壘包停，人要跑到錐標，兩者之前都不許減速。\n【流程】第1步：球員向右移動（全力衝刺）；第2步：球員向右移動（全力衝刺）；第3步：球員向左移動（慢跑恢復）。\n【連貫】每人從揮棒開始跑 6 次並計時：右打者 4.3 秒是平均水平，4.1 秒以內算跑者。每次之間休息 90 秒，沿界外區走回來。\n【要點】跑過壘包，不要跑到壘包為止：出擊球區的頭三步和過壘的最後三步，決定了整段時間。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground。\n【用具】one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either。\n【流れ】ステップ1：選手が右へ移動し、全力でダッシュ。ステップ2：選手が右へ移動し、全力でダッシュ。ステップ3：選手が左へ移動し、ジョグで回復。\n【続け方】Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\n【ポイント】ベースを駆け抜ける、ベースで止まらない：打席を出る最初の3歩とベースを過ぎる最後の3歩で、タイムのすべてが決まる。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\n【장비】one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\n【진행】1단계: 선수는 오른쪽으로 이동해 전력 질주; 2단계: 선수는 오른쪽으로 이동해 전력 질주; 3단계: 선수는 왼쪽으로 이동해 조깅으로 회복.\n【이어가기】Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\n【포인트】베이스를 밟고 지나쳐 달린다, 베이스에서 멈추지 않는다: 타석을 나서는 첫 세 걸음과 베이스를 지나는 마지막 세 걸음이 기록의 전부다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nMaterial: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nSecuencia: Paso 1: el jugador se desplaza a la derecha para esprintar a tope; Paso 2: el jugador se desplaza a la derecha para esprintar a tope; Paso 3: el jugador se desplaza a la izquierda para trotar para recuperar.\nContinuidad: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nPunto clave: Corre a través de la base, nunca hacia ella: los tres primeros pasos fuera del cajón y los tres últimos pasada la base deciden todo el tiempo.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nMatériel : one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nDéroulé : Étape 1 : le joueur se déplace à droite pour sprinter à fond ; Étape 2 : le joueur se déplace à droite pour sprinter à fond ; Étape 3 : le joueur se déplace à gauche pour trottiner pour récupérer.\nEnchaînement : Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nPoint clé : Traverse le sac, ne t'arrête pas dessus : les trois premiers pas hors de la boîte et les trois derniers après la base font tout le chrono.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nPerlengkapan: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nUrutan: Langkah 1: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 3: pemain bergerak ke kiri untuk joging untuk pulih.\nKelanjutan: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nPoin utama: Lari menembus base, bukan berhenti di base: tiga langkah pertama dan tiga langkah terakhir menentukan waktunya.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nPeralatan: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nUrutan: Langkah 1: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 3: pemain bergerak ke kiri untuk berjoging untuk pulih.\nKesinambungan: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nPoin utama: Lari menembusi base, bukan berhenti di base: tiga langkah pertama dan tiga langkah terakhir menentukan masanya.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground\nอุปกรณ์: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งเหยาะเพื่อฟื้นตัว\nการต่อเนื่อง: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nจุดเน้น: วิ่งผ่านเบส ไม่ใช่วิ่งถึงเบสแล้วหยุด สามก้าวแรกออกจากกรอบและสามก้าวสุดท้ายหลังเบสคือทั้งหมดของเวลา",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground.\nDụng cụ: one cone, five metres past first base in foul ground: the timer stops at the bag, the legs stop at the cone, and nobody slows down before either.\nTrình tự: Bước 1: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 3: cầu thủ di chuyển sang trái để chạy chậm để hồi phục.\nTiếp nối: Six runs each from a swing, timed: 4.3 seconds is average for a right-handed hitter, under 4.1 is a runner. Ninety seconds between runs, and walk back in foul ground.\nĐiểm chính: Chạy vượt qua chốt, đừng chạy tới chốt rồi dừng: ba bước đầu rời ô đánh và ba bước cuối qua chốt quyết định toàn bộ thời gian."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              528.5,
+              1056.0431506849316
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                671.0,
+                938.3342465753425
+              ],
+              [
+                756.5,
+                867.7089041095892
+              ],
+              [
+                528.5,
+                1056.0431506849316
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              785.0,
+              844.1671232876713
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bbfit_base_circuit",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 10,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Around the bases",
+        "en-GB": "Around the bases",
+        "zh-CN": "绕垒跑",
+        "zh-TW": "繞壘跑",
+        "ja-JP": "ベースランニング一周",
+        "ko-KR": "베이스 한 바퀴",
+        "es-ES": "Vuelta a las bases",
+        "fr-FR": "Tour des bases",
+        "id-ID": "Keliling base",
+        "ms-MY": "Keliling base",
+        "th-TH": "วิ่งรอบเบส",
+        "vi-VN": "Chạy vòng các chốt"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nEquipment: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nSequence: Step 1: the player moves right to sprint flat out; Step 2: the player moves left to sprint flat out; Step 3: the player moves left to sprint flat out; Step 4: the player moves right to sprint flat out.\nHow it continues: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nCoaching point: Hit the inside corner of every bag and lean into the turn — a runner who takes the bases square adds a stride at every one of them.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nEquipment: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nSequence: Step 1: the player moves right to sprint flat out; Step 2: the player moves left to sprint flat out; Step 3: the player moves left to sprint flat out; Step 4: the player moves right to sprint flat out.\nHow it continues: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nCoaching point: Hit the inside corner of every bag and lean into the turn — a runner who takes the bases square adds a stride at every one of them.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】四个垒包就位，跑者在本垒板，其余人在本垒后方等候。\n【器材】不需要器材：场地本身的四个垒包就是四个折返点——脚踩的是每个垒的内侧角，两垒之间的跑动弧线要向外绕出草地。\n【流程】第1步：球员向右移动（全力冲刺）；第2步：球员向左移动（全力冲刺）；第3步：球员向左移动（全力冲刺）；第4步：球员向右移动（全力冲刺）。\n【连贯】全力跑完一圈约 15 秒，然后趁其他人跑的时候休息 2 分钟；每人 4 圈。\n【要点】每个垒包都踩内侧角，身体往内倾——直角过垒的人，每个垒都多跑一步。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】四個壘包就位，跑者在本壘板，其餘人在本壘後方等候。\n【器材】不需要器材：場地本身的四個壘包就是四個折返點——腳踩的是每個壘的內側角，兩壘之間的跑動弧線要向外繞出草地。\n【流程】第1步：球員向右移動（全力衝刺）；第2步：球員向左移動（全力衝刺）；第3步：球員向左移動（全力衝刺）；第4步：球員向右移動（全力衝刺）。\n【連貫】全力跑完一圈約 15 秒，然後趁其他人跑的時候休息 2 分鐘；每人 4 圈。\n【要點】每個壘包都踩內側角，身體往內傾——直角過壘的人，每個壘都多跑一步。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the four bases, a runner at home plate; the rest of the group waits behind the plate。\n【用具】no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them。\n【流れ】ステップ1：選手が右へ移動し、全力でダッシュ。ステップ2：選手が左へ移動し、全力でダッシュ。ステップ3：選手が左へ移動し、全力でダッシュ。ステップ4：選手が右へ移動し、全力でダッシュ。\n【続け方】One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\n【ポイント】各ベースの内側の角を踏み、ターンでは内側に傾く——直角に回る走者は、ベースごとに一歩ずつ損をする。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the four bases, a runner at home plate; the rest of the group waits behind the plate.\n【장비】no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\n【진행】1단계: 선수는 오른쪽으로 이동해 전력 질주; 2단계: 선수는 왼쪽으로 이동해 전력 질주; 3단계: 선수는 왼쪽으로 이동해 전력 질주; 4단계: 선수는 오른쪽으로 이동해 전력 질주.\n【이어가기】One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\n【포인트】모든 베이스의 안쪽 모서리를 밟고 안으로 기울인다 — 직각으로 도는 주자는 베이스마다 한 걸음씩 더 뛴다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nMaterial: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nSecuencia: Paso 1: el jugador se desplaza a la derecha para esprintar a tope; Paso 2: el jugador se desplaza a la izquierda para esprintar a tope; Paso 3: el jugador se desplaza a la izquierda para esprintar a tope; Paso 4: el jugador se desplaza a la derecha para esprintar a tope.\nContinuidad: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nPunto clave: Pisa la esquina interior de cada base e inclínate en el giro: el que las toma en ángulo recto añade una zancada en cada una.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the four bases, a runner at home plate; the rest of the group waits behind the plate.\nMatériel : no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nDéroulé : Étape 1 : le joueur se déplace à droite pour sprinter à fond ; Étape 2 : le joueur se déplace à gauche pour sprinter à fond ; Étape 3 : le joueur se déplace à gauche pour sprinter à fond ; Étape 4 : le joueur se déplace à droite pour sprinter à fond.\nEnchaînement : One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nPoint clé : Touche le coin intérieur de chaque base et penche-toi dans le virage : celui qui les prend à angle droit ajoute une foulée à chacune.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nPerlengkapan: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nUrutan: Langkah 1: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 3: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke kanan untuk lari sekencang mungkin.\nKelanjutan: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nPoin utama: Injak sudut dalam tiap base dan condongkan badan di tikungan.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nPeralatan: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nUrutan: Langkah 1: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 3: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke kanan untuk pecut sepenuh tenaga.\nKesinambungan: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nPoin utama: Pijak sudut dalam setiap base dan condongkan badan pada selekoh.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the four bases, a runner at home plate; the rest of the group waits behind the plate\nอุปกรณ์: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง\nการต่อเนื่อง: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nจุดเน้น: เหยียบมุมในของทุกเบสและเอียงตัวเข้าโค้ง",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the four bases, a runner at home plate; the rest of the group waits behind the plate.\nDụng cụ: no equipment: the diamond's own bases are the four turns — the inside corner of each is what the foot touches, and the arc swings out into the grass between them.\nTrình tự: Bước 1: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 3: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển sang phải để chạy nước rút hết sức.\nTiếp nối: One full lap flat out — around 15 seconds — then two minutes' rest while the rest of the group goes; four laps each.\nĐiểm chính: Đạp góc trong của mỗi chốt và nghiêng người vào cua — ai chạy vuông góc sẽ mất thêm một sải ở từng chốt."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              528.5,
+              1056.0431506849316
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                671.0,
+                938.3342465753425
+              ],
+              [
+                500.0,
+                797.0835616438358
+              ],
+              [
+                329.0,
+                938.3342465753425
+              ],
+              [
+                500.0,
+                1079.5849315068494
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "bbfit_first_step",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Lateral shuffle",
+        "en-GB": "Lateral shuffle",
+        "zh-CN": "横向滑步",
+        "zh-TW": "橫向滑步",
+        "ja-JP": "サイドステップ",
+        "ko-KR": "사이드 스텝",
+        "es-ES": "Desplazamientos laterales",
+        "fr-FR": "Pas chassés latéraux",
+        "id-ID": "Geser menyamping",
+        "ms-MY": "Gerak sisi",
+        "th-TH": "สไลด์ข้าง",
+        "vi-VN": "Trượt ngang"
+      },
+      "note": {
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nEquipment: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nSequence: Step 1: the player moves left to sprint flat out; Step 2: the player gets back to the cone; Step 3: the player moves right to sprint flat out; Step 4: the player gets back to the cone.\nHow it continues: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nEquipment: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nSequence: Step 1: the player moves left to sprint flat out; Step 2: the player gets back to the cone; Step 3: the player moves right to sprint flat out; Step 4: the player gets back to the cone.\nHow it continues: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nCoaching point: Feet never cross and the head never bobs: stay low the whole way, and the last step out is as wide as the first.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】内野手站在自己的防守位置，左右各五米放一个锥标；教练在前方指方向。\n【器材】中间锥标是防守站位，两侧锥标代表左右两边的球：第一步必须是交叉步而不是原地垫步，手套要在到达锥标之前就已经放下去。\n【流程】第1步：球员向左移动（全力冲刺）；第2步：球员回到原位；第3步：球员向右移动（全力冲刺）；第4步：球员回到原位。\n【连贯】教练指方向，做 20 秒启动步、休息 40 秒，做 8 次后换下一名内野手。\n【要点】脚不交叉，头不上下起伏：全程保持低重心，最后一步要和第一步一样大。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】內野手站在自己的防守位置，左右各五米放一個錐標；教練在前方指方向。\n【器材】中間錐標是防守站位，兩側錐標代表左右兩邊的球：第一步必須是交叉步而不是原地墊步，手套要在到達錐標之前就已經放下去。\n【流程】第1步：球員向左移動（全力衝刺）；第2步：球員回到原位；第3步：球員向右移動（全力衝刺）；第4步：球員回到原位。\n【連貫】教練指方向，做 20 秒啟動步、休息 40 秒，做 8 次後換下一名內野手。\n【要點】腳不交叉，頭不上下起伏：全程保持低重心，最後一步要和第一步一樣大。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】an infielder on his position with a cone either side of him at five metres; the coach stands in front and points。\n【用具】the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached。\n【流れ】ステップ1：選手が左へ移動し、全力でダッシュ。ステップ2：選手が元の位置に戻る。ステップ3：選手が右へ移動し、全力でダッシュ。ステップ4：選手が元の位置に戻る。\n【続け方】Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\n【ポイント】足は交差させず、頭は上下させない：最後まで低く、最後の一歩も最初と同じ幅で。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\n【장비】the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\n【진행】1단계: 선수는 왼쪽으로 이동해 전력 질주; 2단계: 선수는 원래 자리로 돌아간다; 3단계: 선수는 오른쪽으로 이동해 전력 질주; 4단계: 선수는 원래 자리로 돌아간다.\n【이어가기】Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\n【포인트】발은 교차하지 않고 머리는 위아래로 흔들리지 않는다: 끝까지 낮게, 마지막 한 걸음도 첫 걸음만큼 넓게.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nMaterial: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nSecuencia: Paso 1: el jugador se desplaza a la izquierda para esprintar a tope; Paso 2: el jugador vuelve a su cono; Paso 3: el jugador se desplaza a la derecha para esprintar a tope; Paso 4: el jugador vuelve a su cono.\nContinuidad: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nPunto clave: Los pies no se cruzan y la cabeza no sube y baja: mantente bajo todo el rato y el último paso es tan amplio como el primero.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nMatériel : the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nDéroulé : Étape 1 : le joueur se déplace à gauche pour sprinter à fond ; Étape 2 : le joueur revient sur son plot ; Étape 3 : le joueur se déplace à droite pour sprinter à fond ; Étape 4 : le joueur revient sur son plot.\nEnchaînement : Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nPoint clé : Les pieds ne se croisent pas et la tête ne monte pas : reste bas jusqu'au bout, le dernier appui aussi large que le premier.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nPerlengkapan: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk lari sekencang mungkin; Langkah 2: pemain kembali ke cone; Langkah 3: pemain bergerak ke kanan untuk lari sekencang mungkin; Langkah 4: pemain kembali ke cone.\nKelanjutan: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nPoin utama: Kaki tidak menyilang dan kepala tidak naik-turun: tetap rendah sampai akhir, langkah terakhir selebar yang pertama.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nPeralatan: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nUrutan: Langkah 1: pemain bergerak ke kiri untuk pecut sepenuh tenaga; Langkah 2: pemain kembali ke kon; Langkah 3: pemain bergerak ke kanan untuk pecut sepenuh tenaga; Langkah 4: pemain kembali ke kon.\nKesinambungan: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nPoin utama: Kaki tidak bersilang dan kepala tidak naik turun: kekal rendah hingga akhir, langkah terakhir selebar yang pertama.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points\nอุปกรณ์: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปทางซ้ายเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น กลับไปที่กรวยเดิม • ขั้นที่ 3: ผู้เล่น ขยับไปทางขวาเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น กลับไปที่กรวยเดิม\nการต่อเนื่อง: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nจุดเน้น: เท้าไม่ไขว้ หัวไม่ขึ้นลง ย่อตัวต่ำตลอด ก้าวสุดท้ายกว้างเท่าก้าวแรก",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: an infielder on his position with a cone either side of him at five metres; the coach stands in front and points.\nDụng cụ: the middle cone is the fielding position and the two beside it are the balls either side: the first step is a crossover, not a hop, and the glove is down before the cone is reached.\nTrình tự: Bước 1: cầu thủ di chuyển sang trái để chạy nước rút hết sức; Bước 2: cầu thủ về lại vị trí cũ; Bước 3: cầu thủ di chuyển sang phải để chạy nước rút hết sức; Bước 4: cầu thủ về lại vị trí cũ.\nTiếp nối: Twenty seconds of first steps on the coach's hand, forty seconds' rest; eight repetitions, then swap with the next fielder.\nĐiểm chính: Chân không bắt chéo, đầu không nhấp nhô: giữ thấp suốt, bước cuối rộng như bước đầu."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 9,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              405.0,
+              844.1671232876713
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                291.0,
+                804.9308219178083
+              ],
+              [
+                405.0,
+                844.1671232876713
+              ],
+              [
+                519.0,
+                804.9308219178083
+              ],
+              [
+                405.0,
+                844.1671232876713
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              405.0,
+              859.8616438356165
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              272.0,
+              789.2363013698631
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              538.0,
+              789.2363013698631
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 5,
             "photoId": null,
             "role": null,
             "attachedTo": null

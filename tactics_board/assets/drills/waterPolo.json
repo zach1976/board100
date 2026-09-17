@@ -5,7 +5,7 @@
     {
       "id": "wp_warm_eggbeater",
       "level": "foundation",
-      "family": "waterPolo_family_4",
+      "family": "waterPolo_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -207,7 +207,7 @@
     {
       "id": "wp_warm_swim_catch",
       "level": "foundation",
-      "family": "waterPolo_family_4",
+      "family": "waterPolo_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -379,7 +379,7 @@
     {
       "id": "wp_warm_wet_pass",
       "level": "foundation",
-      "family": "waterPolo_family_4",
+      "family": "waterPolo_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -541,7 +541,7 @@
     {
       "id": "wp_perimeter_circulation",
       "level": "development",
-      "family": "waterPolo_family_5",
+      "family": "waterPolo_family_7",
       "familyName": {
         "en": "Perimeter",
         "en-GB": "Perimeter",
@@ -939,7 +939,7 @@
     {
       "id": "wp_perimeter_with_centre",
       "level": "development",
-      "family": "waterPolo_family_5",
+      "family": "waterPolo_family_7",
       "familyName": {
         "en": "Perimeter",
         "en-GB": "Perimeter",
@@ -1364,7 +1364,7 @@
     {
       "id": "wp_perimeter_drive_and_kick",
       "level": "development",
-      "family": "waterPolo_family_5",
+      "family": "waterPolo_family_7",
       "familyName": {
         "en": "Perimeter",
         "en-GB": "Perimeter",
@@ -2643,7 +2643,7 @@
     {
       "id": "wp_manup_four_two",
       "level": "development",
-      "family": "waterPolo_family_8",
+      "family": "waterPolo_family_11",
       "familyName": {
         "en": "Six on five",
         "en-GB": "Six on five",
@@ -3080,7 +3080,7 @@
     {
       "id": "wp_manup_three_three",
       "level": "development",
-      "family": "waterPolo_family_8",
+      "family": "waterPolo_family_11",
       "familyName": {
         "en": "Six on five",
         "en-GB": "Six on five",
@@ -3522,7 +3522,7 @@
     {
       "id": "wp_manup_umbrella",
       "level": "advanced",
-      "family": "waterPolo_family_8",
+      "family": "waterPolo_family_11",
       "familyName": {
         "en": "Six on five",
         "en-GB": "Six on five",
@@ -3964,7 +3964,7 @@
     {
       "id": "wp_centre_entry",
       "level": "foundation",
-      "family": "waterPolo_family_9",
+      "family": "waterPolo_family_12",
       "familyName": {
         "en": "Centre forward",
         "en-GB": "Centre forward",
@@ -4250,7 +4250,7 @@
     {
       "id": "wp_centre_backhand",
       "level": "development",
-      "family": "waterPolo_family_9",
+      "family": "waterPolo_family_12",
       "familyName": {
         "en": "Centre forward",
         "en-GB": "Centre forward",
@@ -4536,7 +4536,7 @@
     {
       "id": "wp_centre_sweep",
       "level": "development",
-      "family": "waterPolo_family_9",
+      "family": "waterPolo_family_12",
       "familyName": {
         "en": "Centre forward",
         "en-GB": "Centre forward",
@@ -4822,7 +4822,7 @@
     {
       "id": "wp_centre_draw_foul",
       "level": "development",
-      "family": "waterPolo_family_9",
+      "family": "waterPolo_family_12",
       "familyName": {
         "en": "Centre forward",
         "en-GB": "Centre forward",
@@ -7029,7 +7029,7 @@
     {
       "id": "wp_set_penalty",
       "level": "foundation",
-      "family": "waterPolo_family_6",
+      "family": "waterPolo_family_8",
       "familyName": {
         "en": "Restart",
         "en-GB": "Restart",
@@ -7206,7 +7206,7 @@
     {
       "id": "wp_set_free_throw",
       "level": "development",
-      "family": "waterPolo_family_6",
+      "family": "waterPolo_family_8",
       "familyName": {
         "en": "Restart",
         "en-GB": "Restart",
@@ -7455,7 +7455,7 @@
     {
       "id": "wp_set_swim_off",
       "level": "development",
-      "family": "waterPolo_family_6",
+      "family": "waterPolo_family_8",
       "familyName": {
         "en": "Restart",
         "en-GB": "Restart",
@@ -7666,7 +7666,7 @@
     {
       "id": "wp_game_3v3",
       "level": "development",
-      "family": "waterPolo_family_7",
+      "family": "waterPolo_family_9",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -7961,7 +7961,7 @@
     {
       "id": "wp_game_4v4",
       "level": "development",
-      "family": "waterPolo_family_7",
+      "family": "waterPolo_family_9",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -8310,7 +8310,7 @@
     {
       "id": "wp_game_6v6",
       "level": "advanced",
-      "family": "waterPolo_family_7",
+      "family": "waterPolo_family_9",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -10720,6 +10720,341 @@
             "customColor": null,
             "gender": 2,
             "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "wpfit_eggbeater",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 10,
+      "players": 1,
+      "free": true,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Eggbeater intervals",
+        "en-GB": "Eggbeater intervals",
+        "zh-CN": "踩水间歇",
+        "zh-TW": "踩水間歇",
+        "ja-JP": "巻き足インターバル",
+        "ko-KR": "에그비터 인터벌",
+        "es-ES": "Intervalos de batido",
+        "fr-FR": "Intervalles d'eggbeater",
+        "id-ID": "Interval eggbeater",
+        "ms-MY": "Selang eggbeater",
+        "th-TH": "อินเทอร์วัลปั่นขา",
+        "vi-VN": "Đạp nước ngắt quãng"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nEquipment: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nSequence: Step 1: the player moves up the board to eggbeater, hands out of the water; Step 2: the player moves back to eggbeater, hands out of the water.\nHow it continues: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nCoaching point: Hands out of the water and held there: the legs do the work, and the moment a hand slaps the surface for help the interval is over.",
+        "en-GB": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nEquipment: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nSequence: Step 1: the player moves up the board to eggbeater, hands out of the water; Step 2: the player moves back to eggbeater, hands out of the water.\nHow it continues: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nCoaching point: Hands out of the water and held there: the legs do the work, and the moment a hand slaps the surface for help the interval is over.",
+        "zh-CN": "【目的】水中体能：撑得住身体的腿、第四节还冲得动的速度，以及两者之间的恢复。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】全组在深水区一字排开，彼此相隔一臂，面向教练。\n【器材】阴影区是做这组练习的深水区——够不到池壁和池底，因为这个练习练的正是不需要借力。\n【流程】第1步：球员向前移动（踩水，双手举出水面）；第2步：球员向后移动（踩水，双手举出水面）。\n【连贯】双手举高踩水 30 秒、放松踩水 30 秒，做 10 次。这组做得轻松以后，最后 3 次改为双手举球。\n【要点】双手举出水面并保持住：完全靠腿；只要有一只手拍水借力，这一组就结束。",
+        "zh-TW": "【目的】水中體能：撐得住身體的腿、第四節還衝得動的速度，以及兩者之間的恢復。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】全組在深水區一字排開，彼此相隔一臂，面向教練。\n【器材】陰影區是做這組練習的深水區——夠不到池壁和池底，因為這個練習練的正是不需要借力。\n【流程】第1步：球員向前移動（踩水，雙手舉出水面）；第2步：球員向後移動（踩水，雙手舉出水面）。\n【連貫】雙手舉高踩水 30 秒、放鬆踩水 30 秒，做 10 次。這組做得輕鬆以後，最後 3 次改為雙手舉球。\n【要點】雙手舉出水面並保持住：完全靠腿；只要有一隻手拍水借力，這一組就結束。",
+        "ja-JP": "【目的】水中のフィジカル：体を支える脚、第4クォーターでも届くスプリント、そしてその間の回復。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the group spread across the pool in deep water, an arm's length apart, facing the coach。\n【用具】the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need。\n【流れ】ステップ1：選手が前方へ移動し、巻き足、手は水面より上。ステップ2：選手が後方へ移動し、巻き足、手は水面より上。\n【続け方】Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\n【ポイント】手は水面より上に出したまま保つ：仕事は脚がする。助けを求めて手が水を叩いた瞬間、そのインターバルは終わりだ。",
+        "ko-KR": "【목적】물속 체력: 몸을 떠받치는 다리, 4쿼터에도 도달하는 스프린트, 그리고 그 사이의 회복.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the group spread across the pool in deep water, an arm's length apart, facing the coach.\n【장비】the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\n【진행】1단계: 선수는 앞으로 이동해 에그비터, 손은 물 밖으로; 2단계: 선수는 뒤로 이동해 에그비터, 손은 물 밖으로.\n【이어가기】Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\n【포인트】손은 물 밖으로 들고 유지한다: 다리가 일한다. 손이 물을 치며 도움을 구하는 순간 인터벌은 끝난다.",
+        "es-ES": "Objetivo: Físico en el agua: piernas que te sostienen, un sprint que todavía llega en el último cuarto y la recuperación entre ambos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nMaterial: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para batido de piernas con las manos fuera del agua; Paso 2: el jugador se desplaza hacia atrás para batido de piernas con las manos fuera del agua.\nContinuidad: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nPunto clave: Manos fuera del agua y mantenidas ahí: trabajan las piernas, y en cuanto una mano golpea la superficie para ayudarse, el intervalo se acabó.",
+        "fr-FR": "Objectif : Physique dans l'eau : des jambes qui te portent, un sprint qui arrive encore au dernier quart-temps, et la récupération entre les deux.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the group spread across the pool in deep water, an arm's length apart, facing the coach.\nMatériel : the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour eggbeater, mains hors de l'eau ; Étape 2 : le joueur se déplace vers l'arrière pour eggbeater, mains hors de l'eau.\nEnchaînement : Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nPoint clé : Mains hors de l'eau et maintenues : ce sont les jambes qui travaillent, et dès qu'une main frappe la surface pour s'aider, l'intervalle est terminé.",
+        "id-ID": "Tujuan: Fisik di air: kaki yang menopang, sprint yang masih sampai di kuarter keempat, dan pemulihan di antaranya.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nPerlengkapan: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nUrutan: Langkah 1: pemain bergerak ke depan untuk eggbeater, tangan di atas air; Langkah 2: pemain bergerak ke belakang untuk eggbeater, tangan di atas air.\nKelanjutan: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nPoin utama: Tangan di atas air dan tetap di sana: kaki yang bekerja; begitu tangan menepuk air, interval selesai.",
+        "ms-MY": "Tujuan: Fizikal dalam air: kaki yang menyokong, pecutan yang masih sampai pada suku keempat, dan pemulihan antara keduanya.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nPeralatan: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk eggbeater, tangan di atas air; Langkah 2: pemain bergerak ke belakang untuk eggbeater, tangan di atas air.\nKesinambungan: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nPoin utama: Tangan di atas air dan kekal di situ: kaki yang bekerja; sebaik tangan menepuk air, selang itu tamat.",
+        "th-TH": "จุดประสงค์: ฟิตเนสในน้ำ: ขาที่พยุงตัวได้ สปรินต์ที่ยังถึงในควอเตอร์สี่ และการฟื้นตัวระหว่างนั้น\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the group spread across the pool in deep water, an arm's length apart, facing the coach\nอุปกรณ์: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อปั่นขา มือพ้นน้ำ • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อปั่นขา มือพ้นน้ำ\nการต่อเนื่อง: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nจุดเน้น: ยกมือพ้นน้ำและค้างไว้ ขาคือคนทำงาน พอมือตบน้ำเพื่อช่วยพยุงเมื่อไหร่ ถือว่าจบรอบนั้น",
+        "vi-VN": "Mục đích: Thể lực dưới nước: đôi chân giữ được người, cú bơi nước rút vẫn tới ở hiệp bốn, và sự hồi phục giữa hai điều đó.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the group spread across the pool in deep water, an arm's length apart, facing the coach.\nDụng cụ: the shaded zone is the deep water the set is done in — out of reach of the wall and the bottom, because holding on is what the drill is training you not to need.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để đạp nước, hai tay khỏi mặt nước; Bước 2: cầu thủ di chuyển lùi lại để đạp nước, hai tay khỏi mặt nước.\nTiếp nối: Thirty seconds high with both hands up, thirty seconds easy treading; ten repetitions. Add a ball held overhead for the last three once the set is comfortable.\nĐiểm chính: Hai tay giơ khỏi mặt nước và giữ nguyên: chân làm việc; ngay khi một tay đập nước để trợ lực là kết thúc lượt."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 11,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              968.0712328767124
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                880.8427397260275
+              ],
+              [
+                500.0,
+                968.0712328767124
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              924.4569863013699
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": 4294956864,
+            "gender": 2,
+            "markerShape": 7,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "wpfit_sprint_lengths",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 10,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "name": {
+        "en": "Sprint lengths",
+        "en-GB": "Sprint lengths",
+        "zh-CN": "全场冲刺游",
+        "zh-TW": "全場衝刺游",
+        "ja-JP": "スプリント往復",
+        "ko-KR": "스프린트 랩",
+        "es-ES": "Largos a sprint",
+        "fr-FR": "Longueurs en sprint",
+        "id-ID": "Sprint menyusuri kolam",
+        "ms-MY": "Pecutan sepanjang kolam",
+        "th-TH": "ว่ายสปรินต์เต็มสระ",
+        "vi-VN": "Bơi nước rút hết chiều dài"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nEquipment: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nSequence: Step 1: the player moves up the board to swim it flat out; Step 2: the player moves back to swim it flat out.\nHow it continues: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nCoaching point: Head up on the first three strokes and the last three: a water polo sprint that puts its face in the water for the finish is a swimmer's sprint, not a player's.",
+        "en-GB": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nEquipment: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nSequence: Step 1: the player moves up the board to swim it flat out; Step 2: the player moves back to swim it flat out.\nHow it continues: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nCoaching point: Head up on the first three strokes and the last three: a water polo sprint that puts its face in the water for the finish is a swimmer's sprint, not a player's.",
+        "zh-CN": "【目的】水中体能：撑得住身体的腿、第四节还冲得动的速度，以及两者之间的恢复。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】全组在一侧门线排开，彼此相隔一臂；对面门线是终点。\n【器材】不需要器材：两条门线就是两端，每次冲刺都要用手摸到线，不是靠近就算。\n【流程】第1步：球员向前移动（全力游过去）；第2步：球员向后移动（全力游过去）。\n【连贯】冲刺一趟，30 秒放松游回来，接着下一趟；做 10 趟后休息 3 分钟，再做 10 趟。最后两趟和前两趟的时间差不能超过 1 秒。\n【要点】起游前三划和到边前三划都要抬头：整段把脸埋在水里的冲刺是游泳运动员的冲刺，不是水球运动员的。",
+        "zh-TW": "【目的】水中體能：撐得住身體的腿、第四節還衝得動的速度，以及兩者之間的恢復。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】全組在一側門線排開，彼此相隔一臂；對面門線是終點。\n【器材】不需要器材：兩條門線就是兩端，每次衝刺都要用手摸到線，不是靠近就算。\n【流程】第1步：球員向前移動（全力游過去）；第2步：球員向後移動（全力游過去）。\n【連貫】衝刺一趟，30 秒放鬆游回來，接著下一趟；做 10 趟後休息 3 分鐘，再做 10 趟。最後兩趟和前兩趟的時間差不能超過 1 秒。\n【要點】起游前三划和到邊前三划都要抬頭：整段把臉埋在水裡的衝刺是游泳運動員的衝刺，不是水球運動員的。",
+        "ja-JP": "【目的】水中のフィジカル：体を支える脚、第4クォーターでも届くスプリント、そしてその間の回復。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the group on one goal line in lanes an arm's length apart; the far goal line is the finish。\n【用具】no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it。\n【流れ】ステップ1：選手が前方へ移動し、全力で泳ぐ。ステップ2：選手が後方へ移動し、全力で泳ぐ。\n【続け方】Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\n【ポイント】最初の3ストロークと最後の3ストロークは顔を上げる：フィニッシュで顔を沈めるスプリントは水泳選手のもので、水球選手のものではない。",
+        "ko-KR": "【목적】물속 체력: 몸을 떠받치는 다리, 4쿼터에도 도달하는 스프린트, 그리고 그 사이의 회복.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\n【장비】no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\n【진행】1단계: 선수는 앞으로 이동해 전력으로 헤엄친다; 2단계: 선수는 뒤로 이동해 전력으로 헤엄친다.\n【이어가기】Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\n【포인트】처음 세 스트로크와 마지막 세 스트로크는 고개를 든다: 마무리에서 얼굴을 담그는 스프린트는 수영 선수의 것이지 수구 선수의 것이 아니다.",
+        "es-ES": "Objetivo: Físico en el agua: piernas que te sostienen, un sprint que todavía llega en el último cuarto y la recuperación entre ambos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nMaterial: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para nadar a tope; Paso 2: el jugador se desplaza hacia atrás para nadar a tope.\nContinuidad: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nPunto clave: Cabeza fuera en las tres primeras brazadas y en las tres últimas: un sprint de waterpolo que mete la cara para terminar es un sprint de nadador, no de jugador.",
+        "fr-FR": "Objectif : Physique dans l'eau : des jambes qui te portent, un sprint qui arrive encore au dernier quart-temps, et la récupération entre les deux.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nMatériel : no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour nager à fond ; Étape 2 : le joueur se déplace vers l'arrière pour nager à fond.\nEnchaînement : Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nPoint clé : Tête haute sur les trois premières et les trois dernières nages : un sprint de water-polo qui plonge le visage à l'arrivée est un sprint de nageur, pas de joueur.",
+        "id-ID": "Tujuan: Fisik di air: kaki yang menopang, sprint yang masih sampai di kuarter keempat, dan pemulihan di antaranya.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nPerlengkapan: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nUrutan: Langkah 1: pemain bergerak ke depan untuk berenang sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk berenang sekencang mungkin.\nKelanjutan: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nPoin utama: Kepala di atas air pada tiga kayuhan pertama dan terakhir.",
+        "ms-MY": "Tujuan: Fizikal dalam air: kaki yang menyokong, pecutan yang masih sampai pada suku keempat, dan pemulihan antara keduanya.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nPeralatan: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk berenang sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk berenang sepenuh tenaga.\nKesinambungan: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nPoin utama: Kepala di atas air pada tiga kayuhan pertama dan terakhir.",
+        "th-TH": "จุดประสงค์: ฟิตเนสในน้ำ: ขาที่พยุงตัวได้ สปรินต์ที่ยังถึงในควอเตอร์สี่ และการฟื้นตัวระหว่างนั้น\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the group on one goal line in lanes an arm's length apart; the far goal line is the finish\nอุปกรณ์: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อว่ายเต็มแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อว่ายเต็มแรง\nการต่อเนื่อง: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nจุดเน้น: เงยหน้าในสามจังหวะแรกและสามจังหวะสุดท้าย",
+        "vi-VN": "Mục đích: Thể lực dưới nước: đôi chân giữ được người, cú bơi nước rút vẫn tới ở hiệp bốn, và sự hồi phục giữa hai điều đó.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the group on one goal line in lanes an arm's length apart; the far goal line is the finish.\nDụng cụ: no equipment: the two goal lines are the ends, and every sprint finishes with a hand on the line, not near it.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để bơi hết sức; Bước 2: cầu thủ di chuyển lùi lại để bơi hết sức.\nTiếp nối: Sprint one length, 30 seconds' easy swimming back, and go again; ten lengths, then three minutes and ten more. The last two must be inside a second of the first two.\nĐiểm chính: Ngẩng đầu ở ba nhịp đầu và ba nhịp cuối: cú nước rút vùi mặt khi về đích là của vận động viên bơi, không phải của cầu thủ."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 11,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              1186.1424657534249
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                313.85753424657537
+              ],
+              [
+                500.0,
+                1186.1424657534249
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 1000.0,
+        "canvasHeight": 1500.0
+      }
+    },
+    {
+      "id": "wpfit_lunges",
+      "level": "foundation",
+      "family": null,
+      "familyName": null,
+      "category": "conditioning",
+      "minutes": 8,
+      "players": 1,
+      "free": false,
+      "usage": 2,
+      "frame": "bottom",
+      "offSurface": false,
+      "name": {
+        "en": "Jump series",
+        "en-GB": "Jump series",
+        "zh-CN": "连续起跳",
+        "zh-TW": "連續起跳",
+        "ja-JP": "連続ジャンプ",
+        "ko-KR": "연속 점프",
+        "es-ES": "Serie de saltos",
+        "fr-FR": "Série de sauts",
+        "id-ID": "Seri lompatan",
+        "ms-MY": "Siri lompatan",
+        "th-TH": "ชุดกระโดด",
+        "vi-VN": "Chuỗi bật nhảy"
+      },
+      "note": {
+        "en": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nEquipment: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nSequence: Step 1: the player moves up the board to take off and land on both feet; Step 2: the player moves back to eggbeater, hands out of the water; Step 3: the player moves up the board to take off and land on both feet; Step 4: the player moves back to eggbeater, hands out of the water.\nHow it continues: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nCoaching point: Reach the same height on the last jump as on the first; the moment the height drops the set is over, however many are left — height is the quality being trained.",
+        "en-GB": "Purpose: Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nEquipment: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nSequence: Step 1: the player moves up the board to take off and land on both feet; Step 2: the player moves back to eggbeater, hands out of the water; Step 3: the player moves up the board to take off and land on both feet; Step 4: the player moves back to eggbeater, hands out of the water.\nHow it continues: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nCoaching point: Reach the same height on the last jump as on the first; the moment the height drops the set is over, however many are left — height is the quality being trained.",
+        "zh-CN": "【目的】水中体能：撑得住身体的腿、第四节还冲得动的速度，以及两者之间的恢复。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】全组在深水区面向教练排开，彼此距离足够，避免落下时压到别人。\n【器材】阴影区是做出水动作的深水区：每一次都从踩水开始，把身体拉出水面到髋部，再有控制地落回。\n【流程】第1步：球员向前移动（起跳，双脚落地）；第2步：球员向后移动（踩水，双手举出水面）；第3步：球员向前移动（起跳，双脚落地）；第4步：球员向后移动（踩水，双手举出水面）。\n【连贯】举起射门手做 8 次出水动作，休息 90 秒；做 4 组。髋部出不了水面就结束这一组。\n【要点】最后一跳要和第一跳一样高；高度一掉就停，不管还剩几个——练的就是高度。",
+        "zh-TW": "【目的】水中體能：撐得住身體的腿、第四節還衝得動的速度，以及兩者之間的恢復。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】全組在深水區面向教練排開，彼此距離足夠，避免落下時壓到別人。\n【器材】陰影區是做出水動作的深水區：每一次都從踩水開始，把身體拉出水面到髖部，再有控制地落回。\n【流程】第1步：球員向前移動（起跳，雙腳落地）；第2步：球員向後移動（踩水，雙手舉出水面）；第3步：球員向前移動（起跳，雙腳落地）；第4步：球員向後移動（踩水，雙手舉出水面）。\n【連貫】舉起射門手做 8 次出水動作，休息 90 秒；做 4 組。髖部出不了水面就結束這一組。\n【要點】最後一跳要和第一跳一樣高；高度一掉就停，不管還剩幾個——練的就是高度。",
+        "ja-JP": "【目的】水中のフィジカル：体を支える脚、第4クォーターでも届くスプリント、そしてその間の回復。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】the group in deep water facing the coach, far enough apart that nobody lands on anybody。\n【用具】the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control。\n【流れ】ステップ1：選手が前方へ移動し、踏み切って両足で着地。ステップ2：選手が後方へ移動し、巻き足、手は水面より上。ステップ3：選手が前方へ移動し、踏み切って両足で着地。ステップ4：選手が後方へ移動し、巻き足、手は水面より上。\n【続け方】Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\n【ポイント】最後の1本も1本目と同じ高さまで跳ぶ。高さが落ちた時点で、残りが何本でもそのセットは終わり——鍛えているのは高さだ。",
+        "ko-KR": "【목적】물속 체력: 몸을 떠받치는 다리, 4쿼터에도 도달하는 스프린트, 그리고 그 사이의 회복.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】the group in deep water facing the coach, far enough apart that nobody lands on anybody.\n【장비】the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\n【진행】1단계: 선수는 앞으로 이동해 도약해 두 발로 착지; 2단계: 선수는 뒤로 이동해 에그비터, 손은 물 밖으로; 3단계: 선수는 앞으로 이동해 도약해 두 발로 착지; 4단계: 선수는 뒤로 이동해 에그비터, 손은 물 밖으로.\n【이어가기】Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\n【포인트】마지막 점프도 첫 점프와 같은 높이로. 높이가 떨어지는 순간 몇 개가 남았든 세트는 끝이다 — 훈련하는 것은 높이다.",
+        "es-ES": "Objetivo: Físico en el agua: piernas que te sostienen, un sprint que todavía llega en el último cuarto y la recuperación entre ambos.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nMaterial: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para saltar y caer con los dos pies; Paso 2: el jugador se desplaza hacia atrás para batido de piernas con las manos fuera del agua; Paso 3: el jugador se desplaza hacia delante para saltar y caer con los dos pies; Paso 4: el jugador se desplaza hacia atrás para batido de piernas con las manos fuera del agua.\nContinuidad: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nPunto clave: Alcanza la misma altura en el último salto que en el primero; en cuanto baja la altura, la serie se acaba, queden los que queden: lo que se entrena es la altura.",
+        "fr-FR": "Objectif : Physique dans l'eau : des jambes qui te portent, un sprint qui arrive encore au dernier quart-temps, et la récupération entre les deux.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nMatériel : the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sauter et retomber sur deux pieds ; Étape 2 : le joueur se déplace vers l'arrière pour eggbeater, mains hors de l'eau ; Étape 3 : le joueur se déplace vers l'avant pour sauter et retomber sur deux pieds ; Étape 4 : le joueur se déplace vers l'arrière pour eggbeater, mains hors de l'eau.\nEnchaînement : Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nPoint clé : Atteins la même hauteur au dernier saut qu'au premier ; dès que la hauteur baisse, la série est finie, quel qu'en soit le reste — c'est la hauteur que l'on travaille.",
+        "id-ID": "Tujuan: Fisik di air: kaki yang menopang, sprint yang masih sampai di kuarter keempat, dan pemulihan di antaranya.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nPerlengkapan: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nUrutan: Langkah 1: pemain bergerak ke depan untuk melompat dan mendarat dua kaki; Langkah 2: pemain bergerak ke belakang untuk eggbeater, tangan di atas air; Langkah 3: pemain bergerak ke depan untuk melompat dan mendarat dua kaki; Langkah 4: pemain bergerak ke belakang untuk eggbeater, tangan di atas air.\nKelanjutan: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nPoin utama: Capai tinggi yang sama pada lompatan terakhir seperti yang pertama; begitu tingginya turun, set selesai.",
+        "ms-MY": "Tujuan: Fizikal dalam air: kaki yang menyokong, pecutan yang masih sampai pada suku keempat, dan pemulihan antara keduanya.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nPeralatan: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk melompat dan mendarat dua kaki; Langkah 2: pemain bergerak ke belakang untuk eggbeater, tangan di atas air; Langkah 3: pemain bergerak ke hadapan untuk melompat dan mendarat dua kaki; Langkah 4: pemain bergerak ke belakang untuk eggbeater, tangan di atas air.\nKesinambungan: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nPoin utama: Capai ketinggian yang sama pada lompatan terakhir seperti yang pertama; sebaik ketinggian turun, set tamat.",
+        "th-TH": "จุดประสงค์: ฟิตเนสในน้ำ: ขาที่พยุงตัวได้ สปรินต์ที่ยังถึงในควอเตอร์สี่ และการฟื้นตัวระหว่างนั้น\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: the group in deep water facing the coach, far enough apart that nobody lands on anybody\nอุปกรณ์: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดและลงสองเท้า • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อปั่นขา มือพ้นน้ำ • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อกระโดดและลงสองเท้า • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อปั่นขา มือพ้นน้ำ\nการต่อเนื่อง: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nจุดเน้น: กระโดดครั้งสุดท้ายให้สูงเท่าครั้งแรก พอความสูงตกให้จบเซ็ตทันที เพราะสิ่งที่ฝึกคือความสูง",
+        "vi-VN": "Mục đích: Thể lực dưới nước: đôi chân giữ được người, cú bơi nước rút vẫn tới ở hiệp bốn, và sự hồi phục giữa hai điều đó.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: the group in deep water facing the coach, far enough apart that nobody lands on anybody.\nDụng cụ: the shaded zone is the deep water the lunges are done in: each one rises from an eggbeater, out of the water to the hips, and sinks back under control.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để bật lên và tiếp đất bằng hai chân; Bước 2: cầu thủ di chuyển lùi lại để đạp nước, hai tay khỏi mặt nước; Bước 3: cầu thủ di chuyển lên phía trước để bật lên và tiếp đất bằng hai chân; Bước 4: cầu thủ di chuyển lùi lại để đạp nước, hai tay khỏi mặt nước.\nTiếp nối: Eight lunges out of the water with the shooting arm up, 90 seconds' rest; four sets. When the hips stop clearing the surface the set is finished.\nĐiểm chính: Lần bật cuối phải cao bằng lần đầu; ngay khi độ cao giảm là kết thúc hiệp, còn bao nhiêu cũng bỏ — thứ đang tập là độ cao."
+      },
+      "mistake": {
+        "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "en-GB": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
+        "zh-CN": "为了撑完一组而在快的那趟留力——留了力的那趟等于没跑。",
+        "zh-TW": "為了撐完一組而在快的那趟留力——留了力的那趟等於沒跑。",
+        "ja-JP": "セットを乗り切るためにきつい本数で力を残す——残した1本はカウントされない。",
+        "ko-KR": "세트를 버티려고 힘든 회차에서 힘을 아낀다 — 아낀 회차는 하지 않은 것과 같다.",
+        "es-ES": "Dosificar las repeticiones duras para aguantar la serie: la que te guardas no cuenta.",
+        "fr-FR": "Se ménager sur les répétitions dures pour tenir la série — celle où l'on se retient ne compte pas.",
+        "id-ID": "Menahan tenaga di ulangan berat demi bertahan satu set.",
+        "ms-MY": "Menahan tenaga pada ulangan berat demi bertahan satu set.",
+        "th-TH": "ออมแรงในรอบหนักเพื่อให้จบเซ็ต รอบที่ออมแรงเท่ากับไม่ได้ทำ",
+        "vi-VN": "Giữ sức ở những lượt nặng để trụ hết hiệp — lượt giữ sức coi như không tính."
+      },
+      "board": {
+        "sportType": 11,
+        "players": [
+          {
+            "id": "d0",
+            "label": "",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              500.0,
+              859.0356164383561
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                500.0,
+                771.8071232876714
+              ],
+              [
+                500.0,
+                859.0356164383561
+              ],
+              [
+                500.0,
+                771.8071232876714
+              ],
+              [
+                500.0,
+                859.0356164383561
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "m0",
+            "label": "",
+            "team": 2,
+            "sportType": null,
+            "position": [
+              500.0,
+              815.4213698630138
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4282434815,
+            "customColor": 4294956864,
+            "gender": 2,
+            "markerShape": 7,
             "photoId": null,
             "role": null,
             "attachedTo": null

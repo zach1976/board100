@@ -329,6 +329,11 @@ def audit(drill, sport):
             terminal = True
     else:
         terminal = not movers
+    # Conditioning has no ball to end anywhere and no next rep to set up on
+    # the board: its 【连贯】 line carries the sets, the rest and the queue,
+    # and the build refuses a conditioning drill without one.
+    if drill.get("category") == "conditioning":
+        movers = []
     if movers and not loop:
         if not terminal:
             out.append({
