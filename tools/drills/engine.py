@@ -591,6 +591,35 @@ def unlabel_lone_player(drill: Drill) -> None:
         people[0].label = ""
 
 
+def frame_of(sport: str, board: dict) -> str | None:
+    """"top" or "bottom" when everything in the drill stays in one half.
+
+    A free kick, a corner, a keeper's session: the other half of the pitch
+    is empty grass, and a board that shows it draws the drill at half the
+    size it could be. The app and the review page crop to the busy half
+    when this says so; the coordinates are untouched, it is only a view.
+    A little past halfway still counts, so a full-back on the centre
+    circle does not push a finishing drill back out to full size.
+    """
+    # Only where a half is a thing: a goal at each end. A net sport's two
+    # sides face each other and a diamond has no halves at all.
+    if sport not in ("soccer", "basketball", "handball", "fieldHockey",
+                     "rugby", "waterPolo"):
+        return None
+    left, top, w, h = court_rect(sport)
+    ys = []
+    for p in board["players"]:
+        ys.append(p["position"][1])
+        ys.extend(m[1] for m in p.get("moves", []))
+    if not ys:
+        return None
+    if max(ys) <= top + h * 0.58:
+        return "top"
+    if min(ys) >= top + h * 0.42:
+        return "bottom"
+    return None
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     from .narrate import compose_note
     unlabel_lone_player(drill)
@@ -1200,6 +1229,7 @@ def build(sport: str, library) -> dict:
                 "players": d.player_count,
                 "free": d.free,
                 "usage": d.usage,
+                "frame": frame_of(sport, board),
                 "offSurface": d.off_surface,
                 "name": d.name,
                 "note": d.note,

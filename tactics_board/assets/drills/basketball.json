@@ -12,6 +12,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Layup lines",
@@ -210,6 +211,7 @@
       "players": 1,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Two-ball dribbling",
@@ -416,6 +418,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Star passing",
@@ -648,6 +651,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Five-out spacing",
@@ -861,6 +865,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Pick and roll",
@@ -1143,6 +1148,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Pick and pop",
@@ -1425,6 +1431,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Backdoor cut",
@@ -1638,6 +1645,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Dribble handoff",
@@ -1893,6 +1901,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Horns set",
@@ -2113,6 +2122,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Catch and shoot",
@@ -2286,6 +2296,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Post finishing",
@@ -2486,6 +2497,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Closeouts",
@@ -2674,6 +2686,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Help and recover",
@@ -2874,6 +2887,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Box out",
@@ -3101,6 +3115,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Baseline inbounds: box",
@@ -3416,6 +3431,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Press break",
@@ -3717,6 +3733,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "3v3, no dribble",
@@ -3945,6 +3962,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "2v1 transition",
@@ -4153,6 +4171,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Ball screen from top",
@@ -4448,6 +4467,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Ball screen from left wing",
@@ -4743,6 +4763,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Ball screen from right wing",
@@ -5038,6 +5059,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Ball screen from left slot",
@@ -5333,6 +5355,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Ball screen from right slot",
@@ -5628,6 +5651,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Cutting give and go",
@@ -5879,6 +5903,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Cutting the backdoor cut",
@@ -6125,6 +6150,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Cutting the flare",
@@ -6378,6 +6404,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Cutting along the baseline",
@@ -6624,6 +6651,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting the corner",
@@ -6805,6 +6833,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting left wing",
@@ -6986,6 +7015,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting top",
@@ -7167,6 +7197,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting right wing",
@@ -7348,6 +7379,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shooting the elbow",
@@ -7529,6 +7561,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Post play the drop step",
@@ -7782,6 +7815,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Post play facing up",
@@ -8035,6 +8069,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Post play the kick-out",
@@ -8269,6 +8304,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Post play the short roll",
@@ -8539,6 +8575,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence in drop coverage",
@@ -8774,6 +8811,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence hedging",
@@ -9009,6 +9047,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence switching",
@@ -9244,6 +9283,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Defence icing the side screen",
@@ -9466,6 +9506,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Shell drill 4v4",
@@ -9791,6 +9832,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 3v2",
@@ -10046,6 +10088,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 4v3",
@@ -10353,6 +10396,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Transition 5v4",
@@ -10719,6 +10763,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Inbounds stack",
@@ -10988,6 +11033,7 @@
       "players": 7,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Inbounds the box",
@@ -11284,6 +11330,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Inbounds the zipper",
@@ -11546,6 +11593,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": true,
       "name": {
         "en": "Inbounds from the sideline",
@@ -11808,6 +11856,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Zone defence the 2-3",
@@ -12149,6 +12198,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Zone defence the 1-3-1",
@@ -12490,6 +12540,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Zone defence attacking the zone",
@@ -12872,6 +12923,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Off-ball screen the pin-down",
@@ -13115,6 +13167,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Off-ball screen the stagger",
@@ -13385,6 +13438,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Off-ball screen the flex cut",
@@ -13625,6 +13679,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "Free throws",

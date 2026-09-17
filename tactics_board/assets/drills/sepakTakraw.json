@@ -25,6 +25,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up juggling in pairs",
@@ -186,6 +187,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up on every surface",
@@ -374,6 +376,7 @@
       "players": 3,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up keeping it up as three",
@@ -562,6 +565,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve receive on the left",
@@ -802,6 +806,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve receive on the right",
@@ -1042,6 +1047,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Feeding off the serve",
@@ -1277,6 +1283,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Feeding high",
@@ -1512,6 +1519,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Feeding fast",
@@ -1747,6 +1755,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Attacking straight",
@@ -2002,6 +2011,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Attacking cross-court",
@@ -2257,6 +2267,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Attacking the feint",
@@ -2512,6 +2523,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Spiking the roll",
@@ -2752,6 +2764,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Spiking the scissor kick",
@@ -2979,6 +2992,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Spiking the sunback",
@@ -3219,6 +3233,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending at the net",
@@ -3461,6 +3476,7 @@
       "players": 5,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending behind the block",
@@ -3703,6 +3719,7 @@
       "players": 5,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending covering the block",
@@ -3932,6 +3949,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Covering the spike behind your own attack",
@@ -4140,6 +4158,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game full regu",
@@ -4381,6 +4400,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve deep",
@@ -4636,6 +4656,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve at the seam",
@@ -4891,6 +4912,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve short",
@@ -5146,6 +5168,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Tekong serve off the high toss",
@@ -5386,6 +5409,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Tekong serve driven low",
@@ -5626,6 +5650,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 2v2",
@@ -5841,6 +5866,7 @@
       "players": 6,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game 3v3",
@@ -6110,6 +6136,7 @@
       "players": 6,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game with no block",
@@ -6386,6 +6413,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending blocking at the net",
@@ -6608,6 +6636,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve receive with the head",

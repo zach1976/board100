@@ -223,7 +223,10 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       padding:
                           const EdgeInsets.symmetric(horizontal: T.screenX),
                       child: _BoardCard(
-                          state: _preview, beats: beats, setup: setup),
+                          state: _preview,
+                          beats: beats,
+                          setup: setup,
+                          frame: d.frame),
                     ),
                     const SizedBox(height: T.s24),
                     Padding(
@@ -448,7 +451,11 @@ class _BoardCard extends StatelessWidget {
   /// board can say what the step it is showing is.
   final List<String> beats;
   final String? setup;
-  const _BoardCard({required this.state, this.beats = const [], this.setup});
+
+  /// "top" / "bottom" crops the board to that half of the pitch.
+  final String? frame;
+  const _BoardCard(
+      {required this.state, this.beats = const [], this.setup, this.frame});
 
   @override
   Widget build(BuildContext context) {
@@ -471,13 +478,25 @@ class _BoardCard extends StatelessWidget {
                   // hero of the page, and the pitch gets the width the
                   // screen can give it.
                   height: MediaQuery.of(context).size.height * 0.42,
-                  child: const FittedBox(
+                  child: FittedBox(
                     fit: BoxFit.contain,
-                    child: SizedBox(
-                      width: kBoardRefWidth,
-                      height: kBoardRefHeight,
-                      child:
-                          IgnorePointer(child: TacticsCanvas(preview: true)),
+                    // A drill that lives in one half is shown at that half:
+                    // the other half is empty grass, and drawing it halved
+                    // the size of everything that mattered. The crop is a
+                    // view — the board underneath is the full pitch.
+                    child: ClipRect(
+                      child: Align(
+                        alignment: frame == 'bottom'
+                            ? Alignment.bottomCenter
+                            : Alignment.topCenter,
+                        heightFactor: frame == null ? 1.0 : 0.56,
+                        child: const SizedBox(
+                          width: kBoardRefWidth,
+                          height: kBoardRefHeight,
+                          child: IgnorePointer(
+                              child: TacticsCanvas(preview: true)),
+                        ),
+                      ),
                     ),
                   ),
                 ),

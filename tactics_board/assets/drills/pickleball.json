@@ -25,6 +25,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up dinking",
@@ -231,6 +232,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up hand speed",
@@ -437,6 +439,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up transition footwork",
@@ -648,6 +651,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Dink straight",
@@ -847,6 +851,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Dink cross-court",
@@ -1053,6 +1058,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Dink to the backhand",
@@ -1259,6 +1265,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Dink pulling them wide",
@@ -1465,6 +1472,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Serve and return deep to the backhand",
@@ -1646,6 +1654,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Serve and return deep to the forehand",
@@ -1827,6 +1836,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Serve and return and come in",
@@ -2013,6 +2023,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Third shot drop",
@@ -2271,6 +2282,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Third shot drive",
@@ -2529,6 +2541,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Third shot the fifth from the transition zone",
@@ -2782,6 +2795,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Speed-up at the shoulder",
@@ -3023,6 +3037,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Speed-up at the hip",
@@ -3251,6 +3266,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Speed-up the Ernie",
@@ -3497,6 +3513,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Put-away the overhead",
@@ -3718,6 +3735,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Put-away the roll volley",
@@ -3939,6 +3957,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Put-away around the post",
@@ -4160,6 +4179,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the block",
@@ -4381,6 +4401,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the reset from transition",
@@ -4602,6 +4623,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the lob over your head",
@@ -4823,6 +4845,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the counter in a firefight",
@@ -5044,6 +5067,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Team shape both at the kitchen",
@@ -5278,6 +5302,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Team shape stacking",
@@ -5526,6 +5551,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Team shape switching on the lob",
@@ -5774,6 +5800,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game dinks only",
@@ -6029,6 +6056,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game skinny singles",
@@ -6230,6 +6258,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game third shots only",
@@ -6485,6 +6514,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Game full doubles",
@@ -6727,6 +6757,7 @@
       "players": 4,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": true,
       "name": {
         "en": "Team shape the two-bounce sequence",
@@ -7010,6 +7041,7 @@
       "players": 4,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Team shape the offensive lob",

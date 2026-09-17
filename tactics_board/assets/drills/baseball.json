@@ -25,6 +25,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up long toss",
@@ -206,6 +207,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up infield and outfield",
@@ -549,6 +551,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Warm-up pitchers fielding practice",
@@ -735,6 +738,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Double play 6-4-3",
@@ -1182,6 +1186,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Double play 4-6-3",
@@ -1629,6 +1634,7 @@
       "players": 11,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Double play 5-4-3",
@@ -2076,6 +2082,7 @@
       "players": 11,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Double play 1-6-3",
@@ -2523,6 +2530,7 @@
       "players": 10,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Cut-off and relay to home",
@@ -2928,6 +2936,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Cut-off and relay to third",
@@ -3328,6 +3337,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Cut-off and relay on the gap ball",
@@ -3728,6 +3738,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Baserunning reading the steal",
@@ -4094,6 +4105,7 @@
       "players": 8,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Baserunning the hit and run",
@@ -4472,6 +4484,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Baserunning tagging up",
@@ -4838,6 +4851,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Baserunning first to third",
@@ -5219,6 +5233,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Baserunning the secondary lead",
@@ -5580,6 +5595,7 @@
       "players": 9,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Scoring the run the contact play",
@@ -5906,6 +5922,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Scoring the run the squeeze",
@@ -6232,6 +6249,7 @@
       "players": 9,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Scoring the run from second",
@@ -6558,6 +6576,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the situation against the bunt",
@@ -7014,6 +7033,7 @@
       "players": 12,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the situation first and third",
@@ -7476,6 +7496,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the situation with the infield in",
@@ -7925,6 +7946,7 @@
       "players": 11,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Defending the situation the pop-up priority",
@@ -8360,6 +8382,7 @@
       "players": 10,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Holding the runner the pick-off at first",
@@ -8741,6 +8764,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Holding the runner the pick-off at second",
@@ -9122,6 +9146,7 @@
       "players": 10,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Holding the runner the rundown",
@@ -9515,6 +9540,7 @@
       "players": 10,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Holding the runner the pitch-out",
@@ -9903,6 +9929,7 @@
       "players": 11,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Situational scrimmage two outs, runner on second",
@@ -10324,6 +10351,7 @@
       "players": 13,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Situational scrimmage bases loaded",
@@ -10799,6 +10827,7 @@
       "players": 11,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Situational scrimmage the baserunning game",
@@ -11207,6 +11236,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Hitting off the tee and the front toss",
@@ -11408,6 +11438,7 @@
       "players": 8,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Hitting the two-strike approach",
@@ -11742,6 +11773,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Hitting laying down the bunt",
@@ -12075,6 +12107,7 @@
       "players": 2,
       "free": true,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Catching blocking the ball in the dirt",
@@ -12251,6 +12284,7 @@
       "players": 7,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Catching the throw down to second",
@@ -12557,6 +12591,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Fielding fundamentals the ground ball and the backhand",
@@ -12776,6 +12811,7 @@
       "players": 3,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Fielding fundamentals the drop step and the fly ball",
@@ -12969,6 +13005,7 @@
       "players": 2,
       "free": false,
       "usage": 2,
+      "frame": null,
       "offSurface": false,
       "name": {
         "en": "Fielding fundamentals the bullpen and the sequence",

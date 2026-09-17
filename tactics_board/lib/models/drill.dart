@@ -54,6 +54,11 @@ class Drill {
   /// on the card; the generator's per-sport table sets it.
   final int usage;
 
+  /// "top" or "bottom" when the whole drill stays in one half of the pitch
+  /// — a corner, a keeper's session — so the page can crop the board to the
+  /// busy half and draw it twice the size. Null shows the whole pitch.
+  final String? frame;
+
   /// The translation key for the usage tier — "常用", "一般", "偶尔".
   String get usageKey => 'drill_usage_${usage.clamp(1, 3)}';
 
@@ -71,6 +76,7 @@ class Drill {
     this.familyName,
     this.free = false,
     this.usage = 2,
+    this.frame,
     this.offSurface = false,
   });
 
@@ -92,6 +98,7 @@ class Drill {
             : Map<String, String>.from(json['familyName'] as Map),
         free: json['free'] as bool? ?? false,
         usage: json['usage'] as int? ?? 2,
+        frame: json['frame'] as String?,
         offSurface: json['offSurface'] as bool? ?? false,
       );
 
