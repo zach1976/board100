@@ -41,7 +41,7 @@ def soccer_drills() -> list[Drill]:
     return [
         # ── warm-up ──────────────────────────────────────────────────────────
         Drill(
-            id="rondo_4v2", category="possession", rules=RONDO_RULES, minutes=10,
+            id="rondo_4v2", category="possession", flow=RONDO_RULES, minutes=10,
             name={"en": "Rondo 4v2", "zh-CN": "抢圈 4v2", "zh-TW": "搶圈 4v2",
                   "ja-JP": "ロンド 4対2", "ko-KR": "론도 4대2", "es-ES": "Rondo 4v2",
                   "fr-FR": "Rondo 4c2", "id-ID": "Rondo 4v2", "ms-MY": "Rondo 4v2",
@@ -127,7 +127,7 @@ def soccer_drills() -> list[Drill]:
 
         # ── possession ───────────────────────────────────────────────────────
         Drill(
-            id="possession_7v4", category="possession", rules=RONDO_RULES, minutes=15,
+            id="possession_7v4", category="possession", flow=RONDO_RULES, minutes=15,
             name={"en": "7v4 possession", "zh-CN": "控球 7v4", "zh-TW": "7v4 控球",
                   "ja-JP": "7対4 ポゼッション", "ko-KR": "7대4 볼 소유", "es-ES": "Posesión 7v4",
                   "fr-FR": "Conservation 7c4", "id-ID": "Penguasaan 7v4", "ms-MY": "Penguasaan 7v4",
@@ -411,7 +411,7 @@ def soccer_drills() -> list[Drill]:
             free=True,
         ),
         Drill(
-            id="defend_2v2", category="defending", rules=DUEL_RULES, minutes=12,
+            id="defend_2v2", category="defending", flow=DUEL_RULES, minutes=12,
             name={"en": "2v2 recovery", "zh-CN": "回追防守 2v2", "zh-TW": "回追防守 2v2",
                   "ja-JP": "2対2 リカバリー", "ko-KR": "2대2 회복 수비", "es-ES": "Repliegue 2v2",
                   "fr-FR": "Repli 2c2", "id-ID": "Pemulihan 2v2", "ms-MY": "Pemulihan 2v2",
@@ -649,19 +649,40 @@ def soccer_drills() -> list[Drill]:
             # A first-touch gate drill is a pass and a touch, not a slalom
             # with the partner watching: 2 serves, 1's first touch carries
             # the ball through the gate, 1 sets it back and 2 serves again.
+            # …through the second gate too, sets that one back, and jogs
+            # to the start for the next serve: six beats and both men and
+            # the ball are where they began. B never moves — he is the
+            # server for the whole set, and the rules line says when the
+            # two swap.
             home=[
-                P(300, 1050, "A", moves=[(420, 900, 1), (560, 760, 3)]),
+                P(300, 1050, "A",
+                  moves=[(420, 900, 1), (560, 760, 3), (300, 1050, 5)],
+                  why={1: "turn", 3: "turn", 5: "reset"}),
                 P(700, 1050, "B"),
             ],
             markers=[M(370, 850), M(480, 950), M(510, 710), M(620, 810)],
             ball=1,
-            ball_to=[(0, 0), (0, 1), (1, 2), (0, 3)],
+            ball_to=[(0, 0), (0, 1), (1, 2), (0, 3), (0, 4), (1, 5)],
+            flow={
+                "en": "A works both gates, then jogs back to the start for the next serve; after six serves A and B swap — the server receives, the receiver serves.",
+                "en-GB": "A works both gates, then jogs back to the start for the next serve; after six serves A and B swap — the server receives, the receiver serves.",
+                "zh-CN": "A 连过两个门后跑回起点接下一球；B 一直站着喂球，喂 6 球后两人互换——喂球的去接，接球的来喂。",
+                "zh-TW": "A 連過兩個門後跑回起點接下一球；B 一直站著餵球，餵 6 球後兩人互換——餵球的去接，接球的來餵。",
+                "ja-JP": "Aは2つのゲートを抜けたらスタートへ戻り次の球を受ける。Bは動かず出し役。6球出したら交代——出し役が受け、受け役が出す。",
+                "ko-KR": "A는 두 게이트를 통과한 뒤 출발점으로 돌아가 다음 공을 받는다. B는 움직이지 않고 공을 준다. 6개를 주면 둘이 교대 — 주던 사람이 받고, 받던 사람이 준다.",
+                "es-ES": "A pasa por las dos puertas y vuelve trotando al inicio para el siguiente saque; B no se mueve, sirve. Tras seis saques cambian: el que servía recibe y el que recibía sirve.",
+                "fr-FR": "A passe les deux portes puis revient au départ pour le service suivant ; B ne bouge pas, il sert. Après six services on inverse : le serveur reçoit, le receveur sert.",
+                "id-ID": "A melewati kedua gerbang lalu berlari kembali ke awal untuk umpan berikutnya; B tetap diam sebagai pengumpan. Setelah enam umpan keduanya bertukar — yang mengumpan menerima, yang menerima mengumpan.",
+                "ms-MY": "A melepasi kedua-dua pintu kemudian berlari kembali ke permulaan untuk hantaran seterusnya; B kekal sebagai penghantar. Selepas enam hantaran kedua-duanya bertukar — penghantar menerima, penerima menghantar.",
+                "th-TH": "A ผ่านสองประตูแล้ววิ่งกลับจุดเริ่มเพื่อรับลูกถัดไป B ยืนป้อนบอลไม่ขยับ ป้อนครบ 6 ลูกแล้วสลับกัน คนป้อนไปรับ คนรับมาป้อน",
+                "vi-VN": "A đi qua cả hai cổng rồi chạy về điểm xuất phát nhận bóng tiếp; B đứng yên chuyền bóng. Sau 6 quả, hai người đổi vai — người chuyền đi nhận, người nhận đi chuyền.",
+            },
             free=True,
         ),
 
         # ── possession ───────────────────────────────────────────────────────
         Drill(
-            id="rondo_5v2_split", category="possession", rules=RONDO_RULES, minutes=12,
+            id="rondo_5v2_split", category="possession", flow=RONDO_RULES, minutes=12,
             name={"en": "Rondo 5v2 — split pass", "en-GB": "Rondo 5v2 — split pass", "zh-CN": "抢圈 5v2 · 穿越直塞",
                   "zh-TW": "搶圈 5v2 · 穿越直塞", "ja-JP": "5対2 ロンド：割るパス", "ko-KR": "5대2 론도 — 가르는 패스",
                   "es-ES": "Rondo 5v2 — pase interior", "fr-FR": "Rondo 5c2 — passe dans l'axe",
@@ -1634,7 +1655,7 @@ def rondo_family() -> list[Drill]:
             minutes=minutes, rel=True, free=(attackers == 4),
             name=suffixed(RONDO_NAME, f"{attackers}v{defenders}"),
             note=RONDO_NOTE,
-            rules=RONDO_RULES,
+            flow=RONDO_RULES,
             # The outside players keep their cones; the one move is a step
             # to meet the pass as it comes, then back once it has gone. A,
             # who starts with the ball, stays put. Same shape as rondo_4v2.
@@ -3277,7 +3298,7 @@ def overload_family() -> list[Drill]:
             id=f"overload_{att}v{dfn}", category="possession", minutes=minutes,
             rel=True, free=(att == 4),
             name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
-            rules=RONDO_RULES,
+            flow=RONDO_RULES,
             home=[P(x, y, chr(65 + i),
                     moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i % 2)])
                   for i, (x, y) in enumerate(a)],
@@ -3720,8 +3741,8 @@ def soccer_library() -> list[Drill]:
     drills = _soccer_library()
     for d in drills:
         d.usage = _usage_of(d.id)
-        if d.rules is None:
-            d.rules = _rules_of(d.id)
+        if d.flow is None:
+            d.flow = _rules_of(d.id)
         if d.gear is None:
             d.gear = gear_of(d.id)
         # Equipment on the board with no word on what it is for is a

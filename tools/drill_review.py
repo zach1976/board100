@@ -262,7 +262,7 @@ def audit(drill, sport):
     loop = (last > 0 and all(spots_refilled(side) for side in teams.values())
             and all(dist(b["position"], position_at(b, last)) <= 200
                     for b in balls))
-    has_rules = any(ln.startswith("Rules:") for ln in
+    has_rules = any(ln.startswith("How it continues:") for ln in
                     drill.get("note", {}).get("en", "").split("\n"))
     if balls and balls[0].get("moves"):
         ball = balls[0]
@@ -320,7 +320,7 @@ def audit(drill, sport):
             out.append({
                 "id": "no_next_rep",
                 "level": "warn",
-                "text": "一回合有终点，但没有【规则】说下一回合怎么开始"
+                "text": "一回合有终点，但没有【连贯】说下一回合怎么开始"
                         "（谁换、球从哪儿来）",
             })
 
