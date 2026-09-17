@@ -488,7 +488,9 @@ def gaps_family() -> list[Drill]:
             home=[P(BASE_D[0], 1.03, "S", moves=[(BASE_D[0], 0.94, 0), (0.5, 0.99, 2)])],
             away=[P(0.28, -0.03, "R", moves=[(0.22, 0.16, 2)])],
             markers=[M(0.20, 0.26, "zone", "")],
-            ball=0, ball_moves=[(0.20, 0.26, 1), (0.16, 0.10, 2)],
+            # …and the return comes back deep to the server's side: the
+            # kick serve has done its job when the return is neutral
+            ball=0, ball_moves=[(0.20, 0.26, 1), (0.16, 0.10, 2), (0.56, 0.86, 3)],
         ),
         Drill(
             id="tn_serve_and_volley", category="attacking", minutes=10, rel=True,

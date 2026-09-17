@@ -81,7 +81,12 @@ def warmup_family() -> list[Drill]:
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, ball=0,
             # round the ring, or fed and finished when a keeper stands
-            ball_to=([(1, 0), (2, 1)] if not away else [(1, 0), ((0.50, 0.04), 1)]),
+            # The star goes round and back to the man it started with; the
+            # three lanes finish on the middle man's shot. Two passes and a
+            # stop was a diagram of a triangle.
+            ball_to=(([(1, 0), (2, 1), (3, 2), (4, 3), (0, 4)] if key == "star_passing"
+                      else [(1, 0), (2, 1), ((0.50, 0.04), 2)])
+                     if not away else [(1, 0), ((0.50, 0.04), 1)]),
         ))
     return out
 
@@ -755,7 +760,25 @@ def gaps_family() -> list[Drill]:
     ]
 
 
+# Passages that ended on the wing's or the last receiver's hands: the wing
+# shoots, the game passage finishes, the keeper's outlet is carried on.
+FINISH_AT_GOAL = [
+    "hb_circulation_wide", "hb_circulation_with_pivot", "hb_circulation_second_wave",
+    "hb_defence_six_zero", "hb_defence_five_one", "hb_defence_three_two_one",
+    "hb_defence_four_two",
+    "hb_game_3v3", "hb_game_4v4", "hb_game_5v5", "hb_game_6v6",
+]
+# The star and the three lanes come back round to the start: the next
+# man goes; the keeper's outlet pass is carried over halfway.
+BACK_TO_START = ["hb_warm_star_passing", "hb_warm_three_lane"]
+OVER_HALFWAY = ["hb_gk_outlet"]
+
+
 def handball_library() -> list[Drill]:
-    return (warmup_family() + circulation_family() + attack_family()
-            + break_family() + shooting_family() + defence_family()
-            + setpiece_family() + game_family() + gaps_family())
+    from .engine import finish_with
+    drills = (warmup_family() + circulation_family() + attack_family()
+              + break_family() + shooting_family() + defence_family()
+              + setpiece_family() + game_family() + gaps_family())
+    finish_with(drills, (0.50, 0.04), FINISH_AT_GOAL)
+    finish_with(drills, (0.50, 0.45), OVER_HALFWAY)
+    return drills

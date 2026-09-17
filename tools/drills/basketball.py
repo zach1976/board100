@@ -1381,11 +1381,31 @@ def gaps_family() -> list[Drill]:
     return out
 
 
+# The sets whose last pass frees a man for the shot — so the shot is drawn.
+# A pattern that ended on the roller's or the cutter's hands showed what he
+# was freed for only in the note. The basket is at (0.50, 0.05).
+FINISH_AT_THE_BASKET = [
+    "bb_five_out_spacing", "bb_pick_and_roll", "bb_pick_and_pop",
+    "bb_backdoor_cut", "bb_horns_set", "bb_closeout", "bb_3v3_no_dribble",
+    "bb_screen_top", "bb_cut_give_and_go", "bb_cut_backdoor", "bb_cut_flare",
+    "bb_cut_baseline", "bb_post_kick_out", "bb_zone_two_three",
+    "bb_offball_pin_down", "bb_offball_stagger", "bb_offball_flex",
+    # …and the coverage drills end on the handler's shot the coverage
+    # is there to contest.
+    "bb_defence_drop", "bb_defence_hedge", "bb_defence_switch", "bb_defence_ice",
+]
+# The press break is over when the ball is across halfway.
+OVER_HALFWAY = ["bb_press_break"]
+
+
 def basketball_library() -> list[Drill]:
-    from .engine import merge
-    return merge(basketball_drills(), ball_screen_family(), cut_family(),
-                 shooting_family(), post_family(), defence_family(),
-                 shell_drill(), transition_family(), inbounds_family(), gaps_family())
+    from .engine import finish_with, merge
+    drills = merge(basketball_drills(), ball_screen_family(), cut_family(),
+                   shooting_family(), post_family(), defence_family(),
+                   shell_drill(), transition_family(), inbounds_family(), gaps_family())
+    finish_with(drills, (0.50, 0.05), FINISH_AT_THE_BASKET)
+    finish_with(drills, (0.50, 0.42), OVER_HALFWAY)
+    return drills
 
 def shell_drill() -> list[Drill]:
     """4v4 shell — the one defensive drill every programme runs. Its absence
