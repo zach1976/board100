@@ -1,7 +1,7 @@
 """Field hockey: what the cones and zones are, and how each drill keeps going."""
 from .rules_common import (BUILDUP_RULES, DUEL_RULES, GAME_RULES, GK_RULES,
                            PATTERN_RULES, QUEUE_RULES, RALLY_RULES,
-                           SETPIECE_RULES)
+                           SCORE_GOAL_HOCKEY, SETPIECE_RULES)
 
 
 def _t(en, zh, zht):
@@ -34,13 +34,13 @@ GEAR = {
         "六个锥标摆成三个门，带球依次穿过每个门",
         "六個錐標擺成三個門，帶球依次穿過每個門"),
     "fh_warm_elimination": _t(
-        "the cone stands in for the defender to beat; go past it on either side with the move being practised",
-        "锥标代表要过掉的防守者，用练习的动作从它任一侧过去",
-        "錐標代表要過掉的防守者，用練習的動作從它任一側過去"),
+        "the cone, 8 m from the start, stands in for the defender to beat; go past it on either side with the move being practised",
+        "锥标代表要过掉的防守者，从起点跑 8 米到它，用练习的动作从它任一侧过去",
+        "錐標代表要過掉的防守者，從起點跑 8 米到它，用練習的動作從它任一側過去"),
     "fh_defend_tackle": _t(
-        "the two cones mark the channel the attacker has to come through; the tackle is made inside it",
-        "两个锥标标出进攻者必须通过的通道，抢断在通道内完成",
-        "兩個錐標標出進攻者必須通過的通道，搶斷在通道內完成"),
+        "the two cones stand 8 m apart and mark the channel the attacker has to come through; the tackle is made inside it",
+        "两个锥标相距 8 米，标出进攻者必须通过的通道，抢断在通道内完成",
+        "兩個錐標相距 8 米，標出進攻者必須通過的通道，搶斷在通道內完成"),
     "fh_build_aerial": _t(
         "the shaded zone is where the aerial has to land, in front of the receiver, not on him",
         "阴影区是高球的落点，落在接球人前方，不是砸在他身上",
@@ -49,4 +49,9 @@ GEAR = {
         "the cone marks where the clearance has to go — out of the circle and wide",
         "锥标标出解围要踢向的位置：出圆圈、向边路",
         "錐標標出解圍要踢向的位置：出圓圈、向邊路"),
+}
+
+
+RULES = {
+    "fh_": SCORE_GOAL_HOCKEY,
 }

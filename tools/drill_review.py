@@ -26,6 +26,7 @@ any drill:
 Writes tools/drill_review.html and opens nothing — open it yourself.
 """
 import json
+import re
 import pathlib
 import sys
 
@@ -350,6 +351,43 @@ def audit(drill, sport):
                 "text": "一回合有终点，但没有【连贯】说下一回合怎么开始"
                         "（谁换、球从哪儿来）",
             })
+
+    # Two ways a note is technically complete and still leaves a coach
+    # guessing: equipment with no measurements ("cones mark the area" — how
+    # big?), and a drill that talks about scoring or going out without ever
+    # saying what either means.
+    zh = drill.get("note", {}).get("zh-CN", "")
+    lines = {ln.split("】")[0][1:]: ln.split("】", 1)[-1]
+             for ln in zh.split("\n") if ln.startswith("【")}
+    gear_line = lines.get("器材", "")
+    setup_line = lines.get("组织", "")
+    has_size = re.search(r"[\d一二三四五六七八九十两半]+\s*(米|公尺|厘米|cm\b|m\b)",
+                         gear_line + setup_line)
+    # Only cones need measuring. A zone, a square or a circle is drawn where
+    # it really is on the court — the six-yard box, the kitchen line, a base,
+    # the service circle — and so is a cone that marks one of those, which the
+    # gear line says in words.
+    cones = [p for p in board["players"] if p.get("markerShape") == 5]
+    on_court = re.search(r"线|区|门|角|垒|圈|台", gear_line)
+    if cones and not has_size and not on_court:
+        out.append({
+            "id": "gear_no_size",
+            "level": "warn",
+            "text": "器材没有尺寸：说了摆什么，没说摆多远、围多大——"
+                    "教练照着摆不出来",
+        })
+    # Only where the drill itself leans on the words: the equipment line and
+    # the continuation line. A coaching point that mentions goals in passing
+    # ("set pieces decide a lot of goals") is not a rule that needs writing.
+    scores = re.search(r"得分|进球|算一分|算两分|出界|算赢",
+                       gear_line + lines.get("连贯", ""))
+    if scores and "规则" not in lines:
+        out.append({
+            "id": "undefined_scoring",
+            "level": "warn",
+            "text": "提到了得分或出界，但没有【规则】说明怎么算得分、"
+                    "什么算出界",
+        })
 
     rank = {"error": 0, "warn": 1, "info": 2}
     out.sort(key=lambda i: rank[i["level"]])

@@ -45,6 +45,8 @@ def _with_notes(sport: str, lib):
                 d.flow = lookup(notes.FLOW, d.id)
             if d.gear is None:
                 d.gear = lookup(notes.GEAR, d.id)
+            if d.rules is None and hasattr(notes, "RULES"):
+                d.rules = lookup(notes.RULES, d.id)
             assert d.flow, f"{sport}/{d.id}: no flow (【连贯】) text"
             assert not d.markers or d.gear, f"{sport}/{d.id}: markers but no gear text"
         return drills

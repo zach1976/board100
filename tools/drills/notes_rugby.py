@@ -1,6 +1,6 @@
 """Rugby: what the cones and zones are, and how each drill keeps going."""
 from .rules_common import (DUEL_RULES, GAME_RULES, PATTERN_RULES, QUEUE_RULES,
-                           SETPIECE_RULES, SETPLAY_RULES)
+                           SCORE_TRY, SETPIECE_RULES, SETPLAY_RULES)
 
 
 def _t(en, zh, zht):
@@ -49,13 +49,13 @@ GEAR = {
         "四个锥标围出传接球的方格区域",
         "四個錐標圍出傳接球的方格區域"),
     "rg_handling_threes": _t(
-        "the three cones are the three lanes the runners keep to",
-        "三个锥标标出三名跑动者各自的通道",
-        "三個錐標標出三名跑動者各自的通道"),
+        "the three cones stand 5 m apart and are the three lanes the runners keep to",
+        "三个锥标相距 5 米，标出三名跑动者各自的通道",
+        "三個錐標相距 5 米，標出三名跑動者各自的通道"),
     "rg_handling_wide": _t(
-        "the six cones mark the lanes across the full width, one per player",
-        "六个锥标标出横贯全宽的六条通道，每人一条",
-        "六個錐標標出橫貫全寬的六條通道，每人一條"),
+        "six cones 8 m apart mark the lanes across the full width, one per player",
+        "六个锥标相距 8 米，横贯全宽标出六条通道，每人一条",
+        "六個錐標相距 8 米，橫貫全寬標出六條通道，每人一條"),
     "rg_kick_": _t(
         "the shaded zone is where the kick has to land",
         "阴影区是踢球要落的区域",
@@ -69,9 +69,9 @@ GEAR = {
         "阴影区是开球要落的区域，必须过十米线",
         "陰影區是開球要落的區域，必須過十米線"),
     "rg_defence_tackle": _t(
-        "the two cones mark the channel the carrier runs through; the tackle is made inside it",
-        "两个锥标标出持球者跑动的通道，擒抱在通道内完成",
-        "兩個錐標標出持球者跑動的通道，擒抱在通道內完成"),
+        "the two cones stand 5 m apart and mark the channel the carrier runs through; the tackle is made inside it",
+        "两个锥标相距 5 米，标出持球者跑动的通道，擒抱在通道内完成",
+        "兩個錐標相距 5 米，標出持球者跑動的通道，擒抱在通道內完成"),
     "rg_kick_at_goal": _t(
         "the square is the tee on the kicking spot; the shaded zone is the target between the posts",
         "方块是放球的踢球点，阴影区是门柱之间的目标",
@@ -84,4 +84,9 @@ GEAR = {
         "the shaded zone is where the high ball comes down and the contest happens",
         "阴影区是高球落点和争顶发生的位置",
         "陰影區是高球落點和爭頂發生的位置"),
+}
+
+
+RULES = {
+    "rg_": SCORE_TRY,
 }

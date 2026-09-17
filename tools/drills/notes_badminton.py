@@ -1,5 +1,6 @@
 """Badminton: what the cones and zones are, and how each drill keeps going."""
-from .rules_common import FEED_RULES, POINT_RULES, RALLY_RULES, SERVE_RULES
+from .rules_common import (FEED_RULES, POINT_RULES, RALLY_RULES,
+                           SCORE_POINT_NET, SERVE_RULES)
 
 
 def _t(en, zh, zht):
@@ -40,9 +41,9 @@ GEAR = {
         "四个锥标是要跑到的四个角，中心点在四个锥标之间",
         "四個錐標是要跑到的四個角，中心點在四個錐標之間"),
     "bd_multi_shuttle": _t(
-        "the three cones are the three spots the feeder sends the shuttle to, in any order",
-        "三个锥标是喂球者会送到的三个落点，顺序随机",
-        "三個錐標是餵球者會送到的三個落點，順序隨機"),
+        "three cones on the net, mid-court and rear spots, about 3 m apart down the court; the feeder sends the shuttle to them in any order",
+        "三个锥标摆在网前、中场、后场三个落点上，前后相距约 3 米，喂球顺序随机",
+        "三個錐標擺在網前、中場、後場三個落點上，前後相距約 3 米，餵球順序隨機"),
     "bd_clear_": ZONE, "bd_drop_": ZONE, "bd_net_": ZONE, "bd_deception_": ZONE,
     "bd_smash_": ZONE, "bd_defence_": ZONE, "bd_net_battle": ZONE,
     "bd_serve_": _t(
@@ -54,11 +55,16 @@ GEAR = {
         "两个锥标标出发球的位置，阴影区是接发球要落的区域",
         "兩個錐標標出發球的位置，陰影區是接發球要落的區域"),
     "bd_game_half_court": _t(
-        "the two cones mark the half of the court in play; a shuttle outside them is out",
-        "两个锥标标出比赛用的半边场地，落在锥标外算出界",
-        "兩個錐標標出比賽用的半邊場地，落在錐標外算出界"),
+        "two cones on the ends of the centre line mark the half in play, about 3 m wide; a shuttle outside the line between them is out",
+        "两个锥标摆在中线的两端，标出比赛用的半边场地（宽约 3 米），落在锥标连线外算出界",
+        "兩個錐標擺在中線的兩端，標出比賽用的半邊場地（寬約 3 米），落在錐標連線外算出界"),
     "bd_clear_round_the_head": _t(
         "the cone is base: the player starts on it and gets back to it after every clear; the shaded zone is where the clear has to land",
         "锥标是中心位，每打完一拍高远球都要回到锥标；阴影区是高远球要落的区域",
         "錐標是中心位，每打完一拍高遠球都要回到錐標；陰影區是高遠球要落的區域"),
+}
+
+
+RULES = {
+    "bd_game_": SCORE_POINT_NET,
 }

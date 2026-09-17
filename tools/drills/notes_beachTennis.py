@@ -1,5 +1,6 @@
 """Beach tennis: what the zones and cones are, and how each drill keeps going."""
-from .rules_common import FEED_RULES, POINT_RULES, RALLY_RULES, SERVE_RULES
+from .rules_common import (FEED_RULES, POINT_RULES, RALLY_RULES,
+                           SCORE_POINT_NET, SERVE_RULES)
 
 
 def _t(en, zh, zht):
@@ -37,7 +38,12 @@ GEAR = {
         "陰影區是發球要落的區域"),
     "bt_attack_": ZONE, "bt_lob_": ZONE, "bt_smash_": ZONE, "bt_defence_": ZONE,
     "bt_game_half_court": _t(
-        "the two cones mark the half of the court in play; a ball outside them is out",
-        "两个锥标标出比赛用的半边场地，落在锥标外算出界",
-        "兩個錐標標出比賽用的半邊場地，落在錐標外算出界"),
+        "two cones on the ends of the centre line mark the half in play, about 4 m wide; a ball outside the line between them is out",
+        "两个锥标摆在中线两端，标出比赛用的半边场地（宽约 4 米），落在锥标连线外算出界",
+        "兩個錐標擺在中線兩端，標出比賽用的半邊場地（寬約 4 米），落在錐標連線外算出界"),
+}
+
+
+RULES = {
+    "bt_game_": SCORE_POINT_NET,
 }

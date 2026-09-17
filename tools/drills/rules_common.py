@@ -287,3 +287,98 @@ SERVE_IN_RULES = {
     "th-TH": "แต่ละรอบเริ่มด้วยการเสิร์ฟหรือโยนจากอีกฝั่ง เล่นจนบอลตกพื้น คนเดิมเสิร์ฟลูกถัดไป ครบ 6 ลูกทั้งสองฝั่งหมุนหนึ่งตำแหน่ง",
     "vi-VN": "Mỗi lượt bắt đầu bằng giao bóng hoặc tung bóng từ sân bên kia, đánh đến khi bóng chạm đất; cùng người đó giao tiếp, sau sáu bóng cả hai bên xoay một vị trí.",
 }
+
+# ══ what a goal is, and what out is ══════════════════════════════════════
+# A continuation line that says "after a goal" and a coaching point that
+# says "score" both assume the reader knows the rule being played. In a
+# drill that is not a match, he does not: a mini-goal, a zone, a line to
+# beat and a full goal are four different things.
+SCORE_BASKET = {
+    "en": "A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.",
+    "en-GB": "A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.",
+    "zh-CN": "投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。",
+    "zh-TW": "投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。",
+    "ja-JP": "シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。",
+    "ko-KR": "득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.",
+    "es-ES": "La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.",
+    "fr-FR": "Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.",
+    "id-ID": "Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.",
+    "ms-MY": "Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.",
+    "th-TH": "ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น",
+    "vi-VN": "Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.",
+}
+
+SCORE_GOAL_HAND = {
+    "en": "A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.",
+    "en-GB": "A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.",
+    "zh-CN": "球整体越过门线且从六米区外出手算进球——球未出手脚已踏入六米区则无效。球出边线由对方发球；被断球或进攻犯规即本次进攻结束。",
+    "zh-TW": "球整體越過門線且從六米區外出手算進球——球未出手腳已踏入六米區則無效。球出邊線由對方發球；被斷球或進攻犯規即本次進攻結束。",
+    "ja-JP": "ゴールエリア外から投げ、ボールが完全にラインを越えれば得点。リリース前にエリアを踏めばノーゴール。サイドラインを出たら相手ボール、奪われるか攻撃側の反則で攻撃終了。",
+    "ko-KR": "골 에어리어 밖에서 던져 공이 라인을 완전히 넘으면 득점 — 릴리스 전에 에어리어를 밟으면 무효. 사이드라인을 넘으면 상대 공, 턴오버나 공격자 반칙이면 공격 종료.",
+    "es-ES": "Es gol cuando el balón cruza entero la línea lanzado desde fuera del área — pisar el área antes de soltarlo lo anula. Sale por la banda, y una pérdida o falta de ataque termina la posesión.",
+    "fr-FR": "But quand le ballon franchit entièrement la ligne, tiré de l'extérieur de la zone — un pied dans la zone avant le lâcher annule. Sortie sur la touche ; perte de balle ou faute offensive termine l'attaque.",
+    "id-ID": "Gol bila bola sepenuhnya melewati garis dan dilempar dari luar area gawang; kaki masuk area sebelum bola lepas berarti tidak sah. Bola keluar di garis samping, dan turnover atau pelanggaran menyerang mengakhiri serangan.",
+    "ms-MY": "Gol apabila bola melepasi garisan sepenuhnya dan dilempar dari luar kawasan gol; kaki masuk kawasan sebelum bola dilepaskan bermakna tidak sah. Bola keluar di garisan tepi, dan turnover atau kesalahan menyerang menamatkan serangan.",
+    "th-TH": "เป็นประตูเมื่อบอลผ่านเส้นทั้งลูกและยิงจากนอกเขตประตู ถ้าเหยียบเขตก่อนปล่อยบอลถือว่าไม่นับ บอลออกข้างเป็นของอีกฝ่าย เสียบอลหรือฟาล์วรุกจบเกมรุก",
+    "vi-VN": "Bàn thắng khi bóng qua hẳn vạch và được ném từ ngoài khu 6 m — chạm khu trước khi rời tay là không hợp lệ. Bóng ra biên thuộc đội kia; mất bóng hoặc lỗi tấn công là kết thúc đợt tấn công.",
+}
+
+SCORE_GOAL_WATER = {
+    "en": "A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.",
+    "en-GB": "A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.",
+    "zh-CN": "球整体越过两门柱之间的门线算进球。球出边线由对方在出界处发球；30 秒内没有射门即失去球权。",
+    "zh-TW": "球整體越過兩門柱之間的門線算進球。球出邊線由對方在出界處發球；30 秒內沒有射門即失去球權。",
+    "ja-JP": "ボールがポスト間のラインを完全に越えれば得点。サイドを出たら相手がその地点から再開、30秒以内にシュートがなければ攻撃権を失う。",
+    "ko-KR": "공이 골포스트 사이 라인을 완전히 넘으면 득점. 공이 옆으로 나가면 상대가 그 지점에서 재개하고, 30초 안에 슛이 없으면 공격권을 잃는다.",
+    "es-ES": "Es gol cuando el balón cruza entero la línea entre los postes. Si sale por el lateral, el rival reanuda desde ahí, y treinta segundos sin tirar pierden la posesión.",
+    "fr-FR": "But quand le ballon franchit entièrement la ligne entre les poteaux. Sortie sur le côté : l'adversaire repart de là, et trente secondes sans tir font perdre la possession.",
+    "id-ID": "Gol bila bola sepenuhnya melewati garis di antara tiang. Bola keluar di samping, lawan memulai dari sana, dan tiga puluh detik tanpa tembakan berarti kehilangan bola.",
+    "ms-MY": "Gol apabila bola melepasi garisan antara tiang sepenuhnya. Bola keluar di tepi, lawan memulakan dari situ, dan tiga puluh saat tanpa rembatan bermakna kehilangan bola.",
+    "th-TH": "เป็นประตูเมื่อบอลผ่านเส้นระหว่างเสาทั้งลูก บอลออกข้างให้อีกฝ่ายเริ่มจากจุดนั้น และครบ 30 วินาทีไม่ได้ยิงถือว่าเสียสิทธิ์ครองบอล",
+    "vi-VN": "Bàn thắng khi bóng qua hẳn vạch giữa hai cột. Bóng ra biên thì đội kia phát lại từ đó, và ba mươi giây không dứt điểm là mất quyền kiểm soát bóng.",
+}
+
+SCORE_GOAL_HOCKEY = {
+    "en": "A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.",
+    "en-GB": "A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.",
+    "zh-CN": "只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。",
+    "zh-TW": "只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。",
+    "ja-JP": "シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。",
+    "ko-KR": "슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.",
+    "es-ES": "Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.",
+    "fr-FR": "Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.",
+    "id-ID": "Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.",
+    "ms-MY": "Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.",
+    "th-TH": "จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก",
+    "vi-VN": "Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.",
+}
+
+SCORE_TRY = {
+    "en": "A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.",
+    "en-GB": "A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.",
+    "zh-CN": "在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。",
+    "zh-TW": "在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。",
+    "ja-JP": "インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。",
+    "ko-KR": "인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.",
+    "es-ES": "Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.",
+    "fr-FR": "Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.",
+    "id-ID": "Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.",
+    "ms-MY": "Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.",
+    "th-TH": "ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น",
+    "vi-VN": "Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.",
+}
+
+SCORE_POINT_NET = {
+    "en": "A ball landing inside the lines wins the point; out, into the net, or a second bounce loses it. Serve changes every two points, and a ball on the line is in.",
+    "en-GB": "A ball landing inside the lines wins the point; out, into the net, or a second bounce loses it. Serve changes every two points, and a ball on the line is in.",
+    "zh-CN": "球落在界内得分；出界、下网或落地两次失分。每两分换发球，压线算界内。",
+    "zh-TW": "球落在界內得分；出界、下網或落地兩次失分。每兩分換發球，壓線算界內。",
+    "ja-JP": "ライン内に落ちれば得点、アウト・ネット・ツーバウンドは失点。2点ごとにサーブ交代、ライン上はイン。",
+    "ko-KR": "라인 안에 떨어지면 득점, 아웃·네트·투바운드는 실점. 2점마다 서브가 바뀌고, 라인에 걸치면 인이다.",
+    "es-ES": "La bola que cae dentro gana el punto; fuera, en la red o segundo bote lo pierde. El saque cambia cada dos puntos y la bola en la línea es buena.",
+    "fr-FR": "La balle qui tombe dans les limites gagne le point ; dehors, dans le filet ou au deuxième rebond, il est perdu. Service toutes les deux points, balle sur la ligne est bonne.",
+    "id-ID": "Bola jatuh di dalam garis memenangkan poin; keluar, ke net, atau pantul kedua kehilangan poin. Servis bergantian tiap dua poin, bola di garis dianggap masuk.",
+    "ms-MY": "Bola jatuh dalam garisan memenangi mata; keluar, ke jaring, atau lantunan kedua kehilangan mata. Servis bertukar setiap dua mata, bola pada garisan dikira masuk.",
+    "th-TH": "บอลลงในเส้นได้แต้ม ออก ติดเน็ต หรือเด้งสองครั้งเสียแต้ม สลับเสิร์ฟทุกสองแต้ม บอลโดนเส้นถือว่าดี",
+    "vi-VN": "Bóng rơi trong vạch thì thắng điểm; ra ngoài, chạm lưới hoặc nảy hai lần là mất điểm. Đổi giao bóng sau mỗi hai điểm, bóng chạm vạch là trong sân.",
+}
