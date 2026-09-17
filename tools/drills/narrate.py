@@ -80,6 +80,14 @@ SECTION = {
         "id-ID": "Jalur bola: ", "ms-MY": "Laluan bola: ",
         "th-TH": "เส้นทางบอล: ", "vi-VN": "Đường bóng: ",
     },
+    "gear": {
+        "en": "Equipment: ", "en-GB": "Equipment: ",
+        "zh-CN": "【器材】", "zh-TW": "【器材】",
+        "ja-JP": "【用具】", "ko-KR": "【장비】",
+        "es-ES": "Material: ", "fr-FR": "Matériel : ",
+        "id-ID": "Perlengkapan: ", "ms-MY": "Peralatan: ",
+        "th-TH": "อุปกรณ์: ", "vi-VN": "Dụng cụ: ",
+    },
     "rules": {
         "en": "Rules: ", "en-GB": "Rules: ",
         "zh-CN": "【规则】", "zh-TW": "【規則】",
@@ -994,6 +1002,10 @@ def compose_note(drill, sport: str) -> None:
         if origin:
             parts.append(SECTION["origin"][loc] + origin[loc])
         parts.append(SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip())
+        if drill.gear:
+            parts.append(SECTION["gear"][loc]
+                         + (drill.gear.get(loc) or drill.gear["en"])
+                         + DOT[loc].rstrip())
         if route:
             parts.append(SECTION["route"][loc] + route[loc])
         if seq is not None:

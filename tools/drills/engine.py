@@ -164,6 +164,10 @@ class Drill:
     # corner arc, on the penalty spot. The holder (ball=) still narrates as
     # the one with the ball; only the icon's start moves. Author units.
     ball_spot: tuple | None = None
+    # What the cones, gates and goals on the board are for — locale -> str,
+    # its own 【器材】 line. A cone means nothing until the note says whether
+    # it is a corner of the area, a station, a gate or a turning mark.
+    gear: dict | None = None
     # Where the ball goes, as [(x, y, phase), ...]. A carried ball follows
     # its holder, which is right for a dribble and useless for a throw:
     # baseball drew four double plays and two relays without a single ball

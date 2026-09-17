@@ -8,6 +8,7 @@ one spec with computed geometry rather than copy-pasted.
 import math
 
 from .engine import Drill, M, P, grid, merge, ring, suffixed
+from .gear_soccer import gear_of
 from .rules_common import (BUILDUP_RULES, DUEL_RULES, GAME_RULES, GK_RULES,
                            PATTERN_RULES, QUEUE_RULES, ROTATION_RULES,
                            SETPIECE_RULES, TWO_BALL_RULES)
@@ -3721,6 +3722,11 @@ def soccer_library() -> list[Drill]:
         d.usage = _usage_of(d.id)
         if d.rules is None:
             d.rules = _rules_of(d.id)
+        if d.gear is None:
+            d.gear = gear_of(d.id)
+        # Equipment on the board with no word on what it is for is a
+        # picture a coach has to guess at; the build refuses it.
+        assert not d.markers or d.gear, f"soccer/{d.id}: markers but no gear text"
     return drills
 
 
