@@ -173,8 +173,8 @@ THROW = {
     "th-TH": "{a} ขว้างให้ {b}", "vi-VN": "{a} ném cho {b}",
 }
 PASS_SPOT = {
-    "en": "{a} plays the ball on", "en-GB": "{a} plays the ball on",
-    "zh-CN": "{a}把球传到下一个点", "zh-TW": "{a}把球傳到下一個點",
+    "en": "{a} plays the ball into space", "en-GB": "{a} plays the ball into space",
+    "zh-CN": "{a}把球送进空当", "zh-TW": "{a}把球送進空當",
     "ja-JP": "{a}が次のポイントへ送る", "ko-KR": "{a}가 다음 지점으로 보낸다",
     "es-ES": "{a} envía el balón al siguiente punto",
     "fr-FR": "{a} envoie le ballon au point suivant",
@@ -243,8 +243,8 @@ BACK_TO_START = {
     "th-TH": "กลับจุดเริ่ม", "vi-VN": "về điểm xuất phát",
 }
 SPOT_WORD = {
-    "en": "the open spot", "en-GB": "the open spot", "zh-CN": "空位",
-    "zh-TW": "空位", "ja-JP": "スペース", "ko-KR": "빈 자리",
+    "en": "the open space", "en-GB": "the open space", "zh-CN": "空当",
+    "zh-TW": "空當", "ja-JP": "スペース", "ko-KR": "빈 자리",
     "es-ES": "el espacio libre", "fr-FR": "l'espace libre",
     "id-ID": "titik kosong", "ms-MY": "ruang kosong",
     "th-TH": "จุดว่าง", "vi-VN": "vị trí trống",
@@ -584,6 +584,14 @@ def _far_end(sport: str) -> tuple[dict, dict]:
     return SHOOT, GOAL_WORD
 
 
+def _on_square(drill, target) -> bool:
+    """A point on a mini-goal (a square marker) is a shot at it, wherever on
+    the pitch the game's area happens to sit."""
+    return any(getattr(m, "shape", "") == "square"
+               and abs(m.x - target[0]) + abs(m.y - target[1]) < 60
+               for m in drill.markers)
+
+
 def _is_far_end(sport: str, target) -> bool:
     """A point in the last twelfth of the board — past the try line in
     rugby, whose court drawing includes the in-goal areas."""
@@ -709,8 +717,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 from_xy = legs[k - 1][:2]
             if isinstance(target, tuple):
                 # A point at the far end of the board is a shot, a pitch, a
-                # ball hit deep — not "the ball played on".
-                shooty = _is_far_end(sport, target)
+                # ball hit deep — not "the ball played on". So is a point
+                # on a mini-goal, wherever the game's area sits.
+                shooty = _is_far_end(sport, target) or _on_square(drill, target)
                 tbl = (_far_end(sport) if shooty else _spot_leg(sport))[0]
                 if prev:
                     add(ph, tbl, a=_label(prev))
@@ -934,7 +943,7 @@ def route_texts(drill, sport: str) -> dict | None:
         stops = [start] if start is not None else []
         for (t, ph) in route:
             if isinstance(t, tuple):
-                shooty = _is_far_end(sport, t)
+                shooty = _is_far_end(sport, t) or _on_square(drill, t)
                 sx, sy = ((drill.home[drill.ball].x, drill.home[drill.ball].y)
                           if isinstance(drill.ball, int) else
                           (drill.ball if isinstance(drill.ball, tuple)
