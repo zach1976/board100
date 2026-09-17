@@ -8195,7 +8195,7 @@
             "sportType": null,
             "position": [
               500,
-              140
+              200
             ],
             "scale": 1.0,
             "moves": [],
@@ -8215,7 +8215,7 @@
             "sportType": null,
             "position": [
               500,
-              1360
+              1300
             ],
             "scale": 1.0,
             "moves": [],
@@ -8248,8 +8248,8 @@
                 864.9180333533703
               ],
               [
-                508.9131662698342,
-                229.50192115317898
+                509.7181904948815,
+                289.4075359994579
               ]
             ],
             "movePhases": [
@@ -10870,7 +10870,7 @@
             "sportType": null,
             "position": [
               500,
-              140
+              200
             ],
             "scale": 1.0,
             "moves": [],
@@ -10890,7 +10890,7 @@
             "sportType": null,
             "position": [
               500,
-              1360
+              1300
             ],
             "scale": 1.0,
             "moves": [],
@@ -11003,8 +11003,8 @@
                 719.510541850032
               ],
               [
-                517.6517355077312,
-                228.02830405413857
+                519.6117073786377,
+                287.55888687761507
               ]
             ],
             "movePhases": [
@@ -14420,13 +14420,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              292.63999999999993,
+              350.96000000000004,
               902.6753726833199
             ],
             "scale": 1.0,
             "moves": [
               [
-                350.70079999999996,
+                392.6912,
                 701.7867244157937
               ]
             ],
@@ -14447,7 +14447,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              707.36,
+              649.04,
               902.6753726833199
             ],
             "scale": 1.0,
@@ -14514,7 +14514,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              365.216,
+              423.53600000000006,
               597.3246273166801
             ],
             "scale": 1.0,
@@ -14534,7 +14534,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              779.936,
+              721.616,
               597.3246273166801
             ],
             "scale": 1.0,
@@ -14711,12 +14711,12 @@
                 927.1992518281747
               ],
               [
-                385.30738790811034,
-                773.9142786052865
+                415.22189658529544,
+                778.5484838496509
               ],
               [
-                474.7847838211118,
-                504.50044456756757
+                481.1652568703776,
+                506.32938431375214
               ]
             ],
             "movePhases": [
@@ -14854,13 +14854,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.59999999999997,
+              334.4,
               919.0334483279613
             ],
             "scale": 1.0,
             "moves": [
               [
-                334.112,
+                380.76800000000003,
                 696.6210163174859
               ]
             ],
@@ -14881,7 +14881,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              730.4,
+              665.5999999999999,
               919.0334483279613
             ],
             "scale": 1.0,
@@ -14968,7 +14968,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              350.24,
+              415.04,
               580.9665516720387
             ],
             "scale": 1.0,
@@ -14988,7 +14988,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              811.04,
+              746.24,
               580.9665516720387
             ],
             "scale": 1.0,
@@ -15165,12 +15165,12 @@
                 928.0596423904757
               ],
               [
-                343.480683873748,
-                776.0705459729456
+                374.09760458754124,
+                776.3424427036304
               ],
               [
-                469.66371164528294,
-                468.16516946446717
+                474.9700332789897,
+                470.1236646749264
               ]
             ],
             "movePhases": [
@@ -15308,13 +15308,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              246.55999999999995,
+              317.84000000000003,
               935.3915239726027
             ],
             "scale": 1.0,
             "moves": [
               [
-                317.52320000000003,
+                368.8448,
                 691.4553082191782
               ]
             ],
@@ -15355,7 +15355,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              753.44,
+              682.16,
               935.3915239726027
             ],
             "scale": 1.0,
@@ -15442,7 +15442,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              335.264,
+              406.54400000000004,
               564.6084760273973
             ],
             "scale": 1.0,
@@ -15482,7 +15482,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              842.144,
+              770.8639999999999,
               564.6084760273973
             ],
             "scale": 1.0,
@@ -15659,12 +15659,12 @@
                 939.3483234584767
               ],
               [
-                328.755093610868,
-                770.6629124369182
+                363.63762386428425,
+                771.2856615735986
               ],
               [
-                469.229052020539,
-                433.5474931129794
+                474.8400069624848,
+                435.6426549393192
               ]
             ],
             "movePhases": [
@@ -15822,13 +15822,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              223.51999999999998,
+              301.28,
               951.7495996172443
             ],
             "scale": 1.0,
             "moves": [
               [
-                300.9344,
+                356.9216,
                 686.2896001208702
               ]
             ],
@@ -15869,7 +15869,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              776.48,
+              698.72,
               951.7495996172443
             ],
             "scale": 1.0,
@@ -15976,7 +15976,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              320.28799999999995,
+              398.048,
               548.2504003827559
             ],
             "scale": 1.0,
@@ -16016,7 +16016,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              873.248,
+              795.488,
               548.2504003827559
             ],
             "scale": 1.0,
@@ -16193,12 +16193,12 @@
                 950.6493570248374
               ],
               [
-                313.78613297594643,
-                765.2505585719615
+                353.00442220555607,
+                766.1936408079764
               ],
               [
-                468.819468914817,
-                398.9374321175436
+                474.69883063005835,
+                401.15768189002335
               ]
             ],
             "movePhases": [
@@ -18157,13 +18157,13 @@
             "sportType": null,
             "position": [
               536.0,
-              566.3303787268333
+              589.289081385979
             ],
             "scale": 1.0,
             "moves": [
               [
-                590.0,
-                302.30529814665596
+                572.0,
+                382.6607574536664
               ]
             ],
             "movePhases": [
@@ -18184,13 +18184,13 @@
             "sportType": null,
             "position": [
               356.0,
-              658.1651893634165
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 410.0,
-                359.70205479452056
+                428.5781627719581
               ]
             ],
             "movePhases": [
@@ -18216,7 +18216,7 @@
             "scale": 1.0,
             "moves": [
               [
-                522.5,
+                518.0,
                 233.42919016921843
               ]
             ],
@@ -18247,12 +18247,12 @@
                 326.89754739967736
               ],
               [
-                510.2015906243675,
-                307.9810237495167
+                493.1333023375166,
+                369.2427099125954
               ],
               [
-                498.8425068591381,
-                274.702197718662
+                485.2972952693511,
+                278.69325232535107
               ]
             ],
             "movePhases": [
@@ -18378,13 +18378,13 @@
             "sportType": null,
             "position": [
               464.0,
-              566.3303787268333
+              589.289081385979
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.0,
-                302.30529814665596
+                428.0,
+                382.6607574536664
               ]
             ],
             "movePhases": [
@@ -18405,13 +18405,13 @@
             "sportType": null,
             "position": [
               644.0,
-              658.1651893634165
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 590.0,
-                359.70205479452056
+                428.5781627719581
               ]
             ],
             "movePhases": [
@@ -18437,7 +18437,7 @@
             "scale": 1.0,
             "moves": [
               [
-                477.5,
+                482.0,
                 233.42919016921843
               ]
             ],
@@ -18468,12 +18468,12 @@
                 326.89754739967736
               ],
               [
-                489.7984093756325,
-                307.9810237495167
+                506.8666976624834,
+                369.2427099125954
               ],
               [
-                501.1574931408619,
-                274.702197718662
+                514.702704730649,
+                278.69325232535107
               ]
             ],
             "movePhases": [
@@ -18599,13 +18599,13 @@
             "sportType": null,
             "position": [
               572.0,
-              589.289081385979
+              612.247784045125
             ],
             "scale": 1.0,
             "moves": [
               [
-                590.0,
-                313.7846494762289
+                572.0,
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -18626,13 +18626,13 @@
             "sportType": null,
             "position": [
               464.0,
-              727.0412973408542
+              750.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 428.0,
-                348.22270346494764
+                440.05751410153107
               ]
             ],
             "movePhases": [
@@ -18658,7 +18658,7 @@
             "scale": 1.0,
             "moves": [
               [
-                522.5,
+                518.0,
                 233.42919016921843
               ]
             ],
@@ -18689,12 +18689,12 @@
                 371.9901843303118
               ],
               [
-                512.3561161840878,
-                333.05709887896745
+                492.4154447226284,
+                385.9977159345133
               ],
               [
-                495.53375385534855,
-                275.7519981948528
+                484.3789330682843,
+                278.7674005663743
               ]
             ],
             "movePhases": [
@@ -18820,13 +18820,13 @@
             "sportType": null,
             "position": [
               428.0,
-              589.289081385979
+              612.247784045125
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.0,
-                313.7846494762289
+                428.0,
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -18847,13 +18847,13 @@
             "sportType": null,
             "position": [
               536.0,
-              727.0412973408542
+              750.0
             ],
             "scale": 1.0,
             "moves": [
               [
                 572.0,
-                348.22270346494764
+                440.05751410153107
               ]
             ],
             "movePhases": [
@@ -18879,7 +18879,7 @@
             "scale": 1.0,
             "moves": [
               [
-                477.5,
+                482.0,
                 233.42919016921843
               ]
             ],
@@ -18910,12 +18910,12 @@
                 371.9901843303118
               ],
               [
-                487.64388381591226,
-                333.05709887896745
+                507.5845552773716,
+                385.9977159345133
               ],
               [
-                504.46624614465145,
-                275.75199819485283
+                515.6210669317157,
+                278.7674005663743
               ]
             ],
             "movePhases": [
@@ -19041,13 +19041,13 @@
             "sportType": null,
             "position": [
               626.0,
-              635.2064867042708
+              658.1651893634165
             ],
             "scale": 1.0,
             "moves": [
               [
-                590.0,
-                325.2640008058018
+                572.0,
+                405.61946011281225
               ]
             ],
             "movePhases": [
@@ -19068,13 +19068,13 @@
             "sportType": null,
             "position": [
               374.0,
-              635.2064867042708
+              658.1651893634165
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.0,
-                359.70205479452056
+                428.0,
+                428.5781627719581
               ]
             ],
             "movePhases": [
@@ -19100,7 +19100,7 @@
             "scale": 1.0,
             "moves": [
               [
-                522.5,
+                518.0,
                 233.42919016921843
               ]
             ],
@@ -19131,12 +19131,12 @@
                 463.3716760676873
               ],
               [
-                546.3224903090328,
-                392.28843774633464
+                509.5949037584049,
+                455.67546837433116
               ],
               [
-                501.3732941347179,
-                273.7905758839144
+                488.05140529614386,
+                278.40681709938093
               ]
             ],
             "movePhases": [
@@ -22208,7 +22208,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
-      "frame": null,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide left",
@@ -22225,18 +22225,18 @@
         "vi-VN": "Đối kháng 1v1 dạt trái"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves left.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves left.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动；第2步：11号球员带球推进，A向后移动；第3步：11号球员射门，GK向左移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動；第2步：11號球員帶球推進，A向後移動；第3步：11號球員射門，GK向左移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動。ステップ2：11番がボールを運ぶ、Aが後方へ移動。ステップ3：11番がシュート、GKが左へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동; 3단계: 11번 슛, GK는 왼쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante; Paso 2: 11 conduce el balón, A se desplaza hacia atrás; Paso 3: 11 remata, GK se desplaza a la izquierda.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière ; Étape 3 : 11 frappe, GK se déplace à gauche.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan; Langkah 2: 11 menggiring bola, A bergerak ke belakang; Langkah 3: 11 menembak, GK bergerak ke kiri.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan; Langkah 2: 11 membawa bola, A bergerak ke belakang; Langkah 3: 11 menjaring, GK bergerak ke kiri.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลัง • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางซ้าย\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại; Bước 3: 11 dứt điểm, GK di chuyển sang trái.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves left.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves left.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动（迎上去接球）；第2步：11号球员带球推进，A向后移动（拖延，不轻易上抢），11号球员向右移动（摆脱盯防）；第3步：11号球员射门，GK向左移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動（迎上去接球）；第2步：11號球員帶球推進，A向後移動（拖延，不輕易上搶），11號球員向右移動（擺脫盯防）；第3步：11號球員射門，GK向左移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動し、ボールを迎えに行く。ステップ2：11番がボールを運ぶ、Aが後方へ移動し、遅らせて間合いを取る、11番が右へ移動し、マークを外す。ステップ3：11番がシュート、GKが左へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동해 패스를 마중 나간다; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동해 지연시키며 거리를 유지한다, 11번는 오른쪽으로 이동해 마크를 떨쳐낸다; 3단계: 11번 슛, GK는 왼쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante para ir al encuentro del balón; Paso 2: 11 conduce el balón, A se desplaza hacia atrás para temporizar sin entrar, 11 se desplaza a la derecha para desmarcarse; Paso 3: 11 remata, GK se desplaza a la izquierda.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant pour venir au-devant du ballon ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière pour temporiser sans se jeter, 11 se déplace à droite pour se démarquer ; Étape 3 : 11 frappe, GK se déplace à gauche.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan untuk menjemput bola; Langkah 2: 11 menggiring bola, A bergerak ke belakang untuk memperlambat tanpa terburu-buru, 11 bergerak ke kanan untuk lepas dari penjagaan; Langkah 3: 11 menembak, GK bergerak ke kiri.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan untuk menyambut bola; Langkah 2: 11 membawa bola, A bergerak ke belakang untuk melambatkan tanpa terburu-buru, 11 bergerak ke kanan untuk lepas daripada kawalan; Langkah 3: 11 menjaring, GK bergerak ke kiri.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้าเพื่อขยับเข้าหาบอล • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลังเพื่อถ่วงเวลา ไม่รีบเข้าแย่ง 11 ขยับไปทางขวาเพื่อสลัดตัวประกบ • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางซ้าย\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước để bước ra đón bóng; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại để trì hoãn, không vội xoạc, 11 di chuyển sang phải để thoát người kèm; Bước 3: 11 dứt điểm, GK di chuyển sang trái.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
       },
       "mistake": {
         "en": "Diving in on the first feint — the defender who bites decides the duel for the attacker.",
@@ -22262,17 +22262,17 @@
             "sportType": null,
             "position": [
               194.0,
-              887.752215954875
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 194.0,
-                727.0412973408542
+                566.3303787268333
               ],
               [
                 392.0,
-                497.45427074939573
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -22294,7 +22294,7 @@
             "sportType": null,
             "position": [
               374.0,
-              1048.463134568896
+              818.8761079774376
             ],
             "scale": 1.0,
             "moves": [],
@@ -22314,13 +22314,13 @@
             "sportType": null,
             "position": [
               284.0,
-              658.1651893634165
+              520.4129734085415
             ],
             "scale": 1.0,
             "moves": [
               [
                 266.0,
-                589.289081385979
+                463.0162167606769
               ]
             ],
             "movePhases": [
@@ -22367,22 +22367,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              334.9111070511255,
-              978.6630024197989
+              327.5675517133008,
+              753.7299051249075
             ],
             "scale": 1.0,
             "moves": [
               [
-                233.0888929488745,
-                796.8414294899513
+                240.43244828669918,
+                631.4765815793634
               ],
               [
-                444.2473015302791,
-                436.87193435664756
+                452.3659724274797,
+                341.6429719766976
               ],
               [
-                504.60134736108125,
-                274.0060341105824
+                493.25626629662156,
+                268.7605285510728
               ]
             ],
             "movePhases": [
@@ -22427,7 +22427,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
-      "frame": null,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "1v1 duels wide right",
@@ -22444,18 +22444,18 @@
         "vi-VN": "Đối kháng 1v1 dạt phải"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动；第2步：11号球员带球推进，A向后移动；第3步：11号球员射门，GK向右移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動；第2步：11號球員帶球推進，A向後移動；第3步：11號球員射門，GK向右移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動。ステップ2：11番がボールを運ぶ、Aが後方へ移動。ステップ3：11番がシュート、GKが右へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동; 3단계: 11번 슛, GK는 오른쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante; Paso 2: 11 conduce el balón, A se desplaza hacia atrás; Paso 3: 11 remata, GK se desplaza a la derecha.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière ; Étape 3 : 11 frappe, GK se déplace à droite.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan; Langkah 2: 11 menggiring bola, A bergerak ke belakang; Langkah 3: 11 menembak, GK bergerak ke kanan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan; Langkah 2: 11 membawa bola, A bergerak ke belakang; Langkah 3: 11 menjaring, GK bergerak ke kanan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลัง • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại; Bước 3: 11 dứt điểm, GK di chuyển sang phải.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves left to shake off the marker; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves left to shake off the marker; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动（迎上去接球）；第2步：11号球员带球推进，A向后移动（拖延，不轻易上抢），11号球员向左移动（摆脱盯防）；第3步：11号球员射门，GK向右移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動（迎上去接球）；第2步：11號球員帶球推進，A向後移動（拖延，不輕易上搶），11號球員向左移動（擺脫盯防）；第3步：11號球員射門，GK向右移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動し、ボールを迎えに行く。ステップ2：11番がボールを運ぶ、Aが後方へ移動し、遅らせて間合いを取る、11番が左へ移動し、マークを外す。ステップ3：11番がシュート、GKが右へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동해 패스를 마중 나간다; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동해 지연시키며 거리를 유지한다, 11번는 왼쪽으로 이동해 마크를 떨쳐낸다; 3단계: 11번 슛, GK는 오른쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante para ir al encuentro del balón; Paso 2: 11 conduce el balón, A se desplaza hacia atrás para temporizar sin entrar, 11 se desplaza a la izquierda para desmarcarse; Paso 3: 11 remata, GK se desplaza a la derecha.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant pour venir au-devant du ballon ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière pour temporiser sans se jeter, 11 se déplace à gauche pour se démarquer ; Étape 3 : 11 frappe, GK se déplace à droite.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan untuk menjemput bola; Langkah 2: 11 menggiring bola, A bergerak ke belakang untuk memperlambat tanpa terburu-buru, 11 bergerak ke kiri untuk lepas dari penjagaan; Langkah 3: 11 menembak, GK bergerak ke kanan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan untuk menyambut bola; Langkah 2: 11 membawa bola, A bergerak ke belakang untuk melambatkan tanpa terburu-buru, 11 bergerak ke kiri untuk lepas daripada kawalan; Langkah 3: 11 menjaring, GK bergerak ke kanan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้าเพื่อขยับเข้าหาบอล • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลังเพื่อถ่วงเวลา ไม่รีบเข้าแย่ง 11 ขยับไปทางซ้ายเพื่อสลัดตัวประกบ • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước để bước ra đón bóng; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại để trì hoãn, không vội xoạc, 11 di chuyển sang trái để thoát người kèm; Bước 3: 11 dứt điểm, GK di chuyển sang phải.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
       },
       "mistake": {
         "en": "Diving in on the first feint — the defender who bites decides the duel for the attacker.",
@@ -22481,17 +22481,17 @@
             "sportType": null,
             "position": [
               806.0,
-              887.752215954875
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 806.0,
-                727.0412973408542
+                566.3303787268333
               ],
               [
                 608.0,
-                497.45427074939573
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -22513,7 +22513,7 @@
             "sportType": null,
             "position": [
               625.9999999999999,
-              1048.463134568896
+              818.8761079774376
             ],
             "scale": 1.0,
             "moves": [],
@@ -22533,13 +22533,13 @@
             "sportType": null,
             "position": [
               716.0,
-              658.1651893634165
+              520.4129734085415
             ],
             "scale": 1.0,
             "moves": [
               [
                 734.0,
-                589.289081385979
+                463.0162167606769
               ]
             ],
             "movePhases": [
@@ -22586,22 +22586,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              665.0888929488744,
-              978.6630024197989
+              672.4324482866991,
+              753.7299051249075
             ],
             "scale": 1.0,
             "moves": [
               [
-                766.9111070511254,
-                796.8414294899513
+                759.5675517133008,
+                631.4765815793634
               ],
               [
-                555.7526984697209,
-                436.87193435664756
+                547.6340275725203,
+                341.6429719766976
               ],
               [
-                495.3986526389188,
-                274.0060341105824
+                506.74373370337844,
+                268.76052855107287
               ]
             ],
             "movePhases": [
@@ -22646,7 +22646,7 @@
       "players": 4,
       "free": true,
       "usage": 3,
-      "frame": null,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "1v1 duels central",
@@ -22663,18 +22663,18 @@
         "vi-VN": "Đối kháng 1v1 trung lộ"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动；第2步：11号球员带球推进，A向后移动；第3步：11号球员射门，GK向右移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動；第2步：11號球員帶球推進，A向後移動；第3步：11號球員射門，GK向右移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動。ステップ2：11番がボールを運ぶ、Aが後方へ移動。ステップ3：11番がシュート、GKが右へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동; 3단계: 11번 슛, GK는 오른쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante; Paso 2: 11 conduce el balón, A se desplaza hacia atrás; Paso 3: 11 remata, GK se desplaza a la derecha.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière ; Étape 3 : 11 frappe, GK se déplace à droite.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan; Langkah 2: 11 menggiring bola, A bergerak ke belakang; Langkah 3: 11 menembak, GK bergerak ke kanan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan; Langkah 2: 11 membawa bola, A bergerak ke belakang; Langkah 3: 11 menjaring, GK bergerak ke kanan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลัง • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại; Bước 3: 11 dứt điểm, GK di chuyển sang phải.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves right.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动（迎上去接球）；第2步：11号球员带球推进，A向后移动（拖延，不轻易上抢），11号球员向右移动（摆脱盯防）；第3步：11号球员射门，GK向右移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動（迎上去接球）；第2步：11號球員帶球推進，A向後移動（拖延，不輕易上搶），11號球員向右移動（擺脫盯防）；第3步：11號球員射門，GK向右移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動し、ボールを迎えに行く。ステップ2：11番がボールを運ぶ、Aが後方へ移動し、遅らせて間合いを取る、11番が右へ移動し、マークを外す。ステップ3：11番がシュート、GKが右へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동해 패스를 마중 나간다; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동해 지연시키며 거리를 유지한다, 11번는 오른쪽으로 이동해 마크를 떨쳐낸다; 3단계: 11번 슛, GK는 오른쪽으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante para ir al encuentro del balón; Paso 2: 11 conduce el balón, A se desplaza hacia atrás para temporizar sin entrar, 11 se desplaza a la derecha para desmarcarse; Paso 3: 11 remata, GK se desplaza a la derecha.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant pour venir au-devant du ballon ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière pour temporiser sans se jeter, 11 se déplace à droite pour se démarquer ; Étape 3 : 11 frappe, GK se déplace à droite.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan untuk menjemput bola; Langkah 2: 11 menggiring bola, A bergerak ke belakang untuk memperlambat tanpa terburu-buru, 11 bergerak ke kanan untuk lepas dari penjagaan; Langkah 3: 11 menembak, GK bergerak ke kanan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan untuk menyambut bola; Langkah 2: 11 membawa bola, A bergerak ke belakang untuk melambatkan tanpa terburu-buru, 11 bergerak ke kanan untuk lepas daripada kawalan; Langkah 3: 11 menjaring, GK bergerak ke kanan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้าเพื่อขยับเข้าหาบอล • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลังเพื่อถ่วงเวลา ไม่รีบเข้าแย่ง 11 ขยับไปทางขวาเพื่อสลัดตัวประกบ • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước để bước ra đón bóng; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại để trì hoãn, không vội xoạc, 11 di chuyển sang phải để thoát người kèm; Bước 3: 11 dứt điểm, GK di chuyển sang phải.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
       },
       "mistake": {
         "en": "Diving in on the first feint — the defender who bites decides the duel for the attacker.",
@@ -22700,17 +22700,17 @@
             "sportType": null,
             "position": [
               500.0,
-              887.752215954875
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                727.0412973408542
+                566.3303787268333
               ],
               [
                 698.0,
-                497.45427074939573
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -22732,7 +22732,7 @@
             "sportType": null,
             "position": [
               680.0,
-              1048.463134568896
+              818.8761079774376
             ],
             "scale": 1.0,
             "moves": [],
@@ -22752,13 +22752,13 @@
             "sportType": null,
             "position": [
               590.0,
-              658.1651893634165
+              520.4129734085415
             ],
             "scale": 1.0,
             "moves": [
               [
                 572.0,
-                589.289081385979
+                463.0162167606769
               ]
             ],
             "movePhases": [
@@ -22805,22 +22805,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              640.9111070511256,
-              978.6630024197989
+              633.5675517133008,
+              753.7299051249075
             ],
             "scale": 1.0,
             "moves": [
               [
-                539.0888929488744,
-                796.8414294899513
+                546.4324482866991,
+                631.4765815793634
               ],
               [
-                750.2473015302791,
-                436.87193435664756
+                758.3659724274797,
+                341.6429719766976
               ],
               [
-                504.04054447643773,
-                247.72815821235062
+                513.5831589200418,
+                231.7548129285682
               ]
             ],
             "movePhases": [
@@ -22865,7 +22865,7 @@
       "players": 4,
       "free": false,
       "usage": 3,
-      "frame": null,
+      "frame": "top",
       "offSurface": false,
       "name": {
         "en": "1v1 duels half-space",
@@ -22882,18 +22882,18 @@
         "vi-VN": "Đối kháng 1v1 khoảng bán không gian"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves up the board.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board; Step 2: 11 carries the ball on the move, A moves back; Step 3: 11 shoots, GK moves up the board.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动；第2步：11号球员带球推进，A向后移动；第3步：11号球员射门，GK向前移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動；第2步：11號球員帶球推進，A向後移動；第3步：11號球員射門，GK向前移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動。ステップ2：11番がボールを運ぶ、Aが後方へ移動。ステップ3：11番がシュート、GKが前方へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동; 3단계: 11번 슛, GK는 앞으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante; Paso 2: 11 conduce el balón, A se desplaza hacia atrás; Paso 3: 11 remata, GK se desplaza hacia delante.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière ; Étape 3 : 11 frappe, GK se déplace vers l'avant.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan; Langkah 2: 11 menggiring bola, A bergerak ke belakang; Langkah 3: 11 menembak, GK bergerak ke depan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan; Langkah 2: 11 membawa bola, A bergerak ke belakang; Langkah 3: 11 menjaring, GK bergerak ke hadapan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้า • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลัง • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปข้างหน้า\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại; Bước 3: 11 dứt điểm, GK di chuyển lên phía trước.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves up the board.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nBall path: 8 → 11 → goal\nSequence: Step 1: 8 passes to 11, 11 moves up the board to meet the pass; Step 2: 11 carries the ball on the move, A moves back to delay and jockey, 11 moves right to shake off the marker; Step 3: 11 shoots, GK moves up the board.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nCoaching point: Attack at speed, change direction once. Two feints give the defender time to recover his balance.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】一个球门带门将，20 米外一名喂球人，防守者站在进攻者内侧肩位。\n【球路】8 → 11 → 球门\n【流程】第1步：8号球员把球传给11号球员，11号球员向前移动（迎上去接球）；第2步：11号球员带球推进，A向后移动（拖延，不轻易上抢），11号球员向右移动（摆脱盯防）；第3步：11号球员射门，GK向前移动。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【要点】带速度冲，只变一次向。晃两下，防守人就把重心找回来了。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【球路】8 → 11 → 球門\n【流程】第1步：8號球員把球傳給11號球員，11號球員向前移動（迎上去接球）；第2步：11號球員帶球推進，A向後移動（拖延，不輕易上搶），11號球員向右移動（擺脫盯防）；第3步：11號球員射門，GK向前移動。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【要點】帶速度衝，只變一次向。晃兩下，防守人就把重心找回來了。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder。\n【ボールの道筋】8 → 11 → ゴール\n【流れ】ステップ1：8番が11番へパス、11番が前方へ移動し、ボールを迎えに行く。ステップ2：11番がボールを運ぶ、Aが後方へ移動し、遅らせて間合いを取る、11番が右へ移動し、マークを外す。ステップ3：11番がシュート、GKが前方へ移動。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ポイント】スピードを持って仕掛け、方向転換は一度。二度フェイントすると相手は体勢を戻す。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\n【볼 경로】8 → 11 → 골문\n【진행】1단계: 8번가 11번에게 패스, 11번는 앞으로 이동해 패스를 마중 나간다; 2단계: 11번가 공을 몰고 이동, A는 뒤로 이동해 지연시키며 거리를 유지한다, 11번는 오른쪽으로 이동해 마크를 떨쳐낸다; 3단계: 11번 슛, GK는 앞으로 이동.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【포인트】속도를 유지하고 방향은 한 번만 바꿔라. 두 번 속이면 수비가 균형을 되찾는다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nRecorrido del balón: 8 → 11 → portería\nSecuencia: Paso 1: 8 pasa a 11, 11 se desplaza hacia delante para ir al encuentro del balón; Paso 2: 11 conduce el balón, A se desplaza hacia atrás para temporizar sin entrar, 11 se desplaza a la derecha para desmarcarse; Paso 3: 11 remata, GK se desplaza hacia delante.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nPunto clave: Ataca con velocidad y cambia de dirección una vez. Dos fintas le devuelven el equilibrio al defensor.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nTrajet du ballon : 8 → 11 → but\nDéroulé : Étape 1 : 8 passe à 11, 11 se déplace vers l'avant pour venir au-devant du ballon ; Étape 2 : 11 conduit le ballon, A se déplace vers l'arrière pour temporiser sans se jeter, 11 se déplace à droite pour se démarquer ; Étape 3 : 11 frappe, GK se déplace vers l'avant.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nPoint clé : Attaque en vitesse, un seul changement de direction. Deux feintes lui rendent son équilibre.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nJalur bola: 8 → 11 → gawang\nUrutan: Langkah 1: 8 mengoper ke 11, 11 bergerak ke depan untuk menjemput bola; Langkah 2: 11 menggiring bola, A bergerak ke belakang untuk memperlambat tanpa terburu-buru, 11 bergerak ke kanan untuk lepas dari penjagaan; Langkah 3: 11 menembak, GK bergerak ke depan.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nPoin utama: Serang dengan kecepatan, ubah arah sekali saja.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nLaluan bola: 8 → 11 → gol\nUrutan: Langkah 1: 8 menghantar kepada 11, 11 bergerak ke hadapan untuk menyambut bola; Langkah 2: 11 membawa bola, A bergerak ke belakang untuk melambatkan tanpa terburu-buru, 11 bergerak ke kanan untuk lepas daripada kawalan; Langkah 3: 11 menjaring, GK bergerak ke hadapan.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPoin utama: Serang dengan kelajuan, tukar arah sekali sahaja.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder\nเส้นทางบอล: 8 → 11 → ประตู\nลำดับ: ขั้นที่ 1: 8 จ่ายให้ 11 11 ขยับไปข้างหน้าเพื่อขยับเข้าหาบอล • ขั้นที่ 2: 11 พาบอลไป A ขยับถอยหลังเพื่อถ่วงเวลา ไม่รีบเข้าแย่ง 11 ขยับไปทางขวาเพื่อสลัดตัวประกบ • ขั้นที่ 3: 11 ยิงประตู GK ขยับไปข้างหน้า\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nจุดเน้น: พุ่งด้วยความเร็ว เปลี่ยนทิศทางครั้งเดียว หลอกสองครั้งกองหลังจะตั้งตัวได้",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder.\nĐường bóng: 8 → 11 → khung thành\nTrình tự: Bước 1: 8 chuyền cho 11, 11 di chuyển lên phía trước để bước ra đón bóng; Bước 2: 11 dẫn bóng di chuyển, A di chuyển lùi lại để trì hoãn, không vội xoạc, 11 di chuyển sang phải để thoát người kèm; Bước 3: 11 dứt điểm, GK di chuyển lên phía trước.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nĐiểm chính: Tăng tốc và chỉ đổi hướng một lần. Hai động tác giả cho hậu vệ thời gian lấy lại thăng bằng."
       },
       "mistake": {
         "en": "Diving in on the first feint — the defender who bites decides the duel for the attacker.",
@@ -22919,17 +22919,17 @@
             "sportType": null,
             "position": [
               338.0,
-              887.752215954875
+              681.1238920225625
             ],
             "scale": 1.0,
             "moves": [
               [
                 338.0,
-                727.0412973408542
+                566.3303787268333
               ],
               [
                 536.0,
-                497.45427074939573
+                394.1401087832394
               ]
             ],
             "movePhases": [
@@ -22951,7 +22951,7 @@
             "sportType": null,
             "position": [
               518.0,
-              1048.463134568896
+              818.8761079774376
             ],
             "scale": 1.0,
             "moves": [],
@@ -22971,13 +22971,13 @@
             "sportType": null,
             "position": [
               428.00000000000006,
-              658.1651893634165
+              520.4129734085415
             ],
             "scale": 1.0,
             "moves": [
               [
                 410.0,
-                589.289081385979
+                463.0162167606769
               ]
             ],
             "movePhases": [
@@ -23024,22 +23024,22 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              478.9111070511255,
-              978.6630024197989
+              471.5675517133008,
+              753.7299051249075
             ],
             "scale": 1.0,
             "moves": [
               [
-                377.0888929488745,
-                796.8414294899513
+                384.4324482866992,
+                631.4765815793634
               ],
               [
-                588.2473015302791,
-                436.87193435664756
+                596.3659724274797,
+                341.6429719766976
               ],
               [
-                519.9507920588225,
-                272.8449701212983
+                537.2508044917861,
+                262.9530012853584
               ]
             ],
             "movePhases": [
@@ -29721,18 +29721,18 @@
         "vi-VN": "Phối hợp nhóm phối hợp một-hai trái"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 7 → 球门\n【流程】第1步：7号球员把球传给10号球员；第2步：10号球员把球传给7号球员，7号球员、2号球员、A向前移动；第3步：7号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 7 → 球門\n【流程】第1步：7號球員把球傳給10號球員；第2步：10號球員把球傳給7號球員，7號球員、2號球員、A向前移動；第3步：7號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 7 → ゴール\n【流れ】ステップ1：7番が10番へパス。ステップ2：10番が7番へパス、7番・2番・Aが前方へ移動。ステップ3：7番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 7 → 골문\n【진행】1단계: 7번가 10번에게 패스; 2단계: 10번가 7번에게 패스, 7번, 2번, A는 앞으로 이동; 3단계: 7번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 7 → portería\nSecuencia: Paso 1: 7 pasa a 10; Paso 2: 10 pasa a 7, 7, 2, A se desplaza hacia delante; Paso 3: 7 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 7 → but\nDéroulé : Étape 1 : 7 passe à 10 ; Étape 2 : 10 passe à 7, 7, 2, A se déplace vers l'avant ; Étape 3 : 7 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 7 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10; Langkah 2: 10 mengoper ke 7, 7, 2, A bergerak ke depan; Langkah 3: 7 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 7 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10; Langkah 2: 10 menghantar kepada 7, 7, 2, A bergerak ke hadapan; Langkah 3: 7 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 7 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 • ขั้นที่ 2: 10 จ่ายให้ 7 7, 2, A ขยับไปข้างหน้า • ขั้นที่ 3: 7 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 7 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10; Bước 2: 10 chuyền cho 7, 7, 2, A di chuyển lên phía trước; Bước 3: 7 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 carries the ball on the move; Step 4: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 carries the ball on the move; Step 4: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 7 → 球门\n【流程】第1步：7号球员把球传给10号球员；第2步：10号球员把球传给7号球员，7号球员、2号球员、A向前移动；第3步：7号球员带球推进；第4步：7号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 7 → 球門\n【流程】第1步：7號球員把球傳給10號球員；第2步：10號球員把球傳給7號球員，7號球員、2號球員、A向前移動；第3步：7號球員帶球推進；第4步：7號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 7 → ゴール\n【流れ】ステップ1：7番が10番へパス。ステップ2：10番が7番へパス、7番・2番・Aが前方へ移動。ステップ3：7番がボールを運ぶ。ステップ4：7番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 7 → 골문\n【진행】1단계: 7번가 10번에게 패스; 2단계: 10번가 7번에게 패스, 7번, 2번, A는 앞으로 이동; 3단계: 7번가 공을 몰고 이동; 4단계: 7번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 7 → portería\nSecuencia: Paso 1: 7 pasa a 10; Paso 2: 10 pasa a 7, 7, 2, A se desplaza hacia delante; Paso 3: 7 conduce el balón; Paso 4: 7 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 7 → but\nDéroulé : Étape 1 : 7 passe à 10 ; Étape 2 : 10 passe à 7, 7, 2, A se déplace vers l'avant ; Étape 3 : 7 conduit le ballon ; Étape 4 : 7 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 7 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10; Langkah 2: 10 mengoper ke 7, 7, 2, A bergerak ke depan; Langkah 3: 7 menggiring bola; Langkah 4: 7 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 7 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10; Langkah 2: 10 menghantar kepada 7, 7, 2, A bergerak ke hadapan; Langkah 3: 7 membawa bola; Langkah 4: 7 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 7 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 • ขั้นที่ 2: 10 จ่ายให้ 7 7, 2, A ขยับไปข้างหน้า • ขั้นที่ 3: 7 พาบอลไป • ขั้นที่ 4: 7 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 7 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10; Bước 2: 10 chuyền cho 7, 7, 2, A di chuyển lên phía trước; Bước 3: 7 dẫn bóng di chuyển; Bước 4: 7 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
       },
       "mistake": {
         "en": "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.",
@@ -29765,10 +29765,15 @@
               [
                 248.0,
                 566.3303787268333
+              ],
+              [
+                338.0,
+                371.18140612409354
               ]
             ],
             "movePhases": [
-              1
+              1,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -29872,14 +29877,19 @@
                 640.0890180838371
               ],
               [
-                463.4023515998813,
-                281.60846703986584
+                371.50355214899713,
+                298.5349196749924
+              ],
+              [
+                434.0103361978199,
+                255.69619116712192
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -29935,18 +29945,18 @@
         "vi-VN": "Phối hợp nhóm phối hợp một-hai phải"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 7 → 球门\n【流程】第1步：7号球员把球传给10号球员；第2步：10号球员把球传给7号球员，7号球员、2号球员、A向前移动；第3步：7号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 7 → 球門\n【流程】第1步：7號球員把球傳給10號球員；第2步：10號球員把球傳給7號球員，7號球員、2號球員、A向前移動；第3步：7號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 7 → ゴール\n【流れ】ステップ1：7番が10番へパス。ステップ2：10番が7番へパス、7番・2番・Aが前方へ移動。ステップ3：7番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 7 → 골문\n【진행】1단계: 7번가 10번에게 패스; 2단계: 10번가 7번에게 패스, 7번, 2번, A는 앞으로 이동; 3단계: 7번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 7 → portería\nSecuencia: Paso 1: 7 pasa a 10; Paso 2: 10 pasa a 7, 7, 2, A se desplaza hacia delante; Paso 3: 7 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 7 → but\nDéroulé : Étape 1 : 7 passe à 10 ; Étape 2 : 10 passe à 7, 7, 2, A se déplace vers l'avant ; Étape 3 : 7 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 7 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10; Langkah 2: 10 mengoper ke 7, 7, 2, A bergerak ke depan; Langkah 3: 7 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 7 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10; Langkah 2: 10 menghantar kepada 7, 7, 2, A bergerak ke hadapan; Langkah 3: 7 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 7 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 • ขั้นที่ 2: 10 จ่ายให้ 7 7, 2, A ขยับไปข้างหน้า • ขั้นที่ 3: 7 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 7 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10; Bước 2: 10 chuyền cho 7, 7, 2, A di chuyển lên phía trước; Bước 3: 7 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 carries the ball on the move; Step 4: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 7 → goal\nSequence: Step 1: 7 passes to 10; Step 2: 10 passes to 7, 7, 2, A move up the board; Step 3: 7 carries the ball on the move; Step 4: 7 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 7 → 球门\n【流程】第1步：7号球员把球传给10号球员；第2步：10号球员把球传给7号球员，7号球员、2号球员、A向前移动；第3步：7号球员带球推进；第4步：7号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 7 → 球門\n【流程】第1步：7號球員把球傳給10號球員；第2步：10號球員把球傳給7號球員，7號球員、2號球員、A向前移動；第3步：7號球員帶球推進；第4步：7號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 7 → ゴール\n【流れ】ステップ1：7番が10番へパス。ステップ2：10番が7番へパス、7番・2番・Aが前方へ移動。ステップ3：7番がボールを運ぶ。ステップ4：7番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 7 → 골문\n【진행】1단계: 7번가 10번에게 패스; 2단계: 10번가 7번에게 패스, 7번, 2번, A는 앞으로 이동; 3단계: 7번가 공을 몰고 이동; 4단계: 7번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 7 → portería\nSecuencia: Paso 1: 7 pasa a 10; Paso 2: 10 pasa a 7, 7, 2, A se desplaza hacia delante; Paso 3: 7 conduce el balón; Paso 4: 7 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 7 → but\nDéroulé : Étape 1 : 7 passe à 10 ; Étape 2 : 10 passe à 7, 7, 2, A se déplace vers l'avant ; Étape 3 : 7 conduit le ballon ; Étape 4 : 7 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 7 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10; Langkah 2: 10 mengoper ke 7, 7, 2, A bergerak ke depan; Langkah 3: 7 menggiring bola; Langkah 4: 7 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 7 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10; Langkah 2: 10 menghantar kepada 7, 7, 2, A bergerak ke hadapan; Langkah 3: 7 membawa bola; Langkah 4: 7 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 7 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 • ขั้นที่ 2: 10 จ่ายให้ 7 7, 2, A ขยับไปข้างหน้า • ขั้นที่ 3: 7 พาบอลไป • ขั้นที่ 4: 7 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 7 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10; Bước 2: 10 chuyền cho 7, 7, 2, A di chuyển lên phía trước; Bước 3: 7 dẫn bóng di chuyển; Bước 4: 7 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
       },
       "mistake": {
         "en": "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.",
@@ -29979,10 +29989,15 @@
               [
                 752.0,
                 566.3303787268333
+              ],
+              [
+                662.0,
+                371.18140612409354
               ]
             ],
             "movePhases": [
-              1
+              1,
+              2
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -30086,14 +30101,19 @@
                 640.0890180838371
               ],
               [
-                536.5976484001187,
-                281.60846703986584
+                628.4964478510029,
+                298.5349196749924
+              ],
+              [
+                565.9896638021801,
+                255.6961911671219
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -30149,18 +30169,18 @@
         "vi-VN": "Phối hợp nhóm chồng biên trái"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、10號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・10番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 10번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 10, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 10, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 10, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 10, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 10, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 10, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员带球推进；第4步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、10號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員帶球推進；第4步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・10番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がボールを運ぶ。ステップ4：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 10번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번가 공을 몰고 이동; 4단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 10, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 conduce el balón; Paso 4: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 10, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 conduit le ballon ; Étape 4 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 10, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menggiring bola; Langkah 4: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 10, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 membawa bola; Langkah 4: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 10, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 พาบอลไป • ขั้นที่ 4: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 10, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dẫn bóng di chuyển; Bước 4: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
       },
       "mistake": {
         "en": "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.",
@@ -30251,11 +30271,16 @@
               [
                 194.0,
                 543.3716760676873
+              ],
+              [
+                248.0,
+                336.7433521353747
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -30312,14 +30337,19 @@
                 571.3914262370937
               ],
               [
-                456.86537440357154,
-                277.8455873219166
+                268.2277553235271,
+                259.3428488129058
+              ],
+              [
+                421.72134587540245,
+                226.97661693043102
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -30375,18 +30405,18 @@
         "vi-VN": "Phối hợp nhóm chồng biên phải"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、10號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・10番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 10번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 10, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 10, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 10, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 10, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 10, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 10, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 10, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、10号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员带球推进；第4步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、10號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員帶球推進；第4步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・10番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がボールを運ぶ。ステップ4：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 10번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번가 공을 몰고 이동; 4단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 10, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 conduce el balón; Paso 4: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 10, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 conduit le ballon ; Étape 4 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 10, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menggiring bola; Langkah 4: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 10, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 membawa bola; Langkah 4: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 10, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 พาบอลไป • ขั้นที่ 4: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 10, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dẫn bóng di chuyển; Bước 4: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
       },
       "mistake": {
         "en": "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.",
@@ -30477,11 +30507,16 @@
               [
                 806.0,
                 543.3716760676873
+              ],
+              [
+                752.0,
+                336.7433521353747
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -30538,14 +30573,19 @@
                 571.3914262370937
               ],
               [
-                543.1346255964285,
-                277.8455873219166
+                731.7722446764728,
+                259.3428488129058
+              ],
+              [
+                578.2786541245976,
+                226.97661693043102
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -30601,18 +30641,18 @@
         "vi-VN": "Phối hợp nhóm chạy luồn trong"
       },
       "note": {
-        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
-        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
-        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
-        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
-        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: a wide channel in the attacking half, three attackers against one defender, one ball.\nBall path: 7 → 10 → 2 → goal\nSequence: Step 1: 7 passes to 10, 7, 2 move up the board; Step 2: 10 passes to 2, A moves up the board; Step 3: 2 carries the ball on the move; Step 4: 2 shoots.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nCoaching point: Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】进攻半场一条边路通道，三打一，一颗球。\n【球路】7 → 10 → 2 → 球门\n【流程】第1步：7号球员把球传给10号球员，7号球员、2号球员向前移动；第2步：10号球员把球传给2号球员，A向前移动；第3步：2号球员带球推进；第4步：2号球员射门。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【要点】三个人、每人两脚、必须有一个人跑到球的前面去。没人越过球，那就只是传球练习，不是足球。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】a wide channel in the attacking half, three attackers against one defender, one ball。\n【球路】7 → 10 → 2 → 球門\n【流程】第1步：7號球員把球傳給10號球員，7號球員、2號球員向前移動；第2步：10號球員把球傳給2號球員，A向前移動；第3步：2號球員帶球推進；第4步：2號球員射門。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【要點】三個人、每人兩腳、必須有一個人跑到球的前面去。沒人越過球，那就只是傳球練習，不是足球。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】a wide channel in the attacking half, three attackers against one defender, one ball。\n【ボールの道筋】7 → 10 → 2 → ゴール\n【流れ】ステップ1：7番が10番へパス、7番・2番が前方へ移動。ステップ2：10番が2番へパス、Aが前方へ移動。ステップ3：2番がボールを運ぶ。ステップ4：2番がシュート。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ポイント】3人、各2タッチ、1人はボールを追い越す。誰も越えなければ、それはパス練習でサッカーではない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】a wide channel in the attacking half, three attackers against one defender, one ball.\n【볼 경로】7 → 10 → 2 → 골문\n【진행】1단계: 7번가 10번에게 패스, 7번, 2번는 앞으로 이동; 2단계: 10번가 2번에게 패스, A는 앞으로 이동; 3단계: 2번가 공을 몰고 이동; 4단계: 2번 슛.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【포인트】세 명, 각 두 번 터치, 한 명은 공을 앞질러 달린다. 아무도 앞서지 않으면 그건 패스 연습이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: a wide channel in the attacking half, three attackers against one defender, one ball.\nRecorrido del balón: 7 → 10 → 2 → portería\nSecuencia: Paso 1: 7 pasa a 10, 7, 2 se desplaza hacia delante; Paso 2: 10 pasa a 2, A se desplaza hacia delante; Paso 3: 2 conduce el balón; Paso 4: 2 remata.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nPunto clave: Tres jugadores, dos toques, uno que rebasa el balón. Si nadie lo rebasa, es un rondo, no fútbol.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : a wide channel in the attacking half, three attackers against one defender, one ball.\nTrajet du ballon : 7 → 10 → 2 → but\nDéroulé : Étape 1 : 7 passe à 10, 7, 2 se déplace vers l'avant ; Étape 2 : 10 passe à 2, A se déplace vers l'avant ; Étape 3 : 2 conduit le ballon ; Étape 4 : 2 frappe.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nPoint clé : Trois joueurs, deux touches, un qui dépasse le ballon. Sinon c'est de la passe, pas du football.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: a wide channel in the attacking half, three attackers against one defender, one ball.\nJalur bola: 7 → 10 → 2 → gawang\nUrutan: Langkah 1: 7 mengoper ke 10, 7, 2 bergerak ke depan; Langkah 2: 10 mengoper ke 2, A bergerak ke depan; Langkah 3: 2 menggiring bola; Langkah 4: 2 menembak.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, satu berlari melewati bola.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: a wide channel in the attacking half, three attackers against one defender, one ball.\nLaluan bola: 7 → 10 → 2 → gol\nUrutan: Langkah 1: 7 menghantar kepada 10, 7, 2 bergerak ke hadapan; Langkah 2: 10 menghantar kepada 2, A bergerak ke hadapan; Langkah 3: 2 membawa bola; Langkah 4: 2 menjaring.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPoin utama: Tiga pemain, dua sentuhan, seorang berlari melepasi bola.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: a wide channel in the attacking half, three attackers against one defender, one ball\nเส้นทางบอล: 7 → 10 → 2 → ประตู\nลำดับ: ขั้นที่ 1: 7 จ่ายให้ 10 7, 2 ขยับไปข้างหน้า • ขั้นที่ 2: 10 จ่ายให้ 2 A ขยับไปข้างหน้า • ขั้นที่ 3: 2 พาบอลไป • ขั้นที่ 4: 2 ยิงประตู\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nจุดเน้น: สามคน คนละสองแตะ และต้องมีคนวิ่งแซงบอล ถ้าไม่มีก็เป็นแค่การฝึกจ่าย",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: a wide channel in the attacking half, three attackers against one defender, one ball.\nĐường bóng: 7 → 10 → 2 → khung thành\nTrình tự: Bước 1: 7 chuyền cho 10, 7, 2 di chuyển lên phía trước; Bước 2: 10 chuyền cho 2, A di chuyển lên phía trước; Bước 3: 2 dẫn bóng di chuyển; Bước 4: 2 dứt điểm.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nĐiểm chính: Ba người, mỗi người hai chạm, một người chạy vượt bóng."
       },
       "mistake": {
         "en": "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.",
@@ -30696,11 +30736,16 @@
               [
                 374.0,
                 474.4955680902498
+              ],
+              [
+                428.0,
+                348.22270346494764
               ]
             ],
             "movePhases": [
               0,
-              1
+              1,
+              2
             ],
             "moveColor": 4285132974,
             "customColor": null,
@@ -30757,14 +30802,19 @@
                 554.3494904952798
               ],
               [
-                473.4136811415152,
-                285.92356994912853
+                459.4559838734841,
+                274.66645914435236
+              ],
+              [
+                457.2811693215024,
+                278.1099841482192
               ]
             ],
             "movePhases": [
               0,
               1,
-              2
+              2,
+              3
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -32411,13 +32461,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              292.63999999999993,
+              350.96000000000004,
               902.6753726833199
             ],
             "scale": 1.0,
             "moves": [
               [
-                323.74399999999997,
+                373.31600000000003,
                 701.7867244157937
               ]
             ],
@@ -32438,7 +32488,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              707.36,
+              649.04,
               902.6753726833199
             ],
             "scale": 1.0,
@@ -32505,7 +32555,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              365.216,
+              423.53600000000006,
               597.3246273166801
             ],
             "scale": 1.0,
@@ -32525,7 +32575,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              779.936,
+              721.616,
               597.3246273166801
             ],
             "scale": 1.0,
@@ -32702,12 +32752,12 @@
                 746.6539070633946
               ],
               [
-                401.77002534413714,
-                719.4485297877272
+                449.9030318549889,
+                724.9043919374734
               ],
               [
-                474.4033862461153,
-                504.37270983396274
+                486.66441679209,
+                507.4588462154027
               ]
             ],
             "movePhases": [
@@ -32845,13 +32895,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.59999999999997,
+              334.4,
               919.0334483279613
             ],
             "scale": 1.0,
             "moves": [
               [
-                304.15999999999997,
+                359.24,
                 696.6210163174859
               ]
             ],
@@ -32872,7 +32922,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              730.4,
+              665.5999999999999,
               919.0334483279613
             ],
             "scale": 1.0,
@@ -32959,7 +33009,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              350.24,
+              415.04,
               580.9665516720387
             ],
             "scale": 1.0,
@@ -32979,7 +33029,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              811.04,
+              746.24,
               580.9665516720387
             ],
             "scale": 1.0,
@@ -33156,12 +33206,12 @@
                 742.5221753753665
               ],
               [
-                382.34520054824145,
-                713.564286817341
+                436.01525143806174,
+                719.1056948035662
               ],
               [
-                472.34932241506544,
-                469.2096767125541
+                484.5449749792446,
+                472.63305242537723
               ]
             ],
             "movePhases": [
@@ -33299,13 +33349,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              246.55999999999995,
+              317.84000000000003,
               935.3915239726027
             ],
             "scale": 1.0,
             "moves": [
               [
-                284.57599999999996,
+                345.16400000000004,
                 691.4553082191782
               ]
             ],
@@ -33346,7 +33396,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              753.44,
+              682.16,
               935.3915239726027
             ],
             "scale": 1.0,
@@ -33433,7 +33483,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              335.264,
+              406.54400000000004,
               564.6084760273973
             ],
             "scale": 1.0,
@@ -33473,7 +33523,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              842.144,
+              770.8639999999999,
               564.6084760273973
             ],
             "scale": 1.0,
@@ -33650,12 +33700,12 @@
                 738.7146180088223
               ],
               [
-                362.8720830796253,
-                707.8785653379231
+                422.0614868957141,
+                713.5183204596563
               ],
               [
-                470.6840581782635,
-                434.1370973155306
+                482.79022054430135,
+                437.8290251126266
               ]
             ],
             "movePhases": [
@@ -40096,8 +40146,8 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              414.6403945597425,
-              812.9573613708683
+              500.0,
+              750.0
             ],
             "scale": 1.0,
             "moves": [

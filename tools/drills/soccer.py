@@ -1180,10 +1180,10 @@ def soccer_drills() -> list[Drill]:
                 P(300, 600, "X1", moves=[(360, 700, 0)]), P(500, 560, "X2"),
                 P(700, 600, "X3"), P(300, 380, "X4"), P(500, 340, "X5"), P(700, 380, "X6"),
             ],
-            markers=[M(500, 140, "square"), M(500, 1360, "square")],
+            markers=[M(500, 200, "square"), M(500, 1300, "square")],
             ball=0,
             # the first two passes after the restart
-            ball_to=[(4, 0), (2, 1), ((500, 150), 2)],   # …and the C scores
+            ball_to=[(4, 0), (2, 1), ((500, 210), 2)],   # …and the C scores
         ),
         # ── batch 3 ──────────────────────────────────────────────────────────
         Drill(
@@ -1534,11 +1534,11 @@ def soccer_drills() -> list[Drill]:
                 P(280, 600, "X2"), P(720, 600, "X3"),
                 P(400, 320, "X4"), P(600, 320, "X5"),
             ],
-            markers=[M(500, 140, "square"), M(500, 1360, "square"),
+            markers=[M(500, 200, "square"), M(500, 1300, "square"),
                      M(180, 200), M(820, 200), M(180, 1300), M(820, 1300)],
             ball=0,
             # two touches, two passes: into 3, on to 5
-            ball_to=[(2, 0), (4, 1), ((500, 150), 2)],   # …and the E scores
+            ball_to=[(2, 0), (4, 1), ((500, 210), 2)],   # …and the E scores
         ),
         Drill(
             id="possession_switch_two_touch", category="possession", minutes=12,
@@ -1782,8 +1782,11 @@ def game_area(n: int):
         for k, cnt in enumerate(rows):
             fy = 0.80 - k * (0.65 / max(r - 1, 1))
             y = 0.5 + hh * fy * (1 if up else -1)
+            # Alternate rows narrower: with every row spread the same, the
+            # men lined up in columns and a 2-3-1 read as three files.
+            spread = 1.6 if k % 2 == 0 else 1.15
             for c in range(cnt):
-                fx = 0.0 if cnt == 1 else (c / (cnt - 1) - 0.5) * 1.6
+                fx = 0.0 if cnt == 1 else (c / (cnt - 1) - 0.5) * spread
                 spots.append((0.5 + hw * fx + shift, y))
         return spots
 
@@ -2037,17 +2040,20 @@ def finishing_family() -> list[Drill]:
     circle 60 m out, and send the keeper to the exact spot the 9 arrived at.
     """
     # key, the crosser's lane, the 9's run, the 10's run
+    # The 9 finishes from around the penalty spot (0.18 of the pitch),
+    # not from the six-yard line: drawn at 0.11 he was on the keeper's
+    # shoulder and the "shot" was a toe-poke from a yard.
     specs = [
         ("left_wing", (0.14, 0.46), (0.20, 0.20),
-         (0.54, 0.34), (0.60, 0.11), (0.34, 0.42), (0.40, 0.16)),
+         (0.54, 0.36), (0.58, 0.18), (0.34, 0.44), (0.40, 0.22)),
         ("right_wing", (0.86, 0.46), (0.80, 0.20),
-         (0.46, 0.34), (0.40, 0.11), (0.66, 0.42), (0.60, 0.16)),
+         (0.46, 0.36), (0.42, 0.18), (0.66, 0.44), (0.60, 0.22)),
         ("left_halfspace", (0.30, 0.46), (0.33, 0.24),
-         (0.58, 0.36), (0.60, 0.12), (0.46, 0.48), (0.42, 0.15)),
+         (0.58, 0.38), (0.58, 0.19), (0.46, 0.50), (0.42, 0.23)),
         ("right_halfspace", (0.70, 0.46), (0.67, 0.24),
-         (0.42, 0.36), (0.40, 0.12), (0.54, 0.48), (0.58, 0.15)),
+         (0.42, 0.38), (0.42, 0.19), (0.54, 0.50), (0.58, 0.23)),
         ("central", (0.50, 0.52), (0.50, 0.32),
-         (0.64, 0.40), (0.60, 0.13), (0.36, 0.40), (0.40, 0.16)),
+         (0.64, 0.42), (0.58, 0.20), (0.36, 0.42), (0.42, 0.22)),
     ]
     out = []
     for key, s7, e7, s9, e9, s10, e10 in specs:
@@ -2290,19 +2296,24 @@ def duel_family() -> list[Drill]:
     out = []
     for key, x, label in lanes:
         inw = -1.0 if x > 0.5 else 1.0       # toward the middle of the pitch
-        carry = (x + 0.22 * inw, 0.28)
+        carry = (x + 0.22 * inw, 0.19)
         out.append(Drill(
             id=f"duel_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "central"),
             name=suffixed(DUEL_NAME, label), note=DUEL_NOTE,
             # Two dots and two lines is a diagram, not a drill. A 1v1 starts
             # with the ball arriving and ends at a goal somebody is keeping.
-            home=[P(x, 0.62, "11", moves=[(x, 0.48, 0), (*carry, 1)]),
+            # Played in the attacking half: the attacker takes the ball
+            # 35 m out, the server 12 m behind him, the defender on his
+            # shoulder at the edge of the box. Drawn from the halfway line
+            # the feed was a 40 m pass and the "duel" a long jog.
+            home=[P(x, 0.44, "11", moves=[(x, 0.34, 0), (*carry, 1)],
+                    why={0: "meet", 1: "get_free"}),
                   # He serves and stays: a server who jogs forward on the
                   # same beat puts himself under his own pass.
-                  P(x + 0.20 * inw, 0.76, "8")],
-            away=[P(x + 0.10 * inw, 0.42, "A",
-                    moves=[(x + 0.08 * inw, 0.36, 1)]),
+                  P(x + 0.20 * inw, 0.56, "8")],
+            away=[P(x + 0.10 * inw, 0.30, "A",
+                    moves=[(x + 0.08 * inw, 0.25, 1)], why={1: "delay"}),
                   P(0.50, 0.03, "GK", role="GK",
                     moves=[(0.5 + (carry[0] - 0.5) * 0.25, 0.05, 2)])],
             setup={
@@ -2846,27 +2857,28 @@ def combination_family() -> list[Drill]:
     # entry: the 7, the 10, the third man, the defender, the ball's legs.
     shapes = {
         "wall": (
-            ((0.18, 0.62), [(0.22, 0.34, 1)]),          # 7 passes and goes
+            ((0.18, 0.62), [(0.22, 0.34, 1), (0.32, 0.17, 2)]),   # 7 passes, goes, drives in
             ((0.40, 0.50), []),                         # the wall: one touch, no run
             ((0.10, 0.74), [(0.12, 0.50, 1)]),          # decoy width
             ((0.26, 0.46), [(0.30, 0.62, 1)]),          # played round, left behind
-            # …and the 7, in behind, finishes: a wall pass that stops on
-            # the return has not gone anywhere.
-            [(1, 0), (0, 1), ((0.5, 0.03), 2)],
+            # …and the 7, in behind, drives into the box and finishes: a
+            # wall pass that stops on the return has not gone anywhere,
+            # and a shot from 35 m is not what it is for.
+            [(1, 0), (0, 1), (0, 2), ((0.5, 0.03), 3)],
         ),
         "overlap": (
             ((0.20, 0.58), [(0.28, 0.44, 0)]),
             ((0.46, 0.44), [(0.52, 0.36, 0)]),           # opens up inside
-            ((0.30, 0.74), [(0.14, 0.56, 0), (0.16, 0.32, 1)]),   # round the outside
+            ((0.30, 0.74), [(0.14, 0.56, 0), (0.16, 0.32, 1), (0.22, 0.14, 2)]),   # round the outside, to the byline
             ((0.34, 0.36), [(0.38, 0.50, 1)]),
-            [(1, 0), (2, 1), ((0.5, 0.03), 2)],         # the overlapper crosses/shoots
+            [(1, 0), (2, 1), (2, 2), ((0.5, 0.03), 3)], # the overlapper drives on and crosses
         ),
         "underlap": (
             ((0.14, 0.56), [(0.16, 0.38, 0)]),          # 7 holds the touchline
             ((0.46, 0.46), []),                         # 10 inside him
-            ((0.16, 0.74), [(0.26, 0.64, 0), (0.36, 0.26, 1)]),   # inside, diagonal
+            ((0.16, 0.74), [(0.26, 0.64, 0), (0.36, 0.26, 1), (0.42, 0.15, 2)]),   # inside, diagonal, into the box
             ((0.30, 0.40), [(0.28, 0.46, 1)]),          # A between the two
-            [(1, 0), (2, 1), ((0.5, 0.03), 2)],         # the underlapper finishes
+            [(1, 0), (2, 1), (2, 2), ((0.5, 0.03), 3)], # the underlapper drives in and finishes
         ),
     }
     specs = [("wall_left", "wall pass left", "wall", False),
@@ -3707,7 +3719,7 @@ def match_moments() -> list[Drill]:
             ],
             # The pitch already draws its own centre circle and spot; the
             # extra disc on top of them read as an unexplained zone.
-            ball=0,
+            ball=0, ball_spot=(0.5, 0.5),   # on the centre spot, as a kick-off is
             # tapped back to the 6, then long into the 9's channel run
             ball_to=[(4, 0), (1, 1), (1, 2)],   # …and the 9 drives on to the byline
         ),
