@@ -583,18 +583,27 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Sentuh, pulangkan, luaskan. Hantaran balik mesti satu sentuhan.",
                   "th-TH": "ชน วางกลับ แล้วเปิดออก บอลวางกลับต้องแตะเดียว",
                   "vi-VN": "Đệm, trả, mở biên. Đường trả phải một chạm."},
-            # The passer stays on his cone: he used to follow his pass onto
-            # the receiver's own spot, so the two ended on one token.
+            # The Y as it is coached — in, back, wide — and then the bit that
+            # makes it run: everyone follows his pass one station on, the
+            # wide man plays the ball back down to the start, where a spare
+            # (E) has stepped up to be the next A, and jogs to the back of
+            # the line himself. Four beats and every cone is manned again
+            # with the ball at the bottom. D is the other wide station: the
+            # next rep goes his way.
             home=[
-                P(500, 1120, "A"),
-                P(500, 820, "B", moves=[(500, 940, 0)]),
-                P(760, 640, "C", moves=[(760, 500, 1)]),
-                P(240, 640, "D", moves=[(240, 500, 1)]),
+                P(500, 1120, "A", moves=[(500, 800, 2)], why={2: "follow"}),
+                P(500, 820, "B", moves=[(500, 940, 0), (760, 740, 2), (760, 640, 3)],
+                  why={0: "meet", 2: "follow", 3: "follow"}),
+                P(760, 640, "C", moves=[(760, 500, 1), (500, 1260, 3)],
+                  why={1: "support", 3: "queue"}),
+                P(240, 640, "D"),
+                P(500, 1260, "E", moves=[(500, 1120, 2)], why={2: "follow"}),
             ],
             markers=[M(500, 1140), M(500, 800), M(780, 620), M(220, 620)],
             ball=0,
-            # into the 2 checking short, laid wide to the 3
-            ball_to=[(1, 0), (2, 1)],
+            # into B checking short, laid back to A first time, played wide
+            # to C on the run, and back down to E for the next one
+            ball_to=[(1, 0), (0, 1), (2, 2), (4, 3)],
         ),
         Drill(
             id="warmup_first_touch_gate", category="warmup", minutes=8,
