@@ -251,6 +251,14 @@ WHY = {
         "id-ID": "masuk dan merebut bola", "ms-MY": "masuk dan merampas bola",
         "th-TH": "เข้าแย่งบอล", "vi-VN": "vào bóng và đoạt lại",
     },
+    "gate": {
+        "en": "take the first touch through the gate", "en-GB": "take the first touch through the gate",
+        "zh-CN": "第一脚把球带过门", "zh-TW": "第一腳把球帶過門",
+        "ja-JP": "ファーストタッチでゲートを抜ける", "ko-KR": "첫 터치로 게이트를 통과한다",
+        "es-ES": "pasar la puerta con el primer toque", "fr-FR": "franchir la porte du premier contrôle",
+        "id-ID": "melewati gerbang dengan sentuhan pertama", "ms-MY": "melepasi pintu dengan sentuhan pertama",
+        "th-TH": "แตะแรกพาบอลผ่านประตู", "vi-VN": "chạm bóng đầu tiên đưa bóng qua cổng",
+    },
     "reset": {
         "en": "get back to the cone", "en-GB": "get back to the cone",
         "zh-CN": "回到原位", "zh-TW": "回到原位",

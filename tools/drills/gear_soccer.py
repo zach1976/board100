@@ -39,9 +39,9 @@ GEAR = {
         "四个锥标是 Y 字的四个站位：底端起点、中间支点、左右各一个分边点",
         "四個錐標是 Y 字的四個站位：底端起點、中間支點、左右各一個分邊點"),
     "warmup_first_touch_gate": _t(
-        "the four cones make two gates a metre wide; the first touch has to take the ball through the next gate",
-        "四个锥标摆成两个一米宽的门，第一脚触球要把球带过下一个门",
-        "四個錐標擺成兩個一米寬的門，第一腳觸球要把球帶過下一個門"),
+        "the four cones make two gates, each a metre and a half wide, one ahead-left and one ahead-right of the receiver: the first touch has to take the ball through one of them, alternating left and right",
+        "四个锥标摆成两个门，各约 1.5 米宽，一个在接球人的左前方、一个在右前方；第一脚触球要把球带过其中一个门，左右交替",
+        "四個錐標擺成兩個門，各約 1.5 米寬，一個在接球人的左前方、一個在右前方；第一腳觸球要把球帶過其中一個門，左右交替"),
     "possession_3_zone": _t(
         "six cones mark three zones across the pitch; a point only counts when the ball is played through the middle one",
         "六个锥标把场地分成三个横向区域，球穿过中间区域才算得分",
