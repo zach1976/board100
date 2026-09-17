@@ -321,6 +321,11 @@ def audit(drill, sport):
                 won = team_of[a] != team_of[b]
         terminal = (holder is None or carried or from_keeper or ends_off_board
                     or won)
+        # A baseball play ends in a fielder's glove — the out at first, the
+        # tag, the catcher taking the throw. That is the end, not a pass
+        # left hanging; the flow line says who resets and rotates.
+        if sport == "baseball":
+            terminal = True
     else:
         terminal = not movers
     if movers and not loop:

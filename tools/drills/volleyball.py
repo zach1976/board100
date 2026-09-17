@@ -122,9 +122,10 @@ def receive_family() -> list[Drill]:
             away=[P(0.5, -0.04, "S", moves=[(0.5, 0.02, 0)])],
             markers=[M(*SET_POINT, "square", "")],
             ball=(0.5, -0.04),          # in the server's hand, behind the line
-            # Serve, pass, set: over the net to P1, up to the setter
-            # releasing to the net, delivered to the hitter stepping in.
-            ball_to=[(1, 0), (0, 1), (len(home) - 1, 2)],
+            # Serve, pass, set, hit: over the net to P1, up to the setter
+            # releasing to the net, delivered to the hitter stepping in —
+            # and put away into the far court. The side-out is the point.
+            ball_to=[(1, 0), (0, 1), (len(home) - 1, 2), (ball_spot((0.34, 0.24)), 3)],
         ))
     return out
 
@@ -437,7 +438,9 @@ def serve_family() -> list[Drill]:
             # Over the net into the marked zone — ball_spot so the ball is
             # drawn ON the zone and not 70 units past it, which for the short
             # serve put the landing disc on the net tape.
-            ball_to=[(ball_spot(land), 0), (f"a{i}", 1)],
+            # …and the pass goes up to the setter's spot: a serve is judged
+            # by the pass it forces.
+            ball_to=[(ball_spot(land), 0), (f"a{i}", 1), (ball_spot((0.34, 0.545)), 2)],
         ))
     return out
 
@@ -500,8 +503,9 @@ def setter_family() -> list[Drill]:
             markers=[M(*SET_POINT, "square", "")],
             ball=1,
             # The pass climbs as the setter releases; he delivers the pin
-            # attack as the middle holds the blocker.
-            ball_to=[(0, 0), (2, 2)],
+            # attack as the middle holds the blocker — and it is hit into
+            # the far court.
+            ball_to=[(0, 0), (2, 2), (ball_spot((0.72, 0.22)), 3)],
         ))
     return out
 
@@ -905,8 +909,9 @@ def gaps_family() -> list[Drill]:
             # started inside our own court with a front-row hitter had nobody
             # serving in it.
             ball=(0.45, 0.10),
-            # their serve into the seam; the libero takes it to the setter
-            ball_to=[(0, 0), (2, 1)],
+            # their serve into the seam; the libero takes it to the setter,
+            # who sets it out to the pin
+            ball_to=[(0, 0), (2, 1), (ball_spot((0.16, 0.56)), 2)],
         ),
         Drill(
             id="vb_setter_dump", category="attacking", minutes=8, rel=True,

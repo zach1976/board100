@@ -77,7 +77,7 @@ def warmup_family() -> list[Drill]:
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, ball=0,
             # kept alive between them — pairs, or round the circle
-            ball_to=([(1, 0), (0, 1)] if key == "juggling" else [(1, 0), (2, 1)]),
+            ball_to=([(1, 0), (0, 1)] if key == "juggling" else [(1, 0), (2, 1), (0, 2)]),
         ))
     return out
 
@@ -459,7 +459,8 @@ def gaps_family() -> list[Drill]:
             away=[P(0.50, 0.8172, "T", moves=[(0.50, 0.775, 0)])],
             markers=[M(0.50, 0.8172, "circle", ""), M(0.54, 0.58, "zone", "")],
             ball=(0.50, 0.80),
-            ball_moves=[(0.40, 0.62, 1), (0.54, 0.58, 2)],
+            # …and the feeder sets it up for the strike
+            ball_moves=[(0.40, 0.62, 1), (0.54, 0.58, 2), (0.46, 0.50, 3)],
         ),
     ]
 
@@ -565,6 +566,9 @@ def receive2_family() -> list[Drill]:
             away=[P(0.50, 0.14, "T", moves=[(0.50, 0.20, 0)])],
             markers=[M(*FEED_POINT, "square", "")],
             ball=(0.50, 0.14),
+            # the serve comes over, the first touch goes up to the feed
+            # point — the square — where the feeder takes it
+            ball_to=[("a0", 0), (0, 1), (FEED_POINT, 2)],
         ))
     return out
 

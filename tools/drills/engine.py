@@ -770,6 +770,24 @@ def grid(cols: int, rows: int, x0: float, y0: float, x1: float, y1: float
     return out
 
 
+def finish_with(drills: list[Drill], target: tuple, ids) -> None:
+    """Give the named drills a last leg to [target] — the shot, the try, the
+    ball over the net — one beat after everything else.
+
+    A pattern that ends on the man the set was designed to free has not
+    shown what he was freed for; a game passage that ends on a pass has
+    not ended. Written once here rather than appended to twenty specs by
+    hand, and the ids are listed beside the family they belong to.
+    """
+    wanted = set(ids)
+    for d in drills:
+        if d.id not in wanted:
+            continue
+        phases = [m[2] for p in d.home + d.away for m in p.moves]
+        phases += [ph for (_, ph) in d.ball_to]
+        d.ball_to = list(d.ball_to) + [(target, max(phases, default=-1) + 1)]
+
+
 def merge(curated: list[Drill], *families: list[Drill]) -> list[Drill]:
     """Curated drills first; a family variant with the same id is dropped.
 

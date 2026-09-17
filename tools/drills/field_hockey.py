@@ -422,13 +422,18 @@ def press_family() -> list[Drill]:
             free=(key == "half"),
             name=suffixed(PRESS_NAME, label), note=PRESS_NOTE,
             home=[P(x, y, "D", moves=[(x + leg0[0], leg0[1], 0),
-                                      (x + leg1[0], leg1[1], 1)])
+                                      (x + leg1[0], leg1[1], 1)]
+                                     + ([(x + leg1[0] + 0.02, leg1[1] - 0.03, 2)]
+                                        if x == 0.16 else []),
+                    why=({0: "press_ball", 1: "press_ball", 2: "win_ball"}
+                         if x == 0.16 else {0: "shift", 1: "close_lane"}))
                   for x in (0.16, 0.38, 0.60, 0.82)]
                  + [P(*cover, "D", moves=[cover_end + (1,)])],
             away=aways,
             ball=ball,                  # the attack starts with it, at B
-            # infield to A, and A carries into the trap the press sets
-            ball_to=[("a0", 0), ("a0", 1)],
+            # infield to A, A carries into the trap the press sets, and the
+            # first D takes it: the press has worked when the ball is won
+            ball_to=[("a0", 0), ("a0", 1), (0, 2)],
         ))
     return out
 
@@ -831,7 +836,20 @@ def gaps_family() -> list[Drill]:
     ]
 
 
+# Where a passage was left on the last receiver's stick: the build-ups
+# carry the ball into the attacking half, the circle entry and the free hit
+# finish on goal, the presses end with the ball won, the aerial is carried
+# on by its receiver.
+INTO_THE_ATTACKING_HALF = ["fh_build_from_the_back", "fh_build_through_midfield",
+                           "fh_build_switching", "fh_build_aerial"]
+FINISH_AT_GOAL = ["fh_entry_baseline", "fh_set_free_hit"]
+
+
 def field_hockey_library() -> list[Drill]:
-    return (warmup_family() + buildup_family() + entry_family()
-            + shooting_family() + press_family() + setpiece_family()
-            + game_family() + gaps_family())
+    from .engine import finish_with
+    drills = (warmup_family() + buildup_family() + entry_family()
+              + shooting_family() + press_family() + setpiece_family()
+              + game_family() + gaps_family())
+    finish_with(drills, (0.50, 0.30), INTO_THE_ATTACKING_HALF)
+    finish_with(drills, (0.50, 0.04), FINISH_AT_GOAL)
+    return drills

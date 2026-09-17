@@ -53,12 +53,17 @@ def handling_family() -> list[Drill]:
             id=f"rg_handling_{key}", category="warmup", minutes=8, rel=True,
             free=(key in ("grid", "threes")),
             name=suffixed(HANDLE_NAME, label), note=HANDLE_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.12, 0), (x, y - 0.22, 1)])
+            # The line runs on together, a step a beat, for as many beats
+            # as there are passes.
+            home=[P(x, y, f"{i + 1}",
+                    moves=[(x, y - 0.08 * (k + 1), k) for k in range(n)])
                   for i, (x, y) in enumerate(spots)],
             markers=[M(x, 0.40, "cone", "") for x, _ in spots],
             ball=0,
-            # along the line as it runs onto the cones
-            ball_to=[(1 % n, 0), (2 % n, 1)],
+            # along the line as it runs onto the cones — all the way to the
+            # end man, who carries it over the last cone: the length is
+            # done, and the next one comes back the other way
+            ball_to=[(i % n, i - 1) for i in range(1, n)] + [(n - 1, n - 1)],
         ))
     return out
 
@@ -707,11 +712,22 @@ def gaps_family() -> list[Drill]:
     ]
 
 
+# The backline moves and the phase plays end with the man the move frees
+# going over the line; a handling line ends where the last man has it and
+# the next length starts from there.
+OVER_THE_LINE = ["rg_phase_one_three_three_one", "rg_phase_two_four_two",
+                 "rg_phase_left_to_right", "rg_move_miss_pass", "rg_move_switch",
+                 "rg_move_loop", "rg_move_cut_out", "rg_move_dummy_runner"]
+
+
 def rugby_library() -> list[Drill]:
-    return (handling_family() + phase_family() + breakdown_family()
-            + move_family() + kicking_family() + finishing_family()
-            + defence_family() + setpiece_family() + maul_family()
-            + game_family() + gaps_family())
+    from .engine import finish_with
+    drills = (handling_family() + phase_family() + breakdown_family()
+              + move_family() + kicking_family() + finishing_family()
+              + defence_family() + setpiece_family() + maul_family()
+              + game_family() + gaps_family())
+    finish_with(drills, (0.60, TRY_LINE - 0.03), OVER_THE_LINE)
+    return drills
 
 MAUL_NAME = {
     "en": "Maul", "en-GB": "Maul", "zh-CN": "冒尔推进", "zh-TW": "冒爾推進",
