@@ -153,6 +153,10 @@ class Drill:
     # shape is what happens when the defender wins it, and that has no
     # phase to derive it from.
     rules: dict | None = None
+    # How the drill keeps going once the board has run — who queues, who
+    # swaps, how the next rep starts. Its own 【连贯】 line, hand-written:
+    # the board animates one rep and has no beat to derive this from.
+    flow: dict | None = None
     # How often a coach reaches for this one within its category: 3 a staple
     # (the rondo, the passing square, the 1v1 — run most weeks), 2 regular,
     # 1 occasional (a formation-specific press, a penalty routine). Bigger

@@ -88,6 +88,14 @@ SECTION = {
         "id-ID": "Perlengkapan: ", "ms-MY": "Peralatan: ",
         "th-TH": "อุปกรณ์: ", "vi-VN": "Dụng cụ: ",
     },
+    "flow": {
+        "en": "How it continues: ", "en-GB": "How it continues: ",
+        "zh-CN": "【连贯】", "zh-TW": "【連貫】",
+        "ja-JP": "【続け方】", "ko-KR": "【이어가기】",
+        "es-ES": "Continuidad: ", "fr-FR": "Enchaînement : ",
+        "id-ID": "Kelanjutan: ", "ms-MY": "Kesinambungan: ",
+        "th-TH": "การต่อเนื่อง: ", "vi-VN": "Tiếp nối: ",
+    },
     "rules": {
         "en": "Rules: ", "en-GB": "Rules: ",
         "zh-CN": "【规则】", "zh-TW": "【規則】",
@@ -1010,6 +1018,9 @@ def compose_note(drill, sport: str) -> None:
             parts.append(SECTION["route"][loc] + route[loc])
         if seq is not None:
             parts.append(SECTION["seq"][loc] + seq[loc])
+        if drill.flow:
+            parts.append(SECTION["flow"][loc]
+                         + (drill.flow.get(loc) or drill.flow["en"]))
         if drill.rules:
             parts.append(SECTION["rules"][loc]
                          + (drill.rules.get(loc) or drill.rules["en"]))
