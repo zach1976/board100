@@ -810,7 +810,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       if (legs.isEmpty) return false;
                       return (legs.last.value - stepStart(p, stepLimit))
                               .distance >=
-                          nudgeThreshold(p.scale);
+                          nudgeThreshold(p);
                     }).map((player) {
                       final size = kPlayerIconSize * player.scale;
                       final ghostAt = stepStart(player, stepLimit);
@@ -915,7 +915,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // twice. The nudge arrow carries the direction instead.
                       final shortRun = legs.isNotEmpty &&
                           (legs.last.value - from).distance <
-                              nudgeThreshold(player.scale);
+                              nudgeThreshold(player);
                       return legs.where((entry) {
                         final isEnd = entry.key == legs.last.key;
                         if (shortRun && atStartTime && isEnd) return false;
