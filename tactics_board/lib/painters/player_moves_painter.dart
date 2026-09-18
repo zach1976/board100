@@ -57,15 +57,28 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
 /// honestly can at this scale — one copy of the player, and a stub arrow
 /// butted against him showing which way he shifts.
 ///
-/// The line is 70% of a token: at that offset the two discs still overlap,
-/// but each centre is clear of the other and the pair reads as "he was here,
-/// now he is there". Any closer and the start copy is a shadow behind the
+/// The line is 70% of the icon: at that offset the two copies still overlap,
+/// but each centre is clear of the other and the pair reads as "it was here,
+/// now it is there". Any closer and the start copy is a shadow behind the
 /// end copy, so the board drops it. It was a whole token wide until a
 /// centre-mid dropping five metres — a real move, and the point of the beat —
 /// came out as a lone token with a stub arrow and no sign of where he came
 /// from. Above the line they are separate on the board and the run keeps its
 /// destination, even where the arrow between them has to be squeezed.
-double nudgeThreshold(double scale) => kPlayerIconSize * 0.7 * scale;
+///
+/// Of the icon, not of the box: a ball is drawn at 58% of its cell and a
+/// cone at 62%, so a header across the six-yard box — two ball widths, and
+/// plainly two balls on the grass — was being judged against a body and lost
+/// its start ghost.
+double nudgeThreshold(PlayerIcon p) =>
+    kPlayerIconSize * 0.7 * p.scale * iconDrawFactor(p);
+
+/// How much of its 36pt box an icon actually fills.
+double iconDrawFactor(PlayerIcon p) => p.isBall
+    ? kBallDrawFactor
+    : p.isMarker
+        ? markerArtScale(p.markerShape)
+        : 1.0;
 
 
 /// The legs a player runs on the beat that is showing, as (index into
@@ -147,7 +160,7 @@ class PlayerMovesPainter extends CustomPainter {
       final isLastSegment = i == points.length - 2;
       final endRadius = isLastSegment ? iconRadius : _waypointRadius;
       final dist = (to - from).distance;
-      if (dist < nudgeThreshold(player.scale)) {
+      if (dist < nudgeThreshold(player)) {
         _drawNudge(canvas, color, from, to, endRadius);
         continue;
       }
