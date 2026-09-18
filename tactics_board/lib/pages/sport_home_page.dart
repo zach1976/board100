@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
 
 import '../main.dart' show isSingleSportApp;
@@ -50,10 +51,22 @@ class _SportHomePageState extends State<SportHomePage> {
   List<TacticMeta> _mine = const [];
   List<RecentBoard> _recent = const [];
   Map<String, DrillMark> _marks = const {};
+  /// Whether this app ships the home screen's photography.
+  ///
+  /// The hero behind the title and the nine drill-category covers are the
+  /// shell's own — one sport's pitch is not another's — so the hub and any
+  /// shell whose art has not been shot yet fall back to flat panels. One
+  /// probe, not ten: the set is generated, converted and declared together,
+  /// so the hero answers for all of it.
+  bool _hasArt = false;
+
+  static const String _heroAsset = 'assets/hero.webp';
+  static String _coverAsset(DrillCategory c) => 'assets/cover/${c.name}.webp';
 
   @override
   void initState() {
     super.initState();
+    _probeArt();
     final state = context.read<TacticsState>();
     _drills = DrillLibraryService.instance.forSport(state.sportType);
     _refreshMine();
@@ -214,12 +227,23 @@ class _SportHomePageState extends State<SportHomePage> {
     }
     return Scaffold(
       backgroundColor: T.bg0,
+      // top: false — the hero runs up under the status bar. Everything below
+      // it carries the screen margin itself.
       body: SafeArea(
+        top: false,
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(T.screenX, T.s8, T.screenX, T.s32),
+          padding: const EdgeInsets.only(bottom: T.s32),
           children: [
-            _header(state.sportType),
+            _hero(state.sportType),
             const SizedBox(height: T.s16),
+            // One margin for the whole column below the photograph. The hero
+            // is the only child that bleeds, so the padding belongs here
+            // rather than on the ListView.
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: T.screenX),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
             _BoardCard(
               state: state,
               onOpen: _openBoard,
@@ -250,6 +274,7 @@ class _SportHomePageState extends State<SportHomePage> {
                       drills: _pickToday(all),
                       locale: _locale,
                       onTap: _openDrill,
+                      cover: _hasArt ? _coverAsset : null,
                     ),
                     const SizedBox(height: T.s24),
                   ],
@@ -321,6 +346,7 @@ class _SportHomePageState extends State<SportHomePage> {
                         drills: starred.take(6).toList(),
                         locale: _locale,
                         onTap: _openDrill,
+                        cover: _hasArt ? _coverAsset : null,
                       ),
                       const SizedBox(height: T.s24),
                     ],
@@ -334,6 +360,9 @@ class _SportHomePageState extends State<SportHomePage> {
               onPrimer: () =>
                   DrillPrimerPage.push(context, state.sportType),
               onLevel: (l) => _openLibraryLevel(l),
+            ),
+                ],
+              ),
             ),
           ],
         ),
@@ -418,41 +447,117 @@ class _SportHomePageState extends State<SportHomePage> {
     if (mounted) _refreshMine();
   }
 
-  Widget _header(SportType sport) {
-    return Row(
-      children: [
-        SportGlyph(sport: sport, size: 26),
-        const SizedBox(width: T.s8),
-        Expanded(
-          child: Text(
-            // The app's own name, not the sport's: this is the home page of
-            // 足球战术板 / Soccer Board, which is what the store calls it and
-            // what the icon on the phone says.
-            'home_board_title'.tr(args: [sport.displayName]),
+  /// Ask the bundle once. Image.asset's errorBuilder would answer the same
+  /// question, but it answers it by throwing on every build of every app
+  /// that has no artwork — fifteen of the sixteen, today.
+  Future<void> _probeArt() async {
+    try {
+      await rootBundle.load(_heroAsset);
+      if (mounted) setState(() => _hasArt = true);
+    } catch (_) {
+      // No artwork in this shell; the flat header is not a failure state.
+    }
+  }
+
+  /// The photograph behind the title, and the page's own name laid over it.
+  ///
+  /// Full-bleed, up under the status bar: the picture is the first thing a
+  /// coach sees, and a 16pt margin around it turns a photograph into a
+  /// thumbnail. The art is shot for this — its left half is empty and dark
+  /// so the title can sit there, and its top corners are clear for the two
+  /// buttons — but the scrim is drawn anyway, because a gradient that is
+  /// only needed when the picture is wrong costs nothing when it is right.
+  Widget _hero(SportType sport) {
+    final top = MediaQuery.paddingOf(context).top;
+    final content = Padding(
+      padding: EdgeInsets.fromLTRB(T.screenX, top + T.s8, T.screenX, T.s16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Spacer(),
+              if (!isSingleSportApp)
+                TacticalIconButton(
+                  icon: Icons.grid_view_rounded,
+                  onTap: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute<void>(
+                        builder: (_) => const SportSelectionPage()),
+                  ),
+                ),
+              const SizedBox(width: T.s4),
+              _HomeMenu(
+                onLanguage: () => LanguagePicker.show(context),
+                onContact: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const ContactPage())),
+                onLogin: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const LoginPage())),
+              ),
+            ],
+          ),
+          const SizedBox(height: T.s24),
+          Row(
+            children: [
+              SportGlyph(sport: sport, size: 26),
+              const SizedBox(width: T.s8),
+              Flexible(
+                child: Text(
+                  // The app's own name, not the sport's: this is the home
+                  // page of 足球战术板 / Soccer Board, which is what the
+                  // store calls it and what the icon on the phone says.
+                  'home_board_title'.tr(args: [sport.displayName]),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: T.text,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      shadows: _hasArt ? const [
+                        Shadow(color: Colors.black87, blurRadius: 8),
+                      ] : null),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'home_tagline'.tr(),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-                color: T.text, fontSize: 22, fontWeight: FontWeight.w700),
+            style: TextStyle(
+                color: _hasArt ? Colors.white70 : T.textDim,
+                fontSize: 13,
+                shadows: _hasArt ? const [
+                  Shadow(color: Colors.black87, blurRadius: 6),
+                ] : null),
           ),
+        ],
+      ),
+    );
+
+    if (!_hasArt) return content;
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(_heroAsset,
+              fit: BoxFit.cover, alignment: Alignment.centerRight),
         ),
-        if (!isSingleSportApp)
-          // Back to the sport grid. The grid REPLACED itself with this page,
-          // so there is nothing to pop to — it has to be replaced back.
-          TacticalIconButton(
-            icon: Icons.grid_view_rounded,
-            onTap: () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute<void>(
-                  builder: (_) => const SportSelectionPage()),
+        // Down into the page, not stopping at an edge: a photograph that
+        // ends on a hard line reads as a banner pasted on top of the app.
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0x66000000), Color(0x22000000), T.bg0],
+                stops: [0, .45, 1],
+              ),
             ),
           ),
-        const SizedBox(width: T.s4),
-        _HomeMenu(
-          onLanguage: () => LanguagePicker.show(context),
-          onContact: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-          onLogin: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const LoginPage())),
         ),
+        content,
       ],
     );
   }
@@ -614,59 +719,101 @@ class _TodayRow extends StatelessWidget {
   final List<Drill> drills;
   final String locale;
   final void Function(Drill) onTap;
+  /// A cover photograph per drill category, when the shell ships them. The
+  /// card is the same card either way — the picture sits behind the words
+  /// instead of beside them, which is why the covers are shot with their
+  /// bottom third dark and empty.
+  final String? Function(DrillCategory)? cover;
   const _TodayRow(
-      {required this.drills, required this.locale, required this.onTap});
+      {required this.drills,
+      required this.locale,
+      required this.onTap,
+      this.cover});
 
   @override
   Widget build(BuildContext context) {
+    final art = cover != null;
     return SizedBox(
-      height: 116,
+      height: art ? 150 : 116,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: drills.length,
         separatorBuilder: (_, __) => const SizedBox(width: T.s8),
         itemBuilder: (context, i) {
           final d = drills[i];
+          final path = art ? cover!(d.category) : null;
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () => onTap(d),
             child: Container(
-              width: 210,
-              padding: const EdgeInsets.all(T.s12),
+              width: art ? 232 : 210,
+              clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brMd),
-              child: Column(
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  if (path != null) ...[
+                    Image.asset(path, fit: BoxFit.cover),
+                    // The photograph is already dark along the bottom; this
+                    // only guarantees it, for the day a cover is reshot.
+                    const DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Color(0x1A000000), Color(0x8C000000), Color(0xE6000000)],
+                          stops: [0, .45, 1],
+                        ),
+                      ),
+                    ),
+                  ],
+                  Padding(
+                    padding: const EdgeInsets.all(T.s12),
+                    child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     d.localizedName(locale),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: T.text,
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        height: 1.25),
+                        height: 1.25,
+                        shadows: path != null
+                            ? const [Shadow(color: Colors.black87, blurRadius: 6)]
+                            : null),
                   ),
                   const SizedBox(height: 6),
                   Expanded(
-                    child: Text(
-                      _firstLine(d.localizedNote(locale)),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          color: T.textDim, fontSize: 12.5, height: 1.35),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        _firstLine(d.localizedNote(locale)),
+                        maxLines: path != null ? 3 : 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: path != null ? Colors.white70 : T.textDim,
+                            fontSize: 12.5,
+                            height: 1.35),
+                      ),
                     ),
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.schedule_outlined,
-                          size: 13, color: T.textOff),
+                      Icon(Icons.schedule_outlined,
+                          size: 13, color: path != null ? Colors.white70 : T.textOff),
                       const SizedBox(width: 4),
                       Text('drills_minutes'.tr(args: ['${d.minutes}']),
-                          style: const TextStyle(
-                              color: T.textOff, fontSize: 11.5)),
+                          style: TextStyle(
+                              color: path != null ? Colors.white70 : T.textOff,
+                              fontSize: 11.5)),
                     ],
+                  ),
+                ],
+              ),
                   ),
                 ],
               ),
