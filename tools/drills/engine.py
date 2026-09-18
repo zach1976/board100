@@ -450,6 +450,20 @@ def space_out(drill: Drill, sport: str) -> None:
             return
 
 
+def _standing_at(drill: Drill, point, phase: int):
+    """Whoever the ball just landed on, or None if it landed on the grass.
+
+    Read at the feet distance the board draws a held ball at, with a little
+    slack: a pass into space beside a defender is not a pass to him.
+    """
+    best, who = FEET_PT * 1.4, None
+    for pl in drill.home + drill.away:
+        d = _screen_gap(_pos_at(pl, phase), point)
+        if d < best:
+            best, who = d, pl
+    return who
+
+
 def _pos_at(p: P, phase: int) -> tuple[float, float]:
     """Where this player stands once every phase up to [phase] has run."""
     x, y = p.x, p.y
@@ -457,6 +471,14 @@ def _pos_at(p: P, phase: int) -> tuple[float, float]:
         if ph <= phase:
             x, y = mx, my
     return x, y
+
+
+# Sports where a player can run with the ball: dribble it, tuck it, swim
+# with it, hold it in a glove. In these a holder who moves takes it along
+# even when the board says nothing more about the ball; in the rest the
+# ball is struck away and stays where it was struck.
+CARRY_SPORTS = {"soccer", "basketball", "handball", "rugby", "waterPolo",
+                "fieldHockey", "baseball"}
 
 
 # Net sports where, absent an authored route, the ball's story is always the
@@ -533,6 +555,39 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             prev_x, prev_y = mx, my
         drill.ball_moves = follow
 
+    if not drill.ball_to and drill.ball_moves:
+        # A hand-drawn ball path says nothing about who has the ball, so it
+        # is read off the board: ball=<index> starts it in that player's
+        # hands, and a leg that lands at somebody's feet leaves it with him.
+        # A man who has it and runs takes it with him — the 9 at the base of
+        # a ruck walked two beats to his kick with the ball left standing
+        # where he started, and a shortstop stepped toward first with an
+        # empty glove. A ball nobody is standing over — on a tee, on the
+        # kicking spot, rolling through the infield — has no holder and
+        # stays put, which is the whole point of a place kick.
+        written = {ph for (*_, ph) in drill.ball_moves}
+        stops = {ph: (x, y) for (x, y, ph) in drill.ball_moves}
+        beats = [ph for pl in drill.home + drill.away for (*_, ph) in pl.moves]
+        holder = drill.home[drill.ball] if isinstance(drill.ball, int) else None
+        carried = []
+        for ph in range(0, (max(beats) if beats else -1) + 1):
+            if ph in written:
+                holder = _standing_at(drill, stops[ph], ph)
+                continue
+            if holder is None:
+                continue
+            px, py = _pos_at(holder, ph)
+            qx, qy = _pos_at(holder, ph - 1)
+            if (px, py) == (qx, qy):
+                continue           # he is standing still; so is the ball
+            if sport not in CARRY_SPORTS and not any(p > ph for p in written):
+                continue
+            carried.append((*at_the_feet_of(px, py, sport, (px - qx, py - qy)),
+                            ph))
+        if carried:
+            drill.ball_moves = sorted(carried + list(drill.ball_moves),
+                                      key=lambda leg: leg[2])
+
     if drill.ball_to:
         # Two legs on the same beat cannot both be drawn: the ball is one
         # icon walking one chain, so the first target is skipped and the pass
@@ -566,6 +621,42 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             for idx, pl in enumerate(drill.away):
                 if abs(pl.x - bx0) + abs(pl.y - by0) <= 160:
                     prev_t = f"a{idx}"
+        # A man who has the ball and runs takes it with him. Without this
+        # the board left the ball standing on the spot he set off from: the
+        # 5 who had just won it turned away and the ball stayed behind him,
+        # a fielder stepped toward first with an empty glove, a server
+        # walked to the line and left the shuttle on the floor. The beat
+        # gets a carry leg, which reads as "carries the ball on the move".
+        #
+        # Only where he would really still have it. Any beat before the
+        # ball's next trip counts everywhere — he is about to play it, so
+        # it is his. A beat with nothing following counts only in the
+        # sports where the ball is carried: in a net sport the last leg's
+        # landing marks where the shot was struck, and the player recovers
+        # away from a ball that is already gone.
+        taken = {ph for (_, ph) in drill.ball_to}
+        taken |= {ph for (*_, ph) in follow_legs}
+        beats = [ph for pl in drill.home + drill.away for (*_, ph) in pl.moves]
+        carried = []
+        holder = prev_t
+        for ph in range(0, (max(beats) if beats else -1) + 1):
+            if ph in taken:
+                for (t, p) in drill.ball_to:
+                    if p == ph:
+                        holder = t
+                continue
+            if holder is None or isinstance(holder, tuple):
+                continue           # on the floor, or played to a spot
+            pl = (drill.away[int(holder[1:])] if isinstance(holder, str)
+                  else drill.home[holder])
+            if _pos_at(pl, ph) == _pos_at(pl, ph - 1):
+                continue           # he is standing still; so is the ball
+            if sport not in CARRY_SPORTS and not any(p > ph for p in taken):
+                continue
+            carried.append((holder, ph))
+        if carried:
+            drill.ball_to = sorted(drill.ball_to + carried, key=lambda e: e[1])
+
         for (t, ph) in drill.ball_to:
             if isinstance(t, Spot):
                 point = target_pos(t, ph)
