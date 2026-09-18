@@ -470,12 +470,11 @@ NET_RALLY_SPORTS = {"tableTennis", "badminton", "tennis", "pickleball",
 class Spot(NamedTuple):
     """A place on the floor, said exactly.
 
-    A bare (x, y) ball target is put through at_the_feet_of — 40 units toward
-    the middle and 70 down — because the common case is a ball ending at
-    somebody. For a landing zone that is simply wrong: on a volleyball court
-    70 units is a metre, the difference between a short serve and a ball on
-    the net tape, and the author has to write the spot pre-compensated to get
-    the spot they meant.
+    A bare (x, y) ball target is put through at_the_feet_of — pulled back a
+    ball's width toward whoever played it — because the common case is a ball
+    ending at somebody. For a landing zone that is simply wrong: it is short
+    of the spot the author wrote, and they have to pre-compensate to get the
+    spot they meant.
 
     The default is not flipped because the library's 110 existing point
     targets were all tuned by eye against it, and the only way to preserve
@@ -1043,6 +1042,12 @@ BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
 SPACING_APART = 36.0            # one icon: no overlap at all
 SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 
+# How far the ball sits from the man carrying it, in points on the phone.
+# The player token is 36pt across and the ball is drawn at 0.58 of its own
+# 36pt cell — about 21pt — so 24pt between the two centres has their edges
+# just meeting: the ball is at his feet, not beside him on the grass.
+FEET_PT = 24.0
+
 # Was a list of sports whose boards predated the rule. Empty since
 # 2026-09-07: space_out() applies the rule to every sport.
 SPACING_UNCHECKED: set[str] = set()
@@ -1066,22 +1071,35 @@ def at_the_feet_of(x: float, y: float, sport: str,
     dribbles and read as the ball being left behind. A player standing still
     has no heading and keeps the old offset.
 
-    The 80-unit distance matches the length of that old (40, 70) offset, so
-    the ball sits exactly as far from its holder as it always has.
+    The gap is measured in POINTS, not in board units. A board unit is 0.40pt
+    across and 0.49pt down, so the old fixed 80-unit offset put the ball 32pt
+    from a man carrying it sideways and 39pt from a man carrying it up the
+    pitch — and at 39pt, with an 18pt token and a 10pt ball, there was a
+    ball's width of empty grass between the two. [FEET_PT] is the distance
+    between the centres that leaves them just touching, whichever way he is
+    facing: close enough to read as his ball, far enough to leave his number
+    showing.
     """
     left, top, w, h = court_rect(sport)
-    if heading is not None:
+    clamp = heading is not None and math.hypot(*heading) > 1e-6
+    if clamp:
         hx, hy = heading
-        length = math.hypot(hx, hy)
-        if length > 1e-6:
-            bx = x + hx / length * 80.0
-            by = y + hy / length * 80.0
-            # A ball pushed ahead at the touchline must not be pushed off it.
-            return (min(max(bx, left + 15), left + w - 15),
-                    min(max(by, top + 15), top + h - 15))
-    dx = 40.0 if x < left + w / 2 else -40.0
-    dy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
-    return x + dx, y + dy
+    else:
+        # Standing still he has no heading; the ball keeps the old "toward
+        # the middle and downward" lie, at the new distance.
+        hx = 40.0 if x < left + w / 2 else -40.0
+        hy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
+    px, py = hx * DISPLAY_W / CANVAS_W, hy * DISPLAY_H / CANVAS_H
+    length = math.hypot(px, py)
+    bx = x + px / length * FEET_PT * CANVAS_W / DISPLAY_W
+    by = y + py / length * FEET_PT * CANVAS_H / DISPLAY_H
+    # A ball pushed ahead at the touchline must not be pushed off it. Only
+    # for a moving holder: a man standing outside the field of play — the
+    # thrower, the corner taker — keeps his ball out there with him.
+    if clamp:
+        return (min(max(bx, left + 15), left + w - 15),
+                min(max(by, top + 15), top + h - 15))
+    return bx, by
 
 
 def apart(sport: str, dx_pt: float = 0.0, dy_pt: float = 0.0) -> tuple[float, float]:
