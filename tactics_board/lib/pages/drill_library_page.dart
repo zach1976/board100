@@ -319,7 +319,16 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                                   fontSize: 22,
                                   fontWeight: FontWeight.w700)),
                           const SizedBox(height: 2),
+                          // Two lines and no more. At the largest
+                          // accessibility text size this sentence runs to
+                          // three in French, and the header it sits in is
+                          // fixed height — the list below has the rest of
+                          // the screen — so the third line pushed the whole
+                          // column 22px past its bottom. It is a hint about
+                          // a button the user can see, not content.
                           Text('drills_hint'.tr(),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                   color: T.textDim, fontSize: 13)),
                         ],

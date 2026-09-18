@@ -48,6 +48,20 @@ class OverflowWatch {
 
   void stop() => FlutterError.onError = _previous;
 
+  /// Restore the handler FIRST, then fail.
+  ///
+  /// expect() while this watch is still installed throws inside the very
+  /// handler the binding uses to report it, and the binding asserts on that
+  /// instead — "a test overrode FlutterError.onError", with not a word about
+  /// what overflowed. The test then never finishes: it sat there until the
+  /// ten-minute timeout, and a ten-minute test run is how a two-line layout
+  /// bug hid for an afternoon. Its twin in overflow_test.dart learned this
+  /// already; this file had not.
+  void check(List<String> broken) {
+    stop();
+    expect(broken, isEmpty, reason: '\n${broken.join('\n')}');
+  }
+
   /// What overflowed since the last call, tagged with where we were.
   List<String> drain(String where) {
     final out = hits.toSet().map((h) => '$where — $h').toList();
@@ -128,6 +142,6 @@ void main() {
     }
 
     debugDefaultTargetPlatformOverride = null;
-    expect(broken, isEmpty, reason: broken.join('\n'));
+    watch.check(broken);
   });
 }
