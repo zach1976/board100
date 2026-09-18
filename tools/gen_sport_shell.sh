@@ -88,11 +88,28 @@ for SPORT in "${SPORTS[@]}"; do
   # sixteen bundles, so sixteen sports' artwork would ride along in each).
   # Declared only once they exist: Flutter fails the build on an asset
   # directory with nothing in it, and most sports have no art yet.
+  #
+  # Same for the home screen's photography: the hero behind the title and the
+  # nine drill-category covers. One sport's pitch is not another's, so these
+  # live in the shell, and each is declared only if it is actually there —
+  # Flutter fails the build on an asset path that does not exist.
   INTRO_ASSETS=""
+  ART=""
   if compgen -G "$DIR/assets/intro/*.webp" > /dev/null; then
-    INTRO_ASSETS="
-  assets:
+    ART="$ART
     - assets/intro/"
+  fi
+  if [ -f "$DIR/assets/hero.webp" ]; then
+    ART="$ART
+    - assets/hero.webp"
+  fi
+  if compgen -G "$DIR/assets/cover/*.webp" > /dev/null; then
+    ART="$ART
+    - assets/cover/"
+  fi
+  if [ -n "$ART" ]; then
+    INTRO_ASSETS="
+  assets:$ART"
   fi
   cat > "$DIR/pubspec.yaml" <<YAML
 name: ${PKG}

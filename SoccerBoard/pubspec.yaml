@@ -26,6 +26,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/intro/
+    - assets/hero.webp
+    - assets/cover/
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.

@@ -321,7 +321,7 @@
   "share_link_copied": "링크를 복사했습니다",
   "share_link_failed": "링크를 만들지 못했습니다. 파일로 공유합니다",
   "drills_title": "훈련",
-  "drills_hint": "탭하면 자세히, +를 누르면 바로 보드에",
+  "drills_hint": "탭하면 자세히, 연필을 누르면 보드에서 열림",
   "drills_empty": "이 종목의 훈련이 아직 없습니다",
   "drills_minutes": "{}분",
   "drills_search": "훈련 검색",

@@ -321,7 +321,7 @@
   "share_link_copied": "リンクをコピーしました",
   "share_link_failed": "リンクを作成できません。ファイルを共有します",
   "drills_title": "ドリル",
-  "drills_hint": "タップで詳細、＋でそのままボードへ",
+  "drills_hint": "タップで詳細、鉛筆でそのままボードに開く",
   "drills_empty": "このスポーツのドリルはまだありません",
   "drills_minutes": "{}分",
   "drills_search": "ドリルを検索",

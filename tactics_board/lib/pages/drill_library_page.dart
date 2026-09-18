@@ -700,29 +700,33 @@ class _DrillRow extends StatelessWidget {
                       style: T.secondary.copyWith(height: 1.35)),
                 ],
                 const SizedBox(height: 6),
-                // A bounded Row, not a Wrap: a Wrap hands each child
-                // unbounded width, and on a 320pt phone the level name in a
-                // long locale then overflows the line it lands on.
-                Row(
+                // A Wrap, so each item is as wide as what it says.
+                //
+                // This was a Row of three Flexibles, which splits the width
+                // into equal thirds whether or not a third is wanted: "20
+                // 分钟" came out as "20 …" with a third of the row standing
+                // empty beside it. Natural widths in a plain Row overflow
+                // instead, on a 320pt phone in a long locale. A Wrap gives
+                // each item its own width and drops the last one onto a
+                // second line when the three will not fit — a taller card in
+                // Thai, rather than a cut number in every locale. (The Wrap
+                // is bounded here: it sits in a column inside the row's
+                // Expanded, so its children are bounded too and a long level
+                // name ellipsises instead of overflowing.)
+                Wrap(
+                  spacing: T.s12,
+                  runSpacing: 4,
                   children: [
-                    Flexible(
-                      child: MetaItem(
-                          icon: Icons.schedule_outlined,
-                          label: 'drills_minutes'
-                              .tr(args: [_span((d) => d.minutes)])),
-                    ),
-                    const SizedBox(width: T.s12),
-                    Flexible(
-                      child: MetaItem(
-                          icon: Icons.groups_outlined,
-                          label: _span((d) => d.players)),
-                    ),
-                    const SizedBox(width: T.s12),
-                    Flexible(
-                      child: MetaItem(
-                          icon: Icons.bar_chart_rounded,
-                          label: first.level.labelKey.tr()),
-                    ),
+                    MetaItem(
+                        icon: Icons.schedule_outlined,
+                        label: 'drills_minutes'
+                            .tr(args: [_span((d) => d.minutes)])),
+                    MetaItem(
+                        icon: Icons.groups_outlined,
+                        label: _span((d) => d.players)),
+                    MetaItem(
+                        icon: Icons.bar_chart_rounded,
+                        label: first.level.labelKey.tr()),
                   ],
                 ),
                 if (grouped) ...[
@@ -749,17 +753,25 @@ class _DrillRow extends StatelessWidget {
           ),
           if (!grouped) ...[
             const SizedBox(width: T.s8),
-            // The one control on the row: put it on the board now. The row
-            // itself opens the drill instead, so the two things a coach wants
-            // from a list — "use this" and "what is this?" — are each one tap
-            // and never the same tap.
+            // The one control on the row: open it on the board now. The row
+            // itself opens the drill's page instead, so the two things a
+            // coach wants from a list — "use this" and "what is this?" — are
+            // each one tap and never the same tap.
+            //
+            // The pencil, not a plus. This does not add the drill to
+            // anything: it replaces whatever is on the board with the
+            // drill's shape and puts the coach in front of it, ready to
+            // edit — which is exactly what the home page's "open the board"
+            // does, and that is a pencil too. A plus promised a list this
+            // was being added to, and there is no such list. (The one real
+            // "add" in this app is "add to plan", on the drill's own page.)
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () => onLoad(first),
               child: Padding(
                 padding: const EdgeInsets.all(6),
                 child: Icon(
-                    allLocked ? Icons.lock_outline : Icons.add_circle_outline,
+                    allLocked ? Icons.lock_outline : Icons.edit_outlined,
                     color: allLocked ? T.textOff : T.accent,
                     size: T.iLg),
               ),
@@ -868,7 +880,8 @@ class _VariantChip extends StatelessWidget {
   }
 }
 
-/// One of the coach's own saved boards — name, folder, and a play button.
+/// One of the coach's own saved boards — name, folder, and the pencil that
+/// opens it.
 class _MineRow extends StatelessWidget {
   final TacticMeta meta;
   final VoidCallback onTap;
@@ -911,7 +924,9 @@ class _MineRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            const Icon(Icons.add_circle_outline, color: kAccent, size: 26),
+            // Same as the drill rows: this opens the board, it does not
+            // add the board to anything.
+            const Icon(Icons.edit_outlined, color: kAccent, size: 26),
           ],
         ),
       ),
