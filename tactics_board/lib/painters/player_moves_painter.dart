@@ -57,11 +57,15 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
 /// honestly can at this scale — one copy of the player, and a stub arrow
 /// butted against him showing which way he shifts.
 ///
-/// The line is one token width: two copies of the same player closer than
-/// that cannot be told apart from one token with a shadow. Above it they are
-/// separate on the board and the run keeps its destination, even where the
-/// arrow between them has to be squeezed.
-double nudgeThreshold(double scale) => kPlayerIconSize * scale;
+/// The line is 70% of a token: at that offset the two discs still overlap,
+/// but each centre is clear of the other and the pair reads as "he was here,
+/// now he is there". Any closer and the start copy is a shadow behind the
+/// end copy, so the board drops it. It was a whole token wide until a
+/// centre-mid dropping five metres — a real move, and the point of the beat —
+/// came out as a lone token with a stub arrow and no sign of where he came
+/// from. Above the line they are separate on the board and the run keeps its
+/// destination, even where the arrow between them has to be squeezed.
+double nudgeThreshold(double scale) => kPlayerIconSize * 0.7 * scale;
 
 
 /// The legs a player runs on the beat that is showing, as (index into

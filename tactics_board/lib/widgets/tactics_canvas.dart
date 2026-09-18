@@ -859,15 +859,22 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                       ),
                                       size: Size.infinite,
                                     ),
+                                    // The number sits on the shirt, the same
+                                    // place and the same size as on the live
+                                    // token — centred in the box it landed on
+                                    // the neck, half over the head, so the
+                                    // ghost's number and the player's number
+                                    // read as two different marks.
                                     if (player.labelInside)
                                       Align(
-                                        alignment: Alignment.center,
+                                        alignment: const Alignment(0, 0.35),
                                         child: Text(
                                           player.label,
                                           style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 13 * player.scale,
+                                            color: Colors.white
+                                                .withValues(alpha: 0.85),
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 15 * player.scale,
                                             height: 1,
                                             shadows: const [
                                               Shadow(
@@ -1539,15 +1546,22 @@ class _WaypointDotState extends State<_WaypointDot> {
                 !widget.player.isBall &&
                 !hasPhoto)
               Align(
-                alignment: Alignment.center,
+                // On the shirt, the same place the live token carries it.
+                alignment: const Alignment(0, 0.35),
                 child: Text(
                   widget.player.label,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
+                    // A number matches the live token; a name has to stay
+                    // small enough to fit inside the disc at all.
+                    fontWeight: widget.player.labelInside
+                        ? FontWeight.w800
+                        : FontWeight.w600,
+                    fontSize: widget.player.labelInside ? 15 : 13,
                     height: 1,
-                    shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
+                    shadows: const [
+                      Shadow(color: Colors.black54, blurRadius: 2),
+                    ],
                   ),
                 ),
               ),
