@@ -663,6 +663,25 @@ String? markerImageAsset(MarkerShape shape) => switch (shape) {
       _ => null,
     };
 
+/// How big a marker's sprite is drawn against a player token.
+///
+/// Every marker was painted into the same 36pt box as a player, so a cone
+/// stood as tall as the man running round it and an agility ladder — four
+/// and a half metres of webbing — came out shorter than his shoulders. The
+/// board is symbolic and none of it is to scale, but the objects have to
+/// stay in proportion to each other and to a body: a cone is something you
+/// step round, a hurdle something you clear, a ladder something you run the
+/// length of. The referee and the coach are people and stay a person's size.
+///
+/// The box itself does not change — it is what the icon is positioned and
+/// grabbed by, and a ladder is still grabbed by its middle.
+double markerArtScale(MarkerShape shape) => switch (shape) {
+      MarkerShape.cone => 0.62,
+      MarkerShape.hurdle => 0.82,
+      MarkerShape.ladder => 2.3,
+      _ => 1.0,
+    };
+
 class _MarkerWidget extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
@@ -671,7 +690,7 @@ class _MarkerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final art = markerImageAsset(player.markerShape);
-    return Stack(
+    final body = Stack(
       children: [
         if (art != null)
           // The sprite carries its own contact shadow, so the painter's is
@@ -720,6 +739,11 @@ class _MarkerWidget extends StatelessWidget {
           ),
       ],
     );
+    // Drawn bigger or smaller than its box, about the same centre: the box
+    // stays a token, so the marker sits on its point and is grabbed where
+    // it always was.
+    final scale = markerArtScale(player.markerShape);
+    return scale == 1.0 ? body : Transform.scale(scale: scale, child: body);
   }
 }
 
