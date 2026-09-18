@@ -42,11 +42,12 @@ def zone(n, side="home"):
 def ball_spot(pt):
     """Where to author a point ball target so the ball is DRAWN at `pt`.
 
-    resolve_ball puts every ball at_the_feet_of its target — 40 canvas units
-    across toward the middle and 70 down — and does it for a bare (x, y) too.
-    A landing spot written literally is therefore drawn a metre past itself,
-    which on a volleyball court is the difference between a short serve and a
-    ball on the net tape.
+    resolve_ball puts every ball at_the_feet_of its target — offset by a
+    ball's width, as if somebody were standing there — and does it for a bare
+    (x, y) too. A landing spot written literally is therefore drawn short of
+    itself, which on a volleyball court is the difference between a short
+    serve and a ball on the net tape. These two numbers are the offset by
+    eye, not engine.FEET_PT: they were tuned against the rendered boards.
     """
     x, y = pt
     ax = x - 40.0 / _W if x < 0.5 else x + 40.0 / _W

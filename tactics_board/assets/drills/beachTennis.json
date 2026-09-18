@@ -144,17 +144,17 @@
             "sportType": 13,
             "position": [
               500.0,
-              874.0
+              904.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                677.0
+                646.3150684931506
               ],
               [
                 500.0,
-                874.0
+                904.6849315068494
               ]
             ],
             "movePhases": [
@@ -317,17 +317,17 @@
             "sportType": 13,
             "position": [
               391.9527363184079,
-              797.5
+              828.1849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
-                549.8742158564211,
-                728.4171786122554
+                568.7335557491432,
+                710.6133712458186
               ],
               [
-                450.125784143579,
-                822.5828213877446
+                431.26644425085675,
+                840.3866287541814
               ]
             ],
             "movePhases": [
@@ -485,17 +485,17 @@
             "sportType": 13,
             "position": [
               345.64676616915426,
-              874.0
+              904.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
                 345.64676616915426,
-                549.5
+                518.8150684931508
               ],
               [
                 345.64676616915426,
-                874.0
+                904.6849315068494
               ]
             ],
             "movePhases": [
@@ -653,17 +653,17 @@
             "sportType": 13,
             "position": [
               345.64676616915426,
-              874.0
+              904.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
-                623.640428967453,
-                560.3479170237788
+                639.7067049438356,
+                537.5973156607447
               ],
               [
-                391.7948944156316,
-                888.6520829762212
+                375.728618439249,
+                911.4026843392553
               ]
             ],
             "movePhases": [
@@ -725,18 +725,18 @@
         "vi-VN": "Trả giao bóng chắn bóng"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R, P move up the board, S runs up in support.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R, P move up the board, S runs up in support.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 2，蓝方：R、P，红方：S、P。\n【器材】阴影区是接发球要打到的区域。\n【球路】S → R\n【流程】第1步：S移动到击球位置；第2步：S把球击向R，R、P向前移动，S跑上去接应。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 2，藍方：R、P，紅方：S、P。\n【器材】陰影區是接發球要打到的區域。\n【球路】S → R\n【流程】第1步：S移動到擊球位置；第2步：S把球擊向R，R、P向前移動，S跑上去接應。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対2、青：R・P、赤：S・P。\n【用具】the shaded zone is where the return has to be played to。\n【ボールの道筋】S → R\n【流れ】ステップ1：Sが打点に入る。ステップ2：SがRへ打つ、R・Pが前方へ移動、Sがサポートに上がる。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대2, 청팀: R, P, 홍팀: S, P.\n【장비】the shaded zone is where the return has to be played to.\n【볼 경로】S → R\n【진행】1단계: S가 타점으로 들어간다; 2단계: S가 R 쪽으로 친다, R, P는 앞으로 이동, S가 지원하러 올라간다.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 2, azules: R, P, rojos: S, P.\nMaterial: the shaded zone is where the return has to be played to.\nRecorrido del balón: S → R\nSecuencia: Paso 1: S se coloca para golpear; Paso 2: S la juega hacia R, R, P se desplaza hacia delante, S sube en apoyo.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 2, les bleus : R, P, les rouges : S, P.\nMatériel : the shaded zone is where the return has to be played to.\nTrajet du ballon : S → R\nDéroulé : Étape 1 : S se place pour frapper ; Étape 2 : S joue vers R, R, P se déplace vers l'avant, S monte en soutien.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 2, tim biru: R, P, tim merah: S, P.\nPerlengkapan: the shaded zone is where the return has to be played to.\nJalur bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke R, R, P bergerak ke depan, S maju mendukung.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 2, pasukan biru: R, P, pasukan merah: S, P.\nPeralatan: the shaded zone is where the return has to be played to.\nLaluan bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke arah R, R, P bergerak ke hadapan, S naik menyokong.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: R, P ทีมแดง: S, P\nอุปกรณ์: the shaded zone is where the return has to be played to\nเส้นทางบอล: S → R\nลำดับ: ขั้นที่ 1: S เข้าตำแหน่งตี • ขั้นที่ 2: S ตีไปที่ R R, P ขยับไปข้างหน้า S ขึ้นไปสนับสนุน\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 2, đội xanh: R, P, đội đỏ: S, P.\nDụng cụ: the shaded zone is where the return has to be played to.\nĐường bóng: S → R\nTrình tự: Bước 1: S vào vị trí đánh bóng; Bước 2: S đánh sang R, R, P di chuyển lên phía trước, S dâng lên hỗ trợ.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R, P, S move up the board.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R, P, S move up the board.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 2，蓝方：R、P，红方：S、P。\n【器材】阴影区是接发球要打到的区域。\n【球路】S → R\n【流程】第1步：S移动到击球位置；第2步：S把球击向R，R、P、S向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 2，藍方：R、P，紅方：S、P。\n【器材】陰影區是接發球要打到的區域。\n【球路】S → R\n【流程】第1步：S移動到擊球位置；第2步：S把球擊向R，R、P、S向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対2、青：R・P、赤：S・P。\n【用具】the shaded zone is where the return has to be played to。\n【ボールの道筋】S → R\n【流れ】ステップ1：Sが打点に入る。ステップ2：SがRへ打つ、R・P・Sが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대2, 청팀: R, P, 홍팀: S, P.\n【장비】the shaded zone is where the return has to be played to.\n【볼 경로】S → R\n【진행】1단계: S가 타점으로 들어간다; 2단계: S가 R 쪽으로 친다, R, P, S는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 2, azules: R, P, rojos: S, P.\nMaterial: the shaded zone is where the return has to be played to.\nRecorrido del balón: S → R\nSecuencia: Paso 1: S se coloca para golpear; Paso 2: S la juega hacia R, R, P, S se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 2, les bleus : R, P, les rouges : S, P.\nMatériel : the shaded zone is where the return has to be played to.\nTrajet du ballon : S → R\nDéroulé : Étape 1 : S se place pour frapper ; Étape 2 : S joue vers R, R, P, S se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 2, tim biru: R, P, tim merah: S, P.\nPerlengkapan: the shaded zone is where the return has to be played to.\nJalur bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke R, R, P, S bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 2, pasukan biru: R, P, pasukan merah: S, P.\nPeralatan: the shaded zone is where the return has to be played to.\nLaluan bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke arah R, R, P, S bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: R, P ทีมแดง: S, P\nอุปกรณ์: the shaded zone is where the return has to be played to\nเส้นทางบอล: S → R\nลำดับ: ขั้นที่ 1: S เข้าตำแหน่งตี • ขั้นที่ 2: S ตีไปที่ R R, P, S ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 2, đội xanh: R, P, đội đỏ: S, P.\nDụng cụ: the shaded zone is where the return has to be played to.\nĐường bóng: S → R\nTrình tự: Bước 1: S vào vị trí đánh bóng; Bước 2: S đánh sang R, R, P, S di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
       },
       "mistake": {
         "en": "Blocking short — a shallow return lets the server take the net first.",
@@ -888,12 +888,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                157.0
+                371.13056063663277,
+                131.59664031808734
               ],
               [
-                350.8097877507959,
-                695.6667787938661
+                347.59746889714955,
+                726.2112631166534
               ]
             ],
             "movePhases": [
@@ -955,18 +955,18 @@
         "vi-VN": "Trả giao bóng vừa đỡ vừa công"
       },
       "note": {
-        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R moves right, P moves up the board, S runs up in support.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
-        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R moves right, P moves up the board, S runs up in support.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
-        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 2，蓝方：R、P，红方：S、P。\n【器材】阴影区是接发球要打到的区域。\n【球路】S → R\n【流程】第1步：S移动到击球位置；第2步：S把球击向R，R向右移动，P向前移动，S跑上去接应。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
-        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 2，藍方：R、P，紅方：S、P。\n【器材】陰影區是接發球要打到的區域。\n【球路】S → R\n【流程】第1步：S移動到擊球位置；第2步：S把球擊向R，R向右移動，P向前移動，S跑上去接應。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
-        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対2、青：R・P、赤：S・P。\n【用具】the shaded zone is where the return has to be played to。\n【ボールの道筋】S → R\n【流れ】ステップ1：Sが打点に入る。ステップ2：SがRへ打つ、Rが右へ移動、Pが前方へ移動、Sがサポートに上がる。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
-        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대2, 청팀: R, P, 홍팀: S, P.\n【장비】the shaded zone is where the return has to be played to.\n【볼 경로】S → R\n【진행】1단계: S가 타점으로 들어간다; 2단계: S가 R 쪽으로 친다, R는 오른쪽으로 이동, P는 앞으로 이동, S가 지원하러 올라간다.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
-        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 2, azules: R, P, rojos: S, P.\nMaterial: the shaded zone is where the return has to be played to.\nRecorrido del balón: S → R\nSecuencia: Paso 1: S se coloca para golpear; Paso 2: S la juega hacia R, R se desplaza a la derecha, P se desplaza hacia delante, S sube en apoyo.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
-        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 2, les bleus : R, P, les rouges : S, P.\nMatériel : the shaded zone is where the return has to be played to.\nTrajet du ballon : S → R\nDéroulé : Étape 1 : S se place pour frapper ; Étape 2 : S joue vers R, R se déplace à droite, P se déplace vers l'avant, S monte en soutien.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
-        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 2, tim biru: R, P, tim merah: S, P.\nPerlengkapan: the shaded zone is where the return has to be played to.\nJalur bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke R, R bergerak ke kanan, P bergerak ke depan, S maju mendukung.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
-        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 2, pasukan biru: R, P, pasukan merah: S, P.\nPeralatan: the shaded zone is where the return has to be played to.\nLaluan bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke arah R, R bergerak ke kanan, P bergerak ke hadapan, S naik menyokong.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
-        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: R, P ทีมแดง: S, P\nอุปกรณ์: the shaded zone is where the return has to be played to\nเส้นทางบอล: S → R\nลำดับ: ขั้นที่ 1: S เข้าตำแหน่งตี • ขั้นที่ 2: S ตีไปที่ R R ขยับไปทางขวา P ขยับไปข้างหน้า S ขึ้นไปสนับสนุน\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
-        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 2, đội xanh: R, P, đội đỏ: S, P.\nDụng cụ: the shaded zone is where the return has to be played to.\nĐường bóng: S → R\nTrình tự: Bước 1: S vào vị trí đánh bóng; Bước 2: S đánh sang R, R di chuyển sang phải, P di chuyển lên phía trước, S dâng lên hỗ trợ.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
+        "en": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R moves right, P, S move up the board.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "en-GB": "Purpose: Control the ball on your own side — clean contacts and a set-up touch so the attacking ball is there when you want it.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 2 v 2, blue: R, P, red: S, P.\nEquipment: the shaded zone is where the return has to be played to.\nBall path: S → R\nSequence: Step 1: S moves into position to hit; Step 2: S plays it to R, R moves right, P, S move up the board.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: The return is a volley like everything else here — block it deep and take the net before the server's partner does.",
+        "zh-CN": "【目的】控球：练在自己半场把球控稳。触球干净、先垫一下做球，想进攻时球正好在手上。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】2 对 2，蓝方：R、P，红方：S、P。\n【器材】阴影区是接发球要打到的区域。\n【球路】S → R\n【流程】第1步：S移动到击球位置；第2步：S把球击向R，R向右移动，P、S向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】接发也是截击。挡深，然后抢在发球方同伴之前占住网前。",
+        "zh-TW": "【目的】控球：練在自己半場把球控穩。觸球乾淨、先墊一下做球，想進攻時球正好在手上。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】2 對 2，藍方：R、P，紅方：S、P。\n【器材】陰影區是接發球要打到的區域。\n【球路】S → R\n【流程】第1步：S移動到擊球位置；第2步：S把球擊向R，R向右移動，P、S向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】接發也是截擊。擋深，然後搶在發球方同伴之前占住網前。",
+        "ja-JP": "【目的】自陣でボールをコントロールする。きれいなタッチとお膳立ての一打で、攻めたい時に攻めるボールを用意する。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】2対2、青：R・P、赤：S・P。\n【用具】the shaded zone is where the return has to be played to。\n【ボールの道筋】S → R\n【流れ】ステップ1：Sが打点に入る。ステップ2：SがRへ打つ、Rが右へ移動、P・Sが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】リターンも他と同じボレーだ。深くブロックし、サーバーの相方より先にネットを取る。",
+        "ko-KR": "【목적】자기 진영에서 공을 통제한다. 깔끔한 접촉과 세팅 터치로, 공격하고 싶을 때 그 공이 있게 한다.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】2대2, 청팀: R, P, 홍팀: S, P.\n【장비】the shaded zone is where the return has to be played to.\n【볼 경로】S → R\n【진행】1단계: S가 타점으로 들어간다; 2단계: S가 R 쪽으로 친다, R는 오른쪽으로 이동, P, S는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】리턴도 발리다. 깊게 막고, 서버의 파트너보다 먼저 네트를 차지하라.",
+        "es-ES": "Objetivo: Controlar la bola en tu campo: contactos limpios y un toque de preparación para tener la bola de ataque cuando quieras.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 2 contra 2, azules: R, P, rojos: S, P.\nMaterial: the shaded zone is where the return has to be played to.\nRecorrido del balón: S → R\nSecuencia: Paso 1: S se coloca para golpear; Paso 2: S la juega hacia R, R se desplaza a la derecha, P, S se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: El resto es una volea como todo aquí: bloquéalo profundo y toma la red antes que el compañero del sacador.",
+        "fr-FR": "Objectif : Contrôler la balle dans son camp : contacts propres et une touche de préparation pour avoir la balle d'attaque au bon moment.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 2 contre 2, les bleus : R, P, les rouges : S, P.\nMatériel : the shaded zone is where the return has to be played to.\nTrajet du ballon : S → R\nDéroulé : Étape 1 : S se place pour frapper ; Étape 2 : S joue vers R, R se déplace à droite, P, S se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Le retour est une volée comme tout le reste : bloque profond et prends le filet avant le partenaire du serveur.",
+        "id-ID": "Tujuan: Mengontrol bola di sisi sendiri — sentuhan bersih dan satu sentuhan penyiapan agar bola serangan siap saat diinginkan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 2 lawan 2, tim biru: R, P, tim merah: S, P.\nPerlengkapan: the shaded zone is where the return has to be played to.\nJalur bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke R, R bergerak ke kanan, P, S bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Pengembalian juga voli — blok dalam dan rebut net lebih dulu.",
+        "ms-MY": "Tujuan: Mengawal bola di pihak sendiri — sentuhan bersih dan satu sentuhan persediaan supaya bola serangan ada bila dikehendaki.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 2 lawan 2, pasukan biru: R, P, pasukan merah: S, P.\nPeralatan: the shaded zone is where the return has to be played to.\nLaluan bola: S → R\nUrutan: Langkah 1: S mengambil posisi memukul; Langkah 2: S memukul ke arah R, R bergerak ke kanan, P, S bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Pulangan juga voli — blok dalam dan rebut jaring dahulu.",
+        "th-TH": "จุดประสงค์: คุมบอลในฝั่งตัวเอง — สัมผัสสะอาดและการเซ็ตหนึ่งจังหวะ เพื่อให้มีลูกบุกเมื่อต้องการ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: R, P ทีมแดง: S, P\nอุปกรณ์: the shaded zone is where the return has to be played to\nเส้นทางบอล: S → R\nลำดับ: ขั้นที่ 1: S เข้าตำแหน่งตี • ขั้นที่ 2: S ตีไปที่ R R ขยับไปทางขวา P, S ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: การรับเสิร์ฟก็คือวอลเลย์ บล็อกให้ลึกแล้วชิงหน้าเน็ตก่อนคู่ของฝ่ายเสิร์ฟ",
+        "vi-VN": "Mục đích: Khống chế bóng bên sân mình — chạm bóng sạch và một nhịp dựng bóng để có quả tấn công khi muốn.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 2 đấu 2, đội xanh: R, P, đội đỏ: S, P.\nDụng cụ: the shaded zone is where the return has to be played to.\nĐường bóng: S → R\nTrình tự: Bước 1: S vào vị trí đánh bóng; Bước 2: S đánh sang R, R di chuyển sang phải, P, S di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Trả giao cũng là vô lê — chặn sâu rồi chiếm lưới trước."
       },
       "mistake": {
         "en": "Blocking short — a shallow return lets the server take the net first.",
@@ -1118,12 +1118,12 @@
             "scale": 1.0,
             "moves": [
               [
-                385.64676616915426,
-                157.0
+                371.13056063663277,
+                131.59664031808734
               ],
               [
-                630.8313849231574,
-                954.0361351750784
+                639.3161808044771,
+                982.7748043697442
               ]
             ],
             "movePhases": [
@@ -1348,17 +1348,17 @@
             "sportType": 13,
             "position": [
               361.0820895522388,
-              1345.75
+              1372.5
             ],
             "scale": 1.0,
             "moves": [
               [
                 361.0820895522388,
-                498.5
+                467.8150684931507
               ],
               [
-                374.3033270818031,
-                976.0306444703145
+                375.223576227094,
+                1006.6965136574372
               ]
             ],
             "movePhases": [
@@ -1583,17 +1583,17 @@
             "sportType": 13,
             "position": [
               361.0820895522388,
-              1345.75
+              1372.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                613.7792505923883,
-                508.25543615148786
+                621.7779686087797,
+                479.21363660143186
               ],
               [
-                408.3153855080882,
-                982.590947831608
+                396.30216857759416,
+                1009.4716162315631
               ]
             ],
             "movePhases": [
@@ -1818,17 +1818,17 @@
             "sportType": 13,
             "position": [
               361.0820895522388,
-              1345.75
+              1372.5
             ],
             "scale": 1.0,
             "moves": [
               [
-                490.0587846838864,
-                395.8799233940086
+                493.8567670993728,
+                365.5532939421313
               ],
               [
-                390.07836594265643,
-                977.1577489315982
+                384.81698147490897,
+                1007.1637864322413
               ]
             ],
             "movePhases": [
@@ -2047,18 +2047,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              344.85941091374195,
-              881.7274505802584
+              339.28948363705126,
+              911.6333820336682
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.36888804507396,
-                498.46756386968303
+                344.24241386252857,
+                467.8014229288349
               ],
               [
-                345.1659973961775,
-                797.5014446293751
+                345.4777261566779,
+                828.185129185228
               ]
             ],
             "movePhases": [
@@ -2120,18 +2120,18 @@
         "vi-VN": "Tấn công bỏ nhỏ"
       },
       "note": {
-        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, red: A, B, ball with 1.\nEquipment: the shaded zone is where the shot has to land — count only the ones that do.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1 runs up in support, 2 moves up the board; Step 3: A runs up in support.\nHow it continues: The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
-        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, red: A, B, ball with 1.\nEquipment: the shaded zone is where the shot has to land — count only the ones that do.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1 runs up in support, 2 moves up the board; Step 3: A runs up in support.\nHow it continues: The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
-        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，红方：A、B，球在 1号球员 手中。\n【器材】阴影区是这一拍要落的区域，只有落进去的才算。\n【球路】1 → A → 1\n【流程】第1步：1号球员把球击向A；第2步：A把球击向1号球员，1号球员跑上去接应，2号球员向前移动；第3步：A跑上去接应。\n【连贯】喂球者一球接一球连续喂，不等上一球落地；一组 15–20 球，练习者和喂球者互换。\n【要点】只要球高过网带就往前压。在这块场地上，站得离网更近的那一对，多半赢下这一轮。",
-        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，紅方：A、B，球在 1號球員 手中。\n【器材】陰影區是這一拍要落的區域，只有落進去的才算。\n【球路】1 → A → 1\n【流程】第1步：1號球員把球擊向A；第2步：A把球擊向1號球員，1號球員跑上去接應，2號球員向前移動；第3步：A跑上去接應。\n【連貫】餵球者一球接一球連續餵，不等上一球落地；一組 15–20 球，練習者和餵球者互換。\n【要點】只要球高過網帶就往前壓。在這塊場地上，站得離網更近的那一對，多半贏下這一輪。",
-        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、赤：A・B、ボールは1番。\n【用具】the shaded zone is where the shot has to land — count only the ones that do。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1番がAへ打つ。ステップ2：Aが1番へ打つ、1番がサポートに上がる、2番が前方へ移動。ステップ3：Aがサポートに上がる。\n【続け方】フィーダーは前の球を待たずに次々と出す。1セット15〜20球で、打つ側と出す側を交代。\n【ポイント】白帯より高い球にはすべて前へ出る。このコートではネットに近い方のペアが大抵勝つ。",
-        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 홍팀: A, B, 공은 1번.\n【장비】the shaded zone is where the shot has to land — count only the ones that do.\n【볼 경로】1 → A → 1\n【진행】1단계: 1번가 A 쪽으로 친다; 2단계: A가 1번 쪽으로 친다, 1번가 지원하러 올라간다, 2번는 앞으로 이동; 3단계: A가 지원하러 올라간다.\n【이어가기】피더는 앞 공이 끝나길 기다리지 않고 연속으로 공을 준다. 한 세트 15~20개, 그 후 치는 사람과 주는 사람이 교대한다.\n【포인트】테이프보다 높은 공엔 전부 전진하라. 이 코트에선 네트에 가까운 조가 대개 이긴다.",
-        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, rojos: A, B, balón con 1.\nMaterial: the shaded zone is where the shot has to land — count only the ones that do.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A; Paso 2: A la juega hacia 1, 1 sube en apoyo, 2 se desplaza hacia delante; Paso 3: A sube en apoyo.\nContinuidad: El alimentador saca bola tras bola sin esperar a que se juegue la anterior; una serie son 15–20 bolas y luego cambian de papel.\nPunto clave: Avanza con cualquier bola por encima de la cinta: en esta pista gana casi siempre la pareja más cerca de la red.",
-        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, les rouges : A, B, ballon avec 1.\nMatériel : the shaded zone is where the shot has to land — count only the ones that do.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A ; Étape 2 : A joue vers 1, 1 monte en soutien, 2 se déplace vers l'avant ; Étape 3 : A monte en soutien.\nEnchaînement : Le distributeur enchaîne les balles sans attendre la fin de l'échange précédent ; une série fait 15–20 balles, puis on inverse les rôles.\nPoint clé : Avance sur toute balle au-dessus de la bande : sur ce terrain, la paire la plus proche du filet gagne le plus souvent.",
-        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, tim merah: A, B, bola pada 1.\nPerlengkapan: the shaded zone is where the shot has to land — count only the ones that do.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A; Langkah 2: A memukul ke 1, 1 maju mendukung, 2 bergerak ke depan; Langkah 3: A maju mendukung.\nKelanjutan: Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, lalu pemain dan pengumpan bertukar.\nPoin utama: Maju pada setiap bola di atas bibir net.",
-        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, pasukan merah: A, B, bola dengan 1.\nPeralatan: the shaded zone is where the shot has to land — count only the ones that do.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A; Langkah 2: A memukul ke arah 1, 1 naik menyokong, 2 bergerak ke hadapan; Langkah 3: A naik menyokong.\nKesinambungan: Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, kemudian pemain dan pengumpan bertukar.\nPoin utama: Maju pada setiap bola di atas bibir jaring.",
-        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 ทีมแดง: A, B บอลอยู่ที่ 1\nอุปกรณ์: the shaded zone is where the shot has to land — count only the ones that do\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A • ขั้นที่ 2: A ตีไปที่ 1 1 ขึ้นไปสนับสนุน 2 ขยับไปข้างหน้า • ขั้นที่ 3: A ขึ้นไปสนับสนุน\nการต่อเนื่อง: คนป้อนป้อนลูกต่อเนื่องไม่รอลูกก่อนหน้า ชุดละ 15–20 ลูก แล้วสลับคนตีกับคนป้อน\nจุดเน้น: ขึ้นหน้าทุกครั้งที่บอลสูงกว่าขอบเน็ต",
-        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, đội đỏ: A, B, bóng ở chỗ 1.\nDụng cụ: the shaded zone is where the shot has to land — count only the ones that do.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A; Bước 2: A đánh sang 1, 1 dâng lên hỗ trợ, 2 di chuyển lên phía trước; Bước 3: A dâng lên hỗ trợ.\nTiếp nối: Người phát bóng đưa bóng liên tục, không đợi bóng trước kết thúc; mỗi hiệp 15–20 bóng rồi người tập và người phát đổi vai.\nĐiểm chính: Tiến lên với mọi quả cao hơn mép lưới."
+        "en": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, red: A, B, ball with 1.\nEquipment: the shaded zone is where the shot has to land — count only the ones that do.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1, 2 move up the board; Step 3: A runs up in support.\nHow it continues: The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
+        "en-GB": "Purpose: Take control of the rally — move the opponent, open the court, and force the ball you want to attack.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 2 v 2, red: A, B, ball with 1.\nEquipment: the shaded zone is where the shot has to land — count only the ones that do.\nBall path: 1 → A → 1\nSequence: Step 1: 1 plays it to A; Step 2: A plays it to 1, 1, 2 move up the board; Step 3: A runs up in support.\nHow it continues: The feeder keeps the balls coming, one after another, without waiting for the last one to be played out; a set is 15–20 balls, then the worker and the feeder swap.\nCoaching point: Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.",
+        "zh-CN": "【目的】进攻：练怎么掌控这一分。调动对手、把场地拉开，逼出自己想打的那个球。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】2 对 2，红方：A、B，球在 1号球员 手中。\n【器材】阴影区是这一拍要落的区域，只有落进去的才算。\n【球路】1 → A → 1\n【流程】第1步：1号球员把球击向A；第2步：A把球击向1号球员，1号球员、2号球员向前移动；第3步：A跑上去接应。\n【连贯】喂球者一球接一球连续喂，不等上一球落地；一组 15–20 球，练习者和喂球者互换。\n【要点】只要球高过网带就往前压。在这块场地上，站得离网更近的那一对，多半赢下这一轮。",
+        "zh-TW": "【目的】進攻：練怎麼掌控這一分。調動對手、把場地拉開，逼出自己想打的那個球。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】2 對 2，紅方：A、B，球在 1號球員 手中。\n【器材】陰影區是這一拍要落的區域，只有落進去的才算。\n【球路】1 → A → 1\n【流程】第1步：1號球員把球擊向A；第2步：A把球擊向1號球員，1號球員、2號球員向前移動；第3步：A跑上去接應。\n【連貫】餵球者一球接一球連續餵，不等上一球落地；一組 15–20 球，練習者和餵球者互換。\n【要點】只要球高過網帶就往前壓。在這塊場地上，站得離網更近的那一對，多半贏下這一輪。",
+        "ja-JP": "【目的】ラリーの主導権を握る。相手を動かし、コートを開き、攻めたいボールを引き出す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】2対2、赤：A・B、ボールは1番。\n【用具】the shaded zone is where the shot has to land — count only the ones that do。\n【ボールの道筋】1 → A → 1\n【流れ】ステップ1：1番がAへ打つ。ステップ2：Aが1番へ打つ、1番・2番が前方へ移動。ステップ3：Aがサポートに上がる。\n【続け方】フィーダーは前の球を待たずに次々と出す。1セット15〜20球で、打つ側と出す側を交代。\n【ポイント】白帯より高い球にはすべて前へ出る。このコートではネットに近い方のペアが大抵勝つ。",
+        "ko-KR": "【목적】랠리의 주도권을 잡는다. 상대를 움직이고 코트를 열어 원하는 공을 끌어낸다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】2대2, 홍팀: A, B, 공은 1번.\n【장비】the shaded zone is where the shot has to land — count only the ones that do.\n【볼 경로】1 → A → 1\n【진행】1단계: 1번가 A 쪽으로 친다; 2단계: A가 1번 쪽으로 친다, 1번, 2번는 앞으로 이동; 3단계: A가 지원하러 올라간다.\n【이어가기】피더는 앞 공이 끝나길 기다리지 않고 연속으로 공을 준다. 한 세트 15~20개, 그 후 치는 사람과 주는 사람이 교대한다.\n【포인트】테이프보다 높은 공엔 전부 전진하라. 이 코트에선 네트에 가까운 조가 대개 이긴다.",
+        "es-ES": "Objetivo: Tomar el control del peloteo: mover al rival, abrir la pista y provocar la bola que quieres atacar.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 2 contra 2, rojos: A, B, balón con 1.\nMaterial: the shaded zone is where the shot has to land — count only the ones that do.\nRecorrido del balón: 1 → A → 1\nSecuencia: Paso 1: 1 la juega hacia A; Paso 2: A la juega hacia 1, 1, 2 se desplaza hacia delante; Paso 3: A sube en apoyo.\nContinuidad: El alimentador saca bola tras bola sin esperar a que se juegue la anterior; una serie son 15–20 bolas y luego cambian de papel.\nPunto clave: Avanza con cualquier bola por encima de la cinta: en esta pista gana casi siempre la pareja más cerca de la red.",
+        "fr-FR": "Objectif : Prendre le contrôle de l'échange : déplacer l'adversaire, ouvrir le court et provoquer la balle à attaquer.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 2 contre 2, les rouges : A, B, ballon avec 1.\nMatériel : the shaded zone is where the shot has to land — count only the ones that do.\nTrajet du ballon : 1 → A → 1\nDéroulé : Étape 1 : 1 joue vers A ; Étape 2 : A joue vers 1, 1, 2 se déplace vers l'avant ; Étape 3 : A monte en soutien.\nEnchaînement : Le distributeur enchaîne les balles sans attendre la fin de l'échange précédent ; une série fait 15–20 balles, puis on inverse les rôles.\nPoint clé : Avance sur toute balle au-dessus de la bande : sur ce terrain, la paire la plus proche du filet gagne le plus souvent.",
+        "id-ID": "Tujuan: Menguasai reli — menggerakkan lawan, membuka lapangan, dan memaksa bola yang ingin diserang.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 2 lawan 2, tim merah: A, B, bola pada 1.\nPerlengkapan: the shaded zone is where the shot has to land — count only the ones that do.\nJalur bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke A; Langkah 2: A memukul ke 1, 1, 2 bergerak ke depan; Langkah 3: A maju mendukung.\nKelanjutan: Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, lalu pemain dan pengumpan bertukar.\nPoin utama: Maju pada setiap bola di atas bibir net.",
+        "ms-MY": "Tujuan: Menguasai rali — menggerakkan lawan, membuka gelanggang, dan memaksa bola yang ingin diserang.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 2 lawan 2, pasukan merah: A, B, bola dengan 1.\nPeralatan: the shaded zone is where the shot has to land — count only the ones that do.\nLaluan bola: 1 → A → 1\nUrutan: Langkah 1: 1 memukul ke arah A; Langkah 2: A memukul ke arah 1, 1, 2 bergerak ke hadapan; Langkah 3: A naik menyokong.\nKesinambungan: Pengumpan terus memberi bola satu demi satu tanpa menunggu bola sebelumnya selesai; satu set 15–20 bola, kemudian pemain dan pengumpan bertukar.\nPoin utama: Maju pada setiap bola di atas bibir jaring.",
+        "th-TH": "จุดประสงค์: ควบคุมการโต้ — ขยับคู่ต่อสู้ เปิดคอร์ต และบังคับให้ได้ลูกที่อยากบุก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 2 ต่อ 2 ทีมแดง: A, B บอลอยู่ที่ 1\nอุปกรณ์: the shaded zone is where the shot has to land — count only the ones that do\nเส้นทางบอล: 1 → A → 1\nลำดับ: ขั้นที่ 1: 1 ตีไปที่ A • ขั้นที่ 2: A ตีไปที่ 1 1, 2 ขยับไปข้างหน้า • ขั้นที่ 3: A ขึ้นไปสนับสนุน\nการต่อเนื่อง: คนป้อนป้อนลูกต่อเนื่องไม่รอลูกก่อนหน้า ชุดละ 15–20 ลูก แล้วสลับคนตีกับคนป้อน\nจุดเน้น: ขึ้นหน้าทุกครั้งที่บอลสูงกว่าขอบเน็ต",
+        "vi-VN": "Mục đích: Kiểm soát pha bóng — di chuyển đối thủ, mở sân, và ép ra quả bóng muốn tấn công.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 2 đấu 2, đội đỏ: A, B, bóng ở chỗ 1.\nDụng cụ: the shaded zone is where the shot has to land — count only the ones that do.\nĐường bóng: 1 → A → 1\nTrình tự: Bước 1: 1 đánh sang A; Bước 2: A đánh sang 1, 1, 2 di chuyển lên phía trước; Bước 3: A dâng lên hỗ trợ.\nTiếp nối: Người phát bóng đưa bóng liên tục, không đợi bóng trước kết thúc; mỗi hiệp 15–20 bóng rồi người tập và người phát đổi vai.\nĐiểm chính: Tiến lên với mọi quả cao hơn mép lưới."
       },
       "mistake": {
         "en": "Hanging back when a ball is up — the pair closer to the net wins the exchange.",
@@ -2277,18 +2277,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              344.85941091374195,
-              881.7274505802584
+              339.28948363705126,
+              911.6333820336682
             ],
             "scale": 1.0,
             "moves": [
               [
-                354.31005666317907,
-                676.7128569965316
+                356.9027891653295,
+                646.1940868487876
               ],
               [
-                349.09528888811707,
-                797.5743614910909
+                348.0446453414983,
+                828.2247247297038
               ]
             ],
             "movePhases": [
@@ -2507,18 +2507,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              344.85941091374195,
-              881.7274505802584
+              339.28948363705126,
+              911.6333820336682
             ],
             "scale": 1.0,
             "moves": [
               [
-                642.7893260685354,
-                460.8182024383536
+                657.8118594467387,
+                436.8094383285252
               ],
               [
-                392.09536893141586,
-                812.3653141449687
+                375.79728760362804,
+                834.9358231852947
               ]
             ],
             "movePhases": [
@@ -2737,18 +2737,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              361.4694180893076,
-              1130.5803360998425
+              355.46163108290693,
+              1160.3559160849902
             ],
             "scale": 1.0,
             "moves": [
               [
-                358.88180658674804,
-                727.9697364936998
+                359.72558774010184,
+                697.3023370953671
               ],
               [
-                360.64696751203434,
-                1052.5011833286883
+                360.928376047437,
+                1083.1850949640425
               ]
             ],
             "movePhases": [
@@ -2954,18 +2954,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              368.8209241402875,
-              1107.0699575703745
+              360.1265049772935,
+              1078.3426438427834
             ],
             "scale": 1.0,
             "moves": [
               [
-                357.85641194610963,
-                727.9349423217488
+                359.0931444637231,
+                697.2876940428076
               ],
               [
-                372.8312456719613,
-                1052.5849690552113
+                374.5441013527285,
+                1083.2118771939888
               ]
             ],
             "movePhases": [
@@ -3177,18 +3177,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              398.21825656046803,
-              1002.5066185335231
+              377.97263681592034,
+              989.9640410958906
             ],
             "scale": 1.0,
             "moves": [
               [
-                343.60849989063917,
-                434.7240299758482
+                344.39017108103,
+                404.054143577533
               ],
               [
-                358.5174230925135,
-                899.5411200306661
+                359.652021191251,
+                930.199081465636
               ]
             ],
             "movePhases": [
@@ -3400,18 +3400,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              398.21825656046803,
-              1002.5066185335231
+              377.97263681592034,
+              989.9640410958906
             ],
             "scale": 1.0,
             "moves": [
               [
-                643.4657862397763,
-                448.4868049929945
+                658.2906159610405,
+                424.26158518075704
               ],
               [
-                398.64385594529125,
-                908.8663415542297
+                385.22480670749064,
+                934.3971082199937
               ]
             ],
             "movePhases": [
@@ -3623,18 +3623,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              398.21825656046803,
-              1002.5066185335231
+              377.97263681592034,
+              989.9640410958906
             ],
             "scale": 1.0,
             "moves": [
               [
-                480.6767125124913,
-                355.8812473213917
+                487.97644071440214,
+                326.5546119966413
               ],
               [
-                376.1495355538432,
-                900.9317362353684
+                370.54489709944556,
+                930.8083404507422
               ]
             ],
             "movePhases": [
@@ -4544,12 +4544,12 @@
             "scale": 1.0,
             "moves": [
               [
-                527.4051816349931,
-                676.0994468591862
+                522.84038216453,
+                645.9342514543727
               ],
               [
-                489.0302045864064,
-                825.5148006684974
+                479.28307329655166,
+                854.4033951609108
               ]
             ],
             "movePhases": [
@@ -4754,12 +4754,12 @@
             "scale": 1.0,
             "moves": [
               [
-                527.4051816349931,
-                676.0994468591862
+                522.84038216453,
+                645.9342514543727
               ],
               [
-                618.406855417919,
-                857.0307207326485
+                632.9295353860109,
+                882.4694918711048
               ]
             ],
             "movePhases": [
@@ -4952,17 +4952,17 @@
             "sportType": 13,
             "position": [
               345.64676616915426,
-              976.0
+              1006.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
                 345.64676616915426,
-                587.75
+                557.0650684931506
               ],
               [
                 345.64676616915426,
-                912.2499999999999
+                942.9349315068492
               ]
             ],
             "movePhases": [
@@ -5277,17 +5277,17 @@
             "sportType": 13,
             "position": [
               330.2114427860697,
-              880.375
+              911.0599315068494
             ],
             "scale": 1.0,
             "moves": [
               [
                 330.2114427860697,
-                683.375
+                652.6900684931506
               ],
               [
                 330.2114427860697,
-                816.625
+                847.3099315068494
               ]
             ],
             "movePhases": [
@@ -5494,17 +5494,17 @@
             "sportType": 13,
             "position": [
               330.2114427860697,
-              880.375
+              911.0599315068494
             ],
             "scale": 1.0,
             "moves": [
               [
                 330.2114427860697,
-                683.375
+                652.6900684931506
               ],
               [
                 330.2114427860697,
-                816.625
+                847.3099315068494
               ]
             ],
             "movePhases": [

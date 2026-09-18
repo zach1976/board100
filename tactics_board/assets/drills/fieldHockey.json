@@ -236,22 +236,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              442.3148173261439,
-              1065.2015719440496
+              461.0815575125355,
+              1083.2344414430925
             ],
             "scale": 1.0,
             "moves": [
               [
-                262.3148173261439,
-                892.2404461657185
+                281.0815575125355,
+                910.2733156647614
               ],
               [
-                753.9730107816647,
-                768.9544758842628
+                733.4296884385641,
+                777.4144667406672
               ],
               [
-                339.87558953073926,
-                612.6609535891912
+                360.28089660424814,
+                623.8651595678789
               ]
             ],
             "movePhases": [
@@ -404,18 +404,18 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              378.3807666658922,
-              944.9904476850985
+              369.97114029072753,
+              973.8503374712816
             ],
             "scale": 1.0,
             "moves": [
               [
-                528.3818054307426,
-                1004.8939283030226
+                548.7147113217052,
+                1002.9002762093457
               ],
               [
-                455.02103951763513,
-                947.5306704636887
+                438.42818786383697,
+                929.2553001172778
               ]
             ],
             "movePhases": [
@@ -585,18 +585,18 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              457.6284994252048,
-              1003.3559041143393
+              472.6326989013503,
+              1027.385008121717
             ],
             "scale": 1.0,
             "moves": [
               [
-                349.6284994252048,
-                830.394778336008
+                364.6326989013503,
+                854.4238823433857
               ],
               [
-                650.2496770020065,
-                672.6607022810643
+                631.0191196495432,
+                689.4593833367553
               ]
             ],
             "movePhases": [
@@ -903,26 +903,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              214.3574524041442,
-              1099.8437059927776
+              200.5587817973818,
+              1125.0990880286504
             ],
             "scale": 1.0,
             "moves": [
               [
-                339.25466946373035,
-                1083.8558005196096
+                359.6959831555037,
+                1073.063515328776
               ],
               [
-                583.4391834376698,
-                1036.9022820223863
+                603.5183140499297,
+                1031.7139101962375
               ],
               [
-                561.5244268889152,
-                804.936625426067
+                561.8993143907869,
+                774.1727540326195
               ],
               [
-                515.9686152761109,
-                581.3027490640582
+                511.058554593585,
+                551.3743509912463
               ]
             ],
             "movePhases": [
@@ -1231,22 +1231,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              226.0404287597122,
-              948.4925015048346
+              214.27426195315147,
+              975.4116742159244
             ],
             "scale": 1.0,
             "moves": [
               [
-                402.2484599173464,
-                850.2775401806733
+                421.7232210709485,
+                834.2376515454774
               ],
               [
-                540.5331354885832,
-                527.0468032661231
+                553.4943267964744,
+                500.38133330580365
               ],
               [
-                568.7380193285717,
-                543.8404760661573
+                559.6037719849091,
+                500.0922352035119
               ]
             ],
             "movePhases": [
@@ -1561,26 +1561,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              196.35745240414417,
-              1001.0087769765884
+              182.55878179738178,
+              1026.2641590124613
             ],
             "scale": 1.0,
             "moves": [
               [
-                315.7350796577027,
-                1021.2464186573203
+                336.2570036519599,
+                1014.7455119225509
               ],
               [
-                548.1587994070057,
-                966.1292049937757
+                568.5134584813908,
+                960.9780222014738
               ],
               [
-                765.6980109840599,
-                897.5854264344536
+                786.3231597011998,
+                891.343692391201
               ],
               [
-                544.6762299621802,
-                569.2755773085116
+                531.048745090561,
+                545.0339490341605
               ]
             ],
             "movePhases": [
@@ -1845,22 +1845,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              287.666030142147,
-              646.5858847781138
+              293.11858606376796,
+              676.5249390820143
             ],
             "scale": 1.0,
             "moves": [
               [
-                251.666030142147,
-                448.9160267457353
+                257.11858606376796,
+                478.85508104963577
               ],
               [
-                235.75041684756994,
-                422.901786652095
+                217.10926414537633,
+                400.13104858605976
               ],
               [
-                379.9839994358438,
-                190.5378251639159
+                360.7988064388381,
+                207.46788934267445
               ]
             ],
             "movePhases": [
@@ -2119,22 +2119,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              433.2865097797627,
-              620.7573965045633
+              431.26107009906826,
+              651.3410917510647
             ],
             "scale": 1.0,
             "moves": [
               [
-                571.2537715773084,
-                635.0340338940133
+                591.7757143430305,
+                625.6438266878816
               ],
               [
-                487.5260125302912,
-                497.1647687962695
+                477.15263060016156,
+                470.8553822850609
               ],
               [
-                504.3807666658922,
-                228.43721231772628
+                495.9711402907276,
+                257.2971021039093
               ]
             ],
             "movePhases": [
@@ -2393,30 +2393,30 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              782.7134902202373,
-              670.174861012658
+              784.7389299009317,
+              700.7585562591594
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.7134902202373,
-                398.37880621813747
+                766.7389299009317,
+                428.9625014646389
               ],
               [
-                700.4104359352264,
-                147.2816936488169
+                706.3314994508509,
+                157.74381068804433
               ],
               [
-                598.1503274481363,
-                230.16210291508855
+                580.9807553378637,
+                248.10790997011856
               ],
               [
-                453.8593569736556,
-                238.7293536569475
+                433.67954800757377,
+                244.8079699021981
               ],
               [
-                449.6817062439083,
-                243.89296261905764
+                460.8636963810498,
+                218.94024357316835
               ]
             ],
             "movePhases": [
@@ -2682,26 +2682,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              251.08210893877262,
-              623.4103599187513
+              243.141591064938,
+              652.4770458599447
             ],
             "scale": 1.0,
             "moves": [
               [
-                305.0821089387726,
-                425.74050188637267
+                297.141591064938,
+                454.80718782756617
               ],
               [
-                420.7988890460092,
-                442.2176235080432
+                440.3003372951547,
+                453.8813170227083
               ],
               [
-                612.1228341594287,
-                322.8742614459069
+                635.081129963641,
+                313.01874568663976
               ],
               [
-                562.3780063720458,
-                248.26185454492352
+                553.4031038036761,
+                221.40770034654247
               ]
             ],
             "movePhases": [
@@ -2909,22 +2909,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              330.5044380899636,
-              473.02278555969343
+              326.4931448952817,
+              503.30760958576724
             ],
             "scale": 1.0,
             "moves": [
               [
-                366.5044380899636,
-                201.22673076517282
+                362.4931448952817,
+                231.51155479124662
               ],
               [
-                546.1820343827318,
-                213.36852269948213
+                566.4006576751249,
+                221.6458619405678
               ],
               [
-                540.0120331217985,
-                248.11240455314731
+                565.4746700573866,
+                217.74041237486438
               ]
             ],
             "movePhases": [
@@ -3131,18 +3131,18 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              676.6070102943297,
-              475.2435673164341
+              684.6601494028658,
+              504.26190078022427
             ],
             "scale": 1.0,
             "moves": [
               [
-                604.6070102943297,
-                215.80187864893716
+                612.6601494028658,
+                244.82021211272735
               ],
               [
-                539.9611594380626,
-                194.44264565973495
+                514.8623078205799,
+                195.167812284884
               ]
             ],
             "movePhases": [
@@ -3348,18 +3348,18 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              743.5939022140875,
-              501.5225316214022
+              753.4330427193784,
+              529.6605742551039
             ],
             "scale": 1.0,
             "moves": [
               [
-                635.5939022140875,
-                192.66337844581068
+                645.4330427193784,
+                220.8014210795124
               ],
               [
-                525.4016954243963,
-                179.11058763144595
+                502.98621605372375,
+                184.04806557189704
               ]
             ],
             "movePhases": [
@@ -3565,26 +3565,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              483.6982280935627,
-              498.71740696836395
+              489.88402108313977,
+              528.4368991713908
             ],
             "scale": 1.0,
             "moves": [
               [
-                429.6982280935627,
-                239.27571830086703
+                435.88402108313977,
+                268.9952105038939
               ],
               [
-                421.4842080993126,
-                246.3778869712408
+                454.9477650621732,
+                238.01529523352716
               ],
               [
-                529.3086062326154,
-                266.1235165061766
+                551.4130190836929,
+                264.81389812100065
               ],
               [
-                485.84703424764706,
-                224.60527183916523
+                471.5762131844714,
+                203.05421872121616
               ]
             ],
             "movePhases": [
@@ -3917,16 +3917,16 @@
             "scale": 1.0,
             "moves": [
               [
-                434.8476805060483,
-                294.06343596807733
+                414.4536558636501,
+                290.56405753424775
               ],
               [
-                155.5232892795679,
-                359.1614739725176
+                176.06891379662937,
+                351.10343690610074
               ],
               [
-                193.47390571770944,
-                378.24309634877767
+                180.5759220760775,
+                351.8367694002931
               ]
             ],
             "movePhases": [
@@ -4258,16 +4258,16 @@
             "scale": 1.0,
             "moves": [
               [
-                434.8476805060483,
-                553.5051246355742
+                414.4536558636501,
+                550.0057462017446
               ],
               [
-                155.5232892795679,
-                618.6031626400145
+                176.06891379662937,
+                610.5451255735977
               ],
               [
-                201.28846358716135,
-                624.7480771479425
+                181.51306622932225,
+                610.186989705005
               ]
             ],
             "movePhases": [
@@ -4613,16 +4613,16 @@
             "scale": 1.0,
             "moves": [
               [
-                435.5371666824281,
-                560.9231109616101
+                415.1973145652617,
+                558.7256512597455
               ],
               [
-                278.1582545572812,
-                801.6559924180458
+                287.0912007830957,
+                773.0439102748206
               ],
               [
-                244.7231945589694,
-                980.2256517784215
+                239.719206118411,
+                1010.2019657380691
               ]
             ],
             "movePhases": [
@@ -4685,18 +4685,18 @@
         "vi-VN": "Phạt góc cú hất kéo"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向左移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向左移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向左移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向左移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -4856,22 +4856,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              776.8313090416956,
-              187.2807603656159
+              774.2159667077192,
+              156.7649134431358
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.685182673856,
-                311.5852381956063
+                538.9184424874645,
+                329.61810769464927
               ],
               [
-                496.0548118767679,
-                349.66933874833165
+                477.4182167504311,
+                364.05321445450556
               ],
               [
-                472.7592863687399,
-                247.34868775101893
+                460.65250090923115,
+                218.43832819479937
               ]
             ],
             "movePhases": [
@@ -4934,18 +4934,18 @@
         "vi-VN": "Phạt góc cú đánh thẳng"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向右移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向右移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが右へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 오른쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la derecha, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à droite, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kanan, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kanan, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางขวา F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang phải, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向右移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向右移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが右へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 오른쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la derecha, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à droite, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kanan, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kanan, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางขวา F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang phải, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5105,22 +5105,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              776.8313090416956,
-              187.2807603656159
+              774.2159667077192,
+              156.7649134431358
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.685182673856,
-                311.5852381956063
+                538.9184424874645,
+                329.61810769464927
               ],
               [
-                557.674946494967,
-                311.8078345908609
+                542.2582933804857,
+                343.3714854034231
               ],
               [
-                552.0896012165897,
-                249.0300325364568
+                544.2231306617122,
+                218.65568516603042
               ]
             ],
             "movePhases": [
@@ -5183,18 +5183,18 @@
         "vi-VN": "Phạt góc biến thể bên trái"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向后移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向後移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが後方へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 뒤로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza hacia atrás, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace vers l'arrière, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke belakang, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke belakang, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับถอยหลัง F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển lùi lại, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I, T move back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 1, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I, T move back, F moves up the board; Step 3: F shoots, P, GK move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 1，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I、T向后移动，F向前移动；第3步：F射门，P、GK向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 1，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I、T向後移動，F向前移動；第3步：F射門，P、GK向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対1、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、I・Tが後方へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GKが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대1, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I, T는 뒤로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 1, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I, T se desplaza hacia atrás, F se desplaza hacia delante; Paso 3: F remata, P, GK se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 1, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I, T se déplace vers l'arrière, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 1, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I, T bergerak ke belakang, F bergerak ke depan; Langkah 3: F menembak, P, GK bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 1, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I, T bergerak ke belakang, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 1 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I, T ขยับถอยหลัง F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 1, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I, T di chuyển lùi lại, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5354,22 +5354,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              776.8313090416956,
-              187.2807603656159
+              774.2159667077192,
+              156.7649134431358
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.685182673856,
-                311.5852381956063
+                538.9184424874645,
+                329.61810769464927
               ],
               [
-                414.443876413472,
-                355.78228774124517
+                395.18729293474513,
+                365.208445648185
               ],
               [
-                505.0261988647334,
-                238.77991374431812
+                520.0414248299924,
+                216.08221985027154
               ]
             ],
             "movePhases": [
@@ -5432,18 +5432,18 @@
         "vi-VN": "Phạt góc cách phòng thủ"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I follows up behind T, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 5，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I跟上去，跑到T身后，T向左移动，F向前移动；第3步：F射门，P、GK、3 名 D向前移动，D向右移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 5，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I跟上去，跑到T身後，T向左移動，F向前移動；第3步：F射門，P、GK、3 名 D向前移動，D向右移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対5、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、IがTの後ろへ入る、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GK・D3人が前方へ移動、Dが右へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대5, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I가 T 뒤로 따라 들어간다, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK, D 3명는 앞으로 이동, D는 오른쪽으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 5, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I sube por detrás de T, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK, 3 D se desplaza hacia delante, D se desplaza a la derecha.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 5, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I monte derrière T, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK, 3 D se déplace vers l'avant, D se déplace à droite.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 5, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I maju di belakang T, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK, 3 D bergerak ke depan, D bergerak ke kanan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 5, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I naik di belakang T, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK, 3 D bergerak ke hadapan, D bergerak ke kanan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 5 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ตามขึ้นไปด้านหลังT T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK, D 3 คน ขยับไปข้างหน้า D ขยับไปทางขวา\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 5, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I theo lên phía sau T, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK, 3 D di chuyển lên phía trước, D di chuyển sang phải.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 5, blue: I, T, F, P, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves left, F moves up the board; Step 3: F shoots, P, GK, 3 Ds move up the board, D moves right.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is touched inside the shooting circle — a shot from outside it is not a goal however it goes in. The ball out over the sideline is a free hit to the other team from where it left.\nCoaching point: Injection, stop, strike — and the stop is the one that fails. Drill the trap on its own until it is boring.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 5，蓝方：I、T、F、P，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向左移动，F向前移动；第3步：F射门，P、GK、3 名 D向前移动，D向右移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圆圈内触球后进的才算进球——圈外射入无论多漂亮都不算。球出边线由对方在出界处发任意球。\n【要点】推球、停球、射门——出问题的永远是停球那一下。把停球单独练到无聊为止。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 5，藍方：I、T、F、P，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向左移動，F向前移動；第3步：F射門，P、GK、3 名 D向前移動，D向右移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圓圈內觸球後進的才算進球——圈外射入無論多漂亮都不算。球出邊線由對方在出界處發任意球。\n【要點】推球、停球、射門——出問題的永遠是停球那一下。把停球單獨練到無聊為止。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対5、青：I・T・F・P、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが左へ移動、Fが前方へ移動。ステップ3：Fがシュート、P・GK・D3人が前方へ移動、Dが右へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】シューティングサークル内で触れたボールだけが得点になる——サークル外からのシュートは入っても得点にならない。サイドラインを出たら、その地点から相手のフリーヒット。\n【ポイント】インジェクション、ストップ、シュート。失敗するのは常にストップだ。トラップだけを退屈になるまで反復する。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대5, 청팀: I, T, F, P, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 왼쪽으로 이동, F는 앞으로 이동; 3단계: F 슛, P, GK, D 3명는 앞으로 이동, D는 오른쪽으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】슈팅 서클 안에서 건드린 공만 득점으로 인정된다 — 서클 밖에서의 슛은 들어가도 무효. 사이드라인을 넘으면 그 지점에서 상대의 프리히트.\n【포인트】인젝션, 스톱, 슛 — 실패하는 건 언제나 스톱이다. 트래핑만 따로 지겨울 때까지 반복하라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 5, azules: I, T, F, P, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la izquierda, F se desplaza hacia delante; Paso 3: F remata, P, GK, 3 D se desplaza hacia delante, D se desplaza a la derecha.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se toca dentro del círculo de tiro: un disparo desde fuera no vale por muy bien que entre. Bola fuera por la banda, golpe franco para el rival desde donde salió.\nPunto clave: Saque, parada, remate: lo que falla es la parada. Entrena el control solo hasta que aburra.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 5, les bleus : I, T, F, P, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à gauche, F se déplace vers l'avant ; Étape 3 : F frappe, P, GK, 3 D se déplace vers l'avant, D se déplace à droite.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est touchée dans le cercle : un tir de l'extérieur ne vaut rien, même s'il rentre. Sortie sur la touche : coup franc pour l'adversaire à l'endroit de la sortie.\nPoint clé : Injection, blocage, frappe — c'est le blocage qui échoue. Travaille l'arrêt seul jusqu'à l'ennui.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 5, tim biru: I, T, F, P, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke depan; Langkah 3: F menembak, P, GK, 3 D bergerak ke depan, D bergerak ke kanan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola disentuh di dalam lingkaran tembak; tembakan dari luar tidak dihitung. Bola keluar garis samping berarti free hit bagi lawan dari tempat bola keluar.\nPoin utama: Injeksi, stop, tembak — yang gagal selalu stopnya.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 5, pasukan biru: I, T, F, P, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kiri, F bergerak ke hadapan; Langkah 3: F menjaring, P, GK, 3 D bergerak ke hadapan, D bergerak ke kanan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola disentuh dalam bulatan tembakan; rembatan dari luar tidak dikira. Bola keluar garisan tepi bermakna free hit untuk lawan dari tempat bola keluar.\nPoin utama: Injeksi, hentian, tembakan — yang gagal sentiasa hentian.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 5 ทีมน้ำเงิน: I, T, F, P บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางซ้าย F ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู P, GK, D 3 คน ขยับไปข้างหน้า D ขยับไปทางขวา\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูได้ต้องสัมผัสบอลในวงยิงเท่านั้น ยิงจากนอกวงไม่นับ บอลออกเส้นข้างให้ฝ่ายตรงข้ามเล่นฟรีฮิตตรงจุดที่ออก\nจุดเน้น: ส่งเข้า หยุดบอล แล้วยิง สิ่งที่พลาดคือจังหวะหยุดเสมอ",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 5, đội xanh: I, T, F, P, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang trái, F di chuyển lên phía trước; Bước 3: F dứt điểm, P, GK, 3 D di chuyển lên phía trước, D di chuyển sang phải.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chạm trong vòng cấm ghi bàn — sút từ ngoài vòng không tính dù vào lưới. Bóng ra biên thì đội kia được đánh phạt tại chỗ bóng ra.\nĐiểm chính: Đưa bóng, dừng bóng, dứt điểm — khâu hỏng luôn là dừng bóng."
       },
       "mistake": {
         "en": "The stop is what fails — drill the trap on its own until it is boring.",
@@ -5711,22 +5711,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              776.8313090416956,
-              187.2807603656159
+              774.2159667077192,
+              156.7649134431358
             ],
             "scale": 1.0,
             "moves": [
               [
-                557.685182673856,
-                311.5852381956063
+                538.9184424874645,
+                329.61810769464927
               ],
               [
-                496.0548118767679,
-                349.66933874833165
+                477.4182167504311,
+                364.05321445450556
               ],
               [
-                472.7592863687399,
-                247.34868775101893
+                460.65250090923115,
+                218.43832819479937
               ]
             ],
             "movePhases": [
@@ -5933,22 +5933,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              277.1050918661747,
-              438.2511717526594
+              260.78198291088637,
+              460.65802334876275
             ],
             "scale": 1.0,
             "moves": [
               [
-                368.0149315111388,
-                471.3369923690693
+                388.4645692319171,
+                466.6584310437454
               ],
               [
-                525.9453831739272,
-                353.1699105475677
+                547.1385359836398,
+                339.57181757211976
               ],
               [
-                511.96863164522796,
-                260.79879062471036
+                514.2963653906444,
+                229.57941529887907
               ]
             ],
             "movePhases": [
@@ -6220,26 +6220,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              338.8777299171975,
-              1018.1814558752872
+              331.74126684033973,
+              1047.5702817764495
             ],
             "scale": 1.0,
             "moves": [
               [
-                552.9615809410241,
-                921.4923931035917
+                572.7662934742463,
+                906.6636252444474
               ],
               [
-                523.6624276405403,
-                508.58583478760056
+                523.6265142363919,
+                477.8820536578726
               ],
               [
-                490.35764608296853,
-                201.11730676153599
+                494.04231987452823,
+                231.46517948125395
               ],
               [
-                464.4200048616027,
-                253.351540852476
+                494.1249601573572,
+                230.77486412512553
               ]
             ],
             "movePhases": [
@@ -6592,26 +6592,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              266.87772991719754,
-              1092.3076526374289
+              259.74126684033973,
+              1121.6964785385912
             ],
             "scale": 1.0,
             "moves": [
               [
-                297.59386349087583,
-                878.2861877378942
+                302.6988327770276,
+                848.2534926767851
               ],
               [
-                482.77928754275814,
-                500.6161501523132
+                494.6959226519029,
+                474.1893543474822
               ],
               [
-                490.35764608296853,
-                201.11730676153599
+                494.04231987452823,
+                231.46517948125395
               ],
               [
-                464.4200048616027,
-                253.351540852476
+                494.1249601573572,
+                230.77486412512553
               ]
             ],
             "movePhases": [
@@ -7044,26 +7044,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              212.8777299171975,
-              1141.7251171455237
+              205.74126684033973,
+              1171.113943046686
             ],
             "scale": 1.0,
             "moves": [
               [
-                244.4103228871659,
-                903.1293614468215
+                249.20852987477843,
+                873.019491794398
               ],
               [
-                478.0298414165656,
-                498.08573338321895
+                491.3090852867146,
+                472.89868934185006
               ],
               [
-                490.35764608296853,
-                201.11730676153599
+                494.04231987452823,
+                231.46517948125395
               ],
               [
-                464.4200048616027,
-                253.351540852476
+                494.1249601573572,
+                230.77486412512553
               ]
             ],
             "movePhases": [
@@ -7280,12 +7280,12 @@
             "scale": 1.0,
             "moves": [
               [
-                412.07122950758946,
-                801.0947928672496
+                424.4605655201785,
+                827.5500213164275
               ],
               [
-                436.85395608294493,
-                1016.4467843943532
+                442.05066440378476,
+                1046.7152028332455
               ]
             ],
             "movePhases": [
@@ -7525,22 +7525,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              262.04042875971226,
-              1047.3274305210239
+              250.27426195315147,
+              1074.2466032321136
             ],
             "scale": 1.0,
             "moves": [
               [
-                316.04042875971226,
-                923.7837692507875
+                304.2742619531515,
+                950.7029419618772
               ],
               [
-                674.2025665889608,
-                605.4739746996736
+                694.283007522768,
+                589.1493689760367
               ],
               [
-                568.9393055316382,
-                543.500510030575
+                552.5896695209889,
+                526.2557333719449
               ]
             ],
             "movePhases": [
@@ -7788,22 +7788,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              848.4582313251086,
-              366.795141477299
+              859.3815880875031,
+              394.28519030259395
             ],
             "scale": 1.0,
             "moves": [
               [
-                721.3502480590522,
-                399.7881034657353
+                700.8680651874987,
+                394.38117213505524
               ],
               [
-                539.0927818992234,
-                332.8303910244394
+                518.3290657922948,
+                325.687970718654
               ],
               [
-                529.0581009998034,
-                260.93121229081714
+                518.1127023195882,
+                231.01413877910372
               ]
             ],
             "movePhases": [
@@ -8083,26 +8083,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              336.3017719064373,
-              869.348390779074
+              330.11597891686023,
+              899.0678829821007
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.3017719064373,
-                696.3872650007427
+                366.11597891686023,
+                726.1067572037695
               ],
               [
-                514.5432164051609,
-                558.5788073675403
+                535.8165372611022,
+                542.1383280247406
               ],
               [
-                498.0788722644222,
-                215.40846446595657
+                505.5970849538135,
+                244.6493308947487
               ],
               [
-                496.666424500692,
-                249.27530731904648
+                503.65850298253923,
+                218.56717873819085
               ]
             ],
             "movePhases": [
@@ -8283,14 +8283,14 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              385.1050918661747,
-              259.11286291081626
+              368.78198291088637,
+              281.5197145069196
             ],
             "scale": 1.0,
             "moves": [
               [
-                442.09465232131777,
-                224.54416440141875
+                460.90342819137385,
+                206.61434160050817
               ]
             ],
             "movePhases": [
@@ -8468,26 +8468,26 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              470.45823132510867,
-              379.1495076043227
+              481.3815880875031,
+              406.63955642961764
             ],
             "scale": 1.0,
             "moves": [
               [
-                416.45823132510867,
-                243.2514802070624
+                427.3815880875031,
+                270.74152903235733
               ],
               [
-                408.4080590797599,
-                251.58209201093962
+                442.09450382246087,
+                239.9290472010381
               ],
               [
-                528.2751824744838,
-                261.5499796843689
+                549.5279920438167,
+                258.2230067485173
               ],
               [
-                529.468724555428,
-                257.84517922868224
+                551.1214088348189,
+                230.95686893018453
               ]
             ],
             "movePhases": [
@@ -8647,21 +8647,21 @@
             "sportType": 7,
             "position": [
               500.0,
-              595.873803237858
+              626.5587347447074
             ],
             "scale": 1.0,
             "moves": [
               [
                 500.0,
-                373.4952129514321
+                404.1801444582814
               ],
               [
-                430.8440207021856,
-                235.1540948768148
+                439.8888811645919,
+                263.71077162758576
               ],
               [
-                432.2503149817547,
-                261.5861710097894
+                435.0982893630176,
+                230.66441867920213
               ]
             ],
             "movePhases": [
@@ -8861,22 +8861,22 @@
             "team": 2,
             "sportType": 7,
             "position": [
-              318.9490550497747,
-              332.1155114636005
+              306.22831146244494,
+              358.3082987445772
             ],
             "scale": 1.0,
             "moves": [
               [
-                372.9490550497747,
-                220.9262163203876
+                360.22831146244494,
+                247.11900360136426
               ],
               [
-                373.81454950884574,
-                221.33969503861744
+                386.74423130710306,
+                249.81053174562135
               ],
               [
-                806.7177013686016,
-                441.8881924000627
+                825.9730991565264,
+                454.0157275139194
               ]
             ],
             "movePhases": [
