@@ -300,7 +300,7 @@
   "share_link_copied": "Link copied",
   "share_link_failed": "Couldn't create a link — sharing the file instead",
   "drills_title": "Drills",
-  "drills_hint": "Tap one to see it; + puts it straight on the board",
+  "drills_hint": "Tap one to see it; the pencil opens it on the board",
   "drills_empty": "No drills for this sport yet",
   "drills_minutes": "{} min",
   "drills_search": "Search drills",

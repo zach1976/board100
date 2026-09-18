@@ -321,7 +321,7 @@
   "share_link_copied": "Lien copié",
   "share_link_failed": "Lien impossible — partage du fichier",
   "drills_title": "Exercices",
-  "drills_hint": "Touchez pour le voir ; + le met sur le tableau",
+  "drills_hint": "Touchez pour le voir ; le crayon l'ouvre sur le tableau",
   "drills_empty": "Pas encore d’exercices pour ce sport",
   "drills_minutes": "{} min",
   "drills_search": "Rechercher un exercice",
