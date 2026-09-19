@@ -2,8 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
-import '../services/recent_boards_service.dart';
+import '../services/auth_service.dart';
+import '../services/drill_library_service.dart';
+import '../services/drill_notes_service.dart';
+import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
@@ -165,12 +169,16 @@ class _TabButton extends StatelessWidget {
   }
 }
 
-/// The coach's own things: the boards they saved, and the app's settings.
+/// The coach's own things: what they have made, and what the app is set to.
 ///
 /// Both were reachable already — the boards through the home page, the
 /// settings through a ⋯ menu in its corner — which is exactly the problem a
 /// tab bar exists to fix: a menu hides what an app can do behind a glyph
-/// that says nothing.
+/// that says nothing. Gathering them is not enough on its own, though: four
+/// naked rows under a title is a page that looks unfinished however finished
+/// it is. So it opens with who you are, says what you have made in numbers
+/// before it says it in a list, and groups the rest into the two things a
+/// settings page is actually made of — your content, and your preferences.
 class _MinePage extends StatefulWidget {
   final VoidCallback onOpenBoard;
   const _MinePage({required this.onOpenBoard});
@@ -181,7 +189,9 @@ class _MinePage extends StatefulWidget {
 
 class _MinePageState extends State<_MinePage> {
   List<TacticMeta> _mine = const [];
-  List<RecentBoard> _recent = const [];
+  int _plans = 0;
+  int _starred = 0;
+  int _drills = 0;
 
   @override
   void initState() {
@@ -195,29 +205,40 @@ class _MinePageState extends State<_MinePage> {
       m.sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
       if (mounted) setState(() => _mine = m);
     }).catchError((_) {});
-    RecentBoardsService.instance.list(state.sportType).then((r) {
-      if (mounted) setState(() => _recent = r);
+    PracticeService.listNames(state.sportType).then((n) {
+      if (mounted) setState(() => _plans = n.length);
+    }).catchError((_) {});
+    DrillNotesService.instance.all(state.sportType).then((m) {
+      final n = m.values.where((e) => e.starred).length;
+      if (mounted) setState(() => _starred = n);
+    }).catchError((_) {});
+    DrillLibraryService.instance.forSport(state.sportType).then((d) {
+      if (mounted) setState(() => _drills = d.length);
     }).catchError((_) {});
   }
 
-  String _subtitle(TacticMeta m) {
-    for (final r in _recent) {
-      if (r.kind == RecentBoardKind.tactic && r.id == m.name) {
-        return DateFormat.yMd().format(r.openedAt);
-      }
-    }
-    return DateFormat.yMd().format(m.updatedAt);
+  Future<void> _push(Widget page) async {
+    await Navigator.of(context).push(
+        MaterialPageRoute<void>(builder: (_) => page));
+    if (mounted) _refresh();
   }
 
-  Future<void> _open(TacticMeta m) async {
+  Future<void> _openLibrary({bool mine = false, bool starred = false}) async {
     final state = context.read<TacticsState>();
-    await state.loadTactics(m.name);
-    widget.onOpenBoard();
+    await DrillLibraryPage.push(
+      context,
+      state,
+      openMine: mine,
+      starredOnly: starred,
+      onLoaded: widget.onOpenBoard,
+    );
+    if (mounted) _refresh();
   }
 
   @override
   Widget build(BuildContext context) {
     final state = context.read<TacticsState>();
+    final auth = AuthService.instance;
     return SafeArea(
       bottom: false,
       child: ListView(
@@ -226,46 +247,90 @@ class _MinePageState extends State<_MinePage> {
           Text('tab_mine'.tr(),
               style: const TextStyle(
                   color: T.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const SizedBox(height: T.s16),
+
+          // Who you are, or the offer to become someone. The account is the
+          // one thing on this page that is about the coach rather than about
+          // the app, so it goes first and looks different from the rest.
+          _AccountCard(
+            name: auth.isLoggedIn ? (auth.userName ?? 'menu_login'.tr()) : null,
+            email: auth.userEmail,
+            onTap: () => _push(const LoginPage()).then((_) {
+              if (mounted) setState(() {});
+            }),
+          ),
+          const SizedBox(height: T.s16),
+
+          // What the coach has made, in one line. A settings page that opens
+          // with an empty list says "you have nothing"; three numbers say
+          // what there is to come back to.
+          Row(
+            children: [
+              Expanded(
+                  child: _Stat(
+                      value: '${_mine.length}', label: 'home_mine'.tr())),
+              const SizedBox(width: T.s8),
+              Expanded(
+                  child: _Stat(
+                      value: '$_starred', label: 'home_starred'.tr())),
+              const SizedBox(width: T.s8),
+              Expanded(
+                  child: _Stat(
+                      value: '$_drills', label: 'tab_drills'.tr())),
+            ],
+          ),
           const SizedBox(height: T.s24),
-          Text('home_mine'.tr(),
-              style: const TextStyle(
-                  color: T.text, fontSize: 16, fontWeight: FontWeight.w700)),
-          const SizedBox(height: T.s12),
-          if (_mine.isEmpty)
-            Text('home_mine_empty'.tr(),
-                style: const TextStyle(color: T.textOff, fontSize: 13.5))
-          else
-            for (final m in _mine)
-              _Entry(
-                icon: Icons.dashboard_outlined,
-                label: m.name,
-                trailing: _subtitle(m),
-                onTap: () => _open(m),
-              ),
+
+          _SectionLabel('mine_content'.tr()),
+          _Card(children: [
+            _Row(
+              icon: Icons.dashboard_outlined,
+              label: 'home_mine'.tr(),
+              trailing: _mine.isEmpty ? 'mine_none'.tr() : '${_mine.length}',
+              onTap: () => _openLibrary(mine: true),
+            ),
+            _Row(
+              icon: Icons.star_outline_rounded,
+              label: 'home_starred'.tr(),
+              trailing: _starred == 0 ? 'mine_none'.tr() : '$_starred',
+              onTap: () => _openLibrary(starred: true),
+            ),
+            _Row(
+              icon: Icons.event_note_outlined,
+              label: 'practice_plan'.tr(),
+              trailing: _plans == 0 ? 'mine_none'.tr() : '$_plans',
+              onTap: () => _push(PracticePlanPage(state: state)),
+              last: true,
+            ),
+          ]),
           const SizedBox(height: T.s24),
-          _Entry(
-            icon: Icons.event_note_outlined,
-            label: 'practice_plan'.tr(),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-              builder: (_) => PracticePlanPage(state: state),
-            )),
-          ),
-          _Entry(
-            icon: Icons.language_rounded,
-            label: 'menu_language'.tr(),
-            onTap: () => LanguagePicker.show(context),
-          ),
-          _Entry(
-            icon: Icons.mail_outline_rounded,
-            label: 'menu_contact'.tr(),
-            onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-          ),
-          _Entry(
-            icon: Icons.person_outline_rounded,
-            label: 'menu_login'.tr(),
-            onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const LoginPage())),
+
+          _SectionLabel('mine_settings'.tr()),
+          _Card(children: [
+            _Row(
+              icon: Icons.language_rounded,
+              label: 'menu_language'.tr(),
+              // The language names itself: a coach looking for Thai is
+              // looking for ภาษาไทย, not for "th_TH".
+              trailing: LanguagePicker.nameOf(context.locale),
+              onTap: () => LanguagePicker.show(context),
+            ),
+            _Row(
+              icon: Icons.mail_outline_rounded,
+              label: 'menu_contact'.tr(),
+              onTap: () => _push(const ContactPage()),
+              last: true,
+            ),
+          ]),
+
+          const SizedBox(height: T.s32),
+          // The version, small and grey at the bottom, where a support email
+          // can ask for it and the coach can find it without being told how.
+          Center(
+            child: Text(
+              '${'home_board_title'.tr(args: [state.sportType.displayName])}  ·  $kAppVersion',
+              style: const TextStyle(color: T.textOff, fontSize: 11.5),
+            ),
           ),
         ],
       ),
@@ -273,24 +338,173 @@ class _MinePageState extends State<_MinePage> {
   }
 }
 
-class _Entry extends StatelessWidget {
+/// The app's own version, shown at the foot of the settings page.
+///
+/// A constant rather than package_info_plus: the number is already written
+/// in pubspec.yaml and nowhere else, one more plugin to read it back at
+/// runtime is a dependency for a string, and a wrong version here is a
+/// support email that goes one round longer than it had to.
+const String kAppVersion = '2.0.0';
+
+class _AccountCard extends StatelessWidget {
+  final String? name;
+  final String? email;
+  final VoidCallback onTap;
+  const _AccountCard({this.name, this.email, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final signedIn = name != null;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(T.s16),
+        decoration: BoxDecoration(
+          borderRadius: T.brLg,
+          border: Border.all(color: T.border),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF16302A), T.surface],
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 46,
+              height: 46,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: T.accent.withValues(alpha: 0.14),
+                border: Border.all(color: T.accent.withValues(alpha: 0.4)),
+              ),
+              child: const Icon(Icons.person_outline_rounded,
+                  color: T.accent, size: 24),
+            ),
+            const SizedBox(width: T.s12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(signedIn ? name! : 'menu_login'.tr(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: T.text,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
+                  const SizedBox(height: 2),
+                  Text(signedIn ? (email ?? '') : 'login_subtitle'.tr(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(color: T.textDim, fontSize: 12.5)),
+                ],
+              ),
+            ),
+            const Icon(Icons.chevron_right, size: 18, color: T.textOff),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Stat extends StatelessWidget {
+  final String value;
+  final String label;
+  const _Stat({required this.value, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: T.s12, horizontal: T.s8),
+      decoration: BoxDecoration(
+        color: T.surface,
+        borderRadius: T.brMd,
+        border: Border.all(color: T.border),
+      ),
+      child: Column(
+        children: [
+          Text(value,
+              style: const TextStyle(
+                  color: T.accent,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  fontFeatures: [FontFeature.tabularFigures()])),
+          const SizedBox(height: 2),
+          Text(label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: T.textDim, fontSize: 11.5)),
+        ],
+      ),
+    );
+  }
+}
+
+class _SectionLabel extends StatelessWidget {
+  final String text;
+  const _SectionLabel(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 2, bottom: T.s8),
+      child: Text(text.toUpperCase(),
+          style: const TextStyle(
+              color: T.textOff,
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.8)),
+    );
+  }
+}
+
+class _Card extends StatelessWidget {
+  final List<Widget> children;
+  const _Card({required this.children});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: T.surface,
+        borderRadius: T.brMd,
+        border: Border.all(color: T.border),
+      ),
+      child: Column(children: children),
+    );
+  }
+}
+
+class _Row extends StatelessWidget {
   final IconData icon;
   final String label;
   final String? trailing;
   final VoidCallback onTap;
-  const _Entry(
+  /// No hairline under the last row: a divider against the card's own edge
+  /// reads as a line that failed to line up with something.
+  final bool last;
+  const _Row(
       {required this.icon,
       required this.label,
       this.trailing,
-      required this.onTap});
+      required this.onTap,
+      this.last = false});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: T.s12),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(T.s12, T.s12, T.s12, T.s12),
+        decoration: last
+            ? null
+            : const BoxDecoration(
+                border: Border(bottom: BorderSide(color: T.border))),
         child: Row(
           children: [
             Icon(icon, size: 19, color: T.textDim),
@@ -303,8 +517,12 @@ class _Entry extends StatelessWidget {
             ),
             if (trailing != null) ...[
               const SizedBox(width: T.s8),
-              Text(trailing!,
-                  style: const TextStyle(color: T.textOff, fontSize: 12.5)),
+              Flexible(
+                child: Text(trailing!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(color: T.textOff, fontSize: 13)),
+              ),
             ],
             const SizedBox(width: T.s4),
             const Icon(Icons.chevron_right, size: 18, color: T.textOff),

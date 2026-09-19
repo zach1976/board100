@@ -5,6 +5,21 @@ import '../ui/tokens.dart';
 import 'toolbar.dart' show scaledSheet;
 
 class LanguagePicker {
+  /// The name a language calls itself. Public so a settings row can show
+  /// which one is on without keeping a second copy of the list that drifts.
+  static String nameOf(Locale locale) {
+    for (final l in _languages) {
+      if (l.locale.languageCode == locale.languageCode &&
+          l.locale.countryCode == locale.countryCode) {
+        return l.name;
+      }
+    }
+    for (final l in _languages) {
+      if (l.locale.languageCode == locale.languageCode) return l.name;
+    }
+    return locale.languageCode;
+  }
+
   static const _languages = [
     (locale: Locale('en', 'US'), name: 'English (US)'),
     (locale: Locale('en', 'GB'), name: 'English (UK)'),
