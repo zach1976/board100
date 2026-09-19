@@ -853,14 +853,103 @@ class _CategoryGrid extends StatelessWidget {
       children: [
         for (final c in DrillCategory.values)
           if (counts.containsKey(c))
-            TacticalChip(
+            _CategoryTile(
+              category: c,
+              sport: sport,
               label: c.labelKeyFor(sport.drillVocabulary).tr(),
               // How much is behind the door, before opening it.
-              count: counts[c],
-              selected: false,
+              count: counts[c]!,
               onTap: () => onTap(c),
             ),
       ],
+    );
+  }
+}
+
+/// One category, as a tile with its own mark and colour.
+///
+/// These were the app's filter chips, which is what they are NOT: a filter
+/// chip is one of a set you switch between, and nine identical grey pills
+/// read as a wall of text a coach has to parse word by word. A door into
+/// finishing drills should be recognisable before it is read — so each
+/// carries a glyph and a colour of its own, and after a week the coach is
+/// tapping the orange one rather than reading nine labels.
+class _CategoryTile extends StatelessWidget {
+  final DrillCategory category;
+  final SportType sport;
+  final String label;
+  final int count;
+  final VoidCallback onTap;
+  const _CategoryTile(
+      {required this.category,
+      required this.sport,
+      required this.label,
+      required this.count,
+      required this.onTap});
+
+  /// Material's own glyphs rather than drawn artwork: they are vector, they
+  /// take the tile's colour, they scale with the text size, and they cost
+  /// nothing in the bundle — which a generated icon sheet does on all four
+  /// counts.
+  static IconData _icon(DrillCategory c) => switch (c) {
+        DrillCategory.warmup => Icons.directions_run,
+        DrillCategory.possession => Icons.hub_outlined,
+        DrillCategory.attacking => Icons.bolt,
+        DrillCategory.finishing => Icons.sports_score,
+        DrillCategory.defending => Icons.shield_outlined,
+        DrillCategory.setpiece => Icons.groups_outlined,
+        DrillCategory.ssg => Icons.grid_view_rounded,
+        DrillCategory.goalkeeping => Icons.back_hand_outlined,
+        DrillCategory.conditioning => Icons.fitness_center,
+      };
+
+  /// Warm where the drill is about scoring, cool where it is about denying:
+  /// the ordering is the session's, from warm-up through to the running that
+  /// ends it, and the hues walk with it rather than being picked at random.
+  static Color _tint(DrillCategory c) => switch (c) {
+        DrillCategory.warmup => const Color(0xFF4ADE80),
+        DrillCategory.possession => const Color(0xFF60A5FA),
+        DrillCategory.attacking => const Color(0xFFF87171),
+        DrillCategory.finishing => const Color(0xFFFBBF24),
+        DrillCategory.defending => const Color(0xFFA78BFA),
+        DrillCategory.setpiece => const Color(0xFF22D3EE),
+        DrillCategory.ssg => const Color(0xFFFB923C),
+        DrillCategory.goalkeeping => const Color(0xFF86EFAC),
+        DrillCategory.conditioning => const Color(0xFF94A3B8),
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    final tint = _tint(category);
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(10, 9, 12, 9),
+        decoration: BoxDecoration(
+          color: tint.withValues(alpha: 0.10),
+          borderRadius: T.brSm,
+          border: Border.all(color: tint.withValues(alpha: 0.28)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // The ball itself where the category IS the ball: a football in
+            // a basketball app would be the one wrong note in the row.
+            if (category == DrillCategory.possession)
+              SportGlyph(sport: sport, size: 17)
+            else
+              Icon(_icon(category), size: 17, color: tint),
+            const SizedBox(width: 7),
+            Text(label,
+                style: const TextStyle(
+                    color: T.text, fontSize: 13.5, fontWeight: FontWeight.w600)),
+            const SizedBox(width: 6),
+            Text('$count',
+                style: const TextStyle(color: T.textOff, fontSize: 12.5)),
+          ],
+        ),
+      ),
     );
   }
 }

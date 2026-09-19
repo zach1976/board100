@@ -18,6 +18,7 @@ import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
 import '../services/ad_service.dart';
+import '../services/working_board_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
@@ -166,9 +167,43 @@ class TacticsState extends ChangeNotifier {
   /// one silently takes it off the live board and never gives it back.
   TacticsState({SportType sportType = SportType.basketball,
                 bool preview = false})
-      : _sportType = sportType {
+      : _preview = preview,
+        _sportType = sportType {
     if (!preview) _initExternalDisplay();
     _loadFieldPrefs();
+  }
+
+  /// A throwaway board — a thumbnail, a drill's detail page. It must never
+  /// write over the coach's own board, which is exactly what it would do:
+  /// the home page builds one of these from the real board every time it
+  /// rebuilds.
+  final bool _preview;
+  DateTime _lastSave = DateTime.fromMillisecondsSinceEpoch(0);
+  bool _restoring = false;
+
+  /// Put back the board the coach left, if there is one.
+  ///
+  /// Called once at startup. Silent when there is nothing stored, which is
+  /// every first run and every sport the coach has not opened yet.
+  Future<void> restoreWorkingBoard() async {
+    final json = await WorkingBoardService.instance.load(_sportType);
+    if (json == null) return;
+    _restoring = true;
+    try {
+      loadFromJson(json);
+    } catch (_) {
+      // A board from an older schema. Starting empty is the old behaviour,
+      // and better than a crash on launch.
+    } finally {
+      _restoring = false;
+    }
+    notifyListeners();
+  }
+
+  void saveWorkingBoard() {
+    if (_preview) return;
+    _lastSave = DateTime.now();
+    unawaited(WorkingBoardService.instance.save(_sportType, toJson()));
   }
 
   void _initExternalDisplay() {
@@ -204,6 +239,16 @@ class TacticsState extends ChangeNotifier {
   void notifyListeners() {
     super.notifyListeners();
     _externalDirty = true;
+    // Rate-limited rather than debounced: dragging a player notifies on
+    // every frame, and a write a second is the difference between one and
+    // sixty. A trailing timer would have been tidier, but a pending timer
+    // fails every widget test that so much as builds this state — and the
+    // board is written again when the app goes to the background, which is
+    // the edit a rate limit would otherwise drop.
+    if (_preview || _restoring) return;
+    final now = DateTime.now();
+    if (now.difference(_lastSave) < const Duration(seconds: 1)) return;
+    saveWorkingBoard();
   }
 
   @override
