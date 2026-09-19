@@ -9,7 +9,7 @@ import 'services/ad_service.dart';
 import 'services/purchase_service.dart';
 import 'services/tap_guard.dart';
 import 'state/tactics_state.dart';
-import 'pages/sport_home_page.dart';
+import 'pages/main_shell.dart';
 import 'pages/sport_selection_page.dart';
 
 /// Non-null when the app is built for a single sport. Set by a shell app's
@@ -89,11 +89,16 @@ class TacticsBoardApp extends StatelessWidget {
     final fs = fixedSport;
     return ChangeNotifierProvider(
       lazy: false,
-      create: (_) => TacticsState(sportType: fs ?? SportType.basketball),
+      // The board comes back as the coach left it. Asynchronous on purpose:
+      // the first frame must not wait on storage, and the home page's
+      // thumbnail redraws itself when the board arrives.
+      create: (_) => TacticsState(sportType: fs ?? SportType.basketball)
+        ..restoreWorkingBoard(),
       // Records every pointer-down so AdService can refuse to show a
       // full-screen ad under a finger that's mid-drag. See TapGuard.
       child: TapGuard.wrap(
-        MaterialApp(
+        _SaveOnPause(
+          child: MaterialApp(
           title: 'Tactics Board',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
@@ -159,10 +164,50 @@ class TacticsBoardApp extends StatelessWidget {
           // — the drill library, session plans, saved boards — used to be
           // reachable only from a menu on top of an empty pitch.
           home: fs != null
-              ? const SportHomePage()
+              ? const MainShell()
               : const SportSelectionPage(),
+          ),
         ),
       ),
     );
   }
+}
+
+/// Writes the board when the app goes to the background.
+///
+/// The autosave debounces by a second, which a coach who drags a player and
+/// immediately swipes the app away never gives it. This is the other end of
+/// that: the last chance to write before iOS suspends us.
+class _SaveOnPause extends StatefulWidget {
+  final Widget child;
+  const _SaveOnPause({required this.child});
+
+  @override
+  State<_SaveOnPause> createState() => _SaveOnPauseState();
+}
+
+class _SaveOnPauseState extends State<_SaveOnPause>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
+      context.read<TacticsState>().saveWorkingBoard();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }

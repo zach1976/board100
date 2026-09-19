@@ -302,13 +302,18 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2, right: T.s4),
-                      child: TacticalIconButton(
-                        icon: Icons.arrow_back,
-                        onTap: () => Navigator.of(context).pop(),
+                    // Only when there is something to go back to. This page
+                    // is both a pushed sheet (from the board, from a category
+                    // chip) and a tab in the shell, and a back arrow on a tab
+                    // is a control that does nothing.
+                    if (Navigator.of(context).canPop())
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2, right: T.s4),
+                        child: TacticalIconButton(
+                          icon: Icons.arrow_back,
+                          onTap: () => Navigator.of(context).pop(),
+                        ),
                       ),
-                    ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
