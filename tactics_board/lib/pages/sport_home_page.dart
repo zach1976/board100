@@ -557,6 +557,24 @@ class _SportHomePageState extends State<SportHomePage> {
             ),
           ),
         ),
+        // And a second one from the left, where the title and the tagline
+        // are. The art is briefed to keep that side in shade, but a sunny
+        // morning is the point of the picture and the sun does not always
+        // land where the brief asked — a shot that is right in every other
+        // way should not be unusable because the grass under the title came
+        // out bright. Free on a photograph that is already dark there.
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0x8C000000), Color(0x40000000), Color(0x00000000)],
+                stops: [0, .45, .78],
+              ),
+            ),
+          ),
+        ),
         content,
       ],
     );
