@@ -773,14 +773,20 @@ class _TodayRow extends StatelessWidget {
                 children: [
                   if (path != null) ...[
                     Image.asset(path, fit: BoxFit.cover),
-                    // The photograph is already dark along the bottom; this
-                    // only guarantees it, for the day a cover is reshot.
+                    // The bottom of the card was never the problem — the
+                    // covers were shot dark there and the scrim only made it
+                    // certain. The top is: the drill's name sits at y=12, and
+                    // once the covers were reshot into sunlight it landed on
+                    // bright sky. Measured over the nine soccer covers, white
+                    // on the brightest of them came out at 3.0:1. 0x59 buys
+                    // the 4.5:1 back and still leaves the picture sunlit;
+                    // going further starts turning the photograph off.
                     const DecoratedBox(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Color(0x1A000000), Color(0x8C000000), Color(0xE6000000)],
+                          colors: [Color(0x59000000), Color(0x8C000000), Color(0xE6000000)],
                           stops: [0, .45, 1],
                         ),
                       ),
