@@ -273,7 +273,9 @@ class _SportHomePageState extends State<SportHomePage> {
           padding: const EdgeInsets.only(bottom: T.s32),
           children: [
             _hero(state.sportType),
-            const SizedBox(height: T.s16),
+            // The header already ends in T.bg0 across its fade band; this is
+            // the gap before the first card, not a seam to hide.
+            const SizedBox(height: T.s8),
             // One margin for the whole column below the photograph. The hero
             // is the only child that bleeds, so the padding belongs here
             // rather than on the ListView.
@@ -508,7 +510,10 @@ class _SportHomePageState extends State<SportHomePage> {
   Widget _hero(SportType sport) {
     final top = MediaQuery.paddingOf(context).top;
     final content = Padding(
-      padding: EdgeInsets.fromLTRB(T.screenX, top + T.s8, T.screenX, T.s16),
+      // The bottom is not a margin: it is the band the photograph fades out
+      // over, so the page begins under a gradient rather than at an edge.
+      // Nothing is drawn in it — the scrim below reaches T.bg0 across it.
+      padding: EdgeInsets.fromLTRB(T.screenX, top + T.s4, T.screenX, T.s28),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -533,7 +538,10 @@ class _SportHomePageState extends State<SportHomePage> {
               ),
             ],
           ),
-          const SizedBox(height: T.s24),
+          // Tight under the buttons. Twenty-four points of empty photograph
+          // between the two pushed the title, and everything the page has to
+          // say, a fifth of a phone further down.
+          const SizedBox(height: T.s8),
           Row(
             children: [
               SportGlyph(sport: sport, size: 26),
@@ -583,14 +591,28 @@ class _SportHomePageState extends State<SportHomePage> {
         ),
         // Down into the page, not stopping at an edge: a photograph that
         // ends on a hard line reads as a banner pasted on top of the app.
+        //
+        // Four stops, not three. With one ramp from 13% black to opaque
+        // T.bg0, the alpha climbs evenly the whole way and the picture is
+        // still half there twenty points from the bottom — so it vanished in
+        // the last stretch and the eye read a line anyway. The third stop
+        // puts the photograph 70% under the page colour by the time the
+        // tagline ends, and leaves the rest of the way to finish the fade:
+        // it goes out over about a third of the header instead of over its
+        // last centimetre.
         Positioned.fill(
           child: DecoratedBox(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Color(0x66000000), Color(0x22000000), T.bg0],
-                stops: [0, .45, 1],
+                colors: [
+                  Color(0x73000000),
+                  Color(0x1F000000),
+                  Color(0xB3071D1F),
+                  T.bg0,
+                ],
+                stops: [0, .38, .80, 1],
               ),
             ),
           ),
