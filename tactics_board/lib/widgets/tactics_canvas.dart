@@ -697,6 +697,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         ? state.atStep
         : (state.targetStep > 0 ? state.targetStep : 0);
 
+    /// The beats elapsed as far as [p] is concerned.
+    ///
+    /// Zero — the whole plan — for the element being followed, matching the
+    /// route PlayerMovesPainter draws for it. Without this the followed
+    /// element got its whole route and a ghost from the beat on show, so on
+    /// any beat but its own the arrow set off from a patch of empty grass:
+    /// the run was drawn and the man who made it was not.
+    int limitFor(PlayerIcon p) =>
+        (!state.isAnimating &&
+                state.selectedPlayerId == p.id &&
+                p.moves.isNotEmpty)
+            ? 0
+            : stepLimit;
+
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
     /// they are painted differs.
@@ -802,18 +816,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
-                      if (stepLimit == 0) return true;
+                      final limit = limitFor(p);
+                      if (limit == 0) return true;
                       // Only the beat on show leaves a ghost, at the spot its
                       // leg starts from; a player standing still this beat
                       // has nothing to be a ghost of.
-                      final legs = stepLegs(p, stepLimit);
+                      final legs = stepLegs(p, limit);
                       if (legs.isEmpty) return false;
-                      return (legs.last.value - stepStart(p, stepLimit))
-                              .distance >=
+                      return (legs.last.value - stepStart(p, limit)).distance >=
                           nudgeThreshold(p);
                     }).map((player) {
                       final size = kPlayerIconSize * player.scale;
-                      final ghostAt = stepStart(player, stepLimit);
+                      final ghostAt = stepStart(player, limitFor(player));
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
                           !player.isBall;
