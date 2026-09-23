@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首页素材提示词</title>
+<style>
+  :root{
+    color-scheme: dark;
+    --ground:#0A1411;
+    --panel:#111E19;
+    --panel-hi:#16271F;
+    --line:#1E3129;
+    --line-soft:#182720;
+    --text:#E6F0EB;
+    --muted:#86A096;
+    --dim:#5E7168;
+    --accent:#20C7C3;
+    --accent-dim:#14524F;
+    --cone:#E08B3E;
+    --display:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --body:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:
+      radial-gradient(120% 70% at 72% -10%, #16302640 0%, transparent 60%),
+      var(--ground);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:15px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 96px}
+
+  /* ── masthead ─────────────────────────────────────────── */
+  header.top{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 14px
+  }
+  h1{
+    font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,52px);
+    line-height:1.04;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance
+  }
+  .lede{color:var(--muted);max-width:60ch;margin:0}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+    font-size:12.5px;color:var(--muted)
+  }
+  .fact b{color:var(--text);font-weight:600}
+
+  /* ── sections ─────────────────────────────────────────── */
+  section{padding-top:52px}
+  h2{
+    font-family:var(--display);font-weight:800;font-size:23px;letter-spacing:-.01em;
+    margin:0 0 6px;display:flex;align-items:baseline;gap:12px
+  }
+  h2 .n{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:500;letter-spacing:.1em}
+  .sub{color:var(--muted);margin:0 0 24px;max-width:66ch}
+
+  /* ── art direction ────────────────────────────────────── */
+  .rules{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
+  .rule{background:var(--panel);padding:16px 18px;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start}
+  .rule .k{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:3px}
+  .rule b{display:block;font-weight:600;margin-bottom:2px}
+  .rule span{color:var(--muted);font-size:13.5px}
+
+  .swatches{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .sw{border:1px solid var(--line);border-radius:9px;padding:8px 12px 8px 8px;display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .sw i{width:20px;height:20px;border-radius:5px;display:block;border:1px solid #ffffff14}
+
+  /* ── inventory table ──────────────────────────────────── */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line-soft);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+  th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{background:var(--panel-hi);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td.mono,.mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+  td.mono{color:var(--accent)}
+  .tag{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+  .tag.must{border-color:var(--accent-dim);color:var(--accent)}
+  .tag.opt{border-color:#3A3326;color:var(--cone)}
+
+  /* ── sport switcher ───────────────────────────────────── */
+  .switcher{
+    position:sticky;top:0;z-index:5;margin:28px 0 0;padding:14px 0 12px;
+    background:linear-gradient(var(--ground) 72%, transparent);
+  }
+  .switcher .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{
+    font:500 12.5px/1 var(--body);color:var(--muted);background:var(--panel);
+    border:1px solid var(--line);border-radius:8px;padding:7px 11px;cursor:pointer;
+    transition:border-color .15s,color .15s,background .15s
+  }
+  .chip:hover{color:var(--text);border-color:#2C463C}
+  .chip[aria-pressed="true"]{background:var(--accent-dim);border-color:var(--accent);color:#BFF6F4}
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* ── prompt cards ─────────────────────────────────────── */
+  .slot{border:1px solid var(--line-soft);border-radius:14px;background:var(--panel);margin-bottom:18px;overflow:hidden}
+  .slot > header{padding:16px 18px;border-bottom:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline}
+  .slot h3{font-family:var(--display);font-weight:600;font-size:16.5px;margin:0}
+  .slot .where{color:var(--dim);font-size:12.5px}
+  .slot .spec{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .slot .body{padding:16px 18px 18px}
+  .slot p.note{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+
+  .prompt{position:relative;background:#0C1714;border:1px solid var(--line-soft);border-radius:10px;padding:14px 46px 14px 14px;overflow-x:auto}
+  .prompt code{font-family:var(--mono);font-size:12.5px;line-height:1.75;color:#CFE3DB;white-space:pre-wrap;word-break:break-word;display:block}
+  .prompt .tok{color:var(--cone)}
+  .prompt .fname{display:block;color:var(--accent);font-weight:500;margin-bottom:6px;
+    padding-bottom:8px;border-bottom:1px solid #1E3129}
+  .copy{
+    position:absolute;top:9px;right:9px;background:#16271F;border:1px solid var(--line);
+    color:var(--muted);border-radius:7px;padding:5px 9px;font:500 11px/1 var(--mono);cursor:pointer
+  }
+  .copy:hover{color:var(--text);border-color:#2C463C}
+  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .copy.done{color:var(--accent);border-color:var(--accent-dim)}
+
+  /* hero safe-area diagram */
+  .frame{
+    position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;margin-bottom:16px;
+    background:
+      radial-gradient(70% 120% at 82% 30%, #2C4A36 0%, #16281E 45%, #0B1611 78%);
+    border:1px solid var(--line)
+  }
+  .frame .safe{position:absolute;inset:0;border:1px dashed #20C7C355;margin:6%;border-radius:4px}
+  .frame .keep{
+    position:absolute;left:6%;top:6%;width:52%;height:88%;
+    background:repeating-linear-gradient(135deg,#20C7C31A 0 6px,transparent 6px 12px);
+    border:1px dashed #20C7C366;border-radius:4px
+  }
+  .frame .dot{position:absolute;width:46px;height:46px;border:1px dashed #E08B3E88;border-radius:50%;top:5%}
+  .frame .dot.l{left:4%}.frame .dot.r{right:4%}
+  .frame .cap{
+    position:absolute;left:8%;top:40%;font-family:var(--display);font-weight:800;
+    font-size:clamp(14px,2.6vw,20px);color:#ffffffcc;letter-spacing:-.01em
+  }
+  .frame .cap small{display:block;font:400 11px/1.4 var(--body);color:#ffffff80;margin-top:6px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--dim);margin:-6px 0 16px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+  details.more{margin-top:14px;border-top:1px solid var(--line-soft);padding-top:12px}
+  details.more summary{cursor:pointer;color:var(--muted);font-size:13px;list-style:none}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary::before{content:"▸ ";color:var(--accent)}
+  details.more[open] summary::before{content:"▾ "}
+  details.more .inner{padding-top:12px}
+
+  .callout{
+    border-left:2px solid var(--cone);background:#1A140C;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:18px 0;font-size:13.5px;color:#E8D9C4
+  }
+  .callout b{color:#FFCF96}
+
+  footer.end{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+  @media (max-width:560px){
+    .slot .spec{margin-left:0;width:100%}
+    .switcher{position:static}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Art direction · 16 apps</p>
+  <h1>首页素材提示词</h1>
+  <p class="lede">新首页需要的三类图片素材：顶部横幅、训练卡封面、分类图标。每段提示词都是完整的一整段——第一行是文件名和尺寸（<code class="mono">name.png, Size: W×H</code>），排除项也已经包含在内，复制出来直接用，不用再拼任何东西。放进仓库的路径写在每张卡片的标题行上。按运动切一下，主体会换成那个项目的球、场地和器材。</p>
+  <div class="facts">
+    <span class="fact">共 <b>3</b> 类素材</span>
+    <span class="fact">覆盖 <b>16</b> 个 app</span>
+    <span class="fact">每个 app <b>10</b> 张图</span>
+    <span class="fact">每段<b>自带</b>文件名与 Size</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">01</span>画面取向</h2>
+  <p class="sub">设计稿定的调子：深色、逆光、浅景深、主体只有一个。所有素材都得能被文字压在上面还读得清，所以画面本身必须留暗、留空。</p>
+
+  <div class="rules">
+    <div class="rule"><div class="k">01</div><div><b>阳光要看得见</b><span>太阳本身进画面：压得很低、就在主体后面，从树缝里炸开；光柱斜扫过草坪，露水和空气里的尘都被照亮，草地有强高光和干净的长影子，天空是亮的。<b>不是黄昏、不是夜场灯，也不是"清晨但天没亮"</b>——前两版一版拍成金色傍晚、一版拍成阴天早上，都少了太阳。要的是"晒得到"的感觉。</span></div></div>
+    <div class="rule"><div class="k">02</div><div><b>留暗是"背光的阴影"，不是"整张压暗"</b><span>文字要压在暗的一侧，但那一侧必须是<b>阳光照不到的阴影</b>，不是把整张照片调暗。横幅让阳光从右边来、左边留在阴影里；封面让下三分之一在阴影里、其余晒满太阳。后期压暗只会把噪点一起提上来。</span></div></div>
+    <div class="rule"><div class="k">03</div><div><b>主体一个，背景化开</b><span>85mm f/1.8 的景深。第二个清晰的东西就会和标题抢视线。</span></div></div>
+    <div class="rule"><div class="k">04</div><div><b>不出现脸、队徽、品牌</b><span>不是美学问题，是审核问题：可辨认的人脸、俱乐部队徽、球衣商标、球上的品牌字样，都会被 App Store／Google Play 挡下来。负面提示里已经全部列了。</span></div></div>
+    <div class="rule"><div class="k">05</div><div><b>主体丢了就作废，先看主体再看光</b><span>「门将」那张回来的是一片锥形筒——没有门将、没有手套、没有球门：光和场地都对，唯独这张图要拍的东西不在里面。九张封面的分类名就是它的主体，提示词里必须把那个主体写成"画面里唯一清楚的东西"，收图时也先数主体在不在，再挑光。</span></div></div>
+    <div class="rule"><div class="k">06</div><div><b>清早的绿，不是金色</b><span>饱和度往下压，但绿要新鲜、带点冷，不要整张泡在金黄里。橙色只留给器材（锥形筒那一点暖）。app 的强调色 #20C7C3 由界面自己出，照片里不要出现青色光。</span></div></div>
+  </div>
+
+  <div class="swatches">
+    <span class="sw"><i style="background:#0A1411"></i>#0A1411 底</span>
+    <span class="sw"><i style="background:#111E19"></i>#111E19 卡片</span>
+    <span class="sw"><i style="background:#20C7C3"></i>#20C7C3 强调（界面）</span>
+    <span class="sw"><i style="background:#E08B3E"></i>#E08B3E 器材暖色</span>
+    <span class="sw"><i style="background:#3E6B4A"></i>#3E6B4A 晨光草色</span>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">02</span>素材清单</h2>
+  <p class="sub">设计稿里看起来是图片的地方，有一半其实是 app 自己画的——战术板缩略图、板上的球员和跑位线都由 <code class="mono">TacticsCanvas</code> 实时渲染，不需要素材。真正要生成的只有下面这些。</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>位置</th><th>用在哪</th><th>尺寸（源文件）</th><th>每个 app</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><b>顶部横幅</b></td><td>首页标题背后，通栏出血</td><td class="mono">1200 × 800</td><td class="mono">1</td><td><span class="tag must">必需</span></td></tr>
+        <tr><td><b>训练卡封面</b></td><td>「今天练什么」卡片、分类页头图</td><td class="mono">900 × 500</td><td class="mono">9</td><td><span class="tag must">必需</span></td></tr>
+        <tr><td><b>分类图标</b></td><td>「按类别找」九个色块</td><td class="mono">256 × 256</td><td class="mono">0</td><td><span class="tag opt">建议用矢量图标</span></td></tr>
+        <tr><td>战术板缩略图</td><td>「我的战术板」四宫格</td><td class="mono">—</td><td class="mono">—</td><td><span class="tag">app 渲染</span></td></tr>
+        <tr><td>板面示意</td><td>「打开战术板」左侧小图</td><td class="mono">—</td><td class="mono">—</td><td><span class="tag">app 渲染</span></td></tr>
+        <tr><td>空状态插画</td><td>无战术板／无搜索结果</td><td class="mono">—</td><td class="mono">—</td><td><span class="tag">已有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <b>注意打包体积。</b> 16 个 app 共用一个 <code class="mono">tactics_board</code> 包，但 <code class="mono">pubspec.yaml</code> 里的资源是<b>一个文件一行</b>列出来的——之前整目录打包一次就多塞了 48MB 的无用图片进每个 app。横幅和封面请放进各自 shell 的 <code class="mono">assets/</code>（<code class="mono">SoccerBoard/assets/hero.webp</code>），每个 app 只带自己那一套 10 张，不要放进共用包。
+  </div>
+</section>
+
+<div class="switcher">
+  <div class="lbl">切换运动 · 下面所有提示词里的 <span class="tok" style="color:var(--cone)">{主体}</span> 会跟着换</div>
+  <div class="chips" id="chips" role="group" aria-label="选择运动"></div>
+</div>
+
+<section>
+  <h2><span class="n">03</span>顶部横幅</h2>
+  <p class="sub">整张首页的第一印象，也是唯一一张大图。标题「<span id="appName">足球战术板</span>」和副标压在左侧，右上角有设置和更多两个圆钮——这几块区域必须是暗的、空的。</p>
+
+  <div class="frame">
+    <span class="keep"></span>
+    <span class="dot l"></span>
+    <span class="dot r"></span>
+    <span class="cap">足球战术板<small>让战术更简单 · 让比赛更出色</small></span>
+  </div>
+  <div class="legend">
+    <span><i style="background:#20C7C355"></i>文字区：必须留暗、无主体</span>
+    <span><i style="background:#E08B3E88"></i>按钮区：各留 48pt 净空</span>
+    <span><i style="background:#2C4A36"></i>主体落在右侧三分之一</span>
+  </div>
+
+  <div id="heroSlot"></div>
+
+</section>
+
+<section>
+  <h2><span class="n">04</span>训练卡封面 · 九张</h2>
+  <p class="sub">九个训练分类各一张，「今天练什么」按分类取图。比横幅更窄更暗——卡片下半要压标题和两行说明，所以下三分之一必须是纯暗场。九张放在一起要像同一天、同一块场地拍的。</p>
+
+  <div id="covers"></div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>分类图标</h2>
+  <p class="sub">设计稿里九个彩色小图标。<b>建议不要生成图片</b>——Material 图标库里已经有对应的字形，矢量、能换色、跟着字号缩放，还不占包体积。真要做成一套图片，用下面这段，九个一次出，保证笔画粗细一致。</p>
+
+  <div class="tablewrap" style="margin-bottom:18px">
+    <table>
+      <thead><tr><th>分类</th><th>设计稿里的形</th><th>现成的 Material 图标</th></tr></thead>
+      <tbody>
+        <tr><td>热身</td><td>跑动的人</td><td class="mono">directions_run</td></tr>
+        <tr><td>控球</td><td>球</td><td class="mono">sports_soccer</td></tr>
+        <tr><td>进攻</td><td>球鞋</td><td class="mono">bolt</td></tr>
+        <tr><td>射门</td><td>球门</td><td class="mono">sports_score</td></tr>
+        <tr><td>防守</td><td>盾牌</td><td class="mono">shield_outlined</td></tr>
+        <tr><td>定位球</td><td>两个人</td><td class="mono">groups</td></tr>
+        <tr><td>小场比赛</td><td>锥形筒</td><td class="mono">grid_view</td></tr>
+        <tr><td>门将</td><td>手套</td><td class="mono">back_hand</td></tr>
+        <tr><td>体能</td><td>哑铃</td><td class="mono">fitness_center</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="iconSlot"></div>
+
+</section>
+
+<section>
+  <h2><span class="n">06</span>交付与命名</h2>
+  <p class="sub">生成完按这个放，代码那边不用再改路径。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>生成的文件</th><th>转换后放进</th><th>格式</th><th>上限</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">hero.png</td><td class="mono">&lt;Shell&gt;/assets/hero.webp</td><td>WebP q80</td><td class="mono">120 KB</td></tr>
+        <tr><td class="mono">&lt;category&gt;.png</td><td class="mono">&lt;Shell&gt;/assets/cover/&lt;category&gt;.webp</td><td>WebP q80</td><td class="mono">60 KB</td></tr>
+        <tr><td class="mono">_sheet.png</td><td class="mono">&lt;Shell&gt;/assets/cat/&lt;category&gt;.png ×9</td><td>PNG-8 透明</td><td class="mono">12 KB / 个</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:16px"><b>生成的一律是 PNG</b>，WebP 是入包前的一道转换，不是出图格式：
+  <code class="mono">sips --resampleWidth 900 x.png &amp;&amp; sips --cropToHeightWidth 500 900 x.png &amp;&amp; cwebp -q 80 x.png -o x.webp</code>。
+  十张合计约 460 KB，放各自 shell 的 <code class="mono">assets/</code>。<br><br>
+  <code class="mono">&lt;category&gt;</code> 用代码里的枚举名，不要用中文：<code class="mono">warmup · possession · attacking · finishing · defending · setpiece · ssg · goalkeeping · conditioning</code>。生成时按 3:2 / 16:9 出图，裁切交给 <code class="mono">BoxFit.cover</code>，不要预先裁到设计稿的比例——iPad 上横幅会被拉得更宽。</p>
+</section>
+
+<footer class="end">
+  每段的第一行是文件名，按它存就不用再改代码里的路径。橙色的主体随上面的运动切换而变，卡片标题行上的落地路径也跟着变，其余部分十六个 app 完全一致——这是它们看起来像一家出品的原因。
+</footer>
+
+</div>
+
+<script>
+// ── per-sport substitutions ──────────────────────────────────────────────
+// Every prompt on this page is emitted whole: file name, pixel size, subject,
+// look and exclusions in one block. Nothing here is a fragment to be joined
+// to anything else — the one thing a person copying twenty prompts must not
+// have to remember is which two pieces go together.
+const SPORTS_DATA = [
+  {key:'soccer', dir:'SoccerBoard', name:'足球战术板', label:'足球',
+   ball:'a scuffed white-and-black football', surface:'a mown grass pitch with a white chalk line',
+   gear:'orange marker cones', goal:'a goal net'},
+  {key:'basketball', dir:'BasketballBoard', name:'篮球战术板', label:'篮球',
+   ball:'an orange basketball', surface:'a varnished hardwood court with painted key lines',
+   gear:'marker cones and an agility ladder', goal:'a hoop and backboard'},
+  {key:'badminton', dir:'BadmintonBoard', name:'羽毛球战术板', label:'羽毛球',
+   ball:'a white feather shuttlecock', surface:'a green synthetic badminton court with white lines',
+   gear:'a racket lying on the floor and a shuttle tube', goal:'the net tape'},
+  {key:'tableTennis', dir:'TableTennisBoard', name:'乒乓球战术板', label:'乒乓球',
+   ball:'a white 40mm table tennis ball', surface:'a blue table with a white edge line and the net',
+   gear:'a paddle and a basket of balls', goal:'the far half of the table'},
+  {key:'tennis', dir:'TennisBoard', name:'网球战术板', label:'网球',
+   ball:'a fluorescent yellow tennis ball', surface:'a blue hard court with white lines',
+   gear:'a racket and a ball hopper', goal:'the net band'},
+  {key:'volleyball', dir:'VolleyballBoard', name:'排球战术板', label:'排球',
+   ball:'a blue-and-white volleyball', surface:'an indoor court floor with the attack line',
+   gear:'the net antenna and a ball cart', goal:'the net tape'},
+  {key:'pickleball', dir:'PickleballBoard', name:'匹克球战术板', label:'匹克球',
+   ball:'a yellow perforated pickleball', surface:'a blue-green court with the kitchen line',
+   gear:'a solid paddle', goal:'the net band'},
+  {key:'fieldHockey', dir:'FieldHockeyBoard', name:'曲棍球战术板', label:'曲棍球',
+   ball:'a white field hockey ball', surface:'blue water-based astroturf with a white line',
+   gear:'a hockey stick', goal:'the goal cage'},
+  {key:'rugby', dir:'RugbyBoard', name:'橄榄球战术板', label:'橄榄球',
+   ball:'an oval rugby ball', surface:'a grass pitch with a white try line',
+   gear:'a tackle pad and flat markers', goal:'the posts'},
+  {key:'baseball', dir:'BaseballBoard', name:'棒球战术板', label:'棒球',
+   ball:'a leather baseball with red stitching', surface:'the edge where infield dirt meets grass',
+   gear:'a fielding glove and a bat', goal:'the base bag'},
+  {key:'handball', dir:'HandballBoard', name:'手球战术板', label:'手球',
+   ball:'a resin-tacky handball', surface:'an indoor court with the blue six-metre zone',
+   gear:'flat markers', goal:'the goal frame'},
+  {key:'waterPolo', dir:'WaterPoloBoard', name:'水球战术板', label:'水球',
+   ball:'a yellow water polo ball', surface:'blue pool water with a lane rope',
+   gear:'a floating lane marker', goal:'the floating goal'},
+  {key:'sepakTakraw', dir:'SepakTakrawBoard', name:'藤球战术板', label:'藤球',
+   ball:'a woven rattan sepak takraw ball', surface:'an indoor court with white lines',
+   gear:'the net posts', goal:'the net'},
+  {key:'beachTennis', dir:'BeachTennisBoard', name:'沙滩网球战术板', label:'沙滩网球',
+   ball:'an orange depressurised beach tennis ball', surface:'fine raked sand with a court line tape',
+   gear:'a solid beach paddle', goal:'the net band'},
+  {key:'footvolley', dir:'FootvolleyBoard', name:'沙滩足排战术板', label:'沙滩足排',
+   ball:'a football half-buried in sand', surface:'fine raked beach sand with a line tape',
+   gear:'the net posts', goal:'the net'},
+  {key:'tactics_board', dir:'tactics_board', name:'战术板', label:'多运动（主 app）',
+   ball:'a football, a basketball and a volleyball together', surface:'a dark training ground floor',
+   gear:'orange marker cones', goal:'a training goal'},
+];
+const SPORTS = SPORTS_DATA;
+
+const STYLE = `a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens`;
+
+const EXCLUDE = `Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.`;
+
+const HERO = `{BALL} resting on {SURFACE}, placed against the right edge of the frame and slightly cropped by it, ground filling the lower half, the upper background dissolving into soft dark bokeh, the left half of the frame empty and in shadow`;
+
+const COVERS = [
+  {cat:'warmup', zh:'热身', n:13,
+   subject:`a line of {GEAR} receding across {SURFACE}, a player's legs mid-stride entering from the right, the near cone sharp and the rest falling out of focus`},
+  {cat:'possession', zh:'控球', n:21,
+   subject:`{BALL} at a player's feet on {SURFACE}, a ring of blurred legs closing in around it, seen low and close from just above the ground`},
+  {cat:'attacking', zh:'进攻', n:24,
+   subject:`a player driving forward with {BALL} across {SURFACE}, the body cropped at the waist, motion blur trailing behind, low camera angle following the run`},
+  {cat:'finishing', zh:'射门', n:13,
+   subject:`the instant of the strike on {BALL}, the surface spraying up around it, {GOAL} blurred far beyond, frozen at 1/2000s`},
+  {cat:'defending', zh:'防守', n:18,
+   subject:`two pairs of legs mirroring each other in a low stance on {SURFACE}, {BALL} on the ground between them, shot from ground level`},
+  {cat:'setpiece', zh:'定位球', n:19,
+   subject:`{BALL} standing perfectly still on {SURFACE} in the foreground, a blurred line of players waiting far behind it, nothing moving`},
+  {cat:'ssg', zh:'小场比赛', n:11,
+   subject:`a small grid marked out by {GEAR} on {SURFACE}, four blurred players inside it, the near corner cone sharp in the foreground`},
+  {cat:'goalkeeping', zh:'门将', n:7,
+   subject:`a goalkeeper's two gloved hands, arms cropped at the forearm, stretching up for {BALL} in the air just above {SURFACE}, the glove palms and the ball the only sharp things in the frame, {GOAL} close behind them and thrown out of focus — the keeper must be in the picture: hands, gloves and ball are the subject, not the pitch`},
+  {cat:'conditioning', zh:'体能', n:11,
+   subject:`an agility ladder laid out on {SURFACE}, a sprinter's feet leaving it at full stride, sweat and dust caught in the backlight`},
+];
+
+let current = SPORTS[0];
+
+function fill(s, sport){
+  return s
+    .replaceAll('{BALL}', sport.ball)
+    .replaceAll('{SURFACE}', sport.surface)
+    .replaceAll('{GEAR}', sport.gear)
+    .replaceAll('{GOAL}', sport.goal);
+}
+function esc(s){return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+// Paint the words that moved when the sport changed, and the file name line,
+// so the eye lands on the two things that differ between one app and the next.
+function paint(text, sport){
+  let out = esc(text);
+  for (const v of [sport.ball, sport.surface, sport.gear, sport.goal]){
+    out = out.split(esc(v)).join('<span class="tok">'+esc(v)+'</span>');
+  }
+  const nl = out.indexOf('\n');
+  if (nl > 0) out = '<span class="fname">'+out.slice(0,nl)+'</span>'+out.slice(nl);
+  return out;
+}
+
+function heroPrompt(sport){
+  return `hero.png, Size: 1200x800
+` + `
+Generate one photograph, exactly 1200 × 800 pixels, 3:2 landscape. ${fill(HERO, sport)}. ${STYLE}. The sunlight comes from the right; keep the left side of the frame in shade and empty of any subject, so app text can sit on it, and leave a clear, unbusy circle about one twelfth of the frame wide in the top-left and top-right corners. Shaded, not black: the picture must still read as a sunny morning. ${EXCLUDE}`;
+}
+
+function coverPrompt(c, sport){
+  return `${c.cat}.png, Size: 900x500
+` + `
+Generate one photograph, exactly 900 × 500 pixels, 16:9 landscape. ${fill(c.subject, sport)}. ${STYLE}. Keep the bottom third of the frame in deep shade and empty of any subject — a title and two lines of text are laid over it — while the rest of the frame stays brightly sunlit. ${EXCLUDE}`;
+}
+
+function iconPrompt(sport){
+  return `_sheet.png, Size: 768x768
+` + `
+Generate one image, exactly 768 × 768 pixels, transparent background, containing a 3 × 3 grid of nine flat glyph icons, each centred in its own 256 × 256 cell with even padding. In reading order: a running figure, a ball, a boot, a goal frame, a shield, two figures side by side, a marker cone, a goalkeeper glove, a dumbbell. One flat colour #20C7C3, 2px rounded strokes on a 24px grid, no fills, no gradients, no shadows, all nine at the same optical weight and the same visual size. No text, no letters, no numbers, no watermark, no background.`;
+}
+
+function slot(title, where, spec, note, text, sport){
+  const el = document.createElement('div');
+  el.className = 'slot';
+  el.innerHTML = `
+    <header>
+      <h3>${title}</h3>
+      <span class="where">${where}</span>
+      <span class="spec">${spec}</span>
+    </header>
+    <div class="body">
+      ${note ? `<p class="note">${note}</p>` : ''}
+      <div class="prompt"><button class="copy" data-copy>复制整段</button><code>${paint(text, sport)}</code></div>
+    </div>`;
+  el.querySelector('code').dataset.plain = text;
+  return el;
+}
+
+function render(){
+  document.getElementById('appName').textContent = current.name;
+  document.querySelector('.frame .cap').firstChild.textContent = current.name;
+
+  const heroHost = document.getElementById('heroSlot');
+  heroHost.innerHTML = '';
+  heroHost.appendChild(slot(
+    'hero', '首页顶部',
+    `1200×800 → ${current.dir}/assets/hero.webp`,
+    '主体贴着右边缘、稍微出画一点，比摆在正中更像“随手拍到的”。地面占下半，天空／看台化开。',
+    heroPrompt(current), current));
+
+  const host = document.getElementById('covers');
+  host.innerHTML = '';
+  for (const c of COVERS){
+    host.appendChild(slot(
+      c.cat, `${c.zh} · ${c.n} 个训练`,
+      `900×500 → ${current.dir}/assets/cover/${c.cat}.webp`,
+      '', coverPrompt(c, current), current));
+  }
+
+  const iconHost = document.getElementById('iconSlot');
+  iconHost.innerHTML = '';
+  iconHost.appendChild(slot(
+    'icons', '按类别找',
+    `768×768 → ${current.dir}/assets/cat/`,
+    '一张九宫格出完，切成九个 256×256 再用。这是这页上唯一需要你动手的地方，也正是我建议直接用上面那列 Material 字形、不要生成图片的原因。',
+    iconPrompt(current), current));
+}
+
+// sport chips
+const chips = document.getElementById('chips');
+SPORTS.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.className = 'chip';
+  b.type = 'button';
+  b.textContent = s.label;
+  b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+  b.addEventListener('click', () => {
+    current = s;
+    [...chips.children].forEach(c => c.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true');
+    render();
+    try { localStorage.setItem('assets.sport', s.key); } catch (e) {}
+  });
+  chips.appendChild(b);
+});
+
+try {
+  const saved = localStorage.getItem('assets.sport');
+  const i = SPORTS.findIndex(s => s.key === saved);
+  if (i > 0){ current = SPORTS[i]; chips.children[0].setAttribute('aria-pressed','false');
+              chips.children[i].setAttribute('aria-pressed','true'); }
+} catch (e) {}
+
+render();
+
+// copy
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('[data-copy]');
+  if (!btn) return;
+  const code = btn.parentElement.querySelector('code');
+  const text = code.dataset.plain || code.textContent;
+  try { await navigator.clipboard.writeText(text); }
+  catch (err) {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); ta.remove();
+  }
+  btn.textContent = '已复制'; btn.classList.add('done');
+  setTimeout(() => { btn.textContent = '复制整段'; btn.classList.remove('done'); }, 1400);
+});
+</script>
+
+</body></html>
