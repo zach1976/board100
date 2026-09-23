@@ -152,6 +152,40 @@ class AccountAvatar extends StatelessWidget {
 
   static const _size = 46.0;
 
+  /// The colours a nameless avatar can come out. Seven of the app's own —
+  /// no new hex, and nothing that could land outside the palette.
+  ///
+  /// They are used the way the accent already is on this card: the hue at
+  /// 14% for the fill, 40% for the ring, full strength for the letters. So
+  /// a generated avatar is the same object it has always been, in a
+  /// different colour, and its contrast is settled by construction rather
+  /// than by which hue the hash happened to pick.
+  static const palette = <Color>[
+    T.accent,
+    T.home,
+    T.success,
+    T.warning,
+    T.routeAlt,
+    T.away,
+    T.lime,
+  ];
+
+  /// Which of them this name gets. The same coach is the same colour on
+  /// every launch and every device, so it reads as *their* avatar and not
+  /// as decoration — which rules out String.hashCode, whose value Dart does
+  /// not promise to keep between runs or platforms.
+  static Color colorFor(String? name) {
+    final key = (name ?? '').trim();
+    if (key.isEmpty) return T.accent;
+    var h = 0;
+    for (final r in key.runes) {
+      // Masked to 29 bits: the same arithmetic on the web's 53-bit ints and
+      // on a phone's 64-bit ones.
+      h = (h * 31 + r) & 0x1FFFFFFF;
+    }
+    return palette[h % palette.length];
+  }
+
   /// Up to two letters. "zach song" → "ZS"; a one-word or CJK name → its
   /// first character, because the second character of 宋 is not an initial.
   static String? _initials(String? raw) {
@@ -170,15 +204,13 @@ class AccountAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final initials = _initials(name);
+    final hue = colorFor(name);
     Widget fallback() => Center(
           child: initials == null
-              ? const Icon(Icons.person_outline_rounded,
-                  color: T.accent, size: 24)
+              ? Icon(Icons.person_outline_rounded, color: hue, size: 24)
               : Text(initials,
-                  style: const TextStyle(
-                      color: T.accent,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700)),
+                  style: TextStyle(
+                      color: hue, fontSize: 17, fontWeight: FontWeight.w700)),
         );
 
     return Container(
@@ -187,8 +219,8 @@ class AccountAvatar extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: T.accent.withValues(alpha: 0.14),
-        border: Border.all(color: T.accent.withValues(alpha: 0.4)),
+        color: hue.withValues(alpha: 0.14),
+        border: Border.all(color: hue.withValues(alpha: 0.4)),
       ),
       child: photo == null
           ? fallback()
