@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -671,8 +673,9 @@ class _BoardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final json = state.toJson();
     final preview = TacticsState(sportType: state.sportType, preview: true)
-      ..loadFromJson(state.toJson());
+      ..loadFromJson(json);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onOpen,
@@ -702,8 +705,20 @@ class _BoardCard extends StatelessWidget {
                     height: kBoardRefHeight,
                     child: ChangeNotifierProvider<TacticsState>.value(
                       value: preview,
-                      child: const IgnorePointer(
-                          child: TacticsCanvas(preview: true)),
+                      // Keyed on the board it is drawing. TacticsCanvas reads
+                      // its state once, in initState, and listens to that
+                      // object from then on — right for the live board, which
+                      // outlives every page, and wrong here, where each
+                      // rebuild hands it a fresh throwaway. Unkeyed, the
+                      // element is reused, initState never runs again, and the
+                      // thumbnail goes on drawing the first board it was ever
+                      // given: the empty one the app opens on. The key is the
+                      // board itself, so it changes exactly when the picture
+                      // should.
+                      child: IgnorePointer(
+                          child: TacticsCanvas(
+                              key: ValueKey(jsonEncode(json)),
+                              preview: true)),
                     ),
                   ),
                 ),
