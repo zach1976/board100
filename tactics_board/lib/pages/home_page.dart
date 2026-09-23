@@ -29,7 +29,6 @@ import '../widgets/player_icon_widget.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/sport_glyph.dart';
-import '../widgets/language_picker.dart';
 import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
 import 'drill_library_page.dart';
@@ -780,14 +779,17 @@ class _MenuButton extends StatelessWidget {
           _menuItem('share', Icons.ios_share_rounded, 'share'.tr()),
           if (sport.scorerAppleId.isNotEmpty)
             _menuItem('scorer', Icons.scoreboard_outlined, 'menu_scorer'.tr()),
-          _divider(),
-          // The app itself
-          _menuItem('language', Icons.language_rounded, 'menu_language'.tr()),
-          _menuItem('contact', Icons.mail_outline_rounded, 'menu_contact'.tr()),
-          if (showPro)
+          // Language, Contact Us and Login are not here. They are about the
+          // app, not about the board, and they already have a home on the
+          // 我的 tab — the account card and the settings list. A full-screen
+          // editor's one menu should be things you do to what is on the
+          // screen; three ways out of it made the list a second settings
+          // page that happened to be reachable from a pitch.
+          if (showPro) ...[
+            _divider(),
             _menuItem('pro', Icons.workspace_premium_outlined,
                 'menu_remove_ads'.tr(), tint: T.accent),
-          _menuItem('login', Icons.person_outline_rounded, 'menu_login'.tr()),
+          ],
           _divider(),
           // Destructive, and rare: it used to sit a thumb's width from Undo
           // on the toolbar, where the two are easy to confuse.
@@ -857,12 +859,6 @@ class _MenuButton extends StatelessWidget {
         _showPracticePlan(context);
       case 'scorer':
         _showScorer(context);
-      case 'language':
-        LanguagePicker.show(context);
-      case 'contact':
-        _showContact(context);
-      case 'login':
-        _showLogin(context);
       case 'pro':
         _showPaywall(context);
     }
@@ -897,17 +893,6 @@ class _MenuButton extends StatelessWidget {
       ));
   }
 
-  void _showContact(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const ContactPage()),
-    );
-  }
-
-  void _showLogin(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const LoginPage()),
-    );
-  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
