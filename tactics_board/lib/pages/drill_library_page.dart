@@ -215,9 +215,16 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: T.bg0,
+      // bottom: false — the list runs to the edge of the glass and scrolls
+      // under the home indicator, the way a list should. Held off it, the
+      // page ended on a strip of empty background with a drill cut in half
+      // above it, which read as a bar pinned to the bottom. The inset is
+      // paid back as padding inside each list, so the last row can still be
+      // scrolled clear of the indicator.
       body: SafeArea(
+        bottom: false,
         child: Padding(
-      padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, T.s8),
+      padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, 0),
       child: FutureBuilder<List<Drill>>(
         future: _drills,
         builder: (context, snap) {
@@ -486,6 +493,8 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     Flexible(
                       child: ListView.separated(
                         shrinkWrap: true,
+                        padding: EdgeInsets.only(
+                            bottom: MediaQuery.paddingOf(context).bottom + T.s8),
                         itemCount: _mine.length,
                         separatorBuilder: (_, i) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _MineRow(
@@ -516,6 +525,8 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     Flexible(
                       child: ListView.separated(
                         shrinkWrap: true,
+                        padding: EdgeInsets.only(
+                            bottom: MediaQuery.paddingOf(context).bottom + T.s8),
                         itemCount: groups.length,
                         separatorBuilder: (_, __) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _DrillRow(
