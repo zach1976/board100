@@ -262,14 +262,22 @@ class TacticalButton extends StatelessWidget {
                   const SizedBox(width: T.s8),
                 ],
                 Flexible(
-                  child: Text(
-                    label,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontSize: large ? 17 : 15,
-                        fontWeight: FontWeight.w600,
-                        color: fg),
+                  // Shrinks before it truncates. A button's label is its
+                  // name, and "Put it on the b…" is the main action of the
+                  // drill page losing it on a 402pt phone; a label a few
+                  // points smaller is still the same label. Ellipsis stays
+                  // as the floor for a width no scale can save.
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: large ? 17 : 15,
+                          fontWeight: FontWeight.w600,
+                          color: fg),
+                    ),
                   ),
                 ),
               ],
