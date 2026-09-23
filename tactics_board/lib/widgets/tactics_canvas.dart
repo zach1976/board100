@@ -947,6 +947,12 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       child: CustomPaint(
                         painter: PlayerMovesPainter(
                           players: players,
+                          // Selecting an element follows it: see
+                          // PlayerMovesPainter.focusId. Only on the board —
+                          // the external display is what a room is watching,
+                          // and it must not dim because someone touched the
+                          // phone.
+                          focusId: state.selectedPlayerId,
                           targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
                           // The leg being run is the one to draw: going
                           // forward that is the beat after the ones done.

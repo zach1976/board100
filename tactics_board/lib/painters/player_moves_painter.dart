@@ -114,18 +114,53 @@ class PlayerMovesPainter extends CustomPainter {
   final int targetStep; // 0 = all; used when not animating
   final int? completedSteps; // non-null during animation: show only this many segments
 
+  /// The one element to follow, if a coach has picked one.
+  ///
+  /// A full plan at step 0 is every route at once, which is the picture that
+  /// says what the drill is and is useless for answering "where does G go?".
+  /// Selecting an element answers it: its own route is drawn whole — every
+  /// beat of it, even when the board is parked on beat three — and everybody
+  /// else's drops to a tenth of its weight so the pitch is still legible
+  /// around it. Nothing is hidden, which matters: a run that is only a run
+  /// because of where the others went must still be readable against them.
+  final String? focusId;
+
   const PlayerMovesPainter({
     required this.players,
     this.targetStep = 0,
     this.completedSteps,
+    this.focusId,
   });
+
+  /// The focused element, but only when it has a route to follow — selecting
+  /// a cone must not fade the whole board to look at nothing.
+  PlayerIcon? get _focus {
+    final id = focusId;
+    if (id == null) return null;
+    for (final p in players) {
+      if (p.id == id && p.moves.isNotEmpty) return p;
+    }
+    return null;
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
+    final focus = _focus;
     for (final player in players) {
       if (player.moves.isEmpty) continue;
       if (player.isBall && ballTravelsWithPlayers(player, players)) continue;
-      _paintMoves(canvas, player);
+      if (focus == null) {
+        _paintMoves(canvas, player);
+      } else if (player.id == focus.id) {
+        // Whole route, not the beat on show — but not mid-animation, where
+        // the drawing IS the clock and drawing ahead of it would be a lie.
+        _paintMoves(canvas, player, whole: completedSteps == null);
+      } else {
+        canvas.saveLayer(
+            Offset.zero & size, Paint()..color = const Color(0x1AFFFFFF));
+        _paintMoves(canvas, player);
+        canvas.restore();
+      }
     }
   }
 
@@ -133,7 +168,7 @@ class PlayerMovesPainter extends CustomPainter {
   static const _arrowSize = 13.0;
   static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
-  void _paintMoves(Canvas canvas, PlayerIcon player) {
+  void _paintMoves(Canvas canvas, PlayerIcon player, {bool whole = false}) {
     final color = player.moveColor;
     player.syncPhases();
 
@@ -142,7 +177,7 @@ class PlayerMovesPainter extends CustomPainter {
     // it began. The earlier legs were the previous steps' pictures, and
     // stacked up they hid the one that mattered; the later ones have not
     // started. Step 0 is the overview and draws the whole plan.
-    final int phaseLimit = completedSteps ?? targetStep;
+    final int phaseLimit = whole ? 0 : (completedSteps ?? targetStep);
     final legs = stepLegs(player, phaseLimit);
     if (legs.isEmpty) return;
     final points = [
@@ -303,5 +338,6 @@ class PlayerMovesPainter extends CustomPainter {
   bool shouldRepaint(covariant PlayerMovesPainter oldDelegate) =>
       oldDelegate.completedSteps != completedSteps ||
       oldDelegate.targetStep != targetStep ||
-      oldDelegate.players != players;
+      oldDelegate.players != players ||
+      oldDelegate.focusId != focusId;
 }
