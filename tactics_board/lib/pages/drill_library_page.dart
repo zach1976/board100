@@ -624,7 +624,6 @@ class _UsageTag extends StatelessWidget {
       _ => T.textOff,
     };
     return Container(
-      margin: const EdgeInsets.only(top: 2),
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -678,7 +677,14 @@ class _DrillRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // Baselines, not box tops. The tag's box is taller than one
+                  // line of the name — a border and 2pt of padding around
+                  // smaller text — so aligning their tops sat it about three
+                  // points low. On a shared baseline the two read as one
+                  // line, and a name that wraps to two lines still keeps the
+                  // tag beside its first.
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     Expanded(
                       child: Text(
@@ -772,20 +778,22 @@ class _DrillRow extends StatelessWidget {
             // coach wants from a list — "use this" and "what is this?" — are
             // each one tap and never the same tap.
             //
-            // The pencil, not a plus. This does not add the drill to
-            // anything: it replaces whatever is on the board with the
-            // drill's shape and puts the coach in front of it, ready to
-            // edit — which is exactly what the home page's "open the board"
-            // does, and that is a pencil too. A plus promised a list this
-            // was being added to, and there is no such list. (The one real
-            // "add" in this app is "add to plan", on the drill's own page.)
+            // The board, not a pencil and not a plus. What this does is
+            // put the drill on the board, so it is drawn as the thing it
+            // leads to: dashboard_outlined is what 战术板 means everywhere
+            // else in the app — the tab bar, the menu entry that opens the
+            // board, the icon beside a saved board. A plus promised a list
+            // this was being added to and there is no such list; a pencil
+            // promised that the drill itself could be edited, and a shipped
+            // drill cannot. (The one real "add" is "add to plan", on the
+            // drill's own page.)
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () => onLoad(first),
               child: Padding(
                 padding: const EdgeInsets.all(6),
                 child: Icon(
-                    allLocked ? Icons.lock_outline : Icons.edit_outlined,
+                    allLocked ? Icons.lock_outline : Icons.dashboard_outlined,
                     color: allLocked ? T.textOff : T.accent,
                     size: T.iLg),
               ),
@@ -940,7 +948,7 @@ class _MineRow extends StatelessWidget {
             const SizedBox(width: 8),
             // Same as the drill rows: this opens the board, it does not
             // add the board to anything.
-            const Icon(Icons.edit_outlined, color: kAccent, size: 26),
+            const Icon(Icons.dashboard_outlined, color: kAccent, size: 26),
           ],
         ),
       ),
