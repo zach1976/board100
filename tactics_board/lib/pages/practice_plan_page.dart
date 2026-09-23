@@ -293,7 +293,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
               : ListView.separated(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   itemCount: _names.length,
-                  separatorBuilder: (_, __) => const Divider(color: T.border, height: 1),
+                  separatorBuilder: (_, _) => const Divider(color: T.border, height: 1),
                   itemBuilder: (ctx, i) {
                     final name = _names[i];
                     return FutureBuilder<Practice?>(
@@ -486,7 +486,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
   Future<void> _addItem() async {
     final names = await widget.state.listSavedTactics();
     if (!mounted) return;
-    const _newSentinel = '__save_current__';
+    const newSentinel = '__save_current__';
     final picked = await TacticalSheet.show(
       context,
       builder: (ctx) => TacticalSheet(
@@ -505,7 +505,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               ListTile(
                 leading: const Icon(Icons.add_circle_outline, color: _kAccent),
                 title: Text('practice_add_tactic'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
-                onTap: () => Navigator.pop(ctx, _newSentinel),
+                onTap: () => Navigator.pop(ctx, newSentinel),
               ),
               if (names.isNotEmpty) const Divider(color: T.border, height: 1),
               ...names.map((n) => ListTile(
@@ -518,7 +518,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
         ),
       ));
     if (picked == null) return;
-    if (picked == _newSentinel) {
+    if (picked == newSentinel) {
       await _saveCurrentAsNew();
       return;
     }
@@ -588,6 +588,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
         final ok = await _saveIfDirty();
         if (!mounted) return;
         if (!ok) return; // Name collision — stay on page so user can fix it
+        if (!context.mounted) return;
         Navigator.of(context).pop();
       },
       child: Scaffold(
@@ -661,9 +662,11 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 physics: const NeverScrollableScrollPhysics(),
                 buildDefaultDragHandles: false,
                 itemCount: _p.items.length,
-                onReorder: (oldIdx, newIdx) {
+                // onReorderItem, not onReorder: it hands over an index
+                // already adjusted for the item lifted out at oldIdx, which
+                // is the `newIdx -= 1` this used to do by hand.
+                onReorderItem: (oldIdx, newIdx) {
                   setState(() {
-                    if (newIdx > oldIdx) newIdx -= 1;
                     final it = _p.items.removeAt(oldIdx);
                     _p.items.insert(newIdx, it);
                     _dirty = true;

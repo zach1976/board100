@@ -381,9 +381,9 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
   }
 
   @override
-  void didUpdateWidget(PhotoPlayerShape old) {
-    super.didUpdateWidget(old);
-    if (old.player.photoId != widget.player.photoId) _resolve();
+  void didUpdateWidget(PhotoPlayerShape oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.player.photoId != widget.player.photoId) _resolve();
   }
 
   Future<void> _resolve() async {
@@ -998,10 +998,12 @@ class MarkerPainter extends CustomPainter {
         canvas.drawLine(Offset(cx + r * 0.1, cy + r * 0.35), Offset(cx + r * 0.4, cy), arrowPaint);
       case MarkerShape.none:
         break;
-      // The equipment that ships as artwork never reaches this painter — the
-      // widget draws its sprite instead. Named rather than left to a default
+      // Equipment that exists only as artwork: the widget draws its sprite
+      // and never reaches this painter. Named rather than left to a default
       // so that adding a marker with no picture is a compile error here, not
-      // a blank space on someone's board.
+      // a blank space on someone's board. The cone, ladder, hurdle, referee
+      // and coach are NOT in this list — they have sprites too, but they
+      // kept their code drawing above, from before the artwork existed.
       case MarkerShape.goal:
       case MarkerShape.miniGoal:
       case MarkerShape.mannequin:
@@ -1029,11 +1031,6 @@ class MarkerPainter extends CustomPainter {
       case MarkerShape.floatingGoal:
       case MarkerShape.laneRope:
       case MarkerShape.chair:
-      case MarkerShape.cone:
-      case MarkerShape.ladder:
-      case MarkerShape.hurdle:
-      case MarkerShape.referee:
-      case MarkerShape.coach:
         break;
     }
   }

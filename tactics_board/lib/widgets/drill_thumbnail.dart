@@ -172,7 +172,7 @@ class _Scene {
       if (at == null) continue;
       final run = <Offset>[
         for (final mv in (raw['moves'] as List? ?? const []))
-          if (point(mv) case final p?) p,
+          ?point(mv),
       ];
       // PlayerTeam is serialised as its index: 0 home, 1 away, 2 the
       // equipment that is not a person. markerShape 0 among those is the
@@ -282,7 +282,7 @@ class _Scene {
     final pts = <Offset>[
       for (final m in marks) ...[m.at, ...m.run],
       for (final p in passes) ...[p.from, p.to],
-      if (ball != null) ball,
+      ?ball,
     ];
     if (pts.isEmpty) return const Rect.fromLTWH(0, 0, 1, 1);
     var left = pts.map((p) => p.dx).reduce(math.min);

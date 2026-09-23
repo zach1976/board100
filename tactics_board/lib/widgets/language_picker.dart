@@ -71,8 +71,14 @@ class LanguagePicker {
                           borderRadius: T.brSm,
                           onTap: () {
                             Navigator.pop(ctx);
-                            Future.microtask(
-                                () => context.setLocale(lang.locale));
+                            // ctx is the sheet's and dies with it; context
+                            // belongs to whoever opened the picker, and is
+                            // checked because a microtask runs after the pop.
+                            Future.microtask(() {
+                              if (context.mounted) {
+                                context.setLocale(lang.locale);
+                              }
+                            });
                           },
                           child: Container(
                             height: 56,

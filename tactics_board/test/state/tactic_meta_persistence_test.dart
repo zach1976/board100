@@ -72,7 +72,7 @@ void main() {
     await state.saveTactics('D', meta: meta('D', created: DateTime(2021)));
     await state.saveTactics('D');
 
-    final after = await state.readTacticMeta('D')!;
+    final after = await state.readTacticMeta('D');
     expect(after!.createdAt, DateTime(2021));
     expect(after.updatedAt.isAfter(DateTime(2021)), isTrue);
   });

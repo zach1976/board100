@@ -206,8 +206,8 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                           },
                           child: Transform(
                             transform: Matrix4.identity()
-                              ..translate(_offset.dx, _offset.dy)
-                              ..scale(_scale),
+                              ..translateByDouble(_offset.dx, _offset.dy, 0, 1)
+                              ..scaleByDouble(_scale, _scale, _scale, 1),
                             alignment: Alignment.center,
                             child: Image.file(
                               File(_path!),

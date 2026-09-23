@@ -1,3 +1,6 @@
+// A command-line generator, run by hand: stdout is its interface, not
+// a leftover debug line.
+// ignore_for_file: avoid_print
 // Generates icons + splashes for the 8 new sports.
 // Run: dart run tool/gen_new_icons.dart
 import 'dart:io';
@@ -133,7 +136,6 @@ void _genRugbyIcon(String path, int size) {
 void _genBaseballIcon(String path, int size) {
   final s = size.toDouble();
   final c = _iconBase(size, _outfield);
-  final m = (s * 0.10).round();
   final cx = (s * 0.50).round();
   // outfield arc (top)
   for (int i = 0; i < max(2, (s * 0.004).round()); i++) {

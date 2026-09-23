@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:io';
-import 'dart:ui' show FontFeature;
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -904,7 +903,7 @@ class _MenuButton extends StatelessWidget {
 // Contact Us page — email form via API (same as ScoreSyncer/zach_base)
 // ─────────────────────────────────────────────────────────────────────────────
 class ContactPage extends StatefulWidget {
-  const ContactPage();
+  const ContactPage({super.key});
   @override
   State<ContactPage> createState() => _ContactPageState();
 }
@@ -928,7 +927,7 @@ class _ContactPageState extends State<ContactPage> {
     final body = _bodyCtrl.text.trim();
     // Validation
     if (email.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('your_email'.tr() + ' required')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${'your_email'.tr()} required')));
       return;
     }
     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(email)) {
@@ -936,7 +935,7 @@ class _ContactPageState extends State<ContactPage> {
       return;
     }
     if (body.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('message'.tr() + ' required')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${'message'.tr()} required')));
       return;
     }
     final sport = context.read<TacticsState>().sportType;
@@ -1060,7 +1059,7 @@ class _ContactPageState extends State<ContactPage> {
 // Login page — Apple + Google sign-in (same pattern as lang1000/chinesefriend)
 // ─────────────────────────────────────────────────────────────────────────────
 class LoginPage extends StatefulWidget {
-  const LoginPage();
+  const LoginPage({super.key});
   @override
   State<LoginPage> createState() => _LoginPageState();
 }

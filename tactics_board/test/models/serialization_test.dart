@@ -36,7 +36,7 @@ void main() {
       expect(restored.gender, PlayerGender.female);
       expect(restored.moves.length, 2);
       expect(restored.movePhases, [0, 3]);
-      expect(restored.customColor?.value, 0xFF00FF00);
+      expect(restored.customColor?.toARGB32(), 0xFF00FF00);
     });
 
     test('marker shape round-trip', () {
@@ -84,7 +84,7 @@ void main() {
 
       expect(restored.id, 's1');
       expect(restored.points.length, 3);
-      expect(restored.color.value, 0xFFFF0000);
+      expect(restored.color.toARGB32(), 0xFFFF0000);
       expect(restored.width, 5.0);
       expect(restored.style, StrokeStyle.dashed);
       expect(restored.arrow, ArrowStyle.both);

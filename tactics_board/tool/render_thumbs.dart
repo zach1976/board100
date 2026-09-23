@@ -60,6 +60,10 @@ void main() {
         .toSet();
     if (only == null && outRoot.existsSync()) outRoot.deleteSync(recursive: true);
 
+    // A dev script, not a test: it drives the real app headless to shoot
+    // frames, and the only way to hand that app a clean prefs store is
+    // the same one a test uses.
+    // ignore: invalid_use_of_visible_for_testing_member
     SharedPreferences.setMockInitialValues({});
     await EasyLocalization.ensureInitialized();
     await _loadRoboto();
@@ -78,7 +82,7 @@ void main() {
             key: boundaryKey,
             child: ValueListenableBuilder<Widget>(
               valueListenable: thumb,
-              builder: (_, w, __) => w,
+              builder: (_, w, _) => w,
             ),
           ),
         ),

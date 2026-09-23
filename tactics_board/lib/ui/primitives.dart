@@ -1,4 +1,3 @@
-import 'dart:ui' show FontFeature;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -429,7 +428,7 @@ class TacticalSectionHeader extends StatelessWidget {
         child: Row(
           children: [
             Expanded(child: Text(label.toUpperCase(), style: T.label)),
-            if (trailing != null) trailing!,
+            ?trailing,
           ],
         ),
       );
@@ -590,7 +589,7 @@ class TacticalMenuItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 15, color: c)),
             ),
-            if (trailing != null) trailing!,
+            ?trailing,
           ],
         ),
       ),

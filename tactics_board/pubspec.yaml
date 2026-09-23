@@ -54,6 +54,9 @@ dependencies:
   flutter_quick_video_encoder: ^1.7.2
 
 dev_dependencies:
+  # Read by test/widgets/marker_assets_test.dart, which checks every
+  # marker sprite named in code is declared here and present on disk.
+  yaml: ^3.1.2
   flutter_test:
     sdk: flutter
   # integration_test disabled for release: pulls fat objective_c.framework (App Store rejects simulator slice).

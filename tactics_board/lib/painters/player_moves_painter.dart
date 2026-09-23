@@ -244,27 +244,6 @@ class PlayerMovesPainter extends CustomPainter {
     _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
-  void _drawStartMarker(Canvas canvas, Color color, Offset center) {
-    const r = 7.0;
-    // Dark outline
-    canvas.drawCircle(
-      center,
-      r + 2,
-      Paint()..color = const Color(0x47000000),
-    );
-    // Filled circle
-    canvas.drawCircle(center, r, Paint()..color = color);
-    // White border
-    canvas.drawCircle(
-      center,
-      r,
-      Paint()
-        ..color = Colors.white
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1.5,
-    );
-  }
-
   static Offset _offsetToward(Offset from, Offset to, double radius) {
     final dx = to.dx - from.dx;
     final dy = to.dy - from.dy;

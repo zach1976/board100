@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
-import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 /// Equipment goes under people.

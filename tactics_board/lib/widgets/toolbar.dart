@@ -12,7 +12,6 @@ import '../models/player_icon.dart';
 import '../models/player_photo.dart';
 import '../models/player_role.dart';
 import '../models/sport_formation.dart';
-import '../models/sport_theme.dart';
 import '../models/court_layout.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
@@ -61,7 +60,7 @@ import 'timeline_editor.dart';
 const Duration kDragHoldDelay = Duration(milliseconds: 180);
 
 DragAnchorStrategy _centredAnchor(double size) =>
-    (_, __, ___) => Offset(size / 2, size / 2);
+    (_, _, _) => Offset(size / 2, size / 2);
 
 Offset _dropCentre(DraggableDetails details, double size) =>
     details.offset + Offset(size / 2, size / 2);
@@ -688,7 +687,7 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
                 width: 200,
                 child: ValueListenableBuilder<double>(
                   valueListenable: progress,
-                  builder: (_, v, __) => Column(
+                  builder: (_, v, _) => Column(
                     children: [
                       LinearProgressIndicator(
                           value: v, backgroundColor: Colors.white12, color: kAccent),
@@ -1201,6 +1200,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
   }
 
   Future<void> _renameTactic(String oldName) async {
+    final messenger = ScaffoldMessenger.of(context);
     final ctrl = TextEditingController(text: oldName);
     final newName = await showDialog<String>(
       context: context,
@@ -1225,7 +1225,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
       ),
     );
     if (newName == null || newName.isEmpty || newName == oldName) return;
-    final messenger = ScaffoldMessenger.of(context);
     try {
       await widget.state.renameTactics(oldName, newName);
       await _loadList();
@@ -1238,6 +1237,8 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
   }
 
   Future<void> _overwriteTactic(String name) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -1253,8 +1254,6 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
       ),
     );
     if (ok != true) return;
-    final messenger = ScaffoldMessenger.of(context);
-    final navigator = Navigator.of(context);
     await widget.state.saveTactics(name);
     navigator.pop();
     messenger.showSnackBar(
@@ -1378,8 +1377,9 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           const SizedBox(width: 2),
           GestureDetector(
             onTap: () async {
+              final navigator = Navigator.of(context);
               await widget.state.loadTactics(name);
-              if (context.mounted) Navigator.pop(context);
+              navigator.pop();
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -2293,6 +2293,9 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final size = ro.size;
     if (localPos.dx < 0 || localPos.dy < 0) return;
     if (localPos.dx > size.width || localPos.dy > size.height) return;
+    // Taken before the duplicate check, which may await a dialog: the
+    // sheet's context cannot be proven live afterwards.
+    final sheetNav = Navigator.of(widget.sheetCtx);
     final existing = state.players.where((p) => p.photoId == photo.id).length;
     if (existing > 0) {
       final ok = await _confirmAddDuplicate(context, existing);
@@ -2313,7 +2316,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       role: photo.role,
     ));
     HapticFeedback.lightImpact();
-    Navigator.of(widget.sheetCtx).maybePop();
+    sheetNav.maybePop();
   }
 
   Future<void> _addPlayerWithPhoto(PlayerPhoto photo, Offset tapPos) async {
@@ -2411,7 +2414,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
         duration: const Duration(milliseconds: 900),
         curve: Curves.easeOutCubic,
         onEnd: () => entry.remove(),
-        builder: (_, t, __) {
+        builder: (_, t, _) {
           // Fly toward the actual landing spot.
           final cy = start.dy + (endGlobal.dy - start.dy) * t;
           final cx = start.dx + (endGlobal.dx - start.dx) * t;
@@ -2462,28 +2465,6 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       ),
     );
     overlay.insert(entry);
-  }
-
-  Future<void> _confirmDelete(BuildContext context, PlayerPhoto photo) async {
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
-          ),
-        ],
-      ),
-    );
-    if (ok == true) {
-      await PhotoLibraryService.instance.delete(photo.id);
-    }
   }
 
   /// Returns the user-confirmed name (may be empty if they applied an empty
@@ -2549,7 +2530,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
         ),
       ),
     );
-    if (!mounted || action == null) return;
+    if (!mounted || !context.mounted || action == null) return;
     if (action == 'rename') {
       final name = await _promptGroupName(context, initial: group.name);
       if (name == null) return;
@@ -2595,7 +2576,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       if (!existingGroups.any((g) => g.name == defaultName)) break;
       n++;
     }
-    if (!mounted) return;
+    if (!mounted || !context.mounted) return;
     final name = await _promptGroupName(context, initial: defaultName);
     if (name == null) return; // user cancelled
     // Empty Apply → use the default we pre-filled.
@@ -2819,7 +2800,12 @@ class _PhotoTile extends StatefulWidget {
     required this.currentTeam,
     required this.onTap,
     this.onDropOutsideTarget,
+    // Nobody passes these today — the caller that showed a photo's delete
+    // badge went with the sheet it lived in. The badge itself still works,
+    // so the way back is to pass them, not to rebuild it.
+    // ignore: unused_element_parameter
     this.showDeleteBadge = false,
+    // ignore: unused_element_parameter
     this.onDeleteRequested,
   });
 
@@ -3113,6 +3099,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
     final shape = _shape;
     final tile = _MarkerCard(
       label: '',
+      onTap: widget.onTap,
       child: SizedBox(
         width: 28, height: 28,
         child: ClipPath(
@@ -3122,7 +3109,6 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
               : Container(color: Colors.white12),
         ),
       ),
-      onTap: widget.onTap,
     );
     final feedback = Material(
       color: Colors.transparent,
@@ -3173,6 +3159,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
 
 class _CustomElementContent extends StatefulWidget {
   final PlayerPhoto photo;
+  // ignore: unused_element_parameter
   const _CustomElementContent({super.key, required this.photo});
 
   @override
@@ -3995,83 +3982,6 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   SportFormation? _selectedFormation;
   _TeamOption _teamOption = _TeamOption.both;
 
-  int _nextNum(PlayerTeam team) {
-    int max = 0;
-    for (final p in widget.state.players.where((p) => p.team == team)) {
-      final n = int.tryParse(p.label) ?? 0;
-      if (n > max) max = n;
-    }
-    return max + 1;
-  }
-
-  /// Add a single player to the given team at a sensible default position,
-  /// nudged to avoid overlapping existing icons. Closes the sheet.
-  void _addOnePlayer(PlayerTeam team) {
-    final state = widget.state;
-    final c = state.canvasSize;
-    final baseY = state.spawnY(team);
-    var pos = Offset(c.width * 0.5, baseY);
-    const minDist = 48.0;
-    for (int attempt = 0; attempt < 20; attempt++) {
-      final overlap = state.players.any((p) => (p.position - pos).distance < minDist);
-      if (!overlap) break;
-      pos = Offset(
-        pos.dx + 32 * ((attempt % 4 < 2) ? 1 : -1),
-        pos.dy + (attempt ~/ 2) * 20.0 * ((attempt % 2 == 0) ? 1 : -1),
-      );
-      pos = Offset(
-        pos.dx.clamp(24.0, c.width - 24.0),
-        pos.dy.clamp(24.0, c.height - 24.0),
-      );
-    }
-    state.addPlayer(PlayerIcon(
-      id: DateTime.now().microsecondsSinceEpoch.toString(),
-      label: '${_nextNum(team)}',
-      team: team,
-      position: pos,
-    ));
-    Navigator.pop(widget.sheetCtx);
-  }
-
-  Widget _quickAddChip(PlayerTeam team) {
-    final color = PlayerIcon.teamColor(team);
-    final label = team == PlayerTeam.home ? 'team_home'.tr() : 'team_away'.tr();
-    return GestureDetector(
-      onTap: () => _addOnePlayer(team),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.18),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.20),
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 16,
-              height: 16,
-              decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-              alignment: Alignment.center,
-              child: const Icon(Icons.add_rounded, color: Colors.white, size: 12),
-            ),
-            const SizedBox(width: 6),
-            Text(
-              '+1 $label',
-              style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   List<int> get _distinctCounts {
     final counts = <int>{};
     for (final f in widget.state.sportType.formations) {
@@ -4292,10 +4202,10 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                 // lands at the drop point.
                 _DraggableMarkerCard(
                   label: 'confirm'.tr(),
-                  child: const Icon(Icons.groups_outlined,
-                      color: Color(0xFF4ADE80), size: 26),
                   onTap: _apply,
                   onDropAt: _applyAtDrop,
+                  child: const Icon(Icons.groups_outlined,
+                      color: Color(0xFF4ADE80), size: 26),
                 ),
               ],
             ),
@@ -4329,102 +4239,6 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _TeamFormationRow extends StatelessWidget {
-  final TacticsState state;
-  final PlayerTeam team;
-  final BuildContext sheetCtx;
-  const _TeamFormationRow({required this.state, required this.team, required this.sheetCtx});
-
-  @override
-  Widget build(BuildContext context) {
-    final color = PlayerIcon.teamColor(team);
-    final label = team == PlayerTeam.home ? 'team_home'.tr() : 'team_away'.tr();
-    // Get distinct player counts from formations
-    final formations = state.sportType.formations;
-    final countMap = <int, SportFormation>{};
-    for (final f in formations) {
-      final count = team == PlayerTeam.home ? f.homeCount : f.awayCount;
-      countMap.putIfAbsent(count, () => f);
-    }
-    final counts = countMap.keys.toList()..sort((a, b) => b.compareTo(a));
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _SectionHeader(label: label, color: color),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ...counts.map((count) => Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: GestureDetector(
-                    onTap: () {
-                      state.addTeamFromFormation(countMap[count]!, team);
-                      Navigator.pop(sheetCtx);
-                    },
-                    child: Container(
-                      width: 56 * uiScale(context),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        color: color.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: color.withValues(alpha: 0.5), width: 1.5),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '${'count_suffix'.tr()}',
-                          style: TextStyle(color: color, fontSize: 14, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
-                )),
-                // Individual add
-                _PlayerCard(
-                  label: 'male'.tr(),
-                  color: color,
-                  genders: const [PlayerGender.male],
-                  onTap: () {
-                    final c = state.canvasSize;
-                    final n = state.players.where((p) => p.team == team).length + 1;
-                    final baseY = state.spawnY(team);
-                    state.addPlayer(PlayerIcon(
-                      id: DateTime.now().microsecondsSinceEpoch.toString(),
-                      label: '$n', team: team, gender: PlayerGender.male,
-                      position: Offset(c.width * 0.5, baseY),
-                    ));
-                    Navigator.pop(sheetCtx);
-                  },
-                ),
-                const SizedBox(width: 8),
-                _PlayerCard(
-                  label: 'female'.tr(),
-                  color: color,
-                  genders: const [PlayerGender.female],
-                  onTap: () {
-                    final c = state.canvasSize;
-                    final n = state.players.where((p) => p.team == team).length + 1;
-                    final baseY = state.spawnY(team);
-                    state.addPlayer(PlayerIcon(
-                      id: DateTime.now().microsecondsSinceEpoch.toString(),
-                      label: '$n', team: team, gender: PlayerGender.female,
-                      position: Offset(c.width * 0.5, baseY),
-                    ));
-                    Navigator.pop(sheetCtx);
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
@@ -4644,7 +4458,7 @@ class _DraggableMarkerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final card = _MarkerCard(label: label, child: child, onTap: onTap);
+    final card = _MarkerCard(label: label, onTap: onTap, child: child);
     if (onDropAt == null) return card;
     final feedback = Material(
       color: Colors.transparent,
@@ -4713,83 +4527,7 @@ class _MarkerCard extends StatelessWidget {
   }
 }
 
-class _SheetTile extends StatelessWidget {
-  final Widget? iconWidget;
-  final IconData? icon;
-  final Color? iconColor;
-  final Color? bgColor;
-  final String label;
-  final String? subtitle;
-  final VoidCallback onTap;
-
-  const _SheetTile({
-    this.iconWidget,
-    this.icon,
-    this.iconColor,
-    this.bgColor,
-    required this.label,
-    this.subtitle,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = uiScale(context);
-    final leading = iconWidget ??
-        Container(
-          width: 40 * s,
-          height: 40 * s,
-          decoration: BoxDecoration(
-            color: bgColor ?? Colors.white10,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Icon(icon, color: iconColor ?? Colors.white, size: 22 * s),
-        );
-
-    return ListTile(
-      leading: SizedBox(width: 40 * s, height: 40 * s, child: leading),
-      title: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15)),
-      subtitle: subtitle != null
-          ? Text(subtitle!, style: const TextStyle(color: Colors.white54, fontSize: 12))
-          : null,
-      trailing: Icon(Icons.chevron_right, color: Colors.white24, size: 20 * s),
-      onTap: onTap,
-    );
-  }
-}
-
 // Small circular player preview for the sheet
-class _PlayerDot extends StatelessWidget {
-  final PlayerTeam team;
-  final SportType sportType;
-  final int number;
-  const _PlayerDot({required this.team, required this.sportType, required this.number});
-
-  @override
-  Widget build(BuildContext context) {
-    final color = PlayerIcon.teamColor(team);
-    return SizedBox(
-      width: 36,
-      height: 36,
-      child: Stack(
-        children: [
-          CustomPaint(
-            painter: TopDownPlayerPainter(color: color, borderColor: Colors.white, borderWidth: 1.5),
-            size: const Size(36, 36),
-          ),
-          Align(
-            alignment: const Alignment(0, 0.3),
-            child: Text(
-              '$number',
-              style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold, height: 1),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Drawing Options Row — single compact row (draw mode only)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -4984,91 +4722,9 @@ class _ColorDot extends StatelessWidget {
   }
 }
 
-class _ToggleChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-  const _ToggleChip({required this.label, required this.selected, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = uiScale(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        padding: EdgeInsets.symmetric(horizontal: 10 * s, vertical: 4 * s),
-        decoration: BoxDecoration(
-          color: selected ? kAccent : Colors.white10,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Text(label, style: TextStyle(color: Colors.white, fontSize: 13 * s, fontWeight: FontWeight.w500)),
-      ),
-    );
-  }
-}
-
-class _IconBtn extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-  final Color? color;
-  const _IconBtn({required this.icon, required this.onTap, this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = uiScale(context);
-    // Guarantee a ≥44pt hit area even though the glyph stays 24pt — the
-    // toolbar buttons were ~36pt, small enough to mis-tap mid-game.
-    final hit = (36.0 * s).clamp(44.0, 60.0).toDouble();
-    return GestureDetector(
-      onTap: onTap,
-      behavior: HitTestBehavior.opaque,
-      child: Container(
-        width: hit,
-        height: hit,
-        alignment: Alignment.center,
-        child: Icon(icon, color: color ?? Colors.white70, size: 24 * s),
-      ),
-    );
-  }
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Formation Tile
 // ─────────────────────────────────────────────────────────────────────────────
-
-class _FormationTile extends StatelessWidget {
-  final SportFormation formation;
-  final VoidCallback onTap;
-  const _FormationTile({required this.formation, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Container(
-        width: 42,
-        height: 42,
-        decoration: BoxDecoration(
-          color: Colors.purple.withValues(alpha: 0.15),
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.purple.withValues(alpha: 0.4)),
-        ),
-        child: Center(
-          child: Text(
-            '${formation.homeCount}v${formation.awayCount}',
-            style: const TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 13),
-          ),
-        ),
-      ),
-      title: Text(formation.nameKey.tr(), style: const TextStyle(color: Colors.white, fontSize: 15)),
-      subtitle: Text(
-        '${'formation_home'.tr()} ${formation.homeCount}  ·  ${'formation_away'.tr()} ${formation.awayCount}',
-        style: const TextStyle(color: Colors.white54, fontSize: 12),
-      ),
-      onTap: onTap,
-    );
-  }
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Play / Stop button

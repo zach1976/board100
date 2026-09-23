@@ -9,7 +9,6 @@ import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
-import 'toolbar.dart';
 
 const _kStrokeWidths = [2.0, 3.0, 5.0, 7.0];
 

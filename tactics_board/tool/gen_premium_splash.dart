@@ -1,3 +1,6 @@
+// A command-line generator, run by hand: stdout is its interface, not
+// a leftover debug line.
+// ignore_for_file: avoid_print
 // Premium hub splash — multi-sport ECOSYSTEM brand POSTER.
 // Direction: Nike opener / Apple Sports / FIFA brand visual / Olympic motion.
 // NOT: centered icon, AI orbit, loading spinner.
@@ -19,18 +22,17 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'package:image/image.dart' as img;
 
-const _W = 1024;
-const _H = 1024;
+const _w = 1024;
+const _h = 1024;
 
 // Palette — premium sports broadcast tones
 final _bgTop = img.ColorRgb8(0x0B, 0x12, 0x20); // deep navy
 final _bgBot = img.ColorRgb8(0x05, 0x08, 0x10); // near-black
 const _lightWarm = [245, 245, 235]; // floodlight warm white
 const _coolWhite = [240, 244, 252]; // motion / haze tone
-const _accentBlue = [0x60, 0xA5, 0xFA];
 
 void main() {
-  final c = img.Image(width: _W, height: _H, numChannels: 4);
+  final c = img.Image(width: _w, height: _h, numChannels: 4);
   _gradient(c);
   _floodlights(c);
   _haze(c);
@@ -42,22 +44,22 @@ void main() {
   _brandMark(c);
 
   File('assets/icon/splash_logo.png').writeAsBytesSync(img.encodePng(c));
-  print('Generated assets/icon/splash_logo.png ($_W x $_H)');
+  print('Generated assets/icon/splash_logo.png ($_w x $_h)');
 }
 
 // ---------------------------------------------------------------------------
 // Layer 1 — gradient + radial vignette (sky → deep ground)
 // ---------------------------------------------------------------------------
 void _gradient(img.Image c) {
-  final cx = _W / 2.0;
-  final cy = _H / 2.0;
+  final cx = _w / 2.0;
+  final cy = _h / 2.0;
   final maxD = math.sqrt(cx * cx + cy * cy);
-  for (int y = 0; y < _H; y++) {
-    final t = y / (_H - 1);
+  for (int y = 0; y < _h; y++) {
+    final t = y / (_h - 1);
     final br = (_bgTop.r + (_bgBot.r - _bgTop.r) * t);
     final bg = (_bgTop.g + (_bgBot.g - _bgTop.g) * t);
     final bb = (_bgTop.b + (_bgBot.b - _bgTop.b) * t);
-    for (int x = 0; x < _W; x++) {
+    for (int x = 0; x < _w; x++) {
       final dx = x - cx;
       final dy = y - cy;
       final d = math.sqrt(dx * dx + dy * dy) / maxD;
@@ -81,7 +83,7 @@ void _floodlights(img.Image c) {
     {'cx': 520, 'cy': 90, 'r': 200, 'a': 45, 'blur': 95},
   ];
   for (final l in lights) {
-    final layer = img.Image(width: _W, height: _H, numChannels: 4);
+    final layer = img.Image(width: _w, height: _h, numChannels: 4);
     img.fillCircle(layer,
         x: l['cx'] as int,
         y: l['cy'] as int,
@@ -97,12 +99,12 @@ void _floodlights(img.Image c) {
 // Layer 3 — atmospheric haze band across mid-canvas
 // ---------------------------------------------------------------------------
 void _haze(img.Image c) {
-  final layer = img.Image(width: _W, height: _H, numChannels: 4);
+  final layer = img.Image(width: _w, height: _h, numChannels: 4);
   // Soft horizontal band where field would catch most light
   img.fillRect(layer,
       x1: 0,
       y1: 380,
-      x2: _W,
+      x2: _w,
       y2: 600,
       color: img.ColorRgba8(_coolWhite[0], _coolWhite[1], _coolWhite[2], 14));
   img.gaussianBlur(layer, radius: 70);
@@ -114,14 +116,14 @@ void _haze(img.Image c) {
 // ---------------------------------------------------------------------------
 void _perspectiveLines(img.Image c) {
   // Vanishing point in upper-mid (creates "looking up across field" feel)
-  final vpX = _W ~/ 2;
+  final vpX = _w ~/ 2;
   final vpY = 240;
   final col = img.ColorRgba8(255, 255, 255, 16);
 
   // 6 lines fanning down from vanishing point to bottom edge
   final bottomXs = [-220, 100, 380, 660, 940, 1240];
   for (final bx in bottomXs) {
-    _line(c, x0: bx, y0: _H + 40, x1: vpX, y1: vpY, color: col);
+    _line(c, x0: bx, y0: _h + 40, x1: vpX, y1: vpY, color: col);
   }
 
   // 2 horizontal "field lines" cutting across at perspective y-positions
@@ -129,13 +131,13 @@ void _perspectiveLines(img.Image c) {
   _line(c,
       x0: -50,
       y0: 540,
-      x1: _W + 50,
+      x1: _w + 50,
       y1: 540,
       color: img.ColorRgba8(255, 255, 255, 10));
   _line(c,
       x0: -50,
       y0: 720,
-      x1: _W + 50,
+      x1: _w + 50,
       y1: 720,
       color: img.ColorRgba8(255, 255, 255, 8));
 }
@@ -146,13 +148,13 @@ void _perspectiveLines(img.Image c) {
 void _grandstand(img.Image c) {
   // A subtle dome at the bottom that reads as "stand" — slightly darker than
   // the local background to imply silhouette without heavy shape.
-  final layer = img.Image(width: _W, height: _H, numChannels: 4);
-  final cx = _W ~/ 2;
-  final cy = _H + 120; // ellipse center below canvas
+  final layer = img.Image(width: _w, height: _h, numChannels: 4);
+  final cx = _w ~/ 2;
+  final cy = _h + 120; // ellipse center below canvas
   final rx = 700;
   final ry = 180;
-  for (int y = _H - 220; y < _H; y++) {
-    for (int x = 0; x < _W; x++) {
+  for (int y = _h - 220; y < _h; y++) {
+    for (int x = 0; x < _w; x++) {
       final dx = (x - cx) / rx;
       final dy = (y - cy) / ry;
       final d = dx * dx + dy * dy;
@@ -172,11 +174,11 @@ void _grandstand(img.Image c) {
 // Layer 6 — mid-layer secondary motion curves (multi-sport overlap)
 // ---------------------------------------------------------------------------
 void _midMotionCurves(img.Image c) {
-  final cx = _W ~/ 2;
-  final cy = _H ~/ 2;
+  final cx = _w ~/ 2;
+  final cy = _h ~/ 2;
 
   // Curve A — opposite direction, longer, very faint
-  final layerA = img.Image(width: _W, height: _H, numChannels: 4);
+  final layerA = img.Image(width: _w, height: _h, numChannels: 4);
   _bezierStroke(layerA,
       p0x: cx + 320,
       p0y: cy - 200,
@@ -190,7 +192,7 @@ void _midMotionCurves(img.Image c) {
   img.compositeImage(c, layerA);
 
   // Curve B — short curl high above hero curve
-  final layerB = img.Image(width: _W, height: _H, numChannels: 4);
+  final layerB = img.Image(width: _w, height: _h, numChannels: 4);
   _bezierStroke(layerB,
       p0x: cx - 180,
       p0y: cy - 220,
@@ -208,8 +210,8 @@ void _midMotionCurves(img.Image c) {
 // Layer 7a — hero parabolic motion curve (bold, dominant)
 // ---------------------------------------------------------------------------
 void _heroCurve(img.Image c) {
-  final cx = _W ~/ 2;
-  final cy = _H ~/ 2 + 40;
+  final cx = _w ~/ 2;
+  final cy = _h ~/ 2 + 40;
 
   _bezierStroke(c,
       p0x: cx - 360,
@@ -231,7 +233,7 @@ void _heroCurve(img.Image c) {
       (u * u * (cy + 90) + 2 * u * apexT * (cy - 240) + apexT * apexT * (cy + 30))
           .round();
   // Glow halo behind apex
-  final glow = img.Image(width: _W, height: _H, numChannels: 4);
+  final glow = img.Image(width: _w, height: _h, numChannels: 4);
   img.fillCircle(glow,
       x: apexX, y: apexY, radius: 35, color: img.ColorRgba8(255, 255, 255, 70));
   img.gaussianBlur(glow, radius: 22);
@@ -244,8 +246,8 @@ void _heroCurve(img.Image c) {
 // Layer 7b — ghost trails behind hero curve (motion blur replicas)
 // ---------------------------------------------------------------------------
 void _heroGhosts(img.Image c) {
-  final cx = _W ~/ 2;
-  final cy = _H ~/ 2 + 40;
+  final cx = _w ~/ 2;
+  final cy = _h ~/ 2 + 40;
 
   final ghosts = [
     {'dy': -42, 'alpha': 24, 'blur': 11},
@@ -259,7 +261,7 @@ void _heroGhosts(img.Image c) {
     final alpha = g['alpha'] as int;
     final blur = g['blur'] as int;
 
-    final layer = img.Image(width: _W, height: _H, numChannels: 4);
+    final layer = img.Image(width: _w, height: _h, numChannels: 4);
     _bezierStroke(layer,
         p0x: cx - 360,
         p0y: cy + 90 + dy,
@@ -280,8 +282,8 @@ void _heroGhosts(img.Image c) {
 void _brandMark(img.Image c) {
   // Small geometric stamp at lower right — feels like sponsor/brand corner.
   // Two thin stacked accent bars + small dot. Reads as "stamp", not loading.
-  final mx = _W - 110;
-  final my = _H - 110;
+  final mx = _w - 110;
+  final my = _h - 110;
   final col = img.ColorRgba8(_coolWhite[0], _coolWhite[1], _coolWhite[2], 200);
   // Bars
   for (int x = mx - 24; x <= mx + 24; x++) {
@@ -355,7 +357,7 @@ void _bezierStroke(img.Image c,
 // Porter-Duff "over" composition. Handles transparent destinations correctly
 // so drawing onto a fully-transparent layer preserves the source alpha.
 void _blend(img.Image c, int x, int y, img.Color src) {
-  if (x < 0 || x >= _W || y < 0 || y >= _H) return;
+  if (x < 0 || x >= _w || y < 0 || y >= _h) return;
   final sa = src.a / 255.0;
   if (sa <= 0) return;
   final dst = c.getPixel(x, y);

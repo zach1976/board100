@@ -24,7 +24,7 @@ import '../test/widgets/overflow_test.dart' show kLocales;
 ///
 ///     FLUTTER_ROOT=<flutter> flutter test tool/render_boards.dart
 ///
-/// Writes tools/board_png/<sport>/<id>-<step>.png. It lives in tool/ rather
+/// Writes `tools/board_png/<sport>/<id>-<step>.png`. It lives in tool/ rather
 /// than test/ because it is a build step, not a check — a @Tags annotation
 /// does not exclude a file from a bare `flutter test`, and this one adds 79
 /// seconds to every run of the suite.
@@ -67,6 +67,10 @@ void main() {
         wanted.any((w) => w == '$sport/$id' || w == '$sport/' || w == sport);
     if (only == null && outRoot.existsSync()) outRoot.deleteSync(recursive: true);
 
+    // A dev script, not a test: it drives the real app headless to shoot
+    // frames, and the only way to hand that app a clean prefs store is
+    // the same one a test uses.
+    // ignore: invalid_use_of_visible_for_testing_member
     SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
     await EasyLocalization.ensureInitialized();
     // Without a real font the test binding draws every glyph as a filled box,

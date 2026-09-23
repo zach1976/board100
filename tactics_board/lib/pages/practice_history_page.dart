@@ -165,7 +165,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                     Expanded(
                       child: ListView.separated(
                         itemCount: _sessions.length,
-                        separatorBuilder: (_, __) =>
+                        separatorBuilder: (_, _) =>
                             const Divider(color: T.border, height: 1),
                         itemBuilder: (ctx, i) {
                           final s = _sessions[i];

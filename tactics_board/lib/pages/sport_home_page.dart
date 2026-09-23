@@ -165,7 +165,12 @@ class _SportHomePageState extends State<SportHomePage> {
     }
     _drills.then((all) {
       if (mounted) setState(() => _drillCount = all.length);
-    }).catchError((_) => <Drill>[]);
+    }).catchError((Object _) {
+      // No library is not a reason to fail the page: the count stays null
+      // and the intro keeps its countless wording. The old handler returned
+      // an empty List<Drill> from a Future<void>, which is a type error the
+      // moment it actually fires.
+    });
   }
 
   @override
@@ -928,7 +933,7 @@ class _TodayRow extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: drills.length,
-        separatorBuilder: (_, __) => const SizedBox(width: T.s8),
+        separatorBuilder: (_, _) => const SizedBox(width: T.s8),
         itemBuilder: (context, i) {
           final d = drills[i];
           final path = art ? cover!(d.category) : null;

@@ -30,7 +30,6 @@ import 'package:tactics_board/pages/drill_detail_page.dart';
 import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/pages/drill_primer_page.dart';
-import 'package:tactics_board/pages/intro_page.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
@@ -158,6 +157,10 @@ void main() {
         orElse: () => SportType.soccer);
     final locale = (env['LOCALE'] ?? 'zh-CN').split('-');
 
+    // A dev script, not a test: it drives the real app headless to shoot
+    // frames, and the only way to hand that app a clean prefs store is
+    // the same one a test uses.
+    // ignore: invalid_use_of_visible_for_testing_member
     SharedPreferences.setMockInitialValues({
       'remove_ads_pro': true,
       // Every page except the intro itself sits BEHIND the intro on a first

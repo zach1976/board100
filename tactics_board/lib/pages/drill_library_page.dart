@@ -528,7 +528,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         padding: EdgeInsets.only(
                             bottom: MediaQuery.paddingOf(context).bottom + T.s8),
                         itemCount: groups.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 8),
+                        separatorBuilder: (_, _) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _DrillRow(
                         sport: widget.state.sportType,
                           variants: groups[i],

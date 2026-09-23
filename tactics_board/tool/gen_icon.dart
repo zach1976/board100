@@ -1,3 +1,6 @@
+// A command-line generator, run by hand: stdout is its interface, not
+// a leftover debug line.
+// ignore_for_file: avoid_print
 // Generates app_icon.png (1024x1024) and splash_logo.png (512x512)
 // Run from the tactics_board directory:
 //   dart run tool/gen_icon.dart
@@ -225,14 +228,22 @@ void _genSoccerIcon(String path, int size) {
   final r = (s * 0.03).round();
   // Red (top): GK + 4 DEF + 4 MID + 2 FWD
   _dot(c, (s*0.50).round(), (s*0.15).round(), r, _red);
-  for (final x in [0.20, 0.40, 0.60, 0.80]) _dot(c, (s*x).round(), (s*0.24).round(), r, _red);
-  for (final x in [0.20, 0.40, 0.60, 0.80]) _dot(c, (s*x).round(), (s*0.36).round(), r, _red);
+  for (final x in [0.20, 0.40, 0.60, 0.80]) {
+    _dot(c, (s*x).round(), (s*0.24).round(), r, _red);
+  }
+  for (final x in [0.20, 0.40, 0.60, 0.80]) {
+    _dot(c, (s*x).round(), (s*0.36).round(), r, _red);
+  }
   _dot(c, (s*0.40).round(), (s*0.45).round(), r, _red);
   _dot(c, (s*0.60).round(), (s*0.45).round(), r, _red);
   // Blue (bottom)
   _dot(c, (s*0.50).round(), (s*0.85).round(), r, _blue);
-  for (final x in [0.20, 0.40, 0.60, 0.80]) _dot(c, (s*x).round(), (s*0.76).round(), r, _blue);
-  for (final x in [0.20, 0.40, 0.60, 0.80]) _dot(c, (s*x).round(), (s*0.64).round(), r, _blue);
+  for (final x in [0.20, 0.40, 0.60, 0.80]) {
+    _dot(c, (s*x).round(), (s*0.76).round(), r, _blue);
+  }
+  for (final x in [0.20, 0.40, 0.60, 0.80]) {
+    _dot(c, (s*x).round(), (s*0.64).round(), r, _blue);
+  }
   _dot(c, (s*0.40).round(), (s*0.55).round(), r, _blue);
   _dot(c, (s*0.60).round(), (s*0.55).round(), r, _blue);
   File(path).writeAsBytesSync(img.encodePng(c));
@@ -265,7 +276,6 @@ void _genSportSplash(String path, int size, img.Color courtColor, int playersPer
   } else {
     // Grid layout
     final cols = n <= 3 ? n : (n <= 6 ? 3 : 4);
-    final rows = (n / cols).ceil();
     for (int i = 0; i < n; i++) {
       final col = i % cols;
       final row = i ~/ cols;
@@ -449,7 +459,6 @@ void _arrow(img.Image c, int x1, int y1, int x2, int y2, img.Color color, int t)
   final hw = t * 3; // half-width of arrowhead
   final ah = t * 4; // arrowhead height
   final dir = y2 > y1 ? 1 : -1;
-  final tipY = y2;
   final baseY = y2 - dir * ah;
 
   for (int dy = 0; dy <= ah; dy++) {

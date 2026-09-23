@@ -1,3 +1,6 @@
+// A command-line generator, run by hand: stdout is its interface, not
+// a leftover debug line.
+// ignore_for_file: avoid_print
 // Generates per-sport splash logos from existing photorealistic app icons.
 // Run: dart run tool/gen_splash_from_icon.dart
 //
