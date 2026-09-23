@@ -73,7 +73,7 @@ void main() {
     });
     expect(shipped, lessThan(624),
         reason: 'this app ships one sport, not the whole repository');
-    expect(find.text('Open the board'), findsNothing,
+    expect(find.text('New board'), findsNothing,
         reason: 'the home page is behind the intro, not in front of it');
 
     // ── skip is on the first panel: knowing what a tactics board is must
@@ -83,8 +83,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(IntroPage), findsNothing);
-    expect(find.text('Open the board'), findsOneWidget,
+    // 新建空白板, not 打开战术板: a first run has no board to open, and the
+    // card says so. See hasWorkingBoard in sport_home_page.dart.
+    expect(find.text('New board'), findsOneWidget,
         reason: 'skipping lands on the home page, not on a blank screen');
+    expect(find.text('Open the board'), findsNothing,
+        reason: 'there is no board to carry on with yet');
 
     // ── and it is remembered, so the next launch goes straight through ──
     expect(await IntroPage.shouldShow(), isFalse);

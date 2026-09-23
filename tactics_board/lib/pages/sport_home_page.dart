@@ -37,6 +37,49 @@ import 'practice_plan_page.dart';
 /// find something to run on Tuesday, or to carry on with the board they were
 /// on. This page puts both of those first and keeps the board one tap away,
 /// as the thing it opens rather than a menu item.
+/// Whether there is a board to carry on with.
+///
+/// A first run has none: no players, no strokes, one empty page. Both the
+/// home card and the tab bar ask this, because with nothing drawn yet
+/// "open the board" and "new board" would open the very same empty pitch —
+/// one of them under a label promising the coach their own work.
+bool hasWorkingBoard(TacticsState state) =>
+    state.players.isNotEmpty ||
+    state.strokes.isNotEmpty ||
+    state.pageCount > 1;
+
+/// Ask for a name and make an empty board under it. True if one was made.
+///
+/// Named before it is drawn on. A board with no name is a board that cannot
+/// be found again: it does not appear under "my boards", and the next blank
+/// one takes its place on the home card. Cancelling makes nothing, which is
+/// why the question comes first — there is no half-made board to lose.
+///
+/// [taken] is the names already used, when the caller is holding them; the
+/// home page is, and making a coach wait on a directory read before the
+/// keyboard appears is a pause with nothing behind it.
+Future<bool> createNamedBoard(BuildContext context, {Set<String>? taken}) async {
+  final state = context.read<TacticsState>();
+  final names =
+      taken ?? (await state.listSavedTacticMetas()).map((m) => m.name).toSet();
+  if (!context.mounted) return false;
+  final name = await promptForName(
+    context,
+    title: 'board_name_title'.tr(),
+    taken: names,
+    takenMessage: 'board_name_exists'.tr(),
+  );
+  if (name == null) return false;
+  state.newDocument();
+  try {
+    await state.saveTactics(name);
+  } catch (_) {
+    // A board that cannot be written is still a board worth drawing on;
+    // the toolbar's own Save will say so when they try again.
+  }
+  return true;
+}
+
 class SportHomePage extends StatefulWidget {
   /// Whether this page decides for itself that the intro still has to run.
   ///
@@ -155,32 +198,9 @@ class _SportHomePageState extends State<SportHomePage> {
   }
 
   Future<void> _newBoard() async {
-    final state = context.read<TacticsState>();
-    // Named before it is drawn on. A board with no name is a board that
-    // cannot be found again: it does not appear under "my boards", and the
-    // next blank one takes its place on the home card. Cancelling makes
-    // nothing, which is why the question comes first — there is no half-made
-    // board to lose.
-    //
-    // The names come from the list this page already holds, not from a fresh
-    // directory read: the coach tapped a button, and making them wait on
-    // disk before the keyboard appears is a pause with nothing behind it.
-    final taken = _mine.map((m) => m.name).toSet();
-    final name = await promptForName(
-      context,
-      title: 'board_name_title'.tr(),
-      taken: taken,
-      takenMessage: 'board_name_exists'.tr(),
-    );
-    if (name == null || !mounted) return;
-    state.newDocument();
-    try {
-      await state.saveTactics(name);
-    } catch (_) {
-      // A board that cannot be written is still a board worth drawing on;
-      // the toolbar's own Save will say so when they try again.
-    }
-    if (!mounted) return;
+    final made = await createNamedBoard(context,
+        taken: _mine.map((m) => m.name).toSet());
+    if (!made || !mounted) return;
     await _openBoard();
   }
 
@@ -676,9 +696,12 @@ class _BoardCard extends StatelessWidget {
     final json = state.toJson();
     final preview = TacticsState(sportType: state.sportType, preview: true)
       ..loadFromJson(json);
+    // With nothing drawn yet the card does not offer to open a board; making
+    // one becomes its main action. See hasWorkingBoard.
+    final hasBoard = hasWorkingBoard(state);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: onOpen,
+      onTap: hasBoard ? onOpen : onNew,
       child: Container(
         decoration: const BoxDecoration(
             color: T.surface, borderRadius: T.brLg),
@@ -730,16 +753,18 @@ class _BoardCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  TacticalButton(
-                    label: 'home_open_board'.tr(),
-                    icon: Icons.edit_outlined,
-                    onTap: onOpen,
-                  ),
-                  const SizedBox(height: T.s8),
+                  if (hasBoard) ...[
+                    TacticalButton(
+                      label: 'home_open_board'.tr(),
+                      icon: Icons.edit_outlined,
+                      onTap: onOpen,
+                    ),
+                    const SizedBox(height: T.s8),
+                  ],
                   TacticalButton(
                     label: 'home_new_board'.tr(),
                     icon: Icons.add,
-                    quiet: true,
+                    quiet: hasBoard,
                     onTap: onNew,
                   ),
                   const SizedBox(height: T.s8),

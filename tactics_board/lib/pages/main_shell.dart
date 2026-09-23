@@ -73,6 +73,18 @@ class _MainShellState extends State<MainShell> {
     });
   }
 
+  /// 战术板 in the tab bar. On a first run there is no board behind it, and
+  /// dropping a coach on an unnamed empty pitch is the one thing
+  /// createNamedBoard exists to prevent — so the tab makes one, exactly as
+  /// the home card's 新建空白板 does.
+  Future<void> _boardTab() async {
+    if (hasWorkingBoard(context.read<TacticsState>())) {
+      await _openBoard();
+      return;
+    }
+    if (await createNamedBoard(context) && mounted) await _openBoard();
+  }
+
   Future<void> _openBoard() async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
@@ -116,7 +128,7 @@ class _MainShellState extends State<MainShell> {
         onTap: (i) {
           // The board is an action, not a destination — see the note above.
           if (i == 1) {
-            _openBoard();
+            _boardTab();
             return;
           }
           setState(() => _tab = i > 1 ? i - 1 : i);
