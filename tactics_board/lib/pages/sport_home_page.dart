@@ -295,6 +295,28 @@ class _SportHomePageState extends State<SportHomePage> {
               },
             ),
             const SizedBox(height: T.s24),
+            // Back to what was open. Every route onto the board already
+            // records what it put there — the library, the home row, loading
+            // a saved board — and until now nothing read the drills back, so
+            // the shortcut existed with nowhere to appear.
+            if (_recentDrills.isNotEmpty) ...[
+              _sectionHead('home_recent'.tr()),
+              const SizedBox(height: T.s12),
+              Wrap(
+                spacing: T.s8,
+                runSpacing: T.s8,
+                children: [
+                  for (final r in _recentDrills)
+                    TacticalChip(
+                      label: r.label,
+                      selected: false,
+                      icon: Icons.history_rounded,
+                      onTap: () => _openRecent(r),
+                    ),
+                ],
+              ),
+              const SizedBox(height: T.s24),
+            ],
             // Two builders on one cached future, so the coach's own boards can
             // sit between what to run today and the categories — their work
             // belongs above a way of browsing somebody else's.
@@ -420,6 +442,18 @@ class _SportHomePageState extends State<SportHomePage> {
       onUpgrade: () => _openBoard(),
     );
   }
+
+  /// The drills the coach opened lately, newest first.
+  ///
+  /// Drills only. Their own saved boards have a section of their own below,
+  /// and a drill is the half of "recent" that has nowhere else to be found:
+  /// it is never saved — it is a starting shape to edit — so without this
+  /// the only way back to the one you ran on Tuesday is to remember its
+  /// name and search for it.
+  List<RecentBoard> get _recentDrills => _recent
+      .where((r) => r.kind == RecentBoardKind.drill)
+      .take(6)
+      .toList();
 
   /// The coach's own boards, the one they touched last at the top.
   ///
