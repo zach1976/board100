@@ -138,6 +138,75 @@ class _MainShellState extends State<MainShell> {
   }
 }
 
+/// The coach's face, or the next best thing. Public for its own test.
+///
+/// Three states, in the order they are worth having: the picture the
+/// provider gave (Google), the coach's own initials (Apple, which sends no
+/// picture, and any account whose photo will not load), and the generic
+/// person for someone who has not signed in. A silhouette where a name is
+/// already known says less than the name does.
+class AccountAvatar extends StatelessWidget {
+  final String? name;
+  final String? photo;
+  const AccountAvatar({super.key, this.name, this.photo});
+
+  static const _size = 46.0;
+
+  /// Up to two letters. "zach song" → "ZS"; a one-word or CJK name → its
+  /// first character, because the second character of 宋 is not an initial.
+  static String? _initials(String? raw) {
+    final parts = (raw ?? '')
+        .trim()
+        .split(RegExp(r'\s+'))
+        .where((w) => w.isNotEmpty)
+        .toList();
+    if (parts.isEmpty) return null;
+    final first = String.fromCharCode(parts.first.runes.first);
+    if (parts.length == 1) return first.toUpperCase();
+    final last = String.fromCharCode(parts.last.runes.first);
+    return (first + last).toUpperCase();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final initials = _initials(name);
+    Widget fallback() => Center(
+          child: initials == null
+              ? const Icon(Icons.person_outline_rounded,
+                  color: T.accent, size: 24)
+              : Text(initials,
+                  style: const TextStyle(
+                      color: T.accent,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700)),
+        );
+
+    return Container(
+      width: _size,
+      height: _size,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: T.accent.withValues(alpha: 0.14),
+        border: Border.all(color: T.accent.withValues(alpha: 0.4)),
+      ),
+      child: photo == null
+          ? fallback()
+          : Image.network(
+              photo!,
+              fit: BoxFit.cover,
+              width: _size,
+              height: _size,
+              // A card that is mostly one row must not jump when the picture
+              // arrives, and must not sit empty if it never does.
+              loadingBuilder: (_, child, progress) =>
+                  progress == null ? child : fallback(),
+              errorBuilder: (_, _, _) => fallback(),
+            ),
+    );
+  }
+}
+
 /// The bar itself.
 ///
 /// Drawn rather than taken from BottomNavigationBar: that widget brings
@@ -315,6 +384,7 @@ class _MinePageState extends State<_MinePage> {
           _AccountCard(
             name: auth.isLoggedIn ? (auth.userName ?? 'menu_login'.tr()) : null,
             email: auth.userEmail,
+            photo: auth.userPhoto,
             onTap: () => _push(const LoginPage()).then((_) {
               if (mounted) setState(() {});
             }),
@@ -409,8 +479,12 @@ const String kAppVersion = '2.0.0';
 class _AccountCard extends StatelessWidget {
   final String? name;
   final String? email;
+  /// Null for a signed-out coach and for every Apple account — Apple does
+  /// not hand out a picture. See AuthService.userPhoto.
+  final String? photo;
   final VoidCallback onTap;
-  const _AccountCard({this.name, this.email, required this.onTap});
+  const _AccountCard(
+      {this.name, this.email, this.photo, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -431,17 +505,7 @@ class _AccountCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              width: 46,
-              height: 46,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: T.accent.withValues(alpha: 0.14),
-                border: Border.all(color: T.accent.withValues(alpha: 0.4)),
-              ),
-              child: const Icon(Icons.person_outline_rounded,
-                  color: T.accent, size: 24),
-            ),
+            AccountAvatar(name: name, photo: photo),
             const SizedBox(width: T.s12),
             Expanded(
               child: Column(

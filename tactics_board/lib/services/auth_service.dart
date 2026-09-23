@@ -17,9 +17,16 @@ class AuthResult {
   final String? token;
   final String? name;
   final String? email;
+  final String? photo;
   final String? error;
 
-  AuthResult({this.success = false, this.token, this.name, this.email, this.error});
+  AuthResult(
+      {this.success = false,
+      this.token,
+      this.name,
+      this.email,
+      this.photo,
+      this.error});
 }
 
 class AuthService {
@@ -30,12 +37,22 @@ class AuthService {
   String? _token;
   String? _userName;
   String? _userEmail;
+  String? _userPhoto;
   bool _googleInitialized = false;
 
   bool get isLoggedIn => _token != null;
   String? get token => _token;
   String? get userName => _userName;
   String? get userEmail => _userEmail;
+
+  /// The coach's picture, when the provider gives one.
+  ///
+  /// Google does: the account carries a `photoUrl`, and the backend may know
+  /// a newer one. **Apple does not** — Sign in with Apple returns a name (on
+  /// the first login only), an email and the tokens, and deliberately never a
+  /// picture, so an Apple account's avatar stays null and the UI draws the
+  /// coach's initials instead. Null is the normal case, not a failure.
+  String? get userPhoto => _userPhoto;
 
   Future<AuthResult> loginWithGoogle() async {
     try {
@@ -74,7 +91,14 @@ class AuthService {
         _token = data['token'] as String?;
         _userName = data['user']?['display_name'] as String? ?? account.displayName;
         _userEmail = data['user']?['email'] as String? ?? account.email;
-        return AuthResult(success: true, token: _token, name: _userName, email: _userEmail);
+        _userPhoto = _cleanUrl(data['user']?['avatar_url'] as String?) ??
+            _cleanUrl(account.photoUrl);
+        return AuthResult(
+            success: true,
+            token: _token,
+            name: _userName,
+            email: _userEmail,
+            photo: _userPhoto);
       } else {
         return AuthResult(error: 'login_server_error');
       }
@@ -135,7 +159,15 @@ class AuthService {
         _userName = data['user']?['display_name'] as String? ??
             '${credential.givenName ?? ''} ${credential.familyName ?? ''}'.trim();
         _userEmail = data['user']?['email'] as String? ?? credential.email;
-        return AuthResult(success: true, token: _token, name: _userName, email: _userEmail);
+        // Apple sends no picture. Anything here came from the backend — the
+        // same account having signed in with Google before, say.
+        _userPhoto = _cleanUrl(data['user']?['avatar_url'] as String?);
+        return AuthResult(
+            success: true,
+            token: _token,
+            name: _userName,
+            email: _userEmail,
+            photo: _userPhoto);
       } else {
         return AuthResult(error: 'login_server_error');
       }
@@ -167,6 +199,15 @@ class AuthService {
     _token = null;
     _userName = null;
     _userEmail = null;
+    _userPhoto = null;
+  }
+
+  /// A url only if it is one worth handing to Image.network: an empty string
+  /// and a relative path both come back from APIs and both throw there.
+  static String? _cleanUrl(String? raw) {
+    final u = raw?.trim();
+    if (u == null || u.isEmpty) return null;
+    return u.startsWith('http://') || u.startsWith('https://') ? u : null;
   }
 
   String _generateNonce([int length = 32]) {
