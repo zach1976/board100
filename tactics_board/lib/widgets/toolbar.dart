@@ -1600,11 +1600,21 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   /// dynamically by `ElementUsageService.recentCount` — frequently-used
   /// pieces bubble to the front, rarely-used ones get tucked away.
   List<_MarkerEntry> _buildMarkerEntries() {
-    Widget shapeGlyph(MarkerShape shape, Color color) => SizedBox(
-          width: 28,
-          height: 28,
-          child: CustomPaint(painter: MarkerPainter(shape: shape, color: color)),
-        );
+    // The picker shows what the board will put down. Five markers ship as
+    // artwork — cone, ladder, hurdle, referee, coach — and this row drew all
+    // thirteen with MarkerPainter, so a coach chose a flat orange triangle
+    // and got a cone. The recolourable shapes keep their painter, because
+    // their colour is the point and a sprite cannot follow it.
+    Widget shapeGlyph(MarkerShape shape, Color color) {
+      final art = markerImageAsset(shape);
+      return SizedBox(
+        width: 28,
+        height: 28,
+        child: art != null
+            ? Image.asset(art, fit: BoxFit.contain)
+            : CustomPaint(painter: MarkerPainter(shape: shape, color: color)),
+      );
+    }
     Widget genderGlyph(PlayerGender g) => SizedBox(
           width: 28,
           height: 28,
