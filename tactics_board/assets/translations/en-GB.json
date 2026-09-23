@@ -148,6 +148,7 @@
   "add_label": "Add",
   "players": "Players",
   "objects": "Objects",
+  "focus_hint": "Following this one. Tap it again to see every route.",
   "first_run_hint": "Start by tapping {} to place players",
   "more": "More",
   "less": "Less",

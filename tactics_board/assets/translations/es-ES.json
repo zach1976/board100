@@ -171,6 +171,7 @@
   "add_label": "Añadir",
   "players": "Jugadores",
   "objects": "Objetos",
+  "focus_hint": "Siguiendo solo a este. Tócalo otra vez para ver todas.",
   "first_run_hint": "Empieza tocando {} para colocar jugadores",
   "more": "Más",
   "less": "Menos",

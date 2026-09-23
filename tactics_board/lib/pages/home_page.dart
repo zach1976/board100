@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'dart:io';
 import 'dart:ui' show FontFeature;
@@ -281,6 +282,10 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
           ),
         ),
+        // Last in the stack, so it is over the board and over the edit bar —
+        // which opens in the same breath as the selection this explains, and
+        // took the bottom of the screen with it.
+        const _FocusHint(),
               ],
             );
           },
@@ -3163,6 +3168,125 @@ class _PaywallSheetState extends State<_PaywallSheet> {
 /// One-time coach mark on a fresh install. The board opens empty, and nothing
 /// on it says where players come from — this bubble does, once, and never
 /// again after it is tapped away.
+/// Said once: selecting an element follows its route.
+///
+/// The focus rides on a gesture a coach already has — tap a player — which
+/// makes it free to reach and invisible to discover. Rather than give it a
+/// control of its own, the board says what happened the first time it
+/// happens, and never again.
+class _FocusHint extends StatefulWidget {
+  const _FocusHint();
+
+  @override
+  State<_FocusHint> createState() => _FocusHintState();
+}
+
+class _FocusHintState extends State<_FocusHint> {
+  static const _prefKey = 'focus_hint_seen';
+  bool _unseen = false;
+  bool _showing = false;
+  Timer? _hide;
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      if (!mounted) return;
+      if (prefs.getBool(_prefKey) != true) setState(() => _unseen = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _hide?.cancel();
+    super.dispose();
+  }
+
+  /// Seen is seen: the pref is written the moment it appears, not when it is
+  /// dismissed. A coach who reads it and taps elsewhere has been told.
+  void _markSeen() {
+    _unseen = false;
+    SharedPreferences.getInstance().then((p) => p.setBool(_prefKey, true));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Only for an element that has a route — selecting a cone fades nothing,
+    // so there is nothing to explain.
+    final onRoute = context.select<TacticsState, bool>((s) {
+      final id = s.selectedPlayerId;
+      if (id == null) return false;
+      for (final p in s.players) {
+        if (p.id == id) return p.moves.isNotEmpty;
+      }
+      return false;
+    });
+
+    if (_unseen && onRoute && !_showing) {
+      _showing = true;
+      _markSeen();
+      // Long enough to read, short enough not to become furniture.
+      _hide = Timer(const Duration(seconds: 6), () {
+        if (mounted) setState(() => _showing = false);
+      });
+    }
+    if (!_showing) return const SizedBox.shrink();
+    if (!onRoute) {
+      // They moved on before the timer did.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _showing) setState(() => _showing = false);
+      });
+      return const SizedBox.shrink();
+    }
+
+    // At the top, not the bottom. Selecting an element opens the edit bar
+    // over the bottom of the board, and the first version of this card was
+    // built, found by a test, and invisible underneath it. Here it is clear
+    // of the back button and the ⋯ above it, and of everything below.
+    return Positioned(
+      left: T.s16,
+      right: T.s16,
+      top: 72,
+      child: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 340),
+          padding: const EdgeInsets.fromLTRB(T.s16, T.s12, T.s8, T.s12),
+          decoration: BoxDecoration(
+            color: T.surface,
+            borderRadius: BorderRadius.circular(T.rMd),
+            border: Border.all(color: T.border),
+            boxShadow: T.shadowFloat,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.timeline_rounded, size: 18, color: T.accent),
+              const SizedBox(width: T.s8),
+              Flexible(
+                child: Text(
+                  'focus_hint'.tr(),
+                  maxLines: 2,
+                  style: const TextStyle(
+                      fontSize: 14, color: T.text, height: 1.3),
+                ),
+              ),
+              const SizedBox(width: T.s4),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => setState(() => _showing = false),
+                child: const Padding(
+                  padding: EdgeInsets.all(T.s4),
+                  child: Icon(Icons.close_rounded, color: T.textOff, size: 17),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _FirstRunHint extends StatefulWidget {
   const _FirstRunHint();
 

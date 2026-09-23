@@ -171,6 +171,7 @@
   "add_label": "Thêm",
   "players": "Cầu thủ",
   "objects": "Vật dụng",
+  "focus_hint": "Đang theo phần tử này. Chạm lại để xem mọi lộ trình.",
   "first_run_hint": "Bắt đầu bằng {} để đặt cầu thủ",
   "more": "Thêm",
   "less": "Thu gọn",

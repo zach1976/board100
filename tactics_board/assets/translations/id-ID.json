@@ -171,6 +171,7 @@
   "add_label": "Tambah",
   "players": "Pemain",
   "objects": "Objek",
+  "focus_hint": "Mengikuti yang ini. Ketuk lagi untuk semua rute.",
   "first_run_hint": "Mulai dengan {} untuk menempatkan pemain",
   "more": "Lainnya",
   "less": "Tutup",

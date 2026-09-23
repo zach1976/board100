@@ -173,6 +173,7 @@
   "add_label": "添加",
   "players": "球员",
   "objects": "器材",
+  "focus_hint": "正在跟踪这一个 · 再点一次看全部路线",
   "first_run_hint": "先点「{}」把球员放上场",
   "more": "更多",
   "less": "收起",
