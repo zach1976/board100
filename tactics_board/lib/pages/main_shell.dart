@@ -91,9 +91,11 @@ class _MainShellState extends State<MainShell> {
   }
 
   Future<void> _openBoard() async {
+    final state = context.read<TacticsState>();
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
+    await state.autosave();
     // Whatever happened on the board — a drill loaded, a board saved — is
     // news to the home tab's lists.
     if (mounted) setState(() => _homeRevision++);

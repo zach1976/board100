@@ -223,9 +223,14 @@ class _SportHomePageState extends State<SportHomePage> {
   }
 
   Future<void> _openBoard() async {
+    final state = context.read<TacticsState>();
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
+    // Walking back to the home page is not a decision to throw the edit
+    // away — see TacticsState.autosave. Awaited, so "my boards" is re-read
+    // after the file is on disk and not before it.
+    await state.autosave();
     if (mounted) {
       _refreshMine();
       setState(() {}); // the hero thumbnail is whatever they left behind
@@ -845,6 +850,26 @@ class _BoardCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (hasBoard) ...[
+                    // Which board it is. "Open the board" is the action; the
+                    // name is the answer to "which one am I going back to",
+                    // and a coach with four boards saved cannot tell that
+                    // from a button. Absent for a drill put on the board,
+                    // which has no name by design.
+                    if (state.currentTacticName case final n?
+                        when n.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 2, bottom: 6),
+                        child: Text(
+                          n,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                              color: T.textDim,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ],
                     TacticalButton(
                       label: 'home_open_board'.tr(),
                       icon: Icons.edit_outlined,

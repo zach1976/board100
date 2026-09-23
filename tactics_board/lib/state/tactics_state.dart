@@ -217,6 +217,30 @@ class TacticsState extends ChangeNotifier {
     unawaited(WorkingBoardService.instance.save(_sportType, payload));
   }
 
+  /// Write the board down on the way out.
+  ///
+  /// Two records, because they answer different questions. The working board
+  /// is "what was on the screen", kept per sport so the app reopens where the
+  /// coach left it — it is rate-limited while they draw, and this is the
+  /// flush that the last second of dragging would otherwise miss, since
+  /// walking back to the home page is not a pause and the pause handler
+  /// never runs.
+  ///
+  /// The named file is "Board 1", and is written only when this board has a
+  /// name. A drill loaded from the library clears that name on purpose, so
+  /// leaving cannot write a drill's shape over a board the coach saved.
+  Future<void> autosave() async {
+    saveWorkingBoard();
+    final name = currentTacticName;
+    if (name == null || name.isEmpty) return;
+    try {
+      await saveTactics(name);
+    } catch (_) {
+      // A board that will not write is not a reason to block the way back to
+      // the home page. The toolbar's own Save says so when they try there.
+    }
+  }
+
   void _initExternalDisplay() {
     _extChannel.setMethodCallHandler((call) async {
       if (call.method == 'externalDisplayStatus') {

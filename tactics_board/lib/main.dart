@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'ui/tokens.dart';
 import 'package:flutter/services.dart';
@@ -204,7 +206,10 @@ class _SaveOnPauseState extends State<_SaveOnPause>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
-      context.read<TacticsState>().saveWorkingBoard();
+      // autosave, not saveWorkingBoard: swiping the app away mid-edit loses
+      // the same work as walking back to the home page does, and the named
+      // file deserves the same last chance the working board gets.
+      unawaited(context.read<TacticsState>().autosave());
     }
   }
 
