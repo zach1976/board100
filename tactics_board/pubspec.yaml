@@ -104,6 +104,16 @@ flutter:
     - assets/icon/marker_hurdle.png
     - assets/icon/marker_referee.png
     - assets/icon/marker_coach.png
+    - assets/icon/marker_goal.png
+    - assets/icon/marker_minigoal.png
+    - assets/icon/marker_mannequin.png
+    - assets/icon/marker_pole.png
+    - assets/icon/marker_disc.png
+    - assets/icon/marker_ring.png
+    - assets/icon/marker_rebounder.png
+    - assets/icon/marker_bench.png
+    - assets/icon/marker_ballbag.png
+    - assets/icon/marker_flag.png
     - assets/icon/empty_history.png
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png

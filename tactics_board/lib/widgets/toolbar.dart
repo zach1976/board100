@@ -1718,6 +1718,19 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_ladder', 'marker_ladder'.tr(), MarkerShape.ladder, Colors.lime, 11),
       shapeEntry('marker_hurdle', 'marker_hurdle'.tr(), MarkerShape.hurdle, Colors.red, 12),
       shapeEntry('marker_arrow', 'marker_arrow'.tr(), MarkerShape.arrowMark, Colors.green, 13),
+      // The equipment that ships as artwork. The colour is still passed —
+      // shapeEntry wants one — but a sprite ignores it; it is there for the
+      // day one of these falls back to the painter.
+      shapeEntry('marker_goal', 'marker_goal'.tr(), MarkerShape.goal, Colors.white, 14),
+      shapeEntry('marker_minigoal', 'marker_minigoal'.tr(), MarkerShape.miniGoal, Colors.lightBlue, 15),
+      shapeEntry('marker_mannequin', 'marker_mannequin'.tr(), MarkerShape.mannequin, Colors.indigo, 16),
+      shapeEntry('marker_pole', 'marker_pole'.tr(), MarkerShape.pole, Colors.red, 17),
+      shapeEntry('marker_disc', 'marker_disc'.tr(), MarkerShape.disc, Colors.amber, 18),
+      shapeEntry('marker_ring', 'marker_ring'.tr(), MarkerShape.ring, Colors.pink, 19),
+      shapeEntry('marker_rebounder', 'marker_rebounder'.tr(), MarkerShape.rebounder, Colors.blueGrey, 20),
+      shapeEntry('marker_bench', 'marker_bench'.tr(), MarkerShape.bench, Colors.blueGrey, 21),
+      shapeEntry('marker_ballbag', 'marker_ballbag'.tr(), MarkerShape.ballBag, Colors.black54, 22),
+      shapeEntry('marker_flag', 'marker_flag'.tr(), MarkerShape.cornerFlag, Colors.yellow, 23),
     ];
   }
 

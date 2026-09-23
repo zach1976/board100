@@ -5,7 +5,16 @@ enum PlayerTeam { home, away, neutral }
 
 enum PlayerGender { male, female, unspecified }
 
-enum MarkerShape { none, circle, square, triangle, diamond, cone, text, zone, referee, coach, ladder, hurdle, arrowMark }
+/// Appended to, never reordered: a board stores `markerShape.index`, so
+/// inserting a value in the middle would turn every saved cone into
+/// something else.
+enum MarkerShape {
+  none, circle, square, triangle, diamond, cone, text, zone, referee,
+  coach, ladder, hurdle, arrowMark,
+  // 2026-09-23 — ten pieces of equipment that ship as artwork.
+  goal, miniGoal, mannequin, pole, disc, ring, rebounder, bench,
+  ballBag, cornerFlag,
+}
 
 // Distinct colors for move arrows/waypoints per player
 const _moveColors = [

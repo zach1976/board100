@@ -660,6 +660,16 @@ String? markerImageAsset(MarkerShape shape) => switch (shape) {
       MarkerShape.hurdle => packageAsset('assets/icon/marker_hurdle.png'),
       MarkerShape.referee => packageAsset('assets/icon/marker_referee.png'),
       MarkerShape.coach => packageAsset('assets/icon/marker_coach.png'),
+      MarkerShape.goal => packageAsset('assets/icon/marker_goal.png'),
+      MarkerShape.miniGoal => packageAsset('assets/icon/marker_minigoal.png'),
+      MarkerShape.mannequin => packageAsset('assets/icon/marker_mannequin.png'),
+      MarkerShape.pole => packageAsset('assets/icon/marker_pole.png'),
+      MarkerShape.disc => packageAsset('assets/icon/marker_disc.png'),
+      MarkerShape.ring => packageAsset('assets/icon/marker_ring.png'),
+      MarkerShape.rebounder => packageAsset('assets/icon/marker_rebounder.png'),
+      MarkerShape.bench => packageAsset('assets/icon/marker_bench.png'),
+      MarkerShape.ballBag => packageAsset('assets/icon/marker_ballbag.png'),
+      MarkerShape.cornerFlag => packageAsset('assets/icon/marker_flag.png'),
       _ => null,
     };
 
@@ -679,6 +689,19 @@ double markerArtScale(MarkerShape shape) => switch (shape) {
       MarkerShape.cone => 0.62,
       MarkerShape.hurdle => 0.82,
       MarkerShape.ladder => 2.3,
+      // A goal is the width of a penalty area's mouth and a disc is something
+      // you step over: the same rule as the cone and the ladder, applied to
+      // ten more objects. The grab box does not change.
+      MarkerShape.goal => 2.6,
+      MarkerShape.miniGoal => 1.5,
+      MarkerShape.rebounder => 1.5,
+      MarkerShape.bench => 1.9,
+      MarkerShape.mannequin => 1.0,
+      MarkerShape.pole => 1.05,
+      MarkerShape.cornerFlag => 1.0,
+      MarkerShape.ballBag => 0.8,
+      MarkerShape.ring => 0.85,
+      MarkerShape.disc => 0.6,
       _ => 1.0,
     };
 
@@ -936,6 +959,26 @@ class MarkerPainter extends CustomPainter {
         canvas.drawLine(Offset(cx + r * 0.1, cy - r * 0.35), Offset(cx + r * 0.4, cy), arrowPaint);
         canvas.drawLine(Offset(cx + r * 0.1, cy + r * 0.35), Offset(cx + r * 0.4, cy), arrowPaint);
       case MarkerShape.none:
+        break;
+      // The equipment that ships as artwork never reaches this painter — the
+      // widget draws its sprite instead. Named rather than left to a default
+      // so that adding a marker with no picture is a compile error here, not
+      // a blank space on someone's board.
+      case MarkerShape.goal:
+      case MarkerShape.miniGoal:
+      case MarkerShape.mannequin:
+      case MarkerShape.pole:
+      case MarkerShape.disc:
+      case MarkerShape.ring:
+      case MarkerShape.rebounder:
+      case MarkerShape.bench:
+      case MarkerShape.ballBag:
+      case MarkerShape.cornerFlag:
+      case MarkerShape.cone:
+      case MarkerShape.ladder:
+      case MarkerShape.hurdle:
+      case MarkerShape.referee:
+      case MarkerShape.coach:
         break;
     }
   }
