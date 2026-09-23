@@ -464,9 +464,11 @@ def game_family() -> list[Drill]:
             id=f"wp_game_{n}v{n}", category="ssg", minutes=15, rel=True,
             free=(n == 4),
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
-            home=[P(x, y + 0.10, str(i + 1), moves=[(x, y + 0.04, 0)])
+            # Half the ring on each pass. All of them on beat zero left the
+            # second pass travelling round a ring nobody was adjusting in.
+            home=[P(x, y + 0.10, str(i + 1), moves=[(x, y + 0.04, i % 2)])
                   for i, (x, y) in enumerate(spots)],
-            away=[P(x, y - 0.06, chr(65 + i), moves=[(x, y - 0.01, 0)])
+            away=[P(x, y - 0.06, chr(65 + i), moves=[(x, y - 0.01, i % 2)])
                   for i, (x, y) in enumerate(spots)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,

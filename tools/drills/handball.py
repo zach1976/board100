@@ -63,7 +63,15 @@ def warmup_family() -> list[Drill]:
     for key, label in specs:
         if key == "star_passing":
             spots = ring(5, 0.5, 0.40, 0.26, 0.13)
-            home = [P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.2, y, i % 2)])
+            # A beat each, round the star — not `i % 2`. The ball makes five
+            # passes, one a beat, and the whole point of star passing is that
+            # you follow the one you made: on `i % 2` the five of them had
+            # finished checking in by beat two and the ball went on being
+            # passed for three more beats between men standing still. Each
+            # steps in on the beat the pass is travelling to him.
+            home = [P(x, y, f"{i + 1}",
+                      moves=[(x + (0.5 - x) * 0.2, y,
+                              (i - 1) % len(spots))])
                     for i, (x, y) in enumerate(spots)]
             away = []
         elif key == "three_lane":
@@ -554,14 +562,19 @@ def game_family() -> list[Drill]:
             id=f"hb_game_{n}v{n}", category="ssg", minutes=15, rel=True,
             free=(n == 4),
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x + (0.5 - x) * 0.2, y - 0.04, 0)])
+            # Half the ring adjusts on each pass, not all of it on the
+            # first: with everyone moving on beat zero, the second pass went
+            # round an arc that had already stopped.
+            home=[P(x, y, f"{i + 1}",
+                    moves=[(x + (0.5 - x) * 0.2, y - 0.04, i % 2)])
                   for i, (x, y) in enumerate(spots)],
             # Goal-side of their man. The first version put the defence
             # *behind* the attack, so every board drew a defence that had
             # already been beaten and an open path to the keeper.
             away=[P(0.5 + (x - 0.5) * 0.8, max(y - 0.10, SIX + 0.02), "D",
-                    moves=[(0.5 + (x - 0.5) * 0.8, max(y - 0.05, SIX + 0.02), 0)])
-                  for x, y in spots]
+                    moves=[(0.5 + (x - 0.5) * 0.8, max(y - 0.05, SIX + 0.02),
+                            i % 2)])
+                  for i, (x, y) in enumerate(spots)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
             # two passes round the arc against matched defence
