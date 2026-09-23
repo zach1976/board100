@@ -670,6 +670,27 @@ String? markerImageAsset(MarkerShape shape) => switch (shape) {
       MarkerShape.bench => packageAsset('assets/icon/marker_bench.png'),
       MarkerShape.ballBag => packageAsset('assets/icon/marker_ballbag.png'),
       MarkerShape.cornerFlag => packageAsset('assets/icon/marker_flag.png'),
+      MarkerShape.hoop => packageAsset('assets/icon/marker_hoop.png'),
+      MarkerShape.net => packageAsset('assets/icon/marker_net.png'),
+      MarkerShape.antenna => packageAsset('assets/icon/marker_antenna.png'),
+      MarkerShape.racket => packageAsset('assets/icon/marker_racket.png'),
+      MarkerShape.paddle => packageAsset('assets/icon/marker_paddle.png'),
+      MarkerShape.shuttleTube =>
+        packageAsset('assets/icon/marker_shuttletube.png'),
+      MarkerShape.hopper => packageAsset('assets/icon/marker_hopper.png'),
+      MarkerShape.base => packageAsset('assets/icon/marker_base.png'),
+      MarkerShape.homePlate =>
+        packageAsset('assets/icon/marker_homeplate.png'),
+      MarkerShape.battingTee => packageAsset('assets/icon/marker_tee.png'),
+      MarkerShape.lScreen => packageAsset('assets/icon/marker_lscreen.png'),
+      MarkerShape.rugbyPosts => packageAsset('assets/icon/marker_posts.png'),
+      MarkerShape.tackleBag =>
+        packageAsset('assets/icon/marker_tacklebag.png'),
+      MarkerShape.hockeyStick => packageAsset('assets/icon/marker_stick.png'),
+      MarkerShape.floatingGoal =>
+        packageAsset('assets/icon/marker_floatinggoal.png'),
+      MarkerShape.laneRope => packageAsset('assets/icon/marker_lanerope.png'),
+      MarkerShape.chair => packageAsset('assets/icon/marker_chair.png'),
       _ => null,
     };
 
@@ -702,6 +723,23 @@ double markerArtScale(MarkerShape shape) => switch (shape) {
       MarkerShape.ballBag => 0.8,
       MarkerShape.ring => 0.85,
       MarkerShape.disc => 0.6,
+      MarkerShape.net => 2.6,
+      MarkerShape.rugbyPosts => 2.4,
+      MarkerShape.laneRope => 2.4,
+      MarkerShape.floatingGoal => 2.2,
+      MarkerShape.hoop => 2.0,
+      MarkerShape.lScreen => 1.6,
+      MarkerShape.hockeyStick => 1.3,
+      MarkerShape.racket => 1.1,
+      MarkerShape.antenna => 1.0,
+      MarkerShape.hopper => 1.0,
+      MarkerShape.tackleBag => 1.0,
+      MarkerShape.chair => 0.9,
+      MarkerShape.battingTee => 0.9,
+      MarkerShape.paddle => 0.8,
+      MarkerShape.base => 0.7,
+      MarkerShape.homePlate => 0.7,
+      MarkerShape.shuttleTube => 0.7,
       _ => 1.0,
     };
 
@@ -974,6 +1012,23 @@ class MarkerPainter extends CustomPainter {
       case MarkerShape.bench:
       case MarkerShape.ballBag:
       case MarkerShape.cornerFlag:
+      case MarkerShape.hoop:
+      case MarkerShape.net:
+      case MarkerShape.antenna:
+      case MarkerShape.racket:
+      case MarkerShape.paddle:
+      case MarkerShape.shuttleTube:
+      case MarkerShape.hopper:
+      case MarkerShape.base:
+      case MarkerShape.homePlate:
+      case MarkerShape.battingTee:
+      case MarkerShape.lScreen:
+      case MarkerShape.rugbyPosts:
+      case MarkerShape.tackleBag:
+      case MarkerShape.hockeyStick:
+      case MarkerShape.floatingGoal:
+      case MarkerShape.laneRope:
+      case MarkerShape.chair:
       case MarkerShape.cone:
       case MarkerShape.ladder:
       case MarkerShape.hurdle:

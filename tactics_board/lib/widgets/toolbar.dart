@@ -1595,6 +1595,30 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     Navigator.pop(sheetCtx);
   }
 
+  /// The translation key and the usage key for a sport's own equipment.
+  /// One name for both, so a piece that moves between sports keeps the
+  /// order a coach put it in.
+  static String _markerKey(MarkerShape m) => switch (m) {
+        MarkerShape.hoop => 'marker_hoop',
+        MarkerShape.net => 'marker_net',
+        MarkerShape.antenna => 'marker_antenna',
+        MarkerShape.racket => 'marker_racket',
+        MarkerShape.paddle => 'marker_paddle',
+        MarkerShape.shuttleTube => 'marker_shuttletube',
+        MarkerShape.hopper => 'marker_hopper',
+        MarkerShape.base => 'marker_base',
+        MarkerShape.homePlate => 'marker_homeplate',
+        MarkerShape.battingTee => 'marker_tee',
+        MarkerShape.lScreen => 'marker_lscreen',
+        MarkerShape.rugbyPosts => 'marker_posts',
+        MarkerShape.tackleBag => 'marker_tacklebag',
+        MarkerShape.hockeyStick => 'marker_stick',
+        MarkerShape.floatingGoal => 'marker_floatinggoal',
+        MarkerShape.laneRope => 'marker_lanerope',
+        MarkerShape.chair => 'marker_chair',
+        _ => 'marker_circle',
+      };
+
   /// Build the unified list of orderable marker / neutral-player entries.
   /// Their order in the inline row vs. the More section is decided
   /// dynamically by `ElementUsageService.recentCount` — frequently-used
@@ -1731,6 +1755,17 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_bench', 'marker_bench'.tr(), MarkerShape.bench, Colors.blueGrey, 21),
       shapeEntry('marker_ballbag', 'marker_ballbag'.tr(), MarkerShape.ballBag, Colors.black54, 22),
       shapeEntry('marker_flag', 'marker_flag'.tr(), MarkerShape.cornerFlag, Colors.yellow, 23),
+      // And this sport's own equipment, which no other sport's sheet shows.
+      // See SportType.markers: thirty-two pieces in one list is not a list,
+      // it is a search.
+      for (var i = 0; i < state.sportType.markers.length; i++)
+        shapeEntry(
+          _markerKey(state.sportType.markers[i]),
+          _markerKey(state.sportType.markers[i]).tr(),
+          state.sportType.markers[i],
+          Colors.white,
+          24 + i,
+        ),
     ];
   }
 

@@ -14,6 +14,11 @@ enum MarkerShape {
   // 2026-09-23 — ten pieces of equipment that ship as artwork.
   goal, miniGoal, mannequin, pole, disc, ring, rebounder, bench,
   ballBag, cornerFlag,
+  // 2026-09-23 — and seventeen that belong to particular sports. Which
+  // sport gets which is SportType.markers, not this list.
+  hoop, net, antenna, racket, paddle, shuttleTube, hopper, base, homePlate,
+  battingTee, lScreen, rugbyPosts, tackleBag, hockeyStick, floatingGoal,
+  laneRope, chair,
 }
 
 // Distinct colors for move arrows/waypoints per player

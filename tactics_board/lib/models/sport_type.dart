@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
+import 'player_icon.dart';
 import 'court_layout.dart';
 import 'drill.dart' show DrillVocabulary;
 import 'sport_formation.dart';
@@ -356,6 +358,66 @@ extension SportTypeExtension on SportType {
   bool get hasCourtPicker =>
       this != SportType.soccer &&
       (courtSurfaces.length > 1 || courtLayouts.length > 1);
+
+  /// The sport-specific equipment this sport's Add sheet offers.
+  ///
+  /// Fifteen markers are shared by everybody — cones, people, goals, the
+  /// things on a sideline — and are not listed here. These are the pieces
+  /// that only make sense somewhere: a home plate has no business in a
+  /// soccer coach's sheet, and thirty-two pieces in one list is not a list
+  /// any more, it is a search.
+  ///
+  /// A piece may belong to several sports. The net is the clearest case —
+  /// six sports play over one — and a chair is a basketball drill's cone.
+  List<MarkerShape> get markers {
+    switch (this) {
+      case SportType.basketball:
+        return const [MarkerShape.hoop, MarkerShape.chair];
+      case SportType.badminton:
+        return const [
+          MarkerShape.net,
+          MarkerShape.racket,
+          MarkerShape.shuttleTube,
+        ];
+      case SportType.tableTennis:
+        return const [MarkerShape.net, MarkerShape.paddle];
+      case SportType.tennis:
+        return const [MarkerShape.net, MarkerShape.racket, MarkerShape.hopper];
+      case SportType.pickleball:
+        return const [
+          MarkerShape.net,
+          MarkerShape.paddle,
+          MarkerShape.hopper,
+        ];
+      case SportType.beachTennis:
+        return const [
+          MarkerShape.net,
+          MarkerShape.paddle,
+          MarkerShape.racket,
+          MarkerShape.hopper,
+        ];
+      case SportType.volleyball:
+      case SportType.footvolley:
+      case SportType.sepakTakraw:
+        return const [MarkerShape.net, MarkerShape.antenna];
+      case SportType.baseball:
+        return const [
+          MarkerShape.base,
+          MarkerShape.homePlate,
+          MarkerShape.battingTee,
+          MarkerShape.lScreen,
+        ];
+      case SportType.rugby:
+        return const [MarkerShape.rugbyPosts, MarkerShape.tackleBag];
+      case SportType.fieldHockey:
+        return const [MarkerShape.hockeyStick];
+      case SportType.waterPolo:
+        return const [MarkerShape.floatingGoal, MarkerShape.laneRope];
+      case SportType.soccer:
+      case SportType.handball:
+        return const [];
+    }
+  }
 
   /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
   double get netY => 0.5;

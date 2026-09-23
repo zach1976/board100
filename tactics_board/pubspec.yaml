@@ -114,6 +114,23 @@ flutter:
     - assets/icon/marker_bench.png
     - assets/icon/marker_ballbag.png
     - assets/icon/marker_flag.png
+    - assets/icon/marker_hoop.png
+    - assets/icon/marker_net.png
+    - assets/icon/marker_antenna.png
+    - assets/icon/marker_racket.png
+    - assets/icon/marker_paddle.png
+    - assets/icon/marker_shuttletube.png
+    - assets/icon/marker_hopper.png
+    - assets/icon/marker_base.png
+    - assets/icon/marker_homeplate.png
+    - assets/icon/marker_tee.png
+    - assets/icon/marker_lscreen.png
+    - assets/icon/marker_posts.png
+    - assets/icon/marker_tacklebag.png
+    - assets/icon/marker_stick.png
+    - assets/icon/marker_floatinggoal.png
+    - assets/icon/marker_lanerope.png
+    - assets/icon/marker_chair.png
     - assets/icon/empty_history.png
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png
