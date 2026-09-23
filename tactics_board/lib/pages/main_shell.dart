@@ -40,6 +40,11 @@ class MainShell extends StatefulWidget {
 class _MainShellState extends State<MainShell> {
   int _tab = 0;
 
+  /// Bumped whenever the home tab comes back into view, so its lists — the
+  /// recent drills, the coach's own boards — are re-read. See
+  /// SportHomePage.revision.
+  int _homeRevision = 0;
+
   /// Whether the intro still has to be shown, or null while we are asking.
   ///
   /// The gate belongs here rather than inside the home page. SportHomePage is
@@ -89,7 +94,9 @@ class _MainShellState extends State<MainShell> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
-    if (mounted) setState(() {});
+    // Whatever happened on the board — a drill loaded, a board saved — is
+    // news to the home tab's lists.
+    if (mounted) setState(() => _homeRevision++);
   }
 
   @override
@@ -114,7 +121,7 @@ class _MainShellState extends State<MainShell> {
         children: [
           // The intro is gated here, above the Scaffold; the page must not
           // gate it again inside the tab. See SportHomePage.gateIntro.
-          const SportHomePage(gateIntro: false),
+          SportHomePage(gateIntro: false, revision: _homeRevision),
           // Built once, kept alive: the library holds a search box, a scroll
           // position and a set of filters, and a coach who taps away to check
           // a board expects to come back to the list they had, not to the top
@@ -131,7 +138,10 @@ class _MainShellState extends State<MainShell> {
             _boardTab();
             return;
           }
-          setState(() => _tab = i > 1 ? i - 1 : i);
+          setState(() {
+            _tab = i > 1 ? i - 1 : i;
+            if (_tab == 0) _homeRevision++;
+          });
         },
       ),
     );

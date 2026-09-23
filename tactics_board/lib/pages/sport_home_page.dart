@@ -105,7 +105,18 @@ class SportHomePage extends StatefulWidget {
   /// an onboarding page that has nothing to switch between.
   final bool gateIntro;
 
-  const SportHomePage({super.key, this.gateIntro = true});
+  /// Bumped by [MainShell] whenever this page becomes the visible tab.
+  ///
+  /// The lists here are read once, in initState — and inside an IndexedStack
+  /// this page is never built again, so a drill put on the board from the
+  /// Drills tab, or a board saved while away, was invisible here until the
+  /// app was restarted. A number that changes is the smallest thing that can
+  /// say "look again"; the sport picker pushes this page on its own, where
+  /// it stays 0 and nothing asks.
+  final int revision;
+
+  const SportHomePage(
+      {super.key, this.gateIntro = true, this.revision = 0});
 
   @override
   State<SportHomePage> createState() => _SportHomePageState();
@@ -149,6 +160,12 @@ class _SportHomePageState extends State<SportHomePage> {
     _drills.then((all) {
       if (mounted) setState(() => _drillCount = all.length);
     }).catchError((_) => <Drill>[]);
+  }
+
+  @override
+  void didUpdateWidget(SportHomePage old) {
+    super.didUpdateWidget(old);
+    if (widget.revision != old.revision) _refreshMine();
   }
 
   void _refreshMine() {
