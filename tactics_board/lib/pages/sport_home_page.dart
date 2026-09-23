@@ -39,11 +39,17 @@ import 'practice_plan_page.dart';
 /// as the thing it opens rather than a menu item.
 /// Whether there is a board to carry on with.
 ///
-/// A first run has none: no players, no strokes, one empty page. Both the
-/// home card and the tab bar ask this, because with nothing drawn yet
-/// "open the board" and "new board" would open the very same empty pitch —
-/// one of them under a label promising the coach their own work.
+/// A first run has none: nothing named, nothing drawn, one empty page. Both
+/// the home card and the tab bar ask this, because with nothing yet "open
+/// the board" and "new board" would open the very same empty pitch — one of
+/// them under a label promising the coach their own work.
+///
+/// A name counts on its own. A board the coach has just made and called
+/// "Board 1" is theirs even before they have drawn on it, and answering "no"
+/// there left them looking at it in "my boards" with no way back to it but
+/// to make another one.
 bool hasWorkingBoard(TacticsState state) =>
+    state.currentTacticName != null ||
     state.players.isNotEmpty ||
     state.strokes.isNotEmpty ||
     state.pageCount > 1;

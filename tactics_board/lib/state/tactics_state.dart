@@ -191,6 +191,11 @@ class TacticsState extends ChangeNotifier {
     _restoring = true;
     try {
       loadFromJson(json);
+      // Which board it is, not only what is on it. Without the name a board
+      // the coach made and left empty came back as "no board" on the next
+      // launch, and the home card stopped offering to open it.
+      final name = json['currentName'];
+      if (name is String && name.isNotEmpty) currentTacticName = name;
     } catch (_) {
       // A board from an older schema. Starting empty is the old behaviour,
       // and better than a crash on launch.
@@ -203,7 +208,13 @@ class TacticsState extends ChangeNotifier {
   void saveWorkingBoard() {
     if (_preview) return;
     _lastSave = DateTime.now();
-    unawaited(WorkingBoardService.instance.save(_sportType, toJson()));
+    final payload = toJson();
+    final name = currentTacticName;
+    // Carried beside the board rather than inside toJson(): a saved .json is
+    // named by its file, and writing the name into the document too would
+    // give "save as" two answers to disagree about.
+    if (name != null && name.isNotEmpty) payload['currentName'] = name;
+    unawaited(WorkingBoardService.instance.save(_sportType, payload));
   }
 
   void _initExternalDisplay() {
