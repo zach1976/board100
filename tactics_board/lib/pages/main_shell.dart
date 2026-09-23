@@ -13,6 +13,7 @@ import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
 import 'drill_library_page.dart';
 import 'home_page.dart';
+import 'intro_page.dart';
 import 'practice_plan_page.dart';
 import 'sport_home_page.dart';
 
@@ -39,6 +40,39 @@ class MainShell extends StatefulWidget {
 class _MainShellState extends State<MainShell> {
   int _tab = 0;
 
+  /// Whether the intro still has to be shown, or null while we are asking.
+  ///
+  /// The gate belongs here rather than inside the home page. SportHomePage is
+  /// in two places: pushed on its own by the sport picker, where returning the
+  /// intro from its build replaces the whole screen, and as this shell's first
+  /// tab, where the same return only replaces the *body* — leaving the tab bar
+  /// sitting under an onboarding page that has nothing to switch between.
+  /// Above the Scaffold there is nothing to leave behind.
+  bool? _intro;
+
+  /// How many drills this sport has, for the intro's second panel.
+  ///
+  /// Without it that panel falls back to its countless wording. The home page
+  /// passes the number when it shows the intro itself, and a coach who lands
+  /// here instead should read the same sentence.
+  int? _drillCount;
+
+  @override
+  void initState() {
+    super.initState();
+    IntroPage.shouldShow().then((show) {
+      if (mounted) setState(() => _intro = show);
+    });
+    DrillLibraryService.instance
+        .forSport(context.read<TacticsState>().sportType)
+        .then((all) {
+      if (mounted) setState(() => _drillCount = all.length);
+    }).catchError((Object _) {
+      // No library is not a reason to hold the intro back; the panel
+      // just keeps its countless wording.
+    });
+  }
+
   Future<void> _openBoard() async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
@@ -49,12 +83,26 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
+    // Hold the empty background rather than flashing the tabs for one frame
+    // while the preference is read.
+    if (_intro == null) {
+      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+    }
+    if (_intro == true) {
+      return IntroPage(
+        sportType: state.sportType,
+        drillCount: _drillCount,
+        onDone: () => setState(() => _intro = false),
+      );
+    }
     return Scaffold(
       backgroundColor: T.bg0,
       body: IndexedStack(
         index: _tab,
         children: [
-          const SportHomePage(),
+          // The intro is gated here, above the Scaffold; the page must not
+          // gate it again inside the tab. See SportHomePage.gateIntro.
+          const SportHomePage(gateIntro: false),
           // Built once, kept alive: the library holds a search box, a scroll
           // position and a set of filters, and a coach who taps away to check
           // a board expects to come back to the list they had, not to the top

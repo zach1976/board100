@@ -36,7 +36,19 @@ import 'practice_plan_page.dart';
 /// on. This page puts both of those first and keeps the board one tap away,
 /// as the thing it opens rather than a menu item.
 class SportHomePage extends StatefulWidget {
-  const SportHomePage({super.key});
+  /// Whether this page decides for itself that the intro still has to run.
+  ///
+  /// True when the sport picker pushes it: there is nothing above it then,
+  /// so returning the intro from its build replaces the whole screen, which
+  /// is what the intro wants. False inside [MainShell], which holds the same
+  /// gate one level up — asked in both places, the two answers can differ for
+  /// one launch (the first call is the one racing plugin start-up, and
+  /// [IntroPage.shouldShow] answers "no" when prefs fail rather than showing
+  /// the intro forever), and the shell's tab bar is then left sitting under
+  /// an onboarding page that has nothing to switch between.
+  final bool gateIntro;
+
+  const SportHomePage({super.key, this.gateIntro = true});
 
   @override
   State<SportHomePage> createState() => _SportHomePageState();
@@ -70,9 +82,13 @@ class _SportHomePageState extends State<SportHomePage> {
     final state = context.read<TacticsState>();
     _drills = DrillLibraryService.instance.forSport(state.sportType);
     _refreshMine();
-    IntroPage.shouldShow().then((show) {
-      if (mounted) setState(() => _intro = show);
-    });
+    if (widget.gateIntro) {
+      IntroPage.shouldShow().then((show) {
+        if (mounted) setState(() => _intro = show);
+      });
+    } else {
+      _intro = false; // MainShell has already run it
+    }
     _drills.then((all) {
       if (mounted) setState(() => _drillCount = all.length);
     }).catchError((_) => <Drill>[]);
