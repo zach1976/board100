@@ -457,6 +457,7 @@
   "practice_add_to_plan": "Ajouter à une séance",
   "practice_added_to": "Ajouté à {}",
   "practice_add_short": "Au plan",
+  "board_name_default_prefix": "Tableau",
   "board_name_title": "Nommez ce tableau",
   "board_name_exists": "Un tableau porte déjà ce nom",
   "anim_setup": "Départ",

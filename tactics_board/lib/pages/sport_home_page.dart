@@ -63,9 +63,21 @@ Future<bool> createNamedBoard(BuildContext context, {Set<String>? taken}) async 
   final names =
       taken ?? (await state.listSavedTacticMetas()).map((m) => m.name).toSet();
   if (!context.mounted) return false;
+  // A name is offered, not demanded. The board has to be named before it
+  // exists, which is right — but a coach who wants a pitch to draw on should
+  // not have to invent a word first, and an empty field with a dead Apply
+  // button asks them to. Numbered from what is already saved and past
+  // anything that would clash, so Apply works on the first tap; the field
+  // opens with it selected, so typing replaces it.
+  final base = 'board_name_default_prefix'.tr();
+  var n = names.length + 1;
+  while (names.contains('$base $n')) {
+    n++;
+  }
   final name = await promptForName(
     context,
     title: 'board_name_title'.tr(),
+    initial: '$base $n',
     taken: names,
     takenMessage: 'board_name_exists'.tr(),
   );

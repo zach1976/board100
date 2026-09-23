@@ -895,6 +895,13 @@ Future<String?> promptForName(
   String? takenMessage,
 }) {
   final ctrl = TextEditingController(text: initial);
+  // A suggested name is a suggestion: selected, so the first keystroke
+  // replaces it rather than landing beside it. Without this a coach who
+  // wanted their own name for the board got "Board 1Tuesday shape".
+  if (initial.isNotEmpty) {
+    ctrl.selection =
+        TextSelection(baseOffset: 0, extentOffset: initial.length);
+  }
   return showDialog<String>(
     context: context,
     builder: (ctx) => StatefulBuilder(
