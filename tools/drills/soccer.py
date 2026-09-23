@@ -3387,10 +3387,17 @@ def overload_family() -> list[Drill]:
             rel=True, free=(att == 4),
             name=suffixed(OVERLOAD_NAME, f"{att}v{dfn}"), note=OVERLOAD_NOTE,
             flow=RONDO_RULES,
+            # A beat each, spread over the whole circuit — not `i % 2`.
+            # The ball goes all the way round, one pass a beat, so with six
+            # attackers it is still travelling on beat six while every player
+            # had finished adjusting on beat two: four beats of a possession
+            # drill in which nobody possesses anything. Each attacker now
+            # shifts as the ball reaches the next man, and the defenders'
+            # hunts are spread across the same circuit.
             home=[P(x, y, chr(65 + i),
-                    moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i % 2)])
+                    moves=[(x + (0.5 - x) * 0.12, y + (0.55 - y) * 0.12, i)])
                   for i, (x, y) in enumerate(a)],
-            away=[P(x, y, f"X{i + 1}", moves=[(*hunt[i], i % 2)])
+            away=[P(x, y, f"X{i + 1}", moves=[(*hunt[i], i * att // dfn)])
                   for i, (x, y) in enumerate(d)],
             markers=[M(0.5 + sx * rx * 1.05, 0.55 + sy * ry * 1.05)
                      for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))],
