@@ -538,8 +538,32 @@ class TacticsState extends ChangeNotifier {
     }
   }
 
+  /// Whether beat zero draws the whole plan. Off by default.
+  ///
+  /// The same reasoning setShowMoveLines already records for the drill page,
+  /// applied to the board itself: beat zero showing every planned run at
+  /// once is what an author wants while laying a drill out, and the opposite
+  /// of what a reader wants — the first thing they see should be where
+  /// everybody stands, not where everybody is going. Eight players' arrows
+  /// crossing the centre circle is a knot, and it was the board's opening
+  /// picture. The button turns it on; so does selecting one element, which
+  /// draws that element's route and nobody else's.
+  ///
+  /// View state, not the document: it is not saved with the board, because
+  /// it is about what this coach is looking at now.
+  bool _showPlanAtStart = false;
+  bool get showPlanAtStart => _showPlanAtStart;
+
   void toggleShowMoveLines() {
-    _showMoveLines = !_showMoveLines;
+    // One button, one word — "routes" — and what that means depends on what
+    // the board is showing. On beat zero the routes are the whole plan; on
+    // any other beat they are that beat's legs, which is the beat itself and
+    // stays on by default.
+    if (atStep == 0 && targetStep == 0) {
+      _showPlanAtStart = !_showPlanAtStart;
+    } else {
+      _showMoveLines = !_showMoveLines;
+    }
     notifyListeners();
   }
 

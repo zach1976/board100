@@ -125,11 +125,17 @@ class PlayerMovesPainter extends CustomPainter {
   /// because of where the others went must still be readable against them.
   final String? focusId;
 
+  /// Draw nothing but the followed route. Beat zero is a picture of where
+  /// everybody stands; the plan behind it is shown on request, and following
+  /// one element is that request narrowed to one.
+  final bool onlyFocus;
+
   const PlayerMovesPainter({
     required this.players,
     this.targetStep = 0,
     this.completedSteps,
     this.focusId,
+    this.onlyFocus = false,
   });
 
   /// The focused element, but only when it has a route to follow — selecting
@@ -146,8 +152,10 @@ class PlayerMovesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final focus = _focus;
+    if (onlyFocus && focus == null) return;
     for (final player in players) {
       if (player.moves.isEmpty) continue;
+      if (onlyFocus && player.id != focus!.id) continue;
       if (player.isBall && ballTravelsWithPlayers(player, players)) continue;
       if (focus == null) {
         _paintMoves(canvas, player);
@@ -169,6 +177,13 @@ class PlayerMovesPainter extends CustomPainter {
   static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
   void _paintMoves(Canvas canvas, PlayerIcon player, {bool whole = false}) {
+    // The route being followed is drawn at full strength for its whole
+    // length. Every other arrow fades from 30% at its source to full colour
+    // at its destination — a sense of direction that costs nothing when the
+    // arrow is one of twenty, and costs the picture when it is the only one
+    // a coach asked to see: a short run is mostly source, so the line a
+    // coach had just selected was the palest thing on the pitch.
+    final strong = whole;
     final color = player.moveColor;
     player.syncPhases();
 
@@ -196,7 +211,7 @@ class PlayerMovesPainter extends CustomPainter {
       final endRadius = isLastSegment ? iconRadius : _waypointRadius;
       final dist = (to - from).distance;
       if (dist < nudgeThreshold(player)) {
-        _drawNudge(canvas, color, from, to, endRadius);
+        _drawNudge(canvas, color, from, to, endRadius, strong: strong);
         continue;
       }
       // Two tokens far enough apart to read can still be closer than the two
@@ -206,8 +221,10 @@ class PlayerMovesPainter extends CustomPainter {
       final room = min(1.0, dist / (startRadius + endRadius + 10));
       final adjustedFrom = _offsetToward(from, to, startRadius * room);
       final adjustedTo = _offsetToward(to, from, endRadius * room);
-      _drawDashedLine(canvas, color, adjustedFrom, adjustedTo);
-      _drawArrowHead(canvas, color, adjustedFrom, adjustedTo);
+      _drawDashedLine(canvas, color, adjustedFrom, adjustedTo,
+          strong: strong);
+      _drawArrowHead(canvas, color, adjustedFrom, adjustedTo,
+          strong: strong);
     }
 
   }
@@ -215,16 +232,16 @@ class PlayerMovesPainter extends CustomPainter {
   /// The stub for a move the icons are too big to show — see
   /// [nudgeThreshold]. It ends where the conventional arrow would, just clear
   /// of the destination, and runs back from there far enough to be read.
-  void _drawNudge(
-      Canvas canvas, Color color, Offset from, Offset to, double endRadius) {
+  void _drawNudge(Canvas canvas, Color color, Offset from, Offset to,
+      double endRadius, {bool strong = false}) {
     final delta = to - from;
     final dist = delta.distance;
     if (dist < 0.5) return;
     final dir = delta / dist;
     final tip = to - dir * endRadius;
     final tail = tip - dir * 17.0;
-    _drawDashedLine(canvas, color, tail, tip);
-    _drawArrowHead(canvas, color, tail, tip);
+    _drawDashedLine(canvas, color, tail, tip, strong: strong);
+    _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
   void _drawStartMarker(Canvas canvas, Color color, Offset center) {
@@ -256,26 +273,27 @@ class PlayerMovesPainter extends CustomPainter {
     return Offset(from.dx + dx / dist * radius, from.dy + dy / dist * radius);
   }
 
-  void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to) {
+  void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to,
+      {bool strong = false}) {
+    final width = strong ? _strokeWidth + 1.0 : _strokeWidth;
     // A darker edge, not a shadow. Every path used to carry a black halo
     // at 50%, which on a deeper pitch reads as a second thicker line beside
     // the first; 28% is enough to hold the arrow against grass and white
     // pitch markings both.
     final outlinePaint = Paint()
-      ..color = const Color(0x47000000)
-      ..strokeWidth = _strokeWidth + 1.6
+      ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
+      ..strokeWidth = width + 1.6
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
     // Gradient tail: faded at the source, full color near the destination —
     // gives a sense of direction/recency without changing the dashed style.
     final linePaint = Paint()
-      ..shader = ui.Gradient.linear(
-        from,
-        to,
-        [color.withValues(alpha: 0.30), color],
-      )
-      ..strokeWidth = _strokeWidth
+      ..shader = strong
+          ? null
+          : ui.Gradient.linear(from, to, [color.withValues(alpha: 0.30), color])
+      ..color = color
+      ..strokeWidth = width
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -301,19 +319,21 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  void _drawArrowHead(Canvas canvas, Color color, Offset from, Offset to) {
+  void _drawArrowHead(Canvas canvas, Color color, Offset from, Offset to,
+      {bool strong = false}) {
     final angle = atan2(to.dy - from.dy, to.dx - from.dx);
+    final size = strong ? _arrowSize + 2 : _arrowSize;
 
-    final outlinePath = _arrowPath(to, angle, _arrowSize + 3);
+    final outlinePath = _arrowPath(to, angle, size + 3);
     canvas.drawPath(
       outlinePath,
       Paint()
-        ..color = const Color(0x47000000)
+        ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
         ..style = PaintingStyle.fill,
     );
 
     canvas.drawPath(
-      _arrowPath(to, angle, _arrowSize),
+      _arrowPath(to, angle, size),
       Paint()
         ..color = color
         ..style = PaintingStyle.fill,
@@ -339,5 +359,6 @@ class PlayerMovesPainter extends CustomPainter {
       oldDelegate.completedSteps != completedSteps ||
       oldDelegate.targetStep != targetStep ||
       oldDelegate.players != players ||
-      oldDelegate.focusId != focusId;
+      oldDelegate.focusId != focusId ||
+      oldDelegate.onlyFocus != onlyFocus;
 }

@@ -5155,7 +5155,11 @@ class _LinesToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final show = state.showMoveLines;
+    // On beat zero the routes are the whole plan, off by default; on any
+    // other beat they are that beat's legs, which is the beat itself and is
+    // on by default. One button, one word — see toggleShowMoveLines.
+    final atStart = state.atStep == 0 && state.targetStep == 0;
+    final show = atStart ? state.showPlanAtStart : state.showMoveLines;
     // Hiding the run lines is a temporary view state, not a destructive one:
     // it used to be flagged in danger red, which put the loudest colour in
     // the app on a button that only cleans up the board for a screenshot.

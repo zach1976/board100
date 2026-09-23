@@ -704,6 +704,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     /// element got its whole route and a ghost from the beat on show, so on
     /// any beat but its own the arrow set off from a patch of empty grass:
     /// the run was drawn and the man who made it was not.
+    /// Whether [p]'s route is drawn at all.
+    ///
+    /// Beat zero is a picture of where everybody stands, so it draws no
+    /// routes — unless the coach asked for the plan, or is following this
+    /// element, which is the other way of asking for exactly one route.
+    bool routeShown(PlayerIcon p) {
+      if (!state.showMoveLines) return false;
+      if (stepLimit > 0 || state.isAnimating) return true;
+      return state.showPlanAtStart || state.selectedPlayerId == p.id;
+    }
+
     int limitFor(PlayerIcon p) =>
         (!state.isAnimating &&
                 state.selectedPlayerId == p.id &&
@@ -811,8 +822,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // left (every rotation drill) the ghost used to paint over
                   // him, so the board showed the man who had gone instead of
                   // the man who arrived.
-                  if (state.showMoveLines)
-                    ...players.where((p) => p.moves.isNotEmpty).where((p) {
+                  ...players
+                      .where((p) => p.moves.isNotEmpty && routeShown(p))
+                      .where((p) {
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
@@ -908,8 +920,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   // step-forward tap doesn't flash every middle dot off and
                   // back on. The phaseLimit filter (driven by atStep) still
                   // hides phases that haven't started yet.
-                  if (state.showMoveLines)
-                    ...players.expand((player) {
+                  ...players.where(routeShown).expand((player) {
                       // The legs of the beat on show, keyed by their index
                       // in the chain so a dot still selects its own waypoint.
                       final legs = stepLegs(player, stepLimit);
@@ -967,6 +978,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           // and it must not dim because someone touched the
                           // phone.
                           focusId: state.selectedPlayerId,
+                          // Beat zero draws nothing but the one route a
+                          // coach asked for — see routeShown above.
+                          onlyFocus: stepLimit == 0 &&
+                              !state.isAnimating &&
+                              !state.showPlanAtStart,
                           targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
                           // The leg being run is the one to draw: going
                           // forward that is the beat after the ones done.
