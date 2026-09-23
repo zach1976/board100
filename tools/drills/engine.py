@@ -1143,6 +1143,27 @@ FEET_PT = 24.0
 # 2026-09-07: space_out() applies the rule to every sport.
 SPACING_UNCHECKED: set[str] = set()
 
+# Drills where the ball may travel alone mid-sequence, checked one by one
+# on 2026-09-23 against what each is a picture of.
+BALL_ALONE_OK: set[str] = {
+    # The ball is in the air and out of everybody's reach: a cross and the
+    # header that clears it, a serve or a lob crossing the net while the
+    # other side reads its flight, a penalty.
+    "setpiece_defend_corner", "header_defensive", "finish_penalty_routine",
+    "bt_defence_the_block", "bt_defence_the_lob", "bt_defence_the_drop",
+    "pb_attack_lob", "tn_serve_second", "vb_cover_hitter", "vb_warm_butterfly",
+    # A receiver moves on the beat BEFORE the pass reaches him, so the beat
+    # it arrives on is his standing still on purpose.
+    "goalkick_short", "goalkick_full_back", "bb_catch_and_shoot",
+    "bb_press_break", "bb_post_kick_out", "fh_entry_baseline",
+    "fh_entry_three_v_two", "fh_entry_give_and_go",
+    # "B never moves — he is the server": the drill's own comment.
+    "warmup_first_touch_gate",
+    # The ball swings twice and the zone shifts once, which is the picture:
+    # the second swing is the one the zone is late to.
+    "bb_zone_two_three",
+}
+
 
 def at_the_feet_of(x: float, y: float, sport: str,
                    heading: tuple[float, float] | None = None
@@ -1272,6 +1293,38 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                         f"{sport}/{drill.id}: {people[i]['label']!r} and "
                         f"{people[j]['label']!r} are {d:.1f}pt apart on beat "
                         f"{beat} — one is drawn under the other")
+
+    # A beat in the middle of a sequence where the ball travels and nobody
+    # does. The ends are exempt on purpose: the first beat is the serve or
+    # the feed that starts the drill, and the last is the shot — finish_with
+    # appends exactly that. In between, a pass going round players who have
+    # stopped is the mistake the overload rondos, star passing and the
+    # small-sided games all made: their players were phased `i % 2` whatever
+    # the length of the sequence, so they finished adjusting on beat two and
+    # the ball went on without them.
+    #
+    # BALL_ALONE_OK names the drills where it is the point rather than an
+    # oversight — a cross and its clearance, a ball in flight over a net
+    # while the defence reads it, a server who by design never moves.
+    if drill.id not in BALL_ALONE_OK:
+        # `people` deliberately excludes the ball — it carries a sportType —
+        # so the beats it travels on are read from the board itself.
+        ball_beats, man_beats = set(), set()
+        for p in board["players"]:
+            if p["markerShape"] != 0:
+                continue
+            beats = set(p["movePhases"])
+            (man_beats if p.get("sportType") is None else ball_beats).update(
+                beats)
+        if ball_beats and man_beats:
+            lo, hi = min(ball_beats | man_beats), max(ball_beats | man_beats)
+            dead = sorted(b for b in ball_beats
+                          if b not in man_beats and lo < b < hi)
+            assert not dead, (
+                f"{sport}/{drill.id}: the ball travels alone on beat "
+                f"{[b + 1 for b in dead]} of {hi + 1} — nobody moves while "
+                f"the pass is made. Spread the players' phases across the "
+                f"sequence, or add the id to BALL_ALONE_OK with a reason")
 
     for p in people:
         prev = p["position"]
