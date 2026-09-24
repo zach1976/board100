@@ -210,10 +210,15 @@ class TopDownPlayerPainter extends CustomPainter {
   /// off the art (chest 107/255), not guessed.
   static const double _tintGain = 2.0;
 
-  /// Grey in, team colour out. A per-channel multiply: the shadow the figure
-  /// carries stays a shadow, and nothing in the image has a hue of its own
-  /// to fight it.
+  /// Grey in, team colour out. A per-channel multiply: nothing in the image
+  /// has a hue of its own to fight it.
+  ///
+  /// [FilterQuality.medium] and not the default, which is none: this draws a
+  /// 512px figure into a 36pt box, and point-sampling a downscale that steep
+  /// is what made the hair speckle, the shoulders stair-step and the whole
+  /// token read as mush next to a cone.
   Paint _tintPaint(double opacity) => Paint()
+    ..filterQuality = FilterQuality.medium
     ..colorFilter = ColorFilter.matrix(<double>[
       _tintGain * color.r, 0, 0, 0, 0,
       0, _tintGain * color.g, 0, 0, 0,
@@ -221,24 +226,43 @@ class TopDownPlayerPainter extends CustomPainter {
       0, 0, 0, opacity, 0,
     ]);
 
-  /// The figure as one flat colour — used for the outline and for the white
-  /// base a ghost sits on.
-  ///
-  /// [alphaGain] hardens the edge: the art is antialiased over three or four
-  /// pixels, and eight soft silhouettes stamped round each other came out as
-  /// a glow rather than the crisp 2pt stroke the drawn shape had.
-  Paint _silhouettePaint(Color c, double opacity, {double alphaGain = 1}) =>
-      Paint()
-        ..colorFilter = ColorFilter.matrix(<double>[
-          0, 0, 0, 0, c.r * 255,
-          0, 0, 0, 0, c.g * 255,
-          0, 0, 0, 0, c.b * 255,
-          0, 0, 0, opacity * alphaGain, 0,
-        ]);
+  /// The figure as one flat colour — the outline, the shadow it stands in,
+  /// and the white base a ghost sits on.
+  Paint _silhouettePaint(Color c, double opacity) => Paint()
+    ..filterQuality = FilterQuality.medium
+    ..colorFilter = ColorFilter.matrix(<double>[
+      0, 0, 0, 0, c.r * 255,
+      0, 0, 0, 0, c.g * 255,
+      0, 0, 0, 0, c.b * 255,
+      0, 0, 0, opacity, 0,
+    ]);
 
-  void _paintArt(Canvas canvas, ui.Image art, Rect dst) {
+  /// How much bigger than its box the figure is drawn.
+  ///
+  /// The box is the token — what a finger grabs, what the spacing audit
+  /// measures — and it does not move. But a person seen from above is a
+  /// narrow thing, so a figure fitted inside the box came out 20pt across
+  /// where the circle and oval it replaced was 29, and on the pitch it read
+  /// as the smaller of the two markers. The equipment sprites solve the same
+  /// problem the same way.
+  static const double _figureScale = 1.25;
+
+  /// The figure's silhouette in [c], stamped eight ways round itself at
+  /// [r] to make an outline an image does not have.
+  void _stamp(Canvas canvas, ui.Image art, Rect src, Rect dst, Color c,
+      double r) {
+    final paint = _silhouettePaint(c, 1.0);
+    for (var i = 0; i < 8; i++) {
+      final a = i * pi / 4;
+      canvas.drawImageRect(
+          art, src, dst.shift(Offset(cos(a) * r, sin(a) * r)), paint);
+    }
+  }
+
+  void _paintArt(Canvas canvas, ui.Image art, Rect box) {
     final src =
         Rect.fromLTWH(0, 0, art.width.toDouble(), art.height.toDouble());
+    final dst = box.inflate(box.width * (_figureScale - 1) / 2);
 
     if (isGhost) {
       // Two coats, same reason as the drawn ghost: green turf under a
@@ -259,6 +283,18 @@ class TopDownPlayerPainter extends CustomPainter {
       );
     }
 
+    // The figure is cut out of its own render, shadow and all: the art it
+    // came with was a soft grey smear under the boots, and stamping the
+    // outline from a silhouette that included it painted that smear white.
+    // The shadow belongs to the painter, the same one the drawn token cast.
+    canvas.drawImageRect(
+      art,
+      src,
+      dst.shift(const Offset(1.5, 2)),
+      _silhouettePaint(Colors.black, 0.32)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3),
+    );
+
     // The stroke the drawn shape used to carry. A token is ringed in the
     // player's own arrow colour, which is how a coach matches a body on the
     // pitch to a line drawn across it — an image has no outline, so the
@@ -270,13 +306,13 @@ class TopDownPlayerPainter extends CustomPainter {
     // what you see: 2.5pt of it read as a glow round the player rather than
     // an edge on them.
     if (borderWidth > 0) {
-      final halo = _silhouettePaint(borderColor, 1.0, alphaGain: 4);
-      final r = min(borderWidth, 1.0) * 0.45;
-      for (var i = 0; i < 8; i++) {
-        final a = i * pi / 4;
-        canvas.drawImageRect(
-            art, src, dst.shift(Offset(cos(a) * r, sin(a) * r)), halo);
-      }
+      final r = min(borderWidth, 2.2) * 0.52;
+      _stamp(canvas, art, src, dst, borderColor, r);
+      // And white inside it, always. A player's arrow colour is often their
+      // kit colour as well — the away side was ringed coral on coral, which
+      // left the red figures with no edge at all and sitting flat on the
+      // grass while the blue ones stood off it.
+      _stamp(canvas, art, src, dst, Colors.white, r * 0.5);
     }
 
     canvas.drawImageRect(art, src, dst, _tintPaint(1.0));
