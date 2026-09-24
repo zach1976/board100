@@ -187,7 +187,12 @@ class TacticsCanvas extends StatefulWidget {
   /// is captured by nothing. Skipping the external layer also saves a
   /// preview from painting a 960x540 second copy of itself on every frame.
   final bool preview;
-  const TacticsCanvas({super.key, this.preview = false});
+
+  /// Quarter turns clockwise the board is shown at — 1 in landscape, where
+  /// the page turns the whole canvas. Bodies counter-turn by it so they stay
+  /// upright; see BoardOrientation.
+  final int boardTurns;
+  const TacticsCanvas({super.key, this.preview = false, this.boardTurns = 0});
 
   @override
   State<TacticsCanvas> createState() => _TacticsCanvasState();
@@ -320,7 +325,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       points: s.points.map(sc).toList(),
     )).toList();
     // RotatedBox(quarterTurns: 3) = 90° CCW: portrait bottom → landscape left (home side)
-    return RotatedBox(
+    // Its tokens counter-turn by hand below, so the board's own orientation
+    // must not reach them or they would turn twice.
+    return BoardOrientation(
+      quarterTurns: 0,
+      child: RotatedBox(
       quarterTurns: 3,
       child: SizedBox(
         width: pw,
@@ -373,7 +382,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               ),
                             ),
                           )
-                        : CustomPaint(
+                        : RotatedBox(
+                            quarterTurns:
+                                BoardOrientation.counterTurns(context),
+                            child: CustomPaint(
                             painter: TopDownPlayerPainter(
                               color: player.color,
                               borderColor: Colors.white,
@@ -384,7 +396,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               sport: _state.sportType,
                               isGhost: true,
                             ),
-                          ),
+                          )),
                   ),
                 );
               }),
@@ -477,7 +489,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           ],
         ),
       ),
-    );
+    ));
   }
 
   @override
@@ -649,7 +661,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               child: IgnorePointer(
                 ignoring: useViewer,
-                child: _buildCanvasContent(state, players, canvasW, canvasH),
+                child: BoardOrientation(
+                  quarterTurns: widget.boardTurns,
+                  child: _buildCanvasContent(state, players, canvasW, canvasH),
+                ),
               ),
             );
 
@@ -811,7 +826,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     ),
                   ),
                   // Drawing layer (filter by phase during step playback)
-                  CustomPaint(
+                  RotatedBox(quarterTurns: (4 - widget.boardTurns) % 4, child: CustomPaint(
                     painter: DrawingPainter(
                       strokes: _visibleStrokes(state, players),
                       currentStroke: state.currentStroke,
@@ -819,7 +834,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       multiSelectStrokeIds: state.multiSelectStrokeIds,
                     ),
                     size: Size(canvasW, canvasH),
-                  ),
+                  )),
                   // Equipment first — under the ghosts as well as under
                   // the live tokens. Reordering only the icon pass left a
                   // hurdle on top of the faint start-position marker of the
@@ -883,7 +898,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                     ),
                                   ),
                                 )
-                              : Stack(
+                              : RotatedBox(quarterTurns: (4 - widget.boardTurns) % 4, child: Stack(
                                   children: [
                                     CustomPaint(
                                       painter: TopDownPlayerPainter(
@@ -925,7 +940,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                         ),
                                       ),
                                   ],
-                                ),
+                                )),
                         ),
                       );
                     }),
@@ -1552,7 +1567,11 @@ class _WaypointDotState extends State<_WaypointDot> {
       final Widget endIcon = SizedBox(
         width: kPlayerIconSize,
         height: kPlayerIconSize,
-        child: Stack(
+        child: RotatedBox(
+          quarterTurns: widget.player.isMarker || widget.player.isBall
+              ? 0
+              : BoardOrientation.counterTurns(context),
+          child: Stack(
           children: [
             if (hasPhoto)
               Opacity(
@@ -1623,7 +1642,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                 ),
               ),
           ],
-        ),
+        )),
       );
       return Positioned(
         left: widget.position.dx - kPlayerIconSize / 2,

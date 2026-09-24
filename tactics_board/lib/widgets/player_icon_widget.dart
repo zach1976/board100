@@ -471,6 +471,88 @@ class TopDownPlayerPainter extends CustomPainter {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Which way the board is turned on screen
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// How many quarter turns clockwise the board is displayed at. Landscape
+/// turns the whole canvas 90°, and a figure turned with it lies on its side:
+/// the art is shot from above and slightly in front, so it only reads as a
+/// person while its own up is the screen's up. Bodies counter-turn by this;
+/// everything in board space — routes, markers, the facing chevron — does
+/// not.
+class BoardOrientation extends InheritedWidget {
+  final int quarterTurns;
+  const BoardOrientation(
+      {super.key, required this.quarterTurns, required super.child});
+
+  static int of(BuildContext context) =>
+      context
+          .dependOnInheritedWidgetOfExactType<BoardOrientation>()
+          ?.quarterTurns ??
+      0;
+
+  /// The turns that undo the board's, for a body that must stay upright.
+  static int counterTurns(BuildContext context) => (4 - of(context)) % 4;
+
+  @override
+  bool updateShouldNotify(BoardOrientation old) =>
+      old.quarterTurns != quarterTurns;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Facing
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Where a player is facing, in radians clockwise from up the board.
+///
+/// The body never turns. It cannot: the figure is drawn from above and a
+/// little in front, and any turn of that picture reads as a person lying
+/// down, not as a person facing elsewhere — four hours of art proved it
+/// from every angle. So the body stays upright and a chevron carries the
+/// facing, which is what a coach's magnet with a pointer does. The home
+/// side plays bottom to top and faces up by default; everyone else faces
+/// the viewer, which is the way the body is drawn. [PlayerIcon.rotation],
+/// the coach's own turn of the element, is added on top, so the rotate
+/// buttons and the two-finger twist now turn the pointer.
+double playerFacing(PlayerIcon p) =>
+    (p.team == PlayerTeam.home ? 0.0 : pi) + p.rotation;
+
+/// A short white chevron just outside the figure, pointing where the player
+/// faces. Sized against the token box so it scales with the player.
+class FacingChevronPainter extends CustomPainter {
+  final double angle;
+  const FacingChevronPainter(this.angle);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final c = Offset(w / 2, size.height / 2);
+    // Just clear of the figure, which is drawn at 1.57 of the box but is
+    // narrower than it is tall.
+    const radius = 0.68, length = 0.16, half = 0.144;
+    final dir = Offset(sin(angle), -cos(angle));
+    final side = Offset(-dir.dy, dir.dx);
+    final base = c + dir * (w * radius);
+    final path = Path()
+      ..moveTo(base.dx + dir.dx * w * length, base.dy + dir.dy * w * length)
+      ..lineTo(base.dx + side.dx * w * half, base.dy + side.dy * w * half)
+      ..lineTo(base.dx - side.dx * w * half, base.dy - side.dy * w * half)
+      ..close();
+    canvas.drawPath(
+        path,
+        Paint()
+          ..color = const Color(0xA0000000)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.2
+          ..strokeJoin = StrokeJoin.round);
+    canvas.drawPath(path, Paint()..color = Colors.white);
+  }
+
+  @override
+  bool shouldRepaint(FacingChevronPainter old) => old.angle != angle;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Main player icon widget
 // ─────────────────────────────────────────────────────────────────────────────
 class PlayerIconWidget extends StatelessWidget {
@@ -528,37 +610,72 @@ class PlayerIconWidget extends StatelessWidget {
             duration: const Duration(milliseconds: 140),
             curve: Curves.easeOutCubic,
             scale: isSelected ? 1.1 : 1.0,
-            // Only the shape turns. The name badge below and the number
-            // inside the token are drawn in their own layers and stay
-            // upright, because an upside-down 7 is not a 7.
-            child: Transform.rotate(
-              angle: player.rotation,
-              child: SizedBox(
-                width: size,
-                height: size,
-                child: (player.isMarker && player.photoId != null)
-                    ? ShapedPhotoMarker(player: player, isSelected: isSelected)
-                    : player.isMarker
-                    ? _MarkerWidget(player: player, isSelected: isSelected, sport: sport)
-                    : player.isBall
-                    ? Center(
-                        child: FractionallySizedBox(
-                          widthFactor: kBallDrawFactor,
-                          heightFactor: kBallDrawFactor,
-                          child: _BallWidget(
-                              player: player, isSelected: isSelected),
+            // Markers and balls turn with `rotation` — an arrow that does
+            // not turn is no arrow. A person does not: the body stays
+            // upright on screen whichever way the board or the coach has
+            // turned it, and a chevron in board space carries the facing.
+            // See playerFacing.
+            child: (player.isMarker || player.isBall)
+                ? Transform.rotate(
+                    angle: player.rotation,
+                    child: SizedBox(
+                      width: size,
+                      height: size,
+                      child: (player.isMarker && player.photoId != null)
+                          ? ShapedPhotoMarker(
+                              player: player, isSelected: isSelected)
+                          : player.isMarker
+                              ? _MarkerWidget(
+                                  player: player,
+                                  isSelected: isSelected,
+                                  sport: sport)
+                              : Center(
+                                  child: FractionallySizedBox(
+                                    widthFactor: kBallDrawFactor,
+                                    heightFactor: kBallDrawFactor,
+                                    child: _BallWidget(
+                                        player: player,
+                                        isSelected: isSelected),
+                                  ),
+                                ),
+                    ),
+                  )
+                : SizedBox(
+                    width: size,
+                    height: size,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        CustomPaint(
+                          painter: FacingChevronPainter(playerFacing(player)),
+                          size: Size.infinite,
                         ),
-                      )
-                    : (player.photoId != null
-                        ? PhotoPlayerShape(player: player, isSelected: isSelected)
-                        : _PlayerShape(player: player, isSelected: isSelected, sport: sport)),
-              ),
-            ),
+                        RotatedBox(
+                          quarterTurns: BoardOrientation.counterTurns(context),
+                          child: player.photoId != null
+                              ? PhotoPlayerShape(
+                                  player: player, isSelected: isSelected)
+                              : _PlayerShape(
+                                  player: player,
+                                  isSelected: isSelected,
+                                  sport: sport),
+                        ),
+                      ],
+                    ),
+                  ),
           ),
           if (player.label.isNotEmpty && !player.labelInside) ...[
-            // Small gap so the name badge doesn't crowd the avatar's edge.
-            SizedBox(height: 3 * player.scale),
-            Container(
+            // A small gap so the badge does not crowd the avatar's edge —
+            // and under a person, room for the facing chevron, which sits
+            // 12pt below the box when the player faces down the board and
+            // was disappearing behind every away side's name.
+            SizedBox(
+                height: (player.isMarker || player.isBall ? 3 : 14) *
+                    player.scale),
+            RotatedBox(
+              // Upright on screen like the body above it.
+              quarterTurns: BoardOrientation.counterTurns(context),
+              child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
               decoration: BoxDecoration(
                 color: player.color.withValues(alpha: 0.9),
@@ -575,6 +692,7 @@ class PlayerIconWidget extends StatelessWidget {
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
+            ),
             ),
           ],
         ],
@@ -611,14 +729,10 @@ class _PlayerShape extends StatelessWidget {
           ),
           size: Size.infinite,
         ),
-        // Turned back by however much the shape was turned: an upside-down
-        // 7 is not a 7, and a sideways one is a stroke.
         if (player.labelInside)
           Align(
             alignment: kPlayerLabelAlign,
-            child: Transform.rotate(
-              angle: -player.rotation,
-              child: Text(
+            child: Text(
               player.label,
               // Heavier weight + a dark outline (layered shadows) keeps the
               // jersey number crisp from the bench and when projected.
@@ -633,7 +747,6 @@ class _PlayerShape extends StatelessWidget {
                   Shadow(color: Colors.black87, blurRadius: 3),
                 ],
               ),
-            ),
             ),
           ),
       ],

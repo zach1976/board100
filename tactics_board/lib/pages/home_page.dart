@@ -146,7 +146,8 @@ class TacticsBoardHomePage extends StatelessWidget {
           padding: EdgeInsets.only(
               top: _pagesBand(context, topPad, wideChrome)),
           child: isLandscape
-              ? const RotatedBox(quarterTurns: 1, child: TacticsCanvas())
+              ? const RotatedBox(
+                  quarterTurns: 1, child: TacticsCanvas(boardTurns: 1))
               : const TacticsCanvas(),
         ),
         // Presentation mode swaps all editing chrome for a clean, locked
