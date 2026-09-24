@@ -134,6 +134,10 @@ flutter:
     - assets/icon/marker_floatinggoal.png
     - assets/icon/marker_lanerope.png
     - assets/icon/marker_chair.png
+    # The two figures every player token is drawn from, tinted to the
+    # team colour at draw time.
+    - assets/icon/player_top_male.png
+    - assets/icon/player_top_female.png
     - assets/icon/empty_history.png
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png

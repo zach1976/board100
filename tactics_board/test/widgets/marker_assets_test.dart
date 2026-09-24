@@ -42,6 +42,16 @@ void main() {
     }
   });
 
+  test('both player figures are declared and neutral grey', () {
+    for (final asset in [
+      'assets/icon/player_top_male.png',
+      'assets/icon/player_top_female.png',
+    ]) {
+      expect(declared, contains(asset), reason: '$asset is not declared');
+      expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+    }
+  });
+
   test('the sprites are the size and format the board expects', () {
     for (final shape in MarkerShape.values) {
       final asset = markerImageAsset(shape);

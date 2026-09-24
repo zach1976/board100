@@ -10,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 import '../test/widgets/overflow_test.dart' show kLocales;
@@ -116,6 +117,10 @@ void main() {
         ),
       ),
     );
+    // The player figures decode like any other asset, and the renderer shoots
+    // the first board the moment it pumps: without this every sport's first
+    // drill came out drawn with the fallback circle and oval.
+    await tester.runAsync(PlayerArt.warm);
     await tester.pump(const Duration(milliseconds: 300));
 
     var boards = 0, shots = 0;

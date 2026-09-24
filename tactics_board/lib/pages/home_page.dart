@@ -2046,7 +2046,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           ),
           if (p.labelInside)
             Align(
-              alignment: const Alignment(0, 0.35),
+              alignment: kPlayerLabelAlign,
               child: Text(
                 p.label,
                 style: TextStyle(color: Colors.white, fontSize: dim * 0.35, fontWeight: FontWeight.w800, height: 1),

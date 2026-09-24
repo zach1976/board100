@@ -896,7 +896,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                     // read as two different marks.
                                     if (player.labelInside)
                                       Align(
-                                        alignment: const Alignment(0, 0.35),
+                                        alignment: kPlayerLabelAlign,
                                         child: Text(
                                           player.label,
                                           style: TextStyle(
@@ -1589,7 +1589,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                 !hasPhoto)
               Align(
                 // On the shirt, the same place the live token carries it.
-                alignment: const Alignment(0, 0.35),
+                alignment: kPlayerLabelAlign,
                 child: Text(
                   widget.player.label,
                   style: TextStyle(

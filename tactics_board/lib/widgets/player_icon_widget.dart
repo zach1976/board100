@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import '../config_constants.dart';
 import '../ui/tokens.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +37,77 @@ const double kPlayerIconSize = 36.0;
 /// edit bar if a drill wants the ball emphasised.
 const double kBallDrawFactor = 0.58;
 
+/// Where the shirt number sits on a token.
+///
+/// The circle-and-oval had its number in the middle of the oval, which on the
+/// figure that replaced it is the shorts. 0.42 of the box down is the middle
+/// of the chest on both figures — measured off the art, and the same on the
+/// male and the female one because both were normalised to the same height.
+const Alignment kPlayerLabelAlign = Alignment(0, -0.16);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// The figure a player token is drawn from
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Greyscale top-down player art, tinted to the team colour as it is drawn.
+///
+/// A token was a circle on an oval, and at 36pt a board of them reads as
+/// beads rather than people. These are the same moulded figures the referee
+/// and the coach already are. They ship in neutral grey because there is no
+/// palette to bake: a coach picks the two team colours, and a red shirt in
+/// the pixels would fight whatever they pick.
+///
+/// A painter is synchronous and an asset is not, so the first frames of a
+/// board are drawn with the old circle and oval and repaint themselves the
+/// moment the decode lands — [ready] is what makes that repaint happen.
+class PlayerArt {
+  PlayerArt._();
+
+  /// Bumped once per image decoded. Every player painter listens to it.
+  static final ValueNotifier<int> ready = ValueNotifier<int>(0);
+
+  static ui.Image? _male;
+  static ui.Image? _female;
+  static bool _started = false;
+
+  /// The figure for [gender], or null until the asset has decoded. Kicks the
+  /// load off on first ask, so nothing has to remember to warm it.
+  static ui.Image? of(PlayerGender gender) {
+    if (!_started) {
+      _started = true;
+      _load('assets/icon/player_top_male.png', female: false);
+      _load('assets/icon/player_top_female.png', female: true);
+    }
+    return gender == PlayerGender.female ? _female : _male;
+  }
+
+  /// Decodes both figures and waits for them. Used by the headless board
+  /// renderer, which shoots a frame the moment it pumps and would otherwise
+  /// catch every first board mid-decode.
+  static Future<void> warm() async {
+    of(PlayerGender.male);
+    while (_male == null || _female == null) {
+      await Future<void>.delayed(const Duration(milliseconds: 20));
+    }
+  }
+
+  static Future<void> _load(String path, {required bool female}) async {
+    try {
+      final data = await rootBundle.load(packageAsset(path));
+      final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
+      final frame = await codec.getNextFrame();
+      if (female) {
+        _female = frame.image;
+      } else {
+        _male = frame.image;
+      }
+      ready.value++;
+    } catch (_) {
+      // No art, no crash: the painter keeps drawing the circle and the oval.
+    }
+  }
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Top-down person painter (shared between board and toolbar preview)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -46,19 +119,27 @@ class TopDownPlayerPainter extends CustomPainter {
   final PlayerGender gender;
   final bool isGhost;
 
-  const TopDownPlayerPainter({
+  /// Not const: it repaints on [PlayerArt.ready], so the tokens already on
+  /// screen pick the figures up as soon as they decode.
+  TopDownPlayerPainter({
     required this.color,
     required this.borderColor,
     required this.borderWidth,
     this.isSelected = false,
     this.gender = PlayerGender.unspecified,
     this.isGhost = false,
-  });
+  }) : super(repaint: PlayerArt.ready);
 
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
+
+    final art = PlayerArt.of(gender);
+    if (art != null) {
+      _paintArt(canvas, art, Offset.zero & size);
+      return;
+    }
 
     final headCenter = Offset(w * 0.5, h * 0.28);
     final headRadius = w * 0.2;
@@ -117,6 +198,88 @@ class TopDownPlayerPainter extends CustomPainter {
     // Head
     canvas.drawCircle(headCenter, headRadius, fillPaint);
     canvas.drawCircle(headCenter, headRadius, borderPaint);
+  }
+
+  /// How much brighter than a straight multiply the tint is pushed.
+  ///
+  /// The shirt is 42% grey in the art so the fabric has room to shade, which
+  /// means colour x grey comes out close to black — the home side rendered
+  /// navy and the away side maroon. Doubling puts the chest back at full
+  /// team colour and lets the lighter greys, skin and boots, clip to the
+  /// bright end of the same hue instead of washing out to white. Measured
+  /// off the art (chest 107/255), not guessed.
+  static const double _tintGain = 2.0;
+
+  /// Grey in, team colour out. A per-channel multiply: the shadow the figure
+  /// carries stays a shadow, and nothing in the image has a hue of its own
+  /// to fight it.
+  Paint _tintPaint(double opacity) => Paint()
+    ..colorFilter = ColorFilter.matrix(<double>[
+      _tintGain * color.r, 0, 0, 0, 0,
+      0, _tintGain * color.g, 0, 0, 0,
+      0, 0, _tintGain * color.b, 0, 0,
+      0, 0, 0, opacity, 0,
+    ]);
+
+  /// The figure as one flat colour — used for the outline and for the white
+  /// base a ghost sits on.
+  ///
+  /// [alphaGain] hardens the edge: the art is antialiased over three or four
+  /// pixels, and eight soft silhouettes stamped round each other came out as
+  /// a glow rather than the crisp 2pt stroke the drawn shape had.
+  Paint _silhouettePaint(Color c, double opacity, {double alphaGain = 1}) =>
+      Paint()
+        ..colorFilter = ColorFilter.matrix(<double>[
+          0, 0, 0, 0, c.r * 255,
+          0, 0, 0, 0, c.g * 255,
+          0, 0, 0, 0, c.b * 255,
+          0, 0, 0, opacity * alphaGain, 0,
+        ]);
+
+  void _paintArt(Canvas canvas, ui.Image art, Rect dst) {
+    final src =
+        Rect.fromLTWH(0, 0, art.width.toDouble(), art.height.toDouble());
+
+    if (isGhost) {
+      // Two coats, same reason as the drawn ghost: green turf under a
+      // half-transparent red shirt comes out brown, so the figure stands on
+      // a white base and keeps its colour whatever pitch it is on.
+      canvas.drawImageRect(art, src, dst, _silhouettePaint(Colors.white, 0.4));
+      canvas.drawImageRect(art, src, dst, _tintPaint(0.6));
+      return;
+    }
+
+    if (isSelected) {
+      canvas.drawImageRect(
+        art,
+        src,
+        dst.inflate(3),
+        _silhouettePaint(T.accent, 0.65)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8),
+      );
+    }
+
+    // The stroke the drawn shape used to carry. A token is ringed in the
+    // player's own arrow colour, which is how a coach matches a body on the
+    // pitch to a line drawn across it — an image has no outline, so the
+    // silhouette is stamped around itself to make one.
+    //
+    // Capped, because a stroke straddles the edge it is drawn on and half of
+    // it lands inside the shape. A stamp is all outside, and on a figure
+    // with arms, legs and daylight between the boots, all outside is most of
+    // what you see: 2.5pt of it read as a glow round the player rather than
+    // an edge on them.
+    if (borderWidth > 0) {
+      final halo = _silhouettePaint(borderColor, 1.0, alphaGain: 4);
+      final r = min(borderWidth, 1.0) * 0.45;
+      for (var i = 0; i < 8; i++) {
+        final a = i * pi / 4;
+        canvas.drawImageRect(
+            art, src, dst.shift(Offset(cos(a) * r, sin(a) * r)), halo);
+      }
+    }
+
+    canvas.drawImageRect(art, src, dst, _tintPaint(1.0));
   }
 
   /// Ghost mode — where the player ends up, not where they are.
@@ -308,7 +471,7 @@ class _PlayerShape extends StatelessWidget {
         // 7 is not a 7, and a sideways one is a stroke.
         if (player.labelInside)
           Align(
-            alignment: const Alignment(0, 0.35),
+            alignment: kPlayerLabelAlign,
             child: Transform.rotate(
               angle: -player.rotation,
               child: Text(
