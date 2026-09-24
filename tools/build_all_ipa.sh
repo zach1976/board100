@@ -32,11 +32,10 @@ for KEY in "${KEYS[@]}"; do
   [ -n "$ROW" ] || { echo "❌ unknown app '$KEY'"; exit 1; }
   IFS=$'\t' read -r _ DIR BUNDLE NAME_EN _ _ _ _ <<< "$ROW"
 
-  # The hub has no shell directory — it is the core project itself, and opts
-  # into its own AdMob app with HUB_ADS (see lib/services/ad_service.dart).
   DEFINES="--dart-define=IAP=1"
-  if [ "$DIR" = "-" ]; then
-    DIR="tactics_board"
+  # The hub is a shell like the others (HubBoard/); it alone opts into its
+  # own AdMob app with HUB_ADS (see lib/services/ad_service.dart).
+  if [ "$KEY" = "tactics_board" ]; then
     DEFINES="$DEFINES --dart-define=HUB_ADS=1"
   fi
   [ -d "$DIR" ] || { echo "❌ $DIR missing — run tools/gen_sport_shell.sh $KEY"; exit 1; }

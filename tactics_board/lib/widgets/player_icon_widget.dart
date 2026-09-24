@@ -78,60 +78,84 @@ class PlayerArt {
   static final ValueNotifier<int> ready = ValueNotifier<int>(0);
 
   static final Map<String, ui.Image> _plates = {};
-  static bool _started = false;
-
-  /// Twelve figures, two plates each: two genders across the plain body, the
-  /// four implements and the swimmer.
-  static final Map<String, String> _files = {
-    for (final g in ['male', 'female'])
-      for (final f in PlayerFigure.values)
-        for (final layer in ['base', 'kit'])
-          '$g.${f.name}.$layer':
-              'assets/icon/player_top_$g'
-              '${f == PlayerFigure.plain ? '' : '_${f.name}'}_$layer.png',
-  };
+  static final Set<String> _asked = {};
+  static final Set<String> _missing = {};
 
   static String _key(PlayerGender g, PlayerFigure f, String layer) =>
       '${g == PlayerGender.female ? 'female' : 'male'}.${f.name}.$layer';
 
-  /// The body — skin, hair, socks, boots — in its own colours, and the whole
-  /// silhouette in its alpha. Null until the asset has decoded; kicks the
-  /// load off on first ask, so nothing has to remember to warm it.
-  static ui.Image? of(PlayerGender gender, PlayerFigure figure) {
-    if (!_started) {
-      _started = true;
-      _files.forEach(_load);
-    }
-    return _plates[_key(gender, figure, 'base')];
+  /// The plain figure is everybody's and lives in the core; a racket, a bat
+  /// and a swim cap belong to the sports that use them and ship in their
+  /// packages, so a soccer app has no swim caps to carry.
+  static String _path(
+      SportType sport, PlayerGender g, PlayerFigure f, String layer) {
+    final gn = g == PlayerGender.female ? 'female' : 'male';
+    final file = 'assets/icon/player_top_$gn'
+        '${f == PlayerFigure.plain ? '' : '_${f.name}'}_$layer.png';
+    return f == PlayerFigure.plain
+        ? packageAsset(file)
+        : sportAsset(sport, file);
   }
 
-  /// Kit alone, in grey, for the team colour to land on. A player is not one
-  /// colour: tinting the whole figure turned a coach's squad into eleven
-  /// blue blobs, when what stands on a real board is eleven people wearing
-  /// blue. For the swimmer the kit is the cap and the suit, which is how a
-  /// real water polo team is told apart anyway.
-  static ui.Image? kitOf(PlayerGender gender, PlayerFigure figure) =>
-      _plates[_key(gender, figure, 'kit')];
+  /// The body — skin, hair, socks, boots — in its own colours, and the whole
+  /// silhouette in its alpha. Null until the asset has decoded; asking is
+  /// what starts the decode, so nothing has to remember to warm it.
+  static ui.Image? of(SportType sport, PlayerGender gender, PlayerFigure f) =>
+      _plate(sport, gender, f, 'base');
 
-  /// Decodes every plate and waits for them. Used by the headless board
-  /// renderer, which shoots a frame the moment it pumps and would otherwise
-  /// catch every first board mid-decode.
+  /// Kit alone, in grey, for the team colour to land on. A player is not one
+  /// colour: tinting the whole figure turned a coach's squad into eleven blue
+  /// blobs, when what stands on a real board is eleven people wearing blue.
+  /// For the swimmer the kit is the cap and the suit, which is how a real
+  /// water polo team is told apart anyway.
+  static ui.Image? kitOf(
+          SportType sport, PlayerGender gender, PlayerFigure f) =>
+      _plate(sport, gender, f, 'kit');
+
+  static ui.Image? _plate(
+      SportType sport, PlayerGender g, PlayerFigure f, String layer) {
+    final k = _key(g, f, layer);
+    if (_asked.add(k)) _load(k, _path(sport, g, f, layer));
+    return _plates[k];
+  }
+
+  /// Decodes every figure every sport can draw and waits for them. Only the
+  /// headless board renderer needs it: it shoots a frame the moment it pumps
+  /// and would otherwise catch every first board mid-decode.
   static Future<void> warm() async {
-    of(PlayerGender.male, PlayerFigure.plain);
-    while (_plates.length < _files.length) {
+    final want = <String>{};
+    for (final s in SportType.values) {
+      for (final g in [PlayerGender.male, PlayerGender.female]) {
+        for (final f in <PlayerFigure?>{
+          PlayerFigure.plain,
+          s.playerBody,
+          s.playerImplement,
+        }) {
+          if (f == null) continue;
+          for (final layer in ['base', 'kit']) {
+            want.add(_key(g, f, layer));
+            _plate(s, g, f, layer);
+          }
+        }
+      }
+    }
+    // A plate this app does not ship counts as settled, not as never: the
+    // wait is for the decode to finish, not for the file to exist.
+    while (!want.every((k) => _plates.containsKey(k) || _missing.contains(k))) {
       await Future<void>.delayed(const Duration(milliseconds: 20));
     }
   }
 
   static Future<void> _load(String key, String path) async {
     try {
-      final data = await rootBundle.load(packageAsset(path));
+      final data = await rootBundle.load(path);
       final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
       final frame = await codec.getNextFrame();
       _plates[key] = frame.image;
       ready.value++;
     } catch (_) {
       // No art, no crash: the painter keeps drawing the circle and the oval.
+      _missing.add(key);
     }
   }
 }
@@ -146,6 +170,9 @@ class TopDownPlayerPainter extends CustomPainter {
   final bool isSelected;
   final PlayerGender gender;
   final PlayerFigure figure;
+  /// Only used to find the figure's plates: an implement ships in the package
+  /// of the sport that swings it.
+  final SportType sport;
   final bool isGhost;
 
   /// Not const: it repaints on [PlayerArt.ready], so the tokens already on
@@ -157,6 +184,7 @@ class TopDownPlayerPainter extends CustomPainter {
     this.isSelected = false,
     this.gender = PlayerGender.unspecified,
     this.figure = PlayerFigure.plain,
+    this.sport = SportType.soccer,
     this.isGhost = false,
   }) : super(repaint: PlayerArt.ready);
 
@@ -165,8 +193,8 @@ class TopDownPlayerPainter extends CustomPainter {
     final w = size.width;
     final h = size.height;
 
-    final art = PlayerArt.of(gender, figure);
-    final kit = PlayerArt.kitOf(gender, figure);
+    final art = PlayerArt.of(sport, gender, figure);
+    final kit = PlayerArt.kitOf(sport, gender, figure);
     if (art != null && kit != null) {
       _paintArt(canvas, art, kit, Offset.zero & size);
       return;
@@ -437,6 +465,7 @@ class TopDownPlayerPainter extends CustomPainter {
       old.isSelected != isSelected ||
       old.gender != gender ||
       old.figure != figure ||
+      old.sport != sport ||
       old.isGhost != isGhost;
 }
 
@@ -446,9 +475,9 @@ class TopDownPlayerPainter extends CustomPainter {
 class PlayerIconWidget extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
-  /// Which moulded figure to draw. The board resolves it from the sport and
-  /// the player; everything else gets the plain one.
-  final PlayerFigure figure;
+  /// The board this token is on. It decides the body, the implement and
+  /// which package the artwork comes out of.
+  final SportType sport;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final Function(ScaleStartDetails)? onScaleStart;
@@ -459,7 +488,7 @@ class PlayerIconWidget extends StatelessWidget {
     super.key,
     required this.player,
     this.isSelected = false,
-    this.figure = PlayerFigure.plain,
+    this.sport = SportType.soccer,
     this.onTap,
     this.onLongPress,
     this.onScaleStart,
@@ -509,7 +538,7 @@ class PlayerIconWidget extends StatelessWidget {
                 child: (player.isMarker && player.photoId != null)
                     ? ShapedPhotoMarker(player: player, isSelected: isSelected)
                     : player.isMarker
-                    ? _MarkerWidget(player: player, isSelected: isSelected)
+                    ? _MarkerWidget(player: player, isSelected: isSelected, sport: sport)
                     : player.isBall
                     ? Center(
                         child: FractionallySizedBox(
@@ -521,7 +550,7 @@ class PlayerIconWidget extends StatelessWidget {
                       )
                     : (player.photoId != null
                         ? PhotoPlayerShape(player: player, isSelected: isSelected)
-                        : _PlayerShape(player: player, isSelected: isSelected, figure: figure)),
+                        : _PlayerShape(player: player, isSelected: isSelected, sport: sport)),
               ),
             ),
           ),
@@ -559,11 +588,11 @@ class PlayerIconWidget extends StatelessWidget {
 class _PlayerShape extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
-  final PlayerFigure figure;
+  final SportType sport;
   const _PlayerShape(
       {required this.player,
       required this.isSelected,
-      this.figure = PlayerFigure.plain});
+      this.sport = SportType.soccer});
 
   @override
   Widget build(BuildContext context) {
@@ -576,7 +605,8 @@ class _PlayerShape extends StatelessWidget {
             borderWidth: isSelected ? 3 : 2,
             isSelected: isSelected,
             gender: player.gender,
-            figure: figure,
+            figure: TopDownPlayerPainter.figureFor(sport, player),
+            sport: sport,
           ),
           size: Size.infinite,
         ),
@@ -930,45 +960,76 @@ class _ShapedMarkerOutlinePainter extends CustomPainter {
 /// packageAsset, not a hardcoded packages/ prefix: the same path has to
 /// resolve both in the hub, where these assets are local, and in the fifteen
 /// sport shells, where tactics_board is a dependency.
-String? markerImageAsset(MarkerShape shape) => switch (shape) {
-      MarkerShape.cone => packageAsset('assets/icon/marker_cone.png'),
-      MarkerShape.ladder => packageAsset('assets/icon/marker_ladder.png'),
-      MarkerShape.hurdle => packageAsset('assets/icon/marker_hurdle.png'),
-      MarkerShape.referee => packageAsset('assets/icon/marker_referee.png'),
-      MarkerShape.coach => packageAsset('assets/icon/marker_coach.png'),
-      MarkerShape.goal => packageAsset('assets/icon/marker_goal.png'),
-      MarkerShape.miniGoal => packageAsset('assets/icon/marker_minigoal.png'),
-      MarkerShape.mannequin => packageAsset('assets/icon/marker_mannequin.png'),
-      MarkerShape.pole => packageAsset('assets/icon/marker_pole.png'),
-      MarkerShape.disc => packageAsset('assets/icon/marker_disc.png'),
-      MarkerShape.ring => packageAsset('assets/icon/marker_ring.png'),
-      MarkerShape.rebounder => packageAsset('assets/icon/marker_rebounder.png'),
-      MarkerShape.bench => packageAsset('assets/icon/marker_bench.png'),
-      MarkerShape.ballBag => packageAsset('assets/icon/marker_ballbag.png'),
-      MarkerShape.cornerFlag => packageAsset('assets/icon/marker_flag.png'),
-      MarkerShape.hoop => packageAsset('assets/icon/marker_hoop.png'),
-      MarkerShape.net => packageAsset('assets/icon/marker_net.png'),
-      MarkerShape.antenna => packageAsset('assets/icon/marker_antenna.png'),
-      MarkerShape.racket => packageAsset('assets/icon/marker_racket.png'),
-      MarkerShape.paddle => packageAsset('assets/icon/marker_paddle.png'),
+/// The equipment only some sports can show. Everything else in the Add sheet
+/// is on offer in every sport, so it stays in the core; these seventeen ship
+/// in the package of whichever sports list them, which is why a soccer app no
+/// longer carries a basketball hoop and a set of rugby posts.
+const Set<MarkerShape> kSportScopedMarkers = {
+  MarkerShape.hoop,
+  MarkerShape.net,
+  MarkerShape.antenna,
+  MarkerShape.racket,
+  MarkerShape.paddle,
+  MarkerShape.shuttleTube,
+  MarkerShape.hopper,
+  MarkerShape.base,
+  MarkerShape.homePlate,
+  MarkerShape.battingTee,
+  MarkerShape.lScreen,
+  MarkerShape.rugbyPosts,
+  MarkerShape.tackleBag,
+  MarkerShape.hockeyStick,
+  MarkerShape.floatingGoal,
+  MarkerShape.laneRope,
+  MarkerShape.chair,
+};
+
+String? markerImageAsset(MarkerShape shape, SportType sport) => switch (shape) {
+      MarkerShape.cone => _markerAsset(shape, sport, 'assets/icon/marker_cone.png'),
+      MarkerShape.ladder => _markerAsset(shape, sport, 'assets/icon/marker_ladder.png'),
+      MarkerShape.hurdle => _markerAsset(shape, sport, 'assets/icon/marker_hurdle.png'),
+      MarkerShape.referee => _markerAsset(shape, sport, 'assets/icon/marker_referee.png'),
+      MarkerShape.coach => _markerAsset(shape, sport, 'assets/icon/marker_coach.png'),
+      MarkerShape.goal => _markerAsset(shape, sport, 'assets/icon/marker_goal.png'),
+      MarkerShape.miniGoal => _markerAsset(shape, sport, 'assets/icon/marker_minigoal.png'),
+      MarkerShape.mannequin => _markerAsset(shape, sport, 'assets/icon/marker_mannequin.png'),
+      MarkerShape.pole => _markerAsset(shape, sport, 'assets/icon/marker_pole.png'),
+      MarkerShape.disc => _markerAsset(shape, sport, 'assets/icon/marker_disc.png'),
+      MarkerShape.ring => _markerAsset(shape, sport, 'assets/icon/marker_ring.png'),
+      MarkerShape.rebounder => _markerAsset(shape, sport, 'assets/icon/marker_rebounder.png'),
+      MarkerShape.bench => _markerAsset(shape, sport, 'assets/icon/marker_bench.png'),
+      MarkerShape.ballBag => _markerAsset(shape, sport, 'assets/icon/marker_ballbag.png'),
+      MarkerShape.cornerFlag => _markerAsset(shape, sport, 'assets/icon/marker_flag.png'),
+      MarkerShape.hoop => _markerAsset(shape, sport, 'assets/icon/marker_hoop.png'),
+      MarkerShape.net => _markerAsset(shape, sport, 'assets/icon/marker_net.png'),
+      MarkerShape.antenna => _markerAsset(shape, sport, 'assets/icon/marker_antenna.png'),
+      MarkerShape.racket => _markerAsset(shape, sport, 'assets/icon/marker_racket.png'),
+      MarkerShape.paddle => _markerAsset(shape, sport, 'assets/icon/marker_paddle.png'),
       MarkerShape.shuttleTube =>
-        packageAsset('assets/icon/marker_shuttletube.png'),
-      MarkerShape.hopper => packageAsset('assets/icon/marker_hopper.png'),
-      MarkerShape.base => packageAsset('assets/icon/marker_base.png'),
+        _markerAsset(shape, sport, 'assets/icon/marker_shuttletube.png'),
+      MarkerShape.hopper => _markerAsset(shape, sport, 'assets/icon/marker_hopper.png'),
+      MarkerShape.base => _markerAsset(shape, sport, 'assets/icon/marker_base.png'),
       MarkerShape.homePlate =>
-        packageAsset('assets/icon/marker_homeplate.png'),
-      MarkerShape.battingTee => packageAsset('assets/icon/marker_tee.png'),
-      MarkerShape.lScreen => packageAsset('assets/icon/marker_lscreen.png'),
-      MarkerShape.rugbyPosts => packageAsset('assets/icon/marker_posts.png'),
+        _markerAsset(shape, sport, 'assets/icon/marker_homeplate.png'),
+      MarkerShape.battingTee => _markerAsset(shape, sport, 'assets/icon/marker_tee.png'),
+      MarkerShape.lScreen => _markerAsset(shape, sport, 'assets/icon/marker_lscreen.png'),
+      MarkerShape.rugbyPosts => _markerAsset(shape, sport, 'assets/icon/marker_posts.png'),
       MarkerShape.tackleBag =>
-        packageAsset('assets/icon/marker_tacklebag.png'),
-      MarkerShape.hockeyStick => packageAsset('assets/icon/marker_stick.png'),
+        _markerAsset(shape, sport, 'assets/icon/marker_tacklebag.png'),
+      MarkerShape.hockeyStick => _markerAsset(shape, sport, 'assets/icon/marker_stick.png'),
       MarkerShape.floatingGoal =>
-        packageAsset('assets/icon/marker_floatinggoal.png'),
-      MarkerShape.laneRope => packageAsset('assets/icon/marker_lanerope.png'),
-      MarkerShape.chair => packageAsset('assets/icon/marker_chair.png'),
+        _markerAsset(shape, sport, 'assets/icon/marker_floatinggoal.png'),
+      MarkerShape.laneRope => _markerAsset(shape, sport, 'assets/icon/marker_lanerope.png'),
+      MarkerShape.chair => _markerAsset(shape, sport, 'assets/icon/marker_chair.png'),
       _ => null,
     };
+
+/// Core for the shared markers, the sport's own package for the seventeen
+/// that only some sports offer.
+String _markerAsset(MarkerShape shape, SportType sport, String path) =>
+    kSportScopedMarkers.contains(shape)
+        ? sportAsset(sport, path)
+        : packageAsset(path);
 
 /// How big a marker's sprite is drawn against a player token.
 ///
@@ -1022,11 +1083,13 @@ double markerArtScale(MarkerShape shape) => switch (shape) {
 class _MarkerWidget extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
-  const _MarkerWidget({required this.player, required this.isSelected});
+  final SportType sport;
+  const _MarkerWidget(
+      {required this.player, required this.isSelected, this.sport = SportType.soccer});
 
   @override
   Widget build(BuildContext context) {
-    final art = markerImageAsset(player.markerShape);
+    final art = markerImageAsset(player.markerShape, sport);
     final body = Stack(
       children: [
         if (art != null)
@@ -1035,7 +1098,19 @@ class _MarkerWidget extends StatelessWidget {
           // of around a shape the image no longer matches.
           Positioned.fill(
             child: Image.asset(art,
-                fit: BoxFit.contain, filterQuality: FilterQuality.medium),
+                fit: BoxFit.contain,
+                filterQuality: FilterQuality.medium,
+                // A board carried in from another sport can name equipment
+                // this app does not ship. It falls back to the drawing rather
+                // than to a broken-image box.
+                errorBuilder: (_, _, _) => CustomPaint(
+                      painter: MarkerPainter(
+                        shape: player.markerShape,
+                        color: player.color,
+                        isSelected: isSelected,
+                      ),
+                      size: Size.infinite,
+                    )),
           )
         else
           CustomPaint(

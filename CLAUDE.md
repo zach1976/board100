@@ -13,8 +13,15 @@
 
 ```
 board100/
-├── tactics_board/     # the shared core package AND the multi-sport hub app
-│                      # (com.zach.tacticsBoard) — all Dart code lives here
+├── tactics_board/     # the shared LIBRARY: all Dart code, translations, and
+│                      # the assets every sport uses (shared markers, the plain
+│                      # player figure). Not an app any more — see HubBoard.
+├── packages/          # sport_<name>/ — one tiny package per sport holding
+│   ├── sport_soccer/  # that sport's drills JSON, ball and equipment art, as
+│   └── ...  (15)      # SYMLINKS into tactics_board/assets/ (one copy in git).
+│                      # Generated: tools/gen_sport_packages.py.
+├── HubBoard/          # the multi-sport hub app (com.zach.tacticsBoard): a
+│                      # shell like the others that depends on all 15 packages
 ├── SoccerBoard/       # single-sport apps. Each owns everything that is only
 ├── BasketballBoard/   # its own:
 ├── BadmintonBoard/    #   lib/main.dart        ~20 lines: config + mainReal()
@@ -23,6 +30,7 @@ board100/
 │                      #   fastlane/metadata/   App Store text per locale
 │                      #   fastlane/screenshots/
 │                      #   fastlane/play/       Play listing
+│                      #   pubspec: tactics_board + its ONE sport_<name>
 ├── tools/             # cross-app tooling: sports.tsv (the source of truth
 │                      # for all 16 apps), apps.py (path resolver), shell
 │                      # generator, build/release scripts
@@ -30,10 +38,32 @@ board100/
 ```
 
 The core keeps only what every app shares: the Dart code, the translations,
-the two in-game ball images, `assets/preview/`, and fastlane's Appfile /
+the shared marker art, the plain player figure, and fastlane's Appfile /
 Fastfile. Scripts must not hardcode per-app paths — import `tools/apps.py`
 (`metadata_dir(key)`, `screenshots_dir(key)`, `play_metadata_dir(key)`,
 `icon_source(key)`) so the table stays the only mapping.
+
+**Why the hub is a shell and per-sport assets are packages (2026-09-24).**
+Flutter bundles every asset declared by every package in an app's dependency
+graph, and a library cannot choose which of its dependents get which assets.
+While `tactics_board/` was both the library and the hub app, everything the
+hub needed — 15 drill libraries, 15 balls, every sport's equipment — was
+declared in the one pubspec and rode into all 16 apps: a soccer build shipped
+~18MB of other sports (72% of its assets). Now each sport's files sit in
+`packages/sport_<name>/` and only the app that is that sport depends on it;
+the hub depends on all fifteen. The core's `dev_dependencies` also list all
+fifteen — that is for `flutter test` and `tool/render_boards.dart` only
+(the SDK bundles dev-dependency assets under test and deliberately skips them
+in app builds). Code resolves per-sport files with `sportAsset(sport, path)`
+and shared ones with `packageAsset(path)`.
+
+Regenerate after changing what a sport needs (`SportType.markers`,
+`playerBody`, `playerImplement`, or adding a sport):
+
+```bash
+cd tactics_board && flutter test tool/sport_assets.dart   # → tools/sport_assets.json
+python3 tools/gen_sport_packages.py                        # → packages/sport_*/
+```
 
 **One app = one directory.** A build never patches another app's files: bundle
 ids, display names, AdMob app ids, icons and splash screens are committed
@@ -44,8 +74,9 @@ by `sed`-ing its project files and restoring them afterwards — that is how a
 Adding or refreshing an app:
 
 ```bash
-tools/gen_sport_shell.sh soccer   # regenerates SoccerBoard/ from tools/sports.tsv
-tools/gen_sport_shell.sh all      # all 15 shells
+tools/gen_sport_shell.sh soccer          # regenerates SoccerBoard/ from tools/sports.tsv
+tools/gen_sport_shell.sh tactics_board   # the hub → HubBoard/
+tools/gen_sport_shell.sh all             # all 16 shells
 ```
 
 `tools/sports.tsv` is the only place app identity is written down: key,
@@ -65,9 +96,12 @@ directory, bundle id, EN/ZH/JA display names, iOS + Android AdMob app ids.
 ## Running the App
 
 ```bash
-cd tactics_board && flutter run          # multi-sport hub (all sports, dev)
-cd SoccerBoard   && flutter run          # one single-sport app
-cd tactics_board && flutter run -d macos # macOS hub
+cd HubBoard    && flutter run            # multi-sport hub (all sports)
+cd SoccerBoard && flutter run            # one single-sport app
+cd HubBoard    && flutter run -d macos   # macOS hub
+# NOT `cd tactics_board && flutter run`: the core is a library now. It still
+# has ios/android/macos folders because they are the template every shell is
+# generated from, but built directly it has no sport packages, so no drills.
 ```
 
 Every app is a normal Flutter project — run, debug and profile it directly.
@@ -88,7 +122,7 @@ app is ad-free with no code change. macOS signs with team `Q6H46AAX22` (the same
 paid team as iOS, whose App ID already has Sign in with Apple); automatic signing
 provisions `com.apple.developer.applesignin` (`macos/Runner/*.entitlements`), so
 Apple login works. Each app's macOS icon is generated once by `tools/gen_sport_shell.sh` (from
-`tactics_board/assets/icon/<sport>_icon.png`) and committed, same as iOS.
+the app's own `assets/icon/app_icon.png`) and committed, same as iOS.
 
 ## Running Tests
 

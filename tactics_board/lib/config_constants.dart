@@ -52,3 +52,13 @@ String packageAsset(String assetPath) =>
     ConfigConstants.hasPackagePath
         ? 'packages/${ConfigConstants.packageName}/$assetPath'
         : assetPath;
+
+/// Resolves an asset that belongs to one sport alone — its drill library, its
+/// ball, its equipment, the figure only it draws.
+///
+/// Always in that sport's own package, so the path reads the same in a
+/// single-sport shell and in the hub. That package is why a soccer app no
+/// longer ships a basketball hoop: Flutter bundles everything a dependency
+/// declares, and the core declares what every sport shares and nothing else.
+String sportAsset(SportType sport, String assetPath) =>
+    'packages/sport_${sport.name.toLowerCase()}/$assetPath';

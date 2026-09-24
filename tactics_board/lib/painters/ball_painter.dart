@@ -30,42 +30,15 @@ abstract class BallPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-/// Every sport's on-board ball now ships as a photographic asset; the
-/// procedural painters below remain as the fallback for anything unmapped.
-String? ballImageAsset(SportType sport) {
-  switch (sport) {
-    case SportType.soccer:
-      return packageAsset('assets/icon/ball_soccer.png');
-    case SportType.basketball:
-      return packageAsset('assets/icon/ball_basketball.png');
-    case SportType.badminton:
-      return packageAsset('assets/icon/ball_badminton.png');
-    case SportType.tennis:
-      return packageAsset('assets/icon/ball_tennis.png');
-    case SportType.tableTennis:
-      return packageAsset('assets/icon/ball_tableTennis.png');
-    case SportType.volleyball:
-      return packageAsset('assets/icon/ball_volleyball.png');
-    case SportType.pickleball:
-      return packageAsset('assets/icon/ball_pickleball.png');
-    case SportType.fieldHockey:
-      return packageAsset('assets/icon/ball_fieldHockey.png');
-    case SportType.rugby:
-      return packageAsset('assets/icon/ball_rugby.png');
-    case SportType.baseball:
-      return packageAsset('assets/icon/ball_baseball.png');
-    case SportType.handball:
-      return packageAsset('assets/icon/ball_handball.png');
-    case SportType.waterPolo:
-      return packageAsset('assets/icon/ball_waterPolo.png');
-    case SportType.sepakTakraw:
-      return packageAsset('assets/icon/ball_sepakTakraw.png');
-    case SportType.beachTennis:
-      return packageAsset('assets/icon/ball_beachTennis.png');
-    case SportType.footvolley:
-      return packageAsset('assets/icon/ball_footvolley.png');
-  }
-}
+/// Every sport's on-board ball ships as a photographic asset; the procedural
+/// painters below remain as the fallback for anything unmapped.
+///
+/// This was a fifteen-arm switch that named each file — fifteen ways of
+/// writing the sport's own name, and fifteen chances for a soccer app to keep
+/// a volleyball it can never show.
+String? ballImageAsset(SportType sport) =>
+    sportAsset(sport, 'assets/icon/ball_${sport.name}.png');
+
 
 /// The on-board visual for a ball of [sport]: an image when one ships,
 /// otherwise the procedural [BallPainter]. Fills its parent box (works in

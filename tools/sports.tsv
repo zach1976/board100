@@ -3,7 +3,9 @@
 # were two copies that had to be kept in sync by hand.
 #
 # key            = SportType.name / the legacy --dart-define=SPORT value
-# dir            = shell project directory ("-" for the hub, which IS tactics_board/)
+# dir            = shell project directory. The hub is a shell too (HubBoard/):
+#                  tactics_board/ is the library every app depends on, and a
+#                  library cannot pick which of its dependents get which assets.
 # bundle         = iOS bundle id AND Android applicationId (must never change:
 #                  a different id is a different app on both stores)
 # name_en/zh/ja  = CFBundleDisplayName / android app_name per locale
@@ -12,7 +14,7 @@
 # admob_android  = same for Android; only 4 apps have an Android AdMob app
 #
 # key	dir	bundle	name_en	name_zh	name_ja	admob_ios	admob_android
-tactics_board	-	com.zach.tacticsBoard	Tactics Board	战术板	タクティクスボード	ca-app-pub-4247621509300508~5907516538	ca-app-pub-4247621509300508~4532136942
+tactics_board	HubBoard	com.zach.tacticsBoard	Tactics Board	战术板	タクティクスボード	ca-app-pub-4247621509300508~5907516538	ca-app-pub-4247621509300508~4532136942
 badminton	BadmintonBoard	com.zach.badmintonBoard	Badminton Board	羽毛球战术板	バドミントンボード	ca-app-pub-4247621509300508~8533679872	ca-app-pub-4247621509300508~5809946636
 tableTennis	TableTennisBoard	com.zach.tableTennisBoard	Table Tennis Board	乒乓球战术板	卓球ボード	ca-app-pub-4247621509300508~2607096007	-
 tennis	TennisBoard	com.zach.tennisBoard	Tennis Board	网球战术板	テニスボード	ca-app-pub-4247621509300508~1321934499	-

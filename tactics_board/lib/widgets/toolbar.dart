@@ -1630,7 +1630,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     // and got a cone. The recolourable shapes keep their painter, because
     // their colour is the point and a sprite cannot follow it.
     Widget shapeGlyph(MarkerShape shape, Color color) {
-      final art = markerImageAsset(shape);
+      final art = markerImageAsset(shape, state.sportType);
       return SizedBox(
         width: 28,
         height: 28,
@@ -1649,6 +1649,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
               borderWidth: 2,
               gender: g,
               figure: newPlayerFigure(state.sportType),
+              sport: state.sportType,
             ),
           ),
         );
@@ -3653,6 +3654,7 @@ class _QuickAddTeamGlyph extends StatelessWidget {
           borderWidth: 1.5,
           figure: newPlayerFigure(
               context.read<TacticsState>().sportType),
+          sport: context.read<TacticsState>().sportType,
         ),
       ),
     );
@@ -4282,6 +4284,7 @@ class _PlayerCard extends StatelessWidget {
                     gender: g,
                     figure: newPlayerFigure(
                         context.read<TacticsState>().sportType),
+                    sport: context.read<TacticsState>().sportType,
                   ),
                 ),
               )).toList(),

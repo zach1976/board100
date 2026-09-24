@@ -298,10 +298,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         child: RotatedBox(
           // counter-rotate: canvas is 90° CCW, so icons need 90° CW
           quarterTurns: 1,
-          child: PlayerIconWidget(
-              player: player,
-              figure: TopDownPlayerPainter.figureFor(
-                  _state.sportType, player)),
+          child: PlayerIconWidget(player: player, sport: _state.sportType),
         ),
       ),
     );
@@ -383,7 +380,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               borderWidth: 1.5,
                               gender: player.gender,
                               figure: TopDownPlayerPainter.figureFor(
-                                  _state.sportType, player),
+    _state.sportType, player),
+sport: _state.sportType,
                               isGhost: true,
                             ),
                           ),
@@ -894,6 +892,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                         gender: player.gender,
                                         figure: TopDownPlayerPainter
                                             .figureFor(state.sportType, player),
+                                        sport: state.sportType,
                                         isGhost: true,
                                       ),
                                       size: Size.infinite,
@@ -1396,8 +1395,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     final iconWidget = PlayerIconWidget(
       player: player,
       isSelected: widget.isSelected,
-      figure: TopDownPlayerPainter.figureFor(
-          context.read<TacticsState>().sportType, player),
+      sport: context.read<TacticsState>().sportType,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       onScaleStart: canPan
@@ -1595,6 +1593,7 @@ class _WaypointDotState extends State<_WaypointDot> {
                         figure: TopDownPlayerPainter.figureFor(
                             context.read<TacticsState>().sportType,
                             widget.player),
+                        sport: context.read<TacticsState>().sportType,
                       ),
                 size: Size.infinite,
               ),

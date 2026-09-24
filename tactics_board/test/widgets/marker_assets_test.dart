@@ -3,27 +3,69 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:yaml/yaml.dart';
 
-/// Five markers ship as artwork; the rest stay drawn in code.
-///
-/// A marker that names an asset nobody declared renders as a grey box on the
+/// Art that a sport names but nobody bundles renders as a grey box on the
 /// board with no error anywhere — the failure is invisible until someone opens
-/// the Add sheet on a device. This checks the two halves agree.
-void main() {
-  final declared = ((loadYaml(File('pubspec.yaml').readAsStringSync())
-          as YamlMap)['flutter']['assets'] as YamlList)
-      .map((e) => e.toString())
-      .toSet();
+/// the Add sheet on a device. Since the per-sport packages there are sixteen
+/// pubspecs it could be missing from, so this checks the two halves agree for
+/// every sport.
+Set<String> _declared(String pubspecPath, {String prefix = ''}) {
+  final yaml = loadYaml(File(pubspecPath).readAsStringSync()) as YamlMap;
+  final list = (yaml['flutter'] as YamlMap?)?['assets'] as YamlList?;
+  return (list ?? []).map((e) => '$prefix${e.toString()}').toSet();
+}
 
-  test('every marker sprite is declared in pubspec and exists on disk', () {
+void main() {
+  final core = _declared('pubspec.yaml');
+  final packages = {
+    for (final s in SportType.values)
+      s: _declared('../packages/sport_${s.name.toLowerCase()}/pubspec.yaml',
+          prefix: 'packages/sport_${s.name.toLowerCase()}/'),
+  };
+  // Whichever pubspec it came from, the file sits here relative to the test.
+  String onDisk(String asset) =>
+      asset.startsWith('packages/') ? '../$asset' : asset;
+
+  void expectShipped(String asset, Set<String> declared, String why) {
+    expect(declared, contains(asset), reason: '$why: $asset is not declared');
+    expect(File(onDisk(asset)).existsSync(), isTrue,
+        reason: '$why: $asset is missing from disk');
+  }
+
+  test('every sport ships its own drills, ball and equipment', () {
+    for (final s in SportType.values) {
+      final own = packages[s]!;
+      expectShipped('packages/sport_${s.name.toLowerCase()}/'
+          'assets/drills/${s.name}.json', own, s.name);
+      expectShipped('packages/sport_${s.name.toLowerCase()}/'
+          'assets/icon/ball_${s.name}.png', own, s.name);
+      for (final m in s.markers) {
+        final a = markerImageAsset(m, s);
+        if (a == null) continue;
+        expectShipped(a, own, '${s.name}/$m');
+      }
+    }
+  });
+
+  test('the shared markers stay in the core', () {
     for (final shape in MarkerShape.values) {
-      final asset = markerImageAsset(shape);
-      if (asset == null) continue;
-      // packageAsset() is a no-op under test, where the package is the app.
-      expect(declared, contains(asset), reason: '$shape names $asset');
-      expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+      if (kSportScopedMarkers.contains(shape)) continue;
+      final a = markerImageAsset(shape, SportType.soccer);
+      if (a == null) continue;
+      expectShipped(a, core, '$shape');
+    }
+  });
+
+  test('a soccer app carries no other sport', () {
+    // The whole point of the split. Soccer lists no equipment of its own, so
+    // its package is two files and the core has nothing sport-shaped in it.
+    expect(packages[SportType.soccer]!.length, 2);
+    for (final a in core) {
+      expect(a.contains('/drills/'), isFalse, reason: '$a is one sport\'s');
+      expect(a.contains('/ball_'), isFalse, reason: '$a is one sport\'s');
     }
   });
 
@@ -37,42 +79,56 @@ void main() {
       MarkerShape.triangle,
       MarkerShape.diamond,
     ]) {
-      expect(markerImageAsset(shape), isNull,
+      expect(markerImageAsset(shape, SportType.soccer), isNull,
           reason: '$shape must stay drawn so it can be recoloured');
     }
   });
 
   test('every figure ships as a body plate and a kit plate', () {
-    // A figure is two images: the body in its own colours and the kit in
-    // grey for the team colour to land on. Half a pair renders as the
-    // fallback circle and oval with no error anywhere, so both halves of
-    // every figure are checked — two genders across the plain body, the
-    // four implements and the swimmer.
+    // A figure is two images: the body in its own colours and the kit in grey
+    // for the team colour to land on. Half a pair renders as the fallback
+    // circle and oval with no error anywhere. The plain figure is everybody's
+    // and lives in the core; a racket, a bat and a swim cap ship with the
+    // sports that use them.
+    String file(String g, PlayerFigure f, String layer) =>
+        'assets/icon/player_top_$g'
+        '${f == PlayerFigure.plain ? '' : '_${f.name}'}_$layer.png';
     for (final g in ['male', 'female']) {
-      for (final f in PlayerFigure.values) {
-        final v = f == PlayerFigure.plain ? '' : '_${f.name}';
-        for (final layer in ['base', 'kit']) {
-          final asset = 'assets/icon/player_top_$g${v}_$layer.png';
-          expect(declared, contains(asset), reason: '$asset is not declared');
-          expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+      for (final layer in ['base', 'kit']) {
+        expectShipped(file(g, PlayerFigure.plain, layer), core, 'plain/$g');
+      }
+      for (final s in SportType.values) {
+        for (final f in {s.playerBody, s.playerImplement}) {
+          if (f == null || f == PlayerFigure.plain) continue;
+          for (final layer in ['base', 'kit']) {
+            expectShipped(
+                'packages/sport_${s.name.toLowerCase()}/${file(g, f, layer)}',
+                packages[s]!,
+                '${s.name}/${f.name}/$g');
+          }
         }
       }
     }
   });
 
   test('the sprites are the size and format the board expects', () {
-    for (final shape in MarkerShape.values) {
-      final asset = markerImageAsset(shape);
-      if (asset == null) continue;
-      final bytes = File(asset).readAsBytesSync();
-      expect(bytes.sublist(0, 8), [137, 80, 78, 71, 13, 10, 26, 10],
-          reason: '$asset is not a PNG');
-      // IHDR: width and height are big-endian uint32 at offsets 16 and 20,
-      // and colour type 6 at offset 25 is the one that carries alpha.
-      final w = ByteData.sublistView(bytes, 16, 20).getUint32(0);
-      final h = ByteData.sublistView(bytes, 20, 24).getUint32(0);
-      expect([w, h], [512, 512], reason: '$asset is ${w}x$h');
-      expect(bytes[25], 6, reason: '$asset has no alpha channel');
+    final seen = <String>{};
+    for (final s in SportType.values) {
+      for (final shape in MarkerShape.values) {
+        final asset = markerImageAsset(shape, s);
+        if (asset == null || !seen.add(asset)) continue;
+        final f = File(onDisk(asset));
+        if (!f.existsSync()) continue; // covered by the tests above
+        final bytes = f.readAsBytesSync();
+        expect(bytes.sublist(0, 8), [137, 80, 78, 71, 13, 10, 26, 10],
+            reason: '$asset is not a PNG');
+        // IHDR: width and height are big-endian uint32 at offsets 16 and 20,
+        // and colour type 6 at offset 25 is the one that carries alpha.
+        final w = ByteData.sublistView(bytes, 16, 20).getUint32(0);
+        final h = ByteData.sublistView(bytes, 20, 24).getUint32(0);
+        expect([w, h], [512, 512], reason: '$asset is ${w}x$h');
+        expect(bytes[25], 6, reason: '$asset has no alpha channel');
+      }
     }
   });
 }

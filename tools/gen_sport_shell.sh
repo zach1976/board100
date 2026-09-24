@@ -1,6 +1,7 @@
 #!/bin/bash
-# gen_sport_shell.sh <sport> [sport2 ...] — create/refresh a single-sport shell
-# project from the shared core (tactics_board/) and tools/sports.tsv.
+# gen_sport_shell.sh <sport> [sport2 ...] — create/refresh a shell project
+# from the shared core (tactics_board/) and tools/sports.tsv. The hub
+# (tactics_board → HubBoard/) is a shell too; see HUB below.
 #
 # A shell is a real Flutter app whose lib/ is ~20 lines: it sets ConfigConstants
 # and calls tactics_board's mainReal(). Everything that used to be patched into
@@ -51,7 +52,13 @@ for SPORT in "${SPORTS[@]}"; do
   ROW="$(row "$SPORT")"
   [ -n "$ROW" ] || { echo "❌ unknown sport '$SPORT' (not in $TABLE)"; exit 1; }
   IFS=$'\t' read -r KEY DIR BUNDLE NAME_EN NAME_ZH NAME_JA ADMOB_IOS ADMOB_ANDROID <<< "$ROW"
-  [ "$DIR" = "-" ] && { echo "❌ $KEY is the hub — it lives in $CORE/, not a shell"; exit 1; }
+  # The hub is generated the same way, from the same row: the only things
+  # that differ are that it fixes no sport and depends on every sport's
+  # package instead of one. It used to BE the core, and that is exactly why
+  # every shell shipped all fifteen sports — a library cannot choose which
+  # of its dependents get which assets, so whatever the hub needed, all
+  # sixteen apps carried.
+  HUB=0; [ "$KEY" = "tactics_board" ] && HUB=1
 
   echo "═══════════════════════════════════════════════"
   echo "  $KEY → $DIR"
@@ -84,6 +91,16 @@ for SPORT in "${SPORTS[@]}"; do
   # ── pubspec: depends on the core, generates its own icons + splash ─────────
   VERSION=$(grep -E '^version:' "$CORE/pubspec.yaml" | sed 's/version: //')
   PKG=$(echo "$KEY" | tr '[:upper:]' '[:lower:]')_board
+  [ $HUB = 1 ] && PKG=hub_board
+  # This sport's own drills, ball and equipment — see tools/gen_sport_packages.py.
+  # A shell depends on the one it is; the hub on all fifteen.
+  if [ $HUB = 1 ]; then
+    SPORT_DEPS=$(for d in packages/sport_*/; do n=$(basename "$d"); printf '  %s:\n    path: ../packages/%s\n' "$n" "$n"; done)
+  else
+    SP="sport_$(echo "$KEY" | tr '[:upper:]' '[:lower:]')"
+    [ -d "packages/$SP" ] || { echo "❌ packages/$SP missing — run tools/gen_sport_packages.py"; exit 1; }
+    SPORT_DEPS=$(printf '  %s:\n    path: ../packages/%s\n' "$SP" "$SP")
+  fi
   # The intro backdrops are this app's own (the core's assets go into all
   # sixteen bundles, so sixteen sports' artwork would ride along in each).
   # Declared only once they exist: Flutter fails the build on an asset
@@ -128,6 +145,8 @@ dependencies:
   # lib/main.dart and tactics_board/lib/config_constants.dart.
   tactics_board:
     path: ../${CORE}
+  # Only this app's sport(s): the drill library, the ball, the equipment.
+${SPORT_DEPS}
 
 dev_dependencies:
   flutter_test:
@@ -171,6 +190,11 @@ flutter_native_splash:
 YAML
 
   # ── the shell's entire Dart source ────────────────────────────────────────
+  if [ $HUB = 1 ]; then
+    FIX_SPORT="  // No fixed sport: this is the hub, and it opens on the sport picker."
+  else
+    FIX_SPORT="  ConfigConstants.fixedSportType = SportType.${KEY};"
+  fi
   mkdir -p "$DIR/lib"
   cat > "$DIR/lib/main.dart" <<DART
 import 'package:tactics_board/config_constants.dart';
@@ -183,7 +207,7 @@ import 'package:tactics_board/models/sport_type.dart';
 /// package. Per-sport ad unit ids are NOT set here on purpose: AdService
 /// looks them up by sport, so this shell cannot get them wrong.
 void main() {
-  ConfigConstants.fixedSportType = SportType.${KEY};
+${FIX_SPORT}
   // The core is a dependency here, so its assets live under
   // packages/tactics_board/ in this app's bundle.
   ConfigConstants.hasPackagePath = true;

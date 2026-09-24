@@ -35,7 +35,7 @@ class DrillLibraryService {
     if (json == null) {
       try {
         final raw = await rootBundle
-            .loadString(packageAsset('assets/drills/${sport.name}.json'));
+            .loadString(sportAsset(sport, 'assets/drills/${sport.name}.json'));
         json = jsonDecode(raw) as Map<String, dynamic>;
       } catch (_) {
         // No library for this sport yet.
@@ -64,7 +64,7 @@ class DrillLibraryService {
       if (!await f.exists()) return null;
       final cached = jsonDecode(await f.readAsString()) as Map<String, dynamic>;
       final raw = await rootBundle
-          .loadString(packageAsset('assets/drills/${sport.name}.json'));
+          .loadString(sportAsset(sport, 'assets/drills/${sport.name}.json'));
       final bundled = jsonDecode(raw) as Map<String, dynamic>;
       final cv = (cached['version'] as num?)?.toInt() ?? 0;
       final bv = (bundled['version'] as num?)?.toInt() ?? 0;

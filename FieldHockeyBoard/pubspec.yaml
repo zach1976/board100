@@ -14,6 +14,9 @@ dependencies:
   # lib/main.dart and tactics_board/lib/config_constants.dart.
   tactics_board:
     path: ../tactics_board
+  # This sport's own drills, ball and equipment — and no other sport's.
+  sport_fieldhockey:
+    path: ../packages/sport_fieldhockey
 
 dev_dependencies:
   flutter_test:

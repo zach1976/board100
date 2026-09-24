@@ -2059,6 +2059,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               gender: p.gender,
               figure: TopDownPlayerPainter.figureFor(
                   widget.state.sportType, p),
+              sport: widget.state.sportType,
             ),
             size: Size(dim, dim),
           ),
