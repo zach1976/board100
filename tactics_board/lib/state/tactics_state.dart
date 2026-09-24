@@ -1036,8 +1036,19 @@ class TacticsState extends ChangeNotifier {
   void rotatePlayer(String id, double radians) {
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
-    _players[idx] = _players[idx].copyWith(rotation: snapAngle(radians));
+    final p = _players[idx];
+    // A person is drawn from eight pictures, so a turn between two of them
+    // shows nothing; snap to the one it will show. Markers turn freely.
+    final snapped =
+        p.isMarker || p.isBall ? snapAngle(radians) : snapFacing(radians);
+    _players[idx] = p.copyWith(rotation: snapped);
     notifyListeners();
+  }
+
+  /// Nearest eighth of a turn — the headings a figure has pictures for.
+  static double snapFacing(double radians) {
+    const step = math.pi / 4;
+    return (radians / step).roundToDouble() * step;
   }
 
   void rotatePlayerEnd(String id) {

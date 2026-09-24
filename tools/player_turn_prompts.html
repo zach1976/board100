@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>八方向转身图提示词</title>
+<style>
+  :root{color-scheme:dark;--ground:#0A1411;--panel:#111E19;--line:#1E3129;--line-soft:#182720;
+    --text:#E6F0EB;--muted:#86A096;--dim:#5E7168;--accent:#20C7C3;--accent-dim:#14524F;--cone:#E08B3E;
+    --body:"PingFang SC","Hiragino Sans GB",sans-serif;--mono:"SF Mono",Menlo,Consolas,monospace;}
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 96px}
+  header.top{padding:56px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  h1{font-weight:800;font-size:clamp(30px,6vw,46px);line-height:1.05;margin:0 0 12px}
+  .lede{color:var(--muted);max-width:66ch;margin:0}
+  section{padding-top:44px}
+  h2{font-weight:800;font-size:22px;margin:0 0 6px}
+  .sub{color:var(--muted);margin:0 0 20px;max-width:70ch}
+  .rules{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;margin-top:18px}
+  .rule{background:var(--panel);padding:14px 16px;display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start}
+  .rule .k{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:3px}
+  .rule b{display:block;font-weight:600;margin-bottom:2px}
+  .rule span{color:var(--muted);font-size:13.5px}
+  .slot{border:1px solid var(--line-soft);border-radius:14px;background:var(--panel);margin-bottom:16px;overflow:hidden}
+  .slot>header{padding:14px 16px;border-bottom:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
+  .slot h3{font-weight:600;font-size:16.5px;margin:0}
+  .slot .spec{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .slot .body{padding:14px 16px 16px}
+  .prompt{position:relative;background:#0C1714;border:1px solid var(--line-soft);border-radius:10px;padding:14px 46px 14px 14px;overflow-x:auto}
+  .prompt code{font-family:var(--mono);font-size:12.5px;line-height:1.75;color:#CFE3DB;white-space:pre-wrap;word-break:break-word;display:block}
+  .copy{position:absolute;top:9px;right:9px;background:#16271F;border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:5px 9px;font:500 11px/1 var(--mono);cursor:pointer}
+  .copy:hover{color:var(--text);border-color:#2C463C}
+  .copy.done{color:var(--accent);border-color:var(--accent-dim)}
+  .callout{border-left:2px solid var(--cone);background:#1A140C;border-radius:0 10px 10px 0;padding:14px 16px;margin:20px 0;font-size:13.5px;color:#E8D9C4}
+  .callout b{color:#FFCF96}
+  code.mono{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  footer.end{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+  @media (max-width:560px){.slot .spec{margin-left:0;width:100%}}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">turnaround sheet · 8 headings from 5 · 2 images first</p>
+  <h1>让人真的转过去</h1>
+  <p class="lede">脸是最强的方向线索，箭头压不过它；转一张图又只能得到躺着的人。
+  剩下的就是俯视游戏做角色的老办法：<b>同一个相机，同一个人，每个朝向一张</b>。
+  朝向按 45° 吸附（旋转按钮改为每次 45°），竖屏、横屏、外接屏全部是"算出屏幕朝向 → 选那一张"，
+  身体永远站着，脸永远朝对的方向。</p>
+</header>
+
+<section>
+  <h2>五个角度在一张图里</h2>
+  <p class="sub">一次生成里的五个人比五次生成一致得多。左到右每次转 45°：正对 → 右前 3/4 → 右侧 → 右后 3/4 → 正背。
+  左边三个朝向用镜像（基础小人没有手持物，镜像成立）。相机和现有的正面图完全一样。</p>
+  <div class="rules">
+    <div class="rule"><span class="k">01</span><div><b>一排五个，等距等大，不重叠，无分隔线</b>
+      <span>2560×512，每格 512。我按连通区域切、按头宽归一 —— 同一张图里五个头宽本来就应该一致。</span></div></div>
+    <div class="rule"><span class="k">02</span><div><b>转得均匀：每格比前一格多转 45°</b>
+      <span>第 5 格必须一点脸都没有，第 3 格必须是干净的侧影。</span></div></div>
+    <div class="rule"><span class="k">03</span><div><b>其余全部照旧</b>
+      <span>品红键色球衣、玩具比例、零纹理、无接地阴影、透明背景。</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>两段提示词</h2>
+
+  <div class="slot">
+    <header><h3>基础 · 男 · 转身图</h3><span class="spec">player_top_male_turn.png · 2560x512</span></header>
+    <div class="body"><div class="prompt"><button class="copy" data-copy>复制整段</button><code>player_top_male_turn.png
+2560x512
+A character turnaround of a single footballer with short dark hair, a plain short-sleeved shirt, shorts, socks and shoes. THIS IS A CHARACTER TURNAROUND SHEET: ONE image, 2560 wide by 512 tall, containing the SAME figure FIVE times in a single horizontal row, evenly spaced, equal size, not touching and not overlapping, each in its own 512 by 512 cell. Same camera, same lighting, same scale, same pose for all five - a moulded figurine turned on a turntable and photographed at five stops, 45 degrees apart. From left to right the figure faces: (1) straight toward the camera, its face fully visible; (2) three-quarters toward the camera and toward the viewer's RIGHT; (3) directly to the viewer's RIGHT, a clean side profile, one arm nearest the camera; (4) three-quarters away from the camera and toward the viewer's RIGHT, most of its back showing; (5) straight away from the camera, its back fully to the viewer, no part of the face visible. The turn must be even: each figure is the previous one turned a further 45 degrees. The camera is fixed for all five: above the figure and a little in front of it, looking down at about 55 degrees, so the crown of the head and the shoulders read from above and the feet are visible below - exactly the camera of the front-facing figure already made for this app. The figure is 3D rendered as a moulded plastic tactics-board figurine, in exactly the same style, chunky toy proportions and colour rules as the front-facing figure already made for this app: the head is large for the body, about a quarter of the figure's height; the shoulders are broad; the arms and legs are short and thick, simple rounded masses with no anatomical muscle definition at all. Standing upright, feet a little apart, arms hanging at the sides and clear of the body. Surfaces are smooth and matte and completely untextured: no fabric weave, no individual hair strands, no laces, no stitching, no seams, no folds. Lit softly from the upper left by one neutral white light, the same for all five. Fully transparent background (alpha) across the whole sheet, not white and not a colour. No ground, no pitch, no scene, no cell borders or dividing lines, and NO CONTACT SHADOW of any kind beneath any figure - the app draws its own. COLOUR, identical on all five. The figure is NOT one colour. Every part is coloured as that part really is, EXCEPT the kit, which is painted in a key colour the app replaces at runtime: the SHIRT and the SHORTS - and nothing else in the image - are pure vivid magenta, fuchsia, RGB 255 0 255, shaded properly with their own soft highlights and shadows but with every shaded pixel unmistakably magenta, no pink drifting to red, no purple drifting to blue, and no other surface anywhere in the picture carrying even a trace of magenta; the SKIN of the face, neck, arms and legs is a natural mid tan; the HAIR is a dark natural brown, close to black; the SOCKS are clean white and the SHOES are clean white with a dark sole. No magenta light spills onto the skin, the hair or the shoes - no coloured bounce light anywhere. Nothing written anywhere in the image: no text, letters, numbers, labels under the figures, watermarks or signatures, and the shirt is left clear and unbroken because the app draws the player's number on it. No logos, brand marks, sponsor names or club crests. No ball, no equipment, nothing in the hands. Not a photograph, not flat vector art, not icons on tiles.</code></div></div>
+  </div>
+
+  <div class="slot">
+    <header><h3>基础 · 女 · 转身图</h3><span class="spec">player_top_female_turn.png · 2560x512</span></header>
+    <div class="body"><div class="prompt"><button class="copy" data-copy>复制整段</button><code>player_top_female_turn.png
+2560x512
+A character turnaround of a single footballer with dark hair gathered into a ponytail that hangs down the back, so it swings into view as the figure turns away, wearing a plain short-sleeved shirt, shorts, socks and shoes. THIS IS A CHARACTER TURNAROUND SHEET: ONE image, 2560 wide by 512 tall, containing the SAME figure FIVE times in a single horizontal row, evenly spaced, equal size, not touching and not overlapping, each in its own 512 by 512 cell. Same camera, same lighting, same scale, same pose for all five - a moulded figurine turned on a turntable and photographed at five stops, 45 degrees apart. From left to right the figure faces: (1) straight toward the camera, its face fully visible; (2) three-quarters toward the camera and toward the viewer's RIGHT; (3) directly to the viewer's RIGHT, a clean side profile, one arm nearest the camera; (4) three-quarters away from the camera and toward the viewer's RIGHT, most of its back showing; (5) straight away from the camera, its back fully to the viewer, no part of the face visible. The turn must be even: each figure is the previous one turned a further 45 degrees. The camera is fixed for all five: above the figure and a little in front of it, looking down at about 55 degrees, so the crown of the head and the shoulders read from above and the feet are visible below - exactly the camera of the front-facing figure already made for this app. The figure is 3D rendered as a moulded plastic tactics-board figurine, in exactly the same style, chunky toy proportions and colour rules as the front-facing figure already made for this app: the head is large for the body, about a quarter of the figure's height; the shoulders are broad; the arms and legs are short and thick, simple rounded masses with no anatomical muscle definition at all. Standing upright, feet a little apart, arms hanging at the sides and clear of the body. Surfaces are smooth and matte and completely untextured: no fabric weave, no individual hair strands, no laces, no stitching, no seams, no folds. Lit softly from the upper left by one neutral white light, the same for all five. Fully transparent background (alpha) across the whole sheet, not white and not a colour. No ground, no pitch, no scene, no cell borders or dividing lines, and NO CONTACT SHADOW of any kind beneath any figure - the app draws its own. COLOUR, identical on all five. The figure is NOT one colour. Every part is coloured as that part really is, EXCEPT the kit, which is painted in a key colour the app replaces at runtime: the SHIRT and the SHORTS - and nothing else in the image - are pure vivid magenta, fuchsia, RGB 255 0 255, shaded properly with their own soft highlights and shadows but with every shaded pixel unmistakably magenta, no pink drifting to red, no purple drifting to blue, and no other surface anywhere in the picture carrying even a trace of magenta; the SKIN of the face, neck, arms and legs is a natural mid tan; the HAIR is a dark natural brown, close to black; the SOCKS are clean white and the SHOES are clean white with a dark sole. No magenta light spills onto the skin, the hair or the shoes - no coloured bounce light anywhere. Nothing written anywhere in the image: no text, letters, numbers, labels under the figures, watermarks or signatures, and the shirt is left clear and unbroken because the app draws the player's number on it. No logos, brand marks, sponsor names or club crests. No ball, no equipment, nothing in the hands. Not a photograph, not flat vector art, not icons on tiles.</code></div></div>
+  </div>
+</section>
+
+<div class="callout">
+  <b>收图后我量：</b> ① 切出来是不是恰好 5 个连通块；② 5 个头宽之差（3% 内）；③ 第 5 格无眉毛、第 1 格有；④ 品红范围。
+  过了就接线：8 张贴图拼成一张 sheet 按角度取格，旋转按钮改 45°，横屏按屏幕朝向选格。<b>先渲一块竖屏板、一块横屏板给你看。</b>
+  持械和水球的转身图用同一个模板，等基础版看过再写。
+</div>
+
+<footer class="end">
+  文件：<code class="mono">/Users/zhenyusong/projects/board100/tools/player_turn_prompts.html</code>。断网可读。
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.parentNode.querySelector('code').innerText;
+    navigator.clipboard.writeText(t).then(function () {
+      // Stays "已复制" for good and stays clickable: a page of prompts is
+      // pasted over several sittings, and a button that resets erases which
+      // ones have already been taken.
+      b.textContent = '已复制';
+      b.classList.add('done');
+    });
+  });
+});
+</script>
+</body></html>

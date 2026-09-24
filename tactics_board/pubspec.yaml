@@ -151,6 +151,11 @@ flutter:
     - assets/icon/player_top_male_kit.png
     - assets/icon/player_top_female_base.png
     - assets/icon/player_top_female_kit.png
+    # The same two figures at eight headings, for facing.
+    - assets/icon/player_top_male_turn_base.png
+    - assets/icon/player_top_male_turn_kit.png
+    - assets/icon/player_top_female_turn_base.png
+    - assets/icon/player_top_female_turn_kit.png
     - assets/icon/empty_history.png
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png

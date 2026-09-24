@@ -56,6 +56,15 @@ PlayerFigure newPlayerFigure(SportType sport) =>
 /// clear above it. Same on both figures — they were normalised together.
 const Alignment kPlayerLabelAlign = Alignment(0, 0.05);
 
+/// The turnaround figure is drawn at eye level, not from above, so its
+/// chest is higher in the box than the top-down figure's: 0.42 of a
+/// 430px figure centred in 512, through the 1.57 draw scale.
+const Alignment kTurnLabelAlign = Alignment(0, -0.2);
+Alignment playerLabelAlign(SportType sport, PlayerIcon p) =>
+    PlayerArt.turns(sport, p.gender, TopDownPlayerPainter.figureFor(sport, p))
+        ? kTurnLabelAlign
+        : kPlayerLabelAlign;
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // The figure a player token is drawn from
@@ -84,6 +93,23 @@ class PlayerArt {
 
   static String _key(PlayerGender g, PlayerFigure f, String layer) =>
       '${g == PlayerGender.female ? 'female' : 'male'}.${f.name}.$layer';
+
+  /// A turnaround sheet: the figure at eight headings, 4x2 cells of 512,
+  /// clockwise from up the board — N NE E SE S SW W NW. Same two layers as
+  /// a single plate. Not every figure has one yet; the painter falls back
+  /// to the single plate, which faces the viewer, when it does not.
+  static const int kTurnCells = 8, kTurnCols = 4, kTurnCell = 512;
+
+  static ui.Image? turnOf(SportType sport, PlayerGender g, PlayerFigure f) =>
+      _plate(sport, g, f, 'turn_base');
+  static ui.Image? turnKitOf(
+          SportType sport, PlayerGender g, PlayerFigure f) =>
+      _plate(sport, g, f, 'turn_kit');
+
+  /// Whether this figure can face every way. Answered from what has
+  /// loaded, so it is false for the first frames and flips once.
+  static bool turns(SportType sport, PlayerGender g, PlayerFigure f) =>
+      turnOf(sport, g, f) != null && turnKitOf(sport, g, f) != null;
 
   /// The plain figure is everybody's and lives in the core; a racket, a bat
   /// and a swim cap belong to the sports that use them and ship in their
@@ -133,7 +159,7 @@ class PlayerArt {
           s.playerImplement,
         }) {
           if (f == null) continue;
-          for (final layer in ['base', 'kit']) {
+          for (final layer in ['base', 'kit', 'turn_base', 'turn_kit']) {
             want.add(_key(g, f, layer));
             _plate(s, g, f, layer);
           }
@@ -174,6 +200,14 @@ class TopDownPlayerPainter extends CustomPainter {
   /// Only used to find the figure's plates: an implement ships in the package
   /// of the sport that swings it.
   final SportType sport;
+  /// Which way the player faces, radians clockwise from up the board.
+  /// See [playerFacing]. The default faces the viewer, which is what a
+  /// palette preview with no player behind it should do.
+  final double heading;
+  /// Quarter turns clockwise the board is shown at. The picture is chosen
+  /// for the heading as it appears ON SCREEN, so a player facing up the
+  /// board is drawn facing right when the board lies on its side.
+  final int boardTurns;
   final bool isGhost;
 
   /// Not const: it repaints on [PlayerArt.ready], so the tokens already on
@@ -186,6 +220,8 @@ class TopDownPlayerPainter extends CustomPainter {
     this.gender = PlayerGender.unspecified,
     this.figure = PlayerFigure.plain,
     this.sport = SportType.soccer,
+    this.heading = pi,
+    this.boardTurns = 0,
     this.isGhost = false,
   }) : super(repaint: PlayerArt.ready);
 
@@ -194,10 +230,28 @@ class TopDownPlayerPainter extends CustomPainter {
     final w = size.width;
     final h = size.height;
 
+    final turn = PlayerArt.turnOf(sport, gender, figure);
+    final turnKit = PlayerArt.turnKitOf(sport, gender, figure);
+    if (turn != null && turnKit != null) {
+      final onScreen = heading + boardTurns * pi / 2;
+      final cell = ((onScreen / (pi / 4)).round() % PlayerArt.kTurnCells +
+              PlayerArt.kTurnCells) %
+          PlayerArt.kTurnCells;
+      const c = PlayerArt.kTurnCell;
+      final src = Rect.fromLTWH(
+          (cell % PlayerArt.kTurnCols) * c.toDouble(),
+          (cell ~/ PlayerArt.kTurnCols) * c.toDouble(),
+          c.toDouble(),
+          c.toDouble());
+      _paintArt(canvas, turn, turnKit, Offset.zero & size, src);
+      return;
+    }
+
     final art = PlayerArt.of(sport, gender, figure);
     final kit = PlayerArt.kitOf(sport, gender, figure);
     if (art != null && kit != null) {
-      _paintArt(canvas, art, kit, Offset.zero & size);
+      _paintArt(canvas, art, kit, Offset.zero & size,
+          Rect.fromLTWH(0, 0, art.width.toDouble(), art.height.toDouble()));
       return;
     }
 
@@ -353,9 +407,8 @@ class TopDownPlayerPainter extends CustomPainter {
     }
   }
 
-  void _paintArt(Canvas canvas, ui.Image art, ui.Image kit, Rect box) {
-    final src =
-        Rect.fromLTWH(0, 0, art.width.toDouble(), art.height.toDouble());
+  void _paintArt(
+      Canvas canvas, ui.Image art, ui.Image kit, Rect box, Rect src) {
     final dst = box.inflate(box.width * (_figureScale - 1) / 2);
 
     if (isGhost) {
@@ -467,6 +520,8 @@ class TopDownPlayerPainter extends CustomPainter {
       old.gender != gender ||
       old.figure != figure ||
       old.sport != sport ||
+      old.heading != heading ||
+      old.boardTurns != boardTurns ||
       old.isGhost != isGhost;
 }
 
@@ -505,52 +560,15 @@ class BoardOrientation extends InheritedWidget {
 
 /// Where a player is facing, in radians clockwise from up the board.
 ///
-/// The body never turns. It cannot: the figure is drawn from above and a
-/// little in front, and any turn of that picture reads as a person lying
-/// down, not as a person facing elsewhere — four hours of art proved it
-/// from every angle. So the body stays upright and a chevron carries the
-/// facing, which is what a coach's magnet with a pointer does. The home
-/// side plays bottom to top and faces up by default; everyone else faces
-/// the viewer, which is the way the body is drawn. [PlayerIcon.rotation],
-/// the coach's own turn of the element, is added on top, so the rotate
-/// buttons and the two-finger twist now turn the pointer.
+/// The picture is never rotated: a figure drawn from in front turns into a
+/// body lying on the grass the moment it is, and a chevron beside an
+/// unturned face was overruled by the face. So the figure is drawn eight
+/// times, once per heading, and the heading picks the picture — the way a
+/// top-down game draws a character. The home side plays bottom to top and
+/// faces up by default; everyone else faces the viewer. The coach's own
+/// turn, [PlayerIcon.rotation], is added on top and snaps to the eight.
 double playerFacing(PlayerIcon p) =>
     (p.team == PlayerTeam.home ? 0.0 : pi) + p.rotation;
-
-/// A short white chevron just outside the figure, pointing where the player
-/// faces. Sized against the token box so it scales with the player.
-class FacingChevronPainter extends CustomPainter {
-  final double angle;
-  const FacingChevronPainter(this.angle);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final w = size.width;
-    final c = Offset(w / 2, size.height / 2);
-    // Just clear of the figure, which is drawn at 1.57 of the box but is
-    // narrower than it is tall.
-    const radius = 0.68, length = 0.16, half = 0.144;
-    final dir = Offset(sin(angle), -cos(angle));
-    final side = Offset(-dir.dy, dir.dx);
-    final base = c + dir * (w * radius);
-    final path = Path()
-      ..moveTo(base.dx + dir.dx * w * length, base.dy + dir.dy * w * length)
-      ..lineTo(base.dx + side.dx * w * half, base.dy + side.dy * w * half)
-      ..lineTo(base.dx - side.dx * w * half, base.dy - side.dy * w * half)
-      ..close();
-    canvas.drawPath(
-        path,
-        Paint()
-          ..color = const Color(0xA0000000)
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.2
-          ..strokeJoin = StrokeJoin.round);
-    canvas.drawPath(path, Paint()..color = Colors.white);
-  }
-
-  @override
-  bool shouldRepaint(FacingChevronPainter old) => old.angle != angle;
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Main player icon widget
@@ -611,10 +629,10 @@ class PlayerIconWidget extends StatelessWidget {
             curve: Curves.easeOutCubic,
             scale: isSelected ? 1.1 : 1.0,
             // Markers and balls turn with `rotation` — an arrow that does
-            // not turn is no arrow. A person does not: the body stays
-            // upright on screen whichever way the board or the coach has
-            // turned it, and a chevron in board space carries the facing.
-            // See playerFacing.
+            // not turn is no arrow. A person is never rotated as a picture:
+            // the token stays upright on screen whichever way the board is
+            // turned, and the heading picks which of eight pictures is
+            // drawn. See playerFacing.
             child: (player.isMarker || player.isBall)
                 ? Transform.rotate(
                     angle: player.rotation,
@@ -643,35 +661,21 @@ class PlayerIconWidget extends StatelessWidget {
                 : SizedBox(
                     width: size,
                     height: size,
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        CustomPaint(
-                          painter: FacingChevronPainter(playerFacing(player)),
-                          size: Size.infinite,
-                        ),
-                        RotatedBox(
-                          quarterTurns: BoardOrientation.counterTurns(context),
-                          child: player.photoId != null
-                              ? PhotoPlayerShape(
-                                  player: player, isSelected: isSelected)
-                              : _PlayerShape(
-                                  player: player,
-                                  isSelected: isSelected,
-                                  sport: sport),
-                        ),
-                      ],
+                    child: RotatedBox(
+                      quarterTurns: BoardOrientation.counterTurns(context),
+                      child: player.photoId != null
+                          ? PhotoPlayerShape(
+                              player: player, isSelected: isSelected)
+                          : _PlayerShape(
+                              player: player,
+                              isSelected: isSelected,
+                              sport: sport),
                     ),
                   ),
           ),
           if (player.label.isNotEmpty && !player.labelInside) ...[
-            // A small gap so the badge does not crowd the avatar's edge —
-            // and under a person, room for the facing chevron, which sits
-            // 12pt below the box when the player faces down the board and
-            // was disappearing behind every away side's name.
-            SizedBox(
-                height: (player.isMarker || player.isBall ? 3 : 14) *
-                    player.scale),
+            // Small gap so the name badge doesn't crowd the avatar's edge.
+            SizedBox(height: 3 * player.scale),
             RotatedBox(
               // Upright on screen like the body above it.
               quarterTurns: BoardOrientation.counterTurns(context),
@@ -726,12 +730,14 @@ class _PlayerShape extends StatelessWidget {
             gender: player.gender,
             figure: TopDownPlayerPainter.figureFor(sport, player),
             sport: sport,
+            heading: playerFacing(player),
+            boardTurns: BoardOrientation.of(context),
           ),
           size: Size.infinite,
         ),
         if (player.labelInside)
           Align(
-            alignment: kPlayerLabelAlign,
+            alignment: playerLabelAlign(sport, player),
             child: Text(
               player.label,
               // Heavier weight + a dark outline (layered shadows) keeps the

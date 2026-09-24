@@ -394,6 +394,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               figure: TopDownPlayerPainter.figureFor(
                                   _state.sportType, player),
                               sport: _state.sportType,
+                              heading: playerFacing(player),
+                              boardTurns: widget.boardTurns,
                               isGhost: true,
                             ),
                           )),
@@ -438,6 +440,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                           TopDownPlayerPainter.figureFor(
                                               _state.sportType, player),
                                       sport: _state.sportType,
+                                      heading: playerFacing(player),
+                                      boardTurns: widget.boardTurns,
                                     ),
                             ),
                           ),
@@ -909,6 +913,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                         figure: TopDownPlayerPainter
                                             .figureFor(state.sportType, player),
                                         sport: state.sportType,
+                                        heading: playerFacing(player),
+                                        boardTurns: widget.boardTurns,
                                         isGhost: true,
                                       ),
                                       size: Size.infinite,
@@ -921,7 +927,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                     // read as two different marks.
                                     if (player.labelInside)
                                       Align(
-                                        alignment: kPlayerLabelAlign,
+                                        alignment: playerLabelAlign(
+                                            state.sportType, player),
                                         child: Text(
                                           player.label,
                                           style: TextStyle(
@@ -1614,6 +1621,8 @@ class _WaypointDotState extends State<_WaypointDot> {
                             context.read<TacticsState>().sportType,
                             widget.player),
                         sport: context.read<TacticsState>().sportType,
+                        heading: playerFacing(widget.player),
+                        boardTurns: BoardOrientation.of(context),
                       ),
                 size: Size.infinite,
               ),
@@ -1623,7 +1632,8 @@ class _WaypointDotState extends State<_WaypointDot> {
                 !hasPhoto)
               Align(
                 // On the shirt, the same place the live token carries it.
-                alignment: kPlayerLabelAlign,
+                alignment: playerLabelAlign(
+                    context.read<TacticsState>().sportType, widget.player),
                 child: Text(
                   widget.player.label,
                   style: TextStyle(

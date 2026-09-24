@@ -100,7 +100,9 @@ void main() {
         'assets/icon/player_top_$g'
         '${f == PlayerFigure.plain ? '' : '_${f.name}'}_$layer.png';
     for (final g in ['male', 'female']) {
-      for (final layer in ['base', 'kit']) {
+      // The plain figure also ships its turnaround: eight headings in a
+      // 4x2 sheet, so a player can face where they are going.
+      for (final layer in ['base', 'kit', 'turn_base', 'turn_kit']) {
         expectShipped(file(g, PlayerFigure.plain, layer), core, 'plain/$g');
       }
       for (final s in SportType.values) {

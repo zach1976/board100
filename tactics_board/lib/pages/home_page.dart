@@ -1728,10 +1728,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     color: Colors.white38, size: 14),
                 const SizedBox(width: 8),
                 _editAction(Icons.rotate_left, Colors.white70,
-                    () => _turn(p, -math.pi / 12)),
+                    () => _turn(p, -_notch(p))),
                 const SizedBox(width: 6),
                 _editAction(Icons.rotate_right, Colors.white70,
-                    () => _turn(p, math.pi / 12)),
+                    () => _turn(p, _notch(p))),
                 const SizedBox(width: 10),
                 Text(_degrees(p.rotation),
                     style: const TextStyle(
@@ -1809,6 +1809,11 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       ),
     );
   }
+
+  /// A person has eight pictures to face with, so a notch is an eighth of
+  /// a turn and every tap shows. A marker turns freely in 15° steps.
+  double _notch(PlayerIcon p) =>
+      p.isMarker || p.isBall ? math.pi / 12 : math.pi / 4;
 
   /// One notch of the rotate buttons, snapped by the state.
   void _turn(PlayerIcon p, double delta) {
@@ -2061,12 +2066,13 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               figure: TopDownPlayerPainter.figureFor(
                   widget.state.sportType, p),
               sport: widget.state.sportType,
+              heading: playerFacing(p),
             ),
             size: Size(dim, dim),
           ),
           if (p.labelInside)
             Align(
-              alignment: kPlayerLabelAlign,
+              alignment: playerLabelAlign(widget.state.sportType, p),
               child: Text(
                 p.label,
                 style: TextStyle(color: Colors.white, fontSize: dim * 0.35, fontWeight: FontWeight.w800, height: 1),
