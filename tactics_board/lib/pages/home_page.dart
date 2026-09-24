@@ -428,7 +428,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   const SizedBox(width: 6),
                   _lCircleBtn(state.isAnimating ? Icons.stop_rounded : Icons.play_arrow_rounded, Colors.green, !state.isAnimating ? state.startAnimation : state.stopAnimation),
                   const SizedBox(width: 6),
-                  _lCircleBtn(Icons.show_chart, state.showMoveLines ? Colors.white54 : Colors.redAccent, state.toggleShowMoveLines),
+                  _lCircleBtn(Icons.show_chart, state.routesOn ? Colors.white54 : Colors.redAccent, state.toggleShowMoveLines),
                   const SizedBox(width: 6),
                   _lCircleBtn(Icons.view_timeline_outlined, Colors.purpleAccent, () {
                     showModalBottomSheet(
@@ -2615,13 +2615,13 @@ class _BigPlayControls extends StatelessWidget {
               height: 48,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: state.showMoveLines ? T.accentFill : Colors.transparent,
+                color: state.routesOn ? T.accentFill : Colors.transparent,
               ),
               child: Icon(
-                state.showMoveLines
+                state.routesOn
                     ? Icons.timeline_rounded
                     : Icons.visibility_off_outlined,
-                color: state.showMoveLines ? T.accent : T.textDim,
+                color: state.routesOn ? T.accent : T.textDim,
                 size: 25,
               ),
             ),

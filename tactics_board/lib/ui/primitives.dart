@@ -261,11 +261,17 @@ class TacticalButton extends StatelessWidget {
                   const SizedBox(width: T.s8),
                 ],
                 Flexible(
-                  // Shrinks before it truncates. A button's label is its
+                  // Shrinks rather than truncates. A button's label is its
                   // name, and "Put it on the b…" is the main action of the
                   // drill page losing it on a 402pt phone; a label a few
-                  // points smaller is still the same label. Ellipsis stays
-                  // as the floor for a width no scale can save.
+                  // points smaller is still the same label.
+                  //
+                  // The ellipsis below never fires — FittedBox lays the text
+                  // out unbounded, so there is nothing to overflow. It is
+                  // kept only so the Text still reads as single-line. What
+                  // actually stops a label shrinking to nothing is
+                  // drill_bottom_bar_test, which measures every locale
+                  // against the room this button gives it.
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(

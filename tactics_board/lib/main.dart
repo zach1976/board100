@@ -204,12 +204,16 @@ class _SaveOnPauseState extends State<_SaveOnPause>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.paused ||
-        state == AppLifecycleState.inactive) {
-      // autosave, not saveWorkingBoard: swiping the app away mid-edit loses
-      // the same work as walking back to the home page does, and the named
-      // file deserves the same last chance the working board gets.
+    // Two different events. `paused` is the app going away, and deserves
+    // the full autosave — the named file as well as the scratch one. But
+    // `inactive` fires for every transient interruption: a notification
+    // banner, Control Centre pulled down, the share sheet, the photo
+    // picker. Writing the whole board and pushing it to the cloud on each
+    // of those is a lot of work for a coach who never left.
+    if (state == AppLifecycleState.paused) {
       unawaited(context.read<TacticsState>().autosave());
+    } else if (state == AppLifecycleState.inactive) {
+      context.read<TacticsState>().saveWorkingBoard();
     }
   }
 

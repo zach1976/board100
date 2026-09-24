@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -781,7 +779,7 @@ class _SportHomePageState extends State<SportHomePage> {
 /// Drawn on a throwaway state built from the live board's JSON: sizing the
 /// live one down to a thumbnail would rescale every player on it, and coming
 /// back would scale them up again through the rounding.
-class _BoardCard extends StatelessWidget {
+class _BoardCard extends StatefulWidget {
   final TacticsState state;
   final VoidCallback onOpen;
   final VoidCallback onNew;
@@ -793,10 +791,74 @@ class _BoardCard extends StatelessWidget {
       required this.onPlan});
 
   @override
+  State<_BoardCard> createState() => _BoardCardState();
+}
+
+class _BoardCardState extends State<_BoardCard> {
+  /// One throwaway board, kept for the life of the card.
+  ///
+  /// It used to be built afresh on every rebuild and handed to the canvas
+  /// under a ValueKey made of the board's JSON — which meant serialising the
+  /// whole board to a string and tearing down the canvas on every frame the
+  /// home page rebuilt, and it rebuilds on every notification, including
+  /// each frame of a drag happening on the board route above it.
+  ///
+  /// Holding one object instead is what the live board already does: the
+  /// canvas reads its state once and listens to it, so refreshing this one
+  /// in place updates the picture with no key and no rebuild.
+  late final TacticsState _preview =
+      TacticsState(sportType: widget.state.sportType, preview: true);
+  int _sig = 0;
+
+  /// Cheap stand-in for "is this a different board than the one drawn".
+  ///
+  /// Not the JSON: this runs on every rebuild, and it has to cost nothing
+  /// when the answer is no — which it is, nearly always.
+  static int _signature(TacticsState s) => Object.hash(
+        s.sportType,
+        s.pageCount,
+        Object.hashAll([
+          for (final p in s.players)
+            Object.hash(p.id, p.position, p.label, p.moves.length,
+                p.moves.isEmpty ? 0 : p.moves.last, p.color.toARGB32()),
+        ]),
+        Object.hashAll([
+          for (final st in s.strokes)
+            Object.hash(st.id, st.points.length,
+                st.points.isEmpty ? 0 : st.points.last),
+        ]),
+      );
+
+  @override
+  void initState() {
+    super.initState();
+    // Eagerly, so the first frame already shows the board rather than an
+    // empty pitch that fills in a frame later.
+    _preview.loadFromJson(widget.state.toJson());
+    _sig = _signature(widget.state);
+  }
+
+  @override
+  void dispose() {
+    _preview.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final json = state.toJson();
-    final preview = TacticsState(sportType: state.sportType, preview: true)
-      ..loadFromJson(json);
+    final state = widget.state;
+    final onOpen = widget.onOpen;
+    final onNew = widget.onNew;
+    final onPlan = widget.onPlan;
+    final sig = _signature(state);
+    if (sig != _sig) {
+      _sig = sig;
+      // After this frame: loadFromJson notifies, and notifying a listener
+      // that is being built is an error.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _preview.loadFromJson(state.toJson());
+      });
+    }
     // With nothing drawn yet the card does not offer to open a board; making
     // one becomes its main action. See hasWorkingBoard.
     final hasBoard = hasWorkingBoard(state);
@@ -828,21 +890,9 @@ class _BoardCard extends StatelessWidget {
                     width: kBoardRefWidth,
                     height: kBoardRefHeight,
                     child: ChangeNotifierProvider<TacticsState>.value(
-                      value: preview,
-                      // Keyed on the board it is drawing. TacticsCanvas reads
-                      // its state once, in initState, and listens to that
-                      // object from then on — right for the live board, which
-                      // outlives every page, and wrong here, where each
-                      // rebuild hands it a fresh throwaway. Unkeyed, the
-                      // element is reused, initState never runs again, and the
-                      // thumbnail goes on drawing the first board it was ever
-                      // given: the empty one the app opens on. The key is the
-                      // board itself, so it changes exactly when the picture
-                      // should.
-                      child: IgnorePointer(
-                          child: TacticsCanvas(
-                              key: ValueKey(jsonEncode(json)),
-                              preview: true)),
+                      value: _preview,
+                      child: const IgnorePointer(
+                          child: TacticsCanvas(preview: true)),
                     ),
                   ),
                 ),

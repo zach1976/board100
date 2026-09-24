@@ -710,8 +710,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     /// routes — unless the coach asked for the plan, or is following this
     /// element, which is the other way of asking for exactly one route.
     bool routeShown(PlayerIcon p) {
-      if (!state.showMoveLines) return false;
-      if (stepLimit > 0 || state.isAnimating) return true;
+      // Not `showMoveLines` first: on beat zero that flag is not the one
+      // the button writes, so reading it here made the button dead — turn
+      // routes off on beat three, step back to zero, and nothing could turn
+      // them on again.
+      if (stepLimit > 0 || state.isAnimating) return state.showMoveLines;
       return state.showPlanAtStart || state.selectedPlayerId == p.id;
     }
 
@@ -966,8 +969,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     }),
                   // Players and the ball, over the ghosts.
                   ...players.where((p) => !p.isMarker).map(playerIcon),
-                  // Player move arrows — on top so arrowheads are never covered
-                  if (state.showMoveLines)
+                  // Player move arrows — on top so arrowheads are never covered.
+                  // Gated by the same per-element question as the ghosts and
+                  // the waypoint dots, so beat zero's button governs all
+                  // three layers and not two of them.
+                  if (players.any(routeShown))
                     IgnorePointer(
                       child: CustomPaint(
                         painter: PlayerMovesPainter(

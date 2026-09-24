@@ -554,6 +554,13 @@ class TacticsState extends ChangeNotifier {
   bool _showPlanAtStart = false;
   bool get showPlanAtStart => _showPlanAtStart;
 
+  /// What the routes button is showing, which depends on the beat.
+  ///
+  /// Every control that draws this button has to ask the same question the
+  /// button answers when tapped, or it lights up for a state it is not in.
+  bool get routesOn =>
+      (atStep == 0 && targetStep == 0) ? _showPlanAtStart : _showMoveLines;
+
   void toggleShowMoveLines() {
     // One button, one word — "routes" — and what that means depends on what
     // the board is showing. On beat zero the routes are the whole plan; on
@@ -1770,6 +1777,13 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     _players.clear();
     _strokes.clear();
+    // And it stops being "Board 1". The same rule loading a drill follows,
+    // for the same reason: leaving the board autosaves whatever has a name,
+    // so a board emptied and walked away from would be written over the
+    // file it was emptied out of — eleven players' work gone with no prompt
+    // and an undo stack that dies with the page.
+    currentTacticName = null;
+    currentTacticMeta = null;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _isAnimating = false;
