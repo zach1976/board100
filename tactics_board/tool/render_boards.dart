@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
@@ -135,8 +136,12 @@ void main() {
     final files = drillDir.listSync().whereType<File>().toList()
       ..sort((a, b) => a.path.compareTo(b.path));
     for (final f in files) {
-      if (!f.path.endsWith('.json')) continue;
       final sport = f.uri.pathSegments.last.replaceAll('.json', '');
+      // By sport name, not by extension: index.json sits beside the libraries
+      // and holds the drill counts the hub's picker reads. Globbing the
+      // directory made it a sixteenth sport, and the run died on the first
+      // board it tried to read out of a file that has none.
+      if (!SportType.values.any((s) => s.name == sport)) continue;
       final data = jsonDecode(f.readAsStringSync()) as Map<String, dynamic>;
       final dir = Directory('${outRoot.path}/$sport')..createSync(recursive: true);
 
