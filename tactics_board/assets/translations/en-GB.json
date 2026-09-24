@@ -1,6 +1,12 @@
 {
   "app_title": "Tactics Board",
   "choose_sport": "Choose a sport",
+  "hub_continue": "Continue",
+  "hub_drills_n": "{} drills",
+  "hub_boards_n": "{} boards",
+  "hub_group_pitch": "Pitch sports",
+  "hub_group_net": "Net & court",
+  "hub_group_other": "Diamond & pool",
   "tactics_board": "Tactics Board",
   "sport_badminton": "Badminton",
   "sport_table_tennis": "Table Tennis",

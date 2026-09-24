@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../ui/tokens.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../models/sport_type.dart';
 import '../painters/badminton_court_painter.dart';
 import '../painters/basketball_court_painter.dart';
@@ -18,171 +22,94 @@ import '../painters/water_polo_court_painter.dart';
 import '../painters/sepak_takraw_court_painter.dart';
 import '../painters/beach_tennis_court_painter.dart';
 import '../painters/footvolley_court_painter.dart';
+import '../services/drill_library_service.dart';
 import '../state/tactics_state.dart';
+import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
 import 'sport_home_page.dart';
 
-class SportSelectionPage extends StatelessWidget {
+/// The hub's front door: which sport are we coaching today.
+///
+/// It was fifteen equal cards, eight of them blue courts, with no memory of
+/// which one you picked yesterday. A coach runs one sport, so the sport they
+/// ran last is the first thing on the page, with what is waiting in it — how
+/// many drills, how many of their own boards. The rest is shelved the way a
+/// sports shop shelves it, and every card says how much is behind it.
+class SportSelectionPage extends StatefulWidget {
   const SportSelectionPage({super.key});
 
-  static CustomPainter _painterFor(SportType sport) {
-    switch (sport) {
-      case SportType.badminton:    return const BadmintonCourtPainter();
-      case SportType.tableTennis:  return const TableTennisCourtPainter();
-      case SportType.tennis:       return const TennisCourtPainter();
-      case SportType.basketball:   return const BasketballCourtPainter();
-      case SportType.volleyball:   return const VolleyballCourtPainter();
-      case SportType.pickleball:   return const PickleballCourtPainter();
-      case SportType.soccer:       return const SoccerCourtPainter();
-      case SportType.fieldHockey:  return const FieldHockeyCourtPainter();
-      case SportType.rugby:        return const RugbyCourtPainter();
-      case SportType.baseball:     return const BaseballCourtPainter();
-      case SportType.handball:     return const HandballCourtPainter();
-      case SportType.waterPolo:    return const WaterPoloCourtPainter();
-      case SportType.sepakTakraw:  return const SepakTakrawCourtPainter();
-      case SportType.beachTennis:  return const BeachTennisCourtPainter();
-      case SportType.footvolley:   return const FootvolleyCourtPainter();
+  /// Most recent first, sport names. Written on every pick.
+  static const recentPrefsKey = 'hub_recent_sports';
+
+  @override
+  State<SportSelectionPage> createState() => _SportSelectionPageState();
+}
+
+class _SportSelectionPageState extends State<SportSelectionPage> {
+  SportType? _recent;
+  Map<SportType, int> _drills = const {};
+  int? _recentBoards;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    final prefs = await SharedPreferences.getInstance();
+    final names = prefs.getStringList(SportSelectionPage.recentPrefsKey) ?? [];
+    SportType? recent;
+    for (final n in names) {
+      for (final s in SportType.values) {
+        if (s.name == n) recent = s;
+      }
+      if (recent != null) break;
+    }
+    final drills = await DrillLibraryService.instance.bundledCounts();
+    if (!mounted) return;
+    setState(() {
+      _recent = recent;
+      _drills = drills;
+    });
+    // The board count comes off the documents directory, a platform call
+    // that is slower than an asset read and, under the test binding, never
+    // answers at all. The card does not wait for it: it shows the sport and
+    // its drills at once and adds the boards when they are counted.
+    if (recent == null) return;
+    final boards = await _savedBoardCount(recent);
+    if (!mounted) return;
+    setState(() => _recentBoards = boards);
+  }
+
+  /// The coach's own saved boards for a sport, counted where TacticsState
+  /// keeps them, without standing up a TacticsState for a sport that is
+  /// not open.
+  static Future<int> _savedBoardCount(SportType sport) async {
+    try {
+      final docs = await getApplicationDocumentsDirectory();
+      final dir = Directory('${docs.path}/tactics/${sport.name}');
+      if (!await dir.exists()) return 0;
+      return await dir.list().where((f) => f.path.endsWith('.json')).length;
+    } catch (_) {
+      return 0;
     }
   }
 
-  /// Accent color for each sport card gradient
-  static Color _accentFor(SportType sport) {
-    switch (sport) {
-      case SportType.badminton:    return const Color(0xFF43A047); // fresh green
-      case SportType.tableTennis:  return const Color(0xFF1E88E5); // sky blue
-      case SportType.tennis:       return const Color(0xFF5C6BC0); // indigo
-      case SportType.basketball:   return const Color(0xFFE65100); // deep orange
-      case SportType.volleyball:   return const Color(0xFFFFA000); // amber
-      case SportType.pickleball:   return const Color(0xFF00897B); // teal
-      case SportType.soccer:       return const Color(0xFF66BB6A); // light green
-      case SportType.fieldHockey:  return const Color(0xFF42A5F5); // sky blue (astroturf)
-      case SportType.rugby:        return const Color(0xFF8D6E63); // earthy brown (rugby ball)
-      case SportType.baseball:     return const Color(0xFFD32F2F); // red (baseball stitching)
-      case SportType.handball:     return const Color(0xFF1976D2); // blue (indoor)
-      case SportType.waterPolo:    return const Color(0xFF0288D1); // pool blue
-      case SportType.sepakTakraw:  return const Color(0xFFD4A017); // rattan gold
-      case SportType.beachTennis:  return const Color(0xFFE6B058); // sand tan
-      case SportType.footvolley:   return const Color(0xFFFBC02D); // tropical yellow
-    }
+  static Future<void> _remember(SportType sport) async {
+    final prefs = await SharedPreferences.getInstance();
+    final names = prefs.getStringList(SportSelectionPage.recentPrefsKey) ?? [];
+    names
+      ..remove(sport.name)
+      ..insert(0, sport.name);
+    await prefs.setStringList(
+        SportSelectionPage.recentPrefsKey, names.take(3).toList());
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final isTablet = size.shortestSide > 600;
-    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
-    final crossCount = isLandscape ? 4 : isTablet ? 3 : 2;
-    final topPad = MediaQuery.of(context).padding.top;
-
-    return Scaffold(
-      backgroundColor: T.surfaceHi,
-      body: CustomScrollView(
-        slivers: [
-          // ── Header ──
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                isLandscape ? 16 : isTablet ? 32 : 24,
-                topPad + (isLandscape ? 8 : isTablet ? 28 : 20),
-                16,
-                0,
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    'app_title'.tr(),
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: isLandscape ? 20 : 28,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
-                    ),
-                  ),
-                  if (!isLandscape) ...[
-                    const Spacer(),
-                  ] else ...[
-                    const SizedBox(width: 12),
-                    Text(
-                      'choose_sport'.tr(),
-                      style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.5),
-                        fontSize: 12,
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
-                  Container(
-                    width: 36, height: 36,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.08),
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.language_rounded, color: Colors.white60, size: 18),
-                      onPressed: () => LanguagePicker.show(context),
-                      padding: EdgeInsets.zero,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          if (!isLandscape)
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 2, 20, 0),
-                child: Text('choose_sport'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 13)),
-              ),
-            ),
-          SliverToBoxAdapter(child: SizedBox(height: isLandscape ? 8 : 16)),
-
-          // ── Sport Grid ──
-          SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: isLandscape ? 12 : isTablet ? 24 : 16),
-            sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: crossCount,
-                crossAxisSpacing: isLandscape ? 8 : 10,
-                mainAxisSpacing: isLandscape ? 8 : 10,
-                childAspectRatio: isLandscape ? 1.3 : 1.15,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (ctx, i) {
-                  final order = sportDisplayOrderFor(context.locale);
-                  return _SportCard(
-                    sport: order[i],
-                    painter: _painterFor(order[i]),
-                    accent: _accentFor(order[i]),
-                  );
-                },
-                childCount: sportDisplayOrderFor(context.locale).length,
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
-        ],
-      ),
-    );
-  }
-}
-
-class _SportCard extends StatefulWidget {
-  final SportType sport;
-  final CustomPainter painter;
-  final Color accent;
-
-  const _SportCard({required this.sport, required this.painter, required this.accent});
-
-  @override
-  State<_SportCard> createState() => _SportCardState();
-}
-
-class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMixin {
-  bool _pressed = false;
-
-  void _navigate() {
-    context.read<TacticsState>().setSportType(widget.sport);
+  void _open(SportType sport) {
+    _remember(sport);
+    context.read<TacticsState>().setSportType(sport);
     Navigator.of(context).pushReplacement(PageRouteBuilder(
       pageBuilder: (ctx, anim, sec) => const SportHomePage(),
       transitionsBuilder: (ctx, anim, sec, child) =>
@@ -193,84 +120,299 @@ class _SportCardState extends State<_SportCard> with SingleTickerProviderStateMi
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: (_) => setState(() => _pressed = true),
-      onTapUp: (_) { setState(() => _pressed = false); _navigate(); },
-      onTapCancel: () => setState(() => _pressed = false),
-      child: AnimatedScale(
-        scale: _pressed ? 0.95 : 1.0,
-        duration: const Duration(milliseconds: 120),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                widget.accent.withValues(alpha: 0.22),
-                const Color(0xFF1E4250),
-                T.surfaceHi,
-              ],
-              stops: const [0.0, 0.6, 1.0],
-            ),
-            border: Border.all(
-              color: widget.accent.withValues(alpha: 0.18),
-              width: 1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: widget.accent.withValues(alpha: 0.10),
-                blurRadius: 20,
-                offset: const Offset(0, 8),
-              ),
-            ],
-          ),
-          clipBehavior: Clip.hardEdge,
-          child: Column(
-            children: [
-              // Court preview
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+    final size = MediaQuery.of(context).size;
+    final isTablet = size.shortestSide > 600;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    final crossCount = isLandscape ? 4 : isTablet ? 3 : 2;
+    final topPad = MediaQuery.of(context).padding.top;
+    final sideX = isLandscape ? 12.0 : isTablet ? 24.0 : T.screenX;
+    final order = sportDisplayOrderFor(context.locale);
+    final recent = _recent;
+
+    return Scaffold(
+      backgroundColor: T.bg0,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(sideX, topPad + T.s16, sideX, 0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('app_title'.tr(), style: T.display),
+                        const SizedBox(height: T.s4),
+                        Text('choose_sport'.tr(), style: T.secondary),
+                      ],
                     ),
-                    clipBehavior: Clip.hardEdge,
-                    child: widget.sport.isLandscapeCourt
-                        ? CustomPaint(painter: widget.painter, child: const SizedBox.expand())
-                        : RotatedBox(
-                            quarterTurns: 1,
-                            child: CustomPaint(painter: widget.painter, child: const SizedBox.expand()),
-                          ),
                   ),
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: const BoxDecoration(
+                        color: T.surfaceHi, shape: BoxShape.circle),
+                    child: IconButton(
+                      icon: const Icon(Icons.language_rounded,
+                          color: T.textDim, size: 18),
+                      onPressed: () => LanguagePicker.show(context),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (recent != null)
+            SliverPadding(
+              padding: EdgeInsets.fromLTRB(sideX, T.s24, sideX, 0),
+              sliver: SliverToBoxAdapter(
+                child: _ContinueCard(
+                  sport: recent,
+                  drills: _drills[recent] ?? 0,
+                  boards: _recentBoards,
+                  onTap: () => _open(recent),
                 ),
               ),
-              // Sport name
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
-                child: Row(
-                  children: [
-                    SportGlyph(sport: widget.sport, size: 22),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        widget.sport.displayName,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: -0.2,
+            ),
+          for (final group in SportGroup.values) ...[
+            SliverPadding(
+              padding: EdgeInsets.fromLTRB(sideX, T.sectionGap, sideX, T.s12),
+              sliver: SliverToBoxAdapter(
+                child: Text(_groupKey(group).tr().toUpperCase(),
+                    style: T.label),
+              ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: sideX),
+              sliver: SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: crossCount,
+                  crossAxisSpacing: T.s12,
+                  mainAxisSpacing: T.s12,
+                  childAspectRatio: isLandscape ? 1.3 : 1.05,
+                ),
+                delegate: SliverChildListDelegate([
+                  for (final sport in order)
+                    if (sport.group == group)
+                      _SportCard(
+                        sport: sport,
+                        drills: _drills[sport],
+                        onTap: () => _open(sport),
+                      ),
+                ]),
+              ),
+            ),
+          ],
+          const SliverToBoxAdapter(child: SizedBox(height: T.s40)),
+        ],
+      ),
+    );
+  }
+
+  static String _groupKey(SportGroup g) => switch (g) {
+        SportGroup.pitch => 'hub_group_pitch',
+        SportGroup.net => 'hub_group_net',
+        SportGroup.other => 'hub_group_other',
+      };
+}
+
+CustomPainter courtPainterFor(SportType sport) {
+  switch (sport) {
+    case SportType.badminton:    return const BadmintonCourtPainter();
+    case SportType.tableTennis:  return const TableTennisCourtPainter();
+    case SportType.tennis:       return const TennisCourtPainter();
+    case SportType.basketball:   return const BasketballCourtPainter();
+    case SportType.volleyball:   return const VolleyballCourtPainter();
+    case SportType.pickleball:   return const PickleballCourtPainter();
+    case SportType.soccer:       return const SoccerCourtPainter();
+    case SportType.fieldHockey:  return const FieldHockeyCourtPainter();
+    case SportType.rugby:        return const RugbyCourtPainter();
+    case SportType.baseball:     return const BaseballCourtPainter();
+    case SportType.handball:     return const HandballCourtPainter();
+    case SportType.waterPolo:    return const WaterPoloCourtPainter();
+    case SportType.sepakTakraw:  return const SepakTakrawCourtPainter();
+    case SportType.beachTennis:  return const BeachTennisCourtPainter();
+    case SportType.footvolley:   return const FootvolleyCourtPainter();
+  }
+}
+
+/// Accent colour for each sport card.
+Color sportAccentFor(SportType sport) {
+  switch (sport) {
+    case SportType.badminton:    return const Color(0xFF43A047);
+    case SportType.tableTennis:  return const Color(0xFF1E88E5);
+    case SportType.tennis:       return const Color(0xFF5C6BC0);
+    case SportType.basketball:   return const Color(0xFFE65100);
+    case SportType.volleyball:   return const Color(0xFFFFA000);
+    case SportType.pickleball:   return const Color(0xFF00897B);
+    case SportType.soccer:       return const Color(0xFF66BB6A);
+    case SportType.fieldHockey:  return const Color(0xFF42A5F5);
+    case SportType.rugby:        return const Color(0xFF8D6E63);
+    case SportType.baseball:     return const Color(0xFFD32F2F);
+    case SportType.handball:     return const Color(0xFF1976D2);
+    case SportType.waterPolo:    return const Color(0xFF0288D1);
+    case SportType.sepakTakraw:  return const Color(0xFFD4A017);
+    case SportType.beachTennis:  return const Color(0xFFE6B058);
+    case SportType.footvolley:   return const Color(0xFFFBC02D);
+  }
+}
+
+/// The court, upright, in a rounded frame — the one picture that tells the
+/// sports apart at a glance.
+class _Court extends StatelessWidget {
+  final SportType sport;
+  const _Court({required this.sport});
+
+  @override
+  Widget build(BuildContext context) {
+    final paint = CustomPaint(
+        painter: courtPainterFor(sport), child: const SizedBox.expand());
+    return ClipRRect(
+      borderRadius: T.brSm,
+      child: sport.isLandscapeCourt
+          ? paint
+          : RotatedBox(quarterTurns: 1, child: paint),
+    );
+  }
+}
+
+/// Where the coach left off: their sport, and what is waiting in it.
+class _ContinueCard extends StatelessWidget {
+  final SportType sport;
+  final int drills;
+  /// Null until counted; the line then names the drills alone.
+  final int? boards;
+  final VoidCallback onTap;
+  const _ContinueCard(
+      {required this.sport,
+      required this.drills,
+      required this.boards,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final accent = sportAccentFor(sport);
+    return Semantics(
+      button: true,
+      label: '${'hub_continue'.tr()} ${sport.displayName}',
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: T.brMd,
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: T.brMd,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [accent.withValues(alpha: 0.28), T.surfaceHi],
+              ),
+              border: Border.all(color: accent.withValues(alpha: 0.35)),
+            ),
+            padding: const EdgeInsets.all(T.s12),
+            child: Row(
+              children: [
+                SizedBox(width: 96, height: 72, child: _Court(sport: sport)),
+                const SizedBox(width: T.s16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('hub_continue'.tr().toUpperCase(),
+                          style: T.label.copyWith(color: T.accent)),
+                      const SizedBox(height: T.s4),
+                      Row(children: [
+                        SportGlyph(sport: sport, size: 20),
+                        const SizedBox(width: T.s8),
+                        Expanded(
+                          child: Text(sport.displayName,
+                              style: T.section,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis),
                         ),
+                      ]),
+                      const SizedBox(height: T.s4),
+                      Text(
+                        boards == null
+                            ? 'hub_drills_n'.tr(args: ['$drills'])
+                            : '${'hub_drills_n'.tr(args: ['$drills'])} · '
+                                '${'hub_boards_n'.tr(args: ['$boards'])}',
+                        style: T.meta,
+                        maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                    ),
-                    Icon(Icons.arrow_forward_ios_rounded,
-                        color: Colors.white.withValues(alpha: 0.3), size: 14),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(width: T.s8),
+                const Icon(Icons.arrow_forward_ios_rounded,
+                    color: T.textOff, size: 14),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SportCard extends StatelessWidget {
+  final SportType sport;
+  /// Null until the index has loaded; the card draws without the line
+  /// rather than flashing a zero.
+  final int? drills;
+  final VoidCallback onTap;
+  const _SportCard(
+      {required this.sport, required this.drills, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final accent = sportAccentFor(sport);
+    return Semantics(
+      button: true,
+      label: sport.displayName,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: T.brMd,
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: T.brMd,
+              color: T.surfaceHi,
+              border: Border.all(color: accent.withValues(alpha: 0.18)),
+            ),
+            padding: const EdgeInsets.all(T.s8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: _Court(sport: sport)),
+                const SizedBox(height: T.s8),
+                Row(children: [
+                  SportGlyph(sport: sport, size: 18),
+                  const SizedBox(width: T.s8),
+                  Expanded(
+                    child: Text(sport.displayName,
+                        style: T.body.copyWith(fontWeight: FontWeight.w700),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis),
+                  ),
+                ]),
+                if (drills != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 26, top: 2),
+                    child: Text('hub_drills_n'.tr(args: ['$drills']),
+                        style: T.caption,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

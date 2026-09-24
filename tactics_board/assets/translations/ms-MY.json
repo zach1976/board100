@@ -1,6 +1,12 @@
 {
   "app_title": "Papan Taktik",
   "choose_sport": "Pilih sukan",
+  "hub_continue": "Teruskan",
+  "hub_drills_n": "{} latihan",
+  "hub_boards_n": "{} papan",
+  "hub_group_pitch": "Sukan padang",
+  "hub_group_net": "Jaring & gelanggang",
+  "hub_group_other": "Diamond & kolam",
   "tactics_board": "Papan Taktik",
   "sport_badminton": "Badminton",
   "sport_table_tennis": "Tenis Meja",

@@ -1,6 +1,12 @@
 {
   "app_title": "戰術板",
   "choose_sport": "選擇運動",
+  "hub_continue": "繼續",
+  "hub_drills_n": "{} 個訓練",
+  "hub_boards_n": "{} 塊戰術板",
+  "hub_group_pitch": "場地類",
+  "hub_group_net": "網類球場",
+  "hub_group_other": "棒球與水上",
   "tactics_board": "戰術板",
   "sport_badminton": "羽毛球",
   "sport_table_tennis": "桌球",

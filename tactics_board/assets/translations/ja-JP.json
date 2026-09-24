@@ -1,6 +1,12 @@
 {
   "app_title": "戦術ボード",
   "choose_sport": "スポーツを選択",
+  "hub_continue": "続ける",
+  "hub_drills_n": "{} ドリル",
+  "hub_boards_n": "{} ボード",
+  "hub_group_pitch": "フィールド競技",
+  "hub_group_net": "ネット競技",
+  "hub_group_other": "野球・水球",
   "tactics_board": "戦術ボード",
   "sport_badminton": "バドミントン",
   "sport_table_tennis": "卓球",

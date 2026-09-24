@@ -1,6 +1,12 @@
 {
   "app_title": "Pizarra Táctica",
   "choose_sport": "Elige un deporte",
+  "hub_continue": "Continuar",
+  "hub_drills_n": "{} ejercicios",
+  "hub_boards_n": "{} pizarras",
+  "hub_group_pitch": "Deportes de campo",
+  "hub_group_net": "Red y pista",
+  "hub_group_other": "Diamante y piscina",
   "tactics_board": "Pizarra Táctica",
   "sport_badminton": "Bádminton",
   "sport_table_tennis": "Tenis de mesa",

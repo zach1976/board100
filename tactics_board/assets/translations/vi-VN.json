@@ -1,6 +1,12 @@
 {
   "app_title": "Bảng Chiến Thuật",
   "choose_sport": "Chọn môn thể thao",
+  "hub_continue": "Tiếp tục",
+  "hub_drills_n": "{} bài tập",
+  "hub_boards_n": "{} bảng",
+  "hub_group_pitch": "Môn sân cỏ",
+  "hub_group_net": "Lưới & sân",
+  "hub_group_other": "Bóng chày & hồ bơi",
   "tactics_board": "Bảng Chiến Thuật",
   "sport_badminton": "Cầu lông",
   "sport_table_tennis": "Bóng bàn",

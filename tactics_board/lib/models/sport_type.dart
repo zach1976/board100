@@ -6,6 +6,11 @@ import 'court_layout.dart';
 import 'drill.dart' show DrillVocabulary;
 import 'sport_formation.dart';
 
+/// How the hub's picker shelves the fifteen sports. Fifteen equal cards were
+/// a wall — eight of them blue courts — and a coach looking for pickleball
+/// scanned every one. Three shelves is what a sports shop does.
+enum SportGroup { pitch, net, other }
+
 enum SportType {
   badminton,
   tableTennis,
@@ -465,6 +470,29 @@ extension SportTypeExtension on SportType {
   /// gloves, so there the default is empty hands and the coach marks the
   /// batter.
   bool get implementHeldByDefault => this != SportType.baseball;
+
+  SportGroup get group {
+    switch (this) {
+      case SportType.soccer:
+      case SportType.basketball:
+      case SportType.rugby:
+      case SportType.fieldHockey:
+      case SportType.handball:
+        return SportGroup.pitch;
+      case SportType.tennis:
+      case SportType.badminton:
+      case SportType.volleyball:
+      case SportType.tableTennis:
+      case SportType.pickleball:
+      case SportType.beachTennis:
+      case SportType.footvolley:
+      case SportType.sepakTakraw:
+        return SportGroup.net;
+      case SportType.baseball:
+      case SportType.waterPolo:
+        return SportGroup.other;
+    }
+  }
 
   /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
   double get netY => 0.5;

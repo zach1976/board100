@@ -1,6 +1,12 @@
 {
   "app_title": "Tableau Tactique",
   "choose_sport": "Choisir un sport",
+  "hub_continue": "Continuer",
+  "hub_drills_n": "{} exercices",
+  "hub_boards_n": "{} tableaux",
+  "hub_group_pitch": "Sports de terrain",
+  "hub_group_net": "Filet et court",
+  "hub_group_other": "Diamant et piscine",
   "tactics_board": "Tableau Tactique",
   "sport_badminton": "Badminton",
   "sport_table_tennis": "Tennis de table",

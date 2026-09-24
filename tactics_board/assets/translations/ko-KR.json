@@ -1,6 +1,12 @@
 {
   "app_title": "전술 보드",
   "choose_sport": "종목 선택",
+  "hub_continue": "계속",
+  "hub_drills_n": "드릴 {}개",
+  "hub_boards_n": "보드 {}개",
+  "hub_group_pitch": "필드 종목",
+  "hub_group_net": "네트 종목",
+  "hub_group_other": "야구·수구",
   "tactics_board": "전술 보드",
   "sport_badminton": "배드민턴",
   "sport_table_tennis": "탁구",

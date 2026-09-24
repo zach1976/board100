@@ -23,6 +23,21 @@ class DrillLibraryService {
 
   final Map<SportType, List<Drill>> _cache = {};
   final Set<SportType> _refreshed = {};
+  Future<Map<SportType, int>>? _counts;
+
+  /// How many drills each sport ships, from the index gen_drills.py writes
+  /// beside the libraries. The picker shows it on every card; parsing the
+  /// fifteen libraries to find out would be 13MB of JSON on the first page.
+  Future<Map<SportType, int>> bundledCounts() =>
+      _counts ??= rootBundle
+          .loadString(packageAsset('assets/drills/index.json'))
+          .then((raw) {
+        final json = jsonDecode(raw) as Map<String, dynamic>;
+        return {
+          for (final s in SportType.values)
+            s: (json[s.name] as num?)?.toInt() ?? 0,
+        };
+      }).catchError((_) => <SportType, int>{});
 
   Future<List<Drill>> forSport(SportType sport) async {
     final cached = _cache[sport];

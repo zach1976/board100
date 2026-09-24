@@ -63,8 +63,14 @@ void main() {
     // The whole point of the split. Soccer lists no equipment of its own, so
     // its package is two files and the core has nothing sport-shaped in it.
     expect(packages[SportType.soccer]!.length, 2);
+    // assets/drills/index.json is allowed: it is the count for every sport,
+    // which the hub's picker needs, and 300 bytes. A sport's own library is
+    // not.
     for (final a in core) {
-      expect(a.contains('/drills/'), isFalse, reason: '$a is one sport\'s');
+      for (final s in SportType.values) {
+        expect(a.endsWith('/drills/${s.name}.json'), isFalse,
+            reason: '$a is ${s.name}\'s');
+      }
       expect(a.contains('/ball_'), isFalse, reason: '$a is one sport\'s');
     }
   });

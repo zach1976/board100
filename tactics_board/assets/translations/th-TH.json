@@ -1,6 +1,12 @@
 {
   "app_title": "กระดานยุทธวิธี",
   "choose_sport": "เลือกกีฬา",
+  "hub_continue": "ดำเนินการต่อ",
+  "hub_drills_n": "{} แบบฝึก",
+  "hub_boards_n": "{} กระดาน",
+  "hub_group_pitch": "กีฬาสนาม",
+  "hub_group_net": "กีฬาตาข่าย",
+  "hub_group_other": "เบสบอลและกีฬาทางน้ำ",
   "tactics_board": "กระดานยุทธวิธี",
   "sport_badminton": "แบดมินตัน",
   "sport_table_tennis": "ปิงปอง",

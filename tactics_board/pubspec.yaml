@@ -119,6 +119,9 @@ flutter:
 
   assets:
     - assets/translations/
+    # Drill counts per sport for the hub's picker; the libraries themselves
+    # ship in packages/sport_<name>/.
+    - assets/drills/index.json
     # Only the in-app ball images are bundled at runtime. Bundling the whole
     # folder once shipped ~48MB of unused images in every app.
     # Per-sport assets — the drill libraries, the balls, the equipment only

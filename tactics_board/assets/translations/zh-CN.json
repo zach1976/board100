@@ -1,6 +1,12 @@
 {
   "app_title": "战术板",
   "choose_sport": "选择运动",
+  "hub_continue": "继续",
+  "hub_drills_n": "{} 个训练",
+  "hub_boards_n": "{} 块战术板",
+  "hub_group_pitch": "场地类",
+  "hub_group_net": "网类球场",
+  "hub_group_other": "棒球与水上",
   "tactics_board": "战术板",
   "sport_badminton": "羽毛球",
   "sport_table_tennis": "乒乓球",
