@@ -56,6 +56,12 @@ PlayerFigure newPlayerFigure(SportType sport) =>
 /// clear above it. Same on both figures — they were normalised together.
 const Alignment kPlayerLabelAlign = Alignment(0, 0.05);
 
+/// Home faces up the pitch, so its figure is drawn turned and its shirt sits
+/// the same distance above centre as everyone else's sits below.
+bool playerFacesUp(PlayerIcon p) => p.team == PlayerTeam.home;
+Alignment playerLabelAlign(PlayerIcon p) =>
+    playerFacesUp(p) ? const Alignment(0, -0.05) : kPlayerLabelAlign;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // The figure a player token is drawn from
 // ─────────────────────────────────────────────────────────────────────────────
@@ -173,6 +179,11 @@ class TopDownPlayerPainter extends CustomPainter {
   /// Only used to find the figure's plates: an implement ships in the package
   /// of the sport that swings it.
   final SportType sport;
+  /// Turned to face the top of the board. The home side plays bottom to top
+  /// and the away side top to bottom, and a figure only reads as a player
+  /// once it faces the goal it is attacking — every token used to look down
+  /// the pitch at its own keeper.
+  final bool facesUp;
   final bool isGhost;
 
   /// Not const: it repaints on [PlayerArt.ready], so the tokens already on
@@ -185,6 +196,7 @@ class TopDownPlayerPainter extends CustomPainter {
     this.gender = PlayerGender.unspecified,
     this.figure = PlayerFigure.plain,
     this.sport = SportType.soccer,
+    this.facesUp = false,
     this.isGhost = false,
   }) : super(repaint: PlayerArt.ready);
 
@@ -192,6 +204,14 @@ class TopDownPlayerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
+
+    if (facesUp) {
+      // Half a turn about the box, not a flip: the figure must stay a right-
+      // handed player holding the racket in the same hand.
+      canvas.translate(w / 2, h / 2);
+      canvas.rotate(pi);
+      canvas.translate(-w / 2, -h / 2);
+    }
 
     final art = PlayerArt.of(sport, gender, figure);
     final kit = PlayerArt.kitOf(sport, gender, figure);
@@ -384,7 +404,9 @@ class TopDownPlayerPainter extends CustomPainter {
     canvas.drawImageRect(
       art,
       src,
-      dst.shift(const Offset(1.5, 2)),
+      // Light stays upper-left on the pitch: inside a half-turned canvas that
+      // is the opposite offset.
+      dst.shift(facesUp ? const Offset(-1.5, -2) : const Offset(1.5, 2)),
       _silhouettePaint(Colors.black, 0.32)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3),
     );
@@ -466,6 +488,7 @@ class TopDownPlayerPainter extends CustomPainter {
       old.gender != gender ||
       old.figure != figure ||
       old.sport != sport ||
+      old.facesUp != facesUp ||
       old.isGhost != isGhost;
 }
 
@@ -607,6 +630,7 @@ class _PlayerShape extends StatelessWidget {
             gender: player.gender,
             figure: TopDownPlayerPainter.figureFor(sport, player),
             sport: sport,
+            facesUp: playerFacesUp(player),
           ),
           size: Size.infinite,
         ),
@@ -614,7 +638,7 @@ class _PlayerShape extends StatelessWidget {
         // 7 is not a 7, and a sideways one is a stroke.
         if (player.labelInside)
           Align(
-            alignment: kPlayerLabelAlign,
+            alignment: playerLabelAlign(player),
             child: Transform.rotate(
               angle: -player.rotation,
               child: Text(
