@@ -42,3 +42,7 @@ thumb_png/
 # 上传前必须先跑一遍合成。（原始素材：aso/glyphs/、aso/captions_v2.*、
 # integration_test/appstore_screenshots.dart，这些都在版本控制里。）
 */fastlane/screenshots/
+# Derived by tools/facing_audit.py and tools/facing_review.py; the page only
+# works beside board_png/, which is not tracked either.
+tools/facing_audit.json
+tools/facing_review.html
