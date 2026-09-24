@@ -5,6 +5,16 @@ enum PlayerTeam { home, away, neutral }
 
 enum PlayerGender { male, female, unspecified }
 
+/// Which of the moulded figures a token is drawn from.
+///
+/// Not a property of the player: a sport decides the body (a water polo
+/// player is barefoot in a cap, everyone else is in boots) and it decides
+/// what is held (a racket, a paddle, a stick, a bat). The player decides
+/// only whether they are holding it — see [PlayerIcon.holdsImplement],
+/// because a feeder, a resting pair and the coach's cone-setter are all on
+/// the same court as the four people swinging.
+enum PlayerFigure { plain, racket, paddle, stick, bat, water }
+
 /// Appended to, never reordered: a board stores `markerShape.index`, so
 /// inserting a value in the middle would turn every saved cone into
 /// something else.
@@ -65,6 +75,17 @@ class PlayerIcon {
   /// slot whenever a formation is applied, so their identity sticks across
   /// formation changes. Null = unassigned (filled in slot order).
   final String? role;
+  /// Whether this player is holding their sport's implement — a racket, a
+  /// paddle, a stick, a bat. Ignored by sports that have none.
+  ///
+  /// Three states, not two. Null means "whatever this sport normally does",
+  /// which is the only answer that is right for both a tennis court, where
+  /// everyone on it is holding a racket, and a baseball diamond, where one
+  /// player in nine is holding a bat. It is also what every board written
+  /// before this existed reads back as, so 674 drills needed no migration
+  /// and the tennis ones came out holding rackets.
+  final bool? holdsImplement;
+
   /// For a ball icon: the id of the player currently carrying it. When set, the
   /// ball follows that player's position during drags and animation playback.
   /// Null = loose ball. Only meaningful on a ball ([isBall]).
@@ -88,6 +109,7 @@ class PlayerIcon {
     this.photoId,
     this.role,
     this.attachedTo,
+    this.holdsImplement,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveColor = moveColor ?? _moveColors[0];
@@ -127,6 +149,8 @@ class PlayerIcon {
     'photoId': photoId,
     'role': role,
     'attachedTo': attachedTo,
+    // Omitted unless a coach said otherwise, which is nearly every player.
+    if (holdsImplement != null) 'holds': holdsImplement,
   };
 
   factory PlayerIcon.fromJson(Map<String, dynamic> json) => PlayerIcon(
@@ -146,6 +170,7 @@ class PlayerIcon {
     photoId: json['photoId'] as String?,
     role: json['role'] as String?,
     attachedTo: json['attachedTo'] as String?,
+    holdsImplement: json['holds'] as bool?,
   );
 
   /// Whether the label sits inside the disc like a shirt number, or hangs
@@ -180,6 +205,8 @@ class PlayerIcon {
     bool clearRole = false,
     String? attachedTo,
     bool clearAttachedTo = false,
+    bool? holdsImplement,
+    bool clearHolds = false,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -199,6 +226,7 @@ class PlayerIcon {
       photoId: clearPhotoId ? null : (photoId ?? this.photoId),
       role: clearRole ? null : (role ?? this.role),
       attachedTo: clearAttachedTo ? null : (attachedTo ?? this.attachedTo),
+      holdsImplement: clearHolds ? null : (holdsImplement ?? this.holdsImplement),
     );
   }
 

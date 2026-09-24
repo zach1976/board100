@@ -419,6 +419,53 @@ extension SportTypeExtension on SportType {
     }
   }
 
+  /// The body every player of this sport is drawn from.
+  ///
+  /// One sport is not played in boots. The app was putting a footballer in
+  /// white boots and socks in a swimming pool.
+  PlayerFigure get playerBody =>
+      this == SportType.waterPolo ? PlayerFigure.water : PlayerFigure.plain;
+
+  /// What a player of this sport holds, when they are holding it — null for
+  /// the sports where nobody carries anything.
+  ///
+  /// Tennis and badminton share one racket and the three paddle games share
+  /// one paddle: at 36pt the difference between a badminton racket and a
+  /// tennis one is two pixels of shaft, and a board is symbolic anyway.
+  PlayerFigure? get playerImplement {
+    switch (this) {
+      case SportType.tennis:
+      case SportType.badminton:
+        return PlayerFigure.racket;
+      case SportType.tableTennis:
+      case SportType.pickleball:
+      case SportType.beachTennis:
+        return PlayerFigure.paddle;
+      case SportType.fieldHockey:
+        return PlayerFigure.stick;
+      case SportType.baseball:
+        return PlayerFigure.bat;
+      case SportType.soccer:
+      case SportType.basketball:
+      case SportType.volleyball:
+      case SportType.handball:
+      case SportType.rugby:
+      case SportType.waterPolo:
+      case SportType.sepakTakraw:
+      case SportType.footvolley:
+        return null;
+    }
+  }
+
+  /// Whether a player of this sport is holding the implement unless a coach
+  /// says otherwise.
+  ///
+  /// Everyone on a tennis court has a racket in their hand and everyone on a
+  /// hockey pitch has a stick. A baseball diamond has one bat and eight
+  /// gloves, so there the default is empty hands and the coach marks the
+  /// batter.
+  bool get implementHeldByDefault => this != SportType.baseball;
+
   /// Normalized Y position of the net (0.5 = center). Home team plays below, away above.
   double get netY => 0.5;
 

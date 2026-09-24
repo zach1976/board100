@@ -1761,6 +1761,13 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   const SizedBox(width: 6),
                   _genderAction(p, PlayerGender.female, Icons.woman),
                 ],
+                // Racket in hand or not. Every court has someone feeding,
+                // and a diamond has one bat and eight gloves.
+                if (_showGender(p) &&
+                    widget.state.sportType.playerImplement != null) ...[
+                  const SizedBox(width: 6),
+                  _holdsAction(p),
+                ],
               ],
             ),
             const SizedBox(height: 8),
@@ -2050,6 +2057,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               borderColor: Colors.white,
               borderWidth: 1.5,
               gender: p.gender,
+              figure: TopDownPlayerPainter.figureFor(
+                  widget.state.sportType, p),
             ),
             size: Size(dim, dim),
           ),
@@ -2072,6 +2081,20 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   /// whoever it is.
   bool _showGender(PlayerIcon p) =>
       !p.isBall && !p.isMarker && p.photoId == null;
+
+  /// Whether this one player has the sport's implement in hand. Tapping
+  /// flips it away from whatever the sport does by default; there is no way
+  /// back to "unset" from here, and no need for one — the two states are
+  /// what a coach is choosing between.
+  Widget _holdsAction(PlayerIcon p) {
+    final sport = widget.state.sportType;
+    final on = p.holdsImplement ?? sport.implementHeldByDefault;
+    return _editAction(
+      Icons.sports_tennis,
+      on ? kAccent : Colors.white54,
+      () => widget.state.updatePlayer(p.id, holdsImplement: !on),
+    );
+  }
 
   /// Tapping the one already set puts the element back to unspecified, which
   /// is what a formation lays down and what draws the default figure.

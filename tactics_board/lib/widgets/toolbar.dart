@@ -1648,6 +1648,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
               borderColor: Colors.white,
               borderWidth: 2,
               gender: g,
+              figure: newPlayerFigure(state.sportType),
             ),
           ),
         );
@@ -3650,6 +3651,8 @@ class _QuickAddTeamGlyph extends StatelessWidget {
           color: PlayerIcon.teamColor(team),
           borderColor: Colors.white,
           borderWidth: 1.5,
+          figure: newPlayerFigure(
+              context.read<TacticsState>().sportType),
         ),
       ),
     );
@@ -4277,6 +4280,8 @@ class _PlayerCard extends StatelessWidget {
                     borderColor: Colors.white,
                     borderWidth: 1.5,
                     gender: g,
+                    figure: newPlayerFigure(
+                        context.read<TacticsState>().sportType),
                   ),
                 ),
               )).toList(),

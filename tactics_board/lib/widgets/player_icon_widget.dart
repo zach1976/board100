@@ -37,6 +37,16 @@ const double kPlayerIconSize = 36.0;
 /// edit bar if a drill wants the ball emphasised.
 const double kBallDrawFactor = 0.58;
 
+/// The figure a brand-new player of this sport gets: holding, if the sport
+/// has something to hold. A coach who wants an empty-handed feeder turns it
+/// off on that one player.
+PlayerFigure newPlayerFigure(SportType sport) =>
+    sport.playerBody != PlayerFigure.plain
+        ? sport.playerBody
+        : (sport.implementHeldByDefault
+            ? (sport.playerImplement ?? PlayerFigure.plain)
+            : PlayerFigure.plain);
+
 /// Where the shirt number sits on a token.
 ///
 /// The circle-and-oval had its number in the middle of the oval, which on a
@@ -70,39 +80,44 @@ class PlayerArt {
   static final Map<String, ui.Image> _plates = {};
   static bool _started = false;
 
-  static const _files = {
-    'male.base': 'assets/icon/player_top_male_base.png',
-    'male.kit': 'assets/icon/player_top_male_kit.png',
-    'female.base': 'assets/icon/player_top_female_base.png',
-    'female.kit': 'assets/icon/player_top_female_kit.png',
+  /// Twelve figures, two plates each: two genders across the plain body, the
+  /// four implements and the swimmer.
+  static final Map<String, String> _files = {
+    for (final g in ['male', 'female'])
+      for (final f in PlayerFigure.values)
+        for (final layer in ['base', 'kit'])
+          '$g.${f.name}.$layer':
+              'assets/icon/player_top_$g'
+              '${f == PlayerFigure.plain ? '' : '_${f.name}'}_$layer.png',
   };
 
-  static String _key(PlayerGender g) =>
-      g == PlayerGender.female ? 'female' : 'male';
+  static String _key(PlayerGender g, PlayerFigure f, String layer) =>
+      '${g == PlayerGender.female ? 'female' : 'male'}.${f.name}.$layer';
 
   /// The body — skin, hair, socks, boots — in its own colours, and the whole
   /// silhouette in its alpha. Null until the asset has decoded; kicks the
   /// load off on first ask, so nothing has to remember to warm it.
-  static ui.Image? of(PlayerGender gender) {
+  static ui.Image? of(PlayerGender gender, PlayerFigure figure) {
     if (!_started) {
       _started = true;
       _files.forEach(_load);
     }
-    return _plates['${_key(gender)}.base'];
+    return _plates[_key(gender, figure, 'base')];
   }
 
-  /// Shirt and shorts alone, in grey, for the team colour to land on. A
-  /// player is not one colour: tinting the whole figure turned a coach's
-  /// squad into eleven blue blobs, when what stands on a real board is
-  /// eleven people wearing blue.
-  static ui.Image? kitOf(PlayerGender gender) =>
-      _plates['${_key(gender)}.kit'];
+  /// Kit alone, in grey, for the team colour to land on. A player is not one
+  /// colour: tinting the whole figure turned a coach's squad into eleven
+  /// blue blobs, when what stands on a real board is eleven people wearing
+  /// blue. For the swimmer the kit is the cap and the suit, which is how a
+  /// real water polo team is told apart anyway.
+  static ui.Image? kitOf(PlayerGender gender, PlayerFigure figure) =>
+      _plates[_key(gender, figure, 'kit')];
 
   /// Decodes every plate and waits for them. Used by the headless board
   /// renderer, which shoots a frame the moment it pumps and would otherwise
   /// catch every first board mid-decode.
   static Future<void> warm() async {
-    of(PlayerGender.male);
+    of(PlayerGender.male, PlayerFigure.plain);
     while (_plates.length < _files.length) {
       await Future<void>.delayed(const Duration(milliseconds: 20));
     }
@@ -130,6 +145,7 @@ class TopDownPlayerPainter extends CustomPainter {
   final double borderWidth;
   final bool isSelected;
   final PlayerGender gender;
+  final PlayerFigure figure;
   final bool isGhost;
 
   /// Not const: it repaints on [PlayerArt.ready], so the tokens already on
@@ -140,6 +156,7 @@ class TopDownPlayerPainter extends CustomPainter {
     required this.borderWidth,
     this.isSelected = false,
     this.gender = PlayerGender.unspecified,
+    this.figure = PlayerFigure.plain,
     this.isGhost = false,
   }) : super(repaint: PlayerArt.ready);
 
@@ -148,8 +165,8 @@ class TopDownPlayerPainter extends CustomPainter {
     final w = size.width;
     final h = size.height;
 
-    final art = PlayerArt.of(gender);
-    final kit = PlayerArt.kitOf(gender);
+    final art = PlayerArt.of(gender, figure);
+    final kit = PlayerArt.kitOf(gender, figure);
     if (art != null && kit != null) {
       _paintArt(canvas, art, kit, Offset.zero & size);
       return;
@@ -274,7 +291,26 @@ class TopDownPlayerPainter extends CustomPainter {
   /// where the circle and oval it replaced was 29, and on the pitch it read
   /// as the smaller of the two markers. The equipment sprites solve the same
   /// problem the same way.
-  static const double _figureScale = 1.25;
+  /// 1.57, not the 1.25 it was: the plates now leave headroom for a bat
+  /// carried above the head, so the person inside a 512 square is smaller
+  /// and the box it is drawn into has to grow to keep them the same size on
+  /// the pitch. Measured, not guessed — the plain figure is 395px tall where
+  /// it used to be 496.
+  static const double _figureScale = 1.57;
+
+  /// Which figure to draw for [player] on a board of [sport].
+  ///
+  /// The sport owns the body and the implement; the player owns only whether
+  /// they are holding it. A sport with nothing to hold ignores the flag, so
+  /// a board carried over from another sport never comes up empty-handed by
+  /// accident — it comes up plain, which is what it always looked like.
+  static PlayerFigure figureFor(SportType sport, PlayerIcon player) {
+    if (sport.playerBody != PlayerFigure.plain) return sport.playerBody;
+    final held = sport.playerImplement;
+    if (held == null) return PlayerFigure.plain;
+    final holds = player.holdsImplement ?? sport.implementHeldByDefault;
+    return holds ? held : PlayerFigure.plain;
+  }
 
   /// The figure's silhouette in [c], stamped eight ways round itself at
   /// [r] to make an outline an image does not have.
@@ -400,6 +436,7 @@ class TopDownPlayerPainter extends CustomPainter {
       old.borderWidth != borderWidth ||
       old.isSelected != isSelected ||
       old.gender != gender ||
+      old.figure != figure ||
       old.isGhost != isGhost;
 }
 
@@ -409,6 +446,9 @@ class TopDownPlayerPainter extends CustomPainter {
 class PlayerIconWidget extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
+  /// Which moulded figure to draw. The board resolves it from the sport and
+  /// the player; everything else gets the plain one.
+  final PlayerFigure figure;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final Function(ScaleStartDetails)? onScaleStart;
@@ -419,6 +459,7 @@ class PlayerIconWidget extends StatelessWidget {
     super.key,
     required this.player,
     this.isSelected = false,
+    this.figure = PlayerFigure.plain,
     this.onTap,
     this.onLongPress,
     this.onScaleStart,
@@ -480,7 +521,7 @@ class PlayerIconWidget extends StatelessWidget {
                       )
                     : (player.photoId != null
                         ? PhotoPlayerShape(player: player, isSelected: isSelected)
-                        : _PlayerShape(player: player, isSelected: isSelected)),
+                        : _PlayerShape(player: player, isSelected: isSelected, figure: figure)),
               ),
             ),
           ),
@@ -518,7 +559,11 @@ class PlayerIconWidget extends StatelessWidget {
 class _PlayerShape extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
-  const _PlayerShape({required this.player, required this.isSelected});
+  final PlayerFigure figure;
+  const _PlayerShape(
+      {required this.player,
+      required this.isSelected,
+      this.figure = PlayerFigure.plain});
 
   @override
   Widget build(BuildContext context) {
@@ -531,6 +576,7 @@ class _PlayerShape extends StatelessWidget {
             borderWidth: isSelected ? 3 : 2,
             isSelected: isSelected,
             gender: player.gender,
+            figure: figure,
           ),
           size: Size.infinite,
         ),

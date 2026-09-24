@@ -298,7 +298,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         child: RotatedBox(
           // counter-rotate: canvas is 90° CCW, so icons need 90° CW
           quarterTurns: 1,
-          child: PlayerIconWidget(player: player),
+          child: PlayerIconWidget(
+              player: player,
+              figure: TopDownPlayerPainter.figureFor(
+                  _state.sportType, player)),
         ),
       ),
     );
@@ -379,6 +382,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               borderColor: Colors.white,
                               borderWidth: 1.5,
                               gender: player.gender,
+                              figure: TopDownPlayerPainter.figureFor(
+                                  _state.sportType, player),
                               isGhost: true,
                             ),
                           ),
@@ -419,6 +424,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                       borderColor: player.moveColor,
                                       borderWidth: 2.5,
                                       gender: player.gender,
+                                      figure:
+                                          TopDownPlayerPainter.figureFor(
+                                              _state.sportType, player),
                                     ),
                             ),
                           ),
@@ -884,6 +892,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                         borderColor: Colors.white,
                                         borderWidth: 2,
                                         gender: player.gender,
+                                        figure: TopDownPlayerPainter
+                                            .figureFor(state.sportType, player),
                                         isGhost: true,
                                       ),
                                       size: Size.infinite,
@@ -1386,6 +1396,8 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     final iconWidget = PlayerIconWidget(
       player: player,
       isSelected: widget.isSelected,
+      figure: TopDownPlayerPainter.figureFor(
+          context.read<TacticsState>().sportType, player),
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       onScaleStart: canPan
@@ -1580,6 +1592,9 @@ class _WaypointDotState extends State<_WaypointDot> {
                         isSelected: widget.isSelected && !fadeEnd,
                         isGhost: fadeEnd,
                         gender: widget.player.gender,
+                        figure: TopDownPlayerPainter.figureFor(
+                            context.read<TacticsState>().sportType,
+                            widget.player),
                       ),
                 size: Size.infinite,
               ),
