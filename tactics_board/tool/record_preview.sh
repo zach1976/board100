@@ -36,16 +36,21 @@ xcrun simctl uninstall "$DEVICE" com.zach.tacticsBoard 2>/dev/null || true
 # Pick the team photo for this sport: open-field team sports import an
 # all-male squad; racquet / small-net sports import a mixed male+female
 # photo (their preview places a mixed doubles pair). The chosen file is
-# copied to the asset path the import hook reads.
+# copied to the path the import hook reads.
+#
+# A file path, not `asset:`: these three photos are development material and
+# were being bundled into all sixteen shipped apps — 1.3MB each of somebody
+# else's squad, in every store build, reachable by nobody. The import hook
+# takes an absolute path too, and a simulator reads the host filesystem.
 TEAM_SPORTS="soccer basketball volleyball handball rugby fieldHockey baseball waterPolo"
 if echo " $TEAM_SPORTS " | grep -q " $SPORT "; then
-  SRC="assets/preview/team_male.jpg"
+  SRC="tool/preview/team_male.jpg"
 else
-  SRC="assets/preview/team_mixed.jpg"
+  SRC="tool/preview/team_mixed.jpg"
 fi
-[ -f "$SRC" ] || SRC="assets/preview/team_male.jpg"  # fallback if mixed not built yet
+[ -f "$SRC" ] || SRC="tool/preview/team_male.jpg"  # fallback if mixed not built yet
 echo "▶ [$SPORT] using team photo $SRC"
-cp "$SRC" assets/preview/team_photo.jpg
+cp "$SRC" tool/preview/team_photo.jpg
 
 echo "▶ [$SPORT] starting screen recording → $RAW"
 rm -f "$RAW"
@@ -57,7 +62,7 @@ echo "▶ [$SPORT] running preview integration test"
 flutter test integration_test/preview_sport.dart \
   -d "$DEVICE" \
   --dart-define=SPORT="$SPORT" \
-  --dart-define=PREVIEW_PHOTO_PATH=asset:assets/preview/team_photo.jpg \
+  --dart-define=PREVIEW_PHOTO_PATH="$PWD/tool/preview/team_photo.jpg" \
   2>&1 | tee "$LOG" | tail -20
 TEST_EXIT=${PIPESTATUS[0]}
 

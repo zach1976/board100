@@ -144,7 +144,6 @@ flutter:
     - assets/icon/empty_mine.png
     - assets/icon/empty_search.png
     - assets/icon/paywall_banner.jpg
-    - assets/preview/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
