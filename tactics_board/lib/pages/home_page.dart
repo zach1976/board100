@@ -2060,13 +2060,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               figure: TopDownPlayerPainter.figureFor(
                   widget.state.sportType, p),
               sport: widget.state.sportType,
-              facesUp: playerFacesUp(p),
             ),
             size: Size(dim, dim),
           ),
           if (p.labelInside)
             Align(
-              alignment: playerLabelAlign(p),
+              alignment: kPlayerLabelAlign,
               child: Text(
                 p.label,
                 style: TextStyle(color: Colors.white, fontSize: dim * 0.35, fontWeight: FontWeight.w800, height: 1),

@@ -18,11 +18,16 @@ List<Drill> loadShipped(String sport) {
 }
 
 /// The sports with a library on disk, in a stable order.
+///
+/// Named after a sport, not merely ending in .json: index.json sits beside
+/// them and is the drill *count* for every sport, which the hub's picker
+/// reads. Globbing the directory once made it a sixteenth sport with no
+/// drills in it.
 List<String> shippedSports() =>
     (Directory('assets/drills').listSync().whereType<File>().toList()
           ..sort((a, b) => a.path.compareTo(b.path)))
-        .where((f) => f.path.endsWith('.json'))
         .map((f) => f.uri.pathSegments.last.replaceAll('.json', ''))
+        .where((name) => SportType.values.any((s) => s.name == name))
         .toList();
 
 void main() {
