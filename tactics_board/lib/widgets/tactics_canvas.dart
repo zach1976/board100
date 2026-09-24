@@ -784,9 +784,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           }
         }
       }
+      // A token carried by the beat faces down its run; everyone else
+      // faces their next action as of this beat.
+      final beat = state.isAnimating ? state.atStep : phaseLimit;
+      final moving = animPos != null &&
+          (animPos - chainEndAt(player, state.atStep)).distance > 0.5;
+      final heading = moving
+          ? playerHeadingAt(player, animPos)
+          : (boardHeading(players, player, beat) ?? playerFacing(player));
       return _PlayerOnBoard(
         key: ValueKey(player.id),
         player: player,
+        heading: heading,
         // With no animation running (a shot frame) the token still stands
         // where the beats so far have taken it, solid — the same place the
         // animated token would be. Left at its start it read as a player
@@ -1351,6 +1360,9 @@ class _AnimationDriverState extends State<_AnimationDriver>
 class _PlayerOnBoard extends StatefulWidget {
   final PlayerIcon player;
   final Offset? renderPosition; // animated override
+  /// Where the player faces this frame; the canvas works it out from the
+  /// whole board (see boardHeading).
+  final double heading;
 
   /// Draw-time nudge from [fanOutOffsets]. Added to the Positioned only —
   /// never to player.position — so the board's data, the drag deltas and the
@@ -1374,6 +1386,7 @@ class _PlayerOnBoard extends StatefulWidget {
     super.key,
     required this.player,
     this.renderPosition,
+    required this.heading,
     this.drawOffset = Offset.zero,
     required this.isSelected,
     this.isPrimary = false,
@@ -1419,7 +1432,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       player: player,
       isSelected: widget.isSelected,
       sport: context.read<TacticsState>().sportType,
-      heading: playerHeadingAt(player, widget.renderPosition),
+      heading: widget.heading,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       onScaleStart: canPan
@@ -1622,9 +1635,13 @@ class _WaypointDotState extends State<_WaypointDot> {
                             context.read<TacticsState>().sportType,
                             widget.player),
                         sport: context.read<TacticsState>().sportType,
-                        // Where the run ends, facing the way it arrived.
-                        heading: playerHeadingAt(
-                            widget.player, widget.player.moves.last),
+                        // Where the run ends: the stance the player takes
+                        // once every beat has run.
+                        heading: boardHeading(
+                                context.read<TacticsState>().players,
+                                widget.player,
+                                context.read<TacticsState>().maxMoveSteps) ??
+                            playerFacing(widget.player),
                         boardTurns: BoardOrientation.of(context),
                       ),
                 size: Size.infinite,

@@ -11,6 +11,7 @@ import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
 import '../services/photo_library_service.dart';
 import 'marker_shape_clipper.dart';
+import 'tactics_canvas.dart' show chainEndAt;
 
 /// How big a player token is drawn, in points, on any board.
 ///
@@ -570,15 +571,86 @@ class BoardOrientation extends InheritedWidget {
 double playerFacing(PlayerIcon p) =>
     (p.team == PlayerTeam.home ? 0.0 : pi) + p.rotation;
 
-/// Where a player faces once the beats have moved them: along the leg of
-/// their run they are on, or arrived by. [at] is where the token is drawn
-/// — mid-leg while a beat animates, on a waypoint once it has landed.
-/// Before the first beat, and for a player with no run, it is the stance
-/// the drill gave them ([playerFacing]).
+/// Where a player faces at beat [step] of a board: at their next action,
+/// the same rule the drill generator uses for the opening stance, asked
+/// again every beat. A man about to pass faces the target; a man about to
+/// receive faces the ball; a man about to run faces down the run; anyone
+/// else with a ball on the pitch watches the ball. Null when the board
+/// gives no cue, and the caller falls back to [playerFacing].
 ///
-/// A leg is chosen by distance, earliest first, so a token standing on a
-/// waypoint faces the way it came rather than the way it will go next —
-/// which is what a runner who has just stopped looks like.
+/// This replaced "face the way you came": a runner who had reached the
+/// touchline stood staring at it for the rest of the drill, and the man
+/// who had just laid the ball off turned his back on the whole pattern.
+double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
+  // How close a ball sits to the feet of the player holding it: the
+  // generator places it 24pt away, and a pass into space beside a man is
+  // not a pass to him.
+  const holdRadius = 24.0 * 1.4;
+  double? dir(Offset from, Offset to) {
+    final d = to - from;
+    return d.distance < 1e-3 ? null : atan2(d.dx, -d.dy);
+  }
+
+  p.syncPhases();
+  int? runPhase;
+  Offset? runFrom, runTo;
+  for (var i = 0; i < p.moves.length; i++) {
+    final ph = i < p.movePhases.length ? p.movePhases[i] : i;
+    if (ph >= step) {
+      runPhase = ph;
+      runTo = p.moves[i];
+      runFrom = i == 0 ? p.position : p.moves[i - 1];
+      break;
+    }
+  }
+  final run = runFrom == null ? null : dir(runFrom, runTo!);
+
+  PlayerIcon? ball;
+  for (final x in all) {
+    if (x.isBall) {
+      ball = x;
+      break;
+    }
+  }
+  if (ball == null) return run;
+
+  final me = chainEndAt(p, step);
+  final ballNow = ballPositionAt(all, ball, step);
+  ball.syncPhases();
+  int? legPhase;
+  Offset? legTo;
+  for (var i = 0; i < ball.moves.length; i++) {
+    final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
+    if (ph >= step) {
+      legPhase = ph;
+      legTo = ball.moves[i];
+      break;
+    }
+  }
+  if (legPhase != null && (runPhase == null || legPhase <= runPhase)) {
+    if ((me - ballNow).distance < holdRadius) {
+      return dir(me, legTo!) ?? run; // about to pass
+    }
+    if ((chainEndAt(p, legPhase + 1) - legTo!).distance < holdRadius) {
+      return dir(me, ballNow) ?? run; // about to receive: face the passer
+    }
+  }
+  return run ?? dir(me, ballNow);
+}
+
+/// Where the ball is at beat [step]: down its own legs, or at the feet of
+/// whoever it is attached to.
+Offset ballPositionAt(List<PlayerIcon> all, PlayerIcon ball, int step) {
+  if (ball.moves.isEmpty && ball.attachedTo != null) {
+    for (final x in all) {
+      if (x.id == ball.attachedTo) return chainEndAt(x, step);
+    }
+  }
+  return chainEndAt(ball, step);
+}
+
+/// Where a player faces while a beat carries them: along the leg of the
+/// run they are on. [at] is where the token is drawn mid-leg.
 double playerHeadingAt(PlayerIcon p, Offset? at) {
   if (at == null || p.moves.isEmpty) return playerFacing(p);
   final chain = [p.position, ...p.moves];
