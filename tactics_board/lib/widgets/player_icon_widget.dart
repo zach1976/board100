@@ -570,6 +570,37 @@ class BoardOrientation extends InheritedWidget {
 double playerFacing(PlayerIcon p) =>
     (p.team == PlayerTeam.home ? 0.0 : pi) + p.rotation;
 
+/// Where a player faces once the beats have moved them: along the leg of
+/// their run they are on, or arrived by. [at] is where the token is drawn
+/// — mid-leg while a beat animates, on a waypoint once it has landed.
+/// Before the first beat, and for a player with no run, it is the stance
+/// the drill gave them ([playerFacing]).
+///
+/// A leg is chosen by distance, earliest first, so a token standing on a
+/// waypoint faces the way it came rather than the way it will go next —
+/// which is what a runner who has just stopped looks like.
+double playerHeadingAt(PlayerIcon p, Offset? at) {
+  if (at == null || p.moves.isEmpty) return playerFacing(p);
+  final chain = [p.position, ...p.moves];
+  if ((at - chain.first).distance < 0.5) return playerFacing(p);
+  var best = double.infinity;
+  double? heading;
+  for (var i = 0; i + 1 < chain.length; i++) {
+    final a = chain[i], b = chain[i + 1];
+    final ab = b - a;
+    final len2 = ab.dx * ab.dx + ab.dy * ab.dy;
+    if (len2 < 1e-6) continue;
+    final t = (((at - a).dx * ab.dx + (at - a).dy * ab.dy) / len2)
+        .clamp(0.0, 1.0);
+    final d = (at - (a + ab * t)).distance;
+    if (d + 1e-6 < best) {
+      best = d;
+      heading = atan2(ab.dx, -ab.dy);
+    }
+  }
+  return heading ?? playerFacing(p);
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Main player icon widget
 // ─────────────────────────────────────────────────────────────────────────────
@@ -579,6 +610,9 @@ class PlayerIconWidget extends StatelessWidget {
   /// The board this token is on. It decides the body, the implement and
   /// which package the artwork comes out of.
   final SportType sport;
+  /// Where the player faces right now; null means the drill's stance.
+  /// The board passes the heading of the run the token is on.
+  final double? heading;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final Function(ScaleStartDetails)? onScaleStart;
@@ -590,6 +624,7 @@ class PlayerIconWidget extends StatelessWidget {
     required this.player,
     this.isSelected = false,
     this.sport = SportType.soccer,
+    this.heading,
     this.onTap,
     this.onLongPress,
     this.onScaleStart,
@@ -669,7 +704,8 @@ class PlayerIconWidget extends StatelessWidget {
                           : _PlayerShape(
                               player: player,
                               isSelected: isSelected,
-                              sport: sport),
+                              sport: sport,
+                              heading: heading),
                     ),
                   ),
           ),
@@ -712,10 +748,12 @@ class _PlayerShape extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
   final SportType sport;
+  final double? heading;
   const _PlayerShape(
       {required this.player,
       required this.isSelected,
-      this.sport = SportType.soccer});
+      this.sport = SportType.soccer,
+      this.heading});
 
   @override
   Widget build(BuildContext context) {
@@ -730,7 +768,7 @@ class _PlayerShape extends StatelessWidget {
             gender: player.gender,
             figure: TopDownPlayerPainter.figureFor(sport, player),
             sport: sport,
-            heading: playerFacing(player),
+            heading: heading ?? playerFacing(player),
             boardTurns: BoardOrientation.of(context),
           ),
           size: Size.infinite,

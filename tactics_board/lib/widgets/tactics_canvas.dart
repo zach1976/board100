@@ -1419,6 +1419,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       player: player,
       isSelected: widget.isSelected,
       sport: context.read<TacticsState>().sportType,
+      heading: playerHeadingAt(player, widget.renderPosition),
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       onScaleStart: canPan
@@ -1621,7 +1622,9 @@ class _WaypointDotState extends State<_WaypointDot> {
                             context.read<TacticsState>().sportType,
                             widget.player),
                         sport: context.read<TacticsState>().sportType,
-                        heading: playerFacing(widget.player),
+                        // Where the run ends, facing the way it arrived.
+                        heading: playerHeadingAt(
+                            widget.player, widget.player.moves.last),
                         boardTurns: BoardOrientation.of(context),
                       ),
                 size: Size.infinite,

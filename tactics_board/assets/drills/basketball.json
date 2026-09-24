@@ -90,7 +90,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -122,7 +123,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -162,7 +164,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -493,7 +496,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d1",
@@ -520,7 +524,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -547,7 +552,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d3",
@@ -567,7 +573,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -594,7 +601,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -732,7 +740,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -752,7 +761,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -779,7 +789,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -799,7 +810,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d4",
@@ -819,7 +831,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -952,7 +965,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -984,7 +998,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -1004,7 +1019,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -1024,7 +1040,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -1044,7 +1061,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -1076,7 +1094,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d6",
@@ -1241,7 +1260,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -1273,7 +1293,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -1293,7 +1314,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -1313,7 +1335,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -1333,7 +1356,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -1365,7 +1389,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d6",
@@ -1397,7 +1422,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -1550,7 +1576,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -1570,7 +1597,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -1590,7 +1618,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -1622,7 +1651,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -1750,7 +1780,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -1782,7 +1813,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -1802,7 +1834,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -1822,7 +1855,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -1842,7 +1876,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -1874,7 +1909,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -2002,7 +2038,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -2029,7 +2066,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -2061,7 +2099,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -2081,7 +2120,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -2101,7 +2141,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -2222,7 +2263,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -2249,7 +2291,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d2",
@@ -2276,7 +2319,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -2404,7 +2448,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d1",
@@ -2424,7 +2469,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d2",
@@ -2451,7 +2497,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d3",
@@ -2478,7 +2525,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "b0",
@@ -2606,7 +2654,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d1",
@@ -2633,7 +2682,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -2653,7 +2703,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -2673,7 +2724,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -2801,7 +2853,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -2821,7 +2874,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -2848,7 +2902,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d3",
@@ -2880,7 +2935,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -3082,7 +3138,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -3109,7 +3166,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "b0",
@@ -3232,7 +3290,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d1",
@@ -3259,7 +3318,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -3286,7 +3346,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -3318,7 +3379,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -3345,7 +3407,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -3372,7 +3435,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -3399,7 +3463,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d7",
@@ -3426,7 +3491,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "b0",
@@ -3542,7 +3608,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -3569,7 +3636,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d2",
@@ -3596,7 +3664,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d3",
@@ -3623,7 +3692,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d4",
@@ -3643,7 +3713,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -3670,7 +3741,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d6",
@@ -3697,7 +3769,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d7",
@@ -3724,7 +3797,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "b0",
@@ -3857,7 +3931,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -3877,7 +3952,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -3897,7 +3973,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -3924,7 +4001,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d4",
@@ -3944,7 +4022,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -3964,7 +4043,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -4307,7 +4387,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -4339,7 +4420,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -4359,7 +4441,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -4379,7 +4462,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -4399,7 +4483,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d5",
@@ -4431,7 +4516,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d6",
@@ -4609,7 +4695,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -4641,7 +4728,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -4661,7 +4749,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -4681,7 +4770,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d4",
@@ -4701,7 +4791,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d5",
@@ -4733,7 +4824,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d6",
@@ -4765,7 +4857,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -4906,7 +4999,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -4938,7 +5032,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -4958,7 +5053,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -4978,7 +5074,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -4998,7 +5095,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -5030,7 +5128,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -5062,7 +5161,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -5203,7 +5303,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -5235,7 +5336,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -5255,7 +5357,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -5275,7 +5378,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d4",
@@ -5295,7 +5399,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d5",
@@ -5327,7 +5432,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d6",
@@ -5500,7 +5606,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -5532,7 +5639,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -5552,7 +5660,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -5572,7 +5681,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -5592,7 +5702,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -5624,7 +5735,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d6",
@@ -5797,7 +5909,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -5817,7 +5930,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -5837,7 +5951,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -5857,7 +5972,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -5877,7 +5993,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d5",
@@ -5909,7 +6026,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -6075,7 +6193,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -6095,7 +6214,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -6115,7 +6235,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -6147,7 +6268,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d5",
@@ -6167,7 +6289,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -6296,7 +6419,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -6328,7 +6452,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d2",
@@ -6348,7 +6473,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -6375,7 +6501,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -6407,7 +6534,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -6556,7 +6684,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -6588,7 +6717,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -6608,7 +6738,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -6628,7 +6759,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -6660,7 +6792,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d5",
@@ -6680,7 +6813,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -6836,7 +6970,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -6863,7 +6998,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -7019,7 +7155,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -7046,7 +7183,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -7202,7 +7340,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -7385,7 +7524,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -7412,7 +7552,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -7568,7 +7709,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -7595,7 +7737,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "b0",
@@ -7724,7 +7867,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -7751,7 +7895,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -7771,7 +7916,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -7791,7 +7937,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -7818,7 +7965,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -7845,7 +7993,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "b0",
@@ -7979,7 +8128,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -8006,7 +8156,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -8026,7 +8177,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -8046,7 +8198,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -8073,7 +8226,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -8100,7 +8254,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "b0",
@@ -8234,7 +8389,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -8254,7 +8410,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -8274,7 +8431,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -8294,7 +8452,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -8314,7 +8473,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -8341,7 +8501,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -8487,7 +8648,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -8519,7 +8681,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -8539,7 +8702,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -8559,7 +8723,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -8618,7 +8783,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -8759,7 +8925,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -8791,7 +8958,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -8823,7 +8991,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -9001,7 +9170,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -9033,7 +9203,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -9065,7 +9236,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -9243,7 +9415,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -9275,7 +9448,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -9307,7 +9481,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -9517,7 +9692,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -9581,7 +9757,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -9702,7 +9879,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d1",
@@ -9722,7 +9900,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d2",
@@ -9742,7 +9921,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -9762,7 +9942,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -9794,7 +9975,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d5",
@@ -9826,7 +10008,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d6",
@@ -9858,7 +10041,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d7",
@@ -9890,7 +10074,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -10041,7 +10226,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -10105,7 +10291,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -10132,7 +10319,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -10152,7 +10340,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -10298,7 +10487,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -10362,7 +10552,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -10421,7 +10612,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d5",
@@ -10461,7 +10653,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -10607,7 +10800,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -10671,7 +10865,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d3",
@@ -10829,7 +11024,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -10970,7 +11166,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d1",
@@ -10997,7 +11194,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -11024,7 +11222,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d3",
@@ -11051,7 +11250,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -11078,7 +11278,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d5",
@@ -11105,7 +11306,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -11241,7 +11443,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d1",
@@ -11268,7 +11471,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -11295,7 +11499,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -11322,7 +11527,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -11349,7 +11555,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -11376,7 +11583,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -11403,7 +11611,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -11539,7 +11748,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d1",
@@ -11593,7 +11803,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -11613,7 +11824,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -11667,7 +11879,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -11803,7 +12016,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d1",
@@ -11830,7 +12044,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d2",
@@ -11850,7 +12065,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -11877,7 +12093,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -11931,7 +12148,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "b0",
@@ -12067,7 +12285,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -12094,7 +12313,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -12114,7 +12334,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -12134,7 +12355,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -12161,7 +12383,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -12215,7 +12438,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d7",
@@ -12242,7 +12466,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d8",
@@ -12269,7 +12494,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -12415,7 +12641,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -12442,7 +12669,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d2",
@@ -12462,7 +12690,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -12482,7 +12711,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d4",
@@ -12509,7 +12739,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -12536,7 +12767,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d6",
@@ -12563,7 +12795,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d7",
@@ -12590,7 +12823,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d8",
@@ -12617,7 +12851,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -12758,7 +12993,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -12785,7 +13021,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -12812,7 +13049,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d3",
@@ -12839,7 +13077,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -12866,7 +13105,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d5",
@@ -12893,7 +13133,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d6",
@@ -12920,7 +13161,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d7",
@@ -12947,7 +13189,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d8",
@@ -13001,7 +13244,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -13135,7 +13379,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d1",
@@ -13162,7 +13407,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -13189,7 +13435,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d3",
@@ -13209,7 +13456,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -2.356194
           },
           {
             "id": "d4",
@@ -13236,7 +13484,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d5",
@@ -13256,7 +13505,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -13385,7 +13635,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -13412,7 +13663,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d2",
@@ -13439,7 +13691,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -13466,7 +13719,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -13486,7 +13740,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d5",
@@ -13513,7 +13768,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -13533,7 +13789,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -13694,7 +13951,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -13741,7 +13999,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -13793,7 +14052,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "b0",
@@ -13936,7 +14196,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d2",
@@ -13956,7 +14217,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d3",
@@ -13983,7 +14245,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -1.570796
           },
           {
             "id": "d4",
@@ -14003,7 +14266,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -14272,7 +14536,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "m0",

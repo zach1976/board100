@@ -698,6 +698,69 @@ def unlabel_lone_player(drill: Drill) -> None:
 FRAME_VIEW = 0.60
 
 
+def _heading(from_xy, to_xy) -> float | None:
+    """Radians clockwise from up the board, or None for no distance."""
+    dx, dy = to_xy[0] - from_xy[0], to_xy[1] - from_xy[1]
+    if abs(dx) < 1e-6 and abs(dy) < 1e-6:
+        return None
+    return math.atan2(dx, -dy)
+
+
+def initial_facings(drill: Drill, ball_xy) -> dict:
+    """Where each player is looking before the first beat: at their next
+    action. The figure is drawn from eight pictures now, so a token that
+    faces nothing in particular faces its own goal line — and a passer with
+    his back to his receiver reads as a mistake on the board, not a
+    default.
+
+    A man about to pass faces the target of the pass; a man about to
+    receive faces whoever plays it; a man whose first act is a run faces
+    down the run; anyone else with a ball on the pitch faces the ball. Read
+    in phase order, so a runner who passes later faces the run. Returns
+    {P: heading}; players with no cue are left out and take the team
+    default.
+    """
+    events: dict = {}                     # id(P) -> (phase, priority, heading)
+
+    def note(pl, phase, prio, hd):
+        if pl is None or hd is None:
+            return
+        cur = events.get(id(pl))
+        if cur is None or (phase, prio) < (cur[0], cur[1]):
+            events[id(pl)] = (phase, prio, hd)
+
+    holder = drill.home[drill.ball] if isinstance(drill.ball, int) else None
+    passer = holder
+    for (x, y, ph) in sorted(drill.ball_moves, key=lambda leg: leg[2]):
+        receiver = _standing_at(drill, (x, y), ph)
+        if passer is not None:
+            note(passer, ph, 0, _heading(_pos_at(passer, ph - 1), (x, y)))
+            if receiver is not None and receiver is not passer:
+                note(receiver, ph, 0,
+                     _heading(_pos_at(receiver, ph), _pos_at(passer, ph - 1)))
+        passer = receiver
+    for pl in drill.home + drill.away:
+        if pl.moves:
+            mx, my, ph = pl.moves[0]
+            note(pl, ph, 1, _heading(_pos_at(pl, ph - 1), (mx, my)))
+        if id(pl) not in events and ball_xy is not None:
+            note(pl, 10**6, 2, _heading((pl.x, pl.y), ball_xy))
+    return {k: hd for k, (_, _, hd) in events.items()}
+
+
+def facing_to_rotation(heading: float, team: int) -> float:
+    """The stored `rotation` is the coach's turn on top of the team's
+    default facing (home up the board, everyone else toward the viewer),
+    snapped to the eight pictures the figure has."""
+    default = 0.0 if team == TEAM_HOME else math.pi
+    step = math.pi / 4
+    r = (round(heading / step) * step) - default
+    r = (r + math.pi) % (2 * math.pi) - math.pi     # wrap to (-pi, pi]
+    if abs(r - math.pi) < 1e-9 or abs(r + math.pi) < 1e-9:
+        r = math.pi
+    return 0.0 if abs(r) < 1e-9 else round(r, 6)
+
+
 def frame_of(sport: str, board: dict) -> str | None:
     """"top" or "bottom" when everything in the drill stays in one half.
 
@@ -779,6 +842,20 @@ def build_board(drill: Drill, sport: str) -> dict:
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
                                  drill.ball_moves))
+
+    ball_xy = None
+    for pd in players:
+        if pd["team"] == TEAM_NEUTRAL and pd["sportType"] is not None:
+            ball_xy = tuple(pd["position"])
+    facing = initial_facings(drill, ball_xy)
+    people = list(drill.home) + list(drill.away)
+    for pd, pl in zip(players, people):
+        hd = facing.get(id(pl))
+        if hd is None:
+            continue
+        r = facing_to_rotation(hd, pd["team"])
+        if r != 0.0:
+            pd["rotation"] = r
 
     return {
         "sportType": SPORT_INDEX[sport],
