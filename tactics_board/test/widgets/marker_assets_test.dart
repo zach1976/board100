@@ -42,13 +42,17 @@ void main() {
     }
   });
 
-  test('both player figures are declared and neutral grey', () {
-    for (final asset in [
-      'assets/icon/player_top_male.png',
-      'assets/icon/player_top_female.png',
-    ]) {
-      expect(declared, contains(asset), reason: '$asset is not declared');
-      expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+  test('both figures ship as a body plate and a kit plate', () {
+    // A figure is two images: the body in its own colours and the kit in
+    // grey for the team colour to land on. Half a pair renders as the
+    // fallback circle and oval with no error anywhere, so both halves of
+    // both figures are checked.
+    for (final g in ['male', 'female']) {
+      for (final layer in ['base', 'kit']) {
+        final asset = 'assets/icon/player_top_${g}_$layer.png';
+        expect(declared, contains(asset), reason: '$asset is not declared');
+        expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+      }
     }
   });
 

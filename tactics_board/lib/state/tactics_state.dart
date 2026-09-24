@@ -1071,7 +1071,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, String? photoId, bool clearPhotoId = false}) {
+  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, PlayerGender? gender, String? photoId, bool clearPhotoId = false}) {
     _resetAnimationState();
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
@@ -1082,6 +1082,7 @@ class TacticsState extends ChangeNotifier {
       customColor: customColor,
       clearCustomColor: clearCustomColor,
       scale: scale,
+      gender: gender,
       photoId: photoId,
       clearPhotoId: clearPhotoId,
     );

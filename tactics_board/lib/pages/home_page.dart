@@ -1752,6 +1752,15 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                               fontWeight: FontWeight.w600)),
                     ),
                   ),
+                // Who is standing there. The Add sheet can put a woman on the
+                // board but nothing could turn one of the eleven a formation
+                // dropped into one, which left half a squad unreachable.
+                if (_showGender(p)) ...[
+                  const SizedBox(width: 10),
+                  _genderAction(p, PlayerGender.male, Icons.man),
+                  const SizedBox(width: 6),
+                  _genderAction(p, PlayerGender.female, Icons.woman),
+                ],
               ],
             ),
             const SizedBox(height: 8),
@@ -2056,6 +2065,22 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       );
     }
     return SizedBox(width: dim, height: dim, child: glyph);
+  }
+
+  /// Gender is a person's, so it is offered on people: not on a ball, not on
+  /// a cone, and not on an element wearing a photo, whose picture is already
+  /// whoever it is.
+  bool _showGender(PlayerIcon p) =>
+      !p.isBall && !p.isMarker && p.photoId == null;
+
+  /// Tapping the one already set puts the element back to unspecified, which
+  /// is what a formation lays down and what draws the default figure.
+  Widget _genderAction(PlayerIcon p, PlayerGender g, IconData icon) {
+    final on = p.gender == g;
+    return _editAction(icon, on ? kAccent : Colors.white54, () {
+      widget.state.updatePlayer(p.id,
+          gender: on ? PlayerGender.unspecified : g);
+    });
   }
 
   Widget _editAction(IconData icon, Color color, VoidCallback onTap) {

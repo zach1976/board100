@@ -39,11 +39,12 @@ const double kBallDrawFactor = 0.58;
 
 /// Where the shirt number sits on a token.
 ///
-/// The circle-and-oval had its number in the middle of the oval, which on the
-/// figure that replaced it is the shorts. 0.42 of the box down is the middle
-/// of the chest on both figures — measured off the art, and the same on the
-/// male and the female one because both were normalised to the same height.
-const Alignment kPlayerLabelAlign = Alignment(0, -0.16);
+/// The circle-and-oval had its number in the middle of the oval, which on a
+/// figure is the shorts. The figurine's head is a quarter of its height, so
+/// the shirt sits lower than it did on the realistic one that came before:
+/// 0.52 of the figure down, measured off the art, which leaves the face
+/// clear above it. Same on both figures — they were normalised together.
+const Alignment kPlayerLabelAlign = Alignment(0, 0.05);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // The figure a player token is drawn from
@@ -66,41 +67,53 @@ class PlayerArt {
   /// Bumped once per image decoded. Every player painter listens to it.
   static final ValueNotifier<int> ready = ValueNotifier<int>(0);
 
-  static ui.Image? _male;
-  static ui.Image? _female;
+  static final Map<String, ui.Image> _plates = {};
   static bool _started = false;
 
-  /// The figure for [gender], or null until the asset has decoded. Kicks the
+  static const _files = {
+    'male.base': 'assets/icon/player_top_male_base.png',
+    'male.kit': 'assets/icon/player_top_male_kit.png',
+    'female.base': 'assets/icon/player_top_female_base.png',
+    'female.kit': 'assets/icon/player_top_female_kit.png',
+  };
+
+  static String _key(PlayerGender g) =>
+      g == PlayerGender.female ? 'female' : 'male';
+
+  /// The body — skin, hair, socks, boots — in its own colours, and the whole
+  /// silhouette in its alpha. Null until the asset has decoded; kicks the
   /// load off on first ask, so nothing has to remember to warm it.
   static ui.Image? of(PlayerGender gender) {
     if (!_started) {
       _started = true;
-      _load('assets/icon/player_top_male.png', female: false);
-      _load('assets/icon/player_top_female.png', female: true);
+      _files.forEach(_load);
     }
-    return gender == PlayerGender.female ? _female : _male;
+    return _plates['${_key(gender)}.base'];
   }
 
-  /// Decodes both figures and waits for them. Used by the headless board
+  /// Shirt and shorts alone, in grey, for the team colour to land on. A
+  /// player is not one colour: tinting the whole figure turned a coach's
+  /// squad into eleven blue blobs, when what stands on a real board is
+  /// eleven people wearing blue.
+  static ui.Image? kitOf(PlayerGender gender) =>
+      _plates['${_key(gender)}.kit'];
+
+  /// Decodes every plate and waits for them. Used by the headless board
   /// renderer, which shoots a frame the moment it pumps and would otherwise
   /// catch every first board mid-decode.
   static Future<void> warm() async {
     of(PlayerGender.male);
-    while (_male == null || _female == null) {
+    while (_plates.length < _files.length) {
       await Future<void>.delayed(const Duration(milliseconds: 20));
     }
   }
 
-  static Future<void> _load(String path, {required bool female}) async {
+  static Future<void> _load(String key, String path) async {
     try {
       final data = await rootBundle.load(packageAsset(path));
       final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
       final frame = await codec.getNextFrame();
-      if (female) {
-        _female = frame.image;
-      } else {
-        _male = frame.image;
-      }
+      _plates[key] = frame.image;
       ready.value++;
     } catch (_) {
       // No art, no crash: the painter keeps drawing the circle and the oval.
@@ -136,8 +149,9 @@ class TopDownPlayerPainter extends CustomPainter {
     final h = size.height;
 
     final art = PlayerArt.of(gender);
-    if (art != null) {
-      _paintArt(canvas, art, Offset.zero & size);
+    final kit = PlayerArt.kitOf(gender);
+    if (art != null && kit != null) {
+      _paintArt(canvas, art, kit, Offset.zero & size);
       return;
     }
 
@@ -202,16 +216,31 @@ class TopDownPlayerPainter extends CustomPainter {
 
   /// How much brighter than a straight multiply the tint is pushed.
   ///
-  /// The shirt is 42% grey in the art so the fabric has room to shade, which
-  /// means colour x grey comes out close to black — the home side rendered
-  /// navy and the away side maroon. Doubling puts the chest back at full
-  /// team colour and lets the lighter greys, skin and boots, clip to the
-  /// bright end of the same hue instead of washing out to white. Measured
-  /// off the art (chest 107/255), not guessed.
-  static const double _tintGain = 2.0;
+  /// The kit plate is built at about 85% grey — bright enough that a plain
+  /// multiply lands on the team colour itself, with the shirt's own shading
+  /// moving either side of it. Nothing left to correct for, so 1.
+  ///
+  /// It was 2, for the old art where the whole figure was one mid grey and a
+  /// straight multiply came out navy. Left at 2 here it multiplied a plate
+  /// that was already bright and the home side came out sky blue: measured
+  /// off the render at team colour x 1.74, which is 221/255 x 2 to within a
+  /// step.
+  static const double _tintGain = 1.0;
 
-  /// Grey in, team colour out. A per-channel multiply: nothing in the image
-  /// has a hue of its own to fight it.
+  /// The body plate as it was drawn — skin is skin, boots are boots.
+  Paint _plainPaint(double opacity) => Paint()
+    ..filterQuality = FilterQuality.medium
+    ..colorFilter = opacity == 1.0
+        ? null
+        : ColorFilter.matrix(<double>[
+            1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, opacity, 0,
+          ]);
+
+  /// Grey in, team colour out. A per-channel multiply: nothing in the kit
+  /// plate has a hue of its own to fight it.
   ///
   /// [FilterQuality.medium] and not the default, which is none: this draws a
   /// 512px figure into a 36pt box, and point-sampling a downscale that steep
@@ -259,7 +288,7 @@ class TopDownPlayerPainter extends CustomPainter {
     }
   }
 
-  void _paintArt(Canvas canvas, ui.Image art, Rect box) {
+  void _paintArt(Canvas canvas, ui.Image art, ui.Image kit, Rect box) {
     final src =
         Rect.fromLTWH(0, 0, art.width.toDouble(), art.height.toDouble());
     final dst = box.inflate(box.width * (_figureScale - 1) / 2);
@@ -268,8 +297,9 @@ class TopDownPlayerPainter extends CustomPainter {
       // Two coats, same reason as the drawn ghost: green turf under a
       // half-transparent red shirt comes out brown, so the figure stands on
       // a white base and keeps its colour whatever pitch it is on.
-      canvas.drawImageRect(art, src, dst, _silhouettePaint(Colors.white, 0.4));
-      canvas.drawImageRect(art, src, dst, _tintPaint(0.6));
+      canvas.drawImageRect(art, src, dst, _silhouettePaint(Colors.white, 0.55));
+      canvas.drawImageRect(art, src, dst, _plainPaint(0.45));
+      canvas.drawImageRect(kit, src, dst, _tintPaint(0.6));
       return;
     }
 
@@ -315,7 +345,8 @@ class TopDownPlayerPainter extends CustomPainter {
       _stamp(canvas, art, src, dst, Colors.white, r * 0.5);
     }
 
-    canvas.drawImageRect(art, src, dst, _tintPaint(1.0));
+    canvas.drawImageRect(art, src, dst, _plainPaint(1.0));
+    canvas.drawImageRect(kit, src, dst, _tintPaint(1.0));
   }
 
   /// Ghost mode — where the player ends up, not where they are.
