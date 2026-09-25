@@ -27,17 +27,19 @@ void main() {
       'assets/icon/ball_${s.name}.png',
     };
     for (final m in s.markers) {
+      // The app asks for a sport's marker by its package path; the file
+      // itself lives in the core, where the package's symlink points.
       final a = markerImageAsset(m, s);
-      if (a != null) files.add(a);
+      if (a != null) files.add(a.replaceFirst(RegExp(r'^packages/[^/]+/'), ''));
     }
     // The plain figure is everybody's and stays in the core; a sport ships
     // only the body or the implement that is its own.
     for (final f in {s.playerBody, s.playerImplement}) {
       if (f == null || f == PlayerFigure.plain) continue;
-      files.add('assets/icon/player_top_male_${f.name}_base.png');
-      files.add('assets/icon/player_top_male_${f.name}_kit.png');
-      files.add('assets/icon/player_top_female_${f.name}_base.png');
-      files.add('assets/icon/player_top_female_${f.name}_kit.png');
+      for (final layer in ['base', 'kit', 'turn_base', 'turn_kit']) {
+        files.add('assets/icon/player_top_male_${f.name}_$layer.png');
+        files.add('assets/icon/player_top_female_${f.name}_$layer.png');
+      }
     }
     out[s.name] = files.toList()..sort();
   }

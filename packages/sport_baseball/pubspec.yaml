@@ -23,5 +23,9 @@ flutter:
     - assets/icon/marker_tee.png
     - assets/icon/player_top_female_bat_base.png
     - assets/icon/player_top_female_bat_kit.png
+    - assets/icon/player_top_female_bat_turn_base.png
+    - assets/icon/player_top_female_bat_turn_kit.png
     - assets/icon/player_top_male_bat_base.png
     - assets/icon/player_top_male_bat_kit.png
+    - assets/icon/player_top_male_bat_turn_base.png
+    - assets/icon/player_top_male_bat_turn_kit.png

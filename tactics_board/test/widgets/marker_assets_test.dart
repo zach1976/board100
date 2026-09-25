@@ -108,7 +108,7 @@ void main() {
       for (final s in SportType.values) {
         for (final f in {s.playerBody, s.playerImplement}) {
           if (f == null || f == PlayerFigure.plain) continue;
-          for (final layer in ['base', 'kit']) {
+          for (final layer in ['base', 'kit', 'turn_base', 'turn_kit']) {
             expectShipped(
                 'packages/sport_${s.name.toLowerCase()}/${file(g, f, layer)}',
                 packages[s]!,

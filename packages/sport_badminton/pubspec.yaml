@@ -22,5 +22,9 @@ flutter:
     - assets/icon/marker_shuttletube.png
     - assets/icon/player_top_female_racket_base.png
     - assets/icon/player_top_female_racket_kit.png
+    - assets/icon/player_top_female_racket_turn_base.png
+    - assets/icon/player_top_female_racket_turn_kit.png
     - assets/icon/player_top_male_racket_base.png
     - assets/icon/player_top_male_racket_kit.png
+    - assets/icon/player_top_male_racket_turn_base.png
+    - assets/icon/player_top_male_racket_turn_kit.png

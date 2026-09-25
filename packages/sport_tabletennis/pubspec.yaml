@@ -21,5 +21,9 @@ flutter:
     - assets/icon/marker_paddle.png
     - assets/icon/player_top_female_paddle_base.png
     - assets/icon/player_top_female_paddle_kit.png
+    - assets/icon/player_top_female_paddle_turn_base.png
+    - assets/icon/player_top_female_paddle_turn_kit.png
     - assets/icon/player_top_male_paddle_base.png
     - assets/icon/player_top_male_paddle_kit.png
+    - assets/icon/player_top_male_paddle_turn_base.png
+    - assets/icon/player_top_male_paddle_turn_kit.png

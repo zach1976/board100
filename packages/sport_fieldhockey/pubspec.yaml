@@ -20,5 +20,9 @@ flutter:
     - assets/icon/marker_stick.png
     - assets/icon/player_top_female_stick_base.png
     - assets/icon/player_top_female_stick_kit.png
+    - assets/icon/player_top_female_stick_turn_base.png
+    - assets/icon/player_top_female_stick_turn_kit.png
     - assets/icon/player_top_male_stick_base.png
     - assets/icon/player_top_male_stick_kit.png
+    - assets/icon/player_top_male_stick_turn_base.png
+    - assets/icon/player_top_male_stick_turn_kit.png

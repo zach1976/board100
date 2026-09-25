@@ -21,5 +21,9 @@ flutter:
     - assets/icon/marker_lanerope.png
     - assets/icon/player_top_female_water_base.png
     - assets/icon/player_top_female_water_kit.png
+    - assets/icon/player_top_female_water_turn_base.png
+    - assets/icon/player_top_female_water_turn_kit.png
     - assets/icon/player_top_male_water_base.png
     - assets/icon/player_top_male_water_kit.png
+    - assets/icon/player_top_male_water_turn_base.png
+    - assets/icon/player_top_male_water_turn_kit.png
