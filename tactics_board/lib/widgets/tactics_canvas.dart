@@ -773,27 +773,35 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   }
 
   Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
-    // Players standing in the same place get nudged apart in the drawing.
-    // Computed from the positions actually on screen, so it follows the
-    // animation as tokens converge rather than only the stored board.
-    final fan = fanOutOffsets(
-      players,
-      (p) => state.animatedPositions[p.id] ?? p.position,
-    );
-    // A held ball is drawn at its holder's feet — measured from where the
-    // holder is actually drawn, so a ball follows a player the fan has
-    // pushed aside rather than being left where the pair used to stand.
-    final feet = ballAtFeetOffsets(
-      players,
-      (p) =>
-          (state.animatedPositions[p.id] ?? p.position) +
-          (fan[p.id] ?? Offset.zero),
-    );
     // Beats elapsed, whichever way the board is being stepped: atStep when
     // played in the app, targetStep when a tool shoots a frame.
     final stepLimit = state.atStep > 0
         ? state.atStep
         : (state.targetStep > 0 ? state.targetStep : 0);
+
+    /// Where [p] is drawn this frame: along its run while the beat plays,
+    /// else where the beats so far have taken it — the same answer as the
+    /// renderPosition playerIcon hands the token. Not `p.position`, which
+    /// is where the board STARTS: measured from there, a ball at the feet
+    /// of a man who had run up the pitch was drawn at the feet of the ghost
+    /// he left behind.
+    Offset drawnAt(PlayerIcon p) =>
+        state.animatedPositions[p.id] ??
+        (stepLimit > 0 && p.moves.isNotEmpty
+            ? chainEndAt(p, stepLimit)
+            : p.position);
+
+    // Players standing in the same place get nudged apart in the drawing.
+    // Computed from the positions actually on screen, so it follows the
+    // animation as tokens converge rather than only the stored board.
+    final fan = fanOutOffsets(players, drawnAt);
+    // A held ball is drawn at its holder's feet — measured from where the
+    // holder is actually drawn, so a ball follows a player the fan has
+    // pushed aside rather than being left where the pair used to stand.
+    final feet = ballAtFeetOffsets(
+      players,
+      (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
+    );
 
     /// The beats elapsed as far as [p] is concerned.
     ///
