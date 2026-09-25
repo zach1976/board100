@@ -635,7 +635,13 @@ double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
       return dir(me, ballNow) ?? run; // about to receive: face the passer
     }
   }
-  return run ?? dir(me, ballNow);
+  // A run that starts on this beat is what I am doing; a run two beats away
+  // is not, and standing with my back to the ball until it comes round is
+  // not what a player does. C, waiting on the wing to check away at beat
+  // two, faced up the pitch from the first frame while the ball was still
+  // at the other end.
+  if (runPhase == step) return run ?? dir(me, ballNow);
+  return dir(me, ballNow) ?? run;
 }
 
 /// Where the ball is at beat [step]: down its own legs, or at the feet of

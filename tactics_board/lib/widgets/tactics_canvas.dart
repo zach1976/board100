@@ -87,6 +87,65 @@ const double _kFanThreshold = kPlayerIconSize * 0.9;
 /// How far each one moves when they are exactly on top of each other.
 const double _kFanRadius = kPlayerIconSize * 0.4;
 
+/// How close a ball has to be to a player before it is drawn at their feet.
+///
+/// The same reach the facing rules use for "this is his ball": the generator
+/// places a carried ball 24pt from its holder.
+const double _kHoldReach = kPlayerIconSize * 0.95;
+
+/// How far below the middle of a token its shoes are, and how far to the
+/// side a ball may sit while still reading as being at them.
+const double _kFeetDrop = kPlayerIconSize * 0.46;
+const double _kFeetSide = kPlayerIconSize * 0.34;
+
+/// Draw-time placement for a ball that belongs to somebody.
+///
+/// A carried ball is stored 24pt from its holder in the direction of play,
+/// which was right when a player was a circle: any side of a disc is the
+/// same side. A figure who stands up has a head at the top of that circle
+/// and a number across the middle of it, so the same ball landed on the
+/// hair of a man facing up the board and on the number of one facing down.
+///
+/// Like [fanOutOffsets] this moves the drawing only — the stored position is
+/// what the pass rules, the facing rules and the hit test all read, and it is
+/// untouched. The ball drops to the shoes and keeps the side it was already
+/// on, so which way the play is going is still legible. The pull fades out
+/// over the reach beyond [_kHoldReach], so a ball leaving on a pass slides
+/// free of its holder instead of snapping.
+Map<String, Offset> ballAtFeetOffsets(
+  List<PlayerIcon> players,
+  Offset Function(PlayerIcon) positionOf,
+) {
+  final holders =
+      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  if (holders.isEmpty) return const {};
+  final result = <String, Offset>{};
+  for (final ball in players) {
+    if (!ball.isBall) continue;
+    final at = positionOf(ball);
+    PlayerIcon? holder;
+    var best = double.infinity;
+    for (final p in holders) {
+      final d = (positionOf(p) - at).distance;
+      if (d < best) {
+        best = d;
+        holder = p;
+      }
+    }
+    if (holder == null) continue;
+    final reach = _kHoldReach * holder.scale;
+    if (best >= reach * 1.6) continue;
+    final weight =
+        best <= reach ? 1.0 : (1 - (best - reach) / (reach * 0.6)).clamp(0.0, 1.0);
+    final from = positionOf(holder);
+    final side = (at.dx - from.dx)
+        .clamp(-_kFeetSide * holder.scale, _kFeetSide * holder.scale);
+    final feet = from + Offset(side, _kFeetDrop * holder.scale);
+    result[ball.id] = (feet - at) * weight;
+  }
+  return result;
+}
+
 /// Draw-time separation for players standing in the same place.
 ///
 /// A run that ends where another player is standing hid one of them
@@ -717,6 +776,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       players,
       (p) => state.animatedPositions[p.id] ?? p.position,
     );
+    // A held ball is drawn at its holder's feet — measured from where the
+    // holder is actually drawn, so a ball follows a player the fan has
+    // pushed aside rather than being left where the pair used to stand.
+    final feet = ballAtFeetOffsets(
+      players,
+      (p) =>
+          (state.animatedPositions[p.id] ?? p.position) +
+          (fan[p.id] ?? Offset.zero),
+    );
     // Beats elapsed, whichever way the board is being stepped: atStep when
     // played in the app, targetStep when a tool shoots a frame.
     final stepLimit = state.atStep > 0
@@ -804,7 +872,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             (stepLimit > 0 && player.moves.isNotEmpty
                 ? chainEndAt(player, stepLimit)
                 : null),
-        drawOffset: fan[player.id] ?? Offset.zero,
+        drawOffset:
+            (fan[player.id] ?? Offset.zero) + (feet[player.id] ?? Offset.zero),
         isSelected: selected,
         isPrimary: selected &&
             !state.multiSelectMode &&
