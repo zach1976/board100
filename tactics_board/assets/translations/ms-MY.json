@@ -480,6 +480,8 @@
   "intro_start": "Mula",
   "intro_board_t": "Lukis, kemudian *jalankan*",
   "intro_board_b": "Letakkan pemain di padang, lukis pergerakan mereka, kemudian jalankan aksi itu satu rentak demi satu rentak.",
+  "intro_hub_t": "*Enam belas sukan*, satu papan",
+  "intro_hub_b": "Pilih sukan, letakkan pemain di padang, lukis larian mereka dan jalankan pergerakan itu langkah demi langkah.",
   "intro_drills_t": "*{}* latihan, sudah ditulis",
   "intro_drills_b": "Setiap satu ialah papan yang boleh dijalankan langkah demi langkah, lengkap dengan apa yang dilatih, cara menyusunnya dan satu ayat yang perlu disebut.",
   "intro_plan_t": "*Susun* satu sesi",

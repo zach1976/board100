@@ -480,6 +480,8 @@
   "intro_start": "Bắt đầu",
   "intro_board_t": "Vẽ ra, rồi *chạy thử*",
   "intro_board_b": "Đặt cầu thủ lên sân, vẽ đường di chuyển, rồi chạy pha phối hợp đó theo từng nhịp.",
+  "intro_hub_t": "*Mười sáu môn thể thao*, một bảng chiến thuật",
+  "intro_hub_b": "Chọn môn, đặt cầu thủ lên sân, vẽ đường chạy rồi đi qua pha bóng từng nhịp một.",
   "intro_drills_t": "*{}* bài tập, đã viết sẵn",
   "intro_drills_b": "Mỗi bài là một bảng chạy được từng bước, kèm theo rèn gì, bố trí thế nào và một câu duy nhất cần nói.",
   "intro_plan_t": "*Xếp* một buổi tập",

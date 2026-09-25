@@ -480,6 +480,8 @@
   "intro_start": "Empezar",
   "intro_board_t": "Dibújala y *ejecútala*",
   "intro_board_b": "Coloca a los jugadores en el campo, traza sus desmarques y recorre la jugada tiempo a tiempo.",
+  "intro_hub_t": "*Dieciséis deportes*, una pizarra",
+  "intro_hub_b": "Elige un deporte, coloca a los jugadores, dibuja sus desplazamientos y recorre la jugada paso a paso.",
   "intro_drills_t": "*{}* ejercicios, ya escritos",
   "intro_drills_b": "Cada uno es una pizarra que puedes recorrer paso a paso, con qué trabaja, cómo se monta y la frase que hay que decir.",
   "intro_plan_t": "*Monta* una sesión",

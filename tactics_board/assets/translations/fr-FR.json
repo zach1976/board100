@@ -480,6 +480,8 @@
   "intro_start": "Commencer",
   "intro_board_t": "Dessinez, *puis déroulez*",
   "intro_board_b": "Placez les joueurs sur le terrain, tracez leurs appels, puis déroulez la combinaison temps par temps.",
+  "intro_hub_t": "*Seize sports*, un seul tableau",
+  "intro_hub_b": "Choisissez un sport, placez les joueurs, tracez leurs courses et déroulez l'action temps par temps.",
   "intro_drills_t": "*{}* exercices, déjà rédigés",
   "intro_drills_b": "Chacun est un tableau que vous pouvez dérouler, avec ce qu’il travaille, comment le mettre en place et la phrase à dire.",
   "intro_plan_t": "*Montez* une séance",

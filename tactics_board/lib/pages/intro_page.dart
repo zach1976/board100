@@ -24,7 +24,13 @@ import '../widgets/sport_glyph.dart';
 /// does. See tools/intro_art_prompts.html for how the art is made and why
 /// each app owns its own copy.
 class IntroPage extends StatefulWidget {
-  final SportType sportType;
+  /// The sport this app is — or null for the hub, which is no one sport.
+  ///
+  /// The hub runs its own intro, once, before the sport picker: sixteen
+  /// sports on one board, then the drills and the plan. Picking a sport
+  /// afterwards must NOT bring a sport's intro up on top of it — the coach
+  /// has just been told what the app is; see SportSelectionPage.
+  final SportType? sportType;
 
   /// How many drills THIS app ships. Not the 624 in the repository: a
   /// single-sport build carries only its own sport's library, so the intro
@@ -91,12 +97,20 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     final panels = <_Panel>[
-      _Panel(
-        n: 1,
-        icon: Icons.gesture,
-        title: 'intro_board_t'.tr(),
-        body: 'intro_board_b'.tr(),
-      ),
+      if (widget.sportType == null)
+        _Panel(
+          n: 1,
+          icon: Icons.grid_view_rounded,
+          title: 'intro_hub_t'.tr(),
+          body: 'intro_hub_b'.tr(),
+        )
+      else
+        _Panel(
+          n: 1,
+          icon: Icons.gesture,
+          title: 'intro_board_t'.tr(),
+          body: 'intro_board_b'.tr(),
+        ),
       _Panel(
         n: 2,
         icon: Icons.menu_book_outlined,
@@ -227,7 +241,7 @@ class _Panel {
 
 class _PanelView extends StatelessWidget {
   final _Panel panel;
-  final SportType sport;
+  final SportType? sport;
   const _PanelView({required this.panel, required this.sport});
 
   @override
@@ -270,11 +284,15 @@ class _PanelView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SportGlyph(sport: sport, size: 14),
-                    const SizedBox(width: 7),
+                    if (sport != null) ...[
+                      SportGlyph(sport: sport!, size: 14),
+                      const SizedBox(width: 7),
+                    ],
                     Flexible(
                       child: Text(
-                        'home_board_title'.tr(args: [sport.displayName]),
+                        sport == null
+                            ? 'app_title'.tr()
+                            : 'home_board_title'.tr(args: [sport!.displayName]),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

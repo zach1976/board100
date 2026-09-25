@@ -53,6 +53,7 @@ void main() {
       (tester) async {
     SharedPreferences.setMockInitialValues({
       SportSelectionPage.recentPrefsKey: ['tennis', 'soccer'],
+      'intro_seen': true, // the hub's intro is hub_intro_test's business
     });
     await EasyLocalization.ensureInitialized();
     tester.view.physicalSize = Size(kNarrow.width * 3, kNarrow.height * 3);

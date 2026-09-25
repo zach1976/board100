@@ -480,6 +480,8 @@
   "intro_start": "Mulai",
   "intro_board_t": "Gambar, lalu *jalankan*",
   "intro_board_b": "Tempatkan pemain di lapangan, tarik alur larinya, lalu jalankan pola itu satu ketuk demi satu ketuk.",
+  "intro_hub_t": "*Enam belas olahraga*, satu papan",
+  "intro_hub_b": "Pilih olahraga, tempatkan pemain di lapangan, gambar pergerakannya, lalu jalankan langkah demi langkah.",
   "intro_drills_t": "*{}* latihan, sudah ditulis",
   "intro_drills_b": "Semuanya papan yang bisa dijalankan bertahap, lengkap dengan apa yang dilatih, cara menatanya, dan satu kalimat yang perlu diucapkan.",
   "intro_plan_t": "*Susun* satu sesi",

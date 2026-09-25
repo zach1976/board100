@@ -27,6 +27,7 @@ import '../state/tactics_state.dart';
 import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
+import 'intro_page.dart';
 import 'sport_home_page.dart';
 
 /// The hub's front door: which sport are we coaching today.
@@ -51,9 +52,20 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
   Map<SportType, int> _drills = const {};
   int? _recentBoards;
 
+  /// Null until the preference is read; true on a first run.
+  ///
+  /// The hub's intro is this page's: it runs once, here, before any sport
+  /// is picked, and the sport page it then pushes is told not to run one of
+  /// its own. A coach who has just read what the app is should not be told
+  /// again the moment they choose a sport.
+  bool? _intro;
+
   @override
   void initState() {
     super.initState();
+    IntroPage.shouldShow().then((show) {
+      if (mounted) setState(() => _intro = show);
+    });
     _load();
   }
 
@@ -111,7 +123,8 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
     _remember(sport);
     context.read<TacticsState>().setSportType(sport);
     Navigator.of(context).pushReplacement(PageRouteBuilder(
-      pageBuilder: (ctx, anim, sec) => const SportHomePage(),
+      // gateIntro: false — the hub ran its own intro above; see _intro.
+      pageBuilder: (ctx, anim, sec) => const SportHomePage(gateIntro: false),
       transitionsBuilder: (ctx, anim, sec, child) =>
           FadeTransition(opacity: anim, child: child),
       transitionDuration: const Duration(milliseconds: 250),
@@ -120,6 +133,19 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_intro == null) {
+      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+    }
+    if (_intro == true) {
+      // The count is every sport's library together, the hub's own; the
+      // intro is not held back for it.
+      final total = _drills.values.fold(0, (a, b) => a + b);
+      return IntroPage(
+        sportType: null,
+        drillCount: _drills.isEmpty ? null : total,
+        onDone: () => setState(() => _intro = false),
+      );
+    }
     final size = MediaQuery.of(context).size;
     final isTablet = size.shortestSide > 600;
     final isLandscape =
