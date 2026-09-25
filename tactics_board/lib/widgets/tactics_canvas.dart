@@ -116,10 +116,16 @@ const double _kFeetSide = kPlayerIconSize * 0.34;
 /// on, so which way the play is going is still legible. The pull fades out
 /// over the reach beyond [_kHoldReach], so a ball leaving on a pass slides
 /// free of its holder instead of snapping.
+///
+/// "Below" is below on the SCREEN. The figures stand upright whichever way
+/// the board is turned — see BoardOrientation — so on a landscape board a
+/// drop of +y in board coordinates is a step to the player's side. The
+/// vector is worked out in screen space and turned back into the board's.
 Map<String, Offset> ballAtFeetOffsets(
   List<PlayerIcon> players,
-  Offset Function(PlayerIcon) positionOf,
-) {
+  Offset Function(PlayerIcon) positionOf, {
+  int boardTurns = 0,
+}) {
   final holders =
       players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
   if (holders.isEmpty) return const {};
@@ -142,12 +148,30 @@ Map<String, Offset> ballAtFeetOffsets(
     final weight =
         best <= reach ? 1.0 : (1 - (best - reach) / (reach * 0.6)).clamp(0.0, 1.0);
     final from = positionOf(holder);
-    final side = (at.dx - from.dx)
-        .clamp(-_kFeetSide * holder.scale, _kFeetSide * holder.scale);
-    final feet = from + Offset(side, _kFeetDrop * holder.scale);
-    result[ball.id] = (feet - at) * weight;
+    // On screen: keep the side the ball is on, drop to the shoes.
+    final d = turnVector(at - from, boardTurns);
+    final side =
+        d.dx.clamp(-_kFeetSide * holder.scale, _kFeetSide * holder.scale);
+    final step = Offset(side, _kFeetDrop * holder.scale) - d;
+    result[ball.id] = turnVector(step, (4 - boardTurns) % 4) * weight;
   }
   return result;
+}
+
+/// A board-space vector as it appears on a screen turned [quarterTurns]
+/// clockwise — the rotation RotatedBox applies, without the translation,
+/// which an offset does not care about.
+Offset turnVector(Offset v, int quarterTurns) {
+  switch (quarterTurns % 4) {
+    case 1:
+      return Offset(-v.dy, v.dx);
+    case 2:
+      return Offset(-v.dx, -v.dy);
+    case 3:
+      return Offset(v.dy, -v.dx);
+    default:
+      return v;
+  }
 }
 
 /// Draw-time separation for players standing in the same place.
@@ -801,6 +825,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     final feet = ballAtFeetOffsets(
       players,
       (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
+      boardTurns: widget.boardTurns,
     );
 
     /// The beats elapsed as far as [p] is concerned.

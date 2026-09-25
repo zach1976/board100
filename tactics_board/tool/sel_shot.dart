@@ -60,7 +60,9 @@ void main() {
     // A dev script, not a test — same reason as render_boards.dart.
     // ignore: invalid_use_of_visible_for_testing_member
     SharedPreferences.setMockInitialValues({'intro_seen': true});
-    tester.view.physicalSize = const Size(kW * 3, kH * 3);
+    final turns = int.parse(Platform.environment['TURNS'] ?? '0');
+    tester.view.physicalSize =
+        turns == 1 ? const Size(kH * 3, kW * 3) : const Size(kW * 3, kH * 3);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(tester.view.reset);
     await EasyLocalization.ensureInitialized();
@@ -85,10 +87,16 @@ void main() {
                 body: Center(
                   child: RepaintBoundary(
                     key: boundaryKey,
-                    child: const SizedBox(
-                      width: kW,
-                      height: kH,
-                      child: TacticsCanvas(),
+                    // TURNS=1 shoots the landscape board exactly as the
+                    // home page lays it out: the portrait canvas turned by
+                    // a RotatedBox, told so the figures can stay upright.
+                    child: RotatedBox(
+                      quarterTurns: turns,
+                      child: SizedBox(
+                        width: kW,
+                        height: kH,
+                        child: TacticsCanvas(boardTurns: turns),
+                      ),
                     ),
                   ),
                 ),
