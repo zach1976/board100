@@ -1700,6 +1700,20 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 ),
               ],
               const SizedBox(width: 6),
+              // Copy. The paste is in the + sheet, because that is where
+              // things come onto the board from; a coach who copies here
+              // and finds nothing to press next is told where to look.
+              _editAction(Icons.copy_rounded, Colors.white70, () {
+                widget.state.copyPlayer(p.id);
+                final m = ScaffoldMessenger.maybeOf(context);
+                m?.hideCurrentSnackBar();
+                m?.showSnackBar(SnackBar(
+                  content: Text('element_copied'.tr()),
+                  duration: const Duration(seconds: 2),
+                  behavior: SnackBarBehavior.floating,
+                ));
+              }),
+              const SizedBox(width: 6),
               // Delete
               _editAction(Icons.delete_outline_rounded, kDanger, () {
                 widget.state.removePlayer(p.id);

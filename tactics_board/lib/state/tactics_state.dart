@@ -970,6 +970,62 @@ class TacticsState extends ChangeNotifier {
   }
 
   // Player management
+  /// The last element copied off the board, whole: its kit and number, its
+  /// size, the way it faces, and the run it was given.
+  ///
+  /// Held on the state, not on a page, because across pages is what it is
+  /// for — a coach builds the next beat of a move by putting the same
+  /// player, with the same path, on the next page.
+  PlayerIcon? _copied;
+  PlayerIcon? get copied => _copied;
+
+  void copyPlayer(String id) {
+    final p = _players.where((x) => x.id == id).firstOrNull;
+    if (p == null) return;
+    // copyWith copies the move lists rather than sharing them: editing the
+    // original's run afterwards must not rewrite what was copied.
+    _copied = p.copyWith();
+    HapticFeedback.selectionClick();
+    notifyListeners();
+  }
+
+  /// Put the copy on the board and return its new id, or null with nothing
+  /// copied.
+  ///
+  /// It lands where it was taken from — on another page that spot is empty
+  /// and it is exactly where the coach wants it. Only when something is
+  /// already standing there does it step aside, which is what makes
+  /// pasting twice on one page read as two players.
+  String? pastePlayer() {
+    final src = _copied;
+    if (src == null) return null;
+    var pos = src.position;
+    const minDist = 31.0; // a token is 36pt: closer than this is a pile
+    for (var i = 0; i < 12; i++) {
+      final taken = _players.any((p) => (p.position - pos).distance < minDist);
+      if (!taken) break;
+      pos += const Offset(22, 22);
+    }
+    final c = canvasSize;
+    if (c.width > 0 && c.height > 0) {
+      pos = Offset(pos.dx.clamp(18.0, c.width - 18.0),
+          pos.dy.clamp(18.0, c.height - 18.0));
+    }
+    final shift = pos - src.position;
+    final id = 'p${DateTime.now().microsecondsSinceEpoch}';
+    addPlayer(src.copyWith(
+      id: id,
+      position: pos,
+      moves: [for (final m in src.moves) m + shift],
+      movePhases: List.of(src.movePhases),
+      // Whoever was carrying it is on the page it came from. A ball that
+      // arrives still attached to an id nothing on this board has would
+      // follow nobody and sit there for good.
+      clearAttachedTo: true,
+    ));
+    return id;
+  }
+
   void addPlayer(PlayerIcon player) {
     _saveSnapshot();
     _resetAnimationState();

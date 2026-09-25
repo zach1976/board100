@@ -16,6 +16,7 @@ import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import 'drill_library_page.dart';
+import '../widgets/drill_thumbnail.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
 import '../widgets/tactics_canvas.dart';
@@ -135,6 +136,10 @@ class _SportHomePageState extends State<SportHomePage> {
   List<TacticMeta> _mine = const [];
   List<RecentBoard> _recent = const [];
   Map<String, DrillMark> _marks = const {};
+
+  /// The library keyed by id, for the recent row's thumbnails. A recent
+  /// entry holds a name, not a board — the picture has to be looked up.
+  Map<String, Drill> _byId = const {};
   /// Whether this app ships the home screen's photography.
   ///
   /// The hero behind the title and the nine drill-category covers are the
@@ -162,7 +167,12 @@ class _SportHomePageState extends State<SportHomePage> {
       _intro = false; // MainShell has already run it
     }
     _drills.then((all) {
-      if (mounted) setState(() => _drillCount = all.length);
+      if (mounted) {
+        setState(() {
+          _drillCount = all.length;
+          _byId = {for (final d in all) d.id: d};
+        });
+      }
     }).catchError((Object _) {
       // No library is not a reason to fail the page: the count stays null
       // and the intro keeps its countless wording. The old handler returned
@@ -345,18 +355,12 @@ class _SportHomePageState extends State<SportHomePage> {
             if (_recentDrills.isNotEmpty) ...[
               _sectionHead('home_recent'.tr()),
               const SizedBox(height: T.s12),
-              Wrap(
-                spacing: T.s8,
-                runSpacing: T.s8,
-                children: [
-                  for (final r in _recentDrills)
-                    TacticalChip(
-                      label: r.label,
-                      selected: false,
-                      icon: Icons.history_rounded,
-                      onTap: () => _openRecent(r),
-                    ),
+              _RecentRow(
+                items: [
+                  for (final r in _recentDrills) (r, _byId[r.id]),
                 ],
+                sport: context.read<TacticsState>().sportType,
+                onTap: _openRecent,
               ),
               const SizedBox(height: T.s24),
             ],
@@ -955,6 +959,78 @@ class _BoardCardState extends State<_BoardCard> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// What was open last, with a picture of it.
+///
+/// A row of names told a coach nothing they could not have got from the
+/// library's search box; the board is what they recognise. The picture is
+/// [DrillThumbnail] — the chalk diagram the library list uses, not a live
+/// canvas, because six canvases on the home page is six boards' worth of
+/// sprites and gesture recognisers for six pictures nobody touches.
+///
+/// A drill the library no longer has keeps its name and loses its picture,
+/// rather than disappearing: tapping it is what clears the shortcut, and it
+/// says so by being there. See SportHomePage._openRecent.
+class _RecentRow extends StatelessWidget {
+  final List<(RecentBoard, Drill?)> items;
+  final SportType sport;
+  final void Function(RecentBoard) onTap;
+  const _RecentRow(
+      {required this.items, required this.sport, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    const thumb = 64.0;
+    return SizedBox(
+      height: thumb + T.s12 * 2,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: items.length,
+        separatorBuilder: (_, _) => const SizedBox(width: T.s8),
+        itemBuilder: (context, i) {
+          final (recent, drill) = items[i];
+          return GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onTap(recent),
+            child: Container(
+              width: 196,
+              padding: const EdgeInsets.all(T.s12),
+              decoration: const BoxDecoration(
+                  color: T.surfaceHi, borderRadius: T.brSm),
+              child: Row(
+                children: [
+                  if (drill != null)
+                    DrillThumbnail(
+                        drill: drill, sport: sport, height: thumb)
+                  else
+                    const SizedBox(
+                      width: thumb * 0.62,
+                      height: thumb,
+                      child: Icon(Icons.history_rounded,
+                          color: T.textOff, size: 20),
+                    ),
+                  const SizedBox(width: T.s12),
+                  Expanded(
+                    child: Text(
+                      recent.label,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: T.text,
+                          fontSize: 13.5,
+                          height: 1.3,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

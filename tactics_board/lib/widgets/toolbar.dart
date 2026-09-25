@@ -1900,6 +1900,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
               padding: const EdgeInsets.symmetric(horizontal: T.screenX),
               child: TacticalSheetHeader(title: 'add_label'.tr()),
             ),
+            if (state.copied != null) _PasteRow(state: state, sheetCtx: sheetCtx),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: T.screenX),
               child: TacticalSectionHeader(label: 'players'.tr()),
@@ -4499,6 +4500,85 @@ class _DraggableMarkerCard extends StatelessWidget {
         onDropAt!(_dropCentre(details, 60));
       },
       child: card,
+    );
+  }
+}
+
+/// Paste, at the top of the sheet, when something has been copied.
+///
+/// Here rather than beside the copy button on the edit bar: the + sheet is
+/// where everything else comes onto the board from, and pasting is most
+/// often the first thing done on a page that has just been turned to — the
+/// board behind the sheet is the NEW page, and the element came from the
+/// old one.
+class _PasteRow extends StatelessWidget {
+  final TacticsState state;
+  final BuildContext sheetCtx;
+  const _PasteRow({required this.state, required this.sheetCtx});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = state.copied;
+    if (p == null) return const SizedBox.shrink();
+    final runs = p.moves.length;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(T.screenX, 0, T.screenX, T.s12),
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          state.pastePlayer();
+          Navigator.pop(sheetCtx);
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: T.s12, vertical: T.s12),
+          decoration: BoxDecoration(
+            color: T.accentFill,
+            borderRadius: T.brSm,
+            border: Border.all(color: T.accent.withValues(alpha: 0.45)),
+          ),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 34,
+                height: 34,
+                child: IgnorePointer(
+                  child: PlayerIconWidget(
+                      player: p, sport: state.sportType),
+                ),
+              ),
+              const SizedBox(width: T.s12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'paste_element'.tr(args: [
+                        p.label.isNotEmpty ? p.label : 'add_label'.tr()
+                      ]),
+                      style: const TextStyle(
+                          color: T.text,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    // What comes with it, in the words of the thing a coach
+                    // would otherwise have to redraw by hand.
+                    if (runs > 0)
+                      Text(
+                        'paste_with_run'.tr(args: ['$runs']),
+                        style: const TextStyle(
+                            color: T.textDim, fontSize: 12),
+                      ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.content_paste_rounded,
+                  color: T.accent, size: 18),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
