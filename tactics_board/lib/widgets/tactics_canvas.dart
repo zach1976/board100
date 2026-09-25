@@ -1554,7 +1554,15 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // Primary cyan glow only when the full icon is shown — a glow around an
     // invisible ghost reads as a stray blob. Chain selection on the start
     // position is implied by the glowing waypoints/end of the chain.
-    final BoxShadow? glow = widget.isPrimary
+    //
+    // Equipment and balls only. The ring is a disc the size of the token's
+    // box, which was the whole of a player back when a player was a circle
+    // in it; behind a figure that stands 1.57 boxes tall it is a white
+    // plate showing through at the waist. A selected person is marked by
+    // the accent rim on their outline and the ring at their feet, both
+    // drawn by TopDownPlayerPainter.
+    final BoxShadow? glow = widget.isPrimary &&
+            (player.isMarker || player.isBall)
         ? const BoxShadow(
             color: T.selectRing,
             blurRadius: 0,

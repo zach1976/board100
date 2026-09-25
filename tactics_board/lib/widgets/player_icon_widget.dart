@@ -423,13 +423,26 @@ class TopDownPlayerPainter extends CustomPainter {
     }
 
     if (isSelected) {
-      canvas.drawImageRect(
-        art,
-        src,
-        dst.inflate(3),
-        _silhouettePaint(T.accent, 0.65)
-          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8),
-      );
+      // A ring on the grass at the player's feet — not a glow around them.
+      // The glow was a blurred copy of the figure, arms, legs and the
+      // daylight between the boots included, which read as a smear behind
+      // a person rather than as "this one is selected". The rim the stamps
+      // below draw in the accent colour is the edge; this is the marker.
+      final feet = Offset(dst.center.dx, dst.center.dy + dst.height * 0.42);
+      final ring = Rect.fromCenter(
+          center: feet, width: box.width * 0.92, height: box.width * 0.36);
+      canvas.drawOval(
+          ring,
+          Paint()
+            ..color = T.accent.withValues(alpha: 0.9)
+            ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4));
+      canvas.drawOval(ring, Paint()..color = T.accent.withValues(alpha: 0.22));
+      canvas.drawOval(
+          ring,
+          Paint()
+            ..color = T.accent
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 1.8);
     }
 
     // The figure is cut out of its own render, shadow and all: the art it
