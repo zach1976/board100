@@ -1675,7 +1675,14 @@ class _WaypointDotState extends State<_WaypointDot> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.isLast) {
+    // A ball is never drawn at a waypoint, not even the last one. There is
+    // one ball on the pitch and the coach follows it; a picture of it at the
+    // end of its route — its final stop at beat zero, its destination while
+    // it is in flight — is a second ball, which is the first thing the eye
+    // goes to and the one thing on the board that must not be doubled. Its
+    // stops keep the numbered badge every other waypoint uses, which is what
+    // says the passing order, and the live token is the ball.
+    if (widget.isLast && !widget.player.isBall) {
       // End icon is "current" when the timeline has advanced past step 0.
       // When still at step 0 the end is a future destination — render the
       // normal player shape as a dashed ghost outline (same style as the

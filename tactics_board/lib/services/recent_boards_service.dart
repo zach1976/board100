@@ -16,10 +16,11 @@ class RecentBoardsService {
   RecentBoardsService._();
   static final instance = RecentBoardsService._();
 
-  /// Enough to fill the home page's list twice over. Older entries are
-  /// dropped rather than kept forever: this is a shortcut back to what you
-  /// were doing, not a history.
-  static const _keep = 12;
+  /// A hundred: the home page shows the last few, and the list behind it
+  /// answers "what did I look at on Tuesday". It was twelve, which is a
+  /// shortcut back to this morning and nothing else. One entry is a few
+  /// dozen bytes of prefs, so a hundred costs nothing worth counting.
+  static const _keep = 100;
 
   static String _key(SportType sport) => 'recent_boards_${sport.name}';
 

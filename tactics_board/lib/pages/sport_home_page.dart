@@ -16,6 +16,7 @@ import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import 'drill_library_page.dart';
+import 'recent_page.dart';
 import '../widgets/drill_thumbnail.dart';
 import '../widgets/language_picker.dart';
 import '../widgets/sport_glyph.dart';
@@ -206,6 +207,17 @@ class _SportHomePageState extends State<SportHomePage> {
     }).catchError((_) {});
   }
 
+  /// Everything opened lately, and back to whichever row was tapped.
+  Future<void> _openAllRecent() async {
+    final picked = await RecentPage.push(
+      context,
+      items: _recent,
+      sport: context.read<TacticsState>().sportType,
+      byId: _byId,
+    );
+    if (picked != null && mounted) await _openRecent(picked);
+  }
+
   /// A drill out of the shipped library, opened again from the recent list.
   Future<void> _openRecent(RecentBoard r) async {
     final state = context.read<TacticsState>();
@@ -353,7 +365,12 @@ class _SportHomePageState extends State<SportHomePage> {
             // a saved board — and until now nothing read the drills back, so
             // the shortcut existed with nowhere to appear.
             if (_recentDrills.isNotEmpty) ...[
-              _sectionHead('home_recent'.tr()),
+              _sectionHead('home_recent'.tr(),
+                  // Only when there is more than the row already shows.
+                  action: _recent.length > _recentDrills.length
+                      ? 'home_recent_all'.tr(args: ['${_recent.length}'])
+                      : null,
+                  onAction: _openAllRecent),
               const SizedBox(height: T.s12),
               _RecentRow(
                 items: [
@@ -534,15 +551,8 @@ class _SportHomePageState extends State<SportHomePage> {
 
   /// "today", "yesterday", "3 days ago" — a date on a board tells a coach
   /// nothing; how long ago tells them whether it is the one they want.
-  String _when(DateTime t) {
-    final now = DateTime.now();
-    final days = DateTime(now.year, now.month, now.day)
-        .difference(DateTime(t.year, t.month, t.day))
-        .inDays;
-    if (days <= 0) return 'home_today_word'.tr();
-    if (days == 1) return 'home_yesterday'.tr();
-    return 'home_days_ago'.tr(args: ['$days']);
-  }
+  /// See [relativeDay] — the recent list shows the same dates.
+  String _when(DateTime t) => relativeDay(t);
 
   Future<void> _openStarred() async {
     final state = context.read<TacticsState>();

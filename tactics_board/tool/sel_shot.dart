@@ -108,6 +108,16 @@ void main() {
     state.setCanvasSizeSilent(const Size(kW, kH));
     state.setTargetStep(int.parse(Platform.environment['STEP'] ?? '0'));
     state.selectPlayer(pick);
+    // PLAY=1 catches the board mid-move: the animation is driven by the
+    // canvas, so it only needs starting and then letting run for a beat.
+    if (Platform.environment['PLAY'] == '1') {
+      state.stepForward();
+      for (var i = 0; i < 4; i++) {
+        await tester.pump(const Duration(milliseconds: 60));
+        await tester.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 60)));
+      }
+    }
     // The ball and the equipment sprites decode on first paint, and a frame
     // shot before they land comes out with no ball and no cones on it — the
     // same trap render_boards.dart warms its way around.

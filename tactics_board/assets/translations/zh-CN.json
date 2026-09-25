@@ -411,6 +411,7 @@
   "home_open_board": "打开战术板",
   "home_new_board": "新建空白板",
   "home_recent": "最近",
+  "home_recent_all": "全部 {} 个 →",
   "home_saved": "保存的战术板",
   "home_from_library": "来自素材库",
   "home_learn": "学习",

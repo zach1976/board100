@@ -411,6 +411,7 @@
   "home_open_board": "Abrir la pizarra",
   "home_new_board": "Nueva pizarra",
   "home_recent": "Recientes",
+  "home_recent_all": "Ver {} →",
   "home_saved": "Saved board",
   "home_from_library": "From the library",
   "home_learn": "Learn",

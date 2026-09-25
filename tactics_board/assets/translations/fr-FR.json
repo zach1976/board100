@@ -411,6 +411,7 @@
   "home_open_board": "Ouvrir le tableau",
   "home_new_board": "Nouveau tableau",
   "home_recent": "Récents",
+  "home_recent_all": "Les {} →",
   "home_saved": "Saved board",
   "home_from_library": "From the library",
   "home_learn": "Learn",

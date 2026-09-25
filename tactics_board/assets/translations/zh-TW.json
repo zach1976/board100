@@ -411,6 +411,7 @@
   "home_open_board": "開啟戰術板",
   "home_new_board": "新增空白板",
   "home_recent": "最近",
+  "home_recent_all": "全部 {} 個 →",
   "home_saved": "儲存的戰術板",
   "home_from_library": "來自素材庫",
   "home_learn": "學習",

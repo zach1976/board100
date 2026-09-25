@@ -411,6 +411,7 @@
   "home_open_board": "เปิดกระดาน",
   "home_new_board": "กระดานใหม่",
   "home_recent": "ล่าสุด",
+  "home_recent_all": "ทั้งหมด {} →",
   "home_saved": "Saved board",
   "home_from_library": "From the library",
   "home_learn": "Learn",

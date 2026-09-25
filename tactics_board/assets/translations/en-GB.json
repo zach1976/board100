@@ -411,6 +411,7 @@
   "home_open_board": "Open the board",
   "home_new_board": "New board",
   "home_recent": "Recent",
+  "home_recent_all": "All {} →",
   "home_saved": "Saved board",
   "home_from_library": "From the library",
   "home_learn": "Learn",
