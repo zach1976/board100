@@ -164,9 +164,15 @@ class PlayerMovesPainter extends CustomPainter {
         // the drawing IS the clock and drawing ahead of it would be a lie.
         _paintMoves(canvas, player, whole: completedSteps == null);
       } else {
+        // Behind the one being followed, not gone. At 0x1A — 10% — an
+        // unfollowed route was a smudge on the grass: the gradient tail
+        // takes its source end to 30% of that, so the faintest part of a
+        // pass was 3% over a pitch that is already green. It is the one
+        // being followed that stands out, by being thicker, solid and at
+        // full strength; these only have to stay readable.
         canvas.saveLayer(
-            Offset.zero & size, Paint()..color = const Color(0x1AFFFFFF));
-        _paintMoves(canvas, player);
+            Offset.zero & size, Paint()..color = const Color(0x8CFFFFFF));
+        _paintMoves(canvas, player, faded: true);
         canvas.restore();
       }
     }
@@ -176,7 +182,8 @@ class PlayerMovesPainter extends CustomPainter {
   static const _arrowSize = 13.0;
   static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
-  void _paintMoves(Canvas canvas, PlayerIcon player, {bool whole = false}) {
+  void _paintMoves(Canvas canvas, PlayerIcon player,
+      {bool whole = false, bool faded = false}) {
     // The route being followed is drawn at full strength for its whole
     // length. Every other arrow fades from 30% at its source to full colour
     // at its destination — a sense of direction that costs nothing when the
@@ -185,6 +192,10 @@ class PlayerMovesPainter extends CustomPainter {
     // coach had just selected was the palest thing on the pitch.
     final strong = whole;
     final color = player.moveColor;
+    // A route already drawn through a half-transparent layer does not also
+    // get the fading tail: the two multiply, and the start of the line
+    // disappears altogether.
+    final tail = !faded;
     player.syncPhases();
 
     // phaseLimit is the number of beats elapsed (atStep). Past step 0 only
@@ -211,7 +222,8 @@ class PlayerMovesPainter extends CustomPainter {
       final endRadius = isLastSegment ? iconRadius : _waypointRadius;
       final dist = (to - from).distance;
       if (dist < nudgeThreshold(player)) {
-        _drawNudge(canvas, color, from, to, endRadius, strong: strong);
+        _drawNudge(canvas, color, from, to, endRadius,
+            strong: strong, fade: tail);
         continue;
       }
       // Two tokens far enough apart to read can still be closer than the two
@@ -222,7 +234,7 @@ class PlayerMovesPainter extends CustomPainter {
       final adjustedFrom = _offsetToward(from, to, startRadius * room);
       final adjustedTo = _offsetToward(to, from, endRadius * room);
       _drawDashedLine(canvas, color, adjustedFrom, adjustedTo,
-          strong: strong);
+          strong: strong, fade: tail);
       _drawArrowHead(canvas, color, adjustedFrom, adjustedTo,
           strong: strong);
     }
@@ -233,14 +245,15 @@ class PlayerMovesPainter extends CustomPainter {
   /// [nudgeThreshold]. It ends where the conventional arrow would, just clear
   /// of the destination, and runs back from there far enough to be read.
   void _drawNudge(Canvas canvas, Color color, Offset from, Offset to,
-      double endRadius, {bool strong = false}) {
+      double endRadius, {bool strong = false, bool fade = true}) {
     final delta = to - from;
     final dist = delta.distance;
     if (dist < 0.5) return;
     final dir = delta / dist;
     final tip = to - dir * endRadius;
     final tail = tip - dir * 17.0;
-    _drawDashedLine(canvas, color, tail, tip, strong: strong);
+    _drawDashedLine(canvas, color, tail, tip,
+        strong: strong, fade: fade);
     _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
@@ -253,7 +266,7 @@ class PlayerMovesPainter extends CustomPainter {
   }
 
   void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to,
-      {bool strong = false}) {
+      {bool strong = false, bool fade = true}) {
     final width = strong ? _strokeWidth + 1.0 : _strokeWidth;
     // A darker edge, not a shadow. Every path used to carry a black halo
     // at 50%, which on a deeper pitch reads as a second thicker line beside
@@ -268,7 +281,7 @@ class PlayerMovesPainter extends CustomPainter {
     // Gradient tail: faded at the source, full color near the destination —
     // gives a sense of direction/recency without changing the dashed style.
     final linePaint = Paint()
-      ..shader = strong
+      ..shader = (strong || !fade)
           ? null
           : ui.Gradient.linear(from, to, [color.withValues(alpha: 0.30), color])
       ..color = color
