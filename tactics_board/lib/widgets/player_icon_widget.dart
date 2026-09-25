@@ -614,7 +614,7 @@ double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
   }
   if (ball == null) return run;
 
-  final me = chainEndAt(p, step);
+  final me = standingAt(p, step);
   final ballNow = ballPositionAt(all, ball, step);
   ball.syncPhases();
   int? legPhase;
@@ -643,11 +643,19 @@ double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
 Offset ballPositionAt(List<PlayerIcon> all, PlayerIcon ball, int step) {
   if (ball.moves.isEmpty && ball.attachedTo != null) {
     for (final x in all) {
-      if (x.id == ball.attachedTo) return chainEndAt(x, step);
+      if (x.id == ball.attachedTo) return standingAt(x, step);
     }
   }
-  return chainEndAt(ball, step);
+  return standingAt(ball, step);
 }
+
+/// Where a token stands at the start of beat [step]. [chainEndAt] reads a
+/// zero as "no limit" — the whole run, the canvas's convention for a board
+/// at rest — which is nowhere anyone stands before the first beat: asked
+/// about beat 0, a dribbler was placed at his last cone, found the ball
+/// there too, and "passed" it back to his first cone, facing the viewer.
+Offset standingAt(PlayerIcon p, int step) =>
+    step <= 0 ? p.position : chainEndAt(p, step);
 
 /// Where a player faces while a beat carries them: along the leg of the
 /// run they are on. [at] is where the token is drawn mid-leg.
