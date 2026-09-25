@@ -44,5 +44,6 @@ thumb_png/
 */fastlane/screenshots/
 # Derived by tools/facing_audit.py and tools/facing_review.py; the page only
 # works beside board_png/, which is not tracked either.
+tools/facing_headings.json
 tools/facing_audit.json
 tools/facing_review.html

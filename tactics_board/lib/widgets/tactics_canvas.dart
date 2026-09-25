@@ -95,7 +95,11 @@ const double _kHoldReach = kPlayerIconSize * 0.95;
 
 /// How far below the middle of a token its shoes are, and how far to the
 /// side a ball may sit while still reading as being at them.
-const double _kFeetDrop = kPlayerIconSize * 0.46;
+///
+/// The figure is drawn 1.57 cells tall, so its shoes are about 0.66 of a
+/// cell below the middle: a ball dropped only to 0.46 sat on the shorts of
+/// a player the ball had been hit straight at.
+const double _kFeetDrop = kPlayerIconSize * 0.58;
 const double _kFeetSide = kPlayerIconSize * 0.34;
 
 /// Draw-time placement for a ball that belongs to somebody.

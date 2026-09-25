@@ -1,147 +1,157 @@
 #!/usr/bin/env python3
-"""Every player's facing at every beat of every drill, by the board's rule.
+"""Where the board turns a player badly — read from what the app itself says.
 
-Mirrors boardHeading() in player_icon_widget.dart — a player faces their
-next action: the target of a pass they are about to make, the ball if it is
-coming to them, down a run they are about to start, else the ball. Reports,
-per drill, what the rule could not decide and where it makes a player spin
-on the spot: a turn of 135° or more at a beat in which they neither moved
-nor touched the ball is a stance the rule chose badly, and those are the
-boards to look at first.
+tool/facing_dump.dart runs the real boardHeading() over every drill and
+writes tools/facing_headings.json: per beat, where each player stands, where
+the ball is and which way the rule turns them, all in the screen points the
+phone draws in. This judges those numbers. Nothing here re-implements the
+rule, because a Python copy of it was wrong at every 22.5° boundary — the
+board file's units are not scaled evenly onto the phone.
+
+What it looks for, per player per beat:
+
+  back-to-ball   standing still, not holding the ball, and turned more than
+                 100° away from it. This is the C defect: a winger whose
+                 check-away run is two beats off used to face up the pitch
+                 from the first frame while the ball was still at the other
+                 end. Running away from the ball is not this — that is a
+                 player making a run, and it is listed separately.
+  spin           a turn of 135° or more at a beat in which they did not
+                 move: the rule changed its mind about what they are doing.
+  no cue         the board says nothing about them at all and the token
+                 falls back to the team's default facing.
 
     python3 tools/facing_audit.py            → tools/facing_audit.json + summary
 """
-import json, math, glob, os, sys
+import json, math, sys
+from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / 'tools'))
-# Board files are in 1000x1500 board units; the app measures "at the feet"
-# in screen points after rescaling the board to the phone. The engine has
-# the conversion, so the audit borrows it rather than guessing at it — a
-# 34pt radius applied in board units flagged 612 drills as passing to grass.
-from drills.engine import _screen_gap, FEET_PT, NET_RALLY_SPORTS, BALL_ALONE_OK
-HOLD = FEET_PT * 1.4
-NAMES = ['N','NE','E','SE','S','SW','W','NW']
-
-def chain_end(p, step):
-    x, y = p['position']
-    for m, ph in zip(p['moves'], p['movePhases']):
-        if ph < step: x, y = m
-    return (x, y)
-
-def dist(a, b): return _screen_gap(a, b)
-
-def direction(a, b):
-    dx, dy = b[0]-a[0], b[1]-a[1]
-    return None if math.hypot(dx, dy) < 1e-3 else math.atan2(dx, -dy)
-
-def ball_pos(all_, ball, step):
-    if not ball['moves'] and ball.get('attachedTo'):
-        for x in all_:
-            if x['id'] == ball['attachedTo']: return chain_end(x, step)
-    return chain_end(ball, step)
-
-def heading(all_, p, step):
-    run_phase = run = None
-    for i, (m, ph) in enumerate(zip(p['moves'], p['movePhases'])):
-        if ph >= step:
-            run_phase = ph
-            frm = p['position'] if i == 0 else p['moves'][i-1]
-            run = direction(frm, m); break
-    ball = next((x for x in all_ if x['sportType'] is not None and x['markerShape'] == 0), None)
-    if ball is None: return run, 'run' if run is not None else None
-    me = chain_end(p, step); bnow = ball_pos(all_, ball, step)
-    leg_phase = leg_to = None
-    for m, ph in zip(ball['moves'], ball['movePhases']):
-        if ph >= step: leg_phase, leg_to = ph, m; break
-    if leg_phase is not None and (run_phase is None or leg_phase <= run_phase):
-        if dist(me, bnow) < HOLD:
-            d = direction(me, leg_to)
-            if d is not None: return d, 'pass'
-        if dist(chain_end(p, leg_phase + 1), leg_to) < HOLD:
-            d = direction(me, bnow)
-            if d is not None: return d, 'receive'
-    if run is not None: return run, 'run'
-    d = direction(me, bnow)
-    return (d, 'watch') if d is not None else (None, None)
-
-def snap(h): return round(h / (math.pi/4)) % 8
-
-def leg_problems(all_, people):
-    """A pass nobody is making, or nobody is taking. The rule can only turn
-    a passer toward his target if it can tell who has the ball, and it
-    can only turn a receiver toward the ball if somebody stands where it
-    lands. Either gap leaves a player facing the wrong way on the board,
-    and it is a defect in the drill, not in the rule."""
-    ball = next((x for x in all_ if x['sportType'] is not None and x['markerShape'] == 0), None)
-    if ball is None: return []
-    out = []
-    for m, ph in zip(ball['moves'], ball['movePhases']):
-        start = ball_pos(all_, ball, ph)
-        passer = [p for p in people if dist(chain_end(p, ph), start) < HOLD]
-        taker = [p for p in people if dist(chain_end(p, ph + 1), m) < HOLD]
-        # Neither is a facing defect. A ball that starts at nobody's feet is
-        # served in from off the board (a coach's toss, a hit from the box);
-        # a ball that lands on nobody is aimed at a spot — a shot at the
-        # hoop, a serve into the far court, a cross into the box. The rule
-        # still turns the striker toward the target and everyone else toward
-        # the ball. They are listed so the reader knows why a beat has no
-        # passer or no receiver, not counted against the drill.
-        if not passer: out.append(('comes from off the board', ph))
-        if not taker: out.append(('aimed at a spot, not a player', ph))
-    return out
+SRC = REPO / 'tools/facing_headings.json'
+# The reach the board calls "this is his ball": the generator places a
+# carried ball 24 screen points from its holder.
+HOLD = 24.0 * 1.4
+NAMES = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']
+BACK = math.radians(100)
+SPIN = math.radians(135)
 
 
-def audit_drill(dr, sport):
-    board = dr['board']; all_ = board['players']
-    people = [p for p in all_ if p['markerShape'] == 0 and p['sportType'] is None]
-    phases = [ph for p in all_ for ph in p['movePhases']]
-    steps = (max(phases) + 1) if phases else 0
-    rows = []; spins = []; no_cue0 = 0
-    legs = leg_problems(all_, people)
-    # Over a net the ball lands on the table or the court, not at anyone's
-    # feet — every rally would flag. A drill the engine already lists as
-    # "ball alone on purpose" (a cross, a serve in flight) is not a defect
-    # either. Those stay in the table but are not counted against the drill.
-    expected = sport in NET_RALLY_SPORTS or dr['id'] in BALL_ALONE_OK
-    for p in people:
-        prev = None
+def cell(h):
+    return NAMES[round(h / (math.pi / 4)) % 8]
+
+
+def gap(a, b):
+    """The smaller angle between two headings, always 0..pi."""
+    d = abs(a - b) % (2 * math.pi)
+    return min(d, 2 * math.pi - d)
+
+
+def toward(at, b):
+    """The heading that looks from a player at the ball."""
+    return None if b is None else math.atan2(b[0] - at[0], -(b[1] - at[1]))
+
+
+def doing(p, dr, st):
+    """What the rule has this player doing at beat st, read back off the
+    numbers: the board hands out a heading, not a reason, and the reason is
+    what tells a 180° turn to follow a ball from a 180° turn for no reason."""
+    h, at, b = p['h'][st], p['at'][st], dr['ball'][st]
+    if h is None:
+        return 'no cue'
+    tb = toward(at, b)
+    if tb is None:
+        return 'no ball'
+    holding = math.hypot(b[0] - at[0], b[1] - at[1]) < HOLD
+    if gap(h, tb) < math.radians(25):
+        return 'has the ball' if holding else 'watching the ball'
+    return 'playing it away' if holding else 'facing their run'
+
+
+def why_spin(p, dr, st):
+    """Why a standing player turned right round between two beats."""
+    b, bp, at = dr['ball'][st], dr['ball'][st - 1], p['at'][st]
+    if b is not None and bp is not None:
+        a1, a2 = toward(at, bp), toward(at, b)
+        if a1 is not None and a2 is not None and gap(a1, a2) >= math.radians(100):
+            return 'the ball went past them'
+    was, now = doing(p, dr, st - 1), doing(p, dr, st)
+    if was == now == 'playing it away':
+        return 'they are playing the ball the other way'
+    return f'{was} → {now}'
+
+
+def audit_drill(dr):
+    steps, ball = dr['steps'], dr['ball']
+    back, spins, runs_away, nocue = [], [], 0, 0
+    rows = []
+    for p in dr['players']:
         seq = []
-        for step in range(steps + 1):
-            h, why = heading(all_, p, step)
+        for s in range(steps + 1):
+            h = p['h'][s]
+            seq.append(cell(h) if h is not None else '-')
             if h is None:
-                if step == 0: no_cue0 += 1
-                seq.append(None); continue
-            cell = snap(h); seq.append(cell)
-            if prev is not None:
-                turn = min((cell - prev) % 8, (prev - cell) % 8)
-                moved = chain_end(p, step) != chain_end(p, step - 1)
-                if turn >= 3 and not moved and why == 'watch':
-                    spins.append((p['label'] or p['id'], step, NAMES[prev], NAMES[cell]))
-            prev = cell
-        rows.append((p['label'] or p['id'], [NAMES[c] if c is not None else '-' for c in seq]))
-    return dict(id=dr['id'], steps=steps, players=len(people), no_cue0=no_cue0,
-                spins=spins, legs=legs, expected=expected, rows=rows,
-                name=dr.get('name', {}).get('en', dr['id']))
+                nocue += 1
+                continue
+            here = p['at'][s]
+            moved = s > 0 and p['at'][s - 1] != here
+            moves_next = s < steps and p['at'][s + 1] != here
+            if s > 0 and p['h'][s - 1] is not None and not moved:
+                if gap(h, p['h'][s - 1]) >= SPIN:
+                    spins.append([p['label'], s, cell(p['h'][s - 1]), cell(h),
+                                  why_spin(p, dr, s)])
+            b = ball[s]
+            if b is None:
+                continue
+            d = math.hypot(b[0] - here[0], b[1] - here[1])
+            if d < HOLD:
+                continue  # his ball: he is passing it, not ignoring it
+            to_ball = math.atan2(b[0] - here[0], -(b[1] - here[1]))
+            if gap(h, to_ball) > BACK:
+                if moves_next:
+                    runs_away += 1  # making a run: away from the ball on purpose
+                else:
+                    back.append([p['label'], s, cell(h), cell(to_ball), round(d)])
+        rows.append([p['label'], seq])
+    return dict(id=dr['id'], name=dr['name'], steps=steps,
+                players=len(dr['players']), back=back, spins=spins,
+                runs_away=runs_away, nocue=nocue, rows=rows)
+
 
 def main():
-    out = {}
-    for f in sorted(glob.glob(str(REPO / 'tactics_board/assets/drills/*.json'))):
-        sport = Path(f).stem
-        if sport == 'index': continue
-        out[sport] = [audit_drill(dr, sport) for dr in json.load(open(f))['drills']]
-    (REPO / 'tools/facing_audit.json').write_text(json.dumps(out, ensure_ascii=False, indent=1))
-    drills = sum(len(v) for v in out.values()); players = sum(d['players'] for v in out.values() for d in v)
-    nocue = sum(d['no_cue0'] for v in out.values() for d in v)
-    spinning = [(s, d) for s, v in out.items() for d in v if d['spins']]
-    from collections import Counter
-    kinds = Counter(k for v in out.values() for d in v for k, _ in d['legs'])
-    print(f'{drills} drills, {players} players; no cue at beat 0: {nocue}; '
-          f'drills where somebody turns 135°+ on the spot to follow the ball: {len(spinning)}')
-    print('  legs with no passer or no receiver (by design, listed not counted):', dict(kinds))
-    for s, d in sorted(spinning, key=lambda x: -len(x[1]['spins']))[:10]:
-        print(f'  {s}/{d["id"]}: ' + '; '.join(f'{l} beat {st} {a}→{b}' for l, st, a, b in d['spins'][:4]))
+    if not SRC.exists():
+        sys.exit('no tools/facing_headings.json — run:\n'
+                 '  cd tactics_board && flutter test tool/facing_dump.dart')
+    data = json.loads(SRC.read_text())
+    out = {s: [audit_drill(d) for d in v] for s, v in data.items()}
+    (REPO / 'tools/facing_audit.json').write_text(
+        json.dumps(out, ensure_ascii=False, indent=1))
+
+    drills = sum(len(v) for v in out.values())
+    people = sum(d['players'] for v in out.values() for d in v)
+    beats = sum(d['players'] * (d['steps'] + 1) for v in out.values() for d in v)
+    bad = [(s, d) for s, v in out.items() for d in v if d['back']]
+    spun = [(s, d) for s, v in out.items() for d in v if d['spins']]
+    print(f'{drills} drills, {people} players, {beats} player-beats')
+    print(f'  back to the ball while standing still: '
+          f'{sum(len(d["back"]) for _, d in bad)} beats in {len(bad)} drills')
+    print(f'  running away from the ball (by design): '
+          f'{sum(d["runs_away"] for v in out.values() for d in v)}')
+    print(f'  turns of 135°+ on the spot: '
+          f'{sum(len(d["spins"]) for _, d in spun)} in {len(spun)} drills')
+    print(f'  no cue at all: {sum(d["nocue"] for v in out.values() for d in v)}')
+    by_sport = Counter(s for s, d in bad for _ in d['back'])
+    if by_sport:
+        print('  worst sports:', dict(by_sport.most_common(6)))
+    for s, d in sorted(bad, key=lambda x: -len(x[1]['back']))[:12]:
+        w = '; '.join(f'{l} beat {st} faces {a}, ball {b} ({g}pt)'
+                      for l, st, a, b, g in d['back'][:3])
+        print(f'  {s}/{d["id"]}: {w}')
+    why = Counter(w for v in out.values() for d in v for *_, w in d['spins'])
+    print('  why they turn:')
+    for k, n in why.most_common():
+        print(f'    {n:4}  {k}')
+
 
 if __name__ == '__main__':
     main()

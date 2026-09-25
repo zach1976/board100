@@ -641,7 +641,13 @@ double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
   // two, faced up the pitch from the first frame while the ball was still
   // at the other end.
   if (runPhase == step) return run ?? dir(me, ballNow);
-  return dir(me, ballNow) ?? run;
+  // A ball lying exactly on a player — a spike that lands on the defender,
+  // a ball hit straight at him — points nowhere, and the token used to
+  // snap back to its team's default facing for the rest of the board. He
+  // keeps the way the last beat had him facing instead.
+  return dir(me, ballNow) ??
+      run ??
+      (step > 0 ? boardHeading(all, p, step - 1) : null);
 }
 
 /// Where the ball is at beat [step]: down its own legs, or at the feet of
