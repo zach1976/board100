@@ -823,6 +823,32 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             ? 0
             : stepLimit;
 
+    /// Where a ghost stands: the spot the beat on show starts from.
+    Offset ghostStart(PlayerIcon p) => stepStart(p, limitFor(p));
+
+    /// The player, if any, whose own ghost stands where this ball's does —
+    /// the man who was dribbling it. Their ghost already says where the pair
+    /// came from, so the ball does not need a second one.
+    PlayerIcon? ghostedCarrier(PlayerIcon ball) {
+      final at = ghostStart(ball);
+      for (final p in players) {
+        if (p.isBall || p.isMarker || p.moves.isEmpty) continue;
+        if ((ghostStart(p) - at).distance < _kHoldReach * p.scale) return p;
+      }
+      return null;
+    }
+
+    /// Feet offsets for the ghosts: the ball where its leg began, everyone
+    /// else where they are drawn now — a pass starts at a man who is still
+    /// standing there.
+    final ghostFeet = ballAtFeetOffsets(
+      players,
+      (p) => p.isBall
+          ? ghostStart(p)
+          : (state.animatedPositions[p.id] ?? p.position) +
+              (fan[p.id] ?? Offset.zero),
+    );
+
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
     /// they are painted differs.
@@ -861,9 +887,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       final beat = state.isAnimating ? state.atStep : phaseLimit;
       final moving = animPos != null &&
           (animPos - chainEndAt(player, state.atStep)).distance > 0.5;
-      final heading = moving
-          ? playerHeadingAt(player, animPos)
-          : (boardHeading(players, player, beat) ?? playerFacing(player));
+      final heading = player.facingLocked
+          ? playerFacing(player)
+          : moving
+              ? playerHeadingAt(player, animPos)
+              : (boardHeading(players, player, beat) ?? playerFacing(player));
       return _PlayerOnBoard(
         key: ValueKey(player.id),
         player: player,
@@ -936,6 +964,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   ...players
                       .where((p) => p.moves.isNotEmpty && routeShown(p))
                       .where((p) {
+                      // A ball a player is dribbling is not a second thing
+                      // on the pitch. Its ghost lands at the feet of that
+                      // player's own ghost, and the board came out with two
+                      // balls on it — the live one and a faint one behind,
+                      // which is a pass nobody made. A ball that travels on
+                      // its own still leaves one: that is where the pass
+                      // started, and nothing else says so.
+                      if (p.isBall && ghostedCarrier(p) != null) return false;
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
@@ -950,7 +986,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           nudgeThreshold(p);
                     }).map((player) {
                       final size = kPlayerIconSize * player.scale;
-                      final ghostAt = stepStart(player, limitFor(player));
+                      // At the feet of whoever it was played from, the same
+                      // as a live ball; the raw spot is a token's length
+                      // ahead of them, which on a standing figure is their
+                      // head. See ballAtFeetOffsets.
+                      final ghostAt = stepStart(player, limitFor(player)) +
+                          (player.isBall
+                              ? ghostFeet[player.id] ?? Offset.zero
+                              : Offset.zero);
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
                           !player.isBall;
@@ -1070,7 +1113,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           key: ValueKey('wp_${player.id}_${entry.key}'),
                           player: player,
                           index: entry.key,
-                          position: entry.value,
+                          // The last dot of a ball IS the ball, drawn a
+                          // second time over the live token. It has to take
+                          // the same step to the feet, or the board shows two
+                          // balls — one at the player's boots and one on his
+                          // head, which is where the pair used to overlap.
+                          position: entry.value +
+                              (player.isBall && isLast
+                                  ? feet[player.id] ?? Offset.zero
+                                  : Offset.zero),
                           isLast: isLast,
                           isSelected: chainSelected,
                           isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
@@ -1718,11 +1769,15 @@ class _WaypointDotState extends State<_WaypointDot> {
                         sport: context.read<TacticsState>().sportType,
                         // Where the run ends: the stance the player takes
                         // once every beat has run.
-                        heading: boardHeading(
-                                context.read<TacticsState>().players,
-                                widget.player,
-                                context.read<TacticsState>().maxMoveSteps) ??
-                            playerFacing(widget.player),
+                        heading: widget.player.facingLocked
+                            ? playerFacing(widget.player)
+                            : boardHeading(
+                                    context.read<TacticsState>().players,
+                                    widget.player,
+                                    context
+                                        .read<TacticsState>()
+                                        .maxMoveSteps) ??
+                                playerFacing(widget.player),
                         boardTurns: BoardOrientation.of(context),
                       ),
                 size: Size.infinite,

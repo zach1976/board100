@@ -106,10 +106,17 @@ void main() {
     final drill = drills.firstWhere((d) => d['id'] == want);
     state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
     state.setCanvasSizeSilent(const Size(kW, kH));
-    state.setTargetStep(0);
+    state.setTargetStep(int.parse(Platform.environment['STEP'] ?? '0'));
     state.selectPlayer(pick);
-    await tester.pump(const Duration(milliseconds: 400));
-    await tester.pump(const Duration(milliseconds: 400));
+    // The ball and the equipment sprites decode on first paint, and a frame
+    // shot before they land comes out with no ball and no cones on it — the
+    // same trap render_boards.dart warms its way around.
+    for (var i = 0; i < 6; i++) {
+      await tester.pump(const Duration(milliseconds: 120));
+      await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 120)));
+    }
+    await tester.pump(const Duration(milliseconds: 120));
     await tester.runAsync(() async {
       final b = boundaryKey.currentContext!.findRenderObject()
           as RenderRepaintBoundary;

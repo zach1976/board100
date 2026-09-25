@@ -2,10 +2,15 @@ import 'dart:math' as math;
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 
 /// Turning an element, and the promise that old boards do not move.
 void main() {
+  // TacticsState talks to the external display over a method channel the
+  // moment it is built.
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   PlayerIcon icon({double rotation = 0}) => PlayerIcon(
         id: 'a',
         label: '7',
@@ -36,6 +41,54 @@ void main() {
 
     test('copyWith carries it', () {
       expect(icon(rotation: 1.2).copyWith(label: '9').rotation, 1.2);
+    });
+  });
+
+  group('turning a player by hand', () {
+    /// The board's own facing rule recomputes a heading every beat, and it
+    /// used to win over rotation for everyone — so the edit bar's turn
+    /// buttons moved the number on the bar and nothing on the pitch.
+    TacticsState boardWith(PlayerIcon p) {
+      final s = TacticsState();
+      s.loadFromJson({
+        'sportType': SportType.soccer.index,
+        'players': [p.toJson()],
+        'strokes': <dynamic>[],
+      });
+      return s;
+    }
+
+    test('locks the facing, and the reset gives it back to the board', () {
+      final state = boardWith(icon());
+      final id = state.players.first.id;
+      state.rotatePlayer(id, math.pi / 4);
+      expect(state.players.first.facingLocked, isTrue);
+      expect(state.players.first.rotation, closeTo(math.pi / 4, 1e-9));
+
+      // What the bar's 复位 does: turn back to zero.
+      state.rotatePlayer(id, 0);
+      expect(state.players.first.facingLocked, isFalse,
+          reason: 'back at zero the board decides again');
+    });
+
+    test('a marker is not locked by turning it', () {
+      // Equipment is rotated as a picture; it has no facing rule to fight.
+      final state = boardWith(PlayerIcon(
+        id: 'm',
+        label: '',
+        team: PlayerTeam.neutral,
+        position: const Offset(10, 10),
+        markerShape: MarkerShape.cone,
+      ));
+      state.rotatePlayer('m', math.pi / 2);
+      expect(state.players.first.facingLocked, isFalse);
+    });
+
+    test('survives a save and a reload', () {
+      final turned = icon(rotation: math.pi / 2).copyWith(facingLocked: true);
+      expect(PlayerIcon.fromJson(turned.toJson()).facingLocked, isTrue);
+      // And costs nothing on the boards where nobody turned anybody.
+      expect(icon().toJson().containsKey('faceLock'), isFalse);
     });
   });
 

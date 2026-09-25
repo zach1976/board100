@@ -1041,7 +1041,14 @@ class TacticsState extends ChangeNotifier {
     // shows nothing; snap to the one it will show. Markers turn freely.
     final snapped =
         p.isMarker || p.isBall ? snapAngle(radians) : snapFacing(radians);
-    _players[idx] = p.copyWith(rotation: snapped);
+    // Turning a person by hand is a decision about where they look, and it
+    // has to survive the board's own facing rule — which otherwise recomputes
+    // a heading every beat and throws the turn away. Back at zero the coach
+    // has taken the decision back: the bar's reset lands here, and the board
+    // takes over again.
+    _players[idx] = p.copyWith(
+        rotation: snapped,
+        facingLocked: p.isMarker || p.isBall ? false : snapped != 0);
     notifyListeners();
   }
 

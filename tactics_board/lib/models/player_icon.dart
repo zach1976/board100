@@ -86,6 +86,17 @@ class PlayerIcon {
   /// and the tennis ones came out holding rackets.
   final bool? holdsImplement;
 
+  /// Whether the coach turned this one by hand.
+  ///
+  /// A figure normally faces whatever the board says they are about to do —
+  /// see boardHeading — and that rule wins over [rotation], which is how a
+  /// drill's baked opening stance stops fighting the beat on show. But it
+  /// also swallowed the edit bar's own turn buttons: a coach turned a player
+  /// 45° and nothing on the pitch moved. Set the moment they do, cleared by
+  /// the bar's reset, and while it is set the figure faces [rotation] and
+  /// nothing else.
+  final bool facingLocked;
+
   /// For a ball icon: the id of the player currently carrying it. When set, the
   /// ball follows that player's position during drags and animation playback.
   /// Null = loose ball. Only meaningful on a ball ([isBall]).
@@ -110,6 +121,7 @@ class PlayerIcon {
     this.role,
     this.attachedTo,
     this.holdsImplement,
+    this.facingLocked = false,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveColor = moveColor ?? _moveColors[0];
@@ -151,6 +163,7 @@ class PlayerIcon {
     'attachedTo': attachedTo,
     // Omitted unless a coach said otherwise, which is nearly every player.
     if (holdsImplement != null) 'holds': holdsImplement,
+    if (facingLocked) 'faceLock': true,
   };
 
   factory PlayerIcon.fromJson(Map<String, dynamic> json) => PlayerIcon(
@@ -171,6 +184,7 @@ class PlayerIcon {
     role: json['role'] as String?,
     attachedTo: json['attachedTo'] as String?,
     holdsImplement: json['holds'] as bool?,
+    facingLocked: json['faceLock'] as bool? ?? false,
   );
 
   /// Whether the label sits inside the disc like a shirt number, or hangs
@@ -207,6 +221,7 @@ class PlayerIcon {
     bool clearAttachedTo = false,
     bool? holdsImplement,
     bool clearHolds = false,
+    bool? facingLocked,
   }) {
     return PlayerIcon(
       id: id ?? this.id,
@@ -227,6 +242,7 @@ class PlayerIcon {
       role: clearRole ? null : (role ?? this.role),
       attachedTo: clearAttachedTo ? null : (attachedTo ?? this.attachedTo),
       holdsImplement: clearHolds ? null : (holdsImplement ?? this.holdsImplement),
+      facingLocked: facingLocked ?? this.facingLocked,
     );
   }
 
