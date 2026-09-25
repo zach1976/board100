@@ -239,6 +239,7 @@
   "element_copied": "Copied — paste it from +",
   "paste_element": "Paste {}",
   "paste_with_run": "with its run ({} legs)",
+  "paste_with_run_one": "with its run",
   "practice_history": "History",
   "practice_history_empty": "No practice sessions yet",
   "practice_history_empty_hint": "Start a session from a practice plan — it will show up here.",

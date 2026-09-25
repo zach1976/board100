@@ -301,6 +301,7 @@
   "element_copied": "복사됨 — + 에서 붙여넣기",
   "paste_element": "{} 붙여넣기",
   "paste_with_run": "이동 경로 포함 ({}구간)",
+  "paste_with_run_one": "이동 경로 포함",
   "practice_history": "기록",
   "practice_history_empty": "아직 훈련 기록이 없습니다",
   "practice_history_empty_hint": "연습 계획에서 세션을 시작하면 여기에 기록이 표시됩니다.",

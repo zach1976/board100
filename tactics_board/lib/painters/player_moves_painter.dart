@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' show mapEquals;
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../widgets/player_icon_widget.dart';
@@ -130,12 +131,19 @@ class PlayerMovesPainter extends CustomPainter {
   /// one element is that request narrowed to one.
   final bool onlyFocus;
 
+  /// Where a ball is drawn, less where its route says it is — the step to
+  /// the feet of whoever it stopped with (see ballAtFeetOffsets). The
+  /// route's last point takes the same step, so the arrowhead lands on the
+  /// ball rather than on a patch of grass a token's length short of it.
+  final Map<String, Offset> endShift;
+
   const PlayerMovesPainter({
     required this.players,
     this.targetStep = 0,
     this.completedSteps,
     this.focusId,
     this.onlyFocus = false,
+    this.endShift = const {},
   });
 
   /// The focused element, but only when it has a route to follow — selecting
@@ -210,6 +218,7 @@ class PlayerMovesPainter extends CustomPainter {
       stepStart(player, phaseLimit),
       ...legs.map((e) => e.value),
     ];
+    if (player.isBall) points[points.length - 1] += endShift[player.id] ?? Offset.zero;
     // bbox half + shadow/border margin — keep arrow clear of the icon's drop shadow
     final iconRadius = kPlayerIconSize / 2 * player.scale + 3;
 
@@ -283,7 +292,11 @@ class PlayerMovesPainter extends CustomPainter {
     final linePaint = Paint()
       ..shader = (strong || !fade)
           ? null
-          : ui.Gradient.linear(from, to, [color.withValues(alpha: 0.30), color])
+          // 0.55 at the source, not 0.30: with a token's clearance taken
+          // off each end a pass between neighbours is forty points of
+          // line, and at 0.30 the half of it nearest the passer was gone
+          // against green. There is still a direction to it.
+          : ui.Gradient.linear(from, to, [color.withValues(alpha: 0.55), color])
       ..color = color
       ..strokeWidth = width
       ..strokeCap = StrokeCap.round
@@ -352,5 +365,6 @@ class PlayerMovesPainter extends CustomPainter {
       oldDelegate.targetStep != targetStep ||
       oldDelegate.players != players ||
       oldDelegate.focusId != focusId ||
-      oldDelegate.onlyFocus != onlyFocus;
+      oldDelegate.onlyFocus != onlyFocus ||
+      !mapEquals(oldDelegate.endShift, endShift);
 }

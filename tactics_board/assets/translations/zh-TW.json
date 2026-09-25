@@ -262,6 +262,7 @@
   "element_copied": "已複製 —— 在 + 裡貼上",
   "paste_element": "貼上 {}",
   "paste_with_run": "連同跑位（{} 段）",
+  "paste_with_run_one": "連同跑位",
   "practice_history": "歷史記錄",
   "practice_history_empty": "還沒有訓練紀錄",
   "practice_history_empty_hint": "從練習計畫開始一次訓練，紀錄會顯示在這裡。",

@@ -1747,16 +1747,18 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 _editAction(Icons.rotate_right, Colors.white70,
                     () => _turn(p, _notch(p))),
                 const SizedBox(width: 10),
-                Text(_degrees(p.rotation),
+                Text(_degrees(_shown(p)),
                     style: const TextStyle(
                         color: Colors.white54,
                         fontSize: 12,
                         fontFeatures: [FontFeature.tabularFigures()])),
                 const Spacer(),
-                if (p.rotation != 0)
+                // Reset undoes a turn the coach made: for a person that is
+                // the hand-set facing, and the board decides again after.
+                if (p.isMarker || p.isBall ? p.rotation != 0 : p.facingLocked)
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
-                    onTap: () => _turn(p, -p.rotation),
+                    onTap: () => _turn(p, -_shown(p)),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
@@ -1829,9 +1831,27 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   double _notch(PlayerIcon p) =>
       p.isMarker || p.isBall ? math.pi / 12 : math.pi / 4;
 
+  /// The turn the board is showing, as the bar reads it back.
+  ///
+  /// For equipment that is its rotation. A person faces what the board says
+  /// they are doing this beat unless a coach has turned them by hand, so the
+  /// number here — and the place a notch of the buttons starts from — is
+  /// the heading actually drawn, relative to the team's default. The bar
+  /// used to show the stored rotation, which for a drill's players is a
+  /// baked opening stance the pitch was no longer showing: it said 45° over
+  /// a man facing straight up, and one tap "left" turned him to 0°.
+  double _shown(PlayerIcon p) {
+    if (p.isMarker || p.isBall || p.facingLocked) return p.rotation;
+    final st = widget.state;
+    final beat = st.atStep > 0 ? st.atStep : st.targetStep;
+    final h = boardHeading(st.players, p, beat) ?? playerFacing(p);
+    return TacticsState.snapFacing(
+        h - (p.team == PlayerTeam.home ? 0.0 : math.pi));
+  }
+
   /// One notch of the rotate buttons, snapped by the state.
   void _turn(PlayerIcon p, double delta) {
-    widget.state.rotatePlayer(p.id, p.rotation + delta);
+    widget.state.rotatePlayer(p.id, _shown(p) + delta);
     widget.state.rotatePlayerEnd(p.id);
   }
 

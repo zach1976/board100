@@ -301,6 +301,7 @@
   "element_copied": "Đã sao chép — dán từ +",
   "paste_element": "Dán {}",
   "paste_with_run": "kèm đường chạy ({} đoạn)",
+  "paste_with_run_one": "kèm đường chạy",
   "practice_history": "Lịch sử",
   "practice_history_empty": "Chưa có buổi tập nào",
   "practice_history_empty_hint": "Bắt đầu buổi tập từ kế hoạch tập luyện — lịch sử sẽ hiển thị ở đây.",

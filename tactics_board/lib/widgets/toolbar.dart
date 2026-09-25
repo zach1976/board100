@@ -4539,12 +4539,24 @@ class _PasteRow extends StatelessWidget {
           ),
           child: Row(
             children: [
+              // The token at its own size, scaled into the tile: a player
+              // is a 36pt box plus a name badge when the label hangs below,
+              // and a 34pt box cut two pixels off the bottom of every one.
               SizedBox(
-                width: 34,
-                height: 34,
-                child: IgnorePointer(
-                  child: PlayerIconWidget(
-                      player: p, sport: state.sportType),
+                width: 40,
+                height: 40,
+                child: FittedBox(
+                  child: SizedBox(
+                    width: kPlayerIconSize * p.scale,
+                    height: kPlayerIconSize * p.scale +
+                        (p.label.isNotEmpty && !p.labelInside
+                            ? 21 * p.scale
+                            : 0),
+                    child: IgnorePointer(
+                      child: PlayerIconWidget(
+                          player: p, sport: state.sportType),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: T.s12),
@@ -4566,7 +4578,9 @@ class _PasteRow extends StatelessWidget {
                     // would otherwise have to redraw by hand.
                     if (runs > 0)
                       Text(
-                        'paste_with_run'.tr(args: ['$runs']),
+                        runs == 1
+                            ? 'paste_with_run_one'.tr()
+                            : 'paste_with_run'.tr(args: ['$runs']),
                         style: const TextStyle(
                             color: T.textDim, fontSize: 12),
                       ),

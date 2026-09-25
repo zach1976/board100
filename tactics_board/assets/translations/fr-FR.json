@@ -301,6 +301,7 @@
   "element_copied": "Copié — collez-le depuis +",
   "paste_element": "Coller {}",
   "paste_with_run": "avec sa course ({} segments)",
+  "paste_with_run_one": "avec sa course",
   "practice_history": "Historique",
   "practice_history_empty": "Aucune séance d'entraînement",
   "practice_history_empty_hint": "Lancez une séance depuis un plan d'entraînement — elle apparaîtra ici.",

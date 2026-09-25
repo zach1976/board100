@@ -301,6 +301,7 @@
   "element_copied": "คัดลอกแล้ว — วางได้จาก +",
   "paste_element": "วาง {}",
   "paste_with_run": "พร้อมเส้นทางวิ่ง ({} ช่วง)",
+  "paste_with_run_one": "พร้อมเส้นทางวิ่ง",
   "practice_history": "ประวัติ",
   "practice_history_empty": "ยังไม่มีบันทึกการฝึกซ้อม",
   "practice_history_empty_hint": "เริ่มเซสชันจากแผนการฝึก แล้วบันทึกจะแสดงที่นี่",

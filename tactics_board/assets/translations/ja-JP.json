@@ -301,6 +301,7 @@
   "element_copied": "コピーしました — ＋から貼り付け",
   "paste_element": "{} を貼り付け",
   "paste_with_run": "動きも一緒に（{} 区間）",
+  "paste_with_run_one": "動きも一緒に",
   "practice_history": "履歴",
   "practice_history_empty": "練習記録がまだありません",
   "practice_history_empty_hint": "練習プランからセッションを開始すると、ここに記録されます。",

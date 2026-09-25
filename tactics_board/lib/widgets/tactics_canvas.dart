@@ -1124,6 +1124,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           // and it must not dim because someone touched the
                           // phone.
                           focusId: state.selectedPlayerId,
+                          endShift: feet,
                           // Beat zero draws nothing but the one route a
                           // coach asked for — see routeShown above.
                           onlyFocus: stepLimit == 0 &&
