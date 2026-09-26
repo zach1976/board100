@@ -1325,6 +1325,29 @@ const kUprightMarkers = <MarkerShape>{
   MarkerShape.chair,
 };
 
+/// The equipment that stands up off the grass.
+///
+/// [kUprightMarkers] less the two that lie flat on it: a marker disc and a
+/// throw-down ring are printed on the ground, and a player standing over one
+/// hides it exactly as a player standing over one does in life. The rest have
+/// a height, and a figure that stands 47pt tall buries anything shorter than
+/// that directly behind it — see markerClearOffsets.
+const kStandingMarkers = <MarkerShape>{
+  MarkerShape.cone,
+  MarkerShape.pole,
+  MarkerShape.ballBag,
+  MarkerShape.cornerFlag,
+  MarkerShape.shuttleTube,
+  MarkerShape.hopper,
+  MarkerShape.battingTee,
+  MarkerShape.tackleBag,
+  MarkerShape.antenna,
+  MarkerShape.mannequin,
+  MarkerShape.referee,
+  MarkerShape.coach,
+  MarkerShape.chair,
+};
+
 /// Whether [p]'s picture stays upright on screen when the board is turned.
 bool staysUpright(PlayerIcon p) =>
     p.isBall || (p.isMarker && kUprightMarkers.contains(p.markerShape));

@@ -174,6 +174,54 @@ Offset turnVector(Offset v, int quarterTurns) {
   }
 }
 
+/// How far from a player's middle a standing marker has to be before the
+/// figure stops burying it: half the figure, plus half a cone.
+const double _kStandClear = kPlayerIconSize * 0.92;
+
+/// Draw-time lift for equipment a player is standing in front of.
+///
+/// A drill puts a coach at his station and his cone a step behind him —
+/// twenty board units, thirteen points. That was daylight when a player was
+/// a 36pt disc. A figure is 47pt tall and most of it is above the middle, so
+/// the cone went behind his head and what showed was its tip over one
+/// shoulder and its base over the other: on the board it read as a second,
+/// faded player standing behind the first, on a beat where nobody had moved.
+///
+/// The marker is lifted just clear of the head, along the way it already
+/// leans, so the station still reads as being behind the player. Like
+/// [fanOutOffsets] this moves the drawing only. Flat equipment is left alone:
+/// a base, a marker disc and a throw-down ring are on the ground, and a
+/// player standing over one is the picture a coach meant.
+Map<String, Offset> markerClearOffsets(
+  List<PlayerIcon> players,
+  Offset Function(PlayerIcon) positionOf, {
+  int boardTurns = 0,
+}) {
+  final people =
+      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  if (people.isEmpty) return const {};
+  final result = <String, Offset>{};
+  for (final m in players) {
+    if (!m.isMarker || !kStandingMarkers.contains(m.markerShape)) continue;
+    final at = positionOf(m);
+    for (final p in people) {
+      final size = kPlayerIconSize * p.scale;
+      // On screen: the figure stands upright whichever way the board is
+      // turned, so "behind the head" is a screen direction.
+      final d = turnVector(at - positionOf(p), boardTurns);
+      final buried = d.dx.abs() < size * 0.45 &&
+          d.dy < size * 0.1 &&
+          d.dy > -size * 0.78;
+      if (!buried) continue;
+      final dir = d.distance < 0.5 ? const Offset(0, -1) : d / d.distance;
+      final want = dir * (_kStandClear * p.scale);
+      result[m.id] = turnVector(want - d, (4 - boardTurns) % 4);
+      break;
+    }
+  }
+  return result;
+}
+
 /// Draw-time separation for players standing in the same place.
 ///
 /// A run that ends where another player is standing hid one of them
@@ -827,6 +875,12 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
       boardTurns: widget.boardTurns,
     );
+    // Equipment a player is standing in front of, lifted clear of them.
+    final clear = markerClearOffsets(
+      players,
+      (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
+      boardTurns: widget.boardTurns,
+    );
 
     /// The beats elapsed as far as [p] is concerned.
     ///
@@ -911,8 +965,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             (stepLimit > 0 && player.moves.isNotEmpty
                 ? chainEndAt(player, stepLimit)
                 : null),
-        drawOffset:
-            (fan[player.id] ?? Offset.zero) + (feet[player.id] ?? Offset.zero),
+        drawOffset: (fan[player.id] ?? Offset.zero) +
+            (feet[player.id] ?? Offset.zero) +
+            (clear[player.id] ?? Offset.zero),
         isSelected: selected,
         isPrimary: selected &&
             !state.multiSelectMode &&
