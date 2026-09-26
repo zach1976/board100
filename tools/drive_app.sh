@@ -14,6 +14,12 @@
 #
 #   tools/drive_app.sh <sport-key> [simulator-udid]
 #   tools/drive_app.sh all         [simulator-udid]
+#
+# DRIVE_DEFINES passes --dart-define flags to both the build and the run.
+# IAP=1 is the one that matters for a walk: without it PurchaseService.init
+# returns before it reads the saved "owns ad removal" flag, so setting that
+# flag from inside the walk does nothing and the app-open test ad covers the
+# whole thing.
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -99,7 +105,8 @@ PY
   # Build and install explicitly rather than `flutter install`, which needs an
   # existing build and fails silently after the restore's flutter clean — the
   # symptom is the app-open ad covering the whole walk.
-  flutter build ios --simulator --debug >/dev/null || {
+  # shellcheck disable=SC2086 — DRIVE_DEFINES is a list of flags on purpose.
+  flutter build ios --simulator --debug ${DRIVE_DEFINES:-} >/dev/null || {
     echo "  ✗ $key: simulator build failed"; return 1; }
   xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app >/dev/null || {
     echo "  ✗ $key: install failed"; return 1; }
@@ -115,8 +122,9 @@ PY
 
   # Not rm -rf: tactics_board/screenshots/ holds committed store screenshots.
   rm -f screenshots/0[0-9]-*.png; mkdir -p screenshots
+  # shellcheck disable=SC2086
   flutter drive --driver=test_driver/integration_test.dart \
-                --target=integration_test/ui_walk.dart -d "$UDID"
+                --target=integration_test/ui_walk.dart -d "$UDID" ${DRIVE_DEFINES:-}
   echo "  → $dir/screenshots: $(ls -1 screenshots 2>/dev/null | tr '\n' ' ')"
 }
 
