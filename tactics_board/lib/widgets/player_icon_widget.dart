@@ -11,7 +11,7 @@ import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
 import '../services/photo_library_service.dart';
 import 'marker_shape_clipper.dart';
-import 'tactics_canvas.dart' show chainEndAt;
+import 'tactics_canvas.dart' show chainEndAt, turnVector;
 
 /// How big a player token is drawn, in points, on any board.
 ///
@@ -761,8 +761,17 @@ class PlayerIconWidget extends StatelessWidget {
       onScaleStart: onScaleStart,
       onScaleUpdate: onScaleUpdate,
       onScaleEnd: onScaleEnd,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      // The name badge hangs under the figure ON SCREEN. It used to be the
+      // second child of a Column, and a column runs down the BOARD: turn the
+      // phone and the name swung round to the player's side, where it read
+      // as a label with no token under it — a goalkeeper's GK floating in
+      // his six-yard box with the goalkeeper an inch away. The badge is
+      // placed out of the token's box instead, in whichever direction is
+      // down on the screen, and the box itself stays the 36pt square
+      // everything else positions and grabs the player by.
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.center,
         children: [
           AnimatedScale(
             duration: const Duration(milliseconds: 140),
@@ -820,10 +829,17 @@ class PlayerIconWidget extends StatelessWidget {
                     ),
                   ),
           ),
-          if (player.label.isNotEmpty && !player.labelInside) ...[
-            // Small gap so the name badge doesn't crowd the avatar's edge.
-            SizedBox(height: 3 * player.scale),
-            RotatedBox(
+          if (player.label.isNotEmpty && !player.labelInside)
+            Transform.translate(
+              // Clear of the figure, down the screen. In points rather than
+              // a fraction of the box: the box is 36pt but the figure is
+              // drawn 1.57 boxes tall, so a badge placed by the box lands on
+              // the player's shins.
+              offset: turnVector(
+                  Offset(0, kPlayerIconSize * 0.5 * player.scale +
+                      11.7 * player.scale),
+                  BoardOrientation.counterTurns(context)),
+              child: RotatedBox(
               // Upright on screen like the body above it.
               quarterTurns: BoardOrientation.counterTurns(context),
               child: Container(
@@ -845,12 +861,13 @@ class PlayerIconWidget extends StatelessWidget {
               ),
             ),
             ),
-          ],
+            ),
         ],
       ),
     );
   }
 }
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Top-down person shape with number label
