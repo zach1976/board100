@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
+import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/state/tactics_state.dart';
@@ -35,6 +36,12 @@ final _supportedLocales = allLocales.map((e) => e.$2).toList();
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  // This file is run from a SHELL app — SoccerBoard, BasketballBoard — not
+  // from the core. The core is a library now: a sport's ball, its equipment
+  // and its drills are dev dependencies there, so a board shot from it has
+  // no ball on it. In a shell every asset of the core sits under
+  // packages/tactics_board/, which is what the shell's own main() says.
+  ConfigConstants.hasPackagePath = true;
 
   group('Screenshots V2', () {
     for (final sport in SportType.values) {
@@ -62,7 +69,9 @@ void main() {
           _setupFormationAndMoves(s, sport);
           s.selectPlayer(null);
           await t.pumpAndSettle();
-          await t.tap(find.byIcon(Icons.view_timeline));
+          // The outlined variant: the play bar's button, which is what the
+          // filled Icons.view_timeline stopped being some releases ago.
+          await t.tap(find.byIcon(Icons.view_timeline_outlined));
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s3');
         });
@@ -135,7 +144,13 @@ Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async 
   await t.pumpWidget(
     EasyLocalization(
       supportedLocales: _supportedLocales,
-      path: 'assets/translations',
+      // packageAsset, not a bare path. Since the sports were split into
+      // packages the shots have to be taken from the app being shipped —
+      // the core builds without a ball on the pitch, because a sport's
+      // artwork is a dev dependency there — and in a shell every asset of
+      // the core sits under packages/tactics_board/. With the bare path
+      // nothing loaded, so the shot came out a blank frame.
+      path: packageAsset('assets/translations'),
       fallbackLocale: const Locale('en', 'US'),
       startLocale: locale,
       child: Builder(builder: (ctx) {
