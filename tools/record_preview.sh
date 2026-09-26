@@ -8,8 +8,11 @@
 # marks; the film is cut to them, so the build, the install, the springboard
 # and the splash never appear.
 #
-# Output: build/preview/<key>.mov — H.264, 30fps, the device's own
+# Output: build/preview/<key>.mp4 — H.264, 30fps, the device's own
 # resolution, which is what App Store Connect wants for that size class.
+# mp4 rather than the mov simctl records: App Store Connect takes either,
+# but a browser will not play a file whose type says quicktime, and the
+# release review page embeds this film.
 # Apple takes 15–30 seconds; anything outside that is reported here rather
 # than discovered at upload.
 set -euo pipefail
@@ -21,7 +24,7 @@ UDID="${2:-$(xcrun simctl list devices booted | sed -n 's/.*(\([0-9A-F-]\{36\}\)
 OUT="$REPO/build/preview"
 mkdir -p "$OUT"
 RAW="$OUT/$KEY-raw.mov"
-FINAL="$OUT/$KEY.mov"
+FINAL="$OUT/$KEY.mp4"
 LOG="$OUT/$KEY-drive.log"
 RECLOG="$OUT/$KEY-record.log"
 

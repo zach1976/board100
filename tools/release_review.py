@@ -190,7 +190,11 @@ def main() -> None:
     # ── App preview film ─────────────────────────────────────────────────
     # Embedded like every image on this page: the point of the page is that
     # it survives being sent to somebody with the network off.
-    preview = REPO / 'build' / 'preview' / f'{key}.mov'
+    # .mp4 first: Chrome will not play a data/blob whose type says
+    # quicktime, whatever is actually inside the container.
+    preview = REPO / 'build' / 'preview' / f'{key}.mp4'
+    if not preview.exists():
+        preview = REPO / 'build' / 'preview' / f'{key}.mov'
     video = None
     if preview.exists():
         spec = subprocess.run(
@@ -211,8 +215,7 @@ def main() -> None:
         # Apple takes 15–30s. Saying so here beats finding out at upload.
         ok = 15 <= dur <= 30 and mb <= 500
         video = {
-            'src': 'data:video/quicktime;base64,'
-                   + base64.b64encode(preview.read_bytes()).decode(),
+            'b64': base64.b64encode(preview.read_bytes()).decode(),
             'spec': f'{cw}×{ch} · {codec.upper()} · {fps}fps · '
                     f'{dur:.1f}s · {mb:.1f} MB',
             'ok': ok,
@@ -301,12 +304,16 @@ def main() -> None:
         f'<td class="{"ok" if b["ok"] else "missing"}">{esc(b["detail"])}</td>'
         f'<td class="mono">{esc(b["note"])}</td></tr>' for b in builds)
 
+    # The film rides in a script tag and is turned into a Blob on load,
+    # rather than sitting in the video element's src as a data: URI. A
+    # <video> fed a data URI has no byte ranges to seek over and Chrome
+    # simply refuses it; a Blob URL behaves like a real file.
     video_html = (
-        f'<video controls preload="metadata" playsinline src="{video["src"]}">'
-        f'</video>'
+        f'<video id="film" controls preload="metadata" playsinline></video>'
         f'<p class="sub">{esc(video["spec"])} · '
         f'<span class="{"ok" if video["ok"] else "bad"}">{esc(video["verdict"])}'
         f'</span><br><span class="mono">{esc(video["rel"])}</span></p>'
+        f'<script id="film-data" type="text/plain">{video["b64"]}</script>'
         if video else
         '<p class="none">还没有录制 —— <span class="mono">'
         'tools/record_preview.sh ' + key + '</span></p>')
@@ -472,6 +479,15 @@ function wire(attr, tabSel, paneSel) {{
     }});
   }});
 }}
+(function () {{
+  var data = document.getElementById('film-data');
+  var film = document.getElementById('film');
+  if (!data || !film) return;
+  var raw = atob(data.textContent.trim());
+  var bytes = new Uint8Array(raw.length);
+  for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+  film.src = URL.createObjectURL(new Blob([bytes], {{type: 'video/mp4'}}));
+}})();
 wire('data-loc', '.tab[data-loc]', '.pane[data-loc]');
 wire('data-ploc', '.tab[data-ploc]', '.pane[data-ploc]');
 document.querySelectorAll('[data-copy]').forEach(function (b) {{
