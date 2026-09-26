@@ -6,10 +6,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/config_constants.dart';
+import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
+import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/pages/home_page.dart';
+import 'package:tactics_board/widgets/player_icon_widget.dart' show PlayerArt;
 import 'package:tactics_board/widgets/toolbar.dart';
 
 // V2 raw app screenshots for the "PLAN EVERY RALLY" design.
@@ -97,30 +100,117 @@ void main() {
           await _shot(binding, '$sn/$lang/s4');
         });
 
-        // s5: routes / moves with arrows
+        // s5: a real drill off the shelf, one beat in — a pass drawn from
+        // the ball to the man it is played to, the cones that make the
+        // shape, the names under the players. The hand-built formation this
+        // used to show had no ball on it at all, which on a tactics board's
+        // own store page is the one thing a coach looks for.
         testWidgets('${sn}_${lang}_s5', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          _setupFormationAndMoves(s, sport);
+          final drill = await _showcase(t, sport);
+          if (drill == null) {
+            _setupFormationAndMoves(s, sport);
+          } else {
+            s.loadFromJson(Map<String, dynamic>.from(drill.board));
+            s.setShowMoveLines(true);
+            // advanceAtStep, not setTargetStep: the board reads either, but
+            // the counter on the bar reads atStep, and a shot captioned 0/8
+            // over a board three beats in is a shot of a bug.
+            s.advanceAtStep(1);
+          }
           s.selectPlayer(null);
+          s.clearMultiSelect();
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s5');
         });
 
-        // s6: step-by-step playback (at step 2)
+        // s6: the same drill two beats further on — where the players have
+        // got to, and the faint tokens they left behind.
         testWidgets('${sn}_${lang}_s6', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          _setupFormationAndMoves(s, sport);
+          final drill = await _showcase(t, sport);
+          if (drill == null) {
+            _setupFormationAndMoves(s, sport);
+            s.stepForward();
+            s.stepForward();
+          } else {
+            s.loadFromJson(Map<String, dynamic>.from(drill.board));
+            s.setShowMoveLines(true);
+            s.advanceAtStep(3);
+          }
           s.selectPlayer(null);
-          s.stepForward();
-          s.stepForward();
+          s.clearMultiSelect();
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s6');
         });
       }
     }
   });
+}
+
+/// The drill the store page shows, where somebody has looked at it.
+///
+/// Which board photographs best is a judgement, not a score: soccer's
+/// pentagon puts six players across the pitch with the cones that make the
+/// shape and one clear pass, where the 4v4 the heuristic liked is eight
+/// players and four goals in the same space. Sports without an entry fall
+/// back to the rule below, which is what picked this one's shortlist.
+const _showcaseIds = <SportType, String>{
+  SportType.soccer: 'passing_pentagon',
+};
+
+/// The drill to photograph: the shipped library's own, chosen for what a
+/// store screenshot has to show at a glance — a ball that travels, the
+/// equipment that makes the shape, and enough beats to have a past and a
+/// future. Deterministic, so every locale shoots the same board.
+Future<Drill?> _showcase(WidgetTester t, SportType sport) async {
+  List<Drill> all = const [];
+  await t.runAsync(() async {
+    all = await DrillLibraryService.instance.forSport(sport);
+  });
+  final named = _showcaseIds[sport];
+  if (named != null) {
+    for (final d in all) {
+      if (d.id == named) return d;
+    }
+  }
+  Drill? best;
+  var bestScore = -1;
+  for (final d in all) {
+    final ps = (d.board['players'] as List?) ?? const [];
+    var ball = 0, markers = 0, people = 0, steps = 0;
+    for (final raw in ps) {
+      final p = Map<String, dynamic>.from(raw as Map);
+      final phases = (p['movePhases'] as List?) ?? const [];
+      for (final ph in phases) {
+        if (ph is int && ph + 1 > steps) steps = ph + 1;
+      }
+      final shape = p['markerShape'] as int? ?? 0;
+      final isBall = p['team'] == 2 && p['sportType'] != null && shape == 0;
+      if (isBall) {
+        ball += ((p['moves'] as List?) ?? const []).isEmpty ? 0 : 1;
+      } else if (shape != 0) {
+        markers++;
+      } else {
+        people++;
+      }
+    }
+    if (ball == 0 || steps < 3 || steps > 6 || people < 5 || people > 9) {
+      continue;
+    }
+    // Equipment first — the cones are what makes a picture read as a drill
+    // rather than a match — then the fewest players that still fill the
+    // pitch: eleven a side with three defenders in bibs is a crowd at
+    // thumbnail size.
+    final score = markers * 100 - people * 5 + steps;
+    if (score > bestScore) {
+      bestScore = score;
+      best = d;
+    }
+  }
+  return best;
 }
 
 void _setupFormationAndMoves(TacticsState s, SportType sport) {
@@ -157,6 +247,10 @@ void _addMovesToState(TacticsState s, SportType sport, List<PlayerIcon> home) {
 
 Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async {
   await EasyLocalization.ensureInitialized();
+  // The figures, the ball and the equipment decode like any other asset. A
+  // test that shoots the moment it pumps catches the board drawn with the
+  // circle-and-oval fallback instead — which is what a single-scene run did.
+  await t.runAsync(PlayerArt.warm);
   await t.pumpWidget(
     EasyLocalization(
       supportedLocales: _supportedLocales,
