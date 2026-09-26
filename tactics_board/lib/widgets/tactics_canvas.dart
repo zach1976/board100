@@ -1159,6 +1159,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       return legs.where((entry) {
                         final isEnd = entry.key == legs.last.key;
                         if (shortRun && atStartTime && isEnd) return false;
+                        // While the board is playing, the token is on its
+                        // way to this spot. A faded copy of it waiting there
+                        // is the same player drawn twice, and standing next
+                        // to somebody else's token it reads as a player who
+                        // has already arrived: press play on a rotation and
+                        // a pale A appears beside B before anybody has moved.
+                        if (state.isAnimating && atStartTime && isEnd) {
+                          return false;
+                        }
                         if (!ballEscorted) return true;
                         return isEnd;
                       }).map((entry) {
