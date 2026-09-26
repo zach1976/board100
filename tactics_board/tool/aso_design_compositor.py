@@ -205,6 +205,11 @@ def cover(img, w, h):
 HEADLINE_LUMA = 38
 SCRIM_RGB = (6, 10, 26)
 
+# A flat press over the whole photograph, before anything is measured.
+# The phone has to be the brightest thing in the frame; shot as taken, a
+# sunlit pitch competes with its own screen.
+PHOTO_DIM = 42
+
 
 def photo_background(photo):
     """A photograph, graded so the headline band on top of it stays legible.
@@ -220,7 +225,11 @@ def photo_background(photo):
     re-tuning this by eye.
     """
     bg = cover(photo, W, H).convert("RGBA")
+    if PHOTO_DIM:
+        bg.alpha_composite(Image.new("RGBA", (W, H), (*SCRIM_RGB, PHOTO_DIM)))
     # 0 – 0.24H is every line of type: badge, both headline lines, subtitle.
+    # Measured after the flat press, so dimming the photograph takes the
+    # headline scrim down with it rather than stacking on top of it.
     band = bg.crop((0, 0, W, int(H * 0.24))).convert("L")
     mean = sum(band.getdata()) / (band.width * band.height)
     floor = sum(SCRIM_RGB) / 3
