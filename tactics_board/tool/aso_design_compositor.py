@@ -199,26 +199,46 @@ def cover(img, w, h):
     return sized.crop((left, top, left + w, top + h))
 
 
+# How dark the headline band has to end up, 0-255. Measured, not guessed:
+# white type at this weight stays readable down to about here, and a band
+# much darker than this stops looking like a photograph at all.
+HEADLINE_LUMA = 38
+SCRIM_RGB = (6, 10, 26)
+
+
 def photo_background(photo):
     """A photograph, graded so the headline band on top of it stays legible.
 
     The drawn background can simply be dark where the text goes. A photograph
     cannot — the sky it was shot under is whatever it was — so the top band
-    gets a scrim, and the whole frame a vignette, before a single word is
-    written over it.
+    gets a scrim before a single word is written over it.
+
+    How strong that scrim is comes from the photograph rather than from a
+    constant: a dusk pitch needs almost none, a bright morning one needs a
+    lot, and one number cannot serve both. The band's own mean brightness is
+    measured and the scrim solved for, so swapping the photo does not mean
+    re-tuning this by eye.
     """
     bg = cover(photo, W, H).convert("RGBA")
-    # top scrim: opaque enough at the badge to hold white type, gone by the
-    # time the phone starts at 0.255H.
+    band = bg.crop((0, 0, W, int(H * 0.26))).convert("L")
+    mean = sum(band.getdata()) / (band.width * band.height)
+    floor = sum(SCRIM_RGB) / 3
+    if mean <= HEADLINE_LUMA:
+        peak = 0
+    else:
+        peak = min(235, int(255 * (mean - HEADLINE_LUMA) / max(1.0, mean - floor)))
+    print(f"   headline band luma {mean:.0f} → scrim {peak}")
+    if peak == 0:
+        return bg
     scrim = Image.new("L", (1, H))
     sp = scrim.load()
     for y in range(H):
         f = y / (H * 0.30)
-        sp[0, y] = int(170 * (1 - f) ** 1.6) if f < 1 else 0
+        sp[0, y] = int(peak * (1 - f) ** 1.6) if f < 1 else 0
     scrim = scrim.resize((W, H))
     bg.alpha_composite(Image.merge("RGBA", (
-        Image.new("L", (W, H), 6), Image.new("L", (W, H), 10),
-        Image.new("L", (W, H), 26), scrim)))
+        Image.new("L", (W, H), SCRIM_RGB[0]), Image.new("L", (W, H), SCRIM_RGB[1]),
+        Image.new("L", (W, H), SCRIM_RGB[2]), scrim)))
     return bg
 
 
