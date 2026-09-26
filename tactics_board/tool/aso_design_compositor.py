@@ -220,7 +220,8 @@ def photo_background(photo):
     re-tuning this by eye.
     """
     bg = cover(photo, W, H).convert("RGBA")
-    band = bg.crop((0, 0, W, int(H * 0.26))).convert("L")
+    # 0 – 0.24H is every line of type: badge, both headline lines, subtitle.
+    band = bg.crop((0, 0, W, int(H * 0.24))).convert("L")
     mean = sum(band.getdata()) / (band.width * band.height)
     floor = sum(SCRIM_RGB) / 3
     if mean <= HEADLINE_LUMA:
@@ -230,11 +231,22 @@ def photo_background(photo):
     print(f"   headline band luma {mean:.0f} → scrim {peak}")
     if peak == 0:
         return bg
+    # Full strength across the type, then a long smoothstep to nothing. The
+    # first profile faded from the very top, so by the subtitle it had almost
+    # nothing left and small grey text sat on open sky. The fade now happens
+    # between 0.20H and 0.32H — which is mostly behind the phone, so the
+    # photograph is never seen changing brightness.
+    hold, gone = H * 0.20, H * 0.32
     scrim = Image.new("L", (1, H))
     sp = scrim.load()
     for y in range(H):
-        f = y / (H * 0.30)
-        sp[0, y] = int(peak * (1 - f) ** 1.6) if f < 1 else 0
+        if y <= hold:
+            sp[0, y] = peak
+        elif y >= gone:
+            sp[0, y] = 0
+        else:
+            f = (y - hold) / (gone - hold)
+            sp[0, y] = int(peak * (1 - (3 * f * f - 2 * f ** 3)))
     scrim = scrim.resize((W, H))
     bg.alpha_composite(Image.merge("RGBA", (
         Image.new("L", (W, H), SCRIM_RGB[0]), Image.new("L", (W, H), SCRIM_RGB[1]),
