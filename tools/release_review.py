@@ -120,7 +120,12 @@ def main() -> None:
     # Drawn the full width of the column, so encoded for it.
     mac_shots = [(p.stem, thumb(p, 1148, quality=80))
                  for p in sorted(mac_dir.glob('*.png'))]
-    pkg = app_dir / 'build' / 'macos' / 'appstore' / f"{app.get('name_en', 'Runner')}.pkg"
+    # Root build/ first. The one under the app's own build/ is wiped by
+    # every flutter clean — tools/drive_app.sh runs one on its way out, and
+    # recording the preview film that way deleted the pkg seven times over.
+    pkg = REPO / 'build' / 'pkg_mac' / f"{app['bundle'].rsplit('.', 1)[-1]}.pkg"
+    if not pkg.exists():
+        pkg = app_dir / 'build' / 'macos' / 'appstore' / f"{app.get('name_en', 'Runner')}.pkg"
     if not pkg.exists():
         found = list((app_dir / 'build' / 'macos' / 'appstore').glob('*.pkg')) \
             if (app_dir / 'build' / 'macos' / 'appstore').is_dir() else []

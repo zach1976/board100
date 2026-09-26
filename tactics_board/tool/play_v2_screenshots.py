@@ -23,11 +23,14 @@ import aso_design_compositor as C
 PLAY_W, PLAY_H = 1440, 2868
 
 REPO = Path(__file__).resolve().parent.parent
-PLAY = REPO / "fastlane" / "play"
+sys.path.insert(0, str(REPO.parent / "tools"))
+from apps import APPS, play_metadata_dir  # noqa: E402
 
 
 def play_dir(sport):
-    return PLAY / sport / "metadata" / "android" / "en-US" / "images" / "phoneScreenshots"
+    # Per-app since 2026-09: SoccerBoard/fastlane/play/..., not a folder per
+    # sport under the core. tools/apps.py is the one place that mapping lives.
+    return Path(play_metadata_dir(sport)) / "en-US" / "images" / "phoneScreenshots"
 
 
 def render_one(sport, tmpbase):
@@ -37,17 +40,23 @@ def render_one(sport, tmpbase):
     if not dst.exists():
         print(f"⚠️  no Play listing dir for {sport} ({dst}) — skipped")
         return False
+    # How many is the caption list's answer, same as the compositor: soccer
+    # is five since the scene order was reworked, the others still six.
+    want = len(caps.get(sport, {}).get("en-US", []))
     n = C.render_sport_locale(caps, sport, "en-US", tmpbase)
-    if n != 6:
-        print(f"⚠️  {sport}: rendered {n}/6 — skipped (incomplete)")
+    if n != want:
+        print(f"⚠️  {sport}: rendered {n}/{want} — skipped (incomplete)")
         return False
     rendered = sorted((Path(tmpbase) / sport / "en-US").glob("*.png"))
-    if len(rendered) != 6:
-        print(f"⚠️  {sport}: expected 6 output files, got {len(rendered)} — skipped")
+    if len(rendered) != want:
+        print(f"⚠️  {sport}: expected {want} output files, got {len(rendered)} — skipped")
         return False
+    # A shorter set must not leave the old sixth shot behind.
+    for stale in dst.glob("*.png"):
+        stale.unlink()
     for i, src in enumerate(rendered, start=1):
         shutil.copyfile(src, dst / f"{i}.png")
-    print(f"✅ {sport}: 6 Play screenshots → {dst}")
+    print(f"✅ {sport}: {want} Play screenshots → {dst}")
     return True
 
 
@@ -57,8 +66,7 @@ def main():
         sys.exit("usage: play_v2_screenshots.py <sport...> | --all")
 
     if args == ["--all"]:
-        sports = sorted(p.name for p in PLAY.iterdir()
-                        if p.is_dir() and play_dir(p.name).exists())
+        sports = sorted(k for k in APPS if play_dir(k).exists())
     else:
         sports = args
 
