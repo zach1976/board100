@@ -1317,6 +1317,8 @@ const kUprightMarkers = <MarkerShape>{
   MarkerShape.shuttleTube,
   MarkerShape.hopper,
   MarkerShape.battingTee,
+  MarkerShape.tackleBag,
+  MarkerShape.antenna,
   MarkerShape.mannequin,
   MarkerShape.referee,
   MarkerShape.coach,
@@ -1357,7 +1359,14 @@ double markerArtScale(MarkerShape shape) => switch (shape) {
       MarkerShape.miniGoal => 1.5,
       MarkerShape.rebounder => 1.5,
       MarkerShape.bench => 1.9,
-      MarkerShape.mannequin => 1.0,
+      // The three human ones are measured against a player, not guessed at:
+      // a figure is drawn into 1.57 boxes and fills 430 of its plate's 512,
+      // so it stands 47.5pt on a 36pt token, while a marker is fitted to its
+      // box whole — the referee filled 0.889 of his plate and came out 32pt,
+      // two thirds of the players he was sent to officiate.
+      MarkerShape.referee => 1.48,
+      MarkerShape.coach => 1.43,
+      MarkerShape.mannequin => 1.47,
       MarkerShape.pole => 1.05,
       MarkerShape.cornerFlag => 1.0,
       MarkerShape.ballBag => 0.8,

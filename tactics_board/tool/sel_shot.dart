@@ -109,10 +109,18 @@ void main() {
     await tester.runAsync(PlayerArt.warm);
     await tester.pump(const Duration(milliseconds: 300));
 
-    final f = File('${Directory.current.path}/assets/drills/soccer.json');
-    final drills = jsonDecode(f.readAsStringSync())['drills'] as List;
-    final drill = drills.firstWhere((d) => d['id'] == want);
-    state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
+    // BOARD=<file.json> shoots a board written by hand — a contact sheet of
+    // every marker, say — instead of one out of the library.
+    final board = Platform.environment['BOARD'];
+    if (board != null) {
+      state.loadFromJson(Map<String, dynamic>.from(
+          jsonDecode(File(board).readAsStringSync()) as Map));
+    } else {
+      final f = File('${Directory.current.path}/assets/drills/soccer.json');
+      final drills = jsonDecode(f.readAsStringSync())['drills'] as List;
+      final drill = drills.firstWhere((d) => d['id'] == want);
+      state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
+    }
     state.setCanvasSizeSilent(const Size(kW, kH));
     state.setTargetStep(int.parse(Platform.environment['STEP'] ?? '0'));
     state.selectPlayer(pick);
