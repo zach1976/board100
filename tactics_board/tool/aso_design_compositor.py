@@ -396,20 +396,27 @@ FLAGSHIP_SPORTS = ["soccer", "basketball", "volleyball", "tennis", "badminton", 
 
 
 def render_sport_locale(captions, sport, locale, outbase):
-    """Render all 6 shots for one sport+locale. Returns count rendered."""
+    """Render one sport+locale's whole set. Returns count rendered.
+
+    How many shots there are is the caption list's answer, not a constant:
+    soccer's set is five since the scene order was reworked, and the sports
+    that have not been re-shot still carry six. A sport whose captions and
+    raw shots disagree prints the missing one rather than renumbering
+    silently.
+    """
     shots = captions.get(sport, {}).get(locale) or captions.get(sport, {}).get("en-US")
     if not shots:
         print(f"⚠️  no captions for {sport}/{locale}")
         return 0
     out_dir = Path(outbase) / sport / locale
     out_dir.mkdir(parents=True, exist_ok=True)
-    # clear stale iPhone screenshots so the dir holds exactly the new 6
+    # clear stale iPhone screenshots so the dir holds exactly this set
     for old in out_dir.glob("*.png"):
         if not old.name.startswith("ipad"):
             old.unlink()
     flagship = sport == "tactics_board"
     n = 0
-    for i in range(6):
+    for i in range(len(shots)):
         # flagship pulls each shot from a different sport for a multi-sport feel
         src_sport = FLAGSHIP_SPORTS[i] if flagship else sport
         src = V2RAW / src_sport / locale / f"s{i+1}.png"
@@ -420,7 +427,7 @@ def render_sport_locale(captions, sport, locale, outbase):
         out = out_dir / f"{i+1:02d}_{sport}_s{i+1}.png"
         compose(src, out, src_sport, locale, "TACTICS BOARD", white, green, sub)
         n += 1
-    print(f"✅ {sport}/{locale}: {n}/6")
+    print(f"✅ {sport}/{locale}: {n}/{len(shots)}")
     return n
 
 

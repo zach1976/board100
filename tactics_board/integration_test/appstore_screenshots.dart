@@ -22,8 +22,8 @@ import 'package:tactics_board/widgets/player_icon_widget.dart' show PlayerArt;
 import 'package:tactics_board/widgets/toolbar.dart';
 
 // V2 raw app screenshots for the "PLAN EVERY RALLY" design.
-// Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..6}.png
-// 6-shot story: empty · formation · timeline · add-menu · routes · playback.
+// Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..5}.png
+// 5-shot story: home · add-menu · timeline · drill page · player bar.
 final outDir =
     '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw';
 
@@ -84,26 +84,17 @@ void main() {
           await _shot(binding, '$sn/$lang/s1');
         });
 
-        // s2: a drill's own page — what it trains, how to set it up, the
-        // sequence beat by beat. This is the thing the app has that a
-        // drawing app does not.
+        // s2: Add-element bottom sheet (match setups), over a board in use —
+        // opened on an empty pitch the top half of the shot is grass.
         testWidgets('${sn}_${lang}_s2', (t) async {
-          await _launchHome(t, sport, locale);
-          final drill = await _showcase(t, sport);
-          if (drill == null) {
-            await _shot(binding, '$sn/$lang/s2');
-            return;
-          }
-          final ctx = t.element(find.byType(SportHomePage));
-          DrillDetailPage.push(ctx,
-              drill: drill,
-              sportType: sport,
-              locale: lang,
-              // A drill page reached without this shows "Unlock with Pro",
-              // because the library hands the callback over only for a drill
-              // the coach may run. The showcase is a paid one, and the store
-              // shot has to be a picture of the page, not of the paywall.
-              onLoad: () {});
+          await _launchSport(t, sport, locale);
+          final s = _state(t);
+          await _putShowcase(t, s, sport);
+          s.selectPlayer(null);
+          s.clearMultiSelect();
+          await t.pumpAndSettle();
+          final ctx = t.element(find.byType(TacticsBoardHomePage));
+          showAddElementSheet(ctx, s);
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s2');
         });
@@ -122,44 +113,39 @@ void main() {
           await _shot(binding, '$sn/$lang/s3');
         });
 
-        // s4: Add-element bottom sheet (match setups), over a board in use —
-        // opened on an empty pitch the top half of the shot is grass.
+        // s4: a drill's own page — what it trains, how to set it up, the
+        // sequence beat by beat. This is the thing the app has that a
+        // drawing app does not.
         testWidgets('${sn}_${lang}_s4', (t) async {
-          await _launchSport(t, sport, locale);
-          final s = _state(t);
-          await _putShowcase(t, s, sport);
-          s.selectPlayer(null);
-          s.clearMultiSelect();
-          await t.pumpAndSettle();
-          final ctx = t.element(find.byType(TacticsBoardHomePage));
-          showAddElementSheet(ctx, s);
+          await _launchHome(t, sport, locale);
+          final drill = await _showcase(t, sport);
+          if (drill == null) {
+            await _shot(binding, '$sn/$lang/s4');
+            return;
+          }
+          final ctx = t.element(find.byType(SportHomePage));
+          DrillDetailPage.push(ctx,
+              drill: drill,
+              sportType: sport,
+              locale: lang,
+              // A drill page reached without this shows "Unlock with Pro",
+              // because the library hands the callback over only for a drill
+              // the coach may run. The showcase is a paid one, and the store
+              // shot has to be a picture of the page, not of the paywall.
+              onLoad: () {});
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s4');
         });
 
-        // s5: a real drill off the shelf, one beat in — a pass drawn from
-        // the ball to the man it is played to, the cones that make the
-        // shape, the names under the players. The hand-built formation this
-        // used to show had no ball on it at all, which on a tactics board's
-        // own store page is the one thing a coach looks for.
+        // s5: one player picked up — the bar that names them, turns them,
+        // gives them a run, a colour, a size, a kit. The board behind it is
+        // two beats in, so the routes are drawn as well.
         testWidgets('${sn}_${lang}_s5', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
           // advanceAtStep, not setTargetStep: the board reads either, but
           // the counter on the bar reads atStep, and a shot captioned 0/8
           // over a board three beats in is a shot of a bug.
-          await _putShowcase(t, s, sport, step: 1);
-          s.selectPlayer(null);
-          s.clearMultiSelect();
-          await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s5');
-        });
-
-        // s6: one player picked up — the bar that names them, turns them,
-        // gives them a run, a colour, a size, a kit.
-        testWidgets('${sn}_${lang}_s6', (t) async {
-          await _launchSport(t, sport, locale);
-          final s = _state(t);
           await _putShowcase(t, s, sport, step: 2);
           s.clearMultiSelect();
           await t.pumpAndSettle();
@@ -171,7 +157,7 @@ void main() {
                   (p) => !p.isBall && !p.isMarker));
           s.selectPlayer(runner.id);
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s6');
+          await _shot(binding, '$sn/$lang/s5');
         });
       }
     }

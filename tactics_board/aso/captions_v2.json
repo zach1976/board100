@@ -2839,9 +2839,9 @@
         "Drills, your boards and what to run today"
       ],
       [
-        "RUN",
-        "A READY DRILL",
-        "Setup, coaching points and every beat"
+        "ADD",
+        "ANY FORMATION",
+        "11v11, futsal and custom markers"
       ],
       [
         "BUILD",
@@ -2849,14 +2849,9 @@
         "Organize each move in a clear sequence"
       ],
       [
-        "ADD",
-        "ANY FORMATION",
-        "11v11, futsal and custom markers"
-      ],
-      [
-        "SHOW",
-        "RUNS CLEARLY",
-        "Map runs, passes and pressing"
+        "RUN",
+        "A READY DRILL",
+        "Setup, coaching points and every beat"
       ],
       [
         "EDIT",
@@ -2871,9 +2866,9 @@
         "Latihan, papan anda dan sesi hari ini"
       ],
       [
-        "Jalankan",
-        "latihan siap sedia",
-        "Susunan, poin jurulatih dan setiap langkah"
+        "Tambah",
+        "mana-mana formasi",
+        "11v11, futsal dan penanda tersuai"
       ],
       [
         "Bina",
@@ -2881,14 +2876,9 @@
         "Atur setiap pergerakan dalam urutan jelas"
       ],
       [
-        "Tambah",
-        "mana-mana formasi",
-        "11v11, futsal dan penanda tersuai"
-      ],
-      [
-        "Papar",
-        "larian jelas",
-        "Petakan larian, hantaran dan tekanan"
+        "Jalankan",
+        "latihan siap sedia",
+        "Susunan, poin jurulatih dan setiap langkah"
       ],
       [
         "Sunting",
@@ -2903,9 +2893,9 @@
         "ドリル・保存したボード・今日のメニュー"
       ],
       [
-        "すぐ使える",
-        "ドリルを開く",
-        "設営・指導ポイント・手順を1画面で"
+        "フォーメーションを",
+        "追加する",
+        "11人制・フットサル・カスタム対応"
       ],
       [
         "タイムラインを",
@@ -2913,14 +2903,9 @@
         "一手ずつ明確な流れで整理"
       ],
       [
-        "フォーメーションを",
-        "追加する",
-        "11人制・フットサル・カスタム対応"
-      ],
-      [
-        "走りを",
-        "わかりやすく",
-        "ラン・パス・プレスを図解"
+        "すぐ使える",
+        "ドリルを開く",
+        "設営・指導ポイント・手順を1画面で"
       ],
       [
         "選手ごとに",
@@ -2935,9 +2920,9 @@
         "Ejercicios, tus pizarras y el plan de hoy"
       ],
       [
-        "Usa",
-        "un ejercicio listo",
-        "Montaje, puntos clave y cada paso"
+        "Añade",
+        "tu formación",
+        "11 vs 11, fútbol sala y marcadores propios"
       ],
       [
         "Crea",
@@ -2945,14 +2930,9 @@
         "Ordena cada movimiento en una jugada clara"
       ],
       [
-        "Añade",
-        "tu formación",
-        "11 vs 11, fútbol sala y marcadores propios"
-      ],
-      [
-        "Muestra",
-        "cada desmarque",
-        "Traza desmarques, pases y presión"
+        "Usa",
+        "un ejercicio listo",
+        "Montaje, puntos clave y cada paso"
       ],
       [
         "Edita",
@@ -2967,9 +2947,9 @@
         "练习库、我的战术板、今日安排"
       ],
       [
-        "直接用",
-        "现成练习",
-        "场地摆法、要点、逐步流程"
+        "设置",
+        "任意阵型",
+        "十一人制、五人制与自定义标记"
       ],
       [
         "搭建",
@@ -2977,14 +2957,9 @@
         "每步走位，井然有序"
       ],
       [
-        "设置",
-        "任意阵型",
-        "十一人制、五人制与自定义标记"
-      ],
-      [
-        "清晰",
-        "呈现跑位",
-        "标出跑动、传球与逼抢"
+        "直接用",
+        "现成练习",
+        "场地摆法、要点、逐步流程"
       ],
       [
         "逐个",
@@ -2999,9 +2974,9 @@
         "드릴, 내 보드, 오늘의 메뉴"
       ],
       [
-        "바로 쓰는",
-        "드릴 열기",
-        "세팅, 코칭 포인트, 단계별 진행"
+        "어떤 포메이션도",
+        "추가하라",
+        "11대11, 풋살과 커스텀 마커"
       ],
       [
         "타임라인을",
@@ -3009,14 +2984,9 @@
         "모든 동작을 명확한 순서로 정리"
       ],
       [
-        "어떤 포메이션도",
-        "추가하라",
-        "11대11, 풋살과 커스텀 마커"
-      ],
-      [
-        "움직임을 한눈에",
-        "보여줘라",
-        "침투, 패스, 압박을 그려라"
+        "바로 쓰는",
+        "드릴 열기",
+        "세팅, 코칭 포인트, 단계별 진행"
       ],
       [
         "선수별로",
@@ -3031,9 +3001,9 @@
         "Exercices, vos tableaux et la séance du jour"
       ],
       [
-        "Lancez",
-        "un exercice prêt",
-        "Mise en place, points clés et déroulé"
+        "Ajoutez",
+        "vos formations",
+        "11c11, futsal et repères perso"
       ],
       [
         "Montez",
@@ -3041,14 +3011,9 @@
         "Organisez chaque mouvement dans un ordre clair"
       ],
       [
-        "Ajoutez",
-        "vos formations",
-        "11c11, futsal et repères perso"
-      ],
-      [
-        "Visualisez",
-        "vos courses",
-        "Tracez appels, passes et pressing"
+        "Lancez",
+        "un exercice prêt",
+        "Mise en place, points clés et déroulé"
       ],
       [
         "Modifiez",
@@ -3063,9 +3028,9 @@
         "Bài tập, bảng đã lưu và lịch hôm nay"
       ],
       [
-        "DÙNG NGAY",
-        "BÀI TẬP CÓ SẴN",
-        "Cách bố trí, điểm nhấn và từng bước"
+        "THÊM",
+        "MỌI SƠ ĐỒ",
+        "11v11, futsal và ký hiệu tùy chỉnh"
       ],
       [
         "DỰNG",
@@ -3073,14 +3038,9 @@
         "Sắp xếp từng bước theo trình tự rõ ràng"
       ],
       [
-        "THÊM",
-        "MỌI SƠ ĐỒ",
-        "11v11, futsal và ký hiệu tùy chỉnh"
-      ],
-      [
-        "HIỂN THỊ",
-        "PHA DI CHUYỂN",
-        "Vẽ chạy chỗ, chuyền bóng và pressing"
+        "DÙNG NGAY",
+        "BÀI TẬP CÓ SẴN",
+        "Cách bố trí, điểm nhấn và từng bước"
       ],
       [
         "CHỈNH",
@@ -3095,9 +3055,9 @@
         "Latihan, papan tersimpan, dan sesi hari ini"
       ],
       [
-        "Pakai",
-        "Latihan Siap Jalan",
-        "Penataan, poin pelatih, dan tiap langkah"
+        "Tambah",
+        "Tiap Formasi",
+        "11v11, futsal, dan penanda kustom"
       ],
       [
         "Buat",
@@ -3105,14 +3065,9 @@
         "Atur tiap gerakan dalam urutan rapi"
       ],
       [
-        "Tambah",
-        "Tiap Formasi",
-        "11v11, futsal, dan penanda kustom"
-      ],
-      [
-        "Tunjukkan",
-        "Lari Jelas",
-        "Petakan lari, umpan, dan pressing"
+        "Pakai",
+        "Latihan Siap Jalan",
+        "Penataan, poin pelatih, dan tiap langkah"
       ],
       [
         "Atur",
@@ -3127,9 +3082,9 @@
         "คลังดริลล์ กระดานของคุณ และแผนวันนี้"
       ],
       [
-        "ใช้เลย",
-        "ดริลล์พร้อมใช้",
-        "การจัดวาง จุดเน้น และลำดับทุกจังหวะ"
+        "เพิ่ม",
+        "ทุกแผนการเล่น",
+        "11v11 ฟุตซอล และเครื่องหมายกำหนดเอง"
       ],
       [
         "สร้าง",
@@ -3137,14 +3092,9 @@
         "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
       ],
       [
-        "เพิ่ม",
-        "ทุกแผนการเล่น",
-        "11v11 ฟุตซอล และเครื่องหมายกำหนดเอง"
-      ],
-      [
-        "แสดง",
-        "การวิ่งชัดเจน",
-        "วาดการวิ่ง การจ่ายบอล และการกดดัน"
+        "ใช้เลย",
+        "ดริลล์พร้อมใช้",
+        "การจัดวาง จุดเน้น และลำดับทุกจังหวะ"
       ],
       [
         "ปรับ",
@@ -3159,9 +3109,9 @@
         "練習庫 我的戰術板 今日安排"
       ],
       [
-        "直接用",
-        "現成練習",
-        "場地擺法 要點 逐步流程"
+        "排出",
+        "任意陣型",
+        "十一人、五人制與自訂標記"
       ],
       [
         "建立",
@@ -3169,14 +3119,9 @@
         "把每步動作排成清晰序列"
       ],
       [
-        "排出",
-        "任意陣型",
-        "十一人、五人制與自訂標記"
-      ],
-      [
-        "清楚",
-        "呈現跑位",
-        "標出跑動、傳球與壓迫"
+        "直接用",
+        "現成練習",
+        "場地擺法 要點 逐步流程"
       ],
       [
         "逐個",
