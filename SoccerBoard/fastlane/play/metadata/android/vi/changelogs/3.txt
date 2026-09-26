@@ -1,0 +1,9 @@
+Có gì mới trong 2.0
+
+• 137 bài tập bóng đá có sẵn — mỗi bài là một bảng đi được từng nhịp, kèm cách bố trí và điểm nhấn
+• Giáo án: nối các bài tập thành một buổi, chạy bên đường biên
+• Đội hình kèm ảnh và điểm danh cả mùa
+• Chia sẻ bảng bằng đường link — mở bằng trình duyệt
+• Cầu thủ được vẽ lại: quay mặt về hướng sắp chạy tới
+• Máy tính bảng, sao chép cầu thủ kèm đường chạy, Gần đây, xuất video
+• Một lần mua tuỳ chọn để tắt quảng cáo

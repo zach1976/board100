@@ -1,5 +1,24 @@
-Yang Baru
+Yang baru di 2.0
 
-• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
-• Kembali ke aplikasi terasa lebih mulus.
-• Perbaikan bug dan peningkatan stabilitas.
+137 LATIHAN SEPAK BOLA, SUDAH DI DALAM
+Setiap latihan adalah papan yang bisa dijalankan satu ketukan demi ketukan: apa yang dilatih, cara menatanya, dan satu kalimat yang perlu diteriakkan saat berjalan. Pemanasan, rondo, penyelesaian, umpan silang, bola mati, fisik.
+
+SUSUN SATU SESI PENUH
+Rangkai latihan menjadi rencana sesi, jalankan dari pinggir lapangan satu per satu, dan catatannya tersimpan sendiri.
+
+SKUAD DAN KEHADIRAN
+Simpan pemain beserta fotonya, centang siapa yang datang, dan lihat satu musim sekilas.
+
+BAGIKAN PAPAN SEBAGAI TAUTAN
+Kirim taktik ke tim — mereka membukanya di peramban, tanpa perlu aplikasi.
+
+PEMAIN BARU DI LAPANGAN
+Figur digambar ulang dan menghadap ke arah tujuannya, pria dan wanita, dengan atau tanpa bola di kaki.
+
+JUGA DI VERSI INI
+- iPad dan Mac: papan memakai seluruh layar
+- Salin pemain beserta larinya lalu tempel di halaman berikutnya
+- Terbaru: langsung kembali ke papan yang tadi dibuka
+- Ekspor pergerakan sebagai video, bukan hanya gambar
+- Papan lebih ringan, panah lebih jelas, dan daftar perbaikan yang panjang
+- Pembelian sekali opsional menghilangkan iklan

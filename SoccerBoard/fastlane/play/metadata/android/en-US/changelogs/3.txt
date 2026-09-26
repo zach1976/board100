@@ -1,0 +1,9 @@
+What's new in 2.0
+
+• 137 soccer drills built in — each a board you step through, with setup and coaching points
+• Practice plans: string drills into a session, run it from the touchline
+• Your squad with photos, and season attendance
+• Share a board as a link — opens in a browser, no app needed
+• Players redrawn: they face where they are going
+• Tablet layout, copy a player with their run, Recent, video export
+• An optional one-time upgrade removes the ads

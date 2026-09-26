@@ -1,5 +1,24 @@
-Có gì mới
+Có gì mới trong 2.0
 
-• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
-• Quay lại ứng dụng mượt mà hơn.
-• Sửa lỗi và cải thiện độ ổn định.
+137 BÀI TẬP BÓNG ĐÁ CÓ SẴN
+Mỗi bài tập là một bảng chiến thuật đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu duy nhất cần hô khi bài đang chạy. Khởi động, rondo, dứt điểm, tạt bóng, cố định, thể lực.
+
+SOẠN CẢ MỘT BUỔI TẬP
+Nối các bài tập thành giáo án, chạy từng bài ngay bên đường biên, và những gì đã tập được ghi lại.
+
+ĐỘI HÌNH VÀ ĐIỂM DANH
+Lưu cầu thủ kèm ảnh, đánh dấu ai có mặt, và xem cả mùa trong một màn hình.
+
+CHIA SẺ BẢNG BẰNG ĐƯỜNG LINK
+Gửi bài cho cả đội — họ mở bằng trình duyệt, không cần cài ứng dụng.
+
+CẦU THỦ TRÊN SÂN ĐƯỢC VẼ LẠI
+Giờ họ quay mặt về hướng sắp chạy tới, chọn được nam hoặc nữ, có hoặc không có bóng trong chân.
+
+BẢN NÀY CÒN CÓ
+- iPad và Mac: bảng dùng trọn màn hình
+- Sao chép cầu thủ kèm đường chạy rồi dán sang trang sau
+- Gần đây: quay lại ngay bảng vừa mở
+- Xuất pha bóng thành video, không chỉ ảnh
+- Bảng mượt hơn, mũi tên rõ hơn, và một danh sách sửa lỗi dài
+- Một lần mua tuỳ chọn để tắt quảng cáo

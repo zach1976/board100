@@ -1,5 +1,24 @@
-What's New
+What's New in 2.0
 
-• The timeline editor now scrolls — every player and drawing row stays reachable, no matter how many you add.
-• Smoother return when you switch back into the app.
-• Bug fixes and stability improvements.
+137 SOCCER DRILLS, BUILT IN
+Every drill is a board you can step through — what it trains, how to set it up, and the one thing to say while it runs. Warm-ups, rondos, finishing, crossing, set pieces, conditioning.
+
+PLAN THE WHOLE SESSION
+String drills into a practice plan, run it from the touchline one drill at a time, and keep a record of what you actually ran.
+
+YOUR SQUAD, YOUR ATTENDANCE
+Keep your players with their photos, mark who turned up, and see the season at a glance.
+
+SHARE A BOARD AS A LINK
+Send a tactic to the squad — they open it in a browser, no app needed.
+
+NEW PLAYERS ON THE PITCH
+Redrawn figures who face where they are going, men and women, with or without the ball at their feet.
+
+ALSO IN THIS RELEASE
+- iPad and Mac: the board uses the whole screen
+- Copy a player with their run and paste it onto the next page
+- Recent: straight back to the board you had open
+- Export a move as a video, not just an image
+- Faster boards, clearer arrows, and a long list of fixes
+- An optional one-time upgrade removes the ads

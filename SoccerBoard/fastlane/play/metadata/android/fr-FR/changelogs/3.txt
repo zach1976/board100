@@ -1,0 +1,9 @@
+Nouveautés de la 2.0
+
+• 137 exercices de football intégrés : chacun un tableau à dérouler, avec mise en place et consignes
+• Plans d'entraînement : enchaînez des exercices et déroulez la séance
+• Votre effectif avec photos et les présences de la saison
+• Partagez un tableau par lien : il s'ouvre dans un navigateur
+• Joueurs redessinés : ils regardent là où ils vont
+• Tablette, copier un joueur avec sa course, Récents, export vidéo
+• Un achat unique facultatif supprime les publicités

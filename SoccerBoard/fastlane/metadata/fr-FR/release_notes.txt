@@ -1,5 +1,24 @@
-Nouveautés
+Nouveautés de la 2.0
 
-• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
-• Retour plus fluide lorsque vous revenez dans l'app.
-• Corrections de bugs et améliorations de stabilité.
+137 EXERCICES DE FOOTBALL INTÉGRÉS
+Chaque exercice est un tableau que vous déroulez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Échauffements, rondos, finition, centres, coups de pied arrêtés, physique.
+
+PRÉPAREZ TOUTE LA SÉANCE
+Enchaînez des exercices en un plan d'entraînement, déroulez-le depuis la touche un par un, et gardez la trace de ce que vous avez vraiment fait.
+
+VOTRE EFFECTIF ET LES PRÉSENCES
+Gardez vos joueurs avec leur photo, cochez qui est venu, et voyez la saison d'un coup d'œil.
+
+PARTAGEZ UN TABLEAU PAR LIEN
+Envoyez une tactique à l'équipe : elle s'ouvre dans un navigateur, sans application.
+
+DE NOUVEAUX JOUEURS SUR LE TERRAIN
+Des figurines redessinées qui regardent là où elles vont, hommes et femmes, avec ou sans le ballon au pied.
+
+AUSSI DANS CETTE VERSION
+- iPad et Mac : le tableau prend tout l'écran
+- Copiez un joueur avec sa course et collez-le sur la page suivante
+- Récents : retour direct au tableau que vous aviez ouvert
+- Exportez une action en vidéo, pas seulement en image
+- Tableaux plus rapides, flèches plus lisibles et une longue liste de corrections
+- Un achat unique facultatif supprime les publicités
