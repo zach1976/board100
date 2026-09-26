@@ -194,11 +194,27 @@ def main() -> None:
                 'detail': (f'{path.stat().st_size / 1_048_576:.0f} MB · '
                            f'{path.relative_to(REPO)}') if ok else '未构建'}
 
+    # Where the build scripts actually leave things: build_all_ipa.sh copies
+    # the export out to build/ipa_all/<bundle suffix>.ipa at the repo root,
+    # and xcodebuild names the one inside the app dir after the Flutter
+    # project rather than the app — so looking for "<App>.ipa" there found
+    # nothing and the page said 未构建 over a freshly built IPA.
+    ipa = REPO / 'build' / 'ipa_all' / f"{app['bundle'].rsplit('.', 1)[-1]}.ipa"
+    if not ipa.exists():
+        local = app_dir / 'build' / 'ios' / 'ipa'
+        found = sorted(local.glob('*.ipa')) if local.is_dir() else []
+        if found:
+            ipa = found[0]
+    # build_all_aab.sh names it by the marketing version alone; the
+    # pubspec line here still carries the +build.
+    aab = (REPO / 'build' / 'aab_play'
+           / f"{key}-{version.split('+')[0]}.aab")
+    if not aab.exists():
+        aab = (app_dir / 'build' / 'app' / 'outputs' / 'bundle' / 'release'
+               / 'app-release.aab')
     builds = [
-        artefact('iOS · IPA', app_dir / 'build' / 'ios' / 'ipa'
-                 / f"{app.get('name_en', 'Runner')}.ipa", 'tools/build_all_ipa.sh ' + key),
-        artefact('Android · AAB', app_dir / 'build' / 'app' / 'outputs'
-                 / 'bundle' / 'release' / 'app-release.aab',
+        artefact('iOS · IPA', ipa, 'tools/build_all_ipa.sh ' + key),
+        artefact('Android · AAB', aab,
                  f'BUILD_NUMBER=3 tools/build_all_aab.sh {key}'),
     ]
     if pkg and pkg.exists():
