@@ -2850,13 +2850,13 @@
       ],
       [
         "BROWSE",
-        "EVERY DRILL",
+        "THE DRILL LIBRARY",
         "Search and filter by category, level and size"
       ],
       [
-        "EDIT",
-        "ANY PLAYER",
-        "Runs, colours, numbers and kit in one bar"
+        "RUN",
+        "ANY DRILL",
+        "Put it on the board, play it beat by beat, edit a run"
       ]
     ],
     "ms": [
@@ -2877,13 +2877,13 @@
       ],
       [
         "Layari",
-        "setiap latihan",
+        "pustaka latihan",
         "Cari dan tapis ikut kategori, tahap dan saiz"
       ],
       [
-        "Sunting",
-        "mana-mana pemain",
-        "Larian, warna, nombor dan jersi dalam satu bar"
+        "Guna",
+        "latihan itu",
+        "Letak di papan, main langkah demi langkah, ubah larian"
       ]
     ],
     "ja": [
@@ -2903,14 +2903,14 @@
         "一手ずつ明確な流れで整理"
       ],
       [
-        "すべての",
-        "ドリルを探す",
+        "ドリル",
+        "ライブラリを見る",
         "カテゴリ・レベル・人数で検索"
       ],
       [
-        "選手ごとに",
-        "細かく設定",
-        "ラン・色・番号・ユニフォームを一列で"
+        "ドリルを",
+        "そのまま使う",
+        "ボードに載せて一手ずつ再生、ランを編集"
       ]
     ],
     "es-ES": [
@@ -2931,13 +2931,13 @@
       ],
       [
         "Explora",
-        "todos los ejercicios",
+        "la biblioteca",
         "Busca y filtra por categoría, nivel y jugadores"
       ],
       [
-        "Edita",
-        "cualquier jugador",
-        "Carreras, colores, dorsales y equipación"
+        "Usa",
+        "cualquier ejercicio",
+        "Ponlo en la pizarra, reprodúcelo paso a paso, edita"
       ]
     ],
     "zh-Hans": [
@@ -2964,7 +2964,7 @@
       [
         "使用",
         "训练素材",
-        "跑动、颜色、号码、球衣一栏搞定"
+        "加载到板上，逐步播放，随手改跑位"
       ]
     ],
     "ko": [
@@ -2984,14 +2984,14 @@
         "모든 동작을 명확한 순서로 정리"
       ],
       [
-        "드릴 전체를",
-        "훑어보기",
+        "드릴",
+        "라이브러리 보기",
         "카테고리, 레벨, 인원으로 검색"
       ],
       [
-        "선수별로",
-        "세밀하게 편집",
-        "이동, 색상, 번호, 유니폼을 한 줄에서"
+        "드릴을",
+        "바로 쓰기",
+        "보드에 올려 단계별 재생, 이동 경로 편집"
       ]
     ],
     "fr-FR": [
@@ -3012,13 +3012,13 @@
       ],
       [
         "Parcourez",
-        "tous les exercices",
+        "la bibliothèque",
         "Cherchez et filtrez par catégorie, niveau, effectif"
       ],
       [
-        "Modifiez",
-        "chaque joueur",
-        "Courses, couleurs, numéros et maillots"
+        "Lancez",
+        "un exercice",
+        "Sur le tableau, pas à pas, et modifiez une course"
       ]
     ],
     "vi": [
@@ -3039,13 +3039,13 @@
       ],
       [
         "DUYỆT",
-        "TOÀN BỘ BÀI TẬP",
+        "THƯ VIỆN BÀI TẬP",
         "Tìm và lọc theo nhóm, cấp độ và số người"
       ],
       [
-        "CHỈNH",
-        "TỪNG CẦU THỦ",
-        "Đường chạy, màu, số áo và trang phục"
+        "DÙNG",
+        "BÀI TẬP CÓ SẴN",
+        "Đưa lên bảng, chạy từng bước, sửa đường chạy"
       ]
     ],
     "id": [
@@ -3066,13 +3066,13 @@
       ],
       [
         "Jelajahi",
-        "Semua Latihan",
+        "Pustaka Latihan",
         "Cari dan saring per kategori, level, dan jumlah"
       ],
       [
-        "Atur",
-        "Tiap Pemain",
-        "Lari, warna, nomor, dan seragam dalam satu bar"
+        "Pakai",
+        "Latihannya",
+        "Taruh di papan, putar tiap langkah, ubah lari"
       ]
     ],
     "th": [
@@ -3092,14 +3092,14 @@
         "จัดลำดับทุกการเคลื่อนไหวอย่างเป็นขั้นตอน"
       ],
       [
-        "ค้นดู",
-        "ดริลล์ทั้งหมด",
+        "ดู",
+        "คลังดริลล์",
         "ค้นหาและกรองตามหมวด ระดับ และจำนวนคน"
       ],
       [
-        "ปรับ",
-        "ผู้เล่นทีละคน",
-        "เส้นวิ่ง สี หมายเลข และชุดแข่งในแถบเดียว"
+        "ใช้",
+        "ดริลล์ได้เลย",
+        "วางบนกระดาน เล่นทีละจังหวะ แก้เส้นวิ่ง"
       ]
     ],
     "zh-Hant": [
@@ -3126,7 +3126,7 @@
       [
         "使用",
         "訓練素材",
-        "跑動 顏色 號碼 球衣一欄搞定"
+        "載到板上 逐步播放 隨手改跑位"
       ]
     ]
   },
