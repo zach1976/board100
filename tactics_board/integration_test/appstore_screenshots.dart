@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,8 +11,13 @@ import 'package:tactics_board/models/drill.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/drill_library_service.dart';
+import 'package:tactics_board/services/recent_boards_service.dart';
+import 'package:tactics_board/services/working_board_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/pages/drill_detail_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
+import 'package:tactics_board/pages/main_shell.dart';
+import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart' show PlayerArt;
 import 'package:tactics_board/widgets/toolbar.dart';
 
@@ -44,7 +50,20 @@ void main() {
   // on it. It is the right thing in the app and the wrong thing on the
   // leading store screenshot, which is a picture of the pitch.
   // ignore: invalid_use_of_visible_for_testing_member
-  SharedPreferences.setMockInitialValues({'flutter.board_hint_seen': true});
+  SharedPreferences.setMockInitialValues({
+    // The hint on an empty board, and the three-panel intro the shell shows
+    // a first run: both are right in the app and both are the wrong thing
+    // to photograph. Without the second, the front-door shot came out as
+    // the onboarding page and the drill shot found no home page under it.
+    'flutter.board_hint_seen': true,
+    'flutter.intro_seen': true,
+    // Picking a player up the first time explains what following one does.
+    // It is a toast across the bottom of the player bar — which is the
+    // subject of s6.
+    'flutter.focus_hint_seen': true,
+    // An ad over the top of a store screenshot.
+    'flutter.remove_ads_pro': true,
+  });
   // This file is run from a SHELL app — SoccerBoard, BasketballBoard — not
   // from the core. The core is a library now: a sport's ball, its equipment
   // and its drills are dev dependencies there, so a board shot from it has
@@ -56,18 +75,35 @@ void main() {
     for (final sport in SportType.values) {
       final sn = sport.name;
       for (final (lang, locale) in allLocales) {
-        // s1: empty court
+        // s1: the app's front door — the library, what to run today, the
+        // board waiting where it was left. An empty pitch was the old first
+        // shot, and an empty pitch is what every tactics board looks like.
         testWidgets('${sn}_${lang}_s1', (t) async {
-          await _launchSport(t, sport, locale);
+          await _seedHome(t, sport, locale);
+          await _launchHome(t, sport, locale);
           await _shot(binding, '$sn/$lang/s1');
         });
 
-        // s2: formation (players placed)
+        // s2: a drill's own page — what it trains, how to set it up, the
+        // sequence beat by beat. This is the thing the app has that a
+        // drawing app does not.
         testWidgets('${sn}_${lang}_s2', (t) async {
-          await _launchSport(t, sport, locale);
-          final s = _state(t);
-          if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
-          s.clearMultiSelect();
+          await _launchHome(t, sport, locale);
+          final drill = await _showcase(t, sport);
+          if (drill == null) {
+            await _shot(binding, '$sn/$lang/s2');
+            return;
+          }
+          final ctx = t.element(find.byType(SportHomePage));
+          DrillDetailPage.push(ctx,
+              drill: drill,
+              sportType: sport,
+              locale: lang,
+              // A drill page reached without this shows "Unlock with Pro",
+              // because the library hands the callback over only for a drill
+              // the coach may run. The showcase is a paid one, and the store
+              // shot has to be a picture of the page, not of the paywall.
+              onLoad: () {});
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s2');
         });
@@ -76,7 +112,7 @@ void main() {
         testWidgets('${sn}_${lang}_s3', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          _setupFormationAndMoves(s, sport);
+          await _putShowcase(t, s, sport);
           s.selectPlayer(null);
           await t.pumpAndSettle();
           // The outlined variant: the play bar's button, which is what the
@@ -91,7 +127,8 @@ void main() {
         testWidgets('${sn}_${lang}_s4', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
+          await _putShowcase(t, s, sport);
+          s.selectPlayer(null);
           s.clearMultiSelect();
           await t.pumpAndSettle();
           final ctx = t.element(find.byType(TacticsBoardHomePage));
@@ -108,40 +145,31 @@ void main() {
         testWidgets('${sn}_${lang}_s5', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          final drill = await _showcase(t, sport);
-          if (drill == null) {
-            _setupFormationAndMoves(s, sport);
-          } else {
-            s.loadFromJson(Map<String, dynamic>.from(drill.board));
-            s.setShowMoveLines(true);
-            // advanceAtStep, not setTargetStep: the board reads either, but
-            // the counter on the bar reads atStep, and a shot captioned 0/8
-            // over a board three beats in is a shot of a bug.
-            s.advanceAtStep(1);
-          }
+          // advanceAtStep, not setTargetStep: the board reads either, but
+          // the counter on the bar reads atStep, and a shot captioned 0/8
+          // over a board three beats in is a shot of a bug.
+          await _putShowcase(t, s, sport, step: 1);
           s.selectPlayer(null);
           s.clearMultiSelect();
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s5');
         });
 
-        // s6: the same drill two beats further on — where the players have
-        // got to, and the faint tokens they left behind.
+        // s6: one player picked up — the bar that names them, turns them,
+        // gives them a run, a colour, a size, a kit.
         testWidgets('${sn}_${lang}_s6', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          final drill = await _showcase(t, sport);
-          if (drill == null) {
-            _setupFormationAndMoves(s, sport);
-            s.stepForward();
-            s.stepForward();
-          } else {
-            s.loadFromJson(Map<String, dynamic>.from(drill.board));
-            s.setShowMoveLines(true);
-            s.advanceAtStep(3);
-          }
-          s.selectPlayer(null);
+          await _putShowcase(t, s, sport, step: 2);
           s.clearMultiSelect();
+          await t.pumpAndSettle();
+          // Somebody with a run to show: the bar is the same either way, but
+          // a player standing still leaves the board's own lines empty.
+          final runner = s.players.firstWhere(
+              (p) => !p.isBall && !p.isMarker && p.moves.isNotEmpty,
+              orElse: () => s.players.firstWhere(
+                  (p) => !p.isBall && !p.isMarker));
+          s.selectPlayer(runner.id);
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s6');
         });
@@ -213,6 +241,25 @@ Future<Drill?> _showcase(WidgetTester t, SportType sport) async {
   return best;
 }
 
+/// Puts the sport's showcase drill on [s], walked to [step].
+///
+/// Every board shot is this one board. A formation was what s3 and s4 used
+/// to show, and `formations[0]` lays out BOTH teams — so the two midfields
+/// stood on each other across the halfway line, twenty-two figures deep, on
+/// a pitch dimmed under a sheet. A drill is six players, the cones that
+/// make the shape, and a ball that goes somewhere.
+Future<void> _putShowcase(WidgetTester t, TacticsState s, SportType sport,
+    {int step = 0}) async {
+  final drill = await _showcase(t, sport);
+  if (drill == null) {
+    _setupFormationAndMoves(s, sport);
+    return;
+  }
+  s.loadFromJson(Map<String, dynamic>.from(drill.board));
+  s.setShowMoveLines(true);
+  if (step > 0) s.advanceAtStep(step);
+}
+
 void _setupFormationAndMoves(TacticsState s, SportType sport) {
   if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
   // Applying a formation leaves every player it placed multi-selected, so a
@@ -245,7 +292,120 @@ void _addMovesToState(TacticsState s, SportType sport, List<PlayerIcon> home) {
   }
 }
 
-Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async {
+/// Gives the front door something to be a front door TO.
+///
+/// The home page is a page about the coach's own work: the board they left
+/// open, the drills they looked at this week, the boards they saved. Shot on
+/// a fresh install every one of those is empty, and the leading store
+/// screenshot came out as a photograph, a blank card and the words "nothing
+/// saved yet" — an app with nothing in it.
+///
+/// So it is seeded first, out of the shipped library, in the locale being
+/// shot: three saved boards dated today, yesterday and last week, six drills
+/// in the recent row, and the first of them left open on the board. All of it
+/// through the app's own services, so what the page draws is what it would
+/// draw for a coach who had done this by hand.
+Future<void> _seedHome(WidgetTester t, SportType sport, Locale locale) async {
+  final loc = locale.countryCode == null
+      ? locale.languageCode
+      : '${locale.languageCode}-${locale.countryCode}';
+  List<Drill> all = const [];
+  await t.runAsync(() async {
+    all = await DrillLibraryService.instance.forSport(sport);
+  });
+  if (all.isEmpty) return;
+  final showcase = await _showcase(t, sport);
+  // The drill on the board card is the one s2 and s5 are about; the rest are
+  // the library's own order, one per family so the row reads as six different
+  // things rather than the same rondo at six sizes.
+  final picks = <Drill>[if (showcase != null) showcase];
+  for (final d in all) {
+    if (picks.length >= 6) break;
+    if (picks.any((e) => e.id == d.id)) continue;
+    if (d.family != null && picks.any((e) => e.family == d.family)) continue;
+    picks.add(d);
+  }
+  await t.runAsync(() async {
+    // preview: a seeder must not claim the external-display channel, and
+    // must not write its own loads over the working board this ends by
+    // setting.
+    final s = TacticsState(sportType: sport, preview: true);
+    // Whatever the locale before this one saved: the names are translated,
+    // so without this "my boards" grows by three every locale and shows
+    // Korean rows on the Spanish page.
+    for (final name in await s.listSavedTactics()) {
+      await s.deleteTactics(name);
+    }
+    const ages = <int>[0, 1, 6];
+    for (var i = 0; i < ages.length && i < picks.length; i++) {
+      final d = picks[i];
+      final name = d.localizedName(loc);
+      s.loadFromJson(Map<String, dynamic>.from(d.board));
+      final path = await s.saveTactics(name);
+      final when = DateTime.now().subtract(Duration(days: ages[i]));
+      if (ages[i] != 0) await _backdate(path, when);
+      await RecentBoardsService.instance.record(
+        sport,
+        RecentBoard(
+          kind: RecentBoardKind.tactic,
+          id: name,
+          label: name,
+          openedAt: when,
+        ),
+      );
+    }
+    // Recorded oldest first, because record() puts each one on top.
+    for (var i = picks.length - 1; i >= 0; i--) {
+      await RecentBoardsService.instance.record(
+        sport,
+        RecentBoard(
+          kind: RecentBoardKind.drill,
+          id: picks[i].id,
+          label: picks[i].localizedName(loc),
+          openedAt: DateTime.now().subtract(Duration(hours: 5 * i)),
+        ),
+      );
+    }
+    final open = picks.first;
+    s.loadFromJson(Map<String, dynamic>.from(open.board));
+    await WorkingBoardService.instance.save(
+      sport,
+      s.toJson()..['currentName'] = open.localizedName(loc),
+    );
+    s.dispose();
+  });
+}
+
+/// Dates a saved board back to [when].
+///
+/// Three boards all saved a second ago all say "today", and a list where
+/// every row says the same thing is a list nobody reads. saveTactics stamps
+/// the moment it wrote — rightly — so the date is edited on the file.
+Future<void> _backdate(String path, DateTime when) async {
+  final file = File(path);
+  final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+  final meta = json['meta'];
+  if (meta is! Map) return;
+  meta['updatedAt'] = when.toIso8601String();
+  meta['createdAt'] = when.subtract(const Duration(days: 3)).toIso8601String();
+  await file.writeAsString(jsonEncode(json));
+}
+
+/// The app's own front door, with the tab bar under it.
+Future<void> _launchHome(WidgetTester t, SportType sport, Locale locale) async {
+  await _launch(t, sport, locale, const MainShell());
+  // The home page reads its drills, its saved boards and its recents off
+  // disk; shot the moment it pumps, it is a page of empty sections.
+  await t.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 600)));
+  await t.pumpAndSettle();
+}
+
+Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) =>
+    _launch(t, sport, locale, const TacticsBoardHomePage());
+
+/// The app, at [home], in [locale].
+Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
+    Widget home) async {
   await EasyLocalization.ensureInitialized();
   // The figures, the ball and the equipment decode like any other asset. A
   // test that shoots the moment it pumps catches the board drawn with the
@@ -265,14 +425,14 @@ Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) async 
       startLocale: locale,
       child: Builder(builder: (ctx) {
         return ChangeNotifierProvider(
-          create: (_) => TacticsState(sportType: sport),
+          create: (_) => TacticsState(sportType: sport)..restoreWorkingBoard(),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: ctx.localizationDelegates,
             supportedLocales: ctx.supportedLocales,
             locale: locale,
             theme: _theme(),
-            home: const TacticsBoardHomePage(),
+            home: home,
           ),
         );
       }),

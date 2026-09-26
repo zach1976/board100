@@ -2834,14 +2834,14 @@
   "soccer": {
     "en-US": [
       [
-        "PLAN",
-        "EVERY ATTACK",
-        "Drag players and draw tactics in seconds"
+        "OPEN",
+        "EVERY SESSION",
+        "Drills, your boards and what to run today"
       ],
       [
-        "PLACE",
-        "EVERY PLAYER",
-        "Build formations with clear numbered markers"
+        "RUN",
+        "A READY DRILL",
+        "Setup, coaching points and every beat"
       ],
       [
         "BUILD",
@@ -2859,21 +2859,21 @@
         "Map runs, passes and pressing"
       ],
       [
-        "ANIMATE",
-        "THE DRILL",
-        "Play each step and visualize movement paths"
+        "EDIT",
+        "ANY PLAYER",
+        "Runs, colours, numbers and kit in one bar"
       ]
     ],
     "ms": [
       [
-        "Rancang",
-        "setiap serangan",
-        "Seret pemain dan lukis taktik dalam saat"
+        "Buka",
+        "setiap sesi",
+        "Latihan, papan anda dan sesi hari ini"
       ],
       [
-        "Tempatkan",
-        "setiap pemain",
-        "Susun formasi dengan penanda bernombor jelas"
+        "Jalankan",
+        "latihan siap sedia",
+        "Susunan, poin jurulatih dan setiap langkah"
       ],
       [
         "Bina",
@@ -2891,21 +2891,21 @@
         "Petakan larian, hantaran dan tekanan"
       ],
       [
-        "Animasikan",
-        "latihan itu",
-        "Mainkan setiap langkah dan lihat laluan gerak"
+        "Sunting",
+        "mana-mana pemain",
+        "Larian, warna, nombor dan jersi dalam satu bar"
       ]
     ],
     "ja": [
       [
-        "全攻撃を",
-        "組み立てる",
-        "選手を動かし数秒で戦術を描く"
+        "今日の練習を",
+        "すぐ開く",
+        "ドリル・保存したボード・今日のメニュー"
       ],
       [
-        "全選手を",
-        "配置する",
-        "番号マーカーで陣形を作成"
+        "すぐ使える",
+        "ドリルを開く",
+        "設営・指導ポイント・手順を1画面で"
       ],
       [
         "タイムラインを",
@@ -2923,21 +2923,21 @@
         "ラン・パス・プレスを図解"
       ],
       [
-        "ドリルを",
-        "動かす",
-        "一手ずつ再生し動きを可視化"
+        "選手ごとに",
+        "細かく設定",
+        "ラン・色・番号・ユニフォームを一列で"
       ]
     ],
     "es-ES": [
       [
-        "Planifica",
-        "cada ataque",
-        "Mueve jugadores y dibuja tácticas en segundos"
+        "Abre",
+        "cada sesión",
+        "Ejercicios, tus pizarras y el plan de hoy"
       ],
       [
-        "Coloca",
-        "cada jugador",
-        "Crea formaciones con marcadores numerados"
+        "Usa",
+        "un ejercicio listo",
+        "Montaje, puntos clave y cada paso"
       ],
       [
         "Crea",
@@ -2955,21 +2955,21 @@
         "Traza desmarques, pases y presión"
       ],
       [
-        "Anima",
-        "el ejercicio",
-        "Reproduce cada paso y visualiza el movimiento"
+        "Edita",
+        "cualquier jugador",
+        "Carreras, colores, dorsales y equipación"
       ]
     ],
     "zh-Hans": [
       [
-        "谋划",
-        "每次进攻",
-        "拖动球员，秒画战术"
+        "打开",
+        "今天的训练",
+        "练习库、我的战术板、今日安排"
       ],
       [
-        "排定",
-        "每名球员",
-        "清晰编号，轻松布阵"
+        "直接用",
+        "现成练习",
+        "场地摆法、要点、逐步流程"
       ],
       [
         "搭建",
@@ -2987,21 +2987,21 @@
         "标出跑动、传球与逼抢"
       ],
       [
-        "动画",
-        "演示战术",
-        "逐步播放，直观看跑动"
+        "逐个",
+        "调整球员",
+        "跑动、颜色、号码、球衣一栏搞定"
       ]
     ],
     "ko": [
       [
-        "모든 공격을",
-        "설계하라",
-        "선수를 끌어다 놓고 몇 초 만에 전술 그리기"
+        "오늘 훈련을",
+        "바로 열기",
+        "드릴, 내 보드, 오늘의 메뉴"
       ],
       [
-        "선수마다",
-        "자리 잡기",
-        "번호 마커로 깔끔하게 포메이션 구성"
+        "바로 쓰는",
+        "드릴 열기",
+        "세팅, 코칭 포인트, 단계별 진행"
       ],
       [
         "타임라인을",
@@ -3019,21 +3019,21 @@
         "침투, 패스, 압박을 그려라"
       ],
       [
-        "드릴을",
-        "애니메이션으로",
-        "단계별로 재생하고 이동 경로 시각화"
+        "선수별로",
+        "세밀하게 편집",
+        "이동, 색상, 번호, 유니폼을 한 줄에서"
       ]
     ],
     "fr-FR": [
       [
-        "Pensez",
-        "chaque attaque",
-        "Déplacez les joueurs et dessinez vos tactiques"
+        "Ouvrez",
+        "chaque séance",
+        "Exercices, vos tableaux et la séance du jour"
       ],
       [
-        "Placez",
-        "chaque joueur",
-        "Créez des formations aux repères numérotés"
+        "Lancez",
+        "un exercice prêt",
+        "Mise en place, points clés et déroulé"
       ],
       [
         "Montez",
@@ -3051,21 +3051,21 @@
         "Tracez appels, passes et pressing"
       ],
       [
-        "Animez",
-        "votre exercice",
-        "Lancez chaque étape et suivez les déplacements"
+        "Modifiez",
+        "chaque joueur",
+        "Courses, couleurs, numéros et maillots"
       ]
     ],
     "vi": [
       [
-        "LÊN ĐẤU PHÁP",
-        "TỪNG PHA TẤN CÔNG",
-        "Kéo cầu thủ, vẽ chiến thuật trong vài giây"
+        "MỞ",
+        "BUỔI TẬP HÔM NAY",
+        "Bài tập, bảng đã lưu và lịch hôm nay"
       ],
       [
-        "SẮP XẾP",
-        "TỪNG VỊ TRÍ",
-        "Dựng đội hình với số áo rõ ràng"
+        "DÙNG NGAY",
+        "BÀI TẬP CÓ SẴN",
+        "Cách bố trí, điểm nhấn và từng bước"
       ],
       [
         "DỰNG",
@@ -3083,21 +3083,21 @@
         "Vẽ chạy chỗ, chuyền bóng và pressing"
       ],
       [
-        "MÔ PHỎNG",
-        "BÀI TẬP",
-        "Chạy từng bước, thấy rõ đường di chuyển"
+        "CHỈNH",
+        "TỪNG CẦU THỦ",
+        "Đường chạy, màu, số áo và trang phục"
       ]
     ],
     "id": [
       [
-        "Rancang",
-        "Tiap Serangan",
-        "Geser pemain dan gambar taktik seketika"
+        "Buka",
+        "Tiap Sesi",
+        "Latihan, papan tersimpan, dan sesi hari ini"
       ],
       [
-        "Tempatkan",
-        "Tiap Pemain",
-        "Susun formasi dengan penanda bernomor"
+        "Pakai",
+        "Latihan Siap Jalan",
+        "Penataan, poin pelatih, dan tiap langkah"
       ],
       [
         "Buat",
@@ -3115,21 +3115,21 @@
         "Petakan lari, umpan, dan pressing"
       ],
       [
-        "Animasikan",
-        "Latihannya",
-        "Putar tiap langkah dan lihat alur gerak"
+        "Atur",
+        "Tiap Pemain",
+        "Lari, warna, nomor, dan seragam dalam satu bar"
       ]
     ],
     "th": [
       [
-        "วางแผน",
-        "ทุกการบุก",
-        "ลากผู้เล่นและวาดแทคติกได้ในไม่กี่วินาที"
+        "เปิด",
+        "การฝึกวันนี้",
+        "คลังดริลล์ กระดานของคุณ และแผนวันนี้"
       ],
       [
-        "จัดวาง",
-        "ผู้เล่นทุกคน",
-        "สร้างแผนการเล่นด้วยหมายเลขที่ชัดเจน"
+        "ใช้เลย",
+        "ดริลล์พร้อมใช้",
+        "การจัดวาง จุดเน้น และลำดับทุกจังหวะ"
       ],
       [
         "สร้าง",
@@ -3147,21 +3147,21 @@
         "วาดการวิ่ง การจ่ายบอล และการกดดัน"
       ],
       [
-        "จำลอง",
-        "ดริลล์เคลื่อนไหว",
-        "เล่นทีละจังหวะและเห็นเส้นทางวิ่ง"
+        "ปรับ",
+        "ผู้เล่นทีละคน",
+        "เส้นวิ่ง สี หมายเลข และชุดแข่งในแถบเดียว"
       ]
     ],
     "zh-Hant": [
       [
-        "規劃",
-        "每次進攻",
-        "拖曳球員 秒畫戰術"
+        "打開",
+        "今天的訓練",
+        "練習庫 我的戰術板 今日安排"
       ],
       [
-        "排好",
-        "每位球員",
-        "用清楚編號擺出陣型"
+        "直接用",
+        "現成練習",
+        "場地擺法 要點 逐步流程"
       ],
       [
         "建立",
@@ -3179,9 +3179,9 @@
         "標出跑動、傳球與壓迫"
       ],
       [
-        "動畫",
-        "演練戰術",
-        "逐步播放 視覺化跑位路徑"
+        "逐個",
+        "調整球員",
+        "跑動 顏色 號碼 球衣一欄搞定"
       ]
     ]
   },
