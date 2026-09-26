@@ -1,0 +1,298 @@
+#!/usr/bin/env python3
+"""One page with everything an app is about to be released with.
+
+Reads the app's own store files off disk — metadata, screenshots, the built
+package — and writes a self-contained HTML review. Nothing is fetched: the
+images are embedded, so the page reads with the network off and survives
+being sent to somebody.
+
+    python3 tools/release_review.py soccer
+    open -a "Google Chrome" tools/release_review.html
+"""
+import base64, html, io, json, pathlib, plistlib, subprocess, sys
+
+from PIL import Image
+
+REPO = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / 'tools'))
+from apps import APPS, metadata_dir, screenshots_dir, play_metadata_dir  # noqa: E402
+
+# App Store locale → the name a reader knows it by.
+LOCALE_NAMES = {
+    'en-US': 'English (US)', 'en-GB': 'English (UK)', 'zh-Hans': '简体中文',
+    'zh-Hant': '繁體中文', 'ja': '日本語', 'ko': '한국어', 'es-ES': 'Español',
+    'fr-FR': 'Français', 'id': 'Bahasa Indonesia', 'ms': 'Bahasa Melayu',
+    'th': 'ไทย', 'vi': 'Tiếng Việt',
+}
+PLAY_NAMES = dict(LOCALE_NAMES, **{'zh-CN': '简体中文', 'zh-TW': '繁體中文',
+                                   'ja-JP': '日本語', 'ko-KR': '한국어'})
+# The App Store's own limits, so a field that will be rejected says so here.
+LIMITS = {'name': 30, 'subtitle': 30, 'keywords': 100, 'promotional_text': 170,
+          'release_notes': 4000, 'description': 4000}
+FIELD_LABEL = {'name': '名称', 'subtitle': '副标题', 'keywords': '关键词',
+               'promotional_text': '推广文本', 'release_notes': '更新说明',
+               'description': '描述'}
+
+
+def thumb(path: pathlib.Path, width: int) -> str:
+    im = Image.open(path).convert('RGB')
+    im.thumbnail((width, width * 4), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, 'JPEG', quality=72, optimize=True)
+    return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
+
+
+def read(p: pathlib.Path) -> str:
+    return p.read_text().strip() if p.exists() else ''
+
+
+def esc(s: str) -> str:
+    return html.escape(s)
+
+
+def field_block(loc: str, name: str, text: str) -> str:
+    limit = LIMITS.get(name)
+    n = len(text)
+    over = limit is not None and n > limit
+    count = f'{n}/{limit}' if limit else str(n)
+    cls = ' over' if over else ''
+    return (f'<div class="field{cls}">'
+            f'<div class="fhead"><b>{FIELD_LABEL.get(name, name)}</b>'
+            f'<span class="count">{count}</span>'
+            f'<button class="copy" data-copy>复制</button></div>'
+            f'<pre>{esc(text)}</pre></div>')
+
+
+def main() -> None:
+    key = sys.argv[1] if len(sys.argv) > 1 else 'soccer'
+    app = APPS[key]
+    app_dir = REPO / app['dir']
+    version = ''
+    for line in (app_dir / 'pubspec.yaml').read_text().splitlines():
+        if line.startswith('version:'):
+            version = line.split(':', 1)[1].strip()
+
+    # ── iOS metadata ──────────────────────────────────────────────────────
+    md = pathlib.Path(metadata_dir(key))
+    locales = sorted(d.name for d in md.iterdir() if d.is_dir())
+    shots_dir = pathlib.Path(screenshots_dir(key))
+    ios = {}
+    for loc in locales:
+        ios[loc] = {
+            'fields': {f: read(md / loc / f'{f}.txt') for f in LIMITS},
+            'shots': [thumb(p, 230) for p in sorted((shots_dir / loc).glob('*.png'))]
+            if (shots_dir / loc).is_dir() else [],
+        }
+
+    # ── Play metadata ─────────────────────────────────────────────────────
+    play_root = pathlib.Path(play_metadata_dir(key))
+    play = {}
+    if play_root.is_dir():
+        for d in sorted(p for p in play_root.iterdir() if p.is_dir()):
+            logs = sorted((d / 'changelogs').glob('*.txt'),
+                          key=lambda p: int(p.stem)) if (d / 'changelogs').is_dir() else []
+            play[d.name] = {
+                'title': read(d / 'title.txt'),
+                'short': read(d / 'short_description.txt'),
+                'full': read(d / 'full_description.txt'),
+                'changelog': read(logs[-1]) if logs else '',
+                'code': logs[-1].stem if logs else '—',
+            }
+
+    # ── macOS ─────────────────────────────────────────────────────────────
+    mac_dir = app_dir / 'fastlane' / 'screenshots_mac'
+    mac_shots = [(p.stem, thumb(p, 520)) for p in sorted(mac_dir.glob('*.png'))]
+    pkg = app_dir / 'build' / 'macos' / 'appstore' / f"{app.get('name_en', 'Runner')}.pkg"
+    if not pkg.exists():
+        found = list((app_dir / 'build' / 'macos' / 'appstore').glob('*.pkg')) \
+            if (app_dir / 'build' / 'macos' / 'appstore').is_dir() else []
+        pkg = found[0] if found else None
+    pkg_info = {}
+    if pkg and pkg.exists():
+        summary = pkg.parent / 'DistributionSummary.plist'
+        pkg_info = {'path': str(pkg.relative_to(REPO)),
+                    'size': f'{pkg.stat().st_size / 1_048_576:.0f} MB'}
+        if summary.exists():
+            d = plistlib.loads(summary.read_bytes())
+            for items in d.values():
+                for item in items:
+                    pkg_info.update({
+                        'version': item.get('versionNumber', ''),
+                        'build': item.get('buildNumber', ''),
+                        'arch': ', '.join(item.get('architectures', [])),
+                        'cert': (item.get('certificate') or {}).get('type', ''),
+                        'profile': (item.get('profile') or {}).get('name', ''),
+                    })
+        sig = subprocess.run(['pkgutil', '--check-signature', str(pkg)],
+                             capture_output=True, text=True).stdout.splitlines()
+        pkg_info['signature'] = next((l.strip() for l in sig if 'Status:' in l), '')
+
+    privacy = json.loads(
+        (REPO / 'tactics_board/tool/app_privacy/app_privacy_admob.json').read_text())
+
+    # ── the page ──────────────────────────────────────────────────────────
+    ios_tabs = ''.join(
+        f'<button class="tab{" on" if i == 0 else ""}" data-loc="{loc}">'
+        f'{LOCALE_NAMES.get(loc, loc)}</button>' for i, loc in enumerate(locales))
+    ios_panes = ''
+    for i, loc in enumerate(locales):
+        d = ios[loc]
+        shots = ''.join(f'<img loading="lazy" src="{s}" alt="">' for s in d['shots'])
+        fields = ''.join(field_block(loc, f, d['fields'][f]) for f in LIMITS)
+        ios_panes += (
+            f'<div class="pane{" on" if i == 0 else ""}" data-loc="{loc}">'
+            f'<div class="shots">{shots or "<p class=none>这个语言没有截图（App Store 会用主语言的）</p>"}</div>'
+            f'{fields}</div>')
+
+    play_tabs = ''.join(
+        f'<button class="tab{" on" if i == 0 else ""}" data-ploc="{loc}">'
+        f'{PLAY_NAMES.get(loc, loc)}</button>' for i, loc in enumerate(play))
+    play_panes = ''
+    for i, (loc, d) in enumerate(play.items()):
+        play_panes += (
+            f'<div class="pane{" on" if i == 0 else ""}" data-ploc="{loc}">'
+            + field_block(loc, 'title', d['title'])
+            + field_block(loc, 'short', d['short'])
+            + field_block(loc, f'changelog · versionCode {d["code"]}', d['changelog'])
+            + field_block(loc, 'full', d['full']) + '</div>')
+
+    mac = ''.join(
+        f'<figure><img loading="lazy" src="{src}" alt=""><figcaption>{esc(n)}</figcaption></figure>'
+        for n, src in mac_shots)
+    pkg_rows = ''.join(
+        f'<tr><th>{esc(k)}</th><td class="mono">{esc(str(v))}</td></tr>'
+        for k, v in pkg_info.items())
+    priv_rows = ''.join(
+        f'<tr><td class="mono">{esc(e["category"])}</td>'
+        f'<td>{esc(", ".join(e["purposes"]))}</td>'
+        f'<td>{esc(", ".join(e["data_protections"]))}</td></tr>' for e in privacy)
+
+    out = REPO / 'tools' / f'release_review_{key}.html'
+    out.write_text(PAGE.format(
+        title=f"{app.get('name_en', key)} {version}",
+        app=esc(app.get('name_en', key)), bundle=esc(app['bundle']),
+        version=esc(version), n_ios=sum(len(v['shots']) for v in ios.values()),
+        n_locales=len(locales), n_mac=len(mac_shots),
+        ios_tabs=ios_tabs, ios_panes=ios_panes,
+        play_tabs=play_tabs, play_panes=play_panes,
+        mac=mac, pkg_rows=pkg_rows or '<tr><td colspan=2>还没有构建</td></tr>',
+        priv_rows=priv_rows, css=CSS, out=out))
+    print(f'wrote {out}  ({out.stat().st_size / 1_048_576:.1f} MB)')
+
+
+CSS = """
+:root{--bg:#0e1112;--panel:#161b1d;--line:#2a3336;--text:#e8eef0;--dim:#9fb0b5;
+      --accent:#4dd0e1;--ok:#3ddc97;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+     font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 90px}
+h1{font-size:27px;margin:0 0 4px}
+h2{font-size:18px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sub{color:var(--dim);margin:0 0 18px}
+.tally{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+.tally div{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+           padding:9px 14px;min-width:120px}
+.tally b{display:block;font-size:20px}
+.tally span{color:var(--dim);font-size:12.5px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.tab{background:var(--panel);border:1px solid var(--line);color:var(--dim);
+     border-radius:99px;padding:5px 12px;font-size:13px;cursor:pointer}
+.tab.on{border-color:var(--accent);color:var(--accent)}
+.pane{display:none}.pane.on{display:block}
+.shots{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:14px}
+.shots img{height:440px;border-radius:10px;display:block;background:#000}
+.field{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+       padding:10px 12px;margin:0 0 8px}
+.field.over{border-color:var(--bad)}
+.fhead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.fhead b{font-size:13px;color:var(--dim);font-weight:600}
+.count{color:var(--dim);font-size:12px;font-variant-numeric:tabular-nums}
+.field.over .count{color:var(--bad)}
+.copy{margin-left:auto;background:transparent;border:1px solid var(--line);
+      color:var(--dim);border-radius:7px;padding:2px 9px;font-size:12px;cursor:pointer}
+.copy.done{border-color:var(--ok);color:var(--ok)}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font:13px/1.55 ui-monospace,Menlo,monospace}
+figure{margin:0 0 12px}
+figure img{width:100%;border-radius:10px;display:block;border:1px solid var(--line)}
+figcaption{color:var(--dim);font-size:12.5px;padding-top:5px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{color:var(--dim);font-weight:600;white-space:nowrap}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.warn{background:#2a1a1a;border:1px solid var(--bad);border-radius:10px;
+      padding:12px 14px;margin:0 0 18px;color:#ffd9d9}
+.note{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+      padding:12px 14px;margin:14px 0}
+.none{color:var(--dim)}
+footer{color:var(--dim);font-size:12.5px;margin-top:36px}
+"""
+
+PAGE = """<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title} · 发布素材</title><style>{css}</style></head><body><div class="wrap">
+<h1>{app} {version}</h1>
+<p class="sub">{bundle} · 发布素材总览。图片全部内嵌，断网可读。</p>
+
+<div class="warn"><b>未上传任何内容。</b>App Store / Play 的写操作都需要你再次明确许可。
+macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝全部 16 个 macOS 版本，
+单运动 Mac 版正是该条款点名的形态。</div>
+
+<div class="tally">
+  <div><b>{n_ios}</b><span>iPhone 截图</span></div>
+  <div><b>{n_mac}</b><span>Mac 截图</span></div>
+  <div><b>{n_locales}</b><span>App Store 语言</span></div>
+</div>
+
+<h2>iPhone — 截图与文案</h2>
+<div class="tabs">{ios_tabs}</div>
+{ios_panes}
+
+<h2>Mac — 截图</h2>
+<p class="sub">2880×1800，真实窗口，已去 alpha。</p>
+{mac}
+
+<h2>Mac — 安装包</h2>
+<table>{pkg_rows}</table>
+
+<h2>Google Play — 文案</h2>
+<div class="tabs">{play_tabs}</div>
+{play_panes}
+
+<h2>App Privacy — 数据声明</h2>
+<p class="sub">本地文件，尚未推送到 App Store Connect（推送需要 2FA 会话）。</p>
+<table><tr><th>类别</th><th>用途</th><th>关联</th></tr>{priv_rows}</table>
+
+<div class="note"><b>还没做：</b>iOS 的 IPA 和 Android 的 AAB 没有构建。
+Play 的 versionCode 必须 ≥ 3（线上是 2），构建时传 <span class="mono">BUILD_NUMBER=3</span>。</div>
+
+<footer>{out} — <span class="mono">python3 tools/release_review.py soccer</span> 重新生成。</footer>
+</div>
+<script>
+function wire(attr, tabSel, paneSel) {{
+  document.querySelectorAll(tabSel).forEach(function (b) {{
+    b.addEventListener('click', function () {{
+      var v = b.getAttribute(attr);
+      document.querySelectorAll(tabSel).forEach(function (x) {{ x.classList.remove('on'); }});
+      b.classList.add('on');
+      document.querySelectorAll(paneSel).forEach(function (p) {{
+        p.classList.toggle('on', p.getAttribute(attr) === v);
+      }});
+    }});
+  }});
+}}
+wire('data-loc', '.tab[data-loc]', '.pane[data-loc]');
+wire('data-ploc', '.tab[data-ploc]', '.pane[data-ploc]');
+document.querySelectorAll('[data-copy]').forEach(function (b) {{
+  b.addEventListener('click', function () {{
+    navigator.clipboard.writeText(b.parentNode.parentNode.querySelector('pre').innerText)
+      .then(function () {{ b.textContent = '已复制'; b.classList.add('done'); }});
+  }});
+}});
+</script>
+</body></html>
+"""
+
+if __name__ == '__main__':
+    main()
