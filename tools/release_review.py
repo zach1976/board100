@@ -187,6 +187,40 @@ def main() -> None:
             label, _, url = line.partition(': ')
             links.append((label, url.strip()))
 
+    # ── App preview film ─────────────────────────────────────────────────
+    # Embedded like every image on this page: the point of the page is that
+    # it survives being sent to somebody with the network off.
+    preview = REPO / 'build' / 'preview' / f'{key}.mov'
+    video = None
+    if preview.exists():
+        spec = subprocess.run(
+            ['ffprobe', '-v', 'error', '-select_streams', 'v:0',
+             '-show_entries', 'stream=width,height,r_frame_rate,codec_name',
+             '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1',
+             str(preview)], capture_output=True, text=True).stdout.split()
+        # ffprobe prints the entries in ITS order, not the order they were
+        # asked for: codec, width, height, rate — then the format's duration.
+        try:
+            codec, cw, ch, rate, dur = (
+                spec[0], spec[1], spec[2], spec[3], float(spec[4]))
+        except (IndexError, ValueError):
+            cw = ch = rate = codec = '?'
+            dur = 0.0
+        fps = rate.split('/')[0] if rate.endswith('/1') else rate
+        mb = preview.stat().st_size / 1_048_576
+        # Apple takes 15–30s. Saying so here beats finding out at upload.
+        ok = 15 <= dur <= 30 and mb <= 500
+        video = {
+            'src': 'data:video/quicktime;base64,'
+                   + base64.b64encode(preview.read_bytes()).decode(),
+            'spec': f'{cw}×{ch} · {codec.upper()} · {fps}fps · '
+                    f'{dur:.1f}s · {mb:.1f} MB',
+            'ok': ok,
+            'verdict': '符合 App Store 规格（15–30 秒，≤500 MB）' if ok
+                       else f'⚠️ App Store 要 15–30 秒，这条 {dur:.1f} 秒',
+            'rel': str(preview.relative_to(REPO)),
+        }
+
     # ── build artefacts, and what is missing ─────────────────────────────
     def artefact(label: str, path: pathlib.Path, note: str) -> dict:
         ok = path.exists()
@@ -267,6 +301,16 @@ def main() -> None:
         f'<td class="{"ok" if b["ok"] else "missing"}">{esc(b["detail"])}</td>'
         f'<td class="mono">{esc(b["note"])}</td></tr>' for b in builds)
 
+    video_html = (
+        f'<video controls preload="metadata" playsinline src="{video["src"]}">'
+        f'</video>'
+        f'<p class="sub">{esc(video["spec"])} · '
+        f'<span class="{"ok" if video["ok"] else "bad"}">{esc(video["verdict"])}'
+        f'</span><br><span class="mono">{esc(video["rel"])}</span></p>'
+        if video else
+        '<p class="none">还没有录制 —— <span class="mono">'
+        'tools/record_preview.sh ' + key + '</span></p>')
+
     mac = ''.join(
         f'<figure><img loading="lazy" src="{src}" alt=""><figcaption>{esc(n)}</figcaption></figure>'
         for n, src in mac_shots)
@@ -290,6 +334,7 @@ def main() -> None:
         priv_rows=priv_rows, icons=icons_html, play_art=play_art_html,
         play_shots=play_shots_html or '<p class="none">没有 Play 手机截图</p>',
         iap_rows=iap_rows, link_rows=link_rows, build_rows=build_rows,
+        video=video_html,
         css=CSS, out=out))
     print(f'wrote {out}  ({out.stat().st_size / 1_048_576:.1f} MB)')
 
@@ -345,6 +390,8 @@ th{color:var(--dim);font-weight:600;white-space:nowrap}
 .art img{width:auto;max-width:260px;border:0;border-radius:8px}
 .art figcaption{font-size:12px;line-height:1.5}
 td.ok{color:var(--ok)}td.missing{color:var(--dim)}
+video{width:100%;max-width:300px;border-radius:14px;border:1px solid var(--line);display:block;background:#000}
+span.ok{color:var(--ok)}span.bad{color:var(--bad)}
 a{color:var(--accent)}
 footer{color:var(--dim);font-size:12.5px;margin-top:36px}
 """
@@ -369,6 +416,11 @@ macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝
 <h2>iPhone — 截图与文案</h2>
 <div class="tabs">{ios_tabs}</div>
 {ios_panes}
+
+<h2>iPhone — 预览视频</h2>
+<p class="sub">App Store 的 App Preview。真实操作录屏，不是拼接的动画；
+六.九英寸档（1320×2868），与上面的截图同一个尺寸类。</p>
+{video}
 
 <h2>应用内的图形</h2>
 <p class="sub">打进包里的图标和启动图 —— 商店页看不到，但它们是同一批发布资源。</p>
