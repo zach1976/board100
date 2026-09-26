@@ -26,6 +26,7 @@ RAW = REPO / "fastlane" / "screenshots"
 V2RAW = REPO / "aso" / "screenshots_v2_raw"
 GLYPHS = REPO / "aso" / "glyphs"
 CAPTIONS = REPO / "aso" / "captions_v2.json"
+BACKGROUNDS = REPO / "aso" / "backgrounds"
 OUTBASE = REPO / "fastlane" / "screenshots"
 
 
@@ -174,14 +175,69 @@ def glyph_watermark(glyph_img):
     return g
 
 
-def build_background(sport, glyph_img):
-    bg = vgrad(W, H, [
-        (0.0, NAVY_TOP), (0.32, NAVY_MID), (0.62, (14, 26, 54)), (1.0, NAVY_BOT)
-    ])
-    glow_layer, glow_mask = radial_glow(W, H, W * 0.5, H * 0.40, W * 0.85, GLOW, 90)
-    bg = Image.composite(glow_layer, bg, glow_mask)
-    bg = bg.convert("RGBA")
-    bg.alpha_composite(perspective_court(sport))
+def background_photo(sport, slot):
+    """The shot's own background photograph, or None.
+
+    A sport may ship one photo for the whole set (`<sport>.png`) or one per
+    slot (`<sport>_s3.png`, which wins). Nothing there is not a failure: the
+    drawn gradient below is what fourteen of the fifteen sports still use.
+    """
+    for name in (f"{sport}_s{slot}.png", f"{sport}.png"):
+        p = BACKGROUNDS / name
+        if p.exists():
+            return Image.open(p).convert("RGB")
+    return None
+
+
+def cover(img, w, h):
+    """Scale to fill w x h and centre-crop the overflow."""
+    scale = max(w / img.width, h / img.height)
+    sized = img.resize((max(w, int(img.width * scale + 0.5)),
+                        max(h, int(img.height * scale + 0.5))), Image.LANCZOS)
+    left = (sized.width - w) // 2
+    top = (sized.height - h) // 2
+    return sized.crop((left, top, left + w, top + h))
+
+
+def photo_background(photo):
+    """A photograph, graded so the headline band on top of it stays legible.
+
+    The drawn background can simply be dark where the text goes. A photograph
+    cannot — the sky it was shot under is whatever it was — so the top band
+    gets a scrim, and the whole frame a vignette, before a single word is
+    written over it.
+    """
+    bg = cover(photo, W, H).convert("RGBA")
+    # top scrim: opaque enough at the badge to hold white type, gone by the
+    # time the phone starts at 0.255H.
+    scrim = Image.new("L", (1, H))
+    sp = scrim.load()
+    for y in range(H):
+        f = y / (H * 0.30)
+        sp[0, y] = int(170 * (1 - f) ** 1.6) if f < 1 else 0
+    scrim = scrim.resize((W, H))
+    bg.alpha_composite(Image.merge("RGBA", (
+        Image.new("L", (W, H), 6), Image.new("L", (W, H), 10),
+        Image.new("L", (W, H), 26), scrim)))
+    return bg
+
+
+def build_background(sport, glyph_img, slot=None):
+    photo = background_photo(sport, slot) if slot else None
+    if photo is not None:
+        bg = photo_background(photo)
+        # No drawn court and no glyph watermark over a photograph: the pitch
+        # is already in the picture, and the two together read as a mistake.
+        glyph_img = None
+    else:
+        bg = vgrad(W, H, [
+            (0.0, NAVY_TOP), (0.32, NAVY_MID), (0.62, (14, 26, 54)), (1.0, NAVY_BOT)
+        ])
+        glow_layer, glow_mask = radial_glow(W, H, W * 0.5, H * 0.40, W * 0.85,
+                                            GLOW, 90)
+        bg = Image.composite(glow_layer, bg, glow_mask)
+        bg = bg.convert("RGBA")
+        bg.alpha_composite(perspective_court(sport))
     wm = glyph_watermark(glyph_img)
     if wm:
         bg.alpha_composite(wm, (W - wm.width + 20, 36))
@@ -378,9 +434,9 @@ def draw_headline(img, locale, white_word, green_words, subtitle):
 
 # ── compose one ──────────────────────────────────────────────────────────────
 def compose(screenshot_path, out_path, sport, locale, label,
-            white_word, green_words, subtitle):
+            white_word, green_words, subtitle, slot=None):
     glyph_img = load_glyph(sport)
-    img = build_background(sport, glyph_img)
+    img = build_background(sport, glyph_img, slot)
     img.alpha_composite(phone(screenshot_path))
     draw_badge(img, glyph_img, label)
     draw_headline(img, locale, white_word, green_words, subtitle)
@@ -425,7 +481,8 @@ def render_sport_locale(captions, sport, locale, outbase):
             continue
         white, green, sub = shots[i]
         out = out_dir / f"{i+1:02d}_{sport}_s{i+1}.png"
-        compose(src, out, src_sport, locale, "TACTICS BOARD", white, green, sub)
+        compose(src, out, src_sport, locale, "TACTICS BOARD", white, green, sub,
+                slot=i + 1)
         n += 1
     print(f"✅ {sport}/{locale}: {n}/{len(shots)}")
     return n
