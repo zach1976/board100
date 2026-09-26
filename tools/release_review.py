@@ -34,11 +34,17 @@ FIELD_LABEL = {'name': '名称', 'subtitle': '副标题', 'keywords': '关键词
                'description': '描述'}
 
 
-def thumb(path: pathlib.Path, width: int) -> str:
+def thumb(path: pathlib.Path, width: int, quality: int = 72) -> str:
+    """An embedded copy, sized for the width it will be DRAWN at.
+
+    Twice that, because the reader is on a Retina screen: an image encoded
+    at the CSS width is drawn at half the pixels it needs and looks soft,
+    which is what the Mac shots did at 520 across a 1148pt column.
+    """
     im = Image.open(path).convert('RGB')
-    im.thumbnail((width, width * 4), Image.LANCZOS)
+    im.thumbnail((width * 2, width * 8), Image.LANCZOS)
     buf = io.BytesIO()
-    im.save(buf, 'JPEG', quality=72, optimize=True)
+    im.save(buf, 'JPEG', quality=quality, optimize=True)
     return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
 
 
@@ -74,13 +80,23 @@ def main() -> None:
 
     # ── iOS metadata ──────────────────────────────────────────────────────
     md = pathlib.Path(metadata_dir(key))
-    locales = sorted(d.name for d in md.iterdir() if d.is_dir())
     shots_dir = pathlib.Path(screenshots_dir(key))
+
+    def order(loc: str) -> tuple:
+        """The primary language first, then the ones with their own
+        screenshots. Alphabetical opened the page on en-GB, which has text
+        but no screenshots of its own — the store falls back to en-US — so
+        the iPhone section looked empty at first glance."""
+        has = (shots_dir / loc).is_dir() and any((shots_dir / loc).glob('*.png'))
+        return (loc != 'en-US', not has, loc)
+
+    locales = sorted((d.name for d in md.iterdir() if d.is_dir()), key=order)
     ios = {}
     for loc in locales:
         ios[loc] = {
             'fields': {f: read(md / loc / f'{f}.txt') for f in LIMITS},
-            'shots': [thumb(p, 230) for p in sorted((shots_dir / loc).glob('*.png'))]
+            # Drawn 440pt tall, which on a 1290x2796 shot is 203pt across.
+            'shots': [thumb(p, 205) for p in sorted((shots_dir / loc).glob('*.png'))]
             if (shots_dir / loc).is_dir() else [],
         }
 
@@ -101,7 +117,9 @@ def main() -> None:
 
     # ── macOS ─────────────────────────────────────────────────────────────
     mac_dir = app_dir / 'fastlane' / 'screenshots_mac'
-    mac_shots = [(p.stem, thumb(p, 520)) for p in sorted(mac_dir.glob('*.png'))]
+    # Drawn the full width of the column, so encoded for it.
+    mac_shots = [(p.stem, thumb(p, 1148, quality=80))
+                 for p in sorted(mac_dir.glob('*.png'))]
     pkg = app_dir / 'build' / 'macos' / 'appstore' / f"{app.get('name_en', 'Runner')}.pkg"
     if not pkg.exists():
         found = list((app_dir / 'build' / 'macos' / 'appstore').glob('*.pkg')) \
@@ -130,6 +148,64 @@ def main() -> None:
     privacy = json.loads(
         (REPO / 'tactics_board/tool/app_privacy/app_privacy_admob.json').read_text())
 
+    # ── the artwork that ships INSIDE the app, and Play's own graphics ────
+    def art(rel: str, width: int) -> dict | None:
+        f = app_dir / rel
+        if not f.exists():
+            return None
+        im = Image.open(f)
+        return {'name': f.name, 'rel': rel, 'size': f'{im.width}×{im.height}',
+                'mode': im.mode, 'kb': f'{f.stat().st_size // 1024}K',
+                'src': thumb(f, width)}
+
+    icons = [a for a in [
+        art('assets/icon/app_icon.png', 150),
+        art('assets/icon/splash_logo.png', 110),
+        art('ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png', 150),
+        art('macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png', 150),
+        art('android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png', 150),
+    ] if a]
+
+    play_dir = play_root / 'en-US' / 'images'
+    play_art = [a for a in [
+        art(str((play_dir / 'featureGraphic.png').relative_to(app_dir)), 520),
+        art(str((play_dir / 'icon.png').relative_to(app_dir)), 120),
+    ] if a] if play_dir.is_dir() else []
+    play_shots = [thumb(p, 205) for p in
+                  sorted((play_dir / 'phoneScreenshots').glob('*.png'))] \
+        if (play_dir / 'phoneScreenshots').is_dir() else []
+
+    # ── what a store record needs besides text and pictures ──────────────
+    sport = key if key != 'tactics_board' else ''
+    iap = [(f'{sport.lower()}_remove_ads_lifetime' if sport else 'remove_ads_lifetime',
+            '去广告 · 一次性'),
+           (f'{sport.lower()}_remove_ads_yearly' if sport else 'remove_ads_annual',
+            '去广告 · 年订阅')]
+    links = []
+    for line in read(md / 'en-US' / 'description.txt').splitlines():
+        if 'http' in line:
+            label, _, url = line.partition(': ')
+            links.append((label, url.strip()))
+
+    # ── build artefacts, and what is missing ─────────────────────────────
+    def artefact(label: str, path: pathlib.Path, note: str) -> dict:
+        ok = path.exists()
+        return {'label': label, 'ok': ok, 'note': note,
+                'detail': (f'{path.stat().st_size / 1_048_576:.0f} MB · '
+                           f'{path.relative_to(REPO)}') if ok else '未构建'}
+
+    builds = [
+        artefact('iOS · IPA', app_dir / 'build' / 'ios' / 'ipa'
+                 / f"{app.get('name_en', 'Runner')}.ipa", 'tools/build_all_ipa.sh ' + key),
+        artefact('Android · AAB', app_dir / 'build' / 'app' / 'outputs'
+                 / 'bundle' / 'release' / 'app-release.aab',
+                 f'BUILD_NUMBER=3 tools/build_all_aab.sh {key}'),
+    ]
+    if pkg and pkg.exists():
+        builds.append({'label': 'macOS · PKG', 'ok': True,
+                       'note': 'xcodebuild archive + exportArchive',
+                       'detail': f"{pkg_info.get('size')} · {pkg_info.get('path')}"})
+
     # ── the page ──────────────────────────────────────────────────────────
     ios_tabs = ''.join(
         f'<button class="tab{" on" if i == 0 else ""}" data-loc="{loc}">'
@@ -141,7 +217,7 @@ def main() -> None:
         fields = ''.join(field_block(loc, f, d['fields'][f]) for f in LIMITS)
         ios_panes += (
             f'<div class="pane{" on" if i == 0 else ""}" data-loc="{loc}">'
-            f'<div class="shots">{shots or "<p class=none>这个语言没有截图（App Store 会用主语言的）</p>"}</div>'
+            f'<div class="shots">{shots or "<p class=none>这个语言没有自己的截图 —— App Store 会用主语言（en-US）的那一套。文案是它自己的。</p>"}</div>'
             f'{fields}</div>')
 
     play_tabs = ''.join(
@@ -155,6 +231,25 @@ def main() -> None:
             + field_block(loc, 'short', d['short'])
             + field_block(loc, f'changelog · versionCode {d["code"]}', d['changelog'])
             + field_block(loc, 'full', d['full']) + '</div>')
+
+    def art_card(a: dict) -> str:
+        return (f'<figure class="art"><img loading="lazy" src="{a["src"]}" alt="">'
+                f'<figcaption><b>{esc(a["name"])}</b><br>{a["size"]} · {a["mode"]} · '
+                f'{a["kb"]}<br><span class="mono">{esc(a["rel"])}</span></figcaption></figure>')
+
+    icons_html = ''.join(art_card(a) for a in icons)
+    play_art_html = ''.join(art_card(a) for a in play_art)
+    play_shots_html = ''.join(f'<img loading="lazy" src="{s}" alt="">'
+                              for s in play_shots)
+    iap_rows = ''.join(f'<tr><td class="mono">{esc(pid)}</td><td>{esc(label)}</td></tr>'
+                       for pid, label in iap)
+    link_rows = ''.join(
+        f'<tr><th>{esc(label)}</th><td class="mono">'
+        f'<a href="{esc(url)}">{esc(url)}</a></td></tr>' for label, url in links)
+    build_rows = ''.join(
+        f'<tr><th>{esc(b["label"])}</th>'
+        f'<td class="{"ok" if b["ok"] else "missing"}">{esc(b["detail"])}</td>'
+        f'<td class="mono">{esc(b["note"])}</td></tr>' for b in builds)
 
     mac = ''.join(
         f'<figure><img loading="lazy" src="{src}" alt=""><figcaption>{esc(n)}</figcaption></figure>'
@@ -176,7 +271,10 @@ def main() -> None:
         ios_tabs=ios_tabs, ios_panes=ios_panes,
         play_tabs=play_tabs, play_panes=play_panes,
         mac=mac, pkg_rows=pkg_rows or '<tr><td colspan=2>还没有构建</td></tr>',
-        priv_rows=priv_rows, css=CSS, out=out))
+        priv_rows=priv_rows, icons=icons_html, play_art=play_art_html,
+        play_shots=play_shots_html or '<p class="none">没有 Play 手机截图</p>',
+        iap_rows=iap_rows, link_rows=link_rows, build_rows=build_rows,
+        css=CSS, out=out))
     print(f'wrote {out}  ({out.stat().st_size / 1_048_576:.1f} MB)')
 
 
@@ -225,6 +323,13 @@ th{color:var(--dim);font-weight:600;white-space:nowrap}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;
       padding:12px 14px;margin:14px 0}
 .none{color:var(--dim)}
+.arts{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:8px}
+.art{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+     padding:10px;max-width:280px}
+.art img{width:auto;max-width:260px;border:0;border-radius:8px}
+.art figcaption{font-size:12px;line-height:1.5}
+td.ok{color:var(--ok)}td.missing{color:var(--dim)}
+a{color:var(--accent)}
 footer{color:var(--dim);font-size:12.5px;margin-top:36px}
 """
 
@@ -249,12 +354,20 @@ macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝
 <div class="tabs">{ios_tabs}</div>
 {ios_panes}
 
+<h2>应用内的图形</h2>
+<p class="sub">打进包里的图标和启动图 —— 商店页看不到，但它们是同一批发布资源。</p>
+<div class="arts">{icons}</div>
+
 <h2>Mac — 截图</h2>
 <p class="sub">2880×1800，真实窗口，已去 alpha。</p>
 {mac}
 
 <h2>Mac — 安装包</h2>
 <table>{pkg_rows}</table>
+
+<h2>Google Play — 图形</h2>
+<div class="arts">{play_art}</div>
+<div class="shots">{play_shots}</div>
 
 <h2>Google Play — 文案</h2>
 <div class="tabs">{play_tabs}</div>
@@ -264,8 +377,17 @@ macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝
 <p class="sub">本地文件，尚未推送到 App Store Connect（推送需要 2FA 会话）。</p>
 <table><tr><th>类别</th><th>用途</th><th>关联</th></tr>{priv_rows}</table>
 
-<div class="note"><b>还没做：</b>iOS 的 IPA 和 Android 的 AAB 没有构建。
-Play 的 versionCode 必须 ≥ 3（线上是 2），构建时传 <span class="mono">BUILD_NUMBER=3</span>。</div>
+<h2>内购商品</h2>
+<p class="sub">商店记录里也要填的东西：去广告的两个商品 id。</p>
+<table><tr><th>Product ID</th><th>说明</th></tr>{iap_rows}</table>
+
+<h2>法务链接</h2>
+<table>{link_rows}</table>
+
+<h2>构建产物</h2>
+<table><tr><th>平台</th><th>状态</th><th>怎么构建</th></tr>{build_rows}</table>
+<div class="note">Play 的 versionCode 必须 ≥ 3（线上是 2），构建 AAB 时传
+<span class="mono">BUILD_NUMBER=3</span>。</div>
 
 <footer>{out} — <span class="mono">python3 tools/release_review.py soccer</span> 重新生成。</footer>
 </div>
