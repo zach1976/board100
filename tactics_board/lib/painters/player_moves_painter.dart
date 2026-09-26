@@ -137,6 +137,11 @@ class PlayerMovesPainter extends CustomPainter {
   /// ball rather than on a patch of grass a token's length short of it.
   final Map<String, Offset> endShift;
 
+  /// The same, for the ball left behind at the start of the leg. Without it
+  /// the line sets off from the spot the file names and the trace of the
+  /// ball sits a token away from it.
+  final Map<String, Offset> startShift;
+
   const PlayerMovesPainter({
     required this.players,
     this.targetStep = 0,
@@ -144,6 +149,7 @@ class PlayerMovesPainter extends CustomPainter {
     this.focusId,
     this.onlyFocus = false,
     this.endShift = const {},
+    this.startShift = const {},
   });
 
   /// The focused element, but only when it has a route to follow — selecting
@@ -218,9 +224,16 @@ class PlayerMovesPainter extends CustomPainter {
       stepStart(player, phaseLimit),
       ...legs.map((e) => e.value),
     ];
-    if (player.isBall) points[points.length - 1] += endShift[player.id] ?? Offset.zero;
-    // bbox half + shadow/border margin — keep arrow clear of the icon's drop shadow
-    final iconRadius = kPlayerIconSize / 2 * player.scale + 3;
+    if (player.isBall) {
+      points[0] += startShift[player.id] ?? Offset.zero;
+      points[points.length - 1] += endShift[player.id] ?? Offset.zero;
+    }
+    // bbox half + shadow/border margin — keep arrow clear of the icon's drop
+    // shadow. Of the icon as DRAWN: a ball fills 58% of its box, so a
+    // player's radius left the arrowhead a third of a token short of it and
+    // the line looked like it was aimed at the grass beside the ball.
+    final iconRadius =
+        kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3;
 
     for (int i = 0; i < points.length - 1; i++) {
       final from = points[i];
@@ -366,5 +379,6 @@ class PlayerMovesPainter extends CustomPainter {
       oldDelegate.players != players ||
       oldDelegate.focusId != focusId ||
       oldDelegate.onlyFocus != onlyFocus ||
-      !mapEquals(oldDelegate.endShift, endShift);
+      !mapEquals(oldDelegate.endShift, endShift) ||
+      !mapEquals(oldDelegate.startShift, startShift);
 }
