@@ -506,7 +506,12 @@ class TacticalEmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
+      child: ConstrainedBox(
+        // A sentence and a button, not a banner: on a Mac window the call to
+        // action stretched the full fourteen hundred points and the two
+        // lines of explanation ran the width of the screen.
+        constraints: const BoxConstraints(maxWidth: 420),
+        child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: T.s32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -527,6 +532,7 @@ class TacticalEmptyState extends StatelessWidget {
             ],
           ],
         ),
+      ),
       ),
     );
   }

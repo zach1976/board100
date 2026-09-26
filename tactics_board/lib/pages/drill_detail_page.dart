@@ -213,26 +213,21 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
               // right beside the beats anyway.
               child: ChangeNotifierProvider<TacticsState>.value(
                 value: _preview,
-                child: ListView(
-                  controller: _scroll,
-                  padding:
-                      const EdgeInsets.fromLTRB(0, 0, 0, T.s24),
-                  children: [
-                    _header(context, d),
-                    Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: T.screenX),
-                      child: _BoardCard(
-                          state: _preview,
-                          beats: beats,
-                          setup: setup,
-                          frame: d.frame),
-                    ),
-                    const SizedBox(height: T.s24),
-                    Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: T.screenX),
-                      child: Column(
+                child: LayoutBuilder(builder: (context, c) {
+                  // A Mac window, or a phone on its side. The board is a
+                  // portrait picture and the notes are a column of text, and
+                  // stacked one under the other on a 1440pt window the board
+                  // is a narrow strip down the middle of an empty page with
+                  // the reading pushed below the fold. Side by side they fill
+                  // it: the drill on the left, what to say about it on the
+                  // right.
+                  final wide = c.maxWidth >= 900;
+                  final board = _BoardCard(
+                      state: _preview,
+                      beats: beats,
+                      setup: setup,
+                      frame: d.frame);
+                  final reading = Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                         if (lead != null) ...[
@@ -274,10 +269,44 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                           ),
                         ),
                         ],
-                      ),
-                    ),
-                  ],
-                ),
+                      );
+                  return ListView(
+                    controller: _scroll,
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, T.s24),
+                    children: [
+                      _header(context, d),
+                      if (wide)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: T.screenX),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Enough for the board to be worth looking at,
+                              // and no more: the words are the page.
+                              SizedBox(width: (c.maxWidth * 0.36).clamp(320.0, 520.0),
+                                  child: board),
+                              const SizedBox(width: T.s24),
+                              Expanded(child: reading),
+                            ],
+                          ),
+                        )
+                      else ...[
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: T.screenX),
+                          child: board,
+                        ),
+                        const SizedBox(height: T.s24),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: T.screenX),
+                          child: reading,
+                        ),
+                      ],
+                    ],
+                  );
+                }),
               ),
             ),
             _bottomBar(context),
