@@ -119,6 +119,71 @@ void main() {
     }
   });
 
+  test('every marker is either upright on screen or aimed at the pitch', () {
+    // Turning the board turns the pitch, and with it everything whose
+    // picture means a direction on that pitch. A cone means nothing of the
+    // kind: it stood on the grass in portrait and lay on its side in
+    // landscape, which is the one thing a cone never does.
+    const upright = kUprightMarkers;
+    // Nothing in the set may carry a bearing, and nothing that carries one
+    // may be in it. Listed rather than derived: which of a goal, a hurdle
+    // and a ladder points somewhere is a judgement about the artwork, and
+    // the point of writing it down is that adding a sprite makes somebody
+    // make it again.
+    const aimed = <MarkerShape>{
+      MarkerShape.goal,
+      MarkerShape.miniGoal,
+      MarkerShape.hurdle,
+      MarkerShape.ladder,
+      MarkerShape.arrowMark,
+      MarkerShape.bench,
+      MarkerShape.rebounder,
+      MarkerShape.lScreen,
+      MarkerShape.net,
+      MarkerShape.antenna,
+      MarkerShape.laneRope,
+      MarkerShape.rugbyPosts,
+      MarkerShape.hoop,
+      MarkerShape.floatingGoal,
+      MarkerShape.tackleBag,
+      MarkerShape.hockeyStick,
+      MarkerShape.racket,
+      MarkerShape.paddle,
+      MarkerShape.base,
+      MarkerShape.homePlate,
+    };
+    for (final shape in MarkerShape.values) {
+      if (markerImageAsset(shape, SportType.soccer) == null &&
+          !kSportScopedMarkers.contains(shape)) {
+        continue; // a drawn symbol, not a photographed object
+      }
+      expect(upright.contains(shape) || aimed.contains(shape), isTrue,
+          reason: '${shape.name} ships artwork and nobody has said whether '
+              'it stands up or points somewhere');
+    }
+    expect(upright.intersection(aimed), isEmpty);
+
+    PlayerIcon marker(MarkerShape shape) => PlayerIcon(
+          id: shape.name,
+          label: '',
+          team: PlayerTeam.neutral,
+          position: Offset.zero,
+          markerShape: shape,
+        );
+    expect(staysUpright(marker(MarkerShape.cone)), isTrue);
+    expect(staysUpright(marker(MarkerShape.goal)), isFalse);
+    // A ball is a sphere with its highlight painted on.
+    expect(
+        staysUpright(PlayerIcon(
+          id: 'b',
+          label: '',
+          team: PlayerTeam.neutral,
+          sportType: SportType.soccer,
+          position: Offset.zero,
+        )),
+        isTrue);
+  });
+
   test('the sprites are the size and format the board expects', () {
     final seen = <String>{};
     for (final s in SportType.values) {

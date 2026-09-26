@@ -774,7 +774,13 @@ class PlayerIconWidget extends StatelessWidget {
             // turned, and the heading picks which of eight pictures is
             // drawn. See playerFacing.
             child: (player.isMarker || player.isBall)
-                ? Transform.rotate(
+                ? RotatedBox(
+                    // A cone does not fall over when the board is turned;
+                    // a goal keeps its bearing. See kUprightMarkers.
+                    quarterTurns: staysUpright(player)
+                        ? BoardOrientation.counterTurns(context)
+                        : 0,
+                    child: Transform.rotate(
                     angle: player.rotation,
                     child: SizedBox(
                       width: size,
@@ -797,7 +803,7 @@ class PlayerIconWidget extends StatelessWidget {
                                   ),
                                 ),
                     ),
-                  )
+                  ))
                 : SizedBox(
                     width: size,
                     height: size,
@@ -1286,6 +1292,40 @@ String? markerImageAsset(MarkerShape shape, SportType sport) => switch (shape) {
       MarkerShape.chair => _markerAsset(shape, sport, 'assets/icon/marker_chair.png'),
       _ => null,
     };
+
+/// Equipment whose picture stands up and has no bearing on the pitch.
+///
+/// A cone is a cone whichever way the board is turned. Its art is an object
+/// standing on the grass, photographed from the side, and turning the board
+/// is the camera moving round the pitch — not the cone falling over. These
+/// counter-turn with the figures (see BoardOrientation); everything with a
+/// direction turns with the pitch instead, because that direction is the
+/// whole point of it: a goal faces somewhere, a hurdle is cleared one way,
+/// a ladder runs along a line, an arrow points, and home plate points at
+/// the catcher.
+///
+/// A ball is in here for the same reason a cone is: it is a sphere with its
+/// highlight painted on, and rolling that highlight round the board was the
+/// only thing turning it ever did.
+const kUprightMarkers = <MarkerShape>{
+  MarkerShape.cone,
+  MarkerShape.pole,
+  MarkerShape.disc,
+  MarkerShape.ring,
+  MarkerShape.ballBag,
+  MarkerShape.cornerFlag,
+  MarkerShape.shuttleTube,
+  MarkerShape.hopper,
+  MarkerShape.battingTee,
+  MarkerShape.mannequin,
+  MarkerShape.referee,
+  MarkerShape.coach,
+  MarkerShape.chair,
+};
+
+/// Whether [p]'s picture stays upright on screen when the board is turned.
+bool staysUpright(PlayerIcon p) =>
+    p.isBall || (p.isMarker && kUprightMarkers.contains(p.markerShape));
 
 /// Core for the shared markers, the sport's own package for the seventeen
 /// that only some sports offer.
