@@ -14,7 +14,7 @@ import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/services/recent_boards_service.dart';
 import 'package:tactics_board/services/working_board_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
-import 'package:tactics_board/pages/drill_detail_page.dart';
+import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/pages/main_shell.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
@@ -23,7 +23,7 @@ import 'package:tactics_board/widgets/toolbar.dart';
 
 // V2 raw app screenshots for the "PLAN EVERY RALLY" design.
 // Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..5}.png
-// 5-shot story: home · add-menu · timeline · drill page · player bar.
+// 5-shot story: home · add-menu · timeline · drill library · player bar.
 final outDir =
     '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw';
 
@@ -113,26 +113,20 @@ void main() {
           await _shot(binding, '$sn/$lang/s3');
         });
 
-        // s4: a drill's own page — what it trains, how to set it up, the
-        // sequence beat by beat. This is the thing the app has that a
-        // drawing app does not.
+        // s4: the drill library — the shelf itself. A single drill's page
+        // says what one session looks like; the list says how many there
+        // are, sorted and filtered, which is the thing a coach is buying.
         testWidgets('${sn}_${lang}_s4', (t) async {
           await _launchHome(t, sport, locale);
-          final drill = await _showcase(t, sport);
-          if (drill == null) {
-            await _shot(binding, '$sn/$lang/s4');
-            return;
-          }
           final ctx = t.element(find.byType(SportHomePage));
-          DrillDetailPage.push(ctx,
-              drill: drill,
-              sportType: sport,
-              locale: lang,
-              // A drill page reached without this shows "Unlock with Pro",
-              // because the library hands the callback over only for a drill
-              // the coach may run. The showcase is a paid one, and the store
-              // shot has to be a picture of the page, not of the paywall.
-              onLoad: () {});
+          final s = Provider.of<TacticsState>(ctx, listen: false);
+          DrillLibraryPage.push(ctx, s);
+          await t.pumpAndSettle();
+          // The cards carry a board thumbnail each, drawn from the drill's
+          // own JSON. Shot the moment the route settles, half the shelf is
+          // empty frames.
+          await t.runAsync(
+              () => Future<void>.delayed(const Duration(milliseconds: 600)));
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s4');
         });
