@@ -1350,15 +1350,24 @@ String _markerAsset(MarkerShape shape, SportType sport, String path) =>
 /// grabbed by, and a ladder is still grabbed by its middle.
 double markerArtScale(MarkerShape shape) => switch (shape) {
       MarkerShape.cone => 0.62,
-      MarkerShape.hurdle => 0.82,
+      MarkerShape.hurdle => 0.8,
       MarkerShape.ladder => 2.3,
       // A goal is the width of a penalty area's mouth and a disc is something
       // you step over: the same rule as the cone and the ladder, applied to
       // ten more objects. The grab box does not change.
-      MarkerShape.goal => 2.6,
-      MarkerShape.miniGoal => 1.5,
+      //
+      // Ten of them were redrawn from directly above on 2026-09-26, because
+      // a side view cannot be turned: every one of these both stands up and
+      // points somewhere, so the board tipped them over the moment a coach
+      // turned one or laid the phone on its side. Their numbers were worked
+      // out to keep each piece the width it was already drawn at, so no
+      // saved board changes size — except the hoop and the posts, whose old
+      // art was tall and narrow and whose footprint from above is the
+      // backboard and the gap between the uprights.
+      MarkerShape.goal => 2.5,
+      MarkerShape.miniGoal => 1.45,
       MarkerShape.rebounder => 1.5,
-      MarkerShape.bench => 1.9,
+      MarkerShape.bench => 1.85,
       // The three human ones are measured against a player, not guessed at:
       // a figure is drawn into 1.57 boxes and fills 430 of its plate's 512,
       // so it stands 47.5pt on a 36pt token, while a marker is fitted to its
@@ -1373,11 +1382,11 @@ double markerArtScale(MarkerShape shape) => switch (shape) {
       MarkerShape.ring => 0.85,
       MarkerShape.disc => 0.6,
       MarkerShape.net => 2.6,
-      MarkerShape.rugbyPosts => 2.4,
+      MarkerShape.rugbyPosts => 1.5,
       MarkerShape.laneRope => 2.4,
-      MarkerShape.floatingGoal => 2.2,
-      MarkerShape.hoop => 2.0,
-      MarkerShape.lScreen => 1.6,
+      MarkerShape.floatingGoal => 2.15,
+      MarkerShape.hoop => 1.25,
+      MarkerShape.lScreen => 1.45,
       MarkerShape.hockeyStick => 1.3,
       MarkerShape.racket => 1.1,
       MarkerShape.antenna => 1.0,
