@@ -313,6 +313,27 @@ class _SportHomePageState extends State<SportHomePage> {
     );
   }
 
+  /// A Mac window or a phone on its side is not a tall narrow column.
+  ///
+  /// The page was laid out for a 402pt phone: on a 1700pt window the three
+  /// buttons on the board card stretched right across it, the two rows of
+  /// cards sat in the left third with a field of empty dark beside them,
+  /// and "what to run today" still offered three drills. Wide means: cap
+  /// the column so a line of text is readable, and spend what is left on
+  /// more cards rather than on wider ones.
+  static const double _kMaxColumn = 1040;
+  bool _isWide(BuildContext context) =>
+      MediaQuery.sizeOf(context).width >= 700;
+
+  /// The page's one content column, centred once the window is wider than
+  /// [_kMaxColumn]. The photograph behind the title still bleeds.
+  Widget _column(Widget child) => Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: _kMaxColumn),
+          child: child,
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
@@ -344,7 +365,7 @@ class _SportHomePageState extends State<SportHomePage> {
             // One margin for the whole column below the photograph. The hero
             // is the only child that bleeds, so the padding belongs here
             // rather than on the ListView.
-            Padding(
+            _column(Padding(
               padding: const EdgeInsets.symmetric(horizontal: T.screenX),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,7 +418,7 @@ class _SportHomePageState extends State<SportHomePage> {
                         onAction: _openLibrary),
                     const SizedBox(height: T.s12),
                     _TodayRow(
-                      drills: _pickToday(all),
+                      drills: _pickToday(all, _isWide(context) ? 6 : 3),
                       locale: _locale,
                       onTap: _openDrill,
                       cover: _hasArt ? _coverAsset : null,
@@ -489,7 +510,7 @@ class _SportHomePageState extends State<SportHomePage> {
             ),
                 ],
               ),
-            ),
+            )),
           ],
         ),
       ),
@@ -763,11 +784,18 @@ class _SportHomePageState extends State<SportHomePage> {
   /// Deterministic on the date, not random: a coach who opens the app twice
   /// before training should see the drill they were looking at the first
   /// time, not a reshuffle.
-  List<Drill> _pickToday(List<Drill> all) {
-    const wanted = [
-      DrillCategory.warmup,
-      DrillCategory.possession,
-      DrillCategory.ssg,
+  List<Drill> _pickToday(List<Drill> all, int count) {
+    // A session in order: warm up, work on the ball, finish on a game. A
+    // wide screen asks for more, so the three repeat — a second warm-up, a
+    // second piece of technical work — rather than trailing off into
+    // whatever the library happens to list next.
+    final wanted = [
+      for (var i = 0; i < count; i++)
+        [
+          DrillCategory.warmup,
+          DrillCategory.possession,
+          DrillCategory.ssg,
+        ][i % 3],
     ];
     final now = DateTime.now();
     final day = DateTime(now.year, now.month, now.day)
@@ -777,11 +805,15 @@ class _SportHomePageState extends State<SportHomePage> {
     for (var i = 0; i < wanted.length; i++) {
       final pool = all.where((d) => d.category == wanted[i]).toList();
       if (pool.isEmpty) continue;
-      out.add(pool[(day + i * 7) % pool.length]);
+      // i * 7 walks each slot a different way through its own pool; the
+      // second pass over the same three categories has to start somewhere
+      // else again or a wide screen shows the same drill twice.
+      final pick = pool[(day + i * 7) % pool.length];
+      if (!out.contains(pick)) out.add(pick);
     }
     // A library without those categories still gets a row rather than a gap.
     for (final d in all) {
-      if (out.length >= 3) break;
+      if (out.length >= count) break;
       if (!out.contains(d)) out.add(d);
     }
     return out;
@@ -995,19 +1027,44 @@ class _RecentRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const thumb = 64.0;
-    return SizedBox(
-      height: thumb + T.s12 * 2,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: items.length,
-        separatorBuilder: (_, _) => const SizedBox(width: T.s8),
-        itemBuilder: (context, i) {
+    final h = thumb + T.s12 * 2;
+    return LayoutBuilder(builder: (context, c) {
+      // Wide enough for two: lay them across the width. A scroller in a
+      // 1700pt window put three cards in the left eighth of it.
+      if (c.maxWidth >= 560) {
+        const gap = T.s8;
+        final columns = (c.maxWidth / 260).floor().clamp(2, 5);
+        final w = (c.maxWidth - gap * (columns - 1)) / columns;
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
+          children: [
+            for (var i = 0; i < items.length; i++)
+              SizedBox(width: w, height: h, child: _card(context, i, thumb)),
+          ],
+        );
+      }
+      return SizedBox(
+        height: h,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: items.length,
+          separatorBuilder: (_, _) => const SizedBox(width: T.s8),
+          itemBuilder: (context, i) =>
+              SizedBox(width: 196, child: _card(context, i, thumb)),
+        ),
+      );
+    });
+  }
+
+  Widget _card(BuildContext context, int i, double thumb) {
+    {
+      {
           final (recent, drill) = items[i];
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () => onTap(recent),
             child: Container(
-              width: 196,
               padding: const EdgeInsets.all(T.s12),
               decoration: const BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brSm),
@@ -1017,10 +1074,10 @@ class _RecentRow extends StatelessWidget {
                     DrillThumbnail(
                         drill: drill, sport: sport, height: thumb)
                   else
-                    const SizedBox(
+                    SizedBox(
                       width: thumb * 0.62,
                       height: thumb,
-                      child: Icon(Icons.history_rounded,
+                      child: const Icon(Icons.history_rounded,
                           color: T.textOff, size: 20),
                     ),
                   const SizedBox(width: T.s12),
@@ -1040,9 +1097,8 @@ class _RecentRow extends StatelessWidget {
               ),
             ),
           );
-        },
-      ),
-    );
+      }
+    }
   }
 }
 
@@ -1064,20 +1120,47 @@ class _TodayRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final art = cover != null;
-    return SizedBox(
-      height: art ? 150 : 116,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: drills.length,
-        separatorBuilder: (_, _) => const SizedBox(width: T.s8),
-        itemBuilder: (context, i) {
+    final h = art ? 150.0 : 116.0;
+    // Wide enough for two cards and a gap: lay them out across the width
+    // instead of running them off the side of a window with room to spare.
+    // A phone keeps the scroller — six cards wrapped onto a phone would be
+    // three screenfuls of drills before the coach's own boards.
+    return LayoutBuilder(builder: (context, c) {
+      if (c.maxWidth >= 560) {
+        const gap = T.s8;
+        final columns = (c.maxWidth / 300).floor().clamp(2, 4);
+        final w = (c.maxWidth - gap * (columns - 1)) / columns;
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
+          children: [
+            for (var i = 0; i < drills.length; i++)
+              SizedBox(width: w, height: h, child: _card(context, i, art)),
+          ],
+        );
+      }
+      return SizedBox(
+        height: h,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: drills.length,
+          separatorBuilder: (_, _) => const SizedBox(width: T.s8),
+          itemBuilder: (context, i) => SizedBox(
+              width: art ? 232 : 210, child: _card(context, i, art)),
+        ),
+      );
+    });
+  }
+
+  Widget _card(BuildContext context, int i, bool art) {
+    {
+      {
           final d = drills[i];
           final path = art ? cover!(d.category) : null;
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () => onTap(d),
             child: Container(
-              width: art ? 232 : 210,
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brMd),
@@ -1156,9 +1239,8 @@ class _TodayRow extends StatelessWidget {
               ),
             ),
           );
-        },
-      ),
-    );
+      }
+    }
   }
 
   /// The purpose line — the note's own first section, which is the one that

@@ -910,6 +910,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             ? 0
             : stepLimit;
 
+    /// Where a ghost stands: the spot the beat on show starts from.
+    Offset ghostStart(PlayerIcon p) => stepStart(p, limitFor(p));
+
+    /// Feet offsets for the ghosts: the ball where its leg began, everyone
+    /// else where they are drawn now — a pass starts at a man who is still
+    /// standing there.
+    final ghostFeet = ballAtFeetOffsets(
+      players,
+      (p) => p.isBall
+          ? ghostStart(p)
+          : drawnAt(p) + (fan[p.id] ?? Offset.zero),
+      boardTurns: widget.boardTurns,
+    );
+
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
     /// they are painted differs.
@@ -1026,14 +1040,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   ...players
                       .where((p) => p.moves.isNotEmpty && routeShown(p))
                       .where((p) {
-                      // No ghost for a ball, ever. A second ball on the
-                      // pitch is the thing a coach sees first, and it says
-                      // nothing the board has not already said: this layer
-                      // only appears when the routes do, and the tail of the
-                      // ball's own arrow is exactly where the faint ball
-                      // was being drawn — at the passer's feet, or under the
-                      // ghost of whoever was dribbling it.
-                      if (p.isBall) return false;
+                      // The ball leaves a trace at the spot its leg began,
+                      // at the feet of whoever played it: without one the
+                      // pass arrow sets off from bare grass and the board
+                      // never says where the ball came from. Not while it is
+                      // playing, though — the ball is visibly in the air, and
+                      // a trace behind it is the thing that reads as a
+                      // second ball.
+                      if (p.isBall && state.isAnimating) return false;
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
@@ -1048,7 +1062,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           nudgeThreshold(p);
                     }).map((player) {
                       final size = kPlayerIconSize * player.scale;
-                      final ghostAt = stepStart(player, limitFor(player));
+                      // At the feet of whoever played it, the same as a live
+                      // ball; the raw spot is a token's length ahead of them,
+                      // which on a standing figure is their head.
+                      final ghostAt = ghostStart(player) +
+                          (player.isBall
+                              ? ghostFeet[player.id] ?? Offset.zero
+                              : Offset.zero);
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
                           !player.isBall;
