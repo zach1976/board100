@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/config_constants.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
@@ -36,6 +37,11 @@ final _supportedLocales = allLocales.map((e) => e.$2).toList();
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  // The empty board offers a coach a first-run hint on how to put something
+  // on it. It is the right thing in the app and the wrong thing on the
+  // leading store screenshot, which is a picture of the pitch.
+  // ignore: invalid_use_of_visible_for_testing_member
+  SharedPreferences.setMockInitialValues({'flutter.board_hint_seen': true});
   // This file is run from a SHELL app — SoccerBoard, BasketballBoard — not
   // from the core. The core is a library now: a sport's ball, its equipment
   // and its drills are dev dependencies there, so a board shot from it has
@@ -58,6 +64,7 @@ void main() {
           await _launchSport(t, sport, locale);
           final s = _state(t);
           if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
+          s.clearMultiSelect();
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s2');
         });
@@ -76,11 +83,16 @@ void main() {
           await _shot(binding, '$sn/$lang/s3');
         });
 
-        // s4: Add-element bottom sheet (match setups)
+        // s4: Add-element bottom sheet (match setups), over a board in use —
+        // opened on an empty pitch the top half of the shot is grass.
         testWidgets('${sn}_${lang}_s4', (t) async {
           await _launchSport(t, sport, locale);
+          final s = _state(t);
+          if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
+          s.clearMultiSelect();
+          await t.pumpAndSettle();
           final ctx = t.element(find.byType(TacticsBoardHomePage));
-          showAddElementSheet(ctx, _state(t));
+          showAddElementSheet(ctx, s);
           await t.pumpAndSettle();
           await _shot(binding, '$sn/$lang/s4');
         });
@@ -113,6 +125,10 @@ void main() {
 
 void _setupFormationAndMoves(TacticsState s, SportType sport) {
   if (sport.formations.isNotEmpty) s.applyFormation(sport.formations[0]);
+  // Applying a formation leaves every player it placed multi-selected, so a
+  // coach can drag the shape as one. On a store screenshot that is eleven
+  // selection rings on a pitch nobody has touched.
+  s.clearMultiSelect();
   final home = s.players.where((p) => p.team == PlayerTeam.home).toList();
   if (home.isNotEmpty) _addMovesToState(s, sport, home);
 }

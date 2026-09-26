@@ -12,7 +12,8 @@
 
 | 路径 | 作用 |
 |------|------|
-| `tactics_board/fastlane/screenshots/<sport>/<locale>/` | **上传源**（最终成品要回写到这里，upload 脚本只读这里） |
+| `tactics_board/fastlane/screenshots/<sport>/<locale>/` | 合成器的输出（**不是**上传源，见 Step 5） |
+| `<App>/fastlane/screenshots/<locale>/` | **上传源** —— `upload_screenshots.py` 经 `tools/apps.py` 的 `screenshots_dir(key)` 只读这里 |
 | `tactics_board/aso/glyphs/<sport>.png` | 每运动的专业扁平图标（从 app 的 `SportGlyph` 导出，徽章 + 背景水印用） |
 | `tactics_board/aso/captions_v2.*` | 每运动 6 句标题 + 副标题 × 11 语言的文案表 |
 | `tactics_board/tool/aso_design_compositor.py` | 合成器（背景 + 手机框 + 文字 → 成品） |
@@ -88,6 +89,25 @@ python3 tool/aso_design_compositor.py --all           # 全量 16×11×6
 ```
 
 > **铁律：批量前先出 1 张样张给人确认视觉，再全量**（项目惯例）。
+
+### Step 5 — 分发到上传源（**不能省**）
+
+```bash
+python3 tools/distribute_screenshots.py soccer   # 或 all
+```
+
+合成器写的是 hub 树（按运动分子目录），上传脚本读的是每个 shell 自己的
+`<App>/fastlane/screenshots/<locale>/`。2026-09-26 之前没有任何一步把两者接上，
+照文档跑完 `--all` 上传源其实一张没变。
+
+### 注意：Step 2 必须从 **shell** 跑，不是从 core
+
+自 2026-09-24 拆包起，`tactics_board` 是库：某个运动的球、器材、训练库都挂在它的
+`dev_dependencies` 上 —— `flutter test` 会打包，**app 构建不会**。从 core 跑出来的
+板子上没有球。做法：把 `integration_test/appstore_screenshots.dart` 和
+`integration_test` 依赖临时装进目标 shell（照 `tools/drive_app.sh` 的套路），跑完
+删掉 —— core 的 pubspec 里那两行必须保持注释状态，否则发布包会带上 simulator
+slice 被 App Store 拒。
 
 ### Step 5 — 上传 App Store Connect
 
