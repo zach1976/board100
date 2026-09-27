@@ -53,7 +53,7 @@
 <body><div class="wrap">
 
 <header class="top">
-  <p class="eyebrow">store screenshots · backgrounds · soccer</p>
+  <p class="eyebrow">store screenshots · backgrounds · 一个运动一张</p>
   <h1>截图背景图提示词</h1>
   <p class="lede">商店截图的背景过去是代码画的深蓝渐变加几条白线，现在换成<b>实拍的球场照片</b> ——
   晴天上午的草地、前景的球和锥桶、天上淡淡的粉笔战术线 —— 手机壳浮在上面。文字、徽章、手机框仍然由
@@ -99,15 +99,16 @@
 </section>
 
 <section>
-  <h2>提示词</h2>
-  <p class="sub">每个运动一张背景，该运动的五张截图共用它。足球已经有了，曲棍球是下一个。后面四条是备用场景 ——
-  哪天想让某一张单独换个画面，就生成对应那条，文件名已经写在卡片顶上。</p>
+  <h2>提示词 · 一个运动一条</h2>
+  <p class="sub"><b>文件名就是运动的 key</b>（<code class="mono">tools/sports.tsv</code> 第一列），
+  该运动全部 11 个语言的五张截图共用这一张背景。16 个运动就是 16 张，发到哪个做哪个 ——
+  没有对应文件时合成器自动回退到原先那套画出来的深蓝渐变，不会报错。</p>
 
   <div class="card hero">
     <header>
       <div class="file">soccer.png</div>
       <div class="size">1290x2796</div>
-      <div class="tagline"><b>就生成这一条。</b>五张截图都用它。</div>
+      <div class="tagline"><b style="color:#9FE63F">✓ 已完成</b> · 2.0.0 已用它送审</div>
     </header>
     <div class="body">
       <p class="why">明亮的晴天早上：草是饱和的绿，光从左上来，太阳不在画面里。前景左下角一颗球加一块记录板，右下角一摞锥桶 —— 这两样正好落在手机两侧露出来的那两条里。</p>
@@ -117,75 +118,36 @@ Vertical photograph of a football training pitch on a bright clear morning, shot
     </div>
   </div>
 
-  <div class="card" style="border-color:#2a4a6a">
+  <div class="card ">
     <header>
       <div class="file">fieldHockey.png</div>
       <div class="size">1290x2796</div>
-      <div class="tagline"><b>曲棍球用这条。</b>下一个要发的就是它。</div>
+      <div class="tagline"><b style="color:#E08B3E">← 下一个要做的</b></div>
     </header>
     <div class="body">
-      <p class="why">和足球那张同构，只换运动：蓝色的曲棍球人造草、白线、球门网，前景左下角一支球棍加一颗球，右下角一摞锥桶。<b>场地是蓝的不是绿的</b>，这是曲棍球最好认的特征，别出成足球场。</p>
+      <p class="why">和足球那张同构，只换运动：<b>蓝色的人造草</b>、白线、球门网，前景左下角一支球棍加一颗带麻点的硬球，右下角一摞锥桶。蓝场地是曲棍球最好认的特征，负面提示词里已经把草地和绿色球场排除掉了。</p>
       <div class="prompt"><button class="copy">复制</button><code>fieldHockey.png
 1290x2796
 Vertical photograph of a field hockey pitch on a bright clear morning, shot on a 35mm lens at f/2 with shallow depth of field. The surface is the sport's own blue water-based artificial turf with crisp white markings, not grass and not green. Strong clean sunlight from the upper left, the sun itself out of frame. In the lower-left foreground, close to the camera and slightly soft, a field hockey stick lying on the turf beside a hard white hockey ball with its dimpled surface. In the lower-right foreground, a stack of bright orange marker cones. A goal with taut white netting and its backboard stands in the middle distance on the left, a line of fresh green trees behind it, all softly out of focus. Crisp short shadows, clear air, no haze. Faint white chalk tactical scribbles, X and O marks and dashed curved arrows, ghosted across the upper-right sky at very low opacity, like a chalkboard double exposure. Colour grade: bright natural daylight, neutral white balance, saturated blue turf, crisp white pitch markings, clean air. The very top of the frame is a deep saturated blue sky, rich and even, paling slightly toward the horizon, with no clouds, no sun, no lens flare and no bright highlights in the top quarter. The centre of the frame is deliberately soft, low-contrast and uncluttered. Composition: leave generous empty headroom at the top and empty turf at the bottom; keep all objects of interest near the left and right edges of the lower half. No text, no numbers, no logos, no brand marks, no faces, no people. Negative prompt: grass, green pitch, football, soccer ball, sunset, sunrise, golden hour, dusk, twilight, night, orange sky, amber cast, warm filter, moody, low light, heavy shadows, text, letters, watermark, logo, brand, jersey numbers, faces, portrait, crowd, scoreboard, banner, signage, cartoon, illustration, 3d render, HDR halo, bright sky at top, sun flare in the upper third, busy centre.</code></div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" style="border-style:dashed;opacity:.75">
     <header>
-      <div class="file">soccer_s2.png</div>
+      <div class="file">&lt;运动 key&gt;.png</div>
       <div class="size">1290x2796</div>
-      <div class="tagline">备用 · 只给第二张（添加面板）单独换背景时用</div>
+      <div class="tagline">其余 14 个运动 · 排到哪个补哪个</div>
     </header>
     <div class="body">
-      <p class="why">前景是一堆"可以加到板上的东西"：球袋、角旗、球门。</p>
-      <div class="prompt"><button class="copy">复制</button><code>soccer_s2.png
-1290x2796
-Vertical photograph looking along the goal line of a football training pitch on a bright clear morning, shot on a 35mm lens at f/2 with shallow depth of field. A full-size goal with taut white netting stands mid-frame, lit cleanly from the upper left, the net bright white against vivid green grass. In the lower-left foreground, close to the camera and softly out of focus, a mesh ball bag spilling four or five clean footballs onto the grass. In the lower-right foreground, a corner flag leaning slightly, and behind it a blurred row of training poles. Crisp short shadows, clear air. Faint white chalk formation marks, a scatter of small circles joined by thin straight lines, ghosted across the upper-right sky at very low opacity, like a chalkboard double exposure. Colour grade: bright natural daylight, neutral white balance, vivid saturated green grass, crisp white pitch markings, clean air. The very top of the frame is a deep saturated blue sky, rich and even, paling slightly toward the horizon, with no clouds, no sun, no lens flare and no bright highlights in the top quarter. The centre of the frame is deliberately soft, low-contrast and uncluttered. Composition: leave generous empty headroom at the top and empty grass at the bottom; keep all objects of interest near the left and right edges of the lower half. No text, no numbers, no logos, no brand marks, no faces, no people. Negative prompt: sunset, sunrise, golden hour, dusk, twilight, night, orange sky, amber cast, warm filter, moody, low light, heavy shadows, text, letters, watermark, logo, brand, jersey numbers, faces, portrait, crowd, scoreboard, banner, signage, cartoon, illustration, 3d render, HDR halo, bright sky at top, sun flare in the upper third, busy centre.</code></div>
+      <p class="why">照足球那条改三处就行，其余整段照抄：<b>场地</b>（篮球木地板、排球室内地胶、网球硬地、羽毛球木地板、水球泳池…）、
+      <b>前景左下角那件器材</b>（球 + 该运动的东西）、<b>负面提示词里排掉别的运动</b>（曲棍球那条排掉了 grass / green pitch / soccer ball，就是这个用法）。
+      画布、安全区、色调、粉笔线那几段一个字都不要动 —— 整组截图要像同一天拍的。</p>
+      <p class="why" style="margin:0">key 从 <code class="mono">tools/sports.tsv</code> 第一列取：
+      <span class="mono">basketball · volleyball · tennis · badminton · tableTennis · pickleball ·
+      rugby · baseball · handball · waterPolo · sepakTakraw · beachTennis · footvolley · tactics_board</span></p>
     </div>
   </div>
 
-  <div class="card">
-    <header>
-      <div class="file">soccer_s3.png</div>
-      <div class="size">1290x2796</div>
-      <div class="tagline">备用 · 只给第三张（时间轴）单独换背景时用</div>
-    </header>
-    <div class="body">
-      <p class="why">一排等距的杆子和它们的影子，节奏本身就是构图。</p>
-      <div class="prompt"><button class="copy">复制</button><code>soccer_s3.png
-1290x2796
-Vertical photograph of a row of slalom training poles planted in a straight line across a football pitch on a bright clear morning, shot on a 50mm lens at f/2.2 with shallow depth of field. The poles recede from the lower-left toward the upper-middle distance, evenly spaced, each casting a short crisp shadow across the mown grass stripes. Clean sunlight from the upper left, the sun itself out of frame. The nearest pole in the lower-left is close to the camera and soft; the far ones dissolve into bokeh. In the lower-right foreground, a stopwatch and a whistle lying on the vivid green grass beside a folded training bib. Faint white chalk marks, a run of curved dashed arrows following one after another, ghosted across the upper-right sky at very low opacity, like a chalkboard double exposure. Colour grade: bright natural daylight, neutral white balance, vivid saturated green grass, crisp white pitch markings, clean air. The very top of the frame is a deep saturated blue sky, rich and even, paling slightly toward the horizon, with no clouds, no sun, no lens flare and no bright highlights in the top quarter. The centre of the frame is deliberately soft, low-contrast and uncluttered. Composition: leave generous empty headroom at the top and empty grass at the bottom; keep all objects of interest near the left and right edges of the lower half. No text, no numbers, no logos, no brand marks, no faces, no people. Negative prompt: sunset, sunrise, golden hour, dusk, twilight, night, orange sky, amber cast, warm filter, moody, low light, heavy shadows, text, letters, watermark, logo, brand, jersey numbers, faces, portrait, crowd, scoreboard, banner, signage, cartoon, illustration, 3d render, HDR halo, bright sky at top, sun flare in the upper third, busy centre.</code></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <header>
-      <div class="file">soccer_s4.png</div>
-      <div class="size">1290x2796</div>
-      <div class="tagline">备用 · 只给第四张（练习详情）单独换背景时用</div>
-    </header>
-    <div class="body">
-      <p class="why">已经布置完、还没人来的场地。</p>
-      <div class="prompt"><button class="copy">复制</button><code>soccer_s4.png
-1290x2796
-Vertical photograph of a football drill already set up on dewy grass on a bright clear morning, shot low, almost at grass level, on a 35mm lens at f/2 with shallow depth of field. A grid of bright orange and yellow marker cones is laid out in a regular pattern receding into the distance, each cone beaded with dew and lit cleanly from the upper left. An agility ladder lies unrolled along the left edge of the frame. In the lower-left foreground, close to the camera and out of focus, a spiral notebook and a pen rest on the grass next to a single clean football. Vivid saturated green turf, crisp short shadows, clear air. Faint white chalk marks, a small drill diagram of dots, a dashed loop and one solid arrow, ghosted across the upper-right sky at very low opacity, like a chalkboard double exposure. Colour grade: bright natural daylight, neutral white balance, vivid saturated green grass, crisp white pitch markings, clean air. The very top of the frame is a deep saturated blue sky, rich and even, paling slightly toward the horizon, with no clouds, no sun, no lens flare and no bright highlights in the top quarter. The centre of the frame is deliberately soft, low-contrast and uncluttered. Composition: leave generous empty headroom at the top and empty grass at the bottom; keep all objects of interest near the left and right edges of the lower half. No text, no numbers, no logos, no brand marks, no faces, no people. Negative prompt: sunset, sunrise, golden hour, dusk, twilight, night, orange sky, amber cast, warm filter, moody, low light, heavy shadows, text, letters, watermark, logo, brand, jersey numbers, faces, portrait, crowd, scoreboard, banner, signage, cartoon, illustration, 3d render, HDR halo, bright sky at top, sun flare in the upper third, busy centre.</code></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <header>
-      <div class="file">soccer_s5.png</div>
-      <div class="size">1290x2796</div>
-      <div class="tagline">备用 · 只给第五张（球员编辑）单独换背景时用</div>
-    </header>
-    <div class="body">
-      <p class="why">离得最近的一张：草贴着镜头，一双鞋、一颗球、一摞背心。</p>
-      <div class="prompt"><button class="copy">复制</button><code>soccer_s5.png
-1290x2796
-Vertical photograph shot from grass level on a football pitch on a bright clear morning, macro-close foreground with a 35mm lens at f/1.8, extremely shallow depth of field. Individual blades of vivid green grass fill the very bottom of the frame, lit from the upper left and translucent. In the lower-left foreground, a clean football rests against a pair of football boots, only the boots and shins visible, cropped well below the knee. In the lower-right foreground, a loose stack of folded training bibs in blue, red and yellow. Behind them the pitch falls away into bright bokeh, a blurred goal and fresh treeline far in the distance. Faint white chalk marks, three or four small circles with short motion arrows leaving them, ghosted across the upper-right sky at very low opacity, like a chalkboard double exposure. Colour grade: bright natural daylight, neutral white balance, vivid saturated green grass, crisp white pitch markings, clean air. The very top of the frame is a deep saturated blue sky, rich and even, paling slightly toward the horizon, with no clouds, no sun, no lens flare and no bright highlights in the top quarter. The centre of the frame is deliberately soft, low-contrast and uncluttered. Composition: leave generous empty headroom at the top and empty grass at the bottom; keep all objects of interest near the left and right edges of the lower half. No text, no numbers, no logos, no brand marks, no faces, no people. Negative prompt: sunset, sunrise, golden hour, dusk, twilight, night, orange sky, amber cast, warm filter, moody, low light, heavy shadows, text, letters, watermark, logo, brand, jersey numbers, faces, portrait, crowd, scoreboard, banner, signage, cartoon, illustration, 3d render, HDR halo, bright sky at top, sun flare in the upper third, busy centre.</code></div>
-    </div>
-  </div>
 </section>
 
 <section>
