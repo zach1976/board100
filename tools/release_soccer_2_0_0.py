@@ -66,6 +66,15 @@ KEY = "soccer"
 BUNDLE = "com.zach.soccerBoard"
 VERSION = "2.0.0"
 BUILD_VERSION = "3"          # CFBundleVersion of the IPA
+
+# PLATFORM=MAC_OS switches the whole script to the Mac side of the same app
+# record: a different version line, a different build line, a different
+# screenshot display type, and its own Review Notes.
+PLATFORM = os.environ.get("PLATFORM", "IOS")
+IS_MAC = PLATFORM == "MAC_OS"
+PHONE_TYPE = "APP_DESKTOP" if IS_MAC else "APP_IPHONE_67"
+NOTES_FILE = ("REVIEW_NOTES_MAC_%s.md" % VERSION if IS_MAC
+              else "REVIEW_NOTES_%s.md" % VERSION)
 COPYRIGHT = "2026 Zhenyu Song"
 
 # fastlane's folder name -> the locale App Store Connect uses.
@@ -127,16 +136,35 @@ def app_id():
 def find_version(aid, create=False):
     """The editable iOS 2.0.0 version record, optionally creating it."""
     r = get(f"/apps/{aid}/appStoreVersions",
-            **{"filter[platform]": "IOS", "limit": 20})
+            **{"filter[platform]": PLATFORM, "limit": 20})
     for d in r["data"]:
         if d["attributes"]["versionString"] == VERSION:
             return d["id"], d["attributes"]["appStoreState"]
     if not create:
         return None, None
+    # A rejected or draft version is editable and CAN be renamed; creating a
+    # second one alongside it is refused with "You cannot create a new
+    # version of the App in the current state". macOS sits at 1.1.24
+    # REJECTED, so 2.0.0 is that record retargeted, which is also how the
+    # 1.1.24 release itself was made.
+    editable = [d for d in r["data"]
+                if d["attributes"]["appStoreState"] in
+                ("REJECTED", "DEVELOPER_REJECTED", "PREPARE_FOR_SUBMISSION",
+                 "METADATA_REJECTED", "INVALID_BINARY")]
+    if editable:
+        d = editable[0]
+        was = d["attributes"]["versionString"]
+        patch(f"/appStoreVersions/{d['id']}",
+              {"data": {"type": "appStoreVersions", "id": d["id"],
+                        "attributes": {"versionString": VERSION,
+                                       "copyright": COPYRIGHT,
+                                       "releaseType": "AFTER_APPROVAL"}}})
+        print(f"   复用 {was} ({d['attributes']['appStoreState']}) → {VERSION}")
+        return d["id"], d["attributes"]["appStoreState"]
     made = post("/appStoreVersions", {
         "data": {
             "type": "appStoreVersions",
-            "attributes": {"platform": "IOS", "versionString": VERSION,
+            "attributes": {"platform": PLATFORM, "versionString": VERSION,
                            "copyright": COPYRIGHT,
                            "releaseType": "AFTER_APPROVAL"},
             "relationships": {"app": {"data": {"type": "apps", "id": aid}}},
@@ -153,7 +181,7 @@ def read(loc, name):
 def step_version():
     aid = app_id()
     live = get(f"/apps/{aid}/appStoreVersions",
-               **{"filter[platform]": "IOS", "limit": 1})["data"][0]["attributes"]
+               **{"filter[platform]": PLATFORM, "limit": 1})["data"][0]["attributes"]
     print(f"线上: {live['versionString']} {live['appStoreState']}")
     vid, state = find_version(aid, create=True)
     print(f"✅ {VERSION} → {vid} ({state})")
@@ -172,26 +200,43 @@ def step_text():
     editable = [i for i in infos
                 if i["attributes"].get("appStoreState") != "READY_FOR_SALE"]
     info = (editable or infos)[0]
-    print(f"appInfo {info['id']} ({info['attributes'].get('appStoreState')})")
+    info_state = info["attributes"].get("appStoreState")
+    info_locked = info_state in ("WAITING_FOR_REVIEW", "IN_REVIEW")
+    print(f"appInfo {info['id']} ({info_state})"
+          + ("  ← 已锁，名称沿用现值" if info_locked else ""))
     ilocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appInfos/{info['id']}/appInfoLocalizations")["data"]}
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
+    # Has this platform ever been on sale?
+    hist = get(f"/apps/{aid}/appStoreVersions",
+               **{"filter[platform]": PLATFORM, "limit": 20})["data"]
+    first_release = not any(
+        d["attributes"]["appStoreState"] in ("READY_FOR_SALE", "REPLACED_WITH_NEW_VERSION")
+        for d in hist)
+    if first_release:
+        print(f"   {PLATFORM} 从未上架 → 首次发布，不填 whatsNew")
 
     for folder, locale in LOCALE_MAP.items():
         name, sub = read(folder, "name"), read(folder, "subtitle")
-        if locale in ilocs and (name or sub):
+        # appInfo is shared by both platforms and locks while either one is in
+        # review. The names are already the new ones, put there by the iOS
+        # run, so skipping is right rather than merely unavoidable.
+        if locale in ilocs and (name or sub) and not info_locked:
             attrs = {k: v for k, v in (("name", name), ("subtitle", sub)) if v}
             patch(f"/appInfoLocalizations/{ilocs[locale]}",
                   {"data": {"type": "appInfoLocalizations",
                             "id": ilocs[locale], "attributes": attrs}})
-        body = {k: v for k, v in (
-            ("description", read(folder, "description")),
-            ("keywords", read(folder, "keywords")),
-            ("whatsNew", read(folder, "release_notes")),
-            ("promotionalText", read(folder, "promotional_text")),
-        ) if v}
+        fields = [("description", read(folder, "description")),
+                  ("keywords", read(folder, "keywords")),
+                  ("promotionalText", read(folder, "promotional_text"))]
+        # "What's New" belongs to an UPDATE. macOS has never shipped, so this
+        # is a first release and the field is refused outright:
+        # "Attribute 'whatsNew' cannot be edited at this time".
+        if not first_release:
+            fields.append(("whatsNew", read(folder, "release_notes")))
+        body = {k: v for k, v in fields if v}
         if locale not in vlocs:
             body["locale"] = locale
             made = post("/appStoreVersionLocalizations", {
@@ -216,21 +261,26 @@ def step_shots():
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
+    mac_dir = os.path.join(REPO, "SoccerBoard", "fastlane", "screenshots_mac")
     for folder, locale in LOCALE_MAP.items():
-        d = os.path.join(screenshots_dir(KEY), folder)
+        # One Mac set for every language: they are photographs of a running
+        # window, and the window's own text is what the locale changes.
+        d = mac_dir if IS_MAC else os.path.join(screenshots_dir(KEY), folder)
         if not os.path.isdir(d) or locale not in vlocs:
             continue
         pngs = sorted(f for f in os.listdir(d)
                       if f.endswith(".png") and not f.startswith("ipad"))
+        if IS_MAC:
+            pngs = [f for f in pngs if f[0].isdigit()]
         if not pngs:
             continue
         sets = get(f"/appStoreVersionLocalizations/{vlocs[locale]}/appScreenshotSets")["data"]
         sid = next((s["id"] for s in sets
-                    if s["attributes"]["screenshotDisplayType"] == "APP_IPHONE_67"), None)
+                    if s["attributes"]["screenshotDisplayType"] == PHONE_TYPE), None)
         if sid is None:
             sid = post("/appScreenshotSets", {
                 "data": {"type": "appScreenshotSets",
-                         "attributes": {"screenshotDisplayType": "APP_IPHONE_67"},
+                         "attributes": {"screenshotDisplayType": PHONE_TYPE},
                          "relationships": {"appStoreVersionLocalization": {
                              "data": {"type": "appStoreVersionLocalizations",
                                       "id": vlocs[locale]}}}}})["data"]["id"]
@@ -383,7 +433,13 @@ def _one_preview(lc, lid, mp4):
 def step_build():
     aid = app_id()
     vid, _ = find_version(aid)
-    r = get("/builds", **{"filter[app]": aid, "limit": 20, "sort": "-uploadedDate"})
+    # /builds carries no platform in its attributes — it hangs off the
+    # preReleaseVersion relationship, which is why filtering on the attribute
+    # silently matched nothing.
+    r = get("/builds", **{"filter[app]": aid, "limit": 20,
+                          "sort": "-uploadedDate",
+                          "filter[preReleaseVersion.platform]": PLATFORM,
+                          "filter[preReleaseVersion.version]": VERSION})
     cands = [b for b in r["data"]
              if b["attributes"].get("version") == BUILD_VERSION]
     if not cands:
@@ -408,7 +464,7 @@ def step_notes():
     aid = app_id()
     vid, _ = find_version(aid)
     notes_path = os.path.join(REPO, "SoccerBoard", "docs",
-                              f"REVIEW_NOTES_{VERSION}.md")
+                              NOTES_FILE)
     text = open(notes_path).read()
     # 6.4: a draft with placeholders must never reach Apple.
     for marker in ("[REJECTION REASON", "[FINAL DEVICE QA", "TODO", "TBD"):
@@ -438,7 +494,7 @@ def step_notes():
 def step_status():
     aid = app_id()
     vid, state = find_version(aid)
-    print(f"app {aid}  version {VERSION} {state} ({vid})")
+    print(f"app {aid}  {PLATFORM} {VERSION} {state} ({vid})")
     v = get(f"/appStoreVersions/{vid}")["data"]["attributes"]
     print(f"  releaseType={v.get('releaseType')} encryption={v.get('usesNonExemptEncryption')}")
     b = get(f"/appStoreVersions/{vid}/build")
@@ -466,7 +522,7 @@ def step_submit():
                **{"filter[state]": "READY_FOR_REVIEW", "limit": 5})["data"]
     sub = subs[0] if subs else post("/reviewSubmissions", {
         "data": {"type": "reviewSubmissions",
-                 "attributes": {"platform": "IOS"},
+                 "attributes": {"platform": PLATFORM},
                  "relationships": {"app": {"data": {"type": "apps", "id": aid}}}}})["data"]
     print("submission", sub["id"], sub["attributes"]["state"])
     items = get(f"/reviewSubmissions/{sub['id']}/items")["data"]
