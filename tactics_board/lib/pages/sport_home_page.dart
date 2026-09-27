@@ -402,9 +402,29 @@ class _SportHomePageState extends State<SportHomePage> {
               ),
               const SizedBox(height: T.s24),
             ],
-            // Two builders on one cached future, so the coach's own boards can
-            // sit between what to run today and the categories — their work
-            // belongs above a way of browsing somebody else's.
+            // The coach's own boards come before the shelf. What they made
+            // themselves is what they came back for; a suggestion of what to
+            // run today is worth offering under it, not over it.
+            _sectionHead('home_mine'.tr(),
+                action: _mine.length > 4
+                    ? 'home_all_boards'.tr(args: ['${_mine.length}'])
+                    : null,
+                onAction: _openMine),
+            const SizedBox(height: T.s12),
+            if (_mine.isEmpty)
+              // Said plainly rather than left blank: an empty section with no
+              // explanation reads as something that failed to load.
+              Text('home_mine_empty'.tr(),
+                  style: const TextStyle(color: T.textOff, fontSize: 13.5))
+            else
+              for (final row in _myBoards().take(4))
+                _BoardRow(
+                  label: row.$1,
+                  subtitle: row.$2,
+                  isDrill: false,
+                  onTap: row.$3,
+                ),
+            const SizedBox(height: T.s24),
             FutureBuilder<List<Drill>>(
               future: _drills,
               builder: (context, snap) {
@@ -428,26 +448,6 @@ class _SportHomePageState extends State<SportHomePage> {
                 );
               },
             ),
-            _sectionHead('home_mine'.tr(),
-                action: _mine.length > 4
-                    ? 'home_all_boards'.tr(args: ['${_mine.length}'])
-                    : null,
-                onAction: _openMine),
-            const SizedBox(height: T.s12),
-            if (_mine.isEmpty)
-              // Said plainly rather than left blank: an empty section with no
-              // explanation reads as something that failed to load.
-              Text('home_mine_empty'.tr(),
-                  style: const TextStyle(color: T.textOff, fontSize: 13.5))
-            else
-              for (final row in _myBoards().take(4))
-                _BoardRow(
-                  label: row.$1,
-                  subtitle: row.$2,
-                  isDrill: false,
-                  onTap: row.$3,
-                ),
-            const SizedBox(height: T.s24),
             FutureBuilder<List<Drill>>(
               future: _drills,
               builder: (context, snap) {
@@ -625,40 +625,24 @@ class _SportHomePageState extends State<SportHomePage> {
       // The bottom is not a margin: it is the band the photograph fades out
       // over, so the page begins under a gradient rather than at an edge.
       // Nothing is drawn in it — the scrim below reaches T.bg0 across it.
-      padding: EdgeInsets.fromLTRB(T.screenX, top + T.s4, T.screenX, T.s28),
+      // top is the status bar and the island above it; the row has to
+      // start BELOW that, not four points into it. Merging the title
+      // into the button row moved it up by a whole row, which put it
+      // straight under the Dynamic Island on a Pro.
+      padding: EdgeInsets.fromLTRB(T.screenX, top + T.s12, T.screenX, T.s28),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // The title and the buttons share one row, so the name starts at
+          // the same height the menu sits at. They used to be stacked — a
+          // row of buttons, then the title under it — which read as the
+          // title having been pushed down for no reason.
           Row(
-            children: [
-              const Spacer(),
-              if (!isSingleSportApp)
-                TacticalIconButton(
-                  icon: Icons.grid_view_rounded,
-                  onTap: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute<void>(
-                        builder: (_) => const SportSelectionPage()),
-                  ),
-                ),
-              const SizedBox(width: T.s4),
-              _HomeMenu(
-                onLanguage: () => LanguagePicker.show(context),
-                onContact: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-                onLogin: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const LoginPage())),
-              ),
-            ],
-          ),
-          // Tight under the buttons. Twenty-four points of empty photograph
-          // between the two pushed the title, and everything the page has to
-          // say, a fifth of a phone further down.
-          const SizedBox(height: T.s8),
-          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SportGlyph(sport: sport, size: 26),
               const SizedBox(width: T.s8),
-              Flexible(
+              Expanded(
                 child: Text(
                   // The app's own name, not the sport's: this is the home
                   // page of 足球战术板 / Soccer Board, which is what the
@@ -674,6 +658,23 @@ class _SportHomePageState extends State<SportHomePage> {
                         Shadow(color: Colors.black87, blurRadius: 8),
                       ] : null),
                 ),
+              ),
+              const SizedBox(width: T.s8),
+              if (!isSingleSportApp)
+                TacticalIconButton(
+                  icon: Icons.grid_view_rounded,
+                  onTap: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute<void>(
+                        builder: (_) => const SportSelectionPage()),
+                  ),
+                ),
+              if (!isSingleSportApp) const SizedBox(width: T.s4),
+              _HomeMenu(
+                onLanguage: () => LanguagePicker.show(context),
+                onContact: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const ContactPage())),
+                onLogin: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const LoginPage())),
               ),
             ],
           ),
