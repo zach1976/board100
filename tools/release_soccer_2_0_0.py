@@ -267,16 +267,25 @@ def step_preview():
     """
     aid = app_id()
     vid, _ = find_version(aid)
-    mp4 = os.path.join(REPO, "build", "preview", "soccer.mp4")
+    # The one WITH an audio track. Apple transcodes a silent App Preview and
+    # then fails it with MOV_RESAVE_STEREO — a preview must carry stereo
+    # audio, even when there is nothing to hear. tools/record_preview.sh
+    # records silent, so a muted stereo track is muxed on afterwards.
+    mp4 = os.path.join(REPO, "build", "preview", "soccer_av.mp4")
     if not os.path.exists(mp4):
-        print("跳过：没有 build/preview/soccer.mp4")
-        return
+        raise SystemExit("✗ 没有 build/preview/soccer_av.mp4（需要带静音立体声音轨）")
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
-    lid = vlocs.get("en-US")
-    if not lid:
-        raise SystemExit("✗ en-US 本地化不存在")
+    only = os.environ.get("PREVIEW_LOCALES", "en-US").split(",")
+    targets = [(lc, vlocs[lc]) for lc in only if lc in vlocs]
+    if not targets:
+        raise SystemExit(f"✗ 这些语言不存在: {only}")
+    for lc, lid in targets:
+        _one_preview(lc, lid, mp4)
+
+
+def _one_preview(lc, lid, mp4):
     sets = get(f"/appStoreVersionLocalizations/{lid}/appPreviewSets")["data"]
     sid = next((s["id"] for s in sets
                 if s["attributes"]["previewType"] == "IPHONE_67"), None)
@@ -292,7 +301,8 @@ def step_preview():
     blob = open(mp4, "rb").read()
     res = post("/appPreviews", {
         "data": {"type": "appPreviews",
-                 "attributes": {"fileSize": len(blob), "fileName": "soccer.mp4"},
+                 "attributes": {"fileSize": len(blob),
+                                "fileName": os.path.basename(mp4)},
                  "relationships": {"appPreviewSet": {
                      "data": {"type": "appPreviewSets", "id": sid}}}}})
     pv = res["data"]
@@ -306,7 +316,7 @@ def step_preview():
         "data": {"type": "appPreviews", "id": pv["id"],
                  "attributes": {"uploaded": True,
                                 "sourceFileChecksum": hashlib.md5(blob).hexdigest()}}})
-    print(f"✅ 预览视频 {len(blob)/1048576:.1f} MB 已上传，Apple 转码中")
+    print(f"✅ {lc}: 预览视频 {len(blob)/1048576:.1f} MB 已上传，Apple 转码中")
 
 
 def step_build():

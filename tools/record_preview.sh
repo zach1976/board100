@@ -77,9 +77,13 @@ echo "  cut from ${SS}s for ${DUR}s"
 # -ss before -i seeks, then re-encode: the raw film is variable frame rate
 # and App Store Connect wants a constant 30. yuv420p because anything else
 # will not play everywhere.
+# A muted STEREO track, not -an. Apple transcodes a silent App Preview and
+# then fails it with MOV_RESAVE_STEREO; the film has to carry audio even
+# when there is nothing to hear.
 ffmpeg -loglevel error -y -ss "$SS" -i "$RAW" -t "$DUR" \
+  -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 \
   -r 30 -c:v libx264 -preset slow -crf 20 -pix_fmt yuv420p \
-  -movflags +faststart -an "$FINAL"
+  -c:a aac -b:a 128k -shortest -movflags +faststart "$FINAL"
 
 read -r W H FPS SECS < <(ffprobe -v error -select_streams v:0 \
   -show_entries stream=width,height,r_frame_rate -show_entries format=duration \
