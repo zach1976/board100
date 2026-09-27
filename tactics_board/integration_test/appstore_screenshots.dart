@@ -167,6 +167,11 @@ void main() {
 /// back to the rule below, which is what picked this one's shortlist.
 const _showcaseIds = <SportType, String>{
   SportType.soccer: 'passing_pentagon',
+  // The heuristic picked a five-player aerial that sat in the bottom third
+  // and left half the pitch empty. A counter-attack runs the length of it:
+  // seven players spread 791 board units top to bottom, the ball travelling
+  // through all four beats.
+  SportType.fieldHockey: 'fh_counter_attack',
 };
 
 /// The drill to photograph: the shipped library's own, chosen for what a
