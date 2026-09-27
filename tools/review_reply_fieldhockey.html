@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>回复评论 · 曲棍球战术板</title>
+<style>
+  :root{color-scheme:dark;--bg:#0e1112;--panel:#161b1d;--line:#2a3336;--text:#e8eef0;
+    --dim:#9fb0b5;--accent:#4dd0e1;--ok:#3ddc97;--bad:#ff6b6b;--warn:#ffb74d;
+    --body:"PingFang SC","Hiragino Sans GB",sans-serif;--mono:"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;
+    line-height:1.7;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 90px}
+  header.top{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px}
+  h1{font-weight:800;font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0 0 10px}
+  .lede{color:var(--dim);margin:0;max-width:64ch}
+  h2{font-weight:800;font-size:20px;margin:40px 0 10px}
+  .sub{color:var(--dim);margin:0 0 16px;max-width:70ch}
+  .quote{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);
+    border-radius:0 12px 12px 0;padding:16px 18px;margin:16px 0}
+  .quote .meta{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:10px}
+  .quote .stars{color:var(--warn);letter-spacing:2px}
+  .quote p{margin:0 0 10px}
+  .quote p:last-child{margin:0}
+  mark{background:rgba(255,183,77,.18);color:#ffd9a0;padding:1px 3px;border-radius:3px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+  td.fix{color:var(--ok)}
+  td.mono,code.mono{font-family:var(--mono);font-size:12.5px}
+  .reply{position:relative;background:#0b1416;border:1px solid var(--line);border-radius:12px;
+    padding:52px 18px 18px;margin-top:14px}
+  .reply p{margin:0 0 14px}
+  .reply p:last-child{margin:0}
+  .copy{position:absolute;top:11px;right:11px;background:#17272b;border:1px solid var(--line);
+    color:var(--dim);border-radius:8px;padding:7px 13px;font:600 12px/1 var(--mono);cursor:pointer}
+  .copy:hover{color:var(--text);border-color:#35494f}
+  .copy.done{background:var(--ok);border-color:var(--ok);color:#06231a}
+  .count{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:10px}
+  .callout{border-left:3px solid var(--bad);background:#1c1214;border-radius:0 12px 12px 0;
+    padding:15px 18px;margin:18px 0;font-size:14px;color:#f6d9dc}
+  .callout b{color:#ffb3ba}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+  .steps li{counter-increment:s;position:relative;padding:10px 0 10px 40px;border-bottom:1px solid var(--line)}
+  .steps li:before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;
+    border-radius:50%;background:var(--panel);border:1px solid var(--line);color:var(--accent);
+    font:600 12px/24px var(--mono);text-align:center}
+  footer{color:#5b6d72;font-size:12.5px;margin-top:44px;padding-top:18px;border-top:1px solid var(--line)}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">app store · 评论回复草稿</p>
+  <h1>回复 HarryBryant150</h1>
+  <p class="lede">曲棍球战术板 · 3 星 · 2026-09-08 · 英国。
+  他提的三件事全部属实，并且在他留评两天后全部修好了 —— 但还没上线。</p>
+</header>
+
+<h2>他说了什么</h2>
+<div class="quote">
+  <div class="meta"><span class="stars">★★★</span>☆☆ &nbsp; HarryBryant150 &nbsp;·&nbsp; iOS · GBR &nbsp;·&nbsp; 2026-09-08</div>
+  <p><b>Needs improving</b></p>
+  <p>The app itself is nearly there. Clean design, has most features you'd expect.
+  I just downloaded it but have already given up as when trying to create short
+  corner routines <mark>there is no way to rotate icons</mark> (for example when
+  adding a person to the field they are on their side and not facing upright) —
+  Also, <mark>there isn't an easy way to add multiple pages</mark> in order to
+  flick through different routines. Also, <mark>when clicking the text icon it is
+  just a round shape with T in it, no easy way to actually type in text</mark> to
+  say what you want. Unfortunately, it's already too much of a hassle to use.</p>
+</div>
+
+<h2>三件事都修了，在他留评之后两天</h2>
+<table>
+  <tr><th>他说的</th><th>提交</th><th>日期</th></tr>
+  <tr><td>点文本图标只是个带 T 的圆圈</td>
+      <td class="mono fix">board: make the text tool a text tool</td><td class="mono">2026-09-10</td></tr>
+  <tr><td>加人到场上是侧卧的，无法旋转</td>
+      <td class="mono fix">board: elements can be turned</td><td class="mono">2026-09-10</td></tr>
+  <tr><td>没法方便地加多个页面</td>
+      <td class="mono fix">board: a board is a document of pages</td><td class="mono">2026-09-10</td></tr>
+</table>
+<p class="sub">文本工具那条当时的提交说明写得很直接：工具丢下去的标记，label 是字面量字符串
+<code class="mono">'T'</code>；唯一改它的办法是知道要先选中元素、再点编辑栏里一个小按钮才弹出重命名框。
+打字本身就是这个工具的全部意义，所以现在改成先问你要写什么，不写就什么也不加。
+文本元素在板上也不再是 44 点的圆圈套两个字符，而是按文字长短撑开、最多三行的条 ——
+原先两个字符就截断，是因为它套用了球衣号码的长度上限。</p>
+
+<div class="callout">
+  <b>发之前必须确认：曲棍球线上还是 1.1.25</b>，2026 年 7 月的包。三处修复都在 2.0.0 里，
+  而 2.0.0 目前只有足球送审，曲棍球连版本记录都还没建。<br>
+  所以这段回复里<b>不能</b>写「更新一下就好了」—— 他今天重新下载，看到的还是原样。
+  最稳妥是等曲棍球 2.0.0 真的上架之后再发，那时这段话才完全成立。
+</div>
+
+<h2>回复文案</h2>
+<p class="sub">英文，690 字符，上限 5970。不承诺日期，只说「正在发布流程里」。</p>
+<div class="reply"><button class="copy">复制</button>
+<p>Thank you — this is the most useful kind of review, because all three things you hit were real.</p>
+<p>The text tool was the worst of them. It dropped a marker labelled with the literal letter "T", and the only way to change it was to select the element and find a small button in the edit bar. Typing is the whole point of that tool, so it now asks what you want to write before it adds anything, and the text sits on the pitch as text — sized to the words, up to three lines — instead of two characters squeezed into a token.</p>
+<p>Rotation is in: any element on the board can be turned, so a player added to the field faces the way you need rather than lying on their side.</p>
+<p>Pages are in too. A board is a set of pages now, and you can move between them to keep several routines in one board.</p>
+<p>All three are finished and are working their way through release. I would rather not promise you a date here, but when it lands, please do give it another try — and if a short corner routine still fights you, tell us again.</p>
+<p>— Tactics Board</p>
+</div>
+<p class="count" id="count"></p>
+
+<h2>怎么发</h2>
+<ol class="steps">
+  <li>App Store Connect → 我的 App → <b>曲棍球战术板</b> → 评分与评论</li>
+  <li>找到 HarryBryant150 这条（2026-09-08，3 星，英国）</li>
+  <li>点「回复」，粘贴上面的文案，提交</li>
+  <li>Apple 会给他发一封通知邮件；回复可以改，但每次修改他都会再收到一封</li>
+</ol>
+
+<footer>
+  /Users/zhenyusong/projects/board100/tools/review_reply_fieldhockey.html<br>
+  文案原稿：SoccerBoard/docs/REVIEW_REPLY_fieldHockey_HarryBryant150.md
+</footer>
+
+</div>
+<script>
+(function () {
+  var box = document.querySelector('.reply');
+  var text = Array.prototype.map.call(box.querySelectorAll('p'), function (p) {
+    return p.innerText.trim();
+  }).join('\n\n');
+  document.getElementById('count').textContent =
+    text.length + ' 字符 · App Store 上限 5970';
+  box.querySelector('.copy').addEventListener('click', function () {
+    var b = this;
+    navigator.clipboard.writeText(text).then(function () {
+      b.textContent = '已复制';
+      b.classList.add('done');
+    });
+  });
+})();
+</script>
+</body></html>
