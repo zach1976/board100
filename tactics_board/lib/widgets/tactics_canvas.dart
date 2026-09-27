@@ -209,13 +209,30 @@ Map<String, Offset> markerClearOffsets(
       // On screen: the figure stands upright whichever way the board is
       // turned, so "behind the head" is a screen direction.
       final d = turnVector(at - positionOf(p), boardTurns);
-      final buried = d.dx.abs() < size * 0.45 &&
-          d.dy < size * 0.1 &&
-          d.dy > -size * 0.78;
-      if (!buried) continue;
-      final dir = d.distance < 0.5 ? const Offset(0, -1) : d / d.distance;
-      final want = dir * (_kStandClear * p.scale);
-      result[m.id] = turnVector(want - d, (4 - boardTurns) % 4);
+      // Ramped by distance, with no box to cross.
+      //
+      // This used to test whether the cone fell inside a rectangle behind
+      // the player's head and, if it did, jump it the whole way clear. Two
+      // edges to trip over: the box itself, and — because the lift is
+      // computed along `d` — the direction flipping as the player walked
+      // over the cone. Either way the equipment twitched on a beat where
+      // nothing about it had changed. Measured at 64pt of travel for 1pt of
+      // player movement.
+      //
+      // Now the lift simply fades in over the clearing distance, so a run
+      // passing a cone nudges it and lets it settle back. fanOutOffsets
+      // solved the same problem for players; this is the same shape.
+      final reach = _kStandClear * p.scale;
+      if (d.distance >= reach) continue;
+      // Screen-up when the player is on top of it: with no separation left
+      // there is no direction to preserve, and normalising a near-zero
+      // vector is what made it flip.
+      final dir = d.distance < reach * 0.35
+          ? const Offset(0, -1)
+          : d / d.distance;
+      final lift = (1 - d.distance / reach).clamp(0.0, 1.0);
+      result[m.id] =
+          turnVector(dir * (reach - d.distance) * lift, (4 - boardTurns) % 4);
       break;
     }
   }
