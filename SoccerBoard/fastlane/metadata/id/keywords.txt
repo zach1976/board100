@@ -1,1 +1,1 @@
-sepak bola,futsal,4-4-2,4-3-3,3-5-2,formasi,pelatih,papan,sepak pojok,tendangan bebas,set piece,tim
+futsal,4-4-2,4-3-3,3-5-2,formasi,pelatih,sepak pojok,tendangan bebas,set piece,tim,rencana latihan
