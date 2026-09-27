@@ -317,7 +317,7 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     phone_top = int(H * top_frac)
     phone_bot = int(H * bottom_frac)
     phone_h = phone_bot - phone_top
-    bezel = 24
+    bezel = max(24, round(24 * W / 1290))
     screen_h = phone_h - 2 * bezel
     screen_w = int(screen_h * aspect)
     phone_w = screen_w + 2 * bezel
@@ -329,7 +329,10 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     # drop shadow
     sh_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     sd = ImageDraw.Draw(sh_layer)
-    sd.rounded_rectangle([px-6, py+14, px+phone_w+6, py+phone_h+24], radius=120, fill=(0, 0, 0, 150))
+    k = W / 1290
+    sd.rounded_rectangle([px - 6 * k, py + 14 * k, px + phone_w + 6 * k,
+                          py + phone_h + 24 * k],
+                         radius=round(120 * k), fill=(0, 0, 0, 150))
     sh_layer = sh_layer.filter(ImageFilter.GaussianBlur(28))
     layer.alpha_composite(sh_layer)
 
@@ -337,24 +340,24 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     frame = vgrad(phone_w, phone_h, [
         (0.0, (94, 100, 110)), (0.5, (52, 57, 66)), (1.0, (78, 84, 94))
     ]).convert("RGBA")
-    fmask = rounded_mask((phone_w, phone_h), 118)
+    fmask = rounded_mask((phone_w, phone_h), round(118 * k))
     layer.paste(frame, (px, py), fmask)
 
     # inner black gap then screen
-    gap = 6
+    gap = max(6, round(6 * k))
     inner = Image.new("RGBA", (phone_w - 2*gap, phone_h - 2*gap), (8, 8, 10, 255))
-    layer.paste(inner, (px+gap, py+gap), rounded_mask(inner.size, 112))
+    layer.paste(inner, (px+gap, py+gap), rounded_mask(inner.size, round(112 * k)))
 
     # screen
     scr = shot.resize((screen_w, screen_h), Image.LANCZOS)
-    smask = rounded_mask((screen_w, screen_h), 96)
+    smask = rounded_mask((screen_w, screen_h), round(96 * k))
     layer.paste(scr, (px+bezel, py+bezel), smask)
 
     # dynamic island pill near top center of screen
     di = ImageDraw.Draw(layer)
-    di_w, di_h = int(screen_w * 0.30), 38
+    di_w, di_h = int(screen_w * 0.30), round(38 * k)
     di_x = px + bezel + (screen_w - di_w)//2
-    di_y = py + bezel + 26
+    di_y = py + bezel + round(26 * k)
     di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
 
     # side buttons

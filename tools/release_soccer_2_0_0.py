@@ -258,6 +258,67 @@ def step_shots():
         print(f"  {locale}: {len(pngs)} 张")
 
 
+def step_ipad():
+    """iPad screenshots, replacing the bare grabs inherited from 1.1.x.
+
+    The app's UIDeviceFamily is [1, 2], so iPad shots are required — the set
+    cannot simply be deleted. What was there was four unretouched simulator
+    grabs from the old UI, which 6.1 forbids outright.
+    """
+    aid = app_id()
+    vid, _ = find_version(aid)
+    root = os.path.join(REPO, "tactics_board", "fastlane",
+                        "screenshots_ipad", KEY)
+    if not os.path.isdir(root):
+        raise SystemExit(f"✗ 没有 {root}")
+    vlocs = {d["attributes"]["locale"]: d["id"] for d in
+             get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
+                 limit=40)["data"]}
+    for folder, locale in LOCALE_MAP.items():
+        d = os.path.join(root, folder)
+        # en-GB has no captures of its own; it reads the same English.
+        if not os.path.isdir(d) and locale == "en-GB":
+            d = os.path.join(root, "en-US")
+        if not os.path.isdir(d) or locale not in vlocs:
+            continue
+        pngs = sorted(f for f in os.listdir(d) if f.endswith(".png"))
+        if not pngs:
+            continue
+        sets = get(f"/appStoreVersionLocalizations/{vlocs[locale]}/appScreenshotSets")["data"]
+        sid = next((x["id"] for x in sets
+                    if x["attributes"]["screenshotDisplayType"]
+                    == "APP_IPAD_PRO_3GEN_129"), None)
+        if sid is None:
+            sid = post("/appScreenshotSets", {
+                "data": {"type": "appScreenshotSets",
+                         "attributes": {"screenshotDisplayType":
+                                        "APP_IPAD_PRO_3GEN_129"},
+                         "relationships": {"appStoreVersionLocalization": {
+                             "data": {"type": "appStoreVersionLocalizations",
+                                      "id": vlocs[locale]}}}}})["data"]["id"]
+        for stale in get(f"/appScreenshotSets/{sid}/appScreenshots", limit=20)["data"]:
+            call("DELETE", f"/appScreenshots/{stale['id']}")
+        for fn in pngs:
+            blob = open(os.path.join(d, fn), "rb").read()
+            sh = post("/appScreenshots", {
+                "data": {"type": "appScreenshots",
+                         "attributes": {"fileSize": len(blob),
+                                        "fileName": f"ipad_{fn}"},
+                         "relationships": {"appScreenshotSet": {
+                             "data": {"type": "appScreenshotSets", "id": sid}}}}})["data"]
+            for op in sh["attributes"]["uploadOperations"]:
+                hdrs = {h["name"]: h["value"] for h in op["requestHeaders"]}
+                r = requests.request(op["method"], op["url"], headers=hdrs,
+                                     data=blob[op["offset"]:op["offset"] + op["length"]],
+                                     verify=False, timeout=300)
+                r.raise_for_status()
+            patch(f"/appScreenshots/{sh['id']}", {
+                "data": {"type": "appScreenshots", "id": sh["id"],
+                         "attributes": {"uploaded": True,
+                                        "sourceFileChecksum": hashlib.md5(blob).hexdigest()}}})
+        print(f"  {locale}: {len(pngs)} 张 iPad")
+
+
 def step_preview():
     """The App Preview film, en-US only.
 
@@ -424,6 +485,7 @@ def step_submit():
 
 
 STEPS = {"version": step_version, "text": step_text, "shots": step_shots,
+         "ipad": step_ipad,
          "preview": step_preview, "build": step_build, "notes": step_notes,
          "status": step_status, "submit": step_submit}
 
