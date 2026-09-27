@@ -29,6 +29,7 @@ dev_dependencies:
 
 flutter:
   assets:
+    - assets/intro/
     - assets/hero.webp
     - assets/cover/
   uses-material-design: true

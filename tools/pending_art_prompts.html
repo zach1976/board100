@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>待生成的素材提示词</title>
+<style>
+  :root{color-scheme:dark;--bg:#070b10;--panel:#0d151d;--line:#1a2836;--line2:#132030;
+    --text:#e6eef5;--muted:#8fa3b8;--dim:#5b6d80;--accent:#4dd0e1;--ok:#3ddc97;--warn:#ffb74d;
+    --body:"PingFang SC","Hiragino Sans GB",sans-serif;--mono:"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;
+    line-height:1.7;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 90px}
+  header.top{padding:50px 0 24px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px}
+  h1{font-weight:800;font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0 0 10px}
+  .lede{color:var(--muted);margin:0;max-width:68ch}
+  h2{font-weight:800;font-size:20px;margin:40px 0 8px}
+  .sub{color:var(--muted);margin:0 0 16px;max-width:72ch}
+  .card{border:1px solid var(--line2);border-radius:14px;background:var(--panel);
+    margin-bottom:16px;overflow:hidden}
+  .card.hot{border-color:#5a3a1a}
+  .card>header{padding:13px 16px;border-bottom:1px solid var(--line2)}
+  .card .file{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:600;word-break:break-all}
+  .card .size{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:2px}
+  .card .tag{font-size:13px;margin-top:7px;color:var(--muted)}
+  .badge{display:inline-block;background:#14222f;border:1px solid var(--line);border-radius:5px;
+    padding:1px 7px;font-size:11.5px;margin-right:6px;color:var(--muted)}
+  .badge.now{background:#3a2a10;border-color:#5a3a1a;color:var(--warn)}
+  .card .body{padding:13px 16px 16px}
+  .card .why{color:var(--muted);font-size:13px;margin:0 0 11px}
+  .prompt{position:relative;background:#050a10;border:1px solid var(--line2);
+    border-radius:10px;padding:44px 14px 14px;max-height:320px;overflow:auto}
+  .prompt code{font-family:var(--mono);font-size:12px;line-height:1.7;color:#c3d6e8;
+    white-space:pre-wrap;word-break:break-word;display:block}
+  .copy{position:absolute;top:9px;right:9px;background:#14222f;border:1px solid var(--line);
+    color:var(--muted);border-radius:8px;padding:6px 12px;font:600 11.5px/1 var(--mono);cursor:pointer;z-index:2}
+  .copy:hover{color:var(--text);border-color:#2a4358}
+  .copy.done{background:var(--ok);border-color:var(--ok);color:#06231a}
+  .note{border-left:3px solid var(--warn);background:#191308;border-radius:0 12px 12px 0;
+    padding:14px 17px;margin:16px 0;font-size:13.5px;color:#f0dcc0}
+  .note b{color:#ffcf96}
+  code.mono{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  footer{color:var(--dim);font-size:12.5px;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">待生成 · 15 张</p>
+  <h1>曲棍球差 2 张，手球差 13 张</h1>
+  <p class="lede"><b>文件名都带上了运动名</b> —— 十六个 app 的图原本全叫
+  <code class="mono">hero.png</code>、<code class="mono">intro_1.png</code>，
+  下载目录里分不清谁是谁。按第一行的名字存，我就能直接认。</p>
+</header>
+
+<div class="note">
+  <b>每条都是完整一整段</b>，不是拼出来的。第一行文件名、第二行尺寸、第三行起画面描述，
+  直接整条复制。存 <b>PNG</b>，我来转 webp 和裁切。
+</div>
+
+<h2>曲棍球 · 引导页第 2、3 屏</h2>
+<p class="sub">第 1 屏已经装好了。这两张补齐之后曲棍球的素材就整套完成。</p>
+  <div class="card hot">
+    <header>
+      <div class="file">fieldHockey_intro_2.png</div>
+      <div class="size">1080x2340</div>
+      <div class="tag"><span class="badge now">下一张</span> 引导页第 2 屏 · 129 个训练，已经写好了</div>
+    </header>
+    <div class="body">
+      <p class="why">棚拍 · 纯渐变底</p>
+      <div class="prompt"><button class="copy">复制</button><code>fieldHockey_intro_2.png
+1080x2340
+Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach&#x27;s magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.
+
+Studio composition on a plain deep-green gradient backdrop — no ground texture at all, the objects sit on a smooth seamless surface with soft contact shadows under them. The board is centred and tilted back a little, seen slightly from above. a field hockey stick leaning against the board sits at the left edge of the board, overlapping it. a white dimpled field hockey ball rests at the lower right, just touching the board&#x27;s corner. Graphic, clean and poster-like rather than photographic.
+
+Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading &quot;Plan / Train / Improve&quot; and &quot;Better Players / Brighter Teams&quot; with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.</code></div>
+    </div>
+  </div>
+  <div class="card hot">
+    <header>
+      <div class="file">fieldHockey_intro_3.png</div>
+      <div class="size">1080x2340</div>
+      <div class="tag"><span class="badge now">下一张</span> 引导页第 3 屏 · 排一堂课</div>
+    </header>
+    <div class="body">
+      <p class="why">环境全景 · 场地入镜</p>
+      <div class="prompt"><button class="copy">复制</button><code>fieldHockey_intro_3.png
+1080x2340
+Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach&#x27;s magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.
+
+Wide environmental shot taken on the playing surface itself, from a low sideline angle. blue water-based astroturf, still damp and faintly reflective fills the lower frame, sharp near the camera and softening into darkness toward the back. A row of stadium floodlights glows far out of focus in the upper left corner as small warm bokeh. The board stands centre-frame on the ground. a chrome coach’s whistle on a black lanyard lies at the lower left. a white dimpled field hockey ball rests at the lower right. a field hockey stick leaning against the board sits further back on the left.
+
+Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading &quot;Plan / Train / Improve&quot; and &quot;Better Players / Brighter Teams&quot; with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.</code></div>
+    </div>
+  </div>
+
+
+<h2>手球 · 引导页三屏</h2>
+<p class="sub">手球现在一张都没有，引导页中间是个空的占位圆圈。</p>
+  <div class="card">
+    <header>
+      <div class="file">handball_intro_1.png</div>
+      <div class="size">1080x2340</div>
+      <div class="tag"><span class="badge">手球</span> 引导页第 1 屏 · 画出来，再走一遍</div>
+    </header>
+    <div class="body">
+      <p class="why">板子是主角 · 低机位</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_intro_1.png
+1080x2340
+Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach&#x27;s magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.
+
+Close, slightly low camera angle. The board is the clear hero, standing on its own kickstand and filling the middle of the frame. The ground is a blue and yellow resin indoor court. a small three-panel handball ball rests on the ground in front of the board and to the left, close to camera and softly out of focus. a stack of blue training cones sits behind the board on the left. a chrome coach’s whistle on a black lanyard lies on the ground to the right of the board. Soft diagonal light rays fall across the backdrop from the upper right.
+
+Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading &quot;Plan / Train / Improve&quot; and &quot;Better Players / Brighter Teams&quot; with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_intro_2.png</div>
+      <div class="size">1080x2340</div>
+      <div class="tag"><span class="badge">手球</span> 引导页第 2 屏 · 129 个训练，已经写好了</div>
+    </header>
+    <div class="body">
+      <p class="why">棚拍 · 纯渐变底</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_intro_2.png
+1080x2340
+Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach&#x27;s magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.
+
+Studio composition on a plain deep-green gradient backdrop — no ground texture at all, the objects sit on a smooth seamless surface with soft contact shadows under them. The board is centred and tilted back a little, seen slightly from above. a stack of blue training cones sits at the left edge of the board, overlapping it. a small three-panel handball ball rests at the lower right, just touching the board&#x27;s corner. Graphic, clean and poster-like rather than photographic.
+
+Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading &quot;Plan / Train / Improve&quot; and &quot;Better Players / Brighter Teams&quot; with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_intro_3.png</div>
+      <div class="size">1080x2340</div>
+      <div class="tag"><span class="badge">手球</span> 引导页第 3 屏 · 排一堂课</div>
+    </header>
+    <div class="body">
+      <p class="why">环境全景 · 场地入镜</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_intro_3.png
+1080x2340
+Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
+
+A coach&#x27;s magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.
+
+Wide environmental shot taken on the playing surface itself, from a low sideline angle. a blue and yellow resin indoor court fills the lower frame, sharp near the camera and softening into darkness toward the back. A row of stadium floodlights glows far out of focus in the upper left corner as small warm bokeh. The board stands centre-frame on the ground. a chrome coach’s whistle on a black lanyard lies at the lower left. a small three-panel handball ball rests at the lower right. a stack of blue training cones sits further back on the left.
+
+Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading &quot;Plan / Train / Improve&quot; and &quot;Better Players / Brighter Teams&quot; with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+
+COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
+
+Render: cinematic shallow depth of field, subtle film grain, soft contact shadows, 3D render and product photography hybrid, ultra clean, high detail, no clutter.
+
+Do NOT include: any headline text, numbers, captions, UI elements, buttons, phone frames, device mockups, bezels, logos, watermarks, brand names, people or hands. The only text anywhere in the image is the decorative mint chalk handwriting described above.</code></div>
+    </div>
+  </div>
+
+
+<h2>手球 · 首页十张</h2>
+<p class="sub">一张顶部横幅加九张训练卡封面。没有它们首页顶部是纯色，训练卡也是空白。</p>
+  <div class="card">
+    <header>
+      <div class="file">handball_hero.png</div>
+      <div class="size">1200x800</div>
+      <div class="tag"><span class="badge">手球</span> 首页顶部横幅</div>
+    </header>
+    <div class="body">
+      <p class="why">首页最上方那条大图</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_hero.png
+1200x800
+a resin-tacky handball resting on an indoor court with the blue six-metre zone, placed against the right edge of the frame and slightly cropped by it, ground filling the lower half, the upper background dissolving into soft dark bokeh, the left half of the frame empty and in shadow
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_warmup.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 热身</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.warmup</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_warmup.png
+900x500
+a line of flat markers receding across an indoor court with the blue six-metre zone, a player&#x27;s legs mid-stride entering from the right, the near cone sharp and the rest falling out of focus
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_possession.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 控球</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.possession</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_possession.png
+900x500
+a resin-tacky handball at a player&#x27;s feet on an indoor court with the blue six-metre zone, a ring of blurred legs closing in around it, seen low and close from just above the ground
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_attacking.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 进攻</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.attacking</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_attacking.png
+900x500
+a player driving forward with a resin-tacky handball across an indoor court with the blue six-metre zone, the body cropped at the waist, motion blur trailing behind, low camera angle following the run
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_finishing.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 射门</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.finishing</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_finishing.png
+900x500
+the instant of the strike on a resin-tacky handball, the surface spraying up around it, the goal frame blurred far beyond, frozen at 1/2000s
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_defending.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 防守</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.defending</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_defending.png
+900x500
+two pairs of legs mirroring each other in a low stance on an indoor court with the blue six-metre zone, a resin-tacky handball on the ground between them, shot from ground level
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_setpiece.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 定位球</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.setpiece</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_setpiece.png
+900x500
+a resin-tacky handball standing perfectly still on an indoor court with the blue six-metre zone in the foreground, a blurred line of players waiting far behind it, nothing moving
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_ssg.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 小场比赛</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.ssg</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_ssg.png
+900x500
+a small grid marked out by flat markers on an indoor court with the blue six-metre zone, four blurred players inside it, the near corner cone sharp in the foreground
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_goalkeeping.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 门将</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.goalkeeping</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_goalkeeping.png
+900x500
+a goalkeeper&#x27;s two gloved hands, arms cropped at the forearm, stretching up for a resin-tacky handball in the air just above an indoor court with the blue six-metre zone, the glove palms and the ball the only sharp things in the frame, the goal frame close behind them and thrown out of focus — the keeper must be in the picture: hands, gloves and ball are the subject, not the pitch
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+  <div class="card">
+    <header>
+      <div class="file">handball_cover_conditioning.png</div>
+      <div class="size">900x500</div>
+      <div class="tag"><span class="badge">手球</span> 训练卡封面 · 体能</div>
+    </header>
+    <div class="body">
+      <p class="why">DrillCategory.conditioning</p>
+      <div class="prompt"><button class="copy">复制</button><code>handball_cover_conditioning.png
+900x500
+an agility ladder laid out on an indoor court with the blue six-metre zone, a sprinter&#x27;s feet leaving it at full stride, sweat and dust caught in the backlight
+
+a bright sunny morning: the sun itself is in the frame, low and just behind the subject, flaring through the trees; visible shafts of sunlight rake across the pitch, and the dew and the dust in the air are lit up in them; the grass is brightly sunlit with strong highlights and clean long shadows, the sky behind is bright and open, and the air reads as warm and clear rather than dim; strong contrast between the lit air and a foreground that stays in shade; shallow depth of field with the background falling away into green bokeh, fresh green rather than golden-brown, photoreal, as if shot on an 85mm f/1.8 lens
+
+Nothing written anywhere in the image: no text, letters, numbers, watermarks or signatures. No logos, brand marks, sponsor names, club crests or branding on kit, ball or equipment. No faces and no recognisable people. Not oversaturated, no HDR halo, no flat frontal flash, not a cartoon, not a 3D render, not an illustration.</code></div>
+    </div>
+  </div>
+
+
+<h2>出图之后</h2>
+<p class="sub">按第一行的文件名存成 PNG 放 <code class="mono">~/Downloads</code> 就行，
+我按名字认领并分别放到：</p>
+<div class="prompt" style="padding-top:14px;max-height:none"><code>fieldHockey_intro_N.png  →  FieldHockeyBoard/assets/intro/intro_N.webp
+handball_intro_N.png     →  HandballBoard/assets/intro/intro_N.webp
+handball_hero.png        →  HandballBoard/assets/hero.webp
+handball_cover_X.png     →  HandballBoard/assets/cover/X.webp</code></div>
+
+<footer>
+  /Users/zhenyusong/projects/board100/tools/pending_art_prompts.html<br>
+  画面措辞取自 tools/intro_art_prompts.html 与 tools/home_art_prompts.html 的同一套定义，
+  这里只是把该生成的那几条整段展开、并给文件名加上运动名。
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var code = b.parentElement.querySelector('code');
+    navigator.clipboard.writeText(code.innerText).then(function () {
+      b.textContent = '已复制';
+      b.classList.add('done');
+    });
+  });
+});
+</script>
+</body></html>
