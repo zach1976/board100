@@ -68,13 +68,25 @@ void main() {
     // opened straight onto its pitch; it opens on a home page now, and
     // the shots were of that home page.
     //
-    // By position, not by icon: the same dashboard glyph is on the home
-    // page's own "Open the board" button and on every drill card, and
-    // tapping one of those opened a "Name this board" dialog instead.
-    // The tab bar is the bottom strip, four tabs wide, board second.
-    final screen = tester.view.physicalSize / tester.view.devicePixelRatio;
-    await tester.tapAt(Offset(screen.width * 0.375, screen.height - 34));
-    await settle(14);
+    // By the tab widget itself. Not by icon — the same dashboard glyph is
+    // on the home page's own "Open the board" button and on every drill
+    // card, and tapping one of those opened a "Name this board" dialog.
+    // Not by coordinate either: that missed. The bar is four _TabButton
+    // widgets and the board is the second.
+    final tabs = find.byWidgetPredicate(
+        (w) => w.runtimeType.toString() == '_TabButton');
+    if (tabs.evaluate().length >= 2) {
+      await tester.tap(tabs.at(1), warnIfMissed: false);
+      await settle(14);
+    }
+    // With no board saved, the Board tab asks for a name before it opens
+    // one — see MainShell, which calls createNamedBoard rather than
+    // dropping the coach onto an unnamed pitch. Accept the default.
+    final confirm = find.text('Apply').hitTestable();
+    if (confirm.evaluate().isNotEmpty) {
+      await tester.tap(confirm.first, warnIfMissed: false);
+      await settle(14);
+    }
 
     // Reach the live TacticsState the board is already using, rather than
     // making a second one — the point is to photograph the real screen.
