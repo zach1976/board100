@@ -197,8 +197,17 @@ Map<String, Offset> markerClearOffsets(
   Offset Function(PlayerIcon) positionOf, {
   int boardTurns = 0,
 }) {
-  final people =
-      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  // Only people who STAND there. The lift exists for a coach at his
+  // station with a cone a step behind him — the cone went behind his head
+  // and read as a second, faded figure. A player who is running has no
+  // station: they pass the equipment and are gone, and nudging it as they
+  // go makes static equipment look like it moved. "Warm-up dribbling gates"
+  // is the case that proves it — the drill is a player dribbling THROUGH
+  // each pair of cones, 18 points from one of them, and pushing the gate
+  // open is the one thing the picture must not do.
+  final people = players
+      .where((p) => !p.isMarker && !p.isBall && p.moves.isEmpty)
+      .toList(growable: false);
   if (people.isEmpty) return const {};
   final result = <String, Offset>{};
   for (final m in players) {
