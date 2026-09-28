@@ -29,6 +29,29 @@ Map<int, String> ballEscorts(PlayerIcon ball, List<PlayerIcon> players) {
   final out = <int, String>{};
   if (ball.moves.isEmpty) return out;
   ball.syncPhases();
+  // A board that says who is carrying it is believed. Measuring cannot
+  // answer this: after a short pass to a neighbour the passer is still the
+  // man standing nearest the ball at both ends of the leg, so the board was
+  // dropping the pass line and drawing the passer's own run as a dribble.
+  if (ball.moveCarriers.length == ball.moves.length) {
+    for (int i = 0; i < ball.moves.length; i++) {
+      final who = ball.moveCarriers[i];
+      if (who == null) continue;
+      final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
+      for (final p in players) {
+        if (p.id != who) continue;
+        p.syncPhases();
+        for (int j = 0; j < p.moves.length; j++) {
+          final pph = j < p.movePhases.length ? p.movePhases[j] : j;
+          if (pph == ph) {
+            out[i] = '${p.id}#$j';
+            break;
+          }
+        }
+      }
+    }
+    return out;
+  }
   for (int i = 0; i < ball.moves.length; i++) {
     final from = i == 0 ? ball.position : ball.moves[i - 1];
     final to = ball.moves[i];

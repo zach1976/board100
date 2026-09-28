@@ -1,24 +1,21 @@
-Yang baru di 2.0
+Yang Baru di 2.0.1
 
-137 LATIHAN SEPAK BOLA, SUDAH DI DALAM
-Setiap latihan adalah papan yang bisa dijalankan satu ketukan demi ketukan: apa yang dilatih, cara menatanya, dan satu kalimat yang perlu diteriakkan saat berjalan. Pemanasan, rondo, penyelesaian, umpan silang, bola mati, fisik.
+Semua di versi ini tentang apa yang benar-benar digambar oleh papan latihan.
 
-SUSUN SATU SESI PENUH
-Rangkai latihan menjadi rencana sesi, jalankan dari pinggir lapangan satu per satu, dan catatannya tersimpan sendiri.
+BEDAKAN LARI, GIRINGAN, DAN UMPAN
+Tiga aksi, tiga garis: lari bergaris putus-putus, giringan bergelombang, umpan berupa panah utuh. Dulu pemain yang menggiring bola mendapat dua panah yang nyaris sama berdampingan.
 
-SKUAD DAN KEHADIRAN
-Simpan pemain beserta fotonya, centang siapa yang datang, dan lihat satu musim sekilas.
+SETIAP PANAH PUNYA TITIK AWAL
+Pergerakan pendek hanya menyisakan tujuan dan kehilangan titik awalnya, sehingga seperempat panah di pustaka tampak muncul entah dari mana.
 
-BAGIKAN PAPAN SEBAGAI TAUTAN
-Kirim taktik ke tim — mereka membukanya di peramban, tanpa perlu aplikasi.
+SATU PEMAIN, DIGAMBAR SEKALI
+Setelah langkah pertama, pemain yang sudah bergerak digambar dua kali — terpaut selangkah, menghadap dua arah berbeda.
 
-PEMAIN BARU DI LAPANGAN
-Figur digambar ulang dan menghadap ke arah tujuannya, pria dan wanita, dengan atau tanpa bola di kaki.
+TEMBAKAN SAMPAI KE GAWANG
+Tembakan berhenti terlalu awal, di badan penjaga gawang; dan penjaga gawangnya sendiri berdiri di dalam jalanya. Keduanya diperbaiki.
 
-JUGA DI VERSI INI
-- iPad dan Mac: papan memakai seluruh layar
-- Salin pemain beserta larinya lalu tempel di halaman berikutnya
-- Terbaru: langsung kembali ke papan yang tadi dibuka
-- Ekspor pergerakan sebagai video, bukan hanya gambar
-- Papan lebih ringan, panah lebih jelas, dan daftar perbaikan yang panjang
-- Pembelian sekali opsional menghilangkan iklan
+JUGA
+- Kerucut tetap di tempatnya saat ada yang berlari melewatinya
+- Panah umpan tiba bersama bola, bukan mendahuluinya
+- Pemain menghadap ke arah yang akan dilakukan — penjaga gawang menatap penyerang, bukan gawangnya sendiri
+- Lari bolak-balik dilakukan dengan tangan kosong

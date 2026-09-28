@@ -771,6 +771,8 @@ def _field_hockey():
     return [
         Drill(
             id="fhfit_shuttle", category="conditioning", minutes=10, rel=True,
+            # A shuttle run is a run: the stick stays on the sideline.
+            holds=False,
             purpose=PURPOSE_COURT, free=True, name=SHUTTLE_NAME, note=SHUTTLE_NOTE,
             home=[P(0.50, 0.88, "A",
                     moves=[(0.50, 0.74, 0), (0.50, 0.88, 1), (0.50, 0.60, 2), (0.50, 0.88, 3),
@@ -778,12 +780,12 @@ def _field_hockey():
                     why={0: "sprint", 1: "turn_back", 2: "sprint", 3: "turn_back",
                          4: "sprint", 5: "turn_back"})],
             markers=[M(0.42, 0.90), M(0.42, 0.74), M(0.42, 0.60), M(0.42, 0.46)],
-            setup=_s("four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands",
-                     "一条线上四个锥标，分别在 0、10、20、30 米处；球员双手持棍从第一个出发",
-                     "一條線上四個錐標，分別在 0、10、20、30 米處；球員雙手持棍從第一個出發"),
-            gear=_s("the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does",
-                    "锥标是 10、20、30 米的折返点；每次折返用球棍触线——这样身体在折返时自然就是低位",
-                    "錐標是 10、20、30 米的折返點；每次折返用球棍觸線——這樣身體在折返時自然就是低位"),
+            setup=_s("four cones on a line at 0, 10, 20 and 30 m; the player starts on the first",
+                     "一条线上四个锥标，分别在 0、10、20、30 米处；球员从第一个出发",
+                     "一條線上四個錐標，分別在 0、10、20、30 米處；球員從第一個出發"),
+            gear=_s("the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does",
+                    "锥标是 10、20、30 米的折返点；每次折返用手触线——这样身体在折返时自然就是低位",
+                    "錐標是 10、20、30 米的折返點；每次折返用手觸線——這樣身體在折返時自然就是低位"),
             flow=_s("Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.",
                     "三个折返为一趟，约 30 秒；休息 45 秒再来。做 8 趟后休息 5 分钟。",
                     "三個折返為一趟，約 30 秒；休息 45 秒再來。做 8 趟後休息 5 分鐘。"),
@@ -807,6 +809,7 @@ def _field_hockey():
         ),
         Drill(
             id="fhfit_repeat_sprints", category="conditioning", minutes=10, rel=True,
+            holds=False,          # flat-out sprints, nothing in the hands
             purpose=PURPOSE_COURT, name=REPEAT_NAME, note=REPEAT_NOTE,
             home=[P(0.24, 0.84, "A",
                     moves=[(0.24, 0.30, 0), (0.50, 0.84, 1)],
@@ -913,7 +916,7 @@ def _water_polo():
 def _baseball():
     return [
         Drill(
-            id="bbfit_home_to_first", category="conditioning", minutes=8, rel=True,
+            id="bbfit_home_to_first", category="conditioning", holds=False, minutes=8, rel=True,
             purpose=PURPOSE_COURT, free=True,
             name=_t("Home to first", "本垒到一垒冲刺", "本壘到一壘衝刺", "本塁から一塁へのダッシュ",
                     "홈에서 1루까지 질주", "De home a primera", "Du marbre à la première base",
@@ -947,7 +950,7 @@ def _baseball():
                     "每人從揮棒開始跑 6 次並計時：右打者 4.3 秒是平均水平，4.1 秒以內算跑者。每次之間休息 90 秒，沿界外區走回來。"),
         ),
         Drill(
-            id="bbfit_base_circuit", category="conditioning", minutes=10, rel=True,
+            id="bbfit_base_circuit", category="conditioning", holds=False, minutes=10, rel=True,
             purpose=PURPOSE_COURT,
             name=_t("Around the bases", "绕垒跑", "繞壘跑", "ベースランニング一周", "베이스 한 바퀴",
                     "Vuelta a las bases", "Tour des bases", "Keliling base",
@@ -979,7 +982,7 @@ def _baseball():
                     "全力跑完一圈約 15 秒，然後趁其他人跑的時候休息 2 分鐘；每人 4 圈。"),
         ),
         Drill(
-            id="bbfit_first_step", category="conditioning", minutes=8, rel=True,
+            id="bbfit_first_step", category="conditioning", holds=False, minutes=8, rel=True,
             purpose=PURPOSE_COURT, name=LATERAL_NAME, note=LATERAL_NOTE,
             home=[P(0.40, 0.62, "A",
                     moves=[(0.28, 0.57, 0), (0.40, 0.62, 1), (0.52, 0.57, 2), (0.40, 0.62, 3)],

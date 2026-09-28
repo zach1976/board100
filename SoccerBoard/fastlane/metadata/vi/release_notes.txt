@@ -1,24 +1,21 @@
-Có gì mới trong 2.0
+Có gì mới trong 2.0.1
 
-137 BÀI TẬP BÓNG ĐÁ CÓ SẴN
-Mỗi bài tập là một bảng chiến thuật đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu duy nhất cần hô khi bài đang chạy. Khởi động, rondo, dứt điểm, tạt bóng, cố định, thể lực.
+Mọi thứ trong bản này đều liên quan đến những gì bảng chiến thuật thực sự vẽ ra.
 
-SOẠN CẢ MỘT BUỔI TẬP
-Nối các bài tập thành giáo án, chạy từng bài ngay bên đường biên, và những gì đã tập được ghi lại.
+PHÂN BIỆT CHẠY CHỖ, DẪN BÓNG VÀ CHUYỀN
+Ba hành động, ba kiểu nét: chạy chỗ là nét đứt, dẫn bóng là nét lượn sóng, chuyền là mũi tên nét liền. Trước đây người dẫn bóng bị vẽ thành hai mũi tên gần như giống hệt nhau nằm cạnh nhau.
 
-ĐỘI HÌNH VÀ ĐIỂM DANH
-Lưu cầu thủ kèm ảnh, đánh dấu ai có mặt, và xem cả mùa trong một màn hình.
+MỌI MŨI TÊN ĐỀU CÓ ĐIỂM XUẤT PHÁT
+Một pha di chuyển ngắn chỉ giữ lại điểm đến và mất điểm xuất phát, khiến một phần tư số mũi tên trong thư viện trông như hiện ra từ hư không.
 
-CHIA SẺ BẢNG BẰNG ĐƯỜNG LINK
-Gửi bài cho cả đội — họ mở bằng trình duyệt, không cần cài ứng dụng.
+MỘT CẦU THỦ, VẼ MỘT LẦN
+Sau nhịp đầu tiên, cầu thủ đã di chuyển bị vẽ hai lần — cách nhau một bước chân và quay về hai hướng khác nhau.
 
-CẦU THỦ TRÊN SÂN ĐƯỢC VẼ LẠI
-Giờ họ quay mặt về hướng sắp chạy tới, chọn được nam hoặc nữ, có hoặc không có bóng trong chân.
+CÚ SÚT ĐẾN ĐƯỢC KHUNG THÀNH
+Cú sút từng dừng sớm, ngay trên người thủ môn; còn thủ môn thì đứng bên trong lưới nhà. Cả hai đều đã sửa.
 
-BẢN NÀY CÒN CÓ
-- iPad và Mac: bảng dùng trọn màn hình
-- Sao chép cầu thủ kèm đường chạy rồi dán sang trang sau
-- Gần đây: quay lại ngay bảng vừa mở
-- Xuất pha bóng thành video, không chỉ ảnh
-- Bảng mượt hơn, mũi tên rõ hơn, và một danh sách sửa lỗi dài
-- Một lần mua tuỳ chọn để tắt quảng cáo
+NGOÀI RA
+- Nón không bị xê dịch khi có người chạy ngang qua
+- Mũi tên đường chuyền đến cùng lúc với bóng, không đến trước
+- Cầu thủ quay mặt về phía việc sắp làm — thủ môn nhìn tiền đạo, không nhìn khung thành nhà
+- Bài chạy con thoi chạy tay không

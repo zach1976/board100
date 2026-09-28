@@ -1,24 +1,21 @@
-Nouveautés de la 2.0
+Nouveautés de la version 2.0.1
 
-137 EXERCICES DE FOOTBALL INTÉGRÉS
-Chaque exercice est un tableau que vous déroulez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Échauffements, rondos, finition, centres, coups de pied arrêtés, physique.
+Tout dans cette version concerne ce que les tableaux d'exercices dessinent réellement.
 
-PRÉPAREZ TOUTE LA SÉANCE
-Enchaînez des exercices en un plan d'entraînement, déroulez-le depuis la touche un par un, et gardez la trace de ce que vous avez vraiment fait.
+DISTINGUER UNE COURSE, UNE CONDUITE ET UNE PASSE
+Trois actions, trois traits : la course est en pointillés, la conduite ondule, la passe est une flèche pleine. Auparavant, le joueur qui portait le ballon recevait deux flèches presque identiques côte à côte.
 
-VOTRE EFFECTIF ET LES PRÉSENCES
-Gardez vos joueurs avec leur photo, cochez qui est venu, et voyez la saison d'un coup d'œil.
+CHAQUE FLÈCHE A UN DÉPART
+Un déplacement court gardait sa destination et perdait son origine : un quart des flèches de la bibliothèque semblaient sortir de nulle part.
 
-PARTAGEZ UN TABLEAU PAR LIEN
-Envoyez une tactique à l'équipe : elle s'ouvre dans un navigateur, sans application.
+UN JOUEUR, DESSINÉ UNE FOIS
+Passé le premier temps, un joueur qui s'était déplacé était dessiné deux fois, à une foulée d'écart et dans deux directions différentes.
 
-DE NOUVEAUX JOUEURS SUR LE TERRAIN
-Des figurines redessinées qui regardent là où elles vont, hommes et femmes, avec ou sans le ballon au pied.
+DES FRAPPES QUI ATTEIGNENT LE BUT
+La frappe s'arrêtait trop tôt, sur le gardien ; et le gardien se tenait à l'intérieur de ses propres filets. Les deux sont corrigés.
 
-AUSSI DANS CETTE VERSION
-- iPad et Mac : le tableau prend tout l'écran
-- Copiez un joueur avec sa course et collez-le sur la page suivante
-- Récents : retour direct au tableau que vous aviez ouvert
-- Exportez une action en vidéo, pas seulement en image
-- Tableaux plus rapides, flèches plus lisibles et une longue liste de corrections
-- Un achat unique facultatif supprime les publicités
+AUSSI
+- Les plots restent en place quand une course passe à côté
+- La flèche de passe arrive avec le ballon, pas avant lui
+- Les joueurs regardent ce qu'ils s'apprêtent à faire : le gardien fixe l'attaquant, pas son propre but
+- Les navettes se courent les mains vides

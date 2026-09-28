@@ -1,24 +1,21 @@
-What's New in 2.0
+What's New in 2.0.1
 
-137 SOCCER DRILLS, BUILT IN
-Every drill is a board you can step through — what it trains, how to set it up, and the one thing to say while it runs. Warm-ups, rondos, finishing, crossing, set pieces, conditioning.
+Everything in this release is about what the drill boards actually draw.
 
-PLAN THE WHOLE SESSION
-String drills into a practice plan, run it from the touchline one drill at a time, and keep a record of what you actually ran.
+TELL A RUN FROM A DRIBBLE FROM A PASS
+Three actions, three lines: a run is dashed, a dribble waves, a pass is a solid arrow. A player carrying the ball used to get two near-identical arrows side by side.
 
-YOUR SQUAD, YOUR ATTENDANCE
-Keep your players with their photos, mark who turned up, and see the season at a glance.
+EVERY ARROW STARTS SOMEWHERE
+A short run kept its destination and lost where it came from, so a quarter of the arrows in the library appeared out of thin air.
 
-SHARE A BOARD AS A LINK
-Send a tactic to the squad — they open it in a browser, no app needed.
+ONE PLAYER, DRAWN ONCE
+Past the first step, a player who had moved was drawn twice — a stride apart, facing two different ways.
 
-NEW PLAYERS ON THE PITCH
-Redrawn figures who face where they are going, men and women, with or without the ball at their feet.
+SHOTS THAT REACH THE GOAL
+A shot used to stop short, on the keeper; the keeper himself stood inside his own net. Both fixed.
 
-ALSO IN THIS RELEASE
-- iPad and Mac: the board uses the whole screen
-- Copy a player with their run and paste it onto the next page
-- Recent: straight back to the board you had open
-- Export a move as a video, not just an image
-- Faster boards, clearer arrows, and a long list of fixes
-- An optional one-time upgrade removes the ads
+ALSO
+- Cones stay where they were put when a run goes past them
+- The pass arrow arrives with the ball instead of ahead of it
+- Players face what they are about to do — a keeper watches the attacker, not his own goal
+- A shuttle run is run empty-handed

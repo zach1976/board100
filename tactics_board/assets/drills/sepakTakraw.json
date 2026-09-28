@@ -153,6 +153,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -351,6 +355,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -548,6 +557,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -797,6 +811,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d3",
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1045,6 +1064,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d3",
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1283,6 +1307,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              "d3",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -1523,6 +1551,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              "d3",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1760,6 +1792,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              "d3",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -2019,6 +2055,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2276,6 +2316,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -2535,6 +2579,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2781,6 +2829,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3026,6 +3079,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3257,6 +3315,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3504,6 +3567,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3749,6 +3816,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3998,6 +4069,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4196,6 +4271,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -4443,6 +4522,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -4703,6 +4786,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4961,6 +5048,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5221,6 +5312,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5465,6 +5560,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5711,6 +5810,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5927,6 +6030,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -6198,6 +6305,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -6490,6 +6601,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6718,6 +6833,10 @@
               0,
               1
             ],
+            "moveCarriers": [
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6942,6 +7061,11 @@
               1,
               2,
               3
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,

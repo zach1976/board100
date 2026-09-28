@@ -1,24 +1,21 @@
-Novedades de la 2.0
+Novedades de la versión 2.0.1
 
-137 EJERCICIOS DE FÚTBOL INCLUIDOS
-Cada ejercicio es una pizarra que puedes recorrer paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Calentamientos, rondos, definición, centros, balón parado y físico.
+Todo lo de esta versión tiene que ver con lo que dibujan las pizarras de los ejercicios.
 
-PLANIFICA LA SESIÓN ENTERA
-Encadena ejercicios en un plan de entrenamiento, llévalo desde la banda uno a uno y guarda lo que realmente hiciste.
+DISTINGUIR UNA CARRERA, UNA CONDUCCIÓN Y UN PASE
+Tres acciones, tres líneas: la carrera es discontinua, la conducción ondula y el pase es una flecha continua. Antes, quien llevaba el balón recibía dos flechas casi idénticas una al lado de la otra.
 
-TU PLANTILLA Y LA ASISTENCIA
-Guarda a tus jugadores con su foto, marca quién vino y mira la temporada de un vistazo.
+TODA FLECHA EMPIEZA EN ALGÚN SITIO
+Un desplazamiento corto conservaba su destino y perdía su origen: una cuarta parte de las flechas de la biblioteca parecían salir de la nada.
 
-COMPARTE UNA PIZARRA COMO ENLACE
-Manda una táctica al equipo: la abren en el navegador, sin instalar nada.
+UN JUGADOR, DIBUJADO UNA VEZ
+A partir del primer paso, un jugador que se había movido se dibujaba dos veces, a una zancada y mirando en direcciones distintas.
 
-JUGADORES NUEVOS EN EL CAMPO
-Figuras redibujadas que miran hacia donde van, hombres y mujeres, con o sin el balón en los pies.
+DISPAROS QUE LLEGAN A LA PORTERÍA
+El disparo se quedaba corto, encima del portero; y el portero estaba dentro de su propia red. Ambas cosas corregidas.
 
-TAMBIÉN EN ESTA VERSIÓN
-- iPad y Mac: la pizarra ocupa toda la pantalla
-- Copia un jugador con su desmarque y pégalo en la página siguiente
-- Recientes: vuelve de un toque a la pizarra que tenías abierta
-- Exporta una jugada en vídeo, no solo en imagen
-- Pizarras más rápidas, flechas más claras y una larga lista de correcciones
-- Una compra única opcional quita los anuncios
+ADEMÁS
+- Los conos se quedan donde se pusieron cuando alguien pasa corriendo
+- La flecha del pase llega con el balón, no antes
+- Los jugadores miran hacia lo que van a hacer: el portero mira al atacante, no a su portería
+- Las series de ida y vuelta se corren con las manos libres

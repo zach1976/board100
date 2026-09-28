@@ -181,6 +181,22 @@ class Drill:
     # baseball drew four double plays and two relays without a single ball
     # in flight, because the ball could not move on its own.
     ball_moves: list = field(default_factory=list)
+    # Per ball leg: the id of the player carrying the ball on that leg, or
+    # None where the ball travels on its own. Filled by resolve_ball, which
+    # is the only place that knows — "the same man again" is a carry and a
+    # new target is a pass. The board draws a carry as one waved line on the
+    # player and a pass as the ball's own; guessing that back from geometry
+    # cannot be done, because after a short pass to a neighbour the passer
+    # is still the man standing nearest the ball.
+    ball_carriers: list = field(default_factory=list)
+    # Whether the figures hold their sport's implement. None — nearly always
+    # — means "whatever this sport normally does": everyone on a tennis court
+    # has a racket, one player in nine on a diamond has a bat. Set False on a
+    # drill that is plain running, where the stick or the bat is on the
+    # sideline: a coach saw his hockey player run a 30 m shuttle with the
+    # stick still in both hands. Not decided from the category — most of the
+    # footwork drills ARE done with the racket up, and several say so.
+    holds: bool | None = None
     # The semantic forms, resolved into ball_moves by build_board once every
     # position is final (after to_canvas and space_out), so authors write the
     # story and never coordinates:
@@ -223,7 +239,8 @@ class Drill:
         return len(self.home) + len(self.away)
 
 
-def _player(idx, p: P, team: int, sport: str, color_idx: int) -> dict:
+def _player(idx, p: P, team: int, sport: str, color_idx: int,
+            holds: bool | None = None) -> dict:
     moves = [[m[0], m[1]] for m in p.moves]
     phases = [m[2] for m in p.moves]
     return {
@@ -242,6 +259,9 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int) -> dict:
         "photoId": None,
         "role": p.role,
         "attachedTo": None,
+        # Omitted unless the drill says otherwise, which reads back as
+        # "whatever this sport normally does".
+        **({"holds": holds} if holds is not None else {}),
     }
 
 
@@ -275,7 +295,7 @@ def _marker(idx, m: M) -> dict:
 
 
 def _ball(idx, sport: str, x: float, y: float, attached_to: str | None,
-          moves: list | None = None) -> dict:
+          moves: list | None = None, carriers: list | None = None) -> dict:
     return {
         "id": f"b{idx}",
         "label": "",
@@ -285,6 +305,8 @@ def _ball(idx, sport: str, x: float, y: float, attached_to: str | None,
         "scale": 1.0,
         "moves": [[m[0], m[1]] for m in (moves or [])],
         "movePhases": [m[2] for m in (moves or [])],
+        # Who is carrying it on each leg, or null where it travels alone.
+        "moveCarriers": list(carriers or [None] * len(moves or [])),
         "moveColor": MOVE_COLORS[0],
         "customColor": None,
         "gender": 2,
@@ -364,6 +386,9 @@ def prune_degenerate_ball_legs(drill: Drill, sport: str) -> None:
     if drill.ball_to and head >= 0:
         drill.ball_to = [t for j, t in enumerate(drill.ball_to)
                          if keep[head + j]]
+    if len(drill.ball_carriers) == len(drill.ball_moves):
+        drill.ball_carriers = [c for c, alive
+                               in zip(drill.ball_carriers, keep) if alive]
     drill.ball_moves = [m for m, alive in zip(drill.ball_moves, keep) if alive]
 
 
@@ -652,6 +677,7 @@ def resolve_ball(drill: Drill, sport: str) -> None:
                                            (mx - prev_x, my - prev_y)), ph))
             prev_x, prev_y = mx, my
         drill.ball_moves = follow
+        drill.ball_carriers = [drill.ball_follow] * len(follow)
 
     if not drill.ball_to and drill.ball_moves:
         # A hand-drawn ball path says nothing about who has the ball, so it
@@ -755,7 +781,10 @@ def resolve_ball(drill: Drill, sport: str) -> None:
         if carried:
             drill.ball_to = sorted(drill.ball_to + carried, key=lambda e: e[1])
 
+        carriers = []
         for (t, ph) in drill.ball_to:
+            carriers.append(t if (t == prev_t and not isinstance(t, tuple)
+                                  and t is not None) else None)
             if isinstance(t, Spot) or (isinstance(t, tuple)
                                        and _is_far_end(sport, t)):
                 # A shot is struck AT the goal, so it is drawn arriving
@@ -784,6 +813,9 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             prev = point
             prev_t = t
         drill.ball_moves = follow_legs + legs
+        # A follow is a carry all the way down: that is what ball_follow is.
+        drill.ball_carriers = (
+            [drill.ball_follow] * len(follow_legs) + carriers)
 
 
 def unlabel_lone_player(drill: Drill) -> None:
@@ -918,17 +950,30 @@ def build_board(drill: Drill, sport: str) -> dict:
     compose_note(drill, sport)
     players, i, color = [], 0, 0
     home_ids = []
+    holds = drill.holds
     for p in drill.home:
-        players.append(_player(i, p, TEAM_HOME, sport, color))
+        players.append(_player(i, p, TEAM_HOME, sport, color, holds))
         home_ids.append(f"d{i}")
         i += 1
         color += 1
     for p in drill.away:
-        players.append(_player(i, p, TEAM_AWAY, sport, color))
+        players.append(_player(i, p, TEAM_AWAY, sport, color, holds))
         i += 1
         color += 1
     for j, m in enumerate(drill.markers):
         players.append(_marker(j, m))
+
+    # ball_carriers holds home indexes and "aN" away refs; the board speaks
+    # in ids, and away players are numbered on after the home ones.
+    def carrier_id(t):
+        if isinstance(t, int):
+            return f"d{t}"
+        if isinstance(t, str) and t.startswith("a"):
+            return f"d{len(drill.home) + int(t[1:])}"
+        return None
+    carriers = [carrier_id(c) for c in drill.ball_carriers]
+    if len(carriers) != len(drill.ball_moves):
+        carriers = [None] * len(drill.ball_moves)
 
     if drill.ball is not None:
         if isinstance(drill.ball, int):
@@ -938,10 +983,10 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"the ball is given as an (x, y) instead")
             bx, by = ball_start(drill, sport)
             players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
-                                 drill.ball_moves))
+                                 drill.ball_moves, carriers))
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
-                                 drill.ball_moves))
+                                 drill.ball_moves, carriers))
 
     ball_xy = None
     for pd in players:

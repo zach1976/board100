@@ -260,6 +260,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d0",
+              "d0",
+              "d0"
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -424,6 +429,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -606,6 +615,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              "d0",
+              "d0"
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -940,6 +953,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1268,6 +1287,11 @@
               0,
               2,
               3
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -1610,6 +1634,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1891,6 +1921,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              "d1"
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2168,6 +2203,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              "d0"
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -2456,6 +2496,13 @@
               3,
               4
             ],
+            "moveCarriers": [
+              "d0",
+              "d0",
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2743,6 +2790,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2967,6 +3020,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3185,6 +3243,10 @@
               0,
               2
             ],
+            "moveCarriers": [
+              "d0",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3402,6 +3464,10 @@
             "movePhases": [
               0,
               2
+            ],
+            "moveCarriers": [
+              "d0",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3631,6 +3697,12 @@
               1,
               2,
               3
+            ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -3977,6 +4049,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              "d5",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4316,6 +4393,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              "d5"
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -4677,6 +4758,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              "d5",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4928,6 +5014,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5181,6 +5272,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5433,6 +5529,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -5796,6 +5897,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6022,6 +6128,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -6320,6 +6431,12 @@
               1,
               2,
               3
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              "d2",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -6699,6 +6816,12 @@
               1,
               2,
               3
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              "d4",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -7162,6 +7285,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              null,
+              null,
+              "d6",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -7382,6 +7511,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -7643,6 +7776,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -7911,6 +8049,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -8215,6 +8358,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              "d2",
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -8407,6 +8556,10 @@
             "movePhases": [
               0,
               1
+            ],
+            "moveCarriers": [
+              "d0",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -8610,6 +8763,12 @@
               2,
               3
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -8782,6 +8941,11 @@
               0,
               1,
               2
+            ],
+            "moveCarriers": [
+              "d0",
+              "d0",
+              null
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -9001,6 +9165,11 @@
               1,
               2
             ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null
+            ],
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -9043,18 +9212,18 @@
         "vi-VN": "Chạy con thoi chạm vạch"
       },
       "note": {
-        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nEquipment: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back.\nHow it continues: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nCoaching point: Touch every line with the hand and push off the outside foot — the seconds are lost in the turn, not in the running.",
-        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nEquipment: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back.\nHow it continues: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nCoaching point: Touch every line with the hand and push off the outside foot — the seconds are lost in the turn, not in the running.",
-        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】一条线上四个锥标，分别在 0、10、20、30 米处；球员双手持棍从第一个出发。\n【器材】锥标是 10、20、30 米的折返点；每次折返用球棍触线——这样身体在折返时自然就是低位。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（转身冲回起点）；第3步：球员向前移动（全力冲刺）；第4步：球员向后移动（转身冲回起点）；第5步：球员向前移动（全力冲刺）；第6步：球员向后移动（转身冲回起点）。\n【连贯】三个折返为一趟，约 30 秒；休息 45 秒再来。做 8 趟后休息 5 分钟。\n【要点】每条线都用手触到，蹬地用外侧脚——时间丢在转身上，不是丢在跑上。",
-        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】一條線上四個錐標，分別在 0、10、20、30 米處；球員雙手持棍從第一個出發。\n【器材】錐標是 10、20、30 米的折返點；每次折返用球棍觸線——這樣身體在折返時自然就是低位。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（轉身衝回起點）；第3步：球員向前移動（全力衝刺）；第4步：球員向後移動（轉身衝回起點）；第5步：球員向前移動（全力衝刺）；第6步：球員向後移動（轉身衝回起點）。\n【連貫】三個折返為一趟，約 30 秒；休息 45 秒再來。做 8 趟後休息 5 分鐘。\n【要點】每條線都用手觸到，蹬地用外側腳——時間丟在轉身上，不是丟在跑上。",
-        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands。\n【用具】the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、ターンして全力で戻る。ステップ3：選手が前方へ移動し、全力でダッシュ。ステップ4：選手が後方へ移動し、ターンして全力で戻る。ステップ5：選手が前方へ移動し、全力でダッシュ。ステップ6：選手が後方へ移動し、ターンして全力で戻る。\n【続け方】Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\n【ポイント】どのラインも手でタッチし、外側の足で蹴る——タイムはターンで失われ、走りでは失われない。",
-        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\n【장비】the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 3단계: 선수는 앞으로 이동해 전력 질주; 4단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 5단계: 선수는 앞으로 이동해 전력 질주; 6단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다.\n【이어가기】Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\n【포인트】모든 선을 손으로 짚고 바깥 발로 밀어낸다 — 시간은 달리기가 아니라 턴에서 사라진다.",
-        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nMaterial: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 3: el jugador se desplaza hacia delante para esprintar a tope; Paso 4: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 5: el jugador se desplaza hacia delante para esprintar a tope; Paso 6: el jugador se desplaza hacia atrás para girar y volver a sprint.\nContinuidad: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPunto clave: Toca cada línea con la mano y empuja con el pie exterior: los segundos se pierden en el giro, no corriendo.",
-        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nMatériel : the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 3 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 4 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 5 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint.\nEnchaînement : Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoint clé : Touche chaque ligne de la main et pousse sur le pied extérieur : les secondes se perdent dans le demi-tour, pas dans la course.",
-        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nPerlengkapan: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 3: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 5: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke belakang untuk berbalik dan sprint kembali.\nKelanjutan: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoin utama: Sentuh setiap garis dengan tangan dan dorong dengan kaki luar — detik hilang di putaran, bukan di larinya.",
-        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nPeralatan: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 3: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 5: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke belakang untuk berpusing dan pecut kembali.\nKesinambungan: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoin utama: Sentuh setiap garisan dengan tangan dan tolak dengan kaki luar — saat hilang pada pusingan, bukan pada larian.",
-        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands\nอุปกรณ์: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 5: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง\nการต่อเนื่อง: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nจุดเน้น: แตะทุกเส้นด้วยมือและดันด้วยเท้าด้านนอก เวลาหายไปตอนกลับตัว ไม่ใช่ตอนวิ่ง",
-        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first, stick in both hands.\nDụng cụ: the cones are the 10, 20 and 30 m turns; the stick touches the line at every turn, which means the body is already low when it does.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 3: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 5: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại.\nTiếp nối: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nĐiểm chính: Chạm mỗi vạch bằng tay và đạp bằng chân ngoài — thời gian mất ở chỗ quay, không phải ở lúc chạy."
+        "en": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nEquipment: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back.\nHow it continues: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nCoaching point: Touch every line with the hand and push off the outside foot — the seconds are lost in the turn, not in the running.",
+        "en-GB": "Purpose: Fitness without the ball: accelerate, change direction, and do it again tired — the movement the sport asks for, when the match is decided by who can still produce it.\nFrequency: Loaded into fitness days and the pre-season, when the base for the whole year is built.\nSetup: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nEquipment: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nSequence: Step 1: the player moves up the board to sprint flat out; Step 2: the player moves back to turn and sprint back; Step 3: the player moves up the board to sprint flat out; Step 4: the player moves back to turn and sprint back; Step 5: the player moves up the board to sprint flat out; Step 6: the player moves back to turn and sprint back.\nHow it continues: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nCoaching point: Touch every line with the hand and push off the outside foot — the seconds are lost in the turn, not in the running.",
+        "zh-CN": "【目的】无球体能：加速、变向、疲劳下还能重复——这项运动要求的移动能力，比赛往往由谁还做得出来决定。\n【频度】安排在体能日和赛季初——为一整年打底子的时候。\n【组织】一条线上四个锥标，分别在 0、10、20、30 米处；球员从第一个出发。\n【器材】锥标是 10、20、30 米的折返点；每次折返用手触线——这样身体在折返时自然就是低位。\n【流程】第1步：球员向前移动（全力冲刺）；第2步：球员向后移动（转身冲回起点）；第3步：球员向前移动（全力冲刺）；第4步：球员向后移动（转身冲回起点）；第5步：球员向前移动（全力冲刺）；第6步：球员向后移动（转身冲回起点）。\n【连贯】三个折返为一趟，约 30 秒；休息 45 秒再来。做 8 趟后休息 5 分钟。\n【要点】每条线都用手触到，蹬地用外侧脚——时间丢在转身上，不是丢在跑上。",
+        "zh-TW": "【目的】無球體能：加速、變向、疲勞下還能重複——這項運動要求的移動能力，比賽往往由誰還做得出來決定。\n【頻度】安排在體能日和賽季初——為一整年打底子的時候。\n【組織】一條線上四個錐標，分別在 0、10、20、30 米處；球員從第一個出發。\n【器材】錐標是 10、20、30 米的折返點；每次折返用手觸線——這樣身體在折返時自然就是低位。\n【流程】第1步：球員向前移動（全力衝刺）；第2步：球員向後移動（轉身衝回起點）；第3步：球員向前移動（全力衝刺）；第4步：球員向後移動（轉身衝回起點）；第5步：球員向前移動（全力衝刺）；第6步：球員向後移動（轉身衝回起點）。\n【連貫】三個折返為一趟，約 30 秒；休息 45 秒再來。做 8 趟後休息 5 分鐘。\n【要點】每條線都用手觸到，蹬地用外側腳——時間丟在轉身上，不是丟在跑上。",
+        "ja-JP": "【目的】ボールなしのフィジカル：加速、方向転換、疲れてももう一度——競技が求める動きで、勝負はまだそれができる側が決める。\n【頻度】フィットネス日とプレシーズンに組み込む。一年の土台を作る時期。\n【準備】four cones on a line at 0, 10, 20 and 30 m; the player starts on the first。\n【用具】the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does。\n【流れ】ステップ1：選手が前方へ移動し、全力でダッシュ。ステップ2：選手が後方へ移動し、ターンして全力で戻る。ステップ3：選手が前方へ移動し、全力でダッシュ。ステップ4：選手が後方へ移動し、ターンして全力で戻る。ステップ5：選手が前方へ移動し、全力でダッシュ。ステップ6：選手が後方へ移動し、ターンして全力で戻る。\n【続け方】Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\n【ポイント】どのラインも手でタッチし、外側の足で蹴る——タイムはターンで失われ、走りでは失われない。",
+        "ko-KR": "【목적】볼 없는 체력: 가속, 방향 전환, 지쳐도 한 번 더 — 종목이 요구하는 움직임이며, 승부는 아직 그것을 해내는 쪽이 정한다.\n【빈도】체력 훈련일과 프리시즌에 배치 — 한 해 전체의 기초를 쌓는 시기.\n【준비】four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\n【장비】the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\n【진행】1단계: 선수는 앞으로 이동해 전력 질주; 2단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 3단계: 선수는 앞으로 이동해 전력 질주; 4단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다; 5단계: 선수는 앞으로 이동해 전력 질주; 6단계: 선수는 뒤로 이동해 돌아서 전력으로 되돌아온다.\n【이어가기】Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\n【포인트】모든 선을 손으로 짚고 바깥 발로 밀어낸다 — 시간은 달리기가 아니라 턴에서 사라진다.",
+        "es-ES": "Objetivo: Físico sin balón: acelerar, cambiar de dirección y repetirlo cansado; el movimiento que pide el deporte, y el partido lo decide quien todavía puede producirlo.\nFrecuencia: Se programa en los días de físico y la pretemporada, cuando se construye la base del año.\nMontaje: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nMaterial: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nSecuencia: Paso 1: el jugador se desplaza hacia delante para esprintar a tope; Paso 2: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 3: el jugador se desplaza hacia delante para esprintar a tope; Paso 4: el jugador se desplaza hacia atrás para girar y volver a sprint; Paso 5: el jugador se desplaza hacia delante para esprintar a tope; Paso 6: el jugador se desplaza hacia atrás para girar y volver a sprint.\nContinuidad: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPunto clave: Toca cada línea con la mano y empuja con el pie exterior: los segundos se pierden en el giro, no corriendo.",
+        "fr-FR": "Objectif : Physique sans ballon : accélérer, changer de direction et recommencer fatigué — le mouvement qu'exige le sport, et le match revient à qui peut encore le produire.\nFréquence : Placé lors des journées physiques et de la présaison, quand se construit la base de l'année.\nMise en place : four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nMatériel : the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nDéroulé : Étape 1 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 2 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 3 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 4 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint ; Étape 5 : le joueur se déplace vers l'avant pour sprinter à fond ; Étape 6 : le joueur se déplace vers l'arrière pour se retourner et revenir en sprint.\nEnchaînement : Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoint clé : Touche chaque ligne de la main et pousse sur le pied extérieur : les secondes se perdent dans le demi-tour, pas dans la course.",
+        "id-ID": "Tujuan: Fisik tanpa bola: berakselerasi, ganti arah, dan mengulanginya saat lelah — gerak yang dituntut olahraga ini.\nFrekuensi: Ditempatkan di hari kebugaran dan pramusim, saat fondasi setahun dibangun.\nPersiapan: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nPerlengkapan: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nUrutan: Langkah 1: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 2: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 3: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 4: pemain bergerak ke belakang untuk berbalik dan sprint kembali; Langkah 5: pemain bergerak ke depan untuk lari sekencang mungkin; Langkah 6: pemain bergerak ke belakang untuk berbalik dan sprint kembali.\nKelanjutan: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoin utama: Sentuh setiap garis dengan tangan dan dorong dengan kaki luar — detik hilang di putaran, bukan di larinya.",
+        "ms-MY": "Tujuan: Fizikal tanpa bola: memecut, tukar arah, dan mengulanginya ketika penat — pergerakan yang dituntut sukan ini.\nKekerapan: Diletakkan pada hari kecergasan dan pramusim, ketika asas setahun dibina.\nPersediaan: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nPeralatan: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nUrutan: Langkah 1: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 2: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 3: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 4: pemain bergerak ke belakang untuk berpusing dan pecut kembali; Langkah 5: pemain bergerak ke hadapan untuk pecut sepenuh tenaga; Langkah 6: pemain bergerak ke belakang untuk berpusing dan pecut kembali.\nKesinambungan: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nPoin utama: Sentuh setiap garisan dengan tangan dan tolak dengan kaki luar — saat hilang pada pusingan, bukan pada larian.",
+        "th-TH": "จุดประสงค์: ฟิตเนสไร้ลูก: เร่ง เปลี่ยนทิศ และทำซ้ำตอนเหนื่อย คือการเคลื่อนที่ที่กีฬานี้ต้องการ\nความถี่: จัดในวันฟิตเนสและช่วงพรีซีซัน ตอนที่สร้างพื้นฐานของทั้งปี\nการจัด: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first\nอุปกรณ์: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does\nลำดับ: ขั้นที่ 1: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 2: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 3: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 4: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง • ขั้นที่ 5: ผู้เล่น ขยับไปข้างหน้าเพื่อวิ่งสุดแรง • ขั้นที่ 6: ผู้เล่น ขยับถอยหลังเพื่อหมุนตัวแล้ววิ่งกลับสุดแรง\nการต่อเนื่อง: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nจุดเน้น: แตะทุกเส้นด้วยมือและดันด้วยเท้าด้านนอก เวลาหายไปตอนกลับตัว ไม่ใช่ตอนวิ่ง",
+        "vi-VN": "Mục đích: Thể lực không bóng: tăng tốc, đổi hướng và lặp lại khi mệt — chuyển động môn này đòi hỏi, và trận đấu thuộc về bên còn làm được.\nTần suất: Xếp vào ngày thể lực và tiền mùa giải, khi xây nền cho cả năm.\nBố trí: four cones on a line at 0, 10, 20 and 30 m; the player starts on the first.\nDụng cụ: the cones are the 10, 20 and 30 m turns; a hand touches the line at every turn, which means the body is already low when it does.\nTrình tự: Bước 1: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 2: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 3: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 4: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại; Bước 5: cầu thủ di chuyển lên phía trước để chạy nước rút hết sức; Bước 6: cầu thủ di chuyển lùi lại để xoay người và nước rút trở lại.\nTiếp nối: Three out-and-backs is one shuttle, about 30 seconds; rest 45 seconds and go again. Eight shuttles, then five minutes.\nĐiểm chính: Chạm mỗi vạch bằng tay và đạp bằng chân ngoài — thời gian mất ở chỗ quay, không phải ở lúc chạy."
       },
       "mistake": {
         "en": "Pacing the hard reps to survive the set — a rep held back is a rep that did not count.",
@@ -9123,7 +9292,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "holds": false
           },
           {
             "id": "m0",
@@ -9466,7 +9636,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "holds": false
           },
           {
             "id": "m0",

@@ -1,24 +1,21 @@
-Apa yang baharu dalam 2.0
+Apa yang Baharu dalam 2.0.1
 
-137 LATIHAN BOLA SEPAK, TERSEDIA DI DALAM
-Setiap latihan ialah papan yang boleh dijalankan satu rentak demi satu rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan semasa ia berjalan. Memanaskan badan, rondo, penamat, rentasan, bola mati, kecergasan.
+Semua dalam keluaran ini tentang apa yang sebenarnya dilukis oleh papan latihan.
 
-RANCANG SATU SESI PENUH
-Rangkaikan latihan menjadi pelan latihan, jalankannya dari tepi padang satu demi satu, dan rekodnya tersimpan sendiri.
+BEZAKAN LARIAN, GELECEK DAN HANTARAN
+Tiga tindakan, tiga garis: larian bergaris putus, gelecek beralun, hantaran ialah anak panah penuh. Dahulu pemain yang membawa bola mendapat dua anak panah yang hampir serupa bersebelahan.
 
-SKUAD DAN KEHADIRAN
-Simpan pemain bersama fotonya, tandakan siapa yang hadir, dan lihat satu musim sekali pandang.
+SETIAP ANAK PANAH ADA PERMULAAN
+Pergerakan pendek hanya mengekalkan destinasi dan kehilangan tempat mula, jadi satu perempat anak panah dalam pustaka kelihatan muncul entah dari mana.
 
-KONGSI PAPAN SEBAGAI PAUTAN
-Hantar taktik kepada pasukan — mereka membukanya dalam pelayar, tanpa aplikasi.
+SEORANG PEMAIN, DILUKIS SEKALI
+Selepas langkah pertama, pemain yang telah bergerak dilukis dua kali — selangkah jaraknya, menghadap dua arah berbeza.
 
-PEMAIN BAHARU DI PADANG
-Figura dilukis semula dan menghadap ke arah tujuannya, lelaki dan wanita, dengan atau tanpa bola di kaki.
+TENDANGAN SAMPAI KE GOL
+Tendangan berhenti awal, pada penjaga gol; dan penjaga gol itu sendiri berdiri di dalam jaringnya. Kedua-duanya dibaiki.
 
-JUGA DALAM VERSI INI
-- iPad dan Mac: papan menggunakan seluruh skrin
-- Salin pemain bersama lariannya dan tampal pada halaman berikutnya
-- Terkini: terus kembali ke papan yang tadi dibuka
-- Eksport pergerakan sebagai video, bukan gambar sahaja
-- Papan lebih pantas, anak panah lebih jelas, dan senarai pembetulan yang panjang
-- Pembelian sekali pilihan menghilangkan iklan
+JUGA
+- Kon kekal di tempatnya apabila ada larian melintas
+- Anak panah hantaran tiba bersama bola, bukan mendahuluinya
+- Pemain menghadap apa yang bakal dilakukan — penjaga gol memerhati penyerang, bukan golnya sendiri
+- Larian ulang-alik dilakukan dengan tangan kosong

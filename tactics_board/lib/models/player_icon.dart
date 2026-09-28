@@ -63,6 +63,14 @@ class PlayerIcon {
   double rotation;
   List<Offset> moves; // ordered waypoints after player position
   List<int> movePhases; // phase number for each move (controls animation order)
+
+  /// For a ball: who is carrying it on each leg, or null where it travels on
+  /// its own. A carry is drawn once — a waved line on the player — and a pass
+  /// is the ball's own line, and the two cannot be told apart by measuring:
+  /// after a short pass to a neighbour the passer is still the man standing
+  /// nearest the ball at both ends of the leg. Empty on a board that does
+  /// not say, and ballEscorts falls back to measuring.
+  List<String?> moveCarriers;
   final Color moveColor; // distinct color for this player's move arrows
   final Color? customColor; // overrides team color when set
   final PlayerGender gender;
@@ -113,6 +121,7 @@ class PlayerIcon {
     this.rotation = 0.0,
     List<Offset>? moves,
     List<int>? movePhases,
+    List<String?>? moveCarriers,
     Color? moveColor,
     this.customColor,
     this.gender = PlayerGender.unspecified,
@@ -124,6 +133,7 @@ class PlayerIcon {
     this.facingLocked = false,
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
+        moveCarriers = moveCarriers ?? [],
         moveColor = moveColor ?? _moveColors[0];
 
   /// Ensures movePhases list matches moves length, filling gaps with auto-increment
@@ -154,6 +164,7 @@ class PlayerIcon {
     if (rotation != 0) 'rotation': rotation,
     'moves': moves.map((m) => [m.dx, m.dy]).toList(),
     'movePhases': movePhases,
+    if (moveCarriers.isNotEmpty) 'moveCarriers': moveCarriers,
     'moveColor': moveColor.toARGB32(),
     'customColor': customColor?.toARGB32(),
     'gender': gender.index,
@@ -176,6 +187,9 @@ class PlayerIcon {
     rotation: (json['rotation'] as num? ?? 0.0).toDouble(),
     moves: (json['moves'] as List?)?.map((m) => Offset((m[0] as num).toDouble(), (m[1] as num).toDouble())).toList(),
     movePhases: (json['movePhases'] as List?)?.cast<int>(),
+    moveCarriers: (json['moveCarriers'] as List?)
+        ?.map((e) => e as String?)
+        .toList(),
     moveColor: json['moveColor'] != null ? Color(json['moveColor'] as int) : null,
     customColor: json['customColor'] != null ? Color(json['customColor'] as int) : null,
     gender: json['gender'] != null ? PlayerGender.values[json['gender'] as int] : PlayerGender.unspecified,
@@ -208,6 +222,7 @@ class PlayerIcon {
     double? rotation,
     List<Offset>? moves,
     List<int>? movePhases,
+    List<String?>? moveCarriers,
     Color? moveColor,
     Color? customColor,
     bool clearCustomColor = false,
@@ -234,6 +249,7 @@ class PlayerIcon {
       rotation: rotation ?? this.rotation,
       moves: moves ?? List.of(this.moves),
       movePhases: movePhases ?? List.of(this.movePhases),
+      moveCarriers: moveCarriers ?? List.of(this.moveCarriers),
       moveColor: moveColor ?? this.moveColor,
       customColor: clearCustomColor ? null : (customColor ?? this.customColor),
       gender: gender ?? this.gender,

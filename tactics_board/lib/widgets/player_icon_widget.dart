@@ -640,8 +640,20 @@ double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
       break;
     }
   }
+  // Whoever is standing closest to it has it. Being merely within reach is
+  // not enough: a keeper with a forward bearing down on him is a stride from
+  // the ball, was read as the man about to play it, and so was drawn facing
+  // where the SHOT was going — turning his back on the attacker to watch his
+  // own goal.
+  var nearestToBall = double.infinity;
+  for (final x in all) {
+    if (x.isBall || x.isMarker) continue;
+    final d = (standingAt(x, step) - ballNow).distance;
+    if (d < nearestToBall) nearestToBall = d;
+  }
   if (legPhase != null && (runPhase == null || legPhase <= runPhase)) {
-    if ((me - ballNow).distance < holdRadius) {
+    if ((me - ballNow).distance < holdRadius &&
+        (me - ballNow).distance <= nearestToBall + 0.5) {
       return dir(me, legTo!) ?? run; // about to pass
     }
     if ((chainEndAt(p, legPhase + 1) - legTo!).distance < holdRadius) {
