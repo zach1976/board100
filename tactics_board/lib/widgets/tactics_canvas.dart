@@ -1222,6 +1222,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       final shortRun = legs.isNotEmpty &&
                           (legs.last.value - from).distance <
                               nudgeThreshold(player);
+                      final chainSelected =
+                          state.selectedPlayerId == player.id;
                       return legs.where((entry) {
                         final isEnd = entry.key == legs.last.key;
                         if (shortRun && atStartTime && isEnd) return false;
@@ -1234,11 +1236,30 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         if (state.isAnimating && atStartTime && isEnd) {
                           return false;
                         }
+                        // Past beat zero the live token itself stands at
+                        // the end of the leg — renderPosition put it there
+                        // — so the end copy, which is promoted to a solid
+                        // figure once the timeline has moved, is the same
+                        // player drawn twice. Not quite on top of each
+                        // other, either: the copy takes the stance the
+                        // player has after every beat, the token the one
+                        // for this beat, and where the two differ a second
+                        // stick and a second pair of boots show from behind
+                        // — a coach read it as two men in one place. The
+                        // promotion is older than renderPosition and was
+                        // standing in for a token that used to stay at its
+                        // start. The copy is kept while its chain is
+                        // selected, where it is the handle for the waypoint.
+                        if (isEnd &&
+                            !player.isBall &&
+                            !atStartTime &&
+                            !chainSelected) {
+                          return false;
+                        }
                         if (!ballEscorted) return true;
                         return isEnd;
                       }).map((entry) {
                         final isLast = entry.key == legs.last.key;
-                        final chainSelected = state.selectedPlayerId == player.id;
                         return _WaypointDot(
                           key: ValueKey('wp_${player.id}_${entry.key}'),
                           player: player,
