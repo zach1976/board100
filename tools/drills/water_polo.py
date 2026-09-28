@@ -420,12 +420,15 @@ def setpiece_family() -> list[Drill]:
     ), Drill(
         id="wp_set_swim_off", category="setpiece", minutes=6, rel=True, free=True,
         name=suffixed(SET_NAME, "the swim-off"), note=SET_NOTE,
-        home=[P(0.50, 0.94, "1", moves=[(0.50, 0.54, 0)]),
+        home=[P(0.50, 0.94, "1", moves=[(0.50, 0.54, 0), (0.50, 0.34, 1)]),
               P(0.22, 0.94, "2", moves=[(0.26, 0.62, 0)]),
               P(0.78, 0.94, "3", moves=[(0.74, 0.62, 0)])],
         away=[P(0.50, 0.06, "A", moves=[(0.50, 0.46, 0)])],
         ball=(0.50, 0.50),
-            # the sprint decides it — first hand on the ball takes it forward
+            # The sprint decides it, and then the winner takes it forward —
+            # which is the half of it the board was missing. He used to stop
+            # ON the ball, so the one ball leg was the width of a hand and
+            # the drill shipped with a ball that never moved.
             ball_to=[(0, 1)],
     )]
     return out

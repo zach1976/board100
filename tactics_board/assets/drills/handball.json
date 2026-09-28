@@ -447,8 +447,8 @@
                 411.72441221022444
               ],
               [
-                516.0246352595065,
-                176.505404223111
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -604,7 +604,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -641,8 +641,8 @@
                 468.59479394055643
               ],
               [
-                510.5911385109629,
-                177.5328599334699
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -1016,7 +1016,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -1058,8 +1058,8 @@
                 282.1526843392553
               ],
               [
-                554.0087862332504,
-                150.01617631772206
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -1464,7 +1464,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -1506,8 +1506,8 @@
                 282.1526843392553
               ],
               [
-                554.0087862332504,
-                150.01617631772206
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -1939,7 +1939,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -1981,8 +1981,8 @@
                 282.1526843392553
               ],
               [
-                554.0087862332504,
-                150.01617631772206
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -2359,7 +2359,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -2393,8 +2393,8 @@
                 387.67926248229963
               ],
               [
-                466.82619871418177,
-                170.0009839857741
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -2765,7 +2765,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -2795,8 +2795,8 @@
                 417.0517101060481
               ],
               [
-                469.0351909043752,
-                171.163409691254
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -3165,7 +3165,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -3198,8 +3198,8 @@
                 352.79794520547944
               ],
               [
-                528.3422196271285,
-                172.4036864049661
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -3576,7 +3576,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -3587,7 +3587,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -3609,8 +3610,8 @@
                 421.2414011781519
               ],
               [
-                464.1137464571114,
-                168.41150638106376
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -4007,7 +4008,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -4041,8 +4042,8 @@
                 395.3912618137028
               ],
               [
-                476.6956298802915,
-                174.4027711156826
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -4230,7 +4231,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -4264,8 +4265,8 @@
                 275.9081147490992
               ],
               [
-                454.97875571550446,
-                161.38781453781033
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -4517,7 +4518,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -4528,7 +4529,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -4550,8 +4552,8 @@
                 350.92211708492226
               ],
               [
-                530.8092424253019,
-                171.24109625539768
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -4867,7 +4869,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -4878,7 +4880,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -4900,8 +4903,8 @@
                 350.92211708492226
               ],
               [
-                530.8092424253019,
-                171.24109625539768
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -5028,7 +5031,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5111,8 +5114,8 @@
                 342.9349315068493
               ],
               [
-                421.97034427573954,
-                161.95671991703742
+                401.94029850746267,
+                115.5
               ]
             ],
             "movePhases": [
@@ -5238,7 +5241,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5323,8 +5326,8 @@
                 222.46327528850298
               ],
               [
-                523.8847626021927,
-                141.24550040997318
+                581.7164179104477,
+                129.0
               ]
             ],
             "movePhases": [
@@ -5451,7 +5454,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5535,8 +5538,8 @@
                 231.27266345733614
               ],
               [
-                463.36933881905105,
-                161.32652442480966
+                418.2835820895523,
+                129.0
               ]
             ],
             "movePhases": [
@@ -5598,18 +5601,18 @@
         "vi-VN": "Dứt điểm sau khi xuyên phá"
       },
       "note": {
-        "en": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 1 v 2, ball with S.\nEquipment: the shaded zone is the part of the goal the shot has to hit.\nBall path: S → goal\nSequence: Step 1: S carries the ball on the move, D moves right; Step 2: S shoots, GK moves up the board.\nHow it continues: Back to the end of the line when your rep is done and the next player goes; six to eight each, then switch sides or roles.\nRules: A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.\nCoaching point: Look at the keeper's feet, not the goal. Where their weight already is tells you which corner is actually open.",
-        "en-GB": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 1 v 2, ball with S.\nEquipment: the shaded zone is the part of the goal the shot has to hit.\nBall path: S → goal\nSequence: Step 1: S carries the ball on the move, D moves right; Step 2: S shoots, GK moves up the board.\nHow it continues: Back to the end of the line when your rep is done and the next player goes; six to eight each, then switch sides or roles.\nRules: A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.\nCoaching point: Look at the keeper's feet, not the goal. Where their weight already is tells you which corner is actually open.",
-        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】1 对 2，球在 S 手中。\n【器材】阴影区是射门要打到的球门位置。\n【球路】S → 球门\n【流程】第1步：S带球推进，D向右移动；第2步：S射门，GK向前移动。\n【连贯】做完一次回到队尾，下一人出发；每人 6–8 次后换边或换角色。\n【规则】球整体越过门线且从六米区外出手算进球——球未出手脚已踏入六米区则无效。球出边线由对方发球；被断球或进攻犯规即本次进攻结束。\n【要点】看门将的脚，不是看球门。他重心已经在哪一侧，就告诉了你哪个角是真的空的。",
-        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】1 對 2，球在 S 手中。\n【器材】陰影區是射門要打到的球門位置。\n【球路】S → 球門\n【流程】第1步：S帶球推進，D向右移動；第2步：S射門，GK向前移動。\n【連貫】做完一次回到隊尾，下一人出發；每人 6–8 次後換邊或換角色。\n【規則】球整體越過門線且從六米區外出手算進球——球未出手腳已踏入六米區則無效。球出邊線由對方發球；被斷球或進攻犯規即本次進攻結束。\n【要點】看門將的腳，不是看球門。他重心已經在哪一側，就告訴了你哪個角是真的空的。",
-        "ja-JP": "【目的】チャンスを得点に変える。足を作って到達し、早く低く打ち、人ではなくスペースを狙う。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】1対2、ボールはS。\n【用具】the shaded zone is the part of the goal the shot has to hit。\n【ボールの道筋】S → ゴール\n【流れ】ステップ1：Sがボールを運ぶ、Dが右へ移動。ステップ2：Sがシュート、GKが前方へ移動。\n【続け方】1本終えたら列の最後尾へ戻り、次の選手が出る。1人6〜8本で左右か役割を交代。\n【ルール】ゴールエリア外から投げ、ボールが完全にラインを越えれば得点。リリース前にエリアを踏めばノーゴール。サイドラインを出たら相手ボール、奪われるか攻撃側の反則で攻撃終了。\n【ポイント】ゴールではなくGKの足を見る。体重が既にどちらへ乗っているかが、本当に空いている隅を教えてくれる。",
-        "ko-KR": "【목적】기회를 골로 바꾼다. 발을 갖춰 도착하고, 빠르고 낮게 슛하며, 사람이 아니라 공간을 노린다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】1대2, 공은 S.\n【장비】the shaded zone is the part of the goal the shot has to hit.\n【볼 경로】S → 골문\n【진행】1단계: S가 공을 몰고 이동, D는 오른쪽으로 이동; 2단계: S 슛, GK는 앞으로 이동.\n【이어가기】한 번 마치면 줄 맨 뒤로 가고 다음 선수가 출발한다. 한 사람당 6~8회 후 방향이나 역할을 바꾼다.\n【규칙】골 에어리어 밖에서 던져 공이 라인을 완전히 넘으면 득점 — 릴리스 전에 에어리어를 밟으면 무효. 사이드라인을 넘으면 상대 공, 턴오버나 공격자 반칙이면 공격 종료.\n【포인트】골대가 아니라 골키퍼의 발을 봐라. 체중이 실린 방향이 열린 구석을 알려준다.",
-        "es-ES": "Objetivo: Convertir la ocasión en gol: llegar con los apoyos puestos, rematar pronto y raso, y buscar el espacio, no la camiseta.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 1 contra 2, balón con S.\nMaterial: the shaded zone is the part of the goal the shot has to hit.\nRecorrido del balón: S → portería\nSecuencia: Paso 1: S conduce el balón, D se desplaza a la derecha; Paso 2: S remata, GK se desplaza hacia delante.\nContinuidad: Al terminar tu repetición vuelves al final de la fila y sale el siguiente; seis a ocho cada uno, luego cambio de lado o de rol.\nReglas: Es gol cuando el balón cruza entero la línea lanzado desde fuera del área — pisar el área antes de soltarlo lo anula. Sale por la banda, y una pérdida o falta de ataque termina la posesión.\nPunto clave: Mira los pies del portero, no la portería: donde ya está su peso te dice qué esquina está de verdad abierta.",
-        "fr-FR": "Objectif : Transformer l'occasion en but : arriver appuis posés, frapper tôt et à ras de terre, viser l'espace et non le maillot.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 1 contre 2, ballon avec S.\nMatériel : the shaded zone is the part of the goal the shot has to hit.\nTrajet du ballon : S → but\nDéroulé : Étape 1 : S conduit le ballon, D se déplace à droite ; Étape 2 : S frappe, GK se déplace vers l'avant.\nEnchaînement : Ta répétition finie, tu retournes en fin de file et le suivant part ; six à huit chacun, puis on change de côté ou de rôle.\nRègles : But quand le ballon franchit entièrement la ligne, tiré de l'extérieur de la zone — un pied dans la zone avant le lâcher annule. Sortie sur la touche ; perte de balle ou faute offensive termine l'attaque.\nPoint clé : Regarde les appuis du gardien, pas le but : là où son poids est déjà te dit quel angle est vraiment ouvert.",
-        "id-ID": "Tujuan: Mengubah peluang jadi gol: tiba dengan kaki siap, tembak cepat dan rendah, arahkan ke ruang bukan ke pemain.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 1 lawan 2, bola pada S.\nPerlengkapan: the shaded zone is the part of the goal the shot has to hit.\nJalur bola: S → gawang\nUrutan: Langkah 1: S menggiring bola, D bergerak ke kanan; Langkah 2: S menembak, GK bergerak ke depan.\nKelanjutan: Selesai satu ulangan kembali ke belakang barisan dan pemain berikutnya berangkat; enam sampai delapan kali tiap orang, lalu ganti sisi atau peran.\nAturan: Gol bila bola sepenuhnya melewati garis dan dilempar dari luar area gawang; kaki masuk area sebelum bola lepas berarti tidak sah. Bola keluar di garis samping, dan turnover atau pelanggaran menyerang mengakhiri serangan.\nPoin utama: Lihat kaki kiper, bukan gawangnya.",
-        "ms-MY": "Tujuan: Menukar peluang jadi gol: tiba dengan kaki bersedia, tembak awal dan rendah, arah ke ruang bukan pemain.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 1 lawan 2, bola dengan S.\nPeralatan: the shaded zone is the part of the goal the shot has to hit.\nLaluan bola: S → gol\nUrutan: Langkah 1: S membawa bola, D bergerak ke kanan; Langkah 2: S menjaring, GK bergerak ke hadapan.\nKesinambungan: Selesai satu ulangan kembali ke belakang barisan dan pemain seterusnya bermula; enam hingga lapan kali setiap orang, kemudian tukar sisi atau peranan.\nPeraturan: Gol apabila bola melepasi garisan sepenuhnya dan dilempar dari luar kawasan gol; kaki masuk kawasan sebelum bola dilepaskan bermakna tidak sah. Bola keluar di garisan tepi, dan turnover atau kesalahan menyerang menamatkan serangan.\nPoin utama: Lihat kaki penjaga gol, bukan gol.",
-        "th-TH": "จุดประสงค์: เปลี่ยนโอกาสเป็นประตู: มาถึงโดยตั้งเท้าพร้อม ยิงเร็วและต่ำ เล็งพื้นที่ไม่ใช่ตัวคน\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 1 ต่อ 2 บอลอยู่ที่ S\nอุปกรณ์: the shaded zone is the part of the goal the shot has to hit\nเส้นทางบอล: S → ประตู\nลำดับ: ขั้นที่ 1: S พาบอลไป D ขยับไปทางขวา • ขั้นที่ 2: S ยิงประตู GK ขยับไปข้างหน้า\nการต่อเนื่อง: ทำเสร็จหนึ่งรอบกลับไปต่อท้ายแถว คนถัดไปออกตัว คนละ 6–8 รอบแล้วสลับข้างหรือสลับหน้าที่\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นทั้งลูกและยิงจากนอกเขตประตู ถ้าเหยียบเขตก่อนปล่อยบอลถือว่าไม่นับ บอลออกข้างเป็นของอีกฝ่าย เสียบอลหรือฟาล์วรุกจบเกมรุก\nจุดเน้น: ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
-        "vi-VN": "Mục đích: Biến cơ hội thành bàn thắng: đến nơi với chân đã sẵn, dứt điểm sớm và sệt, nhắm khoảng trống chứ không nhắm người.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 1 đấu 2, bóng ở chỗ S.\nDụng cụ: the shaded zone is the part of the goal the shot has to hit.\nĐường bóng: S → khung thành\nTrình tự: Bước 1: S dẫn bóng di chuyển, D di chuyển sang phải; Bước 2: S dứt điểm, GK di chuyển lên phía trước.\nTiếp nối: Xong lượt của mình thì về cuối hàng, người tiếp theo xuất phát; mỗi người 6–8 lượt rồi đổi bên hoặc đổi vai.\nLuật: Bàn thắng khi bóng qua hẳn vạch và được ném từ ngoài khu 6 m — chạm khu trước khi rời tay là không hợp lệ. Bóng ra biên thuộc đội kia; mất bóng hoặc lỗi tấn công là kết thúc đợt tấn công.\nĐiểm chính: Nhìn chân thủ môn, đừng nhìn khung thành."
+        "en": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 1 v 2, ball with S.\nEquipment: the shaded zone is the part of the goal the shot has to hit.\nBall path: S → goal\nSequence: Step 1: S carries the ball on the move, D moves right; Step 2: S shoots, GK moves right.\nHow it continues: Back to the end of the line when your rep is done and the next player goes; six to eight each, then switch sides or roles.\nRules: A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.\nCoaching point: Look at the keeper's feet, not the goal. Where their weight already is tells you which corner is actually open.",
+        "en-GB": "Purpose: Turn a chance into a goal: arrive with the feet set, strike early and low, and hit the space rather than the shirt.\nFrequency: A technical block coaches run often — the finish is what the whole attack is for, so it is rehearsed regularly.\nSetup: 1 v 2, ball with S.\nEquipment: the shaded zone is the part of the goal the shot has to hit.\nBall path: S → goal\nSequence: Step 1: S carries the ball on the move, D moves right; Step 2: S shoots, GK moves right.\nHow it continues: Back to the end of the line when your rep is done and the next player goes; six to eight each, then switch sides or roles.\nRules: A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.\nCoaching point: Look at the keeper's feet, not the goal. Where their weight already is tells you which corner is actually open.",
+        "zh-CN": "【目的】射门：练怎么把机会打进。跑到位时脚要站好，早点出脚、打低平球，瞄空当不瞄人。\n【频度】技术训练，教练常练——终结是整个进攻的目的，所以要反复练。\n【组织】1 对 2，球在 S 手中。\n【器材】阴影区是射门要打到的球门位置。\n【球路】S → 球门\n【流程】第1步：S带球推进，D向右移动；第2步：S射门，GK向右移动。\n【连贯】做完一次回到队尾，下一人出发；每人 6–8 次后换边或换角色。\n【规则】球整体越过门线且从六米区外出手算进球——球未出手脚已踏入六米区则无效。球出边线由对方发球；被断球或进攻犯规即本次进攻结束。\n【要点】看门将的脚，不是看球门。他重心已经在哪一侧，就告诉了你哪个角是真的空的。",
+        "zh-TW": "【目的】射門：練怎麼把機會打進。跑到位時腳要站好，早點出腳、打低平球，瞄空檔不瞄人。\n【頻度】技術訓練，教練常練——終結是整個進攻的目的，所以要反覆練。\n【組織】1 對 2，球在 S 手中。\n【器材】陰影區是射門要打到的球門位置。\n【球路】S → 球門\n【流程】第1步：S帶球推進，D向右移動；第2步：S射門，GK向右移動。\n【連貫】做完一次回到隊尾，下一人出發；每人 6–8 次後換邊或換角色。\n【規則】球整體越過門線且從六米區外出手算進球——球未出手腳已踏入六米區則無效。球出邊線由對方發球；被斷球或進攻犯規即本次進攻結束。\n【要點】看門將的腳，不是看球門。他重心已經在哪一側，就告訴了你哪個角是真的空的。",
+        "ja-JP": "【目的】チャンスを得点に変える。足を作って到達し、早く低く打ち、人ではなくスペースを狙う。\n【頻度】指導者が頻繁に行う技術ブロック。フィニッシュは攻撃全体の目的なので、繰り返し反復する。\n【準備】1対2、ボールはS。\n【用具】the shaded zone is the part of the goal the shot has to hit。\n【ボールの道筋】S → ゴール\n【流れ】ステップ1：Sがボールを運ぶ、Dが右へ移動。ステップ2：Sがシュート、GKが右へ移動。\n【続け方】1本終えたら列の最後尾へ戻り、次の選手が出る。1人6〜8本で左右か役割を交代。\n【ルール】ゴールエリア外から投げ、ボールが完全にラインを越えれば得点。リリース前にエリアを踏めばノーゴール。サイドラインを出たら相手ボール、奪われるか攻撃側の反則で攻撃終了。\n【ポイント】ゴールではなくGKの足を見る。体重が既にどちらへ乗っているかが、本当に空いている隅を教えてくれる。",
+        "ko-KR": "【목적】기회를 골로 바꾼다. 발을 갖춰 도착하고, 빠르고 낮게 슛하며, 사람이 아니라 공간을 노린다.\n【빈도】지도자가 자주 하는 기술 블록 — 마무리는 공격 전체의 목적이라 정기적으로 반복한다.\n【준비】1대2, 공은 S.\n【장비】the shaded zone is the part of the goal the shot has to hit.\n【볼 경로】S → 골문\n【진행】1단계: S가 공을 몰고 이동, D는 오른쪽으로 이동; 2단계: S 슛, GK는 오른쪽으로 이동.\n【이어가기】한 번 마치면 줄 맨 뒤로 가고 다음 선수가 출발한다. 한 사람당 6~8회 후 방향이나 역할을 바꾼다.\n【규칙】골 에어리어 밖에서 던져 공이 라인을 완전히 넘으면 득점 — 릴리스 전에 에어리어를 밟으면 무효. 사이드라인을 넘으면 상대 공, 턴오버나 공격자 반칙이면 공격 종료.\n【포인트】골대가 아니라 골키퍼의 발을 봐라. 체중이 실린 방향이 열린 구석을 알려준다.",
+        "es-ES": "Objetivo: Convertir la ocasión en gol: llegar con los apoyos puestos, rematar pronto y raso, y buscar el espacio, no la camiseta.\nFrecuencia: Un bloque técnico que se entrena a menudo: la definición es el fin de todo el ataque, así que se ensaya con regularidad.\nMontaje: 1 contra 2, balón con S.\nMaterial: the shaded zone is the part of the goal the shot has to hit.\nRecorrido del balón: S → portería\nSecuencia: Paso 1: S conduce el balón, D se desplaza a la derecha; Paso 2: S remata, GK se desplaza a la derecha.\nContinuidad: Al terminar tu repetición vuelves al final de la fila y sale el siguiente; seis a ocho cada uno, luego cambio de lado o de rol.\nReglas: Es gol cuando el balón cruza entero la línea lanzado desde fuera del área — pisar el área antes de soltarlo lo anula. Sale por la banda, y una pérdida o falta de ataque termina la posesión.\nPunto clave: Mira los pies del portero, no la portería: donde ya está su peso te dice qué esquina está de verdad abierta.",
+        "fr-FR": "Objectif : Transformer l'occasion en but : arriver appuis posés, frapper tôt et à ras de terre, viser l'espace et non le maillot.\nFréquence : Un bloc technique travaillé souvent : la finition est le but de toute l'attaque, donc on la répète régulièrement.\nMise en place : 1 contre 2, ballon avec S.\nMatériel : the shaded zone is the part of the goal the shot has to hit.\nTrajet du ballon : S → but\nDéroulé : Étape 1 : S conduit le ballon, D se déplace à droite ; Étape 2 : S frappe, GK se déplace à droite.\nEnchaînement : Ta répétition finie, tu retournes en fin de file et le suivant part ; six à huit chacun, puis on change de côté ou de rôle.\nRègles : But quand le ballon franchit entièrement la ligne, tiré de l'extérieur de la zone — un pied dans la zone avant le lâcher annule. Sortie sur la touche ; perte de balle ou faute offensive termine l'attaque.\nPoint clé : Regarde les appuis du gardien, pas le but : là où son poids est déjà te dit quel angle est vraiment ouvert.",
+        "id-ID": "Tujuan: Mengubah peluang jadi gol: tiba dengan kaki siap, tembak cepat dan rendah, arahkan ke ruang bukan ke pemain.\nFrekuensi: Blok teknis yang sering dilatih — penyelesaian adalah tujuan seluruh serangan, jadi diulang teratur.\nPersiapan: 1 lawan 2, bola pada S.\nPerlengkapan: the shaded zone is the part of the goal the shot has to hit.\nJalur bola: S → gawang\nUrutan: Langkah 1: S menggiring bola, D bergerak ke kanan; Langkah 2: S menembak, GK bergerak ke kanan.\nKelanjutan: Selesai satu ulangan kembali ke belakang barisan dan pemain berikutnya berangkat; enam sampai delapan kali tiap orang, lalu ganti sisi atau peran.\nAturan: Gol bila bola sepenuhnya melewati garis dan dilempar dari luar area gawang; kaki masuk area sebelum bola lepas berarti tidak sah. Bola keluar di garis samping, dan turnover atau pelanggaran menyerang mengakhiri serangan.\nPoin utama: Lihat kaki kiper, bukan gawangnya.",
+        "ms-MY": "Tujuan: Menukar peluang jadi gol: tiba dengan kaki bersedia, tembak awal dan rendah, arah ke ruang bukan pemain.\nKekerapan: Blok teknikal yang kerap dilatih — penamat ialah tujuan seluruh serangan, jadi diulang secara tetap.\nPersediaan: 1 lawan 2, bola dengan S.\nPeralatan: the shaded zone is the part of the goal the shot has to hit.\nLaluan bola: S → gol\nUrutan: Langkah 1: S membawa bola, D bergerak ke kanan; Langkah 2: S menjaring, GK bergerak ke kanan.\nKesinambungan: Selesai satu ulangan kembali ke belakang barisan dan pemain seterusnya bermula; enam hingga lapan kali setiap orang, kemudian tukar sisi atau peranan.\nPeraturan: Gol apabila bola melepasi garisan sepenuhnya dan dilempar dari luar kawasan gol; kaki masuk kawasan sebelum bola dilepaskan bermakna tidak sah. Bola keluar di garisan tepi, dan turnover atau kesalahan menyerang menamatkan serangan.\nPoin utama: Lihat kaki penjaga gol, bukan gol.",
+        "th-TH": "จุดประสงค์: เปลี่ยนโอกาสเป็นประตู: มาถึงโดยตั้งเท้าพร้อม ยิงเร็วและต่ำ เล็งพื้นที่ไม่ใช่ตัวคน\nความถี่: บล็อกทักษะที่ซ้อมบ่อย — การจบสกอร์คือเป้าหมายของการบุกทั้งหมด จึงซ้อมสม่ำเสมอ\nการจัด: 1 ต่อ 2 บอลอยู่ที่ S\nอุปกรณ์: the shaded zone is the part of the goal the shot has to hit\nเส้นทางบอล: S → ประตู\nลำดับ: ขั้นที่ 1: S พาบอลไป D ขยับไปทางขวา • ขั้นที่ 2: S ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: ทำเสร็จหนึ่งรอบกลับไปต่อท้ายแถว คนถัดไปออกตัว คนละ 6–8 รอบแล้วสลับข้างหรือสลับหน้าที่\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นทั้งลูกและยิงจากนอกเขตประตู ถ้าเหยียบเขตก่อนปล่อยบอลถือว่าไม่นับ บอลออกข้างเป็นของอีกฝ่าย เสียบอลหรือฟาล์วรุกจบเกมรุก\nจุดเน้น: ดูเท้าผู้รักษาประตู ไม่ใช่ดูประตู",
+        "vi-VN": "Mục đích: Biến cơ hội thành bàn thắng: đến nơi với chân đã sẵn, dứt điểm sớm và sệt, nhắm khoảng trống chứ không nhắm người.\nTần suất: Khối kỹ thuật huấn luyện viên tập thường xuyên — dứt điểm là mục đích của cả đợt tấn công, nên được tập đều.\nBố trí: 1 đấu 2, bóng ở chỗ S.\nDụng cụ: the shaded zone is the part of the goal the shot has to hit.\nĐường bóng: S → khung thành\nTrình tự: Bước 1: S dẫn bóng di chuyển, D di chuyển sang phải; Bước 2: S dứt điểm, GK di chuyển sang phải.\nTiếp nối: Xong lượt của mình thì về cuối hàng, người tiếp theo xuất phát; mỗi người 6–8 lượt rồi đổi bên hoặc đổi vai.\nLuật: Bàn thắng khi bóng qua hẳn vạch và được ném từ ngoài khu 6 m — chạm khu trước khi rời tay là không hợp lệ. Bóng ra biên thuộc đội kia; mất bóng hoặc lỗi tấn công là kết thúc đợt tấn công.\nĐiểm chính: Nhìn chân thủ môn, đừng nhìn khung thành."
       },
       "mistake": {
         "en": "Looking at the goal, not the keeper's feet — their weight tells you the open corner.",
@@ -5662,7 +5665,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5747,8 +5750,8 @@
                 263.9668054006823
               ],
               [
-                523.2257320100443,
-                150.42703951296963
+                565.3731343283582,
+                115.5
               ]
             ],
             "movePhases": [
@@ -6205,7 +6208,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -6239,8 +6242,8 @@
                 306.775998454933
               ],
               [
-                549.6766245114651,
-                156.35262461878452
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -6698,7 +6701,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -6732,8 +6735,8 @@
                 306.775998454933
               ],
               [
-                549.6766245114651,
-                156.35262461878452
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -7193,7 +7196,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -7227,8 +7230,8 @@
                 306.775998454933
               ],
               [
-                549.6766245114651,
-                156.35262461878452
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -7688,7 +7691,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -7722,8 +7725,8 @@
                 306.775998454933
               ],
               [
-                549.6766245114651,
-                156.35262461878452
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -7837,7 +7840,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -7970,8 +7973,8 @@
                 241.68493150684932
               ],
               [
-                434.1908336652054,
-                157.00055025660774
+                401.94029850746267,
+                115.5
               ]
             ],
             "movePhases": [
@@ -8279,7 +8282,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -8308,8 +8311,8 @@
                 369.05687905747845
               ],
               [
-                492.84192913314223,
-                177.95932207820917
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -8612,7 +8615,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -8641,8 +8644,8 @@
                 387.1463604132207
               ],
               [
-                489.1768347224884,
-                177.49792005188124
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -8950,7 +8953,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -8980,8 +8983,8 @@
                 362.10301372718413
               ],
               [
-                469.6411935448526,
-                171.46303952536294
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -9245,7 +9248,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -9256,7 +9259,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "b0",
@@ -9278,8 +9282,8 @@
                 517.022530317013
               ],
               [
-                486.3557704389555,
-                177.0099119215077
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -9598,7 +9602,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -9631,8 +9635,8 @@
                 549.8189739258703
               ],
               [
-                506.0261284531449,
-                178.0632042704106
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -10007,7 +10011,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -10040,8 +10044,8 @@
                 507.4366003878904
               ],
               [
-                517.7397635652653,
-                176.08768435325032
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -10470,7 +10474,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -10481,7 +10485,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -10503,8 +10508,8 @@
                 464.62013888615184
               ],
               [
-                523.6181335308231,
-                174.29200929524842
+                500.0,
+                129.0
               ]
             ],
             "movePhases": [
@@ -10652,7 +10657,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -10713,8 +10718,8 @@
                 368.07273338798336
               ],
               [
-                575.9372233072054,
-                177.5368823078036
+                565.3731343283582,
+                129.0
               ]
             ],
             "movePhases": [
@@ -11058,7 +11063,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -11354,7 +11359,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -11553,7 +11558,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -11571,8 +11576,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "b0",
@@ -11591,7 +11595,7 @@
               ],
               [
                 500.0,
-                205.31506849315068
+                156.0
               ]
             ],
             "movePhases": [
@@ -11875,7 +11879,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -12060,7 +12064,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -12136,8 +12140,8 @@
                 337.717382744983
               ],
               [
-                414.12970892098343,
-                198.4455562784351
+                418.2835820895523,
+                149.25
               ]
             ],
             "movePhases": [
@@ -12268,7 +12272,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -12324,8 +12328,8 @@
                 376.6849315068493
               ],
               [
-                474.5636324171496,
-                204.9500714461674
+                467.3134328358209,
+                156.0
               ]
             ],
             "movePhases": [
@@ -12451,7 +12455,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -12508,8 +12512,8 @@
                 241.68493150684932
               ],
               [
-                546.5080754381888,
-                189.0765221128451
+                581.7164179104477,
+                149.25
               ]
             ],
             "movePhases": [
@@ -12664,7 +12668,7 @@
             "sportType": null,
             "position": [
               500.0,
-              102.0
+              113.57142857142857
             ],
             "scale": 1.0,
             "moves": [

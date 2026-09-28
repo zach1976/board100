@@ -7,6 +7,13 @@ about arriving inside it with the ball under control rather than just near it.
 from .engine import Drill, M, P, suffixed
 
 GOAL = (0.50, 0.02)
+# The goal is 3.66m of a 55m pitch, so the posts stand at 0.467 and 0.533 of
+# the court's width (field_hockey_court_painter.dart draws them there). A
+# shot is aimed between them, a couple of hundredths inside so the ball is
+# drawn on the frame rather than clipping a post. Four of these were written
+# at 0.42 and 0.56 — outside the posts — and on a board titled "Shooting the
+# tomahawk" a shot crossing the backline wide of the goal is a miss.
+LEFT_POST, RIGHT_POST = 0.478, 0.522
 # The court painter draws the D itself (arcs of 14.63 m from each post), the
 # 23 m lines and the penalty spots, so nothing here marks them: an unlabelled
 # zone token used to sit on the top of every circle in the library, and
@@ -137,7 +144,10 @@ def buildup_family() -> list[Drill]:
              P(0.42, 0.64, "5", moves=[(0.46, 0.54, 0)]),
              P(0.70, 0.62, "6", moves=[(0.72, 0.52, 1)]),
              P(0.90, 0.70, "3"),
-             P(0.54, 0.44, "8", moves=[(0.58, 0.26, 2)])],
+             # Short of the space he then plays into. He used to finish the
+             # run ON the point finish_with appends, so the last beat — "8
+             # plays the ball into space" — was a ball leg six units long.
+             P(0.54, 0.44, "8", moves=[(0.62, 0.36, 2)])],
             [P(0.32, 0.48, "D", moves=[(0.26, 0.56, 0)]),
              P(0.62, 0.42, "D", moves=[(0.56, 0.50, 1)]),
              P(0.46, 0.28, "D", moves=[(0.42, 0.40, 2)])],
@@ -302,6 +312,12 @@ def shooting_family() -> list[Drill]:
     Every shooter finishes inside the D — a goal cannot be scored from
     outside it — and the two support players stand at the far post and on
     the rebound rather than on top of the keeper.
+
+    The shot is the last beat. Two of these used to strike on beat two and
+    then spend beat three on a support runner jogging in, so a drill called
+    "Shooting the tomahawk" ended on somebody moving up the board: the
+    supports come in together while the shooter lines it up, and the board
+    finishes on the strike.
     """
     layouts = {
         # Low and hard across the face for the far-post touch.
@@ -309,22 +325,22 @@ def shooting_family() -> list[Drill]:
             [P(0.30, 0.34, "1", moves=[(0.34, 0.12, 0)]),
              P(0.62, 0.20, "2", moves=[(0.64, 0.07, 1)]),
              P(0.48, 0.24, "3", moves=[(0.44, 0.13, 2)])],
-            (0.44, 0.06), [(0, 0), (1, 1), ((0.56, 0.03), 2)],
+            (0.44, 0.06), [(0, 0), (1, 1), ((RIGHT_POST, 0.03), 2)],
         ),
         # Taken on the move on the right, hit with the reverse stick.
         "reverse": (
             [P(0.72, 0.34, "1", moves=[(0.64, 0.13, 0)]),
-             P(0.50, 0.26, "2", moves=[(0.52, 0.14, 2)]),
+             P(0.50, 0.26, "2", moves=[(0.52, 0.14, 1)]),
              P(0.34, 0.20, "3", moves=[(0.32, 0.07, 1)])],
-            (0.56, 0.06), [(0, 0), ((0.46, 0.03), 1)],
+            (0.56, 0.06), [(0, 0), ((LEFT_POST, 0.03), 2)],
         ),
         # The tomahawk is a reverse-edge hit from the top right of the D —
         # it used to be struck from behind the backline, off the pitch.
         "tomahawk": (
             [P(0.80, 0.36, "1", moves=[(0.68, 0.11, 0)]),
              P(0.42, 0.22, "2", moves=[(0.38, 0.09, 1)]),
-             P(0.56, 0.28, "3", moves=[(0.54, 0.15, 2)])],
-            (0.58, 0.06), [(0, 0), ((0.44, 0.03), 1)],
+             P(0.56, 0.28, "3", moves=[(0.54, 0.15, 1)])],
+            (0.58, 0.06), [(0, 0), ((LEFT_POST, 0.03), 2)],
         ),
         # Shot, save, second contact: the rebound has to be on the board or
         # the drill is just another straight strike.
@@ -333,7 +349,7 @@ def shooting_family() -> list[Drill]:
              P(0.70, 0.24, "2", moves=[(0.62, 0.12, 2)]),
              P(0.32, 0.22, "3", moves=[(0.36, 0.10, 2)])],
             (0.50, 0.09),
-            [(0, 0), ((0.48, 0.05), 1), (1, 2), ((0.42, 0.03), 3)],
+            [(0, 0), ((0.48, 0.05), 1), (1, 2), ((LEFT_POST, 0.03), 3)],
         ),
     }
     specs = [("deflection", "the deflection"), ("reverse", "on the reverse"),
@@ -479,16 +495,16 @@ def setpiece_family() -> list[Drill]:
     specs = [
         ("drag_flick", "the drag flick",
          (0.42, 0.21), (0.30, 0.24), (0.62, 0.20), (0.62, 0.06),
-         (0.45, 0.03), (0.44, 0.07)),
+         (LEFT_POST, 0.03), (0.44, 0.07)),
         ("straight_strike", "the straight strike",
          (0.56, 0.21), (0.72, 0.25), (0.36, 0.20), (0.36, 0.06),
-         (0.55, 0.03), (0.56, 0.07)),
+         (RIGHT_POST, 0.03), (0.56, 0.07)),
         ("variation_left", "a variation to the left",
          (0.32, 0.20), (0.52, 0.32), (0.62, 0.20), (0.62, 0.06),
-         (0.56, 0.035), (0.44, 0.07)),
+         (RIGHT_POST, 0.035), (0.44, 0.07)),
         ("defending_it", "defending it",
          (0.42, 0.21), (0.30, 0.24), (0.62, 0.20), (0.62, 0.06),
-         (0.45, 0.03), (0.52, 0.13)),
+         (LEFT_POST, 0.03), (0.52, 0.13)),
     ]
     for key, label, striker, stopper, post, post_end, strike, gk in specs:
         defending = key == "defending_it"
@@ -823,11 +839,11 @@ def gaps_family() -> list[Drill]:
             ("first_save", "the first save and the rebound", "development",
              [P(0.50, 0.26, "1", moves=[(0.44, 0.15, 0)]),
               P(0.70, 0.22, "2", moves=[(0.62, 0.11, 2)])], (0.48, 0.09),
-             [(0, 0), ((0.46, 0.05), 1), (1, 2), ((0.56, 0.04), 3)]),
+             [(0, 0), ((LEFT_POST, 0.05), 1), (1, 2), ((RIGHT_POST, 0.04), 3)]),
             ("one_v_one", "one against one", "development",
              [P(0.50, 0.44, "1", moves=[(0.50, 0.26, 0), (0.45, 0.145, 1)])],
              (0.52, 0.10),
-             [(0, 0), (0, 1), ((0.42, 0.04), 2)]),
+             [(0, 0), (0, 1), ((LEFT_POST, 0.04), 2)]),
             ("clearing", "clearing the circle", "development",
              [P(0.26, 0.22, "1", moves=[(0.32, 0.13, 0)]),
               P(0.76, 0.24, "2", moves=[(0.68, 0.12, 0)])], (0.44, 0.10),

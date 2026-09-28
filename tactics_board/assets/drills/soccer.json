@@ -1457,7 +1457,7 @@
             "sportType": null,
             "position": [
               500,
-              195
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -1469,7 +1469,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -1491,8 +1491,8 @@
                 269.91501967263093
               ],
               [
-                489.5042599257768,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -1711,8 +1711,8 @@
                 405.28394090631247
               ],
               [
-                516.010233415051,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -2273,7 +2273,7 @@
             "sportType": null,
             "position": [
               500,
-              195
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -2284,7 +2284,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "b0",
@@ -2306,8 +2307,8 @@
                 393.70796816080343
               ],
               [
-                501.55247476272035,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -2426,7 +2427,7 @@
             "sportType": null,
             "position": [
               500,
-              195
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -2466,8 +2467,8 @@
                 373.17472798662703
               ],
               [
-                480.5152907629279,
-                191.0324335213538
+                460,
+                60
               ]
             ],
             "movePhases": [
@@ -2755,8 +2756,8 @@
                 367.4079091430242
               ],
               [
-                492.6042537019039,
-                191.0324335213538
+                480,
+                60
               ]
             ],
             "movePhases": [
@@ -2976,8 +2977,8 @@
                 552.413465530613
               ],
               [
-                488.15717088905325,
-                191.0324335213538
+                480,
+                60
               ]
             ],
             "movePhases": [
@@ -3257,7 +3258,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -3287,8 +3288,8 @@
                 281.0889771785582
               ],
               [
-                550.8786715021345,
-                224.7921518149928
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -3533,7 +3534,7 @@
             "sportType": null,
             "position": [
               500,
-              190
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -3544,8 +3545,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "b0",
@@ -3563,8 +3563,8 @@
                 460.50001040183236
               ],
               [
-                509.88672579662955,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -4009,8 +4009,8 @@
                 605.5928799830383
               ],
               [
-                753.771053268584,
-                299.2165906694385
+                750,
+                250
               ]
             ],
             "movePhases": [
@@ -5521,7 +5521,7 @@
             "sportType": null,
             "position": [
               500,
-              1300
+              1285.3961379072175
             ],
             "scale": 1.0,
             "moves": [],
@@ -5740,18 +5740,18 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              449.9103430587488,
-              1273.166255210044
+              448.47754768386494,
+              1260.482062696098
             ],
             "scale": 1.0,
             "moves": [
               [
-                270.0896569412512,
-                1176.833744789956
+                271.52245231613506,
+                1174.9140752111196
               ],
               [
-                173.3353334977596,
-                828.0690963798977
+                173.5623146986523,
+                828.0257459884206
               ],
               [
                 210.77881318407967,
@@ -5944,8 +5944,8 @@
                 512.1705522847321
               ],
               [
-                513.9873871869786,
-                191.0324335213538
+                480,
+                60
               ]
             ],
             "movePhases": [
@@ -6200,8 +6200,8 @@
                 443.6236586277991
               ],
               [
-                516.3401767095684,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -6446,8 +6446,8 @@
                 292.769590400187
               ],
               [
-                520.4649168180886,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -6623,7 +6623,7 @@
             "sportType": null,
             "position": [
               500,
-              200
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -6660,8 +6660,8 @@
                 507.6729313519039
               ],
               [
-                494.5788917384459,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -6829,13 +6829,13 @@
             "sportType": null,
             "position": [
               500,
-              195
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
               [
                 540,
-                180
+                214.60386209278238
               ]
             ],
             "movePhases": [
@@ -6870,8 +6870,8 @@
                 376.8018522968611
               ],
               [
-                476.37691267963726,
-                191.0324335213538
+                470,
+                60
               ]
             ],
             "movePhases": [
@@ -7740,7 +7740,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -7774,8 +7774,8 @@
                 315.97676694880073
               ],
               [
-                543.3610204381488,
-                232.88937349188552
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -7825,18 +7825,18 @@
         "vi-VN": "Ném biên tấn công"
       },
       "note": {
-        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: A, B, ball with 2.\nBall path: 2 → 7 → 9\nSequence: Step 1: 2 passes to 7, 7 moves up the board, A moves back; Step 2: 7 passes to 9, 9, 10 move up the board, B moves back.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nCoaching point: One player checks in to drag his marker, another goes long. The throw is to the space, not the crowd.",
-        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: A, B, ball with 2.\nBall path: 2 → 7 → 9\nSequence: Step 1: 2 passes to 7, 7 moves up the board, A moves back; Step 2: 7 passes to 9, 9, 10 move up the board, B moves back.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nCoaching point: One player checks in to drag his marker, another goes long. The throw is to the space, not the crowd.",
-        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，红方：A、B，球在 2号球员 脚下。\n【球路】2 → 7 → 9\n【流程】第1步：2号球员把球传给7号球员，7号球员向前移动，A向后移动；第2步：7号球员把球传给9号球员，9号球员、10号球员向前移动，B向后移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【要点】一个人回撤把盯防拉出来，另一个反跑深处。球扔向空当，不是人堆。",
-        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，紅方：A、B，球在 2號球員 腳下。\n【球路】2 → 7 → 9\n【流程】第1步：2號球員把球傳給7號球員，7號球員向前移動，A向後移動；第2步：7號球員把球傳給9號球員，9號球員、10號球員向前移動，B向後移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【要點】一個人回撤把盯防拉出來，另一個反跑深處。球扔向空檔，不是人堆。",
-        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、赤：A・B、ボールは2番。\n【ボールの道筋】2 → 7 → 9\n【流れ】ステップ1：2番が7番へパス、7番が前方へ移動、Aが後方へ移動。ステップ2：7番が9番へパス、9番・10番が前方へ移動、Bが後方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ポイント】1人が寄ってマークを引き、もう1人が裏へ。投げるのは人ではなくスペース。",
-        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 홍팀: A, B, 공은 2번.\n【볼 경로】2 → 7 → 9\n【진행】1단계: 2번가 7번에게 패스, 7번는 앞으로 이동, A는 뒤로 이동; 2단계: 7번가 9번에게 패스, 9번, 10번는 앞으로 이동, B는 뒤로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【포인트】한 명이 다가와 마크를 끌고, 다른 한 명은 뒤로 뛴다. 사람이 아니라 공간으로 던져라.",
-        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, rojos: A, B, balón con 2.\nRecorrido del balón: 2 → 7 → 9\nSecuencia: Paso 1: 2 pasa a 7, 7 se desplaza hacia delante, A se desplaza hacia atrás; Paso 2: 7 pasa a 9, 9, 10 se desplaza hacia delante, B se desplaza hacia atrás.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nPunto clave: Uno se acerca para arrastrar a su marca, otro va largo. El saque va al espacio.",
-        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, les rouges : A, B, ballon avec 2.\nTrajet du ballon : 2 → 7 → 9\nDéroulé : Étape 1 : 2 passe à 7, 7 se déplace vers l'avant, A se déplace vers l'arrière ; Étape 2 : 7 passe à 9, 9, 10 se déplace vers l'avant, B se déplace vers l'arrière.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nPoint clé : Un joueur vient chercher pour attirer, l'autre part en profondeur. La touche va dans l'espace.",
-        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, tim merah: A, B, bola pada 2.\nJalur bola: 2 → 7 → 9\nUrutan: Langkah 1: 2 mengoper ke 7, 7 bergerak ke depan, A bergerak ke belakang; Langkah 2: 7 mengoper ke 9, 9, 10 bergerak ke depan, B bergerak ke belakang.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPoin utama: Satu menjemput untuk menarik penjaga, satu lagi lari jauh. Lempar ke ruang.",
-        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, pasukan merah: A, B, bola dengan 2.\nLaluan bola: 2 → 7 → 9\nUrutan: Langkah 1: 2 menghantar kepada 7, 7 bergerak ke hadapan, A bergerak ke belakang; Langkah 2: 7 menghantar kepada 9, 9, 10 bergerak ke hadapan, B bergerak ke belakang.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPoin utama: Seorang menjemput untuk menarik penjaga, seorang lagi lari jauh.",
-        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 ทีมแดง: A, B บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 7 → 9\nลำดับ: ขั้นที่ 1: 2 จ่ายให้ 7 7 ขยับไปข้างหน้า A ขยับถอยหลัง • ขั้นที่ 2: 7 จ่ายให้ 9 9, 10 ขยับไปข้างหน้า B ขยับถอยหลัง\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nจุดเน้น: คนหนึ่งเข้ามารับเพื่อดึงคนประกบ อีกคนวิ่งลึก ทุ่มไปที่พื้นที่ว่าง",
-        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, đội đỏ: A, B, bóng ở chỗ 2.\nĐường bóng: 2 → 7 → 9\nTrình tự: Bước 1: 2 chuyền cho 7, 7 di chuyển lên phía trước, A di chuyển lùi lại; Bước 2: 7 chuyền cho 9, 9, 10 di chuyển lên phía trước, B di chuyển lùi lại.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nĐiểm chính: Một người lùi kéo người kèm, người kia chạy sâu. Ném vào khoảng trống."
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: A, B, ball with 2.\nBall path: 2 → 9\nSequence: Step 1: 7 moves up the board, A moves back; Step 2: 2 passes to 9, 9, 10 move up the board, B moves back.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nCoaching point: One player checks in to drag his marker, another goes long. The throw is to the space, not the crowd.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: A, B, ball with 2.\nBall path: 2 → 9\nSequence: Step 1: 7 moves up the board, A moves back; Step 2: 2 passes to 9, 9, 10 move up the board, B moves back.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nCoaching point: One player checks in to drag his marker, another goes long. The throw is to the space, not the crowd.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，红方：A、B，球在 2号球员 脚下。\n【球路】2 → 9\n【流程】第1步：7号球员向前移动，A向后移动；第2步：2号球员把球传给9号球员，9号球员、10号球员向前移动，B向后移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【要点】一个人回撤把盯防拉出来，另一个反跑深处。球扔向空当，不是人堆。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，紅方：A、B，球在 2號球員 腳下。\n【球路】2 → 9\n【流程】第1步：7號球員向前移動，A向後移動；第2步：2號球員把球傳給9號球員，9號球員、10號球員向前移動，B向後移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【要點】一個人回撤把盯防拉出來，另一個反跑深處。球扔向空檔，不是人堆。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、赤：A・B、ボールは2番。\n【ボールの道筋】2 → 9\n【流れ】ステップ1：7番が前方へ移動、Aが後方へ移動。ステップ2：2番が9番へパス、9番・10番が前方へ移動、Bが後方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ポイント】1人が寄ってマークを引き、もう1人が裏へ。投げるのは人ではなくスペース。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 홍팀: A, B, 공은 2번.\n【볼 경로】2 → 9\n【진행】1단계: 7번는 앞으로 이동, A는 뒤로 이동; 2단계: 2번가 9번에게 패스, 9번, 10번는 앞으로 이동, B는 뒤로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【포인트】한 명이 다가와 마크를 끌고, 다른 한 명은 뒤로 뛴다. 사람이 아니라 공간으로 던져라.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, rojos: A, B, balón con 2.\nRecorrido del balón: 2 → 9\nSecuencia: Paso 1: 7 se desplaza hacia delante, A se desplaza hacia atrás; Paso 2: 2 pasa a 9, 9, 10 se desplaza hacia delante, B se desplaza hacia atrás.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nPunto clave: Uno se acerca para arrastrar a su marca, otro va largo. El saque va al espacio.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, les rouges : A, B, ballon avec 2.\nTrajet du ballon : 2 → 9\nDéroulé : Étape 1 : 7 se déplace vers l'avant, A se déplace vers l'arrière ; Étape 2 : 2 passe à 9, 9, 10 se déplace vers l'avant, B se déplace vers l'arrière.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nPoint clé : Un joueur vient chercher pour attirer, l'autre part en profondeur. La touche va dans l'espace.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, tim merah: A, B, bola pada 2.\nJalur bola: 2 → 9\nUrutan: Langkah 1: 7 bergerak ke depan, A bergerak ke belakang; Langkah 2: 2 mengoper ke 9, 9, 10 bergerak ke depan, B bergerak ke belakang.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPoin utama: Satu menjemput untuk menarik penjaga, satu lagi lari jauh. Lempar ke ruang.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, pasukan merah: A, B, bola dengan 2.\nLaluan bola: 2 → 9\nUrutan: Langkah 1: 7 bergerak ke hadapan, A bergerak ke belakang; Langkah 2: 2 menghantar kepada 9, 9, 10 bergerak ke hadapan, B bergerak ke belakang.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPoin utama: Seorang menjemput untuk menarik penjaga, seorang lagi lari jauh.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 ทีมแดง: A, B บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 9\nลำดับ: ขั้นที่ 1: 7 ขยับไปข้างหน้า A ขยับถอยหลัง • ขั้นที่ 2: 2 จ่ายให้ 9 9, 10 ขยับไปข้างหน้า B ขยับถอยหลัง\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nจุดเน้น: คนหนึ่งเข้ามารับเพื่อดึงคนประกบ อีกคนวิ่งลึก ทุ่มไปที่พื้นที่ว่าง",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, đội đỏ: A, B, bóng ở chỗ 2.\nĐường bóng: 2 → 9\nTrình tự: Bước 1: 7 di chuyển lên phía trước, A di chuyển lùi lại; Bước 2: 2 chuyền cho 9, 9, 10 di chuyển lên phía trước, B di chuyển lùi lại.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nĐiểm chính: Một người lùi kéo người kèm, người kia chạy sâu. Ném vào khoảng trống."
       },
       "mistake": {
         "en": "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.",
@@ -7874,7 +7874,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -2.356194
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -7930,7 +7930,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 3.141593
+            "rotation": 2.356194
           },
           {
             "id": "d3",
@@ -8022,22 +8022,17 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              925.901758438922,
-              588.0561380349018
+              935.0,
+              518.5278438795783
             ],
             "scale": 1.0,
             "moves": [
-              [
-                919.098241561078,
-                591.9438619650983
-              ],
               [
                 856.1875854846038,
                 407.4676935806459
               ]
             ],
             "movePhases": [
-              0,
               1
             ],
             "moveColor": 4282434815,
@@ -8450,8 +8445,8 @@
                 858.9074014587478
               ],
               [
-                507.562104131757,
-                258.9178612916427
+                500,
+                210
               ]
             ],
             "movePhases": [
@@ -9935,7 +9930,7 @@
             "sportType": null,
             "position": [
               500,
-              195
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -9976,8 +9971,8 @@
                 281.0995651260151
               ],
               [
-                553.3554354347806,
-                191.0324335213538
+                520,
+                60
               ]
             ],
             "movePhases": [
@@ -10125,7 +10120,7 @@
             "sportType": null,
             "position": [
               500,
-              200
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -10162,8 +10157,8 @@
                 436.2792919365351
               ],
               [
-                510.26803494995363,
-                191.0324335213538
+                500,
+                60
               ]
             ],
             "movePhases": [
@@ -10697,7 +10692,7 @@
             "sportType": null,
             "position": [
               500,
-              190
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -11264,8 +11259,8 @@
                 688.7481221165115
               ],
               [
-                512.9732409967417,
-                258.13665872239983
+                500,
+                210
               ]
             ],
             "movePhases": [
@@ -11652,7 +11647,7 @@
             "sportType": null,
             "position": [
               500,
-              190
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -11671,7 +11666,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "m0",
@@ -11705,8 +11700,8 @@
             "scale": 1.0,
             "moves": [
               [
-                475.14355935478216,
-                191.0324335213538
+                460,
+                90
               ]
             ],
             "movePhases": [
@@ -18344,8 +18339,8 @@
                 512.2583620532561
               ],
               [
-                526.1008145204821,
-                243.3436209236859
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -18651,8 +18646,8 @@
                 520.42889770762
               ],
               [
-                527.4008134710095,
-                242.80535822590912
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -19013,8 +19008,8 @@
                 563.0986085406861
               ],
               [
-                523.9300091932926,
-                244.17130760538015
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -19690,18 +19685,18 @@
         "vi-VN": "Triển khai dưới áp lực +3"
       },
       "note": {
-        "en": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nBall path: GK → 4 → 6 → the open space\nSequence: Step 1: GK passes to 4, 3 moves left to hold the width, 5, 4, 2 move back to hold the width, 7 moves right to hold the width, A, B, C move up the board to press the ball carrier; Step 2: 4 passes to 6, 6 moves left to drop to receive; Step 3: 6 plays the ball into space, 6 moves up the board to turn and face forward.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nCoaching point: One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
-        "en-GB": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nBall path: GK → 4 → 6 → the open space\nSequence: Step 1: GK passes to 4, 3 moves left to hold the width, 5, 4, 2 move back to hold the width, 7 moves right to hold the width, A, B, C move up the board to press the ball carrier; Step 2: 4 passes to 6, 6 moves left to drop to receive; Step 3: 6 plays the ball into space, 6 moves up the board to turn and face forward.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nCoaching point: One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
-        "zh-CN": "【目的】控球：在有人抢的情况下把球留住。练接应跑位、第一脚停球，以及敢往前穿防线，而不是只往安全的方向传。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】门将加 5 名后卫站在本方禁区线上，身前一名后腰，对方 3 人上抢。\n【球路】GK → 4 → 6 → 空当\n【流程】第1步：GK把球传给4号球员，3号球员向左移动（保持宽度），5号球员、4号球员、2号球员向后移动（保持宽度），7号球员向右移动（保持宽度），A、B、C向前移动（上抢持球人）；第2步：4号球员把球传给6号球员，6号球员向左移动（回撤接球）；第3步：6号球员把球送进空当，6号球员向前移动（转身面向前方）。\n【连贯】球过中线算出球成功，被断或出界算压迫方得分；无论哪种，球回门将重新开始，连做 6 次后攻守互换。\n【规则】把球控住带过中线算后场一分；断球、把球逼出边线、或逼得对方大脚解围算压迫方一分。\n【要点】永远比对方压迫人数多一个。在球到你脚下之前就找到那个空位的人，否则他就不空了。",
-        "zh-TW": "【目的】控球：在有人搶的情況下把球留住。練接應跑位、第一腳停球，以及敢往前穿防線，而不是只往安全的方向傳。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing。\n【球路】GK → 4 → 6 → 空當\n【流程】第1步：GK把球傳給4號球員，3號球員向左移動（保持寬度），5號球員、4號球員、2號球員向後移動（保持寬度），7號球員向右移動（保持寬度），A、B、C向前移動（上搶持球人）；第2步：4號球員把球傳給6號球員，6號球員向左移動（回撤接球）；第3步：6號球員把球送進空當，6號球員向前移動（轉身面向前方）。\n【連貫】球過中線算出球成功，被斷或出界算壓迫方得分；無論哪種，球回門將重新開始，連做 6 次後攻守互換。\n【規則】把球控住帶過中線算後場一分；斷球、把球逼出邊線、或逼得對方大腳解圍算壓迫方一分。\n【要點】永遠比對方壓迫人數多一個。在球到你腳下之前就找到那個空位的人，否則他就不空了。",
-        "ja-JP": "【目的】プレッシャー下でボールを保持する。サポートの角度、ファーストタッチ、そして最も近い味方ではなくラインを破るパス。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing。\n【ボールの道筋】GK → 4 → 6 → スペース\n【流れ】ステップ1：GKが4番へパス、3番が左へ移動し、幅を取る、5番・4番・2番が後方へ移動し、幅を取る、7番が右へ移動し、幅を取る、A・B・Cが前方へ移動し、ボールホルダーに寄せる。ステップ2：4番が6番へパス、6番が左へ移動し、下りて受ける。ステップ3：6番が次のポイントへ送る、6番が前方へ移動し、前を向く。\n【続け方】ハーフウェーを越えれば成功、奪われるかアウトならプレス側の得点。どちらでもキーパーに戻して再開。6本で攻守交代。\n【ルール】Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\n【ポイント】相手のプレス人数より1人多く。ボールが来る前にフリーマンを見つける。",
-        "ko-KR": "【목적】압박 속에서 공을 지킨다. 지원 각도, 첫 터치, 그리고 가까운 동료가 아니라 수비 라인을 깨는 패스.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\n【볼 경로】GK → 4 → 6 → 빈 자리\n【진행】1단계: GK가 4번에게 패스, 3번는 왼쪽으로 이동해 폭을 유지한다, 5번, 4번, 2번는 뒤로 이동해 폭을 유지한다, 7번는 오른쪽으로 이동해 폭을 유지한다, A, B, C는 앞으로 이동해 볼 소유자를 압박한다; 2단계: 4번가 6번에게 패스, 6번는 왼쪽으로 이동해 내려와서 공을 받는다; 3단계: 6번가 다음 지점으로 보낸다, 6번는 앞으로 이동해 돌아서 앞을 본다.\n【이어가기】하프라인을 넘기면 성공, 빼앗기거나 아웃되면 압박하는 쪽의 득점이다. 어느 쪽이든 공은 골키퍼에게 돌아가 다시 시작한다. 6회 후 공수 교대.\n【규칙】Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\n【포인트】상대 압박보다 한 명 더. 공이 오기 전에 자유로운 선수를 찾아라.",
-        "es-ES": "Objetivo: Conservar el balón bajo presión: ángulos de apoyo, control y el pase que rompe una línea, no solo al más cercano.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nRecorrido del balón: GK → 4 → 6 → el espacio libre\nSecuencia: Paso 1: GK pasa a 4, 3 se desplaza a la izquierda para dar amplitud, 5, 4, 2 se desplaza hacia atrás para dar amplitud, 7 se desplaza a la derecha para dar amplitud, A, B, C se desplaza hacia delante para presionar al poseedor; Paso 2: 4 pasa a 6, 6 se desplaza a la izquierda para bajar a recibir; Paso 3: 6 envía el balón al siguiente punto, 6 se desplaza hacia delante para girarse y encarar.\nContinuidad: Superar el medio campo es un éxito; una pérdida o el balón fuera puntúa para los presionadores. En ambos casos vuelve al portero y se reinicia; seis repeticiones y cambio de roles.\nReglas: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPunto clave: Un jugador más de los que presionan. Encuentra al libre antes de recibir.",
-        "fr-FR": "Objectif : Conserver le ballon sous pression : angles de soutien, première touche et la passe qui casse une ligne.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nTrajet du ballon : GK → 4 → 6 → l'espace libre\nDéroulé : Étape 1 : GK passe à 4, 3 se déplace à gauche pour garder la largeur, 5, 4, 2 se déplace vers l'arrière pour garder la largeur, 7 se déplace à droite pour garder la largeur, A, B, C se déplace vers l'avant pour presser le porteur ; Étape 2 : 4 passe à 6, 6 se déplace à gauche pour décrocher pour recevoir ; Étape 3 : 6 envoie le ballon au point suivant, 6 se déplace vers l'avant pour se retourner face au jeu.\nEnchaînement : Passer la ligne médiane, c'est réussi ; une perte ou une sortie, c'est un point pour le pressing. Dans les deux cas retour au gardien et on repart ; six fois, puis on inverse les rôles.\nRègles : Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoint clé : Un joueur de plus qu'eux. Trouve l'homme libre avant de recevoir.",
-        "id-ID": "Tujuan: Menjaga bola di bawah tekanan — sudut dukungan, sentuhan pertama, dan umpan yang menembus garis.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nJalur bola: GK → 4 → 6 → titik kosong\nUrutan: Langkah 1: GK mengoper ke 4, 3 bergerak ke kiri untuk menjaga lebar, 5, 4, 2 bergerak ke belakang untuk menjaga lebar, 7 bergerak ke kanan untuk menjaga lebar, A, B, C bergerak ke depan untuk menekan pembawa bola; Langkah 2: 4 mengoper ke 6, 6 bergerak ke kiri untuk turun untuk menerima bola; Langkah 3: 6 memainkan bola ke titik berikutnya, 6 bergerak ke depan untuk berbalik menghadap ke depan.\nKelanjutan: Bola melewati garis tengah berarti berhasil; bola direbut atau keluar berarti poin untuk penekan. Apa pun hasilnya bola kembali ke kiper dan mulai lagi; enam ulangan, lalu tukar peran.\nAturan: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoin utama: Satu pemain lebih banyak dari yang menekan. Temukan pemain bebas sebelum bola tiba.",
-        "ms-MY": "Tujuan: Mengekalkan bola di bawah tekanan — sudut sokongan, sentuhan pertama, dan hantaran yang menembusi barisan.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nLaluan bola: GK → 4 → 6 → ruang kosong\nUrutan: Langkah 1: GK menghantar kepada 4, 3 bergerak ke kiri untuk mengekalkan kelebaran, 5, 4, 2 bergerak ke belakang untuk mengekalkan kelebaran, 7 bergerak ke kanan untuk mengekalkan kelebaran, A, B, C bergerak ke hadapan untuk menekan pembawa bola; Langkah 2: 4 menghantar kepada 6, 6 bergerak ke kiri untuk turun untuk menerima bola; Langkah 3: 6 memainkan bola ke titik seterusnya, 6 bergerak ke hadapan untuk berpusing menghadap ke hadapan.\nKesinambungan: Bola melepasi garisan tengah dikira berjaya; bola dirampas atau keluar dikira mata untuk penekan. Apa pun bola kembali kepada penjaga gol dan mula semula; enam ulangan, kemudian tukar peranan.\nPeraturan: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoin utama: Satu pemain lebih daripada penekan mereka.",
-        "th-TH": "จุดประสงค์: รักษาบอลภายใต้แรงกดดัน — มุมสนับสนุน สัมผัสแรก และบอลที่เจาะแนวรับ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing\nเส้นทางบอล: GK → 4 → 6 → จุดว่าง\nลำดับ: ขั้นที่ 1: GK จ่ายให้ 4 3 ขยับไปทางซ้ายเพื่อรักษาความกว้าง 5, 4, 2 ขยับถอยหลังเพื่อรักษาความกว้าง 7 ขยับไปทางขวาเพื่อรักษาความกว้าง A, B, C ขยับไปข้างหน้าเพื่อเพรสคนถือบอล • ขั้นที่ 2: 4 จ่ายให้ 6 6 ขยับไปทางซ้ายเพื่อถอยลงมารับบอล • ขั้นที่ 3: 6 ส่งบอลไปจุดถัดไป 6 ขยับไปข้างหน้าเพื่อหมุนตัวหันหน้าไปข้างหน้า\nการต่อเนื่อง: บอลข้ามเส้นกลางสนามนับว่าสำเร็จ ถ้าโดนแย่งหรือบอลออกฝ่ายเพรสได้แต้ม ไม่ว่าแบบไหนบอลกลับไปที่ผู้รักษาประตูแล้วเริ่มใหม่ ทำ 6 รอบแล้วสลับฝ่าย\nกติกา: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nจุดเน้น: มีคนมากกว่าฝ่ายกดดันหนึ่งคน หาคนว่างก่อนบอลจะมาถึง",
-        "vi-VN": "Mục đích: Giữ bóng dưới áp lực — góc hỗ trợ, xử lý chạm đầu, và đường chuyền xuyên tuyến.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nĐường bóng: GK → 4 → 6 → vị trí trống\nTrình tự: Bước 1: GK chuyền cho 4, 3 di chuyển sang trái để giữ chiều rộng, 5, 4, 2 di chuyển lùi lại để giữ chiều rộng, 7 di chuyển sang phải để giữ chiều rộng, A, B, C di chuyển lên phía trước để áp sát người cầm bóng; Bước 2: 4 chuyền cho 6, 6 di chuyển sang trái để lùi xuống nhận bóng; Bước 3: 6 đưa bóng tới điểm kế tiếp, 6 di chuyển lên phía trước để xoay người hướng lên phía trước.\nTiếp nối: Đưa bóng qua giữa sân là thành công; mất bóng hoặc bóng ra ngoài tính điểm cho bên pressing. Dù thế nào bóng cũng về thủ môn và bắt đầu lại; 6 lượt rồi đổi bên.\nLuật: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nĐiểm chính: Hơn họ một người. Tìm người trống trước khi bóng đến chân."
+        "en": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nBall path: GK → 6 → the open space\nSequence: Step 1: 3 moves left to hold the width, 5, 4, 2 move back to hold the width, 7 moves right to hold the width, A, B, C move up the board to press the ball carrier; Step 2: GK passes to 6, 6 moves left to drop to receive; Step 3: 6 plays the ball into space, 6 moves up the board to turn and face forward.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nCoaching point: One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
+        "en-GB": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nBall path: GK → 6 → the open space\nSequence: Step 1: 3 moves left to hold the width, 5, 4, 2 move back to hold the width, 7 moves right to hold the width, A, B, C move up the board to press the ball carrier; Step 2: GK passes to 6, 6 moves left to drop to receive; Step 3: 6 plays the ball into space, 6 moves up the board to turn and face forward.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nCoaching point: One more player than they press with. Find the free man before the ball reaches you, or he stops being free.",
+        "zh-CN": "【目的】控球：在有人抢的情况下把球留住。练接应跑位、第一脚停球，以及敢往前穿防线，而不是只往安全的方向传。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】门将加 5 名后卫站在本方禁区线上，身前一名后腰，对方 3 人上抢。\n【球路】GK → 6 → 空当\n【流程】第1步：3号球员向左移动（保持宽度），5号球员、4号球员、2号球员向后移动（保持宽度），7号球员向右移动（保持宽度），A、B、C向前移动（上抢持球人）；第2步：GK把球传给6号球员，6号球员向左移动（回撤接球）；第3步：6号球员把球送进空当，6号球员向前移动（转身面向前方）。\n【连贯】球过中线算出球成功，被断或出界算压迫方得分；无论哪种，球回门将重新开始，连做 6 次后攻守互换。\n【规则】把球控住带过中线算后场一分；断球、把球逼出边线、或逼得对方大脚解围算压迫方一分。\n【要点】永远比对方压迫人数多一个。在球到你脚下之前就找到那个空位的人，否则他就不空了。",
+        "zh-TW": "【目的】控球：在有人搶的情況下把球留住。練接應跑位、第一腳停球，以及敢往前穿防線，而不是只往安全的方向傳。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing。\n【球路】GK → 6 → 空當\n【流程】第1步：3號球員向左移動（保持寬度），5號球員、4號球員、2號球員向後移動（保持寬度），7號球員向右移動（保持寬度），A、B、C向前移動（上搶持球人）；第2步：GK把球傳給6號球員，6號球員向左移動（回撤接球）；第3步：6號球員把球送進空當，6號球員向前移動（轉身面向前方）。\n【連貫】球過中線算出球成功，被斷或出界算壓迫方得分；無論哪種，球回門將重新開始，連做 6 次後攻守互換。\n【規則】把球控住帶過中線算後場一分；斷球、把球逼出邊線、或逼得對方大腳解圍算壓迫方一分。\n【要點】永遠比對方壓迫人數多一個。在球到你腳下之前就找到那個空位的人，否則他就不空了。",
+        "ja-JP": "【目的】プレッシャー下でボールを保持する。サポートの角度、ファーストタッチ、そして最も近い味方ではなくラインを破るパス。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing。\n【ボールの道筋】GK → 6 → スペース\n【流れ】ステップ1：3番が左へ移動し、幅を取る、5番・4番・2番が後方へ移動し、幅を取る、7番が右へ移動し、幅を取る、A・B・Cが前方へ移動し、ボールホルダーに寄せる。ステップ2：GKが6番へパス、6番が左へ移動し、下りて受ける。ステップ3：6番が次のポイントへ送る、6番が前方へ移動し、前を向く。\n【続け方】ハーフウェーを越えれば成功、奪われるかアウトならプレス側の得点。どちらでもキーパーに戻して再開。6本で攻守交代。\n【ルール】Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\n【ポイント】相手のプレス人数より1人多く。ボールが来る前にフリーマンを見つける。",
+        "ko-KR": "【목적】압박 속에서 공을 지킨다. 지원 각도, 첫 터치, 그리고 가까운 동료가 아니라 수비 라인을 깨는 패스.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\n【볼 경로】GK → 6 → 빈 자리\n【진행】1단계: 3번는 왼쪽으로 이동해 폭을 유지한다, 5번, 4번, 2번는 뒤로 이동해 폭을 유지한다, 7번는 오른쪽으로 이동해 폭을 유지한다, A, B, C는 앞으로 이동해 볼 소유자를 압박한다; 2단계: GK가 6번에게 패스, 6번는 왼쪽으로 이동해 내려와서 공을 받는다; 3단계: 6번가 다음 지점으로 보낸다, 6번는 앞으로 이동해 돌아서 앞을 본다.\n【이어가기】하프라인을 넘기면 성공, 빼앗기거나 아웃되면 압박하는 쪽의 득점이다. 어느 쪽이든 공은 골키퍼에게 돌아가 다시 시작한다. 6회 후 공수 교대.\n【규칙】Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\n【포인트】상대 압박보다 한 명 더. 공이 오기 전에 자유로운 선수를 찾아라.",
+        "es-ES": "Objetivo: Conservar el balón bajo presión: ángulos de apoyo, control y el pase que rompe una línea, no solo al más cercano.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nRecorrido del balón: GK → 6 → el espacio libre\nSecuencia: Paso 1: 3 se desplaza a la izquierda para dar amplitud, 5, 4, 2 se desplaza hacia atrás para dar amplitud, 7 se desplaza a la derecha para dar amplitud, A, B, C se desplaza hacia delante para presionar al poseedor; Paso 2: GK pasa a 6, 6 se desplaza a la izquierda para bajar a recibir; Paso 3: 6 envía el balón al siguiente punto, 6 se desplaza hacia delante para girarse y encarar.\nContinuidad: Superar el medio campo es un éxito; una pérdida o el balón fuera puntúa para los presionadores. En ambos casos vuelve al portero y se reinicia; seis repeticiones y cambio de roles.\nReglas: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPunto clave: Un jugador más de los que presionan. Encuentra al libre antes de recibir.",
+        "fr-FR": "Objectif : Conserver le ballon sous pression : angles de soutien, première touche et la passe qui casse une ligne.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nTrajet du ballon : GK → 6 → l'espace libre\nDéroulé : Étape 1 : 3 se déplace à gauche pour garder la largeur, 5, 4, 2 se déplace vers l'arrière pour garder la largeur, 7 se déplace à droite pour garder la largeur, A, B, C se déplace vers l'avant pour presser le porteur ; Étape 2 : GK passe à 6, 6 se déplace à gauche pour décrocher pour recevoir ; Étape 3 : 6 envoie le ballon au point suivant, 6 se déplace vers l'avant pour se retourner face au jeu.\nEnchaînement : Passer la ligne médiane, c'est réussi ; une perte ou une sortie, c'est un point pour le pressing. Dans les deux cas retour au gardien et on repart ; six fois, puis on inverse les rôles.\nRègles : Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoint clé : Un joueur de plus qu'eux. Trouve l'homme libre avant de recevoir.",
+        "id-ID": "Tujuan: Menjaga bola di bawah tekanan — sudut dukungan, sentuhan pertama, dan umpan yang menembus garis.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nJalur bola: GK → 6 → titik kosong\nUrutan: Langkah 1: 3 bergerak ke kiri untuk menjaga lebar, 5, 4, 2 bergerak ke belakang untuk menjaga lebar, 7 bergerak ke kanan untuk menjaga lebar, A, B, C bergerak ke depan untuk menekan pembawa bola; Langkah 2: GK mengoper ke 6, 6 bergerak ke kiri untuk turun untuk menerima bola; Langkah 3: 6 memainkan bola ke titik berikutnya, 6 bergerak ke depan untuk berbalik menghadap ke depan.\nKelanjutan: Bola melewati garis tengah berarti berhasil; bola direbut atau keluar berarti poin untuk penekan. Apa pun hasilnya bola kembali ke kiper dan mulai lagi; enam ulangan, lalu tukar peran.\nAturan: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoin utama: Satu pemain lebih banyak dari yang menekan. Temukan pemain bebas sebelum bola tiba.",
+        "ms-MY": "Tujuan: Mengekalkan bola di bawah tekanan — sudut sokongan, sentuhan pertama, dan hantaran yang menembusi barisan.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nLaluan bola: GK → 6 → ruang kosong\nUrutan: Langkah 1: 3 bergerak ke kiri untuk mengekalkan kelebaran, 5, 4, 2 bergerak ke belakang untuk mengekalkan kelebaran, 7 bergerak ke kanan untuk mengekalkan kelebaran, A, B, C bergerak ke hadapan untuk menekan pembawa bola; Langkah 2: GK menghantar kepada 6, 6 bergerak ke kiri untuk turun untuk menerima bola; Langkah 3: 6 memainkan bola ke titik seterusnya, 6 bergerak ke hadapan untuk berpusing menghadap ke hadapan.\nKesinambungan: Bola melepasi garisan tengah dikira berjaya; bola dirampas atau keluar dikira mata untuk penekan. Apa pun bola kembali kepada penjaga gol dan mula semula; enam ulangan, kemudian tukar peranan.\nPeraturan: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nPoin utama: Satu pemain lebih daripada penekan mereka.",
+        "th-TH": "จุดประสงค์: รักษาบอลภายใต้แรงกดดัน — มุมสนับสนุน สัมผัสแรก และบอลที่เจาะแนวรับ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing\nเส้นทางบอล: GK → 6 → จุดว่าง\nลำดับ: ขั้นที่ 1: 3 ขยับไปทางซ้ายเพื่อรักษาความกว้าง 5, 4, 2 ขยับถอยหลังเพื่อรักษาความกว้าง 7 ขยับไปทางขวาเพื่อรักษาความกว้าง A, B, C ขยับไปข้างหน้าเพื่อเพรสคนถือบอล • ขั้นที่ 2: GK จ่ายให้ 6 6 ขยับไปทางซ้ายเพื่อถอยลงมารับบอล • ขั้นที่ 3: 6 ส่งบอลไปจุดถัดไป 6 ขยับไปข้างหน้าเพื่อหมุนตัวหันหน้าไปข้างหน้า\nการต่อเนื่อง: บอลข้ามเส้นกลางสนามนับว่าสำเร็จ ถ้าโดนแย่งหรือบอลออกฝ่ายเพรสได้แต้ม ไม่ว่าแบบไหนบอลกลับไปที่ผู้รักษาประตูแล้วเริ่มใหม่ ทำ 6 รอบแล้วสลับฝ่าย\nกติกา: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nจุดเน้น: มีคนมากกว่าฝ่ายกดดันหนึ่งคน หาคนว่างก่อนบอลจะมาถึง",
+        "vi-VN": "Mục đích: Giữ bóng dưới áp lực — góc hỗ trợ, xử lý chạm đầu, và đường chuyền xuyên tuyến.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing.\nĐường bóng: GK → 6 → vị trí trống\nTrình tự: Bước 1: 3 di chuyển sang trái để giữ chiều rộng, 5, 4, 2 di chuyển lùi lại để giữ chiều rộng, 7 di chuyển sang phải để giữ chiều rộng, A, B, C di chuyển lên phía trước để áp sát người cầm bóng; Bước 2: GK chuyền cho 6, 6 di chuyển sang trái để lùi xuống nhận bóng; Bước 3: 6 đưa bóng tới điểm kế tiếp, 6 di chuyển lên phía trước để xoay người hướng lên phía trước.\nTiếp nối: Đưa bóng qua giữa sân là thành công; mất bóng hoặc bóng ra ngoài tính điểm cho bên pressing. Dù thế nào bóng cũng về thủ môn và bắt đầu lại; 6 lượt rồi đổi bên.\nLuật: Getting the ball under control past the halfway line is a point for the back line; winning it, forcing it out over a touchline, or forcing a long clearance is a point for the pressers.\nĐiểm chính: Hơn họ một người. Tìm người trống trước khi bóng đến chân."
       },
       "mistake": {
         "en": "Passing to a marked man because he is close — pressure is beaten forward, not sideways.",
@@ -19738,7 +19733,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -20000,15 +19996,11 @@
             "team": 2,
             "sportType": 6,
             "position": [
-              500.0,
-              1217.2557413376308
+              527.5919983374093,
+              1222.8385303488215
             ],
             "scale": 1.0,
             "moves": [
-              [
-                500.0,
-                1212.5717163577758
-              ],
               [
                 683.8273385729123,
                 975.2113929234564
@@ -20019,7 +20011,6 @@
               ]
             ],
             "movePhases": [
-              0,
               1,
               2
             ],
@@ -20197,7 +20188,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -20238,8 +20229,8 @@
                 378.05525845516104
               ],
               [
-                487.6929900957484,
-                247.70510691800456
+                478.40000000000003,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -20421,7 +20412,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -20462,8 +20453,8 @@
                 378.05525845516104
               ],
               [
-                512.3070099042516,
-                247.70510691800456
+                521.6,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -20645,7 +20636,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -20686,8 +20677,8 @@
                 396.38536476132265
               ],
               [
-                486.7999438140334,
-                247.81563859848308
+                478.40000000000003,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -20869,7 +20860,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -20910,8 +20901,8 @@
                 396.38536476132265
               ],
               [
-                513.2000561859667,
-                247.81563859848308
+                521.6,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -21093,7 +21084,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -21134,8 +21125,8 @@
                 446.5415715945104
               ],
               [
-                490.1734290865709,
-                247.33776948615204
+                478.40000000000003,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -23215,7 +23206,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -23245,8 +23236,8 @@
                 267.3243659876316
               ],
               [
-                469.07319243820575,
-                241.17357233906304
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -23539,7 +23530,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -23573,8 +23564,8 @@
                 496.03909672580835
               ],
               [
-                475.32248977859666,
-                243.8961059810289
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -23863,7 +23854,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -23893,8 +23884,8 @@
                 278.4509755994568
               ],
               [
-                460.15558338715715,
-                235.7163056788157
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -24189,7 +24180,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -24223,8 +24214,8 @@
                 472.155552012643
               ],
               [
-                486.3441787034278,
-                246.99879930584999
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -24406,7 +24397,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -24447,8 +24438,8 @@
                 358.3838781154451
               ],
               [
-                505.0856081877665,
-                242.84216197573846
+                532.4,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -24630,7 +24621,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -24671,8 +24662,8 @@
                 358.3838781154451
               ],
               [
-                494.9143918122335,
-                242.84216197573846
+                467.6,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -24854,7 +24845,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -24873,7 +24864,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": -0.785398
+            "rotation": -1.570796
           },
           {
             "id": "b0",
@@ -24895,8 +24886,8 @@
                 358.3838781154451
               ],
               [
-                490.7384657219178,
-                225.76261233226936
+                440.6,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -25078,7 +25069,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -25118,8 +25109,8 @@
                 358.3838781154451
               ],
               [
-                513.9525469726806,
-                243.8679178704532
+                489.2,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -26830,7 +26821,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -26871,8 +26862,8 @@
                 289.8252498892783
               ],
               [
-                450.4901060034209,
-                226.54925488130021
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -27124,7 +27115,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -27165,8 +27156,8 @@
                 285.436601868882
               ],
               [
-                523.049516887812,
-                244.48258795814843
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -27417,7 +27408,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -27458,8 +27449,8 @@
                 289.8252498892783
               ],
               [
-                549.5098939965791,
-                226.54925488130021
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -27711,7 +27702,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -27752,8 +27743,8 @@
                 285.436601868882
               ],
               [
-                476.9504831121879,
-                244.4825879581484
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -28999,7 +28990,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -29199,7 +29190,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -29378,7 +29369,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -29590,7 +29581,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -29754,7 +29745,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -29931,7 +29922,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -30094,7 +30085,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -30425,7 +30416,7 @@
               ],
               [
                 500.0,
-                248.3062046736503
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -30681,8 +30672,8 @@
                 404.92391541851384
               ],
               [
-                495.3466959884386,
-                248.156179815931
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -30880,7 +30871,7 @@
               ],
               [
                 500.0,
-                248.3062046736503
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -32093,8 +32084,8 @@
                 325.0970794700622
               ],
               [
-                457.4869901986547,
-                245.09386911596408
+                500.0,
+                210.47048751007256
               ]
             ],
             "movePhases": [
@@ -32320,8 +32311,8 @@
                 325.0970794700622
               ],
               [
-                542.5130098013453,
-                245.09386911596408
+                500.0,
+                210.47048751007256
               ]
             ],
             "movePhases": [
@@ -32560,8 +32551,8 @@
                 288.5386909183146
               ],
               [
-                444.46910077072425,
-                228.5789117771967
+                500.0,
+                210.47048751007256
               ]
             ],
             "movePhases": [
@@ -32800,8 +32791,8 @@
                 288.5386909183146
               ],
               [
-                555.5308992292757,
-                228.57891177719668
+                500.0,
+                210.47048751007256
               ]
             ],
             "movePhases": [
@@ -33033,8 +33024,8 @@
                 301.7235317534494
               ],
               [
-                474.5280975302856,
-                255.07176316993483
+                500.0,
+                210.47048751007256
               ]
             ],
             "movePhases": [
@@ -33319,7 +33310,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -33351,8 +33342,8 @@
             "scale": 1.0,
             "moves": [
               [
-                489.27231685199735,
-                247.5035291958752
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -33637,7 +33628,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -33673,8 +33664,8 @@
                 427.46248141465094
               ],
               [
-                480.8117224127823,
-                245.68965990015712
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -33960,7 +33951,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -33996,8 +33987,8 @@
                 398.56147979498553
               ],
               [
-                537.3301951307352,
-                237.47660933291775
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -34264,7 +34255,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -34301,8 +34292,8 @@
                 544.716246949718
               ],
               [
-                500.048240404243,
-                248.3061885745645
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -34569,7 +34560,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -34606,8 +34597,8 @@
                 544.716246949718
               ],
               [
-                499.951759595757,
-                248.3061885745645
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -37262,7 +37253,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -37292,8 +37283,8 @@
                 362.171494433689
               ],
               [
-                467.25222858942607,
-                240.2251437444171
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -37483,7 +37474,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -40538,7 +40529,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [],
@@ -41930,7 +41921,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -42007,7 +41998,7 @@
               ],
               [
                 500.0,
-                248.3062046736503
+                198.99113618049964
               ]
             ],
             "movePhases": [
@@ -42201,7 +42192,7 @@
             "sportType": null,
             "position": [
               500.0,
-              210.47048751007256
+              214.60386209278238
             ],
             "scale": 1.0,
             "moves": [
@@ -42241,8 +42232,8 @@
                 315.60824462670604
               ],
               [
-                472.85861096834026,
-                242.91539613921987
+                500.0,
+                198.99113618049964
               ]
             ],
             "movePhases": [

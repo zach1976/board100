@@ -314,6 +314,84 @@ def prune_degenerate_moves(drill: Drill) -> None:
         p.moves = pruned
 
 
+def ball_start(drill: Drill, sport: str) -> tuple[float, float]:
+    """Where the ball is drawn before the first beat, for a ball held by one
+    of the home players. Wanted in two places — the board it is written onto,
+    and the pruner, which measures the first leg against it."""
+    holder = drill.home[drill.ball]
+    # Ahead of him from the first frame if he is about to set off;
+    # a man about to pass has it on the foot facing his receiver.
+    lead = ((holder.moves[0][0] - holder.x,
+             holder.moves[0][1] - holder.y) if holder.moves else None)
+    if lead is None and drill.ball_moves:
+        lead = (drill.ball_moves[0][0] - holder.x,
+                drill.ball_moves[0][1] - holder.y)
+    if drill.ball_spot is not None:
+        return drill.ball_spot
+    return at_the_feet_of(holder.x, holder.y, sport, lead)
+
+
+def prune_degenerate_ball_legs(drill: Drill, sport: str) -> None:
+    """The same rule for the ball, which only has a route once resolve_ball
+    has run — so it is a second pass rather than a branch above.
+
+    The ball had been exempt, and it is the one that needed it most: its
+    targets are computed (at the feet of whoever ends up there, at a spot a
+    family appends to every drill), so a target that lands where the ball
+    already is comes out as a leg of a few units. The board then drew a
+    stub arrow — the arrow is a fixed length, and it is set back a ball's
+    radius from the destination, so the whole of it sat beside a ball that
+    had not moved: an arrow floating on the grass, pointing at nothing.
+    """
+    if not drill.ball_moves:
+        return
+    prev = (drill.ball if isinstance(drill.ball, tuple)
+            else ball_start(drill, sport)
+            if isinstance(drill.ball, int) else None)
+    keep = []
+    for (x, y, ph) in drill.ball_moves:
+        alive = prev is None or math.hypot(x - prev[0], y - prev[1]) >= 8
+        keep.append(alive)
+        if alive:
+            prev = (x, y)
+    if all(keep):
+        return
+    # The note is written from ball_to, not from the legs, so a leg dropped
+    # here has to lose its target too — otherwise the text still announces
+    # a pass, or a shot, that the board no longer shows. The two line up
+    # from the end: a follow's legs come first and have no target.
+    head = len(drill.ball_moves) - len(drill.ball_to)
+    if drill.ball_to and head >= 0:
+        drill.ball_to = [t for j, t in enumerate(drill.ball_to)
+                         if keep[head + j]]
+    drill.ball_moves = [m for m, alive in zip(drill.ball_moves, keep) if alive]
+
+
+def keep_keeper_inside_his_line(drill: Drill, sport: str) -> None:
+    """A keeper's token stays on the right side of his own goal line.
+
+    The goal is authored where the goal is — 0.02 of the court down, in
+    hockey — and a keeper written there is a 44pt figure whose top half is
+    past the backline: drawn standing in the net with the goal frame across
+    his chest, and, on a board cropped to the attacking end, half off it.
+    He is walked in by exactly the overhang, which leaves him on his line
+    rather than through it. Only keepers: in table tennis a player belongs
+    well behind the table, and clamping everyone would have hauled a dozen
+    defensive lobs onto it.
+    """
+    left, top, w, h = court_rect(sport)
+    half = SPACING_APART / 2 * BOARD_UNITS[1] / CANVAS_PT[1]
+
+    def inside(y):
+        return min(max(y, top + half), top + h - half)
+
+    for p in drill.home + drill.away:
+        if p.role != "GK" and str(p.label).upper() not in ("GK", "K"):
+            continue
+        p.y = inside(p.y)
+        p.moves = [(x, inside(y), ph) for (x, y, ph) in p.moves]
+
+
 def normalise_phases(drill: Drill) -> None:
     """Renumber phases to 0,1,2… across the whole drill.
 
@@ -515,6 +593,7 @@ def resolve_ball(drill: Drill, sport: str) -> None:
     one that will actually be drawn — resolving earlier baked in coordinates
     that space_out then moved out from under the ball.
     """
+    from .narrate import _is_far_end
     def target_pos(t, phase):
         if isinstance(t, Spot):
             return (t.x, t.y)
@@ -658,7 +737,17 @@ def resolve_ball(drill: Drill, sport: str) -> None:
             drill.ball_to = sorted(drill.ball_to + carried, key=lambda e: e[1])
 
         for (t, ph) in drill.ball_to:
-            if isinstance(t, Spot):
+            if isinstance(t, Spot) or (isinstance(t, tuple)
+                                       and _is_far_end(sport, t)):
+                # A shot is struck AT the goal, so it is drawn arriving
+                # there. Every point target used to be placed the way a
+                # carried ball is — a token's length back toward whoever
+                # played it — which left the shot short of the line, on the
+                # keeper. Where the ball was already close to the goal, that
+                # setback swallowed the leg whole: the drill named for its
+                # finish narrated a shot the board never drew. The same
+                # far-end test the note uses to call it a shot decides it,
+                # so the words and the picture cannot disagree.
                 point = target_pos(t, ph)
             else:
                 rx, ry = target_pos(t, ph)
@@ -799,9 +888,11 @@ def build_board(drill: Drill, sport: str) -> dict:
     unlabel_lone_player(drill)
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
+    keep_keeper_inside_his_line(drill, sport)
     space_out(drill, sport)
     prune_degenerate_moves(drill)
     resolve_ball(drill, sport)
+    prune_degenerate_ball_legs(drill, sport)
     normalise_phases(drill)
     # The note's sequence section comes from the beats as finally numbered —
     # any earlier and the text counts phases the stepper never shows.
@@ -826,17 +917,7 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{drill.id}: ball={drill.ball} but the drill has "
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
-            holder = drill.home[drill.ball]
-            # Ahead of him from the first frame if he is about to set off;
-            # a man about to pass has it on the foot facing his receiver.
-            lead = ((holder.moves[0][0] - holder.x,
-                     holder.moves[0][1] - holder.y) if holder.moves else None)
-            if lead is None and drill.ball_moves:
-                lead = (drill.ball_moves[0][0] - holder.x,
-                        drill.ball_moves[0][1] - holder.y)
-            bx, by = at_the_feet_of(holder.x, holder.y, sport, lead)
-            if drill.ball_spot is not None:
-                bx, by = drill.ball_spot
+            bx, by = ball_start(drill, sport)
             players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
                                  drill.ball_moves))
         else:
@@ -1403,13 +1484,17 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                 f"the pass is made. Spread the players' phases across the "
                 f"sequence, or add the id to BALL_ALONE_OK with a reason")
 
-    for p in people:
+    # The ball counts too: its dead arrows are drawn detached from it, so
+    # they read as an arrow belonging to nothing at all.
+    balls = [p for p in board["players"] if p.get("sportType") is not None]
+    for p in people + balls:
         prev = p["position"]
         for mv in p["moves"]:
             step = math.hypot(mv[0] - prev[0], mv[1] - prev[1])
             assert step >= 8, (
-                f"{sport}/{drill.id}/{p['label']}: {step:.0f}px move — "
-                f"a dead arrow (prune_degenerate_moves should have eaten it)")
+                f"{sport}/{drill.id}/{p['label'] or 'ball'}: {step:.0f}px "
+                f"move — a dead arrow (prune_degenerate_moves should have "
+                f"eaten it)")
             prev = mv
 
     if sport == "soccer":

@@ -904,7 +904,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -1178,7 +1178,7 @@
             "sportType": null,
             "position": [
               500.0,
-              309.8861448140901
+              312.8165166340509
             ],
             "scale": 1.0,
             "moves": [
@@ -1341,7 +1341,7 @@
             "sportType": null,
             "position": [
               500.0,
-              230.60043052837577
+              233.53080234833664
             ],
             "scale": 1.0,
             "moves": [],
@@ -1615,7 +1615,7 @@
             "sportType": null,
             "position": [
               500.0,
-              309.8861448140901
+              312.8165166340509
             ],
             "scale": 1.0,
             "moves": [
@@ -1778,7 +1778,7 @@
             "sportType": null,
             "position": [
               500.0,
-              230.60043052837577
+              233.53080234833664
             ],
             "scale": 1.0,
             "moves": [],
@@ -1999,7 +1999,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -2033,8 +2033,8 @@
                 356.47357918917123
               ],
               [
-                551.5947367567177,
-                273.24796155791677
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -2286,7 +2286,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -2320,8 +2320,8 @@
                 356.47357918917123
               ],
               [
-                551.5947367567177,
-                273.24796155791677
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -2633,7 +2633,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -2667,8 +2667,8 @@
                 356.47357918917123
               ],
               [
-                551.5947367567177,
-                273.24796155791677
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -2990,7 +2990,7 @@
             "sportType": null,
             "position": [
               500.0,
-              280.65473189823877
+              283.5851037181996
             ],
             "scale": 1.0,
             "moves": [
@@ -3074,7 +3074,7 @@
             "sportType": null,
             "position": [
               500.0,
-              224.94044618395307
+              227.8708180039139
             ],
             "scale": 1.0,
             "moves": [
@@ -3119,8 +3119,8 @@
                 284.63000554861696
               ],
               [
-                558.506687892195,
-                258.25289038425797
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -3249,7 +3249,7 @@
             "sportType": null,
             "position": [
               500.0,
-              320.16809099804306
+              320.18090337573386
             ],
             "scale": 1.0,
             "moves": [
@@ -3443,7 +3443,7 @@
             "sportType": null,
             "position": [
               500.0,
-              266.49500440313113
+              266.50141059197654
             ],
             "scale": 1.0,
             "moves": [
@@ -3560,20 +3560,20 @@
             "scale": 1.0,
             "moves": [
               [
-                440.45843217278536,
-                316.5609028537951
+                440.4587338200398,
+                316.57031949264797
               ],
               [
-                663.8034402062294,
-                308.72383062597675
+                663.803542256322,
+                308.72581406386894
               ],
               [
-                326.2157298327593,
-                454.55724857443573
+                326.2158663926229,
+                454.5574642714641
               ],
               [
-                465.8806568338986,
-                288.90424586475325
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -3898,7 +3898,7 @@
             "sportType": null,
             "position": [
               500.0,
-              280.65473189823877
+              283.5851037181996
             ],
             "scale": 1.0,
             "moves": [
@@ -3982,7 +3982,7 @@
             "sportType": null,
             "position": [
               500.0,
-              224.94044618395307
+              227.8708180039139
             ],
             "scale": 1.0,
             "moves": [
@@ -4027,8 +4027,8 @@
                 352.3182765199025
               ],
               [
-                542.9974625620985,
-                282.6489231201759
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -4188,8 +4188,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              450.2789898502854,
-              274.8022762039227
+              448.97699401503905,
+              275.6247513647775
             ],
             "scale": 1.0,
             "moves": [
@@ -4216,8 +4216,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.0,
-              237.53260273972606
+              501.3019958352464,
+              242.57087121879292
             ],
             "scale": 1.0,
             "moves": [
@@ -4236,7 +4236,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": -1.570796
           },
           {
             "id": "m0",
@@ -4318,8 +4318,8 @@
                 244.41148729237185
               ],
               [
-                467.25348641030064,
-                239.50985944590528
+                407.6,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -4507,7 +4507,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -4608,8 +4608,8 @@
                 250.86400536873103
               ],
               [
-                547.1779668001736,
-                258.5255351280555
+                601.2,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -4797,7 +4797,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -4898,8 +4898,8 @@
                 250.86400536873103
               ],
               [
-                445.9111919354482,
-                254.82415660734952
+                390.0,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -5082,7 +5082,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -5394,8 +5394,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              517.2919040973283,
-              299.413193852126
+              519.166755466977,
+              301.78262346425464
             ],
             "scale": 1.0,
             "moves": [
@@ -5558,8 +5558,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              459.58149860027345,
-              360.0779782057333
+              458.8217325540728,
+              360.5704085363048
             ],
             "scale": 1.0,
             "moves": [
@@ -5586,8 +5586,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              496.7265973023983,
-              222.1118416407709
+              495.61151197895026,
+              225.1107253379925
             ],
             "scale": 1.0,
             "moves": [],
@@ -5598,7 +5598,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "m0",
@@ -5660,8 +5661,8 @@
                 333.7944643140818
               ],
               [
-                464.27406980466463,
-                287.946930476888
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -5897,8 +5898,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              517.2919040973283,
-              299.413193852126
+              519.166755466977,
+              301.78262346425464
             ],
             "scale": 1.0,
             "moves": [
@@ -6065,8 +6066,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              459.58149860027345,
-              360.0779782057333
+              458.8217325540728,
+              360.5704085363048
             ],
             "scale": 1.0,
             "moves": [
@@ -6093,8 +6094,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              496.7265973023983,
-              222.1118416407709
+              495.61151197895026,
+              225.1107253379925
             ],
             "scale": 1.0,
             "moves": [],
@@ -6105,7 +6106,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "m0",
@@ -6167,8 +6169,8 @@
                 333.7944643140818
               ],
               [
-                464.27406980466463,
-                287.946930476888
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -6403,8 +6405,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              510.3889887795562,
-              317.97175398579
+              510.6779094620278,
+              320.0458003516511
             ],
             "scale": 1.0,
             "moves": [
@@ -6567,8 +6569,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              438.4901945946487,
-              257.9992994832594
+              436.8125610617336,
+              255.8883367687464
             ],
             "scale": 1.0,
             "moves": [
@@ -6595,8 +6597,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              524.7208166257951,
-              229.3070287227316
+              526.1095294762385,
+              235.20468871130512
             ],
             "scale": 1.0,
             "moves": [],
@@ -6607,7 +6609,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": "GK",
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "m0",
@@ -6669,8 +6672,8 @@
                 333.7944643140818
               ],
               [
-                464.27406980466463,
-                287.946930476888
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -6906,8 +6909,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              499.077694600505,
-              311.59484470185527
+              499.17013367271056,
+              314.686569418879
             ],
             "scale": 1.0,
             "moves": [
@@ -6962,8 +6965,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              410.17874231933143,
-              298.4224030640656
+              410.41208057185884,
+              298.22978333187075
             ],
             "scale": 1.0,
             "moves": [
@@ -6990,8 +6993,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              590.3299453581823,
-              298.6160847066153
+              589.7545985734234,
+              298.63475925237395
             ],
             "scale": 1.0,
             "moves": [
@@ -7074,8 +7077,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.4136177219812,
-              231.21905108910792
+              500.6631871820071,
+              234.16201519844208
             ],
             "scale": 1.0,
             "moves": [],
@@ -7271,7 +7274,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -7328,8 +7331,8 @@
                 315.7892054794521
               ],
               [
-                468.61585330756225,
-                285.76338556559966
+                429.59999999999997,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -7455,8 +7458,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              493.95114449947744,
-              306.04242080832375
+              492.72306570539604,
+              309.6476735861822
             ],
             "scale": 1.0,
             "moves": [
@@ -7532,8 +7535,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              558.4185753632643,
-              362.90014027446364
+              559.3072780281243,
+              363.50890826290373
             ],
             "scale": 1.0,
             "moves": [],
@@ -7553,8 +7556,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              500.43028013725825,
-              229.0157950815963
+              500.76965626647967,
+              230.66251795521953
             ],
             "scale": 1.0,
             "moves": [],
@@ -7588,8 +7591,8 @@
                 394.78847099309917
               ],
               [
-                510.3950444041478,
-                296.9979438747446
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -7696,10 +7699,15 @@
               [
                 500.0,
                 793.6142465753426
+              ],
+              [
+                500.0,
+                575.5430136986301
               ]
             ],
             "movePhases": [
-              0
+              0,
+              1
             ],
             "moveColor": 4282434815,
             "customColor": null,
@@ -7803,7 +7811,7 @@
             "moves": [
               [
                 500.0,
-                744.2991780821919
+                624.8580821917808
               ]
             ],
             "movePhases": [
@@ -8065,7 +8073,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -8099,8 +8107,8 @@
                 635.0047450444046
               ],
               [
-                481.3397719017735,
-                295.28046938670855
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -8418,7 +8426,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -8451,8 +8459,8 @@
                 665.0558166462852
               ],
               [
-                506.45149276804034,
-                297.462448858737
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -8878,7 +8886,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [],
@@ -8912,8 +8920,8 @@
                 591.368839732051
               ],
               [
-                523.3438422932627,
-                293.82509764401306
+                500.0,
+                248.43616438356167
               ]
             ],
             "movePhases": [
@@ -9101,7 +9109,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -9120,7 +9128,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": -1.570796
+            "rotation": 0.785398
           },
           {
             "id": "m0",
@@ -9198,8 +9206,8 @@
                 377.3255022275757
               ],
               [
-                576.1120615269723,
-                282.28212565722305
+                601.2,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -9386,7 +9394,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -9483,8 +9491,8 @@
                 399.13262551524696
               ],
               [
-                423.53550923222116,
-                278.33231795664204
+                390.0,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -9672,7 +9680,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -9769,8 +9777,8 @@
                 312.14699395047813
               ],
               [
-                587.2991874090599,
-                249.55305016380703
+                645.2,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -9958,7 +9966,7 @@
             "sportType": null,
             "position": [
               500.0,
-              237.53260273972606
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -10055,8 +10063,8 @@
                 346.9141678687093
               ],
               [
-                459.2939785590734,
-                262.2030527797172
+                407.6,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -10211,7 +10219,7 @@
             "sportType": null,
             "position": [
               500.0,
-              217.90619178082196
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -10230,7 +10238,7 @@
             "photoId": null,
             "role": "GK",
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "m0",
@@ -10288,8 +10296,8 @@
                 353.03693091459786
               ],
               [
-                460.4036787570442,
-                274.44040492324984
+                500.0,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -10351,18 +10359,18 @@
         "vi-VN": "Tập thủ môn cú sút từ vạch hai mét"
       },
       "note": {
-        "en": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 1 v 1, 2 cones, ball with the player.\nEquipment: the two cones mark the two-metre line in front of the goal.\nBall path: the player → goal\nSequence: Step 1: the player carries the ball on the move; Step 2: the player shoots, GK moves up the board.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Egg-beater high enough to have the shoulders out before the shot, and hold the near post until the ball leaves the hand. Everything you give away early you cannot take back.",
-        "en-GB": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 1 v 1, 2 cones, ball with the player.\nEquipment: the two cones mark the two-metre line in front of the goal.\nBall path: the player → goal\nSequence: Step 1: the player carries the ball on the move; Step 2: the player shoots, GK moves up the board.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Egg-beater high enough to have the shoulders out before the shot, and hold the near post until the ball leaves the hand. Everything you give away early you cannot take back.",
-        "zh-CN": "【目的】门将：练站位和封角度。对方出脚前先站稳，扑到球后用第一脚传球发动进攻。\n【频度】门将每天的专项训练，与球队训练同时进行。\n【组织】1 对 1，2 个锥标，球在 球员 手中。\n【器材】两个锥标标出球门前的两米线。\n【球路】球员 → 球门\n【流程】第1步：球员带球推进；第2步：球员射门，GK向前移动。\n【连贯】每一球处理完，门将回到门线预备，下一名喂球者接着喂；10 球一组，换门将。\n【规则】球整体越过两门柱之间的门线算进球。球出边线由对方在出界处发球；30 秒内没有射门即失去球权。\n【要点】踩水踩到出手前肩膀已经出水，近角守住不动，直到球离手。提前让出去的位置，是收不回来的。",
-        "zh-TW": "【目的】門將：練站位和封角度。對方出腳前先站穩，撲到球後用第一腳傳球發動進攻。\n【頻度】門將每天的專項訓練，與球隊訓練同時進行。\n【組織】1 對 1，2 個錐標，球在 球員 手中。\n【器材】兩個錐標標出球門前的兩米線。\n【球路】球員 → 球門\n【流程】第1步：球員帶球推進；第2步：球員射門，GK向前移動。\n【連貫】每一球處理完，門將回到門線預備，下一名餵球者接著餵；10 球一組，換門將。\n【規則】球整體越過兩門柱之間的門線算進球。球出邊線由對方在出界處發球；30 秒內沒有射門即失去球權。\n【要點】踩水踩到出手前肩膀已經出水，近角守住不動，直到球離手。提前讓出去的位置，是收不回來的。",
-        "ja-JP": "【目的】GKの技術を鍛える。シュート前に構え、角度を切り、最初のパスで次の攻撃を始める。\n【頻度】GKが毎日行う専門トレーニング。フィールドの練習と並行して行う。\n【準備】1対1、コーン2個、ボールは選手。\n【用具】the two cones mark the two-metre line in front of the goal。\n【ボールの道筋】選手 → ゴール\n【流れ】ステップ1：選手がボールを運ぶ。ステップ2：選手がシュート、GKが前方へ移動。\n【続け方】1球処理するごとにキーパーはラインに戻って構え、次のサーバーが出す。10球1セットでキーパー交代。\n【ルール】ボールがポスト間のラインを完全に越えれば得点。サイドを出たら相手がその地点から再開、30秒以内にシュートがなければ攻撃権を失う。\n【ポイント】シュート前に肩が水面上に出るまで巻き足で上がり、ボールが手を離れるまでニアを譲らない。早く空けた分は取り戻せない。",
-        "ko-KR": "【목적】골키퍼의 기술을 훈련한다. 슛 전에 자세를 잡고 각을 좁히며, 첫 패스로 다음 공격을 시작한다.\n【빈도】골키퍼가 매일 하는 전문 훈련으로, 필드 세션과 병행한다.\n【준비】1대1, 콘 2개, 공은 선수.\n【장비】the two cones mark the two-metre line in front of the goal.\n【볼 경로】선수 → 골문\n【진행】1단계: 선수가 공을 몰고 이동; 2단계: 선수 슛, GK는 앞으로 이동.\n【이어가기】한 공을 처리할 때마다 골키퍼는 라인으로 돌아가 준비하고 다음 서버가 공을 준다. 10개 한 세트, 골키퍼 교대.\n【규칙】공이 골포스트 사이 라인을 완전히 넘으면 득점. 공이 옆으로 나가면 상대가 그 지점에서 재개하고, 30초 안에 슛이 없으면 공격권을 잃는다.\n【포인트】슛 전에 어깨가 물 밖으로 나올 만큼 에그비터로 떠올라, 공이 손을 떠날 때까지 니어를 지켜라.",
-        "es-ES": "Objetivo: Entrenar el oficio del portero: colocado antes del disparo, cerrar el ángulo y empezar el ataque con la primera salida.\nFrecuencia: El trabajo específico diario del portero, junto a la sesión de campo.\nMontaje: 1 contra 1, 2 conos, balón con el jugador.\nMaterial: the two cones mark the two-metre line in front of the goal.\nRecorrido del balón: el jugador → portería\nSecuencia: Paso 1: el jugador conduce el balón; Paso 2: el jugador remata, GK se desplaza hacia delante.\nContinuidad: Tras cada balón el portero se recoloca en la línea y sirve el siguiente; series de diez balones, luego cambio de portero.\nReglas: Es gol cuando el balón cruza entero la línea entre los postes. Si sale por el lateral, el rival reanuda desde ahí, y treinta segundos sin tirar pierden la posesión.\nPunto clave: Bate lo bastante alto para tener los hombros fuera antes del tiro y guarda el palo cercano hasta que el balón salga de la mano.",
-        "fr-FR": "Objectif : Travailler le métier du gardien : placé avant la frappe, fermer l'angle et lancer l'attaque dès la première relance.\nFréquence : Le travail spécifique quotidien du gardien, mené en parallèle de la séance de champ.\nMise en place : 1 contre 1, 2 plots, ballon avec le joueur.\nMatériel : the two cones mark the two-metre line in front of the goal.\nTrajet du ballon : le joueur → but\nDéroulé : Étape 1 : le joueur conduit le ballon ; Étape 2 : le joueur frappe, GK se déplace vers l'avant.\nEnchaînement : Après chaque ballon le gardien se replace sur sa ligne et le serveur suivant enchaîne ; séries de dix ballons, puis on change de gardien.\nRègles : But quand le ballon franchit entièrement la ligne entre les poteaux. Sortie sur le côté : l'adversaire repart de là, et trente secondes sans tir font perdre la possession.\nPoint clé : Monte assez haut pour avoir les épaules hors de l eau avant le tir, et garde le premier poteau jusqu à ce que le ballon quitte la main.",
-        "id-ID": "Tujuan: Melatih keahlian kiper — set sebelum tembakan, ambil sudut, dan mulai serangan dengan umpan pertama.\nFrekuensi: Latihan khusus kiper harian, dijalankan bersama sesi pemain lapangan.\nPersiapan: 1 lawan 1, 2 kerucut, bola pada pemain.\nPerlengkapan: the two cones mark the two-metre line in front of the goal.\nJalur bola: pemain → gawang\nUrutan: Langkah 1: pemain menggiring bola; Langkah 2: pemain menembak, GK bergerak ke depan.\nKelanjutan: Setelah tiap bola kiper bersiap lagi di garis dan pengumpan berikutnya giliran; sepuluh bola per set, lalu kiper bertukar.\nAturan: Gol bila bola sepenuhnya melewati garis di antara tiang. Bola keluar di samping, lawan memulai dari sana, dan tiga puluh detik tanpa tembakan berarti kehilangan bola.\nPoin utama: Kayuh cukup tinggi agar bahu keluar dari air sebelum tembakan, dan jaga tiang dekat sampai bola lepas dari tangan.",
-        "ms-MY": "Tujuan: Melatih kemahiran penjaga gol — sedia sebelum tendangan, ambil sudut, dan mulakan serangan dengan hantaran pertama.\nKekerapan: Latihan khusus penjaga gol harian, dijalankan bersama sesi pemain padang.\nPersediaan: 1 lawan 1, 2 kon, bola dengan pemain.\nPeralatan: the two cones mark the two-metre line in front of the goal.\nLaluan bola: pemain → gol\nUrutan: Langkah 1: pemain membawa bola; Langkah 2: pemain menjaring, GK bergerak ke hadapan.\nKesinambungan: Selepas setiap bola penjaga gol bersedia semula di garisan dan pengumpan seterusnya bermula; sepuluh bola satu set, kemudian penjaga gol bertukar.\nPeraturan: Gol apabila bola melepasi garisan antara tiang sepenuhnya. Bola keluar di tepi, lawan memulakan dari situ, dan tiga puluh saat tanpa rembatan bermakna kehilangan bola.\nPoin utama: Kayuh cukup tinggi supaya bahu keluar dari air sebelum tembakan, dan jaga tiang dekat sehingga bola lepas.",
-        "th-TH": "จุดประสงค์: ฝึกทักษะผู้รักษาประตู — ตั้งหลักก่อนยิง ปิดมุม และเริ่มบุกด้วยการจ่ายแรก\nความถี่: งานเฉพาะทางของผู้รักษาประตูทุกวัน ทำคู่ไปกับการฝึกของทีม\nการจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ ผู้เล่น\nอุปกรณ์: the two cones mark the two-metre line in front of the goal\nเส้นทางบอล: ผู้เล่น → ประตู\nลำดับ: ขั้นที่ 1: ผู้เล่น พาบอลไป • ขั้นที่ 2: ผู้เล่น ยิงประตู GK ขยับไปข้างหน้า\nการต่อเนื่อง: หลังจัดการแต่ละลูก ผู้รักษาประตูกลับไปตั้งท่าที่เส้นแล้วคนป้อนคนถัดไปป้อน ชุดละ 10 ลูกแล้วเปลี่ยนผู้รักษาประตู\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นระหว่างเสาทั้งลูก บอลออกข้างให้อีกฝ่ายเริ่มจากจุดนั้น และครบ 30 วินาทีไม่ได้ยิงถือว่าเสียสิทธิ์ครองบอล\nจุดเน้น: ตีขาให้สูงพอจนไหล่พ้นน้ำก่อนลูกยิง และรักษาเสาใกล้ไว้จนบอลหลุดจากมือ",
-        "vi-VN": "Mục đích: Rèn kỹ năng thủ môn — đứng vững trước cú sút, khép góc, và mở đợt tấn công bằng đường chuyền đầu tiên.\nTần suất: Bài chuyên biệt hằng ngày của thủ môn, tập song song với buổi của cầu thủ.\nBố trí: 1 đấu 1, 2 cọc, bóng ở chỗ cầu thủ.\nDụng cụ: the two cones mark the two-metre line in front of the goal.\nĐường bóng: cầu thủ → khung thành\nTrình tự: Bước 1: cầu thủ dẫn bóng di chuyển; Bước 2: cầu thủ dứt điểm, GK di chuyển lên phía trước.\nTiếp nối: Sau mỗi bóng thủ môn về lại vạch cầu môn chuẩn bị, người tiếp theo phát bóng; mỗi hiệp 10 bóng rồi đổi thủ môn.\nLuật: Bàn thắng khi bóng qua hẳn vạch giữa hai cột. Bóng ra biên thì đội kia phát lại từ đó, và ba mươi giây không dứt điểm là mất quyền kiểm soát bóng.\nĐiểm chính: Dap chan du cao de vai nho khoi mat nuoc truoc cu sut, va giu cot gan cho den khi bong roi tay."
+        "en": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 1 v 1, 2 cones, ball with the player.\nEquipment: the two cones mark the two-metre line in front of the goal.\nBall path: the player → goal\nSequence: Step 1: the player carries the ball on the move; Step 2: the player shoots, GK moves right.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Egg-beater high enough to have the shoulders out before the shot, and hold the near post until the ball leaves the hand. Everything you give away early you cannot take back.",
+        "en-GB": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 1 v 1, 2 cones, ball with the player.\nEquipment: the two cones mark the two-metre line in front of the goal.\nBall path: the player → goal\nSequence: Step 1: the player carries the ball on the move; Step 2: the player shoots, GK moves right.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal is the whole ball over the line between the posts. The ball is out at the side, the other team restarts from there, and thirty seconds without a shot loses possession.\nCoaching point: Egg-beater high enough to have the shoulders out before the shot, and hold the near post until the ball leaves the hand. Everything you give away early you cannot take back.",
+        "zh-CN": "【目的】门将：练站位和封角度。对方出脚前先站稳，扑到球后用第一脚传球发动进攻。\n【频度】门将每天的专项训练，与球队训练同时进行。\n【组织】1 对 1，2 个锥标，球在 球员 手中。\n【器材】两个锥标标出球门前的两米线。\n【球路】球员 → 球门\n【流程】第1步：球员带球推进；第2步：球员射门，GK向右移动。\n【连贯】每一球处理完，门将回到门线预备，下一名喂球者接着喂；10 球一组，换门将。\n【规则】球整体越过两门柱之间的门线算进球。球出边线由对方在出界处发球；30 秒内没有射门即失去球权。\n【要点】踩水踩到出手前肩膀已经出水，近角守住不动，直到球离手。提前让出去的位置，是收不回来的。",
+        "zh-TW": "【目的】門將：練站位和封角度。對方出腳前先站穩，撲到球後用第一腳傳球發動進攻。\n【頻度】門將每天的專項訓練，與球隊訓練同時進行。\n【組織】1 對 1，2 個錐標，球在 球員 手中。\n【器材】兩個錐標標出球門前的兩米線。\n【球路】球員 → 球門\n【流程】第1步：球員帶球推進；第2步：球員射門，GK向右移動。\n【連貫】每一球處理完，門將回到門線預備，下一名餵球者接著餵；10 球一組，換門將。\n【規則】球整體越過兩門柱之間的門線算進球。球出邊線由對方在出界處發球；30 秒內沒有射門即失去球權。\n【要點】踩水踩到出手前肩膀已經出水，近角守住不動，直到球離手。提前讓出去的位置，是收不回來的。",
+        "ja-JP": "【目的】GKの技術を鍛える。シュート前に構え、角度を切り、最初のパスで次の攻撃を始める。\n【頻度】GKが毎日行う専門トレーニング。フィールドの練習と並行して行う。\n【準備】1対1、コーン2個、ボールは選手。\n【用具】the two cones mark the two-metre line in front of the goal。\n【ボールの道筋】選手 → ゴール\n【流れ】ステップ1：選手がボールを運ぶ。ステップ2：選手がシュート、GKが右へ移動。\n【続け方】1球処理するごとにキーパーはラインに戻って構え、次のサーバーが出す。10球1セットでキーパー交代。\n【ルール】ボールがポスト間のラインを完全に越えれば得点。サイドを出たら相手がその地点から再開、30秒以内にシュートがなければ攻撃権を失う。\n【ポイント】シュート前に肩が水面上に出るまで巻き足で上がり、ボールが手を離れるまでニアを譲らない。早く空けた分は取り戻せない。",
+        "ko-KR": "【목적】골키퍼의 기술을 훈련한다. 슛 전에 자세를 잡고 각을 좁히며, 첫 패스로 다음 공격을 시작한다.\n【빈도】골키퍼가 매일 하는 전문 훈련으로, 필드 세션과 병행한다.\n【준비】1대1, 콘 2개, 공은 선수.\n【장비】the two cones mark the two-metre line in front of the goal.\n【볼 경로】선수 → 골문\n【진행】1단계: 선수가 공을 몰고 이동; 2단계: 선수 슛, GK는 오른쪽으로 이동.\n【이어가기】한 공을 처리할 때마다 골키퍼는 라인으로 돌아가 준비하고 다음 서버가 공을 준다. 10개 한 세트, 골키퍼 교대.\n【규칙】공이 골포스트 사이 라인을 완전히 넘으면 득점. 공이 옆으로 나가면 상대가 그 지점에서 재개하고, 30초 안에 슛이 없으면 공격권을 잃는다.\n【포인트】슛 전에 어깨가 물 밖으로 나올 만큼 에그비터로 떠올라, 공이 손을 떠날 때까지 니어를 지켜라.",
+        "es-ES": "Objetivo: Entrenar el oficio del portero: colocado antes del disparo, cerrar el ángulo y empezar el ataque con la primera salida.\nFrecuencia: El trabajo específico diario del portero, junto a la sesión de campo.\nMontaje: 1 contra 1, 2 conos, balón con el jugador.\nMaterial: the two cones mark the two-metre line in front of the goal.\nRecorrido del balón: el jugador → portería\nSecuencia: Paso 1: el jugador conduce el balón; Paso 2: el jugador remata, GK se desplaza a la derecha.\nContinuidad: Tras cada balón el portero se recoloca en la línea y sirve el siguiente; series de diez balones, luego cambio de portero.\nReglas: Es gol cuando el balón cruza entero la línea entre los postes. Si sale por el lateral, el rival reanuda desde ahí, y treinta segundos sin tirar pierden la posesión.\nPunto clave: Bate lo bastante alto para tener los hombros fuera antes del tiro y guarda el palo cercano hasta que el balón salga de la mano.",
+        "fr-FR": "Objectif : Travailler le métier du gardien : placé avant la frappe, fermer l'angle et lancer l'attaque dès la première relance.\nFréquence : Le travail spécifique quotidien du gardien, mené en parallèle de la séance de champ.\nMise en place : 1 contre 1, 2 plots, ballon avec le joueur.\nMatériel : the two cones mark the two-metre line in front of the goal.\nTrajet du ballon : le joueur → but\nDéroulé : Étape 1 : le joueur conduit le ballon ; Étape 2 : le joueur frappe, GK se déplace à droite.\nEnchaînement : Après chaque ballon le gardien se replace sur sa ligne et le serveur suivant enchaîne ; séries de dix ballons, puis on change de gardien.\nRègles : But quand le ballon franchit entièrement la ligne entre les poteaux. Sortie sur le côté : l'adversaire repart de là, et trente secondes sans tir font perdre la possession.\nPoint clé : Monte assez haut pour avoir les épaules hors de l eau avant le tir, et garde le premier poteau jusqu à ce que le ballon quitte la main.",
+        "id-ID": "Tujuan: Melatih keahlian kiper — set sebelum tembakan, ambil sudut, dan mulai serangan dengan umpan pertama.\nFrekuensi: Latihan khusus kiper harian, dijalankan bersama sesi pemain lapangan.\nPersiapan: 1 lawan 1, 2 kerucut, bola pada pemain.\nPerlengkapan: the two cones mark the two-metre line in front of the goal.\nJalur bola: pemain → gawang\nUrutan: Langkah 1: pemain menggiring bola; Langkah 2: pemain menembak, GK bergerak ke kanan.\nKelanjutan: Setelah tiap bola kiper bersiap lagi di garis dan pengumpan berikutnya giliran; sepuluh bola per set, lalu kiper bertukar.\nAturan: Gol bila bola sepenuhnya melewati garis di antara tiang. Bola keluar di samping, lawan memulai dari sana, dan tiga puluh detik tanpa tembakan berarti kehilangan bola.\nPoin utama: Kayuh cukup tinggi agar bahu keluar dari air sebelum tembakan, dan jaga tiang dekat sampai bola lepas dari tangan.",
+        "ms-MY": "Tujuan: Melatih kemahiran penjaga gol — sedia sebelum tendangan, ambil sudut, dan mulakan serangan dengan hantaran pertama.\nKekerapan: Latihan khusus penjaga gol harian, dijalankan bersama sesi pemain padang.\nPersediaan: 1 lawan 1, 2 kon, bola dengan pemain.\nPeralatan: the two cones mark the two-metre line in front of the goal.\nLaluan bola: pemain → gol\nUrutan: Langkah 1: pemain membawa bola; Langkah 2: pemain menjaring, GK bergerak ke kanan.\nKesinambungan: Selepas setiap bola penjaga gol bersedia semula di garisan dan pengumpan seterusnya bermula; sepuluh bola satu set, kemudian penjaga gol bertukar.\nPeraturan: Gol apabila bola melepasi garisan antara tiang sepenuhnya. Bola keluar di tepi, lawan memulakan dari situ, dan tiga puluh saat tanpa rembatan bermakna kehilangan bola.\nPoin utama: Kayuh cukup tinggi supaya bahu keluar dari air sebelum tembakan, dan jaga tiang dekat sehingga bola lepas.",
+        "th-TH": "จุดประสงค์: ฝึกทักษะผู้รักษาประตู — ตั้งหลักก่อนยิง ปิดมุม และเริ่มบุกด้วยการจ่ายแรก\nความถี่: งานเฉพาะทางของผู้รักษาประตูทุกวัน ทำคู่ไปกับการฝึกของทีม\nการจัด: 1 ต่อ 1 กรวย 2 อัน บอลอยู่ที่ ผู้เล่น\nอุปกรณ์: the two cones mark the two-metre line in front of the goal\nเส้นทางบอล: ผู้เล่น → ประตู\nลำดับ: ขั้นที่ 1: ผู้เล่น พาบอลไป • ขั้นที่ 2: ผู้เล่น ยิงประตู GK ขยับไปทางขวา\nการต่อเนื่อง: หลังจัดการแต่ละลูก ผู้รักษาประตูกลับไปตั้งท่าที่เส้นแล้วคนป้อนคนถัดไปป้อน ชุดละ 10 ลูกแล้วเปลี่ยนผู้รักษาประตู\nกติกา: เป็นประตูเมื่อบอลผ่านเส้นระหว่างเสาทั้งลูก บอลออกข้างให้อีกฝ่ายเริ่มจากจุดนั้น และครบ 30 วินาทีไม่ได้ยิงถือว่าเสียสิทธิ์ครองบอล\nจุดเน้น: ตีขาให้สูงพอจนไหล่พ้นน้ำก่อนลูกยิง และรักษาเสาใกล้ไว้จนบอลหลุดจากมือ",
+        "vi-VN": "Mục đích: Rèn kỹ năng thủ môn — đứng vững trước cú sút, khép góc, và mở đợt tấn công bằng đường chuyền đầu tiên.\nTần suất: Bài chuyên biệt hằng ngày của thủ môn, tập song song với buổi của cầu thủ.\nBố trí: 1 đấu 1, 2 cọc, bóng ở chỗ cầu thủ.\nDụng cụ: the two cones mark the two-metre line in front of the goal.\nĐường bóng: cầu thủ → khung thành\nTrình tự: Bước 1: cầu thủ dẫn bóng di chuyển; Bước 2: cầu thủ dứt điểm, GK di chuyển sang phải.\nTiếp nối: Sau mỗi bóng thủ môn về lại vạch cầu môn chuẩn bị, người tiếp theo phát bóng; mỗi hiệp 10 bóng rồi đổi thủ môn.\nLuật: Bàn thắng khi bóng qua hẳn vạch giữa hai cột. Bóng ra biên thì đội kia phát lại từ đó, và ba mươi giây không dứt điểm là mất quyền kiểm soát bóng.\nĐiểm chính: Dap chan du cao de vai nho khoi mat nuoc truoc cu sut, va giu cot gan cho den khi bong roi tay."
       },
       "mistake": {
         "en": "Dropping in the water as the arm comes back — you cannot rise again in time, and the shooter is aiming at where you were.",
@@ -10416,7 +10424,7 @@
             "sportType": null,
             "position": [
               500.0,
-              217.90619178082196
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -10493,8 +10501,8 @@
                 235.93380459965215
               ],
               [
-                559.5482241026708,
-                234.00118177571437
+                500.0,
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -10620,7 +10628,7 @@
             "sportType": null,
             "position": [
               500.0,
-              217.90619178082196
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
@@ -10698,7 +10706,7 @@
               ],
               [
                 500.0,
-                286.84767123287673
+                237.53260273972606
               ]
             ],
             "movePhases": [
@@ -10853,7 +10861,7 @@
             "sportType": null,
             "position": [
               500.0,
-              217.90619178082196
+              243.39334637964777
             ],
             "scale": 1.0,
             "moves": [
