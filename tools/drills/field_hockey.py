@@ -448,7 +448,14 @@ def press_family() -> list[Drill]:
             name=suffixed(PRESS_NAME, label), note=PRESS_NOTE,
             home=[P(x, y, "D", moves=[(x + leg0[0], leg0[1], 0),
                                       (x + leg1[0], leg1[1], 1)]
-                                     + ([(x + leg1[0] + 0.02, leg1[1] - 0.03, 2)]
+                                     # The step in to win it is a real step:
+                                     # at (+0.02, -0.03) it was 19pt, under
+                                     # what the board draws as a run, so it
+                                     # came out as a stub arrow with no start
+                                     # floating beside his boots. Mostly up
+                                     # the board, not across: across, he
+                                     # finished shoulder to shoulder with A.
+                                     + ([(x + leg1[0] + 0.01, leg1[1] - 0.07, 2)]
                                         if x == 0.16 else []),
                     why=({0: "press_ball", 1: "press_ball", 2: "win_ball"}
                          if x == 0.16 else {0: "shift", 1: "close_lane"}))
