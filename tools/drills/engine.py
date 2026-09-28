@@ -367,6 +367,16 @@ def prune_degenerate_ball_legs(drill: Drill, sport: str) -> None:
     drill.ball_moves = [m for m, alive in zip(drill.ball_moves, keep) if alive]
 
 
+def is_keeper(p) -> bool:
+    return p.role == "GK" or str(p.label).upper() in ("GK", "K")
+
+
+def keeper_margin() -> float:
+    """How far a keeper's middle has to stay off his own goal line: half his
+    icon, so none of him is drawn beyond it."""
+    return SPACING_APART / 2 * BOARD_UNITS[1] / CANVAS_PT[1]
+
+
 def keep_keeper_inside_his_line(drill: Drill, sport: str) -> None:
     """A keeper's token stays on the right side of his own goal line.
 
@@ -380,13 +390,13 @@ def keep_keeper_inside_his_line(drill: Drill, sport: str) -> None:
     defensive lobs onto it.
     """
     left, top, w, h = court_rect(sport)
-    half = SPACING_APART / 2 * BOARD_UNITS[1] / CANVAS_PT[1]
+    half = keeper_margin()
 
     def inside(y):
         return min(max(y, top + half), top + h - half)
 
     for p in drill.home + drill.away:
-        if p.role != "GK" and str(p.label).upper() not in ("GK", "K"):
+        if not is_keeper(p):
             continue
         p.y = inside(p.y)
         p.moves = [(x, inside(y), ph) for (x, y, ph) in p.moves]
@@ -521,8 +531,17 @@ def space_out(drill: Drill, sport: str) -> None:
                         p.x = min(max(p.x, 12), BOARD_UNITS[0] - 12)
                         p.y = min(max(p.y, 12), BOARD_UNITS[1] - 12)
                     else:
+                        # Everyone is held 8 units inside the surface — but a
+                        # keeper by the whole of his icon, or the spreading
+                        # of a crowded goalmouth puts him back through his
+                        # own line with the frame across his chest. He is
+                        # the one who cannot give way, so the man crowding
+                        # him is the one that keeps moving: the next pass
+                        # round this loop pushes them apart again and only
+                        # the other end of the pair takes it.
+                        edge = keeper_margin() if is_keeper(p) else 8
                         p.x = min(max(p.x, left + 8), left + w - 8)
-                        p.y = min(max(p.y, top + 8), top + h - 8)
+                        p.y = min(max(p.y, top + edge), top + h - edge)
                 moved = True
         if not moved:
             return
