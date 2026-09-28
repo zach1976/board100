@@ -1261,6 +1261,17 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           focusId: state.selectedPlayerId,
                           endShift: feet,
                           startShift: ghostFeet,
+                          // Only while animating: at rest the ball IS at the
+                          // leg's end and endShift is the right answer.
+                          livePos: state.isAnimating
+                              ? {
+                                  for (final p in players)
+                                    if (p.isBall &&
+                                        state.animatedPositions[p.id] != null)
+                                      p.id: state.animatedPositions[p.id]! +
+                                          (feet[p.id] ?? Offset.zero),
+                                }
+                              : const {},
                           // Beat zero draws nothing but the one route a
                           // coach asked for — see routeShown above.
                           onlyFocus: stepLimit == 0 &&

@@ -142,8 +142,18 @@ class PlayerMovesPainter extends CustomPainter {
   /// ball sits a token away from it.
   final Map<String, Offset> startShift;
 
+  /// Where a moving ball is actually drawn, this frame.
+  ///
+  /// The route's last point is the leg's DESTINATION. While the ball is
+  /// still travelling that is not where it is, so the arrow reached the
+  /// spot the ball was heading for and the ball trailed behind it — up to
+  /// 300 points behind, at the start of a long pass. Given this, the head
+  /// follows the ball and arrives when it does.
+  final Map<String, Offset> livePos;
+
   const PlayerMovesPainter({
     required this.players,
+    this.livePos = const {},
     this.targetStep = 0,
     this.completedSteps,
     this.focusId,
@@ -226,7 +236,13 @@ class PlayerMovesPainter extends CustomPainter {
     ];
     if (player.isBall) {
       points[0] += startShift[player.id] ?? Offset.zero;
-      points[points.length - 1] += endShift[player.id] ?? Offset.zero;
+      final live = livePos[player.id];
+      if (live != null) {
+        // Mid-flight: end the line where the ball is, not where it is going.
+        points[points.length - 1] = live;
+      } else {
+        points[points.length - 1] += endShift[player.id] ?? Offset.zero;
+      }
     }
     // bbox half + shadow/border margin — keep arrow clear of the icon's drop
     // shadow. Of the icon as DRAWN: a ball fills 58% of its box, so a
@@ -380,5 +396,6 @@ class PlayerMovesPainter extends CustomPainter {
       oldDelegate.focusId != focusId ||
       oldDelegate.onlyFocus != onlyFocus ||
       !mapEquals(oldDelegate.endShift, endShift) ||
-      !mapEquals(oldDelegate.startShift, startShift);
+      !mapEquals(oldDelegate.startShift, startShift) ||
+      !mapEquals(oldDelegate.livePos, livePos);
 }
