@@ -70,21 +70,23 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) =>
 /// honestly can at this scale — one copy of the player, and a stub arrow
 /// butted against him showing which way he shifts.
 ///
-/// The line is 70% of the icon: at that offset the two copies still overlap,
-/// but each centre is clear of the other and the pair reads as "it was here,
-/// now it is there". Any closer and the start copy is a shadow behind the
-/// end copy, so the board drops it. It was a whole token wide until a
-/// centre-mid dropping five metres — a real move, and the point of the beat —
-/// came out as a lone token with a stub arrow and no sign of where he came
-/// from. Above the line they are separate on the board and the run keeps its
-/// destination, even where the arrow between them has to be squeezed.
+/// The line is a quarter of the icon. It was 70%, and before that a whole
+/// token: each time it came down because a real move — a centre-mid dropping
+/// five metres, a presser stepping in to tackle — came out as a lone token
+/// with a stub arrow and no sign of where he came from. At 70% that was
+/// still a quarter of every run in the library, 938 legs, each an arrow
+/// from nowhere. The figure draws 26pt wide by 56pt tall, so a start copy
+/// a dozen points off is not a shadow behind the end copy: its head or its
+/// boots show, and the pair reads as "it was here, now it is there", with
+/// the squeezed arrow between them saying which way. Below a quarter the
+/// two really are one figure, and the stub is all that can honestly be said.
 ///
 /// Of the icon, not of the box: a ball is drawn at 58% of its cell and a
 /// cone at 62%, so a header across the six-yard box — two ball widths, and
 /// plainly two balls on the grass — was being judged against a body and lost
 /// its start ghost.
 double nudgeThreshold(PlayerIcon p) =>
-    kPlayerIconSize * 0.7 * p.scale * iconDrawFactor(p);
+    kPlayerIconSize * 0.25 * p.scale * iconDrawFactor(p);
 
 /// How much of its 36pt box an icon actually fills.
 double iconDrawFactor(PlayerIcon p) => p.isBall
