@@ -1121,7 +1121,9 @@ class _TodayRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final art = cover != null;
-    final h = art ? 150.0 : 116.0;
+    // Taller without art: the badge above the name needs the room the
+    // photograph used to fill.
+    final h = 150.0;
     // Wide enough for two cards and a gap: lay them out across the width
     // instead of running them off the side of a window with room to spare.
     // A phone keeps the scroller — six cards wrapped onto a phone would be
@@ -1194,6 +1196,26 @@ class _TodayRow extends StatelessWidget {
                     child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Without a photograph the card was four lines of grey
+                  // text and nothing to catch the eye. The category's own
+                  // glyph and tint are already defined for the grid below —
+                  // the same ones, so a warm-up reads as a warm-up in both
+                  // places. A shell that ships covers keeps the photograph
+                  // and needs no badge on top of it.
+                  if (path == null) ...[
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: _CategoryTile._tint(d.category)
+                            .withValues(alpha: 0.14),
+                        borderRadius: T.brSm,
+                      ),
+                      child: Icon(_CategoryTile._icon(d.category),
+                          size: 17, color: _CategoryTile._tint(d.category)),
+                    ),
+                    const SizedBox(height: T.s8),
+                  ],
                   Text(
                     d.localizedName(locale),
                     maxLines: 2,
