@@ -9,13 +9,13 @@ Each step is idempotent and prints what it found before it changes anything,
 so a half-finished run is resumed by running the next step rather than by
 starting over.
 
-    python3 tools/release_soccer_2_0_0.py version     # create/find 2.0.0
-    python3 tools/release_soccer_2_0_0.py text        # name/subtitle + per-locale text
-    python3 tools/release_soccer_2_0_0.py shots       # 5 screenshots x 11 locales
-    python3 tools/release_soccer_2_0_0.py build       # attach the uploaded build
-    python3 tools/release_soccer_2_0_0.py notes       # review notes + encryption
-    python3 tools/release_soccer_2_0_0.py status      # read everything back
-    python3 tools/release_soccer_2_0_0.py submit      # <- the irreversible one
+    python3 tools/release_soccer.py version     # create/find the version in pubspec
+    python3 tools/release_soccer.py text        # name/subtitle + per-locale text
+    python3 tools/release_soccer.py shots       # 5 screenshots x 11 locales
+    python3 tools/release_soccer.py build       # attach the uploaded build
+    python3 tools/release_soccer.py notes       # review notes + encryption
+    python3 tools/release_soccer.py status      # read everything back
+    python3 tools/release_soccer.py submit      # <- the irreversible one
 """
 import hashlib
 import json
@@ -64,8 +64,21 @@ from apps import metadata_dir, screenshots_dir  # noqa: E402
 
 KEY = "soccer"
 BUNDLE = "com.zach.soccerBoard"
-VERSION = "2.0.0"
-BUILD_VERSION = "3"          # CFBundleVersion of the IPA
+# Read from SoccerBoard/pubspec.yaml — "version: 2.0.1+4" — so the release
+# and the binary can never disagree about which version this is. The first
+# run of this script was pinned to 2.0.0/3 in two constants, which is fine
+# exactly once.
+def _pubspec_version():
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "SoccerBoard", "pubspec.yaml")
+    for line in open(path):
+        if line.startswith("version:"):
+            name, _, number = line.split(":", 1)[1].strip().partition("+")
+            return name, number
+    raise SystemExit("✗ SoccerBoard/pubspec.yaml 里没有 version:")
+
+
+VERSION, BUILD_VERSION = _pubspec_version()
 
 # PLATFORM=MAC_OS switches the whole script to the Mac side of the same app
 # record: a different version line, a different build line, a different
