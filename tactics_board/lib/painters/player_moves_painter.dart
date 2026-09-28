@@ -5,28 +5,34 @@ import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../widgets/player_icon_widget.dart';
 
-/// Whether every leg of this ball's route rides along with somebody.
+/// Which legs of this ball's route ride along with a player, and whose leg
+/// each one rides with: `{ball leg index: "<player id>#<their leg index>"}`.
 ///
 /// A pass-and-follow drill gives the ball and the runner the same route one
 /// beat apart at most, and drawing both meant every edge of the diamond
 /// carried two parallel dashed arrows plus the ball's own waypoint badges.
-/// When each of the ball's segments starts and ends within an arm's reach of
-/// some player's segment in the same phase, the players' arrows already tell
-/// the whole story and the ball's are only noise — its line and its waypoint
-/// dots are both suppressed. A ball that ever travels alone (a switch, a
-/// shot, a cross to space) keeps them, because there they ARE the story.
-bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
+/// Where the ball's segment starts and ends within an arm's reach of some
+/// player's segment in the same phase, the two are one action — a carry —
+/// and the board draws it once: the player's line, waved, and no ball line
+/// beside it. A leg the ball makes alone (a pass, a switch, a shot) is the
+/// ball's own and keeps its line.
+///
+/// This was once all-or-nothing, and most routes are neither: a carry, then
+/// a pass, then a carry. Those drew the ball's whole chain, so every carry
+/// came out as two parallel dashed arrows a few points apart in near enough
+/// the same colour, which is what a coach reported as "two lines".
+Map<int, String> ballEscorts(PlayerIcon ball, List<PlayerIcon> players) {
   // At the receiver's feet the ball sits ~38pt from the receiver's point;
   // one and a half icons covers that with room, while the next cone is
   // hundreds of points away.
   const near = kPlayerIconSize * 1.5;
-  if (ball.moves.isEmpty) return false;
+  final out = <int, String>{};
+  if (ball.moves.isEmpty) return out;
   ball.syncPhases();
   for (int i = 0; i < ball.moves.length; i++) {
     final from = i == 0 ? ball.position : ball.moves[i - 1];
     final to = ball.moves[i];
     final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
-    var escorted = false;
     for (final p in players) {
       if (p.isBall || p.isMarker || p.moves.isEmpty) continue;
       p.syncPhases();
@@ -36,16 +42,22 @@ bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) {
         final pFrom = j == 0 ? p.position : p.moves[j - 1];
         final pTo = p.moves[j];
         if ((pFrom - from).distance < near && (pTo - to).distance < near) {
-          escorted = true;
+          out[i] = '${p.id}#$j';
           break;
         }
       }
-      if (escorted) break;
+      if (out.containsKey(i)) break;
     }
-    if (!escorted) return false;
   }
-  return true;
+  return out;
 }
+
+/// Whether every leg of this ball's route rides along with somebody — the
+/// test the waypoint dots still want, since a ball that never travels alone
+/// has no stop of its own worth numbering.
+bool ballTravelsWithPlayers(PlayerIcon ball, List<PlayerIcon> players) =>
+    ball.moves.isNotEmpty &&
+    ballEscorts(ball, players).length == ball.moves.length;
 
 /// A run too short to draw as a translation.
 ///
@@ -109,6 +121,9 @@ Offset stepStart(PlayerIcon player, int phaseLimit) {
   }
   return at;
 }
+
+/// What a line on the board is saying: a run, a carry, or the ball alone.
+enum _Line { dash, wave, solid }
 
 class PlayerMovesPainter extends CustomPainter {
   final List<PlayerIcon> players;
@@ -177,16 +192,27 @@ class PlayerMovesPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final focus = _focus;
     if (onlyFocus && focus == null) return;
+    // Every leg on which somebody is carrying the ball, as "<id>#<leg>" —
+    // the player's key and the ball's both, so each side knows to draw the
+    // carry once and to leave the other's copy of it alone.
+    final carries = <String>{};
+    for (final p in players) {
+      if (!p.isBall) continue;
+      ballEscorts(p, players).forEach((leg, who) {
+        carries.add(who);
+        carries.add('${p.id}#$leg');
+      });
+    }
     for (final player in players) {
       if (player.moves.isEmpty) continue;
       if (onlyFocus && player.id != focus!.id) continue;
-      if (player.isBall && ballTravelsWithPlayers(player, players)) continue;
       if (focus == null) {
-        _paintMoves(canvas, player);
+        _paintMoves(canvas, player, carries: carries);
       } else if (player.id == focus.id) {
         // Whole route, not the beat on show — but not mid-animation, where
         // the drawing IS the clock and drawing ahead of it would be a lie.
-        _paintMoves(canvas, player, whole: completedSteps == null);
+        _paintMoves(canvas, player,
+            whole: completedSteps == null, carries: carries);
       } else {
         // Behind the one being followed, not gone. At 0x1A — 10% — an
         // unfollowed route was a smudge on the grass: the gradient tail
@@ -196,7 +222,7 @@ class PlayerMovesPainter extends CustomPainter {
         // full strength; these only have to stay readable.
         canvas.saveLayer(
             Offset.zero & size, Paint()..color = const Color(0x8CFFFFFF));
-        _paintMoves(canvas, player, faded: true);
+        _paintMoves(canvas, player, faded: true, carries: carries);
         canvas.restore();
       }
     }
@@ -207,7 +233,9 @@ class PlayerMovesPainter extends CustomPainter {
   static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
 
   void _paintMoves(Canvas canvas, PlayerIcon player,
-      {bool whole = false, bool faded = false}) {
+      {bool whole = false,
+      bool faded = false,
+      Set<String> carries = const {}}) {
     // The route being followed is drawn at full strength for its whole
     // length. Every other arrow fades from 30% at its source to full colour
     // at its destination — a sense of direction that costs nothing when the
@@ -252,6 +280,18 @@ class PlayerMovesPainter extends CustomPainter {
         kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3;
 
     for (int i = 0; i < points.length - 1; i++) {
+      // Three kinds of line, which is the whole point of drawing them:
+      // a dash is a run, a wave is a carry, a solid line is the ball on its
+      // own. A carry belongs to the man doing it — the ball's copy of that
+      // leg is not drawn, or the board shows the same action twice, two
+      // parallel arrows a few points apart.
+      final carrying = carries.contains('${player.id}#${legs[i].key}');
+      if (player.isBall && carrying) continue;
+      final style = carrying
+          ? _Line.wave
+          : player.isBall
+              ? _Line.solid
+              : _Line.dash;
       final from = points[i];
       final to = points[i + 1];
       // Offset both ends: start from source edge, end at destination edge
@@ -261,7 +301,7 @@ class PlayerMovesPainter extends CustomPainter {
       final dist = (to - from).distance;
       if (dist < nudgeThreshold(player)) {
         _drawNudge(canvas, color, from, to, endRadius,
-            strong: strong, fade: tail);
+            strong: strong, fade: tail, style: style);
         continue;
       }
       // Two tokens far enough apart to read can still be closer than the two
@@ -271,8 +311,8 @@ class PlayerMovesPainter extends CustomPainter {
       final room = min(1.0, dist / (startRadius + endRadius + 10));
       final adjustedFrom = _offsetToward(from, to, startRadius * room);
       final adjustedTo = _offsetToward(to, from, endRadius * room);
-      _drawDashedLine(canvas, color, adjustedFrom, adjustedTo,
-          strong: strong, fade: tail);
+      _drawLine(canvas, color, adjustedFrom, adjustedTo,
+          strong: strong, fade: tail, style: style);
       _drawArrowHead(canvas, color, adjustedFrom, adjustedTo,
           strong: strong);
     }
@@ -283,15 +323,16 @@ class PlayerMovesPainter extends CustomPainter {
   /// [nudgeThreshold]. It ends where the conventional arrow would, just clear
   /// of the destination, and runs back from there far enough to be read.
   void _drawNudge(Canvas canvas, Color color, Offset from, Offset to,
-      double endRadius, {bool strong = false, bool fade = true}) {
+      double endRadius,
+      {bool strong = false, bool fade = true, _Line style = _Line.dash}) {
     final delta = to - from;
     final dist = delta.distance;
     if (dist < 0.5) return;
     final dir = delta / dist;
     final tip = to - dir * endRadius;
     final tail = tip - dir * 17.0;
-    _drawDashedLine(canvas, color, tail, tip,
-        strong: strong, fade: fade);
+    _drawLine(canvas, color, tail, tip,
+        strong: strong, fade: fade, style: style);
     _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
@@ -303,8 +344,10 @@ class PlayerMovesPainter extends CustomPainter {
     return Offset(from.dx + dx / dist * radius, from.dy + dy / dist * radius);
   }
 
-  void _drawDashedLine(Canvas canvas, Color color, Offset from, Offset to,
-      {bool strong = false, bool fade = true}) {
+  /// One line, drawn the way its action is drawn on a whiteboard: a run is
+  /// dashed, a carry waves, the ball on its own is a solid line.
+  void _drawLine(Canvas canvas, Color color, Offset from, Offset to,
+      {bool strong = false, bool fade = true, _Line style = _Line.dash}) {
     final width = strong ? _strokeWidth + 1.0 : _strokeWidth;
     // A darker edge, not a shadow. Every path used to carry a black halo
     // at 50%, which on a deeper pitch reads as a second thicker line beside
@@ -331,11 +374,17 @@ class PlayerMovesPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
-    final path = Path()
-      ..moveTo(from.dx, from.dy)
-      ..lineTo(to.dx, to.dy);
+    final path = style == _Line.wave
+        ? _wavePath(from, to)
+        : (Path()
+          ..moveTo(from.dx, from.dy)
+          ..lineTo(to.dx, to.dy));
 
     for (final paint in [outlinePaint, linePaint]) {
+      if (style != _Line.dash) {
+        canvas.drawPath(path, paint);
+        continue;
+      }
       final metrics = path.computeMetrics();
       for (final metric in metrics) {
         double start = 0;
@@ -351,6 +400,35 @@ class PlayerMovesPainter extends CustomPainter {
         }
       }
     }
+  }
+
+  /// The squiggle a coach draws for a man running with the ball.
+  ///
+  /// A whole number of periods, so the wave crosses the straight line at
+  /// both ends: the tail leaves the carrier's boot and the head meets the
+  /// arrow dead on, instead of setting off sideways. The period stretches
+  /// to fit rather than the wave being cut short — a long carry waves more
+  /// times, not further out, so the same action reads the same at any
+  /// length. 9pt of swing on a 2.8pt line is enough to tell from a dash
+  /// across a phone-sized board without turning the pitch into a scribble.
+  Path _wavePath(Offset from, Offset to) {
+    final delta = to - from;
+    final dist = delta.distance;
+    final path = Path()..moveTo(from.dx, from.dy);
+    if (dist < 1) {
+      return path..lineTo(to.dx, to.dy);
+    }
+    final dir = delta / dist;
+    final normal = Offset(-dir.dy, dir.dx);
+    const amplitude = 4.5;
+    final periods = max(1, (dist / 26.0).round());
+    final period = dist / periods;
+    for (double t = 1.5; t < dist; t += 1.5) {
+      final swing = amplitude * sin(t / period * 2 * pi);
+      final at = from + dir * t + normal * swing;
+      path.lineTo(at.dx, at.dy);
+    }
+    return path..lineTo(to.dx, to.dy);
   }
 
   void _drawArrowHead(Canvas canvas, Color color, Offset from, Offset to,

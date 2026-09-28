@@ -143,6 +143,20 @@ Map<String, Offset> ballAtFeetOffsets(
       }
     }
     if (holder == null) continue;
+    // A keeper does not collect a ball that is already past him. A shot is
+    // aimed at the goal and the keeper stands in it, so the nearest body to
+    // a ball on the line is always him: the arrowhead was pulled back onto
+    // his shins and every drill named for its finish drew the ball being
+    // gathered rather than going in. Past him means further from where
+    // everyone else is standing than he is.
+    if ((holder.role ?? '').toUpperCase() == 'GK') {
+      var mid = Offset.zero;
+      for (final p in holders) {
+        mid += positionOf(p);
+      }
+      mid = mid / holders.length.toDouble();
+      if ((at - mid).distance > (positionOf(holder) - mid).distance) continue;
+    }
     final reach = _kHoldReach * holder.scale;
     if (best >= reach * 1.6) continue;
     final weight =
