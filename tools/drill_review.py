@@ -424,6 +424,10 @@ def collect(only=None):
     drills = []
     for f in sorted(DRILLS.glob("*.json")):
         sport = f.stem
+        # index.json is the per-sport drill COUNT the hub's picker reads, not
+        # a library; it landed in this directory after this page was written.
+        if sport == "index":
+            continue
         if only and sport != only:
             continue
         data = json.loads(f.read_text())
