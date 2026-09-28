@@ -939,14 +939,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     /// Where a ghost stands: the spot the beat on show starts from.
     Offset ghostStart(PlayerIcon p) => stepStart(p, limitFor(p));
 
-    /// Feet offsets for the ghosts: the ball where its leg began, everyone
-    /// else where they are drawn now — a pass starts at a man who is still
-    /// standing there.
+    /// Feet offsets for the ghosts: the whole picture as the leg BEGAN.
+    ///
+    /// The ball alone used to be pinned to the start of its leg while
+    /// everybody else was taken from where they are drawn this frame. The
+    /// offset depends on which player is nearest and how far away they are,
+    /// so as the passer ran off, the tail of the pass line slid after him —
+    /// up to 24.7 points across the shipped libraries, on a line whose
+    /// start had not moved at all.
+    ///
+    /// A pass starts where it started, which means everyone standing where
+    /// they stood when it did.
     final ghostFeet = ballAtFeetOffsets(
       players,
-      (p) => p.isBall
-          ? ghostStart(p)
-          : drawnAt(p) + (fan[p.id] ?? Offset.zero),
+      (p) => p.isBall ? ghostStart(p) : stepStart(p, limitFor(p)),
       boardTurns: widget.boardTurns,
     );
 
