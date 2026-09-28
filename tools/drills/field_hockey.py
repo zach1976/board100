@@ -412,12 +412,17 @@ def press_family() -> list[Drill]:
     """
     layouts = {
         # (D line's y, the line's two moves, the A's, ball at B's feet)
+        # A carries into the GAP between two pressers, at 0.17 — the line
+        # falls on 0.06 and 0.28, and at 0.20 he finished 29pt from the
+        # second of them with 23pt of height between: two points of daylight
+        # between the drawn figures, which reads as one man standing on
+        # another. The trap is the same trap; he is in the middle of it now.
         "high": (0.42, [(-0.02, 0.27), (-0.10, 0.20)],
-                 [P(0.34, 0.12, "A", moves=[(0.20, 0.16, 1)]),
+                 [P(0.34, 0.12, "A", moves=[(0.17, 0.16, 1)]),
                   P(0.60, 0.09, "B"), P(0.84, 0.15, "C")],
                  (0.556, 0.147), (0.50, 0.56), (0.36, 0.44)),
         "half": (0.64, [(-0.02, 0.49), (-0.10, 0.42)],
-                 [P(0.34, 0.33, "A", moves=[(0.20, 0.37, 1)]),
+                 [P(0.34, 0.33, "A", moves=[(0.17, 0.37, 1)]),
                   P(0.60, 0.30, "B"), P(0.84, 0.36, "C")],
                  (0.556, 0.357), (0.50, 0.78), (0.36, 0.66)),
         "circle": (0.52, [(0.00, 0.66), (0.02, 0.78)],
@@ -426,7 +431,11 @@ def press_family() -> list[Drill]:
                    [P(0.34, 0.34, "A", moves=[(0.28, 0.48, 1)]),
                     P(0.60, 0.30, "B", moves=[(0.64, 0.44, 1)]),
                     P(0.84, 0.36, "C", moves=[(0.88, 0.46, 1)])],
-                   (0.556, 0.357), (0.50, 0.62), (0.48, 0.88)),
+                   # The sweeper sits BEHIND the block, not in it. At 0.62
+                   # he stood level with the line the moment it dropped to
+                   # 0.66 — 36pt across and 23pt down from the man beside
+                   # him, which at this size is a pile, not a cover.
+                   (0.556, 0.357), (0.50, 0.80), (0.48, 0.88)),
     }
     specs = [("high", "high"), ("half", "half"),
              ("circle", "falling back to the 23")]
