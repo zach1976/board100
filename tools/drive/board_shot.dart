@@ -4,7 +4,10 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:integration_test/integration_test.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tactics_board/config_constants.dart';
+import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/services/ad_service.dart';
+import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:__PACKAGE__/main.dart' as app;
 
@@ -27,6 +30,12 @@ void main() {
   testWidgets('photograph one drill phase by phase', (tester) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('remove_ads_pro', true);
+    // The three-panel intro, too. drive_app.sh reinstalls before every run,
+    // so the app is always on a first launch and every shot came back as
+    // the onboarding page rather than a board — which is why this script
+    // had never actually produced a comparison.
+    await prefs.setBool('intro_seen', true);
+    await prefs.setBool('board_hint_seen', true);
 
     app.main();
     // The Pro pref alone is not enough: PurchaseService reads it
@@ -44,16 +53,34 @@ void main() {
     await settle(20);
 
     const id = String.fromEnvironment('DRILL', defaultValue: 'passing_diamond');
-    final raw = await rootBundle
-        .loadString('packages/tactics_board/assets/drills/soccer.json');
-    final drills = (jsonDecode(raw) as Map<String, dynamic>)['drills'] as List;
-    final drill = drills.firstWhere((d) => d['id'] == id);
+    // The library of the sport this shell IS, through the service that
+    // knows where a sport's drills live. Since the split into
+    // packages/sport_<name>/ there is no soccer.json under the core, so
+    // the old hardcoded path threw "unable to load asset" on every app —
+    // including, ironically, soccer.
+    final sport = ConfigConstants.fixedSportType ?? SportType.soccer;
+    final drills = await DrillLibraryService.instance.forSport(sport);
+    final drill = drills.firstWhere((d) => d.id == id,
+        orElse: () => throw StateError(
+            'drill "$id" not in ${sport.name} library of ${drills.length}'));
+
+    // Onto the board. This script was written when a single-sport app
+    // opened straight onto its pitch; it opens on a home page now, and
+    // the shots were of that home page.
+    //
+    // By position, not by icon: the same dashboard glyph is on the home
+    // page's own "Open the board" button and on every drill card, and
+    // tapping one of those opened a "Name this board" dialog instead.
+    // The tab bar is the bottom strip, four tabs wide, board second.
+    final screen = tester.view.physicalSize / tester.view.devicePixelRatio;
+    await tester.tapAt(Offset(screen.width * 0.375, screen.height - 34));
+    await settle(14);
 
     // Reach the live TacticsState the board is already using, rather than
     // making a second one — the point is to photograph the real screen.
     final ctx = tester.element(find.byType(Scaffold).first);
     final state = Provider.of<TacticsState>(ctx, listen: false);
-    state.loadFromJson(Map<String, dynamic>.from(drill['board'] as Map));
+    state.loadFromJson(Map<String, dynamic>.from(drill.board));
     await settle(10);
 
     for (var step = 0; step <= state.maxMoveSteps; step++) {
