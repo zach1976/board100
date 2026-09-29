@@ -1834,6 +1834,46 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   SizedBox(width: 100, child: _scaleSlider(p)),
               ],
             ),
+            // A text element is its text, so it also has a face. Four,
+            // shown as themselves; the empty name is the app's own.
+            if (isTextElement(p)) ...[
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  const Icon(Icons.text_fields, color: Colors.white38, size: 14),
+                  const SizedBox(width: 8),
+                  for (final f in kTextFonts) ...[
+                    GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () => widget.state.updatePlayer(p.id,
+                          font: f.isEmpty ? null : f, clearFont: f.isEmpty),
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 6),
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          border: Border.all(
+                            color: (p.font ?? '') == f ? kAccent : Colors.white24,
+                            width: (p.font ?? '') == f ? 2 : 1,
+                          ),
+                        ),
+                        child: Builder(builder: (_) {
+                          final faces = textFontFamily(f);
+                          return Text('Aa',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: faces.isEmpty ? null : faces.first,
+                                fontFamilyFallback: faces.length > 1 ? faces.sublist(1) : null,
+                              ));
+                        }),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ],
           ],
         ],
       ),

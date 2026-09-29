@@ -1546,6 +1546,25 @@ const double kTextElementMaxWidth = 150.0;
 const int kTextElementMaxChars = 40;
 
 /// The words, on a chip sized to them.
+/// The platform face for a text element's [PlayerIcon.font], primary and
+/// fallbacks. Names differ by platform and Flutter takes the first it can
+/// find, so both are listed; an unknown name falls through to the default.
+List<String> textFontFamily(String? font) {
+  final apple = Platform.isIOS || Platform.isMacOS;
+  return switch (font) {
+    'serif' => apple
+        ? const ['Georgia', 'Times New Roman', 'serif']
+        : const ['serif', 'Noto Serif', 'Georgia'],
+    'mono' => apple
+        ? const ['Menlo', 'Courier New', 'monospace']
+        : const ['monospace', 'Droid Sans Mono', 'Courier New'],
+    'hand' => apple
+        ? const ['Marker Felt', 'Chalkboard SE', 'Bradley Hand', 'casual']
+        : const ['casual', 'cursive', 'Marker Felt'],
+    _ => const [],
+  };
+}
+
 class TextElementChip extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
@@ -1558,7 +1577,13 @@ class TextElementChip extends StatelessWidget {
     // An empty one would be an invisible thing you cannot tap again, so it
     // keeps the tool's own glyph until something is typed into it.
     final empty = player.label.trim().isEmpty;
-    return ConstrainedBox(
+    final faces = textFontFamily(player.font);
+    // Turned as a whole, text and all: it IS the text, and a label along a
+    // touchline reads along the touchline. Every other token turns its
+    // picture and keeps its label upright.
+    return Transform.rotate(
+      angle: player.rotation,
+      child: ConstrainedBox(
       constraints: BoxConstraints(maxWidth: kTextElementMaxWidth * scale),
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -1583,9 +1608,12 @@ class TextElementChip extends StatelessWidget {
             fontSize: 13 * scale,
             height: 1.25,
             fontWeight: FontWeight.w600,
+            fontFamily: faces.isEmpty ? null : faces.first,
+            fontFamilyFallback: faces.length > 1 ? faces.sublist(1) : null,
             shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
           ),
         ),
+      ),
       ),
     );
   }

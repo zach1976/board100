@@ -15,6 +15,12 @@ enum PlayerGender { male, female, unspecified }
 /// the same court as the four people swinging.
 enum PlayerFigure { plain, racket, paddle, stick, bat, water }
 
+/// The faces a text element can be set in, by the name the board stores.
+/// The empty name is the app's own font. Each resolves to a platform face
+/// through [textFontFamily], so nothing is bundled: a serif on the phone
+/// is Georgia, on Android whatever the system calls serif.
+const List<String> kTextFonts = ['', 'serif', 'mono', 'hand'];
+
 /// Appended to, never reordered: a board stores `markerShape.index`, so
 /// inserting a value in the middle would turn every saved cone into
 /// something else.
@@ -80,6 +86,11 @@ class PlayerIcon {
   /// Empty on a board that does not say, and the nearest man is used.
   List<String?> moveHolders;
   final String? holder;
+
+  /// For a text element: which face it is set in — one of [kTextFonts],
+  /// or null for the app's own. A coach labelling a zone wanted it to look
+  /// like a label and not like a shirt number.
+  final String? font;
   final Color moveColor; // distinct color for this player's move arrows
   final Color? customColor; // overrides team color when set
   final PlayerGender gender;
@@ -133,6 +144,7 @@ class PlayerIcon {
     List<String?>? moveCarriers,
     List<String?>? moveHolders,
     this.holder,
+    this.font,
     Color? moveColor,
     this.customColor,
     this.gender = PlayerGender.unspecified,
@@ -179,6 +191,7 @@ class PlayerIcon {
     if (moveCarriers.isNotEmpty) 'moveCarriers': moveCarriers,
     if (moveHolders.isNotEmpty) 'moveHolders': moveHolders,
     if (holder != null) 'holder': holder,
+    if (font != null) 'font': font,
     'moveColor': moveColor.toARGB32(),
     'customColor': customColor?.toARGB32(),
     'gender': gender.index,
@@ -208,6 +221,7 @@ class PlayerIcon {
         ?.map((e) => e as String?)
         .toList(),
     holder: json['holder'] as String?,
+    font: json['font'] as String?,
     moveColor: json['moveColor'] != null ? Color(json['moveColor'] as int) : null,
     customColor: json['customColor'] != null ? Color(json['customColor'] as int) : null,
     gender: json['gender'] != null ? PlayerGender.values[json['gender'] as int] : PlayerGender.unspecified,
@@ -243,6 +257,8 @@ class PlayerIcon {
     List<String?>? moveCarriers,
     List<String?>? moveHolders,
     String? holder,
+    String? font,
+    bool clearFont = false,
     Color? moveColor,
     Color? customColor,
     bool clearCustomColor = false,
@@ -272,6 +288,7 @@ class PlayerIcon {
       moveCarriers: moveCarriers ?? List.of(this.moveCarriers),
       moveHolders: moveHolders ?? List.of(this.moveHolders),
       holder: holder ?? this.holder,
+      font: clearFont ? null : (font ?? this.font),
       moveColor: moveColor ?? this.moveColor,
       customColor: clearCustomColor ? null : (customColor ?? this.customColor),
       gender: gender ?? this.gender,
