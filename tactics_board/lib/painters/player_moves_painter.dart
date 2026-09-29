@@ -272,7 +272,14 @@ class PlayerMovesPainter extends CustomPainter {
     // A route already drawn through a half-transparent layer does not also
     // get the fading tail: the two multiply, and the start of the line
     // disappears altogether.
-    final tail = !faded;
+    //
+    // Nor does the ball's. The fade is a sense of direction for a dashed
+    // run; a pass or a shot has an arrowhead for that, and its line sets
+    // off from the passer's boots — straight up through his shirt. At 55%
+    // a light-blue line over a blue kit is not there, so the shot appeared
+    // to begin at his head, a token above the ball it left. Reported off a
+    // phone during device QA of 2.0.1.
+    final tail = !faded && !player.isBall;
     player.syncPhases();
 
     // phaseLimit is the number of beats elapsed (atStep). Past step 0 only
