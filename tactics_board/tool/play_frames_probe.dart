@@ -60,7 +60,7 @@ void main() {
     const dir = '/private/tmp/claude-501/-Users-zhenyusong-projects-board100/f8f07df9-0abc-4cbc-a570-256f66abef17/scratchpad/frames';
     Directory(dir).createSync(recursive: true);
     var elapsed = 0;
-    for (final ms in [1400, 650, 50, 50, 50, 100, 100, 100, 100, 100, 100, 100, 200, 200]) {
+    for (final ms in [690, 16, 16, 16, 16, 60, 300, 300, 16, 16, 16, 60]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
       // ignore: avoid_print

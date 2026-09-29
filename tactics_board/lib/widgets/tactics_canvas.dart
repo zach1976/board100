@@ -919,6 +919,16 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         : (state.atStep > 0
             ? state.atStep
             : (state.targetStep > 0 ? state.targetStep : 0));
+    // Where a token that is not being animated STANDS: after the beats
+    // done, not the beat on show. They differ only while a beat plays, and
+    // for the frame between one beat completing and the next one's first
+    // tick — when nobody is in animatedPositions yet — a player who moves
+    // on the coming beat was drawn at the end of it and then snapped back
+    // to its start: C and X6 flashing across the pitch at the end of beat
+    // one, a beat before they run.
+    final restLimit = state.atStep > 0
+        ? state.atStep
+        : (state.targetStep > 0 ? state.targetStep : 0);
 
     /// Where [p] is drawn this frame: along its run while the beat plays,
     /// else where the beats so far have taken it — the same answer as the
@@ -928,8 +938,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     /// he left behind.
     Offset drawnAt(PlayerIcon p) =>
         state.animatedPositions[p.id] ??
-        (stepLimit > 0 && p.moves.isNotEmpty
-            ? chainEndAt(p, stepLimit)
+        (restLimit > 0 && p.moves.isNotEmpty
+            ? chainEndAt(p, restLimit)
             : p.position);
 
     // Players standing in the same place get nudged apart in the drawing.
@@ -1083,8 +1093,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         // animated token would be. Left at its start it read as a player
         // who had not moved, once the earlier legs stopped being drawn.
         renderPosition: animPos ??
-            (stepLimit > 0 && player.moves.isNotEmpty
-                ? chainEndAt(player, stepLimit)
+            (restLimit > 0 && player.moves.isNotEmpty
+                ? chainEndAt(player, restLimit)
                 : null),
         drawOffset: (fan[player.id] ?? Offset.zero) +
             (feet[player.id] ?? Offset.zero) +
