@@ -912,10 +912,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     // arrows: during the second beat the pass line set off from a start
     // shifted for the first beat's holder, and the ghost ball stood where
     // the ball had been a beat earlier.
+    //
+    // Never past the step being stepped to. When a single step completes,
+    // the driver counts the beat done and the state is rebuilt once more
+    // before the animation flag drops: for that frame "the next beat" was
+    // the one after the target, and its ghosts and arrows — C's run, on
+    // the beat after the pass — appeared and vanished. Rewinding, never
+    // below the first beat, or the last frame of a rewind to the start
+    // drew the whole plan.
     final stepLimit = state.isAnimating
         ? (state.animToStep > state.animFromStep
-            ? state.atStep + 1
-            : state.atStep)
+            ? math.min(state.atStep + 1, state.animToStep)
+            : math.max(state.atStep, 1))
         : (state.atStep > 0
             ? state.atStep
             : (state.targetStep > 0 ? state.targetStep : 0));
@@ -1398,11 +1406,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
                           // The leg being run is the one to draw: going
                           // forward that is the beat after the ones done.
-                          completedSteps: state.isAnimating
-                              ? (state.animToStep > state.animFromStep
-                                  ? state.atStep + 1
-                                  : state.atStep)
-                              : null,
+                          // The same number the ghosts use, and clamped
+                          // the same way.
+                          completedSteps: state.isAnimating ? stepLimit : null,
                         ),
                         size: Size(canvasW, canvasH),
                       ),

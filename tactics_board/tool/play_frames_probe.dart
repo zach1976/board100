@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/painters/player_moves_painter.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart';
@@ -55,16 +56,35 @@ void main() {
     await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 400)));
     await tester.pump(const Duration(milliseconds: 60));
     state.setShowMoveLines(true);
-    state.startAnimation();
+    // Single step, the way the › button does it.
+    state.stepForward();
     await tester.pump();
     const dir = '/private/tmp/claude-501/-Users-zhenyusong-projects-board100/f8f07df9-0abc-4cbc-a570-256f66abef17/scratchpad/frames';
     Directory(dir).createSync(recursive: true);
     var elapsed = 0;
-    for (final ms in [690, 16, 16, 16, 16, 60, 300, 300, 16, 16, 16, 60]) {
+    for (final ms in [16, 300, 300, 60, 8, 8, 8, 8, 8, 8, 8, 8, 60, 100]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
       // ignore: avoid_print
       print('PROBE t=${elapsed}ms atStep=${state.atStep} target=${state.targetStep} animating=${state.isAnimating} lines=${state.showMoveLines} animPos=${state.animatedPositions.length}');
+      {
+        final c = state.players.firstWhere((p) => p.label == 'C');
+        final cx6 = state.players.firstWhere((p) => p.label == 'X6');
+        String where(PlayerIcon p) {
+          final keyed = find.byKey(ValueKey(p.id));
+          var w = tester.widgetList<Positioned>(find.descendant(of: keyed, matching: find.byType(Positioned))).toList();
+          if (w.isEmpty) w = tester.widgetList<Positioned>(find.ancestor(of: keyed, matching: find.byType(Positioned))).toList();
+          return 'anim=${state.animatedPositions[p.id]} drawn=${w.isEmpty ? '?' : '(${w.first.left?.toStringAsFixed(1)},${w.first.top?.toStringAsFixed(1)})'}';
+        }
+        final ghostC = find.byKey(const ValueKey('ghost_d2')).evaluate().length;
+        int? shown;
+        for (final cp in tester.widgetList<CustomPaint>(find.byType(CustomPaint))) {
+          final pm = cp.painter;
+          if (pm is PlayerMovesPainter && pm.startShift.isNotEmpty) shown = pm.completedSteps;
+        }
+        // ignore: avoid_print
+        print('PROBE C ${where(c)} ghostC=$ghostC painterBeat=$shown');
+      }
       if (elapsed == 2300 || elapsed == 2500) {
         final ball = state.players.firstWhere((p) => p.isBall);
         for (final cp in tester.widgetList<CustomPaint>(find.byType(CustomPaint))) {
