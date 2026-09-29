@@ -1,10 +1,10 @@
-# Review Notes — Soccer Board 2.0.1 (build 4)
+# Review Notes — Soccer Board 2.0.1 (build 5)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。上一版 2.0.0 (3) 于 2026-09-27 提交，2026-09-28
 > **APPROVED / READY_FOR_SALE**，没有待处理的拒绝。
 >
-> **本文件同样不含真机验证声明**：2.0.1 (4) 在模拟器和开发机上运行验证过，
+> **本文件同样不含真机验证声明**：2.0.1 (5) 在模拟器和开发机上运行验证过；build 4 的首页版本号写着 2.0.0，因此重打了 build 5，
 > `DEVICE_QA_2.0.0.md` 那份真机清单仍然没有跑。写做过的，不写没做的。
 
 ---
