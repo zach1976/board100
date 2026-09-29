@@ -382,6 +382,15 @@ class PlayerMovesPainter extends CustomPainter {
       final isLastSegment = i == points.length - 2;
       final endRadius = isLastSegment ? iconRadius : _waypointRadius;
       final dist = (to - from).distance;
+      // A ball that has not left yet has no line. Mid-flight the line ends
+      // where the ball is, and in the first frames of a pass that is a few
+      // points from where it began — which the stub arrow turned into a
+      // 17pt arrow pointing wherever those few points happened to lie,
+      // there for a moment and then gone.
+      if (player.isBall && isLastSegment && livePos.containsKey(player.id) &&
+          dist < nudgeThreshold(player)) {
+        continue;
+      }
       if (dist < nudgeThreshold(player)) {
         _drawNudge(canvas, color, from, to, endRadius,
             strong: strong, fade: tail, style: style);

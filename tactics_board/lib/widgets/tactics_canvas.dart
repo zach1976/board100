@@ -904,9 +904,21 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
     // Beats elapsed, whichever way the board is being stepped: atStep when
     // played in the app, targetStep when a tool shoots a frame.
-    final stepLimit = state.atStep > 0
-        ? state.atStep
-        : (state.targetStep > 0 ? state.targetStep : 0);
+    // The beat on show. At rest it is the beat the stepper is parked on.
+    // While a beat plays it is the one being played — atStep is the beats
+    // already done, so going forward it is the next one — which is the
+    // number PlayerMovesPainter is given as completedSteps. The ghosts and
+    // the ball's start were still taking atStep, one beat behind the
+    // arrows: during the second beat the pass line set off from a start
+    // shifted for the first beat's holder, and the ghost ball stood where
+    // the ball had been a beat earlier.
+    final stepLimit = state.isAnimating
+        ? (state.animToStep > state.animFromStep
+            ? state.atStep + 1
+            : state.atStep)
+        : (state.atStep > 0
+            ? state.atStep
+            : (state.targetStep > 0 ? state.targetStep : 0));
 
     /// Where [p] is drawn this frame: along its run while the beat plays,
     /// else where the beats so far have taken it — the same answer as the
@@ -1275,6 +1287,12 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.selectedPlayerId == player.id;
                       return legs.where((entry) {
                         final isEnd = entry.key == legs.last.key;
+                        // While the ball is in flight its own token says
+                        // where it is; a badge on the raw point it is
+                        // heading for sits a stride from where it will be
+                        // drawn — a ring on the grass that turns out to be
+                        // nothing.
+                        if (player.isBall && state.isAnimating) return false;
                         if (shortRun && atStartTime && isEnd) return false;
                         // While the board is playing, the token is on its
                         // way to this spot. A faded copy of it waiting there
