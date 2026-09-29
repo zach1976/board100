@@ -1,10 +1,10 @@
-# Review Notes — Soccer Board 2.0.1 (build 5)
+# Review Notes — Soccer Board 2.0.1 (build 6)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。上一版 2.0.0 (3) 于 2026-09-27 提交，2026-09-28
 > **APPROVED / READY_FOR_SALE**，没有待处理的拒绝。
 >
-> **本文件同样不含真机验证声明**：2.0.1 (5) 在模拟器和开发机上运行验证过；build 4 的首页版本号写着 2.0.0，因此重打了 build 5，
+> **本文件同样不含真机验证声明**：2.0.1 (6) 在模拟器、开发机和一台 iPhone 17 Pro Max 上运行验证过；build 4 的首页版本号写着 2.0.0 重打了 build 5，真机上发现球的传球线在蓝色球衣上看不见又重打了 build 6，
 > `DEVICE_QA_2.0.0.md` 那份真机清单仍然没有跑。写做过的，不写没做的。
 
 ---
@@ -19,7 +19,8 @@ how the built-in drill boards are drawn.
 ## What changed
 
 1. A run, a dribble and a pass are now three different lines — dashed,
-   waved and solid. A player carrying the ball was previously given two
+   waved and solid, and the ball's line is drawn at full strength from the
+   boot it leaves. A player carrying the ball was previously given two
    near-identical arrows side by side, one for him and one for the ball.
 2. A short run keeps the copy of the player it started from. Below a
    threshold the board drew only the destination and a stub arrow, so
@@ -47,7 +48,8 @@ only back up a coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator and on macOS on an Apple silicon Mac: the home
+Run on an iPhone 17 Pro Max, on the iOS Simulator and on macOS on an Apple
+silicon Mac: the home
 page, the drill library, loading a drill onto the board, stepping and
 playing every beat of it, the practice plan, the squad page, and the
 board's own drawing tools. The full automated suite — 520 tests — passes,
