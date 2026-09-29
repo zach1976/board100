@@ -18,8 +18,11 @@ OTA 通道**已经存在并且线上在跑**，2026-09-06 上线（commit `9e1c3
 bundle 是 1，服务器是 1，客户端永远判「不比我新」。机制齐全，就差版本号会动。
 
 **其他事实**：
-- 包怎么上服务器没有记录：仓库里没有上传脚本，`~/projects/.env` 的 `SSH_HOST/SSH_USER/SSH_KEY_FILE` 为空。
-  服务器是 Apache + PHP 8.2.31。
+- 包怎么上服务器：`~/projects/.env` 里有 `SSH_HOST/SSH_USER/SSH_KEY_FILE`（EC2，密钥在
+  `~/projects/server_keys/`），能直接 scp。**本计划第一稿写成「为空」，是计划人用 `grep -o` 把值截掉了
+  ——执行时已更正。** 服务器是 Apache + PHP 8.2.31。
+- Laravel 11 的 `local` 盘根在 `storage/app/private/`，所以包的真实路径是
+  `storage/app/private/drills/<sport>.json`，不是 `storage/app/drills/`。写错路径不会报错、也不会生效。
 - 2.0.0（线上）和 2.0.1（已上传 build 4）的解析器对新字段兼容：`PlayerIcon.fromJson` 只读具名键，
   `moveCarriers` 被忽略后回退到几何判断；`holds`/`faceLock` 两版都读；`Drill.fromJson` 的
   `usage/frame/offSurface/tight` 都有默认值。所以**给老客户端推新包是安全的**。
@@ -43,8 +46,8 @@ bundle 是 1，服务器是 1，客户端永远判「不比我新」。机制齐
 1. `bump`：`pack_version.txt` +1，`gen_drills.py` 重新生成 15 个包 + `index.json`。
 2. `verify`：本地把 15 个包按客户端同样的形状解析一遍（`sport/version/drills[]`、每个 drill 有 `id/name/board`、
    每个 board 有 `players`），并打印每个运动的数量；任何一个不通过就停。
-3. `upload`：把 15 个 `tactics_board/assets/drills/<sport>.json` 传到服务器 `storage/app/drills/`。
-   **传输方式是本计划唯一的未知**（见 §4）。
+3. `upload`：把 15 个 `tactics_board/assets/drills/<sport>.json` scp 到服务器 `storage/app/private/drills/`
+   （`tools/publish_drills.py` 已实现；旧版先备份到同目录旁的 `drills_backup_v1_20260929/`）。
 4. `check`：逐个 `GET https://tacticsboard.100for1.com/api/v1/drills/<sport>`（带 `Accept-Encoding: gzip`），
    核对 `version` 等于新号、drill 数量等于本地；注意 `max-age=3600`，加 `?v=<版本>` 或 `Cache-Control: no-cache` 绕过缓存核对。
 5. 提交：`pack_version.txt` 和重生成的 JSON 一起进 git，提交说明写「发布了第 N 版包」。
@@ -69,7 +72,7 @@ bundle 是 1，服务器是 1，客户端永远判「不比我新」。机制齐
    现在每次冷启动 15 个运动各拉一次（gz 后 ~140KB 一个），hub 一次 2MB。可选。
 4. 服务端不改 API 形状；只加响应头。改了服务端要能部署——部署方式同 §4。
 
-## 4. 唯一的阻塞：怎么把文件放到服务器上
+## 4. 把文件放到服务器上（已解决，留作记录）
 
 执行者按这个顺序找，找不到就**停下来问用户**，不要猜、不要试密码、不要开新服务：
 1. `~/projects/.env`、`~/projects/*/.env*`、`backend/.env`（本机有没有）里的 SSH/SFTP/FTP 变量。
