@@ -25,6 +25,8 @@ import '../test/widgets/overflow_test.dart' show kLocales;
 /// In tool/, not test/: it is a way of looking, not a check.
 void main() {
   testWidgets('probe: frames of play-all on transition_6v6', (tester) async {
+    // A dev script driving the real app headless, the same as render_boards.
+    // ignore: invalid_use_of_visible_for_testing_member
     SharedPreferences.setMockInitialValues({'remove_ads_pro': true});
     await EasyLocalization.ensureInitialized();
     tester.view.physicalSize = const Size(402 * 2, 730 * 2);
