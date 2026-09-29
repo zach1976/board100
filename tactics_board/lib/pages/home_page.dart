@@ -1637,7 +1637,15 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     // control that applies — and give the slider the whole width once the
     // swatches are gone.
     final isPhoto = p.photoId != null;
-    final expanded = _expanded || isPhoto;
+    // Anything drawn from a picture — a photo, the ball, equipment that
+    // ships as artwork — has no colour to change: the swatches did nothing
+    // to a cone and a coach tried them. Such an element gets the size row
+    // straight away and no swatches, the way a photo already did.
+    final isPicture = isPhoto ||
+        p.isBall ||
+        (p.isMarker &&
+            markerImageAsset(p.markerShape, widget.state.sportType) != null);
+    final expanded = _expanded || isPicture;
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
       child: Column(
@@ -1696,7 +1704,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 const SizedBox(width: 6),
                 _MoveToggle(state: widget.state, compact: p.label.isNotEmpty && !p.labelInside),
               ],
-              if (!isPhoto) ...[
+              if (!isPicture) ...[
                 const SizedBox(width: 6),
                 // Colour + size — collapsed by default; this reveals Row 2.
                 _editAction(
@@ -1796,7 +1804,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
             const SizedBox(height: 8),
             Row(
               children: [
-                if (!isPhoto)
+                if (!isPicture)
                   ..._colors.map((c) => GestureDetector(
                   onTap: () {
                     widget.state.updatePlayer(p.id, customColor: c);
@@ -1814,13 +1822,13 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     ),
                   ),
                 )),
-                if (!isPhoto) const Spacer(),
+                if (!isPicture) const Spacer(),
                 const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
                 // Beside six swatches the slider gets a fixed 100pt, which is
                 // coarse for a 0.5x–3x range but all the row can spare. With
                 // the swatches gone it takes the whole row — the same widget
                 // either way, so a photo and a player scale identically.
-                if (isPhoto)
+                if (isPicture)
                   Expanded(child: _scaleSlider(p))
                 else
                   SizedBox(width: 100, child: _scaleSlider(p)),
