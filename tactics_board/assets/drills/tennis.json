@@ -1,6 +1,7 @@
 {
   "sport": "tennis",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "tn_warm_mini_tennis",

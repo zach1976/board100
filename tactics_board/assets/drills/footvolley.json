@@ -1,6 +1,7 @@
 {
   "sport": "footvolley",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "fv_warm_juggling_in_pairs",

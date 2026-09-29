@@ -14,6 +14,7 @@ maps them, which is the only way to be sure nobody is standing in the margin.
 import math
 import re as _re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import NamedTuple
 
 from .vocab import NEUTRAL, V
@@ -1612,6 +1613,36 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                     f"board has {h} home vs {a} away")
 
 
+_CONFIG_DIR = Path(__file__).resolve().parent
+
+
+def pack_version() -> int:
+    """The number that decides whether an installed app takes a new pack.
+
+    The client replaces its bundled library only when the served version is
+    strictly higher than the one it already has, so until this moved it was
+    the reason nothing ever updated over the air: bundle 1, server 1, no
+    update, forever. It lives in a file rather than in this source so that
+    publishing is a one-line change to data and `gen_drills.py --check`
+    stays deterministic — same inputs, same output.
+
+    Only tools/publish_drills.py raises it, and only when publishing.
+    """
+    return int((_CONFIG_DIR / "pack_version.txt").read_text(encoding="utf-8").strip())
+
+
+def min_client() -> str:
+    """The oldest app release allowed to install this pack.
+
+    A gate for the day a pack needs a drawing feature an old build does not
+    have: that build refuses the pack instead of rendering it wrong. Today
+    every field is backward compatible, so this names the oldest release in
+    the wild and stops nobody. Releases before the one that reads the key
+    ignore it, which is why the key has to ship before it is ever needed.
+    """
+    return (_CONFIG_DIR / "min_client.txt").read_text(encoding="utf-8").strip()
+
+
 def build(sport: str, library) -> dict:
     """Render one sport's library to the JSON the app ships."""
     from .mistakes import lookup
@@ -1672,4 +1703,5 @@ def build(sport: str, library) -> dict:
                     d.category),
                 "board": board,
         })
-    return {"sport": sport, "version": 1, "drills": records}
+    return {"sport": sport, "version": pack_version(),
+            "minClient": min_client(), "drills": records}

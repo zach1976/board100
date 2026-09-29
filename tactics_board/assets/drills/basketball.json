@@ -1,6 +1,7 @@
 {
   "sport": "basketball",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "bb_layup_lines",

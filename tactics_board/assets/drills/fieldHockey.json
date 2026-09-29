@@ -1,6 +1,7 @@
 {
   "sport": "fieldHockey",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "fh_warm_gates",

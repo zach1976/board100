@@ -1,6 +1,7 @@
 {
   "sport": "soccer",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "rondo_4v2",

@@ -1,6 +1,7 @@
 {
   "sport": "pickleball",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "pb_warm_dink_warm",

@@ -1,6 +1,7 @@
 {
   "sport": "rugby",
-  "version": 1,
+  "version": 2,
+  "minClient": "2.0.0",
   "drills": [
     {
       "id": "rg_handling_grid",
