@@ -1686,10 +1686,16 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   ],
                 ),
               ),
-              const SizedBox(width: 6),
               // Explicit add-run toggle — while on, taps on the board lay
               // this player's movement path (so a stray tap never can).
-              _MoveToggle(state: widget.state, compact: p.label.isNotEmpty && !p.labelInside),
+              // People and the ball run; equipment does not. A cone was
+              // offered a run like a player, and a coach asked why.
+              if (!(p.isMarker &&
+                  p.markerShape != MarkerShape.referee &&
+                  p.markerShape != MarkerShape.coach)) ...[
+                const SizedBox(width: 6),
+                _MoveToggle(state: widget.state, compact: p.label.isNotEmpty && !p.labelInside),
+              ],
               if (!isPhoto) ...[
                 const SizedBox(width: 6),
                 // Colour + size — collapsed by default; this reveals Row 2.
@@ -2084,10 +2090,21 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     } else if (p.isBall) {
       glyph = ballWidget(p.sportType ?? widget.state.sportType);
     } else if (p.isMarker) {
-      glyph = CustomPaint(
+      // The same picture the board draws: equipment that ships as artwork
+      // is shown as that artwork, not as the painter's stand-in shape. The
+      // bar showed a coach a plain triangle for the cone he had selected on
+      // the grass, and he asked which one it was.
+      final art = markerImageAsset(p.markerShape, widget.state.sportType);
+      final drawn = CustomPaint(
         painter: MarkerPainter(shape: p.markerShape, color: p.color),
         size: Size(dim, dim),
       );
+      glyph = art == null
+          ? drawn
+          : Image.asset(art,
+              fit: BoxFit.contain,
+              filterQuality: FilterQuality.medium,
+              errorBuilder: (_, _, _) => drawn);
     } else {
       glyph = Stack(
         children: [
