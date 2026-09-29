@@ -1083,8 +1083,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         }
       }
       // A token carried by the beat faces down its run; everyone else
-      // faces their next action as of this beat.
-      final beat = state.isAnimating ? state.atStep : phaseLimit;
+      // faces their next action as of the beat on show — the one being
+      // played, not the beats done. In the last few frames of a run the
+      // token counts as arrived, and it took the stance of the beat BEFORE
+      // the one it had just run: F turned to face the ball where it had
+      // been, then turned back when the beat was counted. A flash at the
+      // end of every step, on every runner.
+      final beat = state.isAnimating ? stepLimit : phaseLimit;
       final moving = animPos != null &&
           (animPos - chainEndAt(player, state.atStep)).distance > 0.5;
       final heading = player.facingLocked

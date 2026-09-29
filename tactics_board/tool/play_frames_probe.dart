@@ -62,7 +62,7 @@ void main() {
     const dir = '/private/tmp/claude-501/-Users-zhenyusong-projects-board100/f8f07df9-0abc-4cbc-a570-256f66abef17/scratchpad/frames';
     Directory(dir).createSync(recursive: true);
     var elapsed = 0;
-    for (final ms in [16, 300, 300, 60, 8, 8, 8, 8, 8, 8, 8, 8, 60, 100]) {
+    for (final ms in [16, 400, 150, 60, 30, 16, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 60, 200]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
       // ignore: avoid_print
@@ -82,8 +82,12 @@ void main() {
           final pm = cp.painter;
           if (pm is PlayerMovesPainter && pm.startShift.isNotEmpty) shown = pm.completedSteps;
         }
+        final f = state.players.firstWhere((p) => p.label == 'F');
+        final fAnim = state.animatedPositions[f.id];
+        final beat = state.isAnimating ? (state.animToStep > state.animFromStep ? (state.atStep + 1 < state.animToStep ? state.atStep + 1 : state.animToStep) : (state.atStep > 1 ? state.atStep : 1)) : (state.atStep > 0 ? state.atStep : state.targetStep);
+        final moving = fAnim != null && (fAnim - chainEndAt(f, state.atStep)).distance > 0.5;
         // ignore: avoid_print
-        print('PROBE C ${where(c)} ghostC=$ghostC painterBeat=$shown');
+        print('PROBE F anim=$fAnim moving=$moving beat=$beat boardHeading=${boardHeading(state.players, f, beat)?.toStringAsFixed(2)} runHeading=${fAnim == null ? null : playerHeadingAt(f, fAnim)?.toStringAsFixed(2)} ghostC=$ghostC painterBeat=$shown');
       }
       if (elapsed == 2300 || elapsed == 2500) {
         final ball = state.players.firstWhere((p) => p.isBall);
