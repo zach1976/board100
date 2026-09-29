@@ -56,13 +56,25 @@ void main() {
     await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 400)));
     await tester.pump(const Duration(milliseconds: 60));
     state.setShowMoveLines(true);
-    // Single step, the way the › button does it.
+    // Two steps done, then the third — the shot — the way the › button does it.
+    Future<void> stepAndSettle() async {
+      state.stepForward();
+      await tester.pump();
+      for (var i = 0; i < 60 && state.isAnimating; i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+      await tester.pump(const Duration(milliseconds: 50));
+    }
+    await stepAndSettle();
+    await stepAndSettle();
+    // ignore: avoid_print
+    print('PROBE before the shot: atStep=${state.atStep} animating=${state.isAnimating}');
     state.stepForward();
     await tester.pump();
     const dir = '/private/tmp/claude-501/-Users-zhenyusong-projects-board100/f8f07df9-0abc-4cbc-a570-256f66abef17/scratchpad/frames';
     Directory(dir).createSync(recursive: true);
     var elapsed = 0;
-    for (final ms in [16, 400, 150, 60, 30, 16, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 60, 200]) {
+    for (final ms in [16, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 100]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
       // ignore: avoid_print
@@ -86,6 +98,18 @@ void main() {
         final fAnim = state.animatedPositions[f.id];
         final beat = state.isAnimating ? (state.animToStep > state.animFromStep ? (state.atStep + 1 < state.animToStep ? state.atStep + 1 : state.animToStep) : (state.atStep > 1 ? state.atStep : 1)) : (state.atStep > 0 ? state.atStep : state.targetStep);
         final moving = fAnim != null && (fAnim - chainEndAt(f, state.atStep)).distance > 0.5;
+        final b = state.players.firstWhere((p) => p.isBall);
+        final bAnim = state.animatedPositions[b.id];
+        var bw = tester.widgetList<Positioned>(find.descendant(of: find.byKey(ValueKey(b.id)), matching: find.byType(Positioned))).toList();
+        if (bw.isEmpty) bw = tester.widgetList<Positioned>(find.ancestor(of: find.byKey(ValueKey(b.id)), matching: find.byType(Positioned))).toList();
+        final drawn = bw.isEmpty ? null : Offset(bw.first.left! + 22, bw.first.top! + 22);
+        String near = '';
+        if (bAnim != null) {
+          double best = 1e9;
+          for (final q in state.players) { if (q.isBall || q.isMarker) continue; final d = ((state.animatedPositions[q.id] ?? chainEndAt(q, state.atStep)) - bAnim).distance; if (d < best) { best = d; near = '${q.label}@${d.toStringAsFixed(0)}'; } }
+        }
+        // ignore: avoid_print
+        print('PROBE BALL anim=${bAnim == null ? null : '(${bAnim.dx.toStringAsFixed(1)},${bAnim.dy.toStringAsFixed(1)})'} drawn=${drawn == null ? null : '(${drawn.dx.toStringAsFixed(1)},${drawn.dy.toStringAsFixed(1)})'} shift=${(bAnim != null && drawn != null) ? (drawn - bAnim).distance.toStringAsFixed(1) : '?'} nearest=$near');
         // ignore: avoid_print
         print('PROBE F anim=$fAnim moving=$moving beat=$beat boardHeading=${boardHeading(state.players, f, beat)?.toStringAsFixed(2)} runHeading=${fAnim == null ? null : playerHeadingAt(f, fAnim)?.toStringAsFixed(2)} ghostC=$ghostC painterBeat=$shown');
       }

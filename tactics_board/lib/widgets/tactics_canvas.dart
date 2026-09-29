@@ -965,33 +965,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         holderOf: (b) => ballHolderAt(b, stepLimit),
       ),
     };
-    // While a beat plays the ball is between two holders: it leaves one
-    // man's boots and arrives at another's, and the rest frames on either
-    // side draw it at those boots. One holder for the whole flight cannot
-    // match both: at frame one the ball hopped off the boot it had been
-    // drawn on, and at the last frame it hopped onto the boot it reached.
-    // So each frame's step is a blend, by how far along the leg the ball
-    // is, of the step for the man it left and the step for the man it is
-    // going to — which is what a pass looks like.
-    if (state.isAnimating) {
-      for (final ball in players) {
-        if (!ball.isBall) continue;
-        final at = state.animatedPositions[ball.id];
-        if (at == null) continue;
-        final leg = ballLegAt(ball, at);
-        if (leg == null) continue;
-        Offset stepFor(int beats) =>
-            ballAtFeetOffsets(
-              players,
-              (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
-              boardTurns: widget.boardTurns,
-              holderOf: (b) => ballHolderAt(b, beats),
-            )[ball.id] ??
-            Offset.zero;
-        feet[ball.id] =
-            Offset.lerp(stepFor(leg.phase), stepFor(leg.phase + 1), leg.t)!;
-      }
-    }
     // Equipment a player is standing in front of, lifted clear of them.
     final clear = markerClearOffsets(
       players,
@@ -1048,6 +1021,42 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       // As the leg began: whoever had it after the beat before.
       holderOf: (b) => ballHolderAt(b, limitFor(b) - 1),
     );
+
+    // While a beat plays the ball is between two holders: it leaves one
+    // man's boots and arrives at another's, and the rest frames on either
+    // side draw it at those boots. One holder for the whole flight cannot
+    // match both: at frame one the ball hopped off the boot it had been
+    // drawn on, and at the last frame it hopped onto the boot it reached.
+    // So each frame's step is a blend, by how far along the leg the ball
+    // is, of the step for the man it left and the step for the man it is
+    // going to — which is what a pass looks like.
+    //
+    // Both steps are taken from the REST frames, not measured afresh where
+    // the ball happens to be: the step to a man's feet is an absolute
+    // target, so measured every frame it cancelled the ball's own motion —
+    // a shot sat pinned to the striker's boot for a quarter of a second
+    // while its route ran on ahead, then caught up in a jump, and was
+    // tugged toward whoever it flew past on the way. Taken once at each
+    // end and blended, the ball leaves the boot the moment the beat does.
+    if (state.isAnimating) {
+      for (final ball in players) {
+        if (!ball.isBall) continue;
+        final at = state.animatedPositions[ball.id];
+        if (at == null) continue;
+        final leg = ballLegAt(ball, at);
+        if (leg == null) continue;
+        final after = leg.phase + 1;
+        final from = ghostFeet[ball.id] ?? Offset.zero;
+        final to = ballAtFeetOffsets(
+              players,
+              (p) => p.isBall ? chainEndAt(p, after) : chainEndAt(p, after),
+              boardTurns: widget.boardTurns,
+              holderOf: (b) => ballHolderAt(b, after),
+            )[ball.id] ??
+            Offset.zero;
+        feet[ball.id] = Offset.lerp(from, to, leg.t)!;
+      }
+    }
 
     /// One element on the board. Shared by the two passes below so a
     /// marker and a player are built exactly the same way — only when
