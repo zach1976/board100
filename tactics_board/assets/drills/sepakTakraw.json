@@ -158,6 +158,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d1",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -361,6 +366,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d1",
+              "d2",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -564,6 +575,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d1",
+              "d2",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -817,6 +834,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0",
+              null
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1070,6 +1093,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0",
+              null
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1313,6 +1342,11 @@
               "d3",
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1556,6 +1590,11 @@
               "d3",
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -1798,6 +1837,11 @@
               "d3",
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2060,6 +2104,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2322,6 +2371,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2584,6 +2638,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -2835,6 +2894,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              null,
+              null,
+              null
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3085,6 +3150,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              null,
+              null,
+              null
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3322,6 +3393,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              null,
+              null,
+              null
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3572,6 +3649,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -3822,6 +3904,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4074,6 +4161,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4277,6 +4369,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4528,6 +4625,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d2",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -4791,6 +4893,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5054,6 +5161,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5317,6 +5429,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5566,6 +5683,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -5815,6 +5937,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d1",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6036,6 +6163,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d2",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6311,6 +6443,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6606,6 +6743,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d3",
+              "d0"
+            ],
+            "holder": "d0",
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -6838,6 +6980,11 @@
               null,
               null
             ],
+            "moveHolders": [
+              "d2",
+              "d0"
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,
@@ -7068,6 +7215,12 @@
               null,
               null
             ],
+            "moveHolders": [
+              null,
+              null,
+              null
+            ],
+            "holder": null,
             "moveColor": 4282434815,
             "customColor": null,
             "gender": 2,

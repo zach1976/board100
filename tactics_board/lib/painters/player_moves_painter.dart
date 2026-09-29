@@ -134,6 +134,21 @@ List<MapEntry<int, Offset>> stepLegs(PlayerIcon player, int phaseLimit) {
   return out;
 }
 
+/// Who has the ball once [phaseLimit] beats have run, by the board's own
+/// word: the holder after the last leg of any earlier beat, else whoever it
+/// was placed with. Null when the board does not say, or the ball was last
+/// played to a spot — the caller then falls back to the nearest man.
+String? ballHolderAt(PlayerIcon ball, int phaseLimit) {
+  if (ball.moveHolders.length != ball.moves.length) return null;
+  ball.syncPhases();
+  String? who = ball.holder;
+  for (var i = 0; i < ball.moves.length; i++) {
+    final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
+    if (ph < phaseLimit) who = ball.moveHolders[i];
+  }
+  return who;
+}
+
 /// Where the player stands as the beat on show begins: the end of the last
 /// leg of any earlier beat, else the start. The overview starts at the start.
 Offset stepStart(PlayerIcon player, int phaseLimit) {

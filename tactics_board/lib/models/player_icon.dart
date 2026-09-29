@@ -71,6 +71,15 @@ class PlayerIcon {
   /// nearest the ball at both ends of the leg. Empty on a board that does
   /// not say, and ballEscorts falls back to measuring.
   List<String?> moveCarriers;
+
+  /// For a ball: who has it once each leg is over — the receiver of a pass,
+  /// the carrier of a carry — and, in [holder], before the first beat. The
+  /// board draws a held ball at its holder's boots; found by "whoever is
+  /// nearest", a short pass was drawn arriving at the passer's other foot,
+  /// because after it he is often nearer the ball than the man it went to.
+  /// Empty on a board that does not say, and the nearest man is used.
+  List<String?> moveHolders;
+  final String? holder;
   final Color moveColor; // distinct color for this player's move arrows
   final Color? customColor; // overrides team color when set
   final PlayerGender gender;
@@ -122,6 +131,8 @@ class PlayerIcon {
     List<Offset>? moves,
     List<int>? movePhases,
     List<String?>? moveCarriers,
+    List<String?>? moveHolders,
+    this.holder,
     Color? moveColor,
     this.customColor,
     this.gender = PlayerGender.unspecified,
@@ -134,6 +145,7 @@ class PlayerIcon {
   })  : moves = moves ?? [],
         movePhases = movePhases ?? [],
         moveCarriers = moveCarriers ?? [],
+        moveHolders = moveHolders ?? [],
         moveColor = moveColor ?? _moveColors[0];
 
   /// Ensures movePhases list matches moves length, filling gaps with auto-increment
@@ -165,6 +177,8 @@ class PlayerIcon {
     'moves': moves.map((m) => [m.dx, m.dy]).toList(),
     'movePhases': movePhases,
     if (moveCarriers.isNotEmpty) 'moveCarriers': moveCarriers,
+    if (moveHolders.isNotEmpty) 'moveHolders': moveHolders,
+    if (holder != null) 'holder': holder,
     'moveColor': moveColor.toARGB32(),
     'customColor': customColor?.toARGB32(),
     'gender': gender.index,
@@ -190,6 +204,10 @@ class PlayerIcon {
     moveCarriers: (json['moveCarriers'] as List?)
         ?.map((e) => e as String?)
         .toList(),
+    moveHolders: (json['moveHolders'] as List?)
+        ?.map((e) => e as String?)
+        .toList(),
+    holder: json['holder'] as String?,
     moveColor: json['moveColor'] != null ? Color(json['moveColor'] as int) : null,
     customColor: json['customColor'] != null ? Color(json['customColor'] as int) : null,
     gender: json['gender'] != null ? PlayerGender.values[json['gender'] as int] : PlayerGender.unspecified,
@@ -223,6 +241,8 @@ class PlayerIcon {
     List<Offset>? moves,
     List<int>? movePhases,
     List<String?>? moveCarriers,
+    List<String?>? moveHolders,
+    String? holder,
     Color? moveColor,
     Color? customColor,
     bool clearCustomColor = false,
@@ -250,6 +270,8 @@ class PlayerIcon {
       moves: moves ?? List.of(this.moves),
       movePhases: movePhases ?? List.of(this.movePhases),
       moveCarriers: moveCarriers ?? List.of(this.moveCarriers),
+      moveHolders: moveHolders ?? List.of(this.moveHolders),
+      holder: holder ?? this.holder,
       moveColor: moveColor ?? this.moveColor,
       customColor: clearCustomColor ? null : (customColor ?? this.customColor),
       gender: gender ?? this.gender,

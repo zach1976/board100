@@ -125,6 +125,7 @@ Map<String, Offset> ballAtFeetOffsets(
   List<PlayerIcon> players,
   Offset Function(PlayerIcon) positionOf, {
   int boardTurns = 0,
+  String? Function(PlayerIcon ball)? holderOf,
 }) {
   final holders =
       players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
@@ -135,11 +136,27 @@ Map<String, Offset> ballAtFeetOffsets(
     final at = positionOf(ball);
     PlayerIcon? holder;
     var best = double.infinity;
-    for (final p in holders) {
-      final d = (positionOf(p) - at).distance;
-      if (d < best) {
-        best = d;
-        holder = p;
+    // A board that says who has it is believed, as long as he is within
+    // reach of where the ball is. Nearest was the rule, and after a short
+    // pass the passer is often nearer the ball than the man it was played
+    // to: the pass was drawn arriving at his own other foot, two balls a
+    // stride apart with a stub of an arrow between them.
+    final named = holderOf?.call(ball);
+    if (named != null) {
+      for (final p in holders) {
+        if (p.id == named) {
+          best = (positionOf(p) - at).distance;
+          holder = p;
+        }
+      }
+    }
+    if (holder == null) {
+      for (final p in holders) {
+        final d = (positionOf(p) - at).distance;
+        if (d < best) {
+          best = d;
+          holder = p;
+        }
       }
     }
     if (holder == null) continue;
@@ -914,6 +931,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       players,
       (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
       boardTurns: widget.boardTurns,
+      holderOf: (b) => ballHolderAt(b, stepLimit),
     );
     // Equipment a player is standing in front of, lifted clear of them.
     final clear = markerClearOffsets(
@@ -968,6 +986,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       players,
       (p) => p.isBall ? ghostStart(p) : stepStart(p, limitFor(p)),
       boardTurns: widget.boardTurns,
+      // As the leg began: whoever had it after the beat before.
+      holderOf: (b) => ballHolderAt(b, limitFor(b) - 1),
     );
 
     /// One element on the board. Shared by the two passes below so a
