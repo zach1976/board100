@@ -518,7 +518,7 @@ class _MinePageState extends State<_MinePage> {
 /// in pubspec.yaml and nowhere else, one more plugin to read it back at
 /// runtime is a dependency for a string, and a wrong version here is a
 /// support email that goes one round longer than it had to.
-const String kAppVersion = '2.0.0';
+const String kAppVersion = '2.0.1';
 
 class _AccountCard extends StatelessWidget {
   final String? name;

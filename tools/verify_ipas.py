@@ -23,6 +23,7 @@ Checking 16 zip files takes seconds; a bad batch costs a review cycle x16.
 """
 import plistlib
 import subprocess
+import re
 import sys
 import tempfile
 import zipfile
@@ -99,6 +100,15 @@ def read_info_plist(ipa: Path) -> dict:
         return plistlib.loads(z.read(name))
 
 
+def read_shown_version() -> str:
+    """kAppVersion from tactics_board/lib/pages/main_shell.dart — the string
+    on every app's home screen, kept by hand beside pubspec's."""
+    src = (Path(__file__).resolve().parent.parent / "tactics_board" / "lib"
+           / "pages" / "main_shell.dart").read_text()
+    m = re.search(r"const String kAppVersion = '([^']+)';", src)
+    return m.group(1) if m else "?"
+
+
 def main() -> int:
     if len(sys.argv) < 2:
         sys.exit("usage: verify_ipas.py <expected-version>   e.g. 1.1.25")
@@ -113,6 +123,7 @@ def main() -> int:
     print("-" * 132)
 
     failures, seen_admob = [], {}
+    shown_version = read_shown_version()
     for ipa in ipas:
         stem = ipa.stem
         try:
@@ -133,6 +144,11 @@ def main() -> int:
         problems = []
         if version != want_version:
             problems.append(f"version {version} != {want_version}")
+        # The version the app SHOWS is a constant in the shared library, not
+        # read back from the bundle. 2.0.1 build 4 went to App Store Connect
+        # with its home screen still saying 2.0.0.
+        if shown_version != version:
+            problems.append(f"kAppVersion {shown_version} != {version}")
         if bundle != f"com.zach.{stem}":
             problems.append(f"bundle {bundle} != com.zach.{stem}")
         want_name = APPS.get(stem, {}).get("name")
