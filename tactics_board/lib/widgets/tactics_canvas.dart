@@ -927,12 +927,41 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     // A held ball is drawn at its holder's feet — measured from where the
     // holder is actually drawn, so a ball follows a player the fan has
     // pushed aside rather than being left where the pair used to stand.
-    final feet = ballAtFeetOffsets(
-      players,
-      (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
-      boardTurns: widget.boardTurns,
-      holderOf: (b) => ballHolderAt(b, stepLimit),
-    );
+    final feet = {
+      ...ballAtFeetOffsets(
+        players,
+        (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
+        boardTurns: widget.boardTurns,
+        holderOf: (b) => ballHolderAt(b, stepLimit),
+      ),
+    };
+    // While a beat plays the ball is between two holders: it leaves one
+    // man's boots and arrives at another's, and the rest frames on either
+    // side draw it at those boots. One holder for the whole flight cannot
+    // match both: at frame one the ball hopped off the boot it had been
+    // drawn on, and at the last frame it hopped onto the boot it reached.
+    // So each frame's step is a blend, by how far along the leg the ball
+    // is, of the step for the man it left and the step for the man it is
+    // going to — which is what a pass looks like.
+    if (state.isAnimating) {
+      for (final ball in players) {
+        if (!ball.isBall) continue;
+        final at = state.animatedPositions[ball.id];
+        if (at == null) continue;
+        final leg = ballLegAt(ball, at);
+        if (leg == null) continue;
+        Offset stepFor(int beats) =>
+            ballAtFeetOffsets(
+              players,
+              (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
+              boardTurns: widget.boardTurns,
+              holderOf: (b) => ballHolderAt(b, beats),
+            )[ball.id] ??
+            Offset.zero;
+        feet[ball.id] =
+            Offset.lerp(stepFor(leg.phase), stepFor(leg.phase + 1), leg.t)!;
+      }
+    }
     // Equipment a player is standing in front of, lifted clear of them.
     final clear = markerClearOffsets(
       players,

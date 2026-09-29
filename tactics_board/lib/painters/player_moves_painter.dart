@@ -149,6 +149,42 @@ String? ballHolderAt(PlayerIcon ball, int phaseLimit) {
   return who;
 }
 
+/// Which leg of the ball's route a point lies on, and how far along it.
+class BallLegPosition {
+  const BallLegPosition(this.phase, this.t);
+  /// The beat the leg belongs to.
+  final int phase;
+  /// 0 at the leg's start, 1 at its end.
+  final double t;
+}
+
+/// The leg the ball is on while it is drawn at [at] — the one it is nearest
+/// to — and its progress along it. Null for a ball with no route.
+BallLegPosition? ballLegAt(PlayerIcon ball, Offset at) {
+  if (ball.moves.isEmpty) return null;
+  ball.syncPhases();
+  BallLegPosition? best;
+  var bestDist = double.infinity;
+  var from = ball.position;
+  for (var i = 0; i < ball.moves.length; i++) {
+    final to = ball.moves[i];
+    final ph = i < ball.movePhases.length ? ball.movePhases[i] : i;
+    final seg = to - from;
+    final len2 = seg.dx * seg.dx + seg.dy * seg.dy;
+    final t = len2 < 1e-6
+        ? 0.0
+        : (((at - from).dx * seg.dx + (at - from).dy * seg.dy) / len2)
+            .clamp(0.0, 1.0);
+    final d = (from + seg * t - at).distance;
+    if (d < bestDist) {
+      bestDist = d;
+      best = BallLegPosition(ph, t);
+    }
+    from = to;
+  }
+  return best;
+}
+
 /// Where the player stands as the beat on show begins: the end of the last
 /// leg of any earlier beat, else the start. The overview starts at the start.
 Offset stepStart(PlayerIcon player, int phaseLimit) {

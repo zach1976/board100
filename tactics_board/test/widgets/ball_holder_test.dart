@@ -39,6 +39,20 @@ void main() {
     expect(named, isNot(nearest));
   });
 
+  test('ballLegAt：球画在哪，就知道它在哪一段、走了几成', () {
+    final ball = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
+      position: const Offset(0, 0),
+      moves: const [Offset(100, 0), Offset(100, 100)], movePhases: const [0, 1],
+    );
+    expect(ballLegAt(ball, const Offset(25, 0))!.phase, 0);
+    expect(ballLegAt(ball, const Offset(25, 0))!.t, closeTo(0.25, 1e-9));
+    expect(ballLegAt(ball, const Offset(100, 90))!.phase, 1);
+    expect(ballLegAt(ball, const Offset(100, 90))!.t, closeTo(0.9, 1e-9));
+    // Off the line, still the nearest leg, clamped to its ends.
+    expect(ballLegAt(ball, const Offset(-30, 5))!.t, 0.0);
+  });
+
   test('ballHolderAt 走过每一拍：开始是 holder，之后是那一拍的接球人', () {
     final ball = PlayerIcon(
       id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
