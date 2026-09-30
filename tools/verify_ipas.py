@@ -104,11 +104,14 @@ def read_info_plist(ipa: Path) -> dict:
 
 
 def read_shown_version() -> str:
-    """kAppVersion from tactics_board/lib/pages/main_shell.dart — the string
-    on every app's home screen, kept by hand beside pubspec's."""
+    """Where kAppVersion comes from: "from-build" when the build passes it
+    in, otherwise the hardcoded string that would ship instead."""
     src = (Path(__file__).resolve().parent.parent / "tactics_board" / "lib"
            / "pages" / "main_shell.dart").read_text()
-    m = re.search(r"const String kAppVersion = '([^']+)';", src)
+    if re.search(r"const String kAppVersion = String\.fromEnvironment\("
+                 r"'APP_VERSION'\);", src):
+        return "from-build"
+    m = re.search(r"const String kAppVersion = '([^']*)';", src)
     return m.group(1) if m else "?"
 
 
@@ -147,11 +150,11 @@ def main() -> int:
         problems = []
         if version != want_version:
             problems.append(f"version {version} != {want_version}")
-        # The version the app SHOWS is a constant in the shared library, not
-        # read back from the bundle. 2.0.1 build 4 went to App Store Connect
-        # with its home screen still saying 2.0.0.
-        if shown_version != version:
-            problems.append(f"kAppVersion {shown_version} != {version}")
+        # The version the app shows comes from the build, not from a
+        # constant: one constant cannot be right for sixteen apps, and it
+        # was wrong for two releases running. Checked once, on the source.
+        if shown_version != "from-build":
+            problems.append(f"kAppVersion is hardcoded ({shown_version})")
         if bundle != f"com.zach.{stem}":
             problems.append(f"bundle {bundle} != com.zach.{stem}")
         want_name = APPS.get(stem, {}).get("name")

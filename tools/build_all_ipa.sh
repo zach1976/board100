@@ -32,7 +32,11 @@ for KEY in "${KEYS[@]}"; do
   [ -n "$ROW" ] || { echo "❌ unknown app '$KEY'"; exit 1; }
   IFS=$'\t' read -r _ DIR BUNDLE NAME_EN _ _ _ _ <<< "$ROW"
 
-  DEFINES="--dart-define=IAP=1"
+  # The settings page shows the version the build actually is, read out of
+  # this app's own pubspec — see kAppVersion. One hardcoded constant served
+  # sixteen apps and was wrong for two of them in a row.
+  APP_VERSION="$(awk -F'[:+]' '/^version:/{gsub(/ /,"",$2); print $2; exit}' "$DIR/pubspec.yaml")"
+  DEFINES="--dart-define=IAP=1 --dart-define=APP_VERSION=$APP_VERSION"
   # The hub is a shell like the others (HubBoard/); it alone opts into its
   # own AdMob app with HUB_ADS (see lib/services/ad_service.dart).
   if [ "$KEY" = "tactics_board" ]; then

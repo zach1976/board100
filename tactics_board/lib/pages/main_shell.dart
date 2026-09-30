@@ -502,7 +502,8 @@ class _MinePageState extends State<_MinePage> {
           // can ask for it and the coach can find it without being told how.
           Center(
             child: Text(
-              '${'home_board_title'.tr(args: [state.sportType.displayName])}  ·  $kAppVersion',
+              'home_board_title'.tr(args: [state.sportType.displayName]) +
+                  (kAppVersion.isEmpty ? '' : '  ·  $kAppVersion'),
               style: const TextStyle(color: T.textOff, fontSize: 11.5),
             ),
           ),
@@ -514,11 +515,14 @@ class _MinePageState extends State<_MinePage> {
 
 /// The app's own version, shown at the foot of the settings page.
 ///
-/// A constant rather than package_info_plus: the number is already written
-/// in pubspec.yaml and nowhere else, one more plugin to read it back at
-/// runtime is a dependency for a string, and a wrong version here is a
-/// support email that goes one round longer than it had to.
-const String kAppVersion = '2.0.1';
+/// Passed in by the build — tools/build_all_ipa.sh reads it out of the app's
+/// own pubspec — rather than written here. It was a constant, and one
+/// constant cannot be right for sixteen apps on sixteen version numbers:
+/// soccer went to App Store Connect as 2.0.1 with its settings page still
+/// reading 2.0.0, and the field hockey build after it read 2.0.1 while
+/// being 2.0.0. A development build passes nothing and shows nothing, which
+/// is honest — it has no release version to show.
+const String kAppVersion = String.fromEnvironment('APP_VERSION');
 
 class _AccountCard extends StatelessWidget {
   final String? name;
