@@ -1782,6 +1782,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       if (ca != cb) return cb.compareTo(ca);
       return a.defaultOrder.compareTo(b.defaultOrder);
     });
+    // Text leads the inline row whatever has been used lately. It is the
+    // one tool that labels the board rather than populating it, and a coach
+    // who wants to write a word should not have to open "More" to find the
+    // pen because he placed four cones this week.
+    final text = entries.indexWhere((e) => e.key == 'marker_text');
+    if (text > 0) entries.insert(0, entries.removeAt(text));
     return entries;
   }
 
