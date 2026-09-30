@@ -43,8 +43,11 @@ def _load_table() -> dict:
         cols = line.split("\t")
         if len(cols) < 8:
             continue
-        _key, _dir, bundle, name_en, _zh, _ja, admob_ios, _admob_android = cols
-        apps[bundle.split(".")[-1]] = {"bundle": bundle, "name": name_en,
+        key, _dir, bundle, name_en, _zh, _ja, admob_ios, _admob_android = cols
+        # What the IPA carries is the home-screen name — the sport, without
+        # the word Board; see gen_sport_shell.sh. The hub keeps its full name.
+        home = name_en if key == "tactics_board" else name_en.removesuffix(" Board")
+        apps[bundle.split(".")[-1]] = {"bundle": bundle, "name": home,
                                        "admob": None if admob_ios == "-" else admob_ios}
     return apps
 

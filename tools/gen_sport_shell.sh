@@ -238,21 +238,37 @@ android/key.properties
 screenshots/
 GIT
 
+  # The name on a home screen is the SPORT: "Field Hockey", not "Field Hockey
+  # Board". A home-screen label fits about thirteen characters, and twelve of
+  # the sixteen names are longer — "Field Hockey Board" arrived as "Field
+  # Hockey…" and the Japanese ones lost more than half. The icon already says
+  # it is a tactics board; the store listing keeps the full name, and so does
+  # the Mac, where a window title has room.
+  #
+  # The hub is exempt: "Tactics Board" is not a sport with the word Board
+  # stuck on the end, it is what that app is called.
+  HOME_EN="$NAME_EN"; HOME_ZH="$NAME_ZH"; HOME_JA="$NAME_JA"
+  if [ "$KEY" != "tactics_board" ]; then
+    HOME_EN="${NAME_EN% Board}"
+    HOME_ZH="${NAME_ZH%战术板}"
+    HOME_JA="${NAME_JA%ボード}"
+  fi
+
   # ── iOS identity ──────────────────────────────────────────────────────────
   sed -i '' "s/PRODUCT_BUNDLE_IDENTIFIER = com\.[^;]*/PRODUCT_BUNDLE_IDENTIFIER = $BUNDLE/g" \
     "$DIR/ios/Runner.xcodeproj/project.pbxproj"
-  /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $NAME_EN" "$DIR/ios/Runner/Info.plist"
+  /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName $HOME_EN" "$DIR/ios/Runner/Info.plist"
   IOS_APP_ID="$ADMOB_IOS"
   if [ "$IOS_APP_ID" = "-" ]; then IOS_APP_ID="$SAMPLE_ADMOB_IOS"; fi
   /usr/libexec/PlistBuddy -c "Set :GADApplicationIdentifier $IOS_APP_ID" "$DIR/ios/Runner/Info.plist"
   # Localized display names (the store shows these per device language).
-  echo "CFBundleDisplayName = \"$NAME_EN\";" > "$DIR/ios/Runner/en.lproj/InfoPlist.strings"
+  echo "CFBundleDisplayName = \"$HOME_EN\";" > "$DIR/ios/Runner/en.lproj/InfoPlist.strings"
   for l in zh-Hans zh-Hant; do
-    [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$NAME_ZH\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
+    [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$HOME_ZH\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
   done
-  [ -d "$DIR/ios/Runner/ja.lproj" ] && echo "CFBundleDisplayName = \"$NAME_JA\";" > "$DIR/ios/Runner/ja.lproj/InfoPlist.strings"
+  [ -d "$DIR/ios/Runner/ja.lproj" ] && echo "CFBundleDisplayName = \"$HOME_JA\";" > "$DIR/ios/Runner/ja.lproj/InfoPlist.strings"
   for l in ko fr es vi th id ms; do
-    [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$NAME_EN\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
+    [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$HOME_EN\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
   done
 
   # ── Android identity ──────────────────────────────────────────────────────
@@ -268,9 +284,9 @@ GIT
   for d in "$DIR/android/app/src/main/res"/values "$DIR/android/app/src/main/res"/values-*; do
     f="$d/strings.xml"; [ -f "$f" ] || continue
     case "$(basename "$d")" in
-      values-zh|values-zh-rTW) N="$NAME_ZH" ;;
-      values-ja)               N="$NAME_JA" ;;
-      *)                       N="$NAME_EN" ;;
+      values-zh|values-zh-rTW) N="$HOME_ZH" ;;
+      values-ja)               N="$HOME_JA" ;;
+      *)                       N="$HOME_EN" ;;
     esac
     printf '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <string name="app_name">%s</string>\n</resources>\n' "$N" > "$f"
   done
