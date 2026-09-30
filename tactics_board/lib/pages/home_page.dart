@@ -143,9 +143,15 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   /// How much of the top the second row takes, so the pitch can start below
   /// it. Zero for the one-page board that has no second row.
-  double _pagesBand(BuildContext context, double topPad, bool wide) => wide
-      ? _pagesTop(topPad) + (44 * uiScale(context)).clamp(44.0, 60.0) + 6
-      : 0.0;
+  double _pagesBand(BuildContext context, double topPad, bool wide) {
+    // The pitch starts below the chrome on every board, not only the
+    // multi-page one. Reclaiming the top row for the board assumed the
+    // corners held nothing but the buttons; a penalty corner puts the
+    // injector on the backline in the corner, and the page badge sat on
+    // top of him — covering the man and taking his taps.
+    final row = (44 * uiScale(context)).clamp(44.0, 60.0) + 6;
+    return (wide ? _pagesTop(topPad) : _chromeTop(topPad)) + row;
+  }
 
   Widget _canvasStack(BuildContext context, double topPad) {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
