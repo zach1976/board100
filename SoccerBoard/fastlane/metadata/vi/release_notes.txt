@@ -19,3 +19,5 @@ NGOÀI RA
 - Mũi tên đường chuyền đến cùng lúc với bóng, không đến trước
 - Cầu thủ quay mặt về phía việc sắp làm — thủ môn nhìn tiền đạo, không nhìn khung thành nhà
 - Bài chạy con thoi chạy tay không
+- Nhãn chữ xoay theo bảng và có bốn kiểu chữ để chọn
+- Thanh chỉnh sửa chỉ hiện những gì thay đổi được: dụng cụ không có chạy chỗ và không có màu

@@ -19,3 +19,5 @@ ALSO
 - The pass arrow arrives with the ball instead of ahead of it
 - Players face what they are about to do — a keeper watches the attacker, not his own goal
 - A shuttle run is run empty-handed
+- Text labels turn with the board and can be set in four faces
+- The edit bar offers only what an element can change: equipment has no run and no colour

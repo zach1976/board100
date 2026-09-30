@@ -19,3 +19,5 @@ JUGA
 - Anak panah hantaran tiba bersama bola, bukan mendahuluinya
 - Pemain menghadap apa yang bakal dilakukan — penjaga gol memerhati penyerang, bukan golnya sendiri
 - Larian ulang-alik dilakukan dengan tangan kosong
+- Label teks berputar bersama papan dan boleh memilih empat jenis fon
+- Bar sunting hanya menunjukkan apa yang boleh diubah: peralatan tiada larian dan tiada warna

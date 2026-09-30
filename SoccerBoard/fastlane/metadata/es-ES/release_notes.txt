@@ -19,3 +19,5 @@ ADEMÁS
 - La flecha del pase llega con el balón, no antes
 - Los jugadores miran hacia lo que van a hacer: el portero mira al atacante, no a su portería
 - Las series de ida y vuelta se corren con las manos libres
+- Las etiquetas de texto giran con la pizarra y admiten cuatro tipografías
+- La barra de edición muestra solo lo que se puede cambiar: el material no tiene carrera ni color

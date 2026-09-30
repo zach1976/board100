@@ -19,3 +19,5 @@ JUGA
 - Panah umpan tiba bersama bola, bukan mendahuluinya
 - Pemain menghadap ke arah yang akan dilakukan — penjaga gawang menatap penyerang, bukan gawangnya sendiri
 - Lari bolak-balik dilakukan dengan tangan kosong
+- Label teks ikut berputar dan bisa memakai empat jenis huruf
+- Bilah edit hanya menampilkan yang bisa diubah: peralatan tidak punya lari maupun warna
