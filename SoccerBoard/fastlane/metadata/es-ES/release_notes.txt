@@ -21,3 +21,4 @@ ADEMÁS
 - Las series de ida y vuelta se corren con las manos libres
 - Las etiquetas de texto giran con la pizarra y admiten cuatro tipografías
 - La barra de edición muestra solo lo que se puede cambiar: el material no tiene carrera ni color
+- El árbitro y el entrenador se dibujan como personas y giran como tales

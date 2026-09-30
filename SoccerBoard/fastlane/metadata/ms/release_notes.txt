@@ -21,3 +21,4 @@ JUGA
 - Larian ulang-alik dilakukan dengan tangan kosong
 - Label teks berputar bersama papan dan boleh memilih empat jenis fon
 - Bar sunting hanya menunjukkan apa yang boleh diubah: peralatan tiada larian dan tiada warna
+- Pengadil dan jurulatih dilukis sebagai orang, dan berpusing seperti orang

@@ -21,3 +21,4 @@ AUSSI
 - Les navettes se courent les mains vides
 - Les étiquettes de texte pivotent avec le tableau et proposent quatre polices
 - La barre d'édition n'affiche que ce qui peut changer : le matériel n'a ni course ni couleur
+- L'arbitre et l'entraîneur sont dessinés comme des personnes et tournent comme elles

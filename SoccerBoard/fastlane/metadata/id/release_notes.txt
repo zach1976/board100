@@ -21,3 +21,4 @@ JUGA
 - Lari bolak-balik dilakukan dengan tangan kosong
 - Label teks ikut berputar dan bisa memakai empat jenis huruf
 - Bilah edit hanya menampilkan yang bisa diubah: peralatan tidak punya lari maupun warna
+- Wasit dan pelatih digambar sebagai orang, dan berputar seperti orang

@@ -21,3 +21,4 @@ ALSO
 - A shuttle run is run empty-handed
 - Text labels turn with the board and can be set in four faces
 - The edit bar offers only what an element can change: equipment has no run and no colour
+- The referee and the coach are drawn as people, and turn like people

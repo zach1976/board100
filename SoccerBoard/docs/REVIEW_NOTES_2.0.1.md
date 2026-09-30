@@ -1,10 +1,10 @@
-# Review Notes — Soccer Board 2.0.1 (build 7)
+# Review Notes — Soccer Board 2.0.1 (build 8)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。上一版 2.0.0 (3) 于 2026-09-27 提交，2026-09-28
 > **APPROVED / READY_FOR_SALE**，没有待处理的拒绝。
 >
-> **本文件同样不含真机验证声明**：2.0.1 (7) 在模拟器、开发机和一台 iPhone 17 Pro Max 上运行验证过（真机上逐步过了传球、射门、播放、单步、道具编辑、文字元素）；build 4 的首页版本号写着 2.0.0 重打了 build 5，真机上发现球的传球线在蓝色球衣上看不见又重打了 build 6，
+> **本文件同样不含真机验证声明**：2.0.1 (8) 在模拟器、开发机和一台 iPhone 17 Pro Max 上运行验证过（真机上逐步过了传球、射门、播放、单步、道具编辑、文字元素）；build 4 的首页版本号写着 2.0.0 重打了 build 5，真机上发现球的传球线在蓝色球衣上看不见又重打了 build 6，
 > `DEVICE_QA_2.0.0.md` 那份真机清单仍然没有跑。写做过的，不写没做的。
 
 ---
@@ -36,6 +36,10 @@ how the built-in drill boards are drawn.
 6. Equipment stays where it was placed when a run passes near it; the pass
    arrow arrives with the ball instead of ahead of it; a conditioning
    shuttle run is drawn with nothing in the player's hands.
+7. The referee and the coach are drawn as people — the same figure as a
+   player — and turn like one. Text labels turn with the board and offer
+   four typefaces. The pitch starts below the corner buttons on every
+   board, so nothing placed in a corner is covered.
 
 ## How to see it
 

@@ -21,3 +21,4 @@ NGOÀI RA
 - Bài chạy con thoi chạy tay không
 - Nhãn chữ xoay theo bảng và có bốn kiểu chữ để chọn
 - Thanh chỉnh sửa chỉ hiện những gì thay đổi được: dụng cụ không có chạy chỗ và không có màu
+- Trọng tài và huấn luyện viên được vẽ như người thật và xoay như người thật
