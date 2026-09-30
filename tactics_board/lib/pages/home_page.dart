@@ -51,7 +51,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     final theme = context.select<TacticsState, SportTheme>((s) => s.sportType.theme);
-    return Scaffold(
+    final scaffold = Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
         decoration: BoxDecoration(
@@ -63,6 +63,28 @@ class TacticsBoardHomePage extends StatelessWidget {
         ),
         child: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
       ),
+    );
+    if (!isLandscape) return scaffold;
+    // The app's SnackBar sits 96pt off the bottom to clear the portrait
+    // toolbar capsule. Turned sideways the capsule is a rail down the right
+    // and there is nothing at the bottom to clear, so a drill's name arrived
+    // across the middle of the pitch, running under the rail. Here it sits
+    // at the foot of the board, inside the board's own column.
+    final railShown = context.select<TacticsState, bool>(
+        (s) => s.toolbarVisible && !s.presentationMode);
+    final app = Theme.of(context);
+    return Theme(
+      data: app.copyWith(
+        snackBarTheme: app.snackBarTheme.copyWith(
+          insetPadding: EdgeInsets.fromLTRB(
+            T.s16,
+            T.s8,
+            (railShown ? 190 * uiScale(context) : 0) + T.s16,
+            bottomPad + T.s12,
+          ),
+        ),
+      ),
+      child: scaffold,
     );
   }
 
