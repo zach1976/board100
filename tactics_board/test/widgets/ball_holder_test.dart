@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/painters/player_moves_painter.dart';
+import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
 /// 球停在谁脚下，听板子的，不听「谁最近」。
@@ -13,6 +14,7 @@ import 'package:tactics_board/widgets/tactics_canvas.dart';
 void main() {
   PlayerIcon man(String id, Offset at) => PlayerIcon(
       id: id, label: id, team: PlayerTeam.home, position: at);
+  PlayerIcon man2(String id, Offset at) => man(id, at);
 
   test('板子说是 C 的球，就画在 C 脚下，哪怕 F 站得更近', () {
     final f = man('F', const Offset(173, 355));
@@ -37,6 +39,28 @@ void main() {
     final onlyC = ballAtFeetOffsets([c, ball], at)[ball.id]!;
     expect(named, onlyC);
     expect(named, isNot(nearest));
+  });
+
+  test('手上的球画在手边，脚下的球画在脚边', () {
+    final man = man2('P', const Offset(200, 300));
+    final ball = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
+      position: const Offset(210, 305), moves: const [], movePhases: const [],
+    );
+    Offset at(PlayerIcon p) => p.position;
+    double drop(SportType s) =>
+        (ball.position + ballAtFeetOffsets([man, ball], at, sport: s)[ball.id]!
+            - man.position).dy;
+    // Measured off the drawn figure: shoes 0.58 of a cell below the middle,
+    // hands 0.18.
+    expect(drop(SportType.soccer), closeTo(kPlayerIconSize * 0.58, 0.01));
+    expect(drop(SportType.fieldHockey), closeTo(kPlayerIconSize * 0.58, 0.01),
+        reason: '球杆的头在地上');
+    for (final s in [SportType.basketball, SportType.handball,
+                     SportType.waterPolo, SportType.rugby, SportType.volleyball,
+                     SportType.badminton]) {
+      expect(drop(s), closeTo(kPlayerIconSize * 0.18, 0.01), reason: s.name);
+    }
   });
 
   test('ballLegAt：球画在哪，就知道它在哪一段、走了几成', () {

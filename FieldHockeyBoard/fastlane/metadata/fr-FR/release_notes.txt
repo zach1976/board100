@@ -1,5 +1,24 @@
-Nouveautés
+Nouveautés de la version 2.0
 
-• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
-• Retour plus fluide lorsque vous revenez dans l'app.
-• Corrections de bugs et améliorations de stabilité.
+36 EXERCICES DE HOCKEY, INTÉGRÉS
+Chaque exercice est un tableau que vous parcourez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Échauffement, relance, entrée dans le cercle, finition, pressing, corner de pénalité, gardien, physique.
+
+PLANIFIEZ TOUTE LA SÉANCE
+Enchaînez les exercices dans un plan d'entraînement, déroulez-le depuis la touche un par un, et gardez la trace de ce que vous avez réellement fait.
+
+VOTRE EFFECTIF, VOS PRÉSENCES
+Gardez vos joueurs avec leur photo, cochez les présents, et voyez la saison d'un coup d'œil.
+
+PARTAGEZ UN TABLEAU PAR LIEN
+Envoyez une combinaison à l'équipe : elle s'ouvre dans un navigateur, sans application.
+
+DES JOUEURS REDESSINÉS
+Ils regardent là où ils vont, crosse en main, hommes et femmes, avec ou sans la balle.
+
+AUSSI
+- La course est une flèche pointillée, la conduite ondule, la passe est un trait plein
+- Faites pivoter n'importe quel élément et écrivez du texte directement sur le tableau
+- Un tableau est un ensemble de pages que l'on feuillette
+- iPad et Mac : le tableau occupe tout l'écran
+- Exportez une combinaison en vidéo, pas seulement en image
+- Un achat unique facultatif supprime la publicité

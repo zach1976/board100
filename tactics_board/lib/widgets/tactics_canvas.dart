@@ -102,6 +102,24 @@ const double _kHoldReach = kPlayerIconSize * 0.95;
 const double _kFeetDrop = kPlayerIconSize * 0.58;
 const double _kFeetSide = kPlayerIconSize * 0.34;
 
+/// How far below the middle of a token a ball it belongs to is drawn.
+///
+/// Not every sport puts the ball on the floor. Measured off the drawn
+/// figure: the shoes are 0.58 of a cell below the middle and the hands
+/// hang at 0.18, so a basketball dropped to the shoes sat on the court
+/// beside a player who is supposed to be holding it — as did a handball,
+/// a water polo ball, a rugby ball and a served shuttle. The sports played
+/// with the feet keep the shoes, and so does hockey, where the ball is at
+/// the head of a stick that is on the ground.
+double ballHoldDrop(SportType sport) => switch (sport) {
+      SportType.soccer ||
+      SportType.footvolley ||
+      SportType.sepakTakraw ||
+      SportType.fieldHockey =>
+        _kFeetDrop,
+      _ => kPlayerIconSize * 0.18,
+    };
+
 /// Draw-time placement for a ball that belongs to somebody.
 ///
 /// A carried ball is stored 24pt from its holder in the direction of play,
@@ -126,7 +144,9 @@ Map<String, Offset> ballAtFeetOffsets(
   Offset Function(PlayerIcon) positionOf, {
   int boardTurns = 0,
   String? Function(PlayerIcon ball)? holderOf,
+  SportType sport = SportType.soccer,
 }) {
+  final drop = ballHoldDrop(sport);
   final holders =
       players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
   if (holders.isEmpty) return const {};
@@ -183,7 +203,7 @@ Map<String, Offset> ballAtFeetOffsets(
     final d = turnVector(at - from, boardTurns);
     final side =
         d.dx.clamp(-_kFeetSide * holder.scale, _kFeetSide * holder.scale);
-    final step = Offset(side, _kFeetDrop * holder.scale) - d;
+    final step = Offset(side, drop * holder.scale) - d;
     result[ball.id] = turnVector(step, (4 - boardTurns) % 4) * weight;
   }
   return result;
@@ -963,6 +983,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
         boardTurns: widget.boardTurns,
         holderOf: (b) => ballHolderAt(b, stepLimit),
+        sport: state.sportType,
       ),
     };
     // Equipment a player is standing in front of, lifted clear of them.
@@ -1020,6 +1041,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       boardTurns: widget.boardTurns,
       // As the leg began: whoever had it after the beat before.
       holderOf: (b) => ballHolderAt(b, limitFor(b) - 1),
+      sport: state.sportType,
     );
 
     // While a beat plays the ball is between two holders: it leaves one
@@ -1052,6 +1074,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               (p) => p.isBall ? chainEndAt(p, after) : chainEndAt(p, after),
               boardTurns: widget.boardTurns,
               holderOf: (b) => ballHolderAt(b, after),
+              sport: state.sportType,
             )[ball.id] ??
             Offset.zero;
         feet[ball.id] = Offset.lerp(from, to, leg.t)!;

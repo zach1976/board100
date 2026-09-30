@@ -9,13 +9,13 @@ Each step is idempotent and prints what it found before it changes anything,
 so a half-finished run is resumed by running the next step rather than by
 starting over.
 
-    python3 tools/release_soccer.py version     # create/find the version in pubspec
-    python3 tools/release_soccer.py text        # name/subtitle + per-locale text
-    python3 tools/release_soccer.py shots       # 5 screenshots x 11 locales
-    python3 tools/release_soccer.py build       # attach the uploaded build
-    python3 tools/release_soccer.py notes       # review notes + encryption
-    python3 tools/release_soccer.py status      # read everything back
-    python3 tools/release_soccer.py submit      # <- the irreversible one
+    APP=<sport> python3 tools/release_app.py version     # create/find the version in pubspec
+    APP=<sport> python3 tools/release_app.py text        # name/subtitle + per-locale text
+    APP=<sport> python3 tools/release_app.py shots       # 5 screenshots x 11 locales
+    APP=<sport> python3 tools/release_app.py build       # attach the uploaded build
+    APP=<sport> python3 tools/release_app.py notes       # review notes + encryption
+    APP=<sport> python3 tools/release_app.py status      # read everything back
+    APP=<sport> python3 tools/release_app.py submit      # <- the irreversible one
 """
 import hashlib
 import json
@@ -62,20 +62,26 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 from apps import metadata_dir, screenshots_dir  # noqa: E402
 
-KEY = "soccer"
-BUNDLE = "com.zach.soccerBoard"
-# Read from SoccerBoard/pubspec.yaml — "version: 2.0.1+4" — so the release
+# Which app this run is releasing. One script, because the steps are the
+# same for all sixteen and the second app to go out must not start from a
+# copy of the first.
+KEY = os.environ.get("APP", "soccer")
+from apps import APPS, app_dir  # noqa: E402
+if KEY not in APPS:
+    raise SystemExit(f"✗ APP={KEY!r} 不在 tools/sports.tsv 里")
+BUNDLE = APPS[KEY]["bundle"]
+APP_DIR = str(app_dir(KEY))
+# Read from the app's own pubspec.yaml — "version: 2.0.1+4" — so the release
 # and the binary can never disagree about which version this is. The first
 # run of this script was pinned to 2.0.0/3 in two constants, which is fine
 # exactly once.
 def _pubspec_version():
-    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                        "SoccerBoard", "pubspec.yaml")
+    path = os.path.join(APP_DIR, "pubspec.yaml")
     for line in open(path):
         if line.startswith("version:"):
             name, _, number = line.split(":", 1)[1].strip().partition("+")
             return name, number
-    raise SystemExit("✗ SoccerBoard/pubspec.yaml 里没有 version:")
+    raise SystemExit(f"✗ {APP_DIR}/pubspec.yaml 里没有 version:")
 
 
 VERSION, BUILD_VERSION = _pubspec_version()
@@ -274,7 +280,7 @@ def step_shots():
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
-    mac_dir = os.path.join(REPO, "SoccerBoard", "fastlane", "screenshots_mac")
+    mac_dir = os.path.join(APP_DIR, "fastlane", "screenshots_mac")
     for folder, locale in LOCALE_MAP.items():
         # One Mac set for every language: they are photographs of a running
         # window, and the window's own text is what the locale changes.
@@ -476,8 +482,7 @@ def step_build():
 def step_notes():
     aid = app_id()
     vid, _ = find_version(aid)
-    notes_path = os.path.join(REPO, "SoccerBoard", "docs",
-                              NOTES_FILE)
+    notes_path = os.path.join(APP_DIR, "docs", NOTES_FILE)
     text = open(notes_path).read()
     # 6.4: a draft with placeholders must never reach Apple.
     for marker in ("[REJECTION REASON", "[FINAL DEVICE QA", "TODO", "TBD"):

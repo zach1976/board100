@@ -1,5 +1,24 @@
-Có gì mới
+Có gì mới trong 2.0
 
-• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
-• Quay lại ứng dụng mượt mà hơn.
-• Sửa lỗi và cải thiện độ ổn định.
+36 BÀI TẬP HOCKEY CÓ SẴN
+Mỗi bài tập là một bảng bạn có thể xem theo từng nhịp: rèn điều gì, bố trí ra sao, và câu cần nói khi đang chạy bài. Khởi động, triển khai bóng, vào vòng cấm, dứt điểm, gây áp lực, phạt góc, thủ môn và thể lực.
+
+LÊN KẾ HOẠCH CẢ BUỔI
+Nối các bài tập thành một giáo án, chạy từng bài từ ngoài đường biên, và những gì đã tập được ghi lại.
+
+ĐỘI HÌNH VÀ ĐIỂM DANH
+Lưu cầu thủ kèm ảnh, đánh dấu ai có mặt, và xem cả mùa giải trong một màn hình.
+
+CHIA SẺ BẢNG BẰNG ĐƯỜNG LINK
+Gửi một miếng đánh cho cả đội — họ mở bằng trình duyệt, không cần cài ứng dụng.
+
+CẦU THỦ ĐƯỢC VẼ LẠI
+Quay mặt về hướng sẽ đi, cầm gậy trên tay, nam và nữ, có bóng hoặc không.
+
+NGOÀI RA
+- Chạy chỗ là nét đứt, dẫn bóng là nét lượn sóng, chuyền là nét liền
+- Xoay bất kỳ phần tử nào, và gõ chữ trực tiếp lên bảng
+- Một bảng là tập hợp nhiều trang có thể lật qua lại
+- iPad và Mac: bảng dùng trọn màn hình
+- Xuất một miếng đánh thành video, không chỉ là ảnh
+- Một lần mua tùy chọn để bỏ quảng cáo

@@ -1,5 +1,24 @@
-Yang Baru
+Yang Baru di 2.0
 
-• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
-• Kembali ke aplikasi terasa lebih mulus.
-• Perbaikan bug dan peningkatan stabilitas.
+36 LATIHAN HOKI, SUDAH TERSEDIA
+Setiap latihan adalah papan yang bisa Anda telusuri per ketukan: apa yang dilatih, bagaimana menatanya, dan satu kalimat yang perlu diucapkan saat berjalan. Pemanasan, membangun serangan, masuk lingkaran, penyelesaian, pressing, penalti sudut, kiper, dan fisik.
+
+RENCANAKAN SATU SESI PENUH
+Rangkai latihan menjadi rencana latihan, jalankan dari pinggir lapangan satu per satu, dan catatannya tersimpan sendiri.
+
+SKUAD DAN KEHADIRAN
+Simpan pemain beserta fotonya, tandai siapa yang datang, dan lihat satu musim sekaligus.
+
+BAGIKAN PAPAN SEBAGAI TAUTAN
+Kirim satu pola ke tim — mereka membukanya di browser, tanpa aplikasi.
+
+PEMAIN DIGAMBAR ULANG
+Menghadap ke arah tujuannya, memegang stik, pria dan wanita, dengan atau tanpa bola.
+
+JUGA
+- Lari bergaris putus, giringan bergelombang, umpan berupa garis utuh
+- Putar elemen apa pun, dan ketik teks langsung di papan
+- Sebuah papan adalah kumpulan halaman yang bisa dibalik
+- iPad dan Mac: papan memakai seluruh layar
+- Ekspor satu pola sebagai video, bukan hanya gambar
+- Pembelian sekali opsional menghilangkan iklan

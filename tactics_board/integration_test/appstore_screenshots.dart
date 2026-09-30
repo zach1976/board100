@@ -24,8 +24,12 @@ import 'package:tactics_board/widgets/toolbar.dart';
 // V2 raw app screenshots for the "PLAN EVERY RALLY" design.
 // Output: aso/screenshots_v2_raw/<sport>/<locale>/s{1..5}.png
 // 5-shot story: home · add-menu · timeline · drill library · player bar.
-final outDir =
-    '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw';
+// The iPad set is captured by the same run against an iPad simulator, into
+// its own folder — the phone set must not be overwritten:
+//   --dart-define=SHOT_ROOT=<repo>/tactics_board/aso/screenshots_v2_raw_ipad
+const outDir = String.fromEnvironment('SHOT_ROOT',
+    defaultValue:
+        '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw');
 
 // (ASC locale name, Flutter locale). 11 store locales.
 final allLocales = <(String, Locale)>[
