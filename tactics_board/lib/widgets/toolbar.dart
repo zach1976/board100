@@ -1658,20 +1658,6 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             : CustomPaint(painter: MarkerPainter(shape: shape, color: color)),
       );
     }
-    Widget genderGlyph(PlayerGender g) => SizedBox(
-          width: 28,
-          height: 28,
-          child: CustomPaint(
-            painter: TopDownPlayerPainter(
-              color: const Color(0xFF616161),
-              borderColor: Colors.white,
-              borderWidth: 2,
-              gender: g,
-              figure: newPlayerFigure(state.sportType),
-              sport: state.sportType,
-            ),
-          ),
-        );
 
     _MarkerEntry shapeEntry(
       String key,
@@ -1708,37 +1694,6 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             markerShape: shape,
             customColor: color,
             position: local,
-          ));
-          ElementUsageService.instance.recordUse(key);
-        }),
-      );
-    }
-
-    _MarkerEntry genderEntry(String key, String label, PlayerGender g, int order) {
-      return _MarkerEntry(
-        key: key,
-        label: label,
-        glyph: genderGlyph(g),
-        defaultOrder: order,
-        onTap: () {
-          final c = state.canvasSize;
-          state.addPlayer(PlayerIcon(
-            id: DateTime.now().microsecondsSinceEpoch.toString(),
-            label: '',
-            team: PlayerTeam.neutral,
-            position: Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
-            gender: g,
-          ));
-          ElementUsageService.instance.recordUse(key);
-          Navigator.pop(sheetCtx);
-        },
-        onDropAt: (globalPos) => _placeAtDropPos(globalPos, (local) {
-          state.addPlayer(PlayerIcon(
-            id: DateTime.now().microsecondsSinceEpoch.toString(),
-            label: '',
-            team: PlayerTeam.neutral,
-            position: local,
-            gender: g,
           ));
           ElementUsageService.instance.recordUse(key);
         }),
