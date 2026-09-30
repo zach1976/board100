@@ -1095,8 +1095,9 @@ class TacticsState extends ChangeNotifier {
     final p = _players[idx];
     // A person is drawn from eight pictures, so a turn between two of them
     // shows nothing; snap to the one it will show. Markers turn freely.
-    final snapped =
-        p.isMarker || p.isBall ? snapAngle(radians) : snapFacing(radians);
+    // The referee and the coach are drawn as people, and turn as people.
+    final picture = p.isBall || (p.isMarker && !p.isPersonMarker);
+    final snapped = picture ? snapAngle(radians) : snapFacing(radians);
     // Turning a person by hand is a decision about where they look, and it
     // has to survive the board's own facing rule — which otherwise recomputes
     // a heading every beat and throws the turn away. Back at zero the coach
@@ -1104,7 +1105,7 @@ class TacticsState extends ChangeNotifier {
     // takes over again.
     _players[idx] = p.copyWith(
         rotation: snapped,
-        facingLocked: p.isMarker || p.isBall ? false : snapped != 0);
+        facingLocked: picture ? false : snapped != 0);
     notifyListeners();
   }
 

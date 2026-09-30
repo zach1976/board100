@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
+import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart';
 
 /// 裁判和教练是人，不是器材：用和球员一样的人形画，空手，面向动作。
 /// 以前用的是俯视角的贴图，和边线视角的球员站在一起姿态就不对。
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   PlayerIcon marker(MarkerShape shape) => PlayerIcon(
       id: 'm', label: '', team: PlayerTeam.neutral,
       position: Offset.zero, markerShape: shape);
@@ -22,6 +24,21 @@ void main() {
       expect(TopDownPlayerPainter.figureFor(sport, marker(MarkerShape.referee)),
           PlayerFigure.plain, reason: sport.name);
     }
+  });
+
+  test('转裁判像转球员：按八分之一圈吸附，并且锁定朝向', () {
+    final st = TacticsState();
+    st.addPlayer(marker(MarkerShape.referee));
+    final id = st.players.first.id;
+    st.rotatePlayer(id, 1.0);
+    final turned = st.players.first;
+    expect(turned.rotation, closeTo(0.785, 0.01), reason: '吸附到 45°');
+    expect(turned.facingLocked, isTrue, reason: '不然板子下一拍又把他转回去看球');
+    // A cone keeps turning freely and never locks.
+    st.addPlayer(marker(MarkerShape.cone).copyWith(id: 'cone'));
+    st.rotatePlayer('cone', 1.0);
+    final cone = st.players.firstWhere((p) => p.id == 'cone');
+    expect(cone.facingLocked, isFalse);
   });
 
   test('裁判默认黑衣，教练默认深灰，换过颜色就用换的', () {

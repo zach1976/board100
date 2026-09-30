@@ -1792,7 +1792,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 const Spacer(),
                 // Reset undoes a turn the coach made: for a person that is
                 // the hand-set facing, and the board decides again after.
-                if (p.isMarker || p.isBall ? p.rotation != 0 : p.facingLocked)
+                if (_picture(p) ? p.rotation != 0 : p.facingLocked)
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: () => _turn(p, -_shown(p)),
@@ -1905,8 +1905,11 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
 
   /// A person has eight pictures to face with, so a notch is an eighth of
   /// a turn and every tap shows. A marker turns freely in 15° steps.
-  double _notch(PlayerIcon p) =>
-      p.isMarker || p.isBall ? math.pi / 12 : math.pi / 4;
+  /// Drawn from a picture that turns freely, as opposed to a figure drawn
+  /// from eight headings — which is what a referee or a coach is too.
+  bool _picture(PlayerIcon p) => p.isBall || (p.isMarker && !p.isPersonMarker);
+
+  double _notch(PlayerIcon p) => _picture(p) ? math.pi / 12 : math.pi / 4;
 
   /// The turn the board is showing, as the bar reads it back.
   ///
@@ -1918,7 +1921,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   /// baked opening stance the pitch was no longer showing: it said 45° over
   /// a man facing straight up, and one tap "left" turned him to 0°.
   double _shown(PlayerIcon p) {
-    if (p.isMarker || p.isBall || p.facingLocked) return p.rotation;
+    if (_picture(p) || p.facingLocked) return p.rotation;
     final st = widget.state;
     final beat = st.atStep > 0 ? st.atStep : st.targetStep;
     final h = boardHeading(st.players, p, beat) ?? playerFacing(p);
