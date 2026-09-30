@@ -90,6 +90,11 @@ def main() -> None:
         has = (shots_dir / loc).is_dir() and any((shots_dir / loc).glob('*.png'))
         return (loc != 'en-US', not has, loc)
 
+    # The iPad set is rendered into the core's tree, not the shell's: it is
+    # uploaded straight from there by the release script's ipad step, so it
+    # would otherwise be the one part of a submission this page never showed.
+    ipad_dir = REPO / 'tactics_board' / 'fastlane' / 'screenshots_ipad' / key
+
     locales = sorted((d.name for d in md.iterdir() if d.is_dir()), key=order)
     ios = {}
     for loc in locales:
@@ -98,6 +103,9 @@ def main() -> None:
             # Drawn 440pt tall, which on a 1290x2796 shot is 203pt across.
             'shots': [thumb(p, 205) for p in sorted((shots_dir / loc).glob('*.png'))]
             if (shots_dir / loc).is_dir() else [],
+            # 2064x2752 is 4:3, so the same drawn height is wider across.
+            'ipad': [thumb(p, 260) for p in sorted((ipad_dir / loc).glob('*.png'))]
+            if (ipad_dir / loc).is_dir() else [],
         }
 
     # ── Play metadata ─────────────────────────────────────────────────────
@@ -278,6 +286,22 @@ def main() -> None:
             f'<div class="shots">{shots or "<p class=none>这个语言没有自己的截图 —— App Store 会用主语言（en-US）的那一套。文案是它自己的。</p>"}</div>'
             f'{fields}</div>')
 
+    n_ipad = sum(len(ios[l]['ipad']) for l in locales)
+    ipad_locales = [l for l in locales if ios[l]['ipad']]
+    ipad_tabs = ''.join(
+        f'<button class="tab{" on" if i == 0 else ""}" data-iloc="{loc}">'
+        f'{LOCALE_NAMES.get(loc, loc)}</button>'
+        for i, loc in enumerate(ipad_locales))
+    ipad_panes = ''
+    for i, loc in enumerate(ipad_locales):
+        shots = ''.join(
+            f'<img loading="lazy" src="{s}" alt="">' for s in ios[loc]['ipad'])
+        ipad_panes += (f'<div class="pane{" on" if i == 0 else ""}" '
+                       f'data-iloc="{loc}"><div class="shots">{shots}</div></div>')
+    if not ipad_locales:
+        ipad_panes = ('<p class="none">没有 iPad 截图 —— 支持 iPad 的 app '
+                      '必须提交这一档。</p>')
+
     play_tabs = ''.join(
         f'<button class="tab{" on" if i == 0 else ""}" data-ploc="{loc}">'
         f'{PLAY_NAMES.get(loc, loc)}</button>' for i, loc in enumerate(play))
@@ -340,6 +364,7 @@ def main() -> None:
         app=esc(app.get('name_en', key)), bundle=esc(app['bundle']),
         version=esc(version), n_ios=sum(len(v['shots']) for v in ios.values()),
         n_locales=len(locales), n_mac=len(mac_shots),
+        n_ipad=n_ipad, ipad_tabs=ipad_tabs, ipad_panes=ipad_panes,
         ios_tabs=ios_tabs, ios_panes=ios_panes,
         play_tabs=play_tabs, play_panes=play_panes,
         mac=mac, pkg_rows=pkg_rows or '<tr><td colspan=2>还没有构建</td></tr>',
@@ -422,12 +447,19 @@ macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝
 <div class="tally">
   <div><b>{n_ios}</b><span>iPhone 截图</span></div>
   <div><b>{n_mac}</b><span>Mac 截图</span></div>
+  <div><b>{n_ipad}</b><span>iPad 截图</span></div>
   <div><b>{n_locales}</b><span>App Store 语言</span></div>
 </div>
 
 <h2>iPhone — 截图与文案</h2>
 <div class="tabs">{ios_tabs}</div>
 {ios_panes}
+
+<h2>iPad — 截图</h2>
+<p class="sub">十三英寸档（2064×2752）。支持 iPad 的 app 这一档是必填的，
+线上 1.1.25 每个语言只有一张。</p>
+<div class="tabs">{ipad_tabs}</div>
+{ipad_panes}
 
 <h2>iPhone — 预览视频</h2>
 <p class="sub">App Store 的 App Preview。真实操作录屏，不是拼接的动画；
@@ -495,6 +527,7 @@ function wire(attr, tabSel, paneSel) {{
 }})();
 wire('data-loc', '.tab[data-loc]', '.pane[data-loc]');
 wire('data-ploc', '.tab[data-ploc]', '.pane[data-ploc]');
+wire('data-iloc', '.tab[data-iloc]', '.pane[data-iloc]');
 document.querySelectorAll('[data-copy]').forEach(function (b) {{
   b.addEventListener('click', function () {{
     navigator.clipboard.writeText(b.parentNode.parentNode.querySelector('pre').innerText)
