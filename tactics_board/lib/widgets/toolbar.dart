@@ -1753,8 +1753,6 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_square', 'marker_square'.tr(), MarkerShape.square, Colors.teal, 1),
       shapeEntry('marker_triangle', 'marker_triangle'.tr(), MarkerShape.triangle, Colors.orange, 2),
       shapeEntry('marker_diamond', 'marker_diamond'.tr(), MarkerShape.diamond, Colors.purple, 3),
-      genderEntry('neutral_male', 'neutral_male'.tr(), PlayerGender.male, 4),
-      genderEntry('neutral_female', 'neutral_female'.tr(), PlayerGender.female, 5),
       shapeEntry('marker_cone', 'marker_cone'.tr(), MarkerShape.cone, Colors.orange, 6),
       shapeEntry('marker_text', 'marker_text'.tr(), MarkerShape.text, Colors.blueGrey, 7),
       shapeEntry('marker_zone', 'marker_zone'.tr(), MarkerShape.zone, Colors.yellow, 8),
