@@ -57,24 +57,12 @@ void main() {
     await tester.pump(const Duration(milliseconds: 60));
     state.setShowMoveLines(true);
     // Two steps done, then the third — the shot — the way the › button does it.
-    Future<void> stepAndSettle() async {
-      state.stepForward();
-      await tester.pump();
-      for (var i = 0; i < 60 && state.isAnimating; i++) {
-        await tester.pump(const Duration(milliseconds: 50));
-      }
-      await tester.pump(const Duration(milliseconds: 50));
-    }
-    await stepAndSettle();
-    await stepAndSettle();
-    // ignore: avoid_print
-    print('PROBE before the shot: atStep=${state.atStep} animating=${state.isAnimating}');
     state.stepForward();
     await tester.pump();
     const dir = '/private/tmp/claude-501/-Users-zhenyusong-projects-board100/f8f07df9-0abc-4cbc-a570-256f66abef17/scratchpad/frames';
     Directory(dir).createSync(recursive: true);
     var elapsed = 0;
-    for (final ms in [16, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 100]) {
+    for (final ms in [16, 16, 50, 100, 100, 100, 100, 100, 100, 100]) {
       await tester.pump(Duration(milliseconds: ms));
       elapsed += ms;
       // ignore: avoid_print
@@ -89,6 +77,8 @@ void main() {
           return 'anim=${state.animatedPositions[p.id]} drawn=${w.isEmpty ? '?' : '(${w.first.left?.toStringAsFixed(1)},${w.first.top?.toStringAsFixed(1)})'}';
         }
         final ghostC = find.byKey(const ValueKey('ghost_d2')).evaluate().length;
+        final ghostF = find.byKey(const ValueKey('ghost_d5')).evaluate().length;
+        final ghostB = find.byKey(const ValueKey('ghost_b0')).evaluate().length;
         int? shown;
         for (final cp in tester.widgetList<CustomPaint>(find.byType(CustomPaint))) {
           final pm = cp.painter;
@@ -111,7 +101,7 @@ void main() {
         // ignore: avoid_print
         print('PROBE BALL anim=${bAnim == null ? null : '(${bAnim.dx.toStringAsFixed(1)},${bAnim.dy.toStringAsFixed(1)})'} drawn=${drawn == null ? null : '(${drawn.dx.toStringAsFixed(1)},${drawn.dy.toStringAsFixed(1)})'} shift=${(bAnim != null && drawn != null) ? (drawn - bAnim).distance.toStringAsFixed(1) : '?'} nearest=$near');
         // ignore: avoid_print
-        print('PROBE F anim=$fAnim moving=$moving beat=$beat boardHeading=${boardHeading(state.players, f, beat)?.toStringAsFixed(2)} runHeading=${fAnim == null ? null : playerHeadingAt(f, fAnim)?.toStringAsFixed(2)} ghostC=$ghostC painterBeat=$shown');
+        print('PROBE F anim=$fAnim moving=$moving beat=$beat boardHeading=${boardHeading(state.players, f, beat)?.toStringAsFixed(2)} runHeading=${fAnim == null ? null : playerHeadingAt(f, fAnim)?.toStringAsFixed(2)} ghostC=$ghostC ghostF=$ghostF ghostBall=$ghostB painterBeat=$shown');
       }
       if (elapsed == 2300 || elapsed == 2500) {
         final ball = state.players.firstWhere((p) => p.isBall);

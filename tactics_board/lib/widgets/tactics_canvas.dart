@@ -1182,11 +1182,21 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       // The ball leaves a trace at the spot its leg began,
                       // at the feet of whoever played it: without one the
                       // pass arrow sets off from bare grass and the board
-                      // never says where the ball came from. Not while it is
-                      // playing, though — the ball is visibly in the air, and
-                      // a trace behind it is the thing that reads as a
-                      // second ball.
-                      if (p.isBall && state.isAnimating) return false;
+                      // never says where the ball came from. While it is
+                      // playing the trace appears the moment the ball has
+                      // left the spot, the same as a runner's — it used to
+                      // wait for the beat to end, so the ball flew from
+                      // bare grass and its start was drawn in afterwards.
+                      // Not before it has left, though: under the live ball
+                      // the two are one ball drawn twice.
+                      if (p.isBall && state.isAnimating) {
+                        final at = state.animatedPositions[p.id];
+                        if (at == null) return false;
+                        if ((at - ghostStart(p)).distance <
+                            kPlayerIconSize * 0.2) {
+                          return false;
+                        }
+                      }
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
