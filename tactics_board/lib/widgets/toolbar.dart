@@ -1630,6 +1630,25 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
     // and got a cone. The recolourable shapes keep their painter, because
     // their colour is the point and a sprite cannot follow it.
     Widget shapeGlyph(MarkerShape shape, Color color) {
+      // The referee and the coach are drawn as people on the board, and
+      // the tile shows what the board will draw: the plain figure in their
+      // kit, not the top-down sprite the tile used to carry.
+      if (shape == MarkerShape.referee || shape == MarkerShape.coach) {
+        return SizedBox(
+          width: 28,
+          height: 28,
+          child: CustomPaint(
+            painter: TopDownPlayerPainter(
+              color: color,
+              borderColor: Colors.white,
+              borderWidth: 2,
+              gender: PlayerGender.unspecified,
+              figure: PlayerFigure.plain,
+              sport: state.sportType,
+            ),
+          ),
+        );
+      }
       final art = markerImageAsset(shape, state.sportType);
       return SizedBox(
         width: 28,
@@ -1739,8 +1758,8 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_cone', 'marker_cone'.tr(), MarkerShape.cone, Colors.orange, 6),
       shapeEntry('marker_text', 'marker_text'.tr(), MarkerShape.text, Colors.blueGrey, 7),
       shapeEntry('marker_zone', 'marker_zone'.tr(), MarkerShape.zone, Colors.yellow, 8),
-      shapeEntry('marker_referee', 'marker_referee'.tr(), MarkerShape.referee, Colors.black, 9),
-      shapeEntry('marker_coach', 'marker_coach'.tr(), MarkerShape.coach, const Color(0xFF37474F), 10),
+      shapeEntry('marker_referee', 'marker_referee'.tr(), MarkerShape.referee, const Color(0xFF212121), 9),
+      shapeEntry('marker_coach', 'marker_coach'.tr(), MarkerShape.coach, const Color(0xFF455A64), 10),
       shapeEntry('marker_ladder', 'marker_ladder'.tr(), MarkerShape.ladder, Colors.lime, 11),
       shapeEntry('marker_hurdle', 'marker_hurdle'.tr(), MarkerShape.hurdle, Colors.red, 12),
       shapeEntry('marker_arrow', 'marker_arrow'.tr(), MarkerShape.arrowMark, Colors.green, 13),
