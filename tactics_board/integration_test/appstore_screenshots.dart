@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/rendering.dart';
+import 'dart:ui';
+import 'dart:typed_data';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -85,7 +88,7 @@ void main() {
         testWidgets('${sn}_${lang}_s1', (t) async {
           await _seedHome(t, sport, locale);
           await _launchHome(t, sport, locale);
-          await _shot(binding, '$sn/$lang/s1');
+          await _shot(binding, '$sn/$lang/s1', t);
         });
 
         // s2: Add-element bottom sheet (match setups), over a board in use —
@@ -93,28 +96,28 @@ void main() {
         testWidgets('${sn}_${lang}_s2', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          await _putShowcase(t, s, sport);
+          await _putShowcase(t, s, sport, slot: 0);
           s.selectPlayer(null);
           s.clearMultiSelect();
           await t.pumpAndSettle();
           final ctx = t.element(find.byType(TacticsBoardHomePage));
           showAddElementSheet(ctx, s);
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s2');
+          await _shot(binding, '$sn/$lang/s2', t);
         });
 
         // s3: timeline editor
         testWidgets('${sn}_${lang}_s3', (t) async {
           await _launchSport(t, sport, locale);
           final s = _state(t);
-          await _putShowcase(t, s, sport);
+          await _putShowcase(t, s, sport, slot: 1);
           s.selectPlayer(null);
           await t.pumpAndSettle();
           // The outlined variant: the play bar's button, which is what the
           // filled Icons.view_timeline stopped being some releases ago.
           await t.tap(find.byIcon(Icons.view_timeline_outlined));
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s3');
+          await _shot(binding, '$sn/$lang/s3', t);
         });
 
         // s4: the drill library — the shelf itself. A single drill's page
@@ -132,7 +135,7 @@ void main() {
           await t.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 600)));
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s4');
+          await _shot(binding, '$sn/$lang/s4', t);
         });
 
         // s5: one player picked up — the bar that names them, turns them,
@@ -144,7 +147,7 @@ void main() {
           // advanceAtStep, not setTargetStep: the board reads either, but
           // the counter on the bar reads atStep, and a shot captioned 0/8
           // over a board three beats in is a shot of a bug.
-          await _putShowcase(t, s, sport, step: 2);
+          await _putShowcase(t, s, sport, step: 2, slot: 2);
           s.clearMultiSelect();
           await t.pumpAndSettle();
           // Somebody with a run to show: the bar is the same either way, but
@@ -155,7 +158,7 @@ void main() {
                   (p) => !p.isBall && !p.isMarker));
           s.selectPlayer(runner.id);
           await t.pumpAndSettle();
-          await _shot(binding, '$sn/$lang/s5');
+          await _shot(binding, '$sn/$lang/s5', t);
         });
       }
     }
@@ -169,26 +172,39 @@ void main() {
 /// shape and one clear pass, where the 4v4 the heuristic liked is eight
 /// players and four goals in the same space. Sports without an entry fall
 /// back to the rule below, which is what picked this one's shortlist.
-const _showcaseIds = <SportType, String>{
-  SportType.soccer: 'passing_pentagon',
+/// One drill per board shot, in shot order. Three boards appear in the set —
+/// the lineup, the timeline and the drill being run — and they were all the
+/// same board, because there was one showcase drill per sport: the store
+/// page showed the same eleven figures in the same places three times over.
+/// A sport with fewer named than shots repeats the last one.
+const _showcaseIds = <SportType, List<String>>{
+  SportType.soccer: ['passing_pentagon'],
   // The heuristic picked a five-player aerial that sat in the bottom third
   // and left half the pitch empty. A counter-attack runs the length of it:
   // seven players spread 791 board units top to bottom, the ball travelling
   // through all four beats.
-  SportType.fieldHockey: 'fh_counter_attack',
+  // A counter down the length of the pitch, a high press as a line across
+  // it, and a 3v2 into the circle: three different shapes, three different
+  // thirds of the pitch, all with the ball travelling.
+  SportType.fieldHockey: [
+    'fh_press_high',
+    'fh_counter_attack',
+    'fh_entry_three_v_two',
+  ],
 };
 
 /// The drill to photograph: the shipped library's own, chosen for what a
 /// store screenshot has to show at a glance — a ball that travels, the
 /// equipment that makes the shape, and enough beats to have a past and a
 /// future. Deterministic, so every locale shoots the same board.
-Future<Drill?> _showcase(WidgetTester t, SportType sport) async {
+Future<Drill?> _showcase(WidgetTester t, SportType sport, {int slot = 0}) async {
   List<Drill> all = const [];
   await t.runAsync(() async {
     all = await DrillLibraryService.instance.forSport(sport);
   });
-  final named = _showcaseIds[sport];
-  if (named != null) {
+  final names = _showcaseIds[sport];
+  if (names != null && names.isNotEmpty) {
+    final named = names[slot.clamp(0, names.length - 1)];
     for (final d in all) {
       if (d.id == named) return d;
     }
@@ -238,8 +254,8 @@ Future<Drill?> _showcase(WidgetTester t, SportType sport) async {
 /// a pitch dimmed under a sheet. A drill is six players, the cones that
 /// make the shape, and a ball that goes somewhere.
 Future<void> _putShowcase(WidgetTester t, TacticsState s, SportType sport,
-    {int step = 0}) async {
-  final drill = await _showcase(t, sport);
+    {int step = 0, int slot = 0}) async {
+  final drill = await _showcase(t, sport, slot: slot);
   if (drill == null) {
     _setupFormationAndMoves(s, sport);
     return;
@@ -392,9 +408,34 @@ Future<void> _launchHome(WidgetTester t, SportType sport, Locale locale) async {
 Future<void> _launchSport(WidgetTester t, SportType sport, Locale locale) =>
     _launch(t, sport, locale, const TacticsBoardHomePage());
 
+/// Shoot the set sideways: --dart-define=LANDSCAPE=1.
+///
+/// An iPad is held landscape to coach from, so its store screenshots show
+/// the app landscape. The harness takes the device's own size, and a
+/// simulator cannot be rotated from the command line, so the view is
+/// swapped instead — which is what the app would see on a turned iPad.
+const _landscape = bool.fromEnvironment('LANDSCAPE');
+
+/// The 13-inch iPad's landscape pixels — one of the sizes App Store Connect
+/// takes for that class.
+const _landscapeSize = Size(2752, 2064);
+const _landscapeDpr = 2.0;
+
+/// The widget the sideways shot is cut from. takeScreenshot photographs the
+/// device, which cannot be turned from a command line, so a sideways run
+/// lays the app out at the size it wants and photographs that instead.
+final _shotKey = GlobalKey();
+
+void _orient(WidgetTester t) {
+  if (!_landscape) return;
+  t.view.physicalSize = _landscapeSize;
+  t.view.devicePixelRatio = _landscapeDpr;
+}
+
 /// The app, at [home], in [locale].
 Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
     Widget home) async {
+  _orient(t);
   await EasyLocalization.ensureInitialized();
   // The figures, the ball and the equipment decode like any other asset. A
   // test that shoots the moment it pumps catches the board drawn with the
@@ -421,7 +462,7 @@ Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
             supportedLocales: ctx.supportedLocales,
             locale: locale,
             theme: _theme(),
-            home: home,
+            home: _landscape ? RepaintBoundary(key: _shotKey, child: home) : home,
           ),
         );
       }),
@@ -446,13 +487,32 @@ TacticsState _state(WidgetTester t) {
   return Provider.of<TacticsState>(ctx, listen: false);
 }
 
-Future<void> _shot(IntegrationTestWidgetsFlutterBinding b, String name) async {
-  await b.convertFlutterSurfaceToImage();
-  await Future.delayed(const Duration(milliseconds: 300));
-  final bytes = await b.takeScreenshot(name);
+Future<void> _shot(IntegrationTestWidgetsFlutterBinding b, String name,
+    [WidgetTester? t]) async {
+  final Uint8List bytes;
+  if (_landscape && t != null) {
+    bytes = await _boundaryShot(t);
+  } else {
+    await b.convertFlutterSurfaceToImage();
+    await Future.delayed(const Duration(milliseconds: 300));
+    bytes = Uint8List.fromList(await b.takeScreenshot(name));
+  }
   final dir = Directory('$outDir/${name.substring(0, name.lastIndexOf('/'))}');
   if (!dir.existsSync()) dir.createSync(recursive: true);
   final f = File('$outDir/$name.png');
   await f.writeAsBytes(bytes);
   print('📸 $name (${(bytes.length / 1024).toStringAsFixed(0)} KB)');
+}
+
+/// The app as laid out, at whatever size the view was given.
+Future<Uint8List> _boundaryShot(WidgetTester t) async {
+  await t.pumpAndSettle();
+  final ro = _shotKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+  late Uint8List out;
+  await t.runAsync(() async {
+    final img = await ro.toImage(pixelRatio: _landscapeDpr);
+    final data = await img.toByteData(format: ImageByteFormat.png);
+    out = data!.buffer.asUint8List();
+  });
+  return out;
 }

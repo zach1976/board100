@@ -214,7 +214,15 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         ),
                       ),
                       const SizedBox(width: 4),
-                      Text(player.label, style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
+                      // Flexible, or the ellipsis has no width to work with:
+                      // the dot and the gap take 18 of the row's 40 points,
+                      // so a two-character label — GK, or any number at the
+                      // tablet's larger type — ran 2.8 points past the end.
+                      // Caught by a landscape capture run, not by a test:
+                      // see tools/... LANDSCAPE=1 in appstore_screenshots.
+                      Flexible(
+                        child: Text(player.label, style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
+                      ),
                     ],
                   ),
           ),

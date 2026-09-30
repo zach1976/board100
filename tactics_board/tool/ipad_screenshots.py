@@ -27,8 +27,15 @@ from pathlib import Path
 
 import aso_design_compositor as C
 
-IPAD_W, IPAD_H = 2064, 2752
-SCALE = IPAD_W / C.W                      # 1.6
+# Landscape: an iPad is held sideways to coach from, so the store set shows
+# the app sideways. 2732 x 2048 is one of the sizes App Store Connect takes
+# for the 13-inch class, and it is what a landscape capture comes out at.
+IPAD_W, IPAD_H = 2732, 2048
+# By height, not width. The layout stacks a headline over a device, so what
+# the type has to fit into is the canvas's height — and this canvas is wider
+# than the phone's but SHORTER. Scaling by width made the headline taller
+# than the band that holds it.
+SCALE = IPAD_H / C.H
 
 REPO = Path(__file__).resolve().parent.parent
 RAW = REPO / "aso" / "screenshots_v2_raw_ipad"
