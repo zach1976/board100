@@ -312,5 +312,19 @@ class PlayerIcon {
     }
   }
 
-  Color get color => customColor ?? teamColor(team);
+  /// The referee and the coach: people among the equipment. They are drawn
+  /// as people — the same figure as a player, facing the action — not as
+  /// the top-down sprites the rest of the markers are, which put a man
+  /// seen from above among players seen from the touchline.
+  bool get isPersonMarker =>
+      isMarker &&
+      (markerShape == MarkerShape.referee || markerShape == MarkerShape.coach);
+
+  Color get color =>
+      customColor ??
+      (markerShape == MarkerShape.referee
+          ? const Color(0xFF212121)
+          : markerShape == MarkerShape.coach
+              ? const Color(0xFF455A64)
+              : teamColor(team));
 }

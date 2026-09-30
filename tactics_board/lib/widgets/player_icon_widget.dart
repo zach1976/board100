@@ -389,6 +389,9 @@ class TopDownPlayerPainter extends CustomPainter {
   /// a board carried over from another sport never comes up empty-handed by
   /// accident — it comes up plain, which is what it always looked like.
   static PlayerFigure figureFor(SportType sport, PlayerIcon player) {
+    // A referee or a coach holds nothing and wears no kit the sport
+    // dictates: the plain figure, whatever the sport's players are drawn as.
+    if (player.isMarker) return PlayerFigure.plain;
     if (sport.playerBody != PlayerFigure.plain) return sport.playerBody;
     final held = sport.playerImplement;
     if (held == null) return PlayerFigure.plain;
@@ -794,7 +797,7 @@ class PlayerIconWidget extends StatelessWidget {
             // the token stays upright on screen whichever way the board is
             // turned, and the heading picks which of eight pictures is
             // drawn. See playerFacing.
-            child: (player.isMarker || player.isBall)
+            child: ((player.isMarker && !player.isPersonMarker) || player.isBall)
                 ? RotatedBox(
                     // A cone does not fall over when the board is turned;
                     // a goal keeps its bearing. See kUprightMarkers.

@@ -1666,6 +1666,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     final isPicture = isPhoto ||
         p.isBall ||
         (p.isMarker &&
+            !p.isPersonMarker &&
             markerImageAsset(p.markerShape, widget.state.sportType) != null);
     final expanded = _expanded || isPicture;
     return Padding(
@@ -2159,7 +2160,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           : PhotoPlayerShape(player: p, isSelected: false);
     } else if (p.isBall) {
       glyph = ballWidget(p.sportType ?? widget.state.sportType);
-    } else if (p.isMarker) {
+    } else if (p.isMarker && !p.isPersonMarker) {
       // The same picture the board draws: equipment that ships as artwork
       // is shown as that artwork, not as the painter's stand-in shape. The
       // bar showed a coach a plain triangle for the cone he had selected on
