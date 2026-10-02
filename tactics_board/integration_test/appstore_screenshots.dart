@@ -19,6 +19,7 @@ import 'package:tactics_board/services/working_board_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
 import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
+import 'package:tactics_board/pages/sport_selection_page.dart';
 import 'package:tactics_board/pages/main_shell.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart' show PlayerArt;
@@ -161,6 +162,22 @@ void main() {
           await _shot(binding, '$sn/$lang/s5', t);
         });
       }
+    }
+
+    // The hub's own front door. Its other four shots come from four
+    // different sports (FLAGSHIP_SPORTS in the compositor), which is the
+    // point of a multi-sport listing — but the first one is a home page,
+    // and a home page carries the app's name. Borrowing soccer's put
+    // "Soccer Board" at the top of the Tactics Board listing. This is the
+    // page the hub actually opens on: every sport it covers, in one grid.
+    for (final (lang, locale) in allLocales) {
+      testWidgets('tactics_board_${lang}_s1', (t) async {
+        await _launch(t, SportType.soccer, locale, const SportSelectionPage());
+        await t.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 600)));
+        await t.pumpAndSettle();
+        await _shot(binding, 'tactics_board/$lang/s1', t);
+      });
     }
   });
 }
@@ -462,7 +479,15 @@ Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
             supportedLocales: ctx.supportedLocales,
             locale: locale,
             theme: _theme(),
-            home: _landscape ? RepaintBoundary(key: _shotKey, child: home) : home,
+            home: home,
+            // The boundary goes round the Navigator, not round [home]: a
+            // bottom sheet and a pushed page live in the Navigator's
+            // overlay, above home, and a boundary on home alone shot the
+            // Add sheet, the timeline and the drill library as the board
+            // or the home page under them.
+            builder: _landscape
+                ? (_, child) => RepaintBoundary(key: _shotKey, child: child)
+                : null,
           ),
         );
       }),

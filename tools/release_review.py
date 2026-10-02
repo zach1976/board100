@@ -113,8 +113,13 @@ def main() -> None:
     play = {}
     if play_root.is_dir():
         for d in sorted(p for p in play_root.iterdir() if p.is_dir()):
-            logs = sorted((d / 'changelogs').glob('*.txt'),
-                          key=lambda p: int(p.stem)) if (d / 'changelogs').is_dir() else []
+            # Sorted by versionCode, with fastlane's `default.txt` — the
+            # fallback used for any code without its own file — last. It has
+            # no number, and int() on it used to abort the whole page.
+            logs = sorted(
+                (d / 'changelogs').glob('*.txt'),
+                key=lambda p: (1, 0) if not p.stem.isdigit() else (0, int(p.stem)),
+            ) if (d / 'changelogs').is_dir() else []
             play[d.name] = {
                 'title': read(d / 'title.txt'),
                 'short': read(d / 'short_description.txt'),

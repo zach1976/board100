@@ -353,12 +353,15 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     smask = rounded_mask((screen_w, screen_h), round(96 * k))
     layer.paste(scr, (px+bezel, py+bezel), smask)
 
-    # dynamic island pill near top center of screen
-    di = ImageDraw.Draw(layer)
-    di_w, di_h = int(screen_w * 0.30), round(38 * k)
-    di_x = px + bezel + (screen_w - di_w)//2
-    di_y = py + bezel + round(26 * k)
-    di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
+    # dynamic island pill near top center of screen — a phone's. A tablet
+    # shot (4:3, either way up) gets the frame without it: an iPad has no
+    # island, and the pill sat over the home page's title.
+    if shot.height > shot.width * 1.5:
+        di = ImageDraw.Draw(layer)
+        di_w, di_h = int(screen_w * 0.30), round(38 * k)
+        di_x = px + bezel + (screen_w - di_w)//2
+        di_y = py + bezel + round(26 * k)
+        di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
 
     # side buttons
     bd = ImageDraw.Draw(layer)
@@ -520,6 +523,13 @@ def render_sport_locale(captions, sport, locale, outbase):
         # flagship pulls each shot from a different sport for a multi-sport feel
         src_sport = FLAGSHIP_SPORTS[i] if flagship else sport
         src = V2RAW / src_sport / locale / f"s{i+1}.png"
+        # The hub shoots its own first screen — the sport picker it opens
+        # on. Borrowing a flagship's put another app's name ("Soccer
+        # Board") at the top of the Tactics Board listing.
+        if flagship:
+            own = V2RAW / sport / locale / f"s{i+1}.png"
+            if own.exists():
+                src, src_sport = own, sport
         if not src.exists():
             print(f"⚠️  missing raw {src}")
             continue
