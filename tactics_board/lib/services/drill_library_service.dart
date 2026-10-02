@@ -102,6 +102,14 @@ class DrillLibraryService {
     return File('${dir.path}/drills/${sport.name}.json');
   }
 
+  /// The tag the server gave the copy in [_cacheFile], beside it so the two
+  /// are lost together: a tag without its pack would tell the server we
+  /// already have what we no longer have.
+  Future<File> _etagFile(SportType sport) async {
+    final dir = await getApplicationDocumentsDirectory();
+    return File('${dir.path}/drills/${sport.name}.etag');
+  }
+
   Future<Map<String, dynamic>?> _readCached(SportType sport) async {
     try {
       final f = await _cacheFile(sport);
@@ -126,12 +134,18 @@ class DrillLibraryService {
     // guard every test run would knock on production.
     if (Platform.environment['FLUTTER_TEST'] == 'true') return;
     try {
-      // A generous timeout on purpose: nothing waits on this, and the
-      // soccer pack is large — an 8s limit made it undownloadable on the
-      // very connections where an update matters.
+      // The tag of the copy already on disk, so an unchanged pack costs a
+      // few hundred bytes instead of a download. Every sport a coach opens
+      // asks once per launch, and the hub can open fifteen — that was 2MB
+      // of pack the phone already had. Only sent when the pack it names is
+      // still there to be kept.
+      final tag = await _knownEtag(sport);
       final resp = await http
-          .get(Uri.parse('$_remoteBase/${sport.name}'))
+          .get(Uri.parse('$_remoteBase/${sport.name}'),
+              headers: tag == null ? null : {'If-None-Match': tag})
           .timeout(const Duration(seconds: 45));
+      // 304: what is on disk is what the server would have sent.
+      if (resp.statusCode == 304) return;
       if (resp.statusCode != 200) return;
       final json = jsonDecode(resp.body) as Map<String, dynamic>;
       final version = (json['version'] as num?)?.toInt() ?? 0;
@@ -151,8 +165,30 @@ class DrillLibraryService {
       final f = await _cacheFile(sport);
       await f.create(recursive: true);
       await f.writeAsString(resp.body);
+      // The tag is written after the pack, never before: a tag for a pack
+      // that failed to land would stop the next launch asking for it.
+      final etag = resp.headers['etag'];
+      final tagFile = await _etagFile(sport);
+      if (etag == null) {
+        if (await tagFile.exists()) await tagFile.delete();
+      } else {
+        await tagFile.writeAsString(etag);
+      }
     } catch (_) {
       // Offline, slow, or a bad payload — the bundled library is the product.
+    }
+  }
+
+  /// The tag of the cached pack, or null when there is no pack to keep.
+  Future<String?> _knownEtag(SportType sport) async {
+    try {
+      if (!await (await _cacheFile(sport)).exists()) return null;
+      final f = await _etagFile(sport);
+      if (!await f.exists()) return null;
+      final tag = (await f.readAsString()).trim();
+      return tag.isEmpty ? null : tag;
+    } catch (_) {
+      return null;
     }
   }
 

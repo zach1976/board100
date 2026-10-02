@@ -28,6 +28,18 @@ class DrillPackController extends Controller
             abort(404);
         }
         $body = Storage::get($path);
+        // The pack's own fingerprint. A client that already holds this exact
+        // pack sends it back and gets 304 — every sport a coach opens asks
+        // once per launch, and the hub can open fifteen, which was 2MB of
+        // pack the phone already had. Taken from the file rather than the
+        // encoded body so it does not change with Accept-Encoding.
+        $etag = '"' . md5($body) . '"';
+        if (trim(request()->header('If-None-Match', '')) === $etag) {
+            return response('', 304)
+                ->header('ETag', $etag)
+                ->header('Cache-Control', 'public, max-age=3600')
+                ->header('Vary', 'Accept-Encoding');
+        }
         // Compress here rather than trusting the web server: nothing in this
         // stack was gzipping PHP responses, and the soccer pack is ~1MB raw
         // against ~140KB compressed — the difference between an update that
@@ -35,6 +47,10 @@ class DrillPackController extends Controller
         $accepts = str_contains(request()->header('Accept-Encoding', ''), 'gzip');
         $response = response($accepts ? gzencode($body, 6) : $body, 200)
             ->header('Content-Type', 'application/json')
+            ->header('ETag', $etag)
+            // One URL serves both gzip and plain, so a cache between here
+            // and the phone has to key on which was asked for.
+            ->header('Vary', 'Accept-Encoding')
             // Packs change rarely; an hour of cache keeps 16 apps from
             // hammering one box, and a version bump shows up within it.
             ->header('Cache-Control', 'public, max-age=3600');
