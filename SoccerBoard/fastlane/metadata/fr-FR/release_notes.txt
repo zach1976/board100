@@ -1,24 +1,23 @@
-Nouveautés de la version 2.0.1
+Nouveautés de la version 2.2.0
 
-Tout dans cette version concerne ce que les tableaux d'exercices dessinent réellement.
+Un tableau au nouveau look, et un ballon toujours là où un joueur l'aurait.
 
-DISTINGUER UNE COURSE, UNE CONDUITE ET UNE PASSE
-Trois actions, trois traits : la course est en pointillés, la conduite ondule, la passe est une flèche pleine. Auparavant, le joueur qui portait le ballon recevait deux flèches presque identiques côte à côte.
+LE TABLEAU EST UNE CARTE
+Le terrain repose sur le fond sombre de son sport, avec des coins arrondis et une ombre douce, au lieu de déborder des bords de l'écran. Joueurs, plots et ballon ont une ombre de contact, la pelouse a ses bandes de tonte, les filets ont leurs mailles et les buts de football sont des images plutôt que des tracés.
 
-CHAQUE FLÈCHE A UN DÉPART
-Un déplacement court gardait sa destination et perdait son origine : un quart des flèches de la bibliothèque semblaient sortir de nulle part.
+COMMANDES REFAITES
+Une barre inférieure plus lisible, outils dans une capsule et lecture dans une autre ; des boutons d'angle plus grands qui évitent la Dynamic Island ; zoom et plein écran déplacés dans la barre. Sur iPad en paysage, les commandes passent sous le tableau et le terrain prend toute la largeur.
 
-UN JOUEUR, DESSINÉ UNE FOIS
-Passé le premier temps, un joueur qui s'était déplacé était dessiné deux fois, à une foulée d'écart et dans deux directions différentes.
+LE BALLON DEVANT LE JOUEUR
+Le porteur a le ballon aux pieds, devant lui, du côté où il regarde — jamais derrière, jamais sous les crampons. Un joueur de dos est dessiné par-dessus le ballon, comme il le serait. Le ballon ne sursaute plus au début d'un pas et ne retombe plus deux fois à la fin.
 
-DES FRAPPES QUI ATTEIGNENT LE BUT
-La frappe s'arrêtait trop tôt, sur le gardien ; et le gardien se tenait à l'intérieur de ses propres filets. Les deux sont corrigés.
+LES TRACÉS SOUS LES JOUEURS
+Courses, conduites et passes sont dessinées sous les silhouettes, partent et arrivent aux pieds, et les pointes de flèche s'arrêtent avant celui qu'elles visent au lieu de se poser sur sa tête.
 
-AUSSI
-- Les plots restent en place quand une course passe à côté
-- La flèche de passe arrive avec le ballon, pas avant lui
-- Les joueurs regardent ce qu'ils s'apprêtent à faire : le gardien fixe l'attaquant, pas son propre but
-- Les navettes se courent les mains vides
-- Les étiquettes de texte pivotent avec le tableau et proposent quatre polices
-- La barre d'édition n'affiche que ce qui peut changer : le matériel n'a ni course ni couleur
-- L'arbitre et l'entraîneur sont dessinés comme des personnes et tournent comme elles
+PERSONNE NE MARCHE SUR PERSONNE
+Les 674 exercices de la bibliothèque ont été réespacés pour qu'aucune silhouette n'en chevauche une autre, à aucun pas.
+
+ET AUSSI
+- Un écran de lancement en paysage
+- L'écran d'accueil affiche le nom du sport
+- Les exercices ne se téléchargent que si quelque chose a changé

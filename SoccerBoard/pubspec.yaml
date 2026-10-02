@@ -2,7 +2,7 @@ name: soccer_board
 description: "Soccer Board — single-sport shell over the shared tactics_board core."
 publish_to: 'none'
 # Kept in lockstep with the core: every app in this repo ships one version.
-version: 2.0.1+8
+version: 2.2.0+9
 
 environment:
   sdk: ^3.11.0
@@ -14,7 +14,7 @@ dependencies:
   # lib/main.dart and tactics_board/lib/config_constants.dart.
   tactics_board:
     path: ../tactics_board
-  # This sport's own drills, ball and equipment — and no other sport's.
+  # Only this app's sport(s): the drill library, the ball, the equipment.
   sport_soccer:
     path: ../packages/sport_soccer
 

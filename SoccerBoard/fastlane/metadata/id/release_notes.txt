@@ -1,24 +1,23 @@
-Yang Baru di 2.0.1
+Yang Baru di 2.2.0
 
-Semua di versi ini tentang apa yang benar-benar digambar oleh papan latihan.
+Tampilan papan yang baru, dan bola yang selalu berada di tempat pemain memegangnya.
 
-BEDAKAN LARI, GIRINGAN, DAN UMPAN
-Tiga aksi, tiga garis: lari bergaris putus-putus, giringan bergelombang, umpan berupa panah utuh. Dulu pemain yang menggiring bola mendapat dua panah yang nyaris sama berdampingan.
+PAPAN ADALAH SEBUAH KARTU
+Lapangan duduk di atas latar gelap olahraganya sendiri dengan sudut membulat dan bayangan lembut, bukan lagi memenuhi tepi layar. Pemain, kerucut, dan bola punya bayangan kontak, rumput punya garis potongnya, jaring punya anyaman, dan gawang sepak bola kini berupa gambar, bukan garis.
 
-SETIAP PANAH PUNYA TITIK AWAL
-Pergerakan pendek hanya menyisakan tujuan dan kehilangan titik awalnya, sehingga seperempat panah di pustaka tampak muncul entah dari mana.
+KONTROL DIBANGUN ULANG
+Bilah bawah yang lebih jelas dengan alat dalam satu kapsul dan pemutaran di kapsul lain; tombol sudut lebih besar dan menjauhi Dynamic Island; zoom dan layar penuh pindah ke bilah. Di iPad dalam posisi lanskap, kontrol berada di bawah papan sehingga lapangan memakai lebar penuh.
 
-SATU PEMAIN, DIGAMBAR SEKALI
-Setelah langkah pertama, pemain yang sudah bergerak digambar dua kali — terpaut selangkah, menghadap dua arah berbeda.
+BOLA DI DEPAN PEMAIN
+Pemain yang memegang bola menaruhnya di kaki, di depan, pada sisi yang ia hadapi — tidak pernah di belakang, tidak pernah terinjak. Pemain yang membelakangi Anda digambar di atas bola, sebagaimana mestinya. Bola tidak lagi melompat di awal langkah atau mendarat dua kali di akhirnya.
 
-TEMBAKAN SAMPAI KE GAWANG
-Tembakan berhenti terlalu awal, di badan penjaga gawang; dan penjaga gawangnya sendiri berdiri di dalam jalanya. Keduanya diperbaiki.
+RUTE DI BAWAH ORANG
+Garis lari, giring, dan umpan digambar di bawah figur, mulai dan berakhir di kaki, dan ujung panah berhenti sebelum orang yang ditunjuk alih-alih menempel di kepalanya.
+
+TIDAK ADA YANG MENGINJAK SIAPA PUN
+Semua 674 papan latihan di pustaka diatur ulang jaraknya agar tidak ada dua figur yang tumpang tindih di langkah mana pun.
 
 JUGA
-- Kerucut tetap di tempatnya saat ada yang berlari melewatinya
-- Panah umpan tiba bersama bola, bukan mendahuluinya
-- Pemain menghadap ke arah yang akan dilakukan — penjaga gawang menatap penyerang, bukan gawangnya sendiri
-- Lari bolak-balik dilakukan dengan tangan kosong
-- Label teks ikut berputar dan bisa memakai empat jenis huruf
-- Bilah edit hanya menampilkan yang bisa diubah: peralatan tidak punya lari maupun warna
-- Wasit dan pelatih digambar sebagai orang, dan berputar seperti orang
+- Layar pembuka untuk mode lanskap
+- Layar beranda menampilkan nama olahraga
+- Pembaruan latihan hanya diunduh bila ada yang berubah

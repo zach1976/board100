@@ -1,24 +1,23 @@
-Có gì mới trong 2.0.1
+Có gì mới trong 2.2.0
 
-Mọi thứ trong bản này đều liên quan đến những gì bảng chiến thuật thực sự vẽ ra.
+Diện mạo mới cho bảng chiến thuật, và quả bóng luôn nằm đúng chỗ cầu thủ giữ nó.
 
-PHÂN BIỆT CHẠY CHỖ, DẪN BÓNG VÀ CHUYỀN
-Ba hành động, ba kiểu nét: chạy chỗ là nét đứt, dẫn bóng là nét lượn sóng, chuyền là mũi tên nét liền. Trước đây người dẫn bóng bị vẽ thành hai mũi tên gần như giống hệt nhau nằm cạnh nhau.
+BẢNG LÀ MỘT TẤM THẺ
+Sân nằm trên nền tối của chính môn thể thao đó, bo góc và có bóng đổ nhẹ, thay vì tràn ra mép màn hình. Cầu thủ, cọc và bóng có bóng tiếp đất, mặt cỏ có vệt cắt, lưới có mắt lưới, và khung thành bóng đá là hình ảnh thay vì nét vẽ.
 
-MỌI MŨI TÊN ĐỀU CÓ ĐIỂM XUẤT PHÁT
-Một pha di chuyển ngắn chỉ giữ lại điểm đến và mất điểm xuất phát, khiến một phần tư số mũi tên trong thư viện trông như hiện ra từ hư không.
+ĐIỀU KHIỂN LÀM LẠI
+Thanh dưới rõ ràng hơn với công cụ trong một viên nang và phát lại trong một viên nang khác; nút góc lớn hơn và tránh Dynamic Island; thu phóng và toàn màn hình chuyển vào thanh. Trên iPad ở chế độ ngang, điều khiển nằm dưới bảng để sân chiếm trọn chiều rộng.
 
-MỘT CẦU THỦ, VẼ MỘT LẦN
-Sau nhịp đầu tiên, cầu thủ đã di chuyển bị vẽ hai lần — cách nhau một bước chân và quay về hai hướng khác nhau.
+BÓNG Ở TRƯỚC CẦU THỦ
+Cầu thủ có bóng giữ bóng ở chân, phía trước, bên anh ta đang hướng tới — không bao giờ ở sau lưng, không bao giờ dưới chân. Cầu thủ quay lưng về phía bạn được vẽ đè lên bóng, đúng như thực tế. Bóng không còn nảy khi bắt đầu một bước hay rơi hai lần khi kết thúc.
 
-CÚ SÚT ĐẾN ĐƯỢC KHUNG THÀNH
-Cú sút từng dừng sớm, ngay trên người thủ môn; còn thủ môn thì đứng bên trong lưới nhà. Cả hai đều đã sửa.
+ĐƯỜNG DI CHUYỂN NẰM DƯỚI NGƯỜI
+Đường chạy, rê và chuyền được vẽ dưới các nhân vật, bắt đầu và kết thúc ở chân, và đầu mũi tên dừng trước người được chỉ thay vì đè lên đầu anh ta.
+
+KHÔNG AI ĐỨNG LÊN AI
+Toàn bộ 674 bảng bài tập trong thư viện được giãn lại để không có hai nhân vật nào chồng lên nhau ở bất kỳ bước nào.
 
 NGOÀI RA
-- Nón không bị xê dịch khi có người chạy ngang qua
-- Mũi tên đường chuyền đến cùng lúc với bóng, không đến trước
-- Cầu thủ quay mặt về phía việc sắp làm — thủ môn nhìn tiền đạo, không nhìn khung thành nhà
-- Bài chạy con thoi chạy tay không
-- Nhãn chữ xoay theo bảng và có bốn kiểu chữ để chọn
-- Thanh chỉnh sửa chỉ hiện những gì thay đổi được: dụng cụ không có chạy chỗ và không có màu
-- Trọng tài và huấn luyện viên được vẽ như người thật và xoay như người thật
+- Màn hình khởi động cho chế độ ngang
+- Màn hình chính hiển thị tên môn thể thao
+- Bài tập chỉ tải về khi có thay đổi

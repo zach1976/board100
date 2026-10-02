@@ -1,0 +1,7 @@
+2.2.0
+
+• Une bibliothèque de 137 exercices animés : ouvrez, lancez, ou posez-le sur le tableau pour le modifier
+• Des plans d'entraînement à dérouler depuis la touche, un effectif avec photos et présences
+• Tableau redessiné : carte arrondie, ombres de contact, surfaces texturées, filets maillés
+• Commandes refaites ; sur tablette en paysage, le terrain prend toute la largeur
+• Le ballon est devant son porteur, les tracés passent sous les joueurs

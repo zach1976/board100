@@ -1,24 +1,23 @@
-Apa yang Baharu dalam 2.0.1
+Apa yang Baharu dalam 2.2.0
 
-Semua dalam keluaran ini tentang apa yang sebenarnya dilukis oleh papan latihan.
+Rupa baharu untuk papan, dan bola yang sentiasa berada di tempat pemain memegangnya.
 
-BEZAKAN LARIAN, GELECEK DAN HANTARAN
-Tiga tindakan, tiga garis: larian bergaris putus, gelecek beralun, hantaran ialah anak panah penuh. Dahulu pemain yang membawa bola mendapat dua anak panah yang hampir serupa bersebelahan.
+PAPAN IALAH SEKEPING KAD
+Padang terletak di atas latar gelap sukan itu sendiri dengan bucu bulat dan bayang lembut, bukan lagi memenuhi tepi skrin. Pemain, kon dan bola ada bayang sentuhan, rumput ada jalur potongannya, jaring ada jalinannya, dan gol bola sepak kini berupa gambar, bukan garisan.
 
-SETIAP ANAK PANAH ADA PERMULAAN
-Pergerakan pendek hanya mengekalkan destinasi dan kehilangan tempat mula, jadi satu perempat anak panah dalam pustaka kelihatan muncul entah dari mana.
+KAWALAN DIBINA SEMULA
+Bar bawah yang lebih jelas dengan alat dalam satu kapsul dan main balik dalam satu lagi; butang bucu lebih besar dan menjauhi Dynamic Island; zum dan skrin penuh dipindahkan ke dalam bar. Pada iPad dalam landskap, kawalan berada di bawah papan supaya padang mengambil lebar penuh.
 
-SEORANG PEMAIN, DILUKIS SEKALI
-Selepas langkah pertama, pemain yang telah bergerak dilukis dua kali — selangkah jaraknya, menghadap dua arah berbeza.
+BOLA DI HADAPAN PEMAIN
+Pemain yang memegang bola meletakkannya di kaki, di hadapan, pada sisi yang dihadapnya — tidak pernah di belakang, tidak pernah terpijak. Pemain yang membelakangi anda dilukis di atas bola, seperti sepatutnya. Bola tidak lagi melonjak pada permulaan langkah atau mendarat dua kali pada penghujungnya.
 
-TENDANGAN SAMPAI KE GOL
-Tendangan berhenti awal, pada penjaga gol; dan penjaga gol itu sendiri berdiri di dalam jaringnya. Kedua-duanya dibaiki.
+LALUAN DI BAWAH ORANG
+Garis larian, kelecek dan hantaran dilukis di bawah figura, bermula dan berakhir di kaki, dan mata anak panah berhenti sebelum orang yang ditunjuk dan bukannya hinggap di kepalanya.
+
+TIADA SIAPA MEMIJAK SESIAPA
+Kesemua 674 papan latihan dalam pustaka dijarakkan semula supaya tiada dua figura bertindih pada mana-mana langkah.
 
 JUGA
-- Kon kekal di tempatnya apabila ada larian melintas
-- Anak panah hantaran tiba bersama bola, bukan mendahuluinya
-- Pemain menghadap apa yang bakal dilakukan — penjaga gol memerhati penyerang, bukan golnya sendiri
-- Larian ulang-alik dilakukan dengan tangan kosong
-- Label teks berputar bersama papan dan boleh memilih empat jenis fon
-- Bar sunting hanya menunjukkan apa yang boleh diubah: peralatan tiada larian dan tiada warna
-- Pengadil dan jurulatih dilukis sebagai orang, dan berpusing seperti orang
+- Skrin pelancaran untuk landskap
+- Skrin utama memaparkan nama sukan
+- Kemas kini latihan hanya dimuat turun apabila ada perubahan
