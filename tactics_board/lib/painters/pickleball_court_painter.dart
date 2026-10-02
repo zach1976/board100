@@ -13,7 +13,8 @@ class PickleballCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+    // A hard court: one poured surface, so no strips — only the light.
+    drawSurface(canvas, size);
 
     // Blank court: surface only, no markings.
     if (layout == CourtLayout.blank) return;
@@ -55,6 +56,7 @@ class PickleballCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 13.41 / 2), o(6.1, 13.41 / 2), netBand);
+    drawNetMesh(canvas, o(0, 13.41 / 2), o(6.1, 13.41 / 2), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
@@ -137,6 +139,7 @@ class PickleballCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(6.1, 0), netBand);
+    drawNetMesh(canvas, o(0, 0), o(6.1, 0), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4

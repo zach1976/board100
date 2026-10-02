@@ -504,5 +504,7 @@
   "anim_setup": "Bắt đầu",
   "drill_usage_3": "Thường dùng",
   "drill_usage_2": "Bình thường",
-  "drill_usage_1": "Thỉnh thoảng"
+  "drill_usage_1": "Thỉnh thoảng",
+  "zoom": "Thu phóng",
+  "fullscreen": "Toàn màn hình"
 }

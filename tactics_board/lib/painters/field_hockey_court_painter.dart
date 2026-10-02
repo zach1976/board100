@@ -63,11 +63,6 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     final scY = ch / fieldH;
     Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
 
-    final strokeThick = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-
     // ── Outer boundary ──────────────────────────────────────────────────────
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
 
@@ -135,22 +130,16 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
 
     // ── Goals (3.66m wide × 1.2m deep) ──────────────────────────────────────
     const goalDepth = 1.2;
-    canvas.drawRect(
-      Rect.fromLTWH(
-          o(goalLeft, -goalDepth).dx,
-          o(goalLeft, -goalDepth).dy,
-          goalW * scX,
-          goalDepth * scY),
-      strokeThick,
-    );
-    canvas.drawRect(
-      Rect.fromLTWH(
-          o(goalLeft, fieldH).dx,
-          o(goalLeft, fieldH).dy,
-          goalW * scX,
-          goalDepth * scY),
-      strokeThick,
-    );
+    drawGoal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+            goalW * scX, goalDepth * scY),
+        pitch: size);
+    drawGoal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, fieldH).dx, o(goalLeft, fieldH).dy,
+            goalW * scX, goalDepth * scY),
+        pitch: size);
   }
 
   /// One end (top 45.7m of the pitch) scaled to fill the board: the goal +
@@ -180,11 +169,6 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     final scX = cw / fieldW;
     final scY = ch / fieldH;
     Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
-
-    final strokeThick = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
 
     // Outer boundary (halfway line is the bottom edge).
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
@@ -217,19 +201,19 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
 
     // Goal (3.66m wide × 1.2m deep).
     const goalDepth = 1.2;
-    canvas.drawRect(
-      Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
-          goalW * scX, goalDepth * scY),
-      strokeThick,
-    );
+    drawGoal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+            goalW * scX, goalDepth * scY),
+        pitch: size);
   }
 
   void _drawTurf(Canvas canvas, Size size) {
-    // Blue astroturf — solid, no stripes (modern FIH international)
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = courtColor..style = PaintingStyle.fill,
-    );
+    // Blue water-based astroturf. It has no mowing stripes the way grass
+    // does — it is a carpet — but it is laid in rolls, and under floodlights
+    // the seams read as faint bands down the pitch. Flat, it was a slab of
+    // one blue with white lines drawn on it.
+    drawSurface(canvas, size, bands: 12, bandTint: 0.035);
   }
 
   @override

@@ -13,8 +13,21 @@ class TableTennisCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
+    // The hall around the table, lit from the middle like every other
+    // surface. It is not the court — the table is — so it takes its own
+    // colour and no bands.
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height),
         Paint()..color = const Color(0xFF0E3452)..style = PaintingStyle.fill);
+    canvas.drawRect(
+      Offset.zero & size,
+      Paint()
+        ..shader = const RadialGradient(
+          center: Alignment.center,
+          radius: 0.95,
+          colors: [Color(0x1FFFFFFF), Color(0x00000000), Color(0x2B000000)],
+          stops: [0.0, 0.5, 1.0],
+        ).createShader(Offset.zero & size),
+    );
 
     if (layout == CourtLayout.half) {
       _paintHalf(canvas, size);
@@ -65,6 +78,7 @@ class TableTennisCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 1.37), o(1.525, 1.37), netBand);
+    drawNetMesh(canvas, o(0, 1.37), o(1.525, 1.37), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
@@ -126,6 +140,7 @@ class TableTennisCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(1.525, 0), netBand);
+    drawNetMesh(canvas, o(0, 0), o(1.525, 0), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4

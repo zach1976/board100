@@ -738,6 +738,15 @@ class PlayerIconWidget extends StatelessWidget {
   final Function(ScaleStartDetails)? onScaleStart;
   final Function(ScaleUpdateDetails)? onScaleUpdate;
   final Function(ScaleEndDetails)? onScaleEnd;
+  /// Hang the name badge over the head instead of under the feet.
+  ///
+  /// The badge hangs 30pt below the middle, which is the head of anyone
+  /// standing a stride nearer the viewer — a marker behind an attacker put
+  /// his "X1" on the attacker's hair, and with the nearer figure painted
+  /// last the badge came out cut in half. The board sets this when the spot
+  /// below is taken; the badge then sits on its owner's head, still touching
+  /// him, so whose it is stays plain.
+  final bool labelAbove;
 
   const PlayerIconWidget({
     super.key,
@@ -745,6 +754,7 @@ class PlayerIconWidget extends StatelessWidget {
     this.isSelected = false,
     this.sport = SportType.soccer,
     this.heading,
+    this.labelAbove = false,
     this.onTap,
     this.onLongPress,
     this.onScaleStart,
@@ -788,6 +798,7 @@ class PlayerIconWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         alignment: Alignment.center,
         children: [
+          _ContactShadow(player: player, size: size),
           AnimatedScale(
             duration: const Duration(milliseconds: 140),
             curve: Curves.easeOutCubic,
@@ -851,8 +862,14 @@ class PlayerIconWidget extends StatelessWidget {
               // drawn 1.57 boxes tall, so a badge placed by the box lands on
               // the player's shins.
               offset: turnVector(
-                  Offset(0, kPlayerIconSize * 0.5 * player.scale +
-                      11.7 * player.scale),
+                  Offset(
+                      0,
+                      labelAbove
+                          // Above the hair: the figure's ink reaches 24pt
+                          // over the middle, the badge is 13 tall.
+                          ? -(kPlayerIconSize * 0.5 + 14) * player.scale
+                          : kPlayerIconSize * 0.5 * player.scale +
+                              11.7 * player.scale),
                   BoardOrientation.counterTurns(context)),
               child: RotatedBox(
               // Upright on screen like the body above it.
@@ -1364,6 +1381,88 @@ const kUprightMarkers = <MarkerShape>{
 /// hides it exactly as a player standing over one does in life. The rest have
 /// a height, and a figure that stands 47pt tall buries anything shorter than
 /// that directly behind it — see markerClearOffsets.
+/// The patch of ground a token is standing on.
+///
+/// Everything on the board was drawn flat, each piece a sticker with a white
+/// outline and nothing under it — a cut-out lying on the turf rather than a
+/// figure standing on it. This is one soft ellipse at the token's own
+/// contact point: the shoes for a person, the resting point for a ball or a
+/// cone. Flat equipment (a base, a marker disc, a throw-down ring) is
+/// already ON the ground and gets none.
+///
+/// It turns with the board, like the name badge above it: the figures stay
+/// upright on screen whichever way the pitch is pointed, so "under" is under
+/// on the screen and not in board coordinates.
+class _ContactShadow extends StatelessWidget {
+  final PlayerIcon player;
+  final double size;
+  const _ContactShadow({required this.player, required this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    if (isTextElement(player)) return const SizedBox.shrink();
+    // A ball is not a marker, so "not a marker" alone counted it as a
+    // person and dropped its shadow to where a figure's shoes are — 25pt
+    // down, 15pt clear of the ball, which then hung in the air above it.
+    final person =
+        !player.isBall && (!player.isMarker || player.isPersonMarker);
+    if (player.isMarker && !person &&
+        !kStandingMarkers.contains(player.markerShape)) {
+      return const SizedBox.shrink();
+    }
+    // A figure is drawn 1.4 boxes tall and its shoes sit 0.70 of a box below
+    // the middle — measured off the art, not guessed; see tool/ink_probe.dart.
+    //
+    // Everything else is fitted to its own box by [markerArtScale], so where
+    // its foot lands is half that. A flat 0.33 for all of them put a cone's
+    // shadow BEHIND the cone: the art reaches 0.31 of a box below the middle
+    // and the shadow's whole half-height is 0.03, so the only thing that
+    // showed was a sliver, and the cone stood in mid-air. The shadow now
+    // starts where the object's own base ends.
+    // Centred ON the contact edge, not under it: the object hides the top
+    // half and the bottom half shows as the rim of ground it stands on. Put
+    // wholly below the edge, even by a few points, the same ellipse reads as
+    // the shadow of something held above it. The 0.03 is the transparent
+    // padding the ball and cone bitmaps carry under their ink (measured:
+    // both end 9.2–9.5pt below the middle, not the 10.4–11.2 their draw
+    // factors say).
+    final draw = (player.isBall
+            ? kBallDrawFactor
+            : markerArtScale(player.markerShape))
+        .clamp(0.4, 1.2);
+    final drop = person ? size * 0.70 : size * (draw / 2 - 0.03);
+    final w = person ? size * 0.66 : size * draw * 1.1;
+    return Transform.translate(
+      // A hair to the right as well as down: the figures are lit from the
+      // upper left, and a shadow directly underneath reads as a sticker
+      // with a smudge rather than a body with a light on it.
+      offset: turnVector(Offset(w * (person ? 0.10 : 0.16), drop),
+          BoardOrientation.counterTurns(context)),
+      child: RotatedBox(
+        quarterTurns: BoardOrientation.counterTurns(context),
+        // A round gradient squashed, not a gradient in a flat box: a
+        // RadialGradient takes its radius from the box's SHORTER side, so
+        // painted straight into an ellipse 22pt by 6 it came out as a 6pt
+        // dot beside the boots.
+        child: Transform.scale(
+          scaleY: 0.30,
+          child: Container(
+            width: w,
+            height: w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(colors: [
+                Colors.black.withValues(alpha: 0.42),
+                Colors.black.withValues(alpha: 0.0),
+              ], stops: const [0.45, 1.0]),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 const kStandingMarkers = <MarkerShape>{
   MarkerShape.cone,
   MarkerShape.pole,

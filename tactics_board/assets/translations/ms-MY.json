@@ -504,5 +504,7 @@
   "anim_setup": "Awal",
   "drill_usage_3": "Kerap",
   "drill_usage_2": "Biasa",
-  "drill_usage_1": "Sekali-sekala"
+  "drill_usage_1": "Sekali-sekala",
+  "zoom": "Zum",
+  "fullscreen": "Skrin penuh"
 }

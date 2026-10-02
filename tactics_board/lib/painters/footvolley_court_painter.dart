@@ -148,10 +148,8 @@ class FootvolleyCourtPainter extends CourtPainterBase {
   }
 
   void _drawSand(Canvas canvas, Size size) {
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = courtColor..style = PaintingStyle.fill,
-    );
+    // Sand, lit from above like every other surface. No bands: nobody lays sand in strips.
+    drawSurface(canvas, size);
     // Sand speckles for texture
     final speckle = Paint()
       ..color = const Color(0xFFA87240).withValues(alpha: 0.35)

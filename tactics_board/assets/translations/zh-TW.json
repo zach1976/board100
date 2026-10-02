@@ -504,5 +504,7 @@
   "anim_setup": "站位",
   "drill_usage_3": "常用",
   "drill_usage_2": "一般",
-  "drill_usage_1": "偶爾"
+  "drill_usage_1": "偶爾",
+  "zoom": "縮放",
+  "fullscreen": "全螢幕"
 }

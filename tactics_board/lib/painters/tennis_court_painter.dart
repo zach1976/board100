@@ -13,7 +13,8 @@ class TennisCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+    // A hard court: one poured surface, so no strips — only the light.
+    drawSurface(canvas, size);
 
     // Blank court: surface only, no markings.
     if (layout == CourtLayout.blank) return;
@@ -58,6 +59,7 @@ class TennisCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 23.77 / 2), o(10.97, 23.77 / 2), netBand);
+    drawNetMesh(canvas, o(0, 23.77 / 2), o(10.97, 23.77 / 2), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
@@ -121,6 +123,7 @@ class TennisCourtPainter extends CourtPainterBase {
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(10.97, 0), netBand);
+    drawNetMesh(canvas, o(0, 0), o(10.97, 0), 10);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4

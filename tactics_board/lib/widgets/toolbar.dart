@@ -13,6 +13,7 @@ import '../models/player_photo.dart';
 import '../models/player_role.dart';
 import '../models/sport_formation.dart';
 import '../models/court_layout.dart';
+import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
 import '../painters/ball_painter.dart';
 import '../painters/badminton_court_painter.dart';
@@ -68,6 +69,68 @@ Offset _dropCentre(DraggableDetails details, double size) =>
 double uiScale(BuildContext context) =>
     MediaQuery.sizeOf(context).shortestSide >= 600 ? 1.4 : 1.0;
 
+/// The diameter of a round button floating on the board — back, pages, menu,
+/// zoom, fullscreen. One number, because five places were each writing the
+/// same expression and a sixth wrote a different one.
+///
+/// A phone lands on the 44pt floor whatever the arithmetic says; a tablet
+/// gets 53, which is what the corners of a 1366pt screen need to not read as
+/// phone chrome that was left where it fell.
+double chromeCircle(BuildContext context) =>
+    (38 * uiScale(context)).clamp(T.tap, 60.0).toDouble();
+
+/// The diameter of a round button inside the two docked capsules.
+///
+/// A phone keeps the 44pt floor. A tablet's capsule is the only chrome on a
+/// 1366pt screen and at 44 it read as a phone's toolbar nobody had looked at
+/// again; 56 is what the width can carry with the four tools keeping their
+/// words.
+double barButton(BuildContext context) =>
+    (T.tap * uiScale(context)).clamp(T.tap, 56.0).toDouble();
+
+/// Whether the tool capsule has room for zoom and fullscreen as well.
+///
+/// With them in, the bar holds four tools, undo, redo, the two of them and
+/// two hairlines; the tools are Flexible and shrink to fit, and on a 320pt
+/// phone that left each of them 17pt wide with a 20pt icon sticking out of
+/// both sides. The tools keep 35pt from 390pt up — the iPhone 16 and
+/// everything wider — and below that the pair goes back to floating on the
+/// board, where it costs no width. Read off the screen rather than the
+/// bar's own box, because the board has to make the same call to know
+/// whether to show the floating pair.
+bool viewButtonsInBar(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  // A phone turned sideways has no capsule at all — its tools are a rail
+  // down the right — so the pair stays on the board there, whatever the
+  // width. (Same two tests as the home page's isLandscape / isTablet.)
+  if (size.shortestSide < 600 && size.width > size.height) return false;
+  return size.width >= 390;
+}
+
+/// How tall the playback capsule is, so the row that holds it can be that
+/// tall too. It used to be a flat 48 — with the buttons sized to the screen
+/// the capsule outgrew its own row on a tablet.
+double playBarHeight(BuildContext context) =>
+    barButton(context) * 1.14 + 10 * uiScale(context) + 4;
+
+/// The hairline between two groups inside a capsule. The tools, the history
+/// pair and the board list are three different jobs sitting in one pill, and
+/// a gap alone did not say so.
+class BarDivider extends StatelessWidget {
+  const BarDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) => Container(
+        width: 1,
+        height: barButton(context) * 0.52,
+        // 6, not 8: with zoom and fullscreen in the bar, three of these at
+        // 8 put a 320pt phone 4.8px over. The hairline is what separates the
+        // groups; the air either side of it is not.
+        margin: const EdgeInsets.symmetric(horizontal: 6),
+        color: T.border,
+      );
+}
+
 /// Confirm dialog asking whether to add another player using a photo that
 /// is already on the board. Returns true if the user pressed "Add",
 /// false (or cancelled / dismissed) otherwise. Used by both face avatars
@@ -113,11 +176,18 @@ BoxConstraints sheetConstraints(BuildContext ctx) => BoxConstraints(
       maxHeight: MediaQuery.sizeOf(ctx).height * 0.92,
     );
 
+/// The docked tool capsule may run wider than [kPanelMaxWidth]: it is not a
+/// panel of options but one row of seven controls, and on a tablet its
+/// buttons are 56pt. Held to 620 the four tools lost their words on the one
+/// screen with room to spare for them.
+const double kBarMaxWidth = 820;
+
 /// Centres a full-width bar's contents on a wide screen. The bar keeps its
 /// background edge to edge; only the controls stop stretching.
-Widget centeredPanel(Widget child) => Center(
+Widget centeredPanel(Widget child, {double maxWidth = kPanelMaxWidth}) =>
+    Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: kPanelMaxWidth),
+        constraints: BoxConstraints(maxWidth: maxWidth),
         child: child,
       ),
     );
@@ -944,11 +1014,15 @@ class _PrimaryToolbar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: T.s16),
       child: centeredPanel(
+        maxWidth: kBarMaxWidth,
         Container(
-          height: 60,
+          height: barButton(context) + 16,
           padding: const EdgeInsets.symmetric(horizontal: T.s8),
           decoration: BoxDecoration(
-            color: T.surface,
+            // The sport's own panel colour, not the app's teal surface: on a
+            // blue hockey pitch a teal-green pill was the one thing on the
+            // screen that belonged to a different app.
+            color: state.sportType.theme.panelColor,
             borderRadius: BorderRadius.circular(T.rLg),
             border: Border.all(color: T.border),
             boxShadow: T.shadowFloat,
@@ -958,12 +1032,21 @@ class _PrimaryToolbar extends StatelessWidget {
               Expanded(
                 child: LayoutBuilder(
                   builder: (context, box) {
-                    // Four labelled tools need about 88pt each.
-                    final wide = roomy && box.maxWidth >= 348;
+                    // Four labelled tools need about eight and a half times
+                    // a button's own width between them — measured when a
+                    // button was 46pt and the threshold 348, and written as
+                    // a ratio so it follows the button up.
+                    final wide =
+                        roomy && box.maxWidth >= barButton(context) * 8.4;
+                    // Each tool is Flexible so the four of them share what
+                    // the row has and a long word ellipsises. At their
+                    // natural width they simply ran off the end: the label
+                    // inside is Flexible, but an unbounded parent gives it
+                    // nothing to be flexible about.
                     return Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        _Tool(
+                        Flexible(child: _Tool(
                           showLabel: wide,
                           icon: Icons.open_with_rounded,
                           label: 'mode_move'.tr(),
@@ -974,8 +1057,8 @@ class _PrimaryToolbar extends StatelessWidget {
                                   state.setMultiSelectMode(false);
                                   state.setDrawingMode(false);
                                 },
-                        ),
-                        _Tool(
+                        )),
+                        Flexible(child: _Tool(
                           showLabel: wide,
                           icon: Icons.gesture_rounded,
                           label: 'mode_draw'.tr(),
@@ -983,8 +1066,8 @@ class _PrimaryToolbar extends StatelessWidget {
                           onTap: state.isAnimating
                               ? null
                               : () => state.setDrawingMode(true),
-                        ),
-                        _Tool(
+                        )),
+                        Flexible(child: _Tool(
                           showLabel: wide,
                           icon: Icons.highlight_alt_rounded,
                           label: 'mode_select'.tr(),
@@ -992,41 +1075,75 @@ class _PrimaryToolbar extends StatelessWidget {
                           onTap: state.isAnimating
                               ? null
                               : () => state.setMultiSelectMode(!selecting),
-                        ),
-                        _Tool(
+                        )),
+                        Flexible(child: _Tool(
                           showLabel: wide,
                           icon: Icons.add_rounded,
                           label: 'add_label'.tr(),
                           selected: false,
                           onTap: () => _AddPlayerBtn.showAddSheet(context, state),
-                        ),
+                        )),
                       ],
                     );
                   },
                 ),
               ),
               // History, trailing, in its own group.
+              //
+              // Full white, like the tools: the bar's own hairlines say which
+              // group a control belongs to, so dimming no longer has to, and
+              // a dimmed undo reads as an undo you cannot press.
+              const BarDivider(),
               TacticalIconButton(
                 icon: Icons.undo_rounded,
                 onTap: state.canUndo ? state.undo : null,
+                color: T.text,
                 semanticLabel: 'undo'.tr(),
               ),
               TacticalIconButton(
                 icon: Icons.redo_rounded,
                 onTap: state.canRedo ? state.redo : null,
+                color: T.text,
                 semanticLabel: 'redo'.tr(),
               ),
+              // The view: zoom and fullscreen. They were circles floating
+              // on the board — first in the bottom corner, on the corner
+              // flag; then in the top row, against the island — and they
+              // are controls, so they belong in the bar with the others.
+              // Where the bar is wide enough: see viewButtonsInBar.
+              if (viewButtonsInBar(context)) ...[
+                const BarDivider(),
+                Selector<TacticsState, bool>(
+                  selector: (_, s) => s.zoomMode,
+                  builder: (context, on, _) => TacticalIconButton(
+                    icon: Icons.pinch,
+                    onTap: state.toggleZoomMode,
+                    active: on,
+                    color: T.text,
+                    semanticLabel: 'zoom'.tr(),
+                  ),
+                ),
+                TacticalIconButton(
+                  icon: Icons.fullscreen,
+                  onTap: state.toggleToolbar,
+                  color: T.text,
+                  semanticLabel: 'fullscreen'.tr(),
+                ),
+              ],
               // Not a floppy disk: this opens the saved boards, and nothing
               // in the app autosaves, so it is a library rather than a save.
-              // On a narrow phone it steps aside — undo and redo are used far
-              // more often, and the board list is one tap away in the menu.
-              if (mq.size.width >= 380)
+              // It is also in the ⋯ menu, which is why it is the one that
+              // steps aside: with the view buttons in the bar a phone's
+              // width holds everything else and not this.
+              if (mq.size.width >= 460) ...[
+                const BarDivider(),
                 TacticalIconButton(
                   icon: Icons.folder_outlined,
                   onTap: () => showSaveLoadSheet(context, state),
-                  color: T.accent,
+                  color: T.text,
                   semanticLabel: 'boards'.tr(),
                 ),
+              ],
             ],
           ),
         ),
@@ -1035,8 +1152,12 @@ class _PrimaryToolbar extends StatelessWidget {
   }
 }
 
-/// One tool in the primary capsule. Active is a teal tint behind a teal
-/// icon and label — clear without being a solid block of accent.
+/// One tool in the primary capsule.
+///
+/// The mode in use is a solid blue pill with white on it; the others are
+/// white too, at the same size. They used to be dimmed, which made three of
+/// the board's four verbs read as disabled — a coach looking for Draw found
+/// something the colour of a greyed-out control.
 class _Tool extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -1057,29 +1178,31 @@ class _Tool extends StatelessWidget {
     final tint = onTap == null
         ? T.textOff
         : selected
-            ? T.accent
-            : T.textDim;
+            ? T.onToolOn
+            : T.text;
+    final dim = barButton(context);
+    final radius = BorderRadius.circular(dim * 0.42);
     return Semantics(
       button: true,
       selected: selected,
       label: label,
       child: Material(
-        color: selected ? T.accentFill : Colors.transparent,
-        borderRadius: T.brSm,
+        color: selected ? T.toolOn : Colors.transparent,
+        borderRadius: radius,
         child: InkWell(
           onTap: onTap,
-          borderRadius: T.brSm,
+          borderRadius: radius,
           child: Container(
-            height: 46,
-            constraints: const BoxConstraints(minWidth: T.tap),
-            padding: EdgeInsets.symmetric(horizontal: showLabel ? 9 : 0),
+            height: dim,
+            constraints: BoxConstraints(minWidth: dim),
+            padding: EdgeInsets.symmetric(horizontal: showLabel ? 11 : 0),
             alignment: Alignment.center,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(icon, size: 20, color: tint),
+                Icon(icon, size: dim * 0.45, color: tint),
                 if (showLabel) ...[
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 6),
                   Flexible(
                     child: Text(
                       label,
@@ -1088,7 +1211,7 @@ class _Tool extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight:
-                            selected ? FontWeight.w600 : FontWeight.w500,
+                            selected ? FontWeight.w700 : FontWeight.w500,
                         color: tint,
                       ),
                     ),
@@ -4842,6 +4965,9 @@ class _PlayCircle extends StatelessWidget {
         : active
             ? T.accentFill
             : Colors.transparent;
+    // Play is the one control a coach hits from a metre away, so it is a
+    // size up from the steppers around it.
+    final dim = barButton(context) * (primary ? 1.14 : 1.0);
     return Semantics(
       button: true,
       enabled: onTap != null,
@@ -4850,11 +4976,11 @@ class _PlayCircle extends StatelessWidget {
         onTap: onTap,
         radius: 26,
         child: Container(
-          width: T.tap,
-          height: T.tap,
+          width: dim,
+          height: dim,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-          child: Icon(icon, color: fg, size: primary ? 26 : 22),
+          child: Icon(icon, color: fg, size: dim * (primary ? 0.59 : 0.50)),
         ),
       ),
     );
@@ -5012,35 +5138,44 @@ class PlayControlsBar extends StatelessWidget {
     return ListenableBuilder(
       listenable: state,
       builder: (context, _) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: EdgeInsets.symmetric(
+            horizontal: T.s12, vertical: 5 * uiScale(context)),
         // The same capsule as the tool bar below it. These were two different
         // dark treatments — translucent black here, T.surface there — stacked
         // one above the other, which read as two unrelated pieces of chrome
         // rather than one bar that had swapped its contents.
-        decoration: const BoxDecoration(
-          color: T.surface,
+        decoration: BoxDecoration(
+          color: state.sportType.theme.panelColor,
           borderRadius: T.brLg,
-          border: Border.fromBorderSide(BorderSide(color: T.border)),
+          border: const Border.fromBorderSide(BorderSide(color: T.border)),
           boxShadow: T.shadowFloat,
         ),
-        child: Row(
+        // Scaled down as a whole when the screen is too narrow for seven
+        // buttons at full size, rather than overflowing: at 375pt it ran 8pt
+        // off the right edge and at 320 it never had a chance. Everything
+        // keeps its proportions; only on a phone narrower than about 390pt
+        // does any of it shrink at all.
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _ResetButton(state: state),
-            const SizedBox(width: 6),
+            const BarDivider(),
             _StepBackButton(state: state),
-            const SizedBox(width: 8),
+            const SizedBox(width: T.s4),
             _StepIndicator(state: state),
-            const SizedBox(width: 8),
+            const SizedBox(width: T.s4),
             _StepForwardButton(state: state),
             const SizedBox(width: 6),
             _PlayButton(state: state),
             const SizedBox(width: 6),
             _LinesToggle(state: state),
-            const SizedBox(width: 6),
+            const BarDivider(),
             _TimelineBtn(state: state),
           ],
+        ),
         ),
       ),
     );

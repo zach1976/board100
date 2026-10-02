@@ -49,6 +49,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    final isTablet = MediaQuery.sizeOf(context).shortestSide >= 600;
 
     final theme = context.select<TacticsState, SportTheme>((s) => s.sportType.theme);
     final scaffold = Scaffold(
@@ -61,10 +62,19 @@ class TacticsBoardHomePage extends StatelessWidget {
             colors: theme.pageGradient,
           ),
         ),
-        child: isLandscape ? _buildLandscape(context, topPad, bottomPad) : _buildPortrait(context, topPad, bottomPad),
+        // The side rail is for a landscape PHONE, where a bottom bar would
+        // eat a third of what little height there is. A tablet turned
+        // sideways has height to spare and a lot of width, and a coach
+        // holding one wants the board as wide as the screen with the
+        // controls under his thumbs — the same bar the portrait layout
+        // uses, not a column down the right that the board has to shrink
+        // to make room for.
+        child: isLandscape && !isTablet
+            ? _buildLandscape(context, topPad, bottomPad)
+            : _buildPortrait(context, topPad, bottomPad),
       ),
     );
-    if (!isLandscape) return scaffold;
+    if (!isLandscape || isTablet) return scaffold;
     // The app's SnackBar sits 96pt off the bottom to clear the portrait
     // toolbar capsule. Turned sideways the capsule is a rail down the right
     // and there is nothing at the bottom to clear, so a drill's name arrived
@@ -139,7 +149,13 @@ class TacticsBoardHomePage extends StatelessWidget {
       (topPad - 38).clamp(8.0, topPad + 8).toDouble();
 
   /// The second row: only a multi-page board has one.
-  double _pagesTop(double topPad) => topPad + 6;
+  ///
+  /// Measured against the first row's circles, not the inset: with the
+  /// first row level with an island, topPad+6 was only 6pt under it on the
+  /// 402pt phones, which the circles' shadows closed up to nothing.
+  double _pagesTop(double topPad) =>
+      math.max(topPad + 6, _chromeTop(topPad) + 44 + 10);
+
 
   /// How much of the top the second row takes, so the pitch can start below
   /// it. Zero for the one-page board that has no second row.
@@ -149,7 +165,7 @@ class TacticsBoardHomePage extends StatelessWidget {
     // corners held nothing but the buttons; a penalty corner puts the
     // injector on the backline in the corner, and the page badge sat on
     // top of him — covering the man and taking his taps.
-    final row = (44 * uiScale(context)).clamp(44.0, 60.0) + 6;
+    final row = chromeCircle(context) + 6;
     return (wide ? _pagesTop(topPad) : _chromeTop(topPad)) + row;
   }
 
@@ -170,13 +186,40 @@ class TacticsBoardHomePage extends StatelessWidget {
         // reachable, and down there it covers the penalty area — so the
         // pitch starts below it instead of underneath it. Only the boards
         // that pay for the row pay for the inset.
+        // The board is a card, not the page. It used to run to all four
+        // edges, which read as paint that had spilled off the screen; with
+        // the sport's own dark ground showing round it and the corners
+        // taken off, the pitch reads as something laid on the table. The
+        // corner buttons stay where they are, half on the card and half
+        // off, which is how they stop being part of the pitch.
+        //
+        // Sideways, the board takes the whole height. A pitch is longer than
+        // it is wide and a sideways screen is wider still, so the pitch is
+        // fitted by height and leaves a wide margin of turf at each end —
+        // room enough for the corner buttons to float in, which is what the
+        // chrome band was reserving space for. Upright the inset stays: a
+        // penalty corner puts the injector on the backline, in the corner,
+        // and the page badge sat on top of him.
         Padding(
-          padding: EdgeInsets.only(
-              top: _pagesBand(context, topPad, wideChrome)),
-          child: isLandscape
-              ? const RotatedBox(
-                  quarterTurns: 1, child: TacticsCanvas(boardTurns: 1))
-              : const TacticsCanvas(),
+          padding: EdgeInsets.fromLTRB(
+              T.s8,
+              isLandscape ? T.s8 : _pagesBand(context, topPad, wideChrome),
+              T.s8,
+              T.s8),
+          child: DecoratedBox(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(T.rBoard)),
+              boxShadow: T.shadowFloat,
+            ),
+            child: ClipRRect(
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(T.rBoard)),
+              child: isLandscape
+                  ? const RotatedBox(
+                      quarterTurns: 1, child: TacticsCanvas(boardTurns: 1))
+                  : const TacticsCanvas(),
+            ),
+          ),
         ),
         // Presentation mode swaps all editing chrome for a clean, locked
         // overlay; the normal board chrome is shown otherwise.
@@ -261,7 +304,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     Navigator.of(context).maybePop();
                   },
                   child: _GlassCircle(
-                    size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+                    size: chromeCircle(context),
                     border: inPlanMode
                         ? Border.all(color: T.accent, width: 1.5)
                         : null,
@@ -282,33 +325,59 @@ class TacticsBoardHomePage extends StatelessWidget {
         // Beside the menu while it is one circle; on its own row once it
         // grows chevrons, because three circles anchored right reach into
         // the island.
+        // Sideways the board runs the full height and the pitch is fitted
+        // by it, leaving a margin of turf at each end but none above: a
+        // page badge beside the menu button sat on the touchline. Stacked
+        // under the menu instead, down the right edge, it stays on the
+        // margin — the same column the zoom and fullscreen buttons make at
+        // the bottom corner.
         Positioned(
-          top: wideChrome ? _pagesTop(topPad) : _chromeTop(topPad),
-          right: wideChrome
+          top: isLandscape
+              ? _chromeTop(topPad) + chromeCircle(context) + T.s8
+              : wideChrome
+                  ? _pagesTop(topPad)
+                  : _chromeTop(topPad),
+          right: wideChrome || isLandscape
               ? 12
-              : 12 + (44 * uiScale(context)).clamp(44.0, 60.0),
+              : 12 + chromeCircle(context),
           child: const _PagesButton(),
         ),
         Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
         _CollapsibleEditPanel(),
-        Positioned(
-          bottom: 12, right: 12,
-          child: IgnorePointer(
-            ignoring: editPanelOpen,
-            child: AnimatedOpacity(
-              opacity: editPanelOpen ? 0.0 : 1.0,
-              duration: const Duration(milliseconds: 160),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  _ZoomResetButton(),
-                  _ZoomModeButton(),
-                  _FullscreenButton(),
-                ],
+        // Zoom and fullscreen live in the tool capsule now, on every screen
+        // wide enough to hold them (viewButtonsInBar). What stays on the
+        // board regardless is the way back: fullscreen hides the capsule,
+        // and a button that hides itself cannot be pressed again, so while
+        // the toolbar is away this circle sits in the bottom corner — on
+        // the turf, which is fine for the moment a coach is presenting and
+        // not editing. The zoom-reset is there too, for a board zoomed in.
+        // A phone too narrow for the pair in the bar gets both of them
+        // here as well, floating, the way every phone did before.
+        Selector<TacticsState, bool>(
+          selector: (_, s) => s.toolbarVisible,
+          builder: (context, visible, _) {
+            final inBar = viewButtonsInBar(context);
+            return Positioned(
+              bottom: 12,
+              right: 12,
+              child: IgnorePointer(
+                ignoring: editPanelOpen,
+                child: AnimatedOpacity(
+                  opacity: editPanelOpen ? 0.0 : 1.0,
+                  duration: const Duration(milliseconds: 160),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      _ZoomResetButton(),
+                      if (!inBar) _ZoomModeButton(),
+                      if (!inBar || !visible) _FullscreenButton(),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
         // Last in the stack, so it is over the board and over the edit bar —
         // which opens in the same breath as the selection this explains, and
@@ -363,7 +432,7 @@ class TacticsBoardHomePage extends StatelessWidget {
           children: [
             if (sel.visible)
               SizedBox(
-                height: 48 * uiScale(context),
+                height: playBarHeight(context),
                 child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
               ),
             AnimatedSize(
@@ -564,7 +633,12 @@ class _GlassCircle extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black.withValues(alpha: 0.28),
               shape: BoxShape.circle,
-              border: border,
+              // A hairline of the pitch's own light, so the circle has an
+              // edge on a bright turf as well as a dark one. Callers that
+              // pass their own border — the plan-mode accent ring — still
+              // win, because theirs says something this one does not.
+              border: border ??
+                  Border.all(color: Colors.white.withValues(alpha: 0.22)),
             ),
             child: child,
           ),
@@ -592,7 +666,7 @@ class _PagesButton extends StatelessWidget {
         final index = tuple.$1;
         final count = tuple.$2;
         final s = uiScale(context);
-        final dim = (32 * s).clamp(44.0, 60.0).toDouble();
+        final dim = chromeCircle(context);
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -787,7 +861,7 @@ class _MenuButton extends StatelessWidget {
       offset: const Offset(0, 46),
       padding: EdgeInsets.zero,
       child: _GlassCircle(
-        size: (32 * s).clamp(44.0, 60.0).toDouble(),
+        size: chromeCircle(context),
         child: Icon(Icons.more_horiz, color: Colors.white, size: 18 * s),
       ),
       itemBuilder: (ctx) {
@@ -2622,6 +2696,28 @@ class _MoveToggle extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Bottom-right chrome — fullscreen toggle + reset-zoom (only while zoomed).
 // ─────────────────────────────────────────────────────────────────────────────
+class _ZoomModeButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, bool>(
+      selector: (_, s) => s.zoomMode,
+      builder: (context, on, _) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: GestureDetector(
+          onTap: context.read<TacticsState>().toggleZoomMode,
+          child: _GlassCircle(
+            size: chromeCircle(context),
+            border: on ? Border.all(color: kAccent, width: 1.5) : null,
+            child: Icon(Icons.pinch,
+                color: on ? kAccent : Colors.white,
+                size: 17 * uiScale(context)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _FullscreenButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -2630,7 +2726,7 @@ class _FullscreenButton extends StatelessWidget {
       builder: (context, visible, _) => GestureDetector(
         onTap: context.read<TacticsState>().toggleToolbar,
         child: _GlassCircle(
-          size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+          size: chromeCircle(context),
           child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit,
               color: Colors.white, size: 18 * uiScale(context)),
         ),
@@ -2680,7 +2776,7 @@ class _ZoomResetButtonState extends State<_ZoomResetButton> {
       child: GestureDetector(
         onTap: state.resetZoom,
         child: _GlassCircle(
-          size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
+          size: chromeCircle(context),
           child: Icon(Icons.zoom_out_map,
               color: Colors.white, size: 17 * uiScale(context)),
         ),
@@ -2849,28 +2945,6 @@ class _BigPlayControls extends StatelessWidget {
 /// Toggles free-form zoom/pan mode. While on, the board content is locked
 /// and pinch/drag operate the InteractiveViewer — so zooming can never be
 /// confused with dragging a player. Tap off to edit at the new zoom level.
-class _ZoomModeButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Selector<TacticsState, bool>(
-      selector: (_, s) => s.zoomMode,
-      builder: (context, on, _) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: GestureDetector(
-          onTap: context.read<TacticsState>().toggleZoomMode,
-          child: _GlassCircle(
-            size: (32 * uiScale(context)).clamp(44.0, 60.0).toDouble(),
-            border: on ? Border.all(color: kAccent, width: 1.5) : null,
-            child: Icon(Icons.pinch,
-                color: on ? kAccent : Colors.white,
-                size: 17 * uiScale(context)),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 /// "Remove Ads" paywall — a professional in-app-purchase sheet: premium badge,
 /// title + value line, a 3-up benefits card, selectable plan cards (yearly
 /// preselected, with a "recommended" badge + per-month price), a prominent

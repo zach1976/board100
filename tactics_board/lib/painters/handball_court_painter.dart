@@ -93,21 +93,16 @@ class HandballCourtPainter extends CourtPainterBase {
 
     // ── Goals (3m wide × ~1m deep, drawn as small rectangle outside line) ─
     const goalDepth = 1.0;
-    final goalPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-
-    canvas.drawRect(
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
-    canvas.drawRect(
+        pitch: size);
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, fieldH).dx, o(goalLeft, fieldH).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
+        pitch: size);
 
     // ── Center spot ────────────────────────────────────────────────────────
     canvas.drawCircle(o(fieldW / 2, fieldH / 2), 0.25 * scX,
@@ -178,15 +173,11 @@ class HandballCourtPainter extends CourtPainterBase {
 
     // Goal (3m wide × ~1m deep, outside the goal line).
     const goalDepth = 1.0;
-    final goalPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-    canvas.drawRect(
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
+        pitch: size);
 
     // Centre spot on the halfway (bottom) line.
     canvas.drawCircle(o(fieldW / 2, fieldH), 0.25 * scX,
@@ -260,10 +251,8 @@ class HandballCourtPainter extends CourtPainterBase {
   }
 
   void _drawFloor(Canvas canvas, Size size) {
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = courtColor..style = PaintingStyle.fill,
-    );
+    // An indoor sport floor, laid in strips and lit from above.
+    drawSurface(canvas, size, bands: 10, bandTint: 0.03);
   }
 
   @override

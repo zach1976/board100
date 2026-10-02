@@ -14,7 +14,8 @@ class BadmintonCourtPainter extends CourtPainterBase {
   @override
   void paint(Canvas canvas, Size size) {
     // Background
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), courtPaint);
+    // An indoor sport floor, laid in strips and lit from above.
+    drawSurface(canvas, size, bands: 8, bandTint: 0.03);
 
     // Blank court: surface only, no markings.
     if (layout == CourtLayout.blank) return;
@@ -58,6 +59,7 @@ class BadmintonCourtPainter extends CourtPainterBase {
       ..strokeWidth = 8
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 6.7), o(6.1, 6.7), netBand);
+    drawNetMesh(canvas, o(0, 6.7), o(6.1, 6.7), 8);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
@@ -121,6 +123,7 @@ class BadmintonCourtPainter extends CourtPainterBase {
       ..strokeWidth = 8
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(6.1, 0), netBand);
+    drawNetMesh(canvas, o(0, 0), o(6.1, 0), 8);
     final netLine = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4

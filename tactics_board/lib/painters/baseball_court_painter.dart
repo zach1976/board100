@@ -28,10 +28,9 @@ class BaseballCourtPainter extends CourtPainterBase {
     Offset f(double x, double y) => Offset(left + x * side, top + y * side);
 
     // ── Outfield grass background ─────────────────────────────────────────
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, w, h),
-      Paint()..color = courtColor..style = PaintingStyle.fill,
-    );
+    // The mowing pattern below is arcs round home plate, not strips, so the
+    // grass takes the light and none of the bands.
+    drawSurface(canvas, Size(w, h));
 
     // Mowing pattern — concentric arcs centered at home plate
     final home = f(0.50, 0.92);

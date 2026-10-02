@@ -504,5 +504,7 @@
   "anim_setup": "เริ่มต้น",
   "drill_usage_3": "ใช้บ่อย",
   "drill_usage_2": "ปานกลาง",
-  "drill_usage_1": "นานๆ ครั้ง"
+  "drill_usage_1": "นานๆ ครั้ง",
+  "zoom": "ซูม",
+  "fullscreen": "เต็มจอ"
 }

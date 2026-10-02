@@ -106,21 +106,16 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     const goalDepth = 0.7;
     const goalLeft = (fieldW - goalW) / 2;
 
-    final goalPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-
-    canvas.drawRect(
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
-    canvas.drawRect(
+        pitch: size);
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, fieldH).dx, o(goalLeft, fieldH).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
+        pitch: size);
   }
 
   /// One goal end (20m × 15m) scaled to fill the board: goal at the top, the
@@ -190,15 +185,11 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     const goalW = 3.0;
     const goalDepth = 0.7;
     const goalLeft = (fieldW - goalW) / 2;
-    final goalPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-    canvas.drawRect(
+    drawGoal(
+      canvas,
       Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
-      goalPaint,
-    );
+        pitch: size);
   }
 
   void _drawWater(Canvas canvas, Size size) {

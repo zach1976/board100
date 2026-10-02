@@ -504,5 +504,7 @@
   "anim_setup": "Setup",
   "drill_usage_3": "Staple",
   "drill_usage_2": "Regular",
-  "drill_usage_1": "Occasional"
+  "drill_usage_1": "Occasional",
+  "zoom": "Zoom",
+  "fullscreen": "Fullscreen"
 }

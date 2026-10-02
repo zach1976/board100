@@ -56,6 +56,14 @@ class T {
   static const accentFill = Color(0x1F20C7C3); // rgba(32,199,195,.12)
   static const accentFillHi = Color(0x3320C7C3); // ~20%, pressed
 
+  /// The tool a coach is currently IN — Move, Draw, Select. Solid, and blue
+  /// rather than [accent], for two reasons: a mode is a state and wants the
+  /// weight of a filled pill, and a solid teal one sits a few degrees from
+  /// [lime] on the play button beside it, which made the two read as one
+  /// group of "on" things rather than a mode and an action.
+  static const toolOn = Color(0xFF2F6BFF);
+  static const onToolOn = Color(0xFFFFFFFF);
+
   /// Playback only: play, and the running animation. Never navigation.
   static const lime = Color(0xFFA8F05A);
 
@@ -129,6 +137,11 @@ class T {
 
   /// Sheet, top corners only.
   static const rSheet = 24.0;
+
+  /// The board itself, which is a card laid on the page rather than the page.
+  /// Larger than a card's [rLg] on purpose: it is the biggest thing on the
+  /// screen, and at 16 the corner reads as a mistake rather than a shape.
+  static const rBoard = 22.0;
 
   /// Dialog. §24.
   static const rDialog = 18.0;

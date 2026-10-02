@@ -504,5 +504,7 @@
   "anim_setup": "Départ",
   "drill_usage_3": "Courant",
   "drill_usage_2": "Régulier",
-  "drill_usage_1": "Occasionnel"
+  "drill_usage_1": "Occasionnel",
+  "zoom": "Zoom",
+  "fullscreen": "Plein écran"
 }

@@ -504,5 +504,7 @@
   "anim_setup": "배치",
   "drill_usage_3": "자주",
   "drill_usage_2": "보통",
-  "drill_usage_1": "가끔"
+  "drill_usage_1": "가끔",
+  "zoom": "확대/축소",
+  "fullscreen": "전체 화면"
 }

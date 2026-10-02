@@ -504,5 +504,7 @@
   "anim_setup": "配置",
   "drill_usage_3": "定番",
   "drill_usage_2": "ときどき",
-  "drill_usage_1": "まれ"
+  "drill_usage_1": "まれ",
+  "zoom": "ズーム",
+  "fullscreen": "全画面"
 }
