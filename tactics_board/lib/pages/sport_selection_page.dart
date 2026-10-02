@@ -253,7 +253,7 @@ CustomPainter courtPainterFor(SportType sport) {
     case SportType.basketball:   return const BasketballCourtPainter();
     case SportType.volleyball:   return const VolleyballCourtPainter();
     case SportType.pickleball:   return const PickleballCourtPainter();
-    case SportType.soccer:       return const SoccerCourtPainter();
+    case SportType.soccer:       return SoccerCourtPainter();
     case SportType.fieldHockey:  return const FieldHockeyCourtPainter();
     case SportType.rugby:        return const RugbyCourtPainter();
     case SportType.baseball:     return const BaseballCourtPainter();

@@ -26,6 +26,11 @@ void main() {
       'assets/drills/${s.name}.json',
       'assets/icon/ball_${s.name}.png',
     };
+    // A sport's goal pictures, where it has them (CourtArt): one per end.
+    for (final v in ['far', 'near']) {
+      final g = 'assets/icon/goal_${s.name}_$v.png';
+      if (File(g).existsSync()) files.add(g);
+    }
     for (final m in s.markers) {
       // The app asks for a sport's marker by its package path; the file
       // itself lives in the core, where the package's symlink points.

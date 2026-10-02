@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../models/sport_type.dart';
+import 'court_art.dart';
 import 'court_painter_base.dart';
 
 /// Pitch layout variants offered in the "Field Type" picker.
@@ -111,13 +113,69 @@ class SoccerCourtPainter extends CourtPainterBase {
   final SoccerFieldType fieldType;
   final SoccerTurf turf;
 
-  const SoccerCourtPainter({
+  /// True when the board is shown turned a quarter, so the pitch runs
+  /// left-right across the screen. The goal pictures are drawn for a viewer
+  /// at the foot of an upright pitch; see [_goal] for what that changes.
+  final bool sideways;
+
+  /// Not const: it repaints when a goal picture decodes — see [CourtArt].
+  SoccerCourtPainter({
     this.fieldType = SoccerFieldType.full,
     this.turf = kDefaultSoccerTurf,
+    this.sideways = false,
   }) : super(
           lineColor: _softLine,
           courtColor: const Color(0xFF2D8A2D),
+          repaint: CourtArt.ready,
         );
+
+  /// The goal as a picture, laid with its mouth on the goal line.
+  ///
+  /// [r] is the goal's footprint on the plan: 7.32m wide, 2.44m deep, off
+  /// the end of the pitch. The pictures are three-quarter views, taller
+  /// than that footprint and with their mouth bar not quite the full image
+  /// width — 95% of it on the far goal, 81% on the near one, where the
+  /// crossbar is the far edge and perspective has narrowed it (measured off
+  /// the files; tools/goal_prompts_soccer.html is where they came from).
+  /// So the image is scaled until its mouth bar is the goal's width and
+  /// pinned to the line by that edge; whatever is behind the bar runs off
+  /// the end of the pitch, which is where a goal's net is. Until the
+  /// picture has decoded, or for a build that ships none, the box.
+  ///
+  /// Sideways, the viewer is no longer at one end of the pitch but beside
+  /// it, the same distance from both goals, and the back view at the near
+  /// end — drawn for a viewer looking down into its net — turned into a
+  /// goal whose mouth opened away from the pitch. So a sideways board gives
+  /// both ends the front view, the second one flipped: a mirror pair, which
+  /// is what two goals look like from the touchline.
+  void _goal(Canvas canvas, Rect r, Size pitch, {required bool far}) {
+    final front = far || sideways;
+    final img = CourtArt.goal(SportType.soccer, front ? 'far' : 'near');
+    if (img == null) {
+      drawGoal(canvas, r, pitch: pitch);
+      return;
+    }
+    final mouthFrac = front ? 0.953 : 0.807;
+    final w = r.width / mouthFrac;
+    final h = w * img.height / img.width;
+    final left = r.center.dx - w / 2;
+    // Far goal: mouth at the image's bottom edge, on the top goal line.
+    // Near goal: mouth at the image's top edge, on the bottom goal line.
+    final top = far ? r.bottom - h : r.top;
+    final src = Rect.fromLTWH(0, 0, img.width.toDouble(), img.height.toDouble());
+    final paint = Paint()..filterQuality = FilterQuality.medium;
+    if (!far && sideways) {
+      // The front view upside down, so its mouth bar lands on the bottom
+      // goal line and its net runs off the end of the pitch.
+      canvas.save();
+      canvas.translate(0, 2 * top + h);
+      canvas.scale(1, -1);
+      canvas.drawImageRect(img, src, Rect.fromLTWH(left, top, w, h), paint);
+      canvas.restore();
+      return;
+    }
+    canvas.drawImageRect(img, src, Rect.fromLTWH(left, top, w, h), paint);
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -181,11 +239,6 @@ class SoccerCourtPainter extends CourtPainterBase {
     final fillWhite = Paint()
       ..color = _softLine
       ..style = PaintingStyle.fill;
-    final strokeThick = Paint()
-      ..color = _softLine
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-
     // ── Outer boundary ──────────────────────────────────────────────────────
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
 
@@ -262,22 +315,18 @@ class SoccerCourtPainter extends CourtPainterBase {
     // ── Goals (7.32m wide × 2.44m deep) ─────────────────────────────────────
     const goalLeft = (fieldW - 7.32) / 2; // 30.34
     const goalDepth = 2.44;
-    canvas.drawRect(
-      Rect.fromLTWH(
-          o(goalLeft, -goalDepth).dx,
-          o(goalLeft, -goalDepth).dy,
-          7.32 * scX,
-          goalDepth * scY),
-      strokeThick,
-    );
-    canvas.drawRect(
-      Rect.fromLTWH(
-          o(goalLeft, fieldH).dx,
-          o(goalLeft, fieldH).dy,
-          7.32 * scX,
-          goalDepth * scY),
-      strokeThick,
-    );
+    _goal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+            7.32 * scX, goalDepth * scY),
+        size,
+        far: true);
+    _goal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, fieldH).dx, o(goalLeft, fieldH).dy,
+            7.32 * scX, goalDepth * scY),
+        size,
+        far: false);
 
     // ── Vignette: subtle radial darkening toward edges to focus the eye on
     //     the center of the field. Drawn last so it sits on top of the lines.
@@ -329,11 +378,6 @@ class SoccerCourtPainter extends CourtPainterBase {
     final fillWhite = Paint()
       ..color = _softLine
       ..style = PaintingStyle.fill;
-    final strokeThick = Paint()
-      ..color = _softLine
-      ..strokeWidth = 2.5
-      ..style = PaintingStyle.stroke;
-
     // Outer boundary (halfway line is the bottom edge).
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), p);
 
@@ -379,11 +423,12 @@ class SoccerCourtPainter extends CourtPainterBase {
     // Goal (7.32m wide × 2.44m deep).
     const goalLeft = (fieldW - 7.32) / 2; // 30.34
     const goalDepth = 2.44;
-    canvas.drawRect(
-      Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
-          7.32 * scX, goalDepth * scY),
-      strokeThick,
-    );
+    _goal(
+        canvas,
+        Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
+            7.32 * scX, goalDepth * scY),
+        size,
+        far: true);
   }
 
   void _drawVignette(Canvas canvas, Size size) {
@@ -406,6 +451,7 @@ class SoccerCourtPainter extends CourtPainterBase {
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return oldDelegate is! SoccerCourtPainter ||
         oldDelegate.fieldType != fieldType ||
-        oldDelegate.turf != turf;
+        oldDelegate.turf != turf ||
+        oldDelegate.sideways != sideways;
   }
 }

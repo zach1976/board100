@@ -72,7 +72,9 @@
   ],
   "soccer": [
     "assets/drills/soccer.json",
-    "assets/icon/ball_soccer.png"
+    "assets/icon/ball_soccer.png",
+    "assets/icon/goal_soccer_far.png",
+    "assets/icon/goal_soccer_near.png"
   ],
   "fieldHockey": [
     "assets/drills/fieldHockey.json",
