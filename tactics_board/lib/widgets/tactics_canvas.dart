@@ -398,7 +398,6 @@ Map<String, Offset> markerClearOffsets(
     if (!m.isMarker || !kStandingMarkers.contains(m.markerShape)) continue;
     final at = positionOf(m);
     for (final p in people) {
-      final size = kPlayerIconSize * p.scale;
       // On screen: the figure stands upright whichever way the board is
       // turned, so "behind the head" is a screen direction.
       final d = turnVector(at - positionOf(p), boardTurns);
