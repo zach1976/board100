@@ -344,7 +344,10 @@ def prune_degenerate_moves(drill: Drill) -> None:
     for p in drill.home + drill.away:
         pruned, prev = [], (p.x, p.y)
         for (x, y, ph) in p.moves:
-            if abs(x - prev[0]) + abs(y - prev[1]) >= 8:
+            # Measured the way audit() measures it. Manhattan distance let a
+            # 6-across-2-down step through as 8, and the audit then failed it
+            # at 6.3 — the two rules have to be the same rule.
+            if math.hypot(x - prev[0], y - prev[1]) >= 8:
                 pruned.append((x, y, ph))
                 prev = (x, y)
         p.moves = pruned
@@ -384,12 +387,24 @@ def prune_degenerate_ball_legs(drill: Drill, sport: str) -> None:
     prev = (drill.ball if isinstance(drill.ball, tuple)
             else ball_start(drill, sport)
             if isinstance(drill.ball, int) else None)
+    # A leg that goes nowhere but changes hands is not a dead arrow, it is a
+    # turnover: a presser steps in and takes the ball off the man standing
+    # on it, and the ball hardly moves because that is what winning it looks
+    # like. Pruned as "degenerate", fh_press_half lost the beat its whole
+    # note is about — the board ended with the trap set and nobody taking
+    # it. The painter already draws a leg this short as a nudge rather than
+    # an arrow, so keeping it costs no arrow floating on the grass.
+    named = len(drill.ball_holders) == len(drill.ball_moves)
+    held = drill.ball if isinstance(drill.ball, int) else None
     keep = []
-    for (x, y, ph) in drill.ball_moves:
-        alive = prev is None or math.hypot(x - prev[0], y - prev[1]) >= 8
+    for i, (x, y, ph) in enumerate(drill.ball_moves):
+        taken = named and drill.ball_holders[i] not in (None, held)
+        alive = taken or prev is None or math.hypot(x - prev[0], y - prev[1]) >= 8
         keep.append(alive)
         if alive:
             prev = (x, y)
+            if named and drill.ball_holders[i] is not None:
+                held = drill.ball_holders[i]
     if all(keep):
         return
     # The note is written from ball_to, not from the legs, so a leg dropped
@@ -523,55 +538,49 @@ def reserve_keeper_number(drill: Drill, sport: str) -> None:
                 p.label = str(int(p.label) + 1)
 
 
-def space_out(drill: Drill, sport: str) -> None:
-    """Push overlapping people apart until their icons stop covering each other.
+def _settle(people, side, pos, outside, sport, fw, fh, mates_only) -> bool:
+    """Push figures that cover each other apart at one beat, in place.
 
-    Authoring is in court-relative units, which are not square — 0.01 across
-    is under 4pt while 0.01 down is about 6pt — so a defender written 0.05
-    "goal-side of" his man ended up standing on him at 44pt icon size. Rather
-    than re-guess 154 boards' coordinates, this restores legibility without
-    touching intent: each overlapping pair is pushed apart *along the line it
-    already sits on*, by the smallest amount that clears the icons, so who is
-    in front of whom never changes. Positions are kept inside the playing
-    surface, and audit() still runs afterwards — a board too crowded for this
-    to fix fails, as it should.
-
-    Drills that declare tight=True (a scrum, a wall, a double block) keep
-    their formation and are only opened to where the labels can be read.
+    [pos] is a list of mutable [x, y] pairs in board units, parallel to
+    [people]. A pair is covering when it is closer than the drawn figure
+    both ways at once; it is opened along whichever axis is the shorter
+    walk, so a column stays a column and a pair standing side by side only
+    gives up the few points their shoulders share.
     """
-    if sport in SPACING_UNCHECKED:
-        return
-    floor = SPACING_TIGHT if drill.tight else SPACING_APART
     left, top, w, h = court_rect(sport)
     sx = CANVAS_PT[0] / BOARD_UNITS[0]
     sy = CANVAS_PT[1] / BOARD_UNITS[1]
-    people = drill.home + drill.away
-    # A thrower at a lineout or a throw-in stands outside the touchline by
-    # the rules (that is what off_surface exempts). Clamping him to the
-    # court would delete the very thing the drill is about, so anyone who
-    # starts outside is kept outside and only held on the canvas.
-    outside = {id(p) for p in people
-               if not (left - 12 <= p.x <= left + w + 12
-                       and top - 12 <= p.y <= top + h + 12)}
+    ever = False
     for _ in range(60):
         moved = False
-        for i in range(len(people)):
-            for j in range(i + 1, len(people)):
-                a, b = people[i], people[j]
-                dx, dy = (b.x - a.x) * sx, (b.y - a.y) * sy
-                d = math.hypot(dx, dy)
-                if d >= floor:
+        for i in range(len(pos)):
+            for j in range(i + 1, len(pos)):
+                if mates_only and side[i] != side[j]:
                     continue
-                if d < 1e-6:                    # exactly stacked: split sideways
-                    dx, dy, d = 1.0, 0.0, 1.0
-                push = (floor - d) / 2 + 0.5
-                ux, uy = dx / d, dy / d
-                a.x -= ux * push / sx; a.y -= uy * push / sy
-                b.x += ux * push / sx; b.y += uy * push / sy
-                for p in (a, b):
-                    if id(p) in outside:
-                        p.x = min(max(p.x, 12), BOARD_UNITS[0] - 12)
-                        p.y = min(max(p.y, 12), BOARD_UNITS[1] - 12)
+                dx = (pos[j][0] - pos[i][0]) * sx
+                dy = (pos[j][1] - pos[i][1]) * sy
+                ax, ay = abs(dx), abs(dy)
+                if ax >= fw or ay >= fh:
+                    continue
+                if fw - ax <= fh - ay:
+                    push = (fw - ax) / 2 + 0.5
+                    u = 1.0 if dx >= 0 else -1.0
+                    pos[i][0] -= u * push / sx
+                    pos[j][0] += u * push / sx
+                else:
+                    push = (fh - ay) / 2 + 0.5
+                    u = 1.0 if dy >= 0 else -1.0
+                    pos[i][1] -= u * push / sy
+                    pos[j][1] += u * push / sy
+                for k in (i, j):
+                    # A thrower at a lineout or a throw-in stands outside the
+                    # touchline by the rules (that is what off_surface
+                    # exempts). Clamping him to the court would delete the
+                    # very thing the drill is about, so anyone who starts
+                    # outside is kept outside and only held on the canvas.
+                    if outside[k]:
+                        pos[k][0] = min(max(pos[k][0], 12), BOARD_UNITS[0] - 12)
+                        pos[k][1] = min(max(pos[k][1], 12), BOARD_UNITS[1] - 12)
                     else:
                         # Everyone is held 8 units inside the surface — but a
                         # keeper by the whole of his icon, or the spreading
@@ -581,9 +590,81 @@ def space_out(drill: Drill, sport: str) -> None:
                         # him is the one that keeps moving: the next pass
                         # round this loop pushes them apart again and only
                         # the other end of the pair takes it.
-                        edge = keeper_margin() if is_keeper(p) else 8
-                        p.x = min(max(p.x, left + 8), left + w - 8)
-                        p.y = min(max(p.y, top + edge), top + h - edge)
+                        edge = keeper_margin() if is_keeper(people[k]) else 8
+                        pos[k][0] = min(max(pos[k][0], left + 8), left + w - 8)
+                        pos[k][1] = min(max(pos[k][1], top + edge),
+                                        top + h - edge)
+                moved = ever = True
+        if not moved:
+            break
+    return ever
+
+
+def space_out(drill: Drill, sport: str) -> None:
+    """Push people apart until their drawn figures stop covering each other.
+
+    Authoring is in court-relative units, which are not square — 0.01 across
+    is under 4pt while 0.01 down is about 6pt — so a defender written 0.05
+    "goal-side of" his man ended up standing on him. Rather than re-guess
+    674 boards' coordinates, this restores legibility without touching
+    intent: each covering pair is opened by the smallest amount that clears
+    the figures, so who is in front of whom never changes. Positions are
+    kept inside the playing surface, and audit() still runs afterwards — a
+    board too crowded for this to fix fails, as it should.
+
+    The floor is the figure's own box, not a disc (see FIGURE_PT): the
+    person is drawn twice as tall as he is wide, so a column needs twice
+    the room a row does.
+
+    Every beat is settled, not only the start. The start check is for
+    everybody — two people on one point at kick-off is a board a coach
+    cannot count. Later beats are between team-mates only: opponents
+    arriving on one point is the tackle, the screen, the mark, which is the
+    content of the drill and not a drawing fault.
+
+    Drills that declare tight=True (a scrum, a wall, a double block) keep
+    their formation and are only opened to where the heads clear.
+    """
+    if sport in SPACING_UNCHECKED:
+        return
+    fw, fh = FIGURE_TIGHT if drill.tight else FIGURE_PT
+    left, top, w, h = court_rect(sport)
+    people = drill.home + drill.away
+    side = [0] * len(drill.home) + [1] * len(drill.away)
+    outside = [not (left - 12 <= p.x <= left + w + 12
+                    and top - 12 <= p.y <= top + h + 12) for p in people]
+    beats = sorted({ph for p in people for (_, _, ph) in p.moves})
+
+    def read(beat):
+        if beat is None:
+            return [[p.x, p.y] for p in people]
+        return [list(_pos_at(p, beat)) for p in people]
+
+    def write(beat, pos):
+        for p, (x, y) in zip(people, pos):
+            last = None
+            if beat is not None:
+                for k, (_, _, ph) in enumerate(p.moves):
+                    if ph <= beat:
+                        last = k
+            if last is None:
+                # Nothing has moved him yet, so where he starts is where he
+                # is at this beat: moving his start moves nothing that has
+                # already happened on the board.
+                p.x, p.y = x, y
+            else:
+                p.moves[last] = (x, y, p.moves[last][2])
+
+    # Opening one beat can crowd another — a man pushed sideways at the
+    # start is still there three beats later — so the beats are walked
+    # until they all hold at once.
+    for _ in range(8):
+        moved = False
+        for beat in [None] + beats:
+            pos = read(beat)
+            if _settle(people, side, pos, outside, sport, fw, fh,
+                       mates_only=beat is not None):
+                write(beat, pos)
                 moved = True
         if not moved:
             return
@@ -1382,6 +1463,18 @@ BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
 SPACING_APART = 36.0            # one icon: no overlap at all
 SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 
+# What a player is actually DRAWN as, measured off the app's own painters by
+# tool/ink_probe.dart: about 26pt across and 52pt tall. The token is a 36pt
+# square and everything — taps, selection, the spacing above — is sized by
+# that square, but the figure stands out of the top and bottom of it by 8pt
+# each way. So a 36pt disc is generous side by side and far too small one
+# above the other: 44 boards started with a team-mate's head in someone's
+# boots and 110 got there by some beat. Two people read as two people when
+# they are the figure's long way apart along one axis, or its short way
+# apart along both — a diagonal pair needs less room than a column.
+FIGURE_PT = (26.0, 52.0)        # width, height of the drawn person
+FIGURE_TIGHT = (20.0, 34.0)     # a scrum, a wall, a lineout: heads still clear
+
 # How far the ball sits from the man carrying it, in points on the phone.
 # The player token is 36pt across and the ball is drawn at 0.58 of its own
 # 36pt cell — about 21pt — so 24pt between the two centres has their edges
@@ -1501,16 +1594,28 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     people = [p for p in board["players"]
               if p["markerShape"] == 0 and p.get("sportType") is None]
 
+    fw, fh = FIGURE_TIGHT if drill.tight else FIGURE_PT
+
+    def covered(a, b):
+        """How far two figures are apart on a phone, or None if they clear.
+
+        The test is the drawn figure's box, not a disc: 26pt across and
+        52pt tall, so a column needs twice the room a row does.
+        """
+        dx = abs(a[0] - b[0]) * CANVAS_PT[0] / BOARD_UNITS[0]
+        dy = abs(a[1] - b[1]) * CANVAS_PT[1] / BOARD_UNITS[1]
+        return None if dx >= fw or dy >= fh else (dx, dy)
+
     if sport not in SPACING_UNCHECKED:
-        floor = SPACING_TIGHT if drill.tight else SPACING_APART
         for i in range(len(people)):
             for j in range(i + 1, len(people)):
-                d = _screen_gap(people[i]["position"], people[j]["position"])
-                assert d >= floor, (
+                gap = covered(people[i]["position"], people[j]["position"])
+                assert gap is None, (
                     f"{sport}/{drill.id}: {people[i]['label']!r} and "
-                    f"{people[j]['label']!r} are {d:.0f}pt apart on a phone — "
-                    f"{'labels collide' if drill.tight else 'icons overlap'} "
-                    f"(need {floor:.0f}pt)")
+                    f"{people[j]['label']!r} are {gap[0]:.0f}pt across and "
+                    f"{gap[1]:.0f}pt down apart on a phone — "
+                    f"{'labels collide' if drill.tight else 'figures overlap'} "
+                    f"(need {fw:.0f} or {fh:.0f})")
 
     # …and nobody may be hidden UNDER a team-mate at any beat.
     #
@@ -1521,9 +1626,9 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     # so two of them 6pt apart is one token as far as a coach can tell.
     #
     # Only team-mates. Opponents on one point is a tackle, a tag, a screen —
-    # the whole content of the drill. And 6pt rather than a full icon,
-    # because bodies at a ruck, a maul or a lineout really are touching: the
-    # tightest honest board in the library sits at 8.7pt.
+    # the whole content of the drill. Bodies at a ruck, a maul or a lineout
+    # really are touching, which is what tight=True is for: it lets those
+    # boards close up to where the heads still clear.
     if sport not in SPACING_UNCHECKED:
         beats = [ph for p in people for ph in p["movePhases"]]
         for beat in range(0, (max(beats) if beats else 0) + 1):
@@ -1537,11 +1642,12 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                 for j in range(i + 1, len(people)):
                     if people[i]["team"] != people[j]["team"]:
                         continue
-                    d = _screen_gap(where(people[i]), where(people[j]))
-                    assert d >= 6.0, (
+                    gap = covered(where(people[i]), where(people[j]))
+                    assert gap is None, (
                         f"{sport}/{drill.id}: {people[i]['label']!r} and "
-                        f"{people[j]['label']!r} are {d:.1f}pt apart on beat "
-                        f"{beat} — one is drawn under the other")
+                        f"{people[j]['label']!r} are {gap[0]:.0f}pt across and "
+                        f"{gap[1]:.0f}pt down apart on beat {beat} — "
+                        f"one is drawn under the other")
 
     # A beat in the middle of a sequence where the ball travels and nobody
     # does. The ends are exempt on purpose: the first beat is the serve or
@@ -1580,12 +1686,19 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     balls = [p for p in board["players"] if p.get("sportType") is not None]
     for p in people + balls:
         prev = p["position"]
-        for mv in p["moves"]:
+        held = p.get("holder")
+        holders = p.get("moveHolders") or []
+        for k, mv in enumerate(p["moves"]):
             step = math.hypot(mv[0] - prev[0], mv[1] - prev[1])
-            assert step >= 8, (
+            # …unless the ball stayed put because somebody took it off the
+            # man who had it. See prune_degenerate_ball_legs.
+            now = holders[k] if k < len(holders) else None
+            assert step >= 8 or (now is not None and now != held), (
                 f"{sport}/{drill.id}/{p['label'] or 'ball'}: {step:.0f}px "
                 f"move — a dead arrow (prune_degenerate_moves should have "
                 f"eaten it)")
+            if now is not None:
+                held = now
             prev = mv
 
     if sport == "soccer":

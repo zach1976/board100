@@ -502,7 +502,7 @@
             "scale": 1.0,
             "moves": [
               [
-                363.41684434968016,
+                377.9051172707889,
                 837.7499999999999
               ]
             ],
@@ -552,7 +552,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              324.89339019189765,
+              310.40511727078894,
               924.15
             ],
             "scale": 1.0,
@@ -629,26 +629,26 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              479.212744501276,
-              580.229191496372
+              481.18727172356273,
+              580.8026676158203
             ],
             "scale": 1.0,
             "moves": [
               [
-                345.64659903941015,
-                877.9103723769749
+                332.64507945383355,
+                878.3844122330155
               ],
               [
-                730.2088222945271,
-                707.1950802597958
+                729.8978081026271,
+                706.7106004975723
               ],
               [
-                276.8139267451028,
-                686.5626894396049
+                276.81752651917884,
+                686.5081650238393
               ],
               [
-                626.7061543417492,
-                895.2784325995763
+                626.7101114378439,
+                895.2739068262737
               ]
             ],
             "movePhases": [
@@ -985,7 +985,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -1009,7 +1009,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -1018,7 +1018,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -1114,13 +1114,13 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
               [
                 605.0639658848614,
-                453.00000000000006
+                462.53571428571433
               ],
               [
                 710.1279317697229,
@@ -1147,13 +1147,13 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.085287846482,
-                358.5
+                348.9642857142857
               ],
               [
                 535.0213219616205,
@@ -1178,18 +1178,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
-                508.1909030863914,
-                230.52763509996424
+                508.2815451080084,
+                230.44892124140216
               ],
               [
                 500.0,
@@ -1291,7 +1291,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -1315,7 +1315,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -1324,7 +1324,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -1420,7 +1420,7 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -1453,7 +1453,7 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -1485,18 +1485,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
-                501.02712306699743,
-                539.2127483670749
+                500.82873207255057,
+                538.883090535003
               ],
               [
                 500.0,
@@ -1794,18 +1794,18 @@
         "vi-VN": "Trao bóng khi dẫn"
       },
       "note": {
-        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 5 v 1, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move; Step 2: 2, x2 move left; Step 3: 1 throws to 2.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Hand it off shoulder to shoulder — a gap the size of a defender is a gap he will use.",
-        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 5 v 1, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move; Step 2: 2, x2 move left; Step 3: 1 throws to 2.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Hand it off shoulder to shoulder — a gap the size of a defender is a gap he will use.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】5 对 1，球在 1号球员 手中。\n【球路】1 → 2\n【流程】第1步：1号球员带球推进；第2步：2号球员、x2向左移动；第3步：1号球员传给2号球员。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】手递手时肩靠肩，留出一个防守人宽的缝，他就会从缝里挤过来。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】5 對 1，球在 1號球員 手中。\n【球路】1 → 2\n【流程】第1步：1號球員帶球推進；第2步：2號球員、x2向左移動；第3步：1號球員傳給2號球員。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】手遞手時肩靠肩，留出一個防守人寬的縫，他就會從縫裡擠過來。",
-        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】5対1、ボールは1番。\n【ボールの道筋】1 → 2\n【流れ】ステップ1：1番がボールを運ぶ。ステップ2：2番・x2が左へ移動。ステップ3：1番が2番へ送球。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】肩と肩を触れさせて渡す。ディフェンス1人分の隙間は必ず通られる。",
-        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】5대1, 공은 1번.\n【볼 경로】1 → 2\n【진행】1단계: 1번가 공을 몰고 이동; 2단계: 2번, x2는 왼쪽으로 이동; 3단계: 1번가 2번에게 송구.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】어깨를 맞대고 건네라. 수비 한 명이 지나갈 틈이면 반드시 지나간다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 5 contra 1, balón con 1.\nRecorrido del balón: 1 → 2\nSecuencia: Paso 1: 1 conduce el balón; Paso 2: 2, x2 se desplaza a la izquierda; Paso 3: 1 lanza a 2.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Entrega hombro con hombro: un hueco del tamaño de un defensor es un hueco que usará.",
-        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 5 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2\nDéroulé : Étape 1 : 1 conduit le ballon ; Étape 2 : 2, x2 se déplace à gauche ; Étape 3 : 1 lance à 2.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Remise épaule contre épaule : un espace de la taille d'un défenseur sera utilisé.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 5 lawan 1, bola pada 1.\nJalur bola: 1 → 2\nUrutan: Langkah 1: 1 menggiring bola; Langkah 2: 2, x2 bergerak ke kiri; Langkah 3: 1 melempar ke 2.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Serahkan bahu ke bahu — celah seukuran pemain bertahan pasti dilewati.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 5 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2\nUrutan: Langkah 1: 1 membawa bola; Langkah 2: 2, x2 bergerak ke kiri; Langkah 3: 1 membaling kepada 2.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Serah bahu ke bahu.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 5 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2\nลำดับ: ขั้นที่ 1: 1 พาบอลไป • ขั้นที่ 2: 2, x2 ขยับไปทางซ้าย • ขั้นที่ 3: 1 ขว้างให้ 2\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ส่งบอลไหล่ชนไหล่ ช่องว่างขนาดคนหนึ่งคือช่องที่เขาจะเสียบ",
-        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 5 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2\nTrình tự: Bước 1: 1 dẫn bóng di chuyển; Bước 2: 2, x2 di chuyển sang trái; Bước 3: 1 ném cho 2.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Trao bóng vai kề vai — khe hở vừa một hậu vệ là khe hở sẽ bị luồn."
+        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 5 v 1, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move; Step 2: 1 throws to 2, 2, x2 move left; Step 3: 2 carries the ball on the move.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Hand it off shoulder to shoulder — a gap the size of a defender is a gap he will use.",
+        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 5 v 1, ball with 1.\nBall path: 1 → 2\nSequence: Step 1: 1 carries the ball on the move; Step 2: 1 throws to 2, 2, x2 move left; Step 3: 2 carries the ball on the move.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Hand it off shoulder to shoulder — a gap the size of a defender is a gap he will use.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】5 对 1，球在 1号球员 手中。\n【球路】1 → 2\n【流程】第1步：1号球员带球推进；第2步：1号球员传给2号球员，2号球员、x2向左移动；第3步：2号球员带球推进。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】手递手时肩靠肩，留出一个防守人宽的缝，他就会从缝里挤过来。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】5 對 1，球在 1號球員 手中。\n【球路】1 → 2\n【流程】第1步：1號球員帶球推進；第2步：1號球員傳給2號球員，2號球員、x2向左移動；第3步：2號球員帶球推進。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】手遞手時肩靠肩，留出一個防守人寬的縫，他就會從縫裡擠過來。",
+        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】5対1、ボールは1番。\n【ボールの道筋】1 → 2\n【流れ】ステップ1：1番がボールを運ぶ。ステップ2：1番が2番へ送球、2番・x2が左へ移動。ステップ3：2番がボールを運ぶ。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】肩と肩を触れさせて渡す。ディフェンス1人分の隙間は必ず通られる。",
+        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】5대1, 공은 1번.\n【볼 경로】1 → 2\n【진행】1단계: 1번가 공을 몰고 이동; 2단계: 1번가 2번에게 송구, 2번, x2는 왼쪽으로 이동; 3단계: 2번가 공을 몰고 이동.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】어깨를 맞대고 건네라. 수비 한 명이 지나갈 틈이면 반드시 지나간다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 5 contra 1, balón con 1.\nRecorrido del balón: 1 → 2\nSecuencia: Paso 1: 1 conduce el balón; Paso 2: 1 lanza a 2, 2, x2 se desplaza a la izquierda; Paso 3: 2 conduce el balón.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Entrega hombro con hombro: un hueco del tamaño de un defensor es un hueco que usará.",
+        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 5 contre 1, ballon avec 1.\nTrajet du ballon : 1 → 2\nDéroulé : Étape 1 : 1 conduit le ballon ; Étape 2 : 1 lance à 2, 2, x2 se déplace à gauche ; Étape 3 : 2 conduit le ballon.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Remise épaule contre épaule : un espace de la taille d'un défenseur sera utilisé.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 5 lawan 1, bola pada 1.\nJalur bola: 1 → 2\nUrutan: Langkah 1: 1 menggiring bola; Langkah 2: 1 melempar ke 2, 2, x2 bergerak ke kiri; Langkah 3: 2 menggiring bola.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Serahkan bahu ke bahu — celah seukuran pemain bertahan pasti dilewati.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 5 lawan 1, bola dengan 1.\nLaluan bola: 1 → 2\nUrutan: Langkah 1: 1 membawa bola; Langkah 2: 1 membaling kepada 2, 2, x2 bergerak ke kiri; Langkah 3: 2 membawa bola.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Serah bahu ke bahu.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 5 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2\nลำดับ: ขั้นที่ 1: 1 พาบอลไป • ขั้นที่ 2: 1 ขว้างให้ 2 2, x2 ขยับไปทางซ้าย • ขั้นที่ 3: 2 พาบอลไป\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ส่งบอลไหล่ชนไหล่ ช่องว่างขนาดคนหนึ่งคือช่องที่เขาจะเสียบ",
+        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 5 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → 2\nTrình tự: Bước 1: 1 dẫn bóng di chuyển; Bước 2: 1 ném cho 2, 2, x2 di chuyển sang trái; Bước 3: 2 dẫn bóng di chuyển.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Trao bóng vai kề vai — khe hở vừa một hậu vệ là khe hở sẽ bị luồn."
       },
       "mistake": {
         "en": "Forcing it early instead of waiting the half-second the opening needs.",
@@ -2002,20 +2002,27 @@
                 482.29415594269716
               ],
               [
+                511.6218919177979,
+                483.34006628893883
+              ],
+              [
                 698.6241798725302,
                 245.67229988952045
               ]
             ],
             "movePhases": [
               0,
+              1,
               2
             ],
             "moveCarriers": [
               "d0",
+              null,
               "d1"
             ],
             "moveHolders": [
               "d0",
+              "d1",
               "d1"
             ],
             "holder": "d0",
@@ -2530,7 +2537,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              237.0
+              227.46428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -2579,7 +2586,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              331.5
+              341.0357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -2634,18 +2641,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              476.4824299355721,
-              461.67229988952045
+              477.1655576972719,
+              461.43460025292484
             ],
             "scale": 1.0,
             "moves": [
               [
-                383.43228221794607,
-                282.32770011047955
+                382.7491544562463,
+                273.0296854613609
               ],
               [
-                512.1041835533841,
-                139.22347659378474
+                514.6250158415597,
+                142.10988118185887
               ],
               [
                 500.0,
@@ -2746,8 +2753,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              256.39285714285717
+              466.25,
+              237.0
             ],
             "scale": 1.0,
             "moves": [
@@ -2774,8 +2781,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              500.0,
-              177.10714285714286
+              533.75,
+              196.5
             ],
             "scale": 1.0,
             "moves": [
@@ -2956,7 +2963,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              797.6812366737739,
+              800.787579957356,
               480.0
             ],
             "scale": 1.0,
@@ -3005,7 +3012,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              736.3939232409382,
+              733.2875799573561,
               385.5
             ],
             "scale": 1.0,
@@ -3066,18 +3073,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              746.9912901798285,
-              453.94675626776944
+              749.891787265157,
+              454.222035320619
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.8633584101058,
-                345.94675626776944
+                536.6575122118521,
+                346.222035320619
               ],
               [
-                240.83397734887797,
-                435.96360713627575
+                240.84726042327412,
+                435.9934424384249
               ]
             ],
             "movePhases": [
@@ -3192,7 +3199,7 @@
             "sportType": null,
             "position": [
               307.38272921108745,
-              399.0
+              408.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -3219,7 +3226,7 @@
             "sportType": null,
             "position": [
               692.6172707889126,
-              399.0
+              408.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -3246,7 +3253,7 @@
             "sportType": null,
             "position": [
               342.4040511727079,
-              304.5
+              294.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -3279,7 +3286,7 @@
             "sportType": null,
             "position": [
               657.5959488272922,
-              304.5
+              294.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -3496,7 +3503,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              345.0
+              342.2142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -3613,7 +3620,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              453.00000000000006
+              455.78571428571433
             ],
             "scale": 1.0,
             "moves": [
@@ -3823,7 +3830,7 @@
             "sportType": null,
             "position": [
               500.0,
-              993.0000000000001
+              990.2142857142858
             ],
             "scale": 1.0,
             "moves": [
@@ -3928,7 +3935,7 @@
             "sportType": null,
             "position": [
               500.0,
-              1101.0
+              1103.7857142857144
             ],
             "scale": 1.0,
             "moves": [
@@ -4075,7 +4082,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -4103,7 +4110,7 @@
             "sportType": null,
             "position": [
               184.8081023454158,
-              453.00000000000006
+              455.78571428571433
             ],
             "scale": 1.0,
             "moves": [],
@@ -4123,7 +4130,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              815.1918976545842,
+              822.6759061833689,
               453.00000000000006
             ],
             "scale": 1.0,
@@ -4145,7 +4152,7 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -4173,7 +4180,7 @@
             "sportType": null,
             "position": [
               202.31876332622602,
-              345.0
+              342.2142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -4193,7 +4200,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              762.6599147121535,
+              755.1759061833689,
               372.0
             ],
             "scale": 1.0,
@@ -4214,18 +4221,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              494.69063056868623,
-              484.88033234065665
+              494.84127438697817,
+              494.4050951152317
             ],
             "scale": 1.0,
             "moves": [
               [
-                241.8144770517313,
-                467.6498573902806
+                241.38273652579304,
+                471.5361957741965
               ],
               [
-                430.23995014013417,
-                250.10691790767186
+                430.5395528564719,
+                250.28283217010198
               ],
               [
                 500.0,
@@ -4550,7 +4557,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -4574,7 +4581,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -4583,7 +4590,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -4679,13 +4686,13 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
               [
                 605.0639658848614,
-                453.00000000000006
+                462.53571428571433
               ],
               [
                 710.1279317697229,
@@ -4712,13 +4719,13 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
               [
                 640.085287846482,
-                358.5
+                348.9642857142857
               ],
               [
                 535.0213219616205,
@@ -4743,18 +4750,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
-                508.1909030863914,
-                230.52763509996424
+                508.2815451080084,
+                230.44892124140216
               ],
               [
                 500.0,
@@ -4879,7 +4886,7 @@
               ],
               [
                 447.4680170575693,
-                304.5
+                307.2857142857143
               ]
             ],
             "movePhases": [
@@ -4902,7 +4909,7 @@
             "sportType": null,
             "position": [
               351.15938166311304,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -4912,7 +4919,7 @@
               ],
               [
                 429.957356076759,
-                196.5
+                193.71428571428572
               ]
             ],
             "movePhases": [
@@ -5008,7 +5015,7 @@
               ],
               [
                 359.91471215351817,
-                372.0
+                374.7857142857143
               ]
             ],
             "movePhases": [
@@ -5031,7 +5038,7 @@
             "sportType": null,
             "position": [
               394.93603411513857,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -5041,7 +5048,7 @@
               ],
               [
                 386.1807036247335,
-                264.0
+                261.2142857142857
               ]
             ],
             "movePhases": [
@@ -5073,8 +5080,8 @@
                 378.1453743124377
               ],
               [
-                435.11778920164426,
-                245.6304968173102
+                435.0404134680788,
+                242.8502859962057
               ]
             ],
             "movePhases": [
@@ -5192,7 +5199,7 @@
               ],
               [
                 552.5319829424308,
-                304.5
+                307.2857142857143
               ]
             ],
             "movePhases": [
@@ -5215,7 +5222,7 @@
             "sportType": null,
             "position": [
               648.8406183368869,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -5225,7 +5232,7 @@
               ],
               [
                 570.042643923241,
-                196.5
+                193.71428571428572
               ]
             ],
             "movePhases": [
@@ -5321,7 +5328,7 @@
               ],
               [
                 640.0852878464818,
-                372.0
+                374.7857142857143
               ]
             ],
             "movePhases": [
@@ -5344,7 +5351,7 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -5354,7 +5361,7 @@
               ],
               [
                 613.8192963752665,
-                264.0
+                261.2142857142857
               ]
             ],
             "movePhases": [
@@ -5386,8 +5393,8 @@
                 378.1453743124377
               ],
               [
-                564.8822107983558,
-                245.6304968173102
+                564.9595865319213,
+                242.8502859962057
               ]
             ],
             "movePhases": [
@@ -5495,7 +5502,7 @@
             "sportType": null,
             "position": [
               324.89339019189765,
-              534.0
+              551.1897321428571
             ],
             "scale": 1.0,
             "moves": [
@@ -5519,7 +5526,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -5528,7 +5535,7 @@
             "sportType": null,
             "position": [
               351.15938166311304,
-              331.5
+              325.3392857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5552,7 +5559,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 2.356194
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -5624,13 +5631,13 @@
             "sportType": null,
             "position": [
               324.89339019189765,
-              439.5
+              438.9107142857143
             ],
             "scale": 1.0,
             "moves": [
               [
                 429.957356076759,
-                466.5
+                469.2857142857143
               ],
               [
                 535.0213219616205,
@@ -5657,13 +5664,13 @@
             "sportType": null,
             "position": [
               394.93603411513857,
-              223.5
+              213.06026785714286
             ],
             "scale": 1.0,
             "moves": [
               [
                 447.4680170575693,
-                358.5
+                355.7142857142857
               ],
               [
                 359.91471215351817,
@@ -5688,18 +5695,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              378.99387616176426,
-              513.1453743124378
+              376.85649689754314,
+              526.9081267143625
             ],
             "scale": 1.0,
             "moves": [
               [
-                589.1218079314872,
-                432.1453743124378
+                586.984428667266,
+                428.71839457150554
               ],
               [
-                443.8806258905685,
-                238.42588457608412
+                443.93694101655166,
+                238.39703969861802
               ]
             ],
             "movePhases": [
@@ -5807,7 +5814,7 @@
             "sportType": null,
             "position": [
               675.1066098081023,
-              534.0
+              551.1897321428571
             ],
             "scale": 1.0,
             "moves": [
@@ -5831,7 +5838,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -1.570796
+            "rotation": -0.785398
           },
           {
             "id": "d1",
@@ -5840,7 +5847,7 @@
             "sportType": null,
             "position": [
               648.8406183368869,
-              331.5
+              325.3392857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -5864,7 +5871,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -2.356194
+            "rotation": 3.141593
           },
           {
             "id": "d2",
@@ -5936,13 +5943,13 @@
             "sportType": null,
             "position": [
               675.1066098081023,
-              439.5
+              438.9107142857143
             ],
             "scale": 1.0,
             "moves": [
               [
                 570.042643923241,
-                466.5
+                469.2857142857143
               ],
               [
                 464.9786780383795,
@@ -5969,13 +5976,13 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              213.06026785714286
             ],
             "scale": 1.0,
             "moves": [
               [
                 552.5319829424308,
-                358.5
+                355.7142857142857
               ],
               [
                 640.0852878464818,
@@ -6000,18 +6007,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              621.0061238382357,
-              513.1453743124378
+              623.1435031024569,
+              526.9081267143625
             ],
             "scale": 1.0,
             "moves": [
               [
-                410.8781920685129,
-                432.1453743124378
+                413.015571332734,
+                428.71839457150554
               ],
               [
-                556.1193741094315,
-                238.42588457608412
+                556.0630589834483,
+                238.39703969861802
               ]
             ],
             "movePhases": [
@@ -6119,7 +6126,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -6236,7 +6243,7 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -6268,18 +6275,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              538.8532163257295,
-              496.5572086504785
+              537.312077072758,
+              505.0382546730764
             ],
             "scale": 1.0,
             "moves": [
               [
-                758.1855229482687,
-                467.6498573902806
+                758.8024640770799,
+                469.1972997564202
               ],
               [
-                602.1012372987054,
-                265.10189873416067
+                602.0317965624743,
+                265.13835512531216
               ],
               [
                 500.0,
@@ -6624,18 +6631,18 @@
         "vi-VN": "Cắt vào cắt bung ra"
       },
       "note": {
-        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, red: X2, X1, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 2, X2 move right, 5 moves up the board; Step 2: 1 throws to 2; Step 3: 2 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
-        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, red: X2, X1, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 2, X2 move right, 5 moves up the board; Step 2: 1 throws to 2; Step 3: 2 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
-        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 2，红方：X2、X1，球在 1号球员 手中。\n【球路】1 → 2 → 篮筐\n【流程】第1步：2号球员、X2向右移动，5号球员向前移动；第2步：1号球员传给2号球员；第3步：2号球员投篮。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】在你的防守人扭头的那一刻切，而不是你站腻了才切。空切是对他的反应，不是你自己的决定。",
-        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 2，紅方：X2、X1，球在 1號球員 手中。\n【球路】1 → 2 → 籃框\n【流程】第1步：2號球員、X2向右移動，5號球員向前移動；第2步：1號球員傳給2號球員；第3步：2號球員投籃。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】在你的防守人扭頭的那一刻切，而不是你站膩了才切。空切是對他的反應，不是你自己的決定。",
-        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対2、赤：X2・X1、ボールは1番。\n【ボールの道筋】1 → 2 → リング\n【流れ】ステップ1：2番・X2が右へ移動、5番が前方へ移動。ステップ2：1番が2番へ送球。ステップ3：2番がシュートを放つ。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】自分のマークが顔を向けた瞬間に切る。飽きたからではない。カットは相手への反応であって、自分の判断ではない。",
-        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대2, 홍팀: X2, X1, 공은 1번.\n【볼 경로】1 → 2 → 림\n【진행】1단계: 2번, X2는 오른쪽으로 이동, 5번는 앞으로 이동; 2단계: 1번가 2번에게 송구; 3단계: 2번 슛을 던진다.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】수비가 고개를 돌릴 때 컷하라. 지루해서가 아니라. 컷은 상대에 대한 반응이다.",
-        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 2, rojos: X2, X1, balón con 1.\nRecorrido del balón: 1 → 2 → canasta\nSecuencia: Paso 1: 2, X2 se desplaza a la derecha, 5 se desplaza hacia delante; Paso 2: 1 lanza a 2; Paso 3: 2 lanza a canasta.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Corta cuando tu defensor gira la cabeza, no cuando te aburres: el corte es una reacción a él, no una decisión tuya.",
-        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 2, les rouges : X2, X1, ballon avec 1.\nTrajet du ballon : 1 → 2 → panier\nDéroulé : Étape 1 : 2, X2 se déplace à droite, 5 se déplace vers l'avant ; Étape 2 : 1 lance à 2 ; Étape 3 : 2 tire au panier.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Coupe quand ton défenseur tourne la tête, pas quand tu t'ennuies : la coupe est une réaction, pas une décision.",
-        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 2, tim merah: X2, X1, bola pada 1.\nJalur bola: 1 → 2 → ring\nUrutan: Langkah 1: 2, X2 bergerak ke kanan, 5 bergerak ke depan; Langkah 2: 1 melempar ke 2; Langkah 3: 2 melepaskan tembakan.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Cut saat penjagamu menoleh, bukan saat kamu bosan.",
-        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 2, pasukan merah: X2, X1, bola dengan 1.\nLaluan bola: 1 → 2 → jaring\nUrutan: Langkah 1: 2, X2 bergerak ke kanan, 5 bergerak ke hadapan; Langkah 2: 1 membaling kepada 2; Langkah 3: 2 melepaskan jaringan.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
-        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 2 ทีมแดง: X2, X1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → ห่วง\nลำดับ: ขั้นที่ 1: 2, X2 ขยับไปทางขวา 5 ขยับไปข้างหน้า • ขั้นที่ 2: 1 ขว้างให้ 2 • ขั้นที่ 3: 2 ยิงเข้าห่วง\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
-        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 2, đội đỏ: X2, X1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → rổ\nTrình tự: Bước 1: 2, X2 di chuyển sang phải, 5 di chuyển lên phía trước; Bước 2: 1 ném cho 2; Bước 3: 2 ném rổ.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Cắt khi người kèm quay đầu, không phải khi bạn chán."
+        "en": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, red: X2, X1, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 2 moves back, 5 moves up the board, X2 moves right; Step 2: 1 throws to 2; Step 3: 2 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
+        "en-GB": "Purpose: Break a set defence: use the screen or the drive to create an advantage, draw the help, and make the pass the rotation opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 4 v 2, red: X2, X1, ball with 1.\nBall path: 1 → 2 → basket\nSequence: Step 1: 2 moves back, 5 moves up the board, X2 moves right; Step 2: 1 throws to 2; Step 3: 2 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Cut when your defender turns their head, not when you get bored. The cut is a reaction to them, not a decision of yours.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。用掩护和突破制造以多打少，把协防人吸出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】4 对 2，红方：X2、X1，球在 1号球员 手中。\n【球路】1 → 2 → 篮筐\n【流程】第1步：2号球员向后移动，5号球员向前移动，X2向右移动；第2步：1号球员传给2号球员；第3步：2号球员投篮。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】在你的防守人扭头的那一刻切，而不是你站腻了才切。空切是对他的反应，不是你自己的决定。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。用掩護和突破製造以多打少，把協防人吸出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】4 對 2，紅方：X2、X1，球在 1號球員 手中。\n【球路】1 → 2 → 籃框\n【流程】第1步：2號球員向後移動，5號球員向前移動，X2向右移動；第2步：1號球員傳給2號球員；第3步：2號球員投籃。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】在你的防守人扭頭的那一刻切，而不是你站膩了才切。空切是對他的反應，不是你自己的決定。",
+        "ja-JP": "【目的】セットされたディフェンスを崩す。スクリーンやドライブで数的優位を作り、ヘルプを引き出し、ローテーションで空いたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】4対2、赤：X2・X1、ボールは1番。\n【ボールの道筋】1 → 2 → リング\n【流れ】ステップ1：2番が後方へ移動、5番が前方へ移動、X2が右へ移動。ステップ2：1番が2番へ送球。ステップ3：2番がシュートを放つ。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】自分のマークが顔を向けた瞬間に切る。飽きたからではない。カットは相手への反応であって、自分の判断ではない。",
+        "ko-KR": "【목적】세팅된 수비를 깬다. 스크린과 드라이브로 우위를 만들고, 헬프를 끌어낸 뒤 로테이션이 열어준 패스를 한다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】4대2, 홍팀: X2, X1, 공은 1번.\n【볼 경로】1 → 2 → 림\n【진행】1단계: 2번는 뒤로 이동, 5번는 앞으로 이동, X2는 오른쪽으로 이동; 2단계: 1번가 2번에게 송구; 3단계: 2번 슛을 던진다.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】수비가 고개를 돌릴 때 컷하라. 지루해서가 아니라. 컷은 상대에 대한 반응이다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: usar el bloqueo o la penetración para crear ventaja, atraer la ayuda y dar el pase que abre la rotación.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 4 contra 2, rojos: X2, X1, balón con 1.\nRecorrido del balón: 1 → 2 → canasta\nSecuencia: Paso 1: 2 se desplaza hacia atrás, 5 se desplaza hacia delante, X2 se desplaza a la derecha; Paso 2: 1 lanza a 2; Paso 3: 2 lanza a canasta.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Corta cuando tu defensor gira la cabeza, no cuando te aburres: el corte es una reacción a él, no una decisión tuya.",
+        "fr-FR": "Objectif : Casser une défense en place : écran ou drive pour créer l'avantage, attirer l'aide, et servir la passe que la rotation ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 4 contre 2, les rouges : X2, X1, ballon avec 1.\nTrajet du ballon : 1 → 2 → panier\nDéroulé : Étape 1 : 2 se déplace vers l'arrière, 5 se déplace vers l'avant, X2 se déplace à droite ; Étape 2 : 1 lance à 2 ; Étape 3 : 2 tire au panier.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Coupe quand ton défenseur tourne la tête, pas quand tu t'ennuies : la coupe est une réaction, pas une décision.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang sudah siap: gunakan screen atau drive untuk menciptakan keunggulan, tarik bantuan, dan umpan yang dibuka rotasi.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 4 lawan 2, tim merah: X2, X1, bola pada 1.\nJalur bola: 1 → 2 → ring\nUrutan: Langkah 1: 2 bergerak ke belakang, 5 bergerak ke depan, X2 bergerak ke kanan; Langkah 2: 1 melempar ke 2; Langkah 3: 2 melepaskan tembakan.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Cut saat penjagamu menoleh, bukan saat kamu bosan.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan yang tersusun: guna screen atau drive untuk mencipta kelebihan, tarik bantuan, dan buat hantaran yang dibuka oleh rotasi.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 4 lawan 2, pasukan merah: X2, X1, bola dengan 1.\nLaluan bola: 1 → 2 → jaring\nUrutan: Langkah 1: 2 bergerak ke belakang, 5 bergerak ke hadapan, X2 bergerak ke kanan; Langkah 2: 1 membaling kepada 2; Langkah 3: 2 melepaskan jaringan.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Cut ketika penjaga anda menoleh, bukan ketika anda bosan.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งหลักแล้ว ใช้สกรีนหรือไดรฟ์สร้างความได้เปรียบ ดึงคนช่วย แล้วจ่ายบอลที่การหมุนตัวเปิดให้\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 4 ต่อ 2 ทีมแดง: X2, X1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → ห่วง\nลำดับ: ขั้นที่ 1: 2 ขยับถอยหลัง 5 ขยับไปข้างหน้า X2 ขยับไปทางขวา • ขั้นที่ 2: 1 ขว้างให้ 2 • ขั้นที่ 3: 2 ยิงเข้าห่วง\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ตัดเข้าเมื่อคนประกบหันหัว ไม่ใช่เมื่อคุณเบื่อ",
+        "vi-VN": "Mục đích: Phá hàng phòng ngự đã đứng sẵn: dùng screen hoặc drive để tạo lợi thế, kéo người hỗ trợ ra, rồi chuyền vào khoảng trống mà xoay phòng ngự để lộ.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 4 đấu 2, đội đỏ: X2, X1, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → rổ\nTrình tự: Bước 1: 2 di chuyển lùi lại, 5 di chuyển lên phía trước, X2 di chuyển sang phải; Bước 2: 1 ném cho 2; Bước 3: 2 ném rổ.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Cắt khi người kèm quay đầu, không phải khi bạn chán."
       },
       "mistake": {
         "en": "Cutting when bored, not when the defender's head turns.",
@@ -6660,7 +6667,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              640.085287846482,
+              647.5692963752665,
               520.5
             ],
             "scale": 1.0,
@@ -6682,7 +6689,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              520.5
+              538.9754464285714
             ],
             "scale": 1.0,
             "moves": [
@@ -6736,7 +6743,7 @@
             "sportType": null,
             "position": [
               351.15938166311304,
-              331.5
+              313.6205357142857
             ],
             "scale": 1.0,
             "moves": [
@@ -6764,7 +6771,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              426.0
+              425.40401785714283
             ],
             "scale": 1.0,
             "moves": [
@@ -6796,7 +6803,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              587.5533049040512,
+              580.0692963752665,
               426.0
             ],
             "scale": 1.0,
@@ -6816,14 +6823,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              580.6601403724736,
-              515.7605848372642
+              588.1362337023825,
+              515.8287969920447
             ],
             "scale": 1.0,
             "moves": [
               [
-                191.70126687699337,
-                484.7394151627357
+                191.7091820758691,
+                484.6712030079554
               ],
               [
                 500.0,
@@ -8193,7 +8200,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              237.0
+              227.46428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -8263,7 +8270,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              331.5
+              341.0357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -8318,18 +8325,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              748.1289041543439,
-              452.4939753778173
+              748.7344240094795,
+              451.76390243239194
             ],
             "scale": 1.0,
             "moves": [
               [
-                409.4670446729482,
-                264.5060246221827
+                408.86152481781255,
+                255.70038328189378
               ],
               [
-                487.23015253869477,
-                119.21403312529735
+                489.93424894915256,
+                121.33747147026544
               ],
               [
                 500.0,
@@ -8465,7 +8472,7 @@
             "sportType": null,
             "position": [
               640.085287846482,
-              345.0
+              354.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -8535,7 +8542,7 @@
             "sportType": null,
             "position": [
               640.085287846482,
-              250.5
+              240.96428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -8590,18 +8597,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              787.1796251803024,
-              448.094262828735
+              785.8228836679907,
+              449.4641871405762
             ],
             "scale": 1.0,
             "moves": [
               [
-                685.608221301574,
-                376.905737171265
+                686.9649628138857,
+                385.0715271451381
               ],
               [
-                504.8978581231268,
-                153.9227534403318
+                506.2841074383053,
+                153.27389307052317
               ],
               [
                 500.0,
@@ -8737,7 +8744,7 @@
             "sportType": null,
             "position": [
               640.085287846482,
-              237.0
+              234.21428571428572
             ],
             "scale": 1.0,
             "moves": [],
@@ -8800,7 +8807,7 @@
             "sportType": null,
             "position": [
               640.085287846482,
-              345.0
+              347.7857142857143
             ],
             "scale": 1.0,
             "moves": [],
@@ -8848,18 +8855,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              799.9989203450198,
-              438.74209995805586
+              800.2596827592216,
+              438.60186686246567
             ],
             "scale": 1.0,
             "moves": [
               [
-                672.7889261368566,
-                278.25790004194414
+                672.5281637226548,
+                275.61241885182005
               ],
               [
-                174.229225562174,
-                241.3964999730691
+                174.25838620064272,
+                241.11853611629653
               ],
               [
                 500.0,
@@ -9007,7 +9014,7 @@
             "sportType": null,
             "position": [
               640.085287846482,
-              331.5
+              341.0357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9082,7 +9089,7 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              237.0
+              227.46428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -9260,7 +9267,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9284,7 +9291,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -9293,7 +9300,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9326,13 +9333,13 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
               [
                 605.0639658848614,
-                453.00000000000006
+                455.78571428571433
               ],
               [
                 710.1279317697229,
@@ -9359,13 +9366,13 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
               [
                 587.5533049040512,
-                345.0
+                342.2142857142857
               ],
               [
                 570.0426439232409,
@@ -9390,14 +9397,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
                 642.1490183661529,
@@ -9516,7 +9523,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9540,7 +9547,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -9549,7 +9556,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9582,7 +9589,7 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -9615,7 +9622,7 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -9646,14 +9653,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
                 642.1490183661529,
@@ -9772,7 +9779,7 @@
             "sportType": null,
             "position": [
               500.0,
-              534.0
+              543.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9796,7 +9803,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -9805,7 +9812,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              334.2857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -9838,7 +9845,7 @@
             "sportType": null,
             "position": [
               500.0,
-              439.5
+              429.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -9871,7 +9878,7 @@
             "sportType": null,
             "position": [
               605.0639658848614,
-              223.5
+              220.71428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -9902,14 +9909,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              554.1004859698667,
-              513.1453743124378
+              552.9333513501595,
+              520.72885213435
             ],
             "scale": 1.0,
             "moves": [
               [
-                764.2284177395895,
-                432.1453743124378
+                763.0612831198823,
+                430.1931378486357
               ],
               [
                 642.1490183661529,
@@ -10028,7 +10035,7 @@
             "sportType": null,
             "position": [
               815.1918976545842,
-              480.0
+              489.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -10060,7 +10067,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              341.0357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -10093,7 +10100,7 @@
             "sportType": null,
             "position": [
               815.1918976545842,
-              385.5
+              375.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -10125,7 +10132,7 @@
             "sportType": null,
             "position": [
               675.1066098081023,
-              237.0
+              227.46428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -10157,14 +10164,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              821.552084140212,
-              430.9655759710779
+              821.1367781922137,
+              440.4657473786307
             ],
             "scale": 1.0,
             "moves": [
               [
-                839.0627451210222,
-                295.9655759710779
+                838.6474391730239,
+                295.9300330929164
               ],
               [
                 785.1720373465575,
@@ -11559,18 +11566,18 @@
         "vi-VN": "Ném biên xếp chồng"
       },
       "note": {
-        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: X2, X3, ball with 1.\nBall path: 1 → 3 → basket\nSequence: Step 1: 1 throws to 3, 2, X2 move left, 3, X3 move right, 4 moves up the board; Step 2: 3 puts up the shot, 1 moves left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
-        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: X2, X3, ball with 1.\nBall path: 1 → 3 → basket\nSequence: Step 1: 1 throws to 3, 2, X2 move left, 3, X3 move right, 4 moves up the board; Step 2: 3 puts up the shot, 1 moves left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
-        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，红方：X2、X3，球在 1号球员 手中。\n【球路】1 → 3 → 篮筐\n【流程】第1步：1号球员传给3号球员，2号球员、X2向左移动，3号球员、X3向右移动，4号球员向前移动；第2步：3号球员投篮，1号球员向左移动。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】第一个跑动的人就是诱饵，而且他自己知道。如果他跑得像个诱饵，第二个人也没人防了。",
-        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，紅方：X2、X3，球在 1號球員 手中。\n【球路】1 → 3 → 籃框\n【流程】第1步：1號球員傳給3號球員，2號球員、X2向左移動，3號球員、X3向右移動，4號球員向前移動；第2步：3號球員投籃，1號球員向左移動。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】第一個跑動的人就是誘餌，而且他自己知道。如果他跑得像個誘餌，第二個人也沒人防了。",
-        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、赤：X2・X3、ボールは1番。\n【ボールの道筋】1 → 3 → リング\n【流れ】ステップ1：1番が3番へ送球、2番・X2が左へ移動、3番・X3が右へ移動、4番が前方へ移動。ステップ2：3番がシュートを放つ、1番が左へ移動。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】最初のカッターは囮であり、本人もそれを知っている。囮らしく走れば、二人目も誰も見なくなる。",
-        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 홍팀: X2, X3, 공은 1번.\n【볼 경로】1 → 3 → 림\n【진행】1단계: 1번가 3번에게 송구, 2번, X2는 왼쪽으로 이동, 3번, X3는 오른쪽으로 이동, 4번는 앞으로 이동; 2단계: 3번 슛을 던진다, 1번는 왼쪽으로 이동.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】첫 커터는 미끼이고 본인도 안다. 미끼답게 뛰면 두 번째도 아무도 안 막는다.",
-        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, rojos: X2, X3, balón con 1.\nRecorrido del balón: 1 → 3 → canasta\nSecuencia: Paso 1: 1 lanza a 3, 2, X2 se desplaza a la izquierda, 3, X3 se desplaza a la derecha, 4 se desplaza hacia delante; Paso 2: 3 lanza a canasta, 1 se desplaza a la izquierda.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: El primer cortador es el señuelo y lo sabe: si lo corre como señuelo, al segundo tampoco lo marca nadie.",
-        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, les rouges : X2, X3, ballon avec 1.\nTrajet du ballon : 1 → 3 → panier\nDéroulé : Étape 1 : 1 lance à 3, 2, X2 se déplace à gauche, 3, X3 se déplace à droite, 4 se déplace vers l'avant ; Étape 2 : 3 tire au panier, 1 se déplace à gauche.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Le premier coupeur est le leurre et le sait : s'il joue le leurre, personne ne prend le second non plus.",
-        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, tim merah: X2, X3, bola pada 1.\nJalur bola: 1 → 3 → ring\nUrutan: Langkah 1: 1 melempar ke 3, 2, X2 bergerak ke kiri, 3, X3 bergerak ke kanan, 4 bergerak ke depan; Langkah 2: 3 melepaskan tembakan, 1 bergerak ke kiri.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Pemotong pertama adalah umpan dan dia tahu itu.",
-        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, pasukan merah: X2, X3, bola dengan 1.\nLaluan bola: 1 → 3 → jaring\nUrutan: Langkah 1: 1 membaling kepada 3, 2, X2 bergerak ke kiri, 3, X3 bergerak ke kanan, 4 bergerak ke hadapan; Langkah 2: 3 melepaskan jaringan, 1 bergerak ke kiri.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Pemotong pertama ialah umpan dan dia tahu itu.",
-        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 ทีมแดง: X2, X3 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 3 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 3 2, X2 ขยับไปทางซ้าย 3, X3 ขยับไปทางขวา 4 ขยับไปข้างหน้า • ขั้นที่ 2: 3 ยิงเข้าห่วง 1 ขยับไปทางซ้าย\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
-        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, đội đỏ: X2, X3, bóng ở chỗ 1.\nĐường bóng: 1 → 3 → rổ\nTrình tự: Bước 1: 1 ném cho 3, 2, X2 di chuyển sang trái, 3, X3 di chuyển sang phải, 4 di chuyển lên phía trước; Bước 2: 3 ném rổ, 1 di chuyển sang trái.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
+        "en": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: X2, X3, ball with 1.\nBall path: 1 → 3 → basket\nSequence: Step 1: 1 throws to 3, 2, X2 move left, 3, 4, X3 move right; Step 2: 3 puts up the shot, 1 moves left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
+        "en-GB": "Purpose: Rehearse an inbound or a set play until it runs without a word — everyone knows the cuts, so the screen and the timing, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 4 v 2, red: X2, X3, ball with 1.\nBall path: 1 → 3 → basket\nSequence: Step 1: 1 throws to 3, 2, X2 move left, 3, 4, X3 move right; Step 2: 3 puts up the shot, 1 moves left.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: The first cutter is the decoy and knows it. If they run it like a decoy nobody guards the second one either.",
+        "zh-CN": "【目的】战术套路：把发界外球和固定战术练到不用喊、大家都知道往哪跑。难点只在掩护质量和时机，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】4 对 2，红方：X2、X3，球在 1号球员 手中。\n【球路】1 → 3 → 篮筐\n【流程】第1步：1号球员传给3号球员，2号球员、X2向左移动，3号球员、4号球员、X3向右移动；第2步：3号球员投篮，1号球员向左移动。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】第一个跑动的人就是诱饵，而且他自己知道。如果他跑得像个诱饵，第二个人也没人防了。",
+        "zh-TW": "【目的】戰術套路：把發界外球和固定戰術練到不用喊、大家都知道往哪跑。難點只在掩護品質和時機，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】4 對 2，紅方：X2、X3，球在 1號球員 手中。\n【球路】1 → 3 → 籃框\n【流程】第1步：1號球員傳給3號球員，2號球員、X2向左移動，3號球員、4號球員、X3向右移動；第2步：3號球員投籃，1號球員向左移動。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】第一個跑動的人就是誘餌，而且他自己知道。如果他跑得像個誘餌，第二個人也沒人防了。",
+        "ja-JP": "【目的】インバウンドやセットプレーを、声を出さなくても回るまで反復する。全員がカットを知っているから、難しいのはスクリーンの質とタイミングであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】4対2、赤：X2・X3、ボールは1番。\n【ボールの道筋】1 → 3 → リング\n【流れ】ステップ1：1番が3番へ送球、2番・X2が左へ移動、3番・4番・X3が右へ移動。ステップ2：3番がシュートを放つ、1番が左へ移動。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】最初のカッターは囮であり、本人もそれを知っている。囮らしく走れば、二人目も誰も見なくなる。",
+        "ko-KR": "【목적】인바운드와 세트 플레이를 말 없이 돌아갈 때까지 반복한다. 모두가 컷을 알기에, 어려운 것은 스크린의 질과 타이밍이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】4대2, 홍팀: X2, X3, 공은 1번.\n【볼 경로】1 → 3 → 림\n【진행】1단계: 1번가 3번에게 송구, 2번, X2는 왼쪽으로 이동, 3번, 4번, X3는 오른쪽으로 이동; 2단계: 3번 슛을 던진다, 1번는 왼쪽으로 이동.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】첫 커터는 미끼이고 본인도 안다. 미끼답게 뛰면 두 번째도 아무도 안 막는다.",
+        "es-ES": "Objetivo: Ensayar un saque de banda o una jugada hasta que salga sin una palabra: todos conocen los cortes, así que lo difícil es el bloqueo y el tiempo, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 4 contra 2, rojos: X2, X3, balón con 1.\nRecorrido del balón: 1 → 3 → canasta\nSecuencia: Paso 1: 1 lanza a 3, 2, X2 se desplaza a la izquierda, 3, 4, X3 se desplaza a la derecha; Paso 2: 3 lanza a canasta, 1 se desplaza a la izquierda.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: El primer cortador es el señuelo y lo sabe: si lo corre como señuelo, al segundo tampoco lo marca nadie.",
+        "fr-FR": "Objectif : Répéter une remise en jeu ou un système jusqu'à ce qu'il tourne sans un mot : chacun connaît les coupes, la difficulté est l'écran et le timing, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 4 contre 2, les rouges : X2, X3, ballon avec 1.\nTrajet du ballon : 1 → 3 → panier\nDéroulé : Étape 1 : 1 lance à 3, 2, X2 se déplace à gauche, 3, 4, X3 se déplace à droite ; Étape 2 : 3 tire au panier, 1 se déplace à gauche.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Le premier coupeur est le leurre et le sait : s'il joue le leurre, personne ne prend le second non plus.",
+        "id-ID": "Tujuan: Melatih inbound atau set play sampai berjalan tanpa aba-aba — semua tahu potongannya, jadi yang sulit adalah screen dan waktunya, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 4 lawan 2, tim merah: X2, X3, bola pada 1.\nJalur bola: 1 → 3 → ring\nUrutan: Langkah 1: 1 melempar ke 3, 2, X2 bergerak ke kiri, 3, 4, X3 bergerak ke kanan; Langkah 2: 3 melepaskan tembakan, 1 bergerak ke kiri.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Pemotong pertama adalah umpan dan dia tahu itu.",
+        "ms-MY": "Tujuan: Melatih inbound atau set play sehingga berjalan tanpa sepatah kata — semua tahu larian, jadi yang sukar ialah screen dan masa, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 4 lawan 2, pasukan merah: X2, X3, bola dengan 1.\nLaluan bola: 1 → 3 → jaring\nUrutan: Langkah 1: 1 membaling kepada 3, 2, X2 bergerak ke kiri, 3, 4, X3 bergerak ke kanan; Langkah 2: 3 melepaskan jaringan, 1 bergerak ke kiri.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Pemotong pertama ialah umpan dan dia tahu itu.",
+        "th-TH": "จุดประสงค์: ซ้อมอินบาวด์หรือเซตเพลย์จนเล่นได้โดยไม่ต้องบอก ทุกคนรู้ทางตัด ส่วนที่ยากคือคุณภาพสกรีนและจังหวะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 4 ต่อ 2 ทีมแดง: X2, X3 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 3 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 3 2, X2 ขยับไปทางซ้าย 3, 4, X3 ขยับไปทางขวา • ขั้นที่ 2: 3 ยิงเข้าห่วง 1 ขยับไปทางซ้าย\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: คนตัดคนแรกคือตัวล่อ และเขารู้ตัว",
+        "vi-VN": "Mục đích: Tập bài phát biên hoặc bài đánh cố định đến khi chạy trơn tru không cần hô — ai cũng biết đường cắt, nên phần khó là screen và thời điểm, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 4 đấu 2, đội đỏ: X2, X3, bóng ở chỗ 1.\nĐường bóng: 1 → 3 → rổ\nTrình tự: Bước 1: 1 ném cho 3, 2, X2 di chuyển sang trái, 3, 4, X3 di chuyển sang phải; Bước 2: 3 ném rổ, 1 di chuyển sang trái.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Người cắt đầu tiên là mồi nhử và anh ta biết điều đó."
       },
       "mistake": {
         "en": "The first cutter runs it like a decoy he does not believe in.",
@@ -11624,7 +11631,7 @@
             "sportType": null,
             "position": [
               412.4466950959488,
-              210.0
+              191.52455357142858
             ],
             "scale": 1.0,
             "moves": [
@@ -11652,7 +11659,7 @@
             "sportType": null,
             "position": [
               412.4466950959488,
-              304.5
+              305.09598214285717
             ],
             "scale": 1.0,
             "moves": [
@@ -11680,7 +11687,7 @@
             "sportType": null,
             "position": [
               412.4466950959488,
-              399.0
+              416.8794642857143
             ],
             "scale": 1.0,
             "moves": [
@@ -11708,7 +11715,7 @@
             "sportType": null,
             "position": [
               289.8720682302772,
-              250.5
+              240.96428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -11736,7 +11743,7 @@
             "sportType": null,
             "position": [
               289.8720682302772,
-              345.0
+              354.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -11910,7 +11917,7 @@
             "sportType": null,
             "position": [
               351.15938166311304,
-              331.5
+              321.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -11938,7 +11945,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              331.5
+              321.9642857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -12022,7 +12029,7 @@
             "sportType": null,
             "position": [
               351.15938166311304,
-              426.0
+              435.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -12050,7 +12057,7 @@
             "sportType": null,
             "position": [
               648.840618336887,
-              426.0
+              435.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -12251,7 +12258,7 @@
             "sportType": null,
             "position": [
               622.5746268656717,
-              345.0
+              354.5357142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -12327,7 +12334,7 @@
             "sportType": null,
             "position": [
               622.5746268656717,
-              250.5
+              240.96428571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -12714,18 +12721,18 @@
         "vi-VN": "Phòng ngự khu vực khu vực 2-3"
       },
       "note": {
-        "en": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 5, red: X1, X2, X3, X4, X5, ball with 1.\nBall path: 1 → 2 → 5 → basket\nSequence: Step 1: 1 throws to 2; Step 2: 2 carries the ball on the move, 1, X1, X3 move right, X2, X4, X5 move up the board; Step 3: 2 throws to 5; Step 4: 5 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
-        "en-GB": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 5, red: X1, X2, X3, X4, X5, ball with 1.\nBall path: 1 → 2 → 5 → basket\nSequence: Step 1: 1 throws to 2; Step 2: 2 carries the ball on the move, 1, X1, X3 move right, X2, X4, X5 move up the board; Step 3: 2 throws to 5; Step 4: 5 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
-        "zh-CN": "【目的】防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】4 对 5，红方：X1、X2、X3、X4、X5，球在 1号球员 手中。\n【球路】1 → 2 → 5 → 篮筐\n【流程】第1步：1号球员传给2号球员；第2步：2号球员带球推进，1号球员、X1、X3向右移动，X2、X4、X5向前移动；第3步：2号球员传给5号球员；第4步：5号球员投篮。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】在传球飞行途中就移动，不是等接到球才动。等球到了才转移的联防，就是五个人永远慢一传。",
-        "zh-TW": "【目的】防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】4 對 5，紅方：X1、X2、X3、X4、X5，球在 1號球員 手中。\n【球路】1 → 2 → 5 → 籃框\n【流程】第1步：1號球員傳給2號球員；第2步：2號球員帶球推進，1號球員、X1、X3向右移動，X2、X4、X5向前移動；第3步：2號球員傳給5號球員；第4步：5號球員投籃。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】在傳球飛行途中就移動，不是等接到球才動。等球到了才轉移的聯防，就是五個人永遠慢一傳。",
-        "ja-JP": "【目的】組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】4対5、赤：X1・X2・X3・X4・X5、ボールは1番。\n【ボールの道筋】1 → 2 → 5 → リング\n【流れ】ステップ1：1番が2番へ送球。ステップ2：2番がボールを運ぶ、1番・X1・X3が右へ移動、X2・X4・X5が前方へ移動。ステップ3：2番が5番へ送球。ステップ4：5番がシュートを放つ。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】パスが飛んでいる間に動く。キャッチしてから動くゾーンは、5人が永久に1本遅れている。",
-        "ko-KR": "【목적】조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】4대5, 홍팀: X1, X2, X3, X4, X5, 공은 1번.\n【볼 경로】1 → 2 → 5 → 림\n【진행】1단계: 1번가 2번에게 송구; 2단계: 2번가 공을 몰고 이동, 1번, X1, X3는 오른쪽으로 이동, X2, X4, X5는 앞으로 이동; 3단계: 2번가 5번에게 송구; 4단계: 5번 슛을 던진다.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】패스가 날아가는 동안 움직여라. 잡은 뒤에 움직이는 지역방어는 다섯이 영원히 한 패스 늦는다.",
-        "es-ES": "Objetivo: Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 4 contra 5, rojos: X1, X2, X3, X4, X5, balón con 1.\nRecorrido del balón: 1 → 2 → 5 → canasta\nSecuencia: Paso 1: 1 lanza a 2; Paso 2: 2 conduce el balón, 1, X1, X3 se desplaza a la derecha, X2, X4, X5 se desplaza hacia delante; Paso 3: 2 lanza a 5; Paso 4: 5 lanza a canasta.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Muévete con el vuelo del pase, no con la recepción: una zona que se desplaza cuando llega el balón va siempre un pase por detrás.",
-        "fr-FR": "Objectif : Refuser l'espace en bloc : la ligne coulisse avec le ballon, ferme la passe de chaque côté du presseur et couvre derrière.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 4 contre 5, les rouges : X1, X2, X3, X4, X5, ballon avec 1.\nTrajet du ballon : 1 → 2 → 5 → panier\nDéroulé : Étape 1 : 1 lance à 2 ; Étape 2 : 2 conduit le ballon, 1, X1, X3 se déplace à droite, X2, X4, X5 se déplace vers l'avant ; Étape 3 : 2 lance à 5 ; Étape 4 : 5 tire au panier.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Bouge pendant le vol de la passe, pas à la réception : une zone qui glisse à l'arrivée du ballon a toujours une passe de retard.",
-        "id-ID": "Tujuan: Menutup ruang sebagai satu unit — seluruh garis bergeser mengikuti bola, menutup umpan di kedua sisi penekan, dan menutup di belakang.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 4 lawan 5, tim merah: X1, X2, X3, X4, X5, bola pada 1.\nJalur bola: 1 → 2 → 5 → ring\nUrutan: Langkah 1: 1 melempar ke 2; Langkah 2: 2 menggiring bola, 1, X1, X3 bergerak ke kanan, X2, X4, X5 bergerak ke depan; Langkah 3: 2 melempar ke 5; Langkah 4: 5 melepaskan tembakan.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Bergeraklah saat bola melayang, bukan saat ditangkap.",
-        "ms-MY": "Tujuan: Menafikan ruang sebagai satu unit — seluruh barisan bergerak mengikut bola, menutup hantaran di kedua-dua sisi penekan, dan melindungi di belakang.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 4 lawan 5, pasukan merah: X1, X2, X3, X4, X5, bola dengan 1.\nLaluan bola: 1 → 2 → 5 → jaring\nUrutan: Langkah 1: 1 membaling kepada 2; Langkah 2: 2 membawa bola, 1, X1, X3 bergerak ke kanan, X2, X4, X5 bergerak ke hadapan; Langkah 3: 2 membaling kepada 5; Langkah 4: 5 melepaskan jaringan.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Bergerak semasa bola melayang, bukan semasa disambut.",
-        "th-TH": "จุดประสงค์: ปิดพื้นที่เป็นทีม — ทั้งแนวขยับตามบอล ปิดบอลสองข้างของคนที่ขึ้นบีบ และคุมด้านหลัง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 4 ต่อ 5 ทีมแดง: X1, X2, X3, X4, X5 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 5 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 • ขั้นที่ 2: 2 พาบอลไป 1, X1, X3 ขยับไปทางขวา X2, X4, X5 ขยับไปข้างหน้า • ขั้นที่ 3: 2 ขว้างให้ 5 • ขั้นที่ 4: 5 ยิงเข้าห่วง\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ขยับตอนบอลกำลังลอย ไม่ใช่ตอนรับบอล",
-        "vi-VN": "Mục đích: Bịt không gian như một khối — cả tuyến dịch theo bóng, chặn đường chuyền hai bên người áp sát, và bọc lót phía sau.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 4 đấu 5, đội đỏ: X1, X2, X3, X4, X5, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 5 → rổ\nTrình tự: Bước 1: 1 ném cho 2; Bước 2: 2 dẫn bóng di chuyển, 1, X1, X3 di chuyển sang phải, X2, X4, X5 di chuyển lên phía trước; Bước 3: 2 ném cho 5; Bước 4: 5 ném rổ.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Di chuyển khi bóng đang bay, không phải khi bắt bóng."
+        "en": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 5, red: X1, X2, X3, X4, X5, ball with 1.\nBall path: 1 → 2 → 5 → basket\nSequence: Step 1: 1 throws to 2; Step 2: 2 carries the ball on the move, 1, X1, X3 move right, X2, X4, X5 move back; Step 3: 2 throws to 5; Step 4: 5 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
+        "en-GB": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 5, red: X1, X2, X3, X4, X5, ball with 1.\nBall path: 1 → 2 → 5 → basket\nSequence: Step 1: 1 throws to 2; Step 2: 2 carries the ball on the move, 1, X1, X3 move right, X2, X4, X5 move back; Step 3: 2 throws to 5; Step 4: 5 puts up the shot.\nHow it continues: The rep ends on a score, a stop or a turnover; the attacking group jogs off and the next group runs the same play, and the defenders hold for five reps before swapping.\nRules: A basket counts two, or three from behind the arc; the defence scores by a stop, a rebound or a steal. The ball is out at the sideline and the other team brings it in from there.\nCoaching point: Move on the flight of the pass, not on the catch. A zone that shifts when the ball arrives is five players permanently one pass behind.",
+        "zh-CN": "【目的】防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】4 对 5，红方：X1、X2、X3、X4、X5，球在 1号球员 手中。\n【球路】1 → 2 → 5 → 篮筐\n【流程】第1步：1号球员传给2号球员；第2步：2号球员带球推进，1号球员、X1、X3向右移动，X2、X4、X5向后移动；第3步：2号球员传给5号球员；第4步：5号球员投篮。\n【连贯】一次进攻以得分、被封或失误结束；进攻组退出，下一组接着跑同一套配合，防守组守 5 次后与进攻互换。\n【规则】投中算 2 分，三分线外算 3 分；防守方封盖、抢下篮板或断球算一次防守成功。球出边线由对方在出界处发球。\n【要点】在传球飞行途中就移动，不是等接到球才动。等球到了才转移的联防，就是五个人永远慢一传。",
+        "zh-TW": "【目的】防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】4 對 5，紅方：X1、X2、X3、X4、X5，球在 1號球員 手中。\n【球路】1 → 2 → 5 → 籃框\n【流程】第1步：1號球員傳給2號球員；第2步：2號球員帶球推進，1號球員、X1、X3向右移動，X2、X4、X5向後移動；第3步：2號球員傳給5號球員；第4步：5號球員投籃。\n【連貫】一次進攻以得分、被封或失誤結束；進攻組退出，下一組接著跑同一套配合，防守組守 5 次後與進攻互換。\n【規則】投中算 2 分，三分線外算 3 分；防守方封蓋、搶下籃板或斷球算一次防守成功。球出邊線由對方在出界處發球。\n【要點】在傳球飛行途中就移動，不是等接到球才動。等球到了才轉移的聯防，就是五個人永遠慢一傳。",
+        "ja-JP": "【目的】組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】4対5、赤：X1・X2・X3・X4・X5、ボールは1番。\n【ボールの道筋】1 → 2 → 5 → リング\n【流れ】ステップ1：1番が2番へ送球。ステップ2：2番がボールを運ぶ、1番・X1・X3が右へ移動、X2・X4・X5が後方へ移動。ステップ3：2番が5番へ送球。ステップ4：5番がシュートを放つ。\n【続け方】得点・阻止・ターンオーバーで1本終了。攻撃組は下がり次の組が同じプレーを走る。守備組は5本守ってから攻守交代。\n【ルール】シュート成功は2点、アーク外なら3点。守備は阻止・リバウンド・スティールで成功。ボールがサイドラインを出たら相手がその地点からスローイン。\n【ポイント】パスが飛んでいる間に動く。キャッチしてから動くゾーンは、5人が永久に1本遅れている。",
+        "ko-KR": "【목적】조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】4대5, 홍팀: X1, X2, X3, X4, X5, 공은 1번.\n【볼 경로】1 → 2 → 5 → 림\n【진행】1단계: 1번가 2번에게 송구; 2단계: 2번가 공을 몰고 이동, 1번, X1, X3는 오른쪽으로 이동, X2, X4, X5는 뒤로 이동; 3단계: 2번가 5번에게 송구; 4단계: 5번 슛을 던진다.\n【이어가기】득점, 저지, 턴오버로 한 번이 끝난다. 공격조는 빠지고 다음 조가 같은 플레이를 하며, 수비조는 다섯 번 막은 뒤 교대한다.\n【규칙】득점은 2점, 아크 밖에서는 3점. 수비는 저지·리바운드·스틸로 성공한다. 공이 사이드라인을 넘으면 상대가 그 지점에서 넣는다.\n【포인트】패스가 날아가는 동안 움직여라. 잡은 뒤에 움직이는 지역방어는 다섯이 영원히 한 패스 늦는다.",
+        "es-ES": "Objetivo: Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 4 contra 5, rojos: X1, X2, X3, X4, X5, balón con 1.\nRecorrido del balón: 1 → 2 → 5 → canasta\nSecuencia: Paso 1: 1 lanza a 2; Paso 2: 2 conduce el balón, 1, X1, X3 se desplaza a la derecha, X2, X4, X5 se desplaza hacia atrás; Paso 3: 2 lanza a 5; Paso 4: 5 lanza a canasta.\nContinuidad: La repetición termina con canasta o gol, parada o pérdida; el grupo atacante sale y el siguiente corre la misma jugada, y la defensa aguanta cinco repeticiones antes de cambiar.\nReglas: La canasta vale dos, o tres desde detrás del arco; la defensa puntúa con un tapón, un rebote o un robo. El balón sale por la banda y lo saca el rival desde ahí.\nPunto clave: Muévete con el vuelo del pase, no con la recepción: una zona que se desplaza cuando llega el balón va siempre un pase por detrás.",
+        "fr-FR": "Objectif : Refuser l'espace en bloc : la ligne coulisse avec le ballon, ferme la passe de chaque côté du presseur et couvre derrière.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 4 contre 5, les rouges : X1, X2, X3, X4, X5, ballon avec 1.\nTrajet du ballon : 1 → 2 → 5 → panier\nDéroulé : Étape 1 : 1 lance à 2 ; Étape 2 : 2 conduit le ballon, 1, X1, X3 se déplace à droite, X2, X4, X5 se déplace vers l'arrière ; Étape 3 : 2 lance à 5 ; Étape 4 : 5 tire au panier.\nEnchaînement : La séquence se termine sur un point, un arrêt ou une perte ; le groupe attaquant sort, le suivant joue la même combinaison, et la défense tient cinq séquences avant de permuter.\nRègles : Un panier vaut deux points, trois derrière l'arc ; la défense marque par un contre, un rebond ou une interception. Ballon sorti sur la ligne de touche : l'adversaire le remet en jeu de là.\nPoint clé : Bouge pendant le vol de la passe, pas à la réception : une zone qui glisse à l'arrivée du ballon a toujours une passe de retard.",
+        "id-ID": "Tujuan: Menutup ruang sebagai satu unit — seluruh garis bergeser mengikuti bola, menutup umpan di kedua sisi penekan, dan menutup di belakang.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 4 lawan 5, tim merah: X1, X2, X3, X4, X5, bola pada 1.\nJalur bola: 1 → 2 → 5 → ring\nUrutan: Langkah 1: 1 melempar ke 2; Langkah 2: 2 menggiring bola, 1, X1, X3 bergerak ke kanan, X2, X4, X5 bergerak ke belakang; Langkah 3: 2 melempar ke 5; Langkah 4: 5 melepaskan tembakan.\nKelanjutan: Satu ulangan berakhir dengan skor, dihentikan, atau turnover; kelompok penyerang keluar dan kelompok berikutnya menjalankan pola yang sama, bek bertahan lima ulangan lalu bertukar.\nAturan: Bola masuk bernilai dua, tiga dari luar garis; bertahan berhasil lewat blok, rebound, atau steal. Bola keluar di garis samping dan lawan memasukkannya dari sana.\nPoin utama: Bergeraklah saat bola melayang, bukan saat ditangkap.",
+        "ms-MY": "Tujuan: Menafikan ruang sebagai satu unit — seluruh barisan bergerak mengikut bola, menutup hantaran di kedua-dua sisi penekan, dan melindungi di belakang.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 4 lawan 5, pasukan merah: X1, X2, X3, X4, X5, bola dengan 1.\nLaluan bola: 1 → 2 → 5 → jaring\nUrutan: Langkah 1: 1 membaling kepada 2; Langkah 2: 2 membawa bola, 1, X1, X3 bergerak ke kanan, X2, X4, X5 bergerak ke belakang; Langkah 3: 2 membaling kepada 5; Langkah 4: 5 melepaskan jaringan.\nKesinambungan: Satu ulangan tamat dengan skor, dihalang, atau turnover; kumpulan penyerang keluar dan kumpulan seterusnya menjalankan corak yang sama, pemain bertahan kekal lima ulangan kemudian bertukar.\nPeraturan: Jaringan bernilai dua, tiga dari luar garisan; pertahanan berjaya melalui blok, rebound atau steal. Bola keluar di garisan tepi dan lawan memasukkannya dari situ.\nPoin utama: Bergerak semasa bola melayang, bukan semasa disambut.",
+        "th-TH": "จุดประสงค์: ปิดพื้นที่เป็นทีม — ทั้งแนวขยับตามบอล ปิดบอลสองข้างของคนที่ขึ้นบีบ และคุมด้านหลัง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 4 ต่อ 5 ทีมแดง: X1, X2, X3, X4, X5 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → 2 → 5 → ห่วง\nลำดับ: ขั้นที่ 1: 1 ขว้างให้ 2 • ขั้นที่ 2: 2 พาบอลไป 1, X1, X3 ขยับไปทางขวา X2, X4, X5 ขยับถอยหลัง • ขั้นที่ 3: 2 ขว้างให้ 5 • ขั้นที่ 4: 5 ยิงเข้าห่วง\nการต่อเนื่อง: จบหนึ่งรอบเมื่อได้แต้ม ถูกหยุด หรือเสียบอล กลุ่มบุกออกแล้วกลุ่มถัดไปเล่นแบบเดิม ฝ่ายรับรับ 5 รอบแล้วสลับ\nกติกา: ลงห่วงได้ 2 แต้ม นอกเส้นสามแต้มได้ 3 ฝ่ายรับสำเร็จเมื่อบล็อก เก็บรีบาวด์ หรือขโมยบอลได้ บอลออกข้างให้ฝ่ายตรงข้ามส่งเข้าเล่นตรงจุดนั้น\nจุดเน้น: ขยับตอนบอลกำลังลอย ไม่ใช่ตอนรับบอล",
+        "vi-VN": "Mục đích: Bịt không gian như một khối — cả tuyến dịch theo bóng, chặn đường chuyền hai bên người áp sát, và bọc lót phía sau.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 4 đấu 5, đội đỏ: X1, X2, X3, X4, X5, bóng ở chỗ 1.\nĐường bóng: 1 → 2 → 5 → rổ\nTrình tự: Bước 1: 1 ném cho 2; Bước 2: 2 dẫn bóng di chuyển, 1, X1, X3 di chuyển sang phải, X2, X4, X5 di chuyển lùi lại; Bước 3: 2 ném cho 5; Bước 4: 5 ném rổ.\nTiếp nối: Một lượt kết thúc khi ghi điểm, bị chặn hoặc mất bóng; nhóm tấn công rút ra và nhóm tiếp theo chạy cùng bài, hàng thủ giữ năm lượt rồi đổi vai.\nLuật: Ghi rổ tính 2 điểm, ngoài vòng cung 3 điểm; phòng ngự thành công khi chặn bóng, bắt bật bảng hoặc cướp bóng. Bóng ra biên thì đội kia ném vào từ chỗ đó.\nĐiểm chính: Di chuyển khi bóng đang bay, không phải khi bắt bóng."
       },
       "mistake": {
         "en": "Reacting to the ball instead of holding the position.",
@@ -12828,7 +12835,7 @@
             "sportType": null,
             "position": [
               412.4466950959488,
-              291.0
+              288.2142857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -12849,7 +12856,7 @@
             "sportType": null,
             "position": [
               359.91471215351817,
-              399.0
+              401.7857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -13001,8 +13008,8 @@
                 363.32770011047955
               ],
               [
-                470.7452275624313,
-                301.628161794476
+                470.63921808546127,
+                299.231722563614
               ],
               [
                 500.0,
@@ -13120,7 +13127,7 @@
             "sportType": null,
             "position": [
               500.0,
-              561.0
+              563.7857142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -13218,7 +13225,7 @@
             "sportType": null,
             "position": [
               500.0,
-              453.00000000000006
+              450.2142857142857
             ],
             "scale": 1.0,
             "moves": [
@@ -13357,18 +13364,18 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              558.139773715928,
-              549.7941559426972
+              557.8167826309162,
+              551.4923878783691
             ],
             "scale": 1.0,
             "moves": [
               [
-                698.2250615624099,
-                522.7941559426972
+                697.9020704773982,
+                521.7066735926547
               ],
               [
-                779.6174798988541,
-                311.00356395653705
+                779.4948404738744,
+                310.9712851687913
               ],
               [
                 500.0,
@@ -13887,7 +13894,7 @@
             "sportType": null,
             "position": [
               552.5319829424308,
-              520.5
+              530.0357142857143
             ],
             "scale": 1.0,
             "moves": [],
@@ -13907,7 +13914,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.27611940298507,
+              124.79211087420043,
               237.0
             ],
             "scale": 1.0,
@@ -13984,7 +13991,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              184.8081023454158,
+              192.29211087420043,
               331.5
             ],
             "scale": 1.0,
@@ -14013,7 +14020,7 @@
             "sportType": null,
             "position": [
               552.5319829424308,
-              426.0
+              416.4642857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -14033,14 +14040,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              493.3541978270496,
-              513.9823370914019
+              493.6243660831747,
+              522.0202308157893
             ],
             "scale": 1.0,
             "moves": [
               [
-                243.98588746079696,
-                486.51766290859814
+                243.7157192046718,
+                488.0154834699251
               ],
               [
                 500.0,
@@ -14152,7 +14159,7 @@
             "sportType": null,
             "position": [
               377.42537313432837,
-              520.5
+              530.0357142857143
             ],
             "scale": 1.0,
             "moves": [],
@@ -14172,7 +14179,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              867.723880597015,
+              875.2078891257995,
               196.5
             ],
             "scale": 1.0,
@@ -14277,7 +14284,7 @@
             "team": 1,
             "sportType": null,
             "position": [
-              815.1918976545842,
+              807.7078891257995,
               291.0
             ],
             "scale": 1.0,
@@ -14306,7 +14313,7 @@
             "sportType": null,
             "position": [
               377.42537313432837,
-              426.0
+              416.4642857142857
             ],
             "scale": 1.0,
             "moves": [],
@@ -14326,14 +14333,14 @@
             "team": 2,
             "sportType": 3,
             "position": [
-              436.9735921747883,
-              516.9685207928376
+              436.847103699314,
+              525.2671569333496
             ],
             "scale": 1.0,
             "moves": [
               [
-                773.1543395949345,
-                497.03147920716236
+                773.2808280704088,
+                498.26855735236467
               ],
               [
                 500.0,
@@ -14724,7 +14731,7 @@
             "sportType": null,
             "position": [
               368.67004264392324,
-              304.5
+              310.6607142857143
             ],
             "scale": 1.0,
             "moves": [
@@ -14752,7 +14759,7 @@
             "sportType": null,
             "position": [
               631.3299573560768,
-              304.5
+              310.6607142857143
             ],
             "scale": 1.0,
             "moves": [],
@@ -14773,7 +14780,7 @@
             "sportType": null,
             "position": [
               368.67004264392324,
-              203.25
+              197.08928571428572
             ],
             "scale": 1.0,
             "moves": [
@@ -14801,7 +14808,7 @@
             "sportType": null,
             "position": [
               631.3299573560768,
-              203.25
+              197.08928571428572
             ],
             "scale": 1.0,
             "moves": [],

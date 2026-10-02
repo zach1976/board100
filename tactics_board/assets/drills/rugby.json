@@ -1340,7 +1340,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              287.1104560206779,
+              288.84881149806523,
               888.0
             ],
             "scale": 1.0,
@@ -1373,7 +1373,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              350.0814149602465,
+              361.9396075179657,
               888.0
             ],
             "scale": 1.0,
@@ -1405,7 +1405,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              412.86523822132824,
+              418.7880044223328,
               888.0
             ],
             "scale": 1.0,
@@ -1437,7 +1437,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              477.86523822132824,
+              475.63640132669985,
               888.0
             ],
             "scale": 1.0,
@@ -1469,7 +1469,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              540.6490614824099,
+              540.6059977888336,
               888.0
             ],
             "scale": 1.0,
@@ -1501,7 +1501,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              603.2457490650047,
+              597.4543946932006,
               888.0
             ],
             "scale": 1.0,
@@ -1533,7 +1533,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              665.7588508736698,
+              654.3027915975676,
               888.0
             ],
             "scale": 1.0,
@@ -1759,18 +1759,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              287.7316334045504,
-              838.6876009599357
+              288.84881149806523,
+              838.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
-                337.5351733340438,
-                795.0066832242952
+                338.0101248899235,
+                795.1803617212039
               ],
               [
-                518.9675468464075,
-                671.0333505630905
+                519.027567427839,
+                671.0931888316787
               ],
               [
                 581.2119955776673,
@@ -1917,17 +1917,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              358.71869876060964,
+              388.92844803758993,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                394.4244057490326,
+                388.92844803758993,
                 750.0
               ],
               [
-                418.7880044223328,
+                413.2920467108901,
                 639.6
               ]
             ],
@@ -1949,17 +1949,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              421.23075616673833,
+              439.4604235765617,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                459.3940022111664,
+                439.4604235765617,
                 750.0
               ],
               [
-                483.75760088446657,
+                463.82402224986186,
                 639.6
               ]
             ],
@@ -1981,17 +1981,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              483.7425027298668,
+              489.9923991155335,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                497.29293348074447,
+                489.9923991155335,
                 750.0
               ],
               [
-                521.6565321540447,
+                514.3559977888337,
                 639.6
               ]
             ],
@@ -2013,17 +2013,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              548.7425027298668,
+              542.4923991155334,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                535.1918647503226,
+                542.4923991155334,
                 750.0
               ],
               [
-                559.5554634236228,
+                566.8559977888336,
                 639.6
               ]
             ],
@@ -2045,17 +2045,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              611.2542492929954,
+              593.0243746545052,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                573.0907960199006,
+                593.0243746545052,
                 750.0
               ],
               [
-                597.4543946932008,
+                617.3879733278054,
                 639.6
               ]
             ],
@@ -2077,17 +2077,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              673.7656850131239,
+              643.5563501934771,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                638.0603924820342,
+                643.5563501934771,
                 750.0
               ],
               [
-                662.4239911553344,
+                667.9199488667772,
                 639.6
               ]
             ],
@@ -2309,12 +2309,12 @@
             "scale": 1.0,
             "moves": [
               [
-                360.834910626244,
-                790.7694022994406
+                356.4743620176937,
+                791.3921373649883
               ],
               [
-                515.6396409605936,
-                673.0073579193065
+                521.8919250235068,
+                672.0419604623119
               ],
               [
                 581.2119955776673,
@@ -2428,7 +2428,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              366.78132092511214,
+              394.4244057490326,
               888.0
             ],
             "scale": 1.0,
@@ -2452,8 +2452,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d1",
@@ -2461,17 +2460,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              429.32333048435123,
+              447.02839966832505,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                451.27280265339965,
+                447.02839966832505,
                 750.0
               ],
               [
-                475.6364013266998,
+                471.39199834162525,
                 639.6
               ]
             ],
@@ -2493,17 +2492,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              491.8640340158727,
+              498.1135986733002,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                508.1211995577667,
+                498.1135986733002,
                 750.0
               ],
               [
-                532.4847982310669,
+                522.4771973466004,
                 639.6
               ]
             ],
@@ -2525,17 +2524,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              556.8640340158727,
+              550.6135986733002,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                540.6059977888336,
+                550.6135986733002,
                 750.0
               ],
               [
-                564.9695964621338,
+                574.9771973466004,
                 639.6
               ]
             ],
@@ -2557,17 +2556,17 @@
             "team": 0,
             "sportType": null,
             "position": [
-              619.4047375473941,
+              601.6987976782752,
               888.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                597.4543946932006,
+                601.6987976782752,
                 750.0
               ],
               [
-                621.8179933665009,
+                626.0623963515754,
                 639.6
               ]
             ],
@@ -2589,7 +2588,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              681.9441350511978,
+              654.3027915975676,
               888.0
             ],
             "scale": 1.0,
@@ -2694,8 +2693,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d9",
@@ -2784,18 +2782,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              376.52721984719466,
-              839.3464557297319
+              394.4244057490326,
+              838.6849315068494
             ],
             "scale": 1.0,
             "moves": [
               [
-                424.3290726472523,
-                794.0072142752289
+                429.09792039328795,
+                797.0383701996367
               ],
               [
-                578.4592010541285,
-                673.5001818983515
+                583.1592791185609,
+                673.8934776476151
               ],
               [
                 581.2119955776673,
@@ -2915,7 +2913,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                497.38245342501364,
                 750.0
               ]
             ],
@@ -2943,11 +2941,11 @@
             "scale": 1.0,
             "moves": [
               [
-                467.51520176893314,
+                443.049725331675,
                 777.6
               ],
               [
-                477.6667012161415,
+                444.88245342501364,
                 722.4
               ]
             ],
@@ -2961,7 +2959,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -2975,11 +2974,11 @@
             "scale": 1.0,
             "moves": [
               [
-                516.2423991155334,
+                548.3489688263867,
                 777.6
               ],
               [
-                522.3332987838585,
+                550.0939998763777,
                 722.4
               ]
             ],
@@ -2993,8 +2992,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 3.141593
+            "attachedTo": null
           },
           {
             "id": "d3",
@@ -3008,7 +3006,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                489.99239911553343,
                 750.0
               ]
             ],
@@ -3035,7 +3033,7 @@
             "scale": 1.0,
             "moves": [
               [
-                532.4847982310669,
+                542.4923991155334,
                 736.1999999999999
               ]
             ],
@@ -3056,18 +3054,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              500.0,
-              783.4849315068494
+              498.44153985343394,
+              783.501736745088
             ],
             "scale": 1.0,
             "moves": [
               [
-                493.61625889566545,
-                821.9523873273664
+                481.7738065205448,
+                815.1339591261797
               ],
               [
-                495.6363838772964,
-                799.1831658391542
+                485.789575170504,
+                798.376394379696
               ]
             ],
             "movePhases": [
@@ -3180,7 +3178,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                531.2538004422333,
                 750.0
               ]
             ],
@@ -3208,11 +3206,11 @@
             "scale": 1.0,
             "moves": [
               [
-                467.51520176893314,
+                457.50760088446657,
                 777.6
               ],
               [
-                500.0,
+                478.7538004422333,
                 722.4
               ]
             ],
@@ -3241,7 +3239,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                489.99239911553343,
                 750.0
               ]
             ],
@@ -3268,7 +3266,7 @@
             "scale": 1.0,
             "moves": [
               [
-                532.4847982310669,
+                542.4923991155334,
                 736.1999999999999
               ]
             ],
@@ -3289,18 +3287,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              500.0,
-              783.4849315068494
+              517.7707698823461,
+              785.7202936782712
             ],
             "scale": 1.0,
             "moves": [
               [
-                493.61625889566545,
-                821.9523873273664
+                489.54207646063594,
+                819.2145731615831
               ],
               [
-                495.6363838772964,
-                799.1831658391542
+                504.6485793700131,
+                794.1475164439549
               ]
             ],
             "movePhases": [
@@ -3413,7 +3411,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                474.483061242723,
                 750.0
               ]
             ],
@@ -3441,11 +3439,11 @@
             "scale": 1.0,
             "moves": [
               [
-                467.51520176893314,
+                423.4434469633171,
                 777.6
               ],
               [
-                455.33340243228304,
+                419.520949937811,
                 722.4
               ]
             ],
@@ -3459,7 +3457,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -3473,11 +3472,11 @@
             "scale": 1.0,
             "moves": [
               [
-                516.2423991155334,
+                538.4317993366501,
                 777.6
               ],
               [
-                500.0,
+                525.4899140838235,
                 722.4
               ]
             ],
@@ -3491,8 +3490,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 3.141593
+            "attachedTo": null
           },
           {
             "id": "d3",
@@ -3506,11 +3504,11 @@
             "scale": 1.0,
             "moves": [
               [
-                564.9695964621338,
+                589.3681116984521,
                 777.6
               ],
               [
-                544.666597567717,
+                577.9899140838235,
                 722.4
               ]
             ],
@@ -3538,7 +3536,7 @@
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                489.99239911553343,
                 750.0
               ]
             ],
@@ -3565,7 +3563,7 @@
             "scale": 1.0,
             "moves": [
               [
-                532.4847982310669,
+                542.4923991155334,
                 736.1999999999999
               ]
             ],
@@ -3586,18 +3584,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              500.0,
-              783.4849315068494
+              485.27200803876633,
+              785.0090895780994
             ],
             "scale": 1.0,
             "moves": [
               [
-                493.61625889566545,
-                821.9523873273664
+                468.42027494739204,
+                810.0298940618619
               ],
               [
-                495.6363838772964,
-                799.1831658391542
+                469.5196729467954,
+                799.1443470177853
               ]
             ],
             "movePhases": [
@@ -4190,7 +4188,7 @@
             "scale": 1.0,
             "moves": [
               [
-                402.54560530679936,
+                394.7834438916529,
                 750.0
               ],
               [
@@ -4223,7 +4221,7 @@
             "scale": 1.0,
             "moves": [
               [
-                454.52128247650637,
+                462.28344389165284,
                 750.0
               ],
               [
@@ -4480,12 +4478,12 @@
             "scale": 1.0,
             "moves": [
               [
-                365.8924343506847,
-                788.9269586651338
+                359.54140631535927,
+                789.806182270564
               ],
               [
-                344.35938526462945,
-                633.395709163965
+                342.82913047371454,
+                633.5237939247631
               ],
               [
                 581.2119955776673,
@@ -6904,13 +6902,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              472.76475319046267,
-              327.7948262577625
+              431.70653208768977,
+              336.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
+                509.3864013266998,
                 202.13999999999996
               ]
             ],
@@ -6932,13 +6930,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              386.3032061912659,
+              364.2065320876898,
               418.8
             ],
             "scale": 1.0,
             "moves": [
               [
-                451.27280265339965,
+                441.88640132669985,
                 298.73999999999995
               ]
             ],
@@ -6960,13 +6958,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              548.8458290047955,
-              282.6996623680832
+              578.7521377487561,
+              298.73999999999995
             ],
             "scale": 1.0,
             "moves": [
               [
-                516.2423991155334,
+                562.9419110637135,
                 340.14000000000004
               ]
             ],
@@ -6979,8 +6977,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d3",
@@ -6988,8 +6985,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              510.8742160358088,
-              398.88551137415425
+              497.4232905500168,
+              374.64
             ],
             "scale": 1.0,
             "moves": [
@@ -7036,18 +7033,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              483.2863196098172,
-              279.25164213943344
+              457.51274876500077,
+              291.530046609681
             ],
             "scale": 1.0,
             "moves": [
               [
-                498.2485476579412,
-                372.39146657584985
+                457.19032655516827,
+                380.59664031808734
               ],
               [
-                479.1006405001579,
-                342.3701982831892
+                450.99833210623746,
+                347.47730296567596
               ]
             ],
             "movePhases": [
@@ -7154,8 +7151,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              813.4046238175112,
-              349.125509797604
+              807.3403814262024,
+              336.0
             ],
             "scale": 1.0,
             "moves": [
@@ -7210,8 +7207,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              868.7761390348936,
-              285.6144902023959
+              874.8403814262024,
+              298.73999999999995
             ],
             "scale": 1.0,
             "moves": [
@@ -7286,18 +7283,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              780.3138350789864,
-              308.07878038565497
+              773.3083517844,
+              295.48178438815484
             ],
             "scale": 1.0,
             "moves": [
               [
-                787.9208293500327,
-                393.72215011569136
+                781.8565869587239,
+                380.59664031808734
               ],
               [
-                782.2154024193144,
-                347.79743157376856
+                779.5705824954163,
+                347.97266806575306
               ]
             ],
             "movePhases": [
@@ -7404,14 +7401,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              634.9712986193697,
-              316.563603418777
+              644.9163902708679,
+              308.4
             ],
             "scale": 1.0,
             "moves": [
               [
                 597.4543946932006,
-                202.13999999999996
+                193.65428571428566
               ]
             ],
             "movePhases": [
@@ -7439,7 +7436,7 @@
             "moves": [
               [
                 613.696793808734,
-                298.73999999999995
+                307.2257142857142
               ]
             ],
             "movePhases": [
@@ -7452,7 +7449,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 2.356194
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -7460,8 +7457,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              722.361481922366,
-              290.5763965812229
+              712.4163902708679,
+              298.73999999999995
             ],
             "scale": 1.0,
             "moves": [
@@ -7536,18 +7533,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              619.3642804066496,
-              268.96342654820484
+              625.6138823604053,
+              261.73360869609405
             ],
             "scale": 1.0,
             "moves": [
               [
-                609.4875041518912,
-                361.16024373686435
+                619.4325958033894,
+                352.9966403180873
               ],
               [
-                610.3763948536106,
-                347.97873835707696
+                619.843885720716,
+                356.2786783663603
               ]
             ],
             "movePhases": [
@@ -8708,7 +8705,7 @@
                 667.2
               ],
               [
-                828.0964621337755,
+                821.1464206744057,
                 678.2399999999999
               ]
             ],
@@ -8741,7 +8738,7 @@
                 667.2
               ],
               [
-                881.6963792150359,
+                888.6464206744057,
                 678.2399999999999
               ]
             ],
@@ -9022,14 +9019,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              435.88920631218906,
-              805.2
+              445.5056747512438,
+              803.5669921875002
             ],
             "scale": 1.0,
             "moves": [
               [
-                463.45460199004975,
-                770.7
+                447.998581312189,
+                758.60625
               ]
             ],
             "movePhases": [
@@ -9041,8 +9038,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d1",
@@ -9050,14 +9046,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              499.5553968439055,
-              805.2
+              498.00567475124376,
+              808.0691196441651
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                770.7
+                500.498581312189,
+                760.621875
               ]
             ],
             "movePhases": [
@@ -9077,14 +9073,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              564.5553968439054,
-              805.2
+              552.5,
+              808.3177766740322
             ],
             "scale": 1.0,
             "moves": [
               [
-                536.5453980099503,
-                770.7
+                551.5028373756219,
+                762.2343750000001
               ]
             ],
             "movePhases": [
@@ -9096,8 +9092,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d3",
@@ -9105,14 +9100,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              467.5,
-              867.3000000000001
+              473.75,
+              883.0311080932618
             ],
             "scale": 1.0,
             "moves": [
               [
-                482.1333609729132,
-                832.8000000000001
+                473.75,
+                835.621875
               ]
             ],
             "movePhases": [
@@ -9124,8 +9119,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d4",
@@ -9133,14 +9127,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              532.5,
-              867.3000000000001
+              526.25,
+              883.0691196441651
             ],
             "scale": 1.0,
             "moves": [
               [
-                517.8666390270869,
-                832.8000000000001
+                526.25,
+                836.428125
               ]
             ],
             "movePhases": [
@@ -9152,8 +9146,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d5",
@@ -9161,14 +9154,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              404.7869377072969,
-              867.3000000000001
+              423.4801254145937,
+              877.3618652343752
             ],
             "scale": 1.0,
             "moves": [
               [
-                439.09100331674955,
-                832.8000000000001
+                423.4801254145937,
+                836.0250000000001
               ]
             ],
             "movePhases": [
@@ -9180,8 +9173,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d6",
@@ -9189,14 +9181,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              595.2130622927031,
-              867.3000000000001
+              576.5198745854062,
+              882.0282778143884
             ],
             "scale": 1.0,
             "moves": [
               [
-                560.9089966832504,
-                832.8000000000001
+                576.5198745854062,
+                837.234375
               ]
             ],
             "movePhases": [
@@ -9208,8 +9200,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d7",
@@ -9218,13 +9209,13 @@
             "sportType": null,
             "position": [
               500.0,
-              929.4
+              956.3761688232421
             ],
             "scale": 1.0,
             "moves": [
               [
-                500.0,
-                894.9
+                498.1135986733002,
+                911.428125
               ]
             ],
             "movePhases": [
@@ -9245,12 +9236,12 @@
             "sportType": null,
             "position": [
               581.2119955776673,
-              943.2
+              955.6354061365129
             ],
             "scale": 1.0,
             "moves": [
               [
-                548.7271973466004,
+                550.6135986733002,
                 936.3000000000001
               ],
               [
@@ -9269,7 +9260,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -1.570796
+            "rotation": -0.785398
           },
           {
             "id": "d9",
@@ -9277,8 +9268,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              435.88920631218906,
-              736.2
+              429.2064495434611,
+              728.5669921875001
             ],
             "scale": 1.0,
             "moves": [],
@@ -9298,8 +9289,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              499.5553968439055,
-              736.2
+              498.00567475124376,
+              734.4102241516114
             ],
             "scale": 1.0,
             "moves": [],
@@ -9318,8 +9309,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              564.5553968439054,
-              736.2
+              550.5056747512438,
+              733.3177766740323
             ],
             "scale": 1.0,
             "moves": [],
@@ -9338,8 +9329,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              467.5,
-              674.1000000000001
+              480.0980663900549,
+              660.7893402099611
             ],
             "scale": 1.0,
             "moves": [],
@@ -9358,8 +9349,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              532.5,
-              674.1000000000001
+              532.5980663900549,
+              659.6290284633637
             ],
             "scale": 1.0,
             "moves": [],
@@ -9378,8 +9369,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              404.7869377072969,
-              674.1000000000001
+              430.08503543480515,
+              654.772119140625
             ],
             "scale": 1.0,
             "moves": [],
@@ -9390,8 +9381,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d15",
@@ -9399,8 +9389,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              595.2130622927031,
-              674.1000000000001
+              583.4896832366487,
+              659.6072755336761
             ],
             "scale": 1.0,
             "moves": [],
@@ -9411,8 +9401,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d16",
@@ -9421,7 +9410,7 @@
             "sportType": null,
             "position": [
               500.0,
-              612.0
+              585.8514093875885
             ],
             "scale": 1.0,
             "moves": [],
@@ -9440,18 +9429,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              523.3915219897956,
-              930.918524064134
+              533.7943268575673,
+              925.6717487065088
             ],
             "scale": 1.0,
             "moves": [
               [
-                490.9067237587288,
-                924.018524064134
+                503.1959299532002,
+                906.336342569996
               ],
               [
-                647.8035189382591,
-                709.4143754900066
+                647.7210850849069,
+                709.3731788272851
               ]
             ],
             "movePhases": [
@@ -9504,7 +9493,7 @@
       "players": 12,
       "free": true,
       "usage": 2,
-      "frame": null,
+      "frame": "bottom",
       "offSurface": true,
       "tight": true,
       "name": {
@@ -9522,18 +9511,18 @@
         "vi-VN": "Tình huống cố định ném biên năm người"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2 moves right, 4, 5 move back, 7, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2 moves right, 4, 5 move back, 7, 8 move up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】7 对 5，红方：D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2号球员向右移动，4号球员、5号球员向后移动，7号球员、8号球员向前移动；第2步：2号球员传给5号球员，9号球员向前移动；第3步：5号球员传给9号球员。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】7 對 5，紅方：D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2號球員向右移動，4號球員、5號球員向後移動，7號球員、8號球員向前移動；第2步：2號球員傳給5號球員，9號球員向前移動；第3步：5號球員傳給9號球員。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】7対5、赤：D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 5 → 9\n【流れ】ステップ1：2番が右へ移動、4番・5番が後方へ移動、7番・8番が前方へ移動。ステップ2：2番が5番へ送球、9番が前方へ移動。ステップ3：5番が9番へ送球。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】7대5, 홍팀: D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 5 → 9\n【진행】1단계: 2번는 오른쪽으로 이동, 4번, 5번는 뒤로 이동, 7번, 8번는 앞으로 이동; 2단계: 2번가 5번에게 송구, 9번는 앞으로 이동; 3단계: 5번가 9번에게 송구.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 7 contra 5, rojos: D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 5 → 9\nSecuencia: Paso 1: 2 se desplaza a la derecha, 4, 5 se desplaza hacia atrás, 7, 8 se desplaza hacia delante; Paso 2: 2 lanza a 5, 9 se desplaza hacia delante; Paso 3: 5 lanza a 9.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 7 contre 5, les rouges : D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 5 → 9\nDéroulé : Étape 1 : 2 se déplace à droite, 4, 5 se déplace vers l'arrière, 7, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 5, 9 se déplace vers l'avant ; Étape 3 : 5 lance à 9.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 7 lawan 5, tim merah: D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 5 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan, 4, 5 bergerak ke belakang, 7, 8 bergerak ke depan; Langkah 2: 2 melempar ke 5, 9 bergerak ke depan; Langkah 3: 5 melempar ke 9.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 7 lawan 5, pasukan merah: D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 5 → 9\nUrutan: Langkah 1: 2 bergerak ke kanan, 4, 5 bergerak ke belakang, 7, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 5, 9 bergerak ke hadapan; Langkah 3: 5 membaling kepada 9.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 7 ต่อ 5 ทีมแดง: D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 5 → 9\nลำดับ: ขั้นที่ 1: 2 ขยับไปทางขวา 4, 5 ขยับถอยหลัง 7, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 5 9 ขยับไปข้างหน้า • ขั้นที่ 3: 5 ขว้างให้ 9\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 7 đấu 5, đội đỏ: D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 5 → 9\nTrình tự: Bước 1: 2 di chuyển sang phải, 4, 5 di chuyển lùi lại, 7, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 5, 9 di chuyển lên phía trước; Bước 3: 5 ném cho 9.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2, 5, 7 move right, 4 moves back, 6 moves left, 8 moves up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 7 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 5 → 9\nSequence: Step 1: 2, 5, 7 move right, 4 moves back, 6 moves left, 8 moves up the board; Step 2: 2 throws to 5, 9 moves up the board; Step 3: 5 throws to 9.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】7 对 5，红方：D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2号球员、5号球员、7号球员向右移动，4号球员向后移动，6号球员向左移动，8号球员向前移动；第2步：2号球员传给5号球员，9号球员向前移动；第3步：5号球员传给9号球员。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】7 對 5，紅方：D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 5 → 9\n【流程】第1步：2號球員、5號球員、7號球員向右移動，4號球員向後移動，6號球員向左移動，8號球員向前移動；第2步：2號球員傳給5號球員，9號球員向前移動；第3步：5號球員傳給9號球員。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】7対5、赤：D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 5 → 9\n【流れ】ステップ1：2番・5番・7番が右へ移動、4番が後方へ移動、6番が左へ移動、8番が前方へ移動。ステップ2：2番が5番へ送球、9番が前方へ移動。ステップ3：5番が9番へ送球。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】7대5, 홍팀: D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 5 → 9\n【진행】1단계: 2번, 5번, 7번는 오른쪽으로 이동, 4번는 뒤로 이동, 6번는 왼쪽으로 이동, 8번는 앞으로 이동; 2단계: 2번가 5번에게 송구, 9번는 앞으로 이동; 3단계: 5번가 9번에게 송구.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 7 contra 5, rojos: D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 5 → 9\nSecuencia: Paso 1: 2, 5, 7 se desplaza a la derecha, 4 se desplaza hacia atrás, 6 se desplaza a la izquierda, 8 se desplaza hacia delante; Paso 2: 2 lanza a 5, 9 se desplaza hacia delante; Paso 3: 5 lanza a 9.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 7 contre 5, les rouges : D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 5 → 9\nDéroulé : Étape 1 : 2, 5, 7 se déplace à droite, 4 se déplace vers l'arrière, 6 se déplace à gauche, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 5, 9 se déplace vers l'avant ; Étape 3 : 5 lance à 9.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 7 lawan 5, tim merah: D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 5 → 9\nUrutan: Langkah 1: 2, 5, 7 bergerak ke kanan, 4 bergerak ke belakang, 6 bergerak ke kiri, 8 bergerak ke depan; Langkah 2: 2 melempar ke 5, 9 bergerak ke depan; Langkah 3: 5 melempar ke 9.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 7 lawan 5, pasukan merah: D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 5 → 9\nUrutan: Langkah 1: 2, 5, 7 bergerak ke kanan, 4 bergerak ke belakang, 6 bergerak ke kiri, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 5, 9 bergerak ke hadapan; Langkah 3: 5 membaling kepada 9.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 7 ต่อ 5 ทีมแดง: D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 5 → 9\nลำดับ: ขั้นที่ 1: 2, 5, 7 ขยับไปทางขวา 4 ขยับถอยหลัง 6 ขยับไปทางซ้าย 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 5 9 ขยับไปข้างหน้า • ขั้นที่ 3: 5 ขว้างให้ 9\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 7 đấu 5, đội đỏ: D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 5 → 9\nTrình tự: Bước 1: 2, 5, 7 di chuyển sang phải, 4 di chuyển lùi lại, 6 di chuyển sang trái, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 5, 9 di chuyển lên phía trước; Bước 3: 5 ném cho 9.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
       },
       "mistake": {
         "en": "Running the play off slow ball — a clever move off slow possession is a slow move.",
@@ -9558,7 +9547,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              77.69762299613045,
+              65.88930337932173,
               750.0
             ],
             "scale": 1.0,
@@ -9586,14 +9575,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              208.02349187098636,
-              653.7140948219003
+              207.63681592039802,
+              673.8600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
                 211.69741569928135,
-                694.8000000000001
+                680.76
               ]
             ],
             "movePhases": [
@@ -9606,7 +9595,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 3.141593
+            "rotation": 2.356194
           },
           {
             "id": "d2",
@@ -9614,14 +9603,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              204.54139852492838,
-              707.4656896847814
+              116.20369993871122,
+              748.8600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                741.72
+                155.00119303655333,
+                754.0200000000001
               ]
             ],
             "movePhases": [
@@ -9634,7 +9623,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 3.141593
+            "rotation": 1.570796
           },
           {
             "id": "d3",
@@ -9642,12 +9631,19 @@
             "team": 0,
             "sportType": null,
             "position": [
-              210.63333674184202,
-              761.5050203324645
+              267.4124426173362,
+              761.2125000000001
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                258.0555771489773,
+                761.04
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4294956864,
             "customColor": null,
             "gender": 2,
@@ -9663,14 +9659,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              197.37420614746443,
-              816.0478393872526
+              166.2411678807265,
+              773.22
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                780.36
+                205.55557714897733,
+                767.19
               ]
             ],
             "movePhases": [
@@ -9682,7 +9678,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d5",
@@ -9690,14 +9687,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              200.61046626024338,
-              870.2498627334011
+              204.35556592039802,
+              858.69
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                827.2800000000001
+                208.41616569928135,
+                842.19
               ]
             ],
             "movePhases": [
@@ -9717,13 +9714,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              326.0843655235893,
-              838.6774623226978
+              331.2289197593845,
+              833.0400000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
+                308.6099612614013,
                 788.64
               ]
             ],
@@ -9745,8 +9742,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              277.69980742425537,
-              665.7993792216148
+              258.056106187811,
+              684.3675000000001
             ],
             "scale": 1.0,
             "moves": [],
@@ -9766,8 +9763,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              268.0835629873357,
-              719.8705956204635
+              370.499848551778,
+              727.9200000000001
             ],
             "scale": 1.0,
             "moves": [],
@@ -9787,8 +9784,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              310.5913803450115,
-              762.0197662578395
+              319.9124426173362,
+              759.3675000000001
             ],
             "scale": 1.0,
             "moves": [],
@@ -9808,8 +9805,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              261.18866526471237,
-              795.2952382702866
+              216.8250366828944,
+              783.69
             ],
             "scale": 1.0,
             "moves": [],
@@ -9829,8 +9826,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              261.779669932296,
-              849.7950513472986
+              280.0466245626995,
+              836.2125
             ],
             "scale": 1.0,
             "moves": [],
@@ -9850,18 +9847,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              137.39911553344388,
+              125.59079591663516,
               750.0
             ],
             "scale": 1.0,
             "moves": [
               [
-                152.16226469251106,
-                745.3987448725991
+                108.9400221116639,
+                751.3307641401593
               ],
               [
-                233.09622577090607,
-                771.0024794115991
+                250.37971372208125,
+                777.7594135237745
               ]
             ],
             "movePhases": [
@@ -9914,7 +9911,7 @@
       "players": 16,
       "free": false,
       "usage": 2,
-      "frame": null,
+      "frame": "bottom",
       "offSurface": true,
       "tight": true,
       "name": {
@@ -9932,18 +9929,18 @@
         "vi-VN": "Tình huống cố định ném biên bảy người"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, red: D, D, D, D, D, D, D, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, red: D, D, D, D, D, D, D, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 6 move right, 1, 3, 4 move back, 7, 8 move up the board; Step 2: 2 throws to 3, 9 moves up the board; Step 3: 3 throws to 7.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】9 对 7，红方：D、D、D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2号球员、6号球员向右移动，1号球员、3号球员、4号球员向后移动，7号球员、8号球员向前移动；第2步：2号球员传给3号球员，9号球员向前移动；第3步：3号球员传给7号球员。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】9 對 7，紅方：D、D、D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2號球員、6號球員向右移動，1號球員、3號球員、4號球員向後移動，7號球員、8號球員向前移動；第2步：2號球員傳給3號球員，9號球員向前移動；第3步：3號球員傳給7號球員。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】9対7、赤：D・D・D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 3 → 7\n【流れ】ステップ1：2番・6番が右へ移動、1番・3番・4番が後方へ移動、7番・8番が前方へ移動。ステップ2：2番が3番へ送球、9番が前方へ移動。ステップ3：3番が7番へ送球。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】9대7, 홍팀: D, D, D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 3 → 7\n【진행】1단계: 2번, 6번는 오른쪽으로 이동, 1번, 3번, 4번는 뒤로 이동, 7번, 8번는 앞으로 이동; 2단계: 2번가 3번에게 송구, 9번는 앞으로 이동; 3단계: 3번가 7번에게 송구.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 9 contra 7, rojos: D, D, D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 3 → 7\nSecuencia: Paso 1: 2, 6 se desplaza a la derecha, 1, 3, 4 se desplaza hacia atrás, 7, 8 se desplaza hacia delante; Paso 2: 2 lanza a 3, 9 se desplaza hacia delante; Paso 3: 3 lanza a 7.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 9 contre 7, les rouges : D, D, D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 3 → 7\nDéroulé : Étape 1 : 2, 6 se déplace à droite, 1, 3, 4 se déplace vers l'arrière, 7, 8 se déplace vers l'avant ; Étape 2 : 2 lance à 3, 9 se déplace vers l'avant ; Étape 3 : 3 lance à 7.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 9 lawan 7, tim merah: D, D, D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 7, 8 bergerak ke depan; Langkah 2: 2 melempar ke 3, 9 bergerak ke depan; Langkah 3: 3 melempar ke 7.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 9 lawan 7, pasukan merah: D, D, D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 6 bergerak ke kanan, 1, 3, 4 bergerak ke belakang, 7, 8 bergerak ke hadapan; Langkah 2: 2 membaling kepada 3, 9 bergerak ke hadapan; Langkah 3: 3 membaling kepada 7.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 9 ต่อ 7 ทีมแดง: D, D, D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 3 → 7\nลำดับ: ขั้นที่ 1: 2, 6 ขยับไปทางขวา 1, 3, 4 ขยับถอยหลัง 7, 8 ขยับไปข้างหน้า • ขั้นที่ 2: 2 ขว้างให้ 3 9 ขยับไปข้างหน้า • ขั้นที่ 3: 3 ขว้างให้ 7\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 9 đấu 7, đội đỏ: D, D, D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 3 → 7\nTrình tự: Bước 1: 2, 6 di chuyển sang phải, 1, 3, 4 di chuyển lùi lại, 7, 8 di chuyển lên phía trước; Bước 2: 2 ném cho 3, 9 di chuyển lên phía trước; Bước 3: 3 ném cho 7.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, red: D, D, D, D, D, D, D, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 1, 3, 4, 6, 8 move right, 5 moves back, 7 moves left; Step 2: 2 throws to 3, 9 moves left; Step 3: 3 throws to 7.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 9 v 7, red: D, D, D, D, D, D, D, ball with 2.\nBall path: 2 → 3 → 7\nSequence: Step 1: 2, 1, 3, 4, 6, 8 move right, 5 moves back, 7 moves left; Step 2: 2 throws to 3, 9 moves left; Step 3: 3 throws to 7.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Win the ball first, then run the play. A clever move off slow possession is a slow move.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】9 对 7，红方：D、D、D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2号球员、1号球员、3号球员、4号球员、6号球员、8号球员向右移动，5号球员向后移动，7号球员向左移动；第2步：2号球员传给3号球员，9号球员向左移动；第3步：3号球员传给7号球员。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先赢下球，再跑战术。慢球权上的聪明配合，就是一个慢配合。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】9 對 7，紅方：D、D、D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 3 → 7\n【流程】第1步：2號球員、1號球員、3號球員、4號球員、6號球員、8號球員向右移動，5號球員向後移動，7號球員向左移動；第2步：2號球員傳給3號球員，9號球員向左移動；第3步：3號球員傳給7號球員。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先贏下球，再跑戰術。慢球權上的聰明配合，就是一個慢配合。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】9対7、赤：D・D・D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 3 → 7\n【流れ】ステップ1：2番・1番・3番・4番・6番・8番が右へ移動、5番が後方へ移動、7番が左へ移動。ステップ2：2番が3番へ送球、9番が左へ移動。ステップ3：3番が7番へ送球。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】まずボールを獲る、それからプレーを走る。遅い球出しからの巧いサインは、ただの遅いサインだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】9대7, 홍팀: D, D, D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 3 → 7\n【진행】1단계: 2번, 1번, 3번, 4번, 6번, 8번는 오른쪽으로 이동, 5번는 뒤로 이동, 7번는 왼쪽으로 이동; 2단계: 2번가 3번에게 송구, 9번는 왼쪽으로 이동; 3단계: 3번가 7번에게 송구.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】먼저 공을 따내고 나서 플레이를 돌려라. 느린 볼에서 나온 영리한 사인은 그냥 느린 사인이다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 9 contra 7, rojos: D, D, D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 3 → 7\nSecuencia: Paso 1: 2, 1, 3, 4, 6, 8 se desplaza a la derecha, 5 se desplaza hacia atrás, 7 se desplaza a la izquierda; Paso 2: 2 lanza a 3, 9 se desplaza a la izquierda; Paso 3: 3 lanza a 7.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Gana el balón primero y luego juega: una jugada ingeniosa con posesión lenta es una jugada lenta.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 9 contre 7, les rouges : D, D, D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 3 → 7\nDéroulé : Étape 1 : 2, 1, 3, 4, 6, 8 se déplace à droite, 5 se déplace vers l'arrière, 7 se déplace à gauche ; Étape 2 : 2 lance à 3, 9 se déplace à gauche ; Étape 3 : 3 lance à 7.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Gagne le ballon d'abord, joue ensuite : une combinaison maligne sur ballon lent est une combinaison lente.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 9 lawan 7, tim merah: D, D, D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 1, 3, 4, 6, 8 bergerak ke kanan, 5 bergerak ke belakang, 7 bergerak ke kiri; Langkah 2: 2 melempar ke 3, 9 bergerak ke kiri; Langkah 3: 3 melempar ke 7.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Menangkan bolanya dulu, baru jalankan pola.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 9 lawan 7, pasukan merah: D, D, D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 3 → 7\nUrutan: Langkah 1: 2, 1, 3, 4, 6, 8 bergerak ke kanan, 5 bergerak ke belakang, 7 bergerak ke kiri; Langkah 2: 2 membaling kepada 3, 9 bergerak ke kiri; Langkah 3: 3 membaling kepada 7.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Menangi bola dahulu, kemudian jalankan pola.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 9 ต่อ 7 ทีมแดง: D, D, D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 3 → 7\nลำดับ: ขั้นที่ 1: 2, 1, 3, 4, 6, 8 ขยับไปทางขวา 5 ขยับถอยหลัง 7 ขยับไปทางซ้าย • ขั้นที่ 2: 2 ขว้างให้ 3 9 ขยับไปทางซ้าย • ขั้นที่ 3: 3 ขว้างให้ 7\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ชนะบอลก่อน แล้วค่อยเล่นแผน",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 9 đấu 7, đội đỏ: D, D, D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 3 → 7\nTrình tự: Bước 1: 2, 1, 3, 4, 6, 8 di chuyển sang phải, 5 di chuyển lùi lại, 7 di chuyển sang trái; Bước 2: 2 ném cho 3, 9 di chuyển sang trái; Bước 3: 3 ném cho 7.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Giành bóng trước, rồi mới chạy bài."
       },
       "mistake": {
         "en": "Running the play off slow ball — a clever move off slow possession is a slow move.",
@@ -9968,7 +9965,7 @@
             "team": 0,
             "sportType": null,
             "position": [
-              77.69762299613045,
+              75.21884357635986,
               777.6
             ],
             "scale": 1.0,
@@ -9988,7 +9985,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d1",
@@ -9996,14 +9993,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              206.17073679102418,
-              642.2876955988817
+              207.63681592039802,
+              673.8600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                694.8000000000001
+                218.25991569928135,
+                671.2650000000001
               ]
             ],
             "movePhases": [
@@ -10016,7 +10013,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 3.141593
+            "rotation": 1.570796
           },
           {
             "id": "d2",
@@ -10024,14 +10021,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              217.80532351146067,
-              695.3902664470068
+              125.8007205333283,
+              748.8600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                727.9200000000001
+                165.75991569928135,
+                726.5868750000001
               ]
             ],
             "movePhases": [
@@ -10044,7 +10041,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -1.570796
+            "rotation": 0.785398
           },
           {
             "id": "d3",
@@ -10052,14 +10049,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              188.82969070711871,
-              743.6453821363411
+              228.88158478897176,
+              754.2561328125
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                774.84
+                260.91616569928135,
+                751.0406250000001
               ]
             ],
             "movePhases": [
@@ -10072,7 +10069,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 2.356194
+            "rotation": 1.570796
           },
           {
             "id": "d4",
@@ -10080,12 +10077,19 @@
             "team": 0,
             "sportType": null,
             "position": [
-              209.32241565222452,
-              795.6518131964712
+              176.38158478897176,
+              773.22
             ],
             "scale": 1.0,
-            "moves": [],
-            "movePhases": [],
+            "moves": [
+              [
+                180.52554069928135,
+                799.6190625
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
             "moveColor": 4293558524,
             "customColor": null,
             "gender": 2,
@@ -10093,7 +10097,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -1.570796
+            "rotation": 3.141593
           },
           {
             "id": "d5",
@@ -10101,14 +10105,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              172.53306357863832,
-              839.6705043056982
+              128.41456605804993,
+              848.22
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                813.48
+                242.4801448486733,
+                828.3543750000001
               ]
             ],
             "movePhases": [
@@ -10121,7 +10125,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "d6",
@@ -10129,14 +10133,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              197.4668015163784,
-              890.0758858950355
+              281.7273207468758,
+              866.1515625000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                860.4000000000001
+                177.65444694928135,
+                874.6190625000002
               ]
             ],
             "movePhases": [
@@ -10149,7 +10153,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": -1.570796
           },
           {
             "id": "d7",
@@ -10157,14 +10161,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              211.84157685110668,
-              942.5567173861908
+              178.82099260982142,
+              903.68296875
             ],
             "scale": 1.0,
             "moves": [
               [
-                211.69741569928135,
-                893.5200000000001
+                230.15444694928135,
+                903.3543750000001
               ]
             ],
             "movePhases": [
@@ -10176,7 +10180,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 1.570796
           },
           {
             "id": "d8",
@@ -10184,14 +10189,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              329.12990291026836,
-              869.6567760469912
+              382.53987860626756,
+              864.79125
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
-                821.7600000000001
+                294.98014484867326,
+                826.0406250000001
               ]
             ],
             "movePhases": [
@@ -10212,8 +10217,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              276.1702468798887,
-              659.2158171665089
+              258.5891506011609,
+              680.95423828125
             ],
             "scale": 1.0,
             "moves": [],
@@ -10233,8 +10238,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              281.26449867209993,
-              713.3331842812894
+              330.51332185385706,
+              717.523125
             ],
             "scale": 1.0,
             "moves": [],
@@ -10246,7 +10251,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "d11",
@@ -10254,8 +10259,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              267.2752277810554,
-              766.6301623043
+              279.4624490446152,
+              760.4925000000001
             ],
             "scale": 1.0,
             "moves": [],
@@ -10275,8 +10280,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              323.9181204095172,
-              799.1133763983757
+              330.04230059893376,
+              791.1515625000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -10296,8 +10301,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              265.98919804381063,
-              822.9444554889095
+              227.5251308240042,
+              829.2561328125
             ],
             "scale": 1.0,
             "moves": [],
@@ -10309,7 +10314,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 1.570796
+            "rotation": 2.356194
           },
           {
             "id": "d14",
@@ -10317,8 +10322,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              259.80328072352256,
-              876.4181159002623
+              332.1336488839302,
+              866.4225000000001
             ],
             "scale": 1.0,
             "moves": [],
@@ -10338,8 +10343,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              287.69792315817693,
-              924.8098474477387
+              229.22732074687582,
+              902.55802734375
             ],
             "scale": 1.0,
             "moves": [],
@@ -10359,18 +10364,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              137.39911553344388,
+              134.9203361136733,
               777.6
             ],
             "scale": 1.0,
             "moves": [
               [
-                157.23054267038702,
-                748.1134211799109
+                116.43915670429259,
+                754.3754353153719
               ],
               [
-                189.49229434467483,
-                814.6228703331112
+                154.5115102485633,
+                829.1599845235398
               ]
             ],
             "movePhases": [
@@ -10483,7 +10488,7 @@
             "scale": 1.0,
             "moves": [
               [
-                337.5760088446656,
+                322.1199881668049,
                 812.1
               ]
             ],
@@ -10496,8 +10501,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d1",
@@ -10511,7 +10515,7 @@
             "scale": 1.0,
             "moves": [
               [
-                374.12140685461577,
+                374.6199881668049,
                 784.5
               ]
             ],
@@ -10538,7 +10542,7 @@
             "scale": 1.0,
             "moves": [
               [
-                410.6668048645661,
+                425.6242442302377,
                 812.1
               ]
             ],
@@ -10792,18 +10796,18 @@
         "vi-VN": "Maul đẩy từ ném biên"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, red: D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, red: D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4 moves right, 5, 6, 7, 8, 3 Ds move up the board.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 3，红方：D、D、D，球在 2号球员 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 3，紅方：D、D、D，球在 2號球員 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対3、赤：D・D・D、ボールは2番。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番が右へ移動、5番・6番・7番・8番・D3人が前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대3, 홍팀: D, D, D, 공은 2번.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 3, rojos: D, D, D, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4 se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 3, les rouges : D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4 se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 3, tim merah: D, D, D, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 3, pasukan merah: D, D, D, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4 bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 3 ทีมแดง: D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4 ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 3, đội đỏ: D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4 di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, red: D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, 7, 8, 3 Ds move up the board, 5 moves right, 6 moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 3, red: D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, 7, 8, 3 Ds move up the board, 5 moves right, 6 moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 3，红方：D、D、D，球在 2号球员 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员、7号球员、8号球员、3 名 D向前移动，5号球员向右移动，6号球员向左移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 3，紅方：D、D、D，球在 2號球員 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員、7號球員、8號球員、3 名 D向前移動，5號球員向右移動，6號球員向左移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対3、赤：D・D・D、ボールは2番。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番・7番・8番・D3人が前方へ移動、5番が右へ移動、6番が左へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대3, 홍팀: D, D, D, 공은 2번.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번, 7번, 8번, D 3명는 앞으로 이동, 5번는 오른쪽으로 이동, 6번는 왼쪽으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 3, rojos: D, D, D, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4, 7, 8, 3 D se desplaza hacia delante, 5 se desplaza a la derecha, 6 se desplaza a la izquierda.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 3, les rouges : D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4, 7, 8, 3 D se déplace vers l'avant, 5 se déplace à droite, 6 se déplace à gauche.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 3, tim merah: D, D, D, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4, 7, 8, 3 D bergerak ke depan, 5 bergerak ke kanan, 6 bergerak ke kiri.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 3, pasukan merah: D, D, D, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4, 7, 8, 3 D bergerak ke hadapan, 5 bergerak ke kanan, 6 bergerak ke kiri.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 3 ทีมแดง: D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4, 7, 8, D 3 คน ขยับไปข้างหน้า 5 ขยับไปทางขวา 6 ขยับไปทางซ้าย\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 3, đội đỏ: D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4, 7, 8, 3 D di chuyển lên phía trước, 5 di chuyển sang phải, 6 di chuyển sang trái.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
       },
       "mistake": {
         "en": "Driving with the ball at the front — one rip from a turnover.",
@@ -10848,7 +10852,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -10856,13 +10860,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              148.54685296508578,
-              586.987682221421
+              167.88721391415316,
+              628.5600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                223.87921503593145,
+                163.89680152838238,
                 545.76
               ]
             ],
@@ -10875,8 +10879,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d2",
@@ -10884,14 +10887,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              193.8375533722681,
-              623.9287273794945
+              220.38721391415316,
+              624.1800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                240.12161415146488,
-                562.32
+                317.7209074527536,
+                549.6600000000001
               ]
             ],
             "movePhases": [
@@ -10912,13 +10915,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              239.47144809765717,
-              661.1496965509887
+              322.22321450743243,
+              661.6800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.3640132669983,
+                214.558854490568,
                 578.88
               ]
             ],
@@ -10931,7 +10934,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -10939,13 +10943,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              332.19305552110393,
-              736.7774315122697
+              218.8052142107928,
+              699.1800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                272.60641238253174,
+                267.05885449056797,
                 595.44
               ]
             ],
@@ -10967,14 +10971,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              286.55916080120943,
-              699.5564623358264
+              271.30521421079277,
+              694.8000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
-                612.0
+                318.5846483727197,
+                624.6600000000001
               ]
             ],
             "movePhases": [
@@ -10986,7 +10990,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -10994,13 +10999,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              216.9974994817579,
+              229.1068744817579,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                240.12161415146488,
+                212.86447536622447,
                 543.0
               ]
             ],
@@ -11021,13 +11026,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              280.09266816956887,
+              280.28798066956887,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                264.4852128247651,
+                264.04558155403544,
                 543.0
               ]
             ],
@@ -11048,13 +11053,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              345.0926681695688,
+              332.7879806695688,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
+                316.5455815540354,
                 543.0
               ]
             ],
@@ -11067,8 +11072,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "b0",
@@ -11082,12 +11086,12 @@
             "scale": 1.0,
             "moves": [
               [
-                109.07576792645605,
-                623.9869021677694
+                111.25099620026677,
+                644.1587363252561
               ],
               [
-                229.34087869127197,
-                615.9678683443833
+                259.2663707388757,
+                630.238599724316
               ]
             ],
             "movePhases": [
@@ -11158,18 +11162,18 @@
         "vi-VN": "Maul cách phòng thủ"
       },
       "note": {
-        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, D move right, 5, 6, 7, 8, 3 Ds move up the board, D moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
-        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 5，红方：D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员、D向右移动，5号球员、6号球员、7号球员、8号球员、3 名 D向前移动，D向左移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
-        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 5，紅方：D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員、D向右移動，5號球員、6號球員、7號球員、8號球員、3 名 D向前移動，D向左移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
-        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対5、赤：D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番・Dが右へ移動、5番・6番・7番・8番・D3人が前方へ移動、Dが左へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
-        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대5, 홍팀: D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번, D는 오른쪽으로 이동, 5번, 6번, 7번, 8번, D 3명는 앞으로 이동, D는 왼쪽으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
-        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 5, rojos: D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4, D se desplaza a la derecha, 5, 6, 7, 8, 3 D se desplaza hacia delante, D se desplaza a la izquierda.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
-        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 5, les rouges : D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4, D se déplace à droite, 5, 6, 7, 8, 3 D se déplace vers l'avant, D se déplace à gauche.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
-        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 5, tim merah: D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke depan, D bergerak ke kiri.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
-        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 5, pasukan merah: D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4, D bergerak ke kanan, 5, 6, 7, 8, 3 D bergerak ke hadapan, D bergerak ke kiri.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
-        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 5 ทีมแดง: D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4, D ขยับไปทางขวา 5, 6, 7, 8, D 3 คน ขยับไปข้างหน้า D ขยับไปทางซ้าย\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
-        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 5, đội đỏ: D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4, D di chuyển sang phải, 5, 6, 7, 8, 3 D di chuyển lên phía trước, D di chuyển sang trái.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
+        "en": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, 7, 8, 5 Ds move up the board, 5 moves right, 6 moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "en-GB": "Purpose: Rehearse the lineout, the scrum move and the kick routine until they run without a word — everyone knows the movement, so the throw and the kick, not the decision, are the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 6 v 5, red: D, D, D, D, D, ball with 2.\nBall path: 2 → 4 → 8\nSequence: Step 1: 2 throws to 4; Step 2: 4 throws to 8, 2 follows up behind 4, 4, 7, 8, 5 Ds move up the board, 5 moves right, 6 moves left.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: The ball goes to the back before the drive starts. A maul that moves with the ball at the front is one rip from a turnover.",
+        "zh-CN": "【目的】定式：把争边球、并列争球和踢球套路练到不用喊、大家都知道往哪跑。难点只在投掷和踢球的质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】6 对 5，红方：D、D、D、D、D，球在 2号球员 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2号球员传给4号球员；第2步：4号球员传给8号球员，2号球员跟上去，跑到4号球员身后，4号球员、7号球员、8号球员、5 名 D向前移动，5号球员向右移动，6号球员向左移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】先把球转移到最后面，再开始推进。球还在最前面就往前推的冒尔，被抢一下就丢球权。",
+        "zh-TW": "【目的】定式：把爭邊球、並列爭球和踢球套路練到不用喊、大家都知道往哪跑。難點只在投擲和踢球的品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】6 對 5，紅方：D、D、D、D、D，球在 2號球員 手中。\n【球路】2 → 4 → 8\n【流程】第1步：2號球員傳給4號球員；第2步：4號球員傳給8號球員，2號球員跟上去，跑到4號球員身後，4號球員、7號球員、8號球員、5 名 D向前移動，5號球員向右移動，6號球員向左移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】先把球轉移到最後面，再開始推進。球還在最前面就往前推的冒爾，被搶一下就丟球權。",
+        "ja-JP": "【目的】ラインアウト、スクラムからの展開、キックの手順を、声を出さなくても回るまで反復する。全員が動きを知っているから、難しいのはスローとキックであって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】6対5、赤：D・D・D・D・D、ボールは2番。\n【ボールの道筋】2 → 4 → 8\n【流れ】ステップ1：2番が4番へ送球。ステップ2：4番が8番へ送球、2番が4番の後ろへ入る、4番・7番・8番・D5人が前方へ移動、5番が右へ移動、6番が左へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】ドライブの前にボールを最後尾へ送る。先頭にボールを置いたまま動くモールは、一回のもぎ取りでターンオーバーだ。",
+        "ko-KR": "【목적】라인아웃, 스크럼 무브, 킥 루틴을 말 없이 돌아갈 때까지 반복한다. 모두가 움직임을 알기에, 어려운 것은 스로와 킥이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】6대5, 홍팀: D, D, D, D, D, 공은 2번.\n【볼 경로】2 → 4 → 8\n【진행】1단계: 2번가 4번에게 송구; 2단계: 4번가 8번에게 송구, 2번가 4번 뒤로 따라 들어간다, 4번, 7번, 8번, D 5명는 앞으로 이동, 5번는 오른쪽으로 이동, 6번는 왼쪽으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】드라이브 전에 공을 맨 뒤로 보내라. 공이 앞에 있는 몰은 한 번 뜯기면 턴오버다.",
+        "es-ES": "Objetivo: Ensayar el lineout, la jugada de scrum y la rutina de patada hasta que salgan sin una palabra: todos conocen el movimiento, así que lo difícil es el lanzamiento y la patada, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 6 contra 5, rojos: D, D, D, D, D, balón con 2.\nRecorrido del balón: 2 → 4 → 8\nSecuencia: Paso 1: 2 lanza a 4; Paso 2: 4 lanza a 8, 2 sube por detrás de 4, 4, 7, 8, 5 D se desplaza hacia delante, 5 se desplaza a la derecha, 6 se desplaza a la izquierda.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: El balón va atrás antes de empezar a empujar: un maul que avanza con el balón delante está a un tirón de la pérdida.",
+        "fr-FR": "Objectif : Répéter la touche, le lancement sur mêlée et la routine de coup de pied jusqu'à ce qu'ils tournent sans un mot : chacun connaît le mouvement, la difficulté est le lancer et le coup de pied, pas la décision.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 6 contre 5, les rouges : D, D, D, D, D, ballon avec 2.\nTrajet du ballon : 2 → 4 → 8\nDéroulé : Étape 1 : 2 lance à 4 ; Étape 2 : 4 lance à 8, 2 monte derrière 4, 4, 7, 8, 5 D se déplace vers l'avant, 5 se déplace à droite, 6 se déplace à gauche.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Le ballon passe au fond avant de pousser : un maul qui avance ballon devant est à un arrachage du turnover.",
+        "id-ID": "Tujuan: Melatih lineout, gerakan scrum dan rutinitas tendangan sampai berjalan tanpa aba-aba — semua tahu gerakannya, jadi yang sulit adalah lemparan dan tendangan, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 6 lawan 5, tim merah: D, D, D, D, D, bola pada 2.\nJalur bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 melempar ke 4; Langkah 2: 4 melempar ke 8, 2 maju di belakang 4, 4, 7, 8, 5 D bergerak ke depan, 5 bergerak ke kanan, 6 bergerak ke kiri.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Bola ke belakang dulu sebelum dorongan dimulai.",
+        "ms-MY": "Tujuan: Melatih lineout, gerakan scrum dan rutin tendangan sehingga berjalan tanpa sepatah kata — semua tahu pergerakan, jadi yang sukar ialah balingan dan tendangan, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 6 lawan 5, pasukan merah: D, D, D, D, D, bola dengan 2.\nLaluan bola: 2 → 4 → 8\nUrutan: Langkah 1: 2 membaling kepada 4; Langkah 2: 4 membaling kepada 8, 2 naik di belakang 4, 4, 7, 8, 5 D bergerak ke hadapan, 5 bergerak ke kanan, 6 bergerak ke kiri.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Bola ke belakang dahulu sebelum tolakan bermula.",
+        "th-TH": "จุดประสงค์: ซ้อมไลน์เอาต์ สครัมมูฟ และรูทีนการเตะจนเล่นได้โดยไม่ต้องบอก ทุกคนรู้การเคลื่อนที่ ส่วนที่ยากคือการโยนและการเตะ ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 6 ต่อ 5 ทีมแดง: D, D, D, D, D บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 8\nลำดับ: ขั้นที่ 1: 2 ขว้างให้ 4 • ขั้นที่ 2: 4 ขว้างให้ 8 2 ตามขึ้นไปด้านหลัง4 4, 7, 8, D 5 คน ขยับไปข้างหน้า 5 ขยับไปทางขวา 6 ขยับไปทางซ้าย\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: ส่งบอลไปท้ายสุดก่อนเริ่มดัน มอลที่บอลอยู่หน้าโดนกระชากทีเดียวก็เสีย",
+        "vi-VN": "Mục đích: Tập lineout, bài scrum và quy trình đá đến khi chạy trơn tru không cần hô — ai cũng biết cách di chuyển, nên phần khó là cú ném và cú đá, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 6 đấu 5, đội đỏ: D, D, D, D, D, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 8\nTrình tự: Bước 1: 2 ném cho 4; Bước 2: 4 ném cho 8, 2 theo lên phía sau 4, 4, 7, 8, 5 D di chuyển lên phía trước, 5 di chuyển sang phải, 6 di chuyển sang trái.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Đưa bóng về cuối trước khi bắt đầu đẩy."
       },
       "mistake": {
         "en": "Driving with the ball at the front — one rip from a turnover.",
@@ -11214,7 +11218,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": 0.785398
+            "rotation": 1.570796
           },
           {
             "id": "d1",
@@ -11222,13 +11226,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              148.54685296508578,
-              586.987682221421
+              167.88721391415316,
+              628.5600000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                223.87921503593145,
+                163.89680152838238,
                 545.76
               ]
             ],
@@ -11241,8 +11245,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d2",
@@ -11250,14 +11253,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              193.8375533722681,
-              623.9287273794945
+              220.38721391415316,
+              624.1800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                240.12161415146488,
-                562.32
+                317.7209074527536,
+                549.6600000000001
               ]
             ],
             "movePhases": [
@@ -11278,13 +11281,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              239.47144809765717,
-              661.1496965509887
+              322.22321450743243,
+              661.6800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.3640132669983,
+                214.558854490568,
                 578.88
               ]
             ],
@@ -11297,7 +11300,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": -0.785398
           },
           {
             "id": "d4",
@@ -11305,13 +11309,13 @@
             "team": 0,
             "sportType": null,
             "position": [
-              332.19305552110393,
-              736.7774315122697
+              218.8052142107928,
+              699.1800000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                272.60641238253174,
+                267.05885449056797,
                 595.44
               ]
             ],
@@ -11333,14 +11337,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              286.55916080120943,
-              699.5564623358264
+              271.30521421079277,
+              694.8000000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
-                612.0
+                318.5846483727197,
+                624.6600000000001
               ]
             ],
             "movePhases": [
@@ -11352,7 +11356,8 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null
+            "attachedTo": null,
+            "rotation": 0.785398
           },
           {
             "id": "d6",
@@ -11360,13 +11365,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              178.61123697872387,
+              202.8809801421158,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                240.12161415146488,
+                186.63858102658236,
                 543.0
               ]
             ],
@@ -11379,8 +11384,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d7",
@@ -11388,13 +11392,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              304.21120402231736,
+              253.45330005854518,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                264.4852128247651,
+                237.21090094301175,
                 543.0
               ]
             ],
@@ -11407,8 +11411,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d8",
@@ -11416,13 +11419,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              432.2434324925614,
+              305.95330005854515,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                288.84881149806523,
+                289.7109009430117,
                 543.0
               ]
             ],
@@ -11435,8 +11438,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "d9",
@@ -11444,13 +11446,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              241.17897555207338,
+              406.6428528338127,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                313.2124101713654,
+                390.40045371827927,
                 543.0
               ]
             ],
@@ -11463,8 +11465,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": -0.785398
+            "attachedTo": null
           },
           {
             "id": "d10",
@@ -11472,13 +11473,13 @@
             "team": 1,
             "sportType": null,
             "position": [
-              369.21120402231736,
+              356.5256199749746,
               474.00000000000006
             ],
             "scale": 1.0,
             "moves": [
               [
-                337.5760088446656,
+                340.28322085944114,
                 543.0
               ]
             ],
@@ -11491,8 +11492,7 @@
             "markerShape": 0,
             "photoId": null,
             "role": null,
-            "attachedTo": null,
-            "rotation": 0.785398
+            "attachedTo": null
           },
           {
             "id": "b0",
@@ -11506,12 +11506,12 @@
             "scale": 1.0,
             "moves": [
               [
-                109.07576792645605,
-                623.9869021677694
+                111.25099620026677,
+                644.1587363252561
               ],
               [
-                229.34087869127197,
-                615.9678683443833
+                259.2663707388757,
+                630.238599724316
               ]
             ],
             "movePhases": [
@@ -13318,7 +13318,7 @@
                 832.8000000000001
               ],
               [
-                370.06080707573244,
+                379.4472084024323,
                 694.8000000000001
               ]
             ],
@@ -13346,7 +13346,7 @@
             "scale": 1.0,
             "moves": [
               [
-                321.33360972913215,
+                311.9472084024323,
                 750.0
               ]
             ],
@@ -13506,8 +13506,8 @@
                 832.8000000000001
               ],
               [
-                339.9789548056377,
-                652.2026843392554
+                351.6069943375539,
+                651.17518928171
               ]
             ],
             "movePhases": [
@@ -13736,18 +13736,18 @@
         "vi-VN": "Thoát khỏi vạch 22 của mình hai đợt rồi đá"
       },
       "note": {
-        "en": "Purpose: Keep the ball through contact — support lines, body height before the tackle, and quick recycled ball that gives the defence no time to contest.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 4 v 3, ball with 9.\nEquipment: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nBall path: 9 → D → 15\nSequence: Step 1: 9 carries the ball on the move, 1 moves up the board; Step 2: 9 kicks to D, 4, 2 Ds move up the board; Step 3: D throws to 15, 10 moves left, 15 moves back.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
-        "en-GB": "Purpose: Keep the ball through contact — support lines, body height before the tackle, and quick recycled ball that gives the defence no time to contest.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 4 v 3, ball with 9.\nEquipment: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nBall path: 9 → D → 15\nSequence: Step 1: 9 carries the ball on the move, 1 moves up the board; Step 2: 9 kicks to D, 4, 2 Ds move up the board; Step 3: D throws to 15, 10 moves left, 15 moves back.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
-        "zh-CN": "【目的】控球：在对抗中把球留住。练支援跑位、接触前的身体姿势，以及球出来后快速再打，不给对方争抢的时间。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】4 对 3，球在 9号球员 手中。\n【器材】阴影区是出球踢的落点：过 22 米线、靠近边线。\n【球路】9 → D → 15\n【流程】第1步：9号球员带球推进，1号球员向前移动；第2步：9号球员踢给D，4号球员、2 名 D向前移动；第3步：D传给15号球员，10号球员向左移动，15号球员向后移动。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】打两个波次再踢，踢出界或踢到空当，绝不要正对着对方后三人踢。仓促出球，就是两分钟后丢的那个达阵。",
-        "zh-TW": "【目的】控球：在對抗中把球留住。練支援跑位、接觸前的身體姿勢，以及球出來後快速再打，不給對方爭搶的時間。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】4 對 3，球在 9號球員 手中。\n【器材】陰影區是出球踢的落點：過 22 米線、靠近邊線。\n【球路】9 → D → 15\n【流程】第1步：9號球員帶球推進，1號球員向前移動；第2步：9號球員踢給D，4號球員、2 名 D向前移動；第3步：D傳給15號球員，10號球員向左移動，15號球員向後移動。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】打兩個波次再踢，踢出界或踢到空檔，絕不要正對著對方後三人踢。倉促出球，就是兩分鐘後丟的那個達陣。",
-        "ja-JP": "【目的】コンタクトを通してボールを保持する。サポートライン、タックル前の姿勢、そして相手に争う時間を与えない速いリサイクル。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】4対3、ボールは9番。\n【用具】the shaded zone is where the exit kick has to land, beyond the 22 and towards touch。\n【ボールの道筋】9 → D → 15\n【流れ】ステップ1：9番がボールを運ぶ、1番が前方へ移動。ステップ2：9番がDへキック、4番・D2人が前方へ移動。ステップ3：Dが15番へ送球、10番が左へ移動、15番が後方へ移動。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】2フェーズ回してから蹴る。蹴り先はタッチか空きスペースで、相手バックスリーの正面には絶対に蹴らない。急いだ脱出は2分後の失トライだ。",
-        "ko-KR": "【목적】컨택 속에서도 공을 지킨다. 서포트 라인, 태클 전 몸 높이, 그리고 수비가 다툴 시간을 주지 않는 빠른 리사이클.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】4대3, 공은 9번.\n【장비】the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\n【볼 경로】9 → D → 15\n【진행】1단계: 9번가 공을 몰고 이동, 1번는 앞으로 이동; 2단계: 9번가 D에게 킥, 4번, D 2명는 앞으로 이동; 3단계: D가 15번에게 송구, 10번는 왼쪽으로 이동, 15번는 뒤로 이동.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】두 페이즈를 돌린 뒤 차고, 차는 곳은 터치라인 밖이나 빈 공간이지 상대 백3의 정면이 아니다.",
-        "es-ES": "Objetivo: Conservar el balón en el contacto: líneas de apoyo, altura del cuerpo antes del placaje y balón reciclado rápido que no dé tiempo a la defensa.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 4 contra 3, balón con 9.\nMaterial: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nRecorrido del balón: 9 → D → 15\nSecuencia: Paso 1: 9 conduce el balón, 1 se desplaza hacia delante; Paso 2: 9 patea hacia D, 4, 2 D se desplaza hacia delante; Paso 3: D lanza a 15, 10 se desplaza a la izquierda, 15 se desplaza hacia atrás.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Dos fases y luego el patadón, y ese patadón va a touch o a hierba libre, nunca a la garganta de los tres de atrás.",
-        "fr-FR": "Objectif : Conserver le ballon dans le contact : lignes de soutien, hauteur du corps avant le plaquage et recyclage rapide qui ne laisse aucun temps à la défense.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 4 contre 3, ballon avec 9.\nMatériel : the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nTrajet du ballon : 9 → D → 15\nDéroulé : Étape 1 : 9 conduit le ballon, 1 se déplace vers l'avant ; Étape 2 : 9 tape vers D, 4, 2 D se déplace vers l'avant ; Étape 3 : D lance à 15, 10 se déplace à gauche, 15 se déplace vers l'arrière.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Deux temps de jeu puis le coup de pied, et ce coup de pied part en touche ou dans l'herbe, jamais dans les bras des trois arrières.",
-        "id-ID": "Tujuan: Menjaga bola melalui kontak — jalur dukungan, tinggi badan sebelum tekel, dan bola daur ulang cepat yang tak memberi waktu pada pertahanan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 4 lawan 3, bola pada 9.\nPerlengkapan: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nJalur bola: 9 → D → 15\nUrutan: Langkah 1: 9 menggiring bola, 1 bergerak ke depan; Langkah 2: 9 menendang ke D, 4, 2 D bergerak ke depan; Langkah 3: D melempar ke 15, 10 bergerak ke kiri, 15 bergerak ke belakang.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Dua fase lalu tendangan, dan tendangan itu ke luar lapangan atau ke ruang kosong.",
-        "ms-MY": "Tujuan: Mengekalkan bola melalui kontak — laluan sokongan, ketinggian badan sebelum tekel, dan bola kitar semula pantas yang tidak memberi masa kepada pertahanan.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 4 lawan 3, bola dengan 9.\nPeralatan: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nLaluan bola: 9 → D → 15\nUrutan: Langkah 1: 9 membawa bola, 1 bergerak ke hadapan; Langkah 2: 9 menendang ke D, 4, 2 D bergerak ke hadapan; Langkah 3: D membaling kepada 15, 10 bergerak ke kiri, 15 bergerak ke belakang.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Dua fasa kemudian sepakan, dan sepakan itu ke luar padang atau ke ruang kosong.",
-        "th-TH": "จุดประสงค์: รักษาบอลผ่านการปะทะ — แนววิ่งสนับสนุน ระดับลำตัวก่อนโดนแท็กเกิล และการรีไซเคิลบอลเร็วจนแนวรับไม่มีเวลาแย่ง\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 4 ต่อ 3 บอลอยู่ที่ 9\nอุปกรณ์: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch\nเส้นทางบอล: 9 → D → 15\nลำดับ: ขั้นที่ 1: 9 พาบอลไป 1 ขยับไปข้างหน้า • ขั้นที่ 2: 9 เตะไปหา D 4, D 2 คน ขยับไปข้างหน้า • ขั้นที่ 3: D ขว้างให้ 15 10 ขยับไปทางซ้าย 15 ขยับถอยหลัง\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: เล่นสองเฟสแล้วค่อยเตะ และเตะออกข้างสนามหรือลงพื้นที่ว่าง",
-        "vi-VN": "Mục đích: Giữ bóng qua va chạm — đường chạy hỗ trợ, độ thấp của thân người trước cú tackle, và tái sử dụng bóng nhanh không cho phòng ngự thời gian tranh chấp.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 4 đấu 3, bóng ở chỗ 9.\nDụng cụ: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nĐường bóng: 9 → D → 15\nTrình tự: Bước 1: 9 dẫn bóng di chuyển, 1 di chuyển lên phía trước; Bước 2: 9 đá về phía D, 4, 2 D di chuyển lên phía trước; Bước 3: D ném cho 15, 10 di chuyển sang trái, 15 di chuyển lùi lại.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Hai đợt tấn công rồi mới đá, và cú đá ra biên hoặc vào khoảng trống."
+        "en": "Purpose: Keep the ball through contact — support lines, body height before the tackle, and quick recycled ball that gives the defence no time to contest.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 4 v 3, ball with 9.\nEquipment: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nBall path: 9 → D → 15\nSequence: Step 1: 9 kicks to D, 9, 1 move up the board; Step 2: D throws to D, 4, 2 Ds move up the board; Step 3: D throws to 15, 10 moves left, 15 moves back.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
+        "en-GB": "Purpose: Keep the ball through contact — support lines, body height before the tackle, and quick recycled ball that gives the defence no time to contest.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 4 v 3, ball with 9.\nEquipment: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nBall path: 9 → D → 15\nSequence: Step 1: 9 kicks to D, 9, 1 move up the board; Step 2: D throws to D, 4, 2 Ds move up the board; Step 3: D throws to 15, 10 moves left, 15 moves back.\nHow it continues: When the pattern is done the ball goes back to the start and everyone moves round one position, so each player takes every part; eight runs, then mirror it to the other side.\nRules: A try is the ball pressed down on the ground in the in-goal; a tackle is made below the shoulders and the ball must be released. Ball or carrier over the touchline ends the phase and the other side throws in.\nCoaching point: Two phases then the kick, and the kick goes to touch or to grass, never down the throat of the back three. A rushed exit is the try you concede two minutes later.",
+        "zh-CN": "【目的】控球：在对抗中把球留住。练支援跑位、接触前的身体姿势，以及球出来后快速再打，不给对方争抢的时间。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】4 对 3，球在 9号球员 手中。\n【器材】阴影区是出球踢的落点：过 22 米线、靠近边线。\n【球路】9 → D → 15\n【流程】第1步：9号球员踢给D，9号球员、1号球员向前移动；第2步：D传给D，4号球员、2 名 D向前移动；第3步：D传给15号球员，10号球员向左移动，15号球员向后移动。\n【连贯】一次配合完成后球回到起点，所有人顺时针换一个位置，每人轮到每个角色；做 8 次后镜像到另一侧。\n【规则】在达阵区内把球按到地面算达阵；擒抱必须在肩以下，被抱倒后必须放球。球或持球人出边线即本波次结束，由对方掷界外球。\n【要点】打两个波次再踢，踢出界或踢到空当，绝不要正对着对方后三人踢。仓促出球，就是两分钟后丢的那个达阵。",
+        "zh-TW": "【目的】控球：在對抗中把球留住。練支援跑位、接觸前的身體姿勢，以及球出來後快速再打，不給對方爭搶的時間。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】4 對 3，球在 9號球員 手中。\n【器材】陰影區是出球踢的落點：過 22 米線、靠近邊線。\n【球路】9 → D → 15\n【流程】第1步：9號球員踢給D，9號球員、1號球員向前移動；第2步：D傳給D，4號球員、2 名 D向前移動；第3步：D傳給15號球員，10號球員向左移動，15號球員向後移動。\n【連貫】一次配合完成後球回到起點，所有人順時針換一個位置，每人輪到每個角色；做 8 次後鏡像到另一側。\n【規則】在達陣區內把球按到地面算達陣；擒抱必須在肩以下，被抱倒後必須放球。球或持球人出邊線即本波次結束，由對方擲界外球。\n【要點】打兩個波次再踢，踢出界或踢到空檔，絕不要正對著對方後三人踢。倉促出球，就是兩分鐘後丟的那個達陣。",
+        "ja-JP": "【目的】コンタクトを通してボールを保持する。サポートライン、タックル前の姿勢、そして相手に争う時間を与えない速いリサイクル。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】4対3、ボールは9番。\n【用具】the shaded zone is where the exit kick has to land, beyond the 22 and towards touch。\n【ボールの道筋】9 → D → 15\n【流れ】ステップ1：9番がDへキック、9番・1番が前方へ移動。ステップ2：DがDへ送球、4番・D2人が前方へ移動。ステップ3：Dが15番へ送球、10番が左へ移動、15番が後方へ移動。\n【続け方】1回終えたらボールをスタートに戻し、全員が1つずつ位置をずらして全役割を回る。8回やったら逆サイドで鏡写しに。\n【ルール】インゴールでボールを地面に押さえればトライ。タックルは肩より下で、倒されたらボールを離す。ボールか保持者がタッチラインを出たらそのフェーズは終わり、相手のラインアウト。\n【ポイント】2フェーズ回してから蹴る。蹴り先はタッチか空きスペースで、相手バックスリーの正面には絶対に蹴らない。急いだ脱出は2分後の失トライだ。",
+        "ko-KR": "【목적】컨택 속에서도 공을 지킨다. 서포트 라인, 태클 전 몸 높이, 그리고 수비가 다툴 시간을 주지 않는 빠른 리사이클.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】4대3, 공은 9번.\n【장비】the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\n【볼 경로】9 → D → 15\n【진행】1단계: 9번가 D에게 킥, 9번, 1번는 앞으로 이동; 2단계: D가 D에게 송구, 4번, D 2명는 앞으로 이동; 3단계: D가 15번에게 송구, 10번는 왼쪽으로 이동, 15번는 뒤로 이동.\n【이어가기】한 번 끝나면 공은 출발점으로 돌아가고 모두 한 자리씩 이동해 모든 역할을 거친다. 8회 후 반대쪽으로 거울처럼 바꾼다.\n【규칙】인골에서 공을 땅에 눌러야 트라이. 태클은 어깨 아래로 하고, 잡히면 공을 놓아야 한다. 공이나 볼 캐리어가 터치라인을 넘으면 페이즈가 끝나고 상대가 스로인한다.\n【포인트】두 페이즈를 돌린 뒤 차고, 차는 곳은 터치라인 밖이나 빈 공간이지 상대 백3의 정면이 아니다.",
+        "es-ES": "Objetivo: Conservar el balón en el contacto: líneas de apoyo, altura del cuerpo antes del placaje y balón reciclado rápido que no dé tiempo a la defensa.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 4 contra 3, balón con 9.\nMaterial: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nRecorrido del balón: 9 → D → 15\nSecuencia: Paso 1: 9 patea hacia D, 9, 1 se desplaza hacia delante; Paso 2: D lanza a D, 4, 2 D se desplaza hacia delante; Paso 3: D lanza a 15, 10 se desplaza a la izquierda, 15 se desplaza hacia atrás.\nContinuidad: Terminado el patrón, el balón vuelve al inicio y todos rotan una posición, así cada uno pasa por cada papel; ocho veces y luego en espejo hacia el otro lado.\nReglas: Un ensayo es apoyar el balón en el suelo del in-goal; el placaje va por debajo de los hombros y hay que soltar el balón. Balón o portador fuera de la línea de touche acaba la fase y saca el rival.\nPunto clave: Dos fases y luego el patadón, y ese patadón va a touch o a hierba libre, nunca a la garganta de los tres de atrás.",
+        "fr-FR": "Objectif : Conserver le ballon dans le contact : lignes de soutien, hauteur du corps avant le plaquage et recyclage rapide qui ne laisse aucun temps à la défense.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 4 contre 3, ballon avec 9.\nMatériel : the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nTrajet du ballon : 9 → D → 15\nDéroulé : Étape 1 : 9 tape vers D, 9, 1 se déplace vers l'avant ; Étape 2 : D lance à D, 4, 2 D se déplace vers l'avant ; Étape 3 : D lance à 15, 10 se déplace à gauche, 15 se déplace vers l'arrière.\nEnchaînement : Le schéma terminé, le ballon revient au départ et chacun avance d'une position pour tenir tous les rôles ; huit passages, puis en miroir de l'autre côté.\nRègles : Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.\nPoint clé : Deux temps de jeu puis le coup de pied, et ce coup de pied part en touche ou dans l'herbe, jamais dans les bras des trois arrières.",
+        "id-ID": "Tujuan: Menjaga bola melalui kontak — jalur dukungan, tinggi badan sebelum tekel, dan bola daur ulang cepat yang tak memberi waktu pada pertahanan.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 4 lawan 3, bola pada 9.\nPerlengkapan: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nJalur bola: 9 → D → 15\nUrutan: Langkah 1: 9 menendang ke D, 9, 1 bergerak ke depan; Langkah 2: D melempar ke D, 4, 2 D bergerak ke depan; Langkah 3: D melempar ke 15, 10 bergerak ke kiri, 15 bergerak ke belakang.\nKelanjutan: Setelah pola selesai bola kembali ke awal dan semua bergeser satu posisi agar tiap pemain mencoba setiap peran; delapan kali, lalu cerminkan ke sisi lain.\nAturan: Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.\nPoin utama: Dua fase lalu tendangan, dan tendangan itu ke luar lapangan atau ke ruang kosong.",
+        "ms-MY": "Tujuan: Mengekalkan bola melalui kontak — laluan sokongan, ketinggian badan sebelum tekel, dan bola kitar semula pantas yang tidak memberi masa kepada pertahanan.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 4 lawan 3, bola dengan 9.\nPeralatan: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nLaluan bola: 9 → D → 15\nUrutan: Langkah 1: 9 menendang ke D, 9, 1 bergerak ke hadapan; Langkah 2: D membaling kepada D, 4, 2 D bergerak ke hadapan; Langkah 3: D membaling kepada 15, 10 bergerak ke kiri, 15 bergerak ke belakang.\nKesinambungan: Selepas corak selesai bola kembali ke permulaan dan semua beralih satu posisi supaya setiap pemain mencuba setiap peranan; lapan kali, kemudian cerminkan ke sisi lain.\nPeraturan: Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.\nPoin utama: Dua fasa kemudian sepakan, dan sepakan itu ke luar padang atau ke ruang kosong.",
+        "th-TH": "จุดประสงค์: รักษาบอลผ่านการปะทะ — แนววิ่งสนับสนุน ระดับลำตัวก่อนโดนแท็กเกิล และการรีไซเคิลบอลเร็วจนแนวรับไม่มีเวลาแย่ง\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 4 ต่อ 3 บอลอยู่ที่ 9\nอุปกรณ์: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch\nเส้นทางบอล: 9 → D → 15\nลำดับ: ขั้นที่ 1: 9 เตะไปหา D 9, 1 ขยับไปข้างหน้า • ขั้นที่ 2: D ขว้างให้ D 4, D 2 คน ขยับไปข้างหน้า • ขั้นที่ 3: D ขว้างให้ 15 10 ขยับไปทางซ้าย 15 ขยับถอยหลัง\nการต่อเนื่อง: จบหนึ่งแพตเทิร์นบอลกลับไปจุดเริ่ม ทุกคนขยับไปหนึ่งตำแหน่งเพื่อให้ได้เล่นทุกบทบาท ทำ 8 รอบแล้วสลับไปอีกฝั่งแบบกระจก\nกติกา: ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น\nจุดเน้น: เล่นสองเฟสแล้วค่อยเตะ และเตะออกข้างสนามหรือลงพื้นที่ว่าง",
+        "vi-VN": "Mục đích: Giữ bóng qua va chạm — đường chạy hỗ trợ, độ thấp của thân người trước cú tackle, và tái sử dụng bóng nhanh không cho phòng ngự thời gian tranh chấp.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 4 đấu 3, bóng ở chỗ 9.\nDụng cụ: the shaded zone is where the exit kick has to land, beyond the 22 and towards touch.\nĐường bóng: 9 → D → 15\nTrình tự: Bước 1: 9 đá về phía D, 9, 1 di chuyển lên phía trước; Bước 2: D ném cho D, 4, 2 D di chuyển lên phía trước; Bước 3: D ném cho 15, 10 di chuyển sang trái, 15 di chuyển lùi lại.\nTiếp nối: Xong một bài phối hợp, bóng về điểm xuất phát và mọi người dịch một vị trí để ai cũng qua từng vai; làm 8 lần rồi đổi sang bên kia theo kiểu đối xứng.\nLuật: Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.\nĐiểm chính: Hai đợt tấn công rồi mới đá, và cú đá ra biên hoặc vào khoảng trống."
       },
       "mistake": {
         "en": "Taking the safe touch when the sharp one was on.",
@@ -13778,11 +13778,11 @@
             "scale": 1.0,
             "moves": [
               [
-                435.0304035378662,
+                389.5672853721842,
                 1101.9
               ],
               [
-                500.0,
+                519.7865324932412,
                 1074.3
               ]
             ],
@@ -13811,7 +13811,7 @@
             "scale": 1.0,
             "moves": [
               [
-                451.27280265339965,
+                454.6324522947329,
                 1129.5
               ]
             ],
@@ -13839,7 +13839,7 @@
             "scale": 1.0,
             "moves": [
               [
-                564.9695964621337,
+                587.2865324932411,
                 1101.9
               ]
             ],
@@ -13992,18 +13992,18 @@
             "team": 2,
             "sportType": 8,
             "position": [
-              420.28041754597444,
-              1109.7325023461838
+              395.3242895947948,
+              1091.7179136868497
             ],
             "scale": 1.0,
             "moves": [
               [
-                485.2500140081082,
-                1075.2325023461838
+                414.8307678912465,
+                1057.2179136868497
               ],
               [
-                553.0918090936207,
-                1051.7458514324007
+                577.6147117429435,
+                1062.0433038312067
               ],
               [
                 841.0903814262024,
