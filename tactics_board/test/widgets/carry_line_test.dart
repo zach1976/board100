@@ -87,10 +87,18 @@ void main() {
           final p = icon(raw as Map<String, dynamic>);
           if (!p.isBall) continue;
           var prev = p.position;
-          for (final m in p.moves) {
+          var held = p.holder;
+          for (var k = 0; k < p.moves.length; k++) {
+            final m = p.moves[k];
             final step = (m - prev).distance;
+            final now = k < p.moveHolders.length ? p.moveHolders[k] : null;
             // 生成器对人用的就是这条线：画布单位 8，约 3 个屏幕点。
-            if (step < 8) dead.add('$sport/${d["id"]} ${step.toStringAsFixed(1)}');
+            // 唯一的例外是断球：球没动，但换了人拿——那一拍是真的，
+            // 画笔对这么短的球路本来就不画线，所以也不会有空悬的箭头。
+            if (step < 8 && (now == null || now == held)) {
+              dead.add('$sport/${d["id"]} ${step.toStringAsFixed(1)}');
+            }
+            if (now != null) held = now;
             prev = m;
           }
         }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
@@ -34,10 +36,13 @@ void main() {
     // The nearest rule hands it to F.
     expect((end + nearest - f.position).distance,
         lessThan((end + nearest - c.position).distance));
-    // The board's word hands it to C: the same step the rule takes when C
-    // is the only man on the pitch, F having become irrelevant.
+    // The board's word hands it to C: the ball ends the same distance from
+    // C as it would with C the only man on the pitch. Not the same OFFSET —
+    // F is standing on the side the ball would otherwise take, and the
+    // clear-side rule moves it to C's other foot.
     final onlyC = ballAtFeetOffsets([c, ball], at)[ball.id]!;
-    expect(named, onlyC);
+    expect((end + named - c.position).distance,
+        closeTo((end + onlyC - c.position).distance, 0.01));
     expect(named, isNot(nearest));
   });
 
@@ -48,19 +53,102 @@ void main() {
       position: const Offset(210, 305), moves: const [], movePhases: const [],
     );
     Offset at(PlayerIcon p) => p.position;
-    double drop(SportType s) =>
-        (ball.position + ballAtFeetOffsets([man, ball], at, sport: s)[ball.id]!
-            - man.position).dy;
-    // Measured off the drawn figure: shoes 0.58 of a cell below the middle,
-    // hands 0.18.
-    expect(drop(SportType.soccer), closeTo(kPlayerIconSize * 0.58, 0.01));
-    expect(drop(SportType.fieldHockey), closeTo(kPlayerIconSize * 0.58, 0.01),
+    Offset held(SportType s) =>
+        ball.position + ballAtFeetOffsets([man, ball], at, sport: s)[ball.id]!
+            - man.position;
+    // No heading is given, so he faces the viewer and "ahead" is down the
+    // screen: shoes at 0.70 of a cell plus 0.25 ahead, and 0.40 to the side
+    // the ball already lay (it lies to the right).
+    expect(held(SportType.soccer).dy, closeTo(kPlayerIconSize * 0.95, 0.01));
+    expect(held(SportType.soccer).dx, closeTo(kPlayerIconSize * 0.40, 0.01));
+    expect(held(SportType.fieldHockey).dy, closeTo(kPlayerIconSize * 0.95, 0.01),
         reason: '球杆的头在地上');
+    // 抱在手里的球：固定挂在胯边，不许飘回身体中线 —— 篮球画在胸口，
+    // 正好压住球衣号码，看上去是一团而不是「人 + 他抱着的球」。
     for (final s in [SportType.basketball, SportType.handball,
                      SportType.waterPolo, SportType.rugby, SportType.volleyball,
                      SportType.badminton]) {
-      expect(drop(s), closeTo(kPlayerIconSize * 0.18, 0.01), reason: s.name);
+      expect(held(s).dy, closeTo(kPlayerIconSize * 0.50, 0.01), reason: s.name);
+      expect(held(s).dx, closeTo(kPlayerIconSize * 0.40, 0.01), reason: s.name);
     }
+    // 球在左边，就挂在左胯 —— 只有距离是定死的，哪一边还是看球在哪。
+    final left = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral,
+      sportType: SportType.basketball,
+      position: const Offset(190, 305), moves: const [], movePhases: const [],
+    );
+    final off = ballAtFeetOffsets([man, left], at,
+        sport: SportType.basketball)[left.id]!;
+    expect((left.position + off - man.position).dx,
+        closeTo(-kPlayerIconSize * 0.40, 0.01));
+  });
+
+  test('持球人挑的那一侧站着人，球就换到他另一侧', () {
+    // G 持球，球在他右边；X4 就站在那一侧一步远，球画过去就到了 X4 鞋底下，
+    // 按深度 X4 又在球上面 —— 人踩球。改到左边去，那边没人。
+    final g = man2('G', const Offset(200, 300));
+    final ball = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
+      position: const Offset(210, 305), moves: const [], movePhases: const [],
+    );
+    Offset at(PlayerIcon p) => p.position;
+    Offset held(List<PlayerIcon> all) =>
+        ball.position + ballAtFeetOffsets(all, at, sport: SportType.soccer)[ball.id]!
+            - g.position;
+    expect(held([g, ball]).dx, greaterThan(0), reason: '没人在，球在右边');
+    final x4 = PlayerIcon(id: 'X4', label: 'X4', team: PlayerTeam.away,
+        position: const Offset(216, 322));
+    expect(held([g, x4, ball]).dx, lessThan(0), reason: 'X4 站在右边，球换到左边');
+    // 两边都有人：留在原来那一侧，不来回跳。
+    final x3 = PlayerIcon(id: 'X3', label: 'X3', team: PlayerTeam.away,
+        position: const Offset(184, 322));
+    expect(held([g, x4, x3, ball]).dx, greaterThan(0));
+  });
+
+  test('停下来的球整个拉到脚边，飞行中的球还是渐进的', () {
+    final d = man2('D', const Offset(300, 400));
+    // 球落在离 D 50 点的地方 —— 比 _kHoldReach（34.2）远，fade 只拉 23%。
+    final ball = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
+      position: const Offset(270, 440), moves: const [], movePhases: const [],
+    );
+    Offset at(PlayerIcon p) => p.position;
+    Offset held({required bool settled}) =>
+        ball.position +
+        ballAtFeetOffsets([d, ball], at,
+            sport: SportType.soccer, settled: settled)[ball.id]! -
+        d.position;
+    // 一拍走完：球就在他脚边，差多远都拉到位。
+    expect(held(settled: true).dx, closeTo(-kPlayerIconSize * 0.40, 0.01));
+    expect(held(settled: true).dy, closeTo(kPlayerIconSize * 0.95, 0.01));
+    // 传球途中：只拉一部分，球从起点滑过去，不是一开拍就吸到接球人脚上。
+    final flying = held(settled: false);
+    expect(flying.dy, greaterThan(kPlayerIconSize * 0.95 + 2),
+        reason: '还在半路');
+    expect(flying.dy, lessThan(40), reason: '但已经被拉近了一些');
+  });
+
+  test('球在持球人面朝的方向前面：背对屏幕往上，侧身往那一侧', () {
+    final d = man2('D', const Offset(200, 300));
+    final ball = PlayerIcon(
+      id: 'b', label: '', team: PlayerTeam.neutral, sportType: SportType.soccer,
+      position: const Offset(205, 310), moves: const [], movePhases: const [],
+    );
+    Offset at(PlayerIcon p) => p.position;
+    Offset held(double heading) =>
+        ball.position +
+        ballAtFeetOffsets([d, ball], at, sport: SportType.soccer,
+            settled: true, headingOf: (_) => heading)[ball.id]! -
+        d.position;
+    // 0 = 朝板子上方 = 背对看的人：球在鞋前面，也就是比鞋高。
+    expect(held(0).dy, closeTo(kPlayerIconSize * (0.70 - 0.25), 0.01));
+    // π = 面朝看的人：球在鞋下面。
+    expect(held(pi).dy, closeTo(kPlayerIconSize * (0.70 + 0.25), 0.01));
+    // 面朝右：球在右边一步，高度就是鞋。
+    expect(held(pi / 2).dx, closeTo(kPlayerIconSize * (0.40 + 0.25), 0.01));
+    expect(held(pi / 2).dy, closeTo(kPlayerIconSize * 0.70, 0.01));
+    // 面朝左：镜像。
+    expect(held(-pi / 2).dx, closeTo(-kPlayerIconSize * (0.40 + 0.25), 0.01));
   });
 
   test('ballLegAt：球画在哪，就知道它在哪一段、走了几成', () {

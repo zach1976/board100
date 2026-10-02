@@ -201,7 +201,19 @@ Offset stepStart(PlayerIcon player, int phaseLimit) {
 /// What a line on the board is saying: a run, a carry, or the ball alone.
 enum _Line { dash, wave, solid }
 
+/// Which half of a route this painter draws.
+///
+/// A route used to be painted in one pass over the people, so that an
+/// arrowhead was never covered — and so that every shaft crossed every body
+/// in its way, a pass line running up the receiver's shirt to a head on his
+/// chest. The shafts are marks on the ground: they go UNDER the people, and
+/// a body across one hides that stretch of it, as it would. The heads are
+/// the one part that must always be seen — where the ball or the man
+/// arrives — and they go over. Two painters, one on each side of the tokens.
+enum RouteLayer { all, shafts, heads }
+
 class PlayerMovesPainter extends CustomPainter {
+  final RouteLayer layer;
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all; used when not animating
   final int? completedSteps; // non-null during animation: show only this many segments
@@ -233,6 +245,18 @@ class PlayerMovesPainter extends CustomPainter {
   /// ball sits a token away from it.
   final Map<String, Offset> startShift;
 
+  /// Which way is down the SCREEN, as a unit vector in board coordinates.
+  ///
+  /// A route is stored as the token's centre, and a token is the middle of
+  /// a figure who stands 25pt taller than that and whose feet are 25pt
+  /// lower. A line drawn centre to centre set off from one man's chest and
+  /// ran into the next man's stomach. Shifted by the figure's foot offset it
+  /// runs shoe to shoe, which is where a man actually goes. The figures
+  /// stand upright whichever way the board is turned, so "down" is a screen
+  /// direction the board hands in. Zero means no shift — a caller with no
+  /// figures, or the old picture.
+  final Offset footward;
+
   /// Where a moving ball is actually drawn, this frame.
   ///
   /// The route's last point is the leg's DESTINATION. While the ball is
@@ -244,6 +268,7 @@ class PlayerMovesPainter extends CustomPainter {
 
   const PlayerMovesPainter({
     required this.players,
+    this.layer = RouteLayer.all,
     this.livePos = const {},
     this.targetStep = 0,
     this.completedSteps,
@@ -251,6 +276,7 @@ class PlayerMovesPainter extends CustomPainter {
     this.onlyFocus = false,
     this.endShift = const {},
     this.startShift = const {},
+    this.footward = Offset.zero,
   });
 
   /// The focused element, but only when it has a route to follow — selecting
@@ -341,26 +367,48 @@ class PlayerMovesPainter extends CustomPainter {
     final int phaseLimit = whole ? 0 : (completedSteps ?? targetStep);
     final legs = stepLegs(player, phaseLimit);
     if (legs.isEmpty) return;
+    // Every point, not only the ends: a man's waypoints are where he turns,
+    // and he turns on his feet.
+    final feet = (player.isBall || player.isMarker)
+        ? Offset.zero
+        : footward * (kPlayerIconSize * 0.70 * player.scale);
     final points = [
-      stepStart(player, phaseLimit),
-      ...legs.map((e) => e.value),
+      stepStart(player, phaseLimit) + feet,
+      ...legs.map((e) => e.value + feet),
     ];
-    if (player.isBall) {
-      points[0] += startShift[player.id] ?? Offset.zero;
-      final live = livePos[player.id];
-      if (live != null) {
-        // Mid-flight: end the line where the ball is, not where it is going.
-        points[points.length - 1] = live;
-      } else {
-        points[points.length - 1] += endShift[player.id] ?? Offset.zero;
-      }
+    // The ends follow the token: a ball is drawn at its holder's foot and a
+    // crowded figure is nudged aside, and a line that ends where the token
+    // WOULD have been stops a stride short of where it is.
+    points[0] += startShift[player.id] ?? Offset.zero;
+    final live = player.isBall ? livePos[player.id] : null;
+    if (live != null) {
+      // Mid-flight: end the line where the ball is, not where it is going.
+      points[points.length - 1] = live;
+    } else {
+      points[points.length - 1] += endShift[player.id] ?? Offset.zero;
     }
     // bbox half + shadow/border margin — keep arrow clear of the icon's drop
     // shadow. Of the icon as DRAWN: a ball fills 58% of its box, so a
     // player's radius left the arrowhead a third of a token short of it and
     // the line looked like it was aimed at the grass beside the ball.
-    final iconRadius =
-        kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3;
+    //
+    // A person is not a disc either: the figure is 23.5pt across, not 36,
+    // and the routes are painted UNDER the people, so the head only has to
+    // reach the silhouette — the body hides whatever lies beyond. Backed
+    // off a whole token radius the head stopped a stride short of its
+    // runner, and whoever happened to stand in that stride was read as
+    // where the run ended.
+    //
+    // A person's line ends at the feet. How far back from them the head has
+    // to sit depends on where the line comes from: the figure stands 50pt
+    // UP from its feet and 12pt to either side, and the routes are painted
+    // under the people, so a run arriving from above has its whole last
+    // stride — head and all — behind the body, while one arriving from below
+    // meets nothing but the shoe. See [_personClear].
+    final iconRadius = player.isBall || player.isMarker
+        ? kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3
+        : 5.0 * player.scale;
+    final person = !player.isBall && !player.isMarker && footward != Offset.zero;
 
     for (int i = 0; i < points.length - 1; i++) {
       // Three kinds of line, which is the whole point of drawing them:
@@ -378,22 +426,33 @@ class PlayerMovesPainter extends CustomPainter {
       final from = points[i];
       final to = points[i + 1];
       // Offset both ends: start from source edge, end at destination edge
-      final startRadius = i == 0 ? iconRadius : _waypointRadius;
       final isLastSegment = i == points.length - 2;
-      final endRadius = isLastSegment ? iconRadius : _waypointRadius;
+      final startRadius = i == 0
+          ? (person ? _personClear(to - from, player.scale) : iconRadius)
+          : _waypointRadius;
+      final endRadius = isLastSegment
+          ? (person ? _personClear(from - to, player.scale) : iconRadius)
+          : _waypointRadius;
       final dist = (to - from).distance;
       // A ball that has not left yet has no line. Mid-flight the line ends
       // where the ball is, and in the first frames of a pass that is a few
       // points from where it began — which the stub arrow turned into a
       // 17pt arrow pointing wherever those few points happened to lie,
       // there for a moment and then gone.
-      if (player.isBall && isLastSegment && livePos.containsKey(player.id) &&
-          dist < nudgeThreshold(player)) {
-        continue;
-      }
+      //
+      // The same holds for a ball that never leaves at all: the generator
+      // keeps one leg that goes nowhere, the turnover, where a presser
+      // steps in and takes it off the man standing on it. The beat is real
+      // — the ball changes hands — but nothing travels, so there is
+      // nothing to draw a line for, and a stub beside a ball that has not
+      // moved is the dangling arrow all over again.
+      if (player.isBall && dist < nudgeThreshold(player)) continue;
       if (dist < nudgeThreshold(player)) {
-        _drawNudge(canvas, color, from, to, endRadius,
-            strong: strong, fade: tail, style: style);
+        // A stub is all head: it exists to say where something arrives.
+        if (layer != RouteLayer.shafts) {
+          _drawNudge(canvas, color, from, to, endRadius,
+              strong: strong, fade: tail, style: style);
+        }
         continue;
       }
       // Two tokens far enough apart to read can still be closer than the two
@@ -403,12 +462,41 @@ class PlayerMovesPainter extends CustomPainter {
       final room = min(1.0, dist / (startRadius + endRadius + 10));
       final adjustedFrom = _offsetToward(from, to, startRadius * room);
       final adjustedTo = _offsetToward(to, from, endRadius * room);
-      _drawLine(canvas, color, adjustedFrom, adjustedTo,
-          strong: strong, fade: tail, style: style);
+      if (layer != RouteLayer.heads) {
+        _drawLine(canvas, color, adjustedFrom, adjustedTo,
+            strong: strong, fade: tail, style: style);
+      }
+      if (layer == RouteLayer.shafts) continue;
       _drawArrowHead(canvas, color, adjustedFrom, adjustedTo,
           strong: strong);
     }
 
+  }
+
+  /// How far a line has to stay back from a figure's feet so that its head
+  /// shows, given the direction it leaves the feet in ([away], board
+  /// coordinates, not necessarily unit).
+  ///
+  /// The figure is a box on the screen: 12pt either side of the feet and
+  /// 50pt up from them. The answer is where a ray from the feet leaves that
+  /// box — straight up, the whole 50; sideways, 12; straight down, nothing —
+  /// plus a few points of air. Worked in screen space via [footward],
+  /// because the box stands upright whichever way the board is turned.
+  double _personClear(Offset away, double scale) {
+    final len = away.distance;
+    if (len < 1e-6) return 5.0 * scale;
+    final u = away / len;
+    final down = footward;
+    final right = Offset(footward.dy, -footward.dx);
+    final ux = u.dx * right.dx + u.dy * right.dy;
+    final uy = u.dx * down.dx + u.dy * down.dy;
+    final hw = 12.0 * scale, up = 50.0 * scale;
+    var t = double.infinity;
+    if (ux.abs() > 1e-6) t = hw / ux.abs();
+    if (uy < -1e-6) t = t < up / -uy ? t : up / -uy;
+    if (uy > 1e-6) t = 0;
+    if (t == double.infinity) t = hw;
+    return t + 4.0 * scale;
   }
 
   /// The stub for a move the icons are too big to show — see
@@ -528,16 +616,23 @@ class PlayerMovesPainter extends CustomPainter {
     final angle = atan2(to.dy - from.dy, to.dx - from.dx);
     final size = strong ? _arrowSize + 2 : _arrowSize;
 
-    final outlinePath = _arrowPath(to, angle, size + 3);
+    // A dark rim round the head, so it reads on light turf and over a
+    // white line. It used to be a second, bigger triangle filled behind the
+    // first — grown from the same tip, so all of the extra lay along the two
+    // trailing edges and none at the point, and at board size that is a
+    // darker arrowhead peeping out from behind the real one: "the arrow is
+    // drawn twice". A stroke hugs all three edges evenly.
+    final head = _arrowPath(to, angle, size);
     canvas.drawPath(
-      outlinePath,
+      head,
       Paint()
         ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
-        ..style = PaintingStyle.fill,
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = strong ? 3.0 : 2.4
+        ..strokeJoin = StrokeJoin.round,
     );
-
     canvas.drawPath(
-      _arrowPath(to, angle, size),
+      head,
       Paint()
         ..color = color
         ..style = PaintingStyle.fill,
@@ -560,6 +655,8 @@ class PlayerMovesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant PlayerMovesPainter oldDelegate) =>
+      oldDelegate.layer != layer ||
+      oldDelegate.footward != footward ||
       oldDelegate.completedSteps != completedSteps ||
       oldDelegate.targetStep != targetStep ||
       oldDelegate.players != players ||

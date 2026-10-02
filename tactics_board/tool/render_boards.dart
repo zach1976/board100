@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tactics_board/models/sport_type.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/painters/court_art.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart';
 import 'package:tactics_board/widgets/tactics_canvas.dart';
 
@@ -122,6 +123,7 @@ void main() {
     // the first board the moment it pumps: without this every sport's first
     // drill came out drawn with the fallback circle and oval.
     await tester.runAsync(PlayerArt.warm);
+    await tester.runAsync(CourtArt.warm);
     await tester.pump(const Duration(milliseconds: 300));
 
     var boards = 0, shots = 0;

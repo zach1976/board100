@@ -35,25 +35,56 @@ import 'player_icon_widget.dart';
 /// a ball is what the eye follows, so they layer in that order. Stack order is
 /// also hit-test order, so this additionally means a tap where a player and a
 /// cone overlap selects the player.
-int _paintRank(PlayerIcon p) {
-  if (p.isMarker) return 0;
-  if (p.isBall) return 2;
-  return 1;
+///
+/// Among the people and the balls the order is DEPTH, by [depth]: how far
+/// down the screen each one touches the ground. The figures stand up, so
+/// lower on the screen is nearer the viewer, and the nearer thing is painted
+/// last. "The ball on top of everyone" was only ever right when the ball
+/// was between the viewer and everyone — a pass laid at C's feet was drawn
+/// over the head of X2, who was standing a stride nearer than C, as though
+/// the ball were the size of a man and hanging in front of him.
+///
+/// Without a [depth] the balls go over the people, which is what a caller
+/// with no board to measure — a preview, a test — gets. Equipment stays
+/// under everyone whatever its depth: that rule was set by four hurdles
+/// hiding the numbers of the players they belonged to, and a cone under a
+/// player's foot is the picture a coach meant.
+@visibleForTesting
+List<PlayerIcon> inPaintOrderForTest(List<PlayerIcon> players,
+        {double Function(PlayerIcon)? depth}) =>
+    _inPaintOrder(players, depth);
+
+List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players,
+    [double Function(PlayerIcon)? depth]) {
+  final markers = <PlayerIcon>[];
+  final rest = <(double, int, PlayerIcon)>[];
+  for (var i = 0; i < players.length; i++) {
+    final p = players[i];
+    if (p.isMarker) {
+      markers.add(p);
+    } else {
+      rest.add((depth?.call(p) ?? (p.isBall ? 1.0 : 0.0), i, p));
+    }
+  }
+  // The added order breaks ties, because List.sort is not stable in Dart
+  // and two players on one point must not swap on an unrelated rebuild.
+  rest.sort((a, b) {
+    final c = a.$1.compareTo(b.$1);
+    return c != 0 ? c : a.$2.compareTo(b.$2);
+  });
+  return [...markers, ...rest.map((e) => e.$3)];
 }
 
-/// Grouped by [_paintRank]. Buckets rather than a sort because List.sort is
-/// not stable in Dart: within one kind the added order has to survive, or two
-/// overlapping cones would swap places on an unrelated rebuild.
-@visibleForTesting
-List<PlayerIcon> inPaintOrderForTest(List<PlayerIcon> players) =>
-    _inPaintOrder(players);
-
-List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players) {
-  final ranked = <List<PlayerIcon>>[[], [], []];
-  for (final p in players) {
-    ranked[_paintRank(p)].add(p);
-  }
-  return [...ranked[0], ...ranked[1], ...ranked[2]];
+/// Whether a figure at this heading has its back to the viewer.
+///
+/// The art is a turnaround of eight pictures and the heading picks the cell
+/// — see TopDownPlayerPainter. Cell 0 faces straight up the screen, which is
+/// away from whoever is looking at it; the two beside it are three-quarters
+/// turned away and read the same. The other five show some chest.
+bool facesAwayOnScreen(double heading, int boardTurns) {
+  final onScreen = heading + boardTurns * math.pi / 2;
+  final cell = ((onScreen / (math.pi / 4)).round() % 8 + 8) % 8;
+  return cell == 0 || cell == 1 || cell == 7;
 }
 
 /// The board as the phone draws it: a 402x874 screen less the toolbar and the
@@ -93,31 +124,72 @@ const double _kFanRadius = kPlayerIconSize * 0.4;
 /// places a carried ball 24pt from its holder.
 const double _kHoldReach = kPlayerIconSize * 0.95;
 
-/// How far below the middle of a token its shoes are, and how far to the
-/// side a ball may sit while still reading as being at them.
+/// Where a ball at the feet sits, in the holder's own frame.
 ///
-/// The figure is drawn 1.57 cells tall, so its shoes are about 0.66 of a
-/// cell below the middle: a ball dropped only to 0.46 sat on the shorts of
-/// a player the ball had been hit straight at.
-const double _kFeetDrop = kPlayerIconSize * 0.58;
-const double _kFeetSide = kPlayerIconSize * 0.34;
+/// Three numbers, all in cells of the token. [anchor] is where the shoes
+/// are on the screen — 0.70 of a cell below the middle, measured off the
+/// art, and the same whichever way he faces, because the figures stand
+/// upright on the screen. [ahead] is how far past the shoes the ball goes
+/// in the direction he FACES: for a man facing the viewer that is down the
+/// screen, for a man running up the pitch it is up the screen, and that is
+/// the whole point — the ball used to be dropped down the screen for
+/// everyone, which put a dribbler's ball behind his heels. [side] is a
+/// screen-horizontal step out of his silhouette, so the ball is visible
+/// beside the leg rather than lost behind it when he has his back turned,
+/// and beside the toe rather than under both boots when he has not.
+///
+/// 0.25 ahead with 0.40 to the side: facing the viewer the ball's top just
+/// meets the toe of the near boot and the rest is in front of him; facing
+/// away it stands beside his shin, a third of it behind the leg (it is
+/// painted under him then — see the depth rule), which is what a ball a
+/// stride ahead of a man walking away looks like.
+const double _kFeetAnchor = kPlayerIconSize * 0.70;
+const double _kFeetAhead = kPlayerIconSize * 0.25;
+const double _kFeetSide = kPlayerIconSize * 0.40;
 
-/// How far below the middle of a token a ball it belongs to is drawn.
+/// A ball carried in the hands: held in front of the player, to one side.
+///
+/// It used to be 0.18 of a cell below the middle and free to sit dead
+/// centre, which put a basketball flat on the player's chest with his shirt
+/// number behind it — one blob where there should be a man and the ball he
+/// is holding.
+///
+/// Out to the hip fixed that and left a second problem: at hip height and
+/// clear of the body the ball reads as standing BESIDE the player, or
+/// behind him. There is no perspective on a board, so the only thing that
+/// says "in front" is one shape covering another. The figure is 23.5pt
+/// across and the ball is drawn 21pt wide, so the ball comes in far enough
+/// to cover the edge of the shorts — it is painted after the players, so
+/// it is the one on top — and down far enough that it sits over the legs
+/// with its bottom level with the shoes.
+/// Same frame as the feet: the hands hang at 0.30 of a cell below the
+/// middle, the ball is held 0.20 of a cell ahead of them and 0.40 to the
+/// side, clear of the shirt and its number.
+const double _kHandAnchor = kPlayerIconSize * 0.30;
+const double _kHandAhead = kPlayerIconSize * 0.20;
+const double _kHandSide = kPlayerIconSize * 0.40;
+
+/// Where a ball its holder owns is drawn, relative to the middle of his
+/// token: how far to the side, and how far down the screen.
 ///
 /// Not every sport puts the ball on the floor. Measured off the drawn
-/// figure: the shoes are 0.58 of a cell below the middle and the hands
-/// hang at 0.18, so a basketball dropped to the shoes sat on the court
-/// beside a player who is supposed to be holding it — as did a handball,
-/// a water polo ball, a rugby ball and a served shuttle. The sports played
-/// with the feet keep the shoes, and so does hockey, where the ball is at
-/// the head of a stick that is on the ground.
-double ballHoldDrop(SportType sport) => switch (sport) {
+/// figure: the shoes are 0.58 of a cell below the middle, so a basketball
+/// dropped to the shoes sat on the court beside a player who is supposed to
+/// be holding it — as did a handball, a water polo ball, a rugby ball and a
+/// served shuttle. The sports played with the feet keep the shoes, and so
+/// does hockey, where the ball is at the head of a stick that is on the
+/// ground; everything else is carried.
+///
+///
+/// See [_kFeetAnchor] for what the three numbers mean.
+({double anchor, double ahead, double side}) ballHoldAt(SportType sport) =>
+    switch (sport) {
       SportType.soccer ||
       SportType.footvolley ||
       SportType.sepakTakraw ||
       SportType.fieldHockey =>
-        _kFeetDrop,
-      _ => kPlayerIconSize * 0.18,
+        (anchor: _kFeetAnchor, ahead: _kFeetAhead, side: _kFeetSide),
+      _ => (anchor: _kHandAnchor, ahead: _kHandAhead, side: _kHandSide),
     };
 
 /// Draw-time placement for a ball that belongs to somebody.
@@ -145,8 +217,28 @@ Map<String, Offset> ballAtFeetOffsets(
   int boardTurns = 0,
   String? Function(PlayerIcon ball)? holderOf,
   SportType sport = SportType.soccer,
+  /// Filled, when given, with the man each ball was decided to belong to.
+  /// Who that is takes the board's word, a reach test and a keeper rule;
+  /// the layering needs the same answer and must not work it out twice.
+  Map<String, PlayerIcon>? intoHolders,
+  /// Whether the ball has come to rest where it was going.
+  ///
+  /// The pull fades with distance so a ball LEAVING on a pass slides free
+  /// of the man it is going to instead of snapping onto his boot the
+  /// moment the beat starts. Once the beat is over there is nothing to
+  /// fade: wherever the leg ended, the ball belongs at his feet. It was
+  /// fading there too, so a ball that arrived 50pt from the man who had
+  /// just stepped forward to collect it was only pulled 23% of the way in
+  /// and came to rest a stride behind him — "the ball was right before the
+  /// move and wrong once it came over".
+  bool settled = false,
+  /// Which way each holder faces, radians clockwise from up the BOARD (the
+  /// same angle TopDownPlayerPainter is given). The ball goes ahead of him
+  /// along it. Without it everyone is taken to face the viewer, which is
+  /// what a caller with no beat to read it from gets.
+  double Function(PlayerIcon holder)? headingOf,
 }) {
-  final drop = ballHoldDrop(sport);
+  final hold = ballHoldAt(sport);
   final holders =
       players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
   if (holders.isEmpty) return const {};
@@ -196,15 +288,56 @@ Map<String, Offset> ballAtFeetOffsets(
     }
     final reach = _kHoldReach * holder.scale;
     if (best >= reach * 1.6) continue;
-    final weight =
-        best <= reach ? 1.0 : (1 - (best - reach) / (reach * 0.6)).clamp(0.0, 1.0);
+    final weight = settled || best <= reach
+        ? 1.0
+        : (1 - (best - reach) / (reach * 0.6)).clamp(0.0, 1.0);
     final from = positionOf(holder);
-    // On screen: keep the side the ball is on, drop to the shoes.
+    // On screen. The ball sits a step AHEAD of the holder's shoes (or
+    // hands) along the way he faces, and a step to the side out of his
+    // silhouette — see _kFeetAnchor. "Ahead" is read off the heading as it
+    // appears on the screen, where the figures stand upright whichever way
+    // the board is turned.
     final d = turnVector(at - from, boardTurns);
-    final side =
-        d.dx.clamp(-_kFeetSide * holder.scale, _kFeetSide * holder.scale);
-    final step = Offset(side, drop * holder.scale) - d;
+    final h = (headingOf?.call(holder) ?? math.pi) + boardTurns * math.pi / 2;
+    final forward = Offset(math.sin(h), -math.cos(h));
+    // Which side: ahead of him when he faces across the screen, else the
+    // side the ball already lies on, so a pass being received on the left
+    // is not drawn arriving on the right.
+    final sign = forward.dx.abs() > 0.3
+        ? (forward.dx < 0 ? -1.0 : 1.0)
+        : (d.dx < 0 ? -1.0 : 1.0);
+    final side = sign * hold.side * holder.scale;
+    // Bound once: the closures below cannot see the null check above.
+    final him = holder;
+    Offset spot(double sd) =>
+        Offset(sd, hold.anchor * him.scale) +
+        forward * (hold.ahead * him.scale);
+    // The side is the holder's to choose — unless somebody is standing
+    // there. A defender closing on the man in possession stands a stride
+    // from him, on the side the ball is played to, and the ball drawn at
+    // that side went under the defender's boots: with depth deciding who is
+    // painted over whom, that is a man standing on a ball. If the chosen
+    // side has another player within a token's reach and the other side is
+    // clearer, the ball goes to the other side of the same feet.
+    Offset landing(double sd) =>
+        at + turnVector(spot(sd) - d, (4 - boardTurns) % 4) * weight;
+    double clearance(Offset point) {
+      var nearest = double.infinity;
+      for (final p in holders) {
+        if (identical(p, him)) continue;
+        final gap = (positionOf(p) - point).distance;
+        if (gap < nearest) nearest = gap;
+      }
+      return nearest;
+    }
+    var chosen = side;
+    if (clearance(landing(side)) < kPlayerIconSize * 0.7 * holder.scale &&
+        clearance(landing(-side)) > clearance(landing(side))) {
+      chosen = -side;
+    }
+    final step = spot(chosen) - d;
     result[ball.id] = turnVector(step, (4 - boardTurns) % 4) * weight;
+    intoHolders?[ball.id] = holder;
   }
   return result;
 }
@@ -474,6 +607,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         return SoccerCourtPainter(
           fieldType: _state.soccerFieldType,
           turf: _state.soccerTurf,
+          sideways: widget.boardTurns.isOdd,
         );
       case SportType.fieldHockey:
         return FieldHockeyCourtPainter(layout: layout, surface: surface);
@@ -977,15 +1111,96 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     // A held ball is drawn at its holder's feet — measured from where the
     // holder is actually drawn, so a ball follows a player the fan has
     // pushed aside rather than being left where the pair used to stand.
+    /// Which way [p] faces as of beat [beat]: locked, else at his next
+    /// action, else his team's way. The same answer the figure is drawn
+    /// with, so the ball goes where the man is looking.
+    double headingAt(PlayerIcon p, int beat) => p.facingLocked
+        ? playerFacing(p)
+        : (boardHeading(players, p, beat) ?? playerFacing(p));
+    // "Playing" is stricter than isAnimating: the flag goes up a frame
+    // before the driver has placed anything, and for that one frame the
+    // board still looks exactly like the rest frame before it. Reading the
+    // beat-on-show there handed the ball to the NEXT holder — a stride or a
+    // pitch away, so the pull to his foot was nearly nothing — and the ball
+    // hopped from the passer's boot back to its raw spot, then flew. Every
+    // step from 0 opened with that flash.
+    final playing = state.isAnimating && state.animatedPositions.isNotEmpty;
+    final restBeat = playing ? stepLimit : restLimit;
+    final holders = <String, PlayerIcon>{};
     final feet = {
       ...ballAtFeetOffsets(
         players,
         (p) => drawnAt(p) + (fan[p.id] ?? Offset.zero),
         boardTurns: widget.boardTurns,
-        holderOf: (b) => ballHolderAt(b, stepLimit),
+        holderOf: (b) => ballHolderAt(b, restBeat),
         sport: state.sportType,
+        intoHolders: holders,
+        settled: !playing,
+        headingOf: (p) => headingAt(p, restBeat),
       ),
     };
+    // Paint order is depth: where each thing touches the ground, measured
+    // down the SCREEN (the figures stand upright whichever way the board is
+    // turned, so this is a screen direction — see turnVector). A figure's
+    // shoes are 0.70 of a box below its middle and a ball's underside 0.26;
+    // measured off the art, see tool/ink_probe.dart.
+    //
+    // A held ball is placed by its holder rather than measured: just in
+    // front of him while he faces the screen, just behind him once he has
+    // turned his back — the ball is then against a chest pointing into the
+    // board, and painted over him it read as stuck to his shoulder blades.
+    // Everyone else still compares with the ball by true depth, so a
+    // defender a stride nearer the viewer than the man on the ball covers
+    // it, as he would.
+    double contactOf(PlayerIcon p) =>
+        turnVector(drawnAt(p) + (fan[p.id] ?? Offset.zero), widget.boardTurns)
+            .dy +
+        kPlayerIconSize * 0.70 * p.scale;
+    double depthOf(PlayerIcon p) {
+      if (!p.isBall) return contactOf(p);
+      final h = holders[p.id];
+      if (h == null) {
+        return turnVector(drawnAt(p) + (feet[p.id] ?? Offset.zero),
+                    widget.boardTurns)
+                .dy +
+            kPlayerIconSize * 0.26 * p.scale;
+      }
+      return contactOf(h) +
+          (facesAwayOnScreen(headingAt(h, restBeat), widget.boardTurns)
+              ? -0.5
+              : 0.5);
+    }
+    players = _inPaintOrder(players, depthOf);
+
+    /// Whether [p]'s name badge, hung under his feet, would land on the
+    /// head of somebody painted over him. The badge is 13pt tall, 30pt
+    /// below the middle; a figure's head is the top 18pt of ink, 24pt
+    /// above its middle; both measured on the screen, where the figures
+    /// stand upright. Only a NEARER figure matters — a farther one is
+    /// painted first and the badge covers it, which is the normal case of
+    /// a label over the grass behind.
+    bool badgeOnAHead(PlayerIcon p) {
+      if (p.isBall || p.isMarker || p.label.isEmpty || p.labelInside) {
+        return false;
+      }
+      final at = turnVector(
+          drawnAt(p) + (fan[p.id] ?? Offset.zero), widget.boardTurns);
+      final badge = Rect.fromCenter(
+          center: at + Offset(0, (kPlayerIconSize * 0.5 + 11.7) * p.scale),
+          width: 26 * p.scale,
+          height: 13 * p.scale);
+      final mine = depthOf(p);
+      for (final q in players) {
+        if (identical(q, p) || q.isBall || q.isMarker) continue;
+        if (depthOf(q) <= mine) continue;
+        final qa = turnVector(
+            drawnAt(q) + (fan[q.id] ?? Offset.zero), widget.boardTurns);
+        final head = Rect.fromLTRB(qa.dx - 12 * q.scale, qa.dy - 24 * q.scale,
+            qa.dx + 12 * q.scale, qa.dy - 6 * q.scale);
+        if (badge.overlaps(head)) return true;
+      }
+      return false;
+    }
     // Equipment a player is standing in front of, lifted clear of them.
     final clear = markerClearOffsets(
       players,
@@ -1035,6 +1250,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     ///
     /// A pass starts where it started, which means everyone standing where
     /// they stood when it did.
+    // Two players who set off from the same spot leave two ghosts on one
+    // point — B and X1 both stepped off the same yard and their ghosts
+    // stacked into one faded blur. The same nudge the live players get.
+    final ghostFan = fanOutOffsets(
+      players.where((p) => !p.isBall && p.moves.isNotEmpty).toList(),
+      ghostStart,
+    );
     final ghostFeet = ballAtFeetOffsets(
       players,
       (p) => p.isBall ? ghostStart(p) : stepStart(p, limitFor(p)),
@@ -1042,6 +1264,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       // As the leg began: whoever had it after the beat before.
       holderOf: (b) => ballHolderAt(b, limitFor(b) - 1),
       sport: state.sportType,
+      // A trace is a rest frame by definition — the spot the leg set off
+      // from, with the ball on that man's boot.
+      settled: true,
+      headingOf: (p) => headingAt(p, limitFor(p) - 1),
     );
 
     // While a beat plays the ball is between two holders: it leaves one
@@ -1069,12 +1295,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         if (leg == null) continue;
         final after = leg.phase + 1;
         final from = ghostFeet[ball.id] ?? Offset.zero;
+        // The spot it is flying TO is the rest frame of the beat after —
+        // the same call, with the same answers, that draws that frame once
+        // the beat is over: settled, and ahead of the receiver along the
+        // way he will be facing. Worked out without those it aimed at a
+        // different spot, and the ball landed there and then hopped to its
+        // foot when the beat was counted.
         final to = ballAtFeetOffsets(
               players,
-              (p) => p.isBall ? chainEndAt(p, after) : chainEndAt(p, after),
+              (p) => chainEndAt(p, after),
               boardTurns: widget.boardTurns,
               holderOf: (b) => ballHolderAt(b, after),
               sport: state.sportType,
+              settled: true,
+              headingOf: (p) => headingAt(p, after),
             )[ball.id] ??
             Offset.zero;
         feet[ball.id] = Offset.lerp(from, to, leg.t)!;
@@ -1133,6 +1367,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         key: ValueKey(player.id),
         player: player,
         heading: heading,
+        labelAbove: badgeOnAHead(player),
         // With no animation running (a shot frame) the token still stands
         // where the beats so far have taken it, solid — the same place the
         // animated token would be. Left at its start it read as a player
@@ -1165,6 +1400,55 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         onLongPress: null,
       );
     }
+
+    PlayerMovesPainter routes(RouteLayer layer) => PlayerMovesPainter(
+                          layer: layer,
+                          // Down the screen, in the board's coordinates:
+                          // the figures' feet are that way whichever way
+                          // the board is turned.
+                          footward: turnVector(
+                              const Offset(0, 1), (4 - widget.boardTurns) % 4),
+
+                          players: players,
+                          // Selecting an element follows it: see
+                          // PlayerMovesPainter.focusId. Only on the board —
+                          // the external display is what a room is watching,
+                          // and it must not dim because someone touched the
+                          // phone.
+                          focusId: state.selectedPlayerId,
+                          // The figures' own nudge as well as the balls'
+                          // feet: a line has to end where the token is drawn.
+                          endShift: {...fan, ...feet},
+                          startShift: {...ghostFan, ...ghostFeet},
+                          // Only while animating: at rest the ball IS at the
+                          // leg's end and endShift is the right answer.
+                          // Every ball, from the first animating frame: a
+                          // ball the driver has not placed yet is where it
+                          // rests, so its line is zero long and grows, rather
+                          // than drawn whole to the receiver for one frame
+                          // and then snapped back to the ball.
+                          livePos: state.isAnimating
+                              ? {
+                                  for (final p in players)
+                                    if (p.isBall)
+                                      p.id: (state.animatedPositions[p.id] ??
+                                              drawnAt(p)) +
+                                          (feet[p.id] ?? Offset.zero),
+                                }
+                              : const {},
+                          // Beat zero draws nothing but the one route a
+                          // coach asked for — see routeShown above.
+                          onlyFocus: stepLimit == 0 &&
+                              !state.isAnimating &&
+                              !state.showPlanAtStart,
+                          targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
+                          // The leg being run is the one to draw: going
+                          // forward that is the beat after the ones done.
+                          // The same number the ghosts use, and clamped
+                          // the same way.
+                          completedSteps: state.isAnimating ? stepLimit : null,
+                        
+                        );
 
     return Stack(
                 children: [
@@ -1220,6 +1504,32 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           return false;
                         }
                       }
+                      // A ghost the ball lands on is not drawn. A player who
+                      // steps forward to receive leaves his ghost a stride
+                      // behind him — exactly where the ball arrives at his
+                      // feet — and the ball then sat on the ghost's head: a
+                      // man under a ball. The dashed run from that spot to
+                      // the live player already says where he came from.
+                      // Measured on the screen, where the figure stands
+                      // upright: the figure's own ink — 14pt either side, 24
+                      // up and 26 down of the ghost's middle — grown by the
+                      // ball's radius, so touching counts: a ball resting
+                      // against a ghost's head is a ball on a head too.
+                      if (!p.isBall) {
+                        final gs = ghostStart(p);
+                        for (final b in players) {
+                          if (!b.isBall) continue;
+                          final r = kPlayerIconSize * kBallDrawFactor / 2 * b.scale;
+                          final d = turnVector(
+                              drawnAt(b) + (feet[b.id] ?? Offset.zero) - gs,
+                              widget.boardTurns);
+                          if (d.dx.abs() <= 14 * p.scale + r &&
+                              d.dy >= -24 * p.scale - r &&
+                              d.dy <= 26 * p.scale + r) {
+                            return false;
+                          }
+                        }
+                      }
                       // Mirror of the rule above, the other way round: once
                       // the run has been played the end icon is the live one,
                       // and a ghost less than a token away only covers it.
@@ -1240,7 +1550,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       final ghostAt = ghostStart(player) +
                           (player.isBall
                               ? ghostFeet[player.id] ?? Offset.zero
-                              : Offset.zero);
+                              : ghostFan[player.id] ?? Offset.zero);
                       final hasPhoto = player.photoId != null &&
                           !player.isMarker &&
                           !player.isBall;
@@ -1405,6 +1715,16 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                               (player.isBall && isLast
                                   ? feet[player.id] ?? Offset.zero
                                   : Offset.zero),
+                          // A person's turning point sits where the line
+                          // does, at his feet. The last dot is the figure
+                          // itself and stays on its middle.
+                          drawOffset: (!player.isBall &&
+                                  !player.isMarker &&
+                                  !isLast)
+                              ? turnVector(const Offset(0, 1),
+                                      (4 - widget.boardTurns) % 4) *
+                                  (kPlayerIconSize * 0.70 * player.scale)
+                              : Offset.zero,
                           isLast: isLast,
                           isSelected: chainSelected,
                           isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
@@ -1415,51 +1735,27 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         );
                       });
                     }),
-                  // Players and the ball, over the ghosts.
-                  ...players.where((p) => !p.isMarker).map(playerIcon),
-                  // Player move arrows — on top so arrowheads are never covered.
-                  // Gated by the same per-element question as the ghosts and
-                  // the waypoint dots, so beat zero's button governs all
-                  // three layers and not two of them.
+                  // The routes go UNDER the people. They are marks on the
+                  // ground, and a body standing across one hides that
+                  // stretch of it — including the arrowhead, when the body
+                  // is the receiver's: a pass drawn over everyone ran up the
+                  // receiver's shirt to a head on his number. Where a pass
+                  // arrives is said twice already, by the shaft running into
+                  // him and by the ball at his feet; where a run arrives is
+                  // the man himself, standing on it. (A split that kept the
+                  // heads on top was tried first and put the head on the
+                  // chest instead of the shirt, which is no better.) Gated by
+                  // the same per-element question as the ghosts and the
+                  // waypoint dots, so beat zero's button governs all of them.
                   if (players.any(routeShown))
                     IgnorePointer(
                       child: CustomPaint(
-                        painter: PlayerMovesPainter(
-                          players: players,
-                          // Selecting an element follows it: see
-                          // PlayerMovesPainter.focusId. Only on the board —
-                          // the external display is what a room is watching,
-                          // and it must not dim because someone touched the
-                          // phone.
-                          focusId: state.selectedPlayerId,
-                          endShift: feet,
-                          startShift: ghostFeet,
-                          // Only while animating: at rest the ball IS at the
-                          // leg's end and endShift is the right answer.
-                          livePos: state.isAnimating
-                              ? {
-                                  for (final p in players)
-                                    if (p.isBall &&
-                                        state.animatedPositions[p.id] != null)
-                                      p.id: state.animatedPositions[p.id]! +
-                                          (feet[p.id] ?? Offset.zero),
-                                }
-                              : const {},
-                          // Beat zero draws nothing but the one route a
-                          // coach asked for — see routeShown above.
-                          onlyFocus: stepLimit == 0 &&
-                              !state.isAnimating &&
-                              !state.showPlanAtStart,
-                          targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
-                          // The leg being run is the one to draw: going
-                          // forward that is the beat after the ones done.
-                          // The same number the ghosts use, and clamped
-                          // the same way.
-                          completedSteps: state.isAnimating ? stepLimit : null,
-                        ),
+                        painter: routes(RouteLayer.all),
                         size: Size(canvasW, canvasH),
                       ),
                     ),
+                  // Players and the ball, over the ghosts and the routes.
+                  ...players.where((p) => !p.isMarker).map(playerIcon),
                   // Animation driver (zero-size, drives per-frame updates)
                   _AnimationDriver(
                     isAnimating: state.isAnimating,
@@ -1799,12 +2095,14 @@ class _PlayerOnBoard extends StatefulWidget {
   final bool isInMultiSelect;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
+  final bool labelAbove;
 
   const _PlayerOnBoard({
     super.key,
     required this.player,
     this.renderPosition,
     required this.heading,
+    this.labelAbove = false,
     this.drawOffset = Offset.zero,
     required this.isSelected,
     this.isPrimary = false,
@@ -1851,6 +2149,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       isSelected: widget.isSelected,
       sport: context.read<TacticsState>().sportType,
       heading: widget.heading,
+      labelAbove: widget.labelAbove,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       onScaleStart: canPan
@@ -1956,11 +2255,18 @@ class _WaypointDot extends StatefulWidget {
   final bool isAtCurrentStep;
   final VoidCallback? onLongPress;
 
+  /// Drawn here, stored at [position]. A person's route runs shoe to shoe
+  /// (PlayerMovesPainter.footward), so the dot where he turns is drawn at
+  /// his feet too; a drag still writes back to the token's middle, which is
+  /// what [position] is, or every nudge of a dot would hop it 25pt.
+  final Offset drawOffset;
+
   const _WaypointDot({
     super.key,
     required this.player,
     required this.index,
     required this.position,
+    this.drawOffset = Offset.zero,
     this.isLast = false,
     this.isSelected = false,
     this.isPrimary = false,
@@ -2112,8 +2418,8 @@ class _WaypointDotState extends State<_WaypointDot> {
         )),
       );
       return Positioned(
-        left: widget.position.dx - kPlayerIconSize / 2,
-        top: widget.position.dy - kPlayerIconSize / 2,
+        left: widget.position.dx + widget.drawOffset.dx - kPlayerIconSize / 2,
+        top: widget.position.dy + widget.drawOffset.dy - kPlayerIconSize / 2,
         child: GestureDetector(
           onTap: _onTap,
           onPanUpdate: _onPanUpdate,
@@ -2137,8 +2443,8 @@ class _WaypointDotState extends State<_WaypointDot> {
     final quiet = !widget.isSelected && !widget.isPrimary;
     if (quiet) {
       return Positioned(
-        left: widget.position.dx - hitSize / 2,
-        top: widget.position.dy - hitSize / 2,
+        left: widget.position.dx + widget.drawOffset.dx - hitSize / 2,
+        top: widget.position.dy + widget.drawOffset.dy - hitSize / 2,
         child: GestureDetector(
           onTap: _onTap,
           onPanUpdate: _onPanUpdate,
