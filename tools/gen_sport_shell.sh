@@ -247,9 +247,14 @@ GIT
   #
   # The hub is exempt: "Tactics Board" is not a sport with the word Board
   # stuck on the end, it is what that app is called.
+  # …but only the ones that are too long. "Soccer Board" is narrower than
+  # "Tactics Board", which the hub has always shipped under uncut, so it
+  # keeps its full name; tools/home_name.py measures that in the font iOS
+  # sets the label in. Chinese and Japanese keep the plain rule — see the
+  # note in that file for why they are not measured.
   HOME_EN="$NAME_EN"; HOME_ZH="$NAME_ZH"; HOME_JA="$NAME_JA"
   if [ "$KEY" != "tactics_board" ]; then
-    HOME_EN="${NAME_EN% Board}"
+    HOME_EN="$(python3 tools/home_name.py "$NAME_EN")"
     HOME_ZH="${NAME_ZH%战术板}"
     HOME_JA="${NAME_JA%ボード}"
   fi
@@ -311,6 +316,11 @@ GIT
   (cd "$DIR" && flutter pub get >/dev/null)
   (cd "$DIR" && dart run flutter_launcher_icons 2>&1 | tail -1)
   (cd "$DIR" && dart run flutter_native_splash:create 2>&1 | tail -1)
+  # flutter_native_splash writes one portrait launch image, aspect-filled, and
+  # sideways that shows the middle third of it with the subject cropped out.
+  # A landscape band of the same picture goes in beside it, picked by size
+  # class — see tools/splash_landscape.py.
+  python3 tools/splash_landscape.py "$KEY" | tail -1
 
   echo "✅ $DIR ready"
 done
